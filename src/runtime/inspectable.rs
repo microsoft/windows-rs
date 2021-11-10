@@ -33,7 +33,7 @@ pub struct IInspectable_abi(
 unsafe impl Interface for IInspectable {
     type Vtable = IInspectable_abi;
 
-    const IID: GUID = GUID::from_values(0xAF86_E2E0, 0xB12D, 0x4C6A, [0x9C, 0x5A, 0xD7, 0xAA, 0x65, 0x10, 0x1E, 0x90]);
+    const IID: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
 }
 
 unsafe impl RuntimeType for IInspectable {

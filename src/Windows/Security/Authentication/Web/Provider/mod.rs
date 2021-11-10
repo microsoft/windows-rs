@@ -4,7 +4,7 @@
 pub struct IWebAccountClientView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountClientView {
     type Vtable = IWebAccountClientView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3887949498, 3015, 19558, [191, 212, 101, 211, 8, 44, 188, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7bd66ba_0bc7_4c66_bfd4_65d3082cbca8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25,7 +25,7 @@ pub struct IWebAccountClientView_abi(
 pub struct IWebAccountClientViewFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountClientViewFactory {
     type Vtable = IWebAccountClientViewFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1634539172, 56866, 18517, [163, 38, 6, 206, 191, 42, 63, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x616d16a4_de22_4855_a326_06cebf2a3f23);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -46,7 +46,7 @@ pub struct IWebAccountClientViewFactory_abi(
 pub struct IWebAccountManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountManagerStatics {
     type Vtable = IWebAccountManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3001606566, 54426, 16434, [132, 191, 26, 40, 71, 116, 123, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2e8e1a6_d49a_4032_84bf_1a2847747bf1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -83,7 +83,7 @@ pub struct IWebAccountManagerStatics_abi(
 pub struct IWebAccountManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountManagerStatics2 {
     type Vtable = IWebAccountManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1755818025, 11615, 18003, [139, 176, 189, 47, 166, 189, 45, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68a7a829_2d5f_4653_8bb0_bd2fa6bd2d87);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -102,7 +102,7 @@ pub struct IWebAccountManagerStatics2_abi(
 pub struct IWebAccountManagerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountManagerStatics3 {
     type Vtable = IWebAccountManagerStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3712295846, 35407, 19106, [177, 94, 3, 245, 80, 175, 19, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd4523a6_8a4f_4aa2_b15e_03f550af1359);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -129,7 +129,7 @@ pub struct IWebAccountManagerStatics3_abi(
 pub struct IWebAccountManagerStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountManagerStatics4 {
     type Vtable = IWebAccountManagerStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1508623058, 63451, 16687, [188, 63, 242, 254, 160, 68, 48, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59ebc2d2_f7db_412f_bc3f_f2fea04430b4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -150,7 +150,7 @@ pub struct IWebAccountManagerStatics4_abi(
 pub struct IWebAccountMapManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountMapManagerStatics {
     type Vtable = IWebAccountMapManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3908715631, 14875, 18596, [142, 144, 30, 89, 202, 111, 84, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8fa446f_3a1b_48a4_8e90_1e59ca6f54db);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -176,7 +176,7 @@ pub struct IWebAccountMapManagerStatics_abi(
 pub struct IWebAccountProviderAddAccountOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderAddAccountOperation {
     type Vtable = IWebAccountProviderAddAccountOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1944837327, 17272, 19577, [147, 53, 165, 215, 171, 129, 89, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73ebdccf_4378_4c79_9335_a5d7ab81594e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -195,7 +195,7 @@ pub struct IWebAccountProviderAddAccountOperation_abi(
 pub struct IWebAccountProviderBaseReportOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderBaseReportOperation {
     type Vtable = IWebAccountProviderBaseReportOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3148131515, 39227, 19799, [187, 228, 20, 33, 227, 102, 139, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbba4acbb_993b_4d57_bbe4_1421e3668b4c);
 }
 impl IWebAccountProviderBaseReportOperation {
     #[doc = "*Required features: `Security_Authentication_Web_Provider`*"]
@@ -271,7 +271,7 @@ pub struct IWebAccountProviderBaseReportOperation_abi(
 pub struct IWebAccountProviderDeleteAccountOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderDeleteAccountOperation {
     type Vtable = IWebAccountProviderDeleteAccountOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(180046008, 40449, 18889, [163, 85, 125, 72, 202, 247, 214, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0abb48b8_9e01_49c9_a355_7d48caf7d6ca);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -290,7 +290,7 @@ pub struct IWebAccountProviderDeleteAccountOperation_abi(
 pub struct IWebAccountProviderManageAccountOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderManageAccountOperation {
     type Vtable = IWebAccountProviderManageAccountOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3978353756, 53787, 17982, [169, 183, 193, 253, 14, 218, 233, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed20dc5c_d21b_463e_a9b7_c1fd0edae978);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -311,7 +311,7 @@ pub struct IWebAccountProviderManageAccountOperation_abi(
 pub struct IWebAccountProviderOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderOperation {
     type Vtable = IWebAccountProviderOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1834820646, 4273, 16794, [164, 78, 249, 197, 22, 21, 116, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d5d2426_10b1_419a_a44e_f9c5161574e6);
 }
 impl IWebAccountProviderOperation {
     #[doc = "*Required features: `Security_Authentication_Web_Provider`*"]
@@ -382,7 +382,7 @@ pub struct IWebAccountProviderOperation_abi(
 pub struct IWebAccountProviderRetrieveCookiesOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderRetrieveCookiesOperation {
     type Vtable = IWebAccountProviderRetrieveCookiesOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1510212673, 4003, 19121, [160, 28, 32, 177, 16, 53, 133, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a040441_0fa3_4ab1_a01c_20b110358594);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -409,7 +409,7 @@ pub struct IWebAccountProviderRetrieveCookiesOperation_abi(
 pub struct IWebAccountProviderSignOutAccountOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderSignOutAccountOperation {
     type Vtable = IWebAccountProviderSignOutAccountOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3096502813, 3157, 18364, [140, 114, 4, 166, 252, 124, 172, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb890e21d_0c55_47bc_8c72_04a6fc7cac07);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -432,7 +432,7 @@ pub struct IWebAccountProviderSignOutAccountOperation_abi(
 pub struct IWebAccountProviderSilentReportOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderSilentReportOperation {
     type Vtable = IWebAccountProviderSilentReportOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3769976312, 15119, 17626, [146, 76, 123, 24, 186, 170, 98, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0b545f8_3b0f_44da_924c_7b18baaa62a9);
 }
 impl IWebAccountProviderSilentReportOperation {
     #[doc = "*Required features: `Security_Authentication_Web_Provider`*"]
@@ -542,7 +542,7 @@ pub struct IWebAccountProviderSilentReportOperation_abi(
 pub struct IWebAccountProviderTokenObjects(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderTokenObjects {
     type Vtable = IWebAccountProviderTokenObjects_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1083123787, 4904, 17115, [137, 164, 11, 206, 122, 113, 125, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x408f284b_1328_42db_89a4_0bce7a717d8e);
 }
 impl IWebAccountProviderTokenObjects {
     #[doc = "*Required features: `Security_Authentication_Web_Provider`*"]
@@ -614,7 +614,7 @@ pub struct IWebAccountProviderTokenObjects_abi(
 pub struct IWebAccountProviderTokenObjects2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderTokenObjects2 {
     type Vtable = IWebAccountProviderTokenObjects2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(270579859, 23717, 20479, [149, 251, 184, 32, 39, 63, 195, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1020b893_5ca5_4fff_95fb_b820273fc395);
 }
 impl IWebAccountProviderTokenObjects2 {
     #[doc = "*Required features: `Security_Authentication_Web_Provider`*"]
@@ -718,7 +718,7 @@ pub struct IWebAccountProviderTokenObjects2_abi(
 pub struct IWebAccountProviderTokenOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderTokenOperation {
     type Vtable = IWebAccountProviderTokenOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2512786366, 8244, 19512, [148, 52, 210, 108, 20, 178, 180, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95c613be_2034_4c38_9434_d26c14b2b4b2);
 }
 impl IWebAccountProviderTokenOperation {
     #[doc = "*Required features: `Security_Authentication_Web_Provider`*"]
@@ -850,7 +850,7 @@ pub struct IWebAccountProviderTokenOperation_abi(
 pub struct IWebAccountProviderUIReportOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderUIReportOperation {
     type Vtable = IWebAccountProviderUIReportOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(687837907, 36736, 17147, [148, 79, 178, 16, 123, 189, 66, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28ff92d3_8f80_42fb_944f_b2107bbd42e6);
 }
 impl IWebAccountProviderUIReportOperation {
     #[doc = "*Required features: `Security_Authentication_Web_Provider`*"]
@@ -951,7 +951,7 @@ pub struct IWebAccountProviderUIReportOperation_abi(
 pub struct IWebAccountScopeManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountScopeManagerStatics {
     type Vtable = IWebAccountScopeManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1550639996, 4786, 16954, [191, 61, 133, 184, 215, 229, 54, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c6ce37c_12b2_423a_bf3d_85b8d7e53656);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -974,7 +974,7 @@ pub struct IWebAccountScopeManagerStatics_abi(
 pub struct IWebProviderTokenRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebProviderTokenRequest {
     type Vtable = IWebProviderTokenRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(504919947, 34821, 17739, [159, 17, 70, 141, 42, 241, 9, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e18778b_8805_454b_9f11_468d2af1095a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1000,7 +1000,7 @@ pub struct IWebProviderTokenRequest_abi(
 pub struct IWebProviderTokenRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebProviderTokenRequest2 {
     type Vtable = IWebProviderTokenRequest2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3050778188, 4273, 19110, [136, 177, 11, 108, 158, 12, 30, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5d72e4c_10b1_4aa6_88b1_0b6c9e0c1e46);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1019,7 +1019,7 @@ pub struct IWebProviderTokenRequest2_abi(
 pub struct IWebProviderTokenRequest3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebProviderTokenRequest3 {
     type Vtable = IWebProviderTokenRequest3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(455546538, 17033, 17518, [146, 86, 218, 251, 111, 102, 165, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b2716aa_4289_446e_9256_dafb6f66a51e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1040,7 +1040,7 @@ pub struct IWebProviderTokenRequest3_abi(
 pub struct IWebProviderTokenResponse(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebProviderTokenResponse {
     type Vtable = IWebProviderTokenResponse_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4011931539, 61269, 16774, [183, 206, 140, 178, 231, 249, 132, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef213793_ef55_4186_b7ce_8cb2e7f9849e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1059,7 +1059,7 @@ pub struct IWebProviderTokenResponse_abi(
 pub struct IWebProviderTokenResponseFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebProviderTokenResponseFactory {
     type Vtable = IWebProviderTokenResponseFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4199143834, 9658, 16503, [156, 250, 157, 180, 222, 167, 183, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa49d99a_25ba_4077_9cfa_9db4dea7b71a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1129,7 +1129,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebAccountClientView {
 }
 unsafe impl ::windows::runtime::Interface for WebAccountClientView {
     type Vtable = IWebAccountClientView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3887949498, 3015, 19558, [191, 212, 101, 211, 8, 44, 188, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7bd66ba_0bc7_4c66_bfd4_65d3082cbca8);
 }
 impl ::windows::runtime::RuntimeName for WebAccountClientView {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountClientView";
@@ -1489,7 +1489,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebAccountProviderAddAccountOper
 }
 unsafe impl ::windows::runtime::Interface for WebAccountProviderAddAccountOperation {
     type Vtable = IWebAccountProviderAddAccountOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1944837327, 17272, 19577, [147, 53, 165, 215, 171, 129, 89, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73ebdccf_4378_4c79_9335_a5d7ab81594e);
 }
 impl ::windows::runtime::RuntimeName for WebAccountProviderAddAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderAddAccountOperation";
@@ -1597,7 +1597,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebAccountProviderDeleteAccountO
 }
 unsafe impl ::windows::runtime::Interface for WebAccountProviderDeleteAccountOperation {
     type Vtable = IWebAccountProviderDeleteAccountOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(180046008, 40449, 18889, [163, 85, 125, 72, 202, 247, 214, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0abb48b8_9e01_49c9_a355_7d48caf7d6ca);
 }
 impl ::windows::runtime::RuntimeName for WebAccountProviderDeleteAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderDeleteAccountOperation";
@@ -1761,7 +1761,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebAccountProviderGetTokenSilent
 }
 unsafe impl ::windows::runtime::Interface for WebAccountProviderGetTokenSilentOperation {
     type Vtable = IWebAccountProviderTokenOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2512786366, 8244, 19512, [148, 52, 210, 108, 20, 178, 180, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95c613be_2034_4c38_9434_d26c14b2b4b2);
 }
 impl ::windows::runtime::RuntimeName for WebAccountProviderGetTokenSilentOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderGetTokenSilentOperation";
@@ -1927,7 +1927,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebAccountProviderManageAccountO
 }
 unsafe impl ::windows::runtime::Interface for WebAccountProviderManageAccountOperation {
     type Vtable = IWebAccountProviderManageAccountOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3978353756, 53787, 17982, [169, 183, 193, 253, 14, 218, 233, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed20dc5c_d21b_463e_a9b7_c1fd0edae978);
 }
 impl ::windows::runtime::RuntimeName for WebAccountProviderManageAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderManageAccountOperation";
@@ -2090,7 +2090,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebAccountProviderRequestTokenOp
 }
 unsafe impl ::windows::runtime::Interface for WebAccountProviderRequestTokenOperation {
     type Vtable = IWebAccountProviderTokenOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2512786366, 8244, 19512, [148, 52, 210, 108, 20, 178, 180, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95c613be_2034_4c38_9434_d26c14b2b4b2);
 }
 impl ::windows::runtime::RuntimeName for WebAccountProviderRequestTokenOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderRequestTokenOperation";
@@ -2295,7 +2295,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebAccountProviderRetrieveCookie
 }
 unsafe impl ::windows::runtime::Interface for WebAccountProviderRetrieveCookiesOperation {
     type Vtable = IWebAccountProviderRetrieveCookiesOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1510212673, 4003, 19121, [160, 28, 32, 177, 16, 53, 133, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a040441_0fa3_4ab1_a01c_20b110358594);
 }
 impl ::windows::runtime::RuntimeName for WebAccountProviderRetrieveCookiesOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderRetrieveCookiesOperation";
@@ -2442,7 +2442,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebAccountProviderSignOutAccount
 }
 unsafe impl ::windows::runtime::Interface for WebAccountProviderSignOutAccountOperation {
     type Vtable = IWebAccountProviderSignOutAccountOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3096502813, 3157, 18364, [140, 114, 4, 166, 252, 124, 172, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb890e21d_0c55_47bc_8c72_04a6fc7cac07);
 }
 impl ::windows::runtime::RuntimeName for WebAccountProviderSignOutAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderSignOutAccountOperation";
@@ -2561,7 +2561,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebAccountProviderTriggerDetails
 }
 unsafe impl ::windows::runtime::Interface for WebAccountProviderTriggerDetails {
     type Vtable = IWebAccountProviderTokenObjects_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1083123787, 4904, 17115, [137, 164, 11, 206, 122, 113, 125, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x408f284b_1328_42db_89a4_0bce7a717d8e);
 }
 impl ::windows::runtime::RuntimeName for WebAccountProviderTriggerDetails {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderTriggerDetails";
@@ -2811,7 +2811,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebProviderTokenRequest {
 }
 unsafe impl ::windows::runtime::Interface for WebProviderTokenRequest {
     type Vtable = IWebProviderTokenRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(504919947, 34821, 17739, [159, 17, 70, 141, 42, 241, 9, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e18778b_8805_454b_9f11_468d2af1095a);
 }
 impl ::windows::runtime::RuntimeName for WebProviderTokenRequest {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebProviderTokenRequest";
@@ -2890,7 +2890,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebProviderTokenResponse {
 }
 unsafe impl ::windows::runtime::Interface for WebProviderTokenResponse {
     type Vtable = IWebProviderTokenResponse_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4011931539, 61269, 16774, [183, 206, 140, 178, 231, 249, 132, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef213793_ef55_4186_b7ce_8cb2e7f9849e);
 }
 impl ::windows::runtime::RuntimeName for WebProviderTokenResponse {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse";

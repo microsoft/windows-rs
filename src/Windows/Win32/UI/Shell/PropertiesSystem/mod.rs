@@ -87,7 +87,7 @@ impl ICreateObject {
 }
 unsafe impl ::windows::runtime::Interface for ICreateObject {
     type Vtable = ICreateObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1964120402, 57552, 17381, [147, 128, 29, 128, 72, 58, 207, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75121952_e0d0_43e5_9380_1d80483acf72);
 }
 impl ::core::convert::From<ICreateObject> for ::windows::runtime::IUnknown {
     fn from(value: ICreateObject) -> Self {
@@ -140,7 +140,7 @@ impl IDelayedPropertyStoreFactory {
 }
 unsafe impl ::windows::runtime::Interface for IDelayedPropertyStoreFactory {
     type Vtable = IDelayedPropertyStoreFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1087657855, 57911, 19419, [189, 105, 88, 240, 137, 67, 27, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40d4577f_e237_4bdb_bd69_58f089431b6a);
 }
 impl ::core::convert::From<IDelayedPropertyStoreFactory> for ::windows::runtime::IUnknown {
     fn from(value: IDelayedPropertyStoreFactory) -> Self {
@@ -205,7 +205,7 @@ impl IInitializeWithFile {
 }
 unsafe impl ::windows::runtime::Interface for IInitializeWithFile {
     type Vtable = IInitializeWithFile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3083945318, 1289, 19662, [167, 31, 10, 85, 66, 51, 189, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7d14566_0509_4cce_a71f_0a554233bd9b);
 }
 impl ::core::convert::From<IInitializeWithFile> for ::windows::runtime::IUnknown {
     fn from(value: IInitializeWithFile) -> Self {
@@ -249,7 +249,7 @@ impl IInitializeWithStream {
 }
 unsafe impl ::windows::runtime::Interface for IInitializeWithStream {
     type Vtable = IInitializeWithStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3089413277, 8876, 16737, [172, 138, 153, 22, 232, 250, 63, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb824b49d_22ac_4161_ac8a_9916e8fa3f7f);
 }
 impl ::core::convert::From<IInitializeWithStream> for ::windows::runtime::IUnknown {
     fn from(value: IInitializeWithStream) -> Self {
@@ -310,7 +310,7 @@ impl INamedPropertyStore {
 }
 unsafe impl ::windows::runtime::Interface for INamedPropertyStore {
     type Vtable = INamedPropertyStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1902136079, 38832, 18276, [133, 119, 47, 19, 233, 138, 20, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71604b0f_97b0_4764_8577_2f13e98a1422);
 }
 impl ::core::convert::From<INamedPropertyStore> for ::windows::runtime::IUnknown {
     fn from(value: INamedPropertyStore) -> Self {
@@ -363,7 +363,7 @@ impl IObjectWithPropertyKey {
 }
 unsafe impl ::windows::runtime::Interface for IObjectWithPropertyKey {
     type Vtable = IObjectWithPropertyKey_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4228685991, 49942, 20434, [144, 49, 62, 98, 142, 109, 79, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc0ca0a7_c316_4fd2_9031_3e628e6d4f23);
 }
 impl ::core::convert::From<IObjectWithPropertyKey> for ::windows::runtime::IUnknown {
     fn from(value: IObjectWithPropertyKey) -> Self {
@@ -414,7 +414,7 @@ impl IPersistSerializedPropStorage {
 }
 unsafe impl ::windows::runtime::Interface for IPersistSerializedPropStorage {
     type Vtable = IPersistSerializedPropStorage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3810045271, 2720, 17679, [172, 165, 111, 171, 113, 3, 217, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe318ad57_0aa0_450f_aca5_6fab7103d917);
 }
 impl ::core::convert::From<IPersistSerializedPropStorage> for ::windows::runtime::IUnknown {
     fn from(value: IPersistSerializedPropStorage) -> Self {
@@ -475,7 +475,7 @@ impl IPersistSerializedPropStorage2 {
 }
 unsafe impl ::windows::runtime::Interface for IPersistSerializedPropStorage2 {
     type Vtable = IPersistSerializedPropStorage2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2012215912, 20376, 17254, [186, 114, 87, 59, 61, 136, 5, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77effa68_4f98_4366_ba72_573b3d880571);
 }
 impl ::core::convert::From<IPersistSerializedPropStorage2> for ::windows::runtime::IUnknown {
     fn from(value: IPersistSerializedPropStorage2) -> Self {
@@ -552,7 +552,7 @@ impl IPropertyChange {
 }
 unsafe impl ::windows::runtime::Interface for IPropertyChange {
     type Vtable = IPropertyChange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4179082378, 7098, 17528, [162, 69, 27, 222, 3, 235, 148, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf917bc8a_1bba_4478_a245_1bde03eb9431);
 }
 impl ::core::convert::From<IPropertyChange> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyChange) -> Self {
@@ -643,7 +643,7 @@ impl IPropertyChangeArray {
 }
 unsafe impl ::windows::runtime::Interface for IPropertyChangeArray {
     type Vtable = IPropertyChangeArray_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(940530861, 7006, 17138, [128, 93, 99, 127, 211, 146, 211, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x380f5cad_1b5e_42f2_805d_637fd392d31e);
 }
 impl ::core::convert::From<IPropertyChangeArray> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyChangeArray) -> Self {
@@ -797,7 +797,7 @@ impl IPropertyDescription {
 }
 unsafe impl ::windows::runtime::Interface for IPropertyDescription {
     type Vtable = IPropertyDescription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1870255448, 16022, 17737, [161, 209, 125, 117, 210, 40, 136, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f79d558_3e96_4549_a1d1_7d75d2288814);
 }
 impl ::core::convert::From<IPropertyDescription> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyDescription) -> Self {
@@ -981,7 +981,7 @@ impl IPropertyDescription2 {
 }
 unsafe impl ::windows::runtime::Interface for IPropertyDescription2 {
     type Vtable = IPropertyDescription2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473441261, 20578, 16398, [177, 7, 93, 174, 121, 254, 87, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57d2eded_5062_400e_b107_5dae79fe57a6);
 }
 impl ::core::convert::From<IPropertyDescription2> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyDescription2) -> Self {
@@ -1191,7 +1191,7 @@ impl IPropertyDescriptionAliasInfo {
 }
 unsafe impl ::windows::runtime::Interface for IPropertyDescriptionAliasInfo {
     type Vtable = IPropertyDescriptionAliasInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4134601980, 11001, 18173, [179, 45, 36, 60, 20, 4, 243, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf67104fc_2af9_46fd_b32d_243c1404f3d1);
 }
 impl ::core::convert::From<IPropertyDescriptionAliasInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyDescriptionAliasInfo) -> Self {
@@ -1291,7 +1291,7 @@ impl IPropertyDescriptionList {
 }
 unsafe impl ::windows::runtime::Interface for IPropertyDescriptionList {
     type Vtable = IPropertyDescriptionList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(530563536, 50075, 19238, [129, 127, 1, 25, 103, 211, 68, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f9fc1d0_c39b_4b26_817f_011967d3440e);
 }
 impl ::core::convert::From<IPropertyDescriptionList> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyDescriptionList) -> Self {
@@ -1446,7 +1446,7 @@ impl IPropertyDescriptionRelatedPropertyInfo {
 }
 unsafe impl ::windows::runtime::Interface for IPropertyDescriptionRelatedPropertyInfo {
     type Vtable = IPropertyDescriptionRelatedPropertyInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1349751796, 10813, 19040, [181, 158, 217, 199, 87, 22, 194, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x507393f4_2a3d_4a60_b59e_d9c75716c2dd);
 }
 impl ::core::convert::From<IPropertyDescriptionRelatedPropertyInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyDescriptionRelatedPropertyInfo) -> Self {
@@ -1667,7 +1667,7 @@ impl IPropertyDescriptionSearchInfo {
 }
 unsafe impl ::windows::runtime::Interface for IPropertyDescriptionSearchInfo {
     type Vtable = IPropertyDescriptionSearchInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(126849469, 10658, 17423, [146, 78, 70, 162, 145, 82, 69, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x078f91bd_29a2_440f_924e_46a291524520);
 }
 impl ::core::convert::From<IPropertyDescriptionSearchInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyDescriptionSearchInfo) -> Self {
@@ -1789,7 +1789,7 @@ impl IPropertyEnumType {
 }
 unsafe impl ::windows::runtime::Interface for IPropertyEnumType {
     type Vtable = IPropertyEnumType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(300022777, 11606, 19051, [141, 179, 124, 209, 147, 164, 113, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11e1fbf9_2d56_4a6b_8db3_7cd193a471f2);
 }
 impl ::core::convert::From<IPropertyEnumType> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyEnumType) -> Self {
@@ -1870,7 +1870,7 @@ impl IPropertyEnumType2 {
 }
 unsafe impl ::windows::runtime::Interface for IPropertyEnumType2 {
     type Vtable = IPropertyEnumType2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2607678748, 24029, 17185, [144, 112, 254, 42, 203, 85, 231, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b6e051c_5ddd_4321_9070_fe2acb55e794);
 }
 impl ::core::convert::From<IPropertyEnumType2> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyEnumType2) -> Self {
@@ -1959,7 +1959,7 @@ impl IPropertyEnumTypeList {
 }
 unsafe impl ::windows::runtime::Interface for IPropertyEnumTypeList {
     type Vtable = IPropertyEnumTypeList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2845049076, 15748, 17751, [148, 186, 18, 66, 251, 44, 201, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa99400f4_3d84_4557_94ba_1242fb2cc9a6);
 }
 impl ::core::convert::From<IPropertyEnumTypeList> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyEnumTypeList) -> Self {
@@ -2026,7 +2026,7 @@ impl IPropertyStore {
 }
 unsafe impl ::windows::runtime::Interface for IPropertyStore {
     type Vtable = IPropertyStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2288881387, 36082, 17478, [141, 2, 205, 186, 29, 189, 207, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x886d8eeb_8cf2_4446_8d02_cdba1dbdcf99);
 }
 impl ::core::convert::From<IPropertyStore> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyStore) -> Self {
@@ -2114,7 +2114,7 @@ impl IPropertyStoreCache {
 }
 unsafe impl ::windows::runtime::Interface for IPropertyStoreCache {
     type Vtable = IPropertyStoreCache_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(806815085, 39569, 20112, [147, 125, 116, 108, 114, 171, 191, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3017056d_9a91_4e90_937d_746c72abbf4f);
 }
 impl ::core::convert::From<IPropertyStoreCache> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyStoreCache) -> Self {
@@ -2188,7 +2188,7 @@ impl IPropertyStoreCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for IPropertyStoreCapabilities {
     type Vtable = IPropertyStoreCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3370308966, 6254, 19785, [191, 65, 105, 9, 234, 213, 106, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8e2d566_186e_4d49_bf41_6909ead56acc);
 }
 impl ::core::convert::From<IPropertyStoreCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyStoreCapabilities) -> Self {
@@ -2236,7 +2236,7 @@ impl IPropertyStoreFactory {
 }
 unsafe impl ::windows::runtime::Interface for IPropertyStoreFactory {
     type Vtable = IPropertyStoreFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3155233645, 22504, 16712, [169, 198, 145, 1, 90, 178, 243, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc110b6d_57e8_4148_a9c6_91015ab2f3a5);
 }
 impl ::core::convert::From<IPropertyStoreFactory> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyStoreFactory) -> Self {
@@ -2322,7 +2322,7 @@ impl IPropertySystem {
 }
 unsafe impl ::windows::runtime::Interface for IPropertySystem {
     type Vtable = IPropertySystem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3396488842, 50150, 17451, [136, 164, 111, 176, 219, 128, 53, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca724e8a_c3e6_442b_88a4_6fb0db8035a3);
 }
 impl ::core::convert::From<IPropertySystem> for ::windows::runtime::IUnknown {
     fn from(value: IPropertySystem) -> Self {
@@ -2378,7 +2378,7 @@ impl IPropertySystemChangeNotify {
 }
 unsafe impl ::windows::runtime::Interface for IPropertySystemChangeNotify {
     type Vtable = IPropertySystemChangeNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4204093401, 14526, 18553, [166, 206, 130, 76, 245, 45, 96, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa955fd9_38be_4879_a6ce_824cf52d609f);
 }
 impl ::core::convert::From<IPropertySystemChangeNotify> for ::windows::runtime::IUnknown {
     fn from(value: IPropertySystemChangeNotify) -> Self {
@@ -2456,7 +2456,7 @@ impl IPropertyUI {
 }
 unsafe impl ::windows::runtime::Interface for IPropertyUI {
     type Vtable = IPropertyUI_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1970961823, 37274, 16664, [153, 215, 219, 178, 8, 200, 204, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x757a7d9f_919a_4118_99d7_dbb208c8cc66);
 }
 impl ::core::convert::From<IPropertyUI> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyUI) -> Self {
@@ -2499,8 +2499,8 @@ pub struct IPropertyUI_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fmtid: *const ::windows::runtime::GUID, pid: u32, pwszhelpfile: super::super::super::Foundation::PWSTR, cch: u32, puhelpid: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-pub const InMemoryPropertyStore: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2583879698, 25347, 19998, [185, 161, 99, 15, 128, 37, 146, 197]);
-pub const InMemoryPropertyStoreMarshalByValue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3570011693, 28071, 19317, [169, 124, 95, 48, 111, 14, 174, 220]);
+pub const InMemoryPropertyStore: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a02e012_6303_4e1e_b9a1_630f802592c5);
+pub const InMemoryPropertyStoreMarshalByValue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4ca0e2d_6da7_4b75_a97c_5f306f0eaedc);
 #[doc = "*Required features: `Win32_UI_Shell_PropertiesSystem`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
@@ -5535,7 +5535,7 @@ pub unsafe fn PropVariantToWinRTPropertyValue<T: ::windows::runtime::Interface>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const PropertySystem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3096870789, 22702, 20294, [159, 178, 93, 121, 4, 121, 143, 75]);
+pub const PropertySystem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8967f85_58ae_4f46_9fb2_5d7904798f4b);
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct SERIALIZEDPROPSTORAGE(pub u8);

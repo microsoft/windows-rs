@@ -29,9 +29,9 @@ pub unsafe fn BrowseForGPO(lpbrowseinfo: *mut GPOBROWSEINFO) -> ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const CLSID_GPESnapIn: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2411771700, 41185, 4561, [167, 211, 0, 0, 248, 117, 113, 227]);
-pub const CLSID_GroupPolicyObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3931121442, 41533, 4561, [167, 211, 0, 0, 248, 117, 113, 227]);
-pub const CLSID_RSOPSnapIn: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1841528907, 29202, 17805, [173, 176, 154, 7, 226, 174, 31, 162]);
+pub const CLSID_GPESnapIn: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fc0b734_a0e1_11d1_a7d3_0000f87571e3);
+pub const CLSID_GroupPolicyObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea502722_a23d_11d1_a7d3_0000f87571e3);
+pub const CLSID_RSOPSnapIn: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6dc3804b_7212_458d_adb0_9a07e2ae1fa2);
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -188,12 +188,12 @@ pub unsafe fn FreeGPOListW(pgpolist: *const GROUP_POLICY_OBJECTW) -> super::supe
 }
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPC_BLOCK_POLICY: u32 = 1u32;
-pub const GPM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4117317384, 35070, 19253, [186, 191, 229, 97, 98, 213, 251, 200]);
-pub const GPMAsyncCancel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(925341353, 30444, 18333, [173, 108, 85, 99, 24, 237, 95, 157]);
-pub const GPMBackup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3977925816, 24314, 18474, [147, 192, 138, 216, 111, 13, 104, 195]);
-pub const GPMBackupCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3952018267, 28891, 19103, [150, 118, 55, 194, 89, 148, 233, 220]);
-pub const GPMBackupDir: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4242843037, 3873, 19194, [184, 89, 230, 208, 198, 44, 209, 12]);
-pub const GPMBackupDirEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3904936074, 52995, 19547, [139, 226, 42, 169, 173, 50, 170, 218]);
+pub const GPM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5694708_88fe_4b35_babf_e56162d5fbc8);
+pub const GPMAsyncCancel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x372796a9_76ec_479d_ad6c_556318ed5f9d);
+pub const GPMBackup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed1a54b8_5efa_482a_93c0_8ad86f0d68c3);
+pub const GPMBackupCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb8f035b_70db_4a9f_9676_37c25994e9dc);
+pub const GPMBackupDir: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfce4a59d_0f21_4afa_b859_e6d0c62cd10c);
+pub const GPMBackupDirEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8c0988a_cf03_4c5b_8be2_2aa9ad32aada);
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -208,9 +208,9 @@ impl ::core::convert::From<i32> for GPMBackupType {
 unsafe impl ::windows::runtime::Abi for GPMBackupType {
     type Abi = Self;
 }
-pub const GPMCSECollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3482499112, 11588, 19297, [177, 10, 179, 39, 175, 212, 45, 168]);
-pub const GPMClientSideExtension: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3248678670, 26012, 19226, [148, 11, 248, 139, 10, 249, 200, 164]);
-pub const GPMConstants: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(945154176, 52638, 19724, [158, 175, 21, 121, 40, 58, 24, 136]);
+pub const GPMCSECollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf92b828_2d44_4b61_b10a_b327afd42da8);
+pub const GPMClientSideExtension: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1a2e70e_659c_4b1a_940b_f88b0af9c8a4);
+pub const GPMConstants: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3855e880_cd9e_4d0c_9eaf_1579283a1888);
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -227,7 +227,7 @@ impl ::core::convert::From<i32> for GPMDestinationOption {
 unsafe impl ::windows::runtime::Abi for GPMDestinationOption {
     type Abi = Self;
 }
-pub const GPMDomain: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1896415678, 4176, 19633, [131, 138, 197, 207, 242, 89, 225, 131]);
+pub const GPMDomain: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x710901be_1050_4cb1_838a_c5cff259e183);
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -247,14 +247,14 @@ impl ::core::convert::From<i32> for GPMEntryType {
 unsafe impl ::windows::runtime::Abi for GPMEntryType {
     type Abi = Self;
 }
-pub const GPMGPO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3536726420, 22965, 16484, [181, 129, 77, 104, 72, 106, 22, 196]);
-pub const GPMGPOCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2047177509, 33581, 19939, [164, 31, 199, 128, 67, 106, 78, 9]);
-pub const GPMGPOLink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3252656256, 21251, 17094, [138, 60, 4, 136, 225, 191, 115, 100]);
-pub const GPMGPOLinksCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4142749722, 18853, 18402, [183, 113, 253, 141, 192, 43, 98, 89]);
-pub const GPMMapEntry: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2358727251, 21553, 17521, [179, 93, 6, 38, 201, 40, 37, 138]);
-pub const GPMMapEntryCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(217537883, 41889, 19541, [180, 254, 158, 20, 156, 65, 246, 109]);
-pub const GPMMigrationTable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1437548611, 10758, 20338, [171, 239, 99, 27, 68, 7, 156, 118]);
-pub const GPMPermission: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1483842570, 59840, 18156, [145, 62, 148, 78, 249, 34, 90, 148]);
+pub const GPMGPO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2ce2994_59b5_4064_b581_4d68486a16c4);
+pub const GPMGPOCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a057325_832d_4de3_a41f_c780436a4e09);
+pub const GPMGPOLink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1df9880_5303_42c6_8a3c_0488e1bf7364);
+pub const GPMGPOLinksCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6ed581a_49a5_47e2_b771_fd8dc02b6259);
+pub const GPMMapEntry: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c975253_5431_4471_b35d_0626c928258a);
+pub const GPMMapEntryCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cf75d5b_a3a1_4c55_b4fe_9e149c41f66d);
+pub const GPMMigrationTable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55af4043_2a06_4f72_abef_631b44079c76);
+pub const GPMPermission: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5871a40a_e9c0_46ec_913e_944ef9225a94);
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -286,7 +286,7 @@ impl ::core::convert::From<i32> for GPMPermissionType {
 unsafe impl ::windows::runtime::Abi for GPMPermissionType {
     type Abi = Self;
 }
-pub const GPMRSOP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1218120879, 40642, 20151, [145, 245, 182, 247, 29, 67, 218, 140]);
+pub const GPMRSOP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x489b0caf_9ec2_4eb7_91f5_b6f71d43da8c);
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -334,9 +334,9 @@ impl ::core::convert::From<i32> for GPMReportingOptions {
 unsafe impl ::windows::runtime::Abi for GPMReportingOptions {
     type Abi = Self;
 }
-pub const GPMResult: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2450528960, 37511, 16902, [163, 178, 75, 219, 115, 210, 37, 246]);
-pub const GPMSOM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(853098412, 17678, 17615, [130, 156, 139, 34, 255, 107, 218, 225]);
-pub const GPMSOMCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(616689991, 14112, 20315, [169, 195, 6, 180, 228, 249, 49, 210]);
+pub const GPMResult: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92101ac0_9287_4206_a3b2_4bdb73d225f6);
+pub const GPMSOM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32d93fac_450e_44cf_829c_8b22ff6bdae1);
+pub const GPMSOMCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24c1f147_3720_4f5b_a9c3_06b4e4f931d2);
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -352,7 +352,7 @@ impl ::core::convert::From<i32> for GPMSOMType {
 unsafe impl ::windows::runtime::Abi for GPMSOMType {
     type Abi = Self;
 }
-pub const GPMSearchCriteria: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(397068838, 23776, 17658, [140, 192, 82, 89, 230, 72, 53, 102]);
+pub const GPMSearchCriteria: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17aaca26_5ce0_44fa_8cc0_5259e6483566);
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -396,11 +396,11 @@ impl ::core::convert::From<i32> for GPMSearchProperty {
 unsafe impl ::windows::runtime::Abi for GPMSearchProperty {
     type Abi = Self;
 }
-pub const GPMSecurityInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1417305743, 37218, 17686, [164, 223, 157, 219, 150, 134, 216, 70]);
-pub const GPMSitesContainer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(580869186, 34092, 19248, [148, 95, 197, 34, 190, 155, 211, 134]);
-pub const GPMStarterGPOBackup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(949895178, 55535, 17755, [168, 97, 95, 156, 163, 74, 106, 2]);
-pub const GPMStarterGPOBackupCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881739677, 6891, 19637, [167, 138, 40, 29, 170, 88, 36, 6]);
-pub const GPMStarterGPOCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2197334667, 18874, 17330, [149, 110, 51, 151, 249, 185, 76, 58]);
+pub const GPMSecurityInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x547a5e8f_9162_4516_a4df_9ddb9686d846);
+pub const GPMSitesContainer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x229f5c42_852c_4b30_945f_c522be9bd386);
+pub const GPMStarterGPOBackup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x389e400a_d8ef_455b_a861_5f9ca34a6a02);
+pub const GPMStarterGPOBackupCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe75ea59d_1aeb_4cb5_a78a_281daa582406);
+pub const GPMStarterGPOCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82f8aa8b_49ba_43b2_956e_3397f9b94c3a);
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -415,12 +415,12 @@ impl ::core::convert::From<i32> for GPMStarterGPOType {
 unsafe impl ::windows::runtime::Abi for GPMStarterGPOType {
     type Abi = Self;
 }
-pub const GPMStatusMessage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1266142356, 53845, 16539, [188, 98, 55, 8, 129, 113, 90, 25]);
-pub const GPMStatusMsgCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(673506494, 19404, 19628, [158, 96, 14, 62, 215, 241, 36, 150]);
-pub const GPMTemplate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3975271508, 29146, 20015, [168, 192, 129, 133, 70, 89, 17, 217]);
-pub const GPMTrustee: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3309989901, 6582, 16913, [188, 176, 232, 226, 71, 94, 71, 30]);
-pub const GPMWMIFilter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1650935256, 3562, 16482, [191, 96, 207, 197, 177, 202, 18, 134]);
-pub const GPMWMIFilterCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1960602920, 59424, 18390, [160, 184, 240, 141, 147, 215, 250, 51]);
+pub const GPMStatusMessage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b77cc94_d255_409b_bc62_370881715a19);
+pub const GPMStatusMsgCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2824e4be_4bcc_4cac_9e60_0e3ed7f12496);
+pub const GPMTemplate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xecf1d454_71da_4e2f_a8c0_8185465911d9);
+pub const GPMTrustee: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc54a700d_19b6_4211_bcb0_e8e2475e471e);
+pub const GPMWMIFilter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x626745d8_0dea_4062_bf60_cfc5b1ca1286);
+pub const GPMWMIFilterCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74dc6d28_e820_47d6_a0b8_f08d93d7fa33);
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPM_DONOTUSE_W2KDC: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
@@ -909,7 +909,7 @@ impl IGPEInformation {
 }
 unsafe impl ::windows::runtime::Interface for IGPEInformation {
     type Vtable = IGPEInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2411771701, 41185, 4561, [167, 211, 0, 0, 248, 117, 113, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fc0b735_a0e1_11d1_a7d3_0000f87571e3);
 }
 impl ::core::convert::From<IGPEInformation> for ::windows::runtime::IUnknown {
     fn from(value: IGPEInformation) -> Self {
@@ -1028,7 +1028,7 @@ impl IGPM {
 }
 unsafe impl ::windows::runtime::Interface for IGPM {
     type Vtable = IGPM_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4126861321, 15318, 19881, [166, 94, 23, 102, 91, 65, 215, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5fae809_3bd6_4da9_a65e_17665b41d763);
 }
 impl ::core::convert::From<IGPM> for ::windows::runtime::IUnknown {
     fn from(value: IGPM) -> Self {
@@ -1226,7 +1226,7 @@ impl IGPM2 {
 }
 unsafe impl ::windows::runtime::Interface for IGPM2 {
     type Vtable = IGPM2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2330506, 15750, 16812, [143, 94, 6, 166, 99, 138, 99, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00238f8a_3d86_41ac_8f5e_06a6638a634a);
 }
 impl ::core::convert::From<IGPM2> for ::windows::runtime::IUnknown {
     fn from(value: IGPM2) -> Self {
@@ -1342,7 +1342,7 @@ impl IGPMAsyncCancel {
 }
 unsafe impl ::windows::runtime::Interface for IGPMAsyncCancel {
     type Vtable = IGPMAsyncCancel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3720771412, 48743, 17729, [129, 102, 244, 129, 102, 134, 140, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddc67754_be67_4541_8166_f48166868c9c);
 }
 impl ::core::convert::From<IGPMAsyncCancel> for ::windows::runtime::IUnknown {
     fn from(value: IGPMAsyncCancel) -> Self {
@@ -1416,7 +1416,7 @@ impl IGPMAsyncProgress {
 }
 unsafe impl ::windows::runtime::Interface for IGPMAsyncProgress {
     type Vtable = IGPMAsyncProgress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1789667832, 22856, 17188, [191, 112, 66, 56, 24, 148, 45, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6aac29f8_5948_4324_bf70_423818942dbc);
 }
 impl ::core::convert::From<IGPMAsyncProgress> for ::windows::runtime::IUnknown {
     fn from(value: IGPMAsyncProgress) -> Self {
@@ -1542,7 +1542,7 @@ impl IGPMBackup {
 }
 unsafe impl ::windows::runtime::Interface for IGPMBackup {
     type Vtable = IGPMBackup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3634457141, 15117, 16747, [141, 2, 77, 246, 249, 90, 113, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8a16a35_3b0d_416b_8d02_4df6f95a7119);
 }
 impl ::core::convert::From<IGPMBackup> for ::windows::runtime::IUnknown {
     fn from(value: IGPMBackup) -> Self {
@@ -1645,7 +1645,7 @@ impl IGPMBackupCollection {
 }
 unsafe impl ::windows::runtime::Interface for IGPMBackupCollection {
     type Vtable = IGPMBackupCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3347512335, 9944, 19371, [167, 69, 57, 202, 126, 128, 12, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc786fc0f_26d8_4bab_a745_39ca7e800cac);
 }
 impl ::core::convert::From<IGPMBackupCollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMBackupCollection) -> Self {
@@ -1735,7 +1735,7 @@ impl IGPMBackupDir {
 }
 unsafe impl ::windows::runtime::Interface for IGPMBackupDir {
     type Vtable = IGPMBackupDir_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2975239149, 2707, 19148, [129, 15, 175, 231, 8, 16, 25, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1568bed_0a93_4acc_810f_afe7081019b9);
 }
 impl ::core::convert::From<IGPMBackupDir> for ::windows::runtime::IUnknown {
     fn from(value: IGPMBackupDir) -> Self {
@@ -1831,7 +1831,7 @@ impl IGPMBackupDirEx {
 }
 unsafe impl ::windows::runtime::Interface for IGPMBackupDirEx {
     type Vtable = IGPMBackupDirEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4175189485, 15264, 18532, [170, 212, 211, 101, 24, 158, 225, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8dc55ed_3ba0_4864_aad4_d365189ee1d5);
 }
 impl ::core::convert::From<IGPMBackupDirEx> for ::windows::runtime::IUnknown {
     fn from(value: IGPMBackupDirEx) -> Self {
@@ -1923,7 +1923,7 @@ impl IGPMCSECollection {
 }
 unsafe impl ::windows::runtime::Interface for IGPMCSECollection {
     type Vtable = IGPMCSECollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(777169277, 2634, 19055, [133, 219, 32, 22, 34, 69, 93, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e52a97d_0a4a_4a6f_85db_201622455da0);
 }
 impl ::core::convert::From<IGPMCSECollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMCSECollection) -> Self {
@@ -2018,7 +2018,7 @@ impl IGPMClientSideExtension {
 }
 unsafe impl ::windows::runtime::Interface for IGPMClientSideExtension {
     type Vtable = IGPMClientSideExtension_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1775924360, 47323, 16734, [146, 102, 144, 27, 228, 212, 153, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69da7488_b8db_415e_9266_901be4d49928);
 }
 impl ::core::convert::From<IGPMClientSideExtension> for ::windows::runtime::IUnknown {
     fn from(value: IGPMClientSideExtension) -> Self {
@@ -2392,7 +2392,7 @@ impl IGPMConstants {
 }
 unsafe impl ::windows::runtime::Interface for IGPMConstants {
     type Vtable = IGPMConstants_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357870054, 54108, 19597, [190, 99, 126, 165, 210, 170, 197, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ef73e6_d35c_4c8d_be63_7ea5d2aac5c4);
 }
 impl ::core::convert::From<IGPMConstants> for ::windows::runtime::IUnknown {
     fn from(value: IGPMConstants) -> Self {
@@ -2927,7 +2927,7 @@ impl IGPMConstants2 {
 }
 unsafe impl ::windows::runtime::Interface for IGPMConstants2 {
     type Vtable = IGPMConstants2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(95297968, 44041, 16434, [162, 111, 158, 125, 167, 134, 220, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05ae21b0_ac09_4032_a26f_9e7da786dc19);
 }
 impl ::core::convert::From<IGPMConstants2> for ::windows::runtime::IUnknown {
     fn from(value: IGPMConstants2) -> Self {
@@ -3145,7 +3145,7 @@ impl IGPMDomain {
 }
 unsafe impl ::windows::runtime::Interface for IGPMDomain {
     type Vtable = IGPMDomain_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1797377044, 23040, 20292, [167, 56, 254, 236, 138, 148, 199, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b21cc14_5a00_4f44_a738_feec8a94c7e3);
 }
 impl ::core::convert::From<IGPMDomain> for ::windows::runtime::IUnknown {
     fn from(value: IGPMDomain) -> Self {
@@ -3347,7 +3347,7 @@ impl IGPMDomain2 {
 }
 unsafe impl ::windows::runtime::Interface for IGPMDomain2 {
     type Vtable = IGPMDomain2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2091301771, 61931, 18698, [147, 141, 60, 78, 81, 199, 104, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ca6bb8b_f1eb_490a_938d_3c4e51c768e6);
 }
 impl ::core::convert::From<IGPMDomain2> for ::windows::runtime::IUnknown {
     fn from(value: IGPMDomain2) -> Self {
@@ -3598,7 +3598,7 @@ impl IGPMDomain3 {
 }
 unsafe impl ::windows::runtime::Interface for IGPMDomain3 {
     type Vtable = IGPMDomain3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(7863806, 35015, 19151, [161, 29, 209, 10, 124, 49, 10, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0077fdfe_88c7_4acf_a11d_d10a7c310a03);
 }
 impl ::core::convert::From<IGPMDomain3> for ::windows::runtime::IUnknown {
     fn from(value: IGPMDomain3) -> Self {
@@ -3893,7 +3893,7 @@ impl IGPMGPO {
 }
 unsafe impl ::windows::runtime::Interface for IGPMGPO {
     type Vtable = IGPMGPO_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1489781586, 7331, 18661, [152, 100, 29, 164, 214, 224, 214, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58cc4352_1ca3_48e5_9864_1da4d6e0d60f);
 }
 impl ::core::convert::From<IGPMGPO> for ::windows::runtime::IUnknown {
     fn from(value: IGPMGPO) -> Self {
@@ -4203,7 +4203,7 @@ impl IGPMGPO2 {
 }
 unsafe impl ::windows::runtime::Interface for IGPMGPO2 {
     type Vtable = IGPMGPO2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2321981968, 46987, 19865, [136, 226, 195, 6, 168, 23, 201, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a66a210_b78b_4d99_88e2_c306a817c925);
 }
 impl ::core::convert::From<IGPMGPO2> for ::windows::runtime::IUnknown {
     fn from(value: IGPMGPO2) -> Self {
@@ -4552,7 +4552,7 @@ impl IGPMGPO3 {
 }
 unsafe impl ::windows::runtime::Interface for IGPMGPO3 {
     type Vtable = IGPMGPO3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2096178081, 63818, 16658, [191, 174, 106, 161, 219, 156, 178, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7cf123a1_f94a_4112_bfae_6aa1db9cb248);
 }
 impl ::core::convert::From<IGPMGPO3> for ::windows::runtime::IUnknown {
     fn from(value: IGPMGPO3) -> Self {
@@ -4730,7 +4730,7 @@ impl IGPMGPOCollection {
 }
 unsafe impl ::windows::runtime::Interface for IGPMGPOCollection {
     type Vtable = IGPMGPOCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4042315215, 28874, 19513, [158, 41, 182, 66, 248, 114, 108, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0f0d5cf_70ca_4c39_9e29_b642f8726c01);
 }
 impl ::core::convert::From<IGPMGPOCollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMGPOCollection) -> Self {
@@ -4847,7 +4847,7 @@ impl IGPMGPOLink {
 }
 unsafe impl ::windows::runtime::Interface for IGPMGPOLink {
     type Vtable = IGPMGPOLink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1129028029, 24039, 18314, [128, 156, 194, 81, 114, 29, 247, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x434b99bd_5de7_478a_809c_c251721df70c);
 }
 impl ::core::convert::From<IGPMGPOLink> for ::windows::runtime::IUnknown {
     fn from(value: IGPMGPOLink) -> Self {
@@ -4943,7 +4943,7 @@ impl IGPMGPOLinksCollection {
 }
 unsafe impl ::windows::runtime::Interface for IGPMGPOLinksCollection {
     type Vtable = IGPMGPOLinksCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(412973928, 5821, 19725, [162, 236, 46, 106, 162, 40, 140, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x189d7b68_16bd_4d0d_a2ec_2e6aa2288c7f);
 }
 impl ::core::convert::From<IGPMGPOLinksCollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMGPOLinksCollection) -> Self {
@@ -5038,7 +5038,7 @@ impl IGPMMapEntry {
 }
 unsafe impl ::windows::runtime::Interface for IGPMMapEntry {
     type Vtable = IGPMMapEntry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2390338822, 9089, 17476, [190, 76, 255, 105, 62, 110, 111, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e79ad06_2381_4444_be4c_ff693e6e6f2b);
 }
 impl ::core::convert::From<IGPMMapEntry> for ::windows::runtime::IUnknown {
     fn from(value: IGPMMapEntry) -> Self {
@@ -5129,7 +5129,7 @@ impl IGPMMapEntryCollection {
 }
 unsafe impl ::windows::runtime::Interface for IGPMMapEntryCollection {
     type Vtable = IGPMMapEntryCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3138122907, 58687, 17471, [184, 7, 139, 226, 43, 251, 109, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb0bf49b_e53f_443f_b807_8be22bfb6d42);
 }
 impl ::core::convert::From<IGPMMapEntryCollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMMapEntryCollection) -> Self {
@@ -5245,7 +5245,7 @@ impl IGPMMigrationTable {
 }
 unsafe impl ::windows::runtime::Interface for IGPMMigrationTable {
     type Vtable = IGPMMigrationTable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1224221617, 61359, 18187, [182, 237, 64, 209, 78, 225, 164, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48f823b1_efaf_470b_b6ed_40d14ee1a4ec);
 }
 impl ::core::convert::From<IGPMMigrationTable> for ::windows::runtime::IUnknown {
     fn from(value: IGPMMigrationTable) -> Self {
@@ -5352,7 +5352,7 @@ impl IGPMPermission {
 }
 unsafe impl ::windows::runtime::Interface for IGPMPermission {
     type Vtable = IGPMPermission_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(904645184, 57761, 18946, [137, 5, 215, 148, 22, 251, 70, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35ebca40_e1a1_4a02_8905_d79416fb464a);
 }
 impl ::core::convert::From<IGPMPermission> for ::windows::runtime::IUnknown {
     fn from(value: IGPMPermission) -> Self {
@@ -5611,7 +5611,7 @@ impl IGPMRSOP {
 }
 unsafe impl ::windows::runtime::Interface for IGPMRSOP {
     type Vtable = IGPMRSOP_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1240299610, 12855, 20466, [177, 240, 253, 245, 168, 213, 161, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49ed785a_3237_4ff2_b1f0_fdf5a8d5a1ee);
 }
 impl ::core::convert::From<IGPMRSOP> for ::windows::runtime::IUnknown {
     fn from(value: IGPMRSOP) -> Self {
@@ -5757,7 +5757,7 @@ impl IGPMResult {
 }
 unsafe impl ::windows::runtime::Interface for IGPMResult {
     type Vtable = IGPMResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2262824937, 63343, 17067, [149, 112, 206, 188, 107, 232, 165, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86dff7e9_f76f_42ab_9570_cebc6be8a52d);
 }
 impl ::core::convert::From<IGPMResult> for ::windows::runtime::IUnknown {
     fn from(value: IGPMResult) -> Self {
@@ -5879,7 +5879,7 @@ impl IGPMSOM {
 }
 unsafe impl ::windows::runtime::Interface for IGPMSOM {
     type Vtable = IGPMSOM_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3232231582, 1441, 20236, [129, 88, 158, 92, 51, 104, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0a7f09e_05a1_4f0c_8158_9e5c33684f6b);
 }
 impl ::core::convert::From<IGPMSOM> for ::windows::runtime::IUnknown {
     fn from(value: IGPMSOM) -> Self {
@@ -5976,7 +5976,7 @@ impl IGPMSOMCollection {
 }
 unsafe impl ::windows::runtime::Interface for IGPMSOMCollection {
     type Vtable = IGPMSOMCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2915133582, 228, 17557, [171, 186, 190, 210, 0, 223, 12, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xadc1688e_00e4_4495_abba_bed200df0cab);
 }
 impl ::core::convert::From<IGPMSOMCollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMSOMCollection) -> Self {
@@ -6054,7 +6054,7 @@ impl IGPMSearchCriteria {
 }
 unsafe impl ::windows::runtime::Interface for IGPMSearchCriteria {
     type Vtable = IGPMSearchCriteria_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3606125634, 33435, 18644, [131, 245, 54, 21, 182, 125, 252, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6f11c42_829b_48d4_83f5_3615b67dfc22);
 }
 impl ::core::convert::From<IGPMSearchCriteria> for ::windows::runtime::IUnknown {
     fn from(value: IGPMSearchCriteria) -> Self {
@@ -6154,7 +6154,7 @@ impl IGPMSecurityInfo {
 }
 unsafe impl ::windows::runtime::Interface for IGPMSecurityInfo {
     type Vtable = IGPMSecurityInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3066240724, 7315, 19774, [174, 132, 235, 109, 97, 22, 27, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6c31ed4_1c93_4d3e_ae84_eb6d61161b60);
 }
 impl ::core::convert::From<IGPMSecurityInfo> for ::windows::runtime::IUnknown {
     fn from(value: IGPMSecurityInfo) -> Self {
@@ -6260,7 +6260,7 @@ impl IGPMSitesContainer {
 }
 unsafe impl ::windows::runtime::Interface for IGPMSitesContainer {
     type Vtable = IGPMSitesContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1193650329, 10114, 19751, [166, 187, 212, 153, 36, 111, 253, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4725a899_2782_4d27_a6bb_d499246ffd72);
 }
 impl ::core::convert::From<IGPMSitesContainer> for ::windows::runtime::IUnknown {
     fn from(value: IGPMSitesContainer) -> Self {
@@ -6476,7 +6476,7 @@ impl IGPMStarterGPO {
 }
 unsafe impl ::windows::runtime::Interface for IGPMStarterGPO {
     type Vtable = IGPMStarterGPO_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3754161691, 34944, 17552, [147, 55, 210, 156, 123, 168, 194, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdfc3f61b_8880_4490_9337_d29c7ba8c2f0);
 }
 impl ::core::convert::From<IGPMStarterGPO> for ::windows::runtime::IUnknown {
     fn from(value: IGPMStarterGPO) -> Self {
@@ -6654,7 +6654,7 @@ impl IGPMStarterGPOBackup {
 }
 unsafe impl ::windows::runtime::Interface for IGPMStarterGPOBackup {
     type Vtable = IGPMStarterGPOBackup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1373212378, 43134, 17373, [184, 10, 11, 102, 239, 25, 56, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51d98eda_a87e_43dd_b80a_0b66ef1938d6);
 }
 impl ::core::convert::From<IGPMStarterGPOBackup> for ::windows::runtime::IUnknown {
     fn from(value: IGPMStarterGPOBackup) -> Self {
@@ -6758,7 +6758,7 @@ impl IGPMStarterGPOBackupCollection {
 }
 unsafe impl ::windows::runtime::Interface for IGPMStarterGPOBackupCollection {
     type Vtable = IGPMStarterGPOBackupCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3382182685, 44496, 19381, [141, 234, 41, 133, 5, 216, 66, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc998031d_add0_4bb5_8dea_298505d8423b);
 }
 impl ::core::convert::From<IGPMStarterGPOBackupCollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMStarterGPOBackupCollection) -> Self {
@@ -6848,7 +6848,7 @@ impl IGPMStarterGPOCollection {
 }
 unsafe impl ::windows::runtime::Interface for IGPMStarterGPOCollection {
     type Vtable = IGPMStarterGPOCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(777135913, 8729, 17581, [147, 58, 100, 223, 214, 80, 196, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e522729_2219_44ad_933a_64dfd650c423);
 }
 impl ::core::convert::From<IGPMStarterGPOCollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMStarterGPOCollection) -> Self {
@@ -6953,7 +6953,7 @@ impl IGPMStatusMessage {
 }
 unsafe impl ::windows::runtime::Interface for IGPMStatusMessage {
     type Vtable = IGPMStatusMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2224472623, 62430, 18975, [143, 88, 96, 60, 170, 169, 61, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8496c22f_f3de_4a1f_8f58_603caaa93d7b);
 }
 impl ::core::convert::From<IGPMStatusMessage> for ::windows::runtime::IUnknown {
     fn from(value: IGPMStatusMessage) -> Self {
@@ -7048,7 +7048,7 @@ impl IGPMStatusMsgCollection {
 }
 unsafe impl ::windows::runtime::Interface for IGPMStatusMsgCollection {
     type Vtable = IGPMStatusMsgCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2607684336, 6802, 16627, [165, 157, 243, 106, 193, 247, 40, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b6e1af0_1a92_40f3_a59d_f36ac1f728b7);
 }
 impl ::core::convert::From<IGPMStatusMsgCollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMStatusMsgCollection) -> Self {
@@ -7150,7 +7150,7 @@ impl IGPMTrustee {
 }
 unsafe impl ::windows::runtime::Interface for IGPMTrustee {
     type Vtable = IGPMTrustee_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(994471336, 49572, 19242, [153, 154, 190, 252, 221, 86, 206, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b466da8_c1a4_4b2a_999a_befcdd56cefb);
 }
 impl ::core::convert::From<IGPMTrustee> for ::windows::runtime::IUnknown {
     fn from(value: IGPMTrustee) -> Self {
@@ -7270,7 +7270,7 @@ impl IGPMWMIFilter {
 }
 unsafe impl ::windows::runtime::Interface for IGPMWMIFilter {
     type Vtable = IGPMWMIFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4012898740, 15399, 17818, [185, 121, 3, 131, 5, 206, 199, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef2ff9b4_3c27_459a_b979_038305cec75d);
 }
 impl ::core::convert::From<IGPMWMIFilter> for ::windows::runtime::IUnknown {
     fn from(value: IGPMWMIFilter) -> Self {
@@ -7369,7 +7369,7 @@ impl IGPMWMIFilterCollection {
 }
 unsafe impl ::windows::runtime::Interface for IGPMWMIFilterCollection {
     type Vtable = IGPMWMIFilterCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1468192130, 6710, 18017, [138, 148, 195, 195, 37, 81, 148, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5782d582_1a36_4661_8a94_c3c32551945b);
 }
 impl ::core::convert::From<IGPMWMIFilterCollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMWMIFilterCollection) -> Self {
@@ -7527,7 +7527,7 @@ impl IGroupPolicyObject {
 }
 unsafe impl ::windows::runtime::Interface for IGroupPolicyObject {
     type Vtable = IGroupPolicyObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3931121443, 41533, 4561, [167, 211, 0, 0, 248, 117, 113, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea502723_a23d_11d1_a7d3_0000f87571e3);
 }
 impl ::core::convert::From<IGroupPolicyObject> for ::windows::runtime::IUnknown {
     fn from(value: IGroupPolicyObject) -> Self {
@@ -7750,7 +7750,7 @@ impl IRSOPInformation {
 }
 unsafe impl ::windows::runtime::Interface for IRSOPInformation {
     type Vtable = IRSOPInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2589622709, 55751, 18927, [157, 17, 221, 245, 9, 104, 196, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a5a81b5_d9c7_49ef_9d11_ddf50968c48d);
 }
 impl ::core::convert::From<IRSOPInformation> for ::windows::runtime::IUnknown {
     fn from(value: IRSOPInformation) -> Self {
@@ -7971,14 +7971,14 @@ pub const MANAGED_APPTYPE_SETUPEXE: u32 = 2u32;
 pub const MANAGED_APPTYPE_UNSUPPORTED: u32 = 3u32;
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const MANAGED_APPTYPE_WINDOWSINSTALLER: u32 = 1u32;
-pub const NODEID_Machine: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2411771703, 41185, 4561, [167, 211, 0, 0, 248, 117, 113, 227]);
-pub const NODEID_MachineSWSettings: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2411771706, 41185, 4561, [167, 211, 0, 0, 248, 117, 113, 227]);
-pub const NODEID_RSOPMachine: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3175881262, 2938, 19042, [166, 176, 192, 87, 117, 57, 201, 126]);
-pub const NODEID_RSOPMachineSWSettings: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1786128190, 60302, 17883, [148, 197, 37, 102, 58, 95, 44, 26]);
-pub const NODEID_RSOPUser: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2877765199, 3308, 19672, [155, 248, 137, 143, 52, 98, 143, 184]);
-pub const NODEID_RSOPUserSWSettings: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3844889827, 64807, 17410, [132, 222, 217, 165, 242, 133, 137, 16]);
-pub const NODEID_User: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2411771704, 41185, 4561, [167, 211, 0, 0, 248, 117, 113, 227]);
-pub const NODEID_UserSWSettings: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2411771708, 41185, 4561, [167, 211, 0, 0, 248, 117, 113, 227]);
+pub const NODEID_Machine: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fc0b737_a0e1_11d1_a7d3_0000f87571e3);
+pub const NODEID_MachineSWSettings: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fc0b73a_a0e1_11d1_a7d3_0000f87571e3);
+pub const NODEID_RSOPMachine: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd4c1a2e_0b7a_4a62_a6b0_c0577539c97e);
+pub const NODEID_RSOPMachineSWSettings: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a76273e_eb8e_45db_94c5_25663a5f2c1a);
+pub const NODEID_RSOPUser: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab87364f_0cec_4cd8_9bf8_898f34628fb8);
+pub const NODEID_RSOPUserSWSettings: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe52c5ce3_fd27_4402_84de_d9a5f2858910);
+pub const NODEID_User: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fc0b738_a0e1_11d1_a7d3_0000f87571e3);
+pub const NODEID_UserSWSettings: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fc0b73c_a0e1_11d1_a7d3_0000f87571e3);
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Wmi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
 pub type PFNGENERATEGROUPPOLICY = unsafe extern "system" fn(dwflags: u32, pbabort: *mut super::super::Foundation::BOOL, pwszsite: super::super::Foundation::PWSTR, pcomputertarget: *const ::core::mem::ManuallyDrop<RSOP_TARGET>, pusertarget: *const ::core::mem::ManuallyDrop<RSOP_TARGET>) -> u32;

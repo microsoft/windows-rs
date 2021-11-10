@@ -317,7 +317,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositeTransform3D {
 }
 unsafe impl ::windows::runtime::Interface for CompositeTransform3D {
     type Vtable = ICompositeTransform3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2306329345, 44941, 19189, [176, 132, 192, 142, 185, 112, 74, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8977cb01_af8d_4af5_b084_c08eb9704abe);
 }
 impl ::windows::runtime::RuntimeName for CompositeTransform3D {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Media3D.CompositeTransform3D";
@@ -409,7 +409,7 @@ unsafe impl ::core::marker::Sync for CompositeTransform3D {}
 pub struct ICompositeTransform3D(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositeTransform3D {
     type Vtable = ICompositeTransform3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2306329345, 44941, 19189, [176, 132, 192, 142, 185, 112, 74, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8977cb01_af8d_4af5_b084_c08eb9704abe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -450,7 +450,7 @@ pub struct ICompositeTransform3D_abi(
 pub struct ICompositeTransform3DStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositeTransform3DStatics {
     type Vtable = ICompositeTransform3DStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3720301927, 10789, 18675, [152, 8, 197, 30, 195, 213, 91, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddbf4d67_2a25_48f3_9808_c51ec3d55bec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -479,7 +479,7 @@ pub struct ICompositeTransform3DStatics_abi(
 pub struct IMatrix3DHelper(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMatrix3DHelper {
     type Vtable = IMatrix3DHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3834384623, 39207, 19611, [130, 19, 7, 119, 85, 18, 186, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe48c10ef_9927_4c9b_8213_07775512ba04);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -496,7 +496,7 @@ pub struct IMatrix3DHelper_abi(
 pub struct IMatrix3DHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMatrix3DHelperStatics {
     type Vtable = IMatrix3DHelperStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2456048734, 57688, 20084, [136, 153, 104, 145, 96, 189, 47, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9264545e_e158_4e74_8899_689160bd2f8c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -519,7 +519,7 @@ pub struct IMatrix3DHelperStatics_abi(
 pub struct IPerspectiveTransform3D(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerspectiveTransform3D {
     type Vtable = IPerspectiveTransform3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2591773482, 12537, 16545, [150, 201, 197, 157, 135, 249, 90, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a7b532a_30f9_40a1_96c9_c59d87f95ac3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -542,7 +542,7 @@ pub struct IPerspectiveTransform3D_abi(
 pub struct IPerspectiveTransform3DStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerspectiveTransform3DStatics {
     type Vtable = IPerspectiveTransform3DStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2389664768, 25100, 18631, [132, 77, 63, 9, 132, 218, 91, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e6f6400_620c_48c7_844d_3f0984da5b17);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -562,7 +562,7 @@ pub struct IPerspectiveTransform3DStatics_abi(
 pub struct ITransform3D(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransform3D {
     type Vtable = ITransform3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2923353146, 43516, 19505, [134, 205, 86, 217, 202, 37, 26, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae3ed43a_a9fc_4c31_86cd_56d9ca251a69);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -579,7 +579,7 @@ pub struct ITransform3D_abi(
 pub struct ITransform3DFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransform3DFactory {
     type Vtable = ITransform3DFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(86777722, 36211, 18637, [187, 184, 208, 4, 52, 202, 174, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x052c1f7a_8d73_48cd_bbb8_d00434caae5d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -713,7 +713,7 @@ unsafe impl ::windows::runtime::RuntimeType for Matrix3DHelper {
 }
 unsafe impl ::windows::runtime::Interface for Matrix3DHelper {
     type Vtable = IMatrix3DHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3834384623, 39207, 19611, [130, 19, 7, 119, 85, 18, 186, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe48c10ef_9927_4c9b_8213_07775512ba04);
 }
 impl ::windows::runtime::RuntimeName for Matrix3DHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Media3D.Matrix3DHelper";
@@ -898,7 +898,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerspectiveTransform3D {
 }
 unsafe impl ::windows::runtime::Interface for PerspectiveTransform3D {
     type Vtable = IPerspectiveTransform3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2591773482, 12537, 16545, [150, 201, 197, 157, 135, 249, 90, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a7b532a_30f9_40a1_96c9_c59d87f95ac3);
 }
 impl ::windows::runtime::RuntimeName for PerspectiveTransform3D {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Media3D.PerspectiveTransform3D";
@@ -1052,7 +1052,7 @@ unsafe impl ::windows::runtime::RuntimeType for Transform3D {
 }
 unsafe impl ::windows::runtime::Interface for Transform3D {
     type Vtable = ITransform3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2923353146, 43516, 19505, [134, 205, 86, 217, 202, 37, 26, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae3ed43a_a9fc_4c31_86cd_56d9ca251a69);
 }
 impl ::windows::runtime::RuntimeName for Transform3D {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Media3D.Transform3D";

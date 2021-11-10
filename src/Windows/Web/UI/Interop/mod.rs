@@ -4,7 +4,7 @@
 pub struct IWebViewControlAcceleratorKeyPressedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlAcceleratorKeyPressedEventArgs {
     type Vtable = IWebViewControlAcceleratorKeyPressedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2007147838, 31860, 17277, [162, 144, 58, 192, 216, 205, 86, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77a2a53e_7c74_437d_a290_3ac0d8cd5655);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30,7 +30,7 @@ pub struct IWebViewControlAcceleratorKeyPressedEventArgs_abi(
 pub struct IWebViewControlMoveFocusRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlMoveFocusRequestedEventArgs {
     type Vtable = IWebViewControlMoveFocusRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1797927949, 19408, 16478, [183, 193, 30, 114, 164, 146, 244, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b2a340d_4bd0_405e_b7c1_1e72a492f446);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -48,7 +48,7 @@ pub struct IWebViewControlMoveFocusRequestedEventArgs_abi(
 pub struct IWebViewControlProcess(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlProcess {
     type Vtable = IWebViewControlProcess_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(46605292, 39126, 16970, [182, 62, 198, 19, 108, 54, 160, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02c723ec_98d6_424a_b63e_c6136c36a0f2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -77,7 +77,7 @@ pub struct IWebViewControlProcess_abi(
 pub struct IWebViewControlProcessFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlProcessFactory {
     type Vtable = IWebViewControlProcessFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1203133689, 41682, 17724, [176, 151, 246, 119, 157, 75, 142, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47b65cf9_a2d2_453c_b097_f6779d4b8e02);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -95,7 +95,7 @@ pub struct IWebViewControlProcessFactory_abi(
 pub struct IWebViewControlProcessOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlProcessOptions {
     type Vtable = IWebViewControlProcessOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(483029671, 15318, 18470, [130, 97, 108, 129, 137, 80, 93, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cca72a7_3bd6_4826_8261_6c8189505d89);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -116,7 +116,7 @@ pub struct IWebViewControlProcessOptions_abi(
 pub struct IWebViewControlSite(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlSite {
     type Vtable = IWebViewControlSite_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(322914246, 4828, 18584, [189, 71, 4, 150, 125, 230, 72, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x133f47c6_12dc_4898_bd47_04967de648ba);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -152,7 +152,7 @@ pub struct IWebViewControlSite_abi(
 pub struct IWebViewControlSite2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlSite2 {
     type Vtable = IWebViewControlSite2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3510316607, 18670, 18224, [130, 67, 210, 237, 12, 5, 96, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd13b2e3f_48ee_4730_8243_d2ed0c05606a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -725,7 +725,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebViewControl {
 }
 unsafe impl ::windows::runtime::Interface for WebViewControl {
     type Vtable = super::IWebViewControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1066537750, 48240, 19418, [145, 54, 201, 67, 112, 137, 159, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f921316_bc70_4bda_9136_c94370899fab);
 }
 impl ::windows::runtime::RuntimeName for WebViewControl {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControl";
@@ -871,7 +871,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebViewControlAcceleratorKeyPres
 }
 unsafe impl ::windows::runtime::Interface for WebViewControlAcceleratorKeyPressedEventArgs {
     type Vtable = IWebViewControlAcceleratorKeyPressedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2007147838, 31860, 17277, [162, 144, 58, 192, 216, 205, 86, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77a2a53e_7c74_437d_a290_3ac0d8cd5655);
 }
 impl ::windows::runtime::RuntimeName for WebViewControlAcceleratorKeyPressedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControlAcceleratorKeyPressedEventArgs";
@@ -980,7 +980,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebViewControlMoveFocusRequested
 }
 unsafe impl ::windows::runtime::Interface for WebViewControlMoveFocusRequestedEventArgs {
     type Vtable = IWebViewControlMoveFocusRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1797927949, 19408, 16478, [183, 193, 30, 114, 164, 146, 244, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b2a340d_4bd0_405e_b7c1_1e72a492f446);
 }
 impl ::windows::runtime::RuntimeName for WebViewControlMoveFocusRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControlMoveFocusRequestedEventArgs";
@@ -1116,7 +1116,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebViewControlProcess {
 }
 unsafe impl ::windows::runtime::Interface for WebViewControlProcess {
     type Vtable = IWebViewControlProcess_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(46605292, 39126, 16970, [182, 62, 198, 19, 108, 54, 160, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02c723ec_98d6_424a_b63e_c6136c36a0f2);
 }
 impl ::windows::runtime::RuntimeName for WebViewControlProcess {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControlProcess";
@@ -1228,7 +1228,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebViewControlProcessOptions {
 }
 unsafe impl ::windows::runtime::Interface for WebViewControlProcessOptions {
     type Vtable = IWebViewControlProcessOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(483029671, 15318, 18470, [130, 97, 108, 129, 137, 80, 93, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cca72a7_3bd6_4826_8261_6c8189505d89);
 }
 impl ::windows::runtime::RuntimeName for WebViewControlProcessOptions {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControlProcessOptions";

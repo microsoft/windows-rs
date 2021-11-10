@@ -16,7 +16,7 @@ impl IWsbApplicationAsync {
 }
 unsafe impl ::windows::runtime::Interface for IWsbApplicationAsync {
     type Vtable = IWsbApplicationAsync_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(138671863, 35164, 17574, [176, 194, 5, 165, 2, 42, 163, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0843f6f7_895c_44a6_b0c2_05a5022aa3a1);
 }
 impl ::core::convert::From<IWsbApplicationAsync> for ::windows::runtime::IUnknown {
     fn from(value: IWsbApplicationAsync) -> Self {
@@ -69,7 +69,7 @@ impl IWsbApplicationBackupSupport {
 }
 unsafe impl ::windows::runtime::Interface for IWsbApplicationBackupSupport {
     type Vtable = IWsbApplicationBackupSupport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(520041744, 18983, 18093, [185, 224, 8, 51, 47, 15, 79, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1eff3510_4a27_46ad_b9e0_08332f0f4f6d);
 }
 impl ::core::convert::From<IWsbApplicationBackupSupport> for ::windows::runtime::IUnknown {
     fn from(value: IWsbApplicationBackupSupport) -> Self {
@@ -128,7 +128,7 @@ impl IWsbApplicationRestoreSupport {
 }
 unsafe impl ::windows::runtime::Interface for IWsbApplicationRestoreSupport {
     type Vtable = IWsbApplicationRestoreSupport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2369510200, 20200, 18200, [133, 249, 199, 219, 196, 171, 119, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d3bdb38_4ee8_4718_85f9_c7dbc4ab77aa);
 }
 impl ::core::convert::From<IWsbApplicationRestoreSupport> for ::windows::runtime::IUnknown {
     fn from(value: IWsbApplicationRestoreSupport) -> Self {

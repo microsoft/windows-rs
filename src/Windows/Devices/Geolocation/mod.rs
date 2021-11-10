@@ -112,7 +112,7 @@ unsafe impl ::windows::runtime::RuntimeType for CivicAddress {
 }
 unsafe impl ::windows::runtime::Interface for CivicAddress {
     type Vtable = ICivicAddress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2824239642, 25844, 19784, [188, 234, 246, 176, 8, 236, 163, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8567a1a_64f4_4d48_bcea_f6b008eca34c);
 }
 impl ::windows::runtime::RuntimeName for CivicAddress {
     const NAME: &'static str = "Windows.Devices.Geolocation.CivicAddress";
@@ -287,7 +287,7 @@ unsafe impl ::windows::runtime::RuntimeType for GeoboundingBox {
 }
 unsafe impl ::windows::runtime::Interface for GeoboundingBox {
     type Vtable = IGeoboundingBox_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(144099339, 10063, 17370, [154, 6, 203, 252, 218, 235, 78, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0896c80b_274f_43da_9a06_cbfcdaeb4ec2);
 }
 impl ::windows::runtime::RuntimeName for GeoboundingBox {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeoboundingBox";
@@ -432,7 +432,7 @@ unsafe impl ::windows::runtime::RuntimeType for Geocircle {
 }
 unsafe impl ::windows::runtime::Interface for Geocircle {
     type Vtable = IGeocircle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(971266115, 43001, 20067, [146, 167, 186, 12, 40, 209, 36, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39e45843_a7f9_4e63_92a7_ba0c28d124b1);
 }
 impl ::windows::runtime::RuntimeName for Geocircle {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geocircle";
@@ -625,7 +625,7 @@ unsafe impl ::windows::runtime::RuntimeType for Geocoordinate {
 }
 unsafe impl ::windows::runtime::Interface for Geocoordinate {
     type Vtable = IGeocoordinate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3995181994, 38762, 19568, [128, 61, 8, 62, 165, 91, 203, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee21a3aa_976a_4c70_803d_083ea55bcbc4);
 }
 impl ::windows::runtime::RuntimeName for Geocoordinate {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geocoordinate";
@@ -728,7 +728,7 @@ unsafe impl ::windows::runtime::RuntimeType for GeocoordinateSatelliteData {
 }
 unsafe impl ::windows::runtime::Interface for GeocoordinateSatelliteData {
     type Vtable = IGeocoordinateSatelliteData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3274339545, 9736, 18252, [145, 44, 6, 221, 73, 15, 74, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc32a74d9_2608_474c_912c_06dd490f4af7);
 }
 impl ::windows::runtime::RuntimeName for GeocoordinateSatelliteData {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeocoordinateSatelliteData";
@@ -983,7 +983,7 @@ unsafe impl ::windows::runtime::RuntimeType for Geolocator {
 }
 unsafe impl ::windows::runtime::Interface for Geolocator {
     type Vtable = IGeolocator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2848178018, 17700, 18825, [138, 169, 222, 1, 157, 46, 85, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9c3bf62_4524_4989_8aa9_de019d2e551f);
 }
 impl ::windows::runtime::RuntimeName for Geolocator {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geolocator";
@@ -1102,7 +1102,7 @@ unsafe impl ::windows::runtime::RuntimeType for Geopath {
 }
 unsafe impl ::windows::runtime::Interface for Geopath {
     type Vtable = IGeopath_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3846166457, 11684, 18196, [166, 82, 222, 133, 147, 40, 152, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe53fd7b9_2da4_4714_a652_de8593289898);
 }
 impl ::windows::runtime::RuntimeName for Geopath {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geopath";
@@ -1239,7 +1239,7 @@ unsafe impl ::windows::runtime::RuntimeType for Geopoint {
 }
 unsafe impl ::windows::runtime::Interface for Geopoint {
     type Vtable = IGeopoint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1811546347, 58734, 18875, [156, 175, 203, 170, 120, 168, 188, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6bfa00eb_e56e_49bb_9caf_cbaa78a8bcef);
 }
 impl ::windows::runtime::RuntimeName for Geopoint {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geopoint";
@@ -1343,7 +1343,7 @@ unsafe impl ::windows::runtime::RuntimeType for Geoposition {
 }
 unsafe impl ::windows::runtime::Interface for Geoposition {
     type Vtable = IGeoposition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3247244372, 32065, 20471, [169, 87, 157, 255, 180, 239, 127, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc18d0454_7d41_4ff7_a957_9dffb4ef7f5b);
 }
 impl ::windows::runtime::RuntimeName for Geoposition {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geoposition";
@@ -1450,7 +1450,7 @@ unsafe impl ::windows::runtime::RuntimeType for Geovisit {
 }
 unsafe impl ::windows::runtime::Interface for Geovisit {
     type Vtable = IGeovisit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2978445942, 40694, 16811, [160, 221, 121, 62, 206, 118, 226, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1877a76_9ef6_41ab_a0dd_793ece76e2de);
 }
 impl ::windows::runtime::RuntimeName for Geovisit {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geovisit";
@@ -1560,7 +1560,7 @@ unsafe impl ::windows::runtime::RuntimeType for GeovisitMonitor {
 }
 unsafe impl ::windows::runtime::Interface for GeovisitMonitor {
     type Vtable = IGeovisitMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2148633263, 22852, 17809, [131, 193, 57, 102, 71, 245, 79, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80118aaf_5944_4591_83c1_396647f54f2c);
 }
 impl ::windows::runtime::RuntimeName for GeovisitMonitor {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitMonitor";
@@ -1626,7 +1626,7 @@ unsafe impl ::windows::runtime::RuntimeType for GeovisitStateChangedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for GeovisitStateChangedEventArgs {
     type Vtable = IGeovisitStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3467956735, 35667, 18792, [190, 237, 76, 236, 208, 41, 206, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xceb4d1ff_8b53_4968_beed_4cecd029ce15);
 }
 impl ::windows::runtime::RuntimeName for GeovisitStateChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitStateChangedEventArgs";
@@ -1693,7 +1693,7 @@ unsafe impl ::windows::runtime::RuntimeType for GeovisitTriggerDetails {
 }
 unsafe impl ::windows::runtime::Interface for GeovisitTriggerDetails {
     type Vtable = IGeovisitTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3933670814, 53705, 17739, [153, 183, 178, 248, 205, 210, 72, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea770d9e_d1c9_454b_99b7_b2f8cdd2482f);
 }
 impl ::windows::runtime::RuntimeName for GeovisitTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitTriggerDetails";
@@ -1745,7 +1745,7 @@ unsafe impl ::core::marker::Sync for GeovisitTriggerDetails {}
 pub struct ICivicAddress(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICivicAddress {
     type Vtable = ICivicAddress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2824239642, 25844, 19784, [188, 234, 246, 176, 8, 236, 163, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8567a1a_64f4_4d48_bcea_f6b008eca34c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1768,7 +1768,7 @@ pub struct ICivicAddress_abi(
 pub struct IGeoboundingBox(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeoboundingBox {
     type Vtable = IGeoboundingBox_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(144099339, 10063, 17370, [154, 6, 203, 252, 218, 235, 78, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0896c80b_274f_43da_9a06_cbfcdaeb4ec2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1790,7 +1790,7 @@ pub struct IGeoboundingBox_abi(
 pub struct IGeoboundingBoxFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeoboundingBoxFactory {
     type Vtable = IGeoboundingBoxFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1308337545, 1041, 19132, [179, 181, 91, 188, 203, 87, 217, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4dfba589_0411_4abc_b3b5_5bbccb57d98c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1810,7 +1810,7 @@ pub struct IGeoboundingBoxFactory_abi(
 pub struct IGeoboundingBoxStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeoboundingBoxStatics {
     type Vtable = IGeoboundingBoxStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1740113672, 58906, 19664, [132, 27, 147, 35, 55, 146, 181, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x67b80708_e61a_4cd0_841b_93233792b5ca);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1833,7 +1833,7 @@ pub struct IGeoboundingBoxStatics_abi(
 pub struct IGeocircle(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeocircle {
     type Vtable = IGeocircle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(971266115, 43001, 20067, [146, 167, 186, 12, 40, 209, 36, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39e45843_a7f9_4e63_92a7_ba0c28d124b1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1852,7 +1852,7 @@ pub struct IGeocircle_abi(
 pub struct IGeocircleFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeocircleFactory {
     type Vtable = IGeocircleFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2950058783, 29361, 20349, [135, 204, 78, 212, 201, 132, 156, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xafd6531f_72b1_4f7d_87cc_4ed4c9849c05);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1872,7 +1872,7 @@ pub struct IGeocircleFactory_abi(
 pub struct IGeocoordinate(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeocoordinate {
     type Vtable = IGeocoordinate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3995181994, 38762, 19568, [128, 61, 8, 62, 165, 91, 203, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee21a3aa_976a_4c70_803d_083ea55bcbc4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1902,7 +1902,7 @@ pub struct IGeocoordinate_abi(
 pub struct IGeocoordinateSatelliteData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeocoordinateSatelliteData {
     type Vtable = IGeocoordinateSatelliteData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3274339545, 9736, 18252, [145, 44, 6, 221, 73, 15, 74, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc32a74d9_2608_474c_912c_06dd490f4af7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1925,7 +1925,7 @@ pub struct IGeocoordinateSatelliteData_abi(
 pub struct IGeocoordinateSatelliteData2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeocoordinateSatelliteData2 {
     type Vtable = IGeocoordinateSatelliteData2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1981582589, 41373, 23121, [128, 245, 113, 103, 97, 21, 72, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x761c8cfd_a19d_5a51_80f5_71676115483e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1946,7 +1946,7 @@ pub struct IGeocoordinateSatelliteData2_abi(
 pub struct IGeocoordinateWithPoint(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeocoordinateWithPoint {
     type Vtable = IGeocoordinateWithPoint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4276749605, 53804, 19782, [181, 39, 11, 150, 6, 111, 199, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfeea0525_d22c_4d46_b527_0b96066fc7db);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1964,7 +1964,7 @@ pub struct IGeocoordinateWithPoint_abi(
 pub struct IGeocoordinateWithPositionData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeocoordinateWithPositionData {
     type Vtable = IGeocoordinateWithPositionData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2514891966, 56278, 16556, [184, 242, 166, 92, 3, 64, 217, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95e634be_dbd6_40ac_b8f2_a65c0340d9a6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1983,7 +1983,7 @@ pub struct IGeocoordinateWithPositionData_abi(
 pub struct IGeocoordinateWithPositionSourceTimestamp(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeocoordinateWithPositionSourceTimestamp {
     type Vtable = IGeocoordinateWithPositionSourceTimestamp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2235825154, 51697, 17936, [175, 224, 139, 195, 166, 168, 112, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8543fc02_c9f1_4610_afe0_8bc3a6a87036);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2002,7 +2002,7 @@ pub struct IGeocoordinateWithPositionSourceTimestamp_abi(
 pub struct IGeocoordinateWithRemoteSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeocoordinateWithRemoteSource {
     type Vtable = IGeocoordinateWithRemoteSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(964488151, 60984, 24379, [137, 0, 196, 167, 188, 156, 249, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x397cebd7_ee38_5f3b_8900_c4a7bc9cf953);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2020,7 +2020,7 @@ pub struct IGeocoordinateWithRemoteSource_abi(
 pub struct IGeolocator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeolocator {
     type Vtable = IGeolocator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2848178018, 17700, 18825, [138, 169, 222, 1, 157, 46, 85, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9c3bf62_4524_4989_8aa9_de019d2e551f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2056,7 +2056,7 @@ pub struct IGeolocator_abi(
 pub struct IGeolocator2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeolocator2 {
     type Vtable = IGeolocator2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3518246509, 34961, 17332, [173, 54, 39, 198, 254, 154, 151, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1b42e6d_8891_43b4_ad36_27c6fe9a97b1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2074,7 +2074,7 @@ pub struct IGeolocator2_abi(
 pub struct IGeolocatorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeolocatorStatics {
     type Vtable = IGeolocatorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2593027441, 11765, 17809, [159, 135, 235, 95, 216, 148, 233, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a8e7571_2df5_4591_9f87_eb5fd894e9b7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2097,7 +2097,7 @@ pub struct IGeolocatorStatics_abi(
 pub struct IGeolocatorStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeolocatorStatics2 {
     type Vtable = IGeolocatorStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2570064290, 64028, 17969, [167, 29, 13, 190, 177, 37, 13, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x993011a2_fa1c_4631_a71d_0dbeb1250d9c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2119,7 +2119,7 @@ pub struct IGeolocatorStatics2_abi(
 pub struct IGeolocatorWithScalarAccuracy(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeolocatorWithScalarAccuracy {
     type Vtable = IGeolocatorWithScalarAccuracy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2532692929, 47119, 17930, [153, 77, 169, 108, 71, 165, 26, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96f5d3c1_b80f_460a_994d_a96c47a51aa4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2140,7 +2140,7 @@ pub struct IGeolocatorWithScalarAccuracy_abi(
 pub struct IGeopath(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeopath {
     type Vtable = IGeopath_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3846166457, 11684, 18196, [166, 82, 222, 133, 147, 40, 152, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe53fd7b9_2da4_4714_a652_de8593289898);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2159,7 +2159,7 @@ pub struct IGeopath_abi(
 pub struct IGeopathFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeopathFactory {
     type Vtable = IGeopathFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(666806728, 51175, 17241, [155, 155, 252, 163, 224, 94, 245, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27bea9c8_c7e7_4359_9b9b_fca3e05ef593);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2182,7 +2182,7 @@ pub struct IGeopathFactory_abi(
 pub struct IGeopoint(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeopoint {
     type Vtable = IGeopoint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1811546347, 58734, 18875, [156, 175, 203, 170, 120, 168, 188, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6bfa00eb_e56e_49bb_9caf_cbaa78a8bcef);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2200,7 +2200,7 @@ pub struct IGeopoint_abi(
 pub struct IGeopointFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeopointFactory {
     type Vtable = IGeopointFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3681258803, 30397, 20016, [138, 247, 168, 68, 220, 55, 183, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb6b8d33_76bd_4e30_8af7_a844dc37b7a0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2220,7 +2220,7 @@ pub struct IGeopointFactory_abi(
 pub struct IGeoposition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeoposition {
     type Vtable = IGeoposition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3247244372, 32065, 20471, [169, 87, 157, 255, 180, 239, 127, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc18d0454_7d41_4ff7_a957_9dffb4ef7f5b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2239,7 +2239,7 @@ pub struct IGeoposition_abi(
 pub struct IGeoposition2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeoposition2 {
     type Vtable = IGeoposition2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2137192087, 34417, 19213, [134, 248, 71, 74, 132, 150, 24, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f62f697_8671_4b0d_86f8_474a8496187c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2258,7 +2258,7 @@ pub struct IGeoposition2_abi(
 pub struct IGeoshape(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeoshape {
     type Vtable = IGeoshape_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3382485679, 50985, 17345, [143, 171, 214, 222, 201, 20, 223, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc99ca2af_c729_43c1_8fab_d6dec914df7e);
 }
 impl IGeoshape {
     #[doc = "*Required features: `Devices_Geolocation`*"]
@@ -2347,7 +2347,7 @@ pub struct IGeoshape_abi(
 pub struct IGeovisit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeovisit {
     type Vtable = IGeovisit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2978445942, 40694, 16811, [160, 221, 121, 62, 206, 118, 226, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1877a76_9ef6_41ab_a0dd_793ece76e2de);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2368,7 +2368,7 @@ pub struct IGeovisit_abi(
 pub struct IGeovisitMonitor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeovisitMonitor {
     type Vtable = IGeovisitMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2148633263, 22852, 17809, [131, 193, 57, 102, 71, 245, 79, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80118aaf_5944_4591_83c1_396647f54f2c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2392,7 +2392,7 @@ pub struct IGeovisitMonitor_abi(
 pub struct IGeovisitMonitorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeovisitMonitorStatics {
     type Vtable = IGeovisitMonitorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3170465447, 48114, 19677, [149, 207, 85, 76, 130, 237, 251, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbcf976a7_bbf2_4cdd_95cf_554c82edfb87);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2411,7 +2411,7 @@ pub struct IGeovisitMonitorStatics_abi(
 pub struct IGeovisitStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeovisitStateChangedEventArgs {
     type Vtable = IGeovisitStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3467956735, 35667, 18792, [190, 237, 76, 236, 208, 41, 206, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xceb4d1ff_8b53_4968_beed_4cecd029ce15);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2429,7 +2429,7 @@ pub struct IGeovisitStateChangedEventArgs_abi(
 pub struct IGeovisitTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeovisitTriggerDetails {
     type Vtable = IGeovisitTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3933670814, 53705, 17739, [153, 183, 178, 248, 205, 210, 72, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea770d9e_d1c9_454b_99b7_b2f8cdd2482f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2448,7 +2448,7 @@ pub struct IGeovisitTriggerDetails_abi(
 pub struct IPositionChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPositionChangedEventArgs {
     type Vtable = IPositionChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(931503333, 40222, 18117, [191, 59, 106, 216, 202, 193, 160, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x37859ce5_9d1e_46c5_bf3b_6ad8cac1a093);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2466,7 +2466,7 @@ pub struct IPositionChangedEventArgs_abi(
 pub struct IStatusChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStatusChangedEventArgs {
     type Vtable = IStatusChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(877908698, 35987, 16657, [162, 5, 154, 236, 252, 155, 229, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3453d2da_8c93_4111_a205_9aecfc9be5c0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2484,7 +2484,7 @@ pub struct IStatusChangedEventArgs_abi(
 pub struct IVenueData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVenueData {
     type Vtable = IVenueData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1727238535, 24803, 19247, [181, 39, 79, 83, 241, 195, 198, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66f39187_60e3_4b2f_b527_4f53f1c3c677);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2539,7 +2539,7 @@ unsafe impl ::windows::runtime::RuntimeType for PositionChangedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for PositionChangedEventArgs {
     type Vtable = IPositionChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(931503333, 40222, 18117, [191, 59, 106, 216, 202, 193, 160, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x37859ce5_9d1e_46c5_bf3b_6ad8cac1a093);
 }
 impl ::windows::runtime::RuntimeName for PositionChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.PositionChangedEventArgs";
@@ -2658,7 +2658,7 @@ unsafe impl ::windows::runtime::RuntimeType for StatusChangedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for StatusChangedEventArgs {
     type Vtable = IStatusChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(877908698, 35987, 16657, [162, 5, 154, 236, 252, 155, 229, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3453d2da_8c93_4111_a205_9aecfc9be5c0);
 }
 impl ::windows::runtime::RuntimeName for StatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.StatusChangedEventArgs";
@@ -2732,7 +2732,7 @@ unsafe impl ::windows::runtime::RuntimeType for VenueData {
 }
 unsafe impl ::windows::runtime::Interface for VenueData {
     type Vtable = IVenueData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1727238535, 24803, 19247, [181, 39, 79, 83, 241, 195, 198, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66f39187_60e3_4b2f_b527_4f53f1c3c677);
 }
 impl ::windows::runtime::RuntimeName for VenueData {
     const NAME: &'static str = "Windows.Devices.Geolocation.VenueData";

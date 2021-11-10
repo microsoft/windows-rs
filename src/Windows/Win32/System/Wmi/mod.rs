@@ -59,7 +59,7 @@ impl IEnumWbemClassObject {
 }
 unsafe impl ::windows::runtime::Interface for IEnumWbemClassObject {
     type Vtable = IEnumWbemClassObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(41502689, 55089, 4558, [163, 87, 0, 0, 0, 0, 0, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x027947e1_d731_11ce_a357_000000000001);
 }
 impl ::core::convert::From<IEnumWbemClassObject> for ::windows::runtime::IUnknown {
     fn from(value: IEnumWbemClassObject) -> Self {
@@ -164,7 +164,7 @@ impl IMofCompiler {
 }
 unsafe impl ::windows::runtime::Interface for IMofCompiler {
     type Vtable = IMofCompiler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1840224078, 11831, 4562, [174, 201, 0, 192, 79, 182, 136, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6daf974e_2e37_11d2_aec9_00c04fb68820);
 }
 impl ::core::convert::From<IMofCompiler> for ::windows::runtime::IUnknown {
     fn from(value: IMofCompiler) -> Self {
@@ -391,7 +391,7 @@ impl ISWbemDateTime {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemDateTime {
     type Vtable = ISWbemDateTime_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1586972042, 53111, 4563, [179, 143, 0, 16, 90, 31, 71, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e97458a_cf77_11d3_b38f_00105a1f473a);
 }
 impl ::core::convert::From<ISWbemDateTime> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemDateTime) -> Self {
@@ -513,7 +513,7 @@ impl ISWbemEventSource {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemEventSource {
     type Vtable = ISWbemEventSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(668290450, 3774, 4562, [139, 34, 0, 96, 8, 6, 217, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27d54d92_0ebe_11d2_8b22_00600806d9b6);
 }
 impl ::core::convert::From<ISWbemEventSource> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemEventSource) -> Self {
@@ -864,7 +864,7 @@ impl ISWbemLastError {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemLastError {
     type Vtable = ISWbemLastError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3647134596, 54459, 4561, [139, 9, 0, 96, 8, 6, 217, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd962db84_d4bb_11d1_8b09_00600806d9b6);
 }
 impl ::core::convert::From<ISWbemLastError> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemLastError) -> Self {
@@ -1078,7 +1078,7 @@ impl ISWbemLocator {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemLocator {
     type Vtable = ISWbemLocator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1990607195, 52033, 4561, [139, 2, 0, 96, 8, 6, 217, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76a6415b_cb41_11d1_8b02_00600806d9b6);
 }
 impl ::core::convert::From<ISWbemLocator> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemLocator) -> Self {
@@ -1188,7 +1188,7 @@ impl ISWbemMethod {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemMethod {
     type Vtable = ISWbemMethod_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1110347408, 55637, 4561, [139, 9, 0, 96, 8, 6, 217, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x422e8e90_d955_11d1_8b09_00600806d9b6);
 }
 impl ::core::convert::From<ISWbemMethod> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemMethod) -> Self {
@@ -1279,7 +1279,7 @@ impl ISWbemMethodSet {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemMethodSet {
     type Vtable = ISWbemMethodSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3376128658, 55637, 4561, [139, 9, 0, 96, 8, 6, 217, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc93ba292_d955_11d1_8b09_00600806d9b6);
 }
 impl ::core::convert::From<ISWbemMethodSet> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemMethodSet) -> Self {
@@ -1368,7 +1368,7 @@ impl ISWbemNamedValue {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemNamedValue {
     type Vtable = ISWbemNamedValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1990607204, 52033, 4561, [139, 2, 0, 96, 8, 6, 217, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76a64164_cb41_11d1_8b02_00600806d9b6);
 }
 impl ::core::convert::From<ISWbemNamedValue> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemNamedValue) -> Self {
@@ -1478,7 +1478,7 @@ impl ISWbemNamedValueSet {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemNamedValueSet {
     type Vtable = ISWbemNamedValueSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3475207914, 52876, 4561, [139, 5, 0, 96, 8, 6, 217, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf2376ea_ce8c_11d1_8b05_00600806d9b6);
 }
 impl ::core::convert::From<ISWbemNamedValueSet> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemNamedValueSet) -> Self {
@@ -1805,7 +1805,7 @@ impl ISWbemObject {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemObject {
     type Vtable = ISWbemObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1990607194, 52033, 4561, [139, 2, 0, 96, 8, 6, 217, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76a6415a_cb41_11d1_8b02_00600806d9b6);
 }
 impl ::core::convert::From<ISWbemObject> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemObject) -> Self {
@@ -2259,7 +2259,7 @@ impl ISWbemObjectEx {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemObjectEx {
     type Vtable = ISWbemObjectEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(647681386, 35431, 16681, [188, 140, 5, 6, 220, 254, 152, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x269ad56a_8a67_4129_bc8c_0506dcfe9880);
 }
 impl ::core::convert::From<ISWbemObjectEx> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemObjectEx) -> Self {
@@ -2560,7 +2560,7 @@ impl ISWbemObjectPath {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemObjectPath {
     type Vtable = ISWbemObjectPath_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1469168679, 52892, 4561, [151, 191, 0, 0, 248, 30, 132, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5791bc27_ce9c_11d1_97bf_0000f81e849c);
 }
 impl ::core::convert::From<ISWbemObjectPath> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemObjectPath) -> Self {
@@ -2694,7 +2694,7 @@ impl ISWbemObjectSet {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemObjectSet {
     type Vtable = ISWbemObjectSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1990607199, 52033, 4561, [139, 2, 0, 96, 8, 6, 217, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76a6415f_cb41_11d1_8b02_00600806d9b6);
 }
 impl ::core::convert::From<ISWbemObjectSet> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemObjectSet) -> Self {
@@ -2794,7 +2794,7 @@ impl ISWbemPrivilege {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemPrivilege {
     type Vtable = ISWbemPrivilege_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(653158333, 22532, 4562, [139, 74, 0, 96, 8, 6, 217, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26ee67bd_5804_11d2_8b4a_00600806d9b6);
 }
 impl ::core::convert::From<ISWbemPrivilege> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemPrivilege) -> Self {
@@ -2903,7 +2903,7 @@ impl ISWbemPrivilegeSet {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemPrivilegeSet {
     type Vtable = ISWbemPrivilegeSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(653158335, 22532, 4562, [139, 74, 0, 96, 8, 6, 217, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26ee67bf_5804_11d2_8b4a_00600806d9b6);
 }
 impl ::core::convert::From<ISWbemPrivilegeSet> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemPrivilegeSet) -> Self {
@@ -3022,7 +3022,7 @@ impl ISWbemProperty {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemProperty {
     type Vtable = ISWbemProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(439914392, 54458, 4561, [139, 9, 0, 96, 8, 6, 217, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a388f98_d4ba_11d1_8b09_00600806d9b6);
 }
 impl ::core::convert::From<ISWbemProperty> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemProperty) -> Self {
@@ -3129,7 +3129,7 @@ impl ISWbemPropertySet {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemPropertySet {
     type Vtable = ISWbemPropertySet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3735070642, 54458, 4561, [139, 9, 0, 96, 8, 6, 217, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdea0a7b2_d4ba_11d1_8b09_00600806d9b6);
 }
 impl ::core::convert::From<ISWbemPropertySet> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemPropertySet) -> Self {
@@ -3259,7 +3259,7 @@ impl ISWbemQualifier {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemQualifier {
     type Vtable = ISWbemQualifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2041600306, 54199, 4561, [139, 6, 0, 96, 8, 6, 217, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79b05932_d3b7_11d1_8b06_00600806d9b6);
 }
 impl ::core::convert::From<ISWbemQualifier> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemQualifier) -> Self {
@@ -3368,7 +3368,7 @@ impl ISWbemQualifierSet {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemQualifierSet {
     type Vtable = ISWbemQualifierSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2601970966, 54239, 4561, [139, 8, 0, 96, 8, 6, 217, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b16ed16_d3df_11d1_8b08_00600806d9b6);
 }
 impl ::core::convert::From<ISWbemQualifierSet> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemQualifierSet) -> Self {
@@ -3473,7 +3473,7 @@ impl ISWbemRefreshableItem {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemRefreshableItem {
     type Vtable = ISWbemRefreshableItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1523892114, 55979, 4563, [179, 143, 0, 16, 90, 31, 71, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ad4bf92_daab_11d3_b38f_00105a1f473a);
 }
 impl ::core::convert::From<ISWbemRefreshableItem> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemRefreshableItem) -> Self {
@@ -3595,7 +3595,7 @@ impl ISWbemRefresher {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemRefresher {
     type Vtable = ISWbemRefresher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(349709582, 55746, 4563, [179, 143, 0, 16, 90, 31, 71, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14d8250e_d9c2_11d3_b38f_00105a1f473a);
 }
 impl ::core::convert::From<ISWbemRefresher> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemRefresher) -> Self {
@@ -3698,7 +3698,7 @@ impl ISWbemSecurity {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemSecurity {
     type Vtable = ISWbemSecurity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3041748710, 8839, 4562, [139, 51, 0, 96, 8, 6, 217, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb54d66e6_2287_11d2_8b33_00600806d9b6);
 }
 impl ::core::convert::From<ISWbemSecurity> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemSecurity) -> Self {
@@ -4036,7 +4036,7 @@ impl ISWbemServices {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemServices {
     type Vtable = ISWbemServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1990607196, 52033, 4561, [139, 2, 0, 96, 8, 6, 217, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76a6415c_cb41_11d1_8b02_00600806d9b6);
 }
 impl ::core::convert::From<ISWbemServices> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemServices) -> Self {
@@ -4506,7 +4506,7 @@ impl ISWbemServicesEx {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemServicesEx {
     type Vtable = ISWbemServicesEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3539371075, 34268, 17022, [145, 216, 54, 101, 84, 204, 117, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2f68443_85dc_427e_91d8_366554cc754c);
 }
 impl ::core::convert::From<ISWbemServicesEx> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemServicesEx) -> Self {
@@ -4696,7 +4696,7 @@ impl ISWbemSink {
 }
 unsafe impl ::windows::runtime::Interface for ISWbemSink {
     type Vtable = ISWbemSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1970375839, 61481, 4561, [161, 172, 0, 192, 79, 182, 194, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75718c9f_f029_11d1_a1ac_00c04fb6c223);
 }
 impl ::core::convert::From<ISWbemSink> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemSink) -> Self {
@@ -4764,7 +4764,7 @@ pub struct ISWbemSinkEvents(pub ::windows::runtime::IUnknown);
 impl ISWbemSinkEvents {}
 unsafe impl ::windows::runtime::Interface for ISWbemSinkEvents {
     type Vtable = ISWbemSinkEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1970375840, 61481, 4561, [161, 172, 0, 192, 79, 182, 194, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75718ca0_f029_11d1_a1ac_00c04fb6c223);
 }
 impl ::core::convert::From<ISWbemSinkEvents> for ::windows::runtime::IUnknown {
     fn from(value: ISWbemSinkEvents) -> Self {
@@ -4837,7 +4837,7 @@ impl IUnsecuredApartment {
 }
 unsafe impl ::windows::runtime::Interface for IUnsecuredApartment {
     type Vtable = IUnsecuredApartment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(486193804, 5411, 4561, [173, 121, 0, 192, 79, 216, 253, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cfaba8c_1523_11d1_ad79_00c04fd8fdff);
 }
 impl ::core::convert::From<IUnsecuredApartment> for ::windows::runtime::IUnknown {
     fn from(value: IUnsecuredApartment) -> Self {
@@ -4891,7 +4891,7 @@ impl IWMIExtension {
 }
 unsafe impl ::windows::runtime::Interface for IWMIExtension {
     type Vtable = IWMIExtension_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2915168366, 23678, 4562, [139, 116, 0, 16, 75, 42, 251, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xadc1f06e_5c7e_11d2_8b74_00104b2afb41);
 }
 impl ::core::convert::From<IWMIExtension> for ::windows::runtime::IUnknown {
     fn from(value: IWMIExtension) -> Self {
@@ -4968,7 +4968,7 @@ impl IWbemAddressResolution {
 }
 unsafe impl ::windows::runtime::Interface for IWbemAddressResolution {
     type Vtable = IWbemAddressResolution_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4157484562, 35984, 4561, [158, 123, 0, 192, 79, 195, 36, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7ce2e12_8c90_11d1_9e7b_00c04fc324a8);
 }
 impl ::core::convert::From<IWbemAddressResolution> for ::windows::runtime::IUnknown {
     fn from(value: IWbemAddressResolution) -> Self {
@@ -5017,7 +5017,7 @@ impl IWbemBackupRestore {
 }
 unsafe impl ::windows::runtime::Interface for IWbemBackupRestore {
     type Vtable = IWbemBackupRestore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3298702023, 48267, 4562, [133, 212, 0, 16, 90, 31, 131, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc49e32c7_bc8b_11d2_85d4_00105a1f8304);
 }
 impl ::core::convert::From<IWbemBackupRestore> for ::windows::runtime::IUnknown {
     fn from(value: IWbemBackupRestore) -> Self {
@@ -5076,7 +5076,7 @@ impl IWbemBackupRestoreEx {
 }
 unsafe impl ::windows::runtime::Interface for IWbemBackupRestoreEx {
     type Vtable = IWbemBackupRestoreEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2740575941, 59411, 18484, [138, 42, 186, 127, 29, 119, 125, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa359dec5_e813_4834_8a2a_ba7f1d777d76);
 }
 impl ::core::convert::From<IWbemBackupRestoreEx> for ::windows::runtime::IUnknown {
     fn from(value: IWbemBackupRestoreEx) -> Self {
@@ -5160,7 +5160,7 @@ impl IWbemCallResult {
 }
 unsafe impl ::windows::runtime::Interface for IWbemCallResult {
     type Vtable = IWbemCallResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1152165493, 59644, 4560, [160, 124, 0, 192, 79, 182, 136, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44aca675_e8fc_11d0_a07c_00c04fb68820);
 }
 impl ::core::convert::From<IWbemCallResult> for ::windows::runtime::IUnknown {
     fn from(value: IWbemCallResult) -> Self {
@@ -5323,7 +5323,7 @@ impl IWbemClassObject {
 }
 unsafe impl ::windows::runtime::Interface for IWbemClassObject {
     type Vtable = IWbemClassObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3692209793, 29567, 4559, [136, 77, 0, 170, 0, 75, 46, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc12a681_737f_11cf_884d_00aa004b2e24);
 }
 impl ::core::convert::From<IWbemClassObject> for ::windows::runtime::IUnknown {
     fn from(value: IWbemClassObject) -> Self {
@@ -5478,7 +5478,7 @@ impl IWbemClientConnectionTransport {
 }
 unsafe impl ::windows::runtime::Interface for IWbemClientConnectionTransport {
     type Vtable = IWbemClientConnectionTransport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2827601706, 64705, 19102, [175, 97, 237, 7, 19, 51, 251, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa889c72a_fcc1_4a9e_af61_ed071333fb5b);
 }
 impl ::core::convert::From<IWbemClientConnectionTransport> for ::windows::runtime::IUnknown {
     fn from(value: IWbemClientConnectionTransport) -> Self {
@@ -5590,7 +5590,7 @@ impl IWbemClientTransport {
 }
 unsafe impl ::windows::runtime::Interface for IWbemClientTransport {
     type Vtable = IWbemClientTransport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4157484561, 35984, 4561, [158, 123, 0, 192, 79, 195, 36, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7ce2e11_8c90_11d1_9e7b_00c04fc324a8);
 }
 impl ::core::convert::From<IWbemClientTransport> for ::windows::runtime::IUnknown {
     fn from(value: IWbemClientTransport) -> Self {
@@ -5665,7 +5665,7 @@ impl IWbemConfigureRefresher {
 }
 unsafe impl ::windows::runtime::Interface for IWbemConfigureRefresher {
     type Vtable = IWbemConfigureRefresher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1228225682, 20843, 4561, [174, 166, 0, 192, 79, 182, 136, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49353c92_516b_11d1_aea6_00c04fb68820);
 }
 impl ::core::convert::From<IWbemConfigureRefresher> for ::windows::runtime::IUnknown {
     fn from(value: IWbemConfigureRefresher) -> Self {
@@ -5715,7 +5715,7 @@ impl IWbemConnectorLogin {
 }
 unsafe impl ::windows::runtime::Interface for IWbemConnectorLogin {
     type Vtable = IWbemConnectorLogin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3639385265, 45365, 20240, [139, 27, 199, 24, 139, 176, 209, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8ec9cb1_b135_4f10_8b1b_c7188bb0d186);
 }
 impl ::core::convert::From<IWbemConnectorLogin> for ::windows::runtime::IUnknown {
     fn from(value: IWbemConnectorLogin) -> Self {
@@ -5774,7 +5774,7 @@ impl IWbemConstructClassObject {
 }
 unsafe impl ::windows::runtime::Interface for IWbemConstructClassObject {
     type Vtable = IWbemConstructClassObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2667012500, 28885, 4561, [173, 144, 0, 192, 79, 216, 253, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ef76194_70d5_11d1_ad90_00c04fd8fdff);
 }
 impl ::core::convert::From<IWbemConstructClassObject> for ::windows::runtime::IUnknown {
     fn from(value: IWbemConstructClassObject) -> Self {
@@ -5863,7 +5863,7 @@ impl IWbemContext {
 }
 unsafe impl ::windows::runtime::Interface for IWbemContext {
     type Vtable = IWbemContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1152165492, 59644, 4560, [160, 124, 0, 192, 79, 182, 136, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44aca674_e8fc_11d0_a07c_00c04fb68820);
 }
 impl ::core::convert::From<IWbemContext> for ::windows::runtime::IUnknown {
     fn from(value: IWbemContext) -> Self {
@@ -5942,7 +5942,7 @@ impl IWbemDecoupledBasicEventProvider {
 }
 unsafe impl ::windows::runtime::Interface for IWbemDecoupledBasicEventProvider {
     type Vtable = IWbemDecoupledBasicEventProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2251517216, 51729, 18310, [158, 241, 188, 138, 148, 107, 66, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86336d20_ca11_4786_9ef1_bc8a946b42fc);
 }
 impl ::core::convert::From<IWbemDecoupledBasicEventProvider> for ::windows::runtime::IUnknown {
     fn from(value: IWbemDecoupledBasicEventProvider) -> Self {
@@ -6022,7 +6022,7 @@ impl IWbemDecoupledRegistrar {
 }
 unsafe impl ::windows::runtime::Interface for IWbemDecoupledRegistrar {
     type Vtable = IWbemDecoupledRegistrar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(268815311, 58959, 17990, [188, 211, 58, 8, 157, 138, 132, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1005cbcf_e64f_4646_bcd3_3a089d8a84b4);
 }
 impl ::core::convert::From<IWbemDecoupledRegistrar> for ::windows::runtime::IUnknown {
     fn from(value: IWbemDecoupledRegistrar) -> Self {
@@ -6067,7 +6067,7 @@ impl IWbemEventConsumerProvider {
 }
 unsafe impl ::windows::runtime::Interface for IWbemEventConsumerProvider {
     type Vtable = IWbemEventConsumerProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3796242554, 45166, 4560, [173, 97, 0, 192, 79, 216, 253, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe246107a_b06e_11d0_ad61_00c04fd8fdff);
 }
 impl ::core::convert::From<IWbemEventConsumerProvider> for ::windows::runtime::IUnknown {
     fn from(value: IWbemEventConsumerProvider) -> Self {
@@ -6109,7 +6109,7 @@ impl IWbemEventProvider {
 }
 unsafe impl ::windows::runtime::Interface for IWbemEventProvider {
     type Vtable = IWbemEventProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3796176987, 45166, 4560, [173, 97, 0, 192, 79, 216, 253, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe245105b_b06e_11d0_ad61_00c04fd8fdff);
 }
 impl ::core::convert::From<IWbemEventProvider> for ::windows::runtime::IUnknown {
     fn from(value: IWbemEventProvider) -> Self {
@@ -6155,7 +6155,7 @@ impl IWbemEventProviderQuerySink {
 }
 unsafe impl ::windows::runtime::Interface for IWbemEventProviderQuerySink {
     type Vtable = IWbemEventProviderQuerySink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1477102328, 64028, 4560, [173, 114, 0, 192, 79, 216, 253, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x580acaf8_fa1c_11d0_ad72_00c04fd8fdff);
 }
 impl ::core::convert::From<IWbemEventProviderQuerySink> for ::windows::runtime::IUnknown {
     fn from(value: IWbemEventProviderQuerySink) -> Self {
@@ -6198,7 +6198,7 @@ impl IWbemEventProviderSecurity {
 }
 unsafe impl ::windows::runtime::Interface for IWbemEventProviderSecurity {
     type Vtable = IWbemEventProviderSecurity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1663008150, 55699, 4562, [179, 57, 0, 16, 90, 31, 74, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x631f7d96_d993_11d2_b339_00105a1f4aaf);
 }
 impl ::core::convert::From<IWbemEventProviderSecurity> for ::windows::runtime::IUnknown {
     fn from(value: IWbemEventProviderSecurity) -> Self {
@@ -6263,7 +6263,7 @@ impl IWbemEventSink {
 }
 unsafe impl ::windows::runtime::Interface for IWbemEventSink {
     type Vtable = IWbemEventSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(987760650, 32314, 17254, [191, 137, 15, 238, 220, 147, 22, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ae0080a_7e3a_4366_bf89_0feedc931659);
 }
 impl ::core::convert::From<IWbemEventSink> for ::windows::runtime::IUnknown {
     fn from(value: IWbemEventSink) -> Self {
@@ -6344,7 +6344,7 @@ impl IWbemHiPerfEnum {
 }
 unsafe impl ::windows::runtime::Interface for IWbemHiPerfEnum {
     type Vtable = IWbemHiPerfEnum_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(654688904, 31150, 4562, [179, 72, 0, 16, 90, 31, 129, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2705c288_79ae_11d2_b348_00105a1f8177);
 }
 impl ::core::convert::From<IWbemHiPerfEnum> for ::windows::runtime::IUnknown {
     fn from(value: IWbemHiPerfEnum) -> Self {
@@ -6421,7 +6421,7 @@ impl IWbemHiPerfProvider {
 }
 unsafe impl ::windows::runtime::Interface for IWbemHiPerfProvider {
     type Vtable = IWbemHiPerfProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1228225683, 20843, 4561, [174, 166, 0, 192, 79, 182, 136, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49353c93_516b_11d1_aea6_00c04fb68820);
 }
 impl ::core::convert::From<IWbemHiPerfProvider> for ::windows::runtime::IUnknown {
     fn from(value: IWbemHiPerfProvider) -> Self {
@@ -6490,7 +6490,7 @@ impl IWbemLevel1Login {
 }
 unsafe impl ::windows::runtime::Interface for IWbemLevel1Login {
     type Vtable = IWbemLevel1Login_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4077497624, 55402, 4560, [160, 117, 0, 192, 79, 182, 136, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf309ad18_d86a_11d0_a075_00c04fb68820);
 }
 impl ::core::convert::From<IWbemLevel1Login> for ::windows::runtime::IUnknown {
     fn from(value: IWbemLevel1Login) -> Self {
@@ -6550,7 +6550,7 @@ impl IWbemLocator {
 }
 unsafe impl ::windows::runtime::Interface for IWbemLocator {
     type Vtable = IWbemLocator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3692209799, 29567, 4559, [136, 77, 0, 170, 0, 75, 46, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc12a687_737f_11cf_884d_00aa004b2e24);
 }
 impl ::core::convert::From<IWbemLocator> for ::windows::runtime::IUnknown {
     fn from(value: IWbemLocator) -> Self {
@@ -6765,7 +6765,7 @@ impl IWbemObjectAccess {
 }
 unsafe impl ::windows::runtime::Interface for IWbemObjectAccess {
     type Vtable = IWbemObjectAccess_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1228225690, 20843, 4561, [174, 166, 0, 192, 79, 182, 136, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49353c9a_516b_11d1_aea6_00c04fb68820);
 }
 impl ::core::convert::From<IWbemObjectAccess> for ::windows::runtime::IUnknown {
     fn from(value: IWbemObjectAccess) -> Self {
@@ -6882,7 +6882,7 @@ impl IWbemObjectSink {
 }
 unsafe impl ::windows::runtime::Interface for IWbemObjectSink {
     type Vtable = IWbemObjectSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2089121793, 29569, 4559, [136, 77, 0, 170, 0, 75, 46, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c857801_7381_11cf_884d_00aa004b2e24);
 }
 impl ::core::convert::From<IWbemObjectSink> for ::windows::runtime::IUnknown {
     fn from(value: IWbemObjectSink) -> Self {
@@ -6957,7 +6957,7 @@ impl IWbemObjectSinkEx {
 }
 unsafe impl ::windows::runtime::Interface for IWbemObjectSinkEx {
     type Vtable = IWbemObjectSinkEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3889388794, 13451, 18526, [181, 36, 37, 39, 37, 214, 151, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7d35cfa_348b_485e_b524_252725d697ca);
 }
 impl ::core::convert::From<IWbemObjectSinkEx> for ::windows::runtime::IUnknown {
     fn from(value: IWbemObjectSinkEx) -> Self {
@@ -7038,7 +7038,7 @@ impl IWbemObjectTextSrc {
 }
 unsafe impl ::windows::runtime::Interface for IWbemObjectTextSrc {
     type Vtable = IWbemObjectTextSrc_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3217000506, 51927, 4563, [161, 27, 0, 16, 90, 31, 81, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfbf883a_cad7_11d3_a11b_00105a1f515a);
 }
 impl ::core::convert::From<IWbemObjectTextSrc> for ::windows::runtime::IUnknown {
     fn from(value: IWbemObjectTextSrc) -> Self {
@@ -7204,7 +7204,7 @@ impl IWbemPath {
 }
 unsafe impl ::windows::runtime::Interface for IWbemPath {
     type Vtable = IWbemPath_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1002527474, 29548, 18302, [158, 81, 35, 138, 248, 102, 125, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3bc15af2_736c_477e_9e51_238af8667dcc);
 }
 impl ::core::convert::From<IWbemPath> for ::windows::runtime::IUnknown {
     fn from(value: IWbemPath) -> Self {
@@ -7332,7 +7332,7 @@ impl IWbemPathKeyList {
 }
 unsafe impl ::windows::runtime::Interface for IWbemPathKeyList {
     type Vtable = IWbemPathKeyList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2598774903, 30020, 19376, [170, 38, 161, 56, 36, 101, 158, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ae62877_7544_4bb0_aa26_a13824659ed6);
 }
 impl ::core::convert::From<IWbemPathKeyList> for ::windows::runtime::IUnknown {
     fn from(value: IWbemPathKeyList) -> Self {
@@ -7404,7 +7404,7 @@ impl IWbemPropertyProvider {
 }
 unsafe impl ::windows::runtime::Interface for IWbemPropertyProvider {
     type Vtable = IWbemPropertyProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3462522945, 26044, 4560, [182, 189, 0, 170, 0, 50, 64, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce61e841_65bc_11d0_b6bd_00aa003240c7);
 }
 impl ::core::convert::From<IWbemPropertyProvider> for ::windows::runtime::IUnknown {
     fn from(value: IWbemPropertyProvider) -> Self {
@@ -7451,7 +7451,7 @@ impl IWbemProviderIdentity {
 }
 unsafe impl ::windows::runtime::Interface for IWbemProviderIdentity {
     type Vtable = IWbemProviderIdentity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1663008151, 55699, 4562, [179, 57, 0, 16, 90, 31, 74, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x631f7d97_d993_11d2_b339_00105a1f4aaf);
 }
 impl ::core::convert::From<IWbemProviderIdentity> for ::windows::runtime::IUnknown {
     fn from(value: IWbemProviderIdentity) -> Self {
@@ -7503,7 +7503,7 @@ impl IWbemProviderInit {
 }
 unsafe impl ::windows::runtime::Interface for IWbemProviderInit {
     type Vtable = IWbemProviderInit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(467932530, 37341, 4561, [174, 178, 0, 192, 79, 182, 136, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1be41572_91dd_11d1_aeb2_00c04fb68820);
 }
 impl ::core::convert::From<IWbemProviderInit> for ::windows::runtime::IUnknown {
     fn from(value: IWbemProviderInit) -> Self {
@@ -7546,7 +7546,7 @@ impl IWbemProviderInitSink {
 }
 unsafe impl ::windows::runtime::Interface for IWbemProviderInitSink {
     type Vtable = IWbemProviderInitSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(467932529, 37341, 4561, [174, 178, 0, 192, 79, 182, 136, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1be41571_91dd_11d1_aeb2_00c04fb68820);
 }
 impl ::core::convert::From<IWbemProviderInitSink> for ::windows::runtime::IUnknown {
     fn from(value: IWbemProviderInitSink) -> Self {
@@ -7618,7 +7618,7 @@ impl IWbemQualifierSet {
 }
 unsafe impl ::windows::runtime::Interface for IWbemQualifierSet {
     type Vtable = IWbemQualifierSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3692209792, 29567, 4559, [136, 77, 0, 170, 0, 75, 46, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc12a680_737f_11cf_884d_00aa004b2e24);
 }
 impl ::core::convert::From<IWbemQualifierSet> for ::windows::runtime::IUnknown {
     fn from(value: IWbemQualifierSet) -> Self {
@@ -7696,7 +7696,7 @@ impl IWbemQuery {
 }
 unsafe impl ::windows::runtime::Interface for IWbemQuery {
     type Vtable = IWbemQuery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2165731160, 56728, 4563, [161, 32, 0, 16, 90, 31, 81, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81166f58_dd98_11d3_a120_00105a1f515a);
 }
 impl ::core::convert::From<IWbemQuery> for ::windows::runtime::IUnknown {
     fn from(value: IWbemQuery) -> Self {
@@ -7745,7 +7745,7 @@ impl IWbemRefresher {
 }
 unsafe impl ::windows::runtime::Interface for IWbemRefresher {
     type Vtable = IWbemRefresher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1228225689, 20843, 4561, [174, 166, 0, 192, 79, 182, 136, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49353c99_516b_11d1_aea6_00c04fb68820);
 }
 impl ::core::convert::From<IWbemRefresher> for ::windows::runtime::IUnknown {
     fn from(value: IWbemRefresher) -> Self {
@@ -7914,7 +7914,7 @@ impl IWbemServices {
 }
 unsafe impl ::windows::runtime::Interface for IWbemServices {
     type Vtable = IWbemServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2505497753, 33420, 4559, [163, 126, 0, 170, 0, 50, 64, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9556dc99_828c_11cf_a37e_00aa003240c7);
 }
 impl ::core::convert::From<IWbemServices> for ::windows::runtime::IUnknown {
     fn from(value: IWbemServices) -> Self {
@@ -7995,7 +7995,7 @@ impl IWbemShutdown {
 }
 unsafe impl ::windows::runtime::Interface for IWbemShutdown {
     type Vtable = IWbemShutdown_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3081969145, 54549, 4563, [161, 28, 0, 16, 90, 31, 81, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7b31df9_d515_11d3_a11c_00105a1f515a);
 }
 impl ::core::convert::From<IWbemShutdown> for ::windows::runtime::IUnknown {
     fn from(value: IWbemShutdown) -> Self {
@@ -8045,7 +8045,7 @@ impl IWbemStatusCodeText {
 }
 unsafe impl ::windows::runtime::Interface for IWbemStatusCodeText {
     type Vtable = IWbemStatusCodeText_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3951550908, 12851, 4562, [174, 201, 0, 192, 79, 182, 136, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb87e1bc_3233_11d2_aec9_00c04fb68820);
 }
 impl ::core::convert::From<IWbemStatusCodeText> for ::windows::runtime::IUnknown {
     fn from(value: IWbemStatusCodeText) -> Self {
@@ -8090,7 +8090,7 @@ impl IWbemTransport {
 }
 unsafe impl ::windows::runtime::Interface for IWbemTransport {
     type Vtable = IWbemTransport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1430250884, 8534, 4560, [182, 174, 0, 170, 0, 50, 64, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x553fe584_2156_11d0_b6ae_00aa003240c7);
 }
 impl ::core::convert::From<IWbemTransport> for ::windows::runtime::IUnknown {
     fn from(value: IWbemTransport) -> Self {
@@ -8132,7 +8132,7 @@ impl IWbemUnboundObjectSink {
 }
 unsafe impl ::windows::runtime::Interface for IWbemUnboundObjectSink {
     type Vtable = IWbemUnboundObjectSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3796242555, 45166, 4560, [173, 97, 0, 192, 79, 216, 253, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe246107b_b06e_11d0_ad61_00c04fd8fdff);
 }
 impl ::core::convert::From<IWbemUnboundObjectSink> for ::windows::runtime::IUnknown {
     fn from(value: IWbemUnboundObjectSink) -> Self {
@@ -8181,7 +8181,7 @@ impl IWbemUnsecuredApartment {
 }
 unsafe impl ::windows::runtime::Interface for IWbemUnsecuredApartment {
     type Vtable = IWbemUnsecuredApartment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(829660420, 13425, 19700, [154, 124, 87, 164, 74, 231, 25, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31739d04_3471_4cf4_9a7c_57a44ae71956);
 }
 impl ::core::convert::From<IWbemUnsecuredApartment> for ::windows::runtime::IUnknown {
     fn from(value: IWbemUnsecuredApartment) -> Self {
@@ -13595,7 +13595,7 @@ pub const MI_WRITEMESSAGE_CHANNEL_DEBUG: u32 = 2u32;
 pub const MI_WRITEMESSAGE_CHANNEL_VERBOSE: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_WRITEMESSAGE_CHANNEL_WARNING: u32 = 0u32;
-pub const MofCompiler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1840224087, 11831, 4562, [174, 201, 0, 192, 79, 182, 136, 32]);
+pub const MofCompiler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6daf9757_2e37_11d2_aec9_00c04fb68820);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -13747,24 +13747,24 @@ impl ::core::cmp::Eq for SWbemAssocQueryInf {}
 unsafe impl ::windows::runtime::Abi for SWbemAssocQueryInf {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-pub const SWbemDateTime: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1205845588, 53110, 4563, [179, 143, 0, 16, 90, 31, 71, 58]);
-pub const SWbemEventSource: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(79183192, 8622, 4562, [139, 51, 0, 96, 8, 6, 217, 182]);
-pub const SWbemLastError: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3271487148, 53197, 4561, [139, 5, 0, 96, 8, 6, 217, 182]);
-pub const SWbemLocator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1990607192, 52033, 4561, [139, 2, 0, 96, 8, 6, 217, 182]);
-pub const SWbemMethod: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(79183195, 8622, 4562, [139, 51, 0, 96, 8, 6, 217, 182]);
-pub const SWbemMethodSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(79183194, 8622, 4562, [139, 51, 0, 96, 8, 6, 217, 182]);
-pub const SWbemNamedValue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(79183200, 8622, 4562, [139, 51, 0, 96, 8, 6, 217, 182]);
-pub const SWbemNamedValueSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2599237710, 52875, 4561, [139, 5, 0, 96, 8, 6, 217, 182]);
-pub const SWbemObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(79183202, 8622, 4562, [139, 51, 0, 96, 8, 6, 217, 182]);
-pub const SWbemObjectEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3602755506, 37941, 18719, [187, 135, 106, 160, 240, 188, 49, 162]);
-pub const SWbemObjectPath: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1469168678, 52892, 4561, [151, 191, 0, 0, 248, 30, 132, 156]);
-pub const SWbemObjectSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(79183201, 8622, 4562, [139, 51, 0, 96, 8, 6, 217, 182]);
-pub const SWbemPrivilege: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(653158332, 22532, 4562, [139, 74, 0, 96, 8, 6, 217, 182]);
-pub const SWbemPrivilegeSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(653158334, 22532, 4562, [139, 74, 0, 96, 8, 6, 217, 182]);
-pub const SWbemProperty: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(79183197, 8622, 4562, [139, 51, 0, 96, 8, 6, 217, 182]);
-pub const SWbemPropertySet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(79183196, 8622, 4562, [139, 51, 0, 96, 8, 6, 217, 182]);
-pub const SWbemQualifier: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(79183199, 8622, 4562, [139, 51, 0, 96, 8, 6, 217, 182]);
-pub const SWbemQualifierSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(79183198, 8622, 4562, [139, 51, 0, 96, 8, 6, 217, 182]);
+pub const SWbemDateTime: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47dfbe54_cf76_11d3_b38f_00105a1f473a);
+pub const SWbemEventSource: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04b83d58_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemLastError: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2feeeac_cfcd_11d1_8b05_00600806d9b6);
+pub const SWbemLocator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76a64158_cb41_11d1_8b02_00600806d9b6);
+pub const SWbemMethod: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04b83d5b_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemMethodSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04b83d5a_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemNamedValue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04b83d60_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemNamedValueSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9aed384e_ce8b_11d1_8b05_00600806d9b6);
+pub const SWbemObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04b83d62_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemObjectEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6bdafb2_9435_491f_bb87_6aa0f0bc31a2);
+pub const SWbemObjectPath: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5791bc26_ce9c_11d1_97bf_0000f81e849c);
+pub const SWbemObjectSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04b83d61_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemPrivilege: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26ee67bc_5804_11d2_8b4a_00600806d9b6);
+pub const SWbemPrivilegeSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26ee67be_5804_11d2_8b4a_00600806d9b6);
+pub const SWbemProperty: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04b83d5d_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemPropertySet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04b83d5c_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemQualifier: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04b83d5f_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemQualifierSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04b83d5e_21ae_11d2_8b33_00600806d9b6);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -13812,8 +13812,8 @@ impl ::core::cmp::Eq for SWbemQueryQualifiedName {}
 unsafe impl ::windows::runtime::Abi for SWbemQueryQualifiedName {
     type Abi = Self;
 }
-pub const SWbemRefreshableItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2355647676, 56907, 4563, [179, 144, 0, 16, 90, 31, 71, 58]);
-pub const SWbemRefresher: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3530145628, 55745, 4563, [179, 143, 0, 16, 90, 31, 71, 58]);
+pub const SWbemRefreshableItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c6854bc_de4b_11d3_b390_00105a1f473a);
+pub const SWbemRefresher: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd269bf5c_d9c1_11d3_b38f_00105a1f473a);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -13999,11 +13999,11 @@ impl ::core::cmp::Eq for SWbemRpnTokenList {}
 unsafe impl ::windows::runtime::Abi for SWbemRpnTokenList {
     type Abi = Self;
 }
-pub const SWbemSecurity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3041748713, 8839, 4562, [139, 51, 0, 96, 8, 6, 217, 182]);
-pub const SWbemServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(79183203, 8622, 4562, [139, 51, 0, 96, 8, 6, 217, 182]);
-pub const SWbemServicesEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1659183836, 36083, 16552, [139, 46, 55, 213, 149, 101, 30, 64]);
-pub const SWbemSink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1970375834, 61481, 4561, [161, 172, 0, 192, 79, 182, 194, 35]);
-pub const UnsecuredApartment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1237131304, 5411, 4561, [173, 121, 0, 192, 79, 216, 253, 255]);
+pub const SWbemSecurity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb54d66e9_2287_11d2_8b33_00600806d9b6);
+pub const SWbemServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04b83d63_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemServicesEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62e522dc_8cf3_40a8_8b2e_37d595651e40);
+pub const SWbemSink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75718c9a_f029_11d1_a1ac_00c04fb6c223);
+pub const UnsecuredApartment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49bd2028_1523_11d1_ad79_00c04fd8fdff);
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -14771,7 +14771,7 @@ impl ::core::convert::From<i32> for WBEM_UNSECAPP_FLAG_TYPE {
 unsafe impl ::windows::runtime::Abi for WBEM_UNSECAPP_FLAG_TYPE {
     type Abi = Self;
 }
-pub const WMIExtension: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4036451070, 23679, 4562, [139, 116, 0, 16, 75, 42, 251, 65]);
+pub const WMIExtension: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0975afe_5c7f_11d2_8b74_00104b2afb41);
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -14962,8 +14962,8 @@ impl ::core::convert::From<i32> for WMI_OBJ_TEXT {
 unsafe impl ::windows::runtime::Abi for WMI_OBJ_TEXT {
     type Abi = Self;
 }
-pub const WbemAdministrativeLocator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3414513100, 37160, 4561, [173, 155, 0, 192, 79, 216, 253, 255]);
-pub const WbemAuthenticatedLocator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3440919350, 37160, 4561, [173, 155, 0, 192, 79, 216, 253, 255]);
+pub const WbemAdministrativeLocator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb8555cc_9128_11d1_ad9b_00c04fd8fdff);
+pub const WbemAuthenticatedLocator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd184336_9128_11d1_ad9b_00c04fd8fdff);
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -14983,7 +14983,7 @@ impl ::core::convert::From<i32> for WbemAuthenticationLevelEnum {
 unsafe impl ::windows::runtime::Abi for WbemAuthenticationLevelEnum {
     type Abi = Self;
 }
-pub const WbemBackupRestore: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3298702022, 48267, 4562, [133, 212, 0, 16, 90, 31, 131, 4]);
+pub const WbemBackupRestore: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc49e32c6_bc8b_11d2_85d4_00105a1f8304);
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -15032,7 +15032,7 @@ impl ::core::convert::From<i32> for WbemCimtypeEnum {
 unsafe impl ::windows::runtime::Abi for WbemCimtypeEnum {
     type Abi = Self;
 }
-pub const WbemClassObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2590322822, 5967, 4562, [181, 249, 0, 16, 75, 112, 62, 253]);
+pub const WbemClassObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a653086_174f_11d2_b5f9_00104b703efd);
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -15065,11 +15065,11 @@ impl ::core::convert::From<i32> for WbemConnectOptionsEnum {
 unsafe impl ::windows::runtime::Abi for WbemConnectOptionsEnum {
     type Abi = Self;
 }
-pub const WbemContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1732994712, 61074, 4560, [173, 113, 0, 192, 79, 216, 253, 255]);
-pub const WbemDCOMTransport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4157484563, 35984, 4561, [158, 123, 0, 192, 79, 195, 36, 168]);
-pub const WbemDecoupledBasicEventProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4126627639, 10307, 20258, [147, 61, 199, 106, 151, 205, 166, 47]);
-pub const WbemDecoupledRegistrar: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1291614514, 3997, 19439, [156, 50, 142, 162, 166, 181, 111, 203]);
-pub const WbemDefPath: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3477914629, 58053, 19933, [179, 206, 94, 117, 130, 216, 201, 250]);
+pub const WbemContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x674b6698_ee92_11d0_ad71_00c04fd8fdff);
+pub const WbemDCOMTransport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7ce2e13_8c90_11d1_9e7b_00c04fc324a8);
+pub const WbemDecoupledBasicEventProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5f75737_2843_4f22_933d_c76a97cda62f);
+pub const WbemDecoupledRegistrar: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4cfc7932_0f9d_4bef_9c32_8ea2a6b56fcb);
+pub const WbemDefPath: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf4cc405_e2c5_4ddd_b3ce_5e7582d8c9fa);
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -15253,9 +15253,9 @@ impl ::core::convert::From<i32> for WbemImpersonationLevelEnum {
 unsafe impl ::windows::runtime::Abi for WbemImpersonationLevelEnum {
     type Abi = Self;
 }
-pub const WbemLevel1Login: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2344874078, 55403, 4560, [160, 117, 0, 192, 79, 182, 136, 32]);
-pub const WbemLocalAddrRes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2701412353, 36734, 4561, [158, 124, 0, 192, 79, 195, 36, 168]);
-pub const WbemLocator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1167128593, 7482, 4560, [137, 31, 0, 170, 0, 75, 46, 36]);
+pub const WbemLevel1Login: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bc3f05e_d86b_11d0_a075_00c04fb68820);
+pub const WbemLocalAddrRes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1044801_8f7e_11d1_9e7c_00c04fc324a8);
+pub const WbemLocator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4590f811_1d3a_11d0_891f_00aa004b2e24);
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -15270,7 +15270,7 @@ impl ::core::convert::From<i32> for WbemObjectTextFormatEnum {
 unsafe impl ::windows::runtime::Abi for WbemObjectTextFormatEnum {
     type Abi = Self;
 }
-pub const WbemObjectTextSrc: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2367444381, 34032, 19379, [167, 213, 86, 167, 67, 90, 155, 166]);
+pub const WbemObjectTextSrc: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d1c559d_84f0_4bb3_a7d5_56a7435a9ba6);
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -15310,7 +15310,7 @@ impl ::core::convert::From<i32> for WbemPrivilegeEnum {
 unsafe impl ::windows::runtime::Abi for WbemPrivilegeEnum {
     type Abi = Self;
 }
-pub const WbemQuery: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3939016740, 8674, 17699, [173, 115, 167, 26, 10, 162, 245, 106]);
+pub const WbemQuery: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeac8a024_21e2_4523_ad73_a71a0aa2f56a);
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -15326,8 +15326,8 @@ impl ::core::convert::From<i32> for WbemQueryFlagEnum {
 unsafe impl ::windows::runtime::Abi for WbemQueryFlagEnum {
     type Abi = Self;
 }
-pub const WbemRefresher: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3340068594, 22046, 4561, [173, 135, 0, 192, 79, 216, 253, 255]);
-pub const WbemStatusCodeText: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3951550909, 12851, 4562, [174, 201, 0, 192, 79, 182, 136, 32]);
+pub const WbemRefresher: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc71566f2_561e_11d1_ad87_00c04fd8fdff);
+pub const WbemStatusCodeText: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb87e1bd_3233_11d2_aec9_00c04fb68820);
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -15354,8 +15354,8 @@ impl ::core::convert::From<i32> for WbemTimeout {
 unsafe impl ::windows::runtime::Abi for WbemTimeout {
     type Abi = Self;
 }
-pub const WbemUnauthenticatedLocator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1144945529, 56881, 4562, [179, 64, 0, 16, 75, 204, 75, 74]);
-pub const WbemUninitializedClassObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2046961654, 28936, 4561, [173, 144, 0, 192, 79, 216, 253, 255]);
+pub const WbemUnauthenticatedLocator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x443e7b79_de31_11d2_b340_00104bcc4b4a);
+pub const WbemUninitializedClassObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a0227f6_7108_11d1_ad90_00c04fd8fdff);
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]

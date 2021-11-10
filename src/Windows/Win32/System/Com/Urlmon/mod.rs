@@ -1211,7 +1211,7 @@ impl IBindCallbackRedirect {
 }
 unsafe impl ::windows::runtime::Interface for IBindCallbackRedirect {
     type Vtable = IBindCallbackRedirect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(298326978, 4638, 20181, [185, 196, 180, 48, 189, 84, 242, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11c81bc2_121e_4ed5_b9c4_b430bd54f2c0);
 }
 impl ::core::convert::From<IBindCallbackRedirect> for ::windows::runtime::IUnknown {
     fn from(value: IBindCallbackRedirect) -> Self {
@@ -1255,7 +1255,7 @@ impl IBindHttpSecurity {
 }
 unsafe impl ::windows::runtime::Interface for IBindHttpSecurity {
     type Vtable = IBindHttpSecurity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2850924903, 62734, 18995, [179, 88, 32, 111, 110, 243, 8, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9eda967_f50e_4a33_b358_206f6ef3086d);
 }
 impl ::core::convert::From<IBindHttpSecurity> for ::windows::runtime::IUnknown {
     fn from(value: IBindHttpSecurity) -> Self {
@@ -1299,7 +1299,7 @@ impl IBindProtocol {
 }
 unsafe impl ::windows::runtime::Interface for IBindProtocol {
     type Vtable = IBindProtocol_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430221, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9cd_baf9_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IBindProtocol> for ::windows::runtime::IUnknown {
     fn from(value: IBindProtocol) -> Self {
@@ -1348,7 +1348,7 @@ impl ICatalogFileInfo {
 }
 unsafe impl ::windows::runtime::Interface for ICatalogFileInfo {
     type Vtable = ICatalogFileInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1897690624, 27464, 4561, [180, 3, 0, 170, 0, 185, 42, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x711c7600_6b48_11d1_b403_00aa00b92af1);
 }
 impl ::core::convert::From<ICatalogFileInfo> for ::windows::runtime::IUnknown {
     fn from(value: ICatalogFileInfo) -> Self {
@@ -1399,7 +1399,7 @@ impl ICodeInstall {
 }
 unsafe impl ::windows::runtime::Interface for ICodeInstall {
     type Vtable = ICodeInstall_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430225, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9d1_baf9_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<ICodeInstall> for ::windows::runtime::IUnknown {
     fn from(value: ICodeInstall) -> Self {
@@ -1496,7 +1496,7 @@ impl IDataFilter {
 }
 unsafe impl ::windows::runtime::Interface for IDataFilter {
     type Vtable = IDataFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1775324288, 49550, 4560, [169, 206, 0, 96, 151, 148, 35, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69d14c80_c18e_11d0_a9ce_006097942311);
 }
 impl ::core::convert::From<IDataFilter> for ::windows::runtime::IUnknown {
     fn from(value: IDataFilter) -> Self {
@@ -1598,7 +1598,7 @@ impl IEncodingFilterFactory {
 }
 unsafe impl ::windows::runtime::Interface for IEncodingFilterFactory {
     type Vtable = IEncodingFilterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1891491328, 49550, 4560, [169, 206, 0, 96, 151, 148, 35, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70bdde00_c18e_11d0_a9ce_006097942311);
 }
 impl ::core::convert::From<IEncodingFilterFactory> for ::windows::runtime::IUnknown {
     fn from(value: IEncodingFilterFactory) -> Self {
@@ -1645,7 +1645,7 @@ impl IGetBindHandle {
 }
 unsafe impl ::windows::runtime::Interface for IGetBindHandle {
     type Vtable = IGetBindHandle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2937058312, 4765, 19232, [145, 240, 2, 189, 35, 216, 131, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf0ff408_129d_4b20_91f0_02bd23d88352);
 }
 impl ::core::convert::From<IGetBindHandle> for ::windows::runtime::IUnknown {
     fn from(value: IGetBindHandle) -> Self {
@@ -1696,7 +1696,7 @@ impl IHttpNegotiate {
 }
 unsafe impl ::windows::runtime::Interface for IHttpNegotiate {
     type Vtable = IHttpNegotiate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430226, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9d2_baf9_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IHttpNegotiate> for ::windows::runtime::IUnknown {
     fn from(value: IHttpNegotiate) -> Self {
@@ -1753,7 +1753,7 @@ impl IHttpNegotiate2 {
 }
 unsafe impl ::windows::runtime::Interface for IHttpNegotiate2 {
     type Vtable = IHttpNegotiate2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1335861195, 57588, 18667, [183, 171, 250, 46, 169, 54, 92, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f9f9fcb_e0f4_48eb_b7ab_fa2ea9365cb4);
 }
 impl ::core::convert::From<IHttpNegotiate2> for ::windows::runtime::IUnknown {
     fn from(value: IHttpNegotiate2) -> Self {
@@ -1835,7 +1835,7 @@ impl IHttpNegotiate3 {
 }
 unsafe impl ::windows::runtime::Interface for IHttpNegotiate3 {
     type Vtable = IHttpNegotiate3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1471596554, 13506, 17922, [188, 38, 102, 160, 47, 197, 113, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57b6c80a_34c2_4602_bc26_66a02fc57153);
 }
 impl ::core::convert::From<IHttpNegotiate3> for ::windows::runtime::IUnknown {
     fn from(value: IHttpNegotiate3) -> Self {
@@ -1928,7 +1928,7 @@ impl IHttpSecurity {
 }
 unsafe impl ::windows::runtime::Interface for IHttpSecurity {
     type Vtable = IHttpSecurity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430231, 47866, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9d7_bafa_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IHttpSecurity> for ::windows::runtime::IUnknown {
     fn from(value: IHttpSecurity) -> Self {
@@ -1987,7 +1987,7 @@ pub struct IInternet(pub ::windows::runtime::IUnknown);
 impl IInternet {}
 unsafe impl ::windows::runtime::Interface for IInternet {
     type Vtable = IInternet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430240, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9e0_baf9_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IInternet> for ::windows::runtime::IUnknown {
     fn from(value: IInternet) -> Self {
@@ -2034,7 +2034,7 @@ impl IInternetBindInfo {
 }
 unsafe impl ::windows::runtime::Interface for IInternetBindInfo {
     type Vtable = IInternetBindInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430241, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9e1_baf9_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IInternetBindInfo> for ::windows::runtime::IUnknown {
     fn from(value: IInternetBindInfo) -> Self {
@@ -2090,7 +2090,7 @@ impl IInternetBindInfoEx {
 }
 unsafe impl ::windows::runtime::Interface for IInternetBindInfoEx {
     type Vtable = IInternetBindInfoEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2749371831, 43052, 19917, [161, 80, 86, 154, 238, 237, 54, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3e015b7_a82c_4dcd_a150_569aeeed36ab);
 }
 impl ::core::convert::From<IInternetBindInfoEx> for ::windows::runtime::IUnknown {
     fn from(value: IInternetBindInfoEx) -> Self {
@@ -2165,7 +2165,7 @@ impl IInternetHostSecurityManager {
 }
 unsafe impl ::windows::runtime::Interface for IInternetHostSecurityManager {
     type Vtable = IInternetHostSecurityManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(988971190, 52031, 4560, [137, 30, 0, 192, 79, 182, 191, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3af280b6_cb3f_11d0_891e_00c04fb6bfc4);
 }
 impl ::core::convert::From<IInternetHostSecurityManager> for ::windows::runtime::IUnknown {
     fn from(value: IInternetHostSecurityManager) -> Self {
@@ -2214,7 +2214,7 @@ impl IInternetPriority {
 }
 unsafe impl ::windows::runtime::Interface for IInternetPriority {
     type Vtable = IInternetPriority_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430251, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9eb_baf9_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IInternetPriority> for ::windows::runtime::IUnknown {
     fn from(value: IInternetPriority) -> Self {
@@ -2295,7 +2295,7 @@ impl IInternetProtocol {
 }
 unsafe impl ::windows::runtime::Interface for IInternetProtocol {
     type Vtable = IInternetProtocol_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430244, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9e4_baf9_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IInternetProtocol> for ::windows::runtime::IUnknown {
     fn from(value: IInternetProtocol) -> Self {
@@ -2410,7 +2410,7 @@ impl IInternetProtocolEx {
 }
 unsafe impl ::windows::runtime::Interface for IInternetProtocolEx {
     type Vtable = IInternetProtocolEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3349778022, 4112, 18732, [161, 200, 200, 9, 225, 247, 89, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7a98e66_1010_492c_a1c8_c809e1f75905);
 }
 impl ::core::convert::From<IInternetProtocolEx> for ::windows::runtime::IUnknown {
     fn from(value: IInternetProtocolEx) -> Self {
@@ -2520,7 +2520,7 @@ impl IInternetProtocolInfo {
 }
 unsafe impl ::windows::runtime::Interface for IInternetProtocolInfo {
     type Vtable = IInternetProtocolInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430252, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9ec_baf9_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IInternetProtocolInfo> for ::windows::runtime::IUnknown {
     fn from(value: IInternetProtocolInfo) -> Self {
@@ -2590,7 +2590,7 @@ impl IInternetProtocolRoot {
 }
 unsafe impl ::windows::runtime::Interface for IInternetProtocolRoot {
     type Vtable = IInternetProtocolRoot_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430243, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9e3_baf9_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IInternetProtocolRoot> for ::windows::runtime::IUnknown {
     fn from(value: IInternetProtocolRoot) -> Self {
@@ -2652,7 +2652,7 @@ impl IInternetProtocolSink {
 }
 unsafe impl ::windows::runtime::Interface for IInternetProtocolSink {
     type Vtable = IInternetProtocolSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430245, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9e5_baf9_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IInternetProtocolSink> for ::windows::runtime::IUnknown {
     fn from(value: IInternetProtocolSink) -> Self {
@@ -2707,7 +2707,7 @@ impl IInternetProtocolSinkStackable {
 }
 unsafe impl ::windows::runtime::Interface for IInternetProtocolSinkStackable {
     type Vtable = IInternetProtocolSinkStackable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430256, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9f0_baf9_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IInternetProtocolSinkStackable> for ::windows::runtime::IUnknown {
     fn from(value: IInternetProtocolSinkStackable) -> Self {
@@ -2785,7 +2785,7 @@ impl IInternetSecurityManager {
 }
 unsafe impl ::windows::runtime::Interface for IInternetSecurityManager {
     type Vtable = IInternetSecurityManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430254, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9ee_baf9_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IInternetSecurityManager> for ::windows::runtime::IUnknown {
     fn from(value: IInternetSecurityManager) -> Self {
@@ -2890,7 +2890,7 @@ impl IInternetSecurityManagerEx {
 }
 unsafe impl ::windows::runtime::Interface for IInternetSecurityManagerEx {
     type Vtable = IInternetSecurityManagerEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4049923569, 52348, 20237, [154, 148, 52, 34, 38, 37, 195, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf164edf1_cc7c_4f0d_9a94_34222625c393);
 }
 impl ::core::convert::From<IInternetSecurityManagerEx> for ::windows::runtime::IUnknown {
     fn from(value: IInternetSecurityManagerEx) -> Self {
@@ -3046,7 +3046,7 @@ impl IInternetSecurityManagerEx2 {
 }
 unsafe impl ::windows::runtime::Interface for IInternetSecurityManagerEx2 {
     type Vtable = IInternetSecurityManagerEx2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4058317458, 42901, 16663, [142, 9, 43, 86, 10, 114, 172, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1e50292_a795_4117_8e09_2b560a72ac60);
 }
 impl ::core::convert::From<IInternetSecurityManagerEx2> for ::windows::runtime::IUnknown {
     fn from(value: IInternetSecurityManagerEx2) -> Self {
@@ -3154,7 +3154,7 @@ impl IInternetSecurityMgrSite {
 }
 unsafe impl ::windows::runtime::Interface for IInternetSecurityMgrSite {
     type Vtable = IInternetSecurityMgrSite_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430253, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9ed_baf9_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IInternetSecurityMgrSite> for ::windows::runtime::IUnknown {
     fn from(value: IInternetSecurityMgrSite) -> Self {
@@ -3228,7 +3228,7 @@ impl IInternetSession {
 }
 unsafe impl ::windows::runtime::Interface for IInternetSession {
     type Vtable = IInternetSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430247, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9e7_baf9_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IInternetSession> for ::windows::runtime::IUnknown {
     fn from(value: IInternetSession) -> Self {
@@ -3285,7 +3285,7 @@ impl IInternetThreadSwitch {
 }
 unsafe impl ::windows::runtime::Interface for IInternetThreadSwitch {
     type Vtable = IInternetThreadSwitch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430248, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9e8_baf9_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IInternetThreadSwitch> for ::windows::runtime::IUnknown {
     fn from(value: IInternetThreadSwitch) -> Self {
@@ -3375,7 +3375,7 @@ impl IInternetZoneManager {
 }
 unsafe impl ::windows::runtime::Interface for IInternetZoneManager {
     type Vtable = IInternetZoneManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430255, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9ef_baf9_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IInternetZoneManager> for ::windows::runtime::IUnknown {
     fn from(value: IInternetZoneManager) -> Self {
@@ -3485,7 +3485,7 @@ impl IInternetZoneManagerEx {
 }
 unsafe impl ::windows::runtime::Interface for IInternetZoneManagerEx {
     type Vtable = IInternetZoneManagerEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2764190521, 36358, 17182, [155, 244, 126, 113, 28, 8, 86, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4c23339_8e06_431e_9bf4_7e711c085648);
 }
 impl ::core::convert::From<IInternetZoneManagerEx> for ::windows::runtime::IUnknown {
     fn from(value: IInternetZoneManagerEx) -> Self {
@@ -3635,7 +3635,7 @@ impl IInternetZoneManagerEx2 {
 }
 unsafe impl ::windows::runtime::Interface for IInternetZoneManagerEx2 {
     type Vtable = IInternetZoneManagerEx2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3988878681, 56669, 18502, [142, 239, 139, 236, 186, 90, 74, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xedc17559_dd5d_4846_8eef_8becba5a4abf);
 }
 impl ::core::convert::From<IInternetZoneManagerEx2> for ::windows::runtime::IUnknown {
     fn from(value: IInternetZoneManagerEx2) -> Self {
@@ -3739,7 +3739,7 @@ impl IMonikerProp {
 }
 unsafe impl ::windows::runtime::Interface for IMonikerProp {
     type Vtable = IMonikerProp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2781503359, 6215, 19847, [156, 91, 145, 133, 9, 247, 81, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5ca5f7f_1847_4d87_9c5b_918509f7511d);
 }
 impl ::core::convert::From<IMonikerProp> for ::windows::runtime::IUnknown {
     fn from(value: IMonikerProp) -> Self {
@@ -3961,7 +3961,7 @@ impl IPersistMoniker {
 }
 unsafe impl ::windows::runtime::Interface for IPersistMoniker {
     type Vtable = IPersistMoniker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430217, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9c9_baf9_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IPersistMoniker> for ::windows::runtime::IUnknown {
     fn from(value: IPersistMoniker) -> Self {
@@ -4026,7 +4026,7 @@ impl ISoftDistExt {
 }
 unsafe impl ::windows::runtime::Interface for ISoftDistExt {
     type Vtable = ISoftDistExt_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2975567297, 51169, 4560, [134, 128, 0, 170, 0, 189, 203, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb15b8dc1_c7e1_11d0_8680_00aa00bdcb71);
 }
 impl ::core::convert::From<ISoftDistExt> for ::windows::runtime::IUnknown {
     fn from(value: ISoftDistExt) -> Self {
@@ -4081,7 +4081,7 @@ impl IUriBuilderFactory {
 }
 unsafe impl ::windows::runtime::Interface for IUriBuilderFactory {
     type Vtable = IUriBuilderFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3917663816, 2966, 17420, [188, 55, 12, 134, 155, 39, 162, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe982ce48_0b96_440c_bc37_0c869b27a29e);
 }
 impl ::core::convert::From<IUriBuilderFactory> for ::windows::runtime::IUnknown {
     fn from(value: IUriBuilderFactory) -> Self {
@@ -4125,7 +4125,7 @@ impl IUriContainer {
 }
 unsafe impl ::windows::runtime::Interface for IUriContainer {
     type Vtable = IUriContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2706941488, 60783, 17915, [185, 135, 246, 134, 118, 245, 119, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa158a630_ed6f_45fb_b987_f68676f57752);
 }
 impl ::core::convert::From<IUriContainer> for ::windows::runtime::IUnknown {
     fn from(value: IUriContainer) -> Self {
@@ -4168,7 +4168,7 @@ impl IWinInetCacheHints {
 }
 unsafe impl ::windows::runtime::Interface for IWinInetCacheHints {
     type Vtable = IWinInetCacheHints_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3709780915, 33681, 20443, [169, 230, 52, 124, 60, 170, 167, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd1ec3b3_8391_4fdb_a9e6_347c3caaa7dd);
 }
 impl ::core::convert::From<IWinInetCacheHints> for ::windows::runtime::IUnknown {
     fn from(value: IWinInetCacheHints) -> Self {
@@ -4217,7 +4217,7 @@ impl IWinInetCacheHints2 {
 }
 unsafe impl ::windows::runtime::Interface for IWinInetCacheHints2 {
     type Vtable = IWinInetCacheHints2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2019012268, 54047, 18879, [136, 78, 221, 70, 223, 54, 120, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7857aeac_d31f_49bf_884e_dd46df36780a);
 }
 impl ::core::convert::From<IWinInetCacheHints2> for ::windows::runtime::IUnknown {
     fn from(value: IWinInetCacheHints2) -> Self {
@@ -4286,7 +4286,7 @@ impl IWinInetFileStream {
 }
 unsafe impl ::windows::runtime::Interface for IWinInetFileStream {
     type Vtable = IWinInetFileStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4046767287, 45560, 20085, [184, 134, 116, 185, 9, 67, 190, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf134c4b7_b1f8_4e75_b886_74b90943becb);
 }
 impl ::core::convert::From<IWinInetFileStream> for ::windows::runtime::IUnknown {
     fn from(value: IWinInetFileStream) -> Self {
@@ -4333,7 +4333,7 @@ impl IWinInetHttpInfo {
 }
 unsafe impl ::windows::runtime::Interface for IWinInetHttpInfo {
     type Vtable = IWinInetHttpInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430232, 47866, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9d8_bafa_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IWinInetHttpInfo> for ::windows::runtime::IUnknown {
     fn from(value: IWinInetHttpInfo) -> Self {
@@ -4396,7 +4396,7 @@ impl IWinInetHttpTimeouts {
 }
 unsafe impl ::windows::runtime::Interface for IWinInetHttpTimeouts {
     type Vtable = IWinInetHttpTimeouts_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4068932182, 49661, 17008, [142, 103, 179, 235, 121, 10, 129, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf286fa56_c1fd_4270_8e67_b3eb790a81e8);
 }
 impl ::core::convert::From<IWinInetHttpTimeouts> for ::windows::runtime::IUnknown {
     fn from(value: IWinInetHttpTimeouts) -> Self {
@@ -4438,7 +4438,7 @@ impl IWinInetInfo {
 }
 unsafe impl ::windows::runtime::Interface for IWinInetInfo {
     type Vtable = IWinInetInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430230, 47866, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9d6_bafa_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IWinInetInfo> for ::windows::runtime::IUnknown {
     fn from(value: IWinInetInfo) -> Self {
@@ -4482,7 +4482,7 @@ impl IWindowForBindingUI {
 }
 unsafe impl ::windows::runtime::Interface for IWindowForBindingUI {
     type Vtable = IWindowForBindingUI_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430229, 47866, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9d5_bafa_11ce_8c82_00aa004ba90b);
 }
 impl ::core::convert::From<IWindowForBindingUI> for ::windows::runtime::IUnknown {
     fn from(value: IWindowForBindingUI) -> Self {
@@ -4525,7 +4525,7 @@ impl IWrappedProtocol {
 }
 unsafe impl ::windows::runtime::Interface for IWrappedProtocol {
     type Vtable = IWrappedProtocol_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1405634437, 33829, 19909, [151, 27, 229, 141, 156, 25, 249, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53c84785_8425_4dc5_971b_e58d9c19f9b6);
 }
 impl ::core::convert::From<IWrappedProtocol> for ::windows::runtime::IUnknown {
     fn from(value: IWrappedProtocol) -> Self {
@@ -4576,7 +4576,7 @@ impl IZoneIdentifier {
 }
 unsafe impl ::windows::runtime::Interface for IZoneIdentifier {
     type Vtable = IZoneIdentifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3443913093, 6945, 18658, [150, 123, 234, 215, 67, 168, 145, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd45f185_1b21_48e2_967b_ead743a8914e);
 }
 impl ::core::convert::From<IZoneIdentifier> for ::windows::runtime::IUnknown {
     fn from(value: IZoneIdentifier) -> Self {
@@ -4657,7 +4657,7 @@ impl IZoneIdentifier2 {
 }
 unsafe impl ::windows::runtime::Interface for IZoneIdentifier2 {
     type Vtable = IZoneIdentifier2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3948836364, 2543, 17856, [181, 16, 112, 131, 12, 227, 30, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb5e760c_09ef_45c0_b510_70830ce31e6a);
 }
 impl ::core::convert::From<IZoneIdentifier2> for ::windows::runtime::IUnknown {
     fn from(value: IZoneIdentifier2) -> Self {

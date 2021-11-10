@@ -24,7 +24,7 @@ unsafe impl ::windows::runtime::RuntimeType for AttachableInputObject {
 }
 unsafe impl ::windows::runtime::Interface for AttachableInputObject {
     type Vtable = IAttachableInputObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608998196, 41921, 21546, [178, 244, 14, 50, 183, 115, 251, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b822734_a3c1_542a_b2f4_0e32b773fb07);
 }
 impl ::windows::runtime::RuntimeName for AttachableInputObject {
     const NAME: &'static str = "Windows.UI.Input.AttachableInputObject";
@@ -177,7 +177,7 @@ unsafe impl ::windows::runtime::RuntimeType for CrossSlidingEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for CrossSlidingEventArgs {
     type Vtable = ICrossSlidingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3912714040, 28552, 16857, [135, 32, 120, 224, 142, 57, 131, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9374738_6f88_41d9_8720_78e08e398349);
 }
 impl ::windows::runtime::RuntimeName for CrossSlidingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.CrossSlidingEventArgs";
@@ -294,7 +294,7 @@ unsafe impl ::windows::runtime::RuntimeType for DraggingEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for DraggingEventArgs {
     type Vtable = IDraggingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(479220612, 2108, 19411, [181, 89, 23, 156, 221, 235, 51, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c905384_083c_4bd3_b559_179cddeb33ec);
 }
 impl ::windows::runtime::RuntimeName for DraggingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.DraggingEventArgs";
@@ -429,7 +429,7 @@ unsafe impl ::windows::runtime::RuntimeType for EdgeGesture {
 }
 unsafe impl ::windows::runtime::Interface for EdgeGesture {
     type Vtable = IEdgeGesture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1477268114, 10929, 18858, [167, 240, 51, 189, 63, 141, 249, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x580d5292_2ab1_49aa_a7f0_33bd3f8df9f1);
 }
 impl ::windows::runtime::RuntimeName for EdgeGesture {
     const NAME: &'static str = "Windows.UI.Input.EdgeGesture";
@@ -493,7 +493,7 @@ unsafe impl ::windows::runtime::RuntimeType for EdgeGestureEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for EdgeGestureEventArgs {
     type Vtable = IEdgeGestureEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1157253668, 11529, 17121, [139, 94, 54, 130, 8, 121, 106, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44fa4a24_2d09_42e1_8b5e_368208796a4c);
 }
 impl ::windows::runtime::RuntimeName for EdgeGestureEventArgs {
     const NAME: &'static str = "Windows.UI.Input.EdgeGestureEventArgs";
@@ -1104,7 +1104,7 @@ unsafe impl ::windows::runtime::RuntimeType for GestureRecognizer {
 }
 unsafe impl ::windows::runtime::Interface for GestureRecognizer {
     type Vtable = IGestureRecognizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3027908543, 15723, 20360, [131, 232, 109, 203, 64, 18, 255, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb47a37bf_3d6b_4f88_83e8_6dcb4012ffb0);
 }
 impl ::windows::runtime::RuntimeName for GestureRecognizer {
     const NAME: &'static str = "Windows.UI.Input.GestureRecognizer";
@@ -1268,7 +1268,7 @@ unsafe impl ::windows::runtime::RuntimeType for HoldingEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for HoldingEventArgs {
     type Vtable = IHoldingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(737629637, 59289, 16820, [187, 64, 36, 47, 64, 149, 155, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bf755c5_e799_41b4_bb40_242f40959b71);
 }
 impl ::windows::runtime::RuntimeName for HoldingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.HoldingEventArgs";
@@ -1341,7 +1341,7 @@ impl ::windows::runtime::DefaultType for HoldingState {
 pub struct IAttachableInputObject(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAttachableInputObject {
     type Vtable = IAttachableInputObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608998196, 41921, 21546, [178, 244, 14, 50, 183, 115, 251, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b822734_a3c1_542a_b2f4_0e32b773fb07);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1358,7 +1358,7 @@ pub struct IAttachableInputObject_abi(
 pub struct IAttachableInputObjectFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAttachableInputObjectFactory {
     type Vtable = IAttachableInputObjectFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2764393550, 17084, 22778, [166, 64, 234, 21, 22, 244, 192, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4c54c4e_42bc_58fa_a640_ea1516f4c06b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1375,7 +1375,7 @@ pub struct IAttachableInputObjectFactory_abi(
 pub struct ICrossSlidingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICrossSlidingEventArgs {
     type Vtable = ICrossSlidingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3912714040, 28552, 16857, [135, 32, 120, 224, 142, 57, 131, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9374738_6f88_41d9_8720_78e08e398349);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1397,7 +1397,7 @@ pub struct ICrossSlidingEventArgs_abi(
 pub struct ICrossSlidingEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICrossSlidingEventArgs2 {
     type Vtable = ICrossSlidingEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4009459016, 49264, 23027, [141, 171, 188, 175, 98, 29, 134, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeefb7d48_c070_59f3_8dab_bcaf621d8687);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1415,7 +1415,7 @@ pub struct ICrossSlidingEventArgs2_abi(
 pub struct IDraggingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDraggingEventArgs {
     type Vtable = IDraggingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(479220612, 2108, 19411, [181, 89, 23, 156, 221, 235, 51, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c905384_083c_4bd3_b559_179cddeb33ec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1437,7 +1437,7 @@ pub struct IDraggingEventArgs_abi(
 pub struct IDraggingEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDraggingEventArgs2 {
     type Vtable = IDraggingEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1911544825, 14378, 21962, [180, 185, 0, 129, 35, 193, 191, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71efdbf9_382a_55ca_b4b9_008123c1bf1a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1455,7 +1455,7 @@ pub struct IDraggingEventArgs2_abi(
 pub struct IEdgeGesture(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEdgeGesture {
     type Vtable = IEdgeGesture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1477268114, 10929, 18858, [167, 240, 51, 189, 63, 141, 249, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x580d5292_2ab1_49aa_a7f0_33bd3f8df9f1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1484,7 +1484,7 @@ pub struct IEdgeGesture_abi(
 pub struct IEdgeGestureEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEdgeGestureEventArgs {
     type Vtable = IEdgeGestureEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1157253668, 11529, 17121, [139, 94, 54, 130, 8, 121, 106, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44fa4a24_2d09_42e1_8b5e_368208796a4c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1502,7 +1502,7 @@ pub struct IEdgeGestureEventArgs_abi(
 pub struct IEdgeGestureStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEdgeGestureStatics {
     type Vtable = IEdgeGestureStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3161097497, 6382, 16451, [152, 57, 79, 197, 132, 214, 10, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc6a8519_18ee_4043_9839_4fc584d60a14);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1520,7 +1520,7 @@ pub struct IEdgeGestureStatics_abi(
 pub struct IGestureRecognizer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGestureRecognizer {
     type Vtable = IGestureRecognizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3027908543, 15723, 20360, [131, 232, 109, 203, 64, 18, 255, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb47a37bf_3d6b_4f88_83e8_6dcb4012ffb0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1616,7 +1616,7 @@ pub struct IGestureRecognizer_abi(
 pub struct IGestureRecognizer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGestureRecognizer2 {
     type Vtable = IGestureRecognizer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3594914175, 28407, 22342, [139, 168, 143, 242, 32, 110, 111, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd646097f_6ef7_5746_8ba8_8ff2206e6f3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1651,7 +1651,7 @@ pub struct IGestureRecognizer2_abi(
 pub struct IHoldingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHoldingEventArgs {
     type Vtable = IHoldingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(737629637, 59289, 16820, [187, 64, 36, 47, 64, 149, 155, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bf755c5_e799_41b4_bb40_242f40959b71);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1673,7 +1673,7 @@ pub struct IHoldingEventArgs_abi(
 pub struct IHoldingEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHoldingEventArgs2 {
     type Vtable = IHoldingEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(337488362, 19577, 22132, [175, 234, 73, 63, 222, 185, 31, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x141da9ea_4c79_5674_afea_493fdeb91f19);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1692,7 +1692,7 @@ pub struct IHoldingEventArgs2_abi(
 pub struct IInputActivationListener(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputActivationListener {
     type Vtable = IInputActivationListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1567444690, 10439, 23267, [170, 116, 201, 24, 169, 242, 67, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d6d4ed2_28c7_5ae3_aa74_c918a9f243ca);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1714,7 +1714,7 @@ pub struct IInputActivationListener_abi(
 pub struct IInputActivationListenerActivationChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputActivationListenerActivationChangedEventArgs {
     type Vtable = IInputActivationListenerActivationChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1989784677, 7631, 22417, [180, 185, 108, 175, 190, 237, 32, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7699b465_1dcf_5791_b4b9_6cafbeed2056);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1732,7 +1732,7 @@ pub struct IInputActivationListenerActivationChangedEventArgs_abi(
 pub struct IKeyboardDeliveryInterceptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyboardDeliveryInterceptor {
     type Vtable = IKeyboardDeliveryInterceptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3032150120, 36681, 17516, [141, 181, 140, 15, 254, 133, 204, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4baf068_8f49_446c_8db5_8c0ffe85cc9e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1759,7 +1759,7 @@ pub struct IKeyboardDeliveryInterceptor_abi(
 pub struct IKeyboardDeliveryInterceptorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyboardDeliveryInterceptorStatics {
     type Vtable = IKeyboardDeliveryInterceptorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4193663906, 52922, 18261, [138, 126, 20, 192, 255, 236, 210, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9f63ba2_ceba_4755_8a7e_14c0ffecd239);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1777,7 +1777,7 @@ pub struct IKeyboardDeliveryInterceptorStatics_abi(
 pub struct IManipulationCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IManipulationCompletedEventArgs {
     type Vtable = IManipulationCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3008016939, 53659, 18175, [159, 56, 222, 199, 117, 75, 185, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb34ab22b_d19b_46ff_9f38_dec7754bb9e7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1802,7 +1802,7 @@ pub struct IManipulationCompletedEventArgs_abi(
 pub struct IManipulationCompletedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IManipulationCompletedEventArgs2 {
     type Vtable = IManipulationCompletedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4039171303, 12457, 23446, [136, 111, 101, 96, 168, 94, 71, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0c0dce7_30a9_5b96_886f_6560a85e4757);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1821,7 +1821,7 @@ pub struct IManipulationCompletedEventArgs2_abi(
 pub struct IManipulationInertiaStartingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IManipulationInertiaStartingEventArgs {
     type Vtable = IManipulationInertiaStartingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3711412376, 9919, 18042, [156, 229, 204, 243, 251, 17, 55, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd37a898_26bf_467a_9ce5_ccf3fb11371e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1848,7 +1848,7 @@ pub struct IManipulationInertiaStartingEventArgs_abi(
 pub struct IManipulationInertiaStartingEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IManipulationInertiaStartingEventArgs2 {
     type Vtable = IManipulationInertiaStartingEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3260287416, 63994, 23109, [189, 151, 220, 187, 178, 32, 24, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc25409b8_f9fa_5a45_bd97_dcbbb2201860);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1866,7 +1866,7 @@ pub struct IManipulationInertiaStartingEventArgs2_abi(
 pub struct IManipulationStartedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IManipulationStartedEventArgs {
     type Vtable = IManipulationStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3723265854, 53198, 18738, [140, 29, 60, 61, 1, 26, 52, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddec873e_cfce_4932_8c1d_3c3d011a34c0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1889,7 +1889,7 @@ pub struct IManipulationStartedEventArgs_abi(
 pub struct IManipulationStartedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IManipulationStartedEventArgs2 {
     type Vtable = IManipulationStartedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(765713230, 58755, 20565, [175, 170, 22, 253, 152, 101, 49, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2da3db4e_e583_5055_afaa_16fd986531a6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1907,7 +1907,7 @@ pub struct IManipulationStartedEventArgs2_abi(
 pub struct IManipulationUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IManipulationUpdatedEventArgs {
     type Vtable = IManipulationUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3409267941, 43960, 20383, [179, 206, 129, 129, 170, 97, 173, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb354ce5_abb8_4f9f_b3ce_8181aa61ad82);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1934,7 +1934,7 @@ pub struct IManipulationUpdatedEventArgs_abi(
 pub struct IManipulationUpdatedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IManipulationUpdatedEventArgs2 {
     type Vtable = IManipulationUpdatedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4091525482, 13062, 22787, [161, 197, 255, 151, 87, 168, 104, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3dfb96a_3306_5903_a1c5_ff9757a8689e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1953,7 +1953,7 @@ pub struct IManipulationUpdatedEventArgs2_abi(
 pub struct IMouseWheelParameters(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMouseWheelParameters {
     type Vtable = IMouseWheelParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3939551812, 40429, 16439, [129, 73, 94, 76, 194, 86, 68, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xead0ca44_9ded_4037_8149_5e4cc2564468);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1982,7 +1982,7 @@ pub struct IMouseWheelParameters_abi(
 pub struct IPointerPoint(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerPoint {
     type Vtable = IPointerPoint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3918868861, 29334, 17113, [130, 51, 197, 190, 115, 183, 74, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe995317d_7296_42d9_8233_c5be73b74a4a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2010,7 +2010,7 @@ pub struct IPointerPoint_abi(
 pub struct IPointerPointProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerPointProperties {
     type Vtable = IPointerPointProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3348990539, 49507, 20199, [128, 63, 103, 206, 121, 249, 151, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc79d8a4b_c163_4ee7_803f_67ce79f9972d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2053,7 +2053,7 @@ pub struct IPointerPointProperties_abi(
 pub struct IPointerPointProperties2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerPointProperties2 {
     type Vtable = IPointerPointProperties2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(583222074, 51259, 16832, [162, 150, 94, 35, 45, 100, 214, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22c3433a_c83b_41c0_a296_5e232d64d6af);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2072,7 +2072,7 @@ pub struct IPointerPointProperties2_abi(
 pub struct IPointerPointStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerPointStatics {
     type Vtable = IPointerPointStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2768659341, 10778, 16702, [188, 117, 159, 56, 56, 28, 192, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa506638d_2a1a_413e_bc75_9f38381cc069);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2096,7 +2096,7 @@ pub struct IPointerPointStatics_abi(
 pub struct IPointerPointTransform(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerPointTransform {
     type Vtable = IPointerPointTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1298129231, 47228, 16424, [188, 156, 89, 233, 148, 127, 176, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d5fe14f_b87c_4028_bc9c_59e9947fb056);
 }
 impl IPointerPointTransform {
     #[doc = "*Required features: `UI_Input`*"]
@@ -2189,7 +2189,7 @@ pub struct IPointerPointTransform_abi(
 pub struct IPointerVisualizationSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerVisualizationSettings {
     type Vtable = IPointerVisualizationSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1293837409, 34039, 18845, [189, 145, 42, 54, 226, 183, 170, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d1e6461_84f7_499d_bd91_2a36e2b7aaa2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2210,7 +2210,7 @@ pub struct IPointerVisualizationSettings_abi(
 pub struct IPointerVisualizationSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerVisualizationSettingsStatics {
     type Vtable = IPointerVisualizationSettingsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1753681627, 5723, 16916, [180, 243, 88, 78, 202, 140, 138, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68870edb_165b_4214_b4f3_584eca8c8a69);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2228,7 +2228,7 @@ pub struct IPointerVisualizationSettingsStatics_abi(
 pub struct IRadialController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialController {
     type Vtable = IRadialController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(810930632, 57169, 17364, [178, 59, 14, 16, 55, 70, 122, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3055d1c8_df51_43d4_b23b_0e1037467a09);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2278,7 +2278,7 @@ pub struct IRadialController_abi(
 pub struct IRadialController2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialController2 {
     type Vtable = IRadialController2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144319, 19694, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577eff_4cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2307,7 +2307,7 @@ pub struct IRadialController2_abi(
 pub struct IRadialControllerButtonClickedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerButtonClickedEventArgs {
     type Vtable = IRadialControllerButtonClickedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543859768, 58961, 4581, [191, 98, 44, 39, 215, 64, 78, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa438_e651_11e5_bf62_2c27d7404e85);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2325,7 +2325,7 @@ pub struct IRadialControllerButtonClickedEventArgs_abi(
 pub struct IRadialControllerButtonClickedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerButtonClickedEventArgs2 {
     type Vtable = IRadialControllerButtonClickedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144307, 15598, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef3_3cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2344,7 +2344,7 @@ pub struct IRadialControllerButtonClickedEventArgs2_abi(
 pub struct IRadialControllerButtonHoldingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerButtonHoldingEventArgs {
     type Vtable = IRadialControllerButtonHoldingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144302, 15598, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577eee_3cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2364,7 +2364,7 @@ pub struct IRadialControllerButtonHoldingEventArgs_abi(
 pub struct IRadialControllerButtonPressedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerButtonPressedEventArgs {
     type Vtable = IRadialControllerButtonPressedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144301, 19694, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577eed_4cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2384,7 +2384,7 @@ pub struct IRadialControllerButtonPressedEventArgs_abi(
 pub struct IRadialControllerButtonReleasedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerButtonReleasedEventArgs {
     type Vtable = IRadialControllerButtonReleasedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144303, 15598, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577eef_3cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2404,7 +2404,7 @@ pub struct IRadialControllerButtonReleasedEventArgs_abi(
 pub struct IRadialControllerConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerConfiguration {
     type Vtable = IRadialControllerConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2797051595, 27218, 17456, [145, 12, 86, 55, 10, 157, 107, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6b79ecb_6a52_4430_910c_56370a9d6b42);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2425,7 +2425,7 @@ pub struct IRadialControllerConfiguration_abi(
 pub struct IRadialControllerConfiguration2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerConfiguration2 {
     type Vtable = IRadialControllerConfiguration2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144311, 15598, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef7_3cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2446,7 +2446,7 @@ pub struct IRadialControllerConfiguration2_abi(
 pub struct IRadialControllerConfigurationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerConfigurationStatics {
     type Vtable = IRadialControllerConfigurationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2042015973, 1690, 17542, [169, 157, 141, 183, 114, 185, 100, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79b6b0e5_069a_4486_a99d_8db772b9642f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2464,7 +2464,7 @@ pub struct IRadialControllerConfigurationStatics_abi(
 pub struct IRadialControllerConfigurationStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerConfigurationStatics2 {
     type Vtable = IRadialControllerConfigurationStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1407224599, 57861, 18643, [156, 175, 128, 255, 71, 196, 215, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53e08b17_e205_48d3_9caf_80ff47c4d7c7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2485,7 +2485,7 @@ pub struct IRadialControllerConfigurationStatics2_abi(
 pub struct IRadialControllerControlAcquiredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerControlAcquiredEventArgs {
     type Vtable = IRadialControllerControlAcquiredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543859769, 58961, 4581, [191, 98, 44, 39, 215, 64, 78, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa439_e651_11e5_bf62_2c27d7404e85);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2503,7 +2503,7 @@ pub struct IRadialControllerControlAcquiredEventArgs_abi(
 pub struct IRadialControllerControlAcquiredEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerControlAcquiredEventArgs2 {
     type Vtable = IRadialControllerControlAcquiredEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144308, 15598, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef4_3cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2523,7 +2523,7 @@ pub struct IRadialControllerControlAcquiredEventArgs2_abi(
 pub struct IRadialControllerMenu(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerMenu {
     type Vtable = IRadialControllerMenu_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2231808861, 63040, 17426, [171, 160, 186, 208, 119, 229, 234, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8506b35d_f640_4412_aba0_bad077e5ea8a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2547,7 +2547,7 @@ pub struct IRadialControllerMenu_abi(
 pub struct IRadialControllerMenuItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerMenuItem {
     type Vtable = IRadialControllerMenuItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3356477837, 44299, 19612, [143, 47, 19, 106, 35, 115, 166, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc80fc98d_ad0b_4c9c_8f2f_136a2373a6ba);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2571,7 +2571,7 @@ pub struct IRadialControllerMenuItem_abi(
 pub struct IRadialControllerMenuItemStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerMenuItemStatics {
     type Vtable = IRadialControllerMenuItemStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(614336647, 55362, 17700, [157, 248, 224, 214, 71, 237, 200, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x249e0887_d842_4524_9df8_e0d647edc887);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2591,7 +2591,7 @@ pub struct IRadialControllerMenuItemStatics_abi(
 pub struct IRadialControllerMenuItemStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerMenuItemStatics2 {
     type Vtable = IRadialControllerMenuItemStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(213610686, 32318, 18621, [190, 4, 44, 127, 202, 169, 193, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cbb70be_7e3e_48bd_be04_2c7fcaa9c1ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2611,7 +2611,7 @@ pub struct IRadialControllerMenuItemStatics2_abi(
 pub struct IRadialControllerRotationChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerRotationChangedEventArgs {
     type Vtable = IRadialControllerRotationChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543859765, 58961, 4581, [191, 98, 44, 39, 215, 64, 78, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa435_e651_11e5_bf62_2c27d7404e85);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2630,7 +2630,7 @@ pub struct IRadialControllerRotationChangedEventArgs_abi(
 pub struct IRadialControllerRotationChangedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerRotationChangedEventArgs2 {
     type Vtable = IRadialControllerRotationChangedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144300, 19694, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577eec_4cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2650,7 +2650,7 @@ pub struct IRadialControllerRotationChangedEventArgs2_abi(
 pub struct IRadialControllerScreenContact(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerScreenContact {
     type Vtable = IRadialControllerScreenContact_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543859764, 58961, 4581, [191, 98, 44, 39, 215, 64, 78, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa434_e651_11e5_bf62_2c27d7404e85);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2671,7 +2671,7 @@ pub struct IRadialControllerScreenContact_abi(
 pub struct IRadialControllerScreenContactContinuedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerScreenContactContinuedEventArgs {
     type Vtable = IRadialControllerScreenContactContinuedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543859767, 58961, 4581, [191, 98, 44, 39, 215, 64, 78, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa437_e651_11e5_bf62_2c27d7404e85);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2689,7 +2689,7 @@ pub struct IRadialControllerScreenContactContinuedEventArgs_abi(
 pub struct IRadialControllerScreenContactContinuedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerScreenContactContinuedEventArgs2 {
     type Vtable = IRadialControllerScreenContactContinuedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144305, 15598, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef1_3cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2709,7 +2709,7 @@ pub struct IRadialControllerScreenContactContinuedEventArgs2_abi(
 pub struct IRadialControllerScreenContactEndedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerScreenContactEndedEventArgs {
     type Vtable = IRadialControllerScreenContactEndedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144306, 15598, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef2_3cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2729,7 +2729,7 @@ pub struct IRadialControllerScreenContactEndedEventArgs_abi(
 pub struct IRadialControllerScreenContactStartedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerScreenContactStartedEventArgs {
     type Vtable = IRadialControllerScreenContactStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543859766, 58961, 4581, [191, 98, 44, 39, 215, 64, 78, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa436_e651_11e5_bf62_2c27d7404e85);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2747,7 +2747,7 @@ pub struct IRadialControllerScreenContactStartedEventArgs_abi(
 pub struct IRadialControllerScreenContactStartedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerScreenContactStartedEventArgs2 {
     type Vtable = IRadialControllerScreenContactStartedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144304, 15598, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef0_3cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2767,7 +2767,7 @@ pub struct IRadialControllerScreenContactStartedEventArgs2_abi(
 pub struct IRadialControllerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerStatics {
     type Vtable = IRadialControllerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4208906423, 47180, 18580, [135, 170, 143, 37, 170, 95, 40, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfaded0b7_b84c_4894_87aa_8f25aa5f288b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2786,7 +2786,7 @@ pub struct IRadialControllerStatics_abi(
 pub struct IRightTappedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRightTappedEventArgs {
     type Vtable = IRightTappedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1287602365, 44922, 18998, [148, 118, 177, 220, 225, 65, 112, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4cbf40bd_af7a_4a36_9476_b1dce141709a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2807,7 +2807,7 @@ pub struct IRightTappedEventArgs_abi(
 pub struct IRightTappedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRightTappedEventArgs2 {
     type Vtable = IRightTappedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1640478651, 40791, 22615, [163, 60, 197, 140, 61, 250, 149, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61c7b7bb_9f57_5857_a33c_c58c3dfa959e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2825,7 +2825,7 @@ pub struct IRightTappedEventArgs2_abi(
 pub struct ISystemButtonEventController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemButtonEventController {
     type Vtable = ISystemButtonEventController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1505268649, 29628, 21173, [186, 65, 130, 81, 27, 44, 180, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59b893a9_73bc_52b5_ba41_82511b2cb46c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2858,7 +2858,7 @@ pub struct ISystemButtonEventController_abi(
 pub struct ISystemButtonEventControllerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemButtonEventControllerStatics {
     type Vtable = ISystemButtonEventControllerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1664069755, 8381, 24085, [175, 74, 0, 219, 242, 6, 79, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x632fb07b_20bd_5e15_af4a_00dbf2064ffa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2877,7 +2877,7 @@ pub struct ISystemButtonEventControllerStatics_abi(
 pub struct ISystemFunctionButtonEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemFunctionButtonEventArgs {
     type Vtable = ISystemFunctionButtonEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1211337071, 32977, 24022, [146, 167, 98, 165, 8, 255, 239, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4833896f_80d1_5dd6_92a7_62a508ffef5a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2897,7 +2897,7 @@ pub struct ISystemFunctionButtonEventArgs_abi(
 pub struct ISystemFunctionLockChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemFunctionLockChangedEventArgs {
     type Vtable = ISystemFunctionLockChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3439592968, 64761, 22620, [190, 171, 241, 210, 234, 243, 100, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd040608_fcf9_585c_beab_f1d2eaf364ab);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2918,7 +2918,7 @@ pub struct ISystemFunctionLockChangedEventArgs_abi(
 pub struct ISystemFunctionLockIndicatorChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemFunctionLockIndicatorChangedEventArgs {
     type Vtable = ISystemFunctionLockIndicatorChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2987571534, 31343, 22702, [179, 4, 186, 230, 29, 3, 113, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb212b94e_7a6f_58ae_b304_bae61d0371b9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2939,7 +2939,7 @@ pub struct ISystemFunctionLockIndicatorChangedEventArgs_abi(
 pub struct ITappedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITappedEventArgs {
     type Vtable = ITappedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3483444964, 9530, 19516, [149, 59, 57, 92, 55, 174, 211, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfa126e4_253a_4c3c_953b_395c37aed309);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2961,7 +2961,7 @@ pub struct ITappedEventArgs_abi(
 pub struct ITappedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITappedEventArgs2 {
     type Vtable = ITappedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(692291826, 6014, 20949, [190, 86, 238, 8, 102, 250, 150, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x294388f2_177e_51d5_be56_ee0866fa968c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3014,7 +3014,7 @@ unsafe impl ::windows::runtime::RuntimeType for InputActivationListener {
 }
 unsafe impl ::windows::runtime::Interface for InputActivationListener {
     type Vtable = IInputActivationListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1567444690, 10439, 23267, [170, 116, 201, 24, 169, 242, 67, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d6d4ed2_28c7_5ae3_aa74_c918a9f243ca);
 }
 impl ::windows::runtime::RuntimeName for InputActivationListener {
     const NAME: &'static str = "Windows.UI.Input.InputActivationListener";
@@ -3126,7 +3126,7 @@ unsafe impl ::windows::runtime::RuntimeType for InputActivationListenerActivatio
 }
 unsafe impl ::windows::runtime::Interface for InputActivationListenerActivationChangedEventArgs {
     type Vtable = IInputActivationListenerActivationChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1989784677, 7631, 22417, [180, 185, 108, 175, 190, 237, 32, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7699b465_1dcf_5791_b4b9_6cafbeed2056);
 }
 impl ::windows::runtime::RuntimeName for InputActivationListenerActivationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.InputActivationListenerActivationChangedEventArgs";
@@ -3262,7 +3262,7 @@ unsafe impl ::windows::runtime::RuntimeType for KeyboardDeliveryInterceptor {
 }
 unsafe impl ::windows::runtime::Interface for KeyboardDeliveryInterceptor {
     type Vtable = IKeyboardDeliveryInterceptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3032150120, 36681, 17516, [141, 181, 140, 15, 254, 133, 204, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4baf068_8f49_446c_8db5_8c0ffe85cc9e);
 }
 impl ::windows::runtime::RuntimeName for KeyboardDeliveryInterceptor {
     const NAME: &'static str = "Windows.UI.Input.KeyboardDeliveryInterceptor";
@@ -3372,7 +3372,7 @@ unsafe impl ::windows::runtime::RuntimeType for ManipulationCompletedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ManipulationCompletedEventArgs {
     type Vtable = IManipulationCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3008016939, 53659, 18175, [159, 56, 222, 199, 117, 75, 185, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb34ab22b_d19b_46ff_9f38_dec7754bb9e7);
 }
 impl ::windows::runtime::RuntimeName for ManipulationCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationCompletedEventArgs";
@@ -3525,7 +3525,7 @@ unsafe impl ::windows::runtime::RuntimeType for ManipulationInertiaStartingEvent
 }
 unsafe impl ::windows::runtime::Interface for ManipulationInertiaStartingEventArgs {
     type Vtable = IManipulationInertiaStartingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3711412376, 9919, 18042, [156, 229, 204, 243, 251, 17, 55, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd37a898_26bf_467a_9ce5_ccf3fb11371e);
 }
 impl ::windows::runtime::RuntimeName for ManipulationInertiaStartingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationInertiaStartingEventArgs";
@@ -3616,7 +3616,7 @@ unsafe impl ::windows::runtime::RuntimeType for ManipulationStartedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ManipulationStartedEventArgs {
     type Vtable = IManipulationStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3723265854, 53198, 18738, [140, 29, 60, 61, 1, 26, 52, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddec873e_cfce_4932_8c1d_3c3d011a34c0);
 }
 impl ::windows::runtime::RuntimeName for ManipulationStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationStartedEventArgs";
@@ -3733,7 +3733,7 @@ unsafe impl ::windows::runtime::RuntimeType for ManipulationUpdatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ManipulationUpdatedEventArgs {
     type Vtable = IManipulationUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3409267941, 43960, 20383, [179, 206, 129, 129, 170, 97, 173, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb354ce5_abb8_4f9f_b3ce_8181aa61ad82);
 }
 impl ::windows::runtime::RuntimeName for ManipulationUpdatedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationUpdatedEventArgs";
@@ -3888,7 +3888,7 @@ unsafe impl ::windows::runtime::RuntimeType for MouseWheelParameters {
 }
 unsafe impl ::windows::runtime::Interface for MouseWheelParameters {
     type Vtable = IMouseWheelParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3939551812, 40429, 16439, [129, 73, 94, 76, 194, 86, 68, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xead0ca44_9ded_4037_8149_5e4cc2564468);
 }
 impl ::windows::runtime::RuntimeName for MouseWheelParameters {
     const NAME: &'static str = "Windows.UI.Input.MouseWheelParameters";
@@ -4045,7 +4045,7 @@ unsafe impl ::windows::runtime::RuntimeType for PointerPoint {
 }
 unsafe impl ::windows::runtime::Interface for PointerPoint {
     type Vtable = IPointerPoint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3918868861, 29334, 17113, [130, 51, 197, 190, 115, 183, 74, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe995317d_7296_42d9_8233_c5be73b74a4a);
 }
 impl ::windows::runtime::RuntimeName for PointerPoint {
     const NAME: &'static str = "Windows.UI.Input.PointerPoint";
@@ -4304,7 +4304,7 @@ unsafe impl ::windows::runtime::RuntimeType for PointerPointProperties {
 }
 unsafe impl ::windows::runtime::Interface for PointerPointProperties {
     type Vtable = IPointerPointProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3348990539, 49507, 20199, [128, 63, 103, 206, 121, 249, 151, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc79d8a4b_c163_4ee7_803f_67ce79f9972d);
 }
 impl ::windows::runtime::RuntimeName for PointerPointProperties {
     const NAME: &'static str = "Windows.UI.Input.PointerPointProperties";
@@ -4428,7 +4428,7 @@ unsafe impl ::windows::runtime::RuntimeType for PointerVisualizationSettings {
 }
 unsafe impl ::windows::runtime::Interface for PointerVisualizationSettings {
     type Vtable = IPointerVisualizationSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1293837409, 34039, 18845, [189, 145, 42, 54, 226, 183, 170, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d1e6461_84f7_499d_bd91_2a36e2b7aaa2);
 }
 impl ::windows::runtime::RuntimeName for PointerVisualizationSettings {
     const NAME: &'static str = "Windows.UI.Input.PointerVisualizationSettings";
@@ -4688,7 +4688,7 @@ unsafe impl ::windows::runtime::RuntimeType for RadialController {
 }
 unsafe impl ::windows::runtime::Interface for RadialController {
     type Vtable = IRadialController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(810930632, 57169, 17364, [178, 59, 14, 16, 55, 70, 122, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3055d1c8_df51_43d4_b23b_0e1037467a09);
 }
 impl ::windows::runtime::RuntimeName for RadialController {
     const NAME: &'static str = "Windows.UI.Input.RadialController";
@@ -4763,7 +4763,7 @@ unsafe impl ::windows::runtime::RuntimeType for RadialControllerButtonClickedEve
 }
 unsafe impl ::windows::runtime::Interface for RadialControllerButtonClickedEventArgs {
     type Vtable = IRadialControllerButtonClickedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543859768, 58961, 4581, [191, 98, 44, 39, 215, 64, 78, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa438_e651_11e5_bf62_2c27d7404e85);
 }
 impl ::windows::runtime::RuntimeName for RadialControllerButtonClickedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonClickedEventArgs";
@@ -4838,7 +4838,7 @@ unsafe impl ::windows::runtime::RuntimeType for RadialControllerButtonHoldingEve
 }
 unsafe impl ::windows::runtime::Interface for RadialControllerButtonHoldingEventArgs {
     type Vtable = IRadialControllerButtonHoldingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144302, 15598, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577eee_3cee_11e6_b535_001bdc06ab3b);
 }
 impl ::windows::runtime::RuntimeName for RadialControllerButtonHoldingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonHoldingEventArgs";
@@ -4913,7 +4913,7 @@ unsafe impl ::windows::runtime::RuntimeType for RadialControllerButtonPressedEve
 }
 unsafe impl ::windows::runtime::Interface for RadialControllerButtonPressedEventArgs {
     type Vtable = IRadialControllerButtonPressedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144301, 19694, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577eed_4cee_11e6_b535_001bdc06ab3b);
 }
 impl ::windows::runtime::RuntimeName for RadialControllerButtonPressedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonPressedEventArgs";
@@ -4988,7 +4988,7 @@ unsafe impl ::windows::runtime::RuntimeType for RadialControllerButtonReleasedEv
 }
 unsafe impl ::windows::runtime::Interface for RadialControllerButtonReleasedEventArgs {
     type Vtable = IRadialControllerButtonReleasedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144303, 15598, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577eef_3cee_11e6_b535_001bdc06ab3b);
 }
 impl ::windows::runtime::RuntimeName for RadialControllerButtonReleasedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonReleasedEventArgs";
@@ -5128,7 +5128,7 @@ unsafe impl ::windows::runtime::RuntimeType for RadialControllerConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for RadialControllerConfiguration {
     type Vtable = IRadialControllerConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2797051595, 27218, 17456, [145, 12, 86, 55, 10, 157, 107, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6b79ecb_6a52_4430_910c_56370a9d6b42);
 }
 impl ::windows::runtime::RuntimeName for RadialControllerConfiguration {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerConfiguration";
@@ -5211,7 +5211,7 @@ unsafe impl ::windows::runtime::RuntimeType for RadialControllerControlAcquiredE
 }
 unsafe impl ::windows::runtime::Interface for RadialControllerControlAcquiredEventArgs {
     type Vtable = IRadialControllerControlAcquiredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543859769, 58961, 4581, [191, 98, 44, 39, 215, 64, 78, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa439_e651_11e5_bf62_2c27d7404e85);
 }
 impl ::windows::runtime::RuntimeName for RadialControllerControlAcquiredEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerControlAcquiredEventArgs";
@@ -5312,7 +5312,7 @@ unsafe impl ::windows::runtime::RuntimeType for RadialControllerMenu {
 }
 unsafe impl ::windows::runtime::Interface for RadialControllerMenu {
     type Vtable = IRadialControllerMenu_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2231808861, 63040, 17426, [171, 160, 186, 208, 119, 229, 234, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8506b35d_f640_4412_aba0_bad077e5ea8a);
 }
 impl ::windows::runtime::RuntimeName for RadialControllerMenu {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerMenu";
@@ -5444,7 +5444,7 @@ unsafe impl ::windows::runtime::RuntimeType for RadialControllerMenuItem {
 }
 unsafe impl ::windows::runtime::Interface for RadialControllerMenuItem {
     type Vtable = IRadialControllerMenuItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3356477837, 44299, 19612, [143, 47, 19, 106, 35, 115, 166, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc80fc98d_ad0b_4c9c_8f2f_136a2373a6ba);
 }
 impl ::windows::runtime::RuntimeName for RadialControllerMenuItem {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerMenuItem";
@@ -5564,7 +5564,7 @@ unsafe impl ::windows::runtime::RuntimeType for RadialControllerRotationChangedE
 }
 unsafe impl ::windows::runtime::Interface for RadialControllerRotationChangedEventArgs {
     type Vtable = IRadialControllerRotationChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543859765, 58961, 4581, [191, 98, 44, 39, 215, 64, 78, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa435_e651_11e5_bf62_2c27d7404e85);
 }
 impl ::windows::runtime::RuntimeName for RadialControllerRotationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerRotationChangedEventArgs";
@@ -5640,7 +5640,7 @@ unsafe impl ::windows::runtime::RuntimeType for RadialControllerScreenContact {
 }
 unsafe impl ::windows::runtime::Interface for RadialControllerScreenContact {
     type Vtable = IRadialControllerScreenContact_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543859764, 58961, 4581, [191, 98, 44, 39, 215, 64, 78, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa434_e651_11e5_bf62_2c27d7404e85);
 }
 impl ::windows::runtime::RuntimeName for RadialControllerScreenContact {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContact";
@@ -5723,7 +5723,7 @@ unsafe impl ::windows::runtime::RuntimeType for RadialControllerScreenContactCon
 }
 unsafe impl ::windows::runtime::Interface for RadialControllerScreenContactContinuedEventArgs {
     type Vtable = IRadialControllerScreenContactContinuedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543859767, 58961, 4581, [191, 98, 44, 39, 215, 64, 78, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa437_e651_11e5_bf62_2c27d7404e85);
 }
 impl ::windows::runtime::RuntimeName for RadialControllerScreenContactContinuedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContactContinuedEventArgs";
@@ -5798,7 +5798,7 @@ unsafe impl ::windows::runtime::RuntimeType for RadialControllerScreenContactEnd
 }
 unsafe impl ::windows::runtime::Interface for RadialControllerScreenContactEndedEventArgs {
     type Vtable = IRadialControllerScreenContactEndedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144306, 15598, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef2_3cee_11e6_b535_001bdc06ab3b);
 }
 impl ::windows::runtime::RuntimeName for RadialControllerScreenContactEndedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContactEndedEventArgs";
@@ -5881,7 +5881,7 @@ unsafe impl ::windows::runtime::RuntimeType for RadialControllerScreenContactSta
 }
 unsafe impl ::windows::runtime::Interface for RadialControllerScreenContactStartedEventArgs {
     type Vtable = IRadialControllerScreenContactStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543859766, 58961, 4581, [191, 98, 44, 39, 215, 64, 78, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa436_e651_11e5_bf62_2c27d7404e85);
 }
 impl ::windows::runtime::RuntimeName for RadialControllerScreenContactStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContactStartedEventArgs";
@@ -5990,7 +5990,7 @@ unsafe impl ::windows::runtime::RuntimeType for RightTappedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for RightTappedEventArgs {
     type Vtable = IRightTappedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1287602365, 44922, 18998, [148, 118, 177, 220, 225, 65, 112, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4cbf40bd_af7a_4a36_9476_b1dce141709a);
 }
 impl ::windows::runtime::RuntimeName for RightTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RightTappedEventArgs";
@@ -6124,7 +6124,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemButtonEventController {
 }
 unsafe impl ::windows::runtime::Interface for SystemButtonEventController {
     type Vtable = ISystemButtonEventController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1505268649, 29628, 21173, [186, 65, 130, 81, 27, 44, 180, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59b893a9_73bc_52b5_ba41_82511b2cb46c);
 }
 impl ::windows::runtime::RuntimeName for SystemButtonEventController {
     const NAME: &'static str = "Windows.UI.Input.SystemButtonEventController";
@@ -6249,7 +6249,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemFunctionButtonEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for SystemFunctionButtonEventArgs {
     type Vtable = ISystemFunctionButtonEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1211337071, 32977, 24022, [146, 167, 98, 165, 8, 255, 239, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4833896f_80d1_5dd6_92a7_62a508ffef5a);
 }
 impl ::windows::runtime::RuntimeName for SystemFunctionButtonEventArgs {
     const NAME: &'static str = "Windows.UI.Input.SystemFunctionButtonEventArgs";
@@ -6336,7 +6336,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemFunctionLockChangedEventAr
 }
 unsafe impl ::windows::runtime::Interface for SystemFunctionLockChangedEventArgs {
     type Vtable = ISystemFunctionLockChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3439592968, 64761, 22620, [190, 171, 241, 210, 234, 243, 100, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd040608_fcf9_585c_beab_f1d2eaf364ab);
 }
 impl ::windows::runtime::RuntimeName for SystemFunctionLockChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.SystemFunctionLockChangedEventArgs";
@@ -6423,7 +6423,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemFunctionLockIndicatorChang
 }
 unsafe impl ::windows::runtime::Interface for SystemFunctionLockIndicatorChangedEventArgs {
     type Vtable = ISystemFunctionLockIndicatorChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2987571534, 31343, 22702, [179, 4, 186, 230, 29, 3, 113, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb212b94e_7a6f_58ae_b304_bae61d0371b9);
 }
 impl ::windows::runtime::RuntimeName for SystemFunctionLockIndicatorChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.SystemFunctionLockIndicatorChangedEventArgs";
@@ -6515,7 +6515,7 @@ unsafe impl ::windows::runtime::RuntimeType for TappedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for TappedEventArgs {
     type Vtable = ITappedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3483444964, 9530, 19516, [149, 59, 57, 92, 55, 174, 211, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfa126e4_253a_4c3c_953b_395c37aed309);
 }
 impl ::windows::runtime::RuntimeName for TappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.TappedEventArgs";

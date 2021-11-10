@@ -4,7 +4,7 @@
 pub struct ISpatialGestureRecognizer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialGestureRecognizer {
     type Vtable = ISpatialGestureRecognizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1902140364, 3125, 18035, [173, 189, 204, 4, 202, 166, 239, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71605bcc_0c35_4673_adbd_cc04caa6ef45);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -81,7 +81,7 @@ pub struct ISpatialGestureRecognizer_abi(
 pub struct ISpatialGestureRecognizerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialGestureRecognizerFactory {
     type Vtable = ISpatialGestureRecognizerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1998668166, 22457, 12624, [131, 130, 105, 139, 36, 226, 100, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77214186_57b9_3150_8382_698b24e264d0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -99,7 +99,7 @@ pub struct ISpatialGestureRecognizerFactory_abi(
 pub struct ISpatialHoldCanceledEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialHoldCanceledEventArgs {
     type Vtable = ISpatialHoldCanceledEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1576842855, 19626, 16531, [140, 53, 182, 1, 168, 57, 243, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5dfcb667_4caa_4093_8c35_b601a839f31b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -117,7 +117,7 @@ pub struct ISpatialHoldCanceledEventArgs_abi(
 pub struct ISpatialHoldCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialHoldCompletedEventArgs {
     type Vtable = ISpatialHoldCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1063536395, 19709, 17370, [141, 196, 230, 69, 82, 23, 57, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f64470b_4cfd_43da_8dc4_e64552173971);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -135,7 +135,7 @@ pub struct ISpatialHoldCompletedEventArgs_abi(
 pub struct ISpatialHoldStartedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialHoldStartedEventArgs {
     type Vtable = ISpatialHoldStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2385788281, 44214, 16708, [134, 21, 44, 251, 168, 163, 203, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e343d79_acb6_4144_8615_2cfba8a3cb3f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -155,7 +155,7 @@ pub struct ISpatialHoldStartedEventArgs_abi(
 pub struct ISpatialInteraction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteraction {
     type Vtable = ISpatialInteraction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4237719097, 35046, 17990, [145, 18, 67, 68, 170, 236, 157, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc967639_88e6_4646_9112_4344aaec9dfa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -173,7 +173,7 @@ pub struct ISpatialInteraction_abi(
 pub struct ISpatialInteractionController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionController {
     type Vtable = ISpatialInteractionController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1594776483, 2388, 20119, [134, 197, 231, 243, 11, 17, 77, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f0e5ba3_0954_4e97_86c5_e7f30b114dfd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -197,7 +197,7 @@ pub struct ISpatialInteractionController_abi(
 pub struct ISpatialInteractionController2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionController2 {
     type Vtable = ISpatialInteractionController2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(901175588, 51106, 18871, [183, 46, 84, 54, 178, 251, 143, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35b6d924_c7a2_49b7_b72e_5436b2fb8f9c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -216,7 +216,7 @@ pub struct ISpatialInteractionController2_abi(
 pub struct ISpatialInteractionController3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionController3 {
     type Vtable = ISpatialInteractionController3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1652844192, 40337, 18955, [136, 141, 22, 94, 103, 10, 140, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x628466a0_9d91_4a0b_888d_165e670a8cd5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -235,7 +235,7 @@ pub struct ISpatialInteractionController3_abi(
 pub struct ISpatialInteractionControllerProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionControllerProperties {
     type Vtable = ISpatialInteractionControllerProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1627746225, 31657, 20021, [185, 63, 146, 114, 203, 169, 178, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61056fb1_7ba9_4e35_b93f_9272cba9b28b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -259,7 +259,7 @@ pub struct ISpatialInteractionControllerProperties_abi(
 pub struct ISpatialInteractionDetectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionDetectedEventArgs {
     type Vtable = ISpatialInteractionDetectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(123238628, 22881, 15169, [157, 251, 206, 165, 216, 156, 195, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x075878e4_5961_3b41_9dfb_cea5d89cc38a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -280,7 +280,7 @@ pub struct ISpatialInteractionDetectedEventArgs_abi(
 pub struct ISpatialInteractionDetectedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionDetectedEventArgs2 {
     type Vtable = ISpatialInteractionDetectedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2066103955, 24339, 16796, [151, 213, 131, 70, 120, 38, 106, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b263e93_5f13_419c_97d5_834678266aa6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -298,7 +298,7 @@ pub struct ISpatialInteractionDetectedEventArgs2_abi(
 pub struct ISpatialInteractionManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionManager {
     type Vtable = ISpatialInteractionManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(849759912, 41306, 14741, [184, 189, 128, 81, 60, 181, 173, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32a64ea8_a15a_3995_b8bd_80513cb5adef);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -341,7 +341,7 @@ pub struct ISpatialInteractionManager_abi(
 pub struct ISpatialInteractionManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionManagerStatics {
     type Vtable = ISpatialInteractionManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(14884774, 36002, 12479, [145, 254, 217, 203, 74, 0, 137, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00e31fa6_8ca2_30bf_91fe_d9cb4a008990);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -359,7 +359,7 @@ pub struct ISpatialInteractionManagerStatics_abi(
 pub struct ISpatialInteractionManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionManagerStatics2 {
     type Vtable = ISpatialInteractionManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2482072658, 47242, 22825, [141, 124, 72, 203, 148, 139, 8, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93f16c52_b88a_5929_8d7c_48cb948b081c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -377,7 +377,7 @@ pub struct ISpatialInteractionManagerStatics2_abi(
 pub struct ISpatialInteractionSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSource {
     type Vtable = ISpatialInteractionSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4216599482, 45235, 12616, [159, 59, 233, 245, 222, 86, 143, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb5433ba_b0b3_3148_9f3b_e9f5de568f5d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -396,7 +396,7 @@ pub struct ISpatialInteractionSource_abi(
 pub struct ISpatialInteractionSource2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSource2 {
     type Vtable = ISpatialInteractionSource2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3838162700, 1136, 16424, [136, 192, 160, 235, 68, 211, 78, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4c5b70c_0470_4028_88c0_a0eb44d34efe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -419,7 +419,7 @@ pub struct ISpatialInteractionSource2_abi(
 pub struct ISpatialInteractionSource3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSource3 {
     type Vtable = ISpatialInteractionSource3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(67557881, 39677, 17657, [133, 220, 112, 0, 35, 169, 98, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0406d9f9_9afd_44f9_85dc_700023a962e3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -437,7 +437,7 @@ pub struct ISpatialInteractionSource3_abi(
 pub struct ISpatialInteractionSource4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSource4 {
     type Vtable = ISpatialInteractionSource4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(7584845, 57190, 23185, [162, 186, 206, 163, 229, 197, 138, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0073bc4d_df66_5a91_a2ba_cea3e5c58a19);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -458,7 +458,7 @@ pub struct ISpatialInteractionSource4_abi(
 pub struct ISpatialInteractionSourceEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceEventArgs {
     type Vtable = ISpatialInteractionSourceEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(599230159, 60451, 14713, [178, 124, 235, 14, 18, 254, 183, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23b786cf_ec23_3979_b27c_eb0e12feb7c7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -476,7 +476,7 @@ pub struct ISpatialInteractionSourceEventArgs_abi(
 pub struct ISpatialInteractionSourceEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceEventArgs2 {
     type Vtable = ISpatialInteractionSourceEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3635721319, 58952, 19794, [171, 73, 224, 210, 39, 25, 159, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8b4b467_e648_4d52_ab49_e0d227199f63);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -494,7 +494,7 @@ pub struct ISpatialInteractionSourceEventArgs2_abi(
 pub struct ISpatialInteractionSourceLocation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceLocation {
     type Vtable = ISpatialInteractionSourceLocation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3930494660, 32395, 12490, [188, 197, 199, 113, 137, 206, 163, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea4696c4_7e8b_30ca_bcc5_c77189cea30a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -515,7 +515,7 @@ pub struct ISpatialInteractionSourceLocation_abi(
 pub struct ISpatialInteractionSourceLocation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceLocation2 {
     type Vtable = ISpatialInteractionSourceLocation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1281822789, 14615, 16636, [169, 172, 49, 201, 207, 95, 249, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c671045_3917_40fc_a9ac_31c9cf5ff91b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -534,7 +534,7 @@ pub struct ISpatialInteractionSourceLocation2_abi(
 pub struct ISpatialInteractionSourceLocation3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceLocation3 {
     type Vtable = ISpatialInteractionSourceLocation3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1728243294, 59669, 19707, [156, 27, 5, 56, 239, 200, 102, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6702e65e_e915_4cfb_9c1b_0538efc86687);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -555,7 +555,7 @@ pub struct ISpatialInteractionSourceLocation3_abi(
 pub struct ISpatialInteractionSourceProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceProperties {
     type Vtable = ISpatialInteractionSourceProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(90195266, 16119, 12834, [159, 83, 99, 201, 203, 126, 59, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05604542_3ef7_3222_9f53_63c9cb7e3bc7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -577,7 +577,7 @@ pub struct ISpatialInteractionSourceProperties_abi(
 pub struct ISpatialInteractionSourceState(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceState {
     type Vtable = ISpatialInteractionSourceState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3586422255, 19299, 14316, [152, 185, 159, 198, 82, 185, 210, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5c475ef_4b63_37ec_98b9_9fc652b9d2f2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -601,7 +601,7 @@ pub struct ISpatialInteractionSourceState_abi(
 pub struct ISpatialInteractionSourceState2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceState2 {
     type Vtable = ISpatialInteractionSourceState2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1173803197, 6003, 18734, [155, 163, 138, 193, 203, 231, 124, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45f6d0bd_1773_492e_9ba3_8ac1cbe77c08);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -623,7 +623,7 @@ pub struct ISpatialInteractionSourceState2_abi(
 pub struct ISpatialInteractionSourceState3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceState3 {
     type Vtable = ISpatialInteractionSourceState3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075817922, 48427, 18945, [168, 251, 50, 62, 1, 88, 82, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2f00bc2_bd2b_4a01_a8fb_323e0158527c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -642,7 +642,7 @@ pub struct ISpatialInteractionSourceState3_abi(
 pub struct ISpatialManipulationCanceledEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialManipulationCanceledEventArgs {
     type Vtable = ISpatialManipulationCanceledEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(759222731, 59354, 16928, [176, 191, 129, 147, 1, 103, 71, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d40d1cb_e7da_4220_b0bf_819301674780);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -660,7 +660,7 @@ pub struct ISpatialManipulationCanceledEventArgs_abi(
 pub struct ISpatialManipulationCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialManipulationCompletedEventArgs {
     type Vtable = ISpatialManipulationCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(84436994, 62209, 17219, [146, 80, 47, 186, 165, 248, 122, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05086802_f301_4343_9250_2fbaa5f87a37);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -680,7 +680,7 @@ pub struct ISpatialManipulationCompletedEventArgs_abi(
 pub struct ISpatialManipulationDelta(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialManipulationDelta {
     type Vtable = ISpatialManipulationDelta_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2817300090, 53539, 14977, [161, 91, 153, 41, 35, 220, 190, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7ec967a_d123_3a81_a15b_992923dcbe91);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -699,7 +699,7 @@ pub struct ISpatialManipulationDelta_abi(
 pub struct ISpatialManipulationStartedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialManipulationStartedEventArgs {
     type Vtable = ISpatialManipulationStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2715204558, 17061, 14203, [173, 166, 210, 142, 61, 56, 71, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1d6bbce_42a5_377b_ada6_d28e3d384737);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -719,7 +719,7 @@ pub struct ISpatialManipulationStartedEventArgs_abi(
 pub struct ISpatialManipulationUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialManipulationUpdatedEventArgs {
     type Vtable = ISpatialManipulationUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1596132251, 24774, 19910, [189, 201, 159, 74, 111, 21, 254, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f230b9b_60c6_4dc6_bdc9_9f4a6f15fe49);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -739,7 +739,7 @@ pub struct ISpatialManipulationUpdatedEventArgs_abi(
 pub struct ISpatialNavigationCanceledEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialNavigationCanceledEventArgs {
     type Vtable = ISpatialNavigationCanceledEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3461365468, 59557, 18160, [146, 212, 60, 18, 43, 53, 17, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce503edc_e8a5_46f0_92d4_3c122b35112a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -757,7 +757,7 @@ pub struct ISpatialNavigationCanceledEventArgs_abi(
 pub struct ISpatialNavigationCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialNavigationCompletedEventArgs {
     type Vtable = ISpatialNavigationCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(19824823, 44859, 17090, [158, 65, 186, 170, 14, 114, 31, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x012e80b7_af3b_42c2_9e41_baaa0e721f3a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -777,7 +777,7 @@ pub struct ISpatialNavigationCompletedEventArgs_abi(
 pub struct ISpatialNavigationStartedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialNavigationStartedEventArgs {
     type Vtable = ISpatialNavigationStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1967797386, 64356, 18006, [142, 189, 157, 238, 202, 175, 228, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x754a348a_fb64_4656_8ebd_9deecaafe475);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -800,7 +800,7 @@ pub struct ISpatialNavigationStartedEventArgs_abi(
 pub struct ISpatialNavigationUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialNavigationUpdatedEventArgs {
     type Vtable = ISpatialNavigationUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2607890391, 33693, 19060, [135, 50, 69, 70, 111, 192, 68, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b713fd7_839d_4a74_8732_45466fc044b5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -820,7 +820,7 @@ pub struct ISpatialNavigationUpdatedEventArgs_abi(
 pub struct ISpatialPointerInteractionSourcePose(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialPointerInteractionSourcePose {
     type Vtable = ISpatialPointerInteractionSourcePose_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2802860807, 11307, 19770, [146, 167, 128, 206, 215, 196, 160, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7104307_2c2b_4d3a_92a7_80ced7c4a0d0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -843,7 +843,7 @@ pub struct ISpatialPointerInteractionSourcePose_abi(
 pub struct ISpatialPointerInteractionSourcePose2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialPointerInteractionSourcePose2 {
     type Vtable = ISpatialPointerInteractionSourcePose2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3972892344, 21211, 18079, [158, 63, 128, 196, 127, 116, 188, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeccd86b8_52db_469f_9e3f_80c47f74bce9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -863,7 +863,7 @@ pub struct ISpatialPointerInteractionSourcePose2_abi(
 pub struct ISpatialPointerPose(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialPointerPose {
     type Vtable = ISpatialPointerPose_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1767089198, 49534, 13693, [151, 161, 114, 105, 208, 237, 45, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6953a42e_c17e_357d_97a1_7269d0ed2d10);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -884,7 +884,7 @@ pub struct ISpatialPointerPose_abi(
 pub struct ISpatialPointerPose2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialPointerPose2 {
     type Vtable = ISpatialPointerPose2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2636131095, 38222, 19980, [150, 209, 182, 121, 11, 111, 194, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d202b17_954e_4e0c_96d1_b6790b6fc2fd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -902,7 +902,7 @@ pub struct ISpatialPointerPose2_abi(
 pub struct ISpatialPointerPose3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialPointerPose3 {
     type Vtable = ISpatialPointerPose3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1665332208, 60489, 23371, [184, 209, 209, 108, 187, 22, 190, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6342f3f0_ec49_5b4b_b8d1_d16cbb16be84);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -922,7 +922,7 @@ pub struct ISpatialPointerPose3_abi(
 pub struct ISpatialPointerPoseStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialPointerPoseStatics {
     type Vtable = ISpatialPointerPoseStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2723516841, 44193, 16096, [152, 22, 120, 92, 251, 46, 63, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa25591a9_aca1_3ee0_9816_785cfb2e3fb8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -941,7 +941,7 @@ pub struct ISpatialPointerPoseStatics_abi(
 pub struct ISpatialRecognitionEndedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialRecognitionEndedEventArgs {
     type Vtable = ISpatialRecognitionEndedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(238417355, 16245, 17395, [172, 129, 209, 220, 45, 249, 177, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e35f5cb_3f75_43f3_ac81_d1dc2df9b1fb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -959,7 +959,7 @@ pub struct ISpatialRecognitionEndedEventArgs_abi(
 pub struct ISpatialRecognitionStartedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialRecognitionStartedEventArgs {
     type Vtable = ISpatialRecognitionStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(618271375, 8, 19053, [170, 80, 42, 118, 249, 207, 178, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24da128f_0008_4a6d_aa50_2a76f9cfb264);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -980,7 +980,7 @@ pub struct ISpatialRecognitionStartedEventArgs_abi(
 pub struct ISpatialTappedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialTappedEventArgs {
     type Vtable = ISpatialTappedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(695043038, 62532, 19105, [178, 191, 157, 200, 141, 86, 125, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x296d83de_f444_4aa1_b2bf_9dc88d567da6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1254,7 +1254,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialGestureRecognizer {
 }
 unsafe impl ::windows::runtime::Interface for SpatialGestureRecognizer {
     type Vtable = ISpatialGestureRecognizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1902140364, 3125, 18035, [173, 189, 204, 4, 202, 166, 239, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71605bcc_0c35_4673_adbd_cc04caa6ef45);
 }
 impl ::windows::runtime::RuntimeName for SpatialGestureRecognizer {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialGestureRecognizer";
@@ -1379,7 +1379,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialHoldCanceledEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for SpatialHoldCanceledEventArgs {
     type Vtable = ISpatialHoldCanceledEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1576842855, 19626, 16531, [140, 53, 182, 1, 168, 57, 243, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5dfcb667_4caa_4093_8c35_b601a839f31b);
 }
 impl ::windows::runtime::RuntimeName for SpatialHoldCanceledEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialHoldCanceledEventArgs";
@@ -1445,7 +1445,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialHoldCompletedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for SpatialHoldCompletedEventArgs {
     type Vtable = ISpatialHoldCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1063536395, 19709, 17370, [141, 196, 230, 69, 82, 23, 57, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f64470b_4cfd_43da_8dc4_e64552173971);
 }
 impl ::windows::runtime::RuntimeName for SpatialHoldCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialHoldCompletedEventArgs";
@@ -1520,7 +1520,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialHoldStartedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for SpatialHoldStartedEventArgs {
     type Vtable = ISpatialHoldStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2385788281, 44214, 16708, [134, 21, 44, 251, 168, 163, 203, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e343d79_acb6_4144_8615_2cfba8a3cb3f);
 }
 impl ::windows::runtime::RuntimeName for SpatialHoldStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialHoldStartedEventArgs";
@@ -1586,7 +1586,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialInteraction {
 }
 unsafe impl ::windows::runtime::Interface for SpatialInteraction {
     type Vtable = ISpatialInteraction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4237719097, 35046, 17990, [145, 18, 67, 68, 170, 236, 157, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc967639_88e6_4646_9112_4344aaec9dfa);
 }
 impl ::windows::runtime::RuntimeName for SpatialInteraction {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteraction";
@@ -1711,7 +1711,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialInteractionController {
 }
 unsafe impl ::windows::runtime::Interface for SpatialInteractionController {
     type Vtable = ISpatialInteractionController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1594776483, 2388, 20119, [134, 197, 231, 243, 11, 17, 77, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f0e5ba3_0954_4e97_86c5_e7f30b114dfd);
 }
 impl ::windows::runtime::RuntimeName for SpatialInteractionController {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionController";
@@ -1825,7 +1825,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialInteractionControllerProp
 }
 unsafe impl ::windows::runtime::Interface for SpatialInteractionControllerProperties {
     type Vtable = ISpatialInteractionControllerProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1627746225, 31657, 20021, [185, 63, 146, 114, 203, 169, 178, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61056fb1_7ba9_4e35_b93f_9272cba9b28b);
 }
 impl ::windows::runtime::RuntimeName for SpatialInteractionControllerProperties {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionControllerProperties";
@@ -1916,7 +1916,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialInteractionDetectedEventA
 }
 unsafe impl ::windows::runtime::Interface for SpatialInteractionDetectedEventArgs {
     type Vtable = ISpatialInteractionDetectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(123238628, 22881, 15169, [157, 251, 206, 165, 216, 156, 195, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x075878e4_5961_3b41_9dfb_cea5d89cc38a);
 }
 impl ::windows::runtime::RuntimeName for SpatialInteractionDetectedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionDetectedEventArgs";
@@ -2095,7 +2095,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialInteractionManager {
 }
 unsafe impl ::windows::runtime::Interface for SpatialInteractionManager {
     type Vtable = ISpatialInteractionManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(849759912, 41306, 14741, [184, 189, 128, 81, 60, 181, 173, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32a64ea8_a15a_3995_b8bd_80513cb5adef);
 }
 impl ::windows::runtime::RuntimeName for SpatialInteractionManager {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionManager";
@@ -2262,7 +2262,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialInteractionSource {
 }
 unsafe impl ::windows::runtime::Interface for SpatialInteractionSource {
     type Vtable = ISpatialInteractionSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4216599482, 45235, 12616, [159, 59, 233, 245, 222, 86, 143, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb5433ba_b0b3_3148_9f3b_e9f5de568f5d);
 }
 impl ::windows::runtime::RuntimeName for SpatialInteractionSource {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSource";
@@ -2336,7 +2336,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialInteractionSourceEventArg
 }
 unsafe impl ::windows::runtime::Interface for SpatialInteractionSourceEventArgs {
     type Vtable = ISpatialInteractionSourceEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(599230159, 60451, 14713, [178, 124, 235, 14, 18, 254, 183, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23b786cf_ec23_3979_b27c_eb0e12feb7c7);
 }
 impl ::windows::runtime::RuntimeName for SpatialInteractionSourceEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceEventArgs";
@@ -2493,7 +2493,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialInteractionSourceLocation
 }
 unsafe impl ::windows::runtime::Interface for SpatialInteractionSourceLocation {
     type Vtable = ISpatialInteractionSourceLocation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3930494660, 32395, 12490, [188, 197, 199, 113, 137, 206, 163, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea4696c4_7e8b_30ca_bcc5_c77189cea30a);
 }
 impl ::windows::runtime::RuntimeName for SpatialInteractionSourceLocation {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceLocation";
@@ -2599,7 +2599,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialInteractionSourceProperti
 }
 unsafe impl ::windows::runtime::Interface for SpatialInteractionSourceProperties {
     type Vtable = ISpatialInteractionSourceProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(90195266, 16119, 12834, [159, 83, 99, 201, 203, 126, 59, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05604542_3ef7_3222_9f53_63c9cb7e3bc7);
 }
 impl ::windows::runtime::RuntimeName for SpatialInteractionSourceProperties {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceProperties";
@@ -2748,7 +2748,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialInteractionSourceState {
 }
 unsafe impl ::windows::runtime::Interface for SpatialInteractionSourceState {
     type Vtable = ISpatialInteractionSourceState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3586422255, 19299, 14316, [152, 185, 159, 198, 82, 185, 210, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5c475ef_4b63_37ec_98b9_9fc652b9d2f2);
 }
 impl ::windows::runtime::RuntimeName for SpatialInteractionSourceState {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceState";
@@ -2814,7 +2814,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialManipulationCanceledEvent
 }
 unsafe impl ::windows::runtime::Interface for SpatialManipulationCanceledEventArgs {
     type Vtable = ISpatialManipulationCanceledEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(759222731, 59354, 16928, [176, 191, 129, 147, 1, 103, 71, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d40d1cb_e7da_4220_b0bf_819301674780);
 }
 impl ::windows::runtime::RuntimeName for SpatialManipulationCanceledEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationCanceledEventArgs";
@@ -2889,7 +2889,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialManipulationCompletedEven
 }
 unsafe impl ::windows::runtime::Interface for SpatialManipulationCompletedEventArgs {
     type Vtable = ISpatialManipulationCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(84436994, 62209, 17219, [146, 80, 47, 186, 165, 248, 122, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05086802_f301_4343_9250_2fbaa5f87a37);
 }
 impl ::windows::runtime::RuntimeName for SpatialManipulationCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationCompletedEventArgs";
@@ -2956,7 +2956,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialManipulationDelta {
 }
 unsafe impl ::windows::runtime::Interface for SpatialManipulationDelta {
     type Vtable = ISpatialManipulationDelta_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2817300090, 53539, 14977, [161, 91, 153, 41, 35, 220, 190, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7ec967a_d123_3a81_a15b_992923dcbe91);
 }
 impl ::windows::runtime::RuntimeName for SpatialManipulationDelta {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationDelta";
@@ -3031,7 +3031,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialManipulationStartedEventA
 }
 unsafe impl ::windows::runtime::Interface for SpatialManipulationStartedEventArgs {
     type Vtable = ISpatialManipulationStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2715204558, 17061, 14203, [173, 166, 210, 142, 61, 56, 71, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1d6bbce_42a5_377b_ada6_d28e3d384737);
 }
 impl ::windows::runtime::RuntimeName for SpatialManipulationStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationStartedEventArgs";
@@ -3106,7 +3106,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialManipulationUpdatedEventA
 }
 unsafe impl ::windows::runtime::Interface for SpatialManipulationUpdatedEventArgs {
     type Vtable = ISpatialManipulationUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1596132251, 24774, 19910, [189, 201, 159, 74, 111, 21, 254, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f230b9b_60c6_4dc6_bdc9_9f4a6f15fe49);
 }
 impl ::windows::runtime::RuntimeName for SpatialManipulationUpdatedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationUpdatedEventArgs";
@@ -3172,7 +3172,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialNavigationCanceledEventAr
 }
 unsafe impl ::windows::runtime::Interface for SpatialNavigationCanceledEventArgs {
     type Vtable = ISpatialNavigationCanceledEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3461365468, 59557, 18160, [146, 212, 60, 18, 43, 53, 17, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce503edc_e8a5_46f0_92d4_3c122b35112a);
 }
 impl ::windows::runtime::RuntimeName for SpatialNavigationCanceledEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationCanceledEventArgs";
@@ -3247,7 +3247,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialNavigationCompletedEventA
 }
 unsafe impl ::windows::runtime::Interface for SpatialNavigationCompletedEventArgs {
     type Vtable = ISpatialNavigationCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(19824823, 44859, 17090, [158, 65, 186, 170, 14, 114, 31, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x012e80b7_af3b_42c2_9e41_baaa0e721f3a);
 }
 impl ::windows::runtime::RuntimeName for SpatialNavigationCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationCompletedEventArgs";
@@ -3346,7 +3346,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialNavigationStartedEventArg
 }
 unsafe impl ::windows::runtime::Interface for SpatialNavigationStartedEventArgs {
     type Vtable = ISpatialNavigationStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1967797386, 64356, 18006, [142, 189, 157, 238, 202, 175, 228, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x754a348a_fb64_4656_8ebd_9deecaafe475);
 }
 impl ::windows::runtime::RuntimeName for SpatialNavigationStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationStartedEventArgs";
@@ -3421,7 +3421,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialNavigationUpdatedEventArg
 }
 unsafe impl ::windows::runtime::Interface for SpatialNavigationUpdatedEventArgs {
     type Vtable = ISpatialNavigationUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2607890391, 33693, 19060, [135, 50, 69, 70, 111, 192, 68, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b713fd7_839d_4a74_8732_45466fc044b5);
 }
 impl ::windows::runtime::RuntimeName for SpatialNavigationUpdatedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationUpdatedEventArgs";
@@ -3523,7 +3523,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialPointerInteractionSourceP
 }
 unsafe impl ::windows::runtime::Interface for SpatialPointerInteractionSourcePose {
     type Vtable = ISpatialPointerInteractionSourcePose_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2802860807, 11307, 19770, [146, 167, 128, 206, 215, 196, 160, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7104307_2c2b_4d3a_92a7_80ced7c4a0d0);
 }
 impl ::windows::runtime::RuntimeName for SpatialPointerInteractionSourcePose {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialPointerInteractionSourcePose";
@@ -3636,7 +3636,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialPointerPose {
 }
 unsafe impl ::windows::runtime::Interface for SpatialPointerPose {
     type Vtable = ISpatialPointerPose_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1767089198, 49534, 13693, [151, 161, 114, 105, 208, 237, 45, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6953a42e_c17e_357d_97a1_7269d0ed2d10);
 }
 impl ::windows::runtime::RuntimeName for SpatialPointerPose {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialPointerPose";
@@ -3702,7 +3702,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialRecognitionEndedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for SpatialRecognitionEndedEventArgs {
     type Vtable = ISpatialRecognitionEndedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(238417355, 16245, 17395, [172, 129, 209, 220, 45, 249, 177, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e35f5cb_3f75_43f3_ac81_d1dc2df9b1fb);
 }
 impl ::windows::runtime::RuntimeName for SpatialRecognitionEndedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialRecognitionEndedEventArgs";
@@ -3785,7 +3785,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialRecognitionStartedEventAr
 }
 unsafe impl ::windows::runtime::Interface for SpatialRecognitionStartedEventArgs {
     type Vtable = ISpatialRecognitionStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(618271375, 8, 19053, [170, 80, 42, 118, 249, 207, 178, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24da128f_0008_4a6d_aa50_2a76f9cfb264);
 }
 impl ::windows::runtime::RuntimeName for SpatialRecognitionStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialRecognitionStartedEventArgs";
@@ -3868,7 +3868,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialTappedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for SpatialTappedEventArgs {
     type Vtable = ISpatialTappedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(695043038, 62532, 19105, [178, 191, 157, 200, 141, 86, 125, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x296d83de_f444_4aa1_b2bf_9dc88d567da6);
 }
 impl ::windows::runtime::RuntimeName for SpatialTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialTappedEventArgs";

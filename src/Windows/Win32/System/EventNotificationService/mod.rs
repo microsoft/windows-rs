@@ -44,7 +44,7 @@ impl ISensLogon {
 }
 unsafe impl ::windows::runtime::Interface for ISensLogon {
     type Vtable = ISensLogon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3583490739, 23455, 4561, [141, 210, 0, 170, 0, 74, 189, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd597bab3_5b9f_11d1_8dd2_00aa004abd5e);
 }
 impl ::core::convert::From<ISensLogon> for ::windows::runtime::IUnknown {
     fn from(value: ISensLogon) -> Self {
@@ -151,7 +151,7 @@ impl ISensLogon2 {
 }
 unsafe impl ::windows::runtime::Interface for ISensLogon2 {
     type Vtable = ISensLogon2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3583490740, 23455, 4561, [141, 210, 0, 170, 0, 74, 189, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd597bab4_5b9f_11d1_8dd2_00aa004abd5e);
 }
 impl ::core::convert::From<ISensLogon2> for ::windows::runtime::IUnknown {
     fn from(value: ISensLogon2) -> Self {
@@ -254,7 +254,7 @@ impl ISensNetwork {
 }
 unsafe impl ::windows::runtime::Interface for ISensNetwork {
     type Vtable = ISensNetwork_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3583490737, 23455, 4561, [141, 210, 0, 170, 0, 74, 189, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd597bab1_5b9f_11d1_8dd2_00aa004abd5e);
 }
 impl ::core::convert::From<ISensNetwork> for ::windows::runtime::IUnknown {
     fn from(value: ISensNetwork) -> Self {
@@ -344,7 +344,7 @@ impl ISensOnNow {
 }
 unsafe impl ::windows::runtime::Interface for ISensOnNow {
     type Vtable = ISensOnNow_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3583490738, 23455, 4561, [141, 210, 0, 170, 0, 74, 189, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd597bab2_5b9f_11d1_8dd2_00aa004abd5e);
 }
 impl ::core::convert::From<ISensOnNow> for ::windows::runtime::IUnknown {
     fn from(value: ISensOnNow) -> Self {
@@ -489,14 +489,14 @@ impl ::core::cmp::Eq for QOCINFO {}
 unsafe impl ::windows::runtime::Abi for QOCINFO {
     type Abi = Self;
 }
-pub const SENS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3583494910, 23455, 4561, [141, 210, 0, 170, 0, 74, 189, 94]);
-pub const SENSGUID_EVENTCLASS_LOGON: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3583477296, 23455, 4561, [141, 210, 0, 170, 0, 74, 189, 94]);
-pub const SENSGUID_EVENTCLASS_LOGON2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3583477328, 23455, 4561, [141, 210, 0, 170, 0, 74, 189, 94]);
-pub const SENSGUID_EVENTCLASS_NETWORK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3583477280, 23455, 4561, [141, 210, 0, 170, 0, 74, 189, 94]);
-pub const SENSGUID_EVENTCLASS_ONNOW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3583477312, 23455, 4561, [141, 210, 0, 170, 0, 74, 189, 94]);
-pub const SENSGUID_PUBLISHER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1609440214, 23451, 4561, [141, 210, 0, 170, 0, 74, 189, 94]);
-pub const SENSGUID_SUBSCRIBER_LCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3549661872, 23453, 4561, [141, 210, 0, 170, 0, 74, 189, 94]);
-pub const SENSGUID_SUBSCRIBER_WININET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3549661877, 23453, 4561, [141, 210, 0, 170, 0, 74, 189, 94]);
+pub const SENS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd597cafe_5b9f_11d1_8dd2_00aa004abd5e);
+pub const SENSGUID_EVENTCLASS_LOGON: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5978630_5b9f_11d1_8dd2_00aa004abd5e);
+pub const SENSGUID_EVENTCLASS_LOGON2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5978650_5b9f_11d1_8dd2_00aa004abd5e);
+pub const SENSGUID_EVENTCLASS_NETWORK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5978620_5b9f_11d1_8dd2_00aa004abd5e);
+pub const SENSGUID_EVENTCLASS_ONNOW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5978640_5b9f_11d1_8dd2_00aa004abd5e);
+pub const SENSGUID_PUBLISHER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5fee1bd6_5b9b_11d1_8dd2_00aa004abd5e);
+pub const SENSGUID_SUBSCRIBER_LCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3938ab0_5b9d_11d1_8dd2_00aa004abd5e);
+pub const SENSGUID_SUBSCRIBER_WININET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3938ab5_5b9d_11d1_8dd2_00aa004abd5e);
 #[doc = "*Required features: `Win32_System_EventNotificationService`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]

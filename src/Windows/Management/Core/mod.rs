@@ -22,7 +22,7 @@ unsafe impl ::windows::runtime::RuntimeType for ApplicationDataManager {
 }
 unsafe impl ::windows::runtime::Interface for ApplicationDataManager {
     type Vtable = IApplicationDataManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1959855154, 11929, 16384, [154, 58, 100, 48, 126, 133, 129, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74d10432_2e99_4000_9a3a_64307e858129);
 }
 impl ::windows::runtime::RuntimeName for ApplicationDataManager {
     const NAME: &'static str = "Windows.Management.Core.ApplicationDataManager";
@@ -74,7 +74,7 @@ unsafe impl ::core::marker::Sync for ApplicationDataManager {}
 pub struct IApplicationDataManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationDataManager {
     type Vtable = IApplicationDataManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1959855154, 11929, 16384, [154, 58, 100, 48, 126, 133, 129, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74d10432_2e99_4000_9a3a_64307e858129);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -91,7 +91,7 @@ pub struct IApplicationDataManager_abi(
 pub struct IApplicationDataManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationDataManagerStatics {
     type Vtable = IApplicationDataManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(504914659, 27022, 18849, [151, 82, 222, 233, 73, 37, 185, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e1862e3_698e_49a1_9752_dee94925b9b3);
 }
 #[repr(C)]
 #[doc(hidden)]

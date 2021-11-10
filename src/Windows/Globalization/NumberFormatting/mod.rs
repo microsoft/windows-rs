@@ -273,7 +273,7 @@ unsafe impl ::windows::runtime::RuntimeType for CurrencyFormatter {
 }
 unsafe impl ::windows::runtime::Interface for CurrencyFormatter {
     type Vtable = ICurrencyFormatter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(292752549, 19200, 16818, [179, 50, 115, 177, 42, 73, 125, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11730ca5_4b00_41b2_b332_73b12a497d54);
 }
 impl ::windows::runtime::RuntimeName for CurrencyFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.CurrencyFormatter";
@@ -738,7 +738,7 @@ unsafe impl ::windows::runtime::RuntimeType for DecimalFormatter {
 }
 unsafe impl ::windows::runtime::Interface for DecimalFormatter {
     type Vtable = INumberFormatter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2768272457, 30326, 19895, [134, 49, 27, 111, 242, 101, 202, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5007c49_7676_4db7_8631_1b6ff265caa9);
 }
 impl ::windows::runtime::RuntimeName for DecimalFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.DecimalFormatter";
@@ -942,7 +942,7 @@ unsafe impl ::core::marker::Sync for DecimalFormatter {}
 pub struct ICurrencyFormatter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyFormatter {
     type Vtable = ICurrencyFormatter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(292752549, 19200, 16818, [179, 50, 115, 177, 42, 73, 125, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11730ca5_4b00_41b2_b332_73b12a497d54);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -961,7 +961,7 @@ pub struct ICurrencyFormatter_abi(
 pub struct ICurrencyFormatter2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyFormatter2 {
     type Vtable = ICurrencyFormatter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(120336157, 59322, 16791, [146, 14, 36, 124, 146, 247, 222, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x072c2f1d_e7ba_4197_920e_247c92f7dea6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -981,7 +981,7 @@ pub struct ICurrencyFormatter2_abi(
 pub struct ICurrencyFormatterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyFormatterFactory {
     type Vtable = ICurrencyFormatterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2261209982, 47416, 19106, [132, 176, 44, 51, 220, 91, 20, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86c7537e_b938_4aa2_84b0_2c33dc5b1450);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1001,7 +1001,7 @@ pub struct ICurrencyFormatterFactory_abi(
 pub struct IDecimalFormatterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDecimalFormatterFactory {
     type Vtable = IDecimalFormatterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(218205338, 58259, 18104, [184, 48, 122, 105, 200, 248, 159, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d018c9a_e393_46b8_b830_7a69c8f89fbb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1020,7 +1020,7 @@ pub struct IDecimalFormatterFactory_abi(
 pub struct IIncrementNumberRounder(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIncrementNumberRounder {
     type Vtable = IIncrementNumberRounder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1889947640, 26283, 16725, [157, 161, 115, 158, 70, 118, 69, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70a64ff8_66ab_4155_9da1_739e46764543);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1042,7 +1042,7 @@ pub struct IIncrementNumberRounder_abi(
 pub struct INumberFormatter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumberFormatter {
     type Vtable = INumberFormatter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2768272457, 30326, 19895, [134, 49, 27, 111, 242, 101, 202, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5007c49_7676_4db7_8631_1b6ff265caa9);
 }
 impl INumberFormatter {
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
@@ -1132,7 +1132,7 @@ pub struct INumberFormatter_abi(
 pub struct INumberFormatter2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumberFormatter2 {
     type Vtable = INumberFormatter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3567829488, 32976, 19213, [168, 158, 136, 44, 30, 143, 131, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4a8c1f0_80d0_4b0d_a89e_882c1e8f8310);
 }
 impl INumberFormatter2 {
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
@@ -1222,7 +1222,7 @@ pub struct INumberFormatter2_abi(
 pub struct INumberFormatterOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumberFormatterOptions {
     type Vtable = INumberFormatterOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2150837537, 44769, 19001, [186, 162, 7, 237, 140, 150, 218, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80332d21_aee1_4a39_baa2_07ed8c96daf6);
 }
 impl INumberFormatterOptions {
     #[cfg(feature = "Foundation_Collections")]
@@ -1398,7 +1398,7 @@ pub struct INumberFormatterOptions_abi(
 pub struct INumberParser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumberParser {
     type Vtable = INumberParser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3865416722, 18963, 19027, [131, 161, 57, 47, 190, 76, 255, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6659412_4a13_4a53_83a1_392fbe4cff9f);
 }
 impl INumberParser {
     #[cfg(feature = "Foundation")]
@@ -1494,7 +1494,7 @@ pub struct INumberParser_abi(
 pub struct INumberRounder(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumberRounder {
     type Vtable = INumberRounder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1416872821, 14573, 17969, [184, 12, 239, 52, 252, 72, 183, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5473c375_38ed_4631_b80c_ef34fc48b7f5);
 }
 impl INumberRounder {
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
@@ -1611,7 +1611,7 @@ pub struct INumberRounder_abi(
 pub struct INumberRounderOption(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumberRounderOption {
     type Vtable = INumberRounderOption_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(990413875, 25711, 20222, [141, 72, 102, 235, 46, 73, 231, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b088433_646f_4efe_8d48_66eb2e49e736);
 }
 impl INumberRounderOption {
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
@@ -1688,7 +1688,7 @@ pub struct INumberRounderOption_abi(
 pub struct INumeralSystemTranslator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumeralSystemTranslator {
     type Vtable = INumeralSystemTranslator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(687193132, 35875, 16948, [173, 46, 250, 90, 58, 66, 110, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28f5bc2c_8c23_4234_ad2e_fa5a3a426e9b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1711,7 +1711,7 @@ pub struct INumeralSystemTranslator_abi(
 pub struct INumeralSystemTranslatorFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumeralSystemTranslatorFactory {
     type Vtable = INumeralSystemTranslatorFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2519779546, 14063, 19848, [168, 92, 111, 13, 152, 214, 32, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9630c8da_36ef_4d88_a85c_6f0d98d620a6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1730,7 +1730,7 @@ pub struct INumeralSystemTranslatorFactory_abi(
 pub struct IPercentFormatterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPercentFormatterFactory {
     type Vtable = IPercentFormatterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3078785775, 65236, 16408, [166, 226, 224, 153, 97, 224, 55, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7828aef_fed4_4018_a6e2_e09961e03765);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1749,7 +1749,7 @@ pub struct IPercentFormatterFactory_abi(
 pub struct IPermilleFormatterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPermilleFormatterFactory {
     type Vtable = IPermilleFormatterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(725071020, 58936, 20181, [169, 152, 98, 246, 176, 106, 73, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b37b4ac_e638_4ed5_a998_62f6b06a49ae);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1769,7 +1769,7 @@ pub struct IPermilleFormatterFactory_abi(
 pub struct ISignedZeroOption(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISignedZeroOption {
     type Vtable = ISignedZeroOption_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4246527281, 2620, 18884, [166, 66, 150, 161, 86, 79, 79, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd1cdd31_0a3c_49c4_a642_96a1564f4f30);
 }
 impl ISignedZeroOption {
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
@@ -1846,7 +1846,7 @@ pub struct ISignedZeroOption_abi(
 pub struct ISignificantDigitsNumberRounder(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISignificantDigitsNumberRounder {
     type Vtable = ISignificantDigitsNumberRounder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4120124362, 26182, 18707, [140, 118, 27, 25, 31, 249, 77, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5941bca_6646_4913_8c76_1b191ff94dfd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1868,7 +1868,7 @@ pub struct ISignificantDigitsNumberRounder_abi(
 pub struct ISignificantDigitsOption(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISignificantDigitsOption {
     type Vtable = ISignificantDigitsOption_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(491650269, 11587, 20200, [187, 241, 193, 178, 106, 113, 26, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d4dfcdd_2d43_4ee8_bbf1_c1b26a711a58);
 }
 impl ISignificantDigitsOption {
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
@@ -2032,7 +2032,7 @@ unsafe impl ::windows::runtime::RuntimeType for IncrementNumberRounder {
 }
 unsafe impl ::windows::runtime::Interface for IncrementNumberRounder {
     type Vtable = INumberRounder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1416872821, 14573, 17969, [184, 12, 239, 52, 252, 72, 183, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5473c375_38ed_4631_b80c_ef34fc48b7f5);
 }
 impl ::windows::runtime::RuntimeName for IncrementNumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.IncrementNumberRounder";
@@ -2167,7 +2167,7 @@ unsafe impl ::windows::runtime::RuntimeType for NumeralSystemTranslator {
 }
 unsafe impl ::windows::runtime::Interface for NumeralSystemTranslator {
     type Vtable = INumeralSystemTranslator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(687193132, 35875, 16948, [173, 46, 250, 90, 58, 66, 110, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28f5bc2c_8c23_4234_ad2e_fa5a3a426e9b);
 }
 impl ::windows::runtime::RuntimeName for NumeralSystemTranslator {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.NumeralSystemTranslator";
@@ -2456,7 +2456,7 @@ unsafe impl ::windows::runtime::RuntimeType for PercentFormatter {
 }
 unsafe impl ::windows::runtime::Interface for PercentFormatter {
     type Vtable = INumberFormatter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2768272457, 30326, 19895, [134, 49, 27, 111, 242, 101, 202, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5007c49_7676_4db7_8631_1b6ff265caa9);
 }
 impl ::windows::runtime::RuntimeName for PercentFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.PercentFormatter";
@@ -2897,7 +2897,7 @@ unsafe impl ::windows::runtime::RuntimeType for PermilleFormatter {
 }
 unsafe impl ::windows::runtime::Interface for PermilleFormatter {
     type Vtable = INumberFormatter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2768272457, 30326, 19895, [134, 49, 27, 111, 242, 101, 202, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5007c49_7676_4db7_8631_1b6ff265caa9);
 }
 impl ::windows::runtime::RuntimeName for PermilleFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.PermilleFormatter";
@@ -3219,7 +3219,7 @@ unsafe impl ::windows::runtime::RuntimeType for SignificantDigitsNumberRounder {
 }
 unsafe impl ::windows::runtime::Interface for SignificantDigitsNumberRounder {
     type Vtable = INumberRounder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1416872821, 14573, 17969, [184, 12, 239, 52, 252, 72, 183, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5473c375_38ed_4631_b80c_ef34fc48b7f5);
 }
 impl ::windows::runtime::RuntimeName for SignificantDigitsNumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder";

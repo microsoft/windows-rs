@@ -83,7 +83,7 @@ unsafe impl ::windows::runtime::RuntimeType for AdaptiveNotificationText {
 }
 unsafe impl ::windows::runtime::Interface for AdaptiveNotificationText {
     type Vtable = IAdaptiveNotificationText_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1188340670, 24730, 17190, [164, 11, 191, 222, 135, 32, 52, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46d4a3be_609a_4326_a40b_bfde872034a3);
 }
 impl ::windows::runtime::RuntimeName for AdaptiveNotificationText {
     const NAME: &'static str = "Windows.UI.Notifications.AdaptiveNotificationText";
@@ -199,7 +199,7 @@ unsafe impl ::windows::runtime::RuntimeType for BadgeNotification {
 }
 unsafe impl ::windows::runtime::Interface for BadgeNotification {
     type Vtable = IBadgeNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(123516106, 53386, 20015, [146, 51, 126, 40, 156, 31, 119, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x075cb4ca_d08a_4e2f_9233_7e289c1f7722);
 }
 impl ::windows::runtime::RuntimeName for BadgeNotification {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeNotification";
@@ -364,7 +364,7 @@ unsafe impl ::windows::runtime::RuntimeType for BadgeUpdateManagerForUser {
 }
 unsafe impl ::windows::runtime::Interface for BadgeUpdateManagerForUser {
     type Vtable = IBadgeUpdateManagerForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2573935036, 902, 17637, [186, 141, 12, 16, 119, 166, 46, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x996b21bc_0386_44e5_ba8d_0c1077a62e92);
 }
 impl ::windows::runtime::RuntimeName for BadgeUpdateManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdateManagerForUser";
@@ -449,7 +449,7 @@ unsafe impl ::windows::runtime::RuntimeType for BadgeUpdater {
 }
 unsafe impl ::windows::runtime::Interface for BadgeUpdater {
     type Vtable = IBadgeUpdater_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3053068244, 30050, 20332, [191, 163, 27, 110, 210, 229, 127, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5fa1fd4_7562_4f6c_bfa3_1b6ed2e57f2f);
 }
 impl ::windows::runtime::RuntimeName for BadgeUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdater";
@@ -502,7 +502,7 @@ unsafe impl ::core::marker::Sync for BadgeUpdater {}
 pub struct IAdaptiveNotificationContent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveNotificationContent {
     type Vtable = IAdaptiveNotificationContent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3943546470, 29768, 17549, [157, 184, 215, 138, 205, 42, 187, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb0dbe66_7448_448d_9db8_d78acd2abba9);
 }
 impl IAdaptiveNotificationContent {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -584,7 +584,7 @@ pub struct IAdaptiveNotificationContent_abi(
 pub struct IAdaptiveNotificationText(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveNotificationText {
     type Vtable = IAdaptiveNotificationText_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1188340670, 24730, 17190, [164, 11, 191, 222, 135, 32, 52, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46d4a3be_609a_4326_a40b_bfde872034a3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -605,7 +605,7 @@ pub struct IAdaptiveNotificationText_abi(
 pub struct IBadgeNotification(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBadgeNotification {
     type Vtable = IBadgeNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(123516106, 53386, 20015, [146, 51, 126, 40, 156, 31, 119, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x075cb4ca_d08a_4e2f_9233_7e289c1f7722);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -628,7 +628,7 @@ pub struct IBadgeNotification_abi(
 pub struct IBadgeNotificationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBadgeNotificationFactory {
     type Vtable = IBadgeNotificationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3992081870, 1560, 19801, [148, 138, 90, 97, 4, 12, 82, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xedf255ce_0618_4d59_948a_5a61040c52f9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -647,7 +647,7 @@ pub struct IBadgeNotificationFactory_abi(
 pub struct IBadgeUpdateManagerForUser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBadgeUpdateManagerForUser {
     type Vtable = IBadgeUpdateManagerForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2573935036, 902, 17637, [186, 141, 12, 16, 119, 166, 46, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x996b21bc_0386_44e5_ba8d_0c1077a62e92);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -669,7 +669,7 @@ pub struct IBadgeUpdateManagerForUser_abi(
 pub struct IBadgeUpdateManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBadgeUpdateManagerStatics {
     type Vtable = IBadgeUpdateManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(859836330, 28117, 16645, [174, 188, 155, 80, 252, 164, 146, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33400faa_6dd5_4105_aebc_9b50fca492da);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -691,7 +691,7 @@ pub struct IBadgeUpdateManagerStatics_abi(
 pub struct IBadgeUpdateManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBadgeUpdateManagerStatics2 {
     type Vtable = IBadgeUpdateManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2543465934, 63808, 18623, [148, 232, 202, 36, 77, 64, 11, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x979a35ce_f940_48bf_94e8_ca244d400b41);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -710,7 +710,7 @@ pub struct IBadgeUpdateManagerStatics2_abi(
 pub struct IBadgeUpdater(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBadgeUpdater {
     type Vtable = IBadgeUpdater_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3053068244, 30050, 20332, [191, 163, 27, 110, 210, 229, 127, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5fa1fd4_7562_4f6c_bfa3_1b6ed2e57f2f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -734,7 +734,7 @@ pub struct IBadgeUpdater_abi(
 pub struct IKnownAdaptiveNotificationHintsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownAdaptiveNotificationHintsStatics {
     type Vtable = IKnownAdaptiveNotificationHintsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(102786456, 54422, 18813, [134, 146, 79, 125, 124, 39, 112, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06206598_d496_497d_8692_4f7d7c2770df);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -757,7 +757,7 @@ pub struct IKnownAdaptiveNotificationHintsStatics_abi(
 pub struct IKnownAdaptiveNotificationTextStylesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownAdaptiveNotificationTextStylesStatics {
     type Vtable = IKnownAdaptiveNotificationTextStylesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(539071191, 35222, 17834, [139, 161, 212, 97, 215, 44, 42, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x202192d7_8996_45aa_8ba1_d461d72c2a1b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -793,7 +793,7 @@ pub struct IKnownAdaptiveNotificationTextStylesStatics_abi(
 pub struct IKnownNotificationBindingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownNotificationBindingsStatics {
     type Vtable = IKnownNotificationBindingsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2034400174, 43191, 19800, [137, 234, 118, 167, 183, 188, 205, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79427bae_a8b7_4d58_89ea_76a7b7bccded);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -811,7 +811,7 @@ pub struct IKnownNotificationBindingsStatics_abi(
 pub struct INotification(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotification {
     type Vtable = INotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(276838398, 60278, 20354, [151, 188, 218, 7, 83, 10, 46, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x108037fe_eb76_4f82_97bc_da07530a2e20);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -834,7 +834,7 @@ pub struct INotification_abi(
 pub struct INotificationBinding(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotificationBinding {
     type Vtable = INotificationBinding_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4070460293, 880, 19155, [180, 234, 218, 158, 53, 231, 234, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf29e4b85_0370_4ad3_b4ea_da9e35e7eabf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -859,7 +859,7 @@ pub struct INotificationBinding_abi(
 pub struct INotificationData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotificationData {
     type Vtable = INotificationData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2684166930, 40298, 19119, [182, 172, 255, 23, 240, 193, 242, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ffd2312_9d6a_4aaf_b6ac_ff17f0c1f280);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -880,7 +880,7 @@ pub struct INotificationData_abi(
 pub struct INotificationDataFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotificationDataFactory {
     type Vtable = INotificationDataFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(599909178, 7184, 18171, [128, 64, 222, 195, 132, 98, 28, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23c1e33a_1c10_46fb_8040_dec384621cf8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -901,7 +901,7 @@ pub struct INotificationDataFactory_abi(
 pub struct INotificationVisual(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotificationVisual {
     type Vtable = INotificationVisual_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1753439118, 43606, 19985, [134, 211, 95, 154, 105, 87, 188, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68835b8e_aa56_4e11_86d3_5f9a6957bc5b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -923,7 +923,7 @@ pub struct INotificationVisual_abi(
 pub struct IScheduledTileNotification(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScheduledTileNotification {
     type Vtable = IScheduledTileNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(180135637, 39388, 19576, [161, 28, 201, 231, 248, 109, 126, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0abca6d5_99dc_4c78_a11c_c9e7f86d7ef7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -952,7 +952,7 @@ pub struct IScheduledTileNotification_abi(
 pub struct IScheduledTileNotificationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScheduledTileNotificationFactory {
     type Vtable = IScheduledTileNotificationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(864228234, 39104, 19515, [187, 214, 74, 99, 60, 124, 252, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3383138a_98c0_4c3b_bbd6_4a633c7cfc29);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -971,7 +971,7 @@ pub struct IScheduledTileNotificationFactory_abi(
 pub struct IScheduledToastNotification(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScheduledToastNotification {
     type Vtable = IScheduledToastNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2046130168, 3559, 18637, [151, 64, 155, 55, 4, 144, 200, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79f577f8_0de7_48cd_9740_9b370490c838);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -997,7 +997,7 @@ pub struct IScheduledToastNotification_abi(
 pub struct IScheduledToastNotification2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScheduledToastNotification2 {
     type Vtable = IScheduledToastNotification2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2792267932, 12724, 17328, [181, 221, 122, 64, 232, 83, 99, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa66ea09c_31b4_43b0_b5dd_7a40e85363b1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1020,7 +1020,7 @@ pub struct IScheduledToastNotification2_abi(
 pub struct IScheduledToastNotification3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScheduledToastNotification3 {
     type Vtable = IScheduledToastNotification3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2554502795, 48434, 19003, [157, 21, 34, 174, 164, 148, 98, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98429e8b_bd32_4a3b_9d15_22aea49462a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1041,7 +1041,7 @@ pub struct IScheduledToastNotification3_abi(
 pub struct IScheduledToastNotification4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScheduledToastNotification4 {
     type Vtable = IScheduledToastNotification4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(491217405, 48623, 20042, [150, 190, 1, 1, 54, 155, 88, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d4761fd_bdef_4e4a_96be_0101369b58d2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1062,7 +1062,7 @@ pub struct IScheduledToastNotification4_abi(
 pub struct IScheduledToastNotificationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScheduledToastNotificationFactory {
     type Vtable = IScheduledToastNotificationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3888042385, 3001, 16777, [131, 148, 49, 118, 27, 71, 111, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7bed191_0bb9_4189_8394_31761b476fd7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1083,7 +1083,7 @@ pub struct IScheduledToastNotificationFactory_abi(
 pub struct IScheduledToastNotificationShowingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScheduledToastNotificationShowingEventArgs {
     type Vtable = IScheduledToastNotificationShowingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1634989748, 16682, 24108, [166, 237, 160, 32, 154, 239, 154, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6173f6b4_412a_5e2c_a6ed_a0209aef9a09);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1105,7 +1105,7 @@ pub struct IScheduledToastNotificationShowingEventArgs_abi(
 pub struct IShownTileNotification(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShownTileNotification {
     type Vtable = IShownTileNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(875399560, 23282, 18458, [166, 163, 242, 253, 199, 141, 232, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x342d8988_5af2_481a_a6a3_f2fdc78de88e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1123,7 +1123,7 @@ pub struct IShownTileNotification_abi(
 pub struct ITileFlyoutNotification(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileFlyoutNotification {
     type Vtable = ITileFlyoutNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2589176417, 50956, 17086, [178, 243, 244, 42, 169, 125, 52, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a53b261_c70c_42be_b2f3_f42aa97d34e5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1146,7 +1146,7 @@ pub struct ITileFlyoutNotification_abi(
 pub struct ITileFlyoutNotificationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileFlyoutNotificationFactory {
     type Vtable = ITileFlyoutNotificationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4015353845, 21030, 20267, [178, 120, 136, 163, 93, 254, 86, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef556ff5_5226_4f2b_b278_88a35dfe569f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1165,7 +1165,7 @@ pub struct ITileFlyoutNotificationFactory_abi(
 pub struct ITileFlyoutUpdateManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileFlyoutUpdateManagerStatics {
     type Vtable = ITileFlyoutUpdateManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(70662923, 6848, 19353, [136, 231, 173, 168, 62, 149, 61, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04363b0b_1ac0_4b99_88e7_ada83e953d48);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1187,7 +1187,7 @@ pub struct ITileFlyoutUpdateManagerStatics_abi(
 pub struct ITileFlyoutUpdater(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileFlyoutUpdater {
     type Vtable = ITileFlyoutUpdater_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2369832810, 50277, 16466, [167, 64, 92, 38, 84, 193, 160, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d40c76a_c465_4052_a740_5c2654c1a089);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1212,7 +1212,7 @@ pub struct ITileFlyoutUpdater_abi(
 pub struct ITileNotification(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileNotification {
     type Vtable = ITileNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3954100474, 20716, 19480, [180, 208, 58, 240, 46, 85, 64, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xebaec8fa_50ec_4c18_b4d0_3af02e5540ab);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1237,7 +1237,7 @@ pub struct ITileNotification_abi(
 pub struct ITileNotificationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileNotificationFactory {
     type Vtable = ITileNotificationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3333152110, 18728, 18120, [189, 191, 129, 160, 71, 222, 160, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6abdd6e_4928_46c8_bdbf_81a047dea0d4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1256,7 +1256,7 @@ pub struct ITileNotificationFactory_abi(
 pub struct ITileUpdateManagerForUser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileUpdateManagerForUser {
     type Vtable = ITileUpdateManagerForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1427379016, 12002, 20013, [156, 193, 33, 106, 32, 222, 204, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55141348_2ee2_4e2d_9cc1_216a20decc9f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1278,7 +1278,7 @@ pub struct ITileUpdateManagerForUser_abi(
 pub struct ITileUpdateManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileUpdateManagerStatics {
     type Vtable = ITileUpdateManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3658849885, 16041, 18822, [141, 132, 176, 157, 94, 18, 39, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda159e5d_3ea9_4986_8d84_b09d5e12276d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1300,7 +1300,7 @@ pub struct ITileUpdateManagerStatics_abi(
 pub struct ITileUpdateManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileUpdateManagerStatics2 {
     type Vtable = ITileUpdateManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1931222492, 36372, 19324, [163, 75, 157, 34, 222, 118, 200, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x731c1ddc_8e14_4b7c_a34b_9d22de76c84d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1319,7 +1319,7 @@ pub struct ITileUpdateManagerStatics2_abi(
 pub struct ITileUpdater(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileUpdater {
     type Vtable = ITileUpdater_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(155362443, 7569, 17644, [146, 67, 193, 232, 33, 194, 154, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0942a48b_1d91_44ec_9243_c1e821c29a20);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1353,7 +1353,7 @@ pub struct ITileUpdater_abi(
 pub struct ITileUpdater2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileUpdater2 {
     type Vtable = ITileUpdater2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2720427538, 5614, 17389, [131, 245, 101, 179, 82, 187, 26, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2266e12_15ee_43ed_83f5_65b352bb1a84);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1373,7 +1373,7 @@ pub struct ITileUpdater2_abi(
 pub struct IToastActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastActivatedEventArgs {
     type Vtable = IToastActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3820983027, 49559, 17263, [130, 101, 6, 37, 130, 79, 141, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3bf92f3_c197_436f_8265_0625824f8dac);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1391,7 +1391,7 @@ pub struct IToastActivatedEventArgs_abi(
 pub struct IToastActivatedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastActivatedEventArgs2 {
     type Vtable = IToastActivatedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2877138194, 52321, 22158, [129, 190, 48, 74, 195, 16, 56, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab7da512_cc61_568e_81be_304ac31038fa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1410,7 +1410,7 @@ pub struct IToastActivatedEventArgs2_abi(
 pub struct IToastCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastCollection {
     type Vtable = IToastCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(176931760, 57534, 18520, [188, 42, 137, 223, 224, 179, 40, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a8bc3b0_e0be_4858_bc2a_89dfe0b32863);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1436,7 +1436,7 @@ pub struct IToastCollection_abi(
 pub struct IToastCollectionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastCollectionFactory {
     type Vtable = IToastCollectionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(374199255, 29636, 17655, [180, 255, 251, 109, 75, 241, 244, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x164dd3d7_73c4_44f7_b4ff_fb6d4bf1f4c6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1455,7 +1455,7 @@ pub struct IToastCollectionFactory_abi(
 pub struct IToastCollectionManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastCollectionManager {
     type Vtable = IToastCollectionManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(706224638, 6045, 18876, [183, 157, 165, 39, 146, 13, 54, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a1821fe_179d_49bc_b79d_a527920d3665);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1485,7 +1485,7 @@ pub struct IToastCollectionManager_abi(
 pub struct IToastDismissedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastDismissedEventArgs {
     type Vtable = IToastDismissedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1065998645, 55755, 17720, [160, 240, 255, 231, 101, 153, 56, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f89d935_d9cb_4538_a0f0_ffe7659938f8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1503,7 +1503,7 @@ pub struct IToastDismissedEventArgs_abi(
 pub struct IToastFailedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastFailedEventArgs {
     type Vtable = IToastFailedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(890726498, 53204, 17656, [173, 100, 245, 0, 253, 137, 108, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35176862_cfd4_44f8_ad64_f500fd896c3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1521,7 +1521,7 @@ pub struct IToastFailedEventArgs_abi(
 pub struct IToastNotification(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotification {
     type Vtable = IToastNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2575181429, 1438, 20064, [139, 6, 23, 96, 145, 124, 139, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x997e2675_059e_4e60_8b06_1760917c8b80);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1556,7 +1556,7 @@ pub struct IToastNotification_abi(
 pub struct IToastNotification2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotification2 {
     type Vtable = IToastNotification2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2650513361, 5178, 18702, [144, 191, 185, 251, 167, 19, 45, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9dfb9fd1_143a_490e_90bf_b9fba7132de7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1579,7 +1579,7 @@ pub struct IToastNotification2_abi(
 pub struct IToastNotification3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotification3 {
     type Vtable = IToastNotification3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(837332696, 33089, 20377, [188, 10, 196, 237, 33, 41, 125, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31e8aed8_8141_4f99_bc0a_c4ed21297d77);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1600,7 +1600,7 @@ pub struct IToastNotification3_abi(
 pub struct IToastNotification4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotification4 {
     type Vtable = IToastNotification4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(353716533, 10474, 18215, [136, 233, 197, 134, 128, 226, 209, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15154935_28ea_4727_88e9_c58680e2d118);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1621,7 +1621,7 @@ pub struct IToastNotification4_abi(
 pub struct IToastNotification6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotification6 {
     type Vtable = IToastNotification6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1139539539, 35246, 23582, [162, 121, 58, 236, 254, 155, 111, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43ebfe53_89ae_5c1e_a279_3aecfe9b6f54);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1640,7 +1640,7 @@ pub struct IToastNotification6_abi(
 pub struct IToastNotificationActionTriggerDetail(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationActionTriggerDetail {
     type Vtable = IToastNotificationActionTriggerDetail_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2487554906, 14579, 17142, [150, 170, 121, 85, 176, 240, 61, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9445135a_38f3_42f6_96aa_7955b0f03da2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1660,7 +1660,7 @@ pub struct IToastNotificationActionTriggerDetail_abi(
 pub struct IToastNotificationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationFactory {
     type Vtable = IToastNotificationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(68307744, 33478, 16937, [177, 9, 253, 158, 212, 102, 43, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04124b20_82c6_4229_b109_fd9ed4662b53);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1679,7 +1679,7 @@ pub struct IToastNotificationFactory_abi(
 pub struct IToastNotificationHistory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationHistory {
     type Vtable = IToastNotificationHistory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1554898019, 467, 19607, [152, 111, 5, 51, 72, 63, 238, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5caddc63_01d3_4c97_986f_0533483fee14);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1703,7 +1703,7 @@ pub struct IToastNotificationHistory_abi(
 pub struct IToastNotificationHistory2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationHistory2 {
     type Vtable = IToastNotificationHistory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1002689107, 12081, 16530, [145, 41, 138, 213, 171, 240, 103, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3bc3d253_2f31_4092_9129_8ad5abf067da);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1724,7 +1724,7 @@ pub struct IToastNotificationHistory2_abi(
 pub struct IToastNotificationHistoryChangedTriggerDetail(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationHistoryChangedTriggerDetail {
     type Vtable = IToastNotificationHistoryChangedTriggerDetail_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3674439674, 104, 16684, [156, 131, 38, 124, 55, 246, 86, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb037ffa_0068_412c_9c83_267c37f65670);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1742,7 +1742,7 @@ pub struct IToastNotificationHistoryChangedTriggerDetail_abi(
 pub struct IToastNotificationHistoryChangedTriggerDetail2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationHistoryChangedTriggerDetail2 {
     type Vtable = IToastNotificationHistoryChangedTriggerDetail2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(188148098, 51313, 18939, [186, 187, 37, 189, 188, 76, 196, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b36e982_c871_49fb_babb_25bdbc4cc45b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1760,7 +1760,7 @@ pub struct IToastNotificationHistoryChangedTriggerDetail2_abi(
 pub struct IToastNotificationManagerForUser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationManagerForUser {
     type Vtable = IToastNotificationManagerForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2041272310, 17406, 18555, [138, 127, 153, 86, 114, 0, 174, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79ab57f6_43fe_487b_8a7f_99567200ae94);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1782,7 +1782,7 @@ pub struct IToastNotificationManagerForUser_abi(
 pub struct IToastNotificationManagerForUser2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationManagerForUser2 {
     type Vtable = IToastNotificationManagerForUser2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1738302647, 33195, 17090, [136, 25, 201, 88, 118, 119, 83, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x679c64b7_81ab_42c2_8819_c958767753f4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1805,7 +1805,7 @@ pub struct IToastNotificationManagerForUser2_abi(
 pub struct IToastNotificationManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationManagerStatics {
     type Vtable = IToastNotificationManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1353453631, 53813, 17816, [187, 239, 152, 254, 77, 26, 58, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ac103f_d235_4598_bbef_98fe4d1a3ad4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1826,7 +1826,7 @@ pub struct IToastNotificationManagerStatics_abi(
 pub struct IToastNotificationManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationManagerStatics2 {
     type Vtable = IToastNotificationManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2058959954, 3656, 18256, [186, 157, 26, 65, 19, 152, 24, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ab93c52_0e48_4750_ba9d_1a4113981847);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1844,7 +1844,7 @@ pub struct IToastNotificationManagerStatics2_abi(
 pub struct IToastNotificationManagerStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationManagerStatics4 {
     type Vtable = IToastNotificationManagerStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409185235, 58646, 17915, [129, 48, 57, 142, 147, 250, 82, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f993fd3_e516_45fb_8130_398e93fa52c3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1864,7 +1864,7 @@ pub struct IToastNotificationManagerStatics4_abi(
 pub struct IToastNotificationManagerStatics5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationManagerStatics5 {
     type Vtable = IToastNotificationManagerStatics5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3606443369, 54285, 16508, [137, 137, 136, 202, 180, 44, 253, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6f5f569_d40d_407c_8989_88cab42cfd14);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1882,7 +1882,7 @@ pub struct IToastNotificationManagerStatics5_abi(
 pub struct IToastNotifier(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotifier {
     type Vtable = IToastNotifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1972534163, 1011, 16876, [145, 211, 110, 91, 172, 27, 56, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75927b93_03f3_41ec_91d3_6e5bac1b38e7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1906,7 +1906,7 @@ pub struct IToastNotifier_abi(
 pub struct IToastNotifier2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotifier2 {
     type Vtable = IToastNotifier2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(893618630, 31745, 19413, [156, 32, 96, 67, 64, 205, 43, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x354389c6_7c01_4bd5_9c20_604340cd2b74);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1925,7 +1925,7 @@ pub struct IToastNotifier2_abi(
 pub struct IToastNotifier3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotifier3 {
     type Vtable = IToastNotifier3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2926944330, 15116, 20909, [183, 232, 176, 138, 182, 5, 37, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae75a04a_3b0c_51ad_b7e8_b08ab6052549);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1946,7 +1946,7 @@ pub struct IToastNotifier3_abi(
 pub struct IUserNotification(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserNotification {
     type Vtable = IUserNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2918704431, 20051, 17109, [156, 51, 235, 94, 165, 21, 178, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xadf7e52f_4e53_42d5_9c33_eb5ea515b23e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1969,7 +1969,7 @@ pub struct IUserNotification_abi(
 pub struct IUserNotificationChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserNotificationChangedEventArgs {
     type Vtable = IUserNotificationChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3065866297, 31183, 19237, [130, 192, 12, 225, 238, 248, 31, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6bd6839_79cf_4b25_82c0_0ce1eef81f8c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2244,7 +2244,7 @@ unsafe impl ::windows::runtime::RuntimeType for Notification {
 }
 unsafe impl ::windows::runtime::Interface for Notification {
     type Vtable = INotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(276838398, 60278, 20354, [151, 188, 218, 7, 83, 10, 46, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x108037fe_eb76_4f82_97bc_da07530a2e20);
 }
 impl ::windows::runtime::RuntimeName for Notification {
     const NAME: &'static str = "Windows.UI.Notifications.Notification";
@@ -2346,7 +2346,7 @@ unsafe impl ::windows::runtime::RuntimeType for NotificationBinding {
 }
 unsafe impl ::windows::runtime::Interface for NotificationBinding {
     type Vtable = INotificationBinding_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4070460293, 880, 19155, [180, 234, 218, 158, 53, 231, 234, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf29e4b85_0370_4ad3_b4ea_da9e35e7eabf);
 }
 impl ::windows::runtime::RuntimeName for NotificationBinding {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationBinding";
@@ -2453,7 +2453,7 @@ unsafe impl ::windows::runtime::RuntimeType for NotificationData {
 }
 unsafe impl ::windows::runtime::Interface for NotificationData {
     type Vtable = INotificationData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2684166930, 40298, 19119, [182, 172, 255, 23, 240, 193, 242, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ffd2312_9d6a_4aaf_b6ac_ff17f0c1f280);
 }
 impl ::windows::runtime::RuntimeName for NotificationData {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationData";
@@ -2661,7 +2661,7 @@ unsafe impl ::windows::runtime::RuntimeType for NotificationVisual {
 }
 unsafe impl ::windows::runtime::Interface for NotificationVisual {
     type Vtable = INotificationVisual_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1753439118, 43606, 19985, [134, 211, 95, 154, 105, 87, 188, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68835b8e_aa56_4e11_86d3_5f9a6957bc5b);
 }
 impl ::windows::runtime::RuntimeName for NotificationVisual {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationVisual";
@@ -2815,7 +2815,7 @@ unsafe impl ::windows::runtime::RuntimeType for ScheduledTileNotification {
 }
 unsafe impl ::windows::runtime::Interface for ScheduledTileNotification {
     type Vtable = IScheduledTileNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(180135637, 39388, 19576, [161, 28, 201, 231, 248, 109, 126, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0abca6d5_99dc_4c78_a11c_c9e7f86d7ef7);
 }
 impl ::windows::runtime::RuntimeName for ScheduledTileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledTileNotification";
@@ -3021,7 +3021,7 @@ unsafe impl ::windows::runtime::RuntimeType for ScheduledToastNotification {
 }
 unsafe impl ::windows::runtime::Interface for ScheduledToastNotification {
     type Vtable = IScheduledToastNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2046130168, 3559, 18637, [151, 64, 155, 55, 4, 144, 200, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79f577f8_0de7_48cd_9740_9b370490c838);
 }
 impl ::windows::runtime::RuntimeName for ScheduledToastNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledToastNotification";
@@ -3109,7 +3109,7 @@ unsafe impl ::windows::runtime::RuntimeType for ScheduledToastNotificationShowin
 }
 unsafe impl ::windows::runtime::Interface for ScheduledToastNotificationShowingEventArgs {
     type Vtable = IScheduledToastNotificationShowingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1634989748, 16682, 24108, [166, 237, 160, 32, 154, 239, 154, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6173f6b4_412a_5e2c_a6ed_a0209aef9a09);
 }
 impl ::windows::runtime::RuntimeName for ScheduledToastNotificationShowingEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledToastNotificationShowingEventArgs";
@@ -3175,7 +3175,7 @@ unsafe impl ::windows::runtime::RuntimeType for ShownTileNotification {
 }
 unsafe impl ::windows::runtime::Interface for ShownTileNotification {
     type Vtable = IShownTileNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(875399560, 23282, 18458, [166, 163, 242, 253, 199, 141, 232, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x342d8988_5af2_481a_a6a3_f2fdc78de88e);
 }
 impl ::windows::runtime::RuntimeName for ShownTileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ShownTileNotification";
@@ -3269,7 +3269,7 @@ unsafe impl ::windows::runtime::RuntimeType for TileFlyoutNotification {
 }
 unsafe impl ::windows::runtime::Interface for TileFlyoutNotification {
     type Vtable = ITileFlyoutNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2589176417, 50956, 17086, [178, 243, 244, 42, 169, 125, 52, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a53b261_c70c_42be_b2f3_f42aa97d34e5);
 }
 impl ::windows::runtime::RuntimeName for TileFlyoutNotification {
     const NAME: &'static str = "Windows.UI.Notifications.TileFlyoutNotification";
@@ -3423,7 +3423,7 @@ unsafe impl ::windows::runtime::RuntimeType for TileFlyoutUpdater {
 }
 unsafe impl ::windows::runtime::Interface for TileFlyoutUpdater {
     type Vtable = ITileFlyoutUpdater_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2369832810, 50277, 16466, [167, 64, 92, 38, 84, 193, 160, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d40c76a_c465_4052_a740_5c2654c1a089);
 }
 impl ::windows::runtime::RuntimeName for TileFlyoutUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.TileFlyoutUpdater";
@@ -3528,7 +3528,7 @@ unsafe impl ::windows::runtime::RuntimeType for TileNotification {
 }
 unsafe impl ::windows::runtime::Interface for TileNotification {
     type Vtable = ITileNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3954100474, 20716, 19480, [180, 208, 58, 240, 46, 85, 64, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xebaec8fa_50ec_4c18_b4d0_3af02e5540ab);
 }
 impl ::windows::runtime::RuntimeName for TileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.TileNotification";
@@ -3817,7 +3817,7 @@ unsafe impl ::windows::runtime::RuntimeType for TileUpdateManagerForUser {
 }
 unsafe impl ::windows::runtime::Interface for TileUpdateManagerForUser {
     type Vtable = ITileUpdateManagerForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1427379016, 12002, 20013, [156, 193, 33, 106, 32, 222, 204, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55141348_2ee2_4e2d_9cc1_216a20decc9f);
 }
 impl ::windows::runtime::RuntimeName for TileUpdateManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.TileUpdateManagerForUser";
@@ -3961,7 +3961,7 @@ unsafe impl ::windows::runtime::RuntimeType for TileUpdater {
 }
 unsafe impl ::windows::runtime::Interface for TileUpdater {
     type Vtable = ITileUpdater_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(155362443, 7569, 17644, [146, 67, 193, 232, 33, 194, 154, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0942a48b_1d91_44ec_9243_c1e821c29a20);
 }
 impl ::windows::runtime::RuntimeName for TileUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.TileUpdater";
@@ -4036,7 +4036,7 @@ unsafe impl ::windows::runtime::RuntimeType for ToastActivatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ToastActivatedEventArgs {
     type Vtable = IToastActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3820983027, 49559, 17263, [130, 101, 6, 37, 130, 79, 141, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3bf92f3_c197_436f_8265_0625824f8dac);
 }
 impl ::windows::runtime::RuntimeName for ToastActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ToastActivatedEventArgs";
@@ -4153,7 +4153,7 @@ unsafe impl ::windows::runtime::RuntimeType for ToastCollection {
 }
 unsafe impl ::windows::runtime::Interface for ToastCollection {
     type Vtable = IToastCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(176931760, 57534, 18520, [188, 42, 137, 223, 224, 179, 40, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a8bc3b0_e0be_4858_bc2a_89dfe0b32863);
 }
 impl ::windows::runtime::RuntimeName for ToastCollection {
     const NAME: &'static str = "Windows.UI.Notifications.ToastCollection";
@@ -4273,7 +4273,7 @@ unsafe impl ::windows::runtime::RuntimeType for ToastCollectionManager {
 }
 unsafe impl ::windows::runtime::Interface for ToastCollectionManager {
     type Vtable = IToastCollectionManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(706224638, 6045, 18876, [183, 157, 165, 39, 146, 13, 54, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a1821fe_179d_49bc_b79d_a527920d3665);
 }
 impl ::windows::runtime::RuntimeName for ToastCollectionManager {
     const NAME: &'static str = "Windows.UI.Notifications.ToastCollectionManager";
@@ -4362,7 +4362,7 @@ unsafe impl ::windows::runtime::RuntimeType for ToastDismissedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ToastDismissedEventArgs {
     type Vtable = IToastDismissedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1065998645, 55755, 17720, [160, 240, 255, 231, 101, 153, 56, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f89d935_d9cb_4538_a0f0_ffe7659938f8);
 }
 impl ::windows::runtime::RuntimeName for ToastDismissedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ToastDismissedEventArgs";
@@ -4428,7 +4428,7 @@ unsafe impl ::windows::runtime::RuntimeType for ToastFailedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ToastFailedEventArgs {
     type Vtable = IToastFailedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(890726498, 53204, 17656, [173, 100, 245, 0, 253, 137, 108, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35176862_cfd4_44f8_ad64_f500fd896c3b);
 }
 impl ::windows::runtime::RuntimeName for ToastFailedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ToastFailedEventArgs";
@@ -4695,7 +4695,7 @@ unsafe impl ::windows::runtime::RuntimeType for ToastNotification {
 }
 unsafe impl ::windows::runtime::Interface for ToastNotification {
     type Vtable = IToastNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2575181429, 1438, 20064, [139, 6, 23, 96, 145, 124, 139, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x997e2675_059e_4e60_8b06_1760917c8b80);
 }
 impl ::windows::runtime::RuntimeName for ToastNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotification";
@@ -4770,7 +4770,7 @@ unsafe impl ::windows::runtime::RuntimeType for ToastNotificationActionTriggerDe
 }
 unsafe impl ::windows::runtime::Interface for ToastNotificationActionTriggerDetail {
     type Vtable = IToastNotificationActionTriggerDetail_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2487554906, 14579, 17142, [150, 170, 121, 85, 176, 240, 61, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9445135a_38f3_42f6_96aa_7955b0f03da2);
 }
 impl ::windows::runtime::RuntimeName for ToastNotificationActionTriggerDetail {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationActionTriggerDetail";
@@ -4879,7 +4879,7 @@ unsafe impl ::windows::runtime::RuntimeType for ToastNotificationHistory {
 }
 unsafe impl ::windows::runtime::Interface for ToastNotificationHistory {
     type Vtable = IToastNotificationHistory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1554898019, 467, 19607, [152, 111, 5, 51, 72, 63, 238, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5caddc63_01d3_4c97_986f_0533483fee14);
 }
 impl ::windows::runtime::RuntimeName for ToastNotificationHistory {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationHistory";
@@ -4951,7 +4951,7 @@ unsafe impl ::windows::runtime::RuntimeType for ToastNotificationHistoryChangedT
 }
 unsafe impl ::windows::runtime::Interface for ToastNotificationHistoryChangedTriggerDetail {
     type Vtable = IToastNotificationHistoryChangedTriggerDetail_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3674439674, 104, 16684, [156, 131, 38, 124, 55, 246, 86, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb037ffa_0068_412c_9c83_267c37f65670);
 }
 impl ::windows::runtime::RuntimeName for ToastNotificationHistoryChangedTriggerDetail {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationHistoryChangedTriggerDetail";
@@ -5145,7 +5145,7 @@ unsafe impl ::windows::runtime::RuntimeType for ToastNotificationManagerForUser 
 }
 unsafe impl ::windows::runtime::Interface for ToastNotificationManagerForUser {
     type Vtable = IToastNotificationManagerForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2041272310, 17406, 18555, [138, 127, 153, 86, 114, 0, 174, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79ab57f6_43fe_487b_8a7f_99567200ae94);
 }
 impl ::windows::runtime::RuntimeName for ToastNotificationManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationManagerForUser";
@@ -5293,7 +5293,7 @@ unsafe impl ::windows::runtime::RuntimeType for ToastNotifier {
 }
 unsafe impl ::windows::runtime::Interface for ToastNotifier {
     type Vtable = IToastNotifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1972534163, 1011, 16876, [145, 211, 110, 91, 172, 27, 56, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75927b93_03f3_41ec_91d3_6e5bac1b38e7);
 }
 impl ::windows::runtime::RuntimeName for ToastNotifier {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotifier";
@@ -5413,7 +5413,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserNotification {
 }
 unsafe impl ::windows::runtime::Interface for UserNotification {
     type Vtable = IUserNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2918704431, 20051, 17109, [156, 51, 235, 94, 165, 21, 178, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xadf7e52f_4e53_42d5_9c33_eb5ea515b23e);
 }
 impl ::windows::runtime::RuntimeName for UserNotification {
     const NAME: &'static str = "Windows.UI.Notifications.UserNotification";
@@ -5487,7 +5487,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserNotificationChangedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for UserNotificationChangedEventArgs {
     type Vtable = IUserNotificationChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3065866297, 31183, 19237, [130, 192, 12, 225, 238, 248, 31, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6bd6839_79cf_4b25_82c0_0ce1eef81f8c);
 }
 impl ::windows::runtime::RuntimeName for UserNotificationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.UserNotificationChangedEventArgs";

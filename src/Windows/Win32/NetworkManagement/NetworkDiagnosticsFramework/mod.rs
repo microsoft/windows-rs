@@ -294,7 +294,7 @@ impl INetDiagExtensibleHelper {
 }
 unsafe impl ::windows::runtime::Interface for INetDiagExtensibleHelper {
     type Vtable = INetDiagExtensibleHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3232978760, 60405, 4568, [187, 233, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0b35748_ebf5_11d8_bbe9_505054503030);
 }
 impl ::core::convert::From<INetDiagExtensibleHelper> for ::windows::runtime::IUnknown {
     fn from(value: INetDiagExtensibleHelper) -> Self {
@@ -422,7 +422,7 @@ impl INetDiagHelper {
 }
 unsafe impl ::windows::runtime::Interface for INetDiagHelper {
     type Vtable = INetDiagHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3232978758, 60405, 4568, [187, 233, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0b35746_ebf5_11d8_bbe9_505054503030);
 }
 impl ::core::convert::From<INetDiagHelper> for ::windows::runtime::IUnknown {
     fn from(value: INetDiagHelper) -> Self {
@@ -504,7 +504,7 @@ impl INetDiagHelperEx {
 }
 unsafe impl ::windows::runtime::Interface for INetDiagHelperEx {
     type Vtable = INetDiagHelperEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2536352589, 58595, 20422, [174, 84, 95, 101, 204, 222, 74, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x972dab4d_e4e3_4fc6_ae54_5f65ccde4a15);
 }
 impl ::core::convert::From<INetDiagHelperEx> for ::windows::runtime::IUnknown {
     fn from(value: INetDiagHelperEx) -> Self {
@@ -550,7 +550,7 @@ impl INetDiagHelperInfo {
 }
 unsafe impl ::windows::runtime::Interface for INetDiagHelperInfo {
     type Vtable = INetDiagHelperInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3232978759, 60405, 4568, [187, 233, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0b35747_ebf5_11d8_bbe9_505054503030);
 }
 impl ::core::convert::From<INetDiagHelperInfo> for ::windows::runtime::IUnknown {
     fn from(value: INetDiagHelperInfo) -> Self {
@@ -594,7 +594,7 @@ impl INetDiagHelperUtilFactory {
 }
 unsafe impl ::windows::runtime::Interface for INetDiagHelperUtilFactory {
     type Vtable = INetDiagHelperUtilFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(273028091, 48215, 16760, [149, 186, 136, 128, 150, 152, 53, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x104613fb_bc57_4178_95ba_88809698354a);
 }
 impl ::core::convert::From<INetDiagHelperUtilFactory> for ::windows::runtime::IUnknown {
     fn from(value: INetDiagHelperUtilFactory) -> Self {

@@ -165,7 +165,7 @@ impl IOplockBreakingHandler {
 }
 unsafe impl ::windows::runtime::Interface for IOplockBreakingHandler {
     type Vtable = IOplockBreakingHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2188033597, 15053, 18387, [132, 242, 136, 170, 237, 207, 99, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x826abe3d_3acd_47d3_84f2_88aaedcf6304);
 }
 impl ::core::convert::From<IOplockBreakingHandler> for ::windows::runtime::IUnknown {
     fn from(value: IOplockBreakingHandler) -> Self {
@@ -208,7 +208,7 @@ impl IRandomAccessStreamFileAccessMode {
 }
 unsafe impl ::windows::runtime::Interface for IRandomAccessStreamFileAccessMode {
     type Vtable = IRandomAccessStreamFileAccessMode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(858675272, 11797, 17806, [133, 196, 201, 17, 192, 195, 214, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x332e5848_2e15_458e_85c4_c911c0c3d6f4);
 }
 impl ::core::convert::From<IRandomAccessStreamFileAccessMode> for ::windows::runtime::IUnknown {
     fn from(value: IRandomAccessStreamFileAccessMode) -> Self {
@@ -252,7 +252,7 @@ impl IStorageFolderHandleAccess {
 }
 unsafe impl ::windows::runtime::Interface for IStorageFolderHandleAccess {
     type Vtable = IStorageFolderHandleAccess_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3742995343, 21602, 18592, [190, 101, 210, 163, 39, 26, 8, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf19938f_5462_48a0_be65_d2a3271a08d6);
 }
 impl ::core::convert::From<IStorageFolderHandleAccess> for ::windows::runtime::IUnknown {
     fn from(value: IStorageFolderHandleAccess) -> Self {
@@ -297,7 +297,7 @@ impl IStorageItemHandleAccess {
 }
 unsafe impl ::windows::runtime::Interface for IStorageItemHandleAccess {
     type Vtable = IStorageItemHandleAccess_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1554159282, 11301, 19746, [183, 133, 184, 133, 200, 32, 30, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ca296b2_2c25_4d22_b785_b885c8201e6a);
 }
 impl ::core::convert::From<IStorageItemHandleAccess> for ::windows::runtime::IUnknown {
     fn from(value: IStorageItemHandleAccess) -> Self {
@@ -340,7 +340,7 @@ impl IUnbufferedFileHandleOplockCallback {
 }
 unsafe impl ::windows::runtime::Interface for IUnbufferedFileHandleOplockCallback {
     type Vtable = IUnbufferedFileHandleOplockCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3506543118, 25155, 17193, [132, 151, 46, 117, 137, 77, 119, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1019a0e_6243_4329_8497_2e75894d7710);
 }
 impl ::core::convert::From<IUnbufferedFileHandleOplockCallback> for ::windows::runtime::IUnknown {
     fn from(value: IUnbufferedFileHandleOplockCallback) -> Self {
@@ -387,7 +387,7 @@ impl IUnbufferedFileHandleProvider {
 }
 unsafe impl ::windows::runtime::Interface for IUnbufferedFileHandleProvider {
     type Vtable = IUnbufferedFileHandleProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2791084297, 17067, 19348, [167, 177, 221, 46, 78, 104, 81, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa65c9109_42ab_4b94_a7b1_dd2e4e68515e);
 }
 impl ::core::convert::From<IUnbufferedFileHandleProvider> for ::windows::runtime::IUnknown {
     fn from(value: IUnbufferedFileHandleProvider) -> Self {

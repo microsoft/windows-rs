@@ -123,7 +123,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameChatMessageReceivedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for GameChatMessageReceivedEventArgs {
     type Vtable = IGameChatMessageReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2726429169, 16313, 20034, [164, 3, 122, 252, 226, 2, 59, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa28201f1_3fb9_4e42_a403_7afce2023b1e);
 }
 impl ::windows::runtime::RuntimeName for GameChatMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatMessageReceivedEventArgs";
@@ -210,7 +210,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameChatOverlay {
 }
 unsafe impl ::windows::runtime::Interface for GameChatOverlay {
     type Vtable = IGameChatOverlay_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4224075877, 63228, 19016, [174, 7, 3, 172, 110, 212, 55, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbc64865_f6fc_4a48_ae07_03ac6ed43704);
 }
 impl ::windows::runtime::RuntimeName for GameChatOverlay {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatOverlay";
@@ -299,7 +299,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameChatOverlayMessageSource {
 }
 unsafe impl ::windows::runtime::Interface for GameChatOverlayMessageSource {
     type Vtable = IGameChatOverlayMessageSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(504853399, 23035, 20303, [142, 154, 128, 172, 248, 23, 116, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e177397_59fb_4f4f_8e9a_80acf817743c);
 }
 impl ::windows::runtime::RuntimeName for GameChatOverlayMessageSource {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatOverlayMessageSource";
@@ -427,7 +427,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameUIProviderActivatedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for GameUIProviderActivatedEventArgs {
     type Vtable = IGameUIProviderActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2813534270, 51959, 19949, [187, 210, 71, 222, 67, 187, 109, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7b3203e_caf7_4ded_bbd2_47de43bb6dd5);
 }
 impl ::windows::runtime::RuntimeName for GameUIProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.GameUIProviderActivatedEventArgs";
@@ -508,7 +508,7 @@ pub struct GamingUIProviderContract(pub u8);
 pub struct IGameBarStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameBarStatics {
     type Vtable = IGameBarStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(498705042, 52344, 16755, [190, 69, 182, 30, 103, 40, 62, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1db9a292_cc78_4173_be45_b61e67283ea7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -535,7 +535,7 @@ pub struct IGameBarStatics_abi(
 pub struct IGameChatMessageReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameChatMessageReceivedEventArgs {
     type Vtable = IGameChatMessageReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2726429169, 16313, 20034, [164, 3, 122, 252, 226, 2, 59, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa28201f1_3fb9_4e42_a403_7afce2023b1e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -557,7 +557,7 @@ pub struct IGameChatMessageReceivedEventArgs_abi(
 pub struct IGameChatOverlay(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameChatOverlay {
     type Vtable = IGameChatOverlay_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4224075877, 63228, 19016, [174, 7, 3, 172, 110, 212, 55, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbc64865_f6fc_4a48_ae07_03ac6ed43704);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -577,7 +577,7 @@ pub struct IGameChatOverlay_abi(
 pub struct IGameChatOverlayMessageSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameChatOverlayMessageSource {
     type Vtable = IGameChatOverlayMessageSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(504853399, 23035, 20303, [142, 154, 128, 172, 248, 23, 116, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e177397_59fb_4f4f_8e9a_80acf817743c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -600,7 +600,7 @@ pub struct IGameChatOverlayMessageSource_abi(
 pub struct IGameChatOverlayStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameChatOverlayStatics {
     type Vtable = IGameChatOverlayStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2309813780, 30823, 18935, [150, 135, 37, 217, 219, 244, 68, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89acf614_7867_49f7_9687_25d9dbf444d1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -618,7 +618,7 @@ pub struct IGameChatOverlayStatics_abi(
 pub struct IGameUIProviderActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameUIProviderActivatedEventArgs {
     type Vtable = IGameUIProviderActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2813534270, 51959, 19949, [187, 210, 71, 222, 67, 187, 109, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7b3203e_caf7_4ded_bbd2_47de43bb6dd5);
 }
 #[repr(C)]
 #[doc(hidden)]

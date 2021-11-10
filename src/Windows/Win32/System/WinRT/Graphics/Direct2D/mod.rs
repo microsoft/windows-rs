@@ -42,7 +42,7 @@ impl IGeometrySource2DInterop {
 }
 unsafe impl ::windows::runtime::Interface for IGeometrySource2DInterop {
     type Vtable = IGeometrySource2DInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(106409843, 21501, 18383, [132, 255, 200, 73, 45, 42, 128, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0657af73_53fd_47cf_84ff_c8492d2a80a3);
 }
 impl ::core::convert::From<IGeometrySource2DInterop> for ::windows::runtime::IUnknown {
     fn from(value: IGeometrySource2DInterop) -> Self {
@@ -115,7 +115,7 @@ impl IGraphicsEffectD2D1Interop {
 }
 unsafe impl ::windows::runtime::Interface for IGraphicsEffectD2D1Interop {
     type Vtable = IGraphicsEffectD2D1Interop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(801469316, 41064, 17623, [163, 49, 48, 152, 47, 207, 113, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2fc57384_a068_44d7_a331_30982fcf7177);
 }
 impl ::core::convert::From<IGraphicsEffectD2D1Interop> for ::windows::runtime::IUnknown {
     fn from(value: IGraphicsEffectD2D1Interop) -> Self {

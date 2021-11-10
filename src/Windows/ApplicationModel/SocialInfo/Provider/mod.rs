@@ -4,7 +4,7 @@
 pub struct ISocialDashboardItemUpdater(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialDashboardItemUpdater {
     type Vtable = ISocialDashboardItemUpdater_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1021222345, 18432, 18125, [134, 155, 25, 115, 236, 104, 91, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cde9dc9_4800_46cd_869b_1973ec685bde);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -35,7 +35,7 @@ pub struct ISocialDashboardItemUpdater_abi(
 pub struct ISocialFeedUpdater(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialFeedUpdater {
     type Vtable = ISocialFeedUpdater_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2047609511, 60809, 19413, [168, 217, 21, 244, 217, 134, 28, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a0c0aa7_ed89_4bd5_a8d9_15f4d9861c10);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -58,7 +58,7 @@ pub struct ISocialFeedUpdater_abi(
 pub struct ISocialInfoProviderManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialInfoProviderManagerStatics {
     type Vtable = ISocialInfoProviderManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461956395, 30599, 18646, [170, 18, 216, 232, 244, 122, 184, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b88e52b_7787_48d6_aa12_d8e8f47ab85a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -168,7 +168,7 @@ unsafe impl ::windows::runtime::RuntimeType for SocialDashboardItemUpdater {
 }
 unsafe impl ::windows::runtime::Interface for SocialDashboardItemUpdater {
     type Vtable = ISocialDashboardItemUpdater_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1021222345, 18432, 18125, [134, 155, 25, 115, 236, 104, 91, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cde9dc9_4800_46cd_869b_1973ec685bde);
 }
 impl ::windows::runtime::RuntimeName for SocialDashboardItemUpdater {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.Provider.SocialDashboardItemUpdater";
@@ -264,7 +264,7 @@ unsafe impl ::windows::runtime::RuntimeType for SocialFeedUpdater {
 }
 unsafe impl ::windows::runtime::Interface for SocialFeedUpdater {
     type Vtable = ISocialFeedUpdater_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2047609511, 60809, 19413, [168, 217, 21, 244, 217, 134, 28, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a0c0aa7_ed89_4bd5_a8d9_15f4d9861c10);
 }
 impl ::windows::runtime::RuntimeName for SocialFeedUpdater {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.Provider.SocialFeedUpdater";

@@ -325,7 +325,7 @@ impl IXpsDocumentPackageTarget {
 }
 unsafe impl ::windows::runtime::Interface for IXpsDocumentPackageTarget {
     type Vtable = IXpsDocumentPackageTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(990604600, 21421, 16858, [178, 18, 211, 118, 55, 166, 113, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b0b6d38_53ad_41da_b212_d37637a6714e);
 }
 impl ::core::convert::From<IXpsDocumentPackageTarget> for ::windows::runtime::IUnknown {
     fn from(value: IXpsDocumentPackageTarget) -> Self {
@@ -383,7 +383,7 @@ impl IXpsDocumentPackageTarget3D {
 }
 unsafe impl ::windows::runtime::Interface for IXpsDocumentPackageTarget3D {
     type Vtable = IXpsDocumentPackageTarget3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1622831544, 12545, 18820, [145, 153, 244, 234, 119, 95, 240, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60ba71b8_3101_4984_9199_f4ea775ff01d);
 }
 impl ::core::convert::From<IXpsDocumentPackageTarget3D> for ::windows::runtime::IUnknown {
     fn from(value: IXpsDocumentPackageTarget3D) -> Self {
@@ -442,7 +442,7 @@ impl IXpsOMBrush {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMBrush {
     type Vtable = IXpsOMBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1453586444, 59980, 16775, [165, 123, 162, 164, 115, 178, 180, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56a3f80c_ea4c_4187_a57b_a2a473b2b42b);
 }
 impl ::core::convert::From<IXpsOMBrush> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMBrush) -> Self {
@@ -707,7 +707,7 @@ impl IXpsOMCanvas {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMCanvas {
     type Vtable = IXpsOMCanvas_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(572331090, 13086, 18374, [135, 233, 108, 206, 251, 155, 91, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x221d1452_331e_47c6_87e9_6ccefb9b5ba3);
 }
 impl ::core::convert::From<IXpsOMCanvas> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMCanvas) -> Self {
@@ -866,7 +866,7 @@ impl IXpsOMColorProfileResource {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMColorProfileResource {
     type Vtable = IXpsOMColorProfileResource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1740471657, 7919, 19377, [181, 231, 111, 79, 135, 190, 138, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x67bd7d69_1eef_4bb1_b5e7_6f4f87be8abe);
 }
 impl ::core::convert::From<IXpsOMColorProfileResource> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMColorProfileResource) -> Self {
@@ -983,7 +983,7 @@ impl IXpsOMColorProfileResourceCollection {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMColorProfileResourceCollection {
     type Vtable = IXpsOMColorProfileResourceCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(309696048, 24506, 17027, [143, 125, 204, 168, 73, 128, 158, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12759630_5fba_4283_8f7d_cca849809edb);
 }
 impl ::core::convert::From<IXpsOMColorProfileResourceCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMColorProfileResourceCollection) -> Self {
@@ -1225,7 +1225,7 @@ impl IXpsOMCoreProperties {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMCoreProperties {
     type Vtable = IXpsOMCoreProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(859897487, 16423, 19105, [143, 95, 211, 90, 228, 95, 229, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3340fe8f_4027_4aa1_8f5f_d35ae45fe597);
 }
 impl ::core::convert::From<IXpsOMCoreProperties> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMCoreProperties) -> Self {
@@ -1378,7 +1378,7 @@ impl IXpsOMDashCollection {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMDashCollection {
     type Vtable = IXpsOMDashCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(135664628, 29931, 18674, [131, 179, 55, 169, 206, 45, 125, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x081613f4_74eb_48f2_83b3_37a9ce2d7dc6);
 }
 impl ::core::convert::From<IXpsOMDashCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMDashCollection) -> Self {
@@ -1471,7 +1471,7 @@ impl IXpsOMDictionary {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMDictionary {
     type Vtable = IXpsOMDictionary_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2306639544, 36527, 19171, [189, 222, 86, 65, 159, 207, 66, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x897c86b8_8eaf_4ae3_bdde_56419fcf4236);
 }
 impl ::core::convert::From<IXpsOMDictionary> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMDictionary) -> Self {
@@ -1572,7 +1572,7 @@ impl IXpsOMDocument {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMDocument {
     type Vtable = IXpsOMDocument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(741119179, 44127, 16980, [142, 233, 35, 148, 131, 9, 217, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c2c94cb_ac5f_4254_8ee9_23948309d9f0);
 }
 impl ::core::convert::From<IXpsOMDocument> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMDocument) -> Self {
@@ -1667,7 +1667,7 @@ impl IXpsOMDocumentCollection {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMDocumentCollection {
     type Vtable = IXpsOMDocumentCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3519577869, 59719, 18260, [138, 37, 151, 20, 120, 247, 232, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1c87f0d_e947_4754_8a25_971478f7e83e);
 }
 impl ::core::convert::From<IXpsOMDocumentCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMDocumentCollection) -> Self {
@@ -1740,7 +1740,7 @@ impl IXpsOMDocumentSequence {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMDocumentSequence {
     type Vtable = IXpsOMDocumentSequence_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1447636660, 55509, 16990, [130, 86, 76, 43, 100, 173, 2, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56492eb4_d8d5_425e_8256_4c2b64ad0264);
 }
 impl ::core::convert::From<IXpsOMDocumentSequence> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMDocumentSequence) -> Self {
@@ -1832,7 +1832,7 @@ impl IXpsOMDocumentStructureResource {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMDocumentStructureResource {
     type Vtable = IXpsOMDocumentStructureResource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2248064138, 27491, 18601, [175, 7, 112, 100, 228, 236, 255, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85febc8a_6b63_48a9_af07_7064e4ecff30);
 }
 impl ::core::convert::From<IXpsOMDocumentStructureResource> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMDocumentStructureResource) -> Self {
@@ -1945,7 +1945,7 @@ impl IXpsOMFontResource {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMFontResource {
     type Vtable = IXpsOMFontResource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2831439624, 18393, 19188, [141, 32, 51, 180, 140, 155, 132, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8c45708_47d9_4af4_8d20_33b48c9b8485);
 }
 impl ::core::convert::From<IXpsOMFontResource> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMFontResource) -> Self {
@@ -2063,7 +2063,7 @@ impl IXpsOMFontResourceCollection {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMFontResourceCollection {
     type Vtable = IXpsOMFontResourceCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1890887355, 35028, 20392, [170, 249, 109, 156, 89, 111, 219, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70b4a6bb_88d4_4fa8_aaf9_6d9c596fdbad);
 }
 impl ::core::convert::From<IXpsOMFontResourceCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMFontResourceCollection) -> Self {
@@ -2162,7 +2162,7 @@ impl IXpsOMGeometry {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMGeometry {
     type Vtable = IXpsOMGeometry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1694299095, 19800, 17594, [173, 115, 161, 58, 246, 73, 32, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64fcf3d7_4d58_44ba_ad73_a13af6492072);
 }
 impl ::core::convert::From<IXpsOMGeometry> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMGeometry) -> Self {
@@ -2306,7 +2306,7 @@ impl IXpsOMGeometryFigure {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMGeometryFigure {
     type Vtable = IXpsOMGeometryFigure_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3557874819, 37004, 17470, [137, 71, 177, 121, 93, 60, 22, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd410dc83_908c_443e_8947_b1795d3c165a);
 }
 impl ::core::convert::From<IXpsOMGeometryFigure> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMGeometryFigure) -> Self {
@@ -2390,7 +2390,7 @@ impl IXpsOMGeometryFigureCollection {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMGeometryFigureCollection {
     type Vtable = IXpsOMGeometryFigureCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4249404403, 42382, 19290, [136, 38, 29, 229, 74, 190, 114, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd48c3f3_a58e_4b5a_8826_1de54abe72b2);
 }
 impl ::core::convert::From<IXpsOMGeometryFigureCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMGeometryFigureCollection) -> Self {
@@ -2701,7 +2701,7 @@ impl IXpsOMGlyphs {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMGlyphs {
     type Vtable = IXpsOMGlyphs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2174431641, 2650, 19300, [190, 199, 169, 225, 126, 120, 13, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x819b3199_0a5a_4b64_bec7_a9e17e780de2);
 }
 impl ::core::convert::From<IXpsOMGlyphs> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMGlyphs) -> Self {
@@ -2936,7 +2936,7 @@ impl IXpsOMGlyphsEditor {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMGlyphsEditor {
     type Vtable = IXpsOMGlyphsEditor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2779481622, 23318, 19359, [150, 41, 137, 179, 35, 237, 121, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5ab8616_5b16_4b9f_9629_89b323ed7909);
 }
 impl ::core::convert::From<IXpsOMGlyphsEditor> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMGlyphsEditor) -> Self {
@@ -3064,7 +3064,7 @@ impl IXpsOMGradientBrush {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMGradientBrush {
     type Vtable = IXpsOMGradientBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3988100642, 24994, 17091, [186, 206, 172, 242, 40, 108, 6, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xedb59622_61a2_42c3_bace_acf2286c06bf);
 }
 impl ::core::convert::From<IXpsOMGradientBrush> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMGradientBrush) -> Self {
@@ -3184,7 +3184,7 @@ impl IXpsOMGradientStop {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMGradientStop {
     type Vtable = IXpsOMGradientStop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1559557580, 14697, 18869, [167, 10, 85, 80, 182, 24, 254, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5cf4f5cc_3969_49b5_a70a_5550b618fe49);
 }
 impl ::core::convert::From<IXpsOMGradientStop> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMGradientStop) -> Self {
@@ -3253,7 +3253,7 @@ impl IXpsOMGradientStopCollection {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMGradientStopCollection {
     type Vtable = IXpsOMGradientStopCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3373747258, 15571, 17177, [189, 164, 17, 163, 147, 146, 206, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9174c3a_3cd3_4319_bda4_11a39392ceef);
 }
 impl ::core::convert::From<IXpsOMGradientStopCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMGradientStopCollection) -> Self {
@@ -3390,7 +3390,7 @@ impl IXpsOMImageBrush {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMImageBrush {
     type Vtable = IXpsOMImageBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1039184998, 54146, 18927, [133, 80, 221, 148, 200, 2, 66, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3df0b466_d382_49ef_8550_dd94c80242e4);
 }
 impl ::core::convert::From<IXpsOMImageBrush> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMImageBrush) -> Self {
@@ -3536,7 +3536,7 @@ impl IXpsOMImageResource {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMImageResource {
     type Vtable = IXpsOMImageResource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1035485565, 44624, 18526, [154, 68, 215, 117, 143, 120, 162, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3db8417d_ae50_485e_9a44_d7758f78a23f);
 }
 impl ::core::convert::From<IXpsOMImageResource> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMImageResource) -> Self {
@@ -3654,7 +3654,7 @@ impl IXpsOMImageResourceCollection {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMImageResourceCollection {
     type Vtable = IXpsOMImageResourceCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2051676785, 40158, 19313, [179, 63, 98, 222, 132, 62, 171, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a4a1a71_9cde_4b71_b33f_62de843eabfe);
 }
 impl ::core::convert::From<IXpsOMImageResourceCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMImageResourceCollection) -> Self {
@@ -3789,7 +3789,7 @@ impl IXpsOMLinearGradientBrush {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMLinearGradientBrush {
     type Vtable = IXpsOMLinearGradientBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(6170527, 49933, 16639, [147, 236, 25, 80, 211, 197, 40, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x005e279f_c30d_40ff_93ec_1950d3c528db);
 }
 impl ::core::convert::From<IXpsOMLinearGradientBrush> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMLinearGradientBrush) -> Self {
@@ -3931,7 +3931,7 @@ impl IXpsOMMatrixTransform {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMMatrixTransform {
     type Vtable = IXpsOMMatrixTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3077779711, 47927, 17665, [169, 62, 241, 177, 229, 11, 252, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb77330ff_bb37_4501_a93e_f1b1e50bfc46);
 }
 impl ::core::convert::From<IXpsOMMatrixTransform> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMMatrixTransform) -> Self {
@@ -4004,7 +4004,7 @@ impl IXpsOMNameCollection {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMNameCollection {
     type Vtable = IXpsOMNameCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1272838380, 51477, 16923, [161, 102, 209, 115, 210, 86, 83, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bddf8ec_c915_421b_a166_d173d25653d2);
 }
 impl ::core::convert::From<IXpsOMNameCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMNameCollection) -> Self {
@@ -4315,7 +4315,7 @@ impl IXpsOMObjectFactory {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMObjectFactory {
     type Vtable = IXpsOMObjectFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4189234821, 42253, 20418, [183, 100, 181, 110, 9, 62, 160, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9b2a685_a50d_4fc2_b764_b56e093ea0ca);
 }
 impl ::core::convert::From<IXpsOMObjectFactory> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMObjectFactory) -> Self {
@@ -4843,7 +4843,7 @@ impl IXpsOMObjectFactory1 {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMObjectFactory1 {
     type Vtable = IXpsOMObjectFactory1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(177321495, 54802, 16769, [191, 124, 190, 88, 36, 233, 204, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a91b617_d612_4181_bf7c_be5824e9cc8f);
 }
 impl ::core::convert::From<IXpsOMObjectFactory1> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMObjectFactory1) -> Self {
@@ -5080,7 +5080,7 @@ impl IXpsOMPackage {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMPackage {
     type Vtable = IXpsOMPackage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(415489893, 33249, 18036, [145, 220, 252, 69, 47, 90, 65, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18c3df65_81e1_4674_91dc_fc452f5a416f);
 }
 impl ::core::convert::From<IXpsOMPackage> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPackage) -> Self {
@@ -5194,7 +5194,7 @@ impl IXpsOMPackage1 {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMPackage1 {
     type Vtable = IXpsOMPackage1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2510898014, 4795, 17947, [142, 127, 198, 173, 176, 76, 217, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95a9435e_12bb_461b_8e7f_c6adb04cd96a);
 }
 impl ::core::convert::From<IXpsOMPackage1> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPackage1) -> Self {
@@ -5276,7 +5276,7 @@ impl IXpsOMPackageTarget {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMPackageTarget {
     type Vtable = IXpsOMPackageTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(563781040, 18777, 18384, [128, 52, 177, 206, 132, 244, 26, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x219a9db0_4959_47d0_8034_b1ce84f41a4d);
 }
 impl ::core::convert::From<IXpsOMPackageTarget> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPackageTarget) -> Self {
@@ -5353,7 +5353,7 @@ impl IXpsOMPackageWriter {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMPackageWriter {
     type Vtable = IXpsOMPackageWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1311416706, 42051, 17094, [180, 27, 79, 142, 157, 231, 63, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e2aa182_a443_42c6_b41b_4f8e9de73ff9);
 }
 impl ::core::convert::From<IXpsOMPackageWriter> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPackageWriter) -> Self {
@@ -5445,7 +5445,7 @@ impl IXpsOMPackageWriter3D {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMPackageWriter3D {
     type Vtable = IXpsOMPackageWriter3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3903082547, 25614, 17402, [155, 223, 253, 222, 170, 49, 198, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8a45033_640e_43fa_9bdf_fddeaa31c6a0);
 }
 impl ::core::convert::From<IXpsOMPackageWriter3D> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPackageWriter3D) -> Self {
@@ -5633,7 +5633,7 @@ impl IXpsOMPage {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMPage {
     type Vtable = IXpsOMPage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3554773128, 61728, 20462, [140, 104, 53, 41, 110, 174, 145, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3e18888_f120_4fee_8c68_35296eae91d4);
 }
 impl ::core::convert::From<IXpsOMPage> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPage) -> Self {
@@ -5854,7 +5854,7 @@ impl IXpsOMPage1 {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMPage1 {
     type Vtable = IXpsOMPage1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(811294959, 26770, 19930, [156, 187, 58, 166, 89, 116, 80, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x305b60ef_6892_4dda_9cbb_3aa65974508a);
 }
 impl ::core::convert::From<IXpsOMPage1> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPage1) -> Self {
@@ -6049,7 +6049,7 @@ impl IXpsOMPageReference {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMPageReference {
     type Vtable = IXpsOMPageReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3979739520, 28562, 18840, [137, 13, 47, 32, 133, 49, 160, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed360180_6f92_4998_890d_2f208531a0a0);
 }
 impl ::core::convert::From<IXpsOMPageReference> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPageReference) -> Self {
@@ -6131,7 +6131,7 @@ impl IXpsOMPageReferenceCollection {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMPageReferenceCollection {
     type Vtable = IXpsOMPageReferenceCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3390487117, 59321, 17861, [149, 139, 249, 128, 34, 71, 55, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca16ba4d_e7b9_45c5_958b_f98022473745);
 }
 impl ::core::convert::From<IXpsOMPageReferenceCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPageReferenceCollection) -> Self {
@@ -6185,7 +6185,7 @@ impl IXpsOMPart {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMPart {
     type Vtable = IXpsOMPart_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1961570059, 43294, 17542, [175, 172, 15, 171, 236, 163, 223, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74eb2f0b_a91e_4486_afac_0fabeca3dfc6);
 }
 impl ::core::convert::From<IXpsOMPart> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPart) -> Self {
@@ -6246,7 +6246,7 @@ impl IXpsOMPartResources {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMPartResources {
     type Vtable = IXpsOMPartResources_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4107237161, 18532, 17013, [153, 179, 168, 113, 113, 99, 236, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf4cf7729_4864_4275_99b3_a8717163ecaf);
 }
 impl ::core::convert::From<IXpsOMPartResources> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPartResources) -> Self {
@@ -6317,7 +6317,7 @@ impl IXpsOMPartUriCollection {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMPartUriCollection {
     type Vtable = IXpsOMPartUriCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1472614612, 1660, 18579, [140, 51, 246, 42, 6, 51, 115, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57c650d4_067c_4893_8c33_f62a0633730f);
 }
 impl ::core::convert::From<IXpsOMPartUriCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPartUriCollection) -> Self {
@@ -6683,7 +6683,7 @@ impl IXpsOMPath {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMPath {
     type Vtable = IXpsOMPath_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(936610742, 16105, 16656, [147, 18, 20, 177, 148, 22, 51, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x37d38bb6_3ee9_4110_9312_14b194163337);
 }
 impl ::core::convert::From<IXpsOMPath> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPath) -> Self {
@@ -6872,7 +6872,7 @@ impl IXpsOMPrintTicketResource {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMPrintTicketResource {
     type Vtable = IXpsOMPrintTicketResource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3892261586, 13482, 18843, [187, 233, 156, 212, 238, 108, 89, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7ff32d2_34aa_499b_bbe9_9cd4ee6c59f7);
 }
 impl ::core::convert::From<IXpsOMPrintTicketResource> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPrintTicketResource) -> Self {
@@ -7056,7 +7056,7 @@ impl IXpsOMRadialGradientBrush {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMRadialGradientBrush {
     type Vtable = IXpsOMRadialGradientBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1978796005, 2239, 16700, [150, 177, 184, 43, 64, 100, 23, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75f207e5_08bf_413c_96b1_b82b4064176b);
 }
 impl ::core::convert::From<IXpsOMRadialGradientBrush> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMRadialGradientBrush) -> Self {
@@ -7196,7 +7196,7 @@ impl IXpsOMRemoteDictionaryResource {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMRemoteDictionaryResource {
     type Vtable = IXpsOMRemoteDictionaryResource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3384638676, 57706, 19448, [140, 132, 201, 80, 175, 122, 48, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9bd7cd4_e16a_4bf8_8c84_c950af7a3061);
 }
 impl ::core::convert::From<IXpsOMRemoteDictionaryResource> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMRemoteDictionaryResource) -> Self {
@@ -7309,7 +7309,7 @@ impl IXpsOMRemoteDictionaryResource1 {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMRemoteDictionaryResource1 {
     type Vtable = IXpsOMRemoteDictionaryResource1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3213869524, 40262, 16705, [186, 95, 148, 187, 146, 80, 208, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf8fc1d4_9d46_4141_ba5f_94bb9250d041);
 }
 impl ::core::convert::From<IXpsOMRemoteDictionaryResource1> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMRemoteDictionaryResource1) -> Self {
@@ -7447,7 +7447,7 @@ impl IXpsOMRemoteDictionaryResourceCollection {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMRemoteDictionaryResourceCollection {
     type Vtable = IXpsOMRemoteDictionaryResourceCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1547230049, 32748, 17994, [135, 189, 65, 227, 190, 240, 24, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c38db61_7fec_464a_87bd_41e3bef018be);
 }
 impl ::core::convert::From<IXpsOMRemoteDictionaryResourceCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMRemoteDictionaryResourceCollection) -> Self {
@@ -7503,7 +7503,7 @@ impl IXpsOMResource {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMResource {
     type Vtable = IXpsOMResource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3660234914, 29602, 18805, [173, 20, 116, 9, 124, 63, 243, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda2ac0a2_73a2_4975_ad14_74097c3ff3a5);
 }
 impl ::core::convert::From<IXpsOMResource> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMResource) -> Self {
@@ -7574,7 +7574,7 @@ impl IXpsOMShareable {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMShareable {
     type Vtable = IXpsOMShareable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1899444623, 12225, 17741, [140, 106, 44, 49, 21, 161, 110, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7137398f_2fc1_454d_8c6a_2c3115a16ece);
 }
 impl ::core::convert::From<IXpsOMShareable> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMShareable) -> Self {
@@ -7640,7 +7640,7 @@ impl IXpsOMSignatureBlockResource {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMSignatureBlockResource {
     type Vtable = IXpsOMSignatureBlockResource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1198959925, 11780, 17239, [135, 67, 235, 246, 193, 113, 169, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4776ad35_2e04_4357_8743_ebf6c171a905);
 }
 impl ::core::convert::From<IXpsOMSignatureBlockResource> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMSignatureBlockResource) -> Self {
@@ -7758,7 +7758,7 @@ impl IXpsOMSignatureBlockResourceCollection {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMSignatureBlockResourceCollection {
     type Vtable = IXpsOMSignatureBlockResourceCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2878299534, 13595, 19763, [170, 237, 250, 86, 240, 2, 41, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab8f5d8e_351b_4d33_aaed_fa56f0022931);
 }
 impl ::core::convert::From<IXpsOMSignatureBlockResourceCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMSignatureBlockResourceCollection) -> Self {
@@ -7835,7 +7835,7 @@ impl IXpsOMSolidColorBrush {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMSolidColorBrush {
     type Vtable = IXpsOMSolidColorBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2691669765, 15337, 18275, [152, 168, 9, 79, 198, 114, 228, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa06f9f05_3be9_4763_98a8_094fc672e488);
 }
 impl ::core::convert::From<IXpsOMSolidColorBrush> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMSolidColorBrush) -> Self {
@@ -7946,7 +7946,7 @@ impl IXpsOMStoryFragmentsResource {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMStoryFragmentsResource {
     type Vtable = IXpsOMStoryFragmentsResource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3266562569, 1139, 17026, [135, 174, 23, 128, 134, 50, 35, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2b3ca09_0473_4282_87ae_1780863223f0);
 }
 impl ::core::convert::From<IXpsOMStoryFragmentsResource> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMStoryFragmentsResource) -> Self {
@@ -8038,7 +8038,7 @@ impl IXpsOMThumbnailGenerator {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMThumbnailGenerator {
     type Vtable = IXpsOMThumbnailGenerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(364409813, 6513, 16872, [131, 163, 101, 120, 64, 48, 100, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15b873d5_1971_41e8_83a3_6578403064c7);
 }
 impl ::core::convert::From<IXpsOMThumbnailGenerator> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMThumbnailGenerator) -> Self {
@@ -8148,7 +8148,7 @@ impl IXpsOMTileBrush {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMTileBrush {
     type Vtable = IXpsOMTileBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(264385165, 55074, 19028, [178, 236, 190, 144, 33, 138, 120, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0fc2328d_d722_4a54_b2ec_be90218a789e);
 }
 impl ::core::convert::From<IXpsOMTileBrush> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMTileBrush) -> Self {
@@ -8380,7 +8380,7 @@ impl IXpsOMVisual {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMVisual {
     type Vtable = IXpsOMVisual_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3158209331, 64267, 19187, [168, 25, 11, 78, 170, 208, 210, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc3e7333_fb0b_4af3_a819_0b4eaad0d2fd);
 }
 impl ::core::convert::From<IXpsOMVisual> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMVisual) -> Self {
@@ -8579,7 +8579,7 @@ impl IXpsOMVisualBrush {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMVisualBrush {
     type Vtable = IXpsOMVisualBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2548208815, 23351, 18100, [128, 87, 135, 77, 47, 100, 17, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97e294af_5b37_46b4_8057_874d2f64119b);
 }
 impl ::core::convert::From<IXpsOMVisualBrush> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMVisualBrush) -> Self {
@@ -8727,7 +8727,7 @@ impl IXpsOMVisualCollection {
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMVisualCollection {
     type Vtable = IXpsOMVisualCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2497227742, 43921, 18088, [130, 183, 245, 176, 94, 240, 26, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94d8abde_ab91_46a8_82b7_f5b05ef01a96);
 }
 impl ::core::convert::From<IXpsOMVisualCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMVisualCollection) -> Self {
@@ -8835,7 +8835,7 @@ impl IXpsSignature {
 }
 unsafe impl ::windows::runtime::Interface for IXpsSignature {
     type Vtable = IXpsSignature_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1793378622, 6878, 17147, [137, 139, 58, 86, 88, 40, 72, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ae4c93e_1ade_42fb_898b_3a5658284857);
 }
 impl ::core::convert::From<IXpsSignature> for ::windows::runtime::IUnknown {
     fn from(value: IXpsSignature) -> Self {
@@ -8920,7 +8920,7 @@ impl IXpsSignatureBlock {
 }
 unsafe impl ::windows::runtime::Interface for IXpsSignatureBlock {
     type Vtable = IXpsSignatureBlock_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(354397193, 2967, 19142, [163, 35, 94, 66, 151, 212, 50, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x151fac09_0b97_4ac6_a323_5e4297d4322b);
 }
 impl ::core::convert::From<IXpsSignatureBlock> for ::windows::runtime::IUnknown {
     fn from(value: IXpsSignatureBlock) -> Self {
@@ -8979,7 +8979,7 @@ impl IXpsSignatureBlockCollection {
 }
 unsafe impl ::windows::runtime::Interface for IXpsSignatureBlockCollection {
     type Vtable = IXpsSignatureBlockCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(590966864, 65177, 18042, [141, 206, 146, 55, 240, 116, 255, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23397050_fe99_467a_8dce_9237f074ffe4);
 }
 impl ::core::convert::From<IXpsSignatureBlockCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsSignatureBlockCollection) -> Self {
@@ -9033,7 +9033,7 @@ impl IXpsSignatureCollection {
 }
 unsafe impl ::windows::runtime::Interface for IXpsSignatureCollection {
     type Vtable = IXpsSignatureCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2731661661, 44498, 19967, [171, 39, 107, 156, 100, 95, 243, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2d1d95d_add2_4dff_ab27_6b9c645ff322);
 }
 impl ::core::convert::From<IXpsSignatureCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsSignatureCollection) -> Self {
@@ -9131,7 +9131,7 @@ impl IXpsSignatureManager {
 }
 unsafe impl ::windows::runtime::Interface for IXpsSignatureManager {
     type Vtable = IXpsSignatureManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3555251000, 64964, 19196, [128, 181, 213, 50, 161, 120, 46, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3e8d338_fdc4_4afc_80b5_d532a1782ee1);
 }
 impl ::core::convert::From<IXpsSignatureManager> for ::windows::runtime::IUnknown {
     fn from(value: IXpsSignatureManager) -> Self {
@@ -9251,7 +9251,7 @@ impl IXpsSignatureRequest {
 }
 unsafe impl ::windows::runtime::Interface for IXpsSignatureRequest {
     type Vtable = IXpsSignatureRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2891486475, 29192, 19245, [178, 196, 149, 16, 131, 211, 184, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac58950b_7208_4b2d_b2c4_951083d3b8eb);
 }
 impl ::core::convert::From<IXpsSignatureRequest> for ::windows::runtime::IUnknown {
     fn from(value: IXpsSignatureRequest) -> Self {
@@ -9324,7 +9324,7 @@ impl IXpsSignatureRequestCollection {
 }
 unsafe impl ::windows::runtime::Interface for IXpsSignatureRequestCollection {
     type Vtable = IXpsSignatureRequestCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4028972648, 40729, 16686, [155, 79, 84, 211, 176, 172, 108, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0253e68_9f19_412e_9b4f_54d3b0ac6cd9);
 }
 impl ::core::convert::From<IXpsSignatureRequestCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsSignatureRequestCollection) -> Self {
@@ -9455,7 +9455,7 @@ impl IXpsSigningOptions {
 }
 unsafe impl ::windows::runtime::Interface for IXpsSigningOptions {
     type Vtable = IXpsSigningOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1998121700, 12821, 18878, [175, 91, 89, 79, 239, 127, 207, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7718eae4_3215_49be_af5b_594fef7fcfa6);
 }
 impl ::core::convert::From<IXpsSigningOptions> for ::windows::runtime::IUnknown {
     fn from(value: IXpsSigningOptions) -> Self {
@@ -10613,6 +10613,6 @@ impl ::core::convert::From<i32> for XPS_TILE_MODE {
 unsafe impl ::windows::runtime::Abi for XPS_TILE_MODE {
     type Abi = Self;
 }
-pub const XpsOMObjectFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3916747373, 15771, 19783, [136, 204, 56, 114, 242, 220, 53, 133]);
-pub const XpsOMThumbnailGenerator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2118788066, 47465, 18273, [190, 53, 26, 140, 237, 88, 227, 35]);
-pub const XpsSignatureManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2965648160, 8981, 17570, [183, 10, 9, 67, 161, 64, 168, 238]);
+pub const XpsOMObjectFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe974d26d_3d9b_4d47_88cc_3872f2dc3585);
+pub const XpsOMThumbnailGenerator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e4a23e2_b969_4761_be35_1a8ced58e323);
+pub const XpsSignatureManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0c43320_2315_44a2_b70a_0943a140a8ee);

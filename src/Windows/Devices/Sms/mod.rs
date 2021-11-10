@@ -110,7 +110,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeleteSmsMessageOperation {
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::Interface for DeleteSmsMessageOperation {
     type Vtable = super::super::Foundation::IAsyncAction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1516535814, 33850, 19881, [134, 91, 157, 38, 229, 223, 173, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a648006_843a_4da9_865b_9d26e5dfad7b);
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::runtime::RuntimeName for DeleteSmsMessageOperation {
@@ -319,7 +319,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeleteSmsMessagesOperation {
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::Interface for DeleteSmsMessagesOperation {
     type Vtable = super::super::Foundation::IAsyncAction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1516535814, 33850, 19881, [134, 91, 157, 38, 229, 223, 173, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a648006_843a_4da9_865b_9d26e5dfad7b);
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::runtime::RuntimeName for DeleteSmsMessagesOperation {
@@ -1096,7 +1096,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncInfo>
 pub struct ISmsAppMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsAppMessage {
     type Vtable = ISmsAppMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3904603284, 54176, 18954, [134, 215, 41, 16, 51, 168, 207, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8bb8494_d3a0_4a0a_86d7_291033a8cf54);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1139,7 +1139,7 @@ pub struct ISmsAppMessage_abi(
 pub struct ISmsBinaryMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsBinaryMessage {
     type Vtable = ISmsBinaryMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1542776851, 15187, 19566, [182, 26, 216, 106, 99, 117, 86, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5bf4e813_3b53_4c6e_b61a_d86a63755650);
 }
 impl ISmsBinaryMessage {
     #[cfg(feature = "deprecated")]
@@ -1273,7 +1273,7 @@ pub struct ISmsBinaryMessage_abi(
 pub struct ISmsBroadcastMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsBroadcastMessage {
     type Vtable = ISmsBroadcastMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1974385649, 58551, 18548, [160, 156, 41, 86, 229, 146, 249, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75aebbf1_e4b7_4874_a09c_2956e592f957);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1302,7 +1302,7 @@ pub struct ISmsBroadcastMessage_abi(
 pub struct ISmsDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsDevice {
     type Vtable = ISmsDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(152539629, 34603, 20204, [156, 114, 171, 17, 98, 123, 52, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x091791ed_872b_4eec_9c72_ab11627b34ec);
 }
 impl ISmsDevice {
     #[cfg(feature = "deprecated")]
@@ -1468,7 +1468,7 @@ pub struct ISmsDevice_abi(
 pub struct ISmsDevice2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsDevice2 {
     type Vtable = ISmsDevice2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3179961363, 58658, 18123, [184, 213, 158, 173, 48, 251, 108, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd8a5c13_e522_46cb_b8d5_9ead30fb6c47);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1499,7 +1499,7 @@ pub struct ISmsDevice2_abi(
 pub struct ISmsDevice2Statics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsDevice2Statics {
     type Vtable = ISmsDevice2Statics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1707574053, 4145, 18718, [143, 182, 239, 153, 145, 175, 227, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65c78325_1031_491e_8fb6_ef9991afe363);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1520,7 +1520,7 @@ pub struct ISmsDevice2Statics_abi(
 pub struct ISmsDeviceMessageStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsDeviceMessageStore {
     type Vtable = ISmsDeviceMessageStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2559177299, 61832, 17447, [141, 84, 206, 12, 36, 35, 197, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9889f253_f188_4427_8d54_ce0c2423c5c1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1546,7 +1546,7 @@ pub struct ISmsDeviceMessageStore_abi(
 pub struct ISmsDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsDeviceStatics {
     type Vtable = ISmsDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4169992170, 55317, 19921, [162, 52, 69, 32, 206, 70, 4, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf88d07ea_d815_4dd1_a234_4520ce4604a4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1568,7 +1568,7 @@ pub struct ISmsDeviceStatics_abi(
 pub struct ISmsDeviceStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsDeviceStatics2 {
     type Vtable = ISmsDeviceStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(748756103, 2163, 19631, [138, 125, 189, 71, 30, 133, 134, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ca11c87_0873_4caf_8a7d_bd471e8586d1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1587,7 +1587,7 @@ pub struct ISmsDeviceStatics2_abi(
 pub struct ISmsFilterRule(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsFilterRule {
     type Vtable = ISmsFilterRule_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1088630702, 45129, 20412, [175, 233, 226, 166, 16, 239, 245, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40e32fae_b049_4fbc_afe9_e2a610eff55c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1629,7 +1629,7 @@ pub struct ISmsFilterRule_abi(
 pub struct ISmsFilterRuleFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsFilterRuleFactory {
     type Vtable = ISmsFilterRuleFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(12805384, 25238, 20265, [154, 173, 137, 32, 206, 186, 60, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00c36508_6296_4f29_9aad_8920ceba3ce8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1647,7 +1647,7 @@ pub struct ISmsFilterRuleFactory_abi(
 pub struct ISmsFilterRules(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsFilterRules {
     type Vtable = ISmsFilterRules_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1313336059, 31181, 18561, [152, 148, 85, 164, 19, 91, 35, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e47eafb_79cd_4881_9894_55a4135b23fa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1667,7 +1667,7 @@ pub struct ISmsFilterRules_abi(
 pub struct ISmsFilterRulesFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsFilterRulesFactory {
     type Vtable = ISmsFilterRulesFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2694391021, 28206, 17712, [159, 222, 70, 93, 2, 238, 208, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa09924ed_6e2e_4530_9fde_465d02eed00e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1686,7 +1686,7 @@ pub struct ISmsFilterRulesFactory_abi(
 pub struct ISmsMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessage {
     type Vtable = ISmsMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3980156456, 27012, 19207, [129, 29, 141, 89, 6, 237, 60, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed3c5e28_6984_4b07_811d_8d5906ed3cea);
 }
 impl ISmsMessage {
     #[doc = "*Required features: `Devices_Sms`*"]
@@ -1767,7 +1767,7 @@ pub struct ISmsMessage_abi(
 pub struct ISmsMessageBase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessageBase {
     type Vtable = ISmsMessageBase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(753991216, 65104, 20422, [170, 136, 76, 207, 226, 122, 41, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cf0fe30_fe50_4fc6_aa88_4ccfe27a29ea);
 }
 impl ISmsMessageBase {
     #[doc = "*Required features: `Devices_Sms`*"]
@@ -1874,7 +1874,7 @@ pub struct ISmsMessageBase_abi(
 pub struct ISmsMessageReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessageReceivedEventArgs {
     type Vtable = ISmsMessageReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(149424792, 47333, 16833, [163, 216, 211, 171, 250, 226, 38, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08e80a98_b8e5_41c1_a3d8_d3abfae22675);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1893,7 +1893,7 @@ pub struct ISmsMessageReceivedEventArgs_abi(
 pub struct ISmsMessageReceivedTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessageReceivedTriggerDetails {
     type Vtable = ISmsMessageReceivedTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(735038420, 9815, 16680, [173, 95, 227, 135, 113, 50, 189, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bcfcbd4_2657_4128_ad5f_e3877132bdb1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1919,7 +1919,7 @@ pub struct ISmsMessageReceivedTriggerDetails_abi(
 pub struct ISmsMessageRegistration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessageRegistration {
     type Vtable = ISmsMessageRegistration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(387993662, 62287, 17515, [131, 179, 15, 241, 153, 35, 180, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1720503e_f34f_446b_83b3_0ff19923b409);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1942,7 +1942,7 @@ pub struct ISmsMessageRegistration_abi(
 pub struct ISmsMessageRegistrationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessageRegistrationStatics {
     type Vtable = ISmsMessageRegistrationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1671451748, 10392, 18296, [160, 60, 111, 153, 73, 7, 214, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63a05464_2898_4778_a03c_6f994907d63a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1962,7 +1962,7 @@ pub struct ISmsMessageRegistrationStatics_abi(
 pub struct ISmsReceivedEventDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsReceivedEventDetails {
     type Vtable = ISmsReceivedEventDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1538592533, 58477, 19586, [132, 125, 90, 3, 4, 193, 213, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5bb50f15_e46d_4c82_847d_5a0304c1d53d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1981,7 +1981,7 @@ pub struct ISmsReceivedEventDetails_abi(
 pub struct ISmsReceivedEventDetails2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsReceivedEventDetails2 {
     type Vtable = ISmsReceivedEventDetails2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1088445574, 42932, 18289, [154, 231, 11, 95, 251, 18, 192, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40e05c86_a7b4_4771_9ae7_0b5ffb12c03a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2000,7 +2000,7 @@ pub struct ISmsReceivedEventDetails2_abi(
 pub struct ISmsSendMessageResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsSendMessageResult {
     type Vtable = ISmsSendMessageResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3675495154, 30921, 20459, [150, 34, 69, 35, 40, 8, 141, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb139af2_78c9_4feb_9622_452328088d62);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2025,7 +2025,7 @@ pub struct ISmsSendMessageResult_abi(
 pub struct ISmsStatusMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsStatusMessage {
     type Vtable = ISmsStatusMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3872555842, 46859, 18039, [147, 121, 201, 120, 63, 223, 248, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6d28342_b70b_4677_9379_c9783fdff8f4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2052,7 +2052,7 @@ pub struct ISmsStatusMessage_abi(
 pub struct ISmsTextMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsTextMessage {
     type Vtable = ISmsTextMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3592196172, 42133, 18559, [154, 111, 151, 21, 72, 197, 188, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd61c904c_a495_487f_9a6f_971548c5bc9f);
 }
 impl ISmsTextMessage {
     #[cfg(feature = "deprecated")]
@@ -2274,7 +2274,7 @@ pub struct ISmsTextMessage_abi(
 pub struct ISmsTextMessage2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsTextMessage2 {
     type Vtable = ISmsTextMessage2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(580966547, 17749, 18261, [181, 161, 231, 253, 132, 149, 95, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22a0d893_4555_4755_b5a1_e7fd84955f8d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2308,7 +2308,7 @@ pub struct ISmsTextMessage2_abi(
 pub struct ISmsTextMessageStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsTextMessageStatics {
     type Vtable = ISmsTextMessageStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2137572845, 15564, 18339, [140, 85, 56, 13, 59, 1, 8, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f68c5ed_3ccc_47a3_8c55_380d3b010892);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2327,7 +2327,7 @@ pub struct ISmsTextMessageStatics_abi(
 pub struct ISmsVoicemailMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsVoicemailMessage {
     type Vtable = ISmsVoicemailMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(656056486, 38321, 17663, [188, 184, 184, 253, 215, 224, 139, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x271aa0a6_95b1_44ff_bcb8_b8fdd7e08bc3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2350,7 +2350,7 @@ pub struct ISmsVoicemailMessage_abi(
 pub struct ISmsWapMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsWapMessage {
     type Vtable = ISmsWapMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3448993603, 31317, 19771, [144, 33, 242, 46, 2, 45, 9, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd937743_7a55_4d3b_9021_f22e022d09c5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2463,7 +2463,7 @@ unsafe impl ::windows::runtime::RuntimeType for SendSmsMessageOperation {
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::Interface for SendSmsMessageOperation {
     type Vtable = super::super::Foundation::IAsyncAction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1516535814, 33850, 19881, [134, 91, 157, 38, 229, 223, 173, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a648006_843a_4da9_865b_9d26e5dfad7b);
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::runtime::RuntimeName for SendSmsMessageOperation {
@@ -2791,7 +2791,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsAppMessage {
 }
 unsafe impl ::windows::runtime::Interface for SmsAppMessage {
     type Vtable = ISmsAppMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3904603284, 54176, 18954, [134, 215, 41, 16, 51, 168, 207, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8bb8494_d3a0_4a0a_86d7_291033a8cf54);
 }
 impl ::windows::runtime::RuntimeName for SmsAppMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsAppMessage";
@@ -2924,7 +2924,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsBinaryMessage {
 }
 unsafe impl ::windows::runtime::Interface for SmsBinaryMessage {
     type Vtable = ISmsBinaryMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1542776851, 15187, 19566, [182, 26, 216, 106, 99, 117, 86, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5bf4e813_3b53_4c6e_b61a_d86a63755650);
 }
 impl ::windows::runtime::RuntimeName for SmsBinaryMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsBinaryMessage";
@@ -3145,7 +3145,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsBroadcastMessage {
 }
 unsafe impl ::windows::runtime::Interface for SmsBroadcastMessage {
     type Vtable = ISmsBroadcastMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1974385649, 58551, 18548, [160, 156, 41, 86, 229, 146, 249, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75aebbf1_e4b7_4874_a09c_2956e592f957);
 }
 impl ::windows::runtime::RuntimeName for SmsBroadcastMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsBroadcastMessage";
@@ -3417,7 +3417,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsDevice {
 }
 unsafe impl ::windows::runtime::Interface for SmsDevice {
     type Vtable = ISmsDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(152539629, 34603, 20204, [156, 114, 171, 17, 98, 123, 52, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x091791ed_872b_4eec_9c72_ab11627b34ec);
 }
 impl ::windows::runtime::RuntimeName for SmsDevice {
     const NAME: &'static str = "Windows.Devices.Sms.SmsDevice";
@@ -3610,7 +3610,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsDevice2 {
 }
 unsafe impl ::windows::runtime::Interface for SmsDevice2 {
     type Vtable = ISmsDevice2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3179961363, 58658, 18123, [184, 213, 158, 173, 48, 251, 108, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd8a5c13_e522_46cb_b8d5_9ead30fb6c47);
 }
 impl ::windows::runtime::RuntimeName for SmsDevice2 {
     const NAME: &'static str = "Windows.Devices.Sms.SmsDevice2";
@@ -3715,7 +3715,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsDeviceMessageStore {
 }
 unsafe impl ::windows::runtime::Interface for SmsDeviceMessageStore {
     type Vtable = ISmsDeviceMessageStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2559177299, 61832, 17447, [141, 84, 206, 12, 36, 35, 197, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9889f253_f188_4427_8d54_ce0c2423c5c1);
 }
 impl ::windows::runtime::RuntimeName for SmsDeviceMessageStore {
     const NAME: &'static str = "Windows.Devices.Sms.SmsDeviceMessageStore";
@@ -3812,7 +3812,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsDeviceStatusChangedEventHandl
 }
 unsafe impl ::windows::runtime::Interface for SmsDeviceStatusChangedEventHandler {
     type Vtable = SmsDeviceStatusChangedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2552959330, 15831, 17944, [175, 137, 12, 39, 45, 93, 6, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x982b1162_3dd7_4618_af89_0c272d5d06d8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4100,7 +4100,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsFilterRule {
 }
 unsafe impl ::windows::runtime::Interface for SmsFilterRule {
     type Vtable = ISmsFilterRule_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1088630702, 45129, 20412, [175, 233, 226, 166, 16, 239, 245, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40e32fae_b049_4fbc_afe9_e2a610eff55c);
 }
 impl ::windows::runtime::RuntimeName for SmsFilterRule {
     const NAME: &'static str = "Windows.Devices.Sms.SmsFilterRule";
@@ -4186,7 +4186,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsFilterRules {
 }
 unsafe impl ::windows::runtime::Interface for SmsFilterRules {
     type Vtable = ISmsFilterRules_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1313336059, 31181, 18561, [152, 148, 85, 164, 19, 91, 35, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e47eafb_79cd_4881_9894_55a4135b23fa);
 }
 impl ::windows::runtime::RuntimeName for SmsFilterRules {
     const NAME: &'static str = "Windows.Devices.Sms.SmsFilterRules";
@@ -4337,7 +4337,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsMessageReceivedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for SmsMessageReceivedEventArgs {
     type Vtable = ISmsMessageReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(149424792, 47333, 16833, [163, 216, 211, 171, 250, 226, 38, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08e80a98_b8e5_41c1_a3d8_d3abfae22675);
 }
 impl ::windows::runtime::RuntimeName for SmsMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sms.SmsMessageReceivedEventArgs";
@@ -4406,7 +4406,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsMessageReceivedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for SmsMessageReceivedEventHandler {
     type Vtable = SmsMessageReceivedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(192599049, 60461, 18382, [162, 83, 115, 43, 238, 235, 202, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b7ad409_ec2d_47ce_a253_732beeebcacd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4536,7 +4536,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsMessageReceivedTriggerDetails
 }
 unsafe impl ::windows::runtime::Interface for SmsMessageReceivedTriggerDetails {
     type Vtable = ISmsMessageReceivedTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(735038420, 9815, 16680, [173, 95, 227, 135, 113, 50, 189, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bcfcbd4_2657_4128_ad5f_e3877132bdb1);
 }
 impl ::windows::runtime::RuntimeName for SmsMessageReceivedTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Sms.SmsMessageReceivedTriggerDetails";
@@ -4641,7 +4641,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsMessageRegistration {
 }
 unsafe impl ::windows::runtime::Interface for SmsMessageRegistration {
     type Vtable = ISmsMessageRegistration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(387993662, 62287, 17515, [131, 179, 15, 241, 153, 35, 180, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1720503e_f34f_446b_83b3_0ff19923b409);
 }
 impl ::windows::runtime::RuntimeName for SmsMessageRegistration {
     const NAME: &'static str = "Windows.Devices.Sms.SmsMessageRegistration";
@@ -4792,7 +4792,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsReceivedEventDetails {
 }
 unsafe impl ::windows::runtime::Interface for SmsReceivedEventDetails {
     type Vtable = ISmsReceivedEventDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1538592533, 58477, 19586, [132, 125, 90, 3, 4, 193, 213, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5bb50f15_e46d_4c82_847d_5a0304c1d53d);
 }
 impl ::windows::runtime::RuntimeName for SmsReceivedEventDetails {
     const NAME: &'static str = "Windows.Devices.Sms.SmsReceivedEventDetails";
@@ -4907,7 +4907,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsSendMessageResult {
 }
 unsafe impl ::windows::runtime::Interface for SmsSendMessageResult {
     type Vtable = ISmsSendMessageResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3675495154, 30921, 20459, [150, 34, 69, 35, 40, 8, 141, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb139af2_78c9_4feb_9622_452328088d62);
 }
 impl ::windows::runtime::RuntimeName for SmsSendMessageResult {
     const NAME: &'static str = "Windows.Devices.Sms.SmsSendMessageResult";
@@ -5063,7 +5063,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsStatusMessage {
 }
 unsafe impl ::windows::runtime::Interface for SmsStatusMessage {
     type Vtable = ISmsStatusMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3872555842, 46859, 18039, [147, 121, 201, 120, 63, 223, 248, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6d28342_b70b_4677_9379_c9783fdff8f4);
 }
 impl ::windows::runtime::RuntimeName for SmsStatusMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsStatusMessage";
@@ -5293,7 +5293,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsTextMessage {
 }
 unsafe impl ::windows::runtime::Interface for SmsTextMessage {
     type Vtable = ISmsTextMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3592196172, 42133, 18559, [154, 111, 151, 21, 72, 197, 188, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd61c904c_a495_487f_9a6f_971548c5bc9f);
 }
 impl ::windows::runtime::RuntimeName for SmsTextMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsTextMessage";
@@ -5551,7 +5551,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsTextMessage2 {
 }
 unsafe impl ::windows::runtime::Interface for SmsTextMessage2 {
     type Vtable = ISmsTextMessage2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(580966547, 17749, 18261, [181, 161, 231, 253, 132, 149, 95, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22a0d893_4555_4755_b5a1_e7fd84955f8d);
 }
 impl ::windows::runtime::RuntimeName for SmsTextMessage2 {
     const NAME: &'static str = "Windows.Devices.Sms.SmsTextMessage2";
@@ -5705,7 +5705,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsVoicemailMessage {
 }
 unsafe impl ::windows::runtime::Interface for SmsVoicemailMessage {
     type Vtable = ISmsVoicemailMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(656056486, 38321, 17663, [188, 184, 184, 253, 215, 224, 139, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x271aa0a6_95b1_44ff_bcb8_b8fdd7e08bc3);
 }
 impl ::windows::runtime::RuntimeName for SmsVoicemailMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsVoicemailMessage";
@@ -5884,7 +5884,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsWapMessage {
 }
 unsafe impl ::windows::runtime::Interface for SmsWapMessage {
     type Vtable = ISmsWapMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3448993603, 31317, 19771, [144, 33, 242, 46, 2, 45, 9, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd937743_7a55_4d3b_9021_f22e022d09c5);
 }
 impl ::windows::runtime::RuntimeName for SmsWapMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsWapMessage";

@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const CLSID_VdsLoader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2620976481, 54629, 18216, [174, 238, 200, 9, 82, 240, 236, 222]);
-pub const CLSID_VdsService: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2098803659, 34550, 19096, [134, 40, 1, 190, 148, 201, 165, 117]);
+pub const CLSID_VdsLoader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c38ed61_d565_4728_aeee_c80952f0ecde);
+pub const CLSID_VdsService: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d1933cb_86f6_4a98_8628_01be94c9a575);
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 pub const GPT_PARTITION_NAME_LENGTH: u32 = 36u32;
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
@@ -28,7 +28,7 @@ impl IEnumVdsObject {
 }
 unsafe impl ::windows::runtime::Interface for IEnumVdsObject {
     type Vtable = IEnumVdsObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(293998775, 36244, 16432, [181, 184, 80, 8, 137, 120, 142, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x118610b7_8d94_4030_b5b8_500889788e4e);
 }
 impl ::core::convert::From<IEnumVdsObject> for ::windows::runtime::IUnknown {
     fn from(value: IEnumVdsObject) -> Self {
@@ -87,7 +87,7 @@ impl IVdsAdmin {
 }
 unsafe impl ::windows::runtime::Interface for IVdsAdmin {
     type Vtable = IVdsAdmin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3515410813, 34218, 19763, [171, 198, 38, 41, 154, 16, 255, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd188e97d_85aa_4d33_abc6_26299a10ffc1);
 }
 impl ::core::convert::From<IVdsAdmin> for ::windows::runtime::IUnknown {
     fn from(value: IVdsAdmin) -> Self {
@@ -131,7 +131,7 @@ impl IVdsAdviseSink {
 }
 unsafe impl ::windows::runtime::Interface for IVdsAdviseSink {
     type Vtable = IVdsAdviseSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2200358173, 53081, 18742, [183, 134, 94, 252, 8, 121, 142, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8326cd1d_cf59_4936_b786_5efc08798e25);
 }
 impl ::core::convert::From<IVdsAdviseSink> for ::windows::runtime::IUnknown {
     fn from(value: IVdsAdviseSink) -> Self {
@@ -181,7 +181,7 @@ impl IVdsAsync {
 }
 unsafe impl ::windows::runtime::Interface for IVdsAsync {
     type Vtable = IVdsAsync_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3587324781, 23125, 17554, [152, 137, 57, 122, 60, 45, 45, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5d23b6d_5a55_4492_9889_397a3c2d2dbc);
 }
 impl ::core::convert::From<IVdsAsync> for ::windows::runtime::IUnknown {
     fn from(value: IVdsAsync) -> Self {
@@ -259,7 +259,7 @@ impl IVdsController {
 }
 unsafe impl ::windows::runtime::Interface for IVdsController {
     type Vtable = IVdsController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3411269998, 57339, 18250, [160, 120, 121, 13, 30, 43, 192, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb53d96e_dffb_474a_a078_790d1e2bc082);
 }
 impl ::core::convert::From<IVdsController> for ::windows::runtime::IUnknown {
     fn from(value: IVdsController) -> Self {
@@ -311,7 +311,7 @@ impl IVdsControllerControllerPort {
 }
 unsafe impl ::windows::runtime::Interface for IVdsControllerControllerPort {
     type Vtable = IVdsControllerControllerPort_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3395122015, 27566, 17088, [179, 14, 242, 102, 96, 69, 206, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca5d735f_6bae_42c0_b30e_f2666045ce71);
 }
 impl ::core::convert::From<IVdsControllerControllerPort> for ::windows::runtime::IUnknown {
     fn from(value: IVdsControllerControllerPort) -> Self {
@@ -373,7 +373,7 @@ impl IVdsControllerPort {
 }
 unsafe impl ::windows::runtime::Interface for IVdsControllerPort {
     type Vtable = IVdsControllerPort_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(409541901, 20095, 17384, [146, 228, 207, 68, 190, 238, 209, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18691d0d_4e7f_43e8_92e4_cf44beeed11c);
 }
 impl ::core::convert::From<IVdsControllerPort> for ::windows::runtime::IUnknown {
     fn from(value: IVdsControllerPort) -> Self {
@@ -444,7 +444,7 @@ impl IVdsDrive {
 }
 unsafe impl ::windows::runtime::Interface for IVdsDrive {
     type Vtable = IVdsDrive_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4280610724, 43742, 19307, [137, 139, 234, 166, 162, 8, 135, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff24efa4_aade_4b6b_898b_eaa6a20887c7);
 }
 impl ::core::convert::From<IVdsDrive> for ::windows::runtime::IUnknown {
     fn from(value: IVdsDrive) -> Self {
@@ -495,7 +495,7 @@ impl IVdsDrive2 {
 }
 unsafe impl ::windows::runtime::Interface for IVdsDrive2 {
     type Vtable = IVdsDrive2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1622517552, 44511, 17462, [140, 167, 87, 105, 226, 209, 255, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60b5a730_addf_4436_8ca7_5769e2d1ffa4);
 }
 impl ::core::convert::From<IVdsDrive2> for ::windows::runtime::IUnknown {
     fn from(value: IVdsDrive2) -> Self {
@@ -547,7 +547,7 @@ impl IVdsHwProvider {
 }
 unsafe impl ::windows::runtime::Interface for IVdsHwProvider {
     type Vtable = IVdsHwProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3650869934, 45370, 16760, [159, 219, 226, 127, 22, 180, 96, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd99bdaae_b13a_4178_9fdb_e27f16b4603e);
 }
 impl ::core::convert::From<IVdsHwProvider> for ::windows::runtime::IUnknown {
     fn from(value: IVdsHwProvider) -> Self {
@@ -593,7 +593,7 @@ impl IVdsHwProviderPrivate {
 }
 unsafe impl ::windows::runtime::Interface for IVdsHwProviderPrivate {
     type Vtable = IVdsHwProviderPrivate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2565962739, 40755, 20242, [135, 20, 139, 64, 117, 9, 44, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98f17bf3_9f33_4f12_8714_8b4075092c2e);
 }
 impl ::core::convert::From<IVdsHwProviderPrivate> for ::windows::runtime::IUnknown {
     fn from(value: IVdsHwProviderPrivate) -> Self {
@@ -636,7 +636,7 @@ impl IVdsHwProviderPrivateMpio {
 }
 unsafe impl ::windows::runtime::Interface for IVdsHwProviderPrivateMpio {
     type Vtable = IVdsHwProviderPrivateMpio_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(822769429, 44075, 19567, [152, 39, 61, 116, 47, 53, 22, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x310a7715_ac2b_4c6f_9827_3d742f351676);
 }
 impl ::core::convert::From<IVdsHwProviderPrivateMpio> for ::windows::runtime::IUnknown {
     fn from(value: IVdsHwProviderPrivateMpio) -> Self {
@@ -692,7 +692,7 @@ impl IVdsHwProviderStoragePools {
 }
 unsafe impl ::windows::runtime::Interface for IVdsHwProviderStoragePools {
     type Vtable = IVdsHwProviderStoragePools_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3585446778, 61832, 19577, [184, 108, 17, 201, 32, 173, 17, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5b5937a_f188_4c79_b86c_11c920ad11b8);
 }
 impl ::core::convert::From<IVdsHwProviderStoragePools> for ::windows::runtime::IUnknown {
     fn from(value: IVdsHwProviderStoragePools) -> Self {
@@ -740,7 +740,7 @@ impl IVdsHwProviderType {
 }
 unsafe impl ::windows::runtime::Interface for IVdsHwProviderType {
     type Vtable = IVdsHwProviderType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1041191270, 21549, 20422, [148, 122, 1, 33, 116, 36, 11, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e0f5166_542d_4fc6_947a_012174240b7e);
 }
 impl ::core::convert::From<IVdsHwProviderType> for ::windows::runtime::IUnknown {
     fn from(value: IVdsHwProviderType) -> Self {
@@ -783,7 +783,7 @@ impl IVdsHwProviderType2 {
 }
 unsafe impl ::windows::runtime::Interface for IVdsHwProviderType2 {
     type Vtable = IVdsHwProviderType2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2173707119, 50384, 20097, [128, 17, 214, 149, 18, 252, 201, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8190236f_c4d0_4e81_8011_d69512fcc984);
 }
 impl ::core::convert::From<IVdsHwProviderType2> for ::windows::runtime::IUnknown {
     fn from(value: IVdsHwProviderType2) -> Self {
@@ -853,7 +853,7 @@ impl IVdsIscsiPortal {
 }
 unsafe impl ::windows::runtime::Interface for IVdsIscsiPortal {
     type Vtable = IVdsIscsiPortal_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2141276573, 60549, 19082, [164, 123, 255, 105, 32, 31, 205, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fa1499d_ec85_4a8a_a47b_ff69201fcd34);
 }
 impl ::core::convert::From<IVdsIscsiPortal> for ::windows::runtime::IUnknown {
     fn from(value: IVdsIscsiPortal) -> Self {
@@ -927,7 +927,7 @@ impl IVdsIscsiPortalGroup {
 }
 unsafe impl ::windows::runtime::Interface for IVdsIscsiPortalGroup {
     type Vtable = IVdsIscsiPortalGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4277532829, 41949, 19254, [191, 40, 231, 221, 224, 69, 197, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfef5f89d_a3dd_4b36_bf28_e7dde045c593);
 }
 impl ::core::convert::From<IVdsIscsiPortalGroup> for ::windows::runtime::IUnknown {
     fn from(value: IVdsIscsiPortalGroup) -> Self {
@@ -1021,7 +1021,7 @@ impl IVdsIscsiTarget {
 }
 unsafe impl ::windows::runtime::Interface for IVdsIscsiTarget {
     type Vtable = IVdsIscsiTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2861518933, 33765, 19404, [170, 115, 25, 133, 26, 54, 168, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa8f5055_83e5_4bcc_aa73_19851a36a849);
 }
 impl ::core::convert::From<IVdsIscsiTarget> for ::windows::runtime::IUnknown {
     fn from(value: IVdsIscsiTarget) -> Self {
@@ -1158,7 +1158,7 @@ impl IVdsLun {
 }
 unsafe impl ::windows::runtime::Interface for IVdsLun {
     type Vtable = IVdsLun_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(893430215, 58895, 16657, [168, 64, 139, 186, 108, 44, 131, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3540a9c7_e60f_4111_a840_8bba6c2c83d8);
 }
 impl ::core::convert::From<IVdsLun> for ::windows::runtime::IUnknown {
     fn from(value: IVdsLun) -> Self {
@@ -1228,7 +1228,7 @@ impl IVdsLun2 {
 }
 unsafe impl ::windows::runtime::Interface for IVdsLun2 {
     type Vtable = IVdsLun2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3853756213, 40699, 18842, [128, 113, 67, 148, 217, 238, 111, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5b3a735_9efb_499a_8071_4394d9ee6fcb);
 }
 impl ::core::convert::From<IVdsLun2> for ::windows::runtime::IUnknown {
     fn from(value: IVdsLun2) -> Self {
@@ -1278,7 +1278,7 @@ impl IVdsLunControllerPorts {
 }
 unsafe impl ::windows::runtime::Interface for IVdsLunControllerPorts {
     type Vtable = IVdsLunControllerPorts_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1159717478, 55917, 16490, [187, 96, 130, 229, 52, 248, 90, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x451fe266_da6d_406a_bb60_82e534f85aeb);
 }
 impl ::core::convert::From<IVdsLunControllerPorts> for ::windows::runtime::IUnknown {
     fn from(value: IVdsLunControllerPorts) -> Self {
@@ -1326,7 +1326,7 @@ impl IVdsLunIscsi {
 }
 unsafe impl ::windows::runtime::Interface for IVdsLunIscsi {
     type Vtable = IVdsLunIscsi_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(226238052, 46491, 17838, [184, 106, 44, 44, 198, 164, 32, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d7c1e64_b59b_45ae_b86a_2c2cc6a42067);
 }
 impl ::core::convert::From<IVdsLunIscsi> for ::windows::runtime::IUnknown {
     fn from(value: IVdsLunIscsi) -> Self {
@@ -1384,7 +1384,7 @@ impl IVdsLunMpio {
 }
 unsafe impl ::windows::runtime::Interface for IVdsLunMpio {
     type Vtable = IVdsLunMpio_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2086648547, 13114, 18593, [169, 130, 51, 193, 87, 136, 205, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c5fbae3_333a_48a1_a982_33c15788cde3);
 }
 impl ::core::convert::From<IVdsLunMpio> for ::windows::runtime::IUnknown {
     fn from(value: IVdsLunMpio) -> Self {
@@ -1432,7 +1432,7 @@ impl IVdsLunNaming {
 }
 unsafe impl ::windows::runtime::Interface for IVdsLunNaming {
     type Vtable = IVdsLunNaming_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2423588043, 27470, 19848, [163, 77, 23, 186, 102, 31, 187, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x907504cb_6b4e_4d88_a34d_17ba661fbb06);
 }
 impl ::core::convert::From<IVdsLunNaming> for ::windows::runtime::IUnknown {
     fn from(value: IVdsLunNaming) -> Self {
@@ -1476,7 +1476,7 @@ impl IVdsLunNumber {
 }
 unsafe impl ::windows::runtime::Interface for IVdsLunNumber {
     type Vtable = IVdsLunNumber_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3556335174, 21683, 16889, [182, 120, 15, 24, 113, 68, 58, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3f95e46_54b3_41f9_b678_0f1871443a08);
 }
 impl ::core::convert::From<IVdsLunNumber> for ::windows::runtime::IUnknown {
     fn from(value: IVdsLunNumber) -> Self {
@@ -1540,7 +1540,7 @@ impl IVdsLunPlex {
 }
 unsafe impl ::windows::runtime::Interface for IVdsLunPlex {
     type Vtable = IVdsLunPlex_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(249669520, 23854, 19131, [140, 153, 196, 129, 232, 190, 33, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ee1a790_5d2e_4abb_8c99_c481e8be2138);
 }
 impl ::core::convert::From<IVdsLunPlex> for ::windows::runtime::IUnknown {
     fn from(value: IVdsLunPlex) -> Self {
@@ -1597,7 +1597,7 @@ impl IVdsMaintenance {
 }
 unsafe impl ::windows::runtime::Interface for IVdsMaintenance {
     type Vtable = IVdsMaintenance_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3672895219, 34083, 18413, [162, 185, 5, 206, 204, 226, 161, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdaebeef3_8523_47ed_a2b9_05cecce2a1ae);
 }
 impl ::core::convert::From<IVdsMaintenance> for ::windows::runtime::IUnknown {
     fn from(value: IVdsMaintenance) -> Self {
@@ -1643,7 +1643,7 @@ impl IVdsProvider {
 }
 unsafe impl ::windows::runtime::Interface for IVdsProvider {
     type Vtable = IVdsProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(281404789, 31108, 20097, [165, 107, 67, 31, 95, 146, 174, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10c5e575_7984_4e81_a56b_431f5f92ae42);
 }
 impl ::core::convert::From<IVdsProvider> for ::windows::runtime::IUnknown {
     fn from(value: IVdsProvider) -> Self {
@@ -1697,7 +1697,7 @@ impl IVdsProviderPrivate {
 }
 unsafe impl ::windows::runtime::Interface for IVdsProviderPrivate {
     type Vtable = IVdsProviderPrivate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(301190465, 47080, 18687, [148, 114, 157, 255, 1, 138, 162, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11f3cd41_b7e8_48ff_9472_9dff018aa292);
 }
 impl ::core::convert::From<IVdsProviderPrivate> for ::windows::runtime::IUnknown {
     fn from(value: IVdsProviderPrivate) -> Self {
@@ -1744,7 +1744,7 @@ impl IVdsProviderSupport {
 }
 unsafe impl ::windows::runtime::Interface for IVdsProviderSupport {
     type Vtable = IVdsProviderSupport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(389201427, 59641, 18947, [191, 188, 95, 97, 106, 166, 108, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1732be13_e8f9_4a03_bfbc_5f616aa66ce1);
 }
 impl ::core::convert::From<IVdsProviderSupport> for ::windows::runtime::IUnknown {
     fn from(value: IVdsProviderSupport) -> Self {
@@ -1814,7 +1814,7 @@ impl IVdsStoragePool {
 }
 unsafe impl ::windows::runtime::Interface for IVdsStoragePool {
     type Vtable = IVdsStoragePool_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2469177551, 3763, 19368, [150, 32, 34, 102, 93, 127, 132, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x932ca8cf_0eb3_4ba8_9620_22665d7f8450);
 }
 impl ::core::convert::From<IVdsStoragePool> for ::windows::runtime::IUnknown {
     fn from(value: IVdsStoragePool) -> Self {
@@ -1919,7 +1919,7 @@ impl IVdsSubSystem {
 }
 unsafe impl ::windows::runtime::Interface for IVdsSubSystem {
     type Vtable = IVdsSubSystem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1875829459, 28048, 20369, [128, 226, 165, 199, 202, 172, 169, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fcee2d3_6d90_4f91_80e2_a5c7caaca9d8);
 }
 impl ::core::convert::From<IVdsSubSystem> for ::windows::runtime::IUnknown {
     fn from(value: IVdsSubSystem) -> Self {
@@ -1994,7 +1994,7 @@ impl IVdsSubSystem2 {
 }
 unsafe impl ::windows::runtime::Interface for IVdsSubSystem2 {
     type Vtable = IVdsSubSystem2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3194382133, 30720, 19063, [157, 156, 64, 248, 91, 135, 226, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe666735_7800_4a77_9d9c_40f85b87e292);
 }
 impl ::core::convert::From<IVdsSubSystem2> for ::windows::runtime::IUnknown {
     fn from(value: IVdsSubSystem2) -> Self {
@@ -2043,7 +2043,7 @@ impl IVdsSubSystemInterconnect {
 }
 unsafe impl ::windows::runtime::Interface for IVdsSubSystemInterconnect {
     type Vtable = IVdsSubSystemInterconnect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2658116960, 49473, 18299, [131, 186, 11, 108, 56, 247, 254, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e6fa560_c141_477b_83ba_0b6c38f7febf);
 }
 impl ::core::convert::From<IVdsSubSystemInterconnect> for ::windows::runtime::IUnknown {
     fn from(value: IVdsSubSystemInterconnect) -> Self {
@@ -2101,7 +2101,7 @@ impl IVdsSubSystemIscsi {
 }
 unsafe impl ::windows::runtime::Interface for IVdsSubSystemIscsi {
     type Vtable = IVdsSubSystemIscsi_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2569327, 16592, 19269, [140, 236, 89, 6, 220, 3, 128, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0027346f_40d0_4b45_8cec_5906dc0380c8);
 }
 impl ::core::convert::From<IVdsSubSystemIscsi> for ::windows::runtime::IUnknown {
     fn from(value: IVdsSubSystemIscsi) -> Self {
@@ -2148,7 +2148,7 @@ impl IVdsSubSystemNaming {
 }
 unsafe impl ::windows::runtime::Interface for IVdsSubSystemNaming {
     type Vtable = IVdsSubSystemNaming_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(225508003, 40148, 18688, [170, 32, 105, 129, 182, 170, 252, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d70faa3_9cd4_4900_aa20_6981b6aafc75);
 }
 impl ::core::convert::From<IVdsSubSystemNaming> for ::windows::runtime::IUnknown {
     fn from(value: IVdsSubSystemNaming) -> Self {

@@ -136,7 +136,7 @@ unsafe impl ::windows::runtime::RuntimeType for GipFirmwareUpdateResult {
 }
 unsafe impl ::windows::runtime::Interface for GipFirmwareUpdateResult {
     type Vtable = IGipFirmwareUpdateResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1803111730, 34131, 17042, [142, 3, 225, 102, 81, 162, 248, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b794d32_8553_4292_8e03_e16651a2f8bc);
 }
 impl ::windows::runtime::RuntimeName for GipFirmwareUpdateResult {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.GipFirmwareUpdateResult";
@@ -276,7 +276,7 @@ unsafe impl ::windows::runtime::RuntimeType for GipGameControllerProvider {
 }
 unsafe impl ::windows::runtime::Interface for GipGameControllerProvider {
     type Vtable = IGipGameControllerProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3687783961, 6901, 17832, [191, 2, 160, 238, 80, 200, 35, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbcf1e19_1af5_45a8_bf02_a0ee50c823fc);
 }
 impl ::windows::runtime::RuntimeName for GipGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.GipGameControllerProvider";
@@ -450,7 +450,7 @@ unsafe impl ::windows::runtime::RuntimeType for HidGameControllerProvider {
 }
 unsafe impl ::windows::runtime::Interface for HidGameControllerProvider {
     type Vtable = IHidGameControllerProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2513320692, 44016, 19304, [160, 129, 59, 125, 231, 63, 240, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95ce3af4_abf0_4b68_a081_3b7de73ff0e7);
 }
 impl ::windows::runtime::RuntimeName for HidGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.HidGameControllerProvider";
@@ -525,7 +525,7 @@ unsafe impl ::core::marker::Sync for HidGameControllerProvider {}
 pub struct ICustomGameControllerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomGameControllerFactory {
     type Vtable = ICustomGameControllerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1772138078, 30094, 19646, [172, 230, 98, 21, 95, 233, 18, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69a0ae5e_758e_4cbe_ace6_62155fe9126f);
 }
 impl ICustomGameControllerFactory {
     #[doc = "*Required features: `Gaming_Input_Custom`*"]
@@ -608,7 +608,7 @@ pub struct ICustomGameControllerFactory_abi(
 pub struct IGameControllerFactoryManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameControllerFactoryManagerStatics {
     type Vtable = IGameControllerFactoryManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(919299811, 53409, 18822, [162, 76, 64, 177, 55, 222, 186, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36cb66e3_d0a1_4986_a24c_40b137deba9e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -628,7 +628,7 @@ pub struct IGameControllerFactoryManagerStatics_abi(
 pub struct IGameControllerFactoryManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameControllerFactoryManagerStatics2 {
     type Vtable = IGameControllerFactoryManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3939391044, 6623, 16661, [179, 42, 39, 147, 226, 174, 163, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeace5644_19df_4115_b32a_2793e2aea3bb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -647,7 +647,7 @@ pub struct IGameControllerFactoryManagerStatics2_abi(
 pub struct IGameControllerInputSink(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameControllerInputSink {
     type Vtable = IGameControllerInputSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(536279330, 50752, 19576, [168, 32, 154, 113, 92, 85, 139, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ff6f922_c640_4c78_a820_9a715c558bcb);
 }
 impl IGameControllerInputSink {
     #[doc = "*Required features: `Gaming_Input_Custom`*"]
@@ -722,7 +722,7 @@ pub struct IGameControllerInputSink_abi(
 pub struct IGameControllerProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameControllerProvider {
     type Vtable = IGameControllerProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3872864642, 10646, 17753, [177, 108, 62, 87, 212, 110, 88, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6d73982_2996_4559_b16c_3e57d46e58d6);
 }
 impl IGameControllerProvider {
     #[doc = "*Required features: `Gaming_Input_Custom`*"]
@@ -829,7 +829,7 @@ pub struct IGameControllerProvider_abi(
 pub struct IGipFirmwareUpdateResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGipFirmwareUpdateResult {
     type Vtable = IGipFirmwareUpdateResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1803111730, 34131, 17042, [142, 3, 225, 102, 81, 162, 248, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b794d32_8553_4292_8e03_e16651a2f8bc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -850,7 +850,7 @@ pub struct IGipFirmwareUpdateResult_abi(
 pub struct IGipGameControllerInputSink(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGipGameControllerInputSink {
     type Vtable = IGipGameControllerInputSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2718993087, 2545, 17340, [161, 64, 128, 248, 153, 236, 54, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2108abf_09f1_43bc_a140_80f899ec36fb);
 }
 impl IGipGameControllerInputSink {
     #[doc = "*Required features: `Gaming_Input_Custom`*"]
@@ -956,7 +956,7 @@ pub struct IGipGameControllerInputSink_abi(
 pub struct IGipGameControllerProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGipGameControllerProvider {
     type Vtable = IGipGameControllerProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3687783961, 6901, 17832, [191, 2, 160, 238, 80, 200, 35, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbcf1e19_1af5_45a8_bf02_a0ee50c823fc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -978,7 +978,7 @@ pub struct IGipGameControllerProvider_abi(
 pub struct IHidGameControllerInputSink(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidGameControllerInputSink {
     type Vtable = IHidGameControllerInputSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4149527330, 6189, 16612, [161, 38, 252, 238, 79, 250, 30, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf754c322_182d_40e4_a126_fcee4ffa1e31);
 }
 impl IHidGameControllerInputSink {
     #[doc = "*Required features: `Gaming_Input_Custom`*"]
@@ -1078,7 +1078,7 @@ pub struct IHidGameControllerInputSink_abi(
 pub struct IHidGameControllerProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidGameControllerProvider {
     type Vtable = IHidGameControllerProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2513320692, 44016, 19304, [160, 129, 59, 125, 231, 63, 240, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95ce3af4_abf0_4b68_a081_3b7de73ff0e7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1101,7 +1101,7 @@ pub struct IHidGameControllerProvider_abi(
 pub struct IXusbGameControllerInputSink(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXusbGameControllerInputSink {
     type Vtable = IXusbGameControllerInputSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2997624213, 28363, 17075, [138, 171, 2, 84, 1, 202, 71, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2ac1d95_6ecb_42b3_8aab_025401ca4712);
 }
 impl IXusbGameControllerInputSink {
     #[doc = "*Required features: `Gaming_Input_Custom`*"]
@@ -1201,7 +1201,7 @@ pub struct IXusbGameControllerInputSink_abi(
 pub struct IXusbGameControllerProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXusbGameControllerProvider {
     type Vtable = IXusbGameControllerProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1848209899, 3835, 18612, [128, 139, 131, 118, 67, 178, 242, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e2971eb_0efb_48b4_808b_837643b2f216);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1323,7 +1323,7 @@ unsafe impl ::windows::runtime::RuntimeType for XusbGameControllerProvider {
 }
 unsafe impl ::windows::runtime::Interface for XusbGameControllerProvider {
     type Vtable = IXusbGameControllerProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1848209899, 3835, 18612, [128, 139, 131, 118, 67, 178, 242, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e2971eb_0efb_48b4_808b_837643b2f216);
 }
 impl ::windows::runtime::RuntimeName for XusbGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.XusbGameControllerProvider";

@@ -92,7 +92,7 @@ unsafe impl ::windows::runtime::RuntimeType for CustomMapTileDataSource {
 }
 unsafe impl ::windows::runtime::Interface for CustomMapTileDataSource {
     type Vtable = ICustomMapTileDataSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1708800074, 11697, 19425, [177, 85, 61, 12, 158, 207, 71, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65da384a_2db1_4be1_b155_3d0c9ecf4799);
 }
 impl ::windows::runtime::RuntimeName for CustomMapTileDataSource {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.CustomMapTileDataSource";
@@ -314,7 +314,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpMapTileDataSource {
 }
 unsafe impl ::windows::runtime::Interface for HttpMapTileDataSource {
     type Vtable = IHttpMapTileDataSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2634271580, 64889, 18325, [135, 190, 126, 84, 202, 11, 55, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d03cb5c_fd79_4795_87be_7e54ca0b37d0);
 }
 impl ::windows::runtime::RuntimeName for HttpMapTileDataSource {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.HttpMapTileDataSource";
@@ -406,7 +406,7 @@ unsafe impl ::core::marker::Sync for HttpMapTileDataSource {}
 pub struct ICustomMapTileDataSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomMapTileDataSource {
     type Vtable = ICustomMapTileDataSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1708800074, 11697, 19425, [177, 85, 61, 12, 158, 207, 71, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65da384a_2db1_4be1_b155_3d0c9ecf4799);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -427,7 +427,7 @@ pub struct ICustomMapTileDataSource_abi(
 pub struct ICustomMapTileDataSourceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomMapTileDataSourceFactory {
     type Vtable = ICustomMapTileDataSourceFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3360127303, 51541, 20258, [148, 68, 161, 216, 215, 68, 175, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8477947_c955_4f22_9444_a1d8d744af11);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -445,7 +445,7 @@ pub struct ICustomMapTileDataSourceFactory_abi(
 pub struct IHttpMapTileDataSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMapTileDataSource {
     type Vtable = IHttpMapTileDataSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2634271580, 64889, 18325, [135, 190, 126, 84, 202, 11, 55, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d03cb5c_fd79_4795_87be_7e54ca0b37d0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -472,7 +472,7 @@ pub struct IHttpMapTileDataSource_abi(
 pub struct IHttpMapTileDataSourceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMapTileDataSourceFactory {
     type Vtable = IHttpMapTileDataSourceFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1404350727, 34012, 17041, [137, 248, 109, 11, 182, 18, 160, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53b4b107_84dc_4291_89f8_6d0bb612a055);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -491,7 +491,7 @@ pub struct IHttpMapTileDataSourceFactory_abi(
 pub struct ILocalMapTileDataSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalMapTileDataSource {
     type Vtable = ILocalMapTileDataSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1633834933, 37128, 20242, [139, 244, 187, 60, 143, 98, 116, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x616257b5_9108_4f12_8bf4_bb3c8f6274e5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -514,7 +514,7 @@ pub struct ILocalMapTileDataSource_abi(
 pub struct ILocalMapTileDataSourceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalMapTileDataSourceFactory {
     type Vtable = ILocalMapTileDataSourceFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3318737404, 29356, 18489, [138, 13, 1, 31, 36, 105, 60, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5cfe9fc_72ac_4839_8a0d_011f24693c79);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -533,7 +533,7 @@ pub struct ILocalMapTileDataSourceFactory_abi(
 pub struct IMapActualCameraChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapActualCameraChangedEventArgs {
     type Vtable = IMapActualCameraChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3667951834, 47092, 16940, [166, 24, 187, 170, 124, 29, 129, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdaa080da_b7f4_422c_a618_bbaa7c1d814c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -551,7 +551,7 @@ pub struct IMapActualCameraChangedEventArgs_abi(
 pub struct IMapActualCameraChangedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapActualCameraChangedEventArgs2 {
     type Vtable = IMapActualCameraChangedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2074396645, 4316, 17754, [157, 4, 29, 114, 251, 109, 155, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ba4c7e5_10dc_455a_9d04_1d72fb6d9b93);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -569,7 +569,7 @@ pub struct IMapActualCameraChangedEventArgs2_abi(
 pub struct IMapActualCameraChangingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapActualCameraChangingEventArgs {
     type Vtable = IMapActualCameraChangingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1796062934, 37879, 18050, [141, 229, 164, 122, 28, 199, 169, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b0dbed6_93f7_4682_8de5_a47a1cc7a945);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -587,7 +587,7 @@ pub struct IMapActualCameraChangingEventArgs_abi(
 pub struct IMapActualCameraChangingEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapActualCameraChangingEventArgs2 {
     type Vtable = IMapActualCameraChangingEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4068898967, 16556, 20106, [169, 39, 81, 15, 56, 70, 164, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2867897_40ac_4e8a_a927_510f3846a47e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -605,7 +605,7 @@ pub struct IMapActualCameraChangingEventArgs2_abi(
 pub struct IMapBillboard(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapBillboard {
     type Vtable = IMapBillboard_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(378807709, 2786, 20290, [160, 46, 41, 44, 168, 53, 211, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1694259d_0ae2_4f42_a02e_292ca835d39d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -637,7 +637,7 @@ pub struct IMapBillboard_abi(
 pub struct IMapBillboardFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapBillboardFactory {
     type Vtable = IMapBillboardFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3192235205, 36617, 19334, [174, 40, 120, 55, 64, 235, 139, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe45a4c5_8f09_4b86_ae28_783740eb8b31);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -655,7 +655,7 @@ pub struct IMapBillboardFactory_abi(
 pub struct IMapBillboardStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapBillboardStatics {
     type Vtable = IMapBillboardStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4260903422, 57847, 20400, [136, 135, 125, 166, 140, 100, 115, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfdf839fe_e1f7_4fb0_8887_7da68c647333);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -675,7 +675,7 @@ pub struct IMapBillboardStatics_abi(
 pub struct IMapCamera(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapCamera {
     type Vtable = IMapCamera_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1403434531, 49400, 19851, [173, 30, 165, 149, 152, 234, 132, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53a6b623_c0f8_4d8b_ad1e_a59598ea840b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -704,7 +704,7 @@ pub struct IMapCamera_abi(
 pub struct IMapCameraFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapCameraFactory {
     type Vtable = IMapCameraFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3929739030, 33711, 19150, [142, 113, 16, 173, 159, 30, 158, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea3b0f16_83af_4ace_8e71_10ad9f1e9e7f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -729,7 +729,7 @@ pub struct IMapCameraFactory_abi(
 pub struct IMapContextRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapContextRequestedEventArgs {
     type Vtable = IMapContextRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4258378787, 51553, 19954, [187, 87, 130, 238, 15, 11, 181, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfdd1b423_c961_4df2_bb57_82ee0f0bb591);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -752,7 +752,7 @@ pub struct IMapContextRequestedEventArgs_abi(
 pub struct IMapControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControl {
     type Vtable = IMapControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1120974929, 21078, 18247, [158, 108, 13, 17, 233, 102, 20, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42d0b851_5256_4747_9e6c_0d11e966141e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -863,7 +863,7 @@ pub struct IMapControl_abi(
 pub struct IMapControl2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControl2 {
     type Vtable = IMapControl2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3791479885, 38636, 16485, [176, 240, 117, 40, 29, 163, 101, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1fd644d_96ec_4065_b0f0_75281da3654d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -952,7 +952,7 @@ pub struct IMapControl2_abi(
 pub struct IMapControl3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControl3 {
     type Vtable = IMapControl3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1482893560, 36061, 16558, [147, 56, 175, 42, 123, 232, 69, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x586328f8_8cdd_40ae_9338_af2a7be845e5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -973,7 +973,7 @@ pub struct IMapControl3_abi(
 pub struct IMapControl4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControl4 {
     type Vtable = IMapControl4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(110039850, 6167, 18029, [183, 206, 65, 155, 63, 142, 36, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x068f132a_1817_466d_b7ce_419b3f8e248b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -996,7 +996,7 @@ pub struct IMapControl4_abi(
 pub struct IMapControl5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControl5 {
     type Vtable = IMapControl5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3717926909, 30755, 18082, [130, 201, 101, 221, 172, 79, 54, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd9b0ffd_7823_46a2_82c9_65ddac4f365f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1033,7 +1033,7 @@ pub struct IMapControl5_abi(
 pub struct IMapControl6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControl6 {
     type Vtable = IMapControl6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2967112098, 4161, 19434, [184, 138, 18, 172, 154, 130, 224, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0da89a2_1041_4bea_b88a_12ac9a82e0e2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1058,7 +1058,7 @@ pub struct IMapControl6_abi(
 pub struct IMapControl7(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControl7 {
     type Vtable = IMapControl7_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(226944083, 3103, 20350, [174, 102, 74, 208, 180, 152, 120, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d86e453_0c1f_4f7e_ae66_4ad0b4987857);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1077,7 +1077,7 @@ pub struct IMapControl7_abi(
 pub struct IMapControl8(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControl8 {
     type Vtable = IMapControl8_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(10394694, 29261, 21450, [148, 33, 122, 72, 252, 115, 21, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x009e9c46_724d_53ca_9421_7a48fc731523);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1098,7 +1098,7 @@ pub struct IMapControl8_abi(
 pub struct IMapControlBusinessLandmarkClickEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlBusinessLandmarkClickEventArgs {
     type Vtable = IMapControlBusinessLandmarkClickEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1581664546, 18970, 18327, [190, 183, 92, 247, 117, 76, 184, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e464922_4a1a_4797_beb7_5cf7754cb867);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1117,7 +1117,7 @@ pub struct IMapControlBusinessLandmarkClickEventArgs_abi(
 pub struct IMapControlBusinessLandmarkPointerEnteredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlBusinessLandmarkPointerEnteredEventArgs {
     type Vtable = IMapControlBusinessLandmarkPointerEnteredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1581285798, 60056, 20373, [140, 175, 91, 66, 105, 111, 245, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e4081a6_ea98_4f95_8caf_5b42696ff504);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1136,7 +1136,7 @@ pub struct IMapControlBusinessLandmarkPointerEnteredEventArgs_abi(
 pub struct IMapControlBusinessLandmarkPointerExitedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlBusinessLandmarkPointerExitedEventArgs {
     type Vtable = IMapControlBusinessLandmarkPointerExitedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(733293743, 62026, 18128, [180, 99, 101, 247, 25, 115, 16, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bb52caf_f24a_46d0_b463_65f719731057);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1155,7 +1155,7 @@ pub struct IMapControlBusinessLandmarkPointerExitedEventArgs_abi(
 pub struct IMapControlBusinessLandmarkRightTappedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlBusinessLandmarkRightTappedEventArgs {
     type Vtable = IMapControlBusinessLandmarkRightTappedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1504414439, 61828, 19121, [176, 176, 53, 200, 191, 6, 84, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59ab8ae7_f184_4ab1_b0b0_35c8bf0654b2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1174,7 +1174,7 @@ pub struct IMapControlBusinessLandmarkRightTappedEventArgs_abi(
 pub struct IMapControlDataHelper(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlDataHelper {
     type Vtable = IMapControlDataHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2343628956, 5291, 18540, [157, 229, 90, 93, 239, 2, 5, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bb0f09c_14ab_486c_9de5_5a5def0205a2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1207,7 +1207,7 @@ pub struct IMapControlDataHelper_abi(
 pub struct IMapControlDataHelper2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlDataHelper2 {
     type Vtable = IMapControlDataHelper2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1506689694, 22063, 19489, [166, 116, 15, 17, 222, 207, 15, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59ce429e_562f_4c21_a674_0f11decf0fb3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1240,7 +1240,7 @@ pub struct IMapControlDataHelper2_abi(
 pub struct IMapControlDataHelperFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlDataHelperFactory {
     type Vtable = IMapControlDataHelperFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(997239438, 751, 18076, [187, 175, 220, 33, 88, 212, 40, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b70aa8e_02ef_469c_bbaf_dc2158d4289b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1258,7 +1258,7 @@ pub struct IMapControlDataHelperFactory_abi(
 pub struct IMapControlDataHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlDataHelperStatics {
     type Vtable = IMapControlDataHelperStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2053518038, 59716, 16656, [131, 207, 49, 77, 7, 34, 226, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a6632d6_e944_4110_83cf_314d0722e2e5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1276,7 +1276,7 @@ pub struct IMapControlDataHelperStatics_abi(
 pub struct IMapControlStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlStatics {
     type Vtable = IMapControlStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3267762069, 8519, 20234, [148, 42, 84, 147, 168, 93, 232, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2c61795_2147_4f0a_942a_5493a85de807);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1321,7 +1321,7 @@ pub struct IMapControlStatics_abi(
 pub struct IMapControlStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlStatics2 {
     type Vtable = IMapControlStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(75836307, 46150, 19761, [151, 82, 30, 198, 154, 89, 150, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04852b93_b446_4d31_9752_1ec69a5996ae);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1347,7 +1347,7 @@ pub struct IMapControlStatics2_abi(
 pub struct IMapControlStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlStatics4 {
     type Vtable = IMapControlStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4269301143, 23827, 20385, [191, 29, 132, 6, 23, 104, 193, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe785d97_5d13_4fa1_bf1d_84061768c183);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1366,7 +1366,7 @@ pub struct IMapControlStatics4_abi(
 pub struct IMapControlStatics5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlStatics5 {
     type Vtable = IMapControlStatics5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(157445888, 47069, 16777, [167, 247, 131, 12, 65, 45, 238, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09626f00_b7dd_4189_a7f7_830c412deea3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1386,7 +1386,7 @@ pub struct IMapControlStatics5_abi(
 pub struct IMapControlStatics6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlStatics6 {
     type Vtable = IMapControlStatics6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1020255615, 9425, 16546, [131, 81, 179, 6, 58, 140, 149, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ccfdd7f_24d1_40a2_8351_b3063a8c95a4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1404,7 +1404,7 @@ pub struct IMapControlStatics6_abi(
 pub struct IMapControlStatics7(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlStatics7 {
     type Vtable = IMapControlStatics7_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1441901645, 29378, 18098, [183, 174, 121, 2, 96, 190, 100, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55f1ac4d_72c2_46b2_b7ae_790260be641b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1422,7 +1422,7 @@ pub struct IMapControlStatics7_abi(
 pub struct IMapControlStatics8(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlStatics8 {
     type Vtable = IMapControlStatics8_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2914494384, 1541, 22828, [191, 157, 209, 11, 220, 43, 228, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xadb7a7b0_0605_592c_bf9d_d10bdc2be47b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1443,7 +1443,7 @@ pub struct IMapControlStatics8_abi(
 pub struct IMapControlTransitFeatureClickEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlTransitFeatureClickEventArgs {
     type Vtable = IMapControlTransitFeatureClickEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1981258089, 46949, 17954, [176, 138, 48, 114, 116, 90, 69, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76179969_b765_4622_b08a_3072745a4541);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1465,7 +1465,7 @@ pub struct IMapControlTransitFeatureClickEventArgs_abi(
 pub struct IMapControlTransitFeaturePointerEnteredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlTransitFeaturePointerEnteredEventArgs {
     type Vtable = IMapControlTransitFeaturePointerEnteredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1938889294, 60495, 18334, [148, 161, 54, 224, 129, 208, 216, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73911a4e_ec4f_479e_94a1_36e081d0d897);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1487,7 +1487,7 @@ pub struct IMapControlTransitFeaturePointerEnteredEventArgs_abi(
 pub struct IMapControlTransitFeaturePointerExitedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlTransitFeaturePointerExitedEventArgs {
     type Vtable = IMapControlTransitFeaturePointerExitedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1779508621, 17549, 17639, [188, 105, 209, 61, 73, 113, 84, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a11258d_448d_44e7_bc69_d13d497154e9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1509,7 +1509,7 @@ pub struct IMapControlTransitFeaturePointerExitedEventArgs_abi(
 pub struct IMapControlTransitFeatureRightTappedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlTransitFeatureRightTappedEventArgs {
     type Vtable = IMapControlTransitFeatureRightTappedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2929839177, 42793, 20142, [165, 154, 62, 201, 161, 37, 160, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaea1cc49_a729_4eae_a59a_3ec9a125a028);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1531,7 +1531,7 @@ pub struct IMapControlTransitFeatureRightTappedEventArgs_abi(
 pub struct IMapCustomExperience(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapCustomExperience {
     type Vtable = IMapCustomExperience_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1683564646, 5283, 20063, [136, 131, 142, 156, 80, 14, 238, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64592866_14a3_4e5f_8883_8e9c500eeede);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1548,7 +1548,7 @@ pub struct IMapCustomExperience_abi(
 pub struct IMapCustomExperienceChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapCustomExperienceChangedEventArgs {
     type Vtable = IMapCustomExperienceChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3118922651, 36801, 16450, [172, 52, 166, 27, 56, 187, 117, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9e6fb9b_8fc1_4042_ac34_a61b38bb7514);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1565,7 +1565,7 @@ pub struct IMapCustomExperienceChangedEventArgs_abi(
 pub struct IMapCustomExperienceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapCustomExperienceFactory {
     type Vtable = IMapCustomExperienceFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2051030965, 41393, 20095, [146, 30, 62, 107, 141, 142, 190, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a403fb5_a1b1_4e7f_921e_3e6b8d8ebed6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1583,7 +1583,7 @@ pub struct IMapCustomExperienceFactory_abi(
 pub struct IMapElement(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElement {
     type Vtable = IMapElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3592406239, 45637, 18418, [154, 194, 67, 192, 88, 177, 201, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd61fc4df_b245_47f2_9ac2_43c058b1c903);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1604,7 +1604,7 @@ pub struct IMapElement_abi(
 pub struct IMapElement2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElement2 {
     type Vtable = IMapElement2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1712976481, 64422, 18788, [167, 255, 241, 175, 99, 171, 156, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6619f261_fba6_4964_a7ff_f1af63ab9cb0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1623,7 +1623,7 @@ pub struct IMapElement2_abi(
 pub struct IMapElement3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElement3 {
     type Vtable = IMapElement3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(334478425, 17901, 18612, [147, 173, 227, 247, 143, 140, 242, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13efbc59_45ed_48b4_93ad_e3f78f8cf218);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1646,7 +1646,7 @@ pub struct IMapElement3_abi(
 pub struct IMapElement3D(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElement3D {
     type Vtable = IMapElement3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2189097173, 14403, 18658, [189, 0, 15, 6, 68, 251, 230, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x827af8d5_3843_48e2_bd00_0f0644fbe6a5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1679,7 +1679,7 @@ pub struct IMapElement3D_abi(
 pub struct IMapElement3DStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElement3DStatics {
     type Vtable = IMapElement3DStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1630011674, 17679, 17450, [185, 217, 170, 129, 92, 113, 144, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6128011a_450f_442a_b9d9_aa815c71907a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1701,7 +1701,7 @@ pub struct IMapElement3DStatics_abi(
 pub struct IMapElement4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElement4 {
     type Vtable = IMapElement4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1683522486, 8129, 19691, [147, 189, 220, 44, 150, 0, 114, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x645883b6_1fc1_4ceb_93bd_dc2c960072e9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1720,7 +1720,7 @@ pub struct IMapElement4_abi(
 pub struct IMapElementClickEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementClickEventArgs {
     type Vtable = IMapElementClickEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1075218961, 53376, 17689, [153, 161, 49, 73, 251, 137, 153, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40168a11_d080_4519_99a1_3149fb8999d0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1743,7 +1743,7 @@ pub struct IMapElementClickEventArgs_abi(
 pub struct IMapElementFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementFactory {
     type Vtable = IMapElementFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1244712967, 3030, 18341, [134, 11, 126, 124, 245, 240, 197, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a30d007_0bd6_47a5_860b_7e7cf5f0c573);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1761,7 +1761,7 @@ pub struct IMapElementFactory_abi(
 pub struct IMapElementPointerEnteredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementPointerEnteredEventArgs {
     type Vtable = IMapElementPointerEnteredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2877676878, 37335, 19249, [143, 10, 211, 144, 199, 211, 162, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab85dd4e_91d7_4b31_8f0a_d390c7d3a2ef);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1783,7 +1783,7 @@ pub struct IMapElementPointerEnteredEventArgs_abi(
 pub struct IMapElementPointerExitedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementPointerExitedEventArgs {
     type Vtable = IMapElementPointerExitedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3248773881, 24777, 18041, [145, 25, 32, 171, 199, 93, 147, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1a45af9_60c9_4679_9119_20abc75d931f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1805,7 +1805,7 @@ pub struct IMapElementPointerExitedEventArgs_abi(
 pub struct IMapElementStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementStatics {
     type Vtable = IMapElementStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3905363186, 49135, 19273, [142, 153, 65, 181, 227, 120, 159, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8c71cf2_bfef_4b49_8e99_41b5e3789fd2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1824,7 +1824,7 @@ pub struct IMapElementStatics_abi(
 pub struct IMapElementStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementStatics2 {
     type Vtable = IMapElementStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2616667952, 33022, 20272, [188, 193, 250, 137, 64, 80, 246, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9bf72f30_80fe_4f30_bcc1_fa894050f676);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1842,7 +1842,7 @@ pub struct IMapElementStatics2_abi(
 pub struct IMapElementStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementStatics3 {
     type Vtable = IMapElementStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3776899375, 38722, 18858, [170, 216, 46, 70, 107, 255, 55, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe11ee92f_9742_49aa_aad8_2e466bff3796);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1862,7 +1862,7 @@ pub struct IMapElementStatics3_abi(
 pub struct IMapElementStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementStatics4 {
     type Vtable = IMapElementStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2754178827, 57336, 18044, [147, 21, 111, 109, 185, 62, 226, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4296f0b_dff8_467c_9315_6f6db93ee2ba);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1880,7 +1880,7 @@ pub struct IMapElementStatics4_abi(
 pub struct IMapElementsLayer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementsLayer {
     type Vtable = IMapElementsLayer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3732498586, 495, 18164, [172, 96, 124, 32, 11, 85, 38, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde79689a_01ef_46f4_ac60_7c200b552610);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1917,7 +1917,7 @@ pub struct IMapElementsLayer_abi(
 pub struct IMapElementsLayerClickEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementsLayerClickEventArgs {
     type Vtable = IMapElementsLayerClickEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(749195110, 44827, 19461, [140, 133, 247, 74, 227, 212, 103, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ca7cf66_af1b_4c05_8c85_f74ae3d4677f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1940,7 +1940,7 @@ pub struct IMapElementsLayerClickEventArgs_abi(
 pub struct IMapElementsLayerContextRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementsLayerContextRequestedEventArgs {
     type Vtable = IMapElementsLayerContextRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3662008499, 31246, 18264, [128, 139, 58, 99, 118, 39, 235, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda45d0b3_7a0e_4758_808b_3a637627eb0d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1963,7 +1963,7 @@ pub struct IMapElementsLayerContextRequestedEventArgs_abi(
 pub struct IMapElementsLayerPointerEnteredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementsLayerPointerEnteredEventArgs {
     type Vtable = IMapElementsLayerPointerEnteredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1971306546, 18068, 17412, [140, 137, 52, 139, 107, 118, 197, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x757fc032_4694_4404_8c89_348b6b76c5e6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1985,7 +1985,7 @@ pub struct IMapElementsLayerPointerEnteredEventArgs_abi(
 pub struct IMapElementsLayerPointerExitedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementsLayerPointerExitedEventArgs {
     type Vtable = IMapElementsLayerPointerExitedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2465449645, 1005, 19513, [175, 32, 42, 7, 238, 28, 206, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92f3c6ad_03ed_4c39_af20_2a07ee1ccea6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2007,7 +2007,7 @@ pub struct IMapElementsLayerPointerExitedEventArgs_abi(
 pub struct IMapElementsLayerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementsLayerStatics {
     type Vtable = IMapElementsLayerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(872437543, 62729, 19752, [145, 128, 145, 28, 3, 65, 29, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34005727_f509_4d28_9180_911c03411d74);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2025,7 +2025,7 @@ pub struct IMapElementsLayerStatics_abi(
 pub struct IMapIcon(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapIcon {
     type Vtable = IMapIcon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3523831922, 9177, 18987, [139, 224, 105, 243, 168, 84, 130, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2096872_23d9_4a2b_8be0_69f3a85482ab);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2056,7 +2056,7 @@ pub struct IMapIcon_abi(
 pub struct IMapIcon2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapIcon2 {
     type Vtable = IMapIcon2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1628591289, 55466, 19389, [163, 22, 186, 223, 6, 145, 29, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x611254b9_d8aa_4bbd_a316_badf06911d63);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2075,7 +2075,7 @@ pub struct IMapIcon2_abi(
 pub struct IMapIconStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapIconStatics {
     type Vtable = IMapIconStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703348822, 4496, 19293, [158, 86, 229, 182, 114, 74, 163, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbc9e56_1190_4b5d_9e56_e5b6724aa328);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2095,7 +2095,7 @@ pub struct IMapIconStatics_abi(
 pub struct IMapIconStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapIconStatics2 {
     type Vtable = IMapIconStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4283183210, 53110, 18091, [161, 47, 182, 3, 185, 134, 198, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff4c306a_cf76_46ab_a12f_b603b986c696);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2113,7 +2113,7 @@ pub struct IMapIconStatics2_abi(
 pub struct IMapInputEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapInputEventArgs {
     type Vtable = IMapInputEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2680488864, 43170, 17300, [146, 233, 34, 71, 118, 79, 47, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fc503a0_a8a2_4394_92e9_2247764f2f49);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2134,7 +2134,7 @@ pub struct IMapInputEventArgs_abi(
 pub struct IMapItemsControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapItemsControl {
     type Vtable = IMapItemsControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2495792339, 45877, 17093, [182, 96, 230, 160, 126, 195, 189, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94c2c4d3_b335_42c5_b660_e6a07ec3bddc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2157,7 +2157,7 @@ pub struct IMapItemsControl_abi(
 pub struct IMapItemsControlStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapItemsControlStatics {
     type Vtable = IMapItemsControlStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(866671047, 30875, 16988, [138, 10, 50, 56, 88, 150, 203, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33a859c7_789b_425c_8a0a_32385896cb4a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2177,7 +2177,7 @@ pub struct IMapItemsControlStatics_abi(
 pub struct IMapLayer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapLayer {
     type Vtable = IMapLayer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1829763521, 41293, 20375, [143, 87, 70, 113, 91, 87, 104, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d0ff9c1_a14d_4f97_8f57_46715b57683a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2200,7 +2200,7 @@ pub struct IMapLayer_abi(
 pub struct IMapLayerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapLayerFactory {
     type Vtable = IMapLayerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3760857607, 57059, 18376, [152, 37, 189, 2, 156, 87, 82, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe02a2207_dee3_47c8_9825_bd029c5752f7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2218,7 +2218,7 @@ pub struct IMapLayerFactory_abi(
 pub struct IMapLayerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapLayerStatics {
     type Vtable = IMapLayerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2628035179, 23993, 20236, [189, 213, 177, 191, 253, 204, 233, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ca4a26b_5db9_4f0c_bdd5_b1bffdcce946);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2238,7 +2238,7 @@ pub struct IMapLayerStatics_abi(
 pub struct IMapModel3D(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapModel3D {
     type Vtable = IMapModel3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4173676961, 51751, 18792, [162, 191, 156, 32, 240, 106, 4, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8c541a1_ca27_4968_a2bf_9c20f06a0468);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2255,7 +2255,7 @@ pub struct IMapModel3D_abi(
 pub struct IMapModel3DFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapModel3DFactory {
     type Vtable = IMapModel3DFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3749645260, 22538, 18827, [147, 155, 1, 25, 169, 218, 219, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf7f0bcc_580a_498b_939b_0119a9dadb9e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2273,7 +2273,7 @@ pub struct IMapModel3DFactory_abi(
 pub struct IMapModel3DStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapModel3DStatics {
     type Vtable = IMapModel3DStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1211409536, 36438, 19215, [135, 45, 126, 173, 16, 49, 135, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4834a480_8e56_4b0f_872d_7ead103187cd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2294,7 +2294,7 @@ pub struct IMapModel3DStatics_abi(
 pub struct IMapPolygon(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapPolygon {
     type Vtable = IMapPolygon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2883199621, 18726, 19514, [165, 249, 25, 223, 127, 105, 219, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xabda2285_4926_4c3a_a5f9_19df7f69db3d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2323,7 +2323,7 @@ pub struct IMapPolygon_abi(
 pub struct IMapPolygon2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapPolygon2 {
     type Vtable = IMapPolygon2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2529730846, 25451, 16408, [156, 46, 172, 201, 18, 42, 1, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96c8a11e_636b_4018_9c2e_acc9122a01b2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2342,7 +2342,7 @@ pub struct IMapPolygon2_abi(
 pub struct IMapPolygonStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapPolygonStatics {
     type Vtable = IMapPolygonStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(938832830, 2427, 16972, [135, 204, 46, 224, 66, 253, 166, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x37f573be_097b_424c_87cc_2ee042fda6d2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2362,7 +2362,7 @@ pub struct IMapPolygonStatics_abi(
 pub struct IMapPolyline(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapPolyline {
     type Vtable = IMapPolyline_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4222428322, 9439, 19078, [143, 250, 15, 143, 77, 158, 193, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbad24a2_24df_4a86_8ffa_0f8f4d9ec17d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2389,7 +2389,7 @@ pub struct IMapPolyline_abi(
 pub struct IMapPolylineStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapPolylineStatics {
     type Vtable = IMapPolylineStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1644029003, 7647, 17155, [184, 9, 236, 135, 245, 138, 208, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61fde44b_1ddf_4303_b809_ec87f58ad065);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2408,7 +2408,7 @@ pub struct IMapPolylineStatics_abi(
 pub struct IMapRightTappedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRightTappedEventArgs {
     type Vtable = IMapRightTappedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(546582897, 28648, 16550, [173, 14, 41, 115, 121, 181, 117, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20943171_6fe8_40a6_ad0e_297379b575a7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2429,7 +2429,7 @@ pub struct IMapRightTappedEventArgs_abi(
 pub struct IMapRouteView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteView {
     type Vtable = IMapRouteView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1947119301, 47820, 16865, [166, 126, 221, 101, 19, 131, 32, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x740eaec5_bacc_41e1_a67e_dd6513832049);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2452,7 +2452,7 @@ pub struct IMapRouteView_abi(
 pub struct IMapRouteViewFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteViewFactory {
     type Vtable = IMapRouteViewFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4035161567, 102, 17960, [130, 254, 234, 120, 194, 60, 236, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf083addf_0066_4628_82fe_ea78c23cec1e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2471,7 +2471,7 @@ pub struct IMapRouteViewFactory_abi(
 pub struct IMapScene(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapScene {
     type Vtable = IMapScene_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2344226985, 20711, 18476, [151, 137, 198, 136, 177, 120, 172, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bba10a9_50e7_482c_9789_c688b178ac24);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2493,7 +2493,7 @@ pub struct IMapScene_abi(
 pub struct IMapSceneStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapSceneStatics {
     type Vtable = IMapSceneStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(65318252, 34540, 17625, [149, 151, 251, 117, 183, 222, 186, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03e4ad6c_86ec_44d9_9597_fb75b7deba0a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2527,7 +2527,7 @@ pub struct IMapSceneStatics_abi(
 pub struct IMapStyleSheet(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapStyleSheet {
     type Vtable = IMapStyleSheet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2924786367, 35217, 17133, [141, 88, 32, 71, 61, 238, 222, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae54b2bf_8991_42ed_8d58_20473deede1d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2544,7 +2544,7 @@ pub struct IMapStyleSheet_abi(
 pub struct IMapStyleSheetEntriesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapStyleSheetEntriesStatics {
     type Vtable = IMapStyleSheetEntriesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3378733893, 61210, 16804, [167, 87, 189, 79, 67, 225, 228, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9636345_ef1a_41a4_a757_bd4f43e1e4d1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2625,7 +2625,7 @@ pub struct IMapStyleSheetEntriesStatics_abi(
 pub struct IMapStyleSheetEntryStatesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapStyleSheetEntryStatesStatics {
     type Vtable = IMapStyleSheetEntryStatesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(598496562, 34413, 19450, [180, 129, 57, 190, 161, 222, 53, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23ac5532_866d_4bfa_b481_39bea1de3506);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2645,7 +2645,7 @@ pub struct IMapStyleSheetEntryStatesStatics_abi(
 pub struct IMapStyleSheetStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapStyleSheetStatics {
     type Vtable = IMapStyleSheetStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2881290413, 2588, 17205, [130, 244, 97, 217, 54, 170, 25, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xabbd00ad_0a1c_4335_82f4_61d936aa197d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2672,7 +2672,7 @@ pub struct IMapStyleSheetStatics_abi(
 pub struct IMapTargetCameraChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTargetCameraChangedEventArgs {
     type Vtable = IMapTargetCameraChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3689940082, 59731, 20392, [151, 208, 234, 134, 53, 144, 87, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbf00472_e953_4fa8_97d0_ea86359057cf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2690,7 +2690,7 @@ pub struct IMapTargetCameraChangedEventArgs_abi(
 pub struct IMapTargetCameraChangedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTargetCameraChangedEventArgs2 {
     type Vtable = IMapTargetCameraChangedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2545988402, 62134, 17931, [141, 145, 172, 2, 10, 35, 131, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97c0b332_f2b6_460b_8d91_ac020a2383dd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2708,7 +2708,7 @@ pub struct IMapTargetCameraChangedEventArgs2_abi(
 pub struct IMapTileBitmapRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileBitmapRequest {
     type Vtable = IMapTileBitmapRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1181958076, 55453, 18219, [181, 246, 215, 6, 107, 5, 132, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46733fbc_d89d_472b_b5f6_d7066b0584f4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2730,7 +2730,7 @@ pub struct IMapTileBitmapRequest_abi(
 pub struct IMapTileBitmapRequestDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileBitmapRequestDeferral {
     type Vtable = IMapTileBitmapRequestDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4265018690, 42156, 20218, [150, 101, 4, 144, 176, 202, 253, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe370542_a4ac_4efa_9665_0490b0cafdd2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2748,7 +2748,7 @@ pub struct IMapTileBitmapRequestDeferral_abi(
 pub struct IMapTileBitmapRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileBitmapRequestedEventArgs {
     type Vtable = IMapTileBitmapRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(863987997, 39682, 19106, [139, 30, 204, 77, 145, 113, 155, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x337f691d_9b02_4aa2_8b1e_cc4d91719bf3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2769,7 +2769,7 @@ pub struct IMapTileBitmapRequestedEventArgs_abi(
 pub struct IMapTileBitmapRequestedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileBitmapRequestedEventArgs2 {
     type Vtable = IMapTileBitmapRequestedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(39964948, 9322, 21142, [188, 133, 89, 15, 83, 170, 57, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0261d114_246a_5296_bc85_590f53aa39c8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2787,7 +2787,7 @@ pub struct IMapTileBitmapRequestedEventArgs2_abi(
 pub struct IMapTileDataSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileDataSource {
     type Vtable = IMapTileDataSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3225263966, 48671, 19561, [153, 105, 121, 70, 122, 81, 60, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc03d9f5e_be1f_4c69_9969_79467a513c38);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2804,7 +2804,7 @@ pub struct IMapTileDataSource_abi(
 pub struct IMapTileDataSourceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileDataSourceFactory {
     type Vtable = IMapTileDataSourceFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2744258493, 58438, 17992, [167, 77, 253, 44, 93, 85, 124, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3920fbd_e446_4648_a74d_fd2c5d557c06);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2822,7 +2822,7 @@ pub struct IMapTileDataSourceFactory_abi(
 pub struct IMapTileSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileSource {
     type Vtable = IMapTileSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2292674126, 12255, 17767, [146, 85, 17, 0, 81, 156, 141, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88a76e4e_2fdf_4567_9255_1100519c8d62);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2863,7 +2863,7 @@ pub struct IMapTileSource_abi(
 pub struct IMapTileSource2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileSource2 {
     type Vtable = IMapTileSource2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2389044157, 16533, 23573, [153, 241, 18, 96, 180, 232, 176, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e65ebbd_4095_5c15_99f1_1260b4e8b0a9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2892,7 +2892,7 @@ pub struct IMapTileSource2_abi(
 pub struct IMapTileSourceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileSourceFactory {
     type Vtable = IMapTileSourceFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3447685407, 30714, 18475, [157, 52, 113, 211, 29, 70, 92, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd7f811f_77fa_482b_9d34_71d31d465c48);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2916,7 +2916,7 @@ pub struct IMapTileSourceFactory_abi(
 pub struct IMapTileSourceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileSourceStatics {
     type Vtable = IMapTileSourceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2482817340, 28725, 17923, [153, 177, 230, 89, 146, 27, 96, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93fcc93c_7035_4603_99b1_e659921b6093);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2944,7 +2944,7 @@ pub struct IMapTileSourceStatics_abi(
 pub struct IMapTileSourceStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileSourceStatics2 {
     type Vtable = IMapTileSourceStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1976423550, 26268, 20733, [173, 133, 94, 165, 23, 76, 245, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75cdd47e_669c_50fd_ad85_5ea5174cf59b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2965,7 +2965,7 @@ pub struct IMapTileSourceStatics2_abi(
 pub struct IMapTileUriRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileUriRequest {
     type Vtable = IMapTileUriRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(390079285, 12583, 17848, [135, 167, 153, 248, 125, 78, 39, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17402335_3127_45b8_87a7_99f87d4e2745);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2987,7 +2987,7 @@ pub struct IMapTileUriRequest_abi(
 pub struct IMapTileUriRequestDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileUriRequestDeferral {
     type Vtable = IMapTileUriRequestDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3239554528, 48958, 19537, [143, 170, 75, 89, 60, 246, 142, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc117ade0_bf3e_4c51_8faa_4b593cf68eb2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3005,7 +3005,7 @@ pub struct IMapTileUriRequestDeferral_abi(
 pub struct IMapTileUriRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileUriRequestedEventArgs {
     type Vtable = IMapTileUriRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3524557635, 7103, 19352, [141, 211, 183, 131, 78, 64, 126, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2147b43_1bbf_4b98_8dd3_b7834e407e0d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3026,7 +3026,7 @@ pub struct IMapTileUriRequestedEventArgs_abi(
 pub struct IMapTileUriRequestedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileUriRequestedEventArgs2 {
     type Vtable = IMapTileUriRequestedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(587339869, 13237, 23125, [146, 245, 116, 168, 106, 34, 239, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2302185d_33b5_5a55_92f5_74a86a22efa6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3044,7 +3044,7 @@ pub struct IMapTileUriRequestedEventArgs2_abi(
 pub struct IStreetsideExperience(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreetsideExperience {
     type Vtable = IStreetsideExperience_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2774052553, 58124, 18120, [129, 22, 72, 70, 145, 103, 85, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa558aec9_e30c_46c8_8116_484691675558);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3073,7 +3073,7 @@ pub struct IStreetsideExperience_abi(
 pub struct IStreetsideExperienceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreetsideExperienceFactory {
     type Vtable = IStreetsideExperienceFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2052837180, 25758, 17218, [153, 149, 104, 166, 207, 89, 97, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a5bcf3c_649e_4342_9995_68a6cf5961a7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3092,7 +3092,7 @@ pub struct IStreetsideExperienceFactory_abi(
 pub struct IStreetsidePanorama(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreetsidePanorama {
     type Vtable = IStreetsidePanorama_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876955096, 44384, 18020, [181, 57, 177, 6, 159, 22, 197, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fe00fd8_ad60_4664_b539_b1069f16c5af);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3111,7 +3111,7 @@ pub struct IStreetsidePanorama_abi(
 pub struct IStreetsidePanoramaStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreetsidePanoramaStatics {
     type Vtable = IStreetsidePanoramaStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3551821673, 21683, 20165, [178, 160, 79, 130, 4, 87, 101, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3b47f69_54b3_4ec5_b2a0_4f8204576507);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3240,7 +3240,7 @@ unsafe impl ::windows::runtime::RuntimeType for LocalMapTileDataSource {
 }
 unsafe impl ::windows::runtime::Interface for LocalMapTileDataSource {
     type Vtable = ILocalMapTileDataSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1633834933, 37128, 20242, [139, 244, 187, 60, 143, 98, 116, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x616257b5_9108_4f12_8bf4_bb3c8f6274e5);
 }
 impl ::windows::runtime::RuntimeName for LocalMapTileDataSource {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.LocalMapTileDataSource";
@@ -3361,7 +3361,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapActualCameraChangedEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for MapActualCameraChangedEventArgs {
     type Vtable = IMapActualCameraChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3667951834, 47092, 16940, [166, 24, 187, 170, 124, 29, 129, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdaa080da_b7f4_422c_a618_bbaa7c1d814c);
 }
 impl ::windows::runtime::RuntimeName for MapActualCameraChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapActualCameraChangedEventArgs";
@@ -3442,7 +3442,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapActualCameraChangingEventArgs
 }
 unsafe impl ::windows::runtime::Interface for MapActualCameraChangingEventArgs {
     type Vtable = IMapActualCameraChangingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1796062934, 37879, 18050, [141, 229, 164, 122, 28, 199, 169, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b0dbed6_93f7_4682_8de5_a47a1cc7a945);
 }
 impl ::windows::runtime::RuntimeName for MapActualCameraChangingEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapActualCameraChangingEventArgs";
@@ -3773,7 +3773,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapBillboard {
 }
 unsafe impl ::windows::runtime::Interface for MapBillboard {
     type Vtable = IMapBillboard_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(378807709, 2786, 20290, [160, 46, 41, 44, 168, 53, 211, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1694259d_0ae2_4f42_a02e_292ca835d39d);
 }
 impl ::windows::runtime::RuntimeName for MapBillboard {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapBillboard";
@@ -4030,7 +4030,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapCamera {
 }
 unsafe impl ::windows::runtime::Interface for MapCamera {
     type Vtable = IMapCamera_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1403434531, 49400, 19851, [173, 30, 165, 149, 152, 234, 132, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53a6b623_c0f8_4d8b_ad1e_a59598ea840b);
 }
 impl ::windows::runtime::RuntimeName for MapCamera {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapCamera";
@@ -4187,7 +4187,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapContextRequestedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for MapContextRequestedEventArgs {
     type Vtable = IMapContextRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4258378787, 51553, 19954, [187, 87, 130, 238, 15, 11, 181, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfdd1b423_c961_4df2_bb57_82ee0f0bb591);
 }
 impl ::windows::runtime::RuntimeName for MapContextRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapContextRequestedEventArgs";
@@ -8191,7 +8191,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapControl {
 }
 unsafe impl ::windows::runtime::Interface for MapControl {
     type Vtable = IMapControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1120974929, 21078, 18247, [158, 108, 13, 17, 233, 102, 20, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42d0b851_5256_4747_9e6c_0d11e966141e);
 }
 impl ::windows::runtime::RuntimeName for MapControl {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControl";
@@ -8397,7 +8397,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapControlBusinessLandmarkClickE
 }
 unsafe impl ::windows::runtime::Interface for MapControlBusinessLandmarkClickEventArgs {
     type Vtable = IMapControlBusinessLandmarkClickEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1581664546, 18970, 18327, [190, 183, 92, 247, 117, 76, 184, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e464922_4a1a_4797_beb7_5cf7754cb867);
 }
 impl ::windows::runtime::RuntimeName for MapControlBusinessLandmarkClickEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkClickEventArgs";
@@ -8471,7 +8471,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapControlBusinessLandmarkPointe
 }
 unsafe impl ::windows::runtime::Interface for MapControlBusinessLandmarkPointerEnteredEventArgs {
     type Vtable = IMapControlBusinessLandmarkPointerEnteredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1581285798, 60056, 20373, [140, 175, 91, 66, 105, 111, 245, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e4081a6_ea98_4f95_8caf_5b42696ff504);
 }
 impl ::windows::runtime::RuntimeName for MapControlBusinessLandmarkPointerEnteredEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkPointerEnteredEventArgs";
@@ -8545,7 +8545,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapControlBusinessLandmarkPointe
 }
 unsafe impl ::windows::runtime::Interface for MapControlBusinessLandmarkPointerExitedEventArgs {
     type Vtable = IMapControlBusinessLandmarkPointerExitedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(733293743, 62026, 18128, [180, 99, 101, 247, 25, 115, 16, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bb52caf_f24a_46d0_b463_65f719731057);
 }
 impl ::windows::runtime::RuntimeName for MapControlBusinessLandmarkPointerExitedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkPointerExitedEventArgs";
@@ -8619,7 +8619,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapControlBusinessLandmarkRightT
 }
 unsafe impl ::windows::runtime::Interface for MapControlBusinessLandmarkRightTappedEventArgs {
     type Vtable = IMapControlBusinessLandmarkRightTappedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1504414439, 61828, 19121, [176, 176, 53, 200, 191, 6, 84, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59ab8ae7_f184_4ab1_b0b0_35c8bf0654b2);
 }
 impl ::windows::runtime::RuntimeName for MapControlBusinessLandmarkRightTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkRightTappedEventArgs";
@@ -8875,7 +8875,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapControlDataHelper {
 }
 unsafe impl ::windows::runtime::Interface for MapControlDataHelper {
     type Vtable = IMapControlDataHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2343628956, 5291, 18540, [157, 229, 90, 93, 239, 2, 5, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bb0f09c_14ab_486c_9de5_5a5def0205a2);
 }
 impl ::windows::runtime::RuntimeName for MapControlDataHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControlDataHelper";
@@ -8986,7 +8986,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapControlTransitFeatureClickEve
 }
 unsafe impl ::windows::runtime::Interface for MapControlTransitFeatureClickEventArgs {
     type Vtable = IMapControlTransitFeatureClickEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1981258089, 46949, 17954, [176, 138, 48, 114, 116, 90, 69, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76179969_b765_4622_b08a_3072745a4541);
 }
 impl ::windows::runtime::RuntimeName for MapControlTransitFeatureClickEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControlTransitFeatureClickEventArgs";
@@ -9077,7 +9077,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapControlTransitFeaturePointerE
 }
 unsafe impl ::windows::runtime::Interface for MapControlTransitFeaturePointerEnteredEventArgs {
     type Vtable = IMapControlTransitFeaturePointerEnteredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1938889294, 60495, 18334, [148, 161, 54, 224, 129, 208, 216, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73911a4e_ec4f_479e_94a1_36e081d0d897);
 }
 impl ::windows::runtime::RuntimeName for MapControlTransitFeaturePointerEnteredEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControlTransitFeaturePointerEnteredEventArgs";
@@ -9168,7 +9168,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapControlTransitFeaturePointerE
 }
 unsafe impl ::windows::runtime::Interface for MapControlTransitFeaturePointerExitedEventArgs {
     type Vtable = IMapControlTransitFeaturePointerExitedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1779508621, 17549, 17639, [188, 105, 209, 61, 73, 113, 84, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a11258d_448d_44e7_bc69_d13d497154e9);
 }
 impl ::windows::runtime::RuntimeName for MapControlTransitFeaturePointerExitedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControlTransitFeaturePointerExitedEventArgs";
@@ -9259,7 +9259,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapControlTransitFeatureRightTap
 }
 unsafe impl ::windows::runtime::Interface for MapControlTransitFeatureRightTappedEventArgs {
     type Vtable = IMapControlTransitFeatureRightTappedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2929839177, 42793, 20142, [165, 154, 62, 201, 161, 37, 160, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaea1cc49_a729_4eae_a59a_3ec9a125a028);
 }
 impl ::windows::runtime::RuntimeName for MapControlTransitFeatureRightTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControlTransitFeatureRightTappedEventArgs";
@@ -9384,7 +9384,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapCustomExperience {
 }
 unsafe impl ::windows::runtime::Interface for MapCustomExperience {
     type Vtable = IMapCustomExperience_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1683564646, 5283, 20063, [136, 131, 142, 156, 80, 14, 238, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64592866_14a3_4e5f_8883_8e9c500eeede);
 }
 impl ::windows::runtime::RuntimeName for MapCustomExperience {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapCustomExperience";
@@ -9469,7 +9469,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapCustomExperienceChangedEventA
 }
 unsafe impl ::windows::runtime::Interface for MapCustomExperienceChangedEventArgs {
     type Vtable = IMapCustomExperienceChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3118922651, 36801, 16450, [172, 52, 166, 27, 56, 187, 117, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9e6fb9b_8fc1_4042_ac34_a61b38bb7514);
 }
 impl ::windows::runtime::RuntimeName for MapCustomExperienceChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapCustomExperienceChangedEventArgs";
@@ -9750,7 +9750,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapElement {
 }
 unsafe impl ::windows::runtime::Interface for MapElement {
     type Vtable = IMapElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3592406239, 45637, 18418, [154, 194, 67, 192, 88, 177, 201, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd61fc4df_b245_47f2_9ac2_43c058b1c903);
 }
 impl ::windows::runtime::RuntimeName for MapElement {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElement";
@@ -10103,7 +10103,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapElement3D {
 }
 unsafe impl ::windows::runtime::Interface for MapElement3D {
     type Vtable = IMapElement3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2189097173, 14403, 18658, [189, 0, 15, 6, 68, 251, 230, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x827af8d5_3843_48e2_bd00_0f0644fbe6a5);
 }
 impl ::windows::runtime::RuntimeName for MapElement3D {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElement3D";
@@ -10235,7 +10235,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapElementClickEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for MapElementClickEventArgs {
     type Vtable = IMapElementClickEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1075218961, 53376, 17689, [153, 161, 49, 73, 251, 137, 153, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40168a11_d080_4519_99a1_3149fb8999d0);
 }
 impl ::windows::runtime::RuntimeName for MapElementClickEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElementClickEventArgs";
@@ -10348,7 +10348,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapElementPointerEnteredEventArg
 }
 unsafe impl ::windows::runtime::Interface for MapElementPointerEnteredEventArgs {
     type Vtable = IMapElementPointerEnteredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2877676878, 37335, 19249, [143, 10, 211, 144, 199, 211, 162, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab85dd4e_91d7_4b31_8f0a_d390c7d3a2ef);
 }
 impl ::windows::runtime::RuntimeName for MapElementPointerEnteredEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElementPointerEnteredEventArgs";
@@ -10439,7 +10439,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapElementPointerExitedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for MapElementPointerExitedEventArgs {
     type Vtable = IMapElementPointerExitedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3248773881, 24777, 18041, [145, 25, 32, 171, 199, 93, 147, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1a45af9_60c9_4679_9119_20abc75d931f);
 }
 impl ::windows::runtime::RuntimeName for MapElementPointerExitedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElementPointerExitedEventArgs";
@@ -10685,7 +10685,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapElementsLayer {
 }
 unsafe impl ::windows::runtime::Interface for MapElementsLayer {
     type Vtable = IMapElementsLayer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3732498586, 495, 18164, [172, 96, 124, 32, 11, 85, 38, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde79689a_01ef_46f4_ac60_7c200b552610);
 }
 impl ::windows::runtime::RuntimeName for MapElementsLayer {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElementsLayer";
@@ -10817,7 +10817,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapElementsLayerClickEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for MapElementsLayerClickEventArgs {
     type Vtable = IMapElementsLayerClickEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(749195110, 44827, 19461, [140, 133, 247, 74, 227, 212, 103, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ca7cf66_af1b_4c05_8c85_f74ae3d4677f);
 }
 impl ::windows::runtime::RuntimeName for MapElementsLayerClickEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElementsLayerClickEventArgs";
@@ -10909,7 +10909,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapElementsLayerContextRequested
 }
 unsafe impl ::windows::runtime::Interface for MapElementsLayerContextRequestedEventArgs {
     type Vtable = IMapElementsLayerContextRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3662008499, 31246, 18264, [128, 139, 58, 99, 118, 39, 235, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda45d0b3_7a0e_4758_808b_3a637627eb0d);
 }
 impl ::windows::runtime::RuntimeName for MapElementsLayerContextRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElementsLayerContextRequestedEventArgs";
@@ -11000,7 +11000,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapElementsLayerPointerEnteredEv
 }
 unsafe impl ::windows::runtime::Interface for MapElementsLayerPointerEnteredEventArgs {
     type Vtable = IMapElementsLayerPointerEnteredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1971306546, 18068, 17412, [140, 137, 52, 139, 107, 118, 197, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x757fc032_4694_4404_8c89_348b6b76c5e6);
 }
 impl ::windows::runtime::RuntimeName for MapElementsLayerPointerEnteredEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElementsLayerPointerEnteredEventArgs";
@@ -11091,7 +11091,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapElementsLayerPointerExitedEve
 }
 unsafe impl ::windows::runtime::Interface for MapElementsLayerPointerExitedEventArgs {
     type Vtable = IMapElementsLayerPointerExitedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2465449645, 1005, 19513, [175, 32, 42, 7, 238, 28, 206, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92f3c6ad_03ed_4c39_af20_2a07ee1ccea6);
 }
 impl ::windows::runtime::RuntimeName for MapElementsLayerPointerExitedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElementsLayerPointerExitedEventArgs";
@@ -11410,7 +11410,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapIcon {
 }
 unsafe impl ::windows::runtime::Interface for MapIcon {
     type Vtable = IMapIcon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3523831922, 9177, 18987, [139, 224, 105, 243, 168, 84, 130, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2096872_23d9_4a2b_8be0_69f3a85482ab);
 }
 impl ::windows::runtime::RuntimeName for MapIcon {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapIcon";
@@ -11589,7 +11589,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapInputEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for MapInputEventArgs {
     type Vtable = IMapInputEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2680488864, 43170, 17300, [146, 233, 34, 71, 118, 79, 47, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fc503a0_a8a2_4394_92e9_2247764f2f49);
 }
 impl ::windows::runtime::RuntimeName for MapInputEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapInputEventArgs";
@@ -11818,7 +11818,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapItemsControl {
 }
 unsafe impl ::windows::runtime::Interface for MapItemsControl {
     type Vtable = IMapItemsControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2495792339, 45877, 17093, [182, 96, 230, 160, 126, 195, 189, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94c2c4d3_b335_42c5_b660_e6a07ec3bddc);
 }
 impl ::windows::runtime::RuntimeName for MapItemsControl {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapItemsControl";
@@ -12027,7 +12027,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapLayer {
 }
 unsafe impl ::windows::runtime::Interface for MapLayer {
     type Vtable = IMapLayer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1829763521, 41293, 20375, [143, 87, 70, 113, 91, 87, 104, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d0ff9c1_a14d_4f97_8f57_46715b57683a);
 }
 impl ::windows::runtime::RuntimeName for MapLayer {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapLayer";
@@ -12216,7 +12216,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapModel3D {
 }
 unsafe impl ::windows::runtime::Interface for MapModel3D {
     type Vtable = IMapModel3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4173676961, 51751, 18792, [162, 191, 156, 32, 240, 106, 4, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8c541a1_ca27_4968_a2bf_9c20f06a0468);
 }
 impl ::windows::runtime::RuntimeName for MapModel3D {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapModel3D";
@@ -12594,7 +12594,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapPolygon {
 }
 unsafe impl ::windows::runtime::Interface for MapPolygon {
     type Vtable = IMapPolygon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2883199621, 18726, 19514, [165, 249, 25, 223, 127, 105, 219, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xabda2285_4926_4c3a_a5f9_19df7f69db3d);
 }
 impl ::windows::runtime::RuntimeName for MapPolygon {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapPolygon";
@@ -12918,7 +12918,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapPolyline {
 }
 unsafe impl ::windows::runtime::Interface for MapPolyline {
     type Vtable = IMapPolyline_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4222428322, 9439, 19078, [143, 250, 15, 143, 77, 158, 193, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbad24a2_24df_4a86_8ffa_0f8f4d9ec17d);
 }
 impl ::windows::runtime::RuntimeName for MapPolyline {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapPolyline";
@@ -13063,7 +13063,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapRightTappedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for MapRightTappedEventArgs {
     type Vtable = IMapRightTappedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(546582897, 28648, 16550, [173, 14, 41, 115, 121, 181, 117, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20943171_6fe8_40a6_ad0e_297379b575a7);
 }
 impl ::windows::runtime::RuntimeName for MapRightTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapRightTappedEventArgs";
@@ -13224,7 +13224,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapRouteView {
 }
 unsafe impl ::windows::runtime::Interface for MapRouteView {
     type Vtable = IMapRouteView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1947119301, 47820, 16865, [166, 126, 221, 101, 19, 131, 32, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x740eaec5_bacc_41e1_a67e_dd6513832049);
 }
 impl ::windows::runtime::RuntimeName for MapRouteView {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapRouteView";
@@ -13456,7 +13456,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapScene {
 }
 unsafe impl ::windows::runtime::Interface for MapScene {
     type Vtable = IMapScene_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2344226985, 20711, 18476, [151, 137, 198, 136, 177, 120, 172, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bba10a9_50e7_482c_9789_c688b178ac24);
 }
 impl ::windows::runtime::RuntimeName for MapScene {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapScene";
@@ -13686,7 +13686,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapStyleSheet {
 }
 unsafe impl ::windows::runtime::Interface for MapStyleSheet {
     type Vtable = IMapStyleSheet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2924786367, 35217, 17133, [141, 88, 32, 71, 61, 238, 222, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae54b2bf_8991_42ed_8d58_20473deede1d);
 }
 impl ::windows::runtime::RuntimeName for MapStyleSheet {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapStyleSheet";
@@ -14278,7 +14278,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapTargetCameraChangedEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for MapTargetCameraChangedEventArgs {
     type Vtable = IMapTargetCameraChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3689940082, 59731, 20392, [151, 208, 234, 134, 53, 144, 87, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbf00472_e953_4fa8_97d0_ea86359057cf);
 }
 impl ::windows::runtime::RuntimeName for MapTargetCameraChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapTargetCameraChangedEventArgs";
@@ -14389,7 +14389,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapTileBitmapRequest {
 }
 unsafe impl ::windows::runtime::Interface for MapTileBitmapRequest {
     type Vtable = IMapTileBitmapRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1181958076, 55453, 18219, [181, 246, 215, 6, 107, 5, 132, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46733fbc_d89d_472b_b5f6_d7066b0584f4);
 }
 impl ::windows::runtime::RuntimeName for MapTileBitmapRequest {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequest";
@@ -14459,7 +14459,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapTileBitmapRequestDeferral {
 }
 unsafe impl ::windows::runtime::Interface for MapTileBitmapRequestDeferral {
     type Vtable = IMapTileBitmapRequestDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4265018690, 42156, 20218, [150, 101, 4, 144, 176, 202, 253, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe370542_a4ac_4efa_9665_0490b0cafdd2);
 }
 impl ::windows::runtime::RuntimeName for MapTileBitmapRequestDeferral {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequestDeferral";
@@ -14564,7 +14564,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapTileBitmapRequestedEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for MapTileBitmapRequestedEventArgs {
     type Vtable = IMapTileBitmapRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(863987997, 39682, 19106, [139, 30, 204, 77, 145, 113, 155, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x337f691d_9b02_4aa2_8b1e_cc4d91719bf3);
 }
 impl ::windows::runtime::RuntimeName for MapTileBitmapRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequestedEventArgs";
@@ -14689,7 +14689,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapTileDataSource {
 }
 unsafe impl ::windows::runtime::Interface for MapTileDataSource {
     type Vtable = IMapTileDataSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3225263966, 48671, 19561, [153, 105, 121, 70, 122, 81, 60, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc03d9f5e_be1f_4c69_9969_79467a513c38);
 }
 impl ::windows::runtime::RuntimeName for MapTileDataSource {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapTileDataSource";
@@ -15211,7 +15211,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapTileSource {
 }
 unsafe impl ::windows::runtime::Interface for MapTileSource {
     type Vtable = IMapTileSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2292674126, 12255, 17767, [146, 85, 17, 0, 81, 156, 141, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88a76e4e_2fdf_4567_9255_1100519c8d62);
 }
 impl ::windows::runtime::RuntimeName for MapTileSource {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapTileSource";
@@ -15319,7 +15319,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapTileUriRequest {
 }
 unsafe impl ::windows::runtime::Interface for MapTileUriRequest {
     type Vtable = IMapTileUriRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(390079285, 12583, 17848, [135, 167, 153, 248, 125, 78, 39, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17402335_3127_45b8_87a7_99f87d4e2745);
 }
 impl ::windows::runtime::RuntimeName for MapTileUriRequest {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapTileUriRequest";
@@ -15389,7 +15389,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapTileUriRequestDeferral {
 }
 unsafe impl ::windows::runtime::Interface for MapTileUriRequestDeferral {
     type Vtable = IMapTileUriRequestDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3239554528, 48958, 19537, [143, 170, 75, 89, 60, 246, 142, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc117ade0_bf3e_4c51_8faa_4b593cf68eb2);
 }
 impl ::windows::runtime::RuntimeName for MapTileUriRequestDeferral {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapTileUriRequestDeferral";
@@ -15494,7 +15494,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapTileUriRequestedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for MapTileUriRequestedEventArgs {
     type Vtable = IMapTileUriRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3524557635, 7103, 19352, [141, 211, 183, 131, 78, 64, 126, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2147b43_1bbf_4b98_8dd3_b7834e407e0d);
 }
 impl ::windows::runtime::RuntimeName for MapTileUriRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapTileUriRequestedEventArgs";
@@ -15781,7 +15781,7 @@ unsafe impl ::windows::runtime::RuntimeType for StreetsideExperience {
 }
 unsafe impl ::windows::runtime::Interface for StreetsideExperience {
     type Vtable = IStreetsideExperience_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2774052553, 58124, 18120, [129, 22, 72, 70, 145, 103, 85, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa558aec9_e30c_46c8_8116_484691675558);
 }
 impl ::windows::runtime::RuntimeName for StreetsideExperience {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.StreetsideExperience";
@@ -15964,7 +15964,7 @@ unsafe impl ::windows::runtime::RuntimeType for StreetsidePanorama {
 }
 unsafe impl ::windows::runtime::Interface for StreetsidePanorama {
     type Vtable = IStreetsidePanorama_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876955096, 44384, 18020, [181, 57, 177, 6, 159, 22, 197, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fe00fd8_ad60_4664_b539_b1069f16c5af);
 }
 impl ::windows::runtime::RuntimeName for StreetsidePanorama {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.StreetsidePanorama";

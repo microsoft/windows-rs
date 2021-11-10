@@ -331,7 +331,7 @@ impl ICallFrame {
 }
 unsafe impl ::windows::runtime::Interface for ICallFrame {
     type Vtable = ICallFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3581129904, 35150, 4562, [184, 182, 0, 192, 79, 185, 97, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd573b4b0_894e_11d2_b8b6_00c04fb9618a);
 }
 impl ::core::convert::From<ICallFrame> for ::windows::runtime::IUnknown {
     fn from(value: ICallFrame) -> Self {
@@ -400,7 +400,7 @@ impl ICallFrameEvents {
 }
 unsafe impl ::windows::runtime::Interface for ICallFrameEvents {
     type Vtable = ICallFrameEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4250798147, 64657, 4560, [151, 215, 0, 192, 79, 185, 97, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd5e0843_fc91_11d0_97d7_00c04fb9618a);
 }
 impl ::core::convert::From<ICallFrameEvents> for ::windows::runtime::IUnknown {
     fn from(value: ICallFrameEvents) -> Self {
@@ -443,7 +443,7 @@ impl ICallFrameWalker {
 }
 unsafe impl ::windows::runtime::Interface for ICallFrameWalker {
     type Vtable = ICallFrameWalker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(145897753, 14637, 4562, [184, 164, 0, 192, 79, 185, 97, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08b23919_392d_11d2_b8a4_00c04fb9618a);
 }
 impl ::core::convert::From<ICallFrameWalker> for ::windows::runtime::IUnknown {
     fn from(value: ICallFrameWalker) -> Self {
@@ -501,7 +501,7 @@ impl ICallIndirect {
 }
 unsafe impl ::windows::runtime::Interface for ICallIndirect {
     type Vtable = ICallIndirect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3581129905, 35150, 4562, [184, 182, 0, 192, 79, 185, 97, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd573b4b1_894e_11d2_b8b6_00c04fb9618a);
 }
 impl ::core::convert::From<ICallIndirect> for ::windows::runtime::IUnknown {
     fn from(value: ICallIndirect) -> Self {
@@ -572,7 +572,7 @@ impl ICallInterceptor {
 }
 unsafe impl ::windows::runtime::Interface for ICallInterceptor {
     type Vtable = ICallInterceptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1623706229, 35181, 4562, [184, 182, 0, 192, 79, 185, 97, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60c7ca75_896d_11d2_b8b6_00c04fb9618a);
 }
 impl ::core::convert::From<ICallInterceptor> for ::windows::runtime::IUnknown {
     fn from(value: ICallInterceptor) -> Self {
@@ -658,7 +658,7 @@ impl ICallUnmarshal {
 }
 unsafe impl ::windows::runtime::Interface for ICallUnmarshal {
     type Vtable = ICallUnmarshal_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1395896323, 11842, 4562, [184, 157, 0, 192, 79, 185, 97, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5333b003_2e42_11d2_b89d_00c04fb9618a);
 }
 impl ::core::convert::From<ICallUnmarshal> for ::windows::runtime::IUnknown {
     fn from(value: ICallUnmarshal) -> Self {
@@ -708,7 +708,7 @@ impl IInterfaceRelated {
 }
 unsafe impl ::windows::runtime::Interface for IInterfaceRelated {
     type Vtable = IInterfaceRelated_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3522910841, 30470, 4561, [173, 186, 0, 192, 79, 194, 173, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1fb5a79_7706_11d1_adba_00c04fc2adc0);
 }
 impl ::core::convert::From<IInterfaceRelated> for ::windows::runtime::IUnknown {
     fn from(value: IInterfaceRelated) -> Self {

@@ -4,7 +4,7 @@
 pub struct IPaymentAppCanMakePaymentTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentAppCanMakePaymentTriggerDetails {
     type Vtable = IPaymentAppCanMakePaymentTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(216138224, 35731, 20150, [140, 70, 46, 74, 108, 106, 38, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ce201f0_8b93_4eb6_8c46_2e4a6c6a26f6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23,7 +23,7 @@ pub struct IPaymentAppCanMakePaymentTriggerDetails_abi(
 pub struct IPaymentAppManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentAppManager {
     type Vtable = IPaymentAppManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(239577683, 34081, 18793, [169, 87, 223, 37, 56, 163, 169, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e47aa53_8521_4969_a957_df2538a3a98f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -44,7 +44,7 @@ pub struct IPaymentAppManager_abi(
 pub struct IPaymentAppManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentAppManagerStatics {
     type Vtable = IPaymentAppManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2738990120, 64649, 17414, [180, 217, 52, 231, 254, 121, 223, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa341ac28_fc89_4406_b4d9_34e7fe79dfb6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -62,7 +62,7 @@ pub struct IPaymentAppManagerStatics_abi(
 pub struct IPaymentTransaction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentTransaction {
     type Vtable = IPaymentTransaction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1649941920, 9893, 20123, [166, 235, 102, 96, 108, 240, 1, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62581da0_26a5_4e9b_a6eb_66606cf001d3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -93,7 +93,7 @@ pub struct IPaymentTransaction_abi(
 pub struct IPaymentTransactionAcceptResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentTransactionAcceptResult {
     type Vtable = IPaymentTransactionAcceptResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(101593718, 54028, 18455, [149, 162, 223, 122, 233, 39, 59, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x060e3276_d30c_4817_95a2_df7ae9273b56);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -111,7 +111,7 @@ pub struct IPaymentTransactionAcceptResult_abi(
 pub struct IPaymentTransactionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentTransactionStatics {
     type Vtable = IPaymentTransactionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2372114256, 60938, 19957, [155, 30, 28, 15, 158, 197, 152, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d639750_ee0a_4df5_9b1e_1c0f9ec59881);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -149,7 +149,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentAppCanMakePaymentTriggerD
 }
 unsafe impl ::windows::runtime::Interface for PaymentAppCanMakePaymentTriggerDetails {
     type Vtable = IPaymentAppCanMakePaymentTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(216138224, 35731, 20150, [140, 70, 46, 74, 108, 106, 38, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ce201f0_8b93_4eb6_8c46_2e4a6c6a26f6);
 }
 impl ::windows::runtime::RuntimeName for PaymentAppCanMakePaymentTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentAppCanMakePaymentTriggerDetails";
@@ -236,7 +236,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentAppManager {
 }
 unsafe impl ::windows::runtime::Interface for PaymentAppManager {
     type Vtable = IPaymentAppManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(239577683, 34081, 18793, [169, 87, 223, 37, 56, 163, 169, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e47aa53_8521_4969_a957_df2538a3a98f);
 }
 impl ::windows::runtime::RuntimeName for PaymentAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentAppManager";
@@ -385,7 +385,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentTransaction {
 }
 unsafe impl ::windows::runtime::Interface for PaymentTransaction {
     type Vtable = IPaymentTransaction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1649941920, 9893, 20123, [166, 235, 102, 96, 108, 240, 1, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62581da0_26a5_4e9b_a6eb_66606cf001d3);
 }
 impl ::windows::runtime::RuntimeName for PaymentTransaction {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentTransaction";
@@ -451,7 +451,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentTransactionAcceptResult {
 }
 unsafe impl ::windows::runtime::Interface for PaymentTransactionAcceptResult {
     type Vtable = IPaymentTransactionAcceptResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(101593718, 54028, 18455, [149, 162, 223, 122, 233, 39, 59, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x060e3276_d30c_4817_95a2_df7ae9273b56);
 }
 impl ::windows::runtime::RuntimeName for PaymentTransactionAcceptResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentTransactionAcceptResult";

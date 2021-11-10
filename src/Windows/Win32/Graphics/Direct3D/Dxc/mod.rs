@@ -1,15 +1,15 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const CLSID_DxcAssembler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3609779048, 63747, 20352, [148, 205, 220, 207, 118, 236, 113, 81]);
-pub const CLSID_DxcCompiler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1944202643, 59086, 18419, [181, 191, 240, 102, 79, 57, 193, 176]);
-pub const CLSID_DxcCompilerArgs: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1045868162, 8781, 18191, [161, 161, 254, 48, 22, 238, 159, 157]);
-pub const CLSID_DxcContainerBuilder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2484290196, 16671, 17780, [180, 208, 135, 65, 226, 82, 64, 210]);
-pub const CLSID_DxcContainerReflection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3119858825, 21944, 16396, [186, 58, 22, 117, 228, 114, 139, 145]);
-pub const CLSID_DxcDiaDataSource: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3441388403, 10928, 18509, [142, 220, 235, 231, 164, 60, 160, 159]);
-pub const CLSID_DxcLibrary: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1648744111, 26336, 18685, [128, 180, 77, 39, 23, 150, 116, 140]);
-pub const CLSID_DxcLinker: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4016734343, 45290, 19798, [158, 69, 208, 126, 26, 139, 120, 6]);
-pub const CLSID_DxcOptimizer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2922174367, 52258, 17727, [155, 107, 177, 36, 231, 165, 32, 76]);
-pub const CLSID_DxcPdbUtils: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1415716347, 62158, 17790, [174, 140, 236, 53, 95, 174, 236, 124]);
-pub const CLSID_DxcValidator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2359550485, 63272, 19699, [140, 221, 136, 175, 145, 117, 135, 161]);
+pub const CLSID_DxcAssembler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd728db68_f903_4f80_94cd_dccf76ec7151);
+pub const CLSID_DxcCompiler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73e22d93_e6ce_47f3_b5bf_f0664f39c1b0);
+pub const CLSID_DxcCompilerArgs: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e56ae82_224d_470f_a1a1_fe3016ee9f9d);
+pub const CLSID_DxcContainerBuilder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94134294_411f_4574_b4d0_8741e25240d2);
+pub const CLSID_DxcContainerReflection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9f54489_55b8_400c_ba3a_1675e4728b91);
+pub const CLSID_DxcDiaDataSource: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd1f6b73_2ab0_484d_8edc_ebe7a43ca09f);
+pub const CLSID_DxcLibrary: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6245d6af_66e0_48fd_80b4_4d271796748c);
+pub const CLSID_DxcLinker: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef6a8087_b0ea_4d56_9e45_d07e1a8b7806);
+pub const CLSID_DxcOptimizer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae2cd79f_cc22_453f_9b6b_b124e7a5204c);
+pub const CLSID_DxcPdbUtils: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54621dfb_f2ce_457e_ae8c_ec355faeec7c);
+pub const CLSID_DxcValidator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ca3e215_f728_4cf3_8cdd_88af917587a1);
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Dxc`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -265,7 +265,7 @@ impl IDxcAssembler {
 }
 unsafe impl ::windows::runtime::Interface for IDxcAssembler {
     type Vtable = IDxcAssembler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(153057830, 7199, 18760, [144, 75, 230, 227, 168, 167, 113, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x091f7a26_1c1f_4948_904b_e6e3a8a771d5);
 }
 impl ::core::convert::From<IDxcAssembler> for ::windows::runtime::IUnknown {
     fn from(value: IDxcAssembler) -> Self {
@@ -311,7 +311,7 @@ impl IDxcBlob {
 }
 unsafe impl ::windows::runtime::Interface for IDxcBlob {
     type Vtable = IDxcBlob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2342910728, 20885, 16610, [172, 88, 13, 152, 156, 58, 1, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
 }
 impl ::core::convert::From<IDxcBlob> for ::windows::runtime::IUnknown {
     fn from(value: IDxcBlob) -> Self {
@@ -363,7 +363,7 @@ impl IDxcBlobEncoding {
 }
 unsafe impl ::windows::runtime::Interface for IDxcBlobEncoding {
     type Vtable = IDxcBlobEncoding_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1916916772, 9798, 16785, [151, 192, 152, 233, 110, 66, 252, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7241d424_2646_4191_97c0_98e96e42fc68);
 }
 impl ::core::convert::From<IDxcBlobEncoding> for ::windows::runtime::IUnknown {
     fn from(value: IDxcBlobEncoding) -> Self {
@@ -446,7 +446,7 @@ impl IDxcBlobUtf16 {
 }
 unsafe impl ::windows::runtime::Interface for IDxcBlobUtf16 {
     type Vtable = IDxcBlobUtf16_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2750959275, 4010, 18814, [163, 156, 238, 110, 214, 11, 45, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3f84eab_0faa_497e_a39c_ee6ed60b2d84);
 }
 impl ::core::convert::From<IDxcBlobUtf16> for ::windows::runtime::IUnknown {
     fn from(value: IDxcBlobUtf16) -> Self {
@@ -552,7 +552,7 @@ impl IDxcBlobUtf8 {
 }
 unsafe impl ::windows::runtime::Interface for IDxcBlobUtf8 {
     type Vtable = IDxcBlobUtf8_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1034303177, 47729, 16420, [163, 1, 48, 203, 241, 37, 48, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3da636c9_ba71_4024_a301_30cbf125305b);
 }
 impl ::core::convert::From<IDxcBlobUtf8> for ::windows::runtime::IUnknown {
     fn from(value: IDxcBlobUtf8) -> Self {
@@ -677,7 +677,7 @@ impl IDxcCompiler {
 }
 unsafe impl ::windows::runtime::Interface for IDxcCompiler {
     type Vtable = IDxcCompiler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2350975987, 287, 17442, [141, 112, 111, 154, 203, 141, 182, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c210bf3_011f_4422_8d70_6f9acb8db617);
 }
 impl ::core::convert::From<IDxcCompiler> for ::windows::runtime::IUnknown {
     fn from(value: IDxcCompiler) -> Self {
@@ -807,7 +807,7 @@ impl IDxcCompiler2 {
 }
 unsafe impl ::windows::runtime::Interface for IDxcCompiler2 {
     type Vtable = IDxcCompiler2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2684725721, 47291, 17812, [181, 201, 14, 99, 59, 236, 77, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa005a9d9_b8bb_4594_b5c9_0e633bec4d37);
 }
 impl ::core::convert::From<IDxcCompiler2> for ::windows::runtime::IUnknown {
     fn from(value: IDxcCompiler2) -> Self {
@@ -908,7 +908,7 @@ impl IDxcCompiler3 {
 }
 unsafe impl ::windows::runtime::Interface for IDxcCompiler3 {
     type Vtable = IDxcCompiler3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(579552903, 23146, 18224, [144, 12, 151, 2, 178, 32, 63, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x228b4687_5a6a_4730_900c_9702b2203f54);
 }
 impl ::core::convert::From<IDxcCompiler3> for ::windows::runtime::IUnknown {
     fn from(value: IDxcCompiler3) -> Self {
@@ -972,7 +972,7 @@ impl IDxcCompilerArgs {
 }
 unsafe impl ::windows::runtime::Interface for IDxcCompilerArgs {
     type Vtable = IDxcCompilerArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1945108010, 28892, 17912, [150, 144, 239, 246, 76, 2, 66, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73effe2a_70dc_45f8_9690_eff64c02429d);
 }
 impl ::core::convert::From<IDxcCompilerArgs> for ::windows::runtime::IUnknown {
     fn from(value: IDxcCompilerArgs) -> Self {
@@ -1035,7 +1035,7 @@ impl IDxcContainerBuilder {
 }
 unsafe impl ::windows::runtime::Interface for IDxcContainerBuilder {
     type Vtable = IDxcContainerBuilder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(860561232, 8850, 19253, [153, 161, 37, 88, 141, 140, 23, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x334b1f50_2292_4b35_99a1_25588d8c17fe);
 }
 impl ::core::convert::From<IDxcContainerBuilder> for ::windows::runtime::IUnknown {
     fn from(value: IDxcContainerBuilder) -> Self {
@@ -1104,7 +1104,7 @@ impl IDxcContainerReflection {
 }
 unsafe impl ::windows::runtime::Interface for IDxcContainerReflection {
     type Vtable = IDxcContainerReflection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3535936294, 33616, 19420, [151, 106, 51, 28, 230, 244, 197, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2c21b26_8350_4bdc_976a_331ce6f4c54c);
 }
 impl ::core::convert::From<IDxcContainerReflection> for ::windows::runtime::IUnknown {
     fn from(value: IDxcContainerReflection) -> Self {
@@ -1155,7 +1155,7 @@ impl IDxcExtraOutputs {
 }
 unsafe impl ::windows::runtime::Interface for IDxcExtraOutputs {
     type Vtable = IDxcExtraOutputs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(832255906, 42434, 18762, [165, 222, 72, 1, 178, 250, 249, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x319b37a2_a5c2_494a_a5de_4801b2faf989);
 }
 impl ::core::convert::From<IDxcExtraOutputs> for ::windows::runtime::IUnknown {
     fn from(value: IDxcExtraOutputs) -> Self {
@@ -1200,7 +1200,7 @@ impl IDxcIncludeHandler {
 }
 unsafe impl ::windows::runtime::Interface for IDxcIncludeHandler {
     type Vtable = IDxcIncludeHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2137128061, 38157, 18047, [179, 227, 60, 2, 251, 73, 24, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f61fc7d_950d_467f_b3e3_3c02fb49187c);
 }
 impl ::core::convert::From<IDxcIncludeHandler> for ::windows::runtime::IUnknown {
     fn from(value: IDxcIncludeHandler) -> Self {
@@ -1292,7 +1292,7 @@ impl IDxcLibrary {
 }
 unsafe impl ::windows::runtime::Interface for IDxcLibrary {
     type Vtable = IDxcLibrary_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3844099527, 53644, 19516, [189, 251, 133, 22, 115, 152, 15, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5204dc7_d18c_4c3c_bdfb_851673980fe7);
 }
 impl ::core::convert::From<IDxcLibrary> for ::windows::runtime::IUnknown {
     fn from(value: IDxcLibrary) -> Self {
@@ -1354,7 +1354,7 @@ impl IDxcLinker {
 }
 unsafe impl ::windows::runtime::Interface for IDxcLinker {
     type Vtable = IDxcLinker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4055219754, 25309, 17191, [161, 194, 66, 172, 30, 30, 120, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1b5be2a_62dd_4327_a1c2_42ac1e1e78e6);
 }
 impl ::core::convert::From<IDxcLinker> for ::windows::runtime::IUnknown {
     fn from(value: IDxcLinker) -> Self {
@@ -1410,7 +1410,7 @@ impl IDxcOperationResult {
 }
 unsafe impl ::windows::runtime::Interface for IDxcOperationResult {
     type Vtable = IDxcOperationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3470477386, 54505, 17498, [185, 145, 202, 33, 202, 21, 125, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcedb484a_d4e9_445a_b991_ca21ca157dc2);
 }
 impl ::core::convert::From<IDxcOperationResult> for ::windows::runtime::IUnknown {
     fn from(value: IDxcOperationResult) -> Self {
@@ -1465,7 +1465,7 @@ impl IDxcOptimizer {
 }
 unsafe impl ::windows::runtime::Interface for IDxcOptimizer {
     type Vtable = IDxcOptimizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(628362798, 40122, 16411, [145, 25, 79, 180, 47, 57, 242, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25740e2e_9cba_401b_9119_4fb42f39f270);
 }
 impl ::core::convert::From<IDxcOptimizer> for ::windows::runtime::IUnknown {
     fn from(value: IDxcOptimizer) -> Self {
@@ -1535,7 +1535,7 @@ impl IDxcOptimizerPass {
 }
 unsafe impl ::windows::runtime::Interface for IDxcOptimizerPass {
     type Vtable = IDxcOptimizerPass_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2922174367, 52258, 17727, [155, 107, 177, 36, 231, 165, 32, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae2cd79f_cc22_453f_9b6b_b124e7a5204c);
 }
 impl ::core::convert::From<IDxcOptimizerPass> for ::windows::runtime::IUnknown {
     fn from(value: IDxcOptimizerPass) -> Self {
@@ -1707,7 +1707,7 @@ impl IDxcPdbUtils {
 }
 unsafe impl ::windows::runtime::Interface for IDxcPdbUtils {
     type Vtable = IDxcPdbUtils_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3871958142, 40298, 19515, [185, 76, 82, 75, 90, 108, 52, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6c9647e_9d6a_4c3b_b94c_524b5a6c343d);
 }
 impl ::core::convert::From<IDxcPdbUtils> for ::windows::runtime::IUnknown {
     fn from(value: IDxcPdbUtils) -> Self {
@@ -1816,7 +1816,7 @@ impl IDxcResult {
 }
 unsafe impl ::windows::runtime::Interface for IDxcResult {
     type Vtable = IDxcResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1479830746, 56807, 17559, [148, 97, 111, 135, 175, 94, 6, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58346cda_dde7_4497_9461_6f87af5e0659);
 }
 impl ::core::convert::From<IDxcResult> for ::windows::runtime::IUnknown {
     fn from(value: IDxcResult) -> Self {
@@ -1957,7 +1957,7 @@ impl IDxcUtils {
 }
 unsafe impl ::windows::runtime::Interface for IDxcUtils {
     type Vtable = IDxcUtils_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1174783179, 8217, 18730, [173, 164, 101, 242, 11, 183, 214, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4605c4cb_2019_492a_ada4_65f20bb7d67f);
 }
 impl ::core::convert::From<IDxcUtils> for ::windows::runtime::IUnknown {
     fn from(value: IDxcUtils) -> Self {
@@ -2016,7 +2016,7 @@ impl IDxcValidator {
 }
 unsafe impl ::windows::runtime::Interface for IDxcValidator {
     type Vtable = IDxcValidator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2800233426, 8151, 18470, [152, 17, 40, 87, 231, 151, 244, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6e82bd2_1fd7_4826_9811_2857e797f49a);
 }
 impl ::core::convert::From<IDxcValidator> for ::windows::runtime::IUnknown {
     fn from(value: IDxcValidator) -> Self {
@@ -2064,7 +2064,7 @@ impl IDxcValidator2 {
 }
 unsafe impl ::windows::runtime::Interface for IDxcValidator2 {
     type Vtable = IDxcValidator2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1166942161, 45490, 18256, [166, 225, 156, 16, 240, 59, 237, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x458e1fd1_b1b2_4750_a6e1_9c10f03bed92);
 }
 impl ::core::convert::From<IDxcValidator2> for ::windows::runtime::IUnknown {
     fn from(value: IDxcValidator2) -> Self {
@@ -2132,7 +2132,7 @@ impl IDxcVersionInfo {
 }
 unsafe impl ::windows::runtime::Interface for IDxcVersionInfo {
     type Vtable = IDxcVersionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2957990736, 8281, 20242, [168, 255, 161, 224, 205, 225, 204, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb04f5b50_2059_4f12_a8ff_a1e0cde1cc7e);
 }
 impl ::core::convert::From<IDxcVersionInfo> for ::windows::runtime::IUnknown {
     fn from(value: IDxcVersionInfo) -> Self {
@@ -2184,7 +2184,7 @@ impl IDxcVersionInfo2 {
 }
 unsafe impl ::windows::runtime::Interface for IDxcVersionInfo2 {
     type Vtable = IDxcVersionInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4217963716, 17136, 19298, [156, 70, 152, 58, 247, 218, 124, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb6904c4_42f0_4b62_9c46_983af7da7c83);
 }
 impl ::core::convert::From<IDxcVersionInfo2> for ::windows::runtime::IUnknown {
     fn from(value: IDxcVersionInfo2) -> Self {
@@ -2249,7 +2249,7 @@ impl IDxcVersionInfo3 {
 }
 unsafe impl ::windows::runtime::Interface for IDxcVersionInfo3 {
     type Vtable = IDxcVersionInfo3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1578362947, 40229, 18236, [154, 210, 3, 178, 208, 180, 75, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e13e843_9d25_473c_9ad2_03b2d0b44b1e);
 }
 impl ::core::convert::From<IDxcVersionInfo3> for ::windows::runtime::IUnknown {
     fn from(value: IDxcVersionInfo3) -> Self {

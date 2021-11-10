@@ -4,7 +4,7 @@
 pub struct IPhoneNumberFormatter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneNumberFormatter {
     type Vtable = IPhoneNumberFormatter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(358003870, 47828, 19274, [144, 13, 68, 7, 173, 183, 201, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1556b49e_bad4_4b4a_900d_4407adb7c981);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26,7 +26,7 @@ pub struct IPhoneNumberFormatter_abi(
 pub struct IPhoneNumberFormatterStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneNumberFormatterStatics {
     type Vtable = IPhoneNumberFormatterStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1554446641, 34009, 16715, [171, 78, 160, 85, 44, 135, 134, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ca6f931_84d9_414b_ab4e_a0552c878602);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -47,7 +47,7 @@ pub struct IPhoneNumberFormatterStatics_abi(
 pub struct IPhoneNumberInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneNumberInfo {
     type Vtable = IPhoneNumberInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(477947101, 51380, 20131, [154, 239, 179, 66, 226, 197, 180, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c7ce4dd_c8b4_4ea3_9aef_b342e2c5b417);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -72,7 +72,7 @@ pub struct IPhoneNumberInfo_abi(
 pub struct IPhoneNumberInfoFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneNumberInfoFactory {
     type Vtable = IPhoneNumberInfoFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2181216612, 44458, 19711, [143, 207, 23, 231, 81, 106, 40, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8202b964_adaa_4cff_8fcf_17e7516a28ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -90,7 +90,7 @@ pub struct IPhoneNumberInfoFactory_abi(
 pub struct IPhoneNumberInfoStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneNumberInfoStatics {
     type Vtable = IPhoneNumberInfoStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1530875754, 34473, 16617, [134, 73, 109, 97, 22, 25, 40, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b3f4f6a_86a9_40e9_8649_6d61161928d4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -215,7 +215,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneNumberFormatter {
 }
 unsafe impl ::windows::runtime::Interface for PhoneNumberFormatter {
     type Vtable = IPhoneNumberFormatter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(358003870, 47828, 19274, [144, 13, 68, 7, 173, 183, 201, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1556b49e_bad4_4b4a_900d_4407adb7c981);
 }
 impl ::windows::runtime::RuntimeName for PhoneNumberFormatter {
     const NAME: &'static str = "Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter";
@@ -375,7 +375,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneNumberInfo {
 }
 unsafe impl ::windows::runtime::Interface for PhoneNumberInfo {
     type Vtable = IPhoneNumberInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(477947101, 51380, 20131, [154, 239, 179, 66, 226, 197, 180, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c7ce4dd_c8b4_4ea3_9aef_b342e2c5b417);
 }
 impl ::windows::runtime::RuntimeName for PhoneNumberInfo {
     const NAME: &'static str = "Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo";

@@ -237,7 +237,7 @@ impl ::windows::runtime::DefaultType for GCPressureAmount {
 pub struct IApiInformationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApiInformationStatics {
     type Vtable = IApiInformationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2574531070, 63105, 18961, [180, 22, 193, 58, 71, 232, 186, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x997439fe_f681_4a11_b416_c13a47e8ba36);
 }
 #[repr(C)]
 #[doc(hidden)]

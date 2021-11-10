@@ -4,7 +4,7 @@
 pub struct IUserDataTaskDataProviderConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskDataProviderConnection {
     type Vtable = IUserDataTaskDataProviderConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2683542813, 42055, 17035, [175, 233, 229, 64, 43, 222, 176, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ff39d1d_a447_428b_afe9_e5402bdeb041);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -42,7 +42,7 @@ pub struct IUserDataTaskDataProviderConnection_abi(
 pub struct IUserDataTaskDataProviderTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskDataProviderTriggerDetails {
     type Vtable = IUserDataTaskDataProviderTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2921804290, 45513, 17726, [175, 197, 179, 10, 243, 189, 33, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae273202_b1c9_453e_afc5_b30af3bd217d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -60,7 +60,7 @@ pub struct IUserDataTaskDataProviderTriggerDetails_abi(
 pub struct IUserDataTaskListCompleteTaskRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListCompleteTaskRequest {
     type Vtable = IUserDataTaskListCompleteTaskRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4133360803, 6722, 18906, [133, 82, 40, 115, 229, 44, 85, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf65e14a3_1a42_49da_8552_2873e52c55eb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -83,7 +83,7 @@ pub struct IUserDataTaskListCompleteTaskRequest_abi(
 pub struct IUserDataTaskListCompleteTaskRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListCompleteTaskRequestEventArgs {
     type Vtable = IUserDataTaskListCompleteTaskRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3615242557, 19698, 18605, [135, 253, 150, 63, 14, 170, 122, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd77c393d_4cf2_48ad_87fd_963f0eaa7a95);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -103,7 +103,7 @@ pub struct IUserDataTaskListCompleteTaskRequestEventArgs_abi(
 pub struct IUserDataTaskListCreateOrUpdateTaskRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListCreateOrUpdateTaskRequest {
     type Vtable = IUserDataTaskListCreateOrUpdateTaskRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(557020972, 21954, 17152, [130, 121, 4, 50, 110, 7, 204, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2133772c_55c2_4300_8279_04326e07cce4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -126,7 +126,7 @@ pub struct IUserDataTaskListCreateOrUpdateTaskRequest_abi(
 pub struct IUserDataTaskListCreateOrUpdateTaskRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListCreateOrUpdateTaskRequestEventArgs {
     type Vtable = IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(314923602, 58232, 16795, [174, 56, 165, 233, 230, 4, 71, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12c55a52_e378_419b_ae38_a5e9e604476e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -146,7 +146,7 @@ pub struct IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_abi(
 pub struct IUserDataTaskListDeleteTaskRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListDeleteTaskRequest {
     type Vtable = IUserDataTaskListDeleteTaskRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1267088488, 30295, 20285, [176, 116, 212, 126, 200, 223, 7, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b863c68_7657_4f3d_b074_d47ec8df07e7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -169,7 +169,7 @@ pub struct IUserDataTaskListDeleteTaskRequest_abi(
 pub struct IUserDataTaskListDeleteTaskRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListDeleteTaskRequestEventArgs {
     type Vtable = IUserDataTaskListDeleteTaskRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1617156825, 62818, 16709, [142, 254, 213, 0, 120, 201, 43, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6063dad9_f562_4145_8efe_d50078c92b7f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -189,7 +189,7 @@ pub struct IUserDataTaskListDeleteTaskRequestEventArgs_abi(
 pub struct IUserDataTaskListSkipOccurrenceRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListSkipOccurrenceRequest {
     type Vtable = IUserDataTaskListSkipOccurrenceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2877809485, 7379, 17180, [159, 88, 8, 154, 164, 51, 141, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab87e34d_1cd3_431c_9f58_089aa4338d85);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -212,7 +212,7 @@ pub struct IUserDataTaskListSkipOccurrenceRequest_abi(
 pub struct IUserDataTaskListSkipOccurrenceRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListSkipOccurrenceRequestEventArgs {
     type Vtable = IUserDataTaskListSkipOccurrenceRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2050724426, 52271, 20091, [170, 205, 165, 185, 210, 156, 250, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a3b924a_cc2f_4e7b_aacd_a5b9d29cfa4e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -232,7 +232,7 @@ pub struct IUserDataTaskListSkipOccurrenceRequestEventArgs_abi(
 pub struct IUserDataTaskListSyncManagerSyncRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListSyncManagerSyncRequest {
     type Vtable = IUserDataTaskListSyncManagerSyncRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1084700679, 30096, 16713, [174, 25, 178, 17, 67, 26, 159, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40a73807_7590_4149_ae19_b211431a9f48);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -254,7 +254,7 @@ pub struct IUserDataTaskListSyncManagerSyncRequest_abi(
 pub struct IUserDataTaskListSyncManagerSyncRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListSyncManagerSyncRequestEventArgs {
     type Vtable = IUserDataTaskListSyncManagerSyncRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2393709586, 30350, 17341, [131, 133, 92, 220, 53, 31, 253, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ead1c12_768e_43bd_8385_5cdc351ffdea);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -360,7 +360,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskDataProviderConnecti
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskDataProviderConnection {
     type Vtable = IUserDataTaskDataProviderConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2683542813, 42055, 17035, [175, 233, 229, 64, 43, 222, 176, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ff39d1d_a447_428b_afe9_e5402bdeb041);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderConnection";
@@ -426,7 +426,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskDataProviderTriggerD
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskDataProviderTriggerDetails {
     type Vtable = IUserDataTaskDataProviderTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2921804290, 45513, 17726, [175, 197, 179, 10, 243, 189, 33, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae273202_b1c9_453e_afc5_b30af3bd217d);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderTriggerDetails";
@@ -518,7 +518,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskListCompleteTaskRequ
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskListCompleteTaskRequest {
     type Vtable = IUserDataTaskListCompleteTaskRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4133360803, 6722, 18906, [133, 82, 40, 115, 229, 44, 85, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf65e14a3_1a42_49da_8552_2873e52c55eb);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskListCompleteTaskRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequest";
@@ -593,7 +593,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskListCompleteTaskRequ
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskListCompleteTaskRequestEventArgs {
     type Vtable = IUserDataTaskListCompleteTaskRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3615242557, 19698, 18605, [135, 253, 150, 63, 14, 170, 122, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd77c393d_4cf2_48ad_87fd_963f0eaa7a95);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskListCompleteTaskRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequestEventArgs";
@@ -685,7 +685,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskListCreateOrUpdateTa
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskListCreateOrUpdateTaskRequest {
     type Vtable = IUserDataTaskListCreateOrUpdateTaskRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(557020972, 21954, 17152, [130, 121, 4, 50, 110, 7, 204, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2133772c_55c2_4300_8279_04326e07cce4);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskListCreateOrUpdateTaskRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequest";
@@ -760,7 +760,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskListCreateOrUpdateTa
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
     type Vtable = IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(314923602, 58232, 16795, [174, 56, 165, 233, 230, 4, 71, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12c55a52_e378_419b_ae38_a5e9e604476e);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequestEventArgs";
@@ -852,7 +852,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskListDeleteTaskReques
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskListDeleteTaskRequest {
     type Vtable = IUserDataTaskListDeleteTaskRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1267088488, 30295, 20285, [176, 116, 212, 126, 200, 223, 7, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b863c68_7657_4f3d_b074_d47ec8df07e7);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskListDeleteTaskRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequest";
@@ -927,7 +927,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskListDeleteTaskReques
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskListDeleteTaskRequestEventArgs {
     type Vtable = IUserDataTaskListDeleteTaskRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1617156825, 62818, 16709, [142, 254, 213, 0, 120, 201, 43, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6063dad9_f562_4145_8efe_d50078c92b7f);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskListDeleteTaskRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequestEventArgs";
@@ -1019,7 +1019,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskListSkipOccurrenceRe
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskListSkipOccurrenceRequest {
     type Vtable = IUserDataTaskListSkipOccurrenceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2877809485, 7379, 17180, [159, 88, 8, 154, 164, 51, 141, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab87e34d_1cd3_431c_9f58_089aa4338d85);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskListSkipOccurrenceRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequest";
@@ -1094,7 +1094,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskListSkipOccurrenceRe
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskListSkipOccurrenceRequestEventArgs {
     type Vtable = IUserDataTaskListSkipOccurrenceRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2050724426, 52271, 20091, [170, 205, 165, 185, 210, 156, 250, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a3b924a_cc2f_4e7b_aacd_a5b9d29cfa4e);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskListSkipOccurrenceRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequestEventArgs";
@@ -1178,7 +1178,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskListSyncManagerSyncR
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskListSyncManagerSyncRequest {
     type Vtable = IUserDataTaskListSyncManagerSyncRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1084700679, 30096, 16713, [174, 25, 178, 17, 67, 26, 159, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40a73807_7590_4149_ae19_b211431a9f48);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskListSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequest";
@@ -1253,7 +1253,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskListSyncManagerSyncR
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskListSyncManagerSyncRequestEventArgs {
     type Vtable = IUserDataTaskListSyncManagerSyncRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2393709586, 30350, 17341, [131, 133, 92, 220, 53, 31, 253, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ead1c12_768e_43bd_8385_5cdc351ffdea);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskListSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequestEventArgs";

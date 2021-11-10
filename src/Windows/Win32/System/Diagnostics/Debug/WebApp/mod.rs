@@ -11,7 +11,7 @@ impl IWebApplicationActivation {
 }
 unsafe impl ::windows::runtime::Interface for IWebApplicationActivation {
     type Vtable = IWebApplicationActivation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3168587998, 13070, 18459, [184, 67, 72, 152, 166, 168, 235, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbcdcd0de_330e_481b_b843_4898a6a8ebac);
 }
 impl ::core::convert::From<IWebApplicationActivation> for ::windows::runtime::IUnknown {
     fn from(value: IWebApplicationActivation) -> Self {
@@ -59,7 +59,7 @@ impl IWebApplicationAuthoringMode {
 }
 unsafe impl ::windows::runtime::Interface for IWebApplicationAuthoringMode {
     type Vtable = IWebApplicationAuthoringMode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1913318035, 6500, 19888, [176, 5, 41, 235, 158, 43, 24, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x720aea93_1964_4db0_b005_29eb9e2b18a9);
 }
 impl ::core::convert::From<IWebApplicationAuthoringMode> for ::windows::runtime::IUnknown {
     fn from(value: IWebApplicationAuthoringMode) -> Self {
@@ -146,7 +146,7 @@ impl IWebApplicationHost {
 }
 unsafe impl ::windows::runtime::Interface for IWebApplicationHost {
     type Vtable = IWebApplicationHost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3469464259, 41893, 18249, [150, 129, 32, 233, 22, 28, 103, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcecbd2c3_a3a5_4749_9681_20e9161c6794);
 }
 impl ::core::convert::From<IWebApplicationHost> for ::windows::runtime::IUnknown {
     fn from(value: IWebApplicationHost) -> Self {
@@ -218,7 +218,7 @@ impl IWebApplicationNavigationEvents {
 }
 unsafe impl ::windows::runtime::Interface for IWebApplicationNavigationEvents {
     type Vtable = IWebApplicationNavigationEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3257275858, 54040, 19874, [132, 34, 31, 202, 247, 123, 16, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc22615d2_d318_4da2_8422_1fcaf77b10e4);
 }
 impl ::core::convert::From<IWebApplicationNavigationEvents> for ::windows::runtime::IUnknown {
     fn from(value: IWebApplicationNavigationEvents) -> Self {
@@ -275,7 +275,7 @@ impl IWebApplicationScriptEvents {
 }
 unsafe impl ::windows::runtime::Interface for IWebApplicationScriptEvents {
     type Vtable = IWebApplicationScriptEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2084530584, 5479, 19386, [181, 43, 72, 211, 33, 65, 214, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c3f6998_1567_4bba_b52b_48d32141d613);
 }
 impl ::core::convert::From<IWebApplicationScriptEvents> for ::windows::runtime::IUnknown {
     fn from(value: IWebApplicationScriptEvents) -> Self {
@@ -320,7 +320,7 @@ impl IWebApplicationUIEvents {
 }
 unsafe impl ::windows::runtime::Interface for IWebApplicationUIEvents {
     type Vtable = IWebApplicationUIEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1529560985, 12940, 16853, [166, 247, 116, 131, 237, 142, 113, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b2b3f99_328c_41d5_a6f7_7483ed8e71dd);
 }
 impl ::core::convert::From<IWebApplicationUIEvents> for ::windows::runtime::IUnknown {
     fn from(value: IWebApplicationUIEvents) -> Self {
@@ -366,7 +366,7 @@ impl IWebApplicationUpdateEvents {
 }
 unsafe impl ::windows::runtime::Interface for IWebApplicationUpdateEvents {
     type Vtable = IWebApplicationUpdateEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1046079159, 50770, 19887, [173, 94, 22, 254, 179, 80, 205, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e59e6b7_c652_4daf_ad5e_16feb350cde3);
 }
 impl ::core::convert::From<IWebApplicationUpdateEvents> for ::windows::runtime::IUnknown {
     fn from(value: IWebApplicationUpdateEvents) -> Self {

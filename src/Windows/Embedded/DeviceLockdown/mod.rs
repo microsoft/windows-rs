@@ -62,7 +62,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceLockdownProfileInformation
 }
 unsafe impl ::windows::runtime::Interface for DeviceLockdownProfileInformation {
     type Vtable = IDeviceLockdownProfileInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2038489422, 17841, 19094, [146, 252, 98, 117, 107, 115, 150, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7980e14e_45b1_4a96_92fc_62756b739678);
 }
 impl ::windows::runtime::RuntimeName for DeviceLockdownProfileInformation {
     const NAME: &'static str = "Windows.Embedded.DeviceLockdown.DeviceLockdownProfileInformation";
@@ -114,7 +114,7 @@ unsafe impl ::core::marker::Sync for DeviceLockdownProfileInformation {}
 pub struct IDeviceLockdownProfileInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceLockdownProfileInformation {
     type Vtable = IDeviceLockdownProfileInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2038489422, 17841, 19094, [146, 252, 98, 117, 107, 115, 150, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7980e14e_45b1_4a96_92fc_62756b739678);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -132,7 +132,7 @@ pub struct IDeviceLockdownProfileInformation_abi(
 pub struct IDeviceLockdownProfileStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceLockdownProfileStatics {
     type Vtable = IDeviceLockdownProfileStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1647274341, 63912, 16801, [166, 145, 136, 205, 128, 199, 160, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x622f6965_f9a8_41a1_a691_88cd80c7a069);
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -5514,8 +5514,8 @@ pub const D3D_SPEC_DATE_MONTH: u32 = 8u32;
 pub const D3D_SPEC_DATE_YEAR: u32 = 2006u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D_SPEC_VERSION: f64 = 1.050005f64;
-pub const DXGI_DEBUG_D3D10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(607865938, 13830, 19770, [153, 215, 167, 231, 179, 62, 215, 6]);
-pub const GUID_DeviceType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3609393997, 31336, 17274, [178, 12, 88, 4, 238, 36, 148, 166]);
+pub const DXGI_DEBUG_D3D10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x243b4c52_3606_4d3a_99d7_a7e7b33ed706);
+pub const GUID_DeviceType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd722fb4d_7a68_437a_b20c_5804ee2494a6);
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -5556,7 +5556,7 @@ impl ID3D10Asynchronous {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10Asynchronous {
     type Vtable = ID3D10Asynchronous_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745485, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4c0d_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10Asynchronous> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10Asynchronous) -> Self {
@@ -5642,7 +5642,7 @@ impl ID3D10BlendState {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10BlendState {
     type Vtable = ID3D10BlendState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3987574041, 35381, 19821, [133, 102, 46, 162, 118, 205, 225, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xedad8d19_8a35_4d6d_8566_2ea276cde161);
 }
 impl ::core::convert::From<ID3D10BlendState> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10BlendState) -> Self {
@@ -5731,7 +5731,7 @@ impl ID3D10BlendState1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10BlendState1 {
     type Vtable = ID3D10BlendState1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3987574169, 35381, 19821, [133, 102, 46, 162, 118, 205, 225, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xedad8d99_8a35_4d6d_8566_2ea276cde161);
 }
 impl ::core::convert::From<ID3D10BlendState1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10BlendState1) -> Self {
@@ -5856,7 +5856,7 @@ impl ID3D10Buffer {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10Buffer {
     type Vtable = ID3D10Buffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745474, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4c02_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10Buffer> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10Buffer) -> Self {
@@ -5979,7 +5979,7 @@ impl ID3D10Counter {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10Counter {
     type Vtable = ID3D10Counter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745489, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4c11_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10Counter> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10Counter) -> Self {
@@ -6096,7 +6096,7 @@ impl ID3D10Debug {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10Debug {
     type Vtable = ID3D10Debug_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745985, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4e01_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10Debug> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10Debug) -> Self {
@@ -6163,7 +6163,7 @@ impl ID3D10DepthStencilState {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10DepthStencilState {
     type Vtable = ID3D10DepthStencilState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(726342856, 42157, 16888, [131, 34, 202, 134, 252, 62, 198, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b4b1cc8_a4ad_41f8_8322_ca86fc3ec675);
 }
 impl ::core::convert::From<ID3D10DepthStencilState> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10DepthStencilState) -> Self {
@@ -6251,7 +6251,7 @@ impl ID3D10DepthStencilView {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10DepthStencilView {
     type Vtable = ID3D10DepthStencilView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745481, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4c09_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10DepthStencilView> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10DepthStencilView) -> Self {
@@ -6789,7 +6789,7 @@ impl ID3D10Device {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10Device {
     type Vtable = ID3D10Device_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745487, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4c0f_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10Device> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10Device) -> Self {
@@ -7415,7 +7415,7 @@ impl ID3D10Device1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10Device1 {
     type Vtable = ID3D10Device1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745615, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4c8f_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10Device1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10Device1) -> Self {
@@ -7612,7 +7612,7 @@ impl ID3D10DeviceChild {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10DeviceChild {
     type Vtable = ID3D10DeviceChild_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745472, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4c00_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10DeviceChild> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10DeviceChild) -> Self {
@@ -7715,7 +7715,7 @@ impl ID3D10Effect {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10Effect {
     type Vtable = ID3D10Effect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1370540683, 60427, 17689, [135, 13, 142, 225, 203, 80, 23, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51b0ca8b_ec0b_4519_870d_8ee1cb5017c7);
 }
 impl ::core::convert::From<ID3D10Effect> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10Effect) -> Self {
@@ -7889,7 +7889,7 @@ impl ID3D10EffectBlendVariable {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10EffectBlendVariable {
     type Vtable = ID3D10EffectBlendVariable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(533537428, 57197, 20142, [134, 179, 14, 145, 96, 207, 176, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1fcd2294_df6d_4eae_86b3_0e9160cfb07b);
 }
 impl ::core::convert::From<ID3D10EffectBlendVariable> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10EffectBlendVariable) -> Self {
@@ -8103,7 +8103,7 @@ impl ID3D10EffectConstantBuffer {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10EffectConstantBuffer {
     type Vtable = ID3D10EffectConstantBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1449430861, 52363, 17476, [165, 173, 181, 163, 215, 110, 145, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56648f4d_cc8b_4444_a5ad_b5a3d76e91b3);
 }
 impl ::core::convert::From<ID3D10EffectConstantBuffer> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10EffectConstantBuffer) -> Self {
@@ -8311,7 +8311,7 @@ impl ID3D10EffectDepthStencilVariable {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10EffectDepthStencilVariable {
     type Vtable = ID3D10EffectDepthStencilVariable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2940740456, 13066, 18085, [154, 92, 1, 199, 26, 242, 76, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf482368_330a_46a5_9a5c_01c71af24c8d);
 }
 impl ::core::convert::From<ID3D10EffectDepthStencilVariable> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10EffectDepthStencilVariable) -> Self {
@@ -8524,7 +8524,7 @@ impl ID3D10EffectDepthStencilViewVariable {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10EffectDepthStencilViewVariable {
     type Vtable = ID3D10EffectDepthStencilViewVariable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1040369944, 52345, 18821, [182, 34, 45, 146, 173, 112, 22, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e02c918_cc79_4985_b622_2d92ad701623);
 }
 impl ::core::convert::From<ID3D10EffectDepthStencilViewVariable> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10EffectDepthStencilViewVariable) -> Self {
@@ -8753,7 +8753,7 @@ impl ID3D10EffectMatrixVariable {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10EffectMatrixVariable {
     type Vtable = ID3D10EffectMatrixVariable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1348889636, 47151, 20205, [161, 114, 91, 110, 126, 133, 34, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50666c24_b82f_4eed_a172_5b6e7e8522e0);
 }
 impl ::core::convert::From<ID3D10EffectMatrixVariable> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10EffectMatrixVariable) -> Self {
@@ -8888,7 +8888,7 @@ impl ID3D10EffectPass {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10EffectPass {
     type Vtable = ID3D10EffectPass_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1560013705, 6662, 18144, [178, 130, 227, 249, 191, 163, 106, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5cfbeb89_1a06_46e0_b282_e3f9bfa36a54);
 }
 impl ::core::convert::From<ID3D10EffectPass> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10EffectPass) -> Self {
@@ -8941,7 +8941,7 @@ impl ID3D10EffectPool {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10EffectPool {
     type Vtable = ID3D10EffectPool_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2503453444, 12880, 16686, [130, 19, 252, 210, 248, 103, 121, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9537ab04_3250_412e_8213_fcd2f8677933);
 }
 impl ::core::convert::From<ID3D10EffectPool> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10EffectPool) -> Self {
@@ -9096,7 +9096,7 @@ impl ID3D10EffectRasterizerVariable {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10EffectRasterizerVariable {
     type Vtable = ID3D10EffectRasterizerVariable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(565157646, 19860, 20137, [151, 133, 44, 183, 107, 140, 11, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x21af9f0e_4d94_4ea9_9785_2cb76b8c0b34);
 }
 impl ::core::convert::From<ID3D10EffectRasterizerVariable> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10EffectRasterizerVariable) -> Self {
@@ -9309,7 +9309,7 @@ impl ID3D10EffectRenderTargetViewVariable {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10EffectRenderTargetViewVariable {
     type Vtable = ID3D10EffectRenderTargetViewVariable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(684330179, 49865, 16571, [181, 127, 103, 183, 55, 18, 43, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28ca0cc3_c2c9_40bb_b57f_67b737122b17);
 }
 impl ::core::convert::From<ID3D10EffectRenderTargetViewVariable> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10EffectRenderTargetViewVariable) -> Self {
@@ -9516,7 +9516,7 @@ impl ID3D10EffectSamplerVariable {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10EffectSamplerVariable {
     type Vtable = ID3D10EffectSamplerVariable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1697699271, 2025, 17009, [164, 24, 231, 206, 75, 209, 228, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6530d5c7_07e9_4271_a418_e7ce4bd1e480);
 }
 impl ::core::convert::From<ID3D10EffectSamplerVariable> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10EffectSamplerVariable) -> Self {
@@ -9766,7 +9766,7 @@ impl ID3D10EffectScalarVariable {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10EffectScalarVariable {
     type Vtable = ID3D10EffectScalarVariable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(14978939, 53960, 18920, [168, 108, 2, 45, 238, 83, 67, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00e48f7b_d2c8_49e8_a86c_022dee53431f);
 }
 impl ::core::convert::From<ID3D10EffectScalarVariable> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10EffectScalarVariable) -> Self {
@@ -9992,7 +9992,7 @@ impl ID3D10EffectShaderResourceVariable {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10EffectShaderResourceVariable {
     type Vtable = ID3D10EffectShaderResourceVariable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3232175483, 55410, 19229, [128, 115, 239, 194, 172, 212, 177, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0a7157b_d872_4b1d_8073_efc2acd4b1fc);
 }
 impl ::core::convert::From<ID3D10EffectShaderResourceVariable> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10EffectShaderResourceVariable) -> Self {
@@ -10222,7 +10222,7 @@ impl ID3D10EffectShaderVariable {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10EffectShaderVariable {
     type Vtable = ID3D10EffectShaderVariable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2156171897, 51097, 18327, [140, 51, 4, 7, 160, 125, 158, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80849279_c799_4797_8c33_0407a07d9e06);
 }
 impl ::core::convert::From<ID3D10EffectShaderVariable> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10EffectShaderVariable) -> Self {
@@ -10435,7 +10435,7 @@ impl ID3D10EffectStringVariable {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10EffectStringVariable {
     type Vtable = ID3D10EffectStringVariable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1900115201, 36345, 19978, [167, 138, 37, 95, 151, 86, 186, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71417501_8df9_4e0a_a78a_255f9756baff);
 }
 impl ::core::convert::From<ID3D10EffectStringVariable> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10EffectStringVariable) -> Self {
@@ -10559,7 +10559,7 @@ impl ID3D10EffectTechnique {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10EffectTechnique {
     type Vtable = ID3D10EffectTechnique_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3675401448, 53705, 17042, [178, 55, 36, 237, 61, 232, 177, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb122ce8_d1c9_4292_b237_24ed3de8b175);
 }
 impl ::core::convert::From<ID3D10EffectTechnique> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10EffectTechnique) -> Self {
@@ -10641,7 +10641,7 @@ impl ID3D10EffectType {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10EffectType {
     type Vtable = ID3D10EffectType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1318985180, 52637, 18290, [168, 55, 0, 24, 11, 155, 136, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e9e1ddc_cd9d_4772_a837_00180b9b88fd);
 }
 impl ::core::convert::From<ID3D10EffectType> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10EffectType) -> Self {
@@ -10797,7 +10797,7 @@ impl ID3D10EffectVariable {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10EffectVariable {
     type Vtable = ID3D10EffectVariable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2928242949, 230, 17855, [187, 142, 40, 29, 214, 219, 142, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae897105_00e6_45bf_bb8e_281dd6db8e1b);
 }
 impl ::core::convert::From<ID3D10EffectVariable> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10EffectVariable) -> Self {
@@ -11022,7 +11022,7 @@ impl ID3D10EffectVectorVariable {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10EffectVectorVariable {
     type Vtable = ID3D10EffectVectorVariable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1656327236, 8066, 19559, [188, 208, 114, 207, 143, 33, 126, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62b98c44_1f82_4c67_bcd0_72cf8f217e81);
 }
 impl ::core::convert::From<ID3D10EffectVectorVariable> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10EffectVectorVariable) -> Self {
@@ -11141,7 +11141,7 @@ impl ID3D10GeometryShader {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10GeometryShader {
     type Vtable = ID3D10GeometryShader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1662434952, 21709, 16448, [171, 68, 32, 70, 27, 200, 31, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6316be88_54cd_4040_ab44_20461bc81f68);
 }
 impl ::core::convert::From<ID3D10GeometryShader> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10GeometryShader) -> Self {
@@ -11352,7 +11352,7 @@ impl ID3D10InfoQueue {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10InfoQueue {
     type Vtable = ID3D10InfoQueue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(462686999, 9794, 19743, [171, 31, 185, 155, 173, 12, 57, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b940b17_2642_4d1f_ab1f_b99bad0c395f);
 }
 impl ::core::convert::From<ID3D10InfoQueue> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10InfoQueue) -> Self {
@@ -11450,7 +11450,7 @@ impl ID3D10InputLayout {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10InputLayout {
     type Vtable = ID3D10InputLayout_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745483, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4c0b_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10InputLayout> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10InputLayout) -> Self {
@@ -11529,7 +11529,7 @@ impl ID3D10Multithread {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10Multithread {
     type Vtable = ID3D10Multithread_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745984, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4e00_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10Multithread> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10Multithread) -> Self {
@@ -11588,7 +11588,7 @@ impl ID3D10PixelShader {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10PixelShader {
     type Vtable = ID3D10PixelShader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1231599105, 40192, 19678, [131, 70, 142, 127, 103, 88, 25, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4968b601_9d00_4cde_8346_8e7f675819b6);
 }
 impl ::core::convert::From<ID3D10PixelShader> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10PixelShader) -> Self {
@@ -11685,7 +11685,7 @@ impl ID3D10Predicate {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10Predicate {
     type Vtable = ID3D10Predicate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745488, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4c10_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10Predicate> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10Predicate) -> Self {
@@ -11827,7 +11827,7 @@ impl ID3D10Query {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10Query {
     type Vtable = ID3D10Query_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745486, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4c0e_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10Query> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10Query) -> Self {
@@ -11934,7 +11934,7 @@ impl ID3D10RasterizerState {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10RasterizerState {
     type Vtable = ID3D10RasterizerState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2728424082, 35247, 17221, [190, 46, 197, 61, 159, 187, 110, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2a07292_89af_4345_be2e_c53d9fbb6e9f);
 }
 impl ::core::convert::From<ID3D10RasterizerState> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10RasterizerState) -> Self {
@@ -12022,7 +12022,7 @@ impl ID3D10RenderTargetView {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10RenderTargetView {
     type Vtable = ID3D10RenderTargetView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745480, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4c08_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10RenderTargetView> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10RenderTargetView) -> Self {
@@ -12134,7 +12134,7 @@ impl ID3D10Resource {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10Resource {
     type Vtable = ID3D10Resource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745473, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4c01_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10Resource> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10Resource) -> Self {
@@ -12218,7 +12218,7 @@ impl ID3D10SamplerState {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10SamplerState {
     type Vtable = ID3D10SamplerState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745484, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4c0c_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10SamplerState> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10SamplerState) -> Self {
@@ -12313,7 +12313,7 @@ impl ID3D10ShaderReflection {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10ShaderReflection {
     type Vtable = ID3D10ShaderReflection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3557695670, 63735, 17069, [171, 32, 75, 175, 143, 21, 223, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd40e20b6_f8f7_42ad_ab20_4baf8f15dfaa);
 }
 impl ::core::convert::From<ID3D10ShaderReflection> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10ShaderReflection) -> Self {
@@ -12443,7 +12443,7 @@ impl ID3D10ShaderReflection1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10ShaderReflection1 {
     type Vtable = ID3D10ShaderReflection1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3276109699, 43078, 18382, [149, 32, 206, 166, 246, 110, 116, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3457783_a846_47ce_9520_cea6f66e7447);
 }
 impl ::core::convert::From<ID3D10ShaderReflection1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10ShaderReflection1) -> Self {
@@ -12520,7 +12520,7 @@ impl ID3D10ShaderReflectionConstantBuffer {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10ShaderReflectionConstantBuffer {
     type Vtable = ID3D10ShaderReflectionConstantBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1724279444, 56797, 19298, [166, 106, 240, 218, 51, 194, 180, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66c66a94_dddd_4b62_a66a_f0da33c2b4d0);
 }
 impl ::core::convert::From<ID3D10ShaderReflectionConstantBuffer> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10ShaderReflectionConstantBuffer) -> Self {
@@ -12581,7 +12581,7 @@ impl ID3D10ShaderReflectionType {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10ShaderReflectionType {
     type Vtable = ID3D10ShaderReflectionType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3308301693, 39702, 17301, [169, 121, 186, 46, 207, 248, 58, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc530ad7d_9b16_4395_a979_ba2ecff83add);
 }
 impl ::core::convert::From<ID3D10ShaderReflectionType> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10ShaderReflectionType) -> Self {
@@ -12635,7 +12635,7 @@ impl ID3D10ShaderReflectionVariable {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10ShaderReflectionVariable {
     type Vtable = ID3D10ShaderReflectionVariable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(469122197, 9808, 16477, [153, 193, 54, 54, 189, 29, 160, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bf63c95_2650_405d_99c1_3636bd1da0a1);
 }
 impl ::core::convert::From<ID3D10ShaderReflectionVariable> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10ShaderReflectionVariable) -> Self {
@@ -12700,7 +12700,7 @@ impl ID3D10ShaderResourceView {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10ShaderResourceView {
     type Vtable = ID3D10ShaderResourceView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745479, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4c07_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10ShaderResourceView> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10ShaderResourceView) -> Self {
@@ -12814,7 +12814,7 @@ impl ID3D10ShaderResourceView1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10ShaderResourceView1 {
     type Vtable = ID3D10ShaderResourceView1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745607, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4c87_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10ShaderResourceView1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10ShaderResourceView1) -> Self {
@@ -12937,7 +12937,7 @@ impl ID3D10StateBlock {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10StateBlock {
     type Vtable = ID3D10StateBlock_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(134431322, 22517, 19926, [148, 101, 168, 117, 112, 131, 74, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0803425a_57f5_4dd6_9465_a87570834a08);
 }
 impl ::core::convert::From<ID3D10StateBlock> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10StateBlock) -> Self {
@@ -12988,7 +12988,7 @@ impl ID3D10SwitchToRef {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10SwitchToRef {
     type Vtable = ID3D10SwitchToRef_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745986, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4e02_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10SwitchToRef> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10SwitchToRef) -> Self {
@@ -13070,7 +13070,7 @@ impl ID3D10Texture1D {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10Texture1D {
     type Vtable = ID3D10Texture1D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745475, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4c03_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10Texture1D> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10Texture1D) -> Self {
@@ -13200,7 +13200,7 @@ impl ID3D10Texture2D {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10Texture2D {
     type Vtable = ID3D10Texture2D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745476, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4c04_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10Texture2D> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10Texture2D) -> Self {
@@ -13330,7 +13330,7 @@ impl ID3D10Texture3D {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10Texture3D {
     type Vtable = ID3D10Texture3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745477, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4c05_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10Texture3D> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10Texture3D) -> Self {
@@ -13434,7 +13434,7 @@ impl ID3D10VertexShader {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10VertexShader {
     type Vtable = ID3D10VertexShader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745482, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4c0a_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D10VertexShader> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10VertexShader) -> Self {
@@ -13515,7 +13515,7 @@ impl ID3D10View {
 }
 unsafe impl ::windows::runtime::Interface for ID3D10View {
     type Vtable = ID3D10View_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3372396607, 24743, 18874, [153, 54, 42, 58, 179, 122, 126, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc902b03f_60a7_49ba_9936_2a3ab37a7e33);
 }
 impl ::core::convert::From<ID3D10View> for ::windows::runtime::IUnknown {
     fn from(value: ID3D10View) -> Self {

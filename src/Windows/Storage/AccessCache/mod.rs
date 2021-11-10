@@ -270,7 +270,7 @@ impl ::core::iter::IntoIterator for &AccessListEntryView {
 pub struct IItemRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IItemRemovedEventArgs {
     type Vtable = IItemRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1499954780, 21950, 19558, [186, 102, 94, 174, 167, 157, 38, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59677e5c_55be_4c66_ba66_5eaea79d2631);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -288,7 +288,7 @@ pub struct IItemRemovedEventArgs_abi(
 pub struct IStorageApplicationPermissionsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageApplicationPermissionsStatics {
     type Vtable = IStorageApplicationPermissionsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1133633450, 53299, 18681, [128, 96, 62, 200, 71, 210, 227, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4391dfaa_d033_48f9_8060_3ec847d2e3f1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -307,7 +307,7 @@ pub struct IStorageApplicationPermissionsStatics_abi(
 pub struct IStorageApplicationPermissionsStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageApplicationPermissionsStatics2 {
     type Vtable = IStorageApplicationPermissionsStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(120002284, 43525, 17044, [154, 17, 26, 61, 4, 81, 154, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x072716ec_aa05_4294_9a11_1a3d04519ad0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -329,7 +329,7 @@ pub struct IStorageApplicationPermissionsStatics2_abi(
 pub struct IStorageItemAccessList(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageItemAccessList {
     type Vtable = IStorageItemAccessList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(749729453, 56976, 18421, [178, 195, 221, 54, 201, 253, 212, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2caff6ad_de90_47f5_b2c3_dd36c9fdd453);
 }
 impl IStorageItemAccessList {
     #[doc = "*Required features: `Storage_AccessCache`*"]
@@ -537,7 +537,7 @@ pub struct IStorageItemAccessList_abi(
 pub struct IStorageItemMostRecentlyUsedList(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageItemMostRecentlyUsedList {
     type Vtable = IStorageItemMostRecentlyUsedList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(23214549, 20749, 16670, [140, 241, 195, 209, 239, 250, 76, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x016239d5_510d_411e_8cf1_c3d1effa4c33);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -558,7 +558,7 @@ pub struct IStorageItemMostRecentlyUsedList_abi(
 pub struct IStorageItemMostRecentlyUsedList2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageItemMostRecentlyUsedList2 {
     type Vtable = IStorageItemMostRecentlyUsedList2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3662159520, 60813, 18225, [161, 219, 228, 78, 226, 32, 64, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda481ea0_ed8d_4731_a1db_e44ee2204093);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -591,7 +591,7 @@ unsafe impl ::windows::runtime::RuntimeType for ItemRemovedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ItemRemovedEventArgs {
     type Vtable = IItemRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1499954780, 21950, 19558, [186, 102, 94, 174, 167, 157, 38, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59677e5c_55be_4c66_ba66_5eaea79d2631);
 }
 impl ::windows::runtime::RuntimeName for ItemRemovedEventArgs {
     const NAME: &'static str = "Windows.Storage.AccessCache.ItemRemovedEventArgs";
@@ -837,7 +837,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageItemAccessList {
 }
 unsafe impl ::windows::runtime::Interface for StorageItemAccessList {
     type Vtable = IStorageItemAccessList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(749729453, 56976, 18421, [178, 195, 221, 54, 201, 253, 212, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2caff6ad_de90_47f5_b2c3_dd36c9fdd453);
 }
 impl ::windows::runtime::RuntimeName for StorageItemAccessList {
     const NAME: &'static str = "Windows.Storage.AccessCache.StorageItemAccessList";
@@ -1064,7 +1064,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageItemMostRecentlyUsedList 
 }
 unsafe impl ::windows::runtime::Interface for StorageItemMostRecentlyUsedList {
     type Vtable = IStorageItemMostRecentlyUsedList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(23214549, 20749, 16670, [140, 241, 195, 209, 239, 250, 76, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x016239d5_510d_411e_8cf1_c3d1effa4c33);
 }
 impl ::windows::runtime::RuntimeName for StorageItemMostRecentlyUsedList {
     const NAME: &'static str = "Windows.Storage.AccessCache.StorageItemMostRecentlyUsedList";

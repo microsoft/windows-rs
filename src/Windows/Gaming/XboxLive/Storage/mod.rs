@@ -27,7 +27,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameSaveBlobGetResult {
 }
 unsafe impl ::windows::runtime::Interface for GameSaveBlobGetResult {
     type Vtable = IGameSaveBlobGetResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2440200672, 29185, 18771, [170, 44, 64, 8, 240, 58, 239, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x917281e0_7201_4953_aa2c_4008f03aef45);
 }
 impl ::windows::runtime::RuntimeName for GameSaveBlobGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobGetResult";
@@ -101,7 +101,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameSaveBlobInfo {
 }
 unsafe impl ::windows::runtime::Interface for GameSaveBlobInfo {
     type Vtable = IGameSaveBlobInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2916319284, 47856, 17989, [182, 208, 70, 237, 175, 251, 60, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xadd38034_baf0_4645_b6d0_46edaffb3c2b);
 }
 impl ::windows::runtime::RuntimeName for GameSaveBlobInfo {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfo";
@@ -176,7 +176,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameSaveBlobInfoGetResult {
 }
 unsafe impl ::windows::runtime::Interface for GameSaveBlobInfoGetResult {
     type Vtable = IGameSaveBlobInfoGetResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3344401794, 13975, 17087, [152, 156, 102, 93, 146, 59, 82, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7578582_3697_42bf_989c_665d923b5231);
 }
 impl ::windows::runtime::RuntimeName for GameSaveBlobInfoGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoGetResult";
@@ -261,7 +261,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameSaveBlobInfoQuery {
 }
 unsafe impl ::windows::runtime::Interface for GameSaveBlobInfoQuery {
     type Vtable = IGameSaveBlobInfoQuery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2682090674, 61166, 17531, [169, 210, 127, 150, 192, 248, 50, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fdd74b2_eeee_447b_a9d2_7f96c0f83208);
 }
 impl ::windows::runtime::RuntimeName for GameSaveBlobInfoQuery {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoQuery";
@@ -389,7 +389,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameSaveContainer {
 }
 unsafe impl ::windows::runtime::Interface for GameSaveContainer {
     type Vtable = IGameSaveContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3284176777, 22079, 20173, [156, 111, 51, 253, 14, 50, 61, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3c08f89_563f_4ecd_9c6f_33fd0e323d10);
 }
 impl ::windows::runtime::RuntimeName for GameSaveContainer {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainer";
@@ -488,7 +488,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameSaveContainerInfo {
 }
 unsafe impl ::windows::runtime::Interface for GameSaveContainerInfo {
     type Vtable = IGameSaveContainerInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085071104, 5469, 19380, [178, 186, 147, 3, 6, 243, 145, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7e27300_155d_4bb4_b2ba_930306f391b5);
 }
 impl ::windows::runtime::RuntimeName for GameSaveContainerInfo {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfo";
@@ -563,7 +563,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameSaveContainerInfoGetResult {
 }
 unsafe impl ::windows::runtime::Interface for GameSaveContainerInfoGetResult {
     type Vtable = IGameSaveContainerInfoGetResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4291104116, 50561, 20381, [158, 57, 48, 161, 12, 30, 76, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffc50d74_c581_4f9d_9e39_30a10c1e4c50);
 }
 impl ::windows::runtime::RuntimeName for GameSaveContainerInfoGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoGetResult";
@@ -648,7 +648,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameSaveContainerInfoQuery {
 }
 unsafe impl ::windows::runtime::Interface for GameSaveContainerInfoQuery {
     type Vtable = IGameSaveContainerInfoQuery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1016391779, 28544, 17191, [147, 39, 255, 193, 26, 253, 66, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c94e863_6f80_4327_9327_ffc11afd42b3);
 }
 impl ::windows::runtime::RuntimeName for GameSaveContainerInfoQuery {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoQuery";
@@ -749,7 +749,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameSaveOperationResult {
 }
 unsafe impl ::windows::runtime::Interface for GameSaveOperationResult {
     type Vtable = IGameSaveOperationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3473873413, 9376, 17794, [154, 85, 177, 187, 187, 147, 136, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf0f1a05_24a0_4582_9a55_b1bbbb9388d8);
 }
 impl ::windows::runtime::RuntimeName for GameSaveOperationResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveOperationResult";
@@ -887,7 +887,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameSaveProvider {
 }
 unsafe impl ::windows::runtime::Interface for GameSaveProvider {
     type Vtable = IGameSaveProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2426798996, 33022, 16913, [151, 248, 165, 222, 20, 221, 149, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90a60394_80fe_4211_97f8_a5de14dd95d2);
 }
 impl ::windows::runtime::RuntimeName for GameSaveProvider {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveProvider";
@@ -961,7 +961,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameSaveProviderGetResult {
 }
 unsafe impl ::windows::runtime::Interface for GameSaveProviderGetResult {
     type Vtable = IGameSaveProviderGetResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(985204758, 54163, 19813, [172, 22, 65, 195, 230, 122, 185, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ab90816_d393_4d65_ac16_41c3e67ab945);
 }
 impl ::windows::runtime::RuntimeName for GameSaveProviderGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveProviderGetResult";
@@ -1013,7 +1013,7 @@ unsafe impl ::core::marker::Sync for GameSaveProviderGetResult {}
 pub struct IGameSaveBlobGetResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveBlobGetResult {
     type Vtable = IGameSaveBlobGetResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2440200672, 29185, 18771, [170, 44, 64, 8, 240, 58, 239, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x917281e0_7201_4953_aa2c_4008f03aef45);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1033,7 +1033,7 @@ pub struct IGameSaveBlobGetResult_abi(
 pub struct IGameSaveBlobInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveBlobInfo {
     type Vtable = IGameSaveBlobInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2916319284, 47856, 17989, [182, 208, 70, 237, 175, 251, 60, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xadd38034_baf0_4645_b6d0_46edaffb3c2b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1052,7 +1052,7 @@ pub struct IGameSaveBlobInfo_abi(
 pub struct IGameSaveBlobInfoGetResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveBlobInfoGetResult {
     type Vtable = IGameSaveBlobInfoGetResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3344401794, 13975, 17087, [152, 156, 102, 93, 146, 59, 82, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7578582_3697_42bf_989c_665d923b5231);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1072,7 +1072,7 @@ pub struct IGameSaveBlobInfoGetResult_abi(
 pub struct IGameSaveBlobInfoQuery(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveBlobInfoQuery {
     type Vtable = IGameSaveBlobInfoQuery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2682090674, 61166, 17531, [169, 210, 127, 150, 192, 248, 50, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fdd74b2_eeee_447b_a9d2_7f96c0f83208);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1095,7 +1095,7 @@ pub struct IGameSaveBlobInfoQuery_abi(
 pub struct IGameSaveContainer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveContainer {
     type Vtable = IGameSaveContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3284176777, 22079, 20173, [156, 111, 51, 253, 14, 50, 61, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3c08f89_563f_4ecd_9c6f_33fd0e323d10);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1123,7 +1123,7 @@ pub struct IGameSaveContainer_abi(
 pub struct IGameSaveContainerInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveContainerInfo {
     type Vtable = IGameSaveContainerInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085071104, 5469, 19380, [178, 186, 147, 3, 6, 243, 145, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7e27300_155d_4bb4_b2ba_930306f391b5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1146,7 +1146,7 @@ pub struct IGameSaveContainerInfo_abi(
 pub struct IGameSaveContainerInfoGetResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveContainerInfoGetResult {
     type Vtable = IGameSaveContainerInfoGetResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4291104116, 50561, 20381, [158, 57, 48, 161, 12, 30, 76, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffc50d74_c581_4f9d_9e39_30a10c1e4c50);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1166,7 +1166,7 @@ pub struct IGameSaveContainerInfoGetResult_abi(
 pub struct IGameSaveContainerInfoQuery(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveContainerInfoQuery {
     type Vtable = IGameSaveContainerInfoQuery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1016391779, 28544, 17191, [147, 39, 255, 193, 26, 253, 66, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c94e863_6f80_4327_9327_ffc11afd42b3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1189,7 +1189,7 @@ pub struct IGameSaveContainerInfoQuery_abi(
 pub struct IGameSaveOperationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveOperationResult {
     type Vtable = IGameSaveOperationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3473873413, 9376, 17794, [154, 85, 177, 187, 187, 147, 136, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf0f1a05_24a0_4582_9a55_b1bbbb9388d8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1207,7 +1207,7 @@ pub struct IGameSaveOperationResult_abi(
 pub struct IGameSaveProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveProvider {
     type Vtable = IGameSaveProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2426798996, 33022, 16913, [151, 248, 165, 222, 20, 221, 149, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90a60394_80fe_4211_97f8_a5de14dd95d2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1235,7 +1235,7 @@ pub struct IGameSaveProvider_abi(
 pub struct IGameSaveProviderGetResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveProviderGetResult {
     type Vtable = IGameSaveProviderGetResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(985204758, 54163, 19813, [172, 22, 65, 195, 230, 122, 185, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ab90816_d393_4d65_ac16_41c3e67ab945);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1254,7 +1254,7 @@ pub struct IGameSaveProviderGetResult_abi(
 pub struct IGameSaveProviderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveProviderStatics {
     type Vtable = IGameSaveProviderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3491577552, 31491, 17565, [140, 189, 52, 2, 132, 42, 16, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd01d3ed0_7b03_449d_8cbd_3402842a1048);
 }
 #[repr(C)]
 #[doc(hidden)]

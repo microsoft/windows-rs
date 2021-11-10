@@ -4,7 +4,7 @@
 pub struct IMessageDialog(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageDialog {
     type Vtable = IMessageDialog_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(871734017, 21285, 17323, [154, 179, 189, 174, 68, 14, 65, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33f59b01_5325_43ab_9ab3_bdae440e4121);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -35,7 +35,7 @@ pub struct IMessageDialog_abi(
 pub struct IMessageDialogFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageDialogFactory {
     type Vtable = IMessageDialogFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(756422519, 42607, 20133, [187, 135, 121, 63, 250, 73, 65, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d161777_a66f_4ea5_bb87_793ffa4941f2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -54,7 +54,7 @@ pub struct IMessageDialogFactory_abi(
 pub struct IPopupMenu(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPopupMenu {
     type Vtable = IPopupMenu_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1318831836, 34829, 18428, [160, 161, 114, 182, 57, 230, 37, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e9bc6dc_880d_47fc_a0a1_72b639e62559);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -80,7 +80,7 @@ pub struct IPopupMenu_abi(
 pub struct IUICommand(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUICommand {
     type Vtable = IUICommand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1341733493, 16709, 18431, [172, 127, 223, 241, 193, 250, 91, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f);
 }
 impl IUICommand {
     #[doc = "*Required features: `UI_Popups`*"]
@@ -187,7 +187,7 @@ pub struct IUICommand_abi(
 pub struct IUICommandFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUICommandFactory {
     type Vtable = IUICommandFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2719646089, 9904, 18038, [174, 148, 84, 4, 27, 193, 37, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa21a8189_26b0_4676_ae94_54041bc125e8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -314,7 +314,7 @@ unsafe impl ::windows::runtime::RuntimeType for MessageDialog {
 }
 unsafe impl ::windows::runtime::Interface for MessageDialog {
     type Vtable = IMessageDialog_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(871734017, 21285, 17323, [154, 179, 189, 174, 68, 14, 65, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33f59b01_5325_43ab_9ab3_bdae440e4121);
 }
 impl ::windows::runtime::RuntimeName for MessageDialog {
     const NAME: &'static str = "Windows.UI.Popups.MessageDialog";
@@ -488,7 +488,7 @@ unsafe impl ::windows::runtime::RuntimeType for PopupMenu {
 }
 unsafe impl ::windows::runtime::Interface for PopupMenu {
     type Vtable = IPopupMenu_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1318831836, 34829, 18428, [160, 161, 114, 182, 57, 230, 37, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e9bc6dc_880d_47fc_a0a1_72b639e62559);
 }
 impl ::windows::runtime::RuntimeName for PopupMenu {
     const NAME: &'static str = "Windows.UI.Popups.PopupMenu";
@@ -615,7 +615,7 @@ unsafe impl ::windows::runtime::RuntimeType for UICommand {
 }
 unsafe impl ::windows::runtime::Interface for UICommand {
     type Vtable = IUICommand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1341733493, 16709, 18431, [172, 127, 223, 241, 193, 250, 91, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f);
 }
 impl ::windows::runtime::RuntimeName for UICommand {
     const NAME: &'static str = "Windows.UI.Popups.UICommand";
@@ -706,7 +706,7 @@ unsafe impl ::windows::runtime::RuntimeType for UICommandInvokedHandler {
 }
 unsafe impl ::windows::runtime::Interface for UICommandInvokedHandler {
     type Vtable = UICommandInvokedHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3673651791, 49786, 17048, [154, 198, 41, 34, 196, 94, 125, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdaf77a4f_c27a_4298_9ac6_2922c45e7da6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -812,7 +812,7 @@ unsafe impl ::windows::runtime::RuntimeType for UICommandSeparator {
 }
 unsafe impl ::windows::runtime::Interface for UICommandSeparator {
     type Vtable = IUICommand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1341733493, 16709, 18431, [172, 127, 223, 241, 193, 250, 91, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f);
 }
 impl ::windows::runtime::RuntimeName for UICommandSeparator {
     const NAME: &'static str = "Windows.UI.Popups.UICommandSeparator";

@@ -214,7 +214,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayMonitor {
 }
 unsafe impl ::windows::runtime::Interface for DisplayMonitor {
     type Vtable = IDisplayMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(527111636, 7425, 19537, [135, 226, 111, 149, 74, 119, 43, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f6b15d4_1d01_4c51_87e2_6f954a772b59);
 }
 impl ::windows::runtime::RuntimeName for DisplayMonitor {
     const NAME: &'static str = "Windows.Devices.Display.DisplayMonitor";
@@ -363,7 +363,7 @@ impl ::windows::runtime::DefaultType for DisplayMonitorUsageKind {
 pub struct IDisplayMonitor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayMonitor {
     type Vtable = IDisplayMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(527111636, 7425, 19537, [135, 226, 111, 149, 74, 119, 43, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f6b15d4_1d01_4c51_87e2_6f954a772b59);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -407,7 +407,7 @@ pub struct IDisplayMonitor_abi(
 pub struct IDisplayMonitor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayMonitor2 {
     type Vtable = IDisplayMonitor2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(36706534, 52003, 22576, [150, 223, 167, 191, 110, 96, 37, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x023018e6_cb23_5830_96df_a7bf6e602577);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -425,7 +425,7 @@ pub struct IDisplayMonitor2_abi(
 pub struct IDisplayMonitorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayMonitorStatics {
     type Vtable = IDisplayMonitorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1856924047, 41512, 19461, [130, 29, 182, 149, 214, 103, 222, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6eae698f_a228_4c05_821d_b695d667de8e);
 }
 #[repr(C)]
 #[doc(hidden)]

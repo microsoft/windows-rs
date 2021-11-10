@@ -13,7 +13,7 @@ impl ICompositionCapabilitiesInteropFactory {
 }
 unsafe impl ::windows::runtime::Interface for ICompositionCapabilitiesInteropFactory {
     type Vtable = ICompositionCapabilitiesInteropFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(748532566, 59149, 17986, [130, 152, 188, 74, 165, 180, 134, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c9db356_e70d_4642_8298_bc4aa5b4865c);
 }
 impl ::core::convert::From<ICompositionCapabilitiesInteropFactory> for ::windows::runtime::IUnknown {
     fn from(value: ICompositionCapabilitiesInteropFactory) -> Self {
@@ -82,7 +82,7 @@ impl ICompositionDrawingSurfaceInterop {
 }
 unsafe impl ::windows::runtime::Interface for ICompositionDrawingSurfaceInterop {
     type Vtable = ICompositionDrawingSurfaceInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4244956899, 65036, 19516, [171, 25, 160, 118, 1, 165, 118, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd04e6e3_fe0c_4c3c_ab19_a07601a576ee);
 }
 impl ::core::convert::From<ICompositionDrawingSurfaceInterop> for ::windows::runtime::IUnknown {
     fn from(value: ICompositionDrawingSurfaceInterop) -> Self {
@@ -160,7 +160,7 @@ impl ICompositionDrawingSurfaceInterop2 {
 }
 unsafe impl ::windows::runtime::Interface for ICompositionDrawingSurfaceInterop2 {
     type Vtable = ICompositionDrawingSurfaceInterop2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1105611438, 39104, 16953, [142, 149, 163, 48, 221, 106, 161, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41e64aae_98c0_4239_8e95_a330dd6aa18b);
 }
 impl ::core::convert::From<ICompositionDrawingSurfaceInterop2> for ::windows::runtime::IUnknown {
     fn from(value: ICompositionDrawingSurfaceInterop2) -> Self {
@@ -237,7 +237,7 @@ impl ICompositionGraphicsDeviceInterop {
 }
 unsafe impl ::windows::runtime::Interface for ICompositionGraphicsDeviceInterop {
     type Vtable = ICompositionGraphicsDeviceInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2702638961, 63679, 19594, [156, 152, 112, 119, 154, 50, 169, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa116ff71_f8bf_4c8a_9c98_70779a32a9c8);
 }
 impl ::core::convert::From<ICompositionGraphicsDeviceInterop> for ::windows::runtime::IUnknown {
     fn from(value: ICompositionGraphicsDeviceInterop) -> Self {
@@ -286,7 +286,7 @@ impl ICompositorDesktopInterop {
 }
 unsafe impl ::windows::runtime::Interface for ICompositorDesktopInterop {
     type Vtable = ICompositorDesktopInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(702976506, 17767, 19914, [179, 25, 208, 242, 7, 235, 104, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29e691fa_4567_4dca_b319_d0f207eb6807);
 }
 impl ::core::convert::From<ICompositorDesktopInterop> for ::windows::runtime::IUnknown {
     fn from(value: ICompositorDesktopInterop) -> Self {
@@ -344,7 +344,7 @@ impl ICompositorInterop {
 }
 unsafe impl ::windows::runtime::Interface for ICompositorInterop {
     type Vtable = ICompositorInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(623476060, 15060, 19612, [181, 207, 227, 106, 56, 81, 35, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25297d5c_3ad4_4c9c_b5cf_e36a38512330);
 }
 impl ::core::convert::From<ICompositorInterop> for ::windows::runtime::IUnknown {
     fn from(value: ICompositorInterop) -> Self {
@@ -393,7 +393,7 @@ impl IDesktopWindowTargetInterop {
 }
 unsafe impl ::windows::runtime::Interface for IDesktopWindowTargetInterop {
     type Vtable = IDesktopWindowTargetInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(903607710, 58361, 17840, [129, 231, 254, 117, 244, 20, 93, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35dbf59e_e3f9_45b0_81e7_fe75f4145dc9);
 }
 impl ::core::convert::From<IDesktopWindowTargetInterop> for ::windows::runtime::IUnknown {
     fn from(value: IDesktopWindowTargetInterop) -> Self {
@@ -436,7 +436,7 @@ impl ISwapChainInterop {
 }
 unsafe impl ::windows::runtime::Interface for ISwapChainInterop {
     type Vtable = ISwapChainInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(653563552, 32568, 17915, [136, 247, 250, 170, 190, 103, 221, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26f496a0_7f38_45fb_88f7_faaabe67dd59);
 }
 impl ::core::convert::From<ISwapChainInterop> for ::windows::runtime::IUnknown {
     fn from(value: ISwapChainInterop) -> Self {
@@ -479,7 +479,7 @@ impl IVisualInteractionSourceInterop {
 }
 unsafe impl ::windows::runtime::Interface for IVisualInteractionSourceInterop {
     type Vtable = IVisualInteractionSourceInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(301346001, 12189, 17107, [176, 95, 214, 121, 13, 158, 159, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11f62cd1_2f9d_42d3_b05f_d6790d9e9f8e);
 }
 impl ::core::convert::From<IVisualInteractionSourceInterop> for ::windows::runtime::IUnknown {
     fn from(value: IVisualInteractionSourceInterop) -> Self {

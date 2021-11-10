@@ -5,7 +5,7 @@
 pub struct IAdcControllerProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdcControllerProvider {
     type Vtable = IAdcControllerProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3193198632, 33133, 19941, [160, 72, 171, 160, 105, 88, 170, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe545828_816d_4de5_a048_aba06958aaa8);
 }
 impl IAdcControllerProvider {
     #[doc = "*Required features: `Devices_Adc_Provider`*"]
@@ -149,7 +149,7 @@ pub struct IAdcControllerProvider_abi(
 pub struct IAdcProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdcProvider {
     type Vtable = IAdcProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(680867432, 37721, 19543, [188, 136, 226, 117, 232, 22, 56, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28953668_9359_4c57_bc88_e275e81638c9);
 }
 impl IAdcProvider {
     #[cfg(feature = "Foundation_Collections")]

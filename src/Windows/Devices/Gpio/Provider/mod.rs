@@ -29,7 +29,7 @@ unsafe impl ::windows::runtime::RuntimeType for GpioPinProviderValueChangedEvent
 }
 unsafe impl ::windows::runtime::Interface for GpioPinProviderValueChangedEventArgs {
     type Vtable = IGpioPinProviderValueChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(849794802, 15707, 17613, [143, 190, 19, 166, 159, 46, 219, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32a6d6f2_3d5b_44cd_8fbe_13a69f2edb24);
 }
 impl ::windows::runtime::RuntimeName for GpioPinProviderValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.GpioPinProviderValueChangedEventArgs";
@@ -82,7 +82,7 @@ unsafe impl ::core::marker::Sync for GpioPinProviderValueChangedEventArgs {}
 pub struct IGpioControllerProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioControllerProvider {
     type Vtable = IGpioControllerProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2903625415, 6634, 19233, [135, 79, 185, 26, 237, 74, 37, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad11cec7_19ea_4b21_874f_b91aed4a25db);
 }
 impl IGpioControllerProvider {
     #[doc = "*Required features: `Devices_Gpio_Provider`*"]
@@ -163,7 +163,7 @@ pub struct IGpioControllerProvider_abi(
 pub struct IGpioPinProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioPinProvider {
     type Vtable = IGpioPinProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1110723767, 27324, 16639, [156, 231, 115, 184, 83, 1, 185, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42344cb7_6abc_40ff_9ce7_73b85301b900);
 }
 impl IGpioPinProvider {
     #[cfg(feature = "Foundation")]
@@ -320,7 +320,7 @@ pub struct IGpioPinProvider_abi(
 pub struct IGpioPinProviderValueChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioPinProviderValueChangedEventArgs {
     type Vtable = IGpioPinProviderValueChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(849794802, 15707, 17613, [143, 190, 19, 166, 159, 46, 219, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32a6d6f2_3d5b_44cd_8fbe_13a69f2edb24);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -338,7 +338,7 @@ pub struct IGpioPinProviderValueChangedEventArgs_abi(
 pub struct IGpioPinProviderValueChangedEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioPinProviderValueChangedEventArgsFactory {
     type Vtable = IGpioPinProviderValueChangedEventArgsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1053494105, 22156, 17298, [178, 74, 138, 89, 169, 2, 177, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ecb0b59_568c_4392_b24a_8a59a902b1f1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -357,7 +357,7 @@ pub struct IGpioPinProviderValueChangedEventArgsFactory_abi(
 pub struct IGpioProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioProvider {
     type Vtable = IGpioProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1156065031, 2250, 17226, [175, 224, 214, 21, 128, 68, 111, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44e82707_08ca_434a_afe0_d61580446f7e);
 }
 impl IGpioProvider {
     #[cfg(feature = "Foundation_Collections")]

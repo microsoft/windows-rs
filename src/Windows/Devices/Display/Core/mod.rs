@@ -88,7 +88,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayAdapter {
 }
 unsafe impl ::windows::runtime::Interface for DisplayAdapter {
     type Vtable = IDisplayAdapter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2775536263, 61440, 24366, [181, 172, 55, 131, 162, 182, 154, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa56f5287_f000_5f2e_b5ac_3783a2b69af5);
 }
 impl ::windows::runtime::RuntimeName for DisplayAdapter {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayAdapter";
@@ -264,7 +264,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayDevice {
 }
 unsafe impl ::windows::runtime::Interface for DisplayDevice {
     type Vtable = IDisplayDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2764682796, 13151, 22321, [140, 180, 193, 204, 212, 115, 16, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4c9b62c_335f_5731_8cb4_c1ccd4731070);
 }
 impl ::windows::runtime::RuntimeName for DisplayDevice {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayDevice";
@@ -342,7 +342,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayFence {
 }
 unsafe impl ::windows::runtime::Interface for DisplayFence {
     type Vtable = IDisplayFence_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(81590767, 13318, 22272, [143, 236, 119, 235, 164, 197, 167, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04dcf9ef_3406_5700_8fec_77eba4c5a74b);
 }
 impl ::windows::runtime::RuntimeName for DisplayFence {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayFence";
@@ -561,7 +561,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayManager {
 }
 unsafe impl ::windows::runtime::Interface for DisplayManager {
     type Vtable = IDisplayManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1322853467, 5612, 22242, [144, 114, 127, 229, 8, 74, 49, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ed9245b_15ec_56e2_9072_7fe5084a31a7);
 }
 impl ::windows::runtime::RuntimeName for DisplayManager {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManager";
@@ -667,7 +667,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayManagerChangedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for DisplayManagerChangedEventArgs {
     type Vtable = IDisplayManagerChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1790943877, 27850, 22321, [188, 220, 66, 229, 210, 245, 197, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6abfa285_6cca_5731_bcdc_42e5d2f5c50f);
 }
 impl ::windows::runtime::RuntimeName for DisplayManagerChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerChangedEventArgs";
@@ -747,7 +747,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayManagerDisabledEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for DisplayManagerDisabledEventArgs {
     type Vtable = IDisplayManagerDisabledEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2267471332, 26515, 22899, [161, 31, 95, 251, 201, 63, 219, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8726dde4_6793_5973_a11f_5ffbc93fdb90);
 }
 impl ::windows::runtime::RuntimeName for DisplayManagerDisabledEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerDisabledEventArgs";
@@ -827,7 +827,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayManagerEnabledEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for DisplayManagerEnabledEventArgs {
     type Vtable = IDisplayManagerEnabledEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4040114031, 17146, 22946, [178, 151, 38, 225, 113, 61, 232, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0cf3f6f_42fa_59a2_b297_26e1713de848);
 }
 impl ::windows::runtime::RuntimeName for DisplayManagerEnabledEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerEnabledEventArgs";
@@ -958,7 +958,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayManagerPathsFailedOrInval
 }
 unsafe impl ::windows::runtime::Interface for DisplayManagerPathsFailedOrInvalidatedEventArgs {
     type Vtable = IDisplayManagerPathsFailedOrInvalidatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(61232729, 7660, 23573, [178, 162, 143, 233, 18, 152, 105, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03a65659_1dec_5c15_b2a2_8fe9129869fe);
 }
 impl ::windows::runtime::RuntimeName for DisplayManagerPathsFailedOrInvalidatedEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerPathsFailedOrInvalidatedEventArgs";
@@ -1065,7 +1065,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayManagerResultWithState {
 }
 unsafe impl ::windows::runtime::Interface for DisplayManagerResultWithState {
     type Vtable = IDisplayManagerResultWithState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2389011110, 26132, 21694, [191, 239, 73, 148, 84, 127, 123, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e656aa6_6614_54be_bfef_4994547f7be1);
 }
 impl ::windows::runtime::RuntimeName for DisplayManagerResultWithState {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerResultWithState";
@@ -1209,7 +1209,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayModeInfo {
 }
 unsafe impl ::windows::runtime::Interface for DisplayModeInfo {
     type Vtable = IDisplayModeInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1221923744, 63387, 23156, [160, 94, 218, 130, 31, 71, 8, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48d513a0_f79b_5a74_a05e_da821f470868);
 }
 impl ::windows::runtime::RuntimeName for DisplayModeInfo {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayModeInfo";
@@ -1506,7 +1506,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayPath {
 }
 unsafe impl ::windows::runtime::Interface for DisplayPath {
     type Vtable = IDisplayPath_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3017791050, 29792, 23774, [129, 27, 213, 174, 159, 61, 159, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3dfd64a_7460_5cde_811b_d5ae9f3d9f84);
 }
 impl ::windows::runtime::RuntimeName for DisplayPath {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayPath";
@@ -1776,7 +1776,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayPrimaryDescription {
 }
 unsafe impl ::windows::runtime::Interface for DisplayPrimaryDescription {
     type Vtable = IDisplayPrimaryDescription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2267386322, 54579, 20735, [168, 94, 6, 105, 97, 148, 183, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x872591d2_d533_50ff_a85e_06696194b77c);
 }
 impl ::windows::runtime::RuntimeName for DisplayPrimaryDescription {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayPrimaryDescription";
@@ -1857,7 +1857,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayScanout {
 }
 unsafe impl ::windows::runtime::Interface for DisplayScanout {
     type Vtable = IDisplayScanout_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3808761896, 7077, 20711, [138, 57, 187, 31, 210, 244, 248, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3051828_1ba5_50e7_8a39_bb1fd2f4f8b9);
 }
 impl ::windows::runtime::RuntimeName for DisplayScanout {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayScanout";
@@ -2014,7 +2014,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplaySource {
 }
 unsafe impl ::windows::runtime::Interface for DisplaySource {
     type Vtable = IDisplaySource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3973144513, 60124, 20924, [151, 29, 59, 198, 40, 219, 45, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xecd15fc1_eadc_51bc_971d_3bc628db2dd4);
 }
 impl ::windows::runtime::RuntimeName for DisplaySource {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplaySource";
@@ -2209,7 +2209,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayState {
 }
 unsafe impl ::windows::runtime::Interface for DisplayState {
     type Vtable = IDisplayState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(135435041, 4533, 23730, [153, 248, 233, 11, 71, 154, 138, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08129321_11b5_5cb2_99f8_e90b479a8a1d);
 }
 impl ::windows::runtime::RuntimeName for DisplayState {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayState";
@@ -2386,7 +2386,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayStateOperationResult {
 }
 unsafe impl ::windows::runtime::Interface for DisplayStateOperationResult {
     type Vtable = IDisplayStateOperationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4239245279, 56359, 22072, [183, 242, 235, 223, 164, 247, 234, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcadbfdf_dc27_5638_b7f2_ebdfa4f7ea93);
 }
 impl ::windows::runtime::RuntimeName for DisplayStateOperationResult {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayStateOperationResult";
@@ -2471,7 +2471,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplaySurface {
 }
 unsafe impl ::windows::runtime::Interface for DisplaySurface {
     type Vtable = IDisplaySurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1498377414, 5018, 22230, [164, 177, 21, 254, 44, 183, 106, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x594f6cc6_139a_56d6_a4b1_15fe2cb76adb);
 }
 impl ::windows::runtime::RuntimeName for DisplaySurface {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplaySurface";
@@ -2642,7 +2642,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayTarget {
 }
 unsafe impl ::windows::runtime::Interface for DisplayTarget {
     type Vtable = IDisplayTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2932178031, 18356, 21611, [152, 124, 231, 63, 167, 145, 254, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaec57c6f_47b4_546b_987c_e73fa791fe3a);
 }
 impl ::windows::runtime::RuntimeName for DisplayTarget {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTarget";
@@ -2739,7 +2739,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayTask {
 }
 unsafe impl ::windows::runtime::Interface for DisplayTask {
     type Vtable = IDisplayTask_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1577612360, 4955, 23472, [191, 99, 99, 127, 132, 34, 124, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e087448_135b_5bb0_bf63_637f84227c7a);
 }
 impl ::windows::runtime::RuntimeName for DisplayTask {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTask";
@@ -2819,7 +2819,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayTaskPool {
 }
 unsafe impl ::windows::runtime::Interface for DisplayTaskPool {
     type Vtable = IDisplayTaskPool_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3329631549, 9085, 21832, [170, 250, 62, 81, 127, 239, 239, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc676253d_237d_5548_aafa_3e517fefef1c);
 }
 impl ::windows::runtime::RuntimeName for DisplayTaskPool {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTaskPool";
@@ -2901,7 +2901,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayTaskResult {
 }
 unsafe impl ::windows::runtime::Interface for DisplayTaskResult {
     type Vtable = IDisplayTaskResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1874623847, 63921, 21984, [157, 136, 211, 165, 25, 122, 63, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fbc7d67_f9b1_55e0_9d88_d3a5197a3f59);
 }
 impl ::windows::runtime::RuntimeName for DisplayTaskResult {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTaskResult";
@@ -3019,7 +3019,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayView {
 }
 unsafe impl ::windows::runtime::Interface for DisplayView {
     type Vtable = IDisplayView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2965998753, 46937, 23385, [177, 173, 240, 120, 106, 169, 229, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0c98ca1_b759_5b59_b1ad_f0786aa9e53d);
 }
 impl ::windows::runtime::RuntimeName for DisplayView {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayView";
@@ -3156,7 +3156,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayWireFormat {
 }
 unsafe impl ::windows::runtime::Interface for DisplayWireFormat {
     type Vtable = IDisplayWireFormat_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(449615485, 34604, 23096, [187, 185, 29, 72, 114, 183, 98, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1acc967d_872c_5a38_bbb9_1d4872b76255);
 }
 impl ::windows::runtime::RuntimeName for DisplayWireFormat {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayWireFormat";
@@ -3302,7 +3302,7 @@ impl ::windows::runtime::DefaultType for DisplayWireFormatPixelEncoding {
 pub struct IDisplayAdapter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayAdapter {
     type Vtable = IDisplayAdapter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2775536263, 61440, 24366, [181, 172, 55, 131, 162, 182, 154, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa56f5287_f000_5f2e_b5ac_3783a2b69af5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3329,7 +3329,7 @@ pub struct IDisplayAdapter_abi(
 pub struct IDisplayAdapterStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayAdapterStatics {
     type Vtable = IDisplayAdapterStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(497827034, 18463, 21609, [132, 112, 130, 196, 186, 104, 10, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1dac3cda_481f_5469_8470_82c4ba680a28);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3348,7 +3348,7 @@ pub struct IDisplayAdapterStatics_abi(
 pub struct IDisplayDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayDevice {
     type Vtable = IDisplayDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2764682796, 13151, 22321, [140, 180, 193, 204, 212, 115, 16, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4c9b62c_335f_5731_8cb4_c1ccd4731070);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3373,7 +3373,7 @@ pub struct IDisplayDevice_abi(
 pub struct IDisplayDevice2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayDevice2 {
     type Vtable = IDisplayDevice2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1072686348, 2368, 21693, [160, 47, 249, 199, 165, 54, 173, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3fefe50c_0940_54bd_a02f_f9c7a536ad60);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3392,7 +3392,7 @@ pub struct IDisplayDevice2_abi(
 pub struct IDisplayFence(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayFence {
     type Vtable = IDisplayFence_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(81590767, 13318, 22272, [143, 236, 119, 235, 164, 197, 167, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04dcf9ef_3406_5700_8fec_77eba4c5a74b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3409,7 +3409,7 @@ pub struct IDisplayFence_abi(
 pub struct IDisplayManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayManager {
     type Vtable = IDisplayManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1322853467, 5612, 22242, [144, 114, 127, 229, 8, 74, 49, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ed9245b_15ec_56e2_9072_7fe5084a31a7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3458,7 +3458,7 @@ pub struct IDisplayManager_abi(
 pub struct IDisplayManagerChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayManagerChangedEventArgs {
     type Vtable = IDisplayManagerChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1790943877, 27850, 22321, [188, 220, 66, 229, 210, 245, 197, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6abfa285_6cca_5731_bcdc_42e5d2f5c50f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3479,7 +3479,7 @@ pub struct IDisplayManagerChangedEventArgs_abi(
 pub struct IDisplayManagerDisabledEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayManagerDisabledEventArgs {
     type Vtable = IDisplayManagerDisabledEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2267471332, 26515, 22899, [161, 31, 95, 251, 201, 63, 219, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8726dde4_6793_5973_a11f_5ffbc93fdb90);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3500,7 +3500,7 @@ pub struct IDisplayManagerDisabledEventArgs_abi(
 pub struct IDisplayManagerEnabledEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayManagerEnabledEventArgs {
     type Vtable = IDisplayManagerEnabledEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4040114031, 17146, 22946, [178, 151, 38, 225, 113, 61, 232, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0cf3f6f_42fa_59a2_b297_26e1713de848);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3521,7 +3521,7 @@ pub struct IDisplayManagerEnabledEventArgs_abi(
 pub struct IDisplayManagerPathsFailedOrInvalidatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayManagerPathsFailedOrInvalidatedEventArgs {
     type Vtable = IDisplayManagerPathsFailedOrInvalidatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(61232729, 7660, 23573, [178, 162, 143, 233, 18, 152, 105, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03a65659_1dec_5c15_b2a2_8fe9129869fe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3542,7 +3542,7 @@ pub struct IDisplayManagerPathsFailedOrInvalidatedEventArgs_abi(
 pub struct IDisplayManagerResultWithState(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayManagerResultWithState {
     type Vtable = IDisplayManagerResultWithState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2389011110, 26132, 21694, [191, 239, 73, 148, 84, 127, 123, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e656aa6_6614_54be_bfef_4994547f7be1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3562,7 +3562,7 @@ pub struct IDisplayManagerResultWithState_abi(
 pub struct IDisplayManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayManagerStatics {
     type Vtable = IDisplayManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(728470598, 47513, 21813, [157, 105, 83, 240, 146, 199, 128, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b6b9446_b999_5535_9d69_53f092c780a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3580,7 +3580,7 @@ pub struct IDisplayManagerStatics_abi(
 pub struct IDisplayModeInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayModeInfo {
     type Vtable = IDisplayModeInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1221923744, 63387, 23156, [160, 94, 218, 130, 31, 71, 8, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48d513a0_f79b_5a74_a05e_da821f470868);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3611,7 +3611,7 @@ pub struct IDisplayModeInfo_abi(
 pub struct IDisplayModeInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayModeInfo2 {
     type Vtable = IDisplayModeInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3362759558, 3547, 21619, [191, 176, 75, 120, 7, 181, 249, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc86fa386_0ddb_5473_bfb0_4b7807b5f909);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3630,7 +3630,7 @@ pub struct IDisplayModeInfo2_abi(
 pub struct IDisplayPath(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayPath {
     type Vtable = IDisplayPath_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3017791050, 29792, 23774, [129, 27, 213, 174, 159, 61, 159, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3dfd64a_7460_5cde_811b_d5ae9f3d9f84);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3683,7 +3683,7 @@ pub struct IDisplayPath_abi(
 pub struct IDisplayPath2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayPath2 {
     type Vtable = IDisplayPath2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4079245765, 59796, 22283, [158, 200, 239, 66, 195, 90, 133, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf32459c5_e994_570b_9ec8_ef42c35a8547);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3704,7 +3704,7 @@ pub struct IDisplayPath2_abi(
 pub struct IDisplayPrimaryDescription(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayPrimaryDescription {
     type Vtable = IDisplayPrimaryDescription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2267386322, 54579, 20735, [168, 94, 6, 105, 97, 148, 183, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x872591d2_d533_50ff_a85e_06696194b77c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3732,7 +3732,7 @@ pub struct IDisplayPrimaryDescription_abi(
 pub struct IDisplayPrimaryDescriptionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayPrimaryDescriptionFactory {
     type Vtable = IDisplayPrimaryDescriptionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(443219835, 13879, 23622, [180, 121, 118, 213, 118, 33, 110, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a6aff7b_3637_5c46_b479_76d576216e65);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3752,7 +3752,7 @@ pub struct IDisplayPrimaryDescriptionFactory_abi(
 pub struct IDisplayPrimaryDescriptionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayPrimaryDescriptionStatics {
     type Vtable = IDisplayPrimaryDescriptionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3859696891, 14025, 22237, [143, 161, 111, 248, 196, 224, 255, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe60e4cfb_36c9_56dd_8fa1_6ff8c4e0ff07);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3772,7 +3772,7 @@ pub struct IDisplayPrimaryDescriptionStatics_abi(
 pub struct IDisplayScanout(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayScanout {
     type Vtable = IDisplayScanout_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3808761896, 7077, 20711, [138, 57, 187, 31, 210, 244, 248, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3051828_1ba5_50e7_8a39_bb1fd2f4f8b9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3789,7 +3789,7 @@ pub struct IDisplayScanout_abi(
 pub struct IDisplaySource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplaySource {
     type Vtable = IDisplaySource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3973144513, 60124, 20924, [151, 29, 59, 198, 40, 219, 45, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xecd15fc1_eadc_51bc_971d_3bc628db2dd4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3811,7 +3811,7 @@ pub struct IDisplaySource_abi(
 pub struct IDisplaySource2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplaySource2 {
     type Vtable = IDisplaySource2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1910606162, 45857, 23284, [191, 232, 3, 251, 234, 49, 228, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71e18952_b321_5af4_bfe8_03fbea31e40d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3833,7 +3833,7 @@ pub struct IDisplaySource2_abi(
 pub struct IDisplayState(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayState {
     type Vtable = IDisplayState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(135435041, 4533, 23730, [153, 248, 233, 11, 71, 154, 138, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08129321_11b5_5cb2_99f8_e90b479a8a1d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3867,7 +3867,7 @@ pub struct IDisplayState_abi(
 pub struct IDisplayStateOperationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayStateOperationResult {
     type Vtable = IDisplayStateOperationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4239245279, 56359, 22072, [183, 242, 235, 223, 164, 247, 234, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcadbfdf_dc27_5638_b7f2_ebdfa4f7ea93);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3886,7 +3886,7 @@ pub struct IDisplayStateOperationResult_abi(
 pub struct IDisplaySurface(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplaySurface {
     type Vtable = IDisplaySurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1498377414, 5018, 22230, [164, 177, 21, 254, 44, 183, 106, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x594f6cc6_139a_56d6_a4b1_15fe2cb76adb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3903,7 +3903,7 @@ pub struct IDisplaySurface_abi(
 pub struct IDisplayTarget(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayTarget {
     type Vtable = IDisplayTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2932178031, 18356, 21611, [152, 124, 231, 63, 167, 145, 254, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaec57c6f_47b4_546b_987c_e73fa791fe3a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3935,7 +3935,7 @@ pub struct IDisplayTarget_abi(
 pub struct IDisplayTask(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayTask {
     type Vtable = IDisplayTask_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1577612360, 4955, 23472, [191, 99, 99, 127, 132, 34, 124, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e087448_135b_5bb0_bf63_637f84227c7a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3954,7 +3954,7 @@ pub struct IDisplayTask_abi(
 pub struct IDisplayTask2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayTask2 {
     type Vtable = IDisplayTask2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(156756505, 48469, 21982, [146, 103, 201, 123, 97, 231, 28, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0957ea19_bd55_55de_9267_c97b61e71c37);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3972,7 +3972,7 @@ pub struct IDisplayTask2_abi(
 pub struct IDisplayTaskPool(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayTaskPool {
     type Vtable = IDisplayTaskPool_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3329631549, 9085, 21832, [170, 250, 62, 81, 127, 239, 239, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc676253d_237d_5548_aafa_3e517fefef1c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3991,7 +3991,7 @@ pub struct IDisplayTaskPool_abi(
 pub struct IDisplayTaskPool2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayTaskPool2 {
     type Vtable = IDisplayTaskPool2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1186494902, 23831, 22869, [168, 114, 235, 56, 0, 61, 181, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46b879b6_5d17_5955_a872_eb38003db586);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4009,7 +4009,7 @@ pub struct IDisplayTaskPool2_abi(
 pub struct IDisplayTaskResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayTaskResult {
     type Vtable = IDisplayTaskResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1874623847, 63921, 21984, [157, 136, 211, 165, 25, 122, 63, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fbc7d67_f9b1_55e0_9d88_d3a5197a3f59);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4029,7 +4029,7 @@ pub struct IDisplayTaskResult_abi(
 pub struct IDisplayView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayView {
     type Vtable = IDisplayView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2965998753, 46937, 23385, [177, 173, 240, 120, 106, 169, 229, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0c98ca1_b759_5b59_b1ad_f0786aa9e53d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4055,7 +4055,7 @@ pub struct IDisplayView_abi(
 pub struct IDisplayWireFormat(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayWireFormat {
     type Vtable = IDisplayWireFormat_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(449615485, 34604, 23096, [187, 185, 29, 72, 114, 183, 98, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1acc967d_872c_5a38_bbb9_1d4872b76255);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4079,7 +4079,7 @@ pub struct IDisplayWireFormat_abi(
 pub struct IDisplayWireFormatFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayWireFormatFactory {
     type Vtable = IDisplayWireFormatFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3002058965, 2518, 21990, [173, 34, 144, 20, 179, 210, 82, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2efc8d5_09d6_55e6_ad22_9014b3d25229);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4097,7 +4097,7 @@ pub struct IDisplayWireFormatFactory_abi(
 pub struct IDisplayWireFormatStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayWireFormatStatics {
     type Vtable = IDisplayWireFormatStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3312820781, 50150, 24442, [189, 251, 135, 198, 171, 134, 97, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc575a22d_c3e6_5f7a_bdfb_87c6ab8661d5);
 }
 #[repr(C)]
 #[doc(hidden)]

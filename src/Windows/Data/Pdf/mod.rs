@@ -4,7 +4,7 @@
 pub struct IPdfDocument(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPdfDocument {
     type Vtable = IPdfDocument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2893987549, 33018, 16521, [132, 110, 129, 183, 127, 245, 168, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac7ebedd_80fa_4089_846e_81b77ff5a86c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24,7 +24,7 @@ pub struct IPdfDocument_abi(
 pub struct IPdfDocumentStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPdfDocumentStatics {
     type Vtable = IPdfDocumentStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1127877471, 49159, 18312, [144, 242, 8, 20, 61, 146, 37, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x433a0b5f_c007_4788_90f2_08143d922599);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -49,7 +49,7 @@ pub struct IPdfDocumentStatics_abi(
 pub struct IPdfPage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPdfPage {
     type Vtable = IPdfPage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2645864648, 21280, 19708, [173, 118, 73, 63, 218, 208, 229, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9db4b0c8_5320_4cfc_ad76_493fdad0e594);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -78,7 +78,7 @@ pub struct IPdfPage_abi(
 pub struct IPdfPageDimensions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPdfPageDimensions {
     type Vtable = IPdfPageDimensions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(571933809, 12606, 17640, [131, 93, 99, 163, 231, 98, 74, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22170471_313e_44e8_835d_63a3e7624a10);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -105,7 +105,7 @@ pub struct IPdfPageDimensions_abi(
 pub struct IPdfPageRenderOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPdfPageRenderOptions {
     type Vtable = IPdfPageRenderOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1016595823, 47055, 19497, [154, 4, 82, 217, 2, 103, 244, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c98056f_b7cf_4c29_9a04_52d90267f425);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -204,7 +204,7 @@ unsafe impl ::windows::runtime::RuntimeType for PdfDocument {
 }
 unsafe impl ::windows::runtime::Interface for PdfDocument {
     type Vtable = IPdfDocument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2893987549, 33018, 16521, [132, 110, 129, 183, 127, 245, 168, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac7ebedd_80fa_4089_846e_81b77ff5a86c);
 }
 impl ::windows::runtime::RuntimeName for PdfDocument {
     const NAME: &'static str = "Windows.Data.Pdf.PdfDocument";
@@ -336,7 +336,7 @@ unsafe impl ::windows::runtime::RuntimeType for PdfPage {
 }
 unsafe impl ::windows::runtime::Interface for PdfPage {
     type Vtable = IPdfPage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2645864648, 21280, 19708, [173, 118, 73, 63, 218, 208, 229, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9db4b0c8_5320_4cfc_ad76_493fdad0e594);
 }
 impl ::windows::runtime::RuntimeName for PdfPage {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPage";
@@ -465,7 +465,7 @@ unsafe impl ::windows::runtime::RuntimeType for PdfPageDimensions {
 }
 unsafe impl ::windows::runtime::Interface for PdfPageDimensions {
     type Vtable = IPdfPageDimensions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(571933809, 12606, 17640, [131, 93, 99, 163, 231, 98, 74, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22170471_313e_44e8_835d_63a3e7624a10);
 }
 impl ::windows::runtime::RuntimeName for PdfPageDimensions {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPageDimensions";
@@ -612,7 +612,7 @@ unsafe impl ::windows::runtime::RuntimeType for PdfPageRenderOptions {
 }
 unsafe impl ::windows::runtime::Interface for PdfPageRenderOptions {
     type Vtable = IPdfPageRenderOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1016595823, 47055, 19497, [154, 4, 82, 217, 2, 103, 244, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c98056f_b7cf_4c29_9a04_52d90267f425);
 }
 impl ::windows::runtime::RuntimeName for PdfPageRenderOptions {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPageRenderOptions";

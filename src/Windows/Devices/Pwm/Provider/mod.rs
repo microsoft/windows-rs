@@ -5,7 +5,7 @@
 pub struct IPwmControllerProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPwmControllerProvider {
     type Vtable = IPwmControllerProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(318789947, 58083, 16548, [183, 217, 72, 223, 240, 55, 122, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1300593b_e2e3_40a4_b7d9_48dff0377a52);
 }
 impl IPwmControllerProvider {
     #[doc = "*Required features: `Devices_Pwm_Provider`*"]
@@ -143,7 +143,7 @@ pub struct IPwmControllerProvider_abi(
 pub struct IPwmProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPwmProvider {
     type Vtable = IPwmProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2737836584, 21233, 18352, [147, 73, 102, 186, 67, 210, 89, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3301228_52f1_47b0_9349_66ba43d25902);
 }
 impl IPwmProvider {
     #[cfg(feature = "Foundation_Collections")]

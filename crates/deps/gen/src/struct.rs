@@ -82,7 +82,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
             let guid = gen_guid(&guid);
 
             return quote! {
-                pub const #name: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(#guid);
+                pub const #name: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(#guid);
             };
         } else {
             return quote! {

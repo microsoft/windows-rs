@@ -236,7 +236,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattCharacteristic {
 }
 unsafe impl ::windows::runtime::Interface for GattCharacteristic {
     type Vtable = IGattCharacteristic_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1506496705, 22836, 20328, [161, 152, 235, 134, 79, 164, 78, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59cb50c1_5934_4f68_a198_eb864fa44e6b);
 }
 impl ::windows::runtime::RuntimeName for GattCharacteristic {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic";
@@ -961,7 +961,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattCharacteristicsResult {
 }
 unsafe impl ::windows::runtime::Interface for GattCharacteristicsResult {
     type Vtable = IGattCharacteristicsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(294949980, 45655, 20286, [157, 183, 246, 139, 201, 169, 174, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1194945c_b257_4f3e_9db7_f68bc9a9aef2);
 }
 impl ::windows::runtime::RuntimeName for GattCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicsResult";
@@ -1075,7 +1075,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattClientNotificationResult {
 }
 unsafe impl ::windows::runtime::Interface for GattClientNotificationResult {
     type Vtable = IGattClientNotificationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1349342617, 274, 16794, [142, 59, 174, 33, 175, 171, 210, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x506d5599_0112_419a_8e3b_ae21afabd2c2);
 }
 impl ::windows::runtime::RuntimeName for GattClientNotificationResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientNotificationResult";
@@ -1234,7 +1234,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for GattDescriptor {
     type Vtable = IGattDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2449825579, 32900, 17220, [180, 194, 40, 77, 225, 154, 133, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92055f2b_8084_4344_b4c2_284de19a8506);
 }
 impl ::windows::runtime::RuntimeName for GattDescriptor {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor";
@@ -1371,7 +1371,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattDescriptorsResult {
 }
 unsafe impl ::windows::runtime::Interface for GattDescriptorsResult {
     type Vtable = IGattDescriptorsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2613088755, 38375, 17545, [141, 37, 255, 129, 149, 90, 87, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9bc091f3_95e7_4489_8d25_ff81955a57b9);
 }
 impl ::windows::runtime::RuntimeName for GattDescriptorsResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptorsResult";
@@ -1708,7 +1708,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattDeviceService {
 }
 unsafe impl ::windows::runtime::Interface for GattDeviceService {
     type Vtable = IGattDeviceService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2893773829, 45884, 18383, [153, 15, 107, 143, 85, 119, 223, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac7b7c05_b33c_47cf_990f_6b8f5577df71);
 }
 impl ::windows::runtime::RuntimeName for GattDeviceService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService";
@@ -1818,7 +1818,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattDeviceServicesResult {
 }
 unsafe impl ::windows::runtime::Interface for GattDeviceServicesResult {
     type Vtable = IGattDeviceServicesResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(387830766, 365, 16797, [131, 138, 87, 108, 244, 117, 163, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x171dd3ee_016d_419d_838a_576cf475a3d8);
 }
 impl ::windows::runtime::RuntimeName for GattDeviceServicesResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceServicesResult";
@@ -2024,7 +2024,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattLocalCharacteristic {
 }
 unsafe impl ::windows::runtime::Interface for GattLocalCharacteristic {
     type Vtable = IGattLocalCharacteristic_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2933798765, 21522, 19828, [146, 168, 141, 235, 133, 38, 130, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaede376d_5412_4d74_92a8_8deb8526829c);
 }
 impl ::windows::runtime::RuntimeName for GattLocalCharacteristic {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic";
@@ -2165,7 +2165,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattLocalCharacteristicParameter
 }
 unsafe impl ::windows::runtime::Interface for GattLocalCharacteristicParameters {
     type Vtable = IGattLocalCharacteristicParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4210507188, 19711, 17607, [132, 69, 4, 14, 110, 173, 0, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfaf73db4_4cff_44c7_8445_040e6ead0063);
 }
 impl ::windows::runtime::RuntimeName for GattLocalCharacteristicParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters";
@@ -2239,7 +2239,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattLocalCharacteristicResult {
 }
 unsafe impl ::windows::runtime::Interface for GattLocalCharacteristicResult {
     type Vtable = IGattLocalCharacteristicResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037767835, 368, 17303, [150, 102, 146, 248, 99, 241, 46, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7975de9b_0170_4397_9666_92f863f12ee6);
 }
 impl ::windows::runtime::RuntimeName for GattLocalCharacteristicResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicResult";
@@ -2360,7 +2360,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattLocalDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for GattLocalDescriptor {
     type Vtable = IGattLocalDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4102995462, 30877, 19019, [134, 82, 189, 1, 123, 93, 47, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf48ebe06_789d_4a4b_8652_bd017b5d2fc6);
 }
 impl ::windows::runtime::RuntimeName for GattLocalDescriptor {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor";
@@ -2466,7 +2466,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattLocalDescriptorParameters {
 }
 unsafe impl ::windows::runtime::Interface for GattLocalDescriptorParameters {
     type Vtable = IGattLocalDescriptorParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1608441450, 62401, 19302, [140, 75, 227, 210, 41, 59, 64, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5fdede6a_f3c1_4b66_8c4b_e3d2293b40e9);
 }
 impl ::windows::runtime::RuntimeName for GattLocalDescriptorParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters";
@@ -2540,7 +2540,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattLocalDescriptorResult {
 }
 unsafe impl ::windows::runtime::Interface for GattLocalDescriptorResult {
     type Vtable = IGattLocalDescriptorResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(928485822, 12831, 17254, [191, 193, 59, 198, 184, 44, 121, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x375791be_321f_4366_bfc1_3bc6b82c79f8);
 }
 impl ::windows::runtime::RuntimeName for GattLocalDescriptorResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorResult";
@@ -2624,7 +2624,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattLocalService {
 }
 unsafe impl ::windows::runtime::Interface for GattLocalService {
     type Vtable = IGattLocalService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4111721048, 63479, 18690, [184, 3, 87, 252, 199, 214, 254, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf513e258_f7f7_4902_b803_57fcc7d6fe83);
 }
 impl ::windows::runtime::RuntimeName for GattLocalService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalService";
@@ -2770,7 +2770,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattPresentationFormat {
 }
 unsafe impl ::windows::runtime::Interface for GattPresentationFormat {
     type Vtable = IGattPresentationFormat_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(426573857, 64173, 17884, [174, 91, 42, 195, 24, 78, 132, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x196d0021_faad_45dc_ae5b_2ac3184e84db);
 }
 impl ::windows::runtime::RuntimeName for GattPresentationFormat {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat";
@@ -3207,7 +3207,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattReadClientCharacteristicConf
 }
 unsafe impl ::windows::runtime::Interface for GattReadClientCharacteristicConfigurationDescriptorResult {
     type Vtable = IGattReadClientCharacteristicConfigurationDescriptorResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1671851785, 6890, 19532, [165, 15, 151, 186, 228, 116, 179, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63a66f09_1aea_4c4c_a50f_97bae474b348);
 }
 impl ::windows::runtime::RuntimeName for GattReadClientCharacteristicConfigurationDescriptorResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadClientCharacteristicConfigurationDescriptorResult";
@@ -3315,7 +3315,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattReadRequest {
 }
 unsafe impl ::windows::runtime::Interface for GattReadRequest {
     type Vtable = IGattReadRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4057818421, 27341, 17062, [164, 187, 215, 137, 218, 224, 4, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1dd6535_6acd_42a6_a4bb_d789dae0043e);
 }
 impl ::windows::runtime::RuntimeName for GattReadRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequest";
@@ -3399,7 +3399,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattReadRequestedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for GattReadRequestedEventArgs {
     type Vtable = IGattReadRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2471064131, 62364, 18507, [138, 182, 153, 107, 164, 134, 207, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93497243_f39c_484b_8ab6_996ba486cfa3);
 }
 impl ::windows::runtime::RuntimeName for GattReadRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequestedEventArgs";
@@ -3483,7 +3483,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattReadResult {
 }
 unsafe impl ::windows::runtime::Interface for GattReadResult {
     type Vtable = IGattReadResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1671851784, 6890, 19532, [165, 15, 151, 186, 228, 116, 179, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63a66f08_1aea_4c4c_a50f_97bae474b348);
 }
 impl ::windows::runtime::RuntimeName for GattReadResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadResult";
@@ -3572,7 +3572,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattReliableWriteTransaction {
 }
 unsafe impl ::windows::runtime::Interface for GattReliableWriteTransaction {
     type Vtable = IGattReliableWriteTransaction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1671851783, 6890, 19532, [165, 15, 151, 186, 228, 116, 179, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63a66f07_1aea_4c4c_a50f_97bae474b348);
 }
 impl ::windows::runtime::RuntimeName for GattReliableWriteTransaction {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReliableWriteTransaction";
@@ -3669,7 +3669,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattRequestStateChangedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for GattRequestStateChangedEventArgs {
     type Vtable = IGattRequestStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3895777580, 10174, 17587, [157, 13, 79, 198, 232, 8, 221, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe834d92c_27be_44b3_9d0d_4fc6e808dd3f);
 }
 impl ::windows::runtime::RuntimeName for GattRequestStateChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestStateChangedEventArgs";
@@ -3785,7 +3785,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattServiceProvider {
 }
 unsafe impl ::windows::runtime::Interface for GattServiceProvider {
     type Vtable = IGattServiceProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2015540173, 10377, 20358, [160, 81, 63, 10, 237, 28, 39, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7822b3cd_2889_4f86_a051_3f0aed1c2760);
 }
 impl ::windows::runtime::RuntimeName for GattServiceProvider {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProvider";
@@ -3884,7 +3884,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattServiceProviderAdvertisement
 }
 unsafe impl ::windows::runtime::Interface for GattServiceProviderAdvertisementStatusChangedEventArgs {
     type Vtable = IGattServiceProviderAdvertisementStatusChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1504029285, 64033, 20476, [177, 85, 4, 217, 40, 1, 38, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59a5aa65_fa21_4ffc_b155_04d928012686);
 }
 impl ::windows::runtime::RuntimeName for GattServiceProviderAdvertisementStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatusChangedEventArgs";
@@ -3990,7 +3990,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattServiceProviderAdvertisingPa
 }
 unsafe impl ::windows::runtime::Interface for GattServiceProviderAdvertisingParameters {
     type Vtable = IGattServiceProviderAdvertisingParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3805163947, 25365, 19490, [155, 215, 120, 29, 188, 61, 141, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2ce31ab_6315_4c22_9bd7_781dbc3d8d82);
 }
 impl ::windows::runtime::RuntimeName for GattServiceProviderAdvertisingParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters";
@@ -4064,7 +4064,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattServiceProviderResult {
 }
 unsafe impl ::windows::runtime::Interface for GattServiceProviderResult {
     type Vtable = IGattServiceProviderResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1984337624, 50494, 17036, [138, 72, 103, 175, 224, 44, 58, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x764696d8_c53e_428c_8a48_67afe02c3ae6);
 }
 impl ::windows::runtime::RuntimeName for GattServiceProviderResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderResult";
@@ -4384,7 +4384,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattSession {
 }
 unsafe impl ::windows::runtime::Interface for GattSession {
     type Vtable = IGattSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3527102787, 57422, 19492, [153, 156, 156, 37, 111, 152, 86, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd23b5143_e04e_4c24_999c_9c256f9856b1);
 }
 impl ::windows::runtime::RuntimeName for GattSession {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSession";
@@ -4506,7 +4506,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattSessionStatusChangedEventArg
 }
 unsafe impl ::windows::runtime::Interface for GattSessionStatusChangedEventArgs {
     type Vtable = IGattSessionStatusChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1980086062, 33663, 16460, [171, 52, 49, 99, 243, 157, 223, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7605b72e_837f_404c_ab34_3163f39ddf32);
 }
 impl ::windows::runtime::RuntimeName for GattSessionStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatusChangedEventArgs";
@@ -4619,7 +4619,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattSubscribedClient {
 }
 unsafe impl ::windows::runtime::Interface for GattSubscribedClient {
     type Vtable = IGattSubscribedClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1936625665, 5540, 20162, [146, 72, 227, 242, 13, 70, 59, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x736e9001_15a4_4ec2_9248_e3f20d463be9);
 }
 impl ::windows::runtime::RuntimeName for GattSubscribedClient {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient";
@@ -4695,7 +4695,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattValueChangedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for GattValueChangedEventArgs {
     type Vtable = IGattValueChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3525040980, 1763, 20184, [162, 99, 172, 250, 200, 186, 115, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd21bdb54_06e3_4ed8_a263_acfac8ba7313);
 }
 impl ::windows::runtime::RuntimeName for GattValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs";
@@ -4833,7 +4833,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattWriteRequest {
 }
 unsafe impl ::windows::runtime::Interface for GattWriteRequest {
     type Vtable = IGattWriteRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2931206637, 56879, 20418, [169, 168, 148, 234, 120, 68, 241, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaeb6a9ed_de2f_4fc2_a9a8_94ea7844f13d);
 }
 impl ::windows::runtime::RuntimeName for GattWriteRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequest";
@@ -4917,7 +4917,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattWriteRequestedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for GattWriteRequestedEventArgs {
     type Vtable = IGattWriteRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(770476990, 42810, 18202, [148, 213, 3, 125, 234, 221, 8, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2dec8bbe_a73a_471a_94d5_037deadd0806);
 }
 impl ::windows::runtime::RuntimeName for GattWriteRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequestedEventArgs";
@@ -4992,7 +4992,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattWriteResult {
 }
 unsafe impl ::windows::runtime::Interface for GattWriteResult {
     type Vtable = IGattWriteResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1234296241, 52011, 17655, [153, 252, 210, 154, 40, 113, 220, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4991ddb1_cb2b_44f7_99fc_d29a2871dc9b);
 }
 impl ::windows::runtime::RuntimeName for GattWriteResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteResult";
@@ -5044,7 +5044,7 @@ unsafe impl ::core::marker::Sync for GattWriteResult {}
 pub struct IGattCharacteristic(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristic {
     type Vtable = IGattCharacteristic_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1506496705, 22836, 20328, [161, 152, 235, 134, 79, 164, 78, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59cb50c1_5934_4f68_a198_eb864fa44e6b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5087,7 +5087,7 @@ pub struct IGattCharacteristic_abi(
 pub struct IGattCharacteristic2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristic2 {
     type Vtable = IGattCharacteristic2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2920985976, 60422, 18276, [183, 128, 152, 53, 161, 211, 93, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae1ab578_ec06_4764_b780_9835a1d35d6e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5107,7 +5107,7 @@ pub struct IGattCharacteristic2_abi(
 pub struct IGattCharacteristic3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristic3 {
     type Vtable = IGattCharacteristic3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1060922942, 37844, 16491, [184, 23, 219, 129, 248, 237, 83, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f3c663e_93d4_406b_b817_db81f8ed53b3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5138,7 +5138,7 @@ pub struct IGattCharacteristic3_abi(
 pub struct IGattCharacteristicStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristicStatics {
     type Vtable = IGattCharacteristicStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1506496707, 22836, 20328, [161, 152, 235, 134, 79, 164, 78, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59cb50c3_5934_4f68_a198_eb864fa44e6b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5156,7 +5156,7 @@ pub struct IGattCharacteristicStatics_abi(
 pub struct IGattCharacteristicUuidsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristicUuidsStatics {
     type Vtable = IGattCharacteristicUuidsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1492796806, 45534, 18188, [183, 222, 13, 17, 255, 68, 244, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58fa4586_b1de_470c_b7de_0d11ff44f4b7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5194,7 +5194,7 @@ pub struct IGattCharacteristicUuidsStatics_abi(
 pub struct IGattCharacteristicUuidsStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristicUuidsStatics2 {
     type Vtable = IGattCharacteristicUuidsStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(408269861, 54382, 18988, [156, 63, 237, 109, 234, 41, 231, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1855b425_d46e_4a2c_9c3f_ed6dea29e7be);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5271,7 +5271,7 @@ pub struct IGattCharacteristicUuidsStatics2_abi(
 pub struct IGattCharacteristicsResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristicsResult {
     type Vtable = IGattCharacteristicsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(294949980, 45655, 20286, [157, 183, 246, 139, 201, 169, 174, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1194945c_b257_4f3e_9db7_f68bc9a9aef2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5293,7 +5293,7 @@ pub struct IGattCharacteristicsResult_abi(
 pub struct IGattClientNotificationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattClientNotificationResult {
     type Vtable = IGattClientNotificationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1349342617, 274, 16794, [142, 59, 174, 33, 175, 171, 210, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x506d5599_0112_419a_8e3b_ae21afabd2c2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5314,7 +5314,7 @@ pub struct IGattClientNotificationResult_abi(
 pub struct IGattClientNotificationResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattClientNotificationResult2 {
     type Vtable = IGattClientNotificationResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2410595479, 17888, 18814, [149, 130, 41, 161, 254, 40, 26, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8faec497_45e0_497e_9582_29a1fe281ad5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5332,7 +5332,7 @@ pub struct IGattClientNotificationResult2_abi(
 pub struct IGattDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattDescriptor {
     type Vtable = IGattDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2449825579, 32900, 17220, [180, 194, 40, 77, 225, 154, 133, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92055f2b_8084_4344_b4c2_284de19a8506);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5359,7 +5359,7 @@ pub struct IGattDescriptor_abi(
 pub struct IGattDescriptor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattDescriptor2 {
     type Vtable = IGattDescriptor2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2404793657, 54832, 16492, [186, 17, 16, 205, 209, 107, 14, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f563d39_d630_406c_ba11_10cdd16b0e5e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5378,7 +5378,7 @@ pub struct IGattDescriptor2_abi(
 pub struct IGattDescriptorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattDescriptorStatics {
     type Vtable = IGattDescriptorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2449825581, 32900, 17220, [180, 194, 40, 77, 225, 154, 133, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92055f2d_8084_4344_b4c2_284de19a8506);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5396,7 +5396,7 @@ pub struct IGattDescriptorStatics_abi(
 pub struct IGattDescriptorUuidsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattDescriptorUuidsStatics {
     type Vtable = IGattDescriptorUuidsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2801296078, 40188, 17137, [145, 133, 255, 55, 183, 81, 129, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6f862ce_9cfc_42f1_9185_ff37b75181d3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5419,7 +5419,7 @@ pub struct IGattDescriptorUuidsStatics_abi(
 pub struct IGattDescriptorsResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattDescriptorsResult {
     type Vtable = IGattDescriptorsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2613088755, 38375, 17545, [141, 37, 255, 129, 149, 90, 87, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9bc091f3_95e7_4489_8d25_ff81955a57b9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5441,7 +5441,7 @@ pub struct IGattDescriptorsResult_abi(
 pub struct IGattDeviceService(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattDeviceService {
     type Vtable = IGattDeviceService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2893773829, 45884, 18383, [153, 15, 107, 143, 85, 119, 223, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac7b7c05_b33c_47cf_990f_6b8f5577df71);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5465,7 +5465,7 @@ pub struct IGattDeviceService_abi(
 pub struct IGattDeviceService2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattDeviceService2 {
     type Vtable = IGattDeviceService2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4233384459, 2829, 18184, [186, 224, 159, 253, 148, 137, 188, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc54520b_0b0d_4708_bae0_9ffd9489bc59);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5489,7 +5489,7 @@ pub struct IGattDeviceService2_abi(
 pub struct IGattDeviceService3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattDeviceService3 {
     type Vtable = IGattDeviceService3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2996021584, 3155, 17276, [169, 179, 92, 50, 16, 198, 229, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb293a950_0c53_437c_a9b3_5c3210c6e569);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5530,7 +5530,7 @@ pub struct IGattDeviceService3_abi(
 pub struct IGattDeviceServiceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattDeviceServiceStatics {
     type Vtable = IGattDeviceServiceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(426573858, 64173, 17884, [174, 91, 42, 195, 24, 78, 132, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x196d0022_faad_45dc_ae5b_2ac3184e84db);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5552,7 +5552,7 @@ pub struct IGattDeviceServiceStatics_abi(
 pub struct IGattDeviceServiceStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattDeviceServiceStatics2 {
     type Vtable = IGattDeviceServiceStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(100931694, 9382, 19213, [162, 242, 48, 204, 1, 84, 93, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0604186e_24a6_4b0d_a2f2_30cc01545d25);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5575,7 +5575,7 @@ pub struct IGattDeviceServiceStatics2_abi(
 pub struct IGattDeviceServicesResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattDeviceServicesResult {
     type Vtable = IGattDeviceServicesResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(387830766, 365, 16797, [131, 138, 87, 108, 244, 117, 163, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x171dd3ee_016d_419d_838a_576cf475a3d8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5597,7 +5597,7 @@ pub struct IGattDeviceServicesResult_abi(
 pub struct IGattLocalCharacteristic(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattLocalCharacteristic {
     type Vtable = IGattLocalCharacteristic_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2933798765, 21522, 19828, [146, 168, 141, 235, 133, 38, 130, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaede376d_5412_4d74_92a8_8deb8526829c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5645,7 +5645,7 @@ pub struct IGattLocalCharacteristic_abi(
 pub struct IGattLocalCharacteristicParameters(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattLocalCharacteristicParameters {
     type Vtable = IGattLocalCharacteristicParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4210507188, 19711, 17607, [132, 69, 4, 14, 110, 173, 0, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfaf73db4_4cff_44c7_8445_040e6ead0063);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5676,7 +5676,7 @@ pub struct IGattLocalCharacteristicParameters_abi(
 pub struct IGattLocalCharacteristicResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattLocalCharacteristicResult {
     type Vtable = IGattLocalCharacteristicResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037767835, 368, 17303, [150, 102, 146, 248, 99, 241, 46, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7975de9b_0170_4397_9666_92f863f12ee6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5695,7 +5695,7 @@ pub struct IGattLocalCharacteristicResult_abi(
 pub struct IGattLocalDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattLocalDescriptor {
     type Vtable = IGattLocalDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4102995462, 30877, 19019, [134, 82, 189, 1, 123, 93, 47, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf48ebe06_789d_4a4b_8652_bd017b5d2fc6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5725,7 +5725,7 @@ pub struct IGattLocalDescriptor_abi(
 pub struct IGattLocalDescriptorParameters(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattLocalDescriptorParameters {
     type Vtable = IGattLocalDescriptorParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1608441450, 62401, 19302, [140, 75, 227, 210, 41, 59, 64, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5fdede6a_f3c1_4b66_8c4b_e3d2293b40e9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5750,7 +5750,7 @@ pub struct IGattLocalDescriptorParameters_abi(
 pub struct IGattLocalDescriptorResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattLocalDescriptorResult {
     type Vtable = IGattLocalDescriptorResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(928485822, 12831, 17254, [191, 193, 59, 198, 184, 44, 121, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x375791be_321f_4366_bfc1_3bc6b82c79f8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5769,7 +5769,7 @@ pub struct IGattLocalDescriptorResult_abi(
 pub struct IGattLocalService(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattLocalService {
     type Vtable = IGattLocalService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4111721048, 63479, 18690, [184, 3, 87, 252, 199, 214, 254, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf513e258_f7f7_4902_b803_57fcc7d6fe83);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5791,7 +5791,7 @@ pub struct IGattLocalService_abi(
 pub struct IGattPresentationFormat(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattPresentationFormat {
     type Vtable = IGattPresentationFormat_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(426573857, 64173, 17884, [174, 91, 42, 195, 24, 78, 132, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x196d0021_faad_45dc_ae5b_2ac3184e84db);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5813,7 +5813,7 @@ pub struct IGattPresentationFormat_abi(
 pub struct IGattPresentationFormatStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattPresentationFormatStatics {
     type Vtable = IGattPresentationFormatStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(426573856, 64173, 17884, [174, 91, 42, 195, 24, 78, 132, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x196d0020_faad_45dc_ae5b_2ac3184e84db);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5831,7 +5831,7 @@ pub struct IGattPresentationFormatStatics_abi(
 pub struct IGattPresentationFormatStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattPresentationFormatStatics2 {
     type Vtable = IGattPresentationFormatStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2848069395, 47151, 17246, [182, 52, 33, 253, 133, 164, 60, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9c21713_b82f_435e_b634_21fd85a43c07);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5849,7 +5849,7 @@ pub struct IGattPresentationFormatStatics2_abi(
 pub struct IGattPresentationFormatTypesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattPresentationFormatTypesStatics {
     type Vtable = IGattPresentationFormatTypesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4210145802, 12474, 16540, [190, 247, 207, 251, 109, 3, 184, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfaf1ba0a_30ba_409c_bef7_cffb6d03b8fb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5893,7 +5893,7 @@ pub struct IGattPresentationFormatTypesStatics_abi(
 pub struct IGattProtocolErrorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattProtocolErrorStatics {
     type Vtable = IGattProtocolErrorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3393635781, 3788, 18441, [190, 163, 207, 121, 188, 153, 30, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca46c5c5_0ecc_4809_bea3_cf79bc991e37);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5927,7 +5927,7 @@ pub struct IGattProtocolErrorStatics_abi(
 pub struct IGattReadClientCharacteristicConfigurationDescriptorResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattReadClientCharacteristicConfigurationDescriptorResult {
     type Vtable = IGattReadClientCharacteristicConfigurationDescriptorResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1671851785, 6890, 19532, [165, 15, 151, 186, 228, 116, 179, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63a66f09_1aea_4c4c_a50f_97bae474b348);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5946,7 +5946,7 @@ pub struct IGattReadClientCharacteristicConfigurationDescriptorResult_abi(
 pub struct IGattReadClientCharacteristicConfigurationDescriptorResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattReadClientCharacteristicConfigurationDescriptorResult2 {
     type Vtable = IGattReadClientCharacteristicConfigurationDescriptorResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(468821405, 47693, 17954, [134, 81, 244, 238, 21, 13, 10, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bf1a59d_ba4d_4622_8651_f4ee150d0a5d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5965,7 +5965,7 @@ pub struct IGattReadClientCharacteristicConfigurationDescriptorResult2_abi(
 pub struct IGattReadRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattReadRequest {
     type Vtable = IGattReadRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4057818421, 27341, 17062, [164, 187, 215, 137, 218, 224, 4, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1dd6535_6acd_42a6_a4bb_d789dae0043e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5992,7 +5992,7 @@ pub struct IGattReadRequest_abi(
 pub struct IGattReadRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattReadRequestedEventArgs {
     type Vtable = IGattReadRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2471064131, 62364, 18507, [138, 182, 153, 107, 164, 134, 207, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93497243_f39c_484b_8ab6_996ba486cfa3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6014,7 +6014,7 @@ pub struct IGattReadRequestedEventArgs_abi(
 pub struct IGattReadResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattReadResult {
     type Vtable = IGattReadResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1671851784, 6890, 19532, [165, 15, 151, 186, 228, 116, 179, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63a66f08_1aea_4c4c_a50f_97bae474b348);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6034,7 +6034,7 @@ pub struct IGattReadResult_abi(
 pub struct IGattReadResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattReadResult2 {
     type Vtable = IGattReadResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2702135456, 64323, 18607, [186, 170, 99, 138, 92, 99, 41, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa10f50a0_fb43_48af_baaa_638a5c6329fe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6053,7 +6053,7 @@ pub struct IGattReadResult2_abi(
 pub struct IGattReliableWriteTransaction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattReliableWriteTransaction {
     type Vtable = IGattReliableWriteTransaction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1671851783, 6890, 19532, [165, 15, 151, 186, 228, 116, 179, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63a66f07_1aea_4c4c_a50f_97bae474b348);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6074,7 +6074,7 @@ pub struct IGattReliableWriteTransaction_abi(
 pub struct IGattReliableWriteTransaction2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattReliableWriteTransaction2 {
     type Vtable = IGattReliableWriteTransaction2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1360083335, 61202, 17967, [159, 178, 161, 164, 58, 103, 148, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51113987_ef12_462f_9fb2_a1a43a679416);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6093,7 +6093,7 @@ pub struct IGattReliableWriteTransaction2_abi(
 pub struct IGattRequestStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattRequestStateChangedEventArgs {
     type Vtable = IGattRequestStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3895777580, 10174, 17587, [157, 13, 79, 198, 232, 8, 221, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe834d92c_27be_44b3_9d0d_4fc6e808dd3f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6112,7 +6112,7 @@ pub struct IGattRequestStateChangedEventArgs_abi(
 pub struct IGattServiceProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProvider {
     type Vtable = IGattServiceProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2015540173, 10377, 20358, [160, 81, 63, 10, 237, 28, 39, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7822b3cd_2889_4f86_a051_3f0aed1c2760);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6138,7 +6138,7 @@ pub struct IGattServiceProvider_abi(
 pub struct IGattServiceProviderAdvertisementStatusChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderAdvertisementStatusChangedEventArgs {
     type Vtable = IGattServiceProviderAdvertisementStatusChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1504029285, 64033, 20476, [177, 85, 4, 217, 40, 1, 38, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59a5aa65_fa21_4ffc_b155_04d928012686);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6157,7 +6157,7 @@ pub struct IGattServiceProviderAdvertisementStatusChangedEventArgs_abi(
 pub struct IGattServiceProviderAdvertisingParameters(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderAdvertisingParameters {
     type Vtable = IGattServiceProviderAdvertisingParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3805163947, 25365, 19490, [155, 215, 120, 29, 188, 61, 141, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2ce31ab_6315_4c22_9bd7_781dbc3d8d82);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6178,7 +6178,7 @@ pub struct IGattServiceProviderAdvertisingParameters_abi(
 pub struct IGattServiceProviderAdvertisingParameters2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderAdvertisingParameters2 {
     type Vtable = IGattServiceProviderAdvertisingParameters2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4285023885, 51858, 17460, [151, 67, 14, 144, 152, 138, 216, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff68468d_ca92_4434_9743_0e90988ad879);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6199,7 +6199,7 @@ pub struct IGattServiceProviderAdvertisingParameters2_abi(
 pub struct IGattServiceProviderResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderResult {
     type Vtable = IGattServiceProviderResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1984337624, 50494, 17036, [138, 72, 103, 175, 224, 44, 58, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x764696d8_c53e_428c_8a48_67afe02c3ae6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6218,7 +6218,7 @@ pub struct IGattServiceProviderResult_abi(
 pub struct IGattServiceProviderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderStatics {
     type Vtable = IGattServiceProviderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(830029923, 21078, 16468, [164, 244, 123, 190, 119, 85, 165, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31794063_5256_4054_a4f4_7bbe7755a57e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6237,7 +6237,7 @@ pub struct IGattServiceProviderStatics_abi(
 pub struct IGattServiceUuidsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceUuidsStatics {
     type Vtable = IGattServiceUuidsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1841655896, 39610, 17431, [184, 242, 220, 224, 22, 211, 78, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6dc57058_9aba_4417_b8f2_dce016d34ee2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6263,7 +6263,7 @@ pub struct IGattServiceUuidsStatics_abi(
 pub struct IGattServiceUuidsStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceUuidsStatics2 {
     type Vtable = IGattServiceUuidsStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534656757, 15637, 20345, [156, 12, 234, 175, 166, 117, 21, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2ae94f5_3d15_4f79_9c0c_eaafa675155c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6293,7 +6293,7 @@ pub struct IGattServiceUuidsStatics2_abi(
 pub struct IGattSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattSession {
     type Vtable = IGattSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3527102787, 57422, 19492, [153, 156, 156, 37, 111, 152, 86, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd23b5143_e04e_4c24_999c_9c256f9856b1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6324,7 +6324,7 @@ pub struct IGattSession_abi(
 pub struct IGattSessionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattSessionStatics {
     type Vtable = IGattSessionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(778418524, 21407, 19895, [130, 168, 115, 189, 187, 247, 62, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e65b95c_539f_4db7_82a8_73bdbbf73ebf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6343,7 +6343,7 @@ pub struct IGattSessionStatics_abi(
 pub struct IGattSessionStatusChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattSessionStatusChangedEventArgs {
     type Vtable = IGattSessionStatusChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1980086062, 33663, 16460, [171, 52, 49, 99, 243, 157, 223, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7605b72e_837f_404c_ab34_3163f39ddf32);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6362,7 +6362,7 @@ pub struct IGattSessionStatusChangedEventArgs_abi(
 pub struct IGattSubscribedClient(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattSubscribedClient {
     type Vtable = IGattSubscribedClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1936625665, 5540, 20162, [146, 72, 227, 242, 13, 70, 59, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x736e9001_15a4_4ec2_9248_e3f20d463be9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6385,7 +6385,7 @@ pub struct IGattSubscribedClient_abi(
 pub struct IGattValueChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattValueChangedEventArgs {
     type Vtable = IGattValueChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3525040980, 1763, 20184, [162, 99, 172, 250, 200, 186, 115, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd21bdb54_06e3_4ed8_a263_acfac8ba7313);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6406,7 +6406,7 @@ pub struct IGattValueChangedEventArgs_abi(
 pub struct IGattWriteRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattWriteRequest {
     type Vtable = IGattWriteRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2931206637, 56879, 20418, [169, 168, 148, 234, 120, 68, 241, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaeb6a9ed_de2f_4fc2_a9a8_94ea7844f13d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6434,7 +6434,7 @@ pub struct IGattWriteRequest_abi(
 pub struct IGattWriteRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattWriteRequestedEventArgs {
     type Vtable = IGattWriteRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(770476990, 42810, 18202, [148, 213, 3, 125, 234, 221, 8, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2dec8bbe_a73a_471a_94d5_037deadd0806);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6456,7 +6456,7 @@ pub struct IGattWriteRequestedEventArgs_abi(
 pub struct IGattWriteResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattWriteResult {
     type Vtable = IGattWriteResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1234296241, 52011, 17655, [153, 252, 210, 154, 40, 113, 220, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4991ddb1_cb2b_44f7_99fc_d29a2871dc9b);
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -12,7 +12,7 @@ impl IDummyHICONIncluder {
 }
 unsafe impl ::windows::runtime::Interface for IDummyHICONIncluder {
     type Vtable = IDummyHICONIncluder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2490994910, 52264, 4562, [160, 247, 0, 128, 95, 133, 143, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x947990de_cc28_11d2_a0f7_00805f858fb1);
 }
 impl ::core::convert::From<IDummyHICONIncluder> for ::windows::runtime::IUnknown {
     fn from(value: IDummyHICONIncluder) -> Self {
@@ -61,7 +61,7 @@ impl IThumbnailExtractor {
 }
 unsafe impl ::windows::runtime::Interface for IThumbnailExtractor {
     type Vtable = IThumbnailExtractor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2526922504, 23670, 4561, [141, 134, 0, 0, 248, 4, 176, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x969dc708_5c76_11d1_8d86_0000f804b057);
 }
 impl ::core::convert::From<IThumbnailExtractor> for ::windows::runtime::IUnknown {
     fn from(value: IThumbnailExtractor) -> Self {

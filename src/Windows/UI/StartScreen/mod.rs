@@ -26,7 +26,7 @@ impl ::windows::runtime::DefaultType for ForegroundText {
 pub struct IJumpList(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJumpList {
     type Vtable = IJumpList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2955103294, 52591, 19638, [166, 17, 97, 253, 80, 95, 62, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0234c3e_cd6f_4cb6_a611_61fd505f3ed1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -49,7 +49,7 @@ pub struct IJumpList_abi(
 pub struct IJumpListItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJumpListItem {
     type Vtable = IJumpListItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2061199127, 35677, 18464, [153, 91, 155, 65, 141, 190, 72, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7adb6717_8b5d_4820_995b_9b418dbe48b0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -79,7 +79,7 @@ pub struct IJumpListItem_abi(
 pub struct IJumpListItemStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJumpListItemStatics {
     type Vtable = IJumpListItemStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4055876840, 51114, 18891, [141, 222, 236, 252, 205, 122, 215, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1bfc4e8_c7aa_49cb_8dde_ecfccd7ad7e4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -98,7 +98,7 @@ pub struct IJumpListItemStatics_abi(
 pub struct IJumpListStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJumpListStatics {
     type Vtable = IJumpListStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2816525953, 59006, 19316, [130, 80, 63, 50, 44, 77, 146, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7e0c681_e67e_4b74_8250_3f322c4d92c3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -118,7 +118,7 @@ pub struct IJumpListStatics_abi(
 pub struct ISecondaryTile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryTile {
     type Vtable = ISecondaryTile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2661175776, 11189, 19392, [187, 141, 66, 178, 58, 188, 200, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e9e51e0_2bb5_4bc0_bb8d_42b23abcc88d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -185,7 +185,7 @@ pub struct ISecondaryTile_abi(
 pub struct ISecondaryTile2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryTile2 {
     type Vtable = ISecondaryTile2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3002518581, 12880, 18832, [146, 60, 41, 74, 180, 182, 148, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2f6cc35_3250_4990_923c_294ab4b694dd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -211,7 +211,7 @@ pub struct ISecondaryTile2_abi(
 pub struct ISecondaryTileFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryTileFactory {
     type Vtable = ISecondaryTileFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1475685536, 20924, 19135, [142, 191, 98, 122, 3, 152, 176, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57f52ca0_51bc_4abf_8ebf_627a0398b05a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -245,7 +245,7 @@ pub struct ISecondaryTileFactory_abi(
 pub struct ISecondaryTileFactory2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryTileFactory2 {
     type Vtable = ISecondaryTileFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(659262011, 21037, 17550, [158, 178, 208, 103, 42, 179, 69, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x274b8a3b_522d_448e_9eb2_d0672ab345c8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -264,7 +264,7 @@ pub struct ISecondaryTileFactory2_abi(
 pub struct ISecondaryTileStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryTileStatics {
     type Vtable = ISecondaryTileStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2576387502, 53329, 18038, [135, 254, 158, 194, 66, 216, 60, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99908dae_d051_4676_87fe_9ec242d83c74);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -288,7 +288,7 @@ pub struct ISecondaryTileStatics_abi(
 pub struct ISecondaryTileVisualElements(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryTileVisualElements {
     type Vtable = ISecondaryTileVisualElements_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(495842099, 33118, 16703, [159, 80, 168, 29, 167, 10, 150, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d8df333_815e_413f_9f50_a81da70a96b2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -335,7 +335,7 @@ pub struct ISecondaryTileVisualElements_abi(
 pub struct ISecondaryTileVisualElements2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryTileVisualElements2 {
     type Vtable = ISecondaryTileVisualElements2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4247663056, 22492, 18324, [142, 207, 86, 130, 245, 243, 230, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd2e31d0_57dc_4794_8ecf_5682f5f3e6ef);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -356,7 +356,7 @@ pub struct ISecondaryTileVisualElements2_abi(
 pub struct ISecondaryTileVisualElements3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryTileVisualElements3 {
     type Vtable = ISecondaryTileVisualElements3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1454725846, 53596, 16628, [129, 231, 87, 255, 216, 248, 164, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56b55ad6_d15c_40f4_81e7_57ffd8f8a4e9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -377,7 +377,7 @@ pub struct ISecondaryTileVisualElements3_abi(
 pub struct ISecondaryTileVisualElements4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryTileVisualElements4 {
     type Vtable = ISecondaryTileVisualElements4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1716936983, 46404, 16594, [141, 18, 116, 212, 236, 36, 208, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66566117_b544_40d2_8d12_74d4ec24d04c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -395,7 +395,7 @@ pub struct ISecondaryTileVisualElements4_abi(
 pub struct IStartScreenManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStartScreenManager {
     type Vtable = IStartScreenManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1243466699, 9961, 20148, [137, 51, 133, 158, 182, 236, 219, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a1dcbcb_26e9_4eb4_8933_859eb6ecdb29);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -420,7 +420,7 @@ pub struct IStartScreenManager_abi(
 pub struct IStartScreenManager2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStartScreenManager2 {
     type Vtable = IStartScreenManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(145168054, 12651, 19161, [172, 184, 254, 156, 240, 11, 214, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08a716b6_316b_4ad9_acb8_fe9cf00bd608);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -441,7 +441,7 @@ pub struct IStartScreenManager2_abi(
 pub struct IStartScreenManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStartScreenManagerStatics {
     type Vtable = IStartScreenManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2019946255, 46469, 17998, [137, 147, 52, 232, 248, 115, 141, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7865ef0f_b585_464e_8993_34e8f8738d48);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -461,7 +461,7 @@ pub struct IStartScreenManagerStatics_abi(
 pub struct ITileMixedRealityModel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileMixedRealityModel {
     type Vtable = ITileMixedRealityModel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2960543323, 34941, 16962, [154, 25, 61, 10, 78, 167, 128, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0764e5b_887d_4242_9a19_3d0a4ea78031);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -486,7 +486,7 @@ pub struct ITileMixedRealityModel_abi(
 pub struct ITileMixedRealityModel2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileMixedRealityModel2 {
     type Vtable = ITileMixedRealityModel2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1133801650, 55237, 16651, [131, 25, 148, 134, 162, 123, 108, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x439470b2_d7c5_410b_8319_9486a27b6c67);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -505,7 +505,7 @@ pub struct ITileMixedRealityModel2_abi(
 pub struct IVisualElementsRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualElementsRequest {
     type Vtable = IVisualElementsRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3241685818, 37640, 16498, [136, 204, 208, 104, 219, 52, 124, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc138333a_9308_4072_88cc_d068db347c68);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -528,7 +528,7 @@ pub struct IVisualElementsRequest_abi(
 pub struct IVisualElementsRequestDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualElementsRequestDeferral {
     type Vtable = IVisualElementsRequestDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2707779248, 294, 17239, [130, 4, 189, 130, 187, 42, 4, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1656eb0_0126_4357_8204_bd82bb2a046d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -546,7 +546,7 @@ pub struct IVisualElementsRequestDeferral_abi(
 pub struct IVisualElementsRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualElementsRequestedEventArgs {
     type Vtable = IVisualElementsRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2070923650, 14861, 20174, [175, 150, 205, 23, 225, 176, 11, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b6fc982_3a0d_4ece_af96_cd17e1b00b2d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -620,7 +620,7 @@ unsafe impl ::windows::runtime::RuntimeType for JumpList {
 }
 unsafe impl ::windows::runtime::Interface for JumpList {
     type Vtable = IJumpList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2955103294, 52591, 19638, [166, 17, 97, 253, 80, 95, 62, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0234c3e_cd6f_4cb6_a611_61fd505f3ed1);
 }
 impl ::windows::runtime::RuntimeName for JumpList {
     const NAME: &'static str = "Windows.UI.StartScreen.JumpList";
@@ -774,7 +774,7 @@ unsafe impl ::windows::runtime::RuntimeType for JumpListItem {
 }
 unsafe impl ::windows::runtime::Interface for JumpListItem {
     type Vtable = IJumpListItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2061199127, 35677, 18464, [153, 91, 155, 65, 141, 190, 72, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7adb6717_8b5d_4820_995b_9b418dbe48b0);
 }
 impl ::windows::runtime::RuntimeName for JumpListItem {
     const NAME: &'static str = "Windows.UI.StartScreen.JumpListItem";
@@ -1283,7 +1283,7 @@ unsafe impl ::windows::runtime::RuntimeType for SecondaryTile {
 }
 unsafe impl ::windows::runtime::Interface for SecondaryTile {
     type Vtable = ISecondaryTile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2661175776, 11189, 19392, [187, 141, 66, 178, 58, 188, 200, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e9e51e0_2bb5_4bc0_bb8d_42b23abcc88d);
 }
 impl ::windows::runtime::RuntimeName for SecondaryTile {
     const NAME: &'static str = "Windows.UI.StartScreen.SecondaryTile";
@@ -1523,7 +1523,7 @@ unsafe impl ::windows::runtime::RuntimeType for SecondaryTileVisualElements {
 }
 unsafe impl ::windows::runtime::Interface for SecondaryTileVisualElements {
     type Vtable = ISecondaryTileVisualElements_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(495842099, 33118, 16703, [159, 80, 168, 29, 167, 10, 150, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d8df333_815e_413f_9f50_a81da70a96b2);
 }
 impl ::windows::runtime::RuntimeName for SecondaryTileVisualElements {
     const NAME: &'static str = "Windows.UI.StartScreen.SecondaryTileVisualElements";
@@ -1654,7 +1654,7 @@ unsafe impl ::windows::runtime::RuntimeType for StartScreenManager {
 }
 unsafe impl ::windows::runtime::Interface for StartScreenManager {
     type Vtable = IStartScreenManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1243466699, 9961, 20148, [137, 51, 133, 158, 182, 236, 219, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a1dcbcb_26e9_4eb4_8933_859eb6ecdb29);
 }
 impl ::windows::runtime::RuntimeName for StartScreenManager {
     const NAME: &'static str = "Windows.UI.StartScreen.StartScreenManager";
@@ -1755,7 +1755,7 @@ unsafe impl ::windows::runtime::RuntimeType for TileMixedRealityModel {
 }
 unsafe impl ::windows::runtime::Interface for TileMixedRealityModel {
     type Vtable = ITileMixedRealityModel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2960543323, 34941, 16962, [154, 25, 61, 10, 78, 167, 128, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0764e5b_887d_4242_9a19_3d0a4ea78031);
 }
 impl ::windows::runtime::RuntimeName for TileMixedRealityModel {
     const NAME: &'static str = "Windows.UI.StartScreen.TileMixedRealityModel";
@@ -1949,7 +1949,7 @@ unsafe impl ::windows::runtime::RuntimeType for VisualElementsRequest {
 }
 unsafe impl ::windows::runtime::Interface for VisualElementsRequest {
     type Vtable = IVisualElementsRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3241685818, 37640, 16498, [136, 204, 208, 104, 219, 52, 124, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc138333a_9308_4072_88cc_d068db347c68);
 }
 impl ::windows::runtime::RuntimeName for VisualElementsRequest {
     const NAME: &'static str = "Windows.UI.StartScreen.VisualElementsRequest";
@@ -2012,7 +2012,7 @@ unsafe impl ::windows::runtime::RuntimeType for VisualElementsRequestDeferral {
 }
 unsafe impl ::windows::runtime::Interface for VisualElementsRequestDeferral {
     type Vtable = IVisualElementsRequestDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2707779248, 294, 17239, [130, 4, 189, 130, 187, 42, 4, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1656eb0_0126_4357_8204_bd82bb2a046d);
 }
 impl ::windows::runtime::RuntimeName for VisualElementsRequestDeferral {
     const NAME: &'static str = "Windows.UI.StartScreen.VisualElementsRequestDeferral";
@@ -2078,7 +2078,7 @@ unsafe impl ::windows::runtime::RuntimeType for VisualElementsRequestedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for VisualElementsRequestedEventArgs {
     type Vtable = IVisualElementsRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2070923650, 14861, 20174, [175, 150, 205, 23, 225, 176, 11, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b6fc982_3a0d_4ece_af96_cd17e1b00b2d);
 }
 impl ::windows::runtime::RuntimeName for VisualElementsRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.StartScreen.VisualElementsRequestedEventArgs";

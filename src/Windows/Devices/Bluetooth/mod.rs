@@ -142,7 +142,7 @@ unsafe impl ::windows::runtime::RuntimeType for BluetoothAdapter {
 }
 unsafe impl ::windows::runtime::Interface for BluetoothAdapter {
     type Vtable = IBluetoothAdapter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037706828, 24442, 18996, [146, 37, 168, 85, 248, 75, 26, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7974f04c_5f7a_4a34_9225_a855f84b1a8b);
 }
 impl ::windows::runtime::RuntimeName for BluetoothAdapter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothAdapter";
@@ -295,7 +295,7 @@ unsafe impl ::windows::runtime::RuntimeType for BluetoothClassOfDevice {
 }
 unsafe impl ::windows::runtime::Interface for BluetoothClassOfDevice {
     type Vtable = IBluetoothClassOfDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3594527358, 55255, 18017, [148, 84, 101, 3, 156, 161, 122, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd640227e_d7d7_4661_9454_65039ca17a2b);
 }
 impl ::windows::runtime::RuntimeName for BluetoothClassOfDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothClassOfDevice";
@@ -647,7 +647,7 @@ unsafe impl ::windows::runtime::RuntimeType for BluetoothDevice {
 }
 unsafe impl ::windows::runtime::Interface for BluetoothDevice {
     type Vtable = IBluetoothDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(590721366, 37074, 18948, [174, 245, 14, 32, 185, 230, 183, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2335b156_90d2_4a04_aef5_0e20b9e6b707);
 }
 impl ::windows::runtime::RuntimeName for BluetoothDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothDevice";
@@ -766,7 +766,7 @@ unsafe impl ::windows::runtime::RuntimeType for BluetoothDeviceId {
 }
 unsafe impl ::windows::runtime::Interface for BluetoothDeviceId {
     type Vtable = IBluetoothDeviceId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3245951407, 22465, 17986, [188, 206, 230, 192, 107, 32, 174, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc17949af_57c1_4642_bcce_e6c06b20ae76);
 }
 impl ::windows::runtime::RuntimeName for BluetoothDeviceId {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothDeviceId";
@@ -896,7 +896,7 @@ unsafe impl ::windows::runtime::RuntimeType for BluetoothLEAppearance {
 }
 unsafe impl ::windows::runtime::Interface for BluetoothLEAppearance {
     type Vtable = IBluetoothLEAppearance_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1562409458, 26280, 16984, [152, 94, 2, 180, 217, 80, 159, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d2079f2_66a8_4258_985e_02b4d9509f18);
 }
 impl ::windows::runtime::RuntimeName for BluetoothLEAppearance {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEAppearance";
@@ -1350,7 +1350,7 @@ unsafe impl ::windows::runtime::RuntimeType for BluetoothLEConnectionParameters 
 }
 unsafe impl ::windows::runtime::Interface for BluetoothLEConnectionParameters {
     type Vtable = IBluetoothLEConnectionParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(868943729, 36265, 20623, [163, 102, 28, 163, 136, 201, 41, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33cb0771_8da9_508f_a366_1ca388c929ab);
 }
 impl ::windows::runtime::RuntimeName for BluetoothLEConnectionParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionParameters";
@@ -1424,7 +1424,7 @@ unsafe impl ::windows::runtime::RuntimeType for BluetoothLEConnectionPhy {
 }
 unsafe impl ::windows::runtime::Interface for BluetoothLEConnectionPhy {
     type Vtable = IBluetoothLEConnectionPhy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2015256136, 25118, 23166, [139, 230, 27, 149, 97, 255, 99, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x781e5e48_621e_5a7e_8be6_1b9561ff63c9);
 }
 impl ::windows::runtime::RuntimeName for BluetoothLEConnectionPhy {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionPhy";
@@ -1506,7 +1506,7 @@ unsafe impl ::windows::runtime::RuntimeType for BluetoothLEConnectionPhyInfo {
 }
 unsafe impl ::windows::runtime::Interface for BluetoothLEConnectionPhyInfo {
     type Vtable = IBluetoothLEConnectionPhyInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2584742877, 24622, 23591, [161, 174, 178, 48, 1, 90, 99, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a100bdd_602e_5c27_a1ae_b230015a6394);
 }
 impl ::windows::runtime::RuntimeName for BluetoothLEConnectionPhyInfo {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionPhyInfo";
@@ -1897,7 +1897,7 @@ unsafe impl ::windows::runtime::RuntimeType for BluetoothLEDevice {
 }
 unsafe impl ::windows::runtime::Interface for BluetoothLEDevice {
     type Vtable = IBluetoothLEDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3052285819, 19160, 17986, [172, 72, 128, 160, 181, 0, 232, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5ee2f7b_4ad8_4642_ac48_80a0b500e887);
 }
 impl ::windows::runtime::RuntimeName for BluetoothLEDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEDevice";
@@ -2038,7 +2038,7 @@ unsafe impl ::windows::runtime::RuntimeType for BluetoothLEPreferredConnectionPa
 }
 unsafe impl ::windows::runtime::Interface for BluetoothLEPreferredConnectionParameters {
     type Vtable = IBluetoothLEPreferredConnectionParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4076094276, 29554, 24443, [155, 52, 41, 201, 68, 245, 167, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2f44344_7372_5f7b_9b34_29c944f5a715);
 }
 impl ::windows::runtime::RuntimeName for BluetoothLEPreferredConnectionParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParameters";
@@ -2110,7 +2110,7 @@ unsafe impl ::windows::runtime::RuntimeType for BluetoothLEPreferredConnectionPa
 }
 unsafe impl ::windows::runtime::Interface for BluetoothLEPreferredConnectionParametersRequest {
     type Vtable = IBluetoothLEPreferredConnectionParametersRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2318881398, 42280, 21094, [182, 97, 204, 230, 165, 255, 151, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a375276_a528_5266_b661_cce6a5ff9739);
 }
 impl ::windows::runtime::RuntimeName for BluetoothLEPreferredConnectionParametersRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequest";
@@ -2464,7 +2464,7 @@ unsafe impl ::windows::runtime::RuntimeType for BluetoothSignalStrengthFilter {
 }
 unsafe impl ::windows::runtime::Interface for BluetoothSignalStrengthFilter {
     type Vtable = IBluetoothSignalStrengthFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3749409681, 27573, 19710, [144, 177, 93, 115, 36, 237, 207, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf7b7391_6bb5_4cfe_90b1_5d7324edcf7f);
 }
 impl ::windows::runtime::RuntimeName for BluetoothSignalStrengthFilter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothSignalStrengthFilter";
@@ -2542,7 +2542,7 @@ impl ::windows::runtime::RuntimeName for BluetoothUuidHelper {
 pub struct IBluetoothAdapter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothAdapter {
     type Vtable = IBluetoothAdapter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037706828, 24442, 18996, [146, 37, 168, 85, 248, 75, 26, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7974f04c_5f7a_4a34_9225_a855f84b1a8b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2568,7 +2568,7 @@ pub struct IBluetoothAdapter_abi(
 pub struct IBluetoothAdapter2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothAdapter2 {
     type Vtable = IBluetoothAdapter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2895433420, 9429, 16819, [145, 109, 16, 151, 197, 11, 16, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac94cecc_24d5_41b3_916d_1097c50b102b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2587,7 +2587,7 @@ pub struct IBluetoothAdapter2_abi(
 pub struct IBluetoothAdapter3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothAdapter3 {
     type Vtable = IBluetoothAdapter3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2407933152, 52137, 21009, [159, 137, 58, 172, 98, 180, 198, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f8624e0_cba9_5211_9f89_3aac62b4c6b8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2606,7 +2606,7 @@ pub struct IBluetoothAdapter3_abi(
 pub struct IBluetoothAdapterStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothAdapterStatics {
     type Vtable = IBluetoothAdapterStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2332228458, 44108, 18241, [134, 97, 142, 171, 125, 23, 234, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b02fb6a_ac4c_4741_8661_8eab7d17ea9f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2628,7 +2628,7 @@ pub struct IBluetoothAdapterStatics_abi(
 pub struct IBluetoothClassOfDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothClassOfDevice {
     type Vtable = IBluetoothClassOfDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3594527358, 55255, 18017, [148, 84, 101, 3, 156, 161, 122, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd640227e_d7d7_4661_9454_65039ca17a2b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2649,7 +2649,7 @@ pub struct IBluetoothClassOfDevice_abi(
 pub struct IBluetoothClassOfDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothClassOfDeviceStatics {
     type Vtable = IBluetoothClassOfDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3831575997, 4002, 16748, [145, 180, 193, 228, 140, 160, 97, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe46135bd_0fa2_416c_91b4_c1e48ca061c1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2668,7 +2668,7 @@ pub struct IBluetoothClassOfDeviceStatics_abi(
 pub struct IBluetoothDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothDevice {
     type Vtable = IBluetoothDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(590721366, 37074, 18948, [174, 245, 14, 32, 185, 230, 183, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2335b156_90d2_4a04_aef5_0e20b9e6b707);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2708,7 +2708,7 @@ pub struct IBluetoothDevice_abi(
 pub struct IBluetoothDevice2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothDevice2 {
     type Vtable = IBluetoothDevice2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(20183380, 45398, 19920, [177, 245, 193, 27, 195, 26, 81, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0133f954_b156_4dd0_b1f5_c11bc31a5163);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2727,7 +2727,7 @@ pub struct IBluetoothDevice2_abi(
 pub struct IBluetoothDevice3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothDevice3 {
     type Vtable = IBluetoothDevice3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1476392843, 25882, 17492, [185, 15, 235, 33, 239, 11, 13, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57fff78b_651a_4454_b90f_eb21ef0b0d71);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2756,7 +2756,7 @@ pub struct IBluetoothDevice3_abi(
 pub struct IBluetoothDevice4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothDevice4 {
     type Vtable = IBluetoothDevice4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2172400813, 3740, 17074, [168, 220, 62, 128, 148, 148, 13, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x817c34ad_0e9c_42b2_a8dc_3e8094940d12);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2774,7 +2774,7 @@ pub struct IBluetoothDevice4_abi(
 pub struct IBluetoothDevice5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothDevice5 {
     type Vtable = IBluetoothDevice5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3051402117, 24197, 17753, [161, 13, 28, 114, 129, 55, 159, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5e0b385_5e85_4559_a10d_1c7281379f96);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2792,7 +2792,7 @@ pub struct IBluetoothDevice5_abi(
 pub struct IBluetoothDeviceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothDeviceId {
     type Vtable = IBluetoothDeviceId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3245951407, 22465, 17986, [188, 206, 230, 192, 107, 32, 174, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc17949af_57c1_4642_bcce_e6c06b20ae76);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2812,7 +2812,7 @@ pub struct IBluetoothDeviceId_abi(
 pub struct IBluetoothDeviceIdStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothDeviceIdStatics {
     type Vtable = IBluetoothDeviceIdStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2810728039, 16123, 20273, [187, 194, 129, 14, 9, 151, 116, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7884e67_3efb_4f31_bbc2_810e09977404);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2830,7 +2830,7 @@ pub struct IBluetoothDeviceIdStatics_abi(
 pub struct IBluetoothDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothDeviceStatics {
     type Vtable = IBluetoothDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(160554833, 22491, 18213, [187, 215, 132, 246, 67, 39, 236, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0991df51_57db_4725_bbd7_84f64327ec2c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2854,7 +2854,7 @@ pub struct IBluetoothDeviceStatics_abi(
 pub struct IBluetoothDeviceStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothDeviceStatics2 {
     type Vtable = IBluetoothDeviceStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3265170991, 19988, 17527, [170, 27, 184, 180, 126, 91, 126, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc29e8e2f_4e14_4477_aa1b_b8b47e5b7ece);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2876,7 +2876,7 @@ pub struct IBluetoothDeviceStatics2_abi(
 pub struct IBluetoothLEAppearance(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAppearance {
     type Vtable = IBluetoothLEAppearance_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1562409458, 26280, 16984, [152, 94, 2, 180, 217, 80, 159, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d2079f2_66a8_4258_985e_02b4d9509f18);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2896,7 +2896,7 @@ pub struct IBluetoothLEAppearance_abi(
 pub struct IBluetoothLEAppearanceCategoriesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAppearanceCategoriesStatics {
     type Vtable = IBluetoothLEAppearanceCategoriesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1833784574, 1130, 16773, [170, 182, 130, 76, 240, 97, 8, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d4d54fe_046a_4185_aab6_824cf0610861);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2935,7 +2935,7 @@ pub struct IBluetoothLEAppearanceCategoriesStatics_abi(
 pub struct IBluetoothLEAppearanceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAppearanceStatics {
     type Vtable = IBluetoothLEAppearanceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2710814919, 17668, 20298, [155, 165, 205, 16, 84, 229, 224, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa193c0c7_4504_4f4a_9ba5_cd1054e5e065);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2954,7 +2954,7 @@ pub struct IBluetoothLEAppearanceStatics_abi(
 pub struct IBluetoothLEAppearanceSubcategoriesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAppearanceSubcategoriesStatics {
     type Vtable = IBluetoothLEAppearanceSubcategoriesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3850085894, 8516, 16730, [131, 18, 113, 204, 242, 145, 248, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe57ba606_2144_415a_8312_71ccf291f8d1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2999,7 +2999,7 @@ pub struct IBluetoothLEAppearanceSubcategoriesStatics_abi(
 pub struct IBluetoothLEConnectionParameters(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEConnectionParameters {
     type Vtable = IBluetoothLEConnectionParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(868943729, 36265, 20623, [163, 102, 28, 163, 136, 201, 41, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33cb0771_8da9_508f_a366_1ca388c929ab);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3019,7 +3019,7 @@ pub struct IBluetoothLEConnectionParameters_abi(
 pub struct IBluetoothLEConnectionPhy(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEConnectionPhy {
     type Vtable = IBluetoothLEConnectionPhy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2015256136, 25118, 23166, [139, 230, 27, 149, 97, 255, 99, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x781e5e48_621e_5a7e_8be6_1b9561ff63c9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3038,7 +3038,7 @@ pub struct IBluetoothLEConnectionPhy_abi(
 pub struct IBluetoothLEConnectionPhyInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEConnectionPhyInfo {
     type Vtable = IBluetoothLEConnectionPhyInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2584742877, 24622, 23591, [161, 174, 178, 48, 1, 90, 99, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a100bdd_602e_5c27_a1ae_b230015a6394);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3058,7 +3058,7 @@ pub struct IBluetoothLEConnectionPhyInfo_abi(
 pub struct IBluetoothLEDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEDevice {
     type Vtable = IBluetoothLEDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3052285819, 19160, 17986, [172, 72, 128, 160, 181, 0, 232, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5ee2f7b_4ad8_4642_ac48_80a0b500e887);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3095,7 +3095,7 @@ pub struct IBluetoothLEDevice_abi(
 pub struct IBluetoothLEDevice2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEDevice2 {
     type Vtable = IBluetoothLEDevice2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(653288115, 31470, 19761, [186, 186, 177, 185, 119, 95, 89, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26f062b3_7aee_4d31_baba_b1b9775f5916);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3116,7 +3116,7 @@ pub struct IBluetoothLEDevice2_abi(
 pub struct IBluetoothLEDevice3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEDevice3 {
     type Vtable = IBluetoothLEDevice3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2934563987, 17580, 16604, [175, 51, 178, 193, 60, 1, 202, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaee9e493_44ac_40dc_af33_b2c13c01ca46);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3145,7 +3145,7 @@ pub struct IBluetoothLEDevice3_abi(
 pub struct IBluetoothLEDevice4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEDevice4 {
     type Vtable = IBluetoothLEDevice4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(727732273, 8776, 19247, [172, 240, 124, 238, 54, 252, 88, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b605031_2248_4b2f_acf0_7cee36fc5870);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3163,7 +3163,7 @@ pub struct IBluetoothLEDevice4_abi(
 pub struct IBluetoothLEDevice5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEDevice5 {
     type Vtable = IBluetoothLEDevice5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2640974432, 21127, 17806, [149, 186, 23, 200, 183, 187, 50, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d6a1260_5287_458e_95ba_17c8b7bb326e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3181,7 +3181,7 @@ pub struct IBluetoothLEDevice5_abi(
 pub struct IBluetoothLEDevice6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEDevice6 {
     type Vtable = IBluetoothLEDevice6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3396440303, 3246, 22332, [161, 202, 225, 252, 91, 252, 57, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca7190ef_0cae_573c_a1ca_e1fc5bfc39e2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3209,7 +3209,7 @@ pub struct IBluetoothLEDevice6_abi(
 pub struct IBluetoothLEDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEDeviceStatics {
     type Vtable = IBluetoothLEDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3369015833, 61622, 19440, [134, 137, 65, 48, 61, 226, 217, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8cf1a19_f0b6_4bf0_8689_41303de2d9f4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3231,7 +3231,7 @@ pub struct IBluetoothLEDeviceStatics_abi(
 pub struct IBluetoothLEDeviceStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEDeviceStatics2 {
     type Vtable = IBluetoothLEDeviceStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1595064427, 15276, 17384, [173, 22, 86, 50, 113, 189, 65, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f12c06b_3bac_43e8_ad16_563271bd41c2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3256,7 +3256,7 @@ pub struct IBluetoothLEDeviceStatics2_abi(
 pub struct IBluetoothLEPreferredConnectionParameters(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEPreferredConnectionParameters {
     type Vtable = IBluetoothLEPreferredConnectionParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4076094276, 29554, 24443, [155, 52, 41, 201, 68, 245, 167, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2f44344_7372_5f7b_9b34_29c944f5a715);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3277,7 +3277,7 @@ pub struct IBluetoothLEPreferredConnectionParameters_abi(
 pub struct IBluetoothLEPreferredConnectionParametersRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEPreferredConnectionParametersRequest {
     type Vtable = IBluetoothLEPreferredConnectionParametersRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2318881398, 42280, 21094, [182, 97, 204, 230, 165, 255, 151, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a375276_a528_5266_b661_cce6a5ff9739);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3295,7 +3295,7 @@ pub struct IBluetoothLEPreferredConnectionParametersRequest_abi(
 pub struct IBluetoothLEPreferredConnectionParametersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEPreferredConnectionParametersStatics {
     type Vtable = IBluetoothLEPreferredConnectionParametersStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(238980828, 10065, 21930, [168, 56, 143, 174, 238, 129, 141, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e3e8edc_2751_55aa_a838_8faeee818d72);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3315,7 +3315,7 @@ pub struct IBluetoothLEPreferredConnectionParametersStatics_abi(
 pub struct IBluetoothSignalStrengthFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothSignalStrengthFilter {
     type Vtable = IBluetoothSignalStrengthFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3749409681, 27573, 19710, [144, 177, 93, 115, 36, 237, 207, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf7b7391_6bb5_4cfe_90b1_5d7324edcf7f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3348,7 +3348,7 @@ pub struct IBluetoothSignalStrengthFilter_abi(
 pub struct IBluetoothUuidHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothUuidHelperStatics {
     type Vtable = IBluetoothUuidHelperStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(400493784, 53108, 19233, [175, 230, 245, 122, 17, 188, 222, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17df0cd8_cf74_4b21_afe6_f57a11bcdea0);
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -23,7 +23,7 @@ impl ISceSvcAttachmentData {
 }
 unsafe impl ::windows::runtime::Interface for ISceSvcAttachmentData {
     type Vtable = ISceSvcAttachmentData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(398680030, 8205, 4561, [175, 251, 0, 192, 79, 185, 132, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17c35fde_200d_11d1_affb_00c04fb984f9);
 }
 impl ::core::convert::From<ISceSvcAttachmentData> for ::windows::runtime::IUnknown {
     fn from(value: ISceSvcAttachmentData) -> Self {
@@ -77,7 +77,7 @@ impl ISceSvcAttachmentPersistInfo {
 }
 unsafe impl ::windows::runtime::Interface for ISceSvcAttachmentPersistInfo {
     type Vtable = ISceSvcAttachmentPersistInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1838211280, 8205, 4561, [175, 251, 0, 192, 79, 185, 132, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d90e0d0_200d_11d1_affb_00c04fb984f9);
 }
 impl ::core::convert::From<ISceSvcAttachmentPersistInfo> for ::windows::runtime::IUnknown {
     fn from(value: ISceSvcAttachmentPersistInfo) -> Self {
@@ -375,6 +375,6 @@ impl ::core::ops::Not for SCE_LOG_ERR_LEVEL {
         Self(self.0.not())
     }
 }
-pub const cNodetypeSceAnalysisServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1736462535, 8184, 4561, [175, 251, 0, 192, 79, 185, 132, 249]);
-pub const cNodetypeSceEventLog: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752903832, 19443, 4561, [140, 48, 0, 192, 79, 185, 132, 249]);
-pub const cNodetypeSceTemplateServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(614987543, 7948, 4561, [175, 251, 0, 192, 79, 185, 132, 249]);
+pub const cNodetypeSceAnalysisServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x678050c7_1ff8_11d1_affb_00c04fb984f9);
+pub const cNodetypeSceEventLog: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ce06698_4bf3_11d1_8c30_00c04fb984f9);
+pub const cNodetypeSceTemplateServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24a7f717_1f0c_11d1_affb_00c04fb984f9);

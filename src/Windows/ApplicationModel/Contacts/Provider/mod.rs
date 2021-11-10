@@ -105,7 +105,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContactPickerUI {
 }
 unsafe impl ::windows::runtime::Interface for ContactPickerUI {
     type Vtable = IContactPickerUI_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3805025126, 53094, 17348, [169, 106, 165, 161, 18, 219, 71, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2cc1366_cf66_43c4_a96a_a5a112db4746);
 }
 impl ::windows::runtime::RuntimeName for ContactPickerUI {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Provider.ContactPickerUI";
@@ -169,7 +169,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContactRemovedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ContactRemovedEventArgs {
     type Vtable = IContactRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1865761592, 13058, 19731, [173, 141, 173, 204, 15, 249, 228, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f354338_3302_4d13_ad8d_adcc0ff9e47c);
 }
 impl ::windows::runtime::RuntimeName for ContactRemovedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Provider.ContactRemovedEventArgs";
@@ -219,7 +219,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 pub struct IContactPickerUI(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactPickerUI {
     type Vtable = IContactPickerUI_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3805025126, 53094, 17348, [169, 106, 165, 161, 18, 219, 71, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2cc1366_cf66_43c4_a96a_a5a112db4746);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -246,7 +246,7 @@ pub struct IContactPickerUI_abi(
 pub struct IContactPickerUI2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactPickerUI2 {
     type Vtable = IContactPickerUI2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1849990696, 31525, 18841, [155, 11, 135, 84, 0, 161, 232, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e449e28_7b25_4999_9b0b_875400a1e8c8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -266,7 +266,7 @@ pub struct IContactPickerUI2_abi(
 pub struct IContactRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactRemovedEventArgs {
     type Vtable = IContactRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1865761592, 13058, 19731, [173, 141, 173, 204, 15, 249, 228, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f354338_3302_4d13_ad8d_adcc0ff9e47c);
 }
 #[repr(C)]
 #[doc(hidden)]

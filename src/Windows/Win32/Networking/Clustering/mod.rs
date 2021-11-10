@@ -5825,10 +5825,10 @@ pub unsafe fn ClusAddClusterHealthFault(hcluster: *const _HCLUSTER, failure: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const ClusApplication: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161317, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusCryptoKeys: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161387, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusDisk: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161379, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusDisks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161381, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+pub const ClusApplication: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606e5_2631_11d1_89f1_00a0c90d061e);
+pub const ClusCryptoKeys: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e6072b_2631_11d1_89f1_00a0c90d061e);
+pub const ClusDisk: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60723_2631_11d1_89f1_00a0c90d061e);
+pub const ClusDisks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60725_2631_11d1_89f1_00a0c90d061e);
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -5844,24 +5844,24 @@ pub unsafe fn ClusGetClusterHealthFaults(hcluster: *const _HCLUSTER, objects: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const ClusNetInterface: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161325, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusNetInterfaces: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161327, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusNetwork: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161329, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusNetworkNetInterfaces: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161333, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusNetworks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161331, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusNode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161335, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusNodeNetInterfaces: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161339, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusNodes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161337, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusPartition: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161375, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusPartitionEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1406475558, 46363, 19065, [178, 195, 80, 72, 217, 58, 152, 252]);
-pub const ClusPartitions: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161377, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusProperties: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161343, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusProperty: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161341, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusPropertyValue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161369, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusPropertyValueData: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161373, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusPropertyValues: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161371, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusRefObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161345, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusRegistryKeys: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161385, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+pub const ClusNetInterface: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606ed_2631_11d1_89f1_00a0c90d061e);
+pub const ClusNetInterfaces: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606ef_2631_11d1_89f1_00a0c90d061e);
+pub const ClusNetwork: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606f1_2631_11d1_89f1_00a0c90d061e);
+pub const ClusNetworkNetInterfaces: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606f5_2631_11d1_89f1_00a0c90d061e);
+pub const ClusNetworks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606f3_2631_11d1_89f1_00a0c90d061e);
+pub const ClusNode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606f7_2631_11d1_89f1_00a0c90d061e);
+pub const ClusNodeNetInterfaces: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606fb_2631_11d1_89f1_00a0c90d061e);
+pub const ClusNodes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606f9_2631_11d1_89f1_00a0c90d061e);
+pub const ClusPartition: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e6071f_2631_11d1_89f1_00a0c90d061e);
+pub const ClusPartitionEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53d51d26_b51b_4a79_b2c3_5048d93a98fc);
+pub const ClusPartitions: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60721_2631_11d1_89f1_00a0c90d061e);
+pub const ClusProperties: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606ff_2631_11d1_89f1_00a0c90d061e);
+pub const ClusProperty: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606fd_2631_11d1_89f1_00a0c90d061e);
+pub const ClusPropertyValue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60719_2631_11d1_89f1_00a0c90d061e);
+pub const ClusPropertyValueData: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e6071d_2631_11d1_89f1_00a0c90d061e);
+pub const ClusPropertyValues: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e6071b_2631_11d1_89f1_00a0c90d061e);
+pub const ClusRefObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60701_2631_11d1_89f1_00a0c90d061e);
+pub const ClusRegistryKeys: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60729_2631_11d1_89f1_00a0c90d061e);
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -5877,21 +5877,21 @@ pub unsafe fn ClusRemoveClusterHealthFault<'a, Param1: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const ClusResDependencies: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161347, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusResDependents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161389, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusResGroup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161349, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusResGroupPreferredOwnerNodes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161319, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusResGroupResources: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161321, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusResGroups: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161351, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusResPossibleOwnerNodes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161357, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusResType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161359, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusResTypePossibleOwnerNodes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161367, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusResTypeResources: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161363, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusResTypes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161361, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusResource: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161353, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusResources: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161355, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusScsiAddress: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161383, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-pub const ClusVersion: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161365, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+pub const ClusResDependencies: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60703_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResDependents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e6072d_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResGroup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60705_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResGroupPreferredOwnerNodes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606e7_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResGroupResources: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606e9_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResGroups: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60707_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResPossibleOwnerNodes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e6070d_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e6070f_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResTypePossibleOwnerNodes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60717_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResTypeResources: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60713_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResTypes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60711_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResource: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60709_2631_11d1_89f1_00a0c90d061e);
+pub const ClusResources: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e6070b_2631_11d1_89f1_00a0c90d061e);
+pub const ClusScsiAddress: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60727_2631_11d1_89f1_00a0c90d061e);
+pub const ClusVersion: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60715_2631_11d1_89f1_00a0c90d061e);
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -5967,7 +5967,7 @@ pub unsafe fn ClusWorkersTerminate<'a, Param3: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const Cluster: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161315, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+pub const Cluster: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606e3_2631_11d1_89f1_00a0c90d061e);
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -6466,7 +6466,7 @@ pub unsafe fn ClusterIsPathOnSharedVolume<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const ClusterNames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161323, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+pub const ClusterNames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606eb_2631_11d1_89f1_00a0c90d061e);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[inline]
 pub unsafe fn ClusterNetInterfaceCloseEnum(hnetinterfaceenum: *const _HNETINTERFACEENUM) -> u32 {
@@ -7882,7 +7882,7 @@ pub unsafe fn DetermineClusterCloudTypeFromNodelist(cnodes: u32, ppsznodenames: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const DomainNames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161313, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+pub const DomainNames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606e1_2631_11d1_89f1_00a0c90d061e);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[inline]
 pub unsafe fn EvictClusterNode(hnode: *const _HNODE) -> u32 {
@@ -8632,7 +8632,7 @@ impl IGetClusterDataInfo {
 }
 unsafe impl ::windows::runtime::Interface for IGetClusterDataInfo {
     type Vtable = IGetClusterDataInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547965521, 64619, 4559, [181, 245, 0, 160, 201, 10, 181, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97dede51_fc6b_11cf_b5f5_00a0c90ab505);
 }
 impl ::core::convert::From<IGetClusterDataInfo> for ::windows::runtime::IUnknown {
     fn from(value: IGetClusterDataInfo) -> Self {
@@ -8677,7 +8677,7 @@ impl IGetClusterGroupInfo {
 }
 unsafe impl ::windows::runtime::Interface for IGetClusterGroupInfo {
     type Vtable = IGetClusterGroupInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547965524, 64619, 4559, [181, 245, 0, 160, 201, 10, 181, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97dede54_fc6b_11cf_b5f5_00a0c90ab505);
 }
 impl ::core::convert::From<IGetClusterGroupInfo> for ::windows::runtime::IUnknown {
     fn from(value: IGetClusterGroupInfo) -> Self {
@@ -8719,7 +8719,7 @@ impl IGetClusterNetInterfaceInfo {
 }
 unsafe impl ::windows::runtime::Interface for IGetClusterNetInterfaceInfo {
     type Vtable = IGetClusterNetInterfaceInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547965527, 64619, 4559, [181, 245, 0, 160, 201, 10, 181, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97dede57_fc6b_11cf_b5f5_00a0c90ab505);
 }
 impl ::core::convert::From<IGetClusterNetInterfaceInfo> for ::windows::runtime::IUnknown {
     fn from(value: IGetClusterNetInterfaceInfo) -> Self {
@@ -8761,7 +8761,7 @@ impl IGetClusterNetworkInfo {
 }
 unsafe impl ::windows::runtime::Interface for IGetClusterNetworkInfo {
     type Vtable = IGetClusterNetworkInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547965526, 64619, 4559, [181, 245, 0, 160, 201, 10, 181, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97dede56_fc6b_11cf_b5f5_00a0c90ab505);
 }
 impl ::core::convert::From<IGetClusterNetworkInfo> for ::windows::runtime::IUnknown {
     fn from(value: IGetClusterNetworkInfo) -> Self {
@@ -8803,7 +8803,7 @@ impl IGetClusterNodeInfo {
 }
 unsafe impl ::windows::runtime::Interface for IGetClusterNodeInfo {
     type Vtable = IGetClusterNodeInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547965523, 64619, 4559, [181, 245, 0, 160, 201, 10, 181, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97dede53_fc6b_11cf_b5f5_00a0c90ab505);
 }
 impl ::core::convert::From<IGetClusterNodeInfo> for ::windows::runtime::IUnknown {
     fn from(value: IGetClusterNodeInfo) -> Self {
@@ -8850,7 +8850,7 @@ impl IGetClusterObjectInfo {
 }
 unsafe impl ::windows::runtime::Interface for IGetClusterObjectInfo {
     type Vtable = IGetClusterObjectInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547965522, 64619, 4559, [181, 245, 0, 160, 201, 10, 181, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97dede52_fc6b_11cf_b5f5_00a0c90ab505);
 }
 impl ::core::convert::From<IGetClusterObjectInfo> for ::windows::runtime::IUnknown {
     fn from(value: IGetClusterObjectInfo) -> Self {
@@ -8904,7 +8904,7 @@ impl IGetClusterResourceInfo {
 }
 unsafe impl ::windows::runtime::Interface for IGetClusterResourceInfo {
     type Vtable = IGetClusterResourceInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547965525, 64619, 4559, [181, 245, 0, 160, 201, 10, 181, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97dede55_fc6b_11cf_b5f5_00a0c90ab505);
 }
 impl ::core::convert::From<IGetClusterResourceInfo> for ::windows::runtime::IUnknown {
     fn from(value: IGetClusterResourceInfo) -> Self {
@@ -8965,7 +8965,7 @@ impl IGetClusterUIInfo {
 }
 unsafe impl ::windows::runtime::Interface for IGetClusterUIInfo {
     type Vtable = IGetClusterUIInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547965520, 64619, 4559, [181, 245, 0, 160, 201, 10, 181, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97dede50_fc6b_11cf_b5f5_00a0c90ab505);
 }
 impl ::core::convert::From<IGetClusterUIInfo> for ::windows::runtime::IUnknown {
     fn from(value: IGetClusterUIInfo) -> Self {
@@ -9026,7 +9026,7 @@ impl ISClusApplication {
 }
 unsafe impl ::windows::runtime::Interface for ISClusApplication {
     type Vtable = ISClusApplication_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161318, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606e6_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusApplication> for ::windows::runtime::IUnknown {
     fn from(value: ISClusApplication) -> Self {
@@ -9130,7 +9130,7 @@ impl ISClusCryptoKeys {
 }
 unsafe impl ::windows::runtime::Interface for ISClusCryptoKeys {
     type Vtable = ISClusCryptoKeys_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161388, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e6072c_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusCryptoKeys> for ::windows::runtime::IUnknown {
     fn from(value: ISClusCryptoKeys) -> Self {
@@ -9228,7 +9228,7 @@ impl ISClusDisk {
 }
 unsafe impl ::windows::runtime::Interface for ISClusDisk {
     type Vtable = ISClusDisk_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161380, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60724_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusDisk> for ::windows::runtime::IUnknown {
     fn from(value: ISClusDisk) -> Self {
@@ -9317,7 +9317,7 @@ impl ISClusDisks {
 }
 unsafe impl ::windows::runtime::Interface for ISClusDisks {
     type Vtable = ISClusDisks_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161382, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60726_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusDisks> for ::windows::runtime::IUnknown {
     fn from(value: ISClusDisks) -> Self {
@@ -9431,7 +9431,7 @@ impl ISClusNetInterface {
 }
 unsafe impl ::windows::runtime::Interface for ISClusNetInterface {
     type Vtable = ISClusNetInterface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161326, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606ee_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusNetInterface> for ::windows::runtime::IUnknown {
     fn from(value: ISClusNetInterface) -> Self {
@@ -9529,7 +9529,7 @@ impl ISClusNetInterfaces {
 }
 unsafe impl ::windows::runtime::Interface for ISClusNetInterfaces {
     type Vtable = ISClusNetInterfaces_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161328, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606f0_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusNetInterfaces> for ::windows::runtime::IUnknown {
     fn from(value: ISClusNetInterfaces) -> Self {
@@ -9660,7 +9660,7 @@ impl ISClusNetwork {
 }
 unsafe impl ::windows::runtime::Interface for ISClusNetwork {
     type Vtable = ISClusNetwork_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161330, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606f2_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusNetwork> for ::windows::runtime::IUnknown {
     fn from(value: ISClusNetwork) -> Self {
@@ -9763,7 +9763,7 @@ impl ISClusNetworkNetInterfaces {
 }
 unsafe impl ::windows::runtime::Interface for ISClusNetworkNetInterfaces {
     type Vtable = ISClusNetworkNetInterfaces_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161334, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606f6_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusNetworkNetInterfaces> for ::windows::runtime::IUnknown {
     fn from(value: ISClusNetworkNetInterfaces) -> Self {
@@ -9857,7 +9857,7 @@ impl ISClusNetworks {
 }
 unsafe impl ::windows::runtime::Interface for ISClusNetworks {
     type Vtable = ISClusNetworks_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161332, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606f4_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusNetworks> for ::windows::runtime::IUnknown {
     fn from(value: ISClusNetworks) -> Self {
@@ -10000,7 +10000,7 @@ impl ISClusNode {
 }
 unsafe impl ::windows::runtime::Interface for ISClusNode {
     type Vtable = ISClusNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161336, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606f8_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusNode> for ::windows::runtime::IUnknown {
     fn from(value: ISClusNode) -> Self {
@@ -10105,7 +10105,7 @@ impl ISClusNodeNetInterfaces {
 }
 unsafe impl ::windows::runtime::Interface for ISClusNodeNetInterfaces {
     type Vtable = ISClusNodeNetInterfaces_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161340, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606fc_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusNodeNetInterfaces> for ::windows::runtime::IUnknown {
     fn from(value: ISClusNodeNetInterfaces) -> Self {
@@ -10199,7 +10199,7 @@ impl ISClusNodes {
 }
 unsafe impl ::windows::runtime::Interface for ISClusNodes {
     type Vtable = ISClusNodes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161338, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606fa_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusNodes> for ::windows::runtime::IUnknown {
     fn from(value: ISClusNodes) -> Self {
@@ -10311,7 +10311,7 @@ impl ISClusPartition {
 }
 unsafe impl ::windows::runtime::Interface for ISClusPartition {
     type Vtable = ISClusPartition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161376, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60720_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusPartition> for ::windows::runtime::IUnknown {
     fn from(value: ISClusPartition) -> Self {
@@ -10486,7 +10486,7 @@ impl ISClusPartitionEx {
 }
 unsafe impl ::windows::runtime::Interface for ISClusPartitionEx {
     type Vtable = ISClusPartitionEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2281886974, 45870, 19153, [157, 189, 100, 241, 142, 17, 102, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8802d4fe_b32e_4ad1_9dbd_64f18e1166ce);
 }
 impl ::core::convert::From<ISClusPartitionEx> for ::windows::runtime::IUnknown {
     fn from(value: ISClusPartitionEx) -> Self {
@@ -10607,7 +10607,7 @@ impl ISClusPartitions {
 }
 unsafe impl ::windows::runtime::Interface for ISClusPartitions {
     type Vtable = ISClusPartitions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161378, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60722_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusPartitions> for ::windows::runtime::IUnknown {
     fn from(value: ISClusPartitions) -> Self {
@@ -10741,7 +10741,7 @@ impl ISClusProperties {
 }
 unsafe impl ::windows::runtime::Interface for ISClusProperties {
     type Vtable = ISClusProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161344, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60700_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusProperties> for ::windows::runtime::IUnknown {
     fn from(value: ISClusProperties) -> Self {
@@ -10907,7 +10907,7 @@ impl ISClusProperty {
 }
 unsafe impl ::windows::runtime::Interface for ISClusProperty {
     type Vtable = ISClusProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161342, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606fe_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusProperty> for ::windows::runtime::IUnknown {
     fn from(value: ISClusProperty) -> Self {
@@ -11042,7 +11042,7 @@ impl ISClusPropertyValue {
 }
 unsafe impl ::windows::runtime::Interface for ISClusPropertyValue {
     type Vtable = ISClusPropertyValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161370, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e6071a_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusPropertyValue> for ::windows::runtime::IUnknown {
     fn from(value: ISClusPropertyValue) -> Self {
@@ -11149,7 +11149,7 @@ impl ISClusPropertyValueData {
 }
 unsafe impl ::windows::runtime::Interface for ISClusPropertyValueData {
     type Vtable = ISClusPropertyValueData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161374, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e6071e_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusPropertyValueData> for ::windows::runtime::IUnknown {
     fn from(value: ISClusPropertyValueData) -> Self {
@@ -11253,7 +11253,7 @@ impl ISClusPropertyValues {
 }
 unsafe impl ::windows::runtime::Interface for ISClusPropertyValues {
     type Vtable = ISClusPropertyValues_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161372, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e6071c_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusPropertyValues> for ::windows::runtime::IUnknown {
     fn from(value: ISClusPropertyValues) -> Self {
@@ -11335,7 +11335,7 @@ impl ISClusRefObject {
 }
 unsafe impl ::windows::runtime::Interface for ISClusRefObject {
     type Vtable = ISClusRefObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161346, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60702_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusRefObject> for ::windows::runtime::IUnknown {
     fn from(value: ISClusRefObject) -> Self {
@@ -11435,7 +11435,7 @@ impl ISClusRegistryKeys {
 }
 unsafe impl ::windows::runtime::Interface for ISClusRegistryKeys {
     type Vtable = ISClusRegistryKeys_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161386, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e6072a_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusRegistryKeys> for ::windows::runtime::IUnknown {
     fn from(value: ISClusRegistryKeys) -> Self {
@@ -11553,7 +11553,7 @@ impl ISClusResDependencies {
 }
 unsafe impl ::windows::runtime::Interface for ISClusResDependencies {
     type Vtable = ISClusResDependencies_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161348, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60704_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusResDependencies> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResDependencies) -> Self {
@@ -11674,7 +11674,7 @@ impl ISClusResDependents {
 }
 unsafe impl ::windows::runtime::Interface for ISClusResDependents {
     type Vtable = ISClusResDependents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161390, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e6072e_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusResDependents> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResDependents) -> Self {
@@ -11838,7 +11838,7 @@ impl ISClusResGroup {
 }
 unsafe impl ::windows::runtime::Interface for ISClusResGroup {
     type Vtable = ISClusResGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161350, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60706_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusResGroup> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResGroup) -> Self {
@@ -11971,7 +11971,7 @@ impl ISClusResGroupPreferredOwnerNodes {
 }
 unsafe impl ::windows::runtime::Interface for ISClusResGroupPreferredOwnerNodes {
     type Vtable = ISClusResGroupPreferredOwnerNodes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161320, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606e8_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusResGroupPreferredOwnerNodes> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResGroupPreferredOwnerNodes) -> Self {
@@ -12083,7 +12083,7 @@ impl ISClusResGroupResources {
 }
 unsafe impl ::windows::runtime::Interface for ISClusResGroupResources {
     type Vtable = ISClusResGroupResources_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161322, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606ea_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusResGroupResources> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResGroupResources) -> Self {
@@ -12192,7 +12192,7 @@ impl ISClusResGroups {
 }
 unsafe impl ::windows::runtime::Interface for ISClusResGroups {
     type Vtable = ISClusResGroups_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161352, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60708_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusResGroups> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResGroups) -> Self {
@@ -12305,7 +12305,7 @@ impl ISClusResPossibleOwnerNodes {
 }
 unsafe impl ::windows::runtime::Interface for ISClusResPossibleOwnerNodes {
     type Vtable = ISClusResPossibleOwnerNodes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161358, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e6070e_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusResPossibleOwnerNodes> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResPossibleOwnerNodes) -> Self {
@@ -12434,7 +12434,7 @@ impl ISClusResType {
 }
 unsafe impl ::windows::runtime::Interface for ISClusResType {
     type Vtable = ISClusResType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161360, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60710_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusResType> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResType) -> Self {
@@ -12534,7 +12534,7 @@ impl ISClusResTypePossibleOwnerNodes {
 }
 unsafe impl ::windows::runtime::Interface for ISClusResTypePossibleOwnerNodes {
     type Vtable = ISClusResTypePossibleOwnerNodes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161368, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60718_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusResTypePossibleOwnerNodes> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResTypePossibleOwnerNodes) -> Self {
@@ -12639,7 +12639,7 @@ impl ISClusResTypeResources {
 }
 unsafe impl ::windows::runtime::Interface for ISClusResTypeResources {
     type Vtable = ISClusResTypeResources_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161364, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60714_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusResTypeResources> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResTypeResources) -> Self {
@@ -12748,7 +12748,7 @@ impl ISClusResTypes {
 }
 unsafe impl ::windows::runtime::Interface for ISClusResTypes {
     type Vtable = ISClusResTypes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161362, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60712_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusResTypes> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResTypes) -> Self {
@@ -12987,7 +12987,7 @@ impl ISClusResource {
 }
 unsafe impl ::windows::runtime::Interface for ISClusResource {
     type Vtable = ISClusResource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161354, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e6070a_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusResource> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResource) -> Self {
@@ -13128,7 +13128,7 @@ impl ISClusResources {
 }
 unsafe impl ::windows::runtime::Interface for ISClusResources {
     type Vtable = ISClusResources_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161356, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e6070c_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusResources> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResources) -> Self {
@@ -13230,7 +13230,7 @@ impl ISClusScsiAddress {
 }
 unsafe impl ::windows::runtime::Interface for ISClusScsiAddress {
     type Vtable = ISClusScsiAddress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161384, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60728_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusScsiAddress> for ::windows::runtime::IUnknown {
     fn from(value: ISClusScsiAddress) -> Self {
@@ -13361,7 +13361,7 @@ impl ISClusVersion {
 }
 unsafe impl ::windows::runtime::Interface for ISClusVersion {
     type Vtable = ISClusVersion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161366, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e60716_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusVersion> for ::windows::runtime::IUnknown {
     fn from(value: ISClusVersion) -> Self {
@@ -13549,7 +13549,7 @@ impl ISCluster {
 }
 unsafe impl ::windows::runtime::Interface for ISCluster {
     type Vtable = ISCluster_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161316, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606e4_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISCluster> for ::windows::runtime::IUnknown {
     fn from(value: ISCluster) -> Self {
@@ -13670,7 +13670,7 @@ impl ISClusterNames {
 }
 unsafe impl ::windows::runtime::Interface for ISClusterNames {
     type Vtable = ISClusterNames_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161324, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606ec_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISClusterNames> for ::windows::runtime::IUnknown {
     fn from(value: ISClusterNames) -> Self {
@@ -13766,7 +13766,7 @@ impl ISDomainNames {
 }
 unsafe impl ::windows::runtime::Interface for ISDomainNames {
     type Vtable = ISDomainNames_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161314, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e606e2_2631_11d1_89f1_00a0c90d061e);
 }
 impl ::core::convert::From<ISDomainNames> for ::windows::runtime::IUnknown {
     fn from(value: ISDomainNames) -> Self {
@@ -13845,7 +13845,7 @@ impl IWCContextMenuCallback {
 }
 unsafe impl ::windows::runtime::Interface for IWCContextMenuCallback {
     type Vtable = IWCContextMenuCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547965540, 64619, 4559, [181, 245, 0, 160, 201, 10, 181, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97dede64_fc6b_11cf_b5f5_00a0c90ab505);
 }
 impl ::core::convert::From<IWCContextMenuCallback> for ::windows::runtime::IUnknown {
     fn from(value: IWCContextMenuCallback) -> Self {
@@ -13888,7 +13888,7 @@ impl IWCPropertySheetCallback {
 }
 unsafe impl ::windows::runtime::Interface for IWCPropertySheetCallback {
     type Vtable = IWCPropertySheetCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547965536, 64619, 4559, [181, 245, 0, 160, 201, 10, 181, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97dede60_fc6b_11cf_b5f5_00a0c90ab505);
 }
 impl ::core::convert::From<IWCPropertySheetCallback> for ::windows::runtime::IUnknown {
     fn from(value: IWCPropertySheetCallback) -> Self {
@@ -13935,7 +13935,7 @@ impl IWCWizard97Callback {
 }
 unsafe impl ::windows::runtime::Interface for IWCWizard97Callback {
     type Vtable = IWCWizard97Callback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547965543, 64619, 4559, [181, 245, 0, 160, 201, 10, 181, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97dede67_fc6b_11cf_b5f5_00a0c90ab505);
 }
 impl ::core::convert::From<IWCWizard97Callback> for ::windows::runtime::IUnknown {
     fn from(value: IWCWizard97Callback) -> Self {
@@ -13984,7 +13984,7 @@ impl IWCWizardCallback {
 }
 unsafe impl ::windows::runtime::Interface for IWCWizardCallback {
     type Vtable = IWCWizardCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547965538, 64619, 4559, [181, 245, 0, 160, 201, 10, 181, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97dede62_fc6b_11cf_b5f5_00a0c90ab505);
 }
 impl ::core::convert::From<IWCWizardCallback> for ::windows::runtime::IUnknown {
     fn from(value: IWCWizardCallback) -> Self {
@@ -14028,7 +14028,7 @@ impl IWEExtendContextMenu {
 }
 unsafe impl ::windows::runtime::Interface for IWEExtendContextMenu {
     type Vtable = IWEExtendContextMenu_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547965541, 64619, 4559, [181, 245, 0, 160, 201, 10, 181, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97dede65_fc6b_11cf_b5f5_00a0c90ab505);
 }
 impl ::core::convert::From<IWEExtendContextMenu> for ::windows::runtime::IUnknown {
     fn from(value: IWEExtendContextMenu) -> Self {
@@ -14070,7 +14070,7 @@ impl IWEExtendPropertySheet {
 }
 unsafe impl ::windows::runtime::Interface for IWEExtendPropertySheet {
     type Vtable = IWEExtendPropertySheet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547965537, 64619, 4559, [181, 245, 0, 160, 201, 10, 181, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97dede61_fc6b_11cf_b5f5_00a0c90ab505);
 }
 impl ::core::convert::From<IWEExtendPropertySheet> for ::windows::runtime::IUnknown {
     fn from(value: IWEExtendPropertySheet) -> Self {
@@ -14112,7 +14112,7 @@ impl IWEExtendWizard {
 }
 unsafe impl ::windows::runtime::Interface for IWEExtendWizard {
     type Vtable = IWEExtendWizard_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547965539, 64619, 4559, [181, 245, 0, 160, 201, 10, 181, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97dede63_fc6b_11cf_b5f5_00a0c90ab505);
 }
 impl ::core::convert::From<IWEExtendWizard> for ::windows::runtime::IUnknown {
     fn from(value: IWEExtendWizard) -> Self {
@@ -14154,7 +14154,7 @@ impl IWEExtendWizard97 {
 }
 unsafe impl ::windows::runtime::Interface for IWEExtendWizard97 {
     type Vtable = IWEExtendWizard97_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547965544, 64619, 4559, [181, 245, 0, 160, 201, 10, 181, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97dede68_fc6b_11cf_b5f5_00a0c90ab505);
 }
 impl ::core::convert::From<IWEExtendWizard97> for ::windows::runtime::IUnknown {
     fn from(value: IWEExtendWizard97) -> Self {
@@ -14196,7 +14196,7 @@ impl IWEInvokeCommand {
 }
 unsafe impl ::windows::runtime::Interface for IWEInvokeCommand {
     type Vtable = IWEInvokeCommand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547965542, 64619, 4559, [181, 245, 0, 160, 201, 10, 181, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97dede66_fc6b_11cf_b5f5_00a0c90ab505);
 }
 impl ::core::convert::From<IWEInvokeCommand> for ::windows::runtime::IUnknown {
     fn from(value: IWEInvokeCommand) -> Self {

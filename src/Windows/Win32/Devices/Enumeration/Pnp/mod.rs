@@ -42,7 +42,7 @@ impl IUPnPAddressFamilyControl {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPAddressFamilyControl {
     type Vtable = IUPnPAddressFamilyControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3820970360, 26958, 17823, [165, 166, 25, 30, 160, 255, 161, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3bf6178_694e_459f_a5a6_191ea0ffa1c7);
 }
 impl ::core::convert::From<IUPnPAddressFamilyControl> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPAddressFamilyControl) -> Self {
@@ -85,7 +85,7 @@ impl IUPnPAsyncResult {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPAsyncResult {
     type Vtable = IUPnPAsyncResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1298529544, 53566, 17012, [156, 139, 221, 141, 2, 140, 134, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d65fd08_d13e_4274_9c8b_dd8d028c8644);
 }
 impl ::core::convert::From<IUPnPAsyncResult> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPAsyncResult) -> Self {
@@ -158,7 +158,7 @@ impl IUPnPDescriptionDocument {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPDescriptionDocument {
     type Vtable = IUPnPDescriptionDocument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(298959282, 32170, 19614, [149, 149, 127, 130, 237, 32, 109, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11d1c1b2_7daa_4c9e_9595_7f82ed206d1e);
 }
 impl ::core::convert::From<IUPnPDescriptionDocument> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDescriptionDocument) -> Self {
@@ -241,7 +241,7 @@ impl IUPnPDescriptionDocumentCallback {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPDescriptionDocumentCallback {
     type Vtable = IUPnPDescriptionDocumentCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2000243817, 21638, 16598, [155, 195, 73, 145, 152, 62, 2, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77394c69_5486_40d6_9bc3_4991983e02da);
 }
 impl ::core::convert::From<IUPnPDescriptionDocumentCallback> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDescriptionDocumentCallback) -> Self {
@@ -387,7 +387,7 @@ impl IUPnPDevice {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPDevice {
     type Vtable = IUPnPDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1027920081, 39113, 18569, [172, 209, 249, 214, 116, 191, 34, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d44d0d1_98c9_4889_acd1_f9d674bf2221);
 }
 impl ::core::convert::From<IUPnPDevice> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDevice) -> Self {
@@ -499,7 +499,7 @@ impl IUPnPDeviceControl {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPDeviceControl {
     type Vtable = IUPnPDeviceControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(541593786, 29618, 4564, [191, 66, 0, 176, 208, 17, 139, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x204810ba_73b2_11d4_bf42_00b0d0118b56);
 }
 impl ::core::convert::From<IUPnPDeviceControl> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDeviceControl) -> Self {
@@ -546,7 +546,7 @@ impl IUPnPDeviceControlHttpHeaders {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPDeviceControlHttpHeaders {
     type Vtable = IUPnPDeviceControlHttpHeaders_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(541593787, 29618, 4564, [191, 66, 0, 176, 208, 17, 139, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x204810bb_73b2_11d4_bf42_00b0d0118b56);
 }
 impl ::core::convert::From<IUPnPDeviceControlHttpHeaders> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDeviceControlHttpHeaders) -> Self {
@@ -591,7 +591,7 @@ impl IUPnPDeviceDocumentAccess {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPDeviceDocumentAccess {
     type Vtable = IUPnPDeviceDocumentAccess_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3883345924, 12935, 16782, [144, 114, 207, 43, 71, 35, 137, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7772804_3287_418e_9072_cf2b47238981);
 }
 impl ::core::convert::From<IUPnPDeviceDocumentAccess> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDeviceDocumentAccess) -> Self {
@@ -636,7 +636,7 @@ impl IUPnPDeviceDocumentAccessEx {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPDeviceDocumentAccessEx {
     type Vtable = IUPnPDeviceDocumentAccessEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3300671568, 24952, 19409, [164, 184, 99, 152, 50, 31, 50, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4bc4050_6178_4bd1_a4b8_6398321f3247);
 }
 impl ::core::convert::From<IUPnPDeviceDocumentAccessEx> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDeviceDocumentAccessEx) -> Self {
@@ -701,7 +701,7 @@ impl IUPnPDeviceFinder {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPDeviceFinder {
     type Vtable = IUPnPDeviceFinder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2916760917, 28530, 17177, [191, 249, 24, 96, 10, 83, 155, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xadda3d55_6f72_4319_bff9_18600a539b10);
 }
 impl ::core::convert::From<IUPnPDeviceFinder> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDeviceFinder) -> Self {
@@ -782,7 +782,7 @@ impl IUPnPDeviceFinderAddCallbackWithInterface {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPDeviceFinderAddCallbackWithInterface {
     type Vtable = IUPnPDeviceFinderAddCallbackWithInterface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2554199051, 6038, 17631, [137, 117, 202, 84, 91, 98, 14, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x983dfc0b_1796_44df_8975_ca545b620ee5);
 }
 impl ::core::convert::From<IUPnPDeviceFinderAddCallbackWithInterface> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDeviceFinderAddCallbackWithInterface) -> Self {
@@ -833,7 +833,7 @@ impl IUPnPDeviceFinderCallback {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPDeviceFinderCallback {
     type Vtable = IUPnPDeviceFinderCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1096456266, 34995, 18931, [146, 175, 5, 8, 190, 223, 13, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x415a984a_88b3_49f3_92af_0508bedf0d6c);
 }
 impl ::core::convert::From<IUPnPDeviceFinderCallback> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDeviceFinderCallback) -> Self {
@@ -883,7 +883,7 @@ impl IUPnPDeviceProvider {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPDeviceProvider {
     type Vtable = IUPnPDeviceProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(541593784, 29618, 4564, [191, 66, 0, 176, 208, 17, 139, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x204810b8_73b2_11d4_bf42_00b0d0118b56);
 }
 impl ::core::convert::From<IUPnPDeviceProvider> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDeviceProvider) -> Self {
@@ -939,7 +939,7 @@ impl IUPnPDevices {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPDevices {
     type Vtable = IUPnPDevices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4256959603, 48547, 19558, [172, 79, 242, 217, 111, 218, 214, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfdbc0c73_bda3_4c66_ac4f_f2d96fdad68c);
 }
 impl ::core::convert::From<IUPnPDevices> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDevices) -> Self {
@@ -1021,7 +1021,7 @@ impl IUPnPEventSink {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPEventSink {
     type Vtable = IUPnPEventSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(541593780, 29618, 4564, [191, 66, 0, 176, 208, 17, 139, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x204810b4_73b2_11d4_bf42_00b0d0118b56);
 }
 impl ::core::convert::From<IUPnPEventSink> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPEventSink) -> Self {
@@ -1069,7 +1069,7 @@ impl IUPnPEventSource {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPEventSource {
     type Vtable = IUPnPEventSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(541593781, 29618, 4564, [191, 66, 0, 176, 208, 17, 139, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x204810b5_73b2_11d4_bf42_00b0d0118b56);
 }
 impl ::core::convert::From<IUPnPEventSource> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPEventSource) -> Self {
@@ -1113,7 +1113,7 @@ impl IUPnPHttpHeaderControl {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPHttpHeaderControl {
     type Vtable = IUPnPHttpHeaderControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(67481423, 35676, 17532, [128, 242, 183, 89, 132, 163, 31, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0405af4f_8b5c_447c_80f2_b75984a31f3c);
 }
 impl ::core::convert::From<IUPnPHttpHeaderControl> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPHttpHeaderControl) -> Self {
@@ -1206,7 +1206,7 @@ impl IUPnPRegistrar {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPRegistrar {
     type Vtable = IUPnPRegistrar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(541593782, 29618, 4564, [191, 66, 0, 176, 208, 17, 139, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x204810b6_73b2_11d4_bf42_00b0d0118b56);
 }
 impl ::core::convert::From<IUPnPRegistrar> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPRegistrar) -> Self {
@@ -1292,7 +1292,7 @@ impl IUPnPRemoteEndpointInfo {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPRemoteEndpointInfo {
     type Vtable = IUPnPRemoteEndpointInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3375282275, 617, 19199, [156, 114, 117, 50, 27, 186, 41, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc92eb863_0269_4aff_9c72_75321bba2952);
 }
 impl ::core::convert::From<IUPnPRemoteEndpointInfo> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPRemoteEndpointInfo) -> Self {
@@ -1370,7 +1370,7 @@ impl IUPnPReregistrar {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPReregistrar {
     type Vtable = IUPnPReregistrar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(541593783, 29618, 4564, [191, 66, 0, 176, 208, 17, 139, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x204810b7_73b2_11d4_bf42_00b0d0118b56);
 }
 impl ::core::convert::From<IUPnPReregistrar> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPReregistrar) -> Self {
@@ -1454,7 +1454,7 @@ impl IUPnPService {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPService {
     type Vtable = IUPnPService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2727674268, 56421, 18397, [144, 220, 127, 233, 24, 161, 171, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa295019c_dc65_47dd_90dc_7fe918a1ab44);
 }
 impl ::core::convert::From<IUPnPService> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPService) -> Self {
@@ -1580,7 +1580,7 @@ impl IUPnPServiceAsync {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPServiceAsync {
     type Vtable = IUPnPServiceAsync_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(160160501, 24257, 18919, [162, 96, 179, 161, 29, 216, 104, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x098bdaf5_5ec1_49e7_a260_b3a11dd8680c);
 }
 impl ::core::convert::From<IUPnPServiceAsync> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPServiceAsync) -> Self {
@@ -1640,7 +1640,7 @@ impl IUPnPServiceCallback {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPServiceCallback {
     type Vtable = IUPnPServiceCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(838524073, 43891, 17995, [182, 125, 92, 29, 15, 131, 200, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31fadca9_ab73_464b_b67d_5c1d0f83c8b8);
 }
 impl ::core::convert::From<IUPnPServiceCallback> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPServiceCallback) -> Self {
@@ -1692,7 +1692,7 @@ impl IUPnPServiceDocumentAccess {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPServiceDocumentAccess {
     type Vtable = IUPnPServiceDocumentAccess_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(563107113, 2654, 17801, [130, 93, 126, 109, 135, 234, 105, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x21905529_0a5e_4589_825d_7e6d87ea6998);
 }
 impl ::core::convert::From<IUPnPServiceDocumentAccess> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPServiceDocumentAccess) -> Self {
@@ -1737,7 +1737,7 @@ impl IUPnPServiceEnumProperty {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPServiceEnumProperty {
     type Vtable = IUPnPServiceEnumProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(948386615, 37307, 18932, [178, 73, 46, 142, 251, 184, 168, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38873b37_91bb_49f4_b249_2e8efbb8a816);
 }
 impl ::core::convert::From<IUPnPServiceEnumProperty> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPServiceEnumProperty) -> Self {
@@ -1791,7 +1791,7 @@ impl IUPnPServices {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPServices {
     type Vtable = IUPnPServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1066176158, 39546, 19912, [188, 65, 255, 49, 250, 55, 73, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f8c8e9e_9a7a_4dc8_bc41_ff31fa374956);
 }
 impl ::core::convert::From<IUPnPServices> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPServices) -> Self {
@@ -2167,13 +2167,13 @@ pub const UPNP_E_VALUE_TOO_LONG: ::windows::runtime::HRESULT = ::windows::runtim
 pub const UPNP_E_VARIABLE_VALUE_UNKNOWN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220974i32 as _);
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_SERVICE_DELAY_SCPD_AND_SUBSCRIPTION: u32 = 1u32;
-pub const UPnPDescriptionDocument: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(495622983, 14888, 19682, [138, 75, 189, 52, 228, 91, 206, 235]);
-pub const UPnPDescriptionDocumentEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(872220003, 55322, 17299, [131, 204, 1, 149, 177, 218, 47, 145]);
-pub const UPnPDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2737132229, 47713, 17786, [181, 154, 162, 86, 30, 18, 94, 51]);
-pub const UPnPDeviceFinder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3792199464, 65207, 16458, [184, 231, 230, 89, 189, 234, 170, 2]);
-pub const UPnPDeviceFinderEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(404444412, 14347, 19061, [179, 241, 74, 196, 94, 150, 5, 176]);
-pub const UPnPDevices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3119009789, 44348, 16548, [184, 53, 8, 130, 235, 203, 170, 168]);
-pub const UPnPRegistrar: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(541593785, 29618, 4564, [191, 66, 0, 176, 208, 17, 139, 86]);
-pub const UPnPRemoteEndpointInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(777946345, 16457, 16964, [183, 40, 45, 36, 34, 113, 87, 199]);
-pub const UPnPService: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3324295829, 64459, 17417, [140, 3, 140, 206, 236, 83, 62, 241]);
-pub const UPnPServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3233565514, 41990, 20220, [147, 47, 184, 84, 107, 129, 0, 204]);
+pub const UPnPDescriptionDocument: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d8a9b47_3a28_4ce2_8a4b_bd34e45bceeb);
+pub const UPnPDescriptionDocumentEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33fd0563_d81a_4393_83cc_0195b1da2f91);
+pub const UPnPDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa32552c5_ba61_457a_b59a_a2561e125e33);
+pub const UPnPDeviceFinder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2085f28_feb7_404a_b8e7_e659bdeaaa02);
+pub const UPnPDeviceFinderEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x181b54fc_380b_4a75_b3f1_4ac45e9605b0);
+pub const UPnPDevices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9e84ffd_ad3c_40a4_b835_0882ebcbaaa8);
+pub const UPnPRegistrar: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x204810b9_73b2_11d4_bf42_00b0d0118b56);
+pub const UPnPRemoteEndpointInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e5e84e9_4049_4244_b728_2d24227157c7);
+pub const UPnPService: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc624ba95_fbcb_4409_8c03_8cceec533ef1);
+pub const UPnPServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0bc4b4a_a406_4efc_932f_b8546b8100cc);

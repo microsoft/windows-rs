@@ -6,7 +6,7 @@ pub mod Preview;
 pub struct IKeyboardCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyboardCapabilities {
     type Vtable = IKeyboardCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(977247062, 26520, 19388, [131, 62, 15, 52, 177, 124, 101, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a3f9b56_6798_4bbc_833e_0f34b17c65ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24,7 +24,7 @@ pub struct IKeyboardCapabilities_abi(
 pub struct IMouseCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMouseCapabilities {
     type Vtable = IMouseCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3164987427, 32217, 19307, [154, 146, 85, 212, 60, 179, 143, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbca5e023_7dd9_4b6b_9a92_55d43cb38f73);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -46,7 +46,7 @@ pub struct IMouseCapabilities_abi(
 pub struct IMouseDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMouseDevice {
     type Vtable = IMouseDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2297295960, 62152, 18932, [190, 31, 194, 86, 179, 136, 188, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88edf458_f2c8_49f4_be1f_c256b388bc11);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -67,7 +67,7 @@ pub struct IMouseDevice_abi(
 pub struct IMouseDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMouseDeviceStatics {
     type Vtable = IMouseDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1212846149, 28016, 18907, [142, 104, 70, 255, 189, 23, 211, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x484a9045_6d70_49db_8e68_46ffbd17d38d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -85,7 +85,7 @@ pub struct IMouseDeviceStatics_abi(
 pub struct IMouseEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMouseEventArgs {
     type Vtable = IMouseEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4129663581, 9044, 19655, [146, 48, 150, 148, 28, 150, 159, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf625aa5d_2354_4cc7_9230_96941c969fde);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -103,7 +103,7 @@ pub struct IMouseEventArgs_abi(
 pub struct IPenButtonListener(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenButtonListener {
     type Vtable = IPenButtonListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2185610102, 7907, 21495, [177, 247, 131, 52, 161, 111, 40, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8245c376_1ee3_53f7_b1f7_8334a16f2815);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -137,7 +137,7 @@ pub struct IPenButtonListener_abi(
 pub struct IPenButtonListenerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenButtonListenerStatics {
     type Vtable = IPenButtonListenerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(430482820, 34351, 24425, [191, 234, 5, 246, 88, 79, 19, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19a8a584_862f_5f69_bfea_05f6584f133f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -155,7 +155,7 @@ pub struct IPenButtonListenerStatics_abi(
 pub struct IPenDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenDevice {
     type Vtable = IPenDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(830828218, 42808, 23180, [184, 246, 249, 126, 246, 141, 24, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31856eba_a738_5a8c_b8f6_f97ef68d18ef);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -173,7 +173,7 @@ pub struct IPenDevice_abi(
 pub struct IPenDevice2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenDevice2 {
     type Vtable = IPenDevice2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(34067239, 32696, 21862, [140, 52, 248, 52, 32, 55, 183, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0207d327_7fb8_5566_8c34_f8342037b7f9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -192,7 +192,7 @@ pub struct IPenDevice2_abi(
 pub struct IPenDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenDeviceStatics {
     type Vtable = IPenDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2650521089, 2406, 20864, [188, 180, 184, 80, 96, 227, 148, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9dfbbe01_0966_5180_bcb4_b85060e39479);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -210,7 +210,7 @@ pub struct IPenDeviceStatics_abi(
 pub struct IPenDockListener(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenDockListener {
     type Vtable = IPenDockListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1973374352, 7616, 21963, [173, 24, 185, 16, 20, 86, 245, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x759f4d90_1dc0_55cb_ad18_b9101456f592);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -240,7 +240,7 @@ pub struct IPenDockListener_abi(
 pub struct IPenDockListenerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenDockListenerStatics {
     type Vtable = IPenDockListenerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3401014938, 22, 23666, [150, 158, 169, 126, 17, 153, 42, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcab75e9a_0016_5c72_969e_a97e11992a93);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -258,7 +258,7 @@ pub struct IPenDockListenerStatics_abi(
 pub struct IPenDockedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenDockedEventArgs {
     type Vtable = IPenDockedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4248991686, 51811, 23886, [158, 211, 162, 138, 84, 82, 28, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd4277c6_ca63_5d4e_9ed3_a28a54521c8c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -275,7 +275,7 @@ pub struct IPenDockedEventArgs_abi(
 pub struct IPenTailButtonClickedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenTailButtonClickedEventArgs {
     type Vtable = IPenTailButtonClickedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1563408310, 27347, 23870, [171, 41, 5, 234, 36, 16, 227, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d2fb7b6_6ad3_5d3e_ab29_05ea2410e390);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -292,7 +292,7 @@ pub struct IPenTailButtonClickedEventArgs_abi(
 pub struct IPenTailButtonDoubleClickedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenTailButtonDoubleClickedEventArgs {
     type Vtable = IPenTailButtonDoubleClickedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2221089186, 24970, 21624, [176, 76, 179, 88, 35, 29, 164, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x846321a2_618a_5478_b04c_b358231da4a7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -309,7 +309,7 @@ pub struct IPenTailButtonDoubleClickedEventArgs_abi(
 pub struct IPenTailButtonLongPressedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenTailButtonLongPressedEventArgs {
     type Vtable = IPenTailButtonLongPressedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4085014638, 50698, 24386, [184, 24, 165, 49, 18, 64, 108, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf37c606e_c60a_5f42_b818_a53112406c13);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -326,7 +326,7 @@ pub struct IPenTailButtonLongPressedEventArgs_abi(
 pub struct IPenUndockedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenUndockedEventArgs {
     type Vtable = IPenUndockedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3436220752, 9755, 23014, [165, 212, 193, 150, 76, 208, 63, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xccd09150_261b_59e6_a5d4_c1964cd03feb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -343,7 +343,7 @@ pub struct IPenUndockedEventArgs_abi(
 pub struct IPointerDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerDevice {
     type Vtable = IPointerDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2479471356, 60363, 18046, [130, 198, 39, 111, 234, 227, 107, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93c9bafc_ebcb_467e_82c6_276feae36b5a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -369,7 +369,7 @@ pub struct IPointerDevice_abi(
 pub struct IPointerDevice2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerDevice2 {
     type Vtable = IPointerDevice2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4171682464, 50308, 18591, [174, 62, 48, 210, 238, 31, 253, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8a6d2a0_c484_489f_ae3e_30d2ee1ffd3e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -387,7 +387,7 @@ pub struct IPointerDevice2_abi(
 pub struct IPointerDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerDeviceStatics {
     type Vtable = IPointerDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3635976865, 53702, 16750, [189, 141, 87, 144, 145, 77, 197, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8b89aa1_d1c6_416e_bd8d_5790914dc563);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -407,7 +407,7 @@ pub struct IPointerDeviceStatics_abi(
 pub struct ITouchCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITouchCapabilities {
     type Vtable = ITouchCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(551376377, 5105, 18120, [146, 133, 44, 5, 250, 62, 218, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20dd55f9_13f1_46c8_9285_2c05fa3eda6f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -447,7 +447,7 @@ unsafe impl ::windows::runtime::RuntimeType for KeyboardCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for KeyboardCapabilities {
     type Vtable = IKeyboardCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(977247062, 26520, 19388, [131, 62, 15, 52, 177, 124, 101, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a3f9b56_6798_4bbc_833e_0f34b17c65ff);
 }
 impl ::windows::runtime::RuntimeName for KeyboardCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.KeyboardCapabilities";
@@ -552,7 +552,7 @@ unsafe impl ::windows::runtime::RuntimeType for MouseCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for MouseCapabilities {
     type Vtable = IMouseCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3164987427, 32217, 19307, [154, 146, 85, 212, 60, 179, 143, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbca5e023_7dd9_4b6b_9a92_55d43cb38f73);
 }
 impl ::windows::runtime::RuntimeName for MouseCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.MouseCapabilities";
@@ -669,7 +669,7 @@ unsafe impl ::windows::runtime::RuntimeType for MouseDevice {
 }
 unsafe impl ::windows::runtime::Interface for MouseDevice {
     type Vtable = IMouseDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2297295960, 62152, 18932, [190, 31, 194, 86, 179, 136, 188, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88edf458_f2c8_49f4_be1f_c256b388bc11);
 }
 impl ::windows::runtime::RuntimeName for MouseDevice {
     const NAME: &'static str = "Windows.Devices.Input.MouseDevice";
@@ -733,7 +733,7 @@ unsafe impl ::windows::runtime::RuntimeType for MouseEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for MouseEventArgs {
     type Vtable = IMouseEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4129663581, 9044, 19655, [146, 48, 150, 148, 28, 150, 159, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf625aa5d_2354_4cc7_9230_96941c969fde);
 }
 impl ::windows::runtime::RuntimeName for MouseEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.MouseEventArgs";
@@ -868,7 +868,7 @@ unsafe impl ::windows::runtime::RuntimeType for PenButtonListener {
 }
 unsafe impl ::windows::runtime::Interface for PenButtonListener {
     type Vtable = IPenButtonListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2185610102, 7907, 21495, [177, 247, 131, 52, 161, 111, 40, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8245c376_1ee3_53f7_b1f7_8334a16f2815);
 }
 impl ::windows::runtime::RuntimeName for PenButtonListener {
     const NAME: &'static str = "Windows.Devices.Input.PenButtonListener";
@@ -954,7 +954,7 @@ unsafe impl ::windows::runtime::RuntimeType for PenDevice {
 }
 unsafe impl ::windows::runtime::Interface for PenDevice {
     type Vtable = IPenDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(830828218, 42808, 23180, [184, 246, 249, 126, 246, 141, 24, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31856eba_a738_5a8c_b8f6_f97ef68d18ef);
 }
 impl ::windows::runtime::RuntimeName for PenDevice {
     const NAME: &'static str = "Windows.Devices.Input.PenDevice";
@@ -1076,7 +1076,7 @@ unsafe impl ::windows::runtime::RuntimeType for PenDockListener {
 }
 unsafe impl ::windows::runtime::Interface for PenDockListener {
     type Vtable = IPenDockListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1973374352, 7616, 21963, [173, 24, 185, 16, 20, 86, 245, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x759f4d90_1dc0_55cb_ad18_b9101456f592);
 }
 impl ::windows::runtime::RuntimeName for PenDockListener {
     const NAME: &'static str = "Windows.Devices.Input.PenDockListener";
@@ -1133,7 +1133,7 @@ unsafe impl ::windows::runtime::RuntimeType for PenDockedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for PenDockedEventArgs {
     type Vtable = IPenDockedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4248991686, 51811, 23886, [158, 211, 162, 138, 84, 82, 28, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd4277c6_ca63_5d4e_9ed3_a28a54521c8c);
 }
 impl ::windows::runtime::RuntimeName for PenDockedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenDockedEventArgs";
@@ -1190,7 +1190,7 @@ unsafe impl ::windows::runtime::RuntimeType for PenTailButtonClickedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for PenTailButtonClickedEventArgs {
     type Vtable = IPenTailButtonClickedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1563408310, 27347, 23870, [171, 41, 5, 234, 36, 16, 227, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d2fb7b6_6ad3_5d3e_ab29_05ea2410e390);
 }
 impl ::windows::runtime::RuntimeName for PenTailButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonClickedEventArgs";
@@ -1247,7 +1247,7 @@ unsafe impl ::windows::runtime::RuntimeType for PenTailButtonDoubleClickedEventA
 }
 unsafe impl ::windows::runtime::Interface for PenTailButtonDoubleClickedEventArgs {
     type Vtable = IPenTailButtonDoubleClickedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2221089186, 24970, 21624, [176, 76, 179, 88, 35, 29, 164, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x846321a2_618a_5478_b04c_b358231da4a7);
 }
 impl ::windows::runtime::RuntimeName for PenTailButtonDoubleClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonDoubleClickedEventArgs";
@@ -1304,7 +1304,7 @@ unsafe impl ::windows::runtime::RuntimeType for PenTailButtonLongPressedEventArg
 }
 unsafe impl ::windows::runtime::Interface for PenTailButtonLongPressedEventArgs {
     type Vtable = IPenTailButtonLongPressedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4085014638, 50698, 24386, [184, 24, 165, 49, 18, 64, 108, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf37c606e_c60a_5f42_b818_a53112406c13);
 }
 impl ::windows::runtime::RuntimeName for PenTailButtonLongPressedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonLongPressedEventArgs";
@@ -1361,7 +1361,7 @@ unsafe impl ::windows::runtime::RuntimeType for PenUndockedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for PenUndockedEventArgs {
     type Vtable = IPenUndockedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3436220752, 9755, 23014, [165, 212, 193, 150, 76, 208, 63, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xccd09150_261b_59e6_a5d4_c1964cd03feb);
 }
 impl ::windows::runtime::RuntimeName for PenUndockedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenUndockedEventArgs";
@@ -1497,7 +1497,7 @@ unsafe impl ::windows::runtime::RuntimeType for PointerDevice {
 }
 unsafe impl ::windows::runtime::Interface for PointerDevice {
     type Vtable = IPointerDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2479471356, 60363, 18046, [130, 198, 39, 111, 234, 227, 107, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93c9bafc_ebcb_467e_82c6_276feae36b5a);
 }
 impl ::windows::runtime::RuntimeName for PointerDevice {
     const NAME: &'static str = "Windows.Devices.Input.PointerDevice";
@@ -1647,7 +1647,7 @@ unsafe impl ::windows::runtime::RuntimeType for TouchCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for TouchCapabilities {
     type Vtable = ITouchCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(551376377, 5105, 18120, [146, 133, 44, 5, 250, 62, 218, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20dd55f9_13f1_46c8_9285_2c05fa3eda6f);
 }
 impl ::windows::runtime::RuntimeName for TouchCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.TouchCapabilities";

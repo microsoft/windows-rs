@@ -4,7 +4,7 @@
 pub struct ISpatialSurfaceInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialSurfaceInfo {
     type Vtable = ISpatialSurfaceInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4176079847, 14775, 14690, [187, 3, 87, 245, 110, 31, 176, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8e9ebe7_39b7_3962_bb03_57f56e1fb0a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30,7 +30,7 @@ pub struct ISpatialSurfaceInfo_abi(
 pub struct ISpatialSurfaceMesh(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialSurfaceMesh {
     type Vtable = ISpatialSurfaceMesh_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(277829593, 57101, 14672, [160, 253, 249, 114, 199, 124, 39, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x108f57d9_df0d_3950_a0fd_f972c77c27b4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -54,7 +54,7 @@ pub struct ISpatialSurfaceMesh_abi(
 pub struct ISpatialSurfaceMeshBuffer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialSurfaceMeshBuffer {
     type Vtable = ISpatialSurfaceMeshBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2479839712, 34591, 13304, [152, 178, 3, 209, 1, 69, 143, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93cf59e0_871f_33f8_98b2_03d101458f6f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -77,7 +77,7 @@ pub struct ISpatialSurfaceMeshBuffer_abi(
 pub struct ISpatialSurfaceMeshOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialSurfaceMeshOptions {
     type Vtable = ISpatialSurfaceMeshOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3530923913, 13682, 15661, [161, 13, 95, 238, 147, 148, 170, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2759f89_3572_3d2d_a10d_5fee9394aa37);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -108,7 +108,7 @@ pub struct ISpatialSurfaceMeshOptions_abi(
 pub struct ISpatialSurfaceMeshOptionsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialSurfaceMeshOptionsStatics {
     type Vtable = ISpatialSurfaceMeshOptionsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2603879103, 38785, 17669, [137, 53, 1, 53, 117, 202, 174, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b340abf_9781_4505_8935_013575caae5e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -131,7 +131,7 @@ pub struct ISpatialSurfaceMeshOptionsStatics_abi(
 pub struct ISpatialSurfaceObserver(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialSurfaceObserver {
     type Vtable = ISpatialSurfaceObserver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(280401945, 56778, 13443, [172, 58, 116, 143, 232, 200, 109, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10b69819_ddca_3483_ac3a_748fe8c86df5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -157,7 +157,7 @@ pub struct ISpatialSurfaceObserver_abi(
 pub struct ISpatialSurfaceObserverStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialSurfaceObserverStatics {
     type Vtable = ISpatialSurfaceObserverStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(374952429, 8456, 16744, [145, 117, 135, 224, 39, 188, 146, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x165951ed_2108_4168_9175_87e027bc9285);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -176,7 +176,7 @@ pub struct ISpatialSurfaceObserverStatics_abi(
 pub struct ISpatialSurfaceObserverStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialSurfaceObserverStatics2 {
     type Vtable = ISpatialSurfaceObserverStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(257114721, 50525, 20075, [168, 149, 161, 157, 230, 154, 66, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f534261_c55d_4e6b_a895_a19de69a42e3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -244,7 +244,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialSurfaceInfo {
 }
 unsafe impl ::windows::runtime::Interface for SpatialSurfaceInfo {
     type Vtable = ISpatialSurfaceInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4176079847, 14775, 14690, [187, 3, 87, 245, 110, 31, 176, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8e9ebe7_39b7_3962_bb03_57f56e1fb0a1);
 }
 impl ::windows::runtime::RuntimeName for SpatialSurfaceInfo {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceInfo";
@@ -351,7 +351,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialSurfaceMesh {
 }
 unsafe impl ::windows::runtime::Interface for SpatialSurfaceMesh {
     type Vtable = ISpatialSurfaceMesh_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(277829593, 57101, 14672, [160, 253, 249, 114, 199, 124, 39, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x108f57d9_df0d_3950_a0fd_f972c77c27b4);
 }
 impl ::windows::runtime::RuntimeName for SpatialSurfaceMesh {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceMesh";
@@ -443,7 +443,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialSurfaceMeshBuffer {
 }
 unsafe impl ::windows::runtime::Interface for SpatialSurfaceMeshBuffer {
     type Vtable = ISpatialSurfaceMeshBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2479839712, 34591, 13304, [152, 178, 3, 209, 1, 69, 143, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93cf59e0_871f_33f8_98b2_03d101458f6f);
 }
 impl ::windows::runtime::RuntimeName for SpatialSurfaceMeshBuffer {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshBuffer";
@@ -594,7 +594,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialSurfaceMeshOptions {
 }
 unsafe impl ::windows::runtime::Interface for SpatialSurfaceMeshOptions {
     type Vtable = ISpatialSurfaceMeshOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3530923913, 13682, 15661, [161, 13, 95, 238, 147, 148, 170, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2759f89_3572_3d2d_a10d_5fee9394aa37);
 }
 impl ::windows::runtime::RuntimeName for SpatialSurfaceMeshOptions {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshOptions";
@@ -717,7 +717,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialSurfaceObserver {
 }
 unsafe impl ::windows::runtime::Interface for SpatialSurfaceObserver {
     type Vtable = ISpatialSurfaceObserver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(280401945, 56778, 13443, [172, 58, 116, 143, 232, 200, 109, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10b69819_ddca_3483_ac3a_748fe8c86df5);
 }
 impl ::windows::runtime::RuntimeName for SpatialSurfaceObserver {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceObserver";

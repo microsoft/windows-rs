@@ -664,7 +664,7 @@ impl ISdo {
 }
 unsafe impl ::windows::runtime::Interface for ISdo {
     type Vtable = ISdo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1455182814, 38619, 4561, [191, 63, 0, 0, 0, 0, 0, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56bc53de_96db_11d1_bf3f_000000000000);
 }
 impl ::core::convert::From<ISdo> for ::windows::runtime::IUnknown {
     fn from(value: ISdo) -> Self {
@@ -782,7 +782,7 @@ impl ISdoCollection {
 }
 unsafe impl ::windows::runtime::Interface for ISdoCollection {
     type Vtable = ISdoCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1455182818, 38619, 4561, [191, 63, 0, 0, 0, 0, 0, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56bc53e2_96db_11d1_bf3f_000000000000);
 }
 impl ::core::convert::From<ISdoCollection> for ::windows::runtime::IUnknown {
     fn from(value: ISdoCollection) -> Self {
@@ -891,7 +891,7 @@ impl ISdoDictionaryOld {
 }
 unsafe impl ::windows::runtime::Interface for ISdoDictionaryOld {
     type Vtable = ISdoDictionaryOld_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3560105460, 21464, 4562, [154, 58, 0, 192, 79, 185, 152, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd432e5f4_53d8_11d2_9a3a_00c04fb998ac);
 }
 impl ::core::convert::From<ISdoDictionaryOld> for ::windows::runtime::IUnknown {
     fn from(value: ISdoDictionaryOld) -> Self {
@@ -1018,7 +1018,7 @@ impl ISdoMachine {
 }
 unsafe impl ::windows::runtime::Interface for ISdoMachine {
     type Vtable = ISdoMachine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1201630837, 18850, 4562, [142, 202, 0, 192, 79, 194, 245, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x479f6e75_49a2_11d2_8eca_00c04fc2f519);
 }
 impl ::core::convert::From<ISdoMachine> for ::windows::runtime::IUnknown {
     fn from(value: ISdoMachine) -> Self {
@@ -1204,7 +1204,7 @@ impl ISdoMachine2 {
 }
 unsafe impl ::windows::runtime::Interface for ISdoMachine2 {
     type Vtable = ISdoMachine2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1368285182, 55502, 20350, [165, 219, 180, 10, 53, 65, 157, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x518e5ffe_d8ce_4f7e_a5db_b40a35419d3b);
 }
 impl ::core::convert::From<ISdoMachine2> for ::windows::runtime::IUnknown {
     fn from(value: ISdoMachine2) -> Self {
@@ -1331,7 +1331,7 @@ impl ISdoServiceControl {
 }
 unsafe impl ::windows::runtime::Interface for ISdoServiceControl {
     type Vtable = ISdoServiceControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1201630836, 18850, 4562, [142, 202, 0, 192, 79, 194, 245, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x479f6e74_49a2_11d2_8eca_00c04fc2f519);
 }
 impl ::core::convert::From<ISdoServiceControl> for ::windows::runtime::IUnknown {
     fn from(value: ISdoServiceControl) -> Self {
@@ -1484,7 +1484,7 @@ impl ITemplateSdo {
 }
 unsafe impl ::windows::runtime::Interface for ITemplateSdo {
     type Vtable = ITemplateSdo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2326287106, 53986, 20000, [139, 31, 165, 113, 228, 55, 214, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8aa85302_d2e2_4e20_8b1f_a571e437d6c9);
 }
 impl ::core::convert::From<ITemplateSdo> for ::windows::runtime::IUnknown {
     fn from(value: ITemplateSdo) -> Self {
@@ -2230,7 +2230,7 @@ impl ::core::convert::From<i32> for SHV_COMBINATION_TYPE {
 unsafe impl ::windows::runtime::Abi for SHV_COMBINATION_TYPE {
     type Abi = Self;
 }
-pub const SdoMachine: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3911289575, 40593, 4561, [191, 96, 0, 128, 199, 132, 107, 192]);
+pub const SdoMachine: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9218ae7_9e91_11d1_bf60_0080c7846bc0);
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]

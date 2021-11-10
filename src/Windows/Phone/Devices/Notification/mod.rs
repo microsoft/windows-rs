@@ -4,7 +4,7 @@
 pub struct IVibrationDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVibrationDevice {
     type Vtable = IVibrationDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(457860501, 53197, 19976, [146, 251, 193, 144, 109, 4, 73, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b4a6595_cfcd_4e08_92fb_c1906d04498c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24,7 +24,7 @@ pub struct IVibrationDevice_abi(
 pub struct IVibrationDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVibrationDeviceStatics {
     type Vtable = IVibrationDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(858772209, 7273, 19601, [148, 158, 75, 182, 122, 133, 189, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x332fd2f1_1c69_4c91_949e_4bb67a85bdc7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -70,7 +70,7 @@ unsafe impl ::windows::runtime::RuntimeType for VibrationDevice {
 }
 unsafe impl ::windows::runtime::Interface for VibrationDevice {
     type Vtable = IVibrationDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(457860501, 53197, 19976, [146, 251, 193, 144, 109, 4, 73, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b4a6595_cfcd_4e08_92fb_c1906d04498c);
 }
 impl ::windows::runtime::RuntimeName for VibrationDevice {
     const NAME: &'static str = "Windows.Phone.Devices.Notification.VibrationDevice";

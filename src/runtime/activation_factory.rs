@@ -37,7 +37,7 @@ pub struct IActivationFactory_abi(
 unsafe impl Interface for IActivationFactory {
     type Vtable = IActivationFactory_abi;
 
-    const IID: GUID = GUID::from_values(0x0000_0035, 0x0000, 0x0000, [0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46]);
+    const IID: GUID = GUID::from_u128(0x00000035_0000_0000_c000_000000000046);
 }
 
 impl core::fmt::Debug for IActivationFactory {

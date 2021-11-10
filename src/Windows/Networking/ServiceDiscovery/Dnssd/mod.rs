@@ -50,7 +50,7 @@ unsafe impl ::windows::runtime::RuntimeType for DnssdRegistrationResult {
 }
 unsafe impl ::windows::runtime::Interface for DnssdRegistrationResult {
     type Vtable = IDnssdRegistrationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1031301842, 58886, 21328, [115, 234, 126, 151, 240, 102, 22, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d786ad2_e606_5350_73ea_7e97f066162f);
 }
 impl ::windows::runtime::RuntimeName for DnssdRegistrationResult {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationResult";
@@ -288,7 +288,7 @@ unsafe impl ::windows::runtime::RuntimeType for DnssdServiceInstance {
 }
 unsafe impl ::windows::runtime::Interface for DnssdServiceInstance {
     type Vtable = IDnssdServiceInstance_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3796294526, 39077, 19617, [185, 228, 194, 83, 211, 60, 53, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe246db7e_98a5_4ca1_b9e4_c253d33c35ff);
 }
 impl ::windows::runtime::RuntimeName for DnssdServiceInstance {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstance";
@@ -619,7 +619,7 @@ unsafe impl ::windows::runtime::RuntimeType for DnssdServiceWatcher {
 }
 unsafe impl ::windows::runtime::Interface for DnssdServiceWatcher {
     type Vtable = IDnssdServiceWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3426015681, 56189, 19305, [152, 61, 198, 248, 63, 32, 86, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc34d9c1_db7d_4b69_983d_c6f83f205682);
 }
 impl ::windows::runtime::RuntimeName for DnssdServiceWatcher {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcher";
@@ -697,7 +697,7 @@ impl ::windows::runtime::DefaultType for DnssdServiceWatcherStatus {
 pub struct IDnssdRegistrationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDnssdRegistrationResult {
     type Vtable = IDnssdRegistrationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1031301842, 58886, 21328, [115, 234, 126, 151, 240, 102, 22, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d786ad2_e606_5350_73ea_7e97f066162f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -717,7 +717,7 @@ pub struct IDnssdRegistrationResult_abi(
 pub struct IDnssdServiceInstance(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDnssdServiceInstance {
     type Vtable = IDnssdServiceInstance_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3796294526, 39077, 19617, [185, 228, 194, 83, 211, 60, 53, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe246db7e_98a5_4ca1_b9e4_c253d33c35ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -754,7 +754,7 @@ pub struct IDnssdServiceInstance_abi(
 pub struct IDnssdServiceInstanceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDnssdServiceInstanceFactory {
     type Vtable = IDnssdServiceInstanceFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1823498657, 50296, 17201, [150, 132, 74, 242, 24, 108, 10, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6cb061a1_c478_4331_9684_4af2186c0a2b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -772,7 +772,7 @@ pub struct IDnssdServiceInstanceFactory_abi(
 pub struct IDnssdServiceWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDnssdServiceWatcher {
     type Vtable = IDnssdServiceWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3426015681, 56189, 19305, [152, 61, 198, 248, 63, 32, 86, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc34d9c1_db7d_4b69_983d_c6f83f205682);
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -4386,7 +4386,7 @@ impl IDialBranding {
 }
 unsafe impl ::windows::runtime::Interface for IDialBranding {
     type Vtable = IDialBranding_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2330767273, 17158, 17356, [140, 90, 118, 95, 41, 121, 204, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8aecafa9_4306_43cc_8c5a_765f2979cc16);
 }
 impl ::core::convert::From<IDialBranding> for ::windows::runtime::IUnknown {
     fn from(value: IDialBranding) -> Self {
@@ -4460,7 +4460,7 @@ impl IDialEngine {
 }
 unsafe impl ::windows::runtime::Interface for IDialEngine {
     type Vtable = IDialEngine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(972912683, 30981, 16597, [145, 72, 60, 155, 25, 4, 35, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39fd782b_7905_40d5_9148_3c9b190423d5);
 }
 impl ::core::convert::From<IDialEngine> for ::windows::runtime::IUnknown {
     fn from(value: IDialEngine) -> Self {
@@ -4511,7 +4511,7 @@ impl IDialEventSink {
 }
 unsafe impl ::windows::runtime::Interface for IDialEventSink {
     type Vtable = IDialEventSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(763819263, 28205, 17544, [178, 233, 105, 52, 175, 212, 27, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d86f4ff_6e2d_4488_b2e9_6934afd41bea);
 }
 impl ::core::convert::From<IDialEventSink> for ::windows::runtime::IUnknown {
     fn from(value: IDialEventSink) -> Self {
@@ -7202,7 +7202,7 @@ impl IProofOfPossessionCookieInfoManager {
 }
 unsafe impl ::windows::runtime::Interface for IProofOfPossessionCookieInfoManager {
     type Vtable = IProofOfPossessionCookieInfoManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3450785366, 20191, 17375, [177, 19, 136, 228, 85, 111, 161, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcdaece56_4edf_43df_b113_88e4556fa1bb);
 }
 impl ::core::convert::From<IProofOfPossessionCookieInfoManager> for ::windows::runtime::IUnknown {
     fn from(value: IProofOfPossessionCookieInfoManager) -> Self {
@@ -7246,7 +7246,7 @@ impl IProofOfPossessionCookieInfoManager2 {
 }
 unsafe impl ::windows::runtime::Interface for IProofOfPossessionCookieInfoManager2 {
     type Vtable = IProofOfPossessionCookieInfoManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(367268871, 46127, 19175, [153, 102, 52, 160, 135, 178, 215, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15e41407_b42f_4ae7_9966_34a087b2d713);
 }
 impl ::core::convert::From<IProofOfPossessionCookieInfoManager2> for ::windows::runtime::IUnknown {
     fn from(value: IProofOfPossessionCookieInfoManager2) -> Self {
@@ -9330,7 +9330,7 @@ impl ::core::cmp::Eq for ProofOfPossessionCookieInfo {}
 unsafe impl ::windows::runtime::Abi for ProofOfPossessionCookieInfo {
     type Abi = Self;
 }
-pub const ProofOfPossessionCookieInfoManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2844950405, 41732, 17296, [139, 35, 167, 95, 28, 102, 134, 0]);
+pub const ProofOfPossessionCookieInfoManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9927f85_a304_4390_8b23_a75f1c668600);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const REDIRECT_CACHE_ENTRY: u32 = 2048u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]

@@ -6,7 +6,7 @@ pub mod Core;
 pub struct IUserActivity(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivity {
     type Vtable = IUserActivity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4228923038, 11435, 19766, [174, 162, 180, 187, 85, 108, 239, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc103e9e_2cab_4d36_aea2_b4bb556cef0f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -45,7 +45,7 @@ pub struct IUserActivity_abi(
 pub struct IUserActivity2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivity2 {
     type Vtable = IUserActivity2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2646871138, 2244, 18348, [170, 156, 43, 178, 34, 28, 85, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9dc40c62_08c4_47ac_aa9c_2bb2221c55fd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -63,7 +63,7 @@ pub struct IUserActivity2_abi(
 pub struct IUserActivity3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivity3 {
     type Vtable = IUserActivity3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3882448708, 57762, 20807, [142, 6, 85, 241, 238, 239, 39, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7697744_e1a2_5147_8e06_55f1eeef271c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -82,7 +82,7 @@ pub struct IUserActivity3_abi(
 pub struct IUserActivityAttribution(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityAttribution {
     type Vtable = IUserActivityAttribution_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(883280053, 34525, 19180, [164, 145, 106, 79, 174, 165, 210, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34a5c8b5_86dd_4aec_a491_6a4faea5d22e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -107,7 +107,7 @@ pub struct IUserActivityAttribution_abi(
 pub struct IUserActivityAttributionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityAttributionFactory {
     type Vtable = IUserActivityAttributionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3861631570, 50534, 20290, [153, 116, 145, 108, 77, 118, 55, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe62bd252_c566_4f42_9974_916c4d76377e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -126,7 +126,7 @@ pub struct IUserActivityAttributionFactory_abi(
 pub struct IUserActivityChannel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityChannel {
     type Vtable = IUserActivityChannel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3133208760, 41188, 18491, [185, 72, 156, 186, 189, 6, 7, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbac0f8b8_a0e4_483b_b948_9cbabd06070c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -149,7 +149,7 @@ pub struct IUserActivityChannel_abi(
 pub struct IUserActivityChannel2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityChannel2 {
     type Vtable = IUserActivityChannel2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(379118427, 60286, 20128, [191, 23, 164, 89, 232, 190, 112, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1698e35b_eb7e_4ea0_bf17_a459e8be706c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -170,7 +170,7 @@ pub struct IUserActivityChannel2_abi(
 pub struct IUserActivityChannelStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityChannelStatics {
     type Vtable = IUserActivityChannelStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3368027563, 6541, 19840, [171, 178, 201, 119, 94, 196, 167, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8c005ab_198d_4d80_abb2_c9775ec4a729);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -188,7 +188,7 @@ pub struct IUserActivityChannelStatics_abi(
 pub struct IUserActivityChannelStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityChannelStatics2 {
     type Vtable = IUserActivityChannelStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2391268912, 43599, 17956, [154, 208, 212, 15, 59, 160, 49, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e87de30_aa4f_4624_9ad0_d40f3ba0317c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -208,7 +208,7 @@ pub struct IUserActivityChannelStatics2_abi(
 pub struct IUserActivityChannelStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityChannelStatics3 {
     type Vtable = IUserActivityChannelStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1404849627, 48095, 22916, [128, 42, 83, 5, 135, 78, 32, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53bc4ddb_bbdf_5984_802a_5305874e205c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -228,7 +228,7 @@ pub struct IUserActivityChannelStatics3_abi(
 pub struct IUserActivityContentInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityContentInfo {
     type Vtable = IUserActivityContentInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3013207469, 4991, 16541, [130, 45, 225, 175, 39, 206, 8, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb399e5ad_137f_409d_822d_e1af27ce08dc);
 }
 impl IUserActivityContentInfo {
     #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
@@ -299,7 +299,7 @@ pub struct IUserActivityContentInfo_abi(
 pub struct IUserActivityContentInfoStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityContentInfoStatics {
     type Vtable = IUserActivityContentInfoStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2575876939, 902, 19401, [150, 138, 130, 0, 176, 4, 20, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9988c34b_0386_4bc9_968a_8200b004144f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -317,7 +317,7 @@ pub struct IUserActivityContentInfoStatics_abi(
 pub struct IUserActivityFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityFactory {
     type Vtable = IUserActivityFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2084067160, 13853, 19047, [138, 59, 52, 202, 41, 120, 249, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c385758_361d_4a67_8a3b_34ca2978f9a3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -335,7 +335,7 @@ pub struct IUserActivityFactory_abi(
 pub struct IUserActivityRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityRequest {
     type Vtable = IUserActivityRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2700043093, 53045, 20464, [136, 51, 80, 203, 75, 114, 224, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0ef6355_cf35_4ff0_8833_50cb4b72e06d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -353,7 +353,7 @@ pub struct IUserActivityRequest_abi(
 pub struct IUserActivityRequestManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityRequestManager {
     type Vtable = IUserActivityRequestManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(204521038, 36925, 18646, [130, 212, 64, 67, 237, 87, 121, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c30be4e_903d_48d6_82d4_4043ed57791b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -374,7 +374,7 @@ pub struct IUserActivityRequestManager_abi(
 pub struct IUserActivityRequestManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityRequestManagerStatics {
     type Vtable = IUserActivityRequestManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3224972785, 8778, 17196, [129, 229, 12, 118, 180, 196, 206, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0392df1_224a_432c_81e5_0c76b4c4cefa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -392,7 +392,7 @@ pub struct IUserActivityRequestManagerStatics_abi(
 pub struct IUserActivityRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityRequestedEventArgs {
     type Vtable = IUserActivityRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2764864076, 33321, 19709, [163, 188, 198, 29, 49, 133, 117, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4cc7a4c_8229_4cfd_a3bc_c61d318575a4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -412,7 +412,7 @@ pub struct IUserActivityRequestedEventArgs_abi(
 pub struct IUserActivitySession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivitySession {
     type Vtable = IUserActivitySession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2923646328, 9466, 17571, [173, 72, 110, 218, 97, 170, 25, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae434d78_24fa_44a3_ad48_6eda61aa1924);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -430,7 +430,7 @@ pub struct IUserActivitySession_abi(
 pub struct IUserActivitySessionHistoryItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivitySessionHistoryItem {
     type Vtable = IUserActivitySessionHistoryItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3906313171, 15965, 18941, [152, 215, 109, 169, 117, 33, 226, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8d59bd3_3e5d_49fd_98d7_6da97521e255);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -452,7 +452,7 @@ pub struct IUserActivitySessionHistoryItem_abi(
 pub struct IUserActivityStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityStatics {
     type Vtable = IUserActivityStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2358235955, 3593, 18422, [154, 199, 149, 207, 92, 57, 54, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c8fd333_0e09_47f6_9ac7_95cf5c39367b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -474,7 +474,7 @@ pub struct IUserActivityStatics_abi(
 pub struct IUserActivityVisualElements(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityVisualElements {
     type Vtable = IUserActivityVisualElements_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2490725651, 9775, 18927, [187, 191, 155, 117, 210, 232, 82, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94757513_262f_49ef_bbbf_9b75d2e85250);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -505,7 +505,7 @@ pub struct IUserActivityVisualElements_abi(
 pub struct IUserActivityVisualElements2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityVisualElements2 {
     type Vtable = IUserActivityVisualElements2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3400433607, 16111, 17241, [130, 92, 157, 81, 185, 34, 13, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcaae7fc7_3eef_4359_825c_9d51b9220de3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -701,7 +701,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserActivity {
 }
 unsafe impl ::windows::runtime::Interface for UserActivity {
     type Vtable = IUserActivity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4228923038, 11435, 19766, [174, 162, 180, 187, 85, 108, 239, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc103e9e_2cab_4d36_aea2_b4bb556cef0f);
 }
 impl ::windows::runtime::RuntimeName for UserActivity {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivity";
@@ -819,7 +819,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserActivityAttribution {
 }
 unsafe impl ::windows::runtime::Interface for UserActivityAttribution {
     type Vtable = IUserActivityAttribution_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(883280053, 34525, 19180, [164, 145, 106, 79, 174, 165, 210, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34a5c8b5_86dd_4aec_a491_6a4faea5d22e);
 }
 impl ::windows::runtime::RuntimeName for UserActivityAttribution {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityAttribution";
@@ -961,7 +961,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserActivityChannel {
 }
 unsafe impl ::windows::runtime::Interface for UserActivityChannel {
     type Vtable = IUserActivityChannel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3133208760, 41188, 18491, [185, 72, 156, 186, 189, 6, 7, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbac0f8b8_a0e4_483b_b948_9cbabd06070c);
 }
 impl ::windows::runtime::RuntimeName for UserActivityChannel {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityChannel";
@@ -1038,7 +1038,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserActivityContentInfo {
 }
 unsafe impl ::windows::runtime::Interface for UserActivityContentInfo {
     type Vtable = IUserActivityContentInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3013207469, 4991, 16541, [130, 45, 225, 175, 39, 206, 8, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb399e5ad_137f_409d_822d_e1af27ce08dc);
 }
 impl ::windows::runtime::RuntimeName for UserActivityContentInfo {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityContentInfo";
@@ -1121,7 +1121,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserActivityRequest {
 }
 unsafe impl ::windows::runtime::Interface for UserActivityRequest {
     type Vtable = IUserActivityRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2700043093, 53045, 20464, [136, 51, 80, 203, 75, 114, 224, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0ef6355_cf35_4ff0_8833_50cb4b72e06d);
 }
 impl ::windows::runtime::RuntimeName for UserActivityRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityRequest";
@@ -1205,7 +1205,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserActivityRequestManager {
 }
 unsafe impl ::windows::runtime::Interface for UserActivityRequestManager {
     type Vtable = IUserActivityRequestManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(204521038, 36925, 18646, [130, 212, 64, 67, 237, 87, 121, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c30be4e_903d_48d6_82d4_4043ed57791b);
 }
 impl ::windows::runtime::RuntimeName for UserActivityRequestManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityRequestManager";
@@ -1278,7 +1278,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserActivityRequestedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for UserActivityRequestedEventArgs {
     type Vtable = IUserActivityRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2764864076, 33321, 19709, [163, 188, 198, 29, 49, 133, 117, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4cc7a4c_8229_4cfd_a3bc_c61d318575a4);
 }
 impl ::windows::runtime::RuntimeName for UserActivityRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityRequestedEventArgs";
@@ -1350,7 +1350,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserActivitySession {
 }
 unsafe impl ::windows::runtime::Interface for UserActivitySession {
     type Vtable = IUserActivitySession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2923646328, 9466, 17571, [173, 72, 110, 218, 97, 170, 25, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae434d78_24fa_44a3_ad48_6eda61aa1924);
 }
 impl ::windows::runtime::RuntimeName for UserActivitySession {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivitySession";
@@ -1460,7 +1460,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserActivitySessionHistoryItem {
 }
 unsafe impl ::windows::runtime::Interface for UserActivitySessionHistoryItem {
     type Vtable = IUserActivitySessionHistoryItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3906313171, 15965, 18941, [152, 215, 109, 169, 117, 33, 226, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8d59bd3_3e5d_49fd_98d7_6da97521e255);
 }
 impl ::windows::runtime::RuntimeName for UserActivitySessionHistoryItem {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem";
@@ -1622,7 +1622,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserActivityVisualElements {
 }
 unsafe impl ::windows::runtime::Interface for UserActivityVisualElements {
     type Vtable = IUserActivityVisualElements_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2490725651, 9775, 18927, [187, 191, 155, 117, 210, 232, 82, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94757513_262f_49ef_bbbf_9b75d2e85250);
 }
 impl ::windows::runtime::RuntimeName for UserActivityVisualElements {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityVisualElements";

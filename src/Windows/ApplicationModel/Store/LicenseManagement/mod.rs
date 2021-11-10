@@ -4,7 +4,7 @@
 pub struct ILicenseManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILicenseManagerStatics {
     type Vtable = ILicenseManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3047963360, 55879, 20256, [154, 35, 9, 24, 44, 148, 118, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5ac3ae0_da47_4f20_9a23_09182c9476ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25,7 +25,7 @@ pub struct ILicenseManagerStatics_abi(
 pub struct ILicenseManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILicenseManagerStatics2 {
     type Vtable = ILicenseManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2871968891, 8057, 17536, [184, 126, 44, 73, 158, 96, 27, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab2ec47b_1f79_4480_b87e_2c499e601ba3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -44,7 +44,7 @@ pub struct ILicenseManagerStatics2_abi(
 pub struct ILicenseSatisfactionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILicenseSatisfactionInfo {
     type Vtable = ILicenseSatisfactionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1019981967, 56113, 18645, [131, 132, 250, 23, 200, 20, 116, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ccbb08f_db31_48d5_8384_fa17c81474e2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -68,7 +68,7 @@ pub struct ILicenseSatisfactionInfo_abi(
 pub struct ILicenseSatisfactionResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILicenseSatisfactionResult {
     type Vtable = ILicenseSatisfactionResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1013403507, 15495, 20193, [130, 1, 244, 40, 53, 155, 211, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c674f73_3c87_4ee1_8201_f428359bd3af);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -211,7 +211,7 @@ unsafe impl ::windows::runtime::RuntimeType for LicenseSatisfactionInfo {
 }
 unsafe impl ::windows::runtime::Interface for LicenseSatisfactionInfo {
     type Vtable = ILicenseSatisfactionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1019981967, 56113, 18645, [131, 132, 250, 23, 200, 20, 116, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ccbb08f_db31_48d5_8384_fa17c81474e2);
 }
 impl ::windows::runtime::RuntimeName for LicenseSatisfactionInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionInfo";
@@ -286,7 +286,7 @@ unsafe impl ::windows::runtime::RuntimeType for LicenseSatisfactionResult {
 }
 unsafe impl ::windows::runtime::Interface for LicenseSatisfactionResult {
     type Vtable = ILicenseSatisfactionResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1013403507, 15495, 20193, [130, 1, 244, 40, 53, 155, 211, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c674f73_3c87_4ee1_8201_f428359bd3af);
 }
 impl ::windows::runtime::RuntimeName for LicenseSatisfactionResult {
     const NAME: &'static str = "Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionResult";

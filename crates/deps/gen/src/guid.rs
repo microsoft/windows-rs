@@ -2,22 +2,8 @@
 
 use super::*;
 
-pub fn gen_guid(guid: &GUID) -> TokenStream {
-    let a = Literal::u32_unsuffixed(guid.0);
-    let b = Literal::u16_unsuffixed(guid.1);
-    let c = Literal::u16_unsuffixed(guid.2);
-    let d = Literal::u8_unsuffixed(guid.3);
-    let e = Literal::u8_unsuffixed(guid.4);
-    let f = Literal::u8_unsuffixed(guid.5);
-    let g = Literal::u8_unsuffixed(guid.6);
-    let h = Literal::u8_unsuffixed(guid.7);
-    let i = Literal::u8_unsuffixed(guid.8);
-    let j = Literal::u8_unsuffixed(guid.9);
-    let k = Literal::u8_unsuffixed(guid.10);
-
-    quote! {
-        #a, #b, #c, [#d, #e, #f, #g, #h, #i, #j, #k],
-    }
+pub fn gen_guid(g: &GUID) -> TokenStream {
+    format!("0x{:08x?}_{:04x?}_{:04x?}_{:02x?}{:02x?}_{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}", g.0, g.1, g.2, g.3, g.4, g.5, g.6, g.7, g.8, g.9, g.10).into()
 }
 
 pub fn gen_type_guid(def: &TypeDef, gen: &Gen) -> TokenStream {
@@ -27,7 +13,7 @@ pub fn gen_type_guid(def: &TypeDef, gen: &Gen) -> TokenStream {
                 let guid = gen_guid(&guid);
 
                 quote! {
-                    ::windows::runtime::GUID::from_values(#guid)
+                    ::windows::runtime::GUID::from_u128(#guid)
                 }
             }
             None => {

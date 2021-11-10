@@ -1,71 +1,71 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub mod Common;
-pub const CLSID_D2D12DAffineTransform: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1789490309, 25428, 19708, [144, 140, 228, 167, 79, 98, 201, 108]);
-pub const CLSID_D2D13DPerspectiveTransform: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3263450379, 15750, 18151, [133, 186, 82, 108, 146, 64, 243, 251]);
-pub const CLSID_D2D13DTransform: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3896933124, 60513, 19338, [181, 222, 212, 215, 61, 235, 234, 90]);
-pub const CLSID_D2D1AlphaMask: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3356413936, 16341, 20229, [131, 40, 197, 209, 114, 75, 79, 10]);
-pub const CLSID_D2D1ArithmeticComposite: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4229239863, 1178, 18308, [162, 74, 241, 196, 218, 242, 9, 135]);
-pub const CLSID_D2D1Atlas: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2436770788, 64975, 20450, [165, 240, 36, 84, 241, 79, 244, 8]);
-pub const CLSID_D2D1BitmapSource: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1605812813, 50909, 16945, [148, 4, 80, 244, 213, 195, 37, 45]);
-pub const CLSID_D2D1Blend: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2177218427, 5112, 19677, [173, 32, 200, 144, 84, 122, 198, 93]);
-pub const CLSID_D2D1Border: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(707611072, 19151, 17351, [140, 106, 124, 74, 39, 135, 77, 39]);
-pub const CLSID_D2D1Brightness: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2364181790, 30640, 18822, [179, 185, 47, 12, 14, 174, 120, 135]);
-pub const CLSID_D2D1ChromaKey: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1958747995, 10765, 16524, [136, 226, 199, 163, 199, 25, 119, 66]);
-pub const CLSID_D2D1ColorManagement: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(438850124, 64982, 19108, [174, 143, 131, 126, 184, 38, 123, 55]);
-pub const CLSID_D2D1ColorMatrix: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2451506134, 25628, 18399, [133, 45, 180, 187, 97, 83, 174, 17]);
-pub const CLSID_D2D1Composite: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1224515409, 63148, 18673, [139, 88, 59, 40, 172, 70, 247, 109]);
-pub const CLSID_D2D1Contrast: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3058214794, 3797, 20352, [169, 74, 142, 130, 90, 202, 107, 119]);
-pub const CLSID_D2D1ConvolveMatrix: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1082100744, 21811, 17201, [163, 65, 35, 204, 56, 119, 132, 62]);
-pub const CLSID_D2D1Crop: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3795808528, 3738, 17188, [175, 71, 106, 44, 12, 70, 243, 91]);
-pub const CLSID_D2D1CrossFade: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(318076392, 19889, 18527, [154, 132, 3, 160, 125, 211, 130, 159]);
-pub const CLSID_D2D1DirectionalBlur: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(390273446, 22761, 18866, [187, 99, 202, 242, 200, 17, 163, 219]);
-pub const CLSID_D2D1DiscreteTransfer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2424729549, 18574, 17739, [175, 6, 229, 4, 27, 102, 195, 108]);
-pub const CLSID_D2D1DisplacementMap: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3989078884, 1047, 16657, [148, 80, 67, 132, 95, 169, 248, 144]);
-pub const CLSID_D2D1DistantDiffuse: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1048509794, 41773, 18132, [168, 60, 82, 120, 136, 154, 201, 84]);
-pub const CLSID_D2D1DistantSpecular: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1116479205, 30648, 17488, [138, 181, 114, 33, 156, 33, 171, 218]);
-pub const CLSID_D2D1DpiCompensation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1814480327, 13536, 18172, [156, 253, 229, 130, 55, 6, 226, 40]);
-pub const CLSID_D2D1EdgeDetection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4025844682, 51975, 19113, [172, 93, 44, 196, 76, 118, 70, 15]);
-pub const CLSID_D2D1Emboss: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2982538027, 840, 17392, [129, 7, 73, 87, 202, 203, 162, 174]);
-pub const CLSID_D2D1Exposure: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3043790074, 63028, 16878, [190, 224, 255, 166, 23, 16, 96, 4]);
-pub const CLSID_D2D1Flood: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1640119328, 44649, 19854, [148, 207, 80, 7, 141, 246, 56, 242]);
-pub const CLSID_D2D1GammaTransfer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1083458756, 50201, 16800, [176, 193, 140, 208, 192, 161, 142, 66]);
-pub const CLSID_D2D1GaussianBlur: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(535522665, 12262, 19145, [140, 88, 29, 127, 147, 231, 166, 165]);
-pub const CLSID_D2D1Grayscale: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(920510699, 14117, 17120, [131, 109, 82, 251, 32, 174, 230, 68]);
-pub const CLSID_D2D1HdrToneMap: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2064348301, 17936, 17542, [169, 12, 153, 157, 154, 46, 43, 17]);
-pub const CLSID_D2D1HighlightsShadows: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3403449220, 12863, 19582, [163, 97, 46, 43, 36, 223, 110, 228]);
-pub const CLSID_D2D1Histogram: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2283648976, 63470, 19789, [166, 210, 70, 151, 172, 198, 110, 232]);
-pub const CLSID_D2D1HueRotation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(256137452, 19250, 18715, [158, 133, 189, 115, 244, 77, 62, 182]);
-pub const CLSID_D2D1HueToRgb: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2071504573, 321, 19951, [138, 82, 99, 86, 238, 12, 189, 213]);
-pub const CLSID_D2D1Invert: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3770906701, 52025, 20100, [182, 253, 107, 114, 240, 129, 2, 99]);
-pub const CLSID_D2D1LinearTransfer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2907162877, 25583, 19148, [155, 81, 103, 151, 156, 3, 108, 6]);
-pub const CLSID_D2D1LookupTable3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(882773722, 136, 19065, [156, 163, 199, 227, 0, 32, 32, 32]);
-pub const CLSID_D2D1LuminanceToAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1092950711, 3051, 18168, [157, 167, 89, 233, 63, 204, 229, 222]);
-pub const CLSID_D2D1Morphology: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3940992013, 25194, 19501, [191, 203, 57, 16, 1, 171, 226, 2]);
-pub const CLSID_D2D1Opacity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2166192548, 56872, 17492, [128, 148, 198, 70, 133, 248, 189, 76]);
-pub const CLSID_D2D1OpacityMetadata: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1817378922, 17488, 16793, [170, 91, 173, 22, 86, 254, 206, 94]);
-pub const CLSID_D2D1PointDiffuse: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3118662595, 49292, 20369, [139, 123, 56, 101, 107, 196, 140, 32]);
-pub const CLSID_D2D1PointSpecular: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(163826214, 15074, 20233, [158, 188, 237, 56, 101, 213, 63, 34]);
-pub const CLSID_D2D1Posterize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(562599006, 13219, 17254, [183, 188, 8, 107, 208, 45, 8, 132]);
-pub const CLSID_D2D1Premultiply: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(116044825, 57069, 16408, [128, 210, 62, 29, 71, 26, 222, 178]);
-pub const CLSID_D2D1RgbToHue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(603186668, 37352, 19773, [173, 10, 175, 173, 193, 0, 74, 161]);
-pub const CLSID_D2D1Saturation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1555225039, 12925, 17823, [160, 206, 64, 192, 178, 8, 107, 247]);
-pub const CLSID_D2D1Scale: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2645529449, 14406, 19726, [164, 78, 12, 96, 121, 52, 165, 215]);
-pub const CLSID_D2D1Sepia: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(974844944, 24349, 19902, [132, 223, 145, 93, 167, 155, 113, 83]);
-pub const CLSID_D2D1Shadow: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3330188129, 6243, 20073, [137, 219, 105, 93, 62, 154, 91, 107]);
-pub const CLSID_D2D1Sharpen: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3384313803, 50687, 19909, [151, 121, 39, 61, 207, 65, 124, 125]);
-pub const CLSID_D2D1SpotDiffuse: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2173309189, 31026, 17652, [170, 134, 8, 174, 123, 47, 44, 147]);
-pub const CLSID_D2D1SpotSpecular: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3987620382, 30292, 18999, [157, 184, 113, 172, 193, 190, 179, 193]);
-pub const CLSID_D2D1Straighten: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1302625042, 31139, 20400, [130, 55, 187, 195, 178, 164, 222, 8]);
-pub const CLSID_D2D1TableTransfer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1542985923, 24131, 18635, [182, 49, 134, 131, 150, 214, 161, 212]);
-pub const CLSID_D2D1TemperatureTint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2300010631, 35577, 18952, [174, 177, 137, 95, 56, 219, 23, 102]);
-pub const CLSID_D2D1Tile: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2960671032, 15222, 19397, [177, 59, 15, 162, 173, 2, 101, 159]);
-pub const CLSID_D2D1Tint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(909191959, 63453, 16404, [145, 93, 255, 202, 118, 140, 242, 17]);
-pub const CLSID_D2D1Turbulence: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3475748526, 34970, 19159, [186, 41, 162, 253, 115, 44, 159, 201]);
-pub const CLSID_D2D1UnPremultiply: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4221224073, 44429, 16877, [153, 153, 187, 99, 71, 209, 16, 247]);
-pub const CLSID_D2D1Vignette: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3222028478, 24167, 19619, [149, 180, 244, 176, 44, 17, 81, 53]);
-pub const CLSID_D2D1WhiteLevelAdjustment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1151453915, 27869, 18456, [143, 244, 38, 193, 207, 233, 91, 219]);
-pub const CLSID_D2D1YCbCr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2572172481, 26311, 17865, [168, 117, 138, 216, 167, 145, 68, 1]);
+pub const CLSID_D2D12DAffineTransform: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6aa97485_6354_4cfc_908c_e4a74f62c96c);
+pub const CLSID_D2D13DPerspectiveTransform: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2844d0b_3d86_46e7_85ba_526c9240f3fb);
+pub const CLSID_D2D13DTransform: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8467b04_ec61_4b8a_b5de_d4d73debea5a);
+pub const CLSID_D2D1AlphaMask: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc80ecff0_3fd5_4f05_8328_c5d1724b4f0a);
+pub const CLSID_D2D1ArithmeticComposite: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc151437_049a_4784_a24a_f1c4daf20987);
+pub const CLSID_D2D1Atlas: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x913e2be4_fdcf_4fe2_a5f0_2454f14ff408);
+pub const CLSID_D2D1BitmapSource: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5fb6c24d_c6dd_4231_9404_50f4d5c3252d);
+pub const CLSID_D2D1Blend: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81c5b77b_13f8_4cdd_ad20_c890547ac65d);
+pub const CLSID_D2D1Border: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a2d49c0_4acf_43c7_8c6a_7c4a27874d27);
+pub const CLSID_D2D1Brightness: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cea8d1e_77b0_4986_b3b9_2f0c0eae7887);
+pub const CLSID_D2D1ChromaKey: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74c01f5b_2a0d_408c_88e2_c7a3c7197742);
+pub const CLSID_D2D1ColorManagement: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a28524c_fdd6_4aa4_ae8f_837eb8267b37);
+pub const CLSID_D2D1ColorMatrix: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x921f03d6_641c_47df_852d_b4bb6153ae11);
+pub const CLSID_D2D1Composite: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48fc9f51_f6ac_48f1_8b58_3b28ac46f76d);
+pub const CLSID_D2D1Contrast: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb648a78a_0ed5_4f80_a94a_8e825aca6b77);
+pub const CLSID_D2D1ConvolveMatrix: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x407f8c08_5533_4331_a341_23cc3877843e);
+pub const CLSID_D2D1Crop: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe23f7110_0e9a_4324_af47_6a2c0c46f35b);
+pub const CLSID_D2D1CrossFade: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12f575e8_4db1_485f_9a84_03a07dd3829f);
+pub const CLSID_D2D1DirectionalBlur: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x174319a6_58e9_49b2_bb63_caf2c811a3db);
+pub const CLSID_D2D1DiscreteTransfer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90866fcd_488e_454b_af06_e5041b66c36c);
+pub const CLSID_D2D1DisplacementMap: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xedc48364_0417_4111_9450_43845fa9f890);
+pub const CLSID_D2D1DistantDiffuse: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e7efd62_a32d_46d4_a83c_5278889ac954);
+pub const CLSID_D2D1DistantSpecular: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x428c1ee5_77b8_4450_8ab5_72219c21abda);
+pub const CLSID_D2D1DpiCompensation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c26c5c7_34e0_46fc_9cfd_e5823706e228);
+pub const CLSID_D2D1EdgeDetection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeff583ca_cb07_4aa9_ac5d_2cc44c76460f);
+pub const CLSID_D2D1Emboss: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1c5eb2b_0348_43f0_8107_4957cacba2ae);
+pub const CLSID_D2D1Exposure: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb56c8cfa_f634_41ee_bee0_ffa617106004);
+pub const CLSID_D2D1Flood: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61c23c20_ae69_4d8e_94cf_50078df638f2);
+pub const CLSID_D2D1GammaTransfer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x409444c4_c419_41a0_b0c1_8cd0c0a18e42);
+pub const CLSID_D2D1GaussianBlur: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1feb6d69_2fe6_4ac9_8c58_1d7f93e7a6a5);
+pub const CLSID_D2D1Grayscale: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36dde0eb_3725_42e0_836d_52fb20aee644);
+pub const CLSID_D2D1HdrToneMap: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b0b748d_4610_4486_a90c_999d9a2e2b11);
+pub const CLSID_D2D1HighlightsShadows: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcadc8384_323f_4c7e_a361_2e2b24df6ee4);
+pub const CLSID_D2D1Histogram: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x881db7d0_f7ee_4d4d_a6d2_4697acc66ee8);
+pub const CLSID_D2D1HueRotation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f4458ec_4b32_491b_9e85_bd73f44d3eb6);
+pub const CLSID_D2D1HueToRgb: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b78a6bd_0141_4def_8a52_6356ee0cbdd5);
+pub const CLSID_D2D1Invert: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0c3784d_cb39_4e84_b6fd_6b72f0810263);
+pub const CLSID_D2D1LinearTransfer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad47c8fd_63ef_4acc_9b51_67979c036c06);
+pub const CLSID_D2D1LookupTable3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x349e0eda_0088_4a79_9ca3_c7e300202020);
+pub const CLSID_D2D1LuminanceToAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41251ab7_0beb_46f8_9da7_59e93fcce5de);
+pub const CLSID_D2D1Morphology: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeae6c40d_626a_4c2d_bfcb_391001abe202);
+pub const CLSID_D2D1Opacity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x811d79a4_de28_4454_8094_c64685f8bd4c);
+pub const CLSID_D2D1OpacityMetadata: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c53006a_4450_4199_aa5b_ad1656fece5e);
+pub const CLSID_D2D1PointDiffuse: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9e303c3_c08c_4f91_8b7b_38656bc48c20);
+pub const CLSID_D2D1PointSpecular: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09c3ca26_3ae2_4f09_9ebc_ed3865d53f22);
+pub const CLSID_D2D1Posterize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2188945e_33a3_4366_b7bc_086bd02d0884);
+pub const CLSID_D2D1Premultiply: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06eab419_deed_4018_80d2_3e1d471adeb2);
+pub const CLSID_D2D1RgbToHue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23f3e5ec_91e8_4d3d_ad0a_afadc1004aa1);
+pub const CLSID_D2D1Saturation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5cb2d9cf_327d_459f_a0ce_40c0b2086bf7);
+pub const CLSID_D2D1Scale: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9daf9369_3846_4d0e_a44e_0c607934a5d7);
+pub const CLSID_D2D1Sepia: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a1af410_5f1d_4dbe_84df_915da79b7153);
+pub const CLSID_D2D1Shadow: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc67ea361_1863_4e69_89db_695d3e9a5b6b);
+pub const CLSID_D2D1Sharpen: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9b887cb_c5ff_4dc5_9779_273dcf417c7d);
+pub const CLSID_D2D1SpotDiffuse: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x818a1105_7932_44f4_aa86_08ae7b2f2c93);
+pub const CLSID_D2D1SpotSpecular: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xedae421e_7654_4a37_9db8_71acc1beb3c1);
+pub const CLSID_D2D1Straighten: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4da47b12_79a3_4fb0_8237_bbc3b2a4de08);
+pub const CLSID_D2D1TableTransfer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5bf818c3_5e43_48cb_b631_868396d6a1d4);
+pub const CLSID_D2D1TemperatureTint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89176087_8af9_4a08_aeb1_895f38db1766);
+pub const CLSID_D2D1Tile: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0784138_3b76_4bc5_b13b_0fa2ad02659f);
+pub const CLSID_D2D1Tint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36312b17_f7dd_4014_915d_ffca768cf211);
+pub const CLSID_D2D1Turbulence: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf2bb6ae_889a_4ad7_ba29_a2fd732c9fc9);
+pub const CLSID_D2D1UnPremultiply: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb9ac489_ad8d_41ed_9999_bb6347d110f7);
+pub const CLSID_D2D1Vignette: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc00c40be_5e67_4ca3_95b4_f4b02c115135);
+pub const CLSID_D2D1WhiteLevelAdjustment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44a1cadb_6cdd_4818_8ff4_26c1cfe95bdb);
+pub const CLSID_D2D1YCbCr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99503cc1_66c7_45c9_a875_8ad8a7914401);
 #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
 #[cfg(feature = "Foundation_Numerics")]
 #[inline]
@@ -9452,7 +9452,7 @@ impl ID2D1AnalysisTransform {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1AnalysisTransform {
     type Vtable = ID2D1AnalysisTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(56220720, 38374, 17768, [144, 85, 39, 114, 13, 19, 14, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0359dc30_95e6_4568_9055_27720d130e93);
 }
 impl ::core::convert::From<ID2D1AnalysisTransform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1AnalysisTransform) -> Self {
@@ -9534,7 +9534,7 @@ impl ID2D1Bitmap {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Bitmap {
     type Vtable = ID2D1Bitmap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2720620631, 59970, 16537, [152, 59, 83, 159, 182, 80, 84, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2296057_ea42_4099_983b_539fb6505426);
 }
 impl ::core::convert::From<ID2D1Bitmap> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Bitmap) -> Self {
@@ -9692,7 +9692,7 @@ impl ID2D1Bitmap1 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Bitmap1 {
     type Vtable = ID2D1Bitmap1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2828576844, 14451, 17800, [176, 139, 235, 191, 151, 141, 240, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa898a84c_3873_4588_b08b_ebbf978df041);
 }
 impl ::core::convert::From<ID2D1Bitmap1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Bitmap1) -> Self {
@@ -9863,7 +9863,7 @@ impl ID2D1BitmapBrush {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1BitmapBrush {
     type Vtable = ID2D1BitmapBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420522, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd906aa_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1BitmapBrush> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1BitmapBrush) -> Self {
@@ -10017,7 +10017,7 @@ impl ID2D1BitmapBrush1 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1BitmapBrush1 {
     type Vtable = ID2D1BitmapBrush1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1093941843, 58394, 18850, [145, 205, 33, 121, 59, 187, 98, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41343a53_e41a_49a2_91cd_21793bbb62e5);
 }
 impl ::core::convert::From<ID2D1BitmapBrush1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1BitmapBrush1) -> Self {
@@ -10410,7 +10410,7 @@ impl ID2D1BitmapRenderTarget {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1BitmapRenderTarget {
     type Vtable = ID2D1BitmapRenderTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420501, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd90695_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1BitmapRenderTarget> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1BitmapRenderTarget) -> Self {
@@ -10596,7 +10596,7 @@ impl ID2D1BlendTransform {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1BlendTransform {
     type Vtable = ID2D1BlendTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1672219442, 47684, 17679, [136, 6, 127, 76, 161, 255, 47, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63ac0b32_ba44_450f_8806_7f4ca1ff2f1b);
 }
 impl ::core::convert::From<ID2D1BlendTransform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1BlendTransform) -> Self {
@@ -10708,7 +10708,7 @@ impl ID2D1BorderTransform {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1BorderTransform {
     type Vtable = ID2D1BorderTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1234727772, 14873, 18236, [151, 129, 101, 104, 71, 227, 163, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4998735c_3a19_473c_9781_656847e3a347);
 }
 impl ::core::convert::From<ID2D1BorderTransform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1BorderTransform) -> Self {
@@ -10807,7 +10807,7 @@ impl ID2D1BoundsAdjustmentTransform {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1BoundsAdjustmentTransform {
     type Vtable = ID2D1BoundsAdjustmentTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2432119522, 20626, 17926, [168, 25, 134, 81, 151, 11, 172, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90f732e2_5092_4606_a819_8651970baccd);
 }
 impl ::core::convert::From<ID2D1BoundsAdjustmentTransform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1BoundsAdjustmentTransform) -> Self {
@@ -10891,7 +10891,7 @@ impl ID2D1Brush {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Brush {
     type Vtable = ID2D1Brush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420520, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd906a8_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1Brush> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Brush) -> Self {
@@ -10971,7 +10971,7 @@ impl ID2D1ColorContext {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1ColorContext {
     type Vtable = ID2D1ColorContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(474489019, 22385, 17688, [165, 129, 47, 228, 221, 14, 198, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c4820bb_5771_4518_a581_2fe4dd0ec657);
 }
 impl ::core::convert::From<ID2D1ColorContext> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1ColorContext) -> Self {
@@ -11063,7 +11063,7 @@ impl ID2D1ColorContext1 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1ColorContext1 {
     type Vtable = ID2D1ColorContext1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(448014453, 50559, 19433, [189, 133, 156, 215, 141, 111, 85, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ab42875_c57f_4be9_bd85_9cd78d6f55ee);
 }
 impl ::core::convert::From<ID2D1ColorContext1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1ColorContext1) -> Self {
@@ -11161,7 +11161,7 @@ impl ID2D1CommandList {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1CommandList {
     type Vtable = ID2D1CommandList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3035843097, 9091, 19830, [148, 246, 236, 52, 54, 87, 195, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4f34a19_2383_4d76_94f6_ec343657c3dc);
 }
 impl ::core::convert::From<ID2D1CommandList> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1CommandList) -> Self {
@@ -11354,7 +11354,7 @@ impl ID2D1CommandSink {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1CommandSink {
     type Vtable = ID2D1CommandSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1423411594, 41057, 16551, [190, 199, 228, 101, 188, 186, 44, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54d7898a_a061_40a7_bec7_e465bcba2c4f);
 }
 impl ::core::convert::From<ID2D1CommandSink> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1CommandSink) -> Self {
@@ -11547,7 +11547,7 @@ impl ID2D1CommandSink1 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1CommandSink1 {
     type Vtable = ID2D1CommandSink1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2662819837, 17001, 17511, [184, 194, 235, 48, 203, 48, 87, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9eb767fd_4269_4467_b8c2_eb30cb305743);
 }
 impl ::core::convert::From<ID2D1CommandSink1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1CommandSink1) -> Self {
@@ -11774,7 +11774,7 @@ impl ID2D1CommandSink2 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1CommandSink2 {
     type Vtable = ID2D1CommandSink2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1001079822, 16766, 18399, [162, 226, 188, 11, 230, 160, 9, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3bab440e_417e_47df_a2e2_bc0be6a00916);
 }
 impl ::core::convert::From<ID2D1CommandSink2> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1CommandSink2) -> Self {
@@ -12029,7 +12029,7 @@ impl ID2D1CommandSink3 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1CommandSink3 {
     type Vtable = ID2D1CommandSink3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(403149109, 19699, 18536, [188, 142, 6, 6, 126, 109, 36, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18079135_4cf3_4868_bc8e_06067e6d242d);
 }
 impl ::core::convert::From<ID2D1CommandSink3> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1CommandSink3) -> Self {
@@ -12309,7 +12309,7 @@ impl ID2D1CommandSink4 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1CommandSink4 {
     type Vtable = ID2D1CommandSink4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3347735833, 16598, 16920, [178, 222, 190, 238, 183, 68, 187, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc78a6519_40d6_4218_b2de_beeeb744bb3e);
 }
 impl ::core::convert::From<ID2D1CommandSink4> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1CommandSink4) -> Self {
@@ -12615,7 +12615,7 @@ impl ID2D1CommandSink5 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1CommandSink5 {
     type Vtable = ID2D1CommandSink5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1883757862, 45543, 17575, [149, 154, 131, 73, 226, 20, 79, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7047dd26_b1e7_44a7_959a_8349e2144fa8);
 }
 impl ::core::convert::From<ID2D1CommandSink5> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1CommandSink5) -> Self {
@@ -12829,7 +12829,7 @@ impl ID2D1ComputeInfo {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1ComputeInfo {
     type Vtable = ID2D1ComputeInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1436070219, 40919, 18615, [155, 219, 143, 9, 100, 235, 56, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5598b14b_9fd7_48b7_9bdb_8f0964eb38bc);
 }
 impl ::core::convert::From<ID2D1ComputeInfo> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1ComputeInfo) -> Self {
@@ -12923,7 +12923,7 @@ impl ID2D1ComputeTransform {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1ComputeTransform {
     type Vtable = ID2D1ComputeTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(226842428, 483, 20349, [191, 217, 13, 96, 96, 139, 243, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d85573c_01e3_4f7d_bfd9_0d60608bf3c3);
 }
 impl ::core::convert::From<ID2D1ComputeTransform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1ComputeTransform) -> Self {
@@ -13023,7 +13023,7 @@ impl ID2D1ConcreteTransform {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1ConcreteTransform {
     type Vtable = ID2D1ConcreteTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(444177802, 27127, 20044, [159, 237, 67, 124, 204, 102, 132, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a799d8a_69f7_4e4c_9fed_437ccc6684cc);
 }
 impl ::core::convert::From<ID2D1ConcreteTransform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1ConcreteTransform) -> Self {
@@ -13363,7 +13363,7 @@ impl ID2D1DCRenderTarget {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1DCRenderTarget {
     type Vtable = ID2D1DCRenderTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(475118692, 56929, 18173, [152, 153, 99, 165, 216, 240, 57, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c51bc64_de61_46fd_9899_63a5d8f03950);
 }
 impl ::core::convert::From<ID2D1DCRenderTarget> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DCRenderTarget) -> Self {
@@ -13556,7 +13556,7 @@ impl ID2D1Device {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Device {
     type Vtable = ID2D1Device_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1205688157, 44037, 19677, [128, 73, 155, 2, 205, 22, 244, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47dd575d_ac05_4cdd_8049_9b02cd16f44c);
 }
 impl ::core::convert::From<ID2D1Device> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Device) -> Self {
@@ -13660,7 +13660,7 @@ impl ID2D1Device1 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Device1 {
     type Vtable = ID2D1Device1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3524749537, 9124, 18467, [161, 75, 124, 62, 186, 133, 214, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd21768e1_23a4_4823_a14b_7c3eba85d658);
 }
 impl ::core::convert::From<ID2D1Device1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Device1) -> Self {
@@ -13802,7 +13802,7 @@ impl ID2D1Device2 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Device2 {
     type Vtable = ID2D1Device2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2755949281, 36347, 20064, [132, 146, 110, 40, 97, 201, 202, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa44472e1_8dfb_4e60_8492_6e2861c9ca8b);
 }
 impl ::core::convert::From<ID2D1Device2> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Device2) -> Self {
@@ -13973,7 +13973,7 @@ impl ID2D1Device3 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Device3 {
     type Vtable = ID2D1Device3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2234458247, 32812, 16439, [171, 96, 255, 46, 126, 230, 252, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x852f2087_802c_4037_ab60_ff2e7ee6fc01);
 }
 impl ::core::convert::From<ID2D1Device3> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Device3) -> Self {
@@ -14178,7 +14178,7 @@ impl ID2D1Device4 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Device4 {
     type Vtable = ID2D1Device4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3619533145, 22147, 19014, [188, 156, 114, 220, 114, 11, 133, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7bdb159_5683_4a46_bc9c_72dc720b858b);
 }
 impl ::core::convert::From<ID2D1Device4> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Device4) -> Self {
@@ -14411,7 +14411,7 @@ impl ID2D1Device5 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Device5 {
     type Vtable = ID2D1Device5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3579551908, 25605, 18068, [174, 245, 8, 238, 26, 67, 88, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd55ba0a4_6405_4694_aef5_08ee1a4358b4);
 }
 impl ::core::convert::From<ID2D1Device5> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Device5) -> Self {
@@ -14670,7 +14670,7 @@ impl ID2D1Device6 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Device6 {
     type Vtable = ID2D1Device6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2080307476, 11637, 19373, [190, 135, 225, 141, 219, 7, 123, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bfef914_2d75_4bad_be87_e18ddb077b6d);
 }
 impl ::core::convert::From<ID2D1Device6> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Device6) -> Self {
@@ -15339,7 +15339,7 @@ impl ID2D1DeviceContext {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1DeviceContext {
     type Vtable = ID2D1DeviceContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3908566650, 6428, 18029, [173, 149, 151, 86, 120, 189, 169, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8f7fe7a_191c_466d_ad95_975678bda998);
 }
 impl ::core::convert::From<ID2D1DeviceContext> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DeviceContext) -> Self {
@@ -16049,7 +16049,7 @@ impl ID2D1DeviceContext1 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1DeviceContext1 {
     type Vtable = ID2D1DeviceContext1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3548338148, 26888, 17823, [161, 153, 231, 47, 36, 247, 153, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd37f57e4_6908_459f_a199_e72f24f79987);
 }
 impl ::core::convert::From<ID2D1DeviceContext1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DeviceContext1) -> Self {
@@ -16840,7 +16840,7 @@ impl ID2D1DeviceContext2 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1DeviceContext2 {
     type Vtable = ID2D1DeviceContext2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(961455779, 3124, 17185, [149, 11, 108, 162, 15, 11, 230, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x394ea6a3_0c34_4321_950b_6ca20f0be6c7);
 }
 impl ::core::convert::From<ID2D1DeviceContext2> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DeviceContext2) -> Self {
@@ -17677,7 +17677,7 @@ impl ID2D1DeviceContext3 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1DeviceContext3 {
     type Vtable = ID2D1DeviceContext3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(593130646, 33617, 16716, [188, 212, 102, 114, 171, 45, 142, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x235a7496_8351_414c_bcd4_6672ab2d8e00);
 }
 impl ::core::convert::From<ID2D1DeviceContext3> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DeviceContext3) -> Self {
@@ -18655,7 +18655,7 @@ impl ID2D1DeviceContext4 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1DeviceContext4 {
     type Vtable = ID2D1DeviceContext4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2353166385, 15760, 17526, [182, 71, 196, 250, 227, 73, 228, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c427831_3d90_4476_b647_c4fae349e4db);
 }
 impl ::core::convert::From<ID2D1DeviceContext4> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DeviceContext4) -> Self {
@@ -19717,7 +19717,7 @@ impl ID2D1DeviceContext5 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1DeviceContext5 {
     type Vtable = ID2D1DeviceContext5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2016858696, 26828, 19958, [185, 232, 222, 153, 27, 246, 46, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7836d248_68cc_4df6_b9e8_de991bf62eb7);
 }
 impl ::core::convert::From<ID2D1DeviceContext5> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DeviceContext5) -> Self {
@@ -20811,7 +20811,7 @@ impl ID2D1DeviceContext6 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1DeviceContext6 {
     type Vtable = ID2D1DeviceContext6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2556395063, 20176, 18969, [152, 163, 21, 176, 237, 253, 227, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x985f7e37_4ed0_4a19_98a3_15b0edfde306);
 }
 impl ::core::convert::From<ID2D1DeviceContext6> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DeviceContext6) -> Self {
@@ -21265,7 +21265,7 @@ impl ID2D1DrawInfo {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1DrawInfo {
     type Vtable = ID2D1DrawInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1765598770, 32559, 17886, [147, 254, 24, 216, 139, 55, 170, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x693ce632_7f2f_45de_93fe_18d88b37aa21);
 }
 impl ::core::convert::From<ID2D1DrawInfo> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DrawInfo) -> Self {
@@ -21356,7 +21356,7 @@ impl ID2D1DrawTransform {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1DrawTransform {
     type Vtable = ID2D1DrawTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(918543542, 38713, 17245, [163, 13, 166, 83, 190, 255, 106, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36bfdcb6_9739_435d_a30d_a653beff6a6f);
 }
 impl ::core::convert::From<ID2D1DrawTransform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DrawTransform) -> Self {
@@ -21465,7 +21465,7 @@ impl ID2D1DrawingStateBlock {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1DrawingStateBlock {
     type Vtable = ID2D1DrawingStateBlock_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(676359737, 60406, 18081, [187, 71, 253, 133, 86, 90, 185, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28506e39_ebf6_46a1_bb47_fd85565ab957);
 }
 impl ::core::convert::From<ID2D1DrawingStateBlock> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DrawingStateBlock) -> Self {
@@ -21565,7 +21565,7 @@ impl ID2D1DrawingStateBlock1 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1DrawingStateBlock1 {
     type Vtable = ID2D1DrawingStateBlock1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1755258757, 50990, 20019, [143, 25, 133, 117, 78, 253, 90, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x689f1f85_c72e_4e33_8f19_85754efd5ace);
 }
 impl ::core::convert::From<ID2D1DrawingStateBlock1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DrawingStateBlock1) -> Self {
@@ -21725,7 +21725,7 @@ impl ID2D1Effect {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Effect {
     type Vtable = ID2D1Effect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(673258051, 32137, 18287, [129, 129, 45, 97, 89, 178, 32, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28211a43_7d89_476f_8181_2d6159b220ad);
 }
 impl ::core::convert::From<ID2D1Effect> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Effect) -> Self {
@@ -21909,7 +21909,7 @@ impl ID2D1EffectContext {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1EffectContext {
     type Vtable = ID2D1EffectContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1033867627, 10204, 19159, [180, 241, 100, 148, 83, 64, 245, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d9f916b_27dc_4ad7_b4f1_64945340f563);
 }
 impl ::core::convert::From<ID2D1EffectContext> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1EffectContext) -> Self {
@@ -22086,7 +22086,7 @@ impl ID2D1EffectContext1 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1EffectContext1 {
     type Vtable = ID2D1EffectContext1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2225822042, 64641, 17734, [186, 205, 232, 239, 77, 138, 190, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84ab595a_fc81_4546_bacd_e8ef4d8abe7a);
 }
 impl ::core::convert::From<ID2D1EffectContext1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1EffectContext1) -> Self {
@@ -22296,7 +22296,7 @@ impl ID2D1EffectContext2 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1EffectContext2 {
     type Vtable = ID2D1EffectContext2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1467667104, 40903, 19930, [139, 24, 218, 184, 16, 20, 0, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x577ad2a0_9fc7_4dda_8b18_dab810140052);
 }
 impl ::core::convert::From<ID2D1EffectContext2> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1EffectContext2) -> Self {
@@ -22419,7 +22419,7 @@ impl ID2D1EffectImpl {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1EffectImpl {
     type Vtable = ID2D1EffectImpl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2722692415, 15980, 20067, [159, 3, 127, 104, 236, 201, 29, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa248fd3f_3e6c_4e63_9f03_7f68ecc91db9);
 }
 impl ::core::convert::From<ID2D1EffectImpl> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1EffectImpl) -> Self {
@@ -22540,7 +22540,7 @@ impl ID2D1EllipseGeometry {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1EllipseGeometry {
     type Vtable = ID2D1EllipseGeometry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420516, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd906a4_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1EllipseGeometry> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1EllipseGeometry) -> Self {
@@ -22724,7 +22724,7 @@ impl ID2D1Factory {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Factory {
     type Vtable = ID2D1Factory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(102048327, 28496, 18010, [146, 69, 17, 139, 253, 59, 96, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06152247_6f50_465a_9245_118bfd3b6007);
 }
 impl ::core::convert::From<ID2D1Factory> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Factory) -> Self {
@@ -22914,7 +22914,7 @@ impl ID2D1Factory1 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Factory1 {
     type Vtable = ID2D1Factory1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3138573154, 56046, 19354, [170, 29, 20, 186, 64, 28, 250, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb12d362_daee_4b9a_aa1d_14ba401cfa1f);
 }
 impl ::core::convert::From<ID2D1Factory1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Factory1) -> Self {
@@ -23145,7 +23145,7 @@ impl ID2D1Factory2 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Factory2 {
     type Vtable = ID2D1Factory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2499287667, 37394, 17270, [156, 88, 177, 106, 58, 13, 57, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94f81a73_9212_4376_9c58_b16a3a0d3992);
 }
 impl ::core::convert::From<ID2D1Factory2> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Factory2) -> Self {
@@ -23404,7 +23404,7 @@ impl ID2D1Factory3 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Factory3 {
     type Vtable = ID2D1Factory3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(141129119, 20224, 16703, [176, 62, 43, 218, 69, 64, 77, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0869759f_4f00_413f_b03e_2bda45404d0f);
 }
 impl ::core::convert::From<ID2D1Factory3> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Factory3) -> Self {
@@ -23691,7 +23691,7 @@ impl ID2D1Factory4 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Factory4 {
     type Vtable = ID2D1Factory4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3176055506, 1634, 19438, [186, 142, 111, 41, 240, 50, 224, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd4ec2d2_0662_4bee_ba8e_6f29f032e096);
 }
 impl ::core::convert::From<ID2D1Factory4> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Factory4) -> Self {
@@ -24006,7 +24006,7 @@ impl ID2D1Factory5 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Factory5 {
     type Vtable = ID2D1Factory5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3291781524, 33678, 19215, [140, 171, 68, 153, 125, 158, 234, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4349994_838e_4b0f_8cab_44997d9eeacc);
 }
 impl ::core::convert::From<ID2D1Factory5> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Factory5) -> Self {
@@ -24349,7 +24349,7 @@ impl ID2D1Factory6 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Factory6 {
     type Vtable = ID2D1Factory6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4187451206, 63042, 17601, [151, 202, 218, 50, 234, 42, 38, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9976f46_f642_44c1_97ca_da32ea2a2635);
 }
 impl ::core::convert::From<ID2D1Factory6> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Factory6) -> Self {
@@ -24720,7 +24720,7 @@ impl ID2D1Factory7 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Factory7 {
     type Vtable = ID2D1Factory7_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3183656403, 47468, 19942, [189, 247, 153, 212, 116, 84, 84, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbdc2bdd3_b96c_4de6_bdf7_99d4745454de);
 }
 impl ::core::convert::From<ID2D1Factory7> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Factory7) -> Self {
@@ -24959,7 +24959,7 @@ impl ID2D1GdiInteropRenderTarget {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1GdiInteropRenderTarget {
     type Vtable = ID2D1GdiInteropRenderTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3772469699, 28535, 19374, [179, 213, 228, 117, 9, 179, 88, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0db51c3_6f77_4bae_b3d5_e47509b35838);
 }
 impl ::core::convert::From<ID2D1GdiInteropRenderTarget> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GdiInteropRenderTarget) -> Self {
@@ -25014,7 +25014,7 @@ impl ID2D1GdiMetafile {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1GdiMetafile {
     type Vtable = ID2D1GdiMetafile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(794049987, 53185, 16913, [134, 79, 207, 217, 28, 111, 51, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f543dc3_cfc1_4211_864f_cfd91c6f3395);
 }
 impl ::core::convert::From<ID2D1GdiMetafile> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GdiMetafile) -> Self {
@@ -25099,7 +25099,7 @@ impl ID2D1GdiMetafile1 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1GdiMetafile1 {
     type Vtable = ID2D1GdiMetafile1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(778697192, 56639, 19449, [149, 186, 192, 79, 73, 215, 136, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e69f9e8_dd3f_4bf9_95ba_c04f49d788df);
 }
 impl ::core::convert::From<ID2D1GdiMetafile1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GdiMetafile1) -> Self {
@@ -25187,7 +25187,7 @@ impl ID2D1GdiMetafileSink {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1GdiMetafileSink {
     type Vtable = ID2D1GdiMetafileSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2183361318, 33041, 20348, [188, 244, 181, 193, 23, 85, 100, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82237326_8111_4f7c_bcf4_b5c1175564fe);
 }
 impl ::core::convert::From<ID2D1GdiMetafileSink> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GdiMetafileSink) -> Self {
@@ -25233,7 +25233,7 @@ impl ID2D1GdiMetafileSink1 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1GdiMetafileSink1 {
     type Vtable = ID2D1GdiMetafileSink1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4245605227, 37350, 16670, [134, 85, 57, 94, 118, 15, 145, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd0ecb6b_91e6_411e_8655_395e760f91b4);
 }
 impl ::core::convert::From<ID2D1GdiMetafileSink1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GdiMetafileSink1) -> Self {
@@ -25368,7 +25368,7 @@ impl ID2D1Geometry {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Geometry {
     type Vtable = ID2D1Geometry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420513, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd906a1_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1Geometry> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Geometry) -> Self {
@@ -25541,7 +25541,7 @@ impl ID2D1GeometryGroup {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1GeometryGroup {
     type Vtable = ID2D1GeometryGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420518, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd906a6_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1GeometryGroup> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GeometryGroup) -> Self {
@@ -25653,7 +25653,7 @@ impl ID2D1GeometryRealization {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1GeometryRealization {
     type Vtable = ID2D1GeometryRealization_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2708015063, 48130, 18433, [153, 232, 140, 247, 244, 133, 247, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa16907d7_bc02_4801_99e8_8cf7f485f774);
 }
 impl ::core::convert::From<ID2D1GeometryRealization> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GeometryRealization) -> Self {
@@ -25770,7 +25770,7 @@ impl ID2D1GeometrySink {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1GeometrySink {
     type Vtable = ID2D1GeometrySink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420511, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd9069f_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1GeometrySink> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GeometrySink) -> Self {
@@ -25867,7 +25867,7 @@ impl ID2D1GradientMesh {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1GradientMesh {
     type Vtable = ID2D1GradientMesh_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4069712897, 49232, 19678, [131, 215, 4, 150, 45, 59, 35, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf292e401_c050_4cde_83d7_04962d3b23c2);
 }
 impl ::core::convert::From<ID2D1GradientMesh> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GradientMesh) -> Self {
@@ -25949,7 +25949,7 @@ impl ID2D1GradientStopCollection {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1GradientStopCollection {
     type Vtable = ID2D1GradientStopCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420519, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd906a7_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1GradientStopCollection> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GradientStopCollection) -> Self {
@@ -26054,7 +26054,7 @@ impl ID2D1GradientStopCollection1 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1GradientStopCollection1 {
     type Vtable = ID2D1GradientStopCollection1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2920641268, 24016, 18295, [153, 139, 146, 121, 71, 42, 230, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae1572f4_5dd0_4777_998b_9279472ae63b);
 }
 impl ::core::convert::From<ID2D1GradientStopCollection1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GradientStopCollection1) -> Self {
@@ -26431,7 +26431,7 @@ impl ID2D1HwndRenderTarget {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1HwndRenderTarget {
     type Vtable = ID2D1HwndRenderTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420504, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd90698_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1HwndRenderTarget> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1HwndRenderTarget) -> Self {
@@ -26604,7 +26604,7 @@ impl ID2D1Image {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Image {
     type Vtable = ID2D1Image_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1694605173, 36258, 18812, [179, 44, 223, 163, 78, 72, 237, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65019f75_8da2_497c_b32c_dfa34e48ede6);
 }
 impl ::core::convert::From<ID2D1Image> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Image) -> Self {
@@ -26726,7 +26726,7 @@ impl ID2D1ImageBrush {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1ImageBrush {
     type Vtable = ID2D1ImageBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4271806541, 16277, 16508, [181, 219, 203, 148, 212, 232, 248, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe9e984d_3f95_407c_b5db_cb94d4e8f87c);
 }
 impl ::core::convert::From<ID2D1ImageBrush> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1ImageBrush) -> Self {
@@ -26836,7 +26836,7 @@ impl ID2D1ImageSource {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1ImageSource {
     type Vtable = ID2D1ImageSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3384173797, 29857, 17272, [154, 194, 238, 252, 55, 163, 244, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9b664e5_74a1_4378_9ac2_eefc37a3f4d8);
 }
 impl ::core::convert::From<ID2D1ImageSource> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1ImageSource) -> Self {
@@ -26946,7 +26946,7 @@ impl ID2D1ImageSourceFromWic {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1ImageSourceFromWic {
     type Vtable = ID2D1ImageSourceFromWic_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2000245825, 7311, 17749, [134, 131, 245, 13, 171, 15, 231, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77395441_1c8f_4555_8683_f50dab0fe792);
 }
 impl ::core::convert::From<ID2D1ImageSourceFromWic> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1ImageSourceFromWic) -> Self {
@@ -27102,7 +27102,7 @@ impl ID2D1Ink {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Ink {
     type Vtable = ID2D1Ink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3029963323, 28713, 18319, [168, 179, 67, 44, 124, 95, 83, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb499923b_7029_478f_a8b3_432c7c5f5312);
 }
 impl ::core::convert::From<ID2D1Ink> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Ink) -> Self {
@@ -27194,7 +27194,7 @@ impl ID2D1InkStyle {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1InkStyle {
     type Vtable = ID2D1InkStyle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3135812420, 9212, 16497, [140, 181, 208, 93, 111, 7, 56, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbae8b344_23fc_4071_8cb5_d05d6f073848);
 }
 impl ::core::convert::From<ID2D1InkStyle> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1InkStyle) -> Self {
@@ -27269,7 +27269,7 @@ impl ID2D1Layer {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Layer {
     type Vtable = ID2D1Layer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420507, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd9069b_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1Layer> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Layer) -> Self {
@@ -27379,7 +27379,7 @@ impl ID2D1LinearGradientBrush {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1LinearGradientBrush {
     type Vtable = ID2D1LinearGradientBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420523, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd906ab_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1LinearGradientBrush> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1LinearGradientBrush) -> Self {
@@ -27476,7 +27476,7 @@ impl ID2D1LookupTable3D {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1LookupTable3D {
     type Vtable = ID2D1LookupTable3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1407031381, 41904, 19803, [130, 225, 38, 226, 92, 94, 87, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53dd9855_a3b0_4d5b_82e1_26e25c5e5797);
 }
 impl ::core::convert::From<ID2D1LookupTable3D> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1LookupTable3D) -> Self {
@@ -27543,7 +27543,7 @@ impl ID2D1Mesh {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Mesh {
     type Vtable = ID2D1Mesh_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420546, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd906c2_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1Mesh> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Mesh) -> Self {
@@ -27615,7 +27615,7 @@ impl ID2D1Multithread {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Multithread {
     type Vtable = ID2D1Multithread_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(837216188, 57599, 19782, [140, 100, 160, 168, 196, 28, 21, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31e6e7bc_e0ff_4d46_8c64_a0a8c41c15d3);
 }
 impl ::core::convert::From<ID2D1Multithread> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Multithread) -> Self {
@@ -27672,7 +27672,7 @@ impl ID2D1OffsetTransform {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1OffsetTransform {
     type Vtable = ID2D1OffsetTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1072082410, 30275, 20307, [189, 20, 160, 206, 99, 242, 64, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3fe6adea_7643_4f53_bd14_a0ce63f24042);
 }
 impl ::core::convert::From<ID2D1OffsetTransform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1OffsetTransform) -> Self {
@@ -27829,7 +27829,7 @@ impl ID2D1PathGeometry {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1PathGeometry {
     type Vtable = ID2D1PathGeometry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420517, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd906a5_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1PathGeometry> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1PathGeometry) -> Self {
@@ -28038,7 +28038,7 @@ impl ID2D1PathGeometry1 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1PathGeometry1 {
     type Vtable = ID2D1PathGeometry1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1656398546, 43860, 16823, [184, 114, 120, 126, 1, 6, 164, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62baa2d2_ab54_41b7_b872_787e0106a421);
 }
 impl ::core::convert::From<ID2D1PathGeometry1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1PathGeometry1) -> Self {
@@ -28177,7 +28177,7 @@ impl ID2D1PrintControl {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1PrintControl {
     type Vtable = ID2D1PrintControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(740132477, 49808, 16840, [174, 126, 52, 169, 135, 2, 233, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c1d867d_c290_41c8_ae7e_34a98702e9a5);
 }
 impl ::core::convert::From<ID2D1PrintControl> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1PrintControl) -> Self {
@@ -28266,7 +28266,7 @@ impl ID2D1Properties {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Properties {
     type Vtable = ID2D1Properties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1211397079, 52550, 20381, [157, 58, 49, 18, 170, 128, 21, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x483473d7_cd46_4f9d_9d3a_3112aa80159d);
 }
 impl ::core::convert::From<ID2D1Properties> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Properties) -> Self {
@@ -28384,7 +28384,7 @@ impl ID2D1RadialGradientBrush {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1RadialGradientBrush {
     type Vtable = ID2D1RadialGradientBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420524, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd906ac_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1RadialGradientBrush> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1RadialGradientBrush) -> Self {
@@ -28562,7 +28562,7 @@ impl ID2D1RectangleGeometry {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1RectangleGeometry {
     type Vtable = ID2D1RectangleGeometry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420514, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd906a2_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1RectangleGeometry> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1RectangleGeometry) -> Self {
@@ -28685,7 +28685,7 @@ impl ID2D1RenderInfo {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1RenderInfo {
     type Vtable = ID2D1RenderInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1369104829, 53658, 16909, [184, 73, 54, 79, 89, 71, 118, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x519ae1bd_d19a_420d_b849_364f594776b7);
 }
 impl ::core::convert::From<ID2D1RenderInfo> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1RenderInfo) -> Self {
@@ -29001,7 +29001,7 @@ impl ID2D1RenderTarget {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1RenderTarget {
     type Vtable = ID2D1RenderTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420500, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd90694_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1RenderTarget> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1RenderTarget) -> Self {
@@ -29149,7 +29149,7 @@ impl ID2D1Resource {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Resource {
     type Vtable = ID2D1Resource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420497, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd90691_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1Resource> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Resource) -> Self {
@@ -29191,7 +29191,7 @@ impl ID2D1ResourceTexture {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1ResourceTexture {
     type Vtable = ID2D1ResourceTexture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1754076611, 688, 17293, [177, 58, 209, 180, 76, 50, 195, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x688d15c3_02b0_438d_b13a_d1b44c32c39a);
 }
 impl ::core::convert::From<ID2D1ResourceTexture> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1ResourceTexture) -> Self {
@@ -29310,7 +29310,7 @@ impl ID2D1RoundedRectangleGeometry {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1RoundedRectangleGeometry {
     type Vtable = ID2D1RoundedRectangleGeometry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420515, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd906a3_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1RoundedRectangleGeometry> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1RoundedRectangleGeometry) -> Self {
@@ -29450,7 +29450,7 @@ impl ID2D1SolidColorBrush {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1SolidColorBrush {
     type Vtable = ID2D1SolidColorBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420521, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd906a9_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1SolidColorBrush> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SolidColorBrush) -> Self {
@@ -29567,7 +29567,7 @@ impl ID2D1SourceTransform {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1SourceTransform {
     type Vtable = ID2D1SourceTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3675783389, 3124, 19705, [190, 144, 49, 204, 10, 86, 83, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb1800dd_0c34_4cf9_be90_31cc0a5653e1);
 }
 impl ::core::convert::From<ID2D1SourceTransform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SourceTransform) -> Self {
@@ -29706,7 +29706,7 @@ impl ID2D1SpriteBatch {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1SpriteBatch {
     type Vtable = ID2D1SpriteBatch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1304789951, 14864, 17290, [135, 34, 233, 118, 82, 36, 241, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4dc583bf_3a10_438a_8722_e9765224f1f1);
 }
 impl ::core::convert::From<ID2D1SpriteBatch> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SpriteBatch) -> Self {
@@ -29814,7 +29814,7 @@ impl ID2D1StrokeStyle {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1StrokeStyle {
     type Vtable = ID2D1StrokeStyle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420509, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd9069d_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1StrokeStyle> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1StrokeStyle) -> Self {
@@ -29925,7 +29925,7 @@ impl ID2D1StrokeStyle1 {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1StrokeStyle1 {
     type Vtable = ID2D1StrokeStyle1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(279390822, 59676, 17396, [153, 63, 221, 244, 184, 43, 11, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10a72a66_e91c_43f4_993f_ddf4b82b0b4a);
 }
 impl ::core::convert::From<ID2D1StrokeStyle1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1StrokeStyle1) -> Self {
@@ -30026,7 +30026,7 @@ impl ID2D1SvgAttribute {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1SvgAttribute {
     type Vtable = ID2D1SvgAttribute_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3385700573, 63689, 20080, [183, 194, 48, 28, 128, 41, 44, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9cdb0dd_f8c9_4e70_b7c2_301c80292c5e);
 }
 impl ::core::convert::From<ID2D1SvgAttribute> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SvgAttribute) -> Self {
@@ -30149,7 +30149,7 @@ impl ID2D1SvgDocument {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1SvgDocument {
     type Vtable = ID2D1SvgDocument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2260241997, 44964, 19835, [136, 228, 104, 165, 28, 74, 10, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86b88e4d_afa4_4d7b_88e4_68a51c4a0aec);
 }
 impl ::core::convert::From<ID2D1SvgDocument> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SvgDocument) -> Self {
@@ -30370,7 +30370,7 @@ impl ID2D1SvgElement {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1SvgElement {
     type Vtable = ID2D1SvgElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2893768614, 6206, 18881, [168, 35, 14, 190, 64, 176, 219, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac7b67a6_183e_49c1_a823_0ebe40b0db29);
 }
 impl ::core::convert::From<ID2D1SvgElement> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SvgElement) -> Self {
@@ -30499,7 +30499,7 @@ impl ID2D1SvgGlyphStyle {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1SvgGlyphStyle {
     type Vtable = ID2D1SvgGlyphStyle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2942768969, 53825, 19896, [142, 65, 220, 194, 229, 193, 164, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf671749_d241_4db8_8e41_dcc2e5c1a438);
 }
 impl ::core::convert::From<ID2D1SvgGlyphStyle> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SvgGlyphStyle) -> Self {
@@ -30607,7 +30607,7 @@ impl ID2D1SvgPaint {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1SvgPaint {
     type Vtable = ID2D1SvgPaint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3583748874, 26786, 17755, [165, 220, 158, 178, 133, 78, 36, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd59bab0a_68a2_455b_a5dc_9eb2854e2490);
 }
 impl ::core::convert::From<ID2D1SvgPaint> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SvgPaint) -> Self {
@@ -30749,7 +30749,7 @@ impl ID2D1SvgPathData {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1SvgPathData {
     type Vtable = ID2D1SvgPathData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3231048948, 48024, 17366, [151, 69, 77, 27, 132, 236, 152, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc095e4f4_bb98_43d6_9745_4d1b84ec9888);
 }
 impl ::core::convert::From<ID2D1SvgPathData> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SvgPathData) -> Self {
@@ -30870,7 +30870,7 @@ impl ID2D1SvgPointCollection {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1SvgPointCollection {
     type Vtable = ID2D1SvgPointCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2646494221, 13682, 19929, [152, 37, 85, 48, 129, 59, 183, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9dbe4c0d_3572_4dd9_9825_5530813bb712);
 }
 impl ::core::convert::From<ID2D1SvgPointCollection> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SvgPointCollection) -> Self {
@@ -30993,7 +30993,7 @@ impl ID2D1SvgStrokeDashArray {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1SvgStrokeDashArray {
     type Vtable = ID2D1SvgStrokeDashArray_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4055943762, 37539, 20224, [180, 206, 243, 86, 145, 239, 217, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1c0ca52_92a3_4f00_b4ce_f35691efd9d9);
 }
 impl ::core::convert::From<ID2D1SvgStrokeDashArray> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SvgStrokeDashArray) -> Self {
@@ -31088,7 +31088,7 @@ impl ID2D1TessellationSink {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1TessellationSink {
     type Vtable = ID2D1TessellationSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420545, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd906c1_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1TessellationSink> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1TessellationSink) -> Self {
@@ -31148,7 +31148,7 @@ impl ID2D1Transform {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1Transform {
     type Vtable = ID2D1Transform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4011468925, 13354, 20342, [143, 219, 218, 13, 110, 169, 249, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef1a287d_342a_4f76_8fdb_da0d6ea9f92b);
 }
 impl ::core::convert::From<ID2D1Transform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Transform) -> Self {
@@ -31248,7 +31248,7 @@ impl ID2D1TransformGraph {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1TransformGraph {
     type Vtable = ID2D1TransformGraph_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(332566584, 50150, 16436, [144, 129, 19, 181, 58, 65, 121, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13d29038_c3e6_4034_9081_13b53a417992);
 }
 impl ::core::convert::From<ID2D1TransformGraph> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1TransformGraph) -> Self {
@@ -31298,7 +31298,7 @@ impl ID2D1TransformNode {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1TransformNode {
     type Vtable = ID2D1TransformNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3002065383, 29343, 16642, [148, 159, 80, 95, 162, 27, 246, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2efe1e7_729f_4102_949f_505fa21bf666);
 }
 impl ::core::convert::From<ID2D1TransformNode> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1TransformNode) -> Self {
@@ -31421,7 +31421,7 @@ impl ID2D1TransformedGeometry {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1TransformedGeometry {
     type Vtable = ID2D1TransformedGeometry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420539, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd906bb_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1TransformedGeometry> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1TransformedGeometry) -> Self {
@@ -31540,7 +31540,7 @@ impl ID2D1TransformedImageSource {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1TransformedImageSource {
     type Vtable = ID2D1TransformedImageSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2132769253, 10134, 16748, [143, 85, 112, 15, 145, 20, 69, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f1f79e5_2796_416c_8f55_700f911445e5);
 }
 impl ::core::convert::From<ID2D1TransformedImageSource> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1TransformedImageSource) -> Self {
@@ -31628,7 +31628,7 @@ impl ID2D1VertexBuffer {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1VertexBuffer {
     type Vtable = ID2D1VertexBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2609582902, 165, 18024, [146, 183, 206, 213, 216, 191, 155, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b8b1336_00a5_4668_92b7_ced5d8bf9b7b);
 }
 impl ::core::convert::From<ID2D1VertexBuffer> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1VertexBuffer) -> Self {

@@ -4,7 +4,7 @@
 pub struct IWindowManagementPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowManagementPreview {
     type Vtable = IWindowManagementPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1324702477, 22045, 20796, [166, 124, 44, 2, 182, 156, 239, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ef55b0d_561d_513c_a67c_2c02b69cef41);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21,7 +21,7 @@ pub struct IWindowManagementPreview_abi(
 pub struct IWindowManagementPreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowManagementPreviewStatics {
     type Vtable = IWindowManagementPreviewStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(261563846, 49156, 23075, [143, 210, 141, 9, 44, 226, 112, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f9725c6_c004_5a23_8fd2_8d092ce2704a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -55,7 +55,7 @@ unsafe impl ::windows::runtime::RuntimeType for WindowManagementPreview {
 }
 unsafe impl ::windows::runtime::Interface for WindowManagementPreview {
     type Vtable = IWindowManagementPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1324702477, 22045, 20796, [166, 124, 44, 2, 182, 156, 239, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ef55b0d_561d_513c_a67c_2c02b69cef41);
 }
 impl ::windows::runtime::RuntimeName for WindowManagementPreview {
     const NAME: &'static str = "Windows.UI.WindowManagement.Preview.WindowManagementPreview";

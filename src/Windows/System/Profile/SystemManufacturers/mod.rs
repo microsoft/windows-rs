@@ -4,7 +4,7 @@
 pub struct IOemSupportInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOemSupportInfo {
     type Vtable = IOemSupportInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2368646741, 34799, 16998, [134, 208, 196, 175, 190, 178, 155, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d2eae55_87ef_4266_86d0_c4afbeb29bb9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26,7 +26,7 @@ pub struct IOemSupportInfo_abi(
 pub struct ISmbiosInformationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmbiosInformationStatics {
     type Vtable = ISmbiosInformationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(135055996, 25468, 18628, [183, 40, 249, 39, 56, 18, 219, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x080cca7c_637c_48c4_b728_f9273812db8e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -44,7 +44,7 @@ pub struct ISmbiosInformationStatics_abi(
 pub struct ISystemSupportDeviceInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemSupportDeviceInfo {
     type Vtable = ISystemSupportDeviceInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(92801945, 33351, 17435, [169, 150, 161, 120, 75, 171, 121, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05880b99_8247_441b_a996_a1784bab79a8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -68,7 +68,7 @@ pub struct ISystemSupportDeviceInfo_abi(
 pub struct ISystemSupportInfoStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemSupportInfoStatics {
     type Vtable = ISystemSupportInfoStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4017424756, 50210, 17879, [164, 77, 92, 28, 0, 67, 162, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef750974_c422_45d7_a44d_5c1c0043a2b3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -87,7 +87,7 @@ pub struct ISystemSupportInfoStatics_abi(
 pub struct ISystemSupportInfoStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemSupportInfoStatics2 {
     type Vtable = ISystemSupportInfoStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(871582116, 16289, 18822, [170, 75, 5, 116, 32, 69, 94, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33f349a4_3fa1_4986_aa4b_057420455e6d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -137,7 +137,7 @@ unsafe impl ::windows::runtime::RuntimeType for OemSupportInfo {
 }
 unsafe impl ::windows::runtime::Interface for OemSupportInfo {
     type Vtable = IOemSupportInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2368646741, 34799, 16998, [134, 208, 196, 175, 190, 178, 155, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d2eae55_87ef_4266_86d0_c4afbeb29bb9);
 }
 impl ::windows::runtime::RuntimeName for OemSupportInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.OemSupportInfo";
@@ -272,7 +272,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemSupportDeviceInfo {
 }
 unsafe impl ::windows::runtime::Interface for SystemSupportDeviceInfo {
     type Vtable = ISystemSupportDeviceInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(92801945, 33351, 17435, [169, 150, 161, 120, 75, 171, 121, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05880b99_8247_441b_a996_a1784bab79a8);
 }
 impl ::windows::runtime::RuntimeName for SystemSupportDeviceInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.SystemSupportDeviceInfo";

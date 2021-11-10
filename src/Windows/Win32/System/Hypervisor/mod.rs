@@ -310,7 +310,7 @@ unsafe impl ::windows::runtime::Abi for GUEST_OS_VENDOR {
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK = unsafe extern "system" fn(infomessage: super::super::Foundation::PSTR);
-pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1072875819, 26008, 20064, [142, 28, 12, 207, 73, 39, 227, 25]);
+pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ff2c92b_6598_4e60_8e1c_0ccf4927e319);
 #[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn GetActiveVirtualTrustLevel(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualtrustlevel: *mut u8) -> ::windows::runtime::Result<()> {
@@ -817,13 +817,13 @@ pub const HVSOCKET_CONNECT_TIMEOUT: u32 = 1u32;
 pub const HVSOCKET_CONNECT_TIMEOUT_MAX: u32 = 300000u32;
 #[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const HVSOCKET_CONTAINER_PASSTHRU: u32 = 2u32;
-pub const HV_GUID_BROADCAST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4294967295, 65535, 65535, [255, 255, 255, 255, 255, 255, 255, 255]);
-pub const HV_GUID_CHILDREN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2430307209, 3381, 20345, [140, 233, 73, 234, 10, 200, 183, 205]);
-pub const HV_GUID_LOOPBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3772866967, 56662, 18960, [145, 149, 94, 231, 161, 85, 168, 56]);
-pub const HV_GUID_PARENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2754510042, 53311, 18444, [156, 194, 164, 222, 32, 171, 184, 120]);
-pub const HV_GUID_SILOHOST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(918359132, 29302, 16931, [136, 186, 125, 3, 182, 84, 197, 104]);
-pub const HV_GUID_VSOCK_TEMPLATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 64203, 4582, [189, 88, 100, 0, 106, 121, 134, 211]);
-pub const HV_GUID_ZERO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0]);
+pub const HV_GUID_BROADCAST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffffffff_ffff_ffff_ffff_ffffffffffff);
+pub const HV_GUID_CHILDREN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90db8b89_0d35_4f79_8ce9_49ea0ac8b7cd);
+pub const HV_GUID_LOOPBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0e16197_dd56_4a10_9195_5ee7a155a838);
+pub const HV_GUID_PARENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa42e7cda_d03f_480c_9cc2_a4de20abb878);
+pub const HV_GUID_SILOHOST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36bd0c5c_7276_4223_88ba_7d03b654c568);
+pub const HV_GUID_VSOCK_TEMPLATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000000_facb_11e6_bd58_64006a7986d3);
+pub const HV_GUID_ZERO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 #[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const HV_PROTOCOL_RAW: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Hypervisor`*"]

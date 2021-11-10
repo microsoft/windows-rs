@@ -209,10 +209,10 @@ pub const BATTERY_CLASS_MINOR_VERSION: u32 = 0u32;
 pub const BATTERY_CLASS_MINOR_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const BATTERY_CRITICAL: u32 = 8u32;
-pub const BATTERY_CYCLE_COUNT_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4019772196, 20, 19493, [165, 11, 199, 36, 174, 92, 211, 113]);
+pub const BATTERY_CYCLE_COUNT_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef98db24_0014_4c25_a50b_c724ae5cd371);
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const BATTERY_DISCHARGING: u32 = 2u32;
-pub const BATTERY_FULL_CHARGED_CAPACITY_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1085539685, 38647, 17461, [134, 148, 151, 224, 228, 57, 89, 5]);
+pub const BATTERY_FULL_CHARGED_CAPACITY_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40b40565_96f7_4435_8694_97e0e4395905);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Power`*"]
@@ -371,7 +371,7 @@ impl ::core::cmp::Eq for BATTERY_REPORTING_SCALE {}
 unsafe impl ::windows::runtime::Abi for BATTERY_REPORTING_SCALE {
     type Abi = Self;
 }
-pub const BATTERY_RUNTIME_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1398421351, 6850, 18876, [160, 119, 63, 122, 2, 228, 10, 236]);
+pub const BATTERY_RUNTIME_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x535a3767_1ac2_49bc_a077_3f7a02e40aec);
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const BATTERY_SEALED: u32 = 268435456u32;
 #[doc = "*Required features: `Win32_System_Power`*"]
@@ -428,7 +428,7 @@ impl ::core::convert::From<i32> for BATTERY_SET_INFORMATION_LEVEL {
 unsafe impl ::windows::runtime::Abi for BATTERY_SET_INFORMATION_LEVEL {
     type Abi = Self;
 }
-pub const BATTERY_STATIC_DATA_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(98690147, 58594, 20137, [128, 203, 155, 212, 179, 202, 6, 85]);
+pub const BATTERY_STATIC_DATA_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05e1e463_e4e2_4ea9_80cb_9bd4b3ca0655);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Power`*"]
@@ -458,14 +458,14 @@ impl ::core::cmp::Eq for BATTERY_STATUS {}
 unsafe impl ::windows::runtime::Abi for BATTERY_STATUS {
     type Abi = Self;
 }
-pub const BATTERY_STATUS_CHANGE_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3453984963, 31835, 20035, [160, 52, 5, 159, 165, 184, 67, 100]);
-pub const BATTERY_STATUS_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4232474833, 60351, 16750, [135, 206, 55, 74, 78, 188, 17, 26]);
+pub const BATTERY_STATUS_CHANGE_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcddfa0c3_7c5b_4e43_a034_059fa5b84364);
+pub const BATTERY_STATUS_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc4670d1_ebbf_416e_87ce_374a4ebc111a);
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const BATTERY_SYSTEM_BATTERY: u32 = 2147483648u32;
-pub const BATTERY_TAG_CHANGE_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1579118105, 34694, 19747, [148, 252, 158, 116, 107, 213, 216, 136]);
+pub const BATTERY_TAG_CHANGE_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e1f6e19_8786_4d23_94fc_9e746bd5d888);
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const BATTERY_TAG_INVALID: u32 = 0u32;
-pub const BATTERY_TEMPERATURE_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(441622861, 44494, 19012, [154, 62, 200, 216, 241, 95, 242, 194]);
+pub const BATTERY_TEMPERATURE_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a52a14d_adce_4a44_9a3e_c8d8f15ff2c2);
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const BATTERY_UNKNOWN_CAPACITY: u32 = 4294967295u32;
 #[doc = "*Required features: `Win32_System_Power`*"]
@@ -1192,20 +1192,20 @@ impl ::core::cmp::Eq for GLOBAL_USER_POWER_POLICY {}
 unsafe impl ::windows::runtime::Abi for GLOBAL_USER_POWER_POLICY {
     type Abi = Self;
 }
-pub const GUID_CLASS_INPUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1293833650, 61807, 4559, [136, 203, 0, 17, 17, 0, 0, 48]);
-pub const GUID_DEVICE_ACPI_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2549718006, 17559, 20248, [187, 34, 75, 159, 178, 251, 239, 156]);
-pub const GUID_DEVICE_APPLICATIONLAUNCH_BUTTON: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1654085870, 39022, 19870, [142, 71, 222, 39, 248, 171, 5, 77]);
-pub const GUID_DEVICE_BATTERY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1919098452, 30884, 4560, [188, 247, 0, 170, 0, 183, 179, 42]);
-pub const GUID_DEVICE_ENERGY_METER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1170047812, 32470, 18895, [164, 64, 194, 118, 201, 51, 176, 83]);
-pub const GUID_DEVICE_FAN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(99406141, 33242, 18986, [138, 76, 82, 79, 35, 221, 77, 201]);
-pub const GUID_DEVICE_LID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1257913682, 29863, 4560, [190, 94, 0, 160, 201, 6, 40, 87]);
-pub const GUID_DEVICE_MEMORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1070657597, 37600, 17915, [183, 92, 94, 216, 255, 176, 16, 33]);
-pub const GUID_DEVICE_MESSAGE_INDICATOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3444089701, 64148, 19682, [162, 50, 161, 183, 100, 229, 216, 180]);
-pub const GUID_DEVICE_PROCESSOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2549799696, 20019, 16558, [53, 156, 139, 239, 2, 157, 189, 208]);
-pub const GUID_DEVICE_SYS_BUTTON: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1257913683, 29863, 4560, [190, 94, 0, 160, 201, 6, 40, 87]);
-pub const GUID_DEVICE_THERMAL_ZONE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1257913681, 29863, 4560, [190, 94, 0, 160, 201, 6, 40, 87]);
-pub const GUID_DEVINTERFACE_THERMAL_COOLING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3689166653, 15489, 16587, [172, 228, 224, 229, 208, 95, 12, 159]);
-pub const GUID_DEVINTERFACE_THERMAL_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2457780371, 27044, 19392, [189, 2, 113, 22, 100, 113, 68, 99]);
+pub const GUID_CLASS_INPUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d1e55b2_f16f_11cf_88cb_001111000030);
+pub const GUID_DEVICE_ACPI_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97f99bf6_4497_4f18_bb22_4b9fb2fbef9c);
+pub const GUID_DEVICE_APPLICATIONLAUNCH_BUTTON: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x629758ee_986e_4d9e_8e47_de27f8ab054d);
+pub const GUID_DEVICE_BATTERY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72631e54_78a4_11d0_bcf7_00aa00b7b32a);
+pub const GUID_DEVICE_ENERGY_METER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45bd8344_7ed6_49cf_a440_c276c933b053);
+pub const GUID_DEVICE_FAN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05ecd13d_81da_4a2a_8a4c_524f23dd4dc9);
+pub const GUID_DEVICE_LID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4afa3d52_74a7_11d0_be5e_00a0c9062857);
+pub const GUID_DEVICE_MEMORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3fd0f03d_92e0_45fb_b75c_5ed8ffb01021);
+pub const GUID_DEVICE_MESSAGE_INDICATOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd48a365_fa94_4ce2_a232_a1b764e5d8b4);
+pub const GUID_DEVICE_PROCESSOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97fadb10_4e33_40ae_359c_8bef029dbdd0);
+pub const GUID_DEVICE_SYS_BUTTON: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4afa3d53_74a7_11d0_be5e_00a0c9062857);
+pub const GUID_DEVICE_THERMAL_ZONE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4afa3d51_74a7_11d0_be5e_00a0c9062857);
+pub const GUID_DEVINTERFACE_THERMAL_COOLING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbe4373d_3c81_40cb_ace4_e0e5d05f0c9f);
+pub const GUID_DEVINTERFACE_THERMAL_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x927ec093_69a4_4bc0_bd02_711664714463);
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2013,7 +2013,7 @@ impl ::core::ops::Not for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PROCESSOR_NUMBER_PKEY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1462028317, 54703, 19487, [161, 3, 160, 110, 40, 242, 4, 198]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x5724c81d_d5af_4c1f_a103_a06e28f204c6),
     pid: 1u32,
 };
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]

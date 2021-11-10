@@ -4,7 +4,7 @@
 pub struct IInjectedInputGamepadInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInjectedInputGamepadInfo {
     type Vtable = IInjectedInputGamepadInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(548313663, 57105, 17778, [169, 171, 215, 91, 138, 94, 72, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20ae9a3f_df11_4572_a9ab_d75b8a5e48ad);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -37,7 +37,7 @@ pub struct IInjectedInputGamepadInfo_abi(
 pub struct IInjectedInputGamepadInfoFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInjectedInputGamepadInfoFactory {
     type Vtable = IInjectedInputGamepadInfoFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1499031670, 27705, 20164, [139, 42, 41, 239, 125, 225, 138, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59596876_6c39_4ec4_8b2a_29ef7de18aca);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -56,7 +56,7 @@ pub struct IInjectedInputGamepadInfoFactory_abi(
 pub struct IInjectedInputKeyboardInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInjectedInputKeyboardInfo {
     type Vtable = IInjectedInputKeyboardInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1262932288, 11114, 24570, [126, 174, 189, 7, 123, 5, 42, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b46d140_2b6a_5ffa_7eae_bd077b052acd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -79,7 +79,7 @@ pub struct IInjectedInputKeyboardInfo_abi(
 pub struct IInjectedInputMouseInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInjectedInputMouseInfo {
     type Vtable = IInjectedInputMouseInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2532666987, 58490, 23796, [65, 141, 138, 95, 185, 103, 12, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96f56e6b_e47a_5cf4_418d_8a5fb9670c7d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -106,7 +106,7 @@ pub struct IInjectedInputMouseInfo_abi(
 pub struct IInjectedInputPenInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInjectedInputPenInfo {
     type Vtable = IInjectedInputPenInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1799400707, 51742, 21799, [126, 2, 40, 40, 84, 11, 177, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b40ad03_ca1e_5527_7e02_2828540bb1d4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -137,7 +137,7 @@ pub struct IInjectedInputPenInfo_abi(
 pub struct IInjectedInputTouchInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInjectedInputTouchInfo {
     type Vtable = IInjectedInputTouchInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(575656415, 17384, 24309, [81, 10, 105, 202, 140, 155, 76, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x224fd1df_43e8_5ef5_510a_69ca8c9b4c28);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -164,7 +164,7 @@ pub struct IInjectedInputTouchInfo_abi(
 pub struct IInputInjector(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputInjector {
     type Vtable = IInputInjector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2395107204, 2818, 19410, [173, 122, 61, 70, 88, 190, 62, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ec26f84_0b02_4bd2_ad7a_3d4658be3e18);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -193,7 +193,7 @@ pub struct IInputInjector_abi(
 pub struct IInputInjector2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputInjector2 {
     type Vtable = IInputInjector2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2390397021, 5203, 17319, [155, 203, 6, 214, 215, 179, 5, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e7a905d_1453_43a7_9bcb_06d6d7b305f7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -213,7 +213,7 @@ pub struct IInputInjector2_abi(
 pub struct IInputInjectorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputInjectorStatics {
     type Vtable = IInputInjectorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3735972163, 29698, 16705, [165, 198, 12, 1, 170, 87, 177, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdeae6943_7402_4141_a5c6_0c01aa57b16a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -231,7 +231,7 @@ pub struct IInputInjectorStatics_abi(
 pub struct IInputInjectorStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputInjectorStatics2 {
     type Vtable = IInputInjectorStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2765830395, 56716, 16719, [149, 234, 248, 126, 244, 192, 174, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4db38fb_dd8c_414f_95ea_f87ef4c0ae6c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -398,7 +398,7 @@ unsafe impl ::windows::runtime::RuntimeType for InjectedInputGamepadInfo {
 }
 unsafe impl ::windows::runtime::Interface for InjectedInputGamepadInfo {
     type Vtable = IInjectedInputGamepadInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(548313663, 57105, 17778, [169, 171, 215, 91, 138, 94, 72, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20ae9a3f_df11_4572_a9ab_d75b8a5e48ad);
 }
 impl ::windows::runtime::RuntimeName for InjectedInputGamepadInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputGamepadInfo";
@@ -553,7 +553,7 @@ unsafe impl ::windows::runtime::RuntimeType for InjectedInputKeyboardInfo {
 }
 unsafe impl ::windows::runtime::Interface for InjectedInputKeyboardInfo {
     type Vtable = IInjectedInputKeyboardInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1262932288, 11114, 24570, [126, 174, 189, 7, 123, 5, 42, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b46d140_2b6a_5ffa_7eae_bd077b052acd);
 }
 impl ::windows::runtime::RuntimeName for InjectedInputKeyboardInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo";
@@ -681,7 +681,7 @@ unsafe impl ::windows::runtime::RuntimeType for InjectedInputMouseInfo {
 }
 unsafe impl ::windows::runtime::Interface for InjectedInputMouseInfo {
     type Vtable = IInjectedInputMouseInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2532666987, 58490, 23796, [65, 141, 138, 95, 185, 103, 12, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96f56e6b_e47a_5cf4_418d_8a5fb9670c7d);
 }
 impl ::windows::runtime::RuntimeName for InjectedInputMouseInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputMouseInfo";
@@ -950,7 +950,7 @@ unsafe impl ::windows::runtime::RuntimeType for InjectedInputPenInfo {
 }
 unsafe impl ::windows::runtime::Interface for InjectedInputPenInfo {
     type Vtable = IInjectedInputPenInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1799400707, 51742, 21799, [126, 2, 40, 40, 84, 11, 177, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b40ad03_ca1e_5527_7e02_2828540bb1d4);
 }
 impl ::windows::runtime::RuntimeName for InjectedInputPenInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputPenInfo";
@@ -1319,7 +1319,7 @@ unsafe impl ::windows::runtime::RuntimeType for InjectedInputTouchInfo {
 }
 unsafe impl ::windows::runtime::Interface for InjectedInputTouchInfo {
     type Vtable = IInjectedInputTouchInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(575656415, 17384, 24309, [81, 10, 105, 202, 140, 155, 76, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x224fd1df_43e8_5ef5_510a_69ca8c9b4c28);
 }
 impl ::windows::runtime::RuntimeName for InjectedInputTouchInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputTouchInfo";
@@ -1535,7 +1535,7 @@ unsafe impl ::windows::runtime::RuntimeType for InputInjector {
 }
 unsafe impl ::windows::runtime::Interface for InputInjector {
     type Vtable = IInputInjector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2395107204, 2818, 19410, [173, 122, 61, 70, 88, 190, 62, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ec26f84_0b02_4bd2_ad7a_3d4658be3e18);
 }
 impl ::windows::runtime::RuntimeName for InputInjector {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InputInjector";

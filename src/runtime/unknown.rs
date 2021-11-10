@@ -14,7 +14,7 @@ pub struct IUnknown_abi(pub unsafe extern "system" fn(this: RawPtr, iid: *const 
 unsafe impl Interface for IUnknown {
     type Vtable = IUnknown_abi;
 
-    const IID: GUID = GUID::from_values(0x0000_0000, 0x0000, 0x0000, [0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46]);
+    const IID: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
 }
 
 impl Clone for IUnknown {

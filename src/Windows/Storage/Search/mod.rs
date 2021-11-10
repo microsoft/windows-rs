@@ -182,7 +182,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContentIndexer {
 }
 unsafe impl ::windows::runtime::Interface for ContentIndexer {
     type Vtable = IContentIndexer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2977333133, 63128, 18818, [176, 95, 58, 110, 140, 171, 1, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1767f8d_f698_4982_b05f_3a6e8cab01a2);
 }
 impl ::windows::runtime::RuntimeName for ContentIndexer {
     const NAME: &'static str = "Windows.Storage.Search.ContentIndexer";
@@ -293,7 +293,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContentIndexerQuery {
 }
 unsafe impl ::windows::runtime::Interface for ContentIndexerQuery {
     type Vtable = IContentIndexerQuery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1893970168, 19452, 17034, [136, 137, 204, 81, 218, 154, 123, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70e3b0f8_4bfc_428a_8889_cc51da9a7b9d);
 }
 impl ::windows::runtime::RuntimeName for ContentIndexerQuery {
     const NAME: &'static str = "Windows.Storage.Search.ContentIndexerQuery";
@@ -390,7 +390,7 @@ impl ::windows::runtime::DefaultType for FolderDepth {
 pub struct IContentIndexer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentIndexer {
     type Vtable = IContentIndexer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2977333133, 63128, 18818, [176, 95, 58, 110, 140, 171, 1, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1767f8d_f698_4982_b05f_3a6e8cab01a2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -420,7 +420,7 @@ pub struct IContentIndexer_abi(
 pub struct IContentIndexerQuery(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentIndexerQuery {
     type Vtable = IContentIndexerQuery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1893970168, 19452, 17034, [136, 137, 204, 81, 218, 154, 123, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70e3b0f8_4bfc_428a_8889_cc51da9a7b9d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -448,7 +448,7 @@ pub struct IContentIndexerQuery_abi(
 pub struct IContentIndexerQueryOperations(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentIndexerQueryOperations {
     type Vtable = IContentIndexerQueryOperations_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(679624208, 18310, 17137, [151, 48, 121, 43, 53, 102, 177, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28823e10_4786_42f1_9730_792b3566b150);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -471,7 +471,7 @@ pub struct IContentIndexerQueryOperations_abi(
 pub struct IContentIndexerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentIndexerStatics {
     type Vtable = IContentIndexerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2353562485, 45950, 19552, [155, 168, 183, 96, 253, 163, 229, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c488375_b37e_4c60_9ba8_b760fda3e59d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -491,7 +491,7 @@ pub struct IContentIndexerStatics_abi(
 pub struct IIndexableContent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIndexableContent {
     type Vtable = IIndexableContent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3438387295, 54453, 18490, [176, 110, 224, 219, 30, 196, 32, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xccf1a05f_d4b5_483a_b06e_e0db1ec420e4);
 }
 impl IIndexableContent {
     #[doc = "*Required features: `Storage_Search`*"]
@@ -613,7 +613,7 @@ pub struct IIndexableContent_abi(
 pub struct IQueryOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IQueryOptions {
     type Vtable = IQueryOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(509495022, 3909, 18488, [168, 233, 208, 71, 157, 68, 108, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e5e46ee_0f45_4838_a8e9_d0479d446c30);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -652,7 +652,7 @@ pub struct IQueryOptions_abi(
 pub struct IQueryOptionsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IQueryOptionsFactory {
     type Vtable = IQueryOptionsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(53354380, 43457, 20081, [128, 17, 13, 238, 157, 72, 17, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x032e1f8c_a9c1_4e71_8011_0dee9d4811a3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -672,7 +672,7 @@ pub struct IQueryOptionsFactory_abi(
 pub struct IQueryOptionsWithProviderFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IQueryOptionsWithProviderFilter {
     type Vtable = IQueryOptionsWithProviderFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1537019942, 5572, 17629, [184, 154, 71, 165, 155, 125, 124, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b9d1026_15c4_44dd_b89a_47a59b7d7c4f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -691,7 +691,7 @@ pub struct IQueryOptionsWithProviderFilter_abi(
 pub struct IStorageFileQueryResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFileQueryResult {
     type Vtable = IStorageFileQueryResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1392354375, 11178, 16684, [178, 159, 212, 177, 119, 142, 250, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52fda447_2baa_412c_b29f_d4b1778efa1e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -712,7 +712,7 @@ pub struct IStorageFileQueryResult_abi(
 pub struct IStorageFileQueryResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFileQueryResult2 {
     type Vtable = IStorageFileQueryResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1314765277, 28993, 18116, [139, 227, 233, 220, 158, 39, 39, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e5db9dd_7141_46c4_8be3_e9dc9e27275c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -732,7 +732,7 @@ pub struct IStorageFileQueryResult2_abi(
 pub struct IStorageFolderQueryOperations(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFolderQueryOperations {
     type Vtable = IStorageFolderQueryOperations_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3410218185, 17515, 19023, [190, 151, 117, 119, 113, 190, 82, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb43ccc9_446b_4a4f_be97_757771be5203);
 }
 impl IStorageFolderQueryOperations {
     #[cfg(feature = "Foundation")]
@@ -959,7 +959,7 @@ pub struct IStorageFolderQueryOperations_abi(
 pub struct IStorageFolderQueryResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFolderQueryResult {
     type Vtable = IStorageFolderQueryResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1716832529, 32102, 18170, [174, 207, 228, 164, 186, 169, 58, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6654c911_7d66_46fa_aecf_e4a4baa93ab8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -980,7 +980,7 @@ pub struct IStorageFolderQueryResult_abi(
 pub struct IStorageItemQueryResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageItemQueryResult {
     type Vtable = IStorageItemQueryResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3902046329, 40280, 18360, [178, 178, 65, 176, 127, 71, 149, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8948079_9d58_47b8_b2b2_41b07f4795f9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1001,7 +1001,7 @@ pub struct IStorageItemQueryResult_abi(
 pub struct IStorageLibraryChangeTrackerTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryChangeTrackerTriggerDetails {
     type Vtable = IStorageLibraryChangeTrackerTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499622761, 47011, 19954, [157, 97, 235, 168, 90, 3, 67, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1dc7a369_b7a3_4df2_9d61_eba85a0343d2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1020,7 +1020,7 @@ pub struct IStorageLibraryChangeTrackerTriggerDetails_abi(
 pub struct IStorageLibraryContentChangedTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryContentChangedTriggerDetails {
     type Vtable = IStorageLibraryContentChangedTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(708254071, 43967, 19997, [138, 165, 99, 133, 216, 136, 71, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a371977_abbf_4e1d_8aa5_6385d8884799);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1041,7 +1041,7 @@ pub struct IStorageLibraryContentChangedTriggerDetails_abi(
 pub struct IStorageQueryResultBase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageQueryResultBase {
     type Vtable = IStorageQueryResultBase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3264730893, 29523, 18347, [186, 88, 140, 97, 66, 93, 197, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc297d70d_7353_47ab_ba58_8c61425dc54b);
 }
 impl IStorageQueryResultBase {
     #[cfg(feature = "Foundation")]
@@ -1187,7 +1187,7 @@ pub struct IStorageQueryResultBase_abi(
 pub struct IValueAndLanguage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IValueAndLanguage {
     type Vtable = IValueAndLanguage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3113306241, 41454, 19396, [146, 165, 70, 105, 104, 227, 4, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9914881_a1ee_4bc4_92a5_466968e30436);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1271,7 +1271,7 @@ unsafe impl ::windows::runtime::RuntimeType for IndexableContent {
 }
 unsafe impl ::windows::runtime::Interface for IndexableContent {
     type Vtable = IIndexableContent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3438387295, 54453, 18490, [176, 110, 224, 219, 30, 196, 32, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xccf1a05f_d4b5_483a_b06e_e0db1ec420e4);
 }
 impl ::windows::runtime::RuntimeName for IndexableContent {
     const NAME: &'static str = "Windows.Storage.Search.IndexableContent";
@@ -1556,7 +1556,7 @@ unsafe impl ::windows::runtime::RuntimeType for QueryOptions {
 }
 unsafe impl ::windows::runtime::Interface for QueryOptions {
     type Vtable = IQueryOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(509495022, 3909, 18488, [168, 233, 208, 71, 157, 68, 108, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e5e46ee_0f45_4838_a8e9_d0479d446c30);
 }
 impl ::windows::runtime::RuntimeName for QueryOptions {
     const NAME: &'static str = "Windows.Storage.Search.QueryOptions";
@@ -1974,7 +1974,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageFileQueryResult {
 }
 unsafe impl ::windows::runtime::Interface for StorageFileQueryResult {
     type Vtable = IStorageFileQueryResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1392354375, 11178, 16684, [178, 159, 212, 177, 119, 142, 250, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52fda447_2baa_412c_b29f_d4b1778efa1e);
 }
 impl ::windows::runtime::RuntimeName for StorageFileQueryResult {
     const NAME: &'static str = "Windows.Storage.Search.StorageFileQueryResult";
@@ -2139,7 +2139,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageFolderQueryResult {
 }
 unsafe impl ::windows::runtime::Interface for StorageFolderQueryResult {
     type Vtable = IStorageFolderQueryResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1716832529, 32102, 18170, [174, 207, 228, 164, 186, 169, 58, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6654c911_7d66_46fa_aecf_e4a4baa93ab8);
 }
 impl ::windows::runtime::RuntimeName for StorageFolderQueryResult {
     const NAME: &'static str = "Windows.Storage.Search.StorageFolderQueryResult";
@@ -2304,7 +2304,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageItemQueryResult {
 }
 unsafe impl ::windows::runtime::Interface for StorageItemQueryResult {
     type Vtable = IStorageItemQueryResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3902046329, 40280, 18360, [178, 178, 65, 176, 127, 71, 149, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8948079_9d58_47b8_b2b2_41b07f4795f9);
 }
 impl ::windows::runtime::RuntimeName for StorageItemQueryResult {
     const NAME: &'static str = "Windows.Storage.Search.StorageItemQueryResult";
@@ -2398,7 +2398,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageLibraryChangeTrackerTrigg
 }
 unsafe impl ::windows::runtime::Interface for StorageLibraryChangeTrackerTriggerDetails {
     type Vtable = IStorageLibraryChangeTrackerTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499622761, 47011, 19954, [157, 97, 235, 168, 90, 3, 67, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1dc7a369_b7a3_4df2_9d61_eba85a0343d2);
 }
 impl ::windows::runtime::RuntimeName for StorageLibraryChangeTrackerTriggerDetails {
     const NAME: &'static str = "Windows.Storage.Search.StorageLibraryChangeTrackerTriggerDetails";
@@ -2471,7 +2471,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageLibraryContentChangedTrig
 }
 unsafe impl ::windows::runtime::Interface for StorageLibraryContentChangedTriggerDetails {
     type Vtable = IStorageLibraryContentChangedTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(708254071, 43967, 19997, [138, 165, 99, 133, 216, 136, 71, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a371977_abbf_4e1d_8aa5_6385d8884799);
 }
 impl ::windows::runtime::RuntimeName for StorageLibraryContentChangedTriggerDetails {
     const NAME: &'static str = "Windows.Storage.Search.StorageLibraryContentChangedTriggerDetails";
@@ -2560,7 +2560,7 @@ unsafe impl ::windows::runtime::RuntimeType for ValueAndLanguage {
 }
 unsafe impl ::windows::runtime::Interface for ValueAndLanguage {
     type Vtable = IValueAndLanguage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3113306241, 41454, 19396, [146, 165, 70, 105, 104, 227, 4, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9914881_a1ee_4bc4_92a5_466968e30436);
 }
 impl ::windows::runtime::RuntimeName for ValueAndLanguage {
     const NAME: &'static str = "Windows.Storage.Search.ValueAndLanguage";

@@ -55,7 +55,7 @@ unsafe impl ::windows::runtime::RuntimeType for ActivitySensorTrigger {
 }
 unsafe impl ::windows::runtime::Interface for ActivitySensorTrigger {
     type Vtable = IActivitySensorTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3504161602, 58235, 18467, [165, 254, 107, 49, 223, 239, 222, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0dd4342_e37b_4823_a5fe_6b31dfefdeb0);
 }
 impl ::windows::runtime::RuntimeName for ActivitySensorTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ActivitySensorTrigger";
@@ -209,7 +209,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastTrigger {
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastTrigger {
     type Vtable = IAppBroadcastTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1960113302, 36151, 17644, [148, 129, 42, 11, 152, 84, 235, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74d4f496_8d37_44ec_9481_2a0b9854eb48);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppBroadcastTrigger";
@@ -369,7 +369,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastTriggerProviderInfo 
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastTriggerProviderInfo {
     type Vtable = IAppBroadcastTriggerProviderInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4061738285, 40424, 17440, [156, 226, 94, 255, 143, 23, 55, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf219352d_9de8_4420_9ce2_5eff8f17376b);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastTriggerProviderInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo";
@@ -452,7 +452,7 @@ unsafe impl ::windows::runtime::RuntimeType for ApplicationTrigger {
 }
 unsafe impl ::windows::runtime::Interface for ApplicationTrigger {
     type Vtable = IApplicationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(189171248, 38260, 18732, [158, 147, 26, 58, 230, 51, 95, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b468630_9574_492c_9e93_1a3ae6335fe9);
 }
 impl ::windows::runtime::RuntimeName for ApplicationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ApplicationTrigger";
@@ -541,7 +541,7 @@ unsafe impl ::windows::runtime::RuntimeType for ApplicationTriggerDetails {
 }
 unsafe impl ::windows::runtime::Interface for ApplicationTriggerDetails {
     type Vtable = IApplicationTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547804850, 8729, 19102, [156, 94, 65, 208, 71, 247, 110, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97dc6ab2_2219_4a9e_9c5e_41d047f76e82);
 }
 impl ::windows::runtime::RuntimeName for ApplicationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ApplicationTriggerDetails";
@@ -630,7 +630,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentStoreNotificationTrig
 }
 unsafe impl ::windows::runtime::Interface for AppointmentStoreNotificationTrigger {
     type Vtable = IAppointmentStoreNotificationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1691616268, 49665, 17069, [170, 42, 226, 27, 163, 66, 91, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64d4040c_c201_42ad_aa2a_e21ba3425b6d);
 }
 impl ::windows::runtime::RuntimeName for AppointmentStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppointmentStoreNotificationTrigger";
@@ -945,7 +945,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundTaskBuilder {
 }
 unsafe impl ::windows::runtime::Interface for BackgroundTaskBuilder {
     type Vtable = IBackgroundTaskBuilder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(55661838, 15972, 17778, [169, 58, 132, 7, 90, 55, 201, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0351550e_3e64_4572_a93a_84075a37c917);
 }
 impl ::windows::runtime::RuntimeName for BackgroundTaskBuilder {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskBuilder";
@@ -1014,7 +1014,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundTaskCanceledEventHandl
 }
 unsafe impl ::windows::runtime::Interface for BackgroundTaskCanceledEventHandler {
     type Vtable = BackgroundTaskCanceledEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2797910720, 20984, 19543, [172, 63, 21, 109, 209, 104, 12, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6c4bac0_51f8_4c57_ac3f_156dd1680c4f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1119,7 +1119,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundTaskCompletedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for BackgroundTaskCompletedEventArgs {
     type Vtable = IBackgroundTaskCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1448945103, 61961, 18676, [153, 103, 43, 24, 79, 123, 251, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x565d25cf_f209_48f4_9967_2b184f7bfbf0);
 }
 impl ::windows::runtime::RuntimeName for BackgroundTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskCompletedEventArgs";
@@ -1190,7 +1190,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundTaskCompletedEventHand
 }
 unsafe impl ::windows::runtime::Interface for BackgroundTaskCompletedEventHandler {
     type Vtable = BackgroundTaskCompletedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1530456361, 41094, 18087, [166, 120, 67, 145, 53, 130, 43, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b38e929_a086_46a7_a678_439135822bcf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1259,7 +1259,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundTaskDeferral {
 }
 unsafe impl ::windows::runtime::Interface for BackgroundTaskDeferral {
     type Vtable = IBackgroundTaskDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2479625581, 44839, 19923, [132, 110, 36, 238, 64, 202, 221, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93cc156d_af27_4dd3_846e_24ee40cadd25);
 }
 impl ::windows::runtime::RuntimeName for BackgroundTaskDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskDeferral";
@@ -1333,7 +1333,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundTaskProgressEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for BackgroundTaskProgressEventArgs {
     type Vtable = IBackgroundTaskProgressEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4212418732, 33586, 19722, [149, 50, 3, 234, 230, 132, 218, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb1468ac_8332_4d0a_9532_03eae684da31);
 }
 impl ::windows::runtime::RuntimeName for BackgroundTaskProgressEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskProgressEventArgs";
@@ -1404,7 +1404,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundTaskProgressEventHandl
 }
 unsafe impl ::windows::runtime::Interface for BackgroundTaskProgressEventHandler {
     type Vtable = BackgroundTaskProgressEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1189111868, 35464, 19609, [128, 76, 118, 137, 127, 98, 119, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46e0683c_8a88_4c99_804c_76897f6277a6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1566,7 +1566,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundTaskRegistration {
 }
 unsafe impl ::windows::runtime::Interface for BackgroundTaskRegistration {
     type Vtable = IBackgroundTaskRegistration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(275074242, 41582, 17343, [140, 18, 31, 180, 13, 191, 191, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10654cc2_a26e_43bf_8c12_1fb40dbfbfa0);
 }
 impl ::windows::runtime::RuntimeName for BackgroundTaskRegistration {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskRegistration";
@@ -1746,7 +1746,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundTaskRegistrationGroup 
 }
 unsafe impl ::windows::runtime::Interface for BackgroundTaskRegistrationGroup {
     type Vtable = IBackgroundTaskRegistrationGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(716280218, 34587, 16743, [138, 118, 5, 92, 214, 123, 91, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ab1919a_871b_4167_8a76_055cd67b5b23);
 }
 impl ::windows::runtime::RuntimeName for BackgroundTaskRegistrationGroup {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskRegistrationGroup";
@@ -1938,7 +1938,7 @@ unsafe impl ::windows::runtime::RuntimeType for BluetoothLEAdvertisementPublishe
 }
 unsafe impl ::windows::runtime::Interface for BluetoothLEAdvertisementPublisherTrigger {
     type Vtable = IBluetoothLEAdvertisementPublisherTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2872976914, 9683, 18606, [135, 36, 216, 24, 119, 174, 97, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab3e2612_25d3_48ae_8724_d81877ae6129);
 }
 impl ::windows::runtime::RuntimeName for BluetoothLEAdvertisementPublisherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BluetoothLEAdvertisementPublisherTrigger";
@@ -2104,7 +2104,7 @@ unsafe impl ::windows::runtime::RuntimeType for BluetoothLEAdvertisementWatcherT
 }
 unsafe impl ::windows::runtime::Interface for BluetoothLEAdvertisementWatcherTrigger {
     type Vtable = IBluetoothLEAdvertisementWatcherTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(447420441, 48353, 18667, [168, 39, 89, 251, 124, 238, 82, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1aab1819_bce1_48eb_a827_59fb7cee52a6);
 }
 impl ::windows::runtime::RuntimeName for BluetoothLEAdvertisementWatcherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BluetoothLEAdvertisementWatcherTrigger";
@@ -2191,7 +2191,7 @@ unsafe impl ::windows::runtime::RuntimeType for CachedFileUpdaterTrigger {
 }
 unsafe impl ::windows::runtime::Interface for CachedFileUpdaterTrigger {
     type Vtable = ICachedFileUpdaterTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3793530603, 13042, 19761, [181, 83, 185, 224, 27, 222, 55, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe21caeeb_32f2_4d31_b553_b9e01bde37e0);
 }
 impl ::windows::runtime::RuntimeName for CachedFileUpdaterTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CachedFileUpdaterTrigger";
@@ -2297,7 +2297,7 @@ unsafe impl ::windows::runtime::RuntimeType for CachedFileUpdaterTriggerDetails 
 }
 unsafe impl ::windows::runtime::Interface for CachedFileUpdaterTriggerDetails {
     type Vtable = ICachedFileUpdaterTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1904446483, 4884, 18356, [149, 151, 220, 126, 36, 140, 23, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71838c13_1314_47b4_9597_dc7e248c17cc);
 }
 impl ::windows::runtime::RuntimeName for CachedFileUpdaterTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CachedFileUpdaterTriggerDetails";
@@ -2362,7 +2362,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageNotificationTrigger {
 }
 unsafe impl ::windows::runtime::Interface for ChatMessageNotificationTrigger {
     type Vtable = IChatMessageNotificationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1362838463, 7488, 23645, [120, 245, 201, 35, 254, 227, 115, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x513b43bf_1d40_5c5d_78f5_c923fee3739e);
 }
 impl ::windows::runtime::RuntimeName for ChatMessageNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ChatMessageNotificationTrigger";
@@ -2449,7 +2449,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageReceivedNotificationT
 }
 unsafe impl ::windows::runtime::Interface for ChatMessageReceivedNotificationTrigger {
     type Vtable = IChatMessageReceivedNotificationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1050899982, 47861, 16503, [136, 233, 6, 12, 246, 240, 198, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ea3760e_baf5_4077_88e9_060cf6f0c6d5);
 }
 impl ::windows::runtime::RuntimeName for ChatMessageReceivedNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ChatMessageReceivedNotificationTrigger";
@@ -2536,7 +2536,7 @@ unsafe impl ::windows::runtime::RuntimeType for CommunicationBlockingAppSetAsAct
 }
 unsafe impl ::windows::runtime::Interface for CommunicationBlockingAppSetAsActiveTrigger {
     type Vtable = ICommunicationBlockingAppSetAsActiveTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4220646026, 5797, 18541, [151, 76, 120, 53, 168, 71, 123, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb91f28a_16a5_486d_974c_7835a8477be2);
 }
 impl ::windows::runtime::RuntimeName for CommunicationBlockingAppSetAsActiveTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CommunicationBlockingAppSetAsActiveTrigger";
@@ -2623,7 +2623,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContactStoreNotificationTrigger 
 }
 unsafe impl ::windows::runtime::Interface for ContactStoreNotificationTrigger {
     type Vtable = IContactStoreNotificationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3358802331, 18181, 17777, [154, 22, 6, 185, 151, 191, 156, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc833419b_4705_4571_9a16_06b997bf9c96);
 }
 impl ::windows::runtime::RuntimeName for ContactStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ContactStoreNotificationTrigger";
@@ -2731,7 +2731,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContentPrefetchTrigger {
 }
 unsafe impl ::windows::runtime::Interface for ContentPrefetchTrigger {
     type Vtable = IContentPrefetchTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1896228846, 1274, 17419, [128, 192, 23, 50, 2, 25, 158, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x710627ee_04fa_440b_80c0_173202199e5d);
 }
 impl ::windows::runtime::RuntimeName for ContentPrefetchTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ContentPrefetchTrigger";
@@ -2816,7 +2816,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentTrigger {
 }
 unsafe impl ::windows::runtime::Interface for ConversationalAgentTrigger {
     type Vtable = IBackgroundTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2226364504, 24615, 19335, [151, 144, 189, 243, 247, 87, 219, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::runtime::RuntimeName for ConversationalAgentTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ConversationalAgentTrigger";
@@ -2919,7 +2919,7 @@ unsafe impl ::windows::runtime::RuntimeType for CustomSystemEventTrigger {
 }
 unsafe impl ::windows::runtime::Interface for CustomSystemEventTrigger {
     type Vtable = ICustomSystemEventTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4082722712, 53099, 20212, [160, 202, 41, 207, 74, 39, 140, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3596798_cf6b_4ef4_a0ca_29cf4a278c87);
 }
 impl ::windows::runtime::RuntimeName for CustomSystemEventTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CustomSystemEventTrigger";
@@ -3060,7 +3060,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceConnectionChangeTrigger {
 }
 unsafe impl ::windows::runtime::Interface for DeviceConnectionChangeTrigger {
     type Vtable = IDeviceConnectionChangeTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2424790628, 15581, 20219, [171, 28, 91, 59, 106, 96, 206, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90875e64_3cdd_4efb_ab1c_5b3b6a60ce34);
 }
 impl ::windows::runtime::RuntimeName for DeviceConnectionChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceConnectionChangeTrigger";
@@ -3170,7 +3170,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceManufacturerNotificationTr
 }
 unsafe impl ::windows::runtime::Interface for DeviceManufacturerNotificationTrigger {
     type Vtable = IDeviceManufacturerNotificationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2166852277, 16811, 5850, [134, 194, 127, 123, 240, 145, 47, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81278ab5_41ab_16da_86c2_7f7bf0912f5b);
 }
 impl ::windows::runtime::RuntimeName for DeviceManufacturerNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceManufacturerNotificationTrigger";
@@ -3273,7 +3273,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceServicingTrigger {
 }
 unsafe impl ::windows::runtime::Interface for DeviceServicingTrigger {
     type Vtable = IDeviceServicingTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(447879085, 28212, 18899, [158, 111, 23, 241, 182, 223, 168, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ab217ad_6e34_49d3_9e6f_17f1b6dfa881);
 }
 impl ::windows::runtime::RuntimeName for DeviceServicingTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceServicingTrigger";
@@ -3402,7 +3402,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceUseTrigger {
 }
 unsafe impl ::windows::runtime::Interface for DeviceUseTrigger {
     type Vtable = IDeviceUseTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(229015569, 13135, 19799, [182, 236, 109, 202, 100, 180, 18, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0da68011_334f_4d57_b6ec_6dca64b412e4);
 }
 impl ::windows::runtime::RuntimeName for DeviceUseTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceUseTrigger";
@@ -3481,7 +3481,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceWatcherTrigger {
 }
 unsafe impl ::windows::runtime::Interface for DeviceWatcherTrigger {
     type Vtable = IDeviceWatcherTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2757853149, 34163, 16992, [190, 252, 91, 236, 137, 203, 105, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4617fdd_8573_4260_befc_5bec89cb693d);
 }
 impl ::windows::runtime::RuntimeName for DeviceWatcherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceWatcherTrigger";
@@ -3566,7 +3566,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailStoreNotificationTrigger {
 }
 unsafe impl ::windows::runtime::Interface for EmailStoreNotificationTrigger {
     type Vtable = IEmailStoreNotificationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2557282010, 18411, 17000, [164, 242, 243, 247, 113, 136, 56, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x986d06da_47eb_4268_a4f2_f3f77188388a);
 }
 impl ::windows::runtime::RuntimeName for EmailStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.EmailStoreNotificationTrigger";
@@ -3688,7 +3688,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattCharacteristicNotificationTr
 }
 unsafe impl ::windows::runtime::Interface for GattCharacteristicNotificationTrigger {
     type Vtable = IGattCharacteristicNotificationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3797913544, 1686, 18255, [167, 50, 242, 146, 176, 206, 188, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe25f8fc8_0696_474f_a732_f292b0cebc5d);
 }
 impl ::windows::runtime::RuntimeName for GattCharacteristicNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger";
@@ -3812,7 +3812,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattServiceProviderTrigger {
 }
 unsafe impl ::windows::runtime::Interface for GattServiceProviderTrigger {
     type Vtable = IGattServiceProviderTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3720782825, 5463, 19416, [133, 66, 70, 138, 160, 198, 150, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddc6a3e9_1557_4bd8_8542_468aa0c696f6);
 }
 impl ::windows::runtime::RuntimeName for GattServiceProviderTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattServiceProviderTrigger";
@@ -3909,7 +3909,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattServiceProviderTriggerResult
 }
 unsafe impl ::windows::runtime::Interface for GattServiceProviderTriggerResult {
     type Vtable = IGattServiceProviderTriggerResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1011257777, 45464, 20100, [186, 212, 207, 74, 210, 153, 237, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c4691b1_b198_4e84_bad4_cf4ad299ed3a);
 }
 impl ::windows::runtime::RuntimeName for GattServiceProviderTriggerResult {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattServiceProviderTriggerResult";
@@ -3989,7 +3989,7 @@ unsafe impl ::windows::runtime::RuntimeType for GeovisitTrigger {
 }
 unsafe impl ::windows::runtime::Interface for GeovisitTrigger {
     type Vtable = IGeovisitTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1209593258, 1249, 16679, [154, 76, 25, 53, 27, 138, 128, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4818edaa_04e1_4127_9a4c_19351b8a80a4);
 }
 impl ::windows::runtime::RuntimeName for GeovisitTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GeovisitTrigger";
@@ -4063,7 +4063,7 @@ unsafe impl ::core::marker::Sync for GeovisitTrigger {}
 pub struct IActivitySensorTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivitySensorTrigger {
     type Vtable = IActivitySensorTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3504161602, 58235, 18467, [165, 254, 107, 49, 223, 239, 222, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0dd4342_e37b_4823_a5fe_6b31dfefdeb0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4086,7 +4086,7 @@ pub struct IActivitySensorTrigger_abi(
 pub struct IActivitySensorTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivitySensorTriggerFactory {
     type Vtable = IActivitySensorTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2804322755, 14391, 17655, [131, 27, 1, 50, 204, 135, 43, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa72691c3_3837_44f7_831b_0132cc872bc3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4104,7 +4104,7 @@ pub struct IActivitySensorTriggerFactory_abi(
 pub struct IAlarmApplicationManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAlarmApplicationManagerStatics {
     type Vtable = IAlarmApplicationManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3389258299, 52454, 19938, [176, 155, 150, 40, 189, 51, 187, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca03fa3b_cce6_4de2_b09b_9628bd33bbbe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4124,7 +4124,7 @@ pub struct IAlarmApplicationManagerStatics_abi(
 pub struct IAppBroadcastTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastTrigger {
     type Vtable = IAppBroadcastTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1960113302, 36151, 17644, [148, 129, 42, 11, 152, 84, 235, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74d4f496_8d37_44ec_9481_2a0b9854eb48);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4143,7 +4143,7 @@ pub struct IAppBroadcastTrigger_abi(
 pub struct IAppBroadcastTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastTriggerFactory {
     type Vtable = IAppBroadcastTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(671850308, 8948, 17944, [160, 46, 231, 228, 17, 235, 114, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x280b9f44_22f4_4618_a02e_e7e411eb7238);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4161,7 +4161,7 @@ pub struct IAppBroadcastTriggerFactory_abi(
 pub struct IAppBroadcastTriggerProviderInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastTriggerProviderInfo {
     type Vtable = IAppBroadcastTriggerProviderInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4061738285, 40424, 17440, [156, 226, 94, 255, 143, 23, 55, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf219352d_9de8_4420_9ce2_5eff8f17376b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4192,7 +4192,7 @@ pub struct IAppBroadcastTriggerProviderInfo_abi(
 pub struct IApplicationTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationTrigger {
     type Vtable = IApplicationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(189171248, 38260, 18732, [158, 147, 26, 58, 230, 51, 95, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b468630_9574_492c_9e93_1a3ae6335fe9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4213,7 +4213,7 @@ pub struct IApplicationTrigger_abi(
 pub struct IApplicationTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationTriggerDetails {
     type Vtable = IApplicationTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547804850, 8729, 19102, [156, 94, 65, 208, 71, 247, 110, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97dc6ab2_2219_4a9e_9c5e_41d047f76e82);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4232,7 +4232,7 @@ pub struct IApplicationTriggerDetails_abi(
 pub struct IAppointmentStoreNotificationTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentStoreNotificationTrigger {
     type Vtable = IAppointmentStoreNotificationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1691616268, 49665, 17069, [170, 42, 226, 27, 163, 66, 91, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64d4040c_c201_42ad_aa2a_e21ba3425b6d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4250,7 +4250,7 @@ pub struct IAppointmentStoreNotificationTrigger_abi(
 pub struct IBackgroundCondition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundCondition {
     type Vtable = IBackgroundCondition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2923995630, 35153, 16394, [131, 2, 156, 156, 154, 42, 58, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae48a1ee_8951_400a_8302_9c9c9a2a3a3b);
 }
 impl IBackgroundCondition {}
 unsafe impl ::windows::runtime::RuntimeType for IBackgroundCondition {
@@ -4311,7 +4311,7 @@ pub struct IBackgroundCondition_abi(
 pub struct IBackgroundExecutionManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundExecutionManagerStatics {
     type Vtable = IBackgroundExecutionManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3894864472, 26281, 19777, [131, 212, 180, 193, 140, 135, 184, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe826ea58_66a9_4d41_83d4_b4c18c87b846);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4336,7 +4336,7 @@ pub struct IBackgroundExecutionManagerStatics_abi(
 pub struct IBackgroundExecutionManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundExecutionManagerStatics2 {
     type Vtable = IBackgroundExecutionManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1184572655, 39867, 19992, [153, 154, 253, 101, 18, 147, 27, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x469b24ef_9bbb_4e18_999a_fd6512931be9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4355,7 +4355,7 @@ pub struct IBackgroundExecutionManagerStatics2_abi(
 pub struct IBackgroundExecutionManagerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundExecutionManagerStatics3 {
     type Vtable = IBackgroundExecutionManagerStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2561004534, 23077, 23404, [145, 146, 215, 122, 67, 223, 237, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98a5d3f6_5a25_5b6c_9192_d77a43dfedc4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4377,7 +4377,7 @@ pub struct IBackgroundExecutionManagerStatics3_abi(
 pub struct IBackgroundTask(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTask {
     type Vtable = IBackgroundTask_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2098451764, 64786, 17358, [140, 34, 234, 31, 241, 60, 6, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d13d534_fd12_43ce_8c22_ea1ff13c06df);
 }
 impl IBackgroundTask {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -4445,7 +4445,7 @@ pub struct IBackgroundTask_abi(
 pub struct IBackgroundTaskBuilder(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskBuilder {
     type Vtable = IBackgroundTaskBuilder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(55661838, 15972, 17778, [169, 58, 132, 7, 90, 55, 201, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0351550e_3e64_4572_a93a_84075a37c917);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4469,7 +4469,7 @@ pub struct IBackgroundTaskBuilder_abi(
 pub struct IBackgroundTaskBuilder2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskBuilder2 {
     type Vtable = IBackgroundTaskBuilder2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1793576881, 4175, 16493, [141, 182, 132, 74, 87, 15, 66, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ae7cfb1_104f_406d_8db6_844a570f42bb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4488,7 +4488,7 @@ pub struct IBackgroundTaskBuilder2_abi(
 pub struct IBackgroundTaskBuilder3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskBuilder3 {
     type Vtable = IBackgroundTaskBuilder3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(684150602, 35753, 19465, [162, 79, 25, 104, 62, 44, 146, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28c74f4a_8ba9_4c09_a24f_19683e2c924c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4507,7 +4507,7 @@ pub struct IBackgroundTaskBuilder3_abi(
 pub struct IBackgroundTaskBuilder4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskBuilder4 {
     type Vtable = IBackgroundTaskBuilder4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1196811554, 52130, 20021, [189, 22, 166, 218, 127, 28, 25, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4755e522_cba2_4e35_bd16_a6da7f1c19aa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4526,7 +4526,7 @@ pub struct IBackgroundTaskBuilder4_abi(
 pub struct IBackgroundTaskBuilder5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskBuilder5 {
     type Vtable = IBackgroundTaskBuilder5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(124847094, 39413, 19188, [188, 173, 71, 49, 208, 51, 13, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x077103f6_99f5_4af4_bcad_4731d0330d43);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4544,7 +4544,7 @@ pub struct IBackgroundTaskBuilder5_abi(
 pub struct IBackgroundTaskCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskCompletedEventArgs {
     type Vtable = IBackgroundTaskCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1448945103, 61961, 18676, [153, 103, 43, 24, 79, 123, 251, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x565d25cf_f209_48f4_9967_2b184f7bfbf0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4563,7 +4563,7 @@ pub struct IBackgroundTaskCompletedEventArgs_abi(
 pub struct IBackgroundTaskDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskDeferral {
     type Vtable = IBackgroundTaskDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2479625581, 44839, 19923, [132, 110, 36, 238, 64, 202, 221, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93cc156d_af27_4dd3_846e_24ee40cadd25);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4582,7 +4582,7 @@ pub struct IBackgroundTaskDeferral_abi(
 pub struct IBackgroundTaskInstance(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskInstance {
     type Vtable = IBackgroundTaskInstance_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2254166650, 8664, 17779, [143, 50, 146, 138, 27, 6, 65, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x865bda7a_21d8_4573_8f32_928a1b0641f6);
 }
 impl IBackgroundTaskInstance {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -4724,7 +4724,7 @@ pub struct IBackgroundTaskInstance_abi(
 pub struct IBackgroundTaskInstance2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskInstance2 {
     type Vtable = IBackgroundTaskInstance2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1333592438, 3190, 20404, [137, 109, 93, 225, 134, 65, 34, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f7d0176_0c76_4fb4_896d_5de1864122f6);
 }
 impl IBackgroundTaskInstance2 {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -4886,7 +4886,7 @@ pub struct IBackgroundTaskInstance2_abi(
 pub struct IBackgroundTaskInstance4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskInstance4 {
     type Vtable = IBackgroundTaskInstance4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2133455420, 43524, 19208, [151, 176, 6, 216, 116, 205, 171, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f29f23c_aa04_4b08_97b0_06d874cdabf5);
 }
 impl IBackgroundTaskInstance4 {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -5049,7 +5049,7 @@ pub struct IBackgroundTaskInstance4_abi(
 pub struct IBackgroundTaskProgressEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskProgressEventArgs {
     type Vtable = IBackgroundTaskProgressEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4212418732, 33586, 19722, [149, 50, 3, 234, 230, 132, 218, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb1468ac_8332_4d0a_9532_03eae684da31);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5069,7 +5069,7 @@ pub struct IBackgroundTaskProgressEventArgs_abi(
 pub struct IBackgroundTaskRegistration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskRegistration {
     type Vtable = IBackgroundTaskRegistration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(275074242, 41582, 17343, [140, 18, 31, 180, 13, 191, 191, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10654cc2_a26e_43bf_8c12_1fb40dbfbfa0);
 }
 impl IBackgroundTaskRegistration {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -5194,7 +5194,7 @@ pub struct IBackgroundTaskRegistration_abi(
 pub struct IBackgroundTaskRegistration2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskRegistration2 {
     type Vtable = IBackgroundTaskRegistration2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1631110915, 48006, 16658, [175, 195, 127, 147, 155, 22, 110, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6138c703_bb86_4112_afc3_7f939b166e3b);
 }
 impl IBackgroundTaskRegistration2 {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -5339,7 +5339,7 @@ pub struct IBackgroundTaskRegistration2_abi(
 pub struct IBackgroundTaskRegistration3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskRegistration3 {
     type Vtable = IBackgroundTaskRegistration3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4264788373, 37923, 19851, [131, 13, 177, 221, 44, 123, 173, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe338195_9423_4d8b_830d_b1dd2c7badd5);
 }
 impl IBackgroundTaskRegistration3 {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -5483,7 +5483,7 @@ pub struct IBackgroundTaskRegistration3_abi(
 pub struct IBackgroundTaskRegistrationGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskRegistrationGroup {
     type Vtable = IBackgroundTaskRegistrationGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(716280218, 34587, 16743, [138, 118, 5, 92, 214, 123, 91, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ab1919a_871b_4167_8a76_055cd67b5b23);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5508,7 +5508,7 @@ pub struct IBackgroundTaskRegistrationGroup_abi(
 pub struct IBackgroundTaskRegistrationGroupFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskRegistrationGroupFactory {
     type Vtable = IBackgroundTaskRegistrationGroupFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2212047721, 17615, 17969, [151, 64, 3, 199, 216, 116, 27, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83d92b69_44cf_4631_9740_03c7d8741bc5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5527,7 +5527,7 @@ pub struct IBackgroundTaskRegistrationGroupFactory_abi(
 pub struct IBackgroundTaskRegistrationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskRegistrationStatics {
     type Vtable = IBackgroundTaskRegistrationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1280585577, 45056, 17082, [160, 147, 106, 86, 60, 101, 227, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c542f69_b000_42ba_a093_6a563c65e3f8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5546,7 +5546,7 @@ pub struct IBackgroundTaskRegistrationStatics_abi(
 pub struct IBackgroundTaskRegistrationStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskRegistrationStatics2 {
     type Vtable = IBackgroundTaskRegistrationStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(390817566, 45581, 20393, [173, 154, 233, 58, 214, 199, 30, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x174b671e_b20d_4fa9_ad9a_e93ad6c71e01);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5567,7 +5567,7 @@ pub struct IBackgroundTaskRegistrationStatics2_abi(
 pub struct IBackgroundTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTrigger {
     type Vtable = IBackgroundTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2226364504, 24615, 19335, [151, 144, 189, 243, 247, 87, 219, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl IBackgroundTrigger {}
 unsafe impl ::windows::runtime::RuntimeType for IBackgroundTrigger {
@@ -5628,7 +5628,7 @@ pub struct IBackgroundTrigger_abi(
 pub struct IBackgroundWorkCostStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundWorkCostStatics {
     type Vtable = IBackgroundWorkCostStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3342902882, 49936, 19330, [179, 227, 59, 207, 185, 228, 199, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc740a662_c310_4b82_b3e3_3bcfb9e4c77d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5646,7 +5646,7 @@ pub struct IBackgroundWorkCostStatics_abi(
 pub struct IBluetoothLEAdvertisementPublisherTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementPublisherTrigger {
     type Vtable = IBluetoothLEAdvertisementPublisherTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2872976914, 9683, 18606, [135, 36, 216, 24, 119, 174, 97, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab3e2612_25d3_48ae_8724_d81877ae6129);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5665,7 +5665,7 @@ pub struct IBluetoothLEAdvertisementPublisherTrigger_abi(
 pub struct IBluetoothLEAdvertisementPublisherTrigger2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementPublisherTrigger2 {
     type Vtable = IBluetoothLEAdvertisementPublisherTrigger2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2854801508, 14580, 22909, [181, 151, 78, 85, 88, 140, 101, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa28d064_38f4_597d_b597_4e55588c6503);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5692,7 +5692,7 @@ pub struct IBluetoothLEAdvertisementPublisherTrigger2_abi(
 pub struct IBluetoothLEAdvertisementWatcherTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementWatcherTrigger {
     type Vtable = IBluetoothLEAdvertisementWatcherTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(447420441, 48353, 18667, [168, 39, 89, 251, 124, 238, 82, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1aab1819_bce1_48eb_a827_59fb7cee52a6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5725,7 +5725,7 @@ pub struct IBluetoothLEAdvertisementWatcherTrigger_abi(
 pub struct IBluetoothLEAdvertisementWatcherTrigger2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementWatcherTrigger2 {
     type Vtable = IBluetoothLEAdvertisementWatcherTrigger2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(968189849, 60217, 23222, [153, 50, 170, 158, 69, 73, 96, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39b56799_eb39_5ab6_9932_aa9e4549604d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5744,7 +5744,7 @@ pub struct IBluetoothLEAdvertisementWatcherTrigger2_abi(
 pub struct ICachedFileUpdaterTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICachedFileUpdaterTrigger {
     type Vtable = ICachedFileUpdaterTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3793530603, 13042, 19761, [181, 83, 185, 224, 27, 222, 55, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe21caeeb_32f2_4d31_b553_b9e01bde37e0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5761,7 +5761,7 @@ pub struct ICachedFileUpdaterTrigger_abi(
 pub struct ICachedFileUpdaterTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICachedFileUpdaterTriggerDetails {
     type Vtable = ICachedFileUpdaterTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1904446483, 4884, 18356, [149, 151, 220, 126, 36, 140, 23, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71838c13_1314_47b4_9597_dc7e248c17cc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5783,7 +5783,7 @@ pub struct ICachedFileUpdaterTriggerDetails_abi(
 pub struct IChatMessageNotificationTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageNotificationTrigger {
     type Vtable = IChatMessageNotificationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1362838463, 7488, 23645, [120, 245, 201, 35, 254, 227, 115, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x513b43bf_1d40_5c5d_78f5_c923fee3739e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5800,7 +5800,7 @@ pub struct IChatMessageNotificationTrigger_abi(
 pub struct IChatMessageReceivedNotificationTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageReceivedNotificationTrigger {
     type Vtable = IChatMessageReceivedNotificationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1050899982, 47861, 16503, [136, 233, 6, 12, 246, 240, 198, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ea3760e_baf5_4077_88e9_060cf6f0c6d5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5817,7 +5817,7 @@ pub struct IChatMessageReceivedNotificationTrigger_abi(
 pub struct ICommunicationBlockingAppSetAsActiveTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICommunicationBlockingAppSetAsActiveTrigger {
     type Vtable = ICommunicationBlockingAppSetAsActiveTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4220646026, 5797, 18541, [151, 76, 120, 53, 168, 71, 123, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb91f28a_16a5_486d_974c_7835a8477be2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5834,7 +5834,7 @@ pub struct ICommunicationBlockingAppSetAsActiveTrigger_abi(
 pub struct IContactStoreNotificationTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactStoreNotificationTrigger {
     type Vtable = IContactStoreNotificationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3358802331, 18181, 17777, [154, 22, 6, 185, 151, 191, 156, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc833419b_4705_4571_9a16_06b997bf9c96);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5851,7 +5851,7 @@ pub struct IContactStoreNotificationTrigger_abi(
 pub struct IContentPrefetchTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentPrefetchTrigger {
     type Vtable = IContentPrefetchTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1896228846, 1274, 17419, [128, 192, 23, 50, 2, 25, 158, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x710627ee_04fa_440b_80c0_173202199e5d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5870,7 +5870,7 @@ pub struct IContentPrefetchTrigger_abi(
 pub struct IContentPrefetchTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentPrefetchTriggerFactory {
     type Vtable = IContentPrefetchTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3261349594, 35331, 16542, [184, 196, 136, 129, 76, 40, 204, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2643eda_8a03_409e_b8c4_88814c28ccb6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5889,7 +5889,7 @@ pub struct IContentPrefetchTriggerFactory_abi(
 pub struct ICustomSystemEventTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSystemEventTrigger {
     type Vtable = ICustomSystemEventTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4082722712, 53099, 20212, [160, 202, 41, 207, 74, 39, 140, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3596798_cf6b_4ef4_a0ca_29cf4a278c87);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5908,7 +5908,7 @@ pub struct ICustomSystemEventTrigger_abi(
 pub struct ICustomSystemEventTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSystemEventTriggerFactory {
     type Vtable = ICustomSystemEventTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1808471749, 62172, 16818, [158, 253, 185, 107, 220, 209, 60, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6bcb16c5_f2dc_41b2_9efd_b96bdcd13ced);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5926,7 +5926,7 @@ pub struct ICustomSystemEventTriggerFactory_abi(
 pub struct IDeviceConnectionChangeTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceConnectionChangeTrigger {
     type Vtable = IDeviceConnectionChangeTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2424790628, 15581, 20219, [171, 28, 91, 59, 106, 96, 206, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90875e64_3cdd_4efb_ab1c_5b3b6a60ce34);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5947,7 +5947,7 @@ pub struct IDeviceConnectionChangeTrigger_abi(
 pub struct IDeviceConnectionChangeTriggerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceConnectionChangeTriggerStatics {
     type Vtable = IDeviceConnectionChangeTriggerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3286901866, 20221, 17560, [170, 96, 164, 228, 227, 177, 122, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3ea246a_4efd_4498_aa60_a4e4e3b17ab9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5966,7 +5966,7 @@ pub struct IDeviceConnectionChangeTriggerStatics_abi(
 pub struct IDeviceManufacturerNotificationTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceManufacturerNotificationTrigger {
     type Vtable = IDeviceManufacturerNotificationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2166852277, 16811, 5850, [134, 194, 127, 123, 240, 145, 47, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81278ab5_41ab_16da_86c2_7f7bf0912f5b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5985,7 +5985,7 @@ pub struct IDeviceManufacturerNotificationTrigger_abi(
 pub struct IDeviceManufacturerNotificationTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceManufacturerNotificationTriggerFactory {
     type Vtable = IDeviceManufacturerNotificationTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2035670645, 9659, 16723, [161, 162, 48, 41, 252, 171, 182, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7955de75_25bb_4153_a1a2_3029fcabb652);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6003,7 +6003,7 @@ pub struct IDeviceManufacturerNotificationTriggerFactory_abi(
 pub struct IDeviceServicingTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceServicingTrigger {
     type Vtable = IDeviceServicingTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(447879085, 28212, 18899, [158, 111, 23, 241, 182, 223, 168, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ab217ad_6e34_49d3_9e6f_17f1b6dfa881);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6024,7 +6024,7 @@ pub struct IDeviceServicingTrigger_abi(
 pub struct IDeviceUseTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceUseTrigger {
     type Vtable = IDeviceUseTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(229015569, 13135, 19799, [182, 236, 109, 202, 100, 180, 18, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0da68011_334f_4d57_b6ec_6dca64b412e4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6045,7 +6045,7 @@ pub struct IDeviceUseTrigger_abi(
 pub struct IDeviceWatcherTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceWatcherTrigger {
     type Vtable = IDeviceWatcherTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2757853149, 34163, 16992, [190, 252, 91, 236, 137, 203, 105, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4617fdd_8573_4260_befc_5bec89cb693d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6062,7 +6062,7 @@ pub struct IDeviceWatcherTrigger_abi(
 pub struct IEmailStoreNotificationTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailStoreNotificationTrigger {
     type Vtable = IEmailStoreNotificationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2557282010, 18411, 17000, [164, 242, 243, 247, 113, 136, 56, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x986d06da_47eb_4268_a4f2_f3f77188388a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6079,7 +6079,7 @@ pub struct IEmailStoreNotificationTrigger_abi(
 pub struct IGattCharacteristicNotificationTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristicNotificationTrigger {
     type Vtable = IGattCharacteristicNotificationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3797913544, 1686, 18255, [167, 50, 242, 146, 176, 206, 188, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe25f8fc8_0696_474f_a732_f292b0cebc5d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6098,7 +6098,7 @@ pub struct IGattCharacteristicNotificationTrigger_abi(
 pub struct IGattCharacteristicNotificationTrigger2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristicNotificationTrigger2 {
     type Vtable = IGattCharacteristicNotificationTrigger2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468520644, 44558, 17138, [178, 140, 245, 19, 114, 230, 146, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9322a2c4_ae0e_42f2_b28c_f51372e69245);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6117,7 +6117,7 @@ pub struct IGattCharacteristicNotificationTrigger2_abi(
 pub struct IGattCharacteristicNotificationTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristicNotificationTriggerFactory {
     type Vtable = IGattCharacteristicNotificationTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1471814037, 45379, 17781, [159, 107, 253, 89, 217, 58, 206, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57ba1995_b143_4575_9f6b_fd59d93ace1a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6136,7 +6136,7 @@ pub struct IGattCharacteristicNotificationTriggerFactory_abi(
 pub struct IGattCharacteristicNotificationTriggerFactory2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristicNotificationTriggerFactory2 {
     type Vtable = IGattCharacteristicNotificationTriggerFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1503193375, 35411, 20127, [163, 44, 35, 205, 51, 102, 76, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5998e91f_8a53_4e9f_a32c_23cd33664cee);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6155,7 +6155,7 @@ pub struct IGattCharacteristicNotificationTriggerFactory2_abi(
 pub struct IGattServiceProviderTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderTrigger {
     type Vtable = IGattServiceProviderTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3720782825, 5463, 19416, [133, 66, 70, 138, 160, 198, 150, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddc6a3e9_1557_4bd8_8542_468aa0c696f6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6179,7 +6179,7 @@ pub struct IGattServiceProviderTrigger_abi(
 pub struct IGattServiceProviderTriggerResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderTriggerResult {
     type Vtable = IGattServiceProviderTriggerResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1011257777, 45464, 20100, [186, 212, 207, 74, 210, 153, 237, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c4691b1_b198_4e84_bad4_cf4ad299ed3a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6199,7 +6199,7 @@ pub struct IGattServiceProviderTriggerResult_abi(
 pub struct IGattServiceProviderTriggerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderTriggerStatics {
     type Vtable = IGattServiceProviderTriggerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3021185898, 58004, 17809, [165, 166, 100, 137, 26, 130, 129, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb413a36a_e294_4591_a5a6_64891a828153);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6218,7 +6218,7 @@ pub struct IGattServiceProviderTriggerStatics_abi(
 pub struct IGeovisitTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeovisitTrigger {
     type Vtable = IGeovisitTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1209593258, 1249, 16679, [154, 76, 25, 53, 27, 138, 128, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4818edaa_04e1_4127_9a4c_19351b8a80a4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6239,7 +6239,7 @@ pub struct IGeovisitTrigger_abi(
 pub struct ILocationTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocationTrigger {
     type Vtable = ILocationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1197894172, 26743, 18462, [128, 38, 255, 126, 20, 168, 17, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47666a1c_6877_481e_8026_ff7e14a811a0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6257,7 +6257,7 @@ pub struct ILocationTrigger_abi(
 pub struct ILocationTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocationTriggerFactory {
     type Vtable = ILocationTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(285653767, 65385, 19977, [170, 139, 19, 132, 234, 71, 94, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1106bb07_ff69_4e09_aa8b_1384ea475e98);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6275,7 +6275,7 @@ pub struct ILocationTriggerFactory_abi(
 pub struct IMaintenanceTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMaintenanceTrigger {
     type Vtable = IMaintenanceTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1746422915, 64546, 19685, [132, 26, 114, 57, 169, 129, 0, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68184c83_fc22_4ce5_841a_7239a9810047);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6294,7 +6294,7 @@ pub struct IMaintenanceTrigger_abi(
 pub struct IMaintenanceTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMaintenanceTriggerFactory {
     type Vtable = IMaintenanceTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1262345006, 38877, 17961, [136, 176, 176, 108, 249, 72, 42, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b3ddb2e_97dd_4629_88b0_b06cf9482ae5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6312,7 +6312,7 @@ pub struct IMaintenanceTriggerFactory_abi(
 pub struct IMediaProcessingTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaProcessingTrigger {
     type Vtable = IMediaProcessingTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2593504869, 35410, 19248, [144, 17, 207, 56, 4, 14, 168, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a95be65_8a52_4b30_9011_cf38040ea8b0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6333,7 +6333,7 @@ pub struct IMediaProcessingTrigger_abi(
 pub struct INetworkOperatorHotspotAuthenticationTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorHotspotAuthenticationTrigger {
     type Vtable = INetworkOperatorHotspotAuthenticationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881224081, 12289, 19941, [131, 199, 222, 97, 216, 136, 49, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe756c791_3001_4de5_83c7_de61d88831d0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6350,7 +6350,7 @@ pub struct INetworkOperatorHotspotAuthenticationTrigger_abi(
 pub struct INetworkOperatorNotificationTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorNotificationTrigger {
     type Vtable = INetworkOperatorNotificationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2416483526, 25549, 18444, [149, 209, 110, 106, 239, 128, 30, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90089cc6_63cd_480c_95d1_6e6aef801e4a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6368,7 +6368,7 @@ pub struct INetworkOperatorNotificationTrigger_abi(
 pub struct INetworkOperatorNotificationTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorNotificationTriggerFactory {
     type Vtable = INetworkOperatorNotificationTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(170016256, 10199, 17235, [173, 185, 146, 101, 170, 234, 87, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a223e00_27d7_4353_adb9_9265aaea579d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6386,7 +6386,7 @@ pub struct INetworkOperatorNotificationTriggerFactory_abi(
 pub struct IPhoneTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneTrigger {
     type Vtable = IPhoneTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2379213211, 54469, 18929, [183, 211, 130, 232, 122, 14, 157, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8dcfe99b_d4c5_49f1_b7d3_82e87a0e9dde);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6406,7 +6406,7 @@ pub struct IPhoneTrigger_abi(
 pub struct IPhoneTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneTriggerFactory {
     type Vtable = IPhoneTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2698591450, 24513, 18683, [165, 70, 50, 38, 32, 64, 21, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0d93cda_5fc1_48fb_a546_32262040157b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6425,7 +6425,7 @@ pub struct IPhoneTriggerFactory_abi(
 pub struct IPushNotificationTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationTriggerFactory {
     type Vtable = IPushNotificationTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1842933019, 17806, 20418, [188, 46, 213, 102, 79, 119, 237, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6dd8ed1b_458e_4fc2_bc2e_d5664f77ed19);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6443,7 +6443,7 @@ pub struct IPushNotificationTriggerFactory_abi(
 pub struct IRcsEndUserMessageAvailableTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRcsEndUserMessageAvailableTrigger {
     type Vtable = IRcsEndUserMessageAvailableTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2557283690, 45814, 18047, [169, 120, 164, 64, 145, 193, 26, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x986d0d6a_b2f6_467f_a978_a44091c11a66);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6460,7 +6460,7 @@ pub struct IRcsEndUserMessageAvailableTrigger_abi(
 pub struct IRfcommConnectionTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommConnectionTrigger {
     type Vtable = IRfcommConnectionTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3905211106, 2899, 17508, [147, 148, 253, 135, 86, 84, 222, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8c4cae2_0b53_4464_9394_fd875654de64);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6491,7 +6491,7 @@ pub struct IRfcommConnectionTrigger_abi(
 pub struct ISecondaryAuthenticationFactorAuthenticationTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthenticationTrigger {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4063752999, 20865, 20260, [150, 167, 112, 10, 78, 95, 172, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf237f327_5181_4f24_96a7_700a4e5fac62);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6508,7 +6508,7 @@ pub struct ISecondaryAuthenticationFactorAuthenticationTrigger_abi(
 pub struct ISensorDataThresholdTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISensorDataThresholdTrigger {
     type Vtable = ISensorDataThresholdTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1539371890, 54411, 19327, [171, 236, 21, 249, 186, 204, 18, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5bc0f372_d48b_4b7f_abec_15f9bacc12e2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6525,7 +6525,7 @@ pub struct ISensorDataThresholdTrigger_abi(
 pub struct ISensorDataThresholdTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISensorDataThresholdTriggerFactory {
     type Vtable = ISensorDataThresholdTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2451564149, 32240, 19875, [151, 179, 229, 68, 238, 133, 127, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x921fe675_7df0_4da3_97b3_e544ee857fe6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6544,7 +6544,7 @@ pub struct ISensorDataThresholdTriggerFactory_abi(
 pub struct ISmartCardTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardTrigger {
     type Vtable = ISmartCardTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4114335148, 33994, 18802, [140, 233, 229, 143, 151, 179, 122, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf53bc5ac_84ca_4972_8ce9_e58f97b37a50);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6563,7 +6563,7 @@ pub struct ISmartCardTrigger_abi(
 pub struct ISmartCardTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardTriggerFactory {
     type Vtable = ISmartCardTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1673483459, 35265, 19968, [169, 211, 151, 198, 41, 38, 157, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63bf54c3_89c1_4e00_a9d3_97c629269dad);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6582,7 +6582,7 @@ pub struct ISmartCardTriggerFactory_abi(
 pub struct ISmsMessageReceivedTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessageReceivedTriggerFactory {
     type Vtable = ISmsMessageReceivedTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3929725128, 27556, 19122, [141, 33, 188, 107, 9, 199, 117, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea3ad8c8_6ba4_4ab2_8d21_bc6b09c77564);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6601,7 +6601,7 @@ pub struct ISmsMessageReceivedTriggerFactory_abi(
 pub struct ISocketActivityTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocketActivityTrigger {
     type Vtable = ISocketActivityTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2847668240, 40414, 20362, [131, 227, 176, 224, 231, 165, 13, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9bbf810_9dde_4f8a_83e3_b0e0e7a50d70);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6619,7 +6619,7 @@ pub struct ISocketActivityTrigger_abi(
 pub struct IStorageLibraryChangeTrackerTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryChangeTrackerTriggerFactory {
     type Vtable = IStorageLibraryChangeTrackerTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(514916304, 23173, 18846, [168, 136, 130, 70, 7, 18, 79, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1eb0ffd0_5a85_499e_a888_824607124f50);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6638,7 +6638,7 @@ pub struct IStorageLibraryChangeTrackerTriggerFactory_abi(
 pub struct IStorageLibraryContentChangedTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryContentChangedTrigger {
     type Vtable = IStorageLibraryContentChangedTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(372760743, 33436, 17852, [146, 155, 161, 231, 234, 120, 216, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1637e0a7_829c_45bc_929b_a1e7ea78d89b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6655,7 +6655,7 @@ pub struct IStorageLibraryContentChangedTrigger_abi(
 pub struct IStorageLibraryContentChangedTriggerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryContentChangedTriggerStatics {
     type Vtable = IStorageLibraryContentChangedTriggerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2141133625, 24464, 19986, [145, 78, 167, 216, 224, 187, 251, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f9f1b39_5f90_4e12_914e_a7d8e0bbfb18);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6676,7 +6676,7 @@ pub struct IStorageLibraryContentChangedTriggerStatics_abi(
 pub struct ISystemCondition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemCondition {
     type Vtable = ISystemCondition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3244274806, 35269, 16907, [171, 211, 251, 48, 48, 71, 33, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc15fb476_89c5_420b_abd3_fb3030472128);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6694,7 +6694,7 @@ pub struct ISystemCondition_abi(
 pub struct ISystemConditionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemConditionFactory {
     type Vtable = ISystemConditionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3530150385, 1447, 18862, [135, 215, 22, 178, 184, 185, 165, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd269d1f1_05a7_49ae_87d7_16b2b8b9a553);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6712,7 +6712,7 @@ pub struct ISystemConditionFactory_abi(
 pub struct ISystemTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemTrigger {
     type Vtable = ISystemTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(494978934, 14152, 17507, [141, 126, 39, 109, 193, 57, 172, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d80c776_3748_4463_8d7e_276dc139ac1c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6731,7 +6731,7 @@ pub struct ISystemTrigger_abi(
 pub struct ISystemTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemTriggerFactory {
     type Vtable = ISystemTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3892585428, 34705, 17785, [129, 38, 135, 236, 138, 170, 64, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe80423d4_8791_4579_8126_87ec8aaa407a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6749,7 +6749,7 @@ pub struct ISystemTriggerFactory_abi(
 pub struct ITimeTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimeTrigger {
     type Vtable = ITimeTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1701729622, 2858, 17271, [186, 112, 59, 69, 169, 53, 84, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x656e5556_0b2a_4377_ba70_3b45a935547f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6768,7 +6768,7 @@ pub struct ITimeTrigger_abi(
 pub struct ITimeTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimeTriggerFactory {
     type Vtable = ITimeTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(952533758, 39764, 17894, [178, 243, 38, 155, 135, 166, 247, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38c682fe_9b54_45e6_b2f3_269b87a6f734);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6786,7 +6786,7 @@ pub struct ITimeTriggerFactory_abi(
 pub struct IToastNotificationActionTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationActionTriggerFactory {
     type Vtable = IToastNotificationActionTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2963143719, 25728, 17225, [129, 37, 151, 179, 239, 170, 10, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb09dfc27_6480_4349_8125_97b3efaa0a3a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6804,7 +6804,7 @@ pub struct IToastNotificationActionTriggerFactory_abi(
 pub struct IToastNotificationHistoryChangedTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationHistoryChangedTriggerFactory {
     type Vtable = IToastNotificationHistoryChangedTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2177301165, 34711, 18309, [129, 180, 176, 204, 203, 115, 209, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81c6faad_8797_4785_81b4_b0cccb73d1d9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6822,7 +6822,7 @@ pub struct IToastNotificationHistoryChangedTriggerFactory_abi(
 pub struct IUserNotificationChangedTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserNotificationChangedTriggerFactory {
     type Vtable = IUserNotificationChangedTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3402908524, 27051, 19992, [164, 138, 94, 210, 172, 67, 89, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcad4436c_69ab_4e18_a48a_5ed2ac435957);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6866,7 +6866,7 @@ unsafe impl ::windows::runtime::RuntimeType for LocationTrigger {
 }
 unsafe impl ::windows::runtime::Interface for LocationTrigger {
     type Vtable = ILocationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1197894172, 26743, 18462, [128, 38, 255, 126, 20, 168, 17, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47666a1c_6877_481e_8026_ff7e14a811a0);
 }
 impl ::windows::runtime::RuntimeName for LocationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.LocationTrigger";
@@ -6994,7 +6994,7 @@ unsafe impl ::windows::runtime::RuntimeType for MaintenanceTrigger {
 }
 unsafe impl ::windows::runtime::Interface for MaintenanceTrigger {
     type Vtable = IMaintenanceTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1746422915, 64546, 19685, [132, 26, 114, 57, 169, 129, 0, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68184c83_fc22_4ce5_841a_7239a9810047);
 }
 impl ::windows::runtime::RuntimeName for MaintenanceTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MaintenanceTrigger";
@@ -7097,7 +7097,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaProcessingTrigger {
 }
 unsafe impl ::windows::runtime::Interface for MediaProcessingTrigger {
     type Vtable = IMediaProcessingTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2593504869, 35410, 19248, [144, 17, 207, 56, 4, 14, 168, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a95be65_8a52_4b30_9011_cf38040ea8b0);
 }
 impl ::windows::runtime::RuntimeName for MediaProcessingTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MediaProcessingTrigger";
@@ -7206,7 +7206,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandDeviceServiceNoti
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandDeviceServiceNotificationTrigger {
     type Vtable = IBackgroundTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2226364504, 24615, 19335, [151, 144, 189, 243, 247, 87, 219, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandDeviceServiceNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandDeviceServiceNotificationTrigger";
@@ -7291,7 +7291,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandPcoDataChangeTrig
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandPcoDataChangeTrigger {
     type Vtable = IBackgroundTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2226364504, 24615, 19335, [151, 144, 189, 243, 247, 87, 219, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandPcoDataChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandPcoDataChangeTrigger";
@@ -7376,7 +7376,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandPinLockStateChang
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandPinLockStateChangeTrigger {
     type Vtable = IBackgroundTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2226364504, 24615, 19335, [151, 144, 189, 243, 247, 87, 219, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandPinLockStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandPinLockStateChangeTrigger";
@@ -7461,7 +7461,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandRadioStateChangeT
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandRadioStateChangeTrigger {
     type Vtable = IBackgroundTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2226364504, 24615, 19335, [151, 144, 189, 243, 247, 87, 219, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandRadioStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandRadioStateChangeTrigger";
@@ -7546,7 +7546,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandRegistrationState
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandRegistrationStateChangeTrigger {
     type Vtable = IBackgroundTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2226364504, 24615, 19335, [151, 144, 189, 243, 247, 87, 219, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandRegistrationStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandRegistrationStateChangeTrigger";
@@ -7631,7 +7631,7 @@ unsafe impl ::windows::runtime::RuntimeType for NetworkOperatorDataUsageTrigger 
 }
 unsafe impl ::windows::runtime::Interface for NetworkOperatorDataUsageTrigger {
     type Vtable = IBackgroundTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2226364504, 24615, 19335, [151, 144, 189, 243, 247, 87, 219, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::runtime::RuntimeName for NetworkOperatorDataUsageTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorDataUsageTrigger";
@@ -7716,7 +7716,7 @@ unsafe impl ::windows::runtime::RuntimeType for NetworkOperatorHotspotAuthentica
 }
 unsafe impl ::windows::runtime::Interface for NetworkOperatorHotspotAuthenticationTrigger {
     type Vtable = INetworkOperatorHotspotAuthenticationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881224081, 12289, 19941, [131, 199, 222, 97, 216, 136, 49, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe756c791_3001_4de5_83c7_de61d88831d0);
 }
 impl ::windows::runtime::RuntimeName for NetworkOperatorHotspotAuthenticationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorHotspotAuthenticationTrigger";
@@ -7813,7 +7813,7 @@ unsafe impl ::windows::runtime::RuntimeType for NetworkOperatorNotificationTrigg
 }
 unsafe impl ::windows::runtime::Interface for NetworkOperatorNotificationTrigger {
     type Vtable = INetworkOperatorNotificationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2416483526, 25549, 18444, [149, 209, 110, 106, 239, 128, 30, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90089cc6_63cd_480c_95d1_6e6aef801e4a);
 }
 impl ::windows::runtime::RuntimeName for NetworkOperatorNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorNotificationTrigger";
@@ -7898,7 +7898,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentAppCanMakePaymentTrigger 
 }
 unsafe impl ::windows::runtime::Interface for PaymentAppCanMakePaymentTrigger {
     type Vtable = IBackgroundTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2226364504, 24615, 19335, [151, 144, 189, 243, 247, 87, 219, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::runtime::RuntimeName for PaymentAppCanMakePaymentTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PaymentAppCanMakePaymentTrigger";
@@ -8005,7 +8005,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneTrigger {
 }
 unsafe impl ::windows::runtime::Interface for PhoneTrigger {
     type Vtable = IPhoneTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2379213211, 54469, 18929, [183, 211, 130, 232, 122, 14, 157, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8dcfe99b_d4c5_49f1_b7d3_82e87a0e9dde);
 }
 impl ::windows::runtime::RuntimeName for PhoneTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PhoneTrigger";
@@ -8103,7 +8103,7 @@ unsafe impl ::windows::runtime::RuntimeType for PushNotificationTrigger {
 }
 unsafe impl ::windows::runtime::Interface for PushNotificationTrigger {
     type Vtable = IBackgroundTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2226364504, 24615, 19335, [151, 144, 189, 243, 247, 87, 219, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::runtime::RuntimeName for PushNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PushNotificationTrigger";
@@ -8188,7 +8188,7 @@ unsafe impl ::windows::runtime::RuntimeType for RcsEndUserMessageAvailableTrigge
 }
 unsafe impl ::windows::runtime::Interface for RcsEndUserMessageAvailableTrigger {
     type Vtable = IRcsEndUserMessageAvailableTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2557283690, 45814, 18047, [169, 120, 164, 64, 145, 193, 26, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x986d0d6a_b2f6_467f_a978_a44091c11a66);
 }
 impl ::windows::runtime::RuntimeName for RcsEndUserMessageAvailableTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.RcsEndUserMessageAvailableTrigger";
@@ -8336,7 +8336,7 @@ unsafe impl ::windows::runtime::RuntimeType for RfcommConnectionTrigger {
 }
 unsafe impl ::windows::runtime::Interface for RfcommConnectionTrigger {
     type Vtable = IRfcommConnectionTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3905211106, 2899, 17508, [147, 148, 253, 135, 86, 84, 222, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8c4cae2_0b53_4464_9394_fd875654de64);
 }
 impl ::windows::runtime::RuntimeName for RfcommConnectionTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.RfcommConnectionTrigger";
@@ -8423,7 +8423,7 @@ unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorAut
 }
 unsafe impl ::windows::runtime::Interface for SecondaryAuthenticationFactorAuthenticationTrigger {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4063752999, 20865, 20260, [150, 167, 112, 10, 78, 95, 172, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf237f327_5181_4f24_96a7_700a4e5fac62);
 }
 impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorAuthenticationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SecondaryAuthenticationFactorAuthenticationTrigger";
@@ -8513,7 +8513,7 @@ unsafe impl ::windows::runtime::RuntimeType for SensorDataThresholdTrigger {
 }
 unsafe impl ::windows::runtime::Interface for SensorDataThresholdTrigger {
     type Vtable = ISensorDataThresholdTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1539371890, 54411, 19327, [171, 236, 21, 249, 186, 204, 18, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5bc0f372_d48b_4b7f_abec_15f9bacc12e2);
 }
 impl ::windows::runtime::RuntimeName for SensorDataThresholdTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SensorDataThresholdTrigger";
@@ -8614,7 +8614,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardTrigger {
 }
 unsafe impl ::windows::runtime::Interface for SmartCardTrigger {
     type Vtable = ISmartCardTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4114335148, 33994, 18802, [140, 233, 229, 143, 151, 179, 122, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf53bc5ac_84ca_4972_8ce9_e58f97b37a50);
 }
 impl ::windows::runtime::RuntimeName for SmartCardTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SmartCardTrigger";
@@ -8704,7 +8704,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmsMessageReceivedTrigger {
 }
 unsafe impl ::windows::runtime::Interface for SmsMessageReceivedTrigger {
     type Vtable = IBackgroundTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2226364504, 24615, 19335, [151, 144, 189, 243, 247, 87, 219, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::runtime::RuntimeName for SmsMessageReceivedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SmsMessageReceivedTrigger";
@@ -8797,7 +8797,7 @@ unsafe impl ::windows::runtime::RuntimeType for SocketActivityTrigger {
 }
 unsafe impl ::windows::runtime::Interface for SocketActivityTrigger {
     type Vtable = IBackgroundTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2226364504, 24615, 19335, [151, 144, 189, 243, 247, 87, 219, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::runtime::RuntimeName for SocketActivityTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SocketActivityTrigger";
@@ -8887,7 +8887,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageLibraryChangeTrackerTrigg
 }
 unsafe impl ::windows::runtime::Interface for StorageLibraryChangeTrackerTrigger {
     type Vtable = IBackgroundTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2226364504, 24615, 19335, [151, 144, 189, 243, 247, 87, 219, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::runtime::RuntimeName for StorageLibraryChangeTrackerTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.StorageLibraryChangeTrackerTrigger";
@@ -8985,7 +8985,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageLibraryContentChangedTrig
 }
 unsafe impl ::windows::runtime::Interface for StorageLibraryContentChangedTrigger {
     type Vtable = IStorageLibraryContentChangedTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(372760743, 33436, 17852, [146, 155, 161, 231, 234, 120, 216, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1637e0a7_829c_45bc_929b_a1e7ea78d89b);
 }
 impl ::windows::runtime::RuntimeName for StorageLibraryContentChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger";
@@ -9082,7 +9082,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemCondition {
 }
 unsafe impl ::windows::runtime::Interface for SystemCondition {
     type Vtable = ISystemCondition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3244274806, 35269, 16907, [171, 211, 251, 48, 48, 71, 33, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc15fb476_89c5_420b_abd3_fb3030472128);
 }
 impl ::windows::runtime::RuntimeName for SystemCondition {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SystemCondition";
@@ -9216,7 +9216,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemTrigger {
 }
 unsafe impl ::windows::runtime::Interface for SystemTrigger {
     type Vtable = ISystemTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(494978934, 14152, 17507, [141, 126, 39, 109, 193, 57, 172, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d80c776_3748_4463_8d7e_276dc139ac1c);
 }
 impl ::windows::runtime::RuntimeName for SystemTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SystemTrigger";
@@ -9337,7 +9337,7 @@ unsafe impl ::windows::runtime::RuntimeType for TetheringEntitlementCheckTrigger
 }
 unsafe impl ::windows::runtime::Interface for TetheringEntitlementCheckTrigger {
     type Vtable = IBackgroundTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2226364504, 24615, 19335, [151, 144, 189, 243, 247, 87, 219, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::runtime::RuntimeName for TetheringEntitlementCheckTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.TetheringEntitlementCheckTrigger";
@@ -9442,7 +9442,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimeTrigger {
 }
 unsafe impl ::windows::runtime::Interface for TimeTrigger {
     type Vtable = ITimeTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1701729622, 2858, 17271, [186, 112, 59, 69, 169, 53, 84, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x656e5556_0b2a_4377_ba70_3b45a935547f);
 }
 impl ::windows::runtime::RuntimeName for TimeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.TimeTrigger";
@@ -9538,7 +9538,7 @@ unsafe impl ::windows::runtime::RuntimeType for ToastNotificationActionTrigger {
 }
 unsafe impl ::windows::runtime::Interface for ToastNotificationActionTrigger {
     type Vtable = IBackgroundTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2226364504, 24615, 19335, [151, 144, 189, 243, 247, 87, 219, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::runtime::RuntimeName for ToastNotificationActionTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ToastNotificationActionTrigger";
@@ -9634,7 +9634,7 @@ unsafe impl ::windows::runtime::RuntimeType for ToastNotificationHistoryChangedT
 }
 unsafe impl ::windows::runtime::Interface for ToastNotificationHistoryChangedTrigger {
     type Vtable = IBackgroundTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2226364504, 24615, 19335, [151, 144, 189, 243, 247, 87, 219, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::runtime::RuntimeName for ToastNotificationHistoryChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ToastNotificationHistoryChangedTrigger";
@@ -9724,7 +9724,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserNotificationChangedTrigger {
 }
 unsafe impl ::windows::runtime::Interface for UserNotificationChangedTrigger {
     type Vtable = IBackgroundTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2226364504, 24615, 19335, [151, 144, 189, 243, 247, 87, 219, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::runtime::RuntimeName for UserNotificationChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.UserNotificationChangedTrigger";

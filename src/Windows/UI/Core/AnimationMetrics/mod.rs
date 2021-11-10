@@ -64,7 +64,7 @@ unsafe impl ::windows::runtime::RuntimeType for AnimationDescription {
 }
 unsafe impl ::windows::runtime::Interface for AnimationDescription {
     type Vtable = IAnimationDescription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2098308425, 48701, 16862, [176, 129, 5, 193, 73, 150, 47, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d11a549_be3d_41de_b081_05c149962f9b);
 }
 impl ::windows::runtime::RuntimeName for AnimationDescription {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.AnimationDescription";
@@ -215,7 +215,7 @@ pub struct AnimationMetricsContract(pub u8);
 pub struct IAnimationDescription(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnimationDescription {
     type Vtable = IAnimationDescription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2098308425, 48701, 16862, [176, 129, 5, 193, 73, 150, 47, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d11a549_be3d_41de_b081_05c149962f9b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -240,7 +240,7 @@ pub struct IAnimationDescription_abi(
 pub struct IAnimationDescriptionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnimationDescriptionFactory {
     type Vtable = IAnimationDescriptionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3336731326, 49659, 18613, [146, 113, 236, 199, 10, 200, 110, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6e27abe_c1fb_48b5_9271_ecc70ac86ef0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -258,7 +258,7 @@ pub struct IAnimationDescriptionFactory_abi(
 pub struct IOpacityAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOpacityAnimation {
     type Vtable = IOpacityAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2151328741, 61054, 17759, [132, 233, 37, 6, 175, 184, 210, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x803aabe5_ee7e_455f_84e9_2506afb8d2b4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -279,7 +279,7 @@ pub struct IOpacityAnimation_abi(
 pub struct IPropertyAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPropertyAnimation {
     type Vtable = IPropertyAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(973190362, 19852, 16670, [182, 21, 26, 222, 104, 58, 153, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a01b4da_4d8c_411e_b615_1ade683a9903);
 }
 impl IPropertyAnimation {
     #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
@@ -394,7 +394,7 @@ pub struct IPropertyAnimation_abi(
 pub struct IScaleAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScaleAnimation {
     type Vtable = IScaleAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(37049031, 29099, 17036, [156, 159, 211, 23, 128, 150, 73, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x023552c7_71ab_428c_9c9f_d31780964995);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -486,7 +486,7 @@ unsafe impl ::windows::runtime::RuntimeType for OpacityAnimation {
 }
 unsafe impl ::windows::runtime::Interface for OpacityAnimation {
     type Vtable = IOpacityAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2151328741, 61054, 17759, [132, 233, 37, 6, 175, 184, 210, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x803aabe5_ee7e_455f_84e9_2506afb8d2b4);
 }
 impl ::windows::runtime::RuntimeName for OpacityAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.OpacityAnimation";
@@ -610,7 +610,7 @@ unsafe impl ::windows::runtime::RuntimeType for PropertyAnimation {
 }
 unsafe impl ::windows::runtime::Interface for PropertyAnimation {
     type Vtable = IPropertyAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(973190362, 19852, 16670, [182, 21, 26, 222, 104, 58, 153, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a01b4da_4d8c_411e_b615_1ade683a9903);
 }
 impl ::windows::runtime::RuntimeName for PropertyAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.PropertyAnimation";
@@ -798,7 +798,7 @@ unsafe impl ::windows::runtime::RuntimeType for ScaleAnimation {
 }
 unsafe impl ::windows::runtime::Interface for ScaleAnimation {
     type Vtable = IScaleAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(37049031, 29099, 17036, [156, 159, 211, 23, 128, 150, 73, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x023552c7_71ab_428c_9c9f_d31780964995);
 }
 impl ::windows::runtime::RuntimeName for ScaleAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.ScaleAnimation";
@@ -922,7 +922,7 @@ unsafe impl ::windows::runtime::RuntimeType for TranslationAnimation {
 }
 unsafe impl ::windows::runtime::Interface for TranslationAnimation {
     type Vtable = IPropertyAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(973190362, 19852, 16670, [182, 21, 26, 222, 104, 58, 153, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a01b4da_4d8c_411e_b615_1ade683a9903);
 }
 impl ::windows::runtime::RuntimeName for TranslationAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.TranslationAnimation";

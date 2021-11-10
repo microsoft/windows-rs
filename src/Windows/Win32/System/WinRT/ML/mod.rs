@@ -13,7 +13,7 @@ impl ILearningModelDeviceFactoryNative {
 }
 unsafe impl ::windows::runtime::Interface for ILearningModelDeviceFactoryNative {
     type Vtable = ILearningModelDeviceFactoryNative_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(513487265, 26158, 19168, [175, 103, 246, 59, 179, 55, 230, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e9b31a1_662e_4ae0_af67_f63bb337e634);
 }
 impl ::core::convert::From<ILearningModelDeviceFactoryNative> for ::windows::runtime::IUnknown {
     fn from(value: ILearningModelDeviceFactoryNative) -> Self {
@@ -58,7 +58,7 @@ impl ILearningModelOperatorProviderNative {
 }
 unsafe impl ::windows::runtime::Interface for ILearningModelOperatorProviderNative {
     type Vtable = ILearningModelOperatorProviderNative_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(450535994, 60263, 16883, [170, 216, 93, 152, 78, 155, 172, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1adaa23a_eb67_41f3_aad8_5d984e9bacd4);
 }
 impl ::core::convert::From<ILearningModelOperatorProviderNative> for ::windows::runtime::IUnknown {
     fn from(value: ILearningModelOperatorProviderNative) -> Self {
@@ -101,7 +101,7 @@ impl ILearningModelSessionOptionsNative {
 }
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionOptionsNative {
     type Vtable = ILearningModelSessionOptionsNative_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3340670271, 14260, 17764, [134, 88, 216, 57, 104, 102, 219, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc71e953f_37b4_4564_8658_d8396866db0d);
 }
 impl ::core::convert::From<ILearningModelSessionOptionsNative> for ::windows::runtime::IUnknown {
     fn from(value: ILearningModelSessionOptionsNative) -> Self {
@@ -149,7 +149,7 @@ impl ITensorNative {
 }
 unsafe impl ::windows::runtime::Interface for ITensorNative {
     type Vtable = ITensorNative_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1391806447, 23299, 18869, [130, 214, 86, 95, 30, 224, 221, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52f547ef_5b03_49b5_82d6_565f1ee0dd49);
 }
 impl ::core::convert::From<ITensorNative> for ::windows::runtime::IUnknown {
     fn from(value: ITensorNative) -> Self {
@@ -194,7 +194,7 @@ impl ITensorStaticsNative {
 }
 unsafe impl ::windows::runtime::Interface for ITensorStaticsNative {
     type Vtable = ITensorStaticsNative_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(969954724, 26358, 20156, [149, 217, 122, 41, 235, 231, 105, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39d055a4_66f6_4ebc_95d9_7a29ebe7690a);
 }
 impl ::core::convert::From<ITensorStaticsNative> for ::windows::runtime::IUnknown {
     fn from(value: ITensorStaticsNative) -> Self {

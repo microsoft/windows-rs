@@ -83,7 +83,7 @@ impl IAsynchronousDataRetriever {
 }
 unsafe impl ::windows::runtime::Interface for IAsynchronousDataRetriever {
     type Vtable = IAsynchronousDataRetriever_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2680677488, 25066, 19080, [155, 228, 223, 86, 162, 124, 254, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fc7e470_61ea_4a88_9be4_df56a27cfef2);
 }
 impl ::core::convert::From<IAsynchronousDataRetriever> for ::windows::runtime::IUnknown {
     fn from(value: IAsynchronousDataRetriever) -> Self {
@@ -161,7 +161,7 @@ impl IChangeConflict {
 }
 unsafe impl ::windows::runtime::Interface for IChangeConflict {
     type Vtable = IChangeConflict_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(21938071, 40736, 20346, [189, 212, 37, 151, 156, 119, 192, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x014ebf97_9f20_4f7a_bdd4_25979c77c002);
 }
 impl ::core::convert::From<IChangeConflict> for ::windows::runtime::IUnknown {
     fn from(value: IChangeConflict) -> Self {
@@ -218,7 +218,7 @@ impl IChangeUnitException {
 }
 unsafe impl ::windows::runtime::Interface for IChangeUnitException {
     type Vtable = IChangeUnitException_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(215477884, 65216, 16417, [153, 238, 240, 229, 52, 143, 42, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cd7ee7c_fec0_4021_99ee_f0e5348f2a5f);
 }
 impl ::core::convert::From<IChangeUnitException> for ::windows::runtime::IUnknown {
     fn from(value: IChangeUnitException) -> Self {
@@ -274,7 +274,7 @@ impl IChangeUnitListFilterInfo {
 }
 unsafe impl ::windows::runtime::Interface for IChangeUnitListFilterInfo {
     type Vtable = IChangeUnitListFilterInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4068701809, 3039, 17402, [181, 2, 35, 35, 117, 251, 80, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2837671_0bdf_43fa_b502_232375fb50c2);
 }
 impl ::core::convert::From<IChangeUnitListFilterInfo> for ::windows::runtime::IUnknown {
     fn from(value: IChangeUnitListFilterInfo) -> Self {
@@ -343,7 +343,7 @@ impl IClockVector {
 }
 unsafe impl ::windows::runtime::Interface for IClockVector {
     type Vtable = IClockVector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(347219786, 34456, 19654, [147, 51, 248, 155, 209, 212, 123, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14b2274a_8698_4cc6_9333_f89bd1d47bc4);
 }
 impl ::core::convert::From<IClockVector> for ::windows::runtime::IUnknown {
     fn from(value: IClockVector) -> Self {
@@ -390,7 +390,7 @@ impl IClockVectorElement {
 }
 unsafe impl ::windows::runtime::Interface for IClockVectorElement {
     type Vtable = IClockVectorElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3877388880, 44536, 18951, [143, 174, 86, 105, 89, 105, 9, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe71c4250_adf8_4a07_8fae_5669596909c1);
 }
 impl ::core::convert::From<IClockVectorElement> for ::windows::runtime::IUnknown {
     fn from(value: IClockVectorElement) -> Self {
@@ -446,7 +446,7 @@ impl ICombinedFilterInfo {
 }
 unsafe impl ::windows::runtime::Interface for ICombinedFilterInfo {
     type Vtable = ICombinedFilterInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(301588081, 10264, 18297, [178, 172, 66, 212, 80, 86, 95, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11f9de71_2818_4779_b2ac_42d450565f45);
 }
 impl ::core::convert::From<ICombinedFilterInfo> for ::windows::runtime::IUnknown {
     fn from(value: ICombinedFilterInfo) -> Self {
@@ -561,7 +561,7 @@ impl IConstraintConflict {
 }
 unsafe impl ::windows::runtime::Interface for IConstraintConflict {
     type Vtable = IConstraintConflict_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(13774894, 7416, 18485, [184, 95, 183, 202, 79, 121, 158, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00d2302e_1cf8_4835_b85f_b7ca4f799e0a);
 }
 impl ::core::convert::From<IConstraintConflict> for ::windows::runtime::IUnknown {
     fn from(value: IConstraintConflict) -> Self {
@@ -614,7 +614,7 @@ impl IConstructReplicaKeyMap {
 }
 unsafe impl ::windows::runtime::Interface for IConstructReplicaKeyMap {
     type Vtable = IConstructReplicaKeyMap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3738241392, 60549, 16661, [181, 44, 68, 5, 132, 86, 66, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xded10970_ec85_4115_b52c_4405845642a5);
 }
 impl ::core::convert::From<IConstructReplicaKeyMap> for ::windows::runtime::IUnknown {
     fn from(value: IConstructReplicaKeyMap) -> Self {
@@ -672,7 +672,7 @@ impl ICoreFragment {
 }
 unsafe impl ::windows::runtime::Interface for ICoreFragment {
     type Vtable = ICoreFragment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1631267509, 45828, 18393, [156, 49, 206, 108, 84, 64, 26, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x613b2ab5_b304_47d9_9c31_ce6c54401a15);
 }
 impl ::core::convert::From<ICoreFragment> for ::windows::runtime::IUnknown {
     fn from(value: ICoreFragment) -> Self {
@@ -722,7 +722,7 @@ impl ICoreFragmentInspector {
 }
 unsafe impl ::windows::runtime::Interface for ICoreFragmentInspector {
     type Vtable = ICoreFragmentInspector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4160538109, 44582, 18041, [186, 22, 150, 170, 197, 131, 193, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7fcc5fd_ae26_4679_ba16_96aac583c134);
 }
 impl ::core::convert::From<ICoreFragmentInspector> for ::windows::runtime::IUnknown {
     fn from(value: ICoreFragmentInspector) -> Self {
@@ -770,7 +770,7 @@ impl ICustomFilterInfo {
 }
 unsafe impl ::windows::runtime::Interface for ICustomFilterInfo {
     type Vtable = ICustomFilterInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(489905663, 28552, 20045, [145, 168, 163, 243, 81, 207, 212, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d335dff_6f88_4e4d_91a8_a3f351cfd473);
 }
 impl ::core::convert::From<ICustomFilterInfo> for ::windows::runtime::IUnknown {
     fn from(value: ICustomFilterInfo) -> Self {
@@ -907,7 +907,7 @@ impl IDataRetrieverCallback {
 }
 unsafe impl ::windows::runtime::Interface for IDataRetrieverCallback {
     type Vtable = IDataRetrieverCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1907656251, 63849, 18038, [187, 195, 61, 159, 220, 63, 178, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71b4863b_f969_4676_bbc3_3d9fdc3fb2c7);
 }
 impl ::core::convert::From<IDataRetrieverCallback> for ::windows::runtime::IUnknown {
     fn from(value: IDataRetrieverCallback) -> Self {
@@ -963,7 +963,7 @@ impl IEnumChangeUnitExceptions {
 }
 unsafe impl ::windows::runtime::Interface for IEnumChangeUnitExceptions {
     type Vtable = IEnumChangeUnitExceptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(812967938, 37657, 17440, [190, 33, 16, 34, 226, 226, 29, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3074e802_9319_4420_be21_1022e2e21da8);
 }
 impl ::core::convert::From<IEnumChangeUnitExceptions> for ::windows::runtime::IUnknown {
     fn from(value: IEnumChangeUnitExceptions) -> Self {
@@ -1021,7 +1021,7 @@ impl IEnumClockVector {
 }
 unsafe impl ::windows::runtime::Interface for IEnumClockVector {
     type Vtable = IEnumClockVector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1381516507, 10295, 18329, [158, 128, 129, 166, 110, 2, 34, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x525844db_2837_4799_9e80_81a66e02220c);
 }
 impl ::core::convert::From<IEnumClockVector> for ::windows::runtime::IUnknown {
     fn from(value: IEnumClockVector) -> Self {
@@ -1079,7 +1079,7 @@ impl IEnumFeedClockVector {
 }
 unsafe impl ::windows::runtime::Interface for IEnumFeedClockVector {
     type Vtable = IEnumFeedClockVector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1427076669, 5226, 18678, [171, 235, 108, 136, 199, 247, 5, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x550f763d_146a_48f6_abeb_6c88c7f70514);
 }
 impl ::core::convert::From<IEnumFeedClockVector> for ::windows::runtime::IUnknown {
     fn from(value: IEnumFeedClockVector) -> Self {
@@ -1124,7 +1124,7 @@ impl IEnumItemIds {
 }
 unsafe impl ::windows::runtime::Interface for IEnumItemIds {
     type Vtable = IEnumItemIds_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1135230817, 19246, 19296, [131, 223, 177, 16, 211, 225, 72, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43aa3f61_4b2e_4b60_83df_b110d3e148f1);
 }
 impl ::core::convert::From<IEnumItemIds> for ::windows::runtime::IUnknown {
     fn from(value: IEnumItemIds) -> Self {
@@ -1179,7 +1179,7 @@ impl IEnumRangeExceptions {
 }
 unsafe impl ::windows::runtime::Interface for IEnumRangeExceptions {
     type Vtable = IEnumRangeExceptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(155468703, 56753, 16758, [183, 3, 4, 111, 242, 42, 35, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0944439f_ddb1_4176_b703_046ff22a2386);
 }
 impl ::core::convert::From<IEnumRangeExceptions> for ::windows::runtime::IUnknown {
     fn from(value: IEnumRangeExceptions) -> Self {
@@ -1237,7 +1237,7 @@ impl IEnumSingleItemExceptions {
 }
 unsafe impl ::windows::runtime::Interface for IEnumSingleItemExceptions {
     type Vtable = IEnumSingleItemExceptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3848484892, 6989, 19558, [151, 150, 200, 111, 172, 205, 205, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe563381c_1b4d_4c66_9796_c86faccdcd40);
 }
 impl ::core::convert::From<IEnumSingleItemExceptions> for ::windows::runtime::IUnknown {
     fn from(value: IEnumSingleItemExceptions) -> Self {
@@ -1295,7 +1295,7 @@ impl IEnumSyncChangeUnits {
 }
 unsafe impl ::windows::runtime::Interface for IEnumSyncChangeUnits {
     type Vtable = IEnumSyncChangeUnits_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(879441393, 34563, 19565, [171, 26, 77, 188, 162, 207, 249, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x346b35f1_8703_4c6d_ab1a_4dbca2cff97f);
 }
 impl ::core::convert::From<IEnumSyncChangeUnits> for ::windows::runtime::IUnknown {
     fn from(value: IEnumSyncChangeUnits) -> Self {
@@ -1353,7 +1353,7 @@ impl IEnumSyncChanges {
 }
 unsafe impl ::windows::runtime::Interface for IEnumSyncChanges {
     type Vtable = IEnumSyncChanges_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1602666058, 24184, 20018, [172, 28, 194, 79, 210, 35, 239, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f86be4a_5e78_4e32_ac1c_c24fd223ef85);
 }
 impl ::core::convert::From<IEnumSyncChanges> for ::windows::runtime::IUnknown {
     fn from(value: IEnumSyncChanges) -> Self {
@@ -1411,7 +1411,7 @@ impl IEnumSyncProviderConfigUIInfos {
 }
 unsafe impl ::windows::runtime::Interface for IEnumSyncProviderConfigUIInfos {
     type Vtable = IEnumSyncProviderConfigUIInfos_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4139656706, 6086, 18008, [162, 215, 104, 237, 51, 48, 246, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6be2602_17c6_4658_a2d7_68ed3330f641);
 }
 impl ::core::convert::From<IEnumSyncProviderConfigUIInfos> for ::windows::runtime::IUnknown {
     fn from(value: IEnumSyncProviderConfigUIInfos) -> Self {
@@ -1469,7 +1469,7 @@ impl IEnumSyncProviderInfos {
 }
 unsafe impl ::windows::runtime::Interface for IEnumSyncProviderInfos {
     type Vtable = IEnumSyncProviderInfos_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2689312848, 24241, 17933, [169, 115, 57, 63, 203, 96, 138, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa04ba850_5eb1_460d_a973_393fcb608a11);
 }
 impl ::core::convert::From<IEnumSyncProviderInfos> for ::windows::runtime::IUnknown {
     fn from(value: IEnumSyncProviderInfos) -> Self {
@@ -1527,7 +1527,7 @@ impl IFeedClockVector {
 }
 unsafe impl ::windows::runtime::Interface for IFeedClockVector {
     type Vtable = IFeedClockVector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2367527121, 40888, 20169, [165, 83, 84, 221, 146, 78, 15, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d1d98d1_9fb8_4ec9_a553_54dd924e0f67);
 }
 impl ::core::convert::From<IFeedClockVector> for ::windows::runtime::IUnknown {
     fn from(value: IFeedClockVector) -> Self {
@@ -1605,7 +1605,7 @@ impl IFeedClockVectorElement {
 }
 unsafe impl ::windows::runtime::Interface for IFeedClockVectorElement {
     type Vtable = IFeedClockVectorElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2752202450, 59771, 16726, [182, 218, 153, 31, 80, 27, 15, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa40b46d2_e97b_4156_b6da_991f501b0f05);
 }
 impl ::core::convert::From<IFeedClockVectorElement> for ::windows::runtime::IUnknown {
     fn from(value: IFeedClockVectorElement) -> Self {
@@ -1683,7 +1683,7 @@ impl IFilterKeyMap {
 }
 unsafe impl ::windows::runtime::Interface for IFilterKeyMap {
     type Vtable = IFilterKeyMap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3390477906, 1990, 18184, [163, 218, 110, 78, 186, 141, 34, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca169652_07c6_4708_a3da_6e4eba8d2297);
 }
 impl ::core::convert::From<IFilterKeyMap> for ::windows::runtime::IUnknown {
     fn from(value: IFilterKeyMap) -> Self {
@@ -1728,7 +1728,7 @@ impl IFilterRequestCallback {
 }
 unsafe impl ::windows::runtime::Interface for IFilterRequestCallback {
     type Vtable = IFilterRequestCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2195687539, 25440, 17978, [168, 161, 237, 229, 225, 161, 89, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82df8873_6360_463a_a8a1_ede5e1a1594d);
 }
 impl ::core::convert::From<IFilterRequestCallback> for ::windows::runtime::IUnknown {
     fn from(value: IFilterRequestCallback) -> Self {
@@ -1774,7 +1774,7 @@ impl IFilterTrackingProvider {
 }
 unsafe impl ::windows::runtime::Interface for IFilterTrackingProvider {
     type Vtable = IFilterTrackingProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1949533120, 64590, 17850, [173, 129, 217, 216, 76, 122, 36, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x743383c0_fc4e_45ba_ad81_d9d84c7a24f8);
 }
 impl ::core::convert::From<IFilterTrackingProvider> for ::windows::runtime::IUnknown {
     fn from(value: IFilterTrackingProvider) -> Self {
@@ -1817,7 +1817,7 @@ impl IFilterTrackingRequestCallback {
 }
 unsafe impl ::windows::runtime::Interface for IFilterTrackingRequestCallback {
     type Vtable = IFilterTrackingRequestCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1899800507, 51288, 18036, [180, 182, 17, 34, 67, 101, 135, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x713ca7bb_c858_4674_b4b6_1122436587a9);
 }
 impl ::core::convert::From<IFilterTrackingRequestCallback> for ::windows::runtime::IUnknown {
     fn from(value: IFilterTrackingRequestCallback) -> Self {
@@ -1864,7 +1864,7 @@ impl IFilterTrackingSyncChangeBuilder {
 }
 unsafe impl ::windows::runtime::Interface for IFilterTrackingSyncChangeBuilder {
     type Vtable = IFilterTrackingSyncChangeBuilder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(693118112, 28890, 19544, [136, 60, 206, 42, 251, 48, 141, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x295024a0_70da_4c58_883c_ce2afb308d0b);
 }
 impl ::core::convert::From<IFilterTrackingSyncChangeBuilder> for ::windows::runtime::IUnknown {
     fn from(value: IFilterTrackingSyncChangeBuilder) -> Self {
@@ -2011,7 +2011,7 @@ impl IForgottenKnowledge {
 }
 unsafe impl ::windows::runtime::Interface for IForgottenKnowledge {
     type Vtable = IForgottenKnowledge_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1164840854, 24630, 17707, [159, 157, 188, 196, 180, 168, 93, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x456e0f96_6036_452b_9f9d_bcc4b4a85db2);
 }
 impl ::core::convert::From<IForgottenKnowledge> for ::windows::runtime::IUnknown {
     fn from(value: IForgottenKnowledge) -> Self {
@@ -2127,7 +2127,7 @@ impl IKnowledgeSyncProvider {
 }
 unsafe impl ::windows::runtime::Interface for IKnowledgeSyncProvider {
     type Vtable = IKnowledgeSyncProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1128483401, 36260, 18418, [129, 114, 173, 123, 139, 2, 73, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43434a49_8da4_47f2_8172_ad7b8b024978);
 }
 impl ::core::convert::From<IKnowledgeSyncProvider> for ::windows::runtime::IUnknown {
     fn from(value: IKnowledgeSyncProvider) -> Self {
@@ -2206,7 +2206,7 @@ impl ILoadChangeContext {
 }
 unsafe impl ::windows::runtime::Interface for ILoadChangeContext {
     type Vtable = ILoadChangeContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1151642314, 60473, 18133, [181, 201, 214, 51, 192, 238, 103, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44a4aaca_ec39_46d5_b5c9_d633c0ee67e2);
 }
 impl ::core::convert::From<ILoadChangeContext> for ::windows::runtime::IUnknown {
     fn from(value: ILoadChangeContext) -> Self {
@@ -2250,7 +2250,7 @@ impl IProviderConverter {
 }
 unsafe impl ::windows::runtime::Interface for IProviderConverter {
     type Vtable = IProviderConverter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2157671030, 39119, 18775, [147, 165, 14, 189, 211, 221, 223, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x809b7276_98cf_4957_93a5_0ebdd3dddffd);
 }
 impl ::core::convert::From<IProviderConverter> for ::windows::runtime::IUnknown {
     fn from(value: IProviderConverter) -> Self {
@@ -2300,7 +2300,7 @@ impl IRangeException {
 }
 unsafe impl ::windows::runtime::Interface for IRangeException {
     type Vtable = IRangeException_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1974372215, 26696, 18935, [149, 108, 163, 169, 47, 80, 150, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75ae8777_6848_49f7_956c_a3a92f5096e8);
 }
 impl ::core::convert::From<IRangeException> for ::windows::runtime::IUnknown {
     fn from(value: IRangeException) -> Self {
@@ -2361,7 +2361,7 @@ impl IRecoverableError {
 }
 unsafe impl ::windows::runtime::Interface for IRecoverableError {
     type Vtable = IRecoverableError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(257304040, 2683, 17902, [150, 55, 28, 225, 54, 69, 144, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f5625e8_0a7b_45ee_9637_1ce13645909e);
 }
 impl ::core::convert::From<IRecoverableError> for ::windows::runtime::IUnknown {
     fn from(value: IRecoverableError) -> Self {
@@ -2418,7 +2418,7 @@ impl IRecoverableErrorData {
 }
 unsafe impl ::windows::runtime::Interface for IRecoverableErrorData {
     type Vtable = IRecoverableErrorData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3011267082, 19325, 19501, [151, 17, 59, 0, 209, 25, 177, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb37c4a0a_4b7d_4c2d_9711_3b00d119b1c8);
 }
 impl ::core::convert::From<IRecoverableErrorData> for ::windows::runtime::IUnknown {
     fn from(value: IRecoverableErrorData) -> Self {
@@ -2475,7 +2475,7 @@ impl IRegisteredSyncProvider {
 }
 unsafe impl ::windows::runtime::Interface for IRegisteredSyncProvider {
     type Vtable = IRegisteredSyncProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2436616054, 18369, 16565, [168, 150, 94, 138, 156, 65, 76, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x913bcf76_47c1_40b5_a896_5e8a9c414c14);
 }
 impl ::core::convert::From<IRegisteredSyncProvider> for ::windows::runtime::IUnknown {
     fn from(value: IRegisteredSyncProvider) -> Self {
@@ -2528,7 +2528,7 @@ impl IReplicaKeyMap {
 }
 unsafe impl ::windows::runtime::Interface for IReplicaKeyMap {
     type Vtable = IReplicaKeyMap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(571077884, 64784, 20464, [132, 168, 240, 161, 152, 46, 68, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2209f4fc_fd10_4ff0_84a8_f0a1982e440e);
 }
 impl ::core::convert::From<IReplicaKeyMap> for ::windows::runtime::IUnknown {
     fn from(value: IReplicaKeyMap) -> Self {
@@ -2572,7 +2572,7 @@ impl IRequestFilteredSync {
 }
 unsafe impl ::windows::runtime::Interface for IRequestFilteredSync {
     type Vtable = IRequestFilteredSync_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(771883396, 27928, 18087, [163, 42, 218, 74, 235, 6, 105, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e020184_6d18_46a7_a32a_da4aeb06696c);
 }
 impl ::core::convert::From<IRequestFilteredSync> for ::windows::runtime::IUnknown {
     fn from(value: IRequestFilteredSync) -> Self {
@@ -2618,7 +2618,7 @@ impl ISingleItemException {
 }
 unsafe impl ::windows::runtime::Interface for ISingleItemException {
     type Vtable = ISingleItemException_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2301606320, 31829, 18968, [147, 22, 253, 244, 73, 86, 155, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x892fb9b0_7c55_4a18_9316_fdf449569b64);
 }
 impl ::core::convert::From<ISingleItemException> for ::windows::runtime::IUnknown {
     fn from(value: ISingleItemException) -> Self {
@@ -2661,7 +2661,7 @@ impl ISupportFilteredSync {
 }
 unsafe impl ::windows::runtime::Interface for ISupportFilteredSync {
     type Vtable = ISupportFilteredSync_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1024626157, 54613, 19981, [191, 75, 251, 33, 58, 138, 147, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d128ded_d555_4e0d_bf4b_fb213a8a9302);
 }
 impl ::core::convert::From<ISupportFilteredSync> for ::windows::runtime::IUnknown {
     fn from(value: ISupportFilteredSync) -> Self {
@@ -2707,7 +2707,7 @@ impl ISupportLastWriteTime {
 }
 unsafe impl ::windows::runtime::Interface for ISupportLastWriteTime {
     type Vtable = ISupportLastWriteTime_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3940516207, 53437, 17354, [143, 64, 90, 205, 198, 192, 111, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeadf816f_d0bd_43ca_8f40_5acdc6c06f7a);
 }
 impl ::core::convert::From<ISupportLastWriteTime> for ::windows::runtime::IUnknown {
     fn from(value: ISupportLastWriteTime) -> Self {
@@ -2766,7 +2766,7 @@ impl ISyncCallback {
 }
 unsafe impl ::windows::runtime::Interface for ISyncCallback {
     type Vtable = ISyncCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(93944191, 24281, 18524, [174, 54, 12, 93, 27, 242, 231, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0599797f_5ed9_485c_ae36_0c5d1bf2e7a5);
 }
 impl ::core::convert::From<ISyncCallback> for ::windows::runtime::IUnknown {
     fn from(value: ISyncCallback) -> Self {
@@ -2836,7 +2836,7 @@ impl ISyncCallback2 {
 }
 unsafe impl ::windows::runtime::Interface for ISyncCallback2 {
     type Vtable = ISyncCallback2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1204716719, 29762, 20141, [134, 48, 18, 1, 94, 3, 10, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47ce84af_7442_4ead_8630_12015e030ad7);
 }
 impl ::core::convert::From<ISyncCallback2> for ::windows::runtime::IUnknown {
     fn from(value: ISyncCallback2) -> Self {
@@ -2943,7 +2943,7 @@ impl ISyncChange {
 }
 unsafe impl ::windows::runtime::Interface for ISyncChange {
     type Vtable = ISyncChange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2710907883, 3947, 18193, [177, 54, 1, 218, 133, 185, 104, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1952beb_0f6b_4711_b136_01da85b968a6);
 }
 impl ::core::convert::From<ISyncChange> for ::windows::runtime::IUnknown {
     fn from(value: ISyncChange) -> Self {
@@ -3077,7 +3077,7 @@ impl ISyncChangeBatch {
 }
 unsafe impl ::windows::runtime::Interface for ISyncChangeBatch {
     type Vtable = ISyncChangeBatch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1892044270, 14351, 19502, [143, 112, 49, 197, 91, 213, 249, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70c64dee_380f_4c2e_8f70_31c55bd5f9b3);
 }
 impl ::core::convert::From<ISyncChangeBatch> for ::windows::runtime::IUnknown {
     fn from(value: ISyncChangeBatch) -> Self {
@@ -3261,7 +3261,7 @@ impl ISyncChangeBatch2 {
 }
 unsafe impl ::windows::runtime::Interface for ISyncChangeBatch2 {
     type Vtable = ISyncChangeBatch2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(576670259, 62958, 19655, [176, 57, 103, 162, 98, 180, 178, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x225f4a33_f5ee_4cc7_b039_67a262b4b2ac);
 }
 impl ::core::convert::From<ISyncChangeBatch2> for ::windows::runtime::IUnknown {
     fn from(value: ISyncChangeBatch2) -> Self {
@@ -3378,7 +3378,7 @@ impl ISyncChangeBatchAdvanced {
 }
 unsafe impl ::windows::runtime::Interface for ISyncChangeBatchAdvanced {
     type Vtable = ISyncChangeBatchAdvanced_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(253381013, 52168, 16925, [181, 80, 93, 11, 235, 243, 233, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f1a4995_cbc8_421d_b550_5d0bebf3e9a5);
 }
 impl ::core::convert::From<ISyncChangeBatchAdvanced> for ::windows::runtime::IUnknown {
     fn from(value: ISyncChangeBatchAdvanced) -> Self {
@@ -3482,7 +3482,7 @@ impl ISyncChangeBatchBase {
 }
 unsafe impl ::windows::runtime::Interface for ISyncChangeBatchBase {
     type Vtable = ISyncChangeBatchBase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1391912596, 27249, 17556, [161, 132, 168, 49, 27, 245, 210, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52f6e694_6a71_4494_a184_a8311bf5d227);
 }
 impl ::core::convert::From<ISyncChangeBatchBase> for ::windows::runtime::IUnknown {
     fn from(value: ISyncChangeBatchBase) -> Self {
@@ -3600,7 +3600,7 @@ impl ISyncChangeBatchBase2 {
 }
 unsafe impl ::windows::runtime::Interface for ISyncChangeBatchBase2 {
     type Vtable = ISyncChangeBatchBase2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876646250, 55125, 17796, [189, 12, 192, 194, 58, 84, 143, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fdb596a_d755_4584_bd0c_c0c23a548fbf);
 }
 impl ::core::convert::From<ISyncChangeBatchBase2> for ::windows::runtime::IUnknown {
     fn from(value: ISyncChangeBatchBase2) -> Self {
@@ -3711,7 +3711,7 @@ impl ISyncChangeBatchWithFilterKeyMap {
 }
 unsafe impl ::windows::runtime::Interface for ISyncChangeBatchWithFilterKeyMap {
     type Vtable = ISyncChangeBatchWithFilterKeyMap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3726929922, 22125, 17818, [166, 237, 165, 170, 179, 69, 159, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde247002_566d_459a_a6ed_a5aab3459fb7);
 }
 impl ::core::convert::From<ISyncChangeBatchWithFilterKeyMap> for ::windows::runtime::IUnknown {
     fn from(value: ISyncChangeBatchWithFilterKeyMap) -> Self {
@@ -3832,7 +3832,7 @@ impl ISyncChangeBatchWithPrerequisite {
 }
 unsafe impl ::windows::runtime::Interface for ISyncChangeBatchWithPrerequisite {
     type Vtable = ISyncChangeBatchWithPrerequisite_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(159323070, 23442, 16456, [179, 242, 123, 66, 162, 81, 94, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x097f13be_5b92_4048_b3f2_7b42a2515e07);
 }
 impl ::core::convert::From<ISyncChangeBatchWithPrerequisite> for ::windows::runtime::IUnknown {
     fn from(value: ISyncChangeBatchWithPrerequisite) -> Self {
@@ -3911,7 +3911,7 @@ impl ISyncChangeBuilder {
 }
 unsafe impl ::windows::runtime::Interface for ISyncChangeBuilder {
     type Vtable = ISyncChangeBuilder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1458653041, 34423, 18511, [161, 112, 227, 134, 228, 24, 166, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56f14771_8677_484f_a170_e386e418a676);
 }
 impl ::core::convert::From<ISyncChangeBuilder> for ::windows::runtime::IUnknown {
     fn from(value: ISyncChangeBuilder) -> Self {
@@ -3962,7 +3962,7 @@ impl ISyncChangeUnit {
 }
 unsafe impl ::windows::runtime::Interface for ISyncChangeUnit {
     type Vtable = ISyncChangeUnit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1626200266, 29505, 19383, [149, 206, 250, 182, 57, 75, 81, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60edd8ca_7341_4bb7_95ce_fab6394b51cb);
 }
 impl ::core::convert::From<ISyncChangeUnit> for ::windows::runtime::IUnknown {
     fn from(value: ISyncChangeUnit) -> Self {
@@ -4046,7 +4046,7 @@ impl ISyncChangeWithFilterKeyMap {
 }
 unsafe impl ::windows::runtime::Interface for ISyncChangeWithFilterKeyMap {
     type Vtable = ISyncChangeWithFilterKeyMap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3219255040, 59517, 17149, [164, 233, 36, 45, 112, 65, 74, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfe1ef00_e87d_42fd_a4e9_242d70414aef);
 }
 impl ::core::convert::From<ISyncChangeWithFilterKeyMap> for ::windows::runtime::IUnknown {
     fn from(value: ISyncChangeWithFilterKeyMap) -> Self {
@@ -4104,7 +4104,7 @@ impl ISyncChangeWithPrerequisite {
 }
 unsafe impl ::windows::runtime::Interface for ISyncChangeWithPrerequisite {
     type Vtable = ISyncChangeWithPrerequisite_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2654484527, 5513, 18627, [146, 228, 5, 236, 220, 180, 243, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e38382f_1589_48c3_92e4_05ecdcb4f3f7);
 }
 impl ::core::convert::From<ISyncChangeWithPrerequisite> for ::windows::runtime::IUnknown {
     fn from(value: ISyncChangeWithPrerequisite) -> Self {
@@ -4147,7 +4147,7 @@ impl ISyncConstraintCallback {
 }
 unsafe impl ::windows::runtime::Interface for ISyncConstraintCallback {
     type Vtable = ISyncConstraintCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2331214910, 30131, 17292, [187, 81, 111, 2, 13, 112, 211, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8af3843e_75b3_438c_bb51_6f020d70d3cb);
 }
 impl ::core::convert::From<ISyncConstraintCallback> for ::windows::runtime::IUnknown {
     fn from(value: ISyncConstraintCallback) -> Self {
@@ -4205,7 +4205,7 @@ impl ISyncDataConverter {
 }
 unsafe impl ::windows::runtime::Interface for ISyncDataConverter {
     type Vtable = ISyncDataConverter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1130186849, 26837, 17578, [160, 249, 114, 160, 176, 14, 249, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x435d4861_68d5_44aa_a0f9_72a0b00ef9cf);
 }
 impl ::core::convert::From<ISyncDataConverter> for ::windows::runtime::IUnknown {
     fn from(value: ISyncDataConverter) -> Self {
@@ -4254,7 +4254,7 @@ impl ISyncFilter {
 }
 unsafe impl ::windows::runtime::Interface for ISyncFilter {
     type Vtable = ISyncFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(142229269, 4043, 17601, [150, 57, 83, 193, 78, 43, 85, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x087a3f15_0fcb_44c1_9639_53c14e2b5506);
 }
 impl ::core::convert::From<ISyncFilter> for ::windows::runtime::IUnknown {
     fn from(value: ISyncFilter) -> Self {
@@ -4298,7 +4298,7 @@ impl ISyncFilterDeserializer {
 }
 unsafe impl ::windows::runtime::Interface for ISyncFilterDeserializer {
     type Vtable = ISyncFilterDeserializer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3025894002, 58823, 18110, [156, 130, 119, 184, 177, 93, 171, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb45b7a72_e5c7_46be_9c82_77b8b15dab8a);
 }
 impl ::core::convert::From<ISyncFilterDeserializer> for ::windows::runtime::IUnknown {
     fn from(value: ISyncFilterDeserializer) -> Self {
@@ -4340,7 +4340,7 @@ impl ISyncFilterInfo {
 }
 unsafe impl ::windows::runtime::Interface for ISyncFilterInfo {
     type Vtable = ISyncFilterInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2035198712, 16174, 18406, [151, 40, 23, 230, 252, 249, 76, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x794eaaf8_3f2e_47e6_9728_17e6fcf94cb7);
 }
 impl ::core::convert::From<ISyncFilterInfo> for ::windows::runtime::IUnknown {
     fn from(value: ISyncFilterInfo) -> Self {
@@ -4386,7 +4386,7 @@ impl ISyncFilterInfo2 {
 }
 unsafe impl ::windows::runtime::Interface for ISyncFilterInfo2 {
     type Vtable = ISyncFilterInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(431199418, 58320, 18060, [147, 77, 50, 25, 104, 178, 171, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19b394ba_e3d0_468c_934d_321968b2ab34);
 }
 impl ::core::convert::From<ISyncFilterInfo2> for ::windows::runtime::IUnknown {
     fn from(value: ISyncFilterInfo2) -> Self {
@@ -4455,7 +4455,7 @@ impl ISyncFullEnumerationChange {
 }
 unsafe impl ::windows::runtime::Interface for ISyncFullEnumerationChange {
     type Vtable = ISyncFullEnumerationChange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2542133437, 48639, 16580, [152, 197, 179, 75, 47, 25, 145, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9785e0bd_bdff_40c4_98c5_b34b2f1991b3);
 }
 impl ::core::convert::From<ISyncFullEnumerationChange> for ::windows::runtime::IUnknown {
     fn from(value: ISyncFullEnumerationChange) -> Self {
@@ -4569,7 +4569,7 @@ impl ISyncFullEnumerationChangeBatch {
 }
 unsafe impl ::windows::runtime::Interface for ISyncFullEnumerationChangeBatch {
     type Vtable = ISyncFullEnumerationChangeBatch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4016314749, 20292, 20130, [179, 85, 69, 36, 113, 62, 59, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef64197d_4f44_4ea2_b355_4524713e3bed);
 }
 impl ::core::convert::From<ISyncFullEnumerationChangeBatch> for ::windows::runtime::IUnknown {
     fn from(value: ISyncFullEnumerationChangeBatch) -> Self {
@@ -4724,7 +4724,7 @@ impl ISyncFullEnumerationChangeBatch2 {
 }
 unsafe impl ::windows::runtime::Interface for ISyncFullEnumerationChangeBatch2 {
     type Vtable = ISyncFullEnumerationChangeBatch2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3764668916, 41477, 19301, [151, 36, 1, 178, 33, 1, 238, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe06449f4_a205_4b65_9724_01b22101eec1);
 }
 impl ::core::convert::From<ISyncFullEnumerationChangeBatch2> for ::windows::runtime::IUnknown {
     fn from(value: ISyncFullEnumerationChangeBatch2) -> Self {
@@ -4923,7 +4923,7 @@ impl ISyncKnowledge {
 }
 unsafe impl ::windows::runtime::Interface for ISyncKnowledge {
     type Vtable = ISyncKnowledge_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1633401683, 51525, 16899, [191, 75, 44, 182, 89, 25, 160, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x615bbb53_c945_4203_bf4b_2cb65919a0aa);
 }
 impl ::core::convert::From<ISyncKnowledge> for ::windows::runtime::IUnknown {
     fn from(value: ISyncKnowledge) -> Self {
@@ -5149,7 +5149,7 @@ impl ISyncKnowledge2 {
 }
 unsafe impl ::windows::runtime::Interface for ISyncKnowledge2 {
     type Vtable = ISyncKnowledge2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3976912320, 15179, 18081, [154, 69, 69, 102, 29, 33, 20, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed0addc0_3b4b_46a1_9a45_45661d2114c8);
 }
 impl ::core::convert::From<ISyncKnowledge2> for ::windows::runtime::IUnknown {
     fn from(value: ISyncKnowledge2) -> Self {
@@ -5250,7 +5250,7 @@ impl ISyncMergeTombstoneChange {
 }
 unsafe impl ::windows::runtime::Interface for ISyncMergeTombstoneChange {
     type Vtable = ISyncMergeTombstoneChange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1858479511, 2307, 18508, [173, 97, 54, 214, 233, 56, 244, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ec62597_0903_484c_ad61_36d6e938f47b);
 }
 impl ::core::convert::From<ISyncMergeTombstoneChange> for ::windows::runtime::IUnknown {
     fn from(value: ISyncMergeTombstoneChange) -> Self {
@@ -5293,7 +5293,7 @@ impl ISyncProvider {
 }
 unsafe impl ::windows::runtime::Interface for ISyncProvider {
     type Vtable = ISyncProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2405789782, 11214, 18967, [140, 104, 199, 187, 120, 152, 181, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f657056_2bce_4a17_8c68_c7bb7898b56f);
 }
 impl ::core::convert::From<ISyncProvider> for ::windows::runtime::IUnknown {
     fn from(value: ISyncProvider) -> Self {
@@ -5354,7 +5354,7 @@ impl ISyncProviderConfigUI {
 }
 unsafe impl ::windows::runtime::Interface for ISyncProviderConfigUI {
     type Vtable = ISyncProviderConfigUI_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2064057846, 52173, 16497, [171, 5, 59, 220, 54, 77, 74, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b0705f6_cbcd_4071_ab05_3bdc364d4a0c);
 }
 impl ::core::convert::From<ISyncProviderConfigUI> for ::windows::runtime::IUnknown {
     fn from(value: ISyncProviderConfigUI) -> Self {
@@ -5430,7 +5430,7 @@ impl ISyncProviderConfigUIInfo {
 }
 unsafe impl ::windows::runtime::Interface for ISyncProviderConfigUIInfo {
     type Vtable = ISyncProviderConfigUIInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(557924782, 13271, 19853, [142, 55, 242, 39, 232, 128, 206, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x214141ae_33d7_4d8d_8e37_f227e880ce50);
 }
 impl ::core::convert::From<ISyncProviderConfigUIInfo> for ::windows::runtime::IUnknown {
     fn from(value: ISyncProviderConfigUIInfo) -> Self {
@@ -5531,7 +5531,7 @@ impl ISyncProviderInfo {
 }
 unsafe impl ::windows::runtime::Interface for ISyncProviderInfo {
     type Vtable = ISyncProviderInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(518075870, 34980, 17668, [176, 208, 247, 146, 13, 126, 91, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ee135de_88a4_4504_b0d0_f7920d7e5ba6);
 }
 impl ::core::convert::From<ISyncProviderInfo> for ::windows::runtime::IUnknown {
     fn from(value: ISyncProviderInfo) -> Self {
@@ -5680,7 +5680,7 @@ impl ISyncProviderRegistration {
 }
 unsafe impl ::windows::runtime::Interface for ISyncProviderRegistration {
     type Vtable = ISyncProviderRegistration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3410335035, 30244, 18364, [164, 114, 235, 140, 172, 107, 34, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb45953b_7624_47bc_a472_eb8cac6b222e);
 }
 impl ::core::convert::From<ISyncProviderRegistration> for ::windows::runtime::IUnknown {
     fn from(value: ISyncProviderRegistration) -> Self {
@@ -5747,7 +5747,7 @@ impl ISyncRegistrationChange {
 }
 unsafe impl ::windows::runtime::Interface for ISyncRegistrationChange {
     type Vtable = ISyncRegistrationChange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4003518894, 27433, 17332, [158, 112, 227, 174, 51, 187, 44, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeea0d9ae_6b29_43b4_9e70_e3ae33bb2c3b);
 }
 impl ::core::convert::From<ISyncRegistrationChange> for ::windows::runtime::IUnknown {
     fn from(value: ISyncRegistrationChange) -> Self {
@@ -5791,7 +5791,7 @@ impl ISyncSessionExtendedErrorInfo {
 }
 unsafe impl ::windows::runtime::Interface for ISyncSessionExtendedErrorInfo {
     type Vtable = ISyncSessionExtendedErrorInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(845965328, 30986, 16539, [183, 65, 105, 153, 56, 135, 97, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x326c6810_790a_409b_b741_6999388761eb);
 }
 impl ::core::convert::From<ISyncSessionExtendedErrorInfo> for ::windows::runtime::IUnknown {
     fn from(value: ISyncSessionExtendedErrorInfo) -> Self {
@@ -5858,7 +5858,7 @@ impl ISyncSessionState {
 }
 unsafe impl ::windows::runtime::Interface for ISyncSessionState {
     type Vtable = ISyncSessionState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3098099966, 40705, 18491, [148, 52, 195, 125, 54, 18, 37, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8a940fe_9f01_483b_9434_c37d361225d9);
 }
 impl ::core::convert::From<ISyncSessionState> for ::windows::runtime::IUnknown {
     fn from(value: ISyncSessionState) -> Self {
@@ -5941,7 +5941,7 @@ impl ISyncSessionState2 {
 }
 unsafe impl ::windows::runtime::Interface for ISyncSessionState2 {
     type Vtable = ISyncSessionState2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2654457763, 40504, 19553, [156, 163, 255, 232, 16, 180, 92, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e37cfa3_9e38_4c61_9ca3_ffe810b45ca2);
 }
 impl ::core::convert::From<ISyncSessionState2> for ::windows::runtime::IUnknown {
     fn from(value: ISyncSessionState2) -> Self {
@@ -6019,7 +6019,7 @@ impl ISynchronousDataRetriever {
 }
 unsafe impl ::windows::runtime::Interface for ISynchronousDataRetriever {
     type Vtable = ISynchronousDataRetriever_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2602758825, 42189, 17992, [157, 142, 58, 81, 13, 77, 160, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b22f2a9_a4cd_4648_9d8e_3a510d4da04b);
 }
 impl ::core::convert::From<ISynchronousDataRetriever> for ::windows::runtime::IUnknown {
     fn from(value: ISynchronousDataRetriever) -> Self {
@@ -6070,133 +6070,133 @@ unsafe impl ::windows::runtime::Abi for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1430988010, 59619, 17850, [147, 82, 223, 181, 97, 225, 113, 228]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_CLSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1430988010, 59619, 17850, [147, 82, 223, 181, 97, 225, 113, 228]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_CONTENTTYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1430988010, 59619, 17850, [147, 82, 223, 181, 97, 225, 113, 228]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1430988010, 59619, 17850, [147, 82, 223, 181, 97, 225, 113, 228]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_ICON: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1430988010, 59619, 17850, [147, 82, 223, 181, 97, 225, 113, 228]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4),
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_INSTANCEID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1430988010, 59619, 17850, [147, 82, 223, 181, 97, 225, 113, 228]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_IS_GLOBAL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1430988010, 59619, 17850, [147, 82, 223, 181, 97, 225, 113, 228]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_MENUITEM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1430988010, 59619, 17850, [147, 82, 223, 181, 97, 225, 113, 228]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4),
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_MENUITEM_NOUI: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1430988010, 59619, 17850, [147, 82, 223, 181, 97, 225, 113, 228]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4),
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1430988010, 59619, 17850, [147, 82, 223, 181, 97, 225, 113, 228]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_SUPPORTED_ARCHITECTURE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1430988010, 59619, 17850, [147, 82, 223, 181, 97, 225, 113, 228]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_TOOLTIPS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1430988010, 59619, 17850, [147, 82, 223, 181, 97, 225, 113, 228]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4),
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2216140385, 24822, 19484, [136, 237, 241, 197, 49, 179, 43, 218]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_CLSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2216140385, 24822, 19484, [136, 237, 241, 197, 49, 179, 43, 218]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_CONFIGUI: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2216140385, 24822, 19484, [136, 237, 241, 197, 49, 179, 43, 218]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_CONTENTTYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2216140385, 24822, 19484, [136, 237, 241, 197, 49, 179, 43, 218]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2216140385, 24822, 19484, [136, 237, 241, 197, 49, 179, 43, 218]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_ICON: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2216140385, 24822, 19484, [136, 237, 241, 197, 49, 179, 43, 218]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda),
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_INSTANCEID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2216140385, 24822, 19484, [136, 237, 241, 197, 49, 179, 43, 218]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2216140385, 24822, 19484, [136, 237, 241, 197, 49, 179, 43, 218]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_SUPPORTED_ARCHITECTURE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2216140385, 24822, 19484, [136, 237, 241, 197, 49, 179, 43, 218]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_TOOLTIPS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2216140385, 24822, 19484, [136, 237, 241, 197, 49, 179, 43, 218]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda),
     pid: 10u32,
 };
 #[doc = "*Required features: `Win32_System_WindowsSync`*"]
@@ -6576,4 +6576,4 @@ impl ::core::cmp::Eq for SyncProviderConfiguration {}
 unsafe impl ::windows::runtime::Abi for SyncProviderConfiguration {
     type Abi = Self;
 }
-pub const SyncProviderRegistration: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4163587825, 37801, 19934, [128, 21, 247, 149, 10, 26, 110, 49]);
+pub const SyncProviderRegistration: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf82b4ef1_93a9_4dde_8015_f7950a1a6e31);

@@ -51,7 +51,7 @@ unsafe impl ::windows::runtime::RuntimeType for AttributedNetworkUsage {
 }
 unsafe impl ::windows::runtime::Interface for AttributedNetworkUsage {
     type Vtable = IAttributedNetworkUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4150898745, 60578, 17899, [173, 225, 176, 54, 139, 117, 108, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf769b039_eca2_45eb_ade1_b0368b756c49);
 }
 impl ::windows::runtime::RuntimeName for AttributedNetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.AttributedNetworkUsage";
@@ -231,7 +231,7 @@ unsafe impl ::windows::runtime::RuntimeType for CellularApnContext {
 }
 unsafe impl ::windows::runtime::Interface for CellularApnContext {
     type Vtable = ICellularApnContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1873095156, 61437, 17730, [154, 178, 112, 91, 191, 148, 148, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fa529f4_effd_4542_9ab2_705bbf94943a);
 }
 impl ::windows::runtime::RuntimeName for CellularApnContext {
     const NAME: &'static str = "Windows.Networking.Connectivity.CellularApnContext";
@@ -329,7 +329,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConnectionCost {
 }
 unsafe impl ::windows::runtime::Interface for ConnectionCost {
     type Vtable = IConnectionCost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3134707753, 13334, 19216, [162, 2, 186, 192, 176, 117, 189, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbad7d829_3416_4b10_a202_bac0b075bdae);
 }
 impl ::windows::runtime::RuntimeName for ConnectionCost {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionCost";
@@ -575,7 +575,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConnectionProfile {
 }
 unsafe impl ::windows::runtime::Interface for ConnectionProfile {
     type Vtable = IConnectionProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1908020284, 22926, 18896, [132, 235, 143, 235, 174, 220, 193, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71ba143c_598e_49d0_84eb_8febaedcc195);
 }
 impl ::windows::runtime::RuntimeName for ConnectionProfile {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionProfile";
@@ -800,7 +800,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConnectionProfileFilter {
 }
 unsafe impl ::windows::runtime::Interface for ConnectionProfileFilter {
     type Vtable = IConnectionProfileFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(541883592, 48429, 20109, [164, 179, 69, 94, 195, 55, 56, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x204c7cc8_bd2d_4e8d_a4b3_455ec337388a);
 }
 impl ::windows::runtime::RuntimeName for ConnectionProfileFilter {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionProfileFilter";
@@ -872,7 +872,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConnectionSession {
 }
 unsafe impl ::windows::runtime::Interface for ConnectionSession {
     type Vtable = IConnectionSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4287651148, 63547, 16816, [138, 12, 20, 98, 217, 197, 107, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff905d4c_f83b_41b0_8a0c_1462d9c56b73);
 }
 impl ::windows::runtime::RuntimeName for ConnectionSession {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionSession";
@@ -974,7 +974,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConnectivityInterval {
 }
 unsafe impl ::windows::runtime::Interface for ConnectivityInterval {
     type Vtable = IConnectivityInterval_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1336557567, 26438, 18468, [169, 100, 238, 216, 232, 127, 135, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4faa3fff_6746_4824_a964_eed8e87f8709);
 }
 impl ::windows::runtime::RuntimeName for ConnectivityInterval {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectivityInterval";
@@ -1112,7 +1112,7 @@ unsafe impl ::windows::runtime::RuntimeType for DataPlanStatus {
 }
 unsafe impl ::windows::runtime::Interface for DataPlanStatus {
     type Vtable = IDataPlanStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2541390732, 14469, 16627, [136, 81, 66, 205, 43, 213, 104, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x977a8b8c_3885_40f3_8851_42cd2bd568bb);
 }
 impl ::windows::runtime::RuntimeName for DataPlanStatus {
     const NAME: &'static str = "Windows.Networking.Connectivity.DataPlanStatus";
@@ -1187,7 +1187,7 @@ unsafe impl ::windows::runtime::RuntimeType for DataPlanUsage {
 }
 unsafe impl ::windows::runtime::Interface for DataPlanUsage {
     type Vtable = IDataPlanUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3105966381, 15172, 18431, [179, 97, 190, 89, 230, 158, 209, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb921492d_3b44_47ff_b361_be59e69ed1b0);
 }
 impl ::windows::runtime::RuntimeName for DataPlanUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.DataPlanUsage";
@@ -1263,7 +1263,7 @@ unsafe impl ::windows::runtime::RuntimeType for DataUsage {
 }
 unsafe impl ::windows::runtime::Interface for DataUsage {
     type Vtable = IDataUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3242401235, 45382, 19769, [185, 89, 12, 105, 176, 150, 197, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1431dd3_b146_4d39_b959_0c69b096c512);
 }
 impl ::windows::runtime::RuntimeName for DataUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.DataUsage";
@@ -1362,7 +1362,7 @@ impl ::windows::runtime::DefaultType for DomainConnectivityLevel {
 pub struct IAttributedNetworkUsage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAttributedNetworkUsage {
     type Vtable = IAttributedNetworkUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4150898745, 60578, 17899, [173, 225, 176, 54, 139, 117, 108, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf769b039_eca2_45eb_ade1_b0368b756c49);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1385,7 +1385,7 @@ pub struct IAttributedNetworkUsage_abi(
 pub struct ICellularApnContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICellularApnContext {
     type Vtable = ICellularApnContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1873095156, 61437, 17730, [154, 178, 112, 91, 191, 148, 148, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fa529f4_effd_4542_9ab2_705bbf94943a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1414,7 +1414,7 @@ pub struct ICellularApnContext_abi(
 pub struct ICellularApnContext2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICellularApnContext2 {
     type Vtable = ICellularApnContext2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1991306010, 44105, 17232, [177, 229, 220, 71, 99, 188, 105, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76b0eb1a_ac49_4350_b1e5_dc4763bc69c7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1433,7 +1433,7 @@ pub struct ICellularApnContext2_abi(
 pub struct IConnectionCost(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionCost {
     type Vtable = IConnectionCost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3134707753, 13334, 19216, [162, 2, 186, 192, 176, 117, 189, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbad7d829_3416_4b10_a202_bac0b075bdae);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1454,7 +1454,7 @@ pub struct IConnectionCost_abi(
 pub struct IConnectionCost2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionCost2 {
     type Vtable = IConnectionCost2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2383493637, 57865, 17737, [187, 37, 94, 13, 182, 145, 203, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e113a05_e209_4549_bb25_5e0db691cb05);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1472,7 +1472,7 @@ pub struct IConnectionCost2_abi(
 pub struct IConnectionProfile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionProfile {
     type Vtable = IConnectionProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1908020284, 22926, 18896, [132, 235, 143, 235, 174, 220, 193, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71ba143c_598e_49d0_84eb_8febaedcc195);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1501,7 +1501,7 @@ pub struct IConnectionProfile_abi(
 pub struct IConnectionProfile2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionProfile2 {
     type Vtable = IConnectionProfile2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3791933765, 19615, 16396, [145, 80, 126, 199, 214, 226, 136, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2045145_4c9f_400c_9150_7ec7d6e2888a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1531,7 +1531,7 @@ pub struct IConnectionProfile2_abi(
 pub struct IConnectionProfile3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionProfile3 {
     type Vtable = IConnectionProfile3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1468802344, 19673, 16737, [128, 69, 32, 28, 253, 91, 17, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x578c2528_4cd9_4161_8045_201cfd5b115c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1550,7 +1550,7 @@ pub struct IConnectionProfile3_abi(
 pub struct IConnectionProfile4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionProfile4 {
     type Vtable = IConnectionProfile4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2049786573, 33248, 19174, [171, 237, 171, 156, 161, 62, 183, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a2d42cd_81e0_4ae6_abed_ab9ca13eb714);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1569,7 +1569,7 @@ pub struct IConnectionProfile4_abi(
 pub struct IConnectionProfile5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionProfile5 {
     type Vtable = IConnectionProfile5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2234916551, 40051, 19424, [143, 20, 87, 142, 236, 113, 238, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85361ec7_9c73_4be0_8f14_578eec71ee0e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1589,7 +1589,7 @@ pub struct IConnectionProfile5_abi(
 pub struct IConnectionProfileFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionProfileFilter {
     type Vtable = IConnectionProfileFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(541883592, 48429, 20109, [164, 179, 69, 94, 195, 55, 56, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x204c7cc8_bd2d_4e8d_a4b3_455ec337388a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1618,7 +1618,7 @@ pub struct IConnectionProfileFilter_abi(
 pub struct IConnectionProfileFilter2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionProfileFilter2 {
     type Vtable = IConnectionProfileFilter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3439759073, 50172, 20397, [157, 220, 89, 63, 170, 75, 120, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd068ee1_c3fc_4fad_9ddc_593faa4b7885);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1649,7 +1649,7 @@ pub struct IConnectionProfileFilter2_abi(
 pub struct IConnectionProfileFilter3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionProfileFilter3 {
     type Vtable = IConnectionProfileFilter3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(178915776, 20500, 17532, [136, 9, 174, 228, 203, 10, 249, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0aaa09c0_5014_447c_8809_aee4cb0af94a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1670,7 +1670,7 @@ pub struct IConnectionProfileFilter3_abi(
 pub struct IConnectionSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionSession {
     type Vtable = IConnectionSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4287651148, 63547, 16816, [138, 12, 20, 98, 217, 197, 107, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff905d4c_f83b_41b0_8a0c_1462d9c56b73);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1688,7 +1688,7 @@ pub struct IConnectionSession_abi(
 pub struct IConnectivityInterval(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectivityInterval {
     type Vtable = IConnectivityInterval_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1336557567, 26438, 18468, [169, 100, 238, 216, 232, 127, 135, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4faa3fff_6746_4824_a964_eed8e87f8709);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1709,7 +1709,7 @@ pub struct IConnectivityInterval_abi(
 pub struct IConnectivityManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectivityManagerStatics {
     type Vtable = IConnectivityManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1361106097, 20401, 18608, [175, 201, 66, 224, 9, 42, 129, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5120d4b1_4fb1_48b0_afc9_42e0092a8164);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1730,7 +1730,7 @@ pub struct IConnectivityManagerStatics_abi(
 pub struct IDataPlanStatus(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPlanStatus {
     type Vtable = IDataPlanStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2541390732, 14469, 16627, [136, 81, 66, 205, 43, 213, 104, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x977a8b8c_3885_40f3_8851_42cd2bd568bb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1758,7 +1758,7 @@ pub struct IDataPlanStatus_abi(
 pub struct IDataPlanUsage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPlanUsage {
     type Vtable = IDataPlanUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3105966381, 15172, 18431, [179, 97, 190, 89, 230, 158, 209, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb921492d_3b44_47ff_b361_be59e69ed1b0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1778,7 +1778,7 @@ pub struct IDataPlanUsage_abi(
 pub struct IDataUsage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataUsage {
     type Vtable = IDataUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3242401235, 45382, 19769, [185, 89, 12, 105, 176, 150, 197, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1431dd3_b146_4d39_b959_0c69b096c512);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1797,7 +1797,7 @@ pub struct IDataUsage_abi(
 pub struct IIPInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIPInformation {
     type Vtable = IIPInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3629204960, 5007, 18391, [155, 58, 54, 187, 72, 140, 239, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd85145e0_138f_47d7_9b3a_36bb488cef33);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1817,7 +1817,7 @@ pub struct IIPInformation_abi(
 pub struct ILanIdentifier(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanIdentifier {
     type Vtable = ILanIdentifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1219122090, 4360, 17734, [166, 203, 154, 116, 218, 75, 123, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48aa53aa_1108_4546_a6cb_9a74da4b7ba0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1837,7 +1837,7 @@ pub struct ILanIdentifier_abi(
 pub struct ILanIdentifierData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanIdentifierData {
     type Vtable = ILanIdentifierData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2806940611, 54841, 17854, [163, 106, 196, 228, 174, 175, 109, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa74e83c3_d639_45be_a36a_c4e4aeaf6d9b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1857,7 +1857,7 @@ pub struct ILanIdentifierData_abi(
 pub struct INetworkAdapter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkAdapter {
     type Vtable = INetworkAdapter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(995372547, 21384, 18796, [168, 163, 175, 253, 57, 174, 194, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b542e03_5388_496c_a8a3_affd39aec2e6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1881,7 +1881,7 @@ pub struct INetworkAdapter_abi(
 pub struct INetworkInformationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkInformationStatics {
     type Vtable = INetworkInformationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1349843025, 38157, 16741, [156, 21, 54, 86, 25, 72, 30, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5074f851_950d_4165_9c15_365619481eea);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1913,7 +1913,7 @@ pub struct INetworkInformationStatics_abi(
 pub struct INetworkInformationStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkInformationStatics2 {
     type Vtable = INetworkInformationStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1167912212, 10290, 18870, [186, 110, 226, 101, 240, 71, 134, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x459ced14_2832_49b6_ba6e_e265f04786a8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1932,7 +1932,7 @@ pub struct INetworkInformationStatics2_abi(
 pub struct INetworkItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkItem {
     type Vtable = INetworkItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(29117753, 62944, 17767, [162, 140, 66, 8, 12, 131, 27, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01bc4d39_f5e0_4567_a28c_42080c831b2b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1951,7 +1951,7 @@ pub struct INetworkItem_abi(
 pub struct INetworkSecuritySettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkSecuritySettings {
     type Vtable = INetworkSecuritySettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2090892941, 37243, 19295, [184, 77, 40, 247, 165, 172, 84, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ca07e8d_917b_4b5f_b84d_28f7a5ac5402);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1970,7 +1970,7 @@ pub struct INetworkSecuritySettings_abi(
 pub struct INetworkStateChangeEventDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkStateChangeEventDetails {
     type Vtable = INetworkStateChangeEventDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(520942387, 55206, 17629, [164, 233, 104, 124, 71, 107, 144, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f0cf333_d7a6_44dd_a4e9_687c476b903d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1993,7 +1993,7 @@ pub struct INetworkStateChangeEventDetails_abi(
 pub struct INetworkStateChangeEventDetails2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkStateChangeEventDetails2 {
     type Vtable = INetworkStateChangeEventDetails2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3594764520, 12499, 20330, [173, 71, 106, 24, 115, 206, 179, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd643c0e8_30d3_4f6a_ad47_6a1873ceb3c1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2012,7 +2012,7 @@ pub struct INetworkStateChangeEventDetails2_abi(
 pub struct INetworkUsage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkUsage {
     type Vtable = INetworkUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1239060430, 39301, 18727, [191, 91, 7, 43, 92, 101, 248, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49da8fce_9985_4927_bf5b_072b5c65f8d9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2056,7 +2056,7 @@ unsafe impl ::windows::runtime::RuntimeType for IPInformation {
 }
 unsafe impl ::windows::runtime::Interface for IPInformation {
     type Vtable = IIPInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3629204960, 5007, 18391, [155, 58, 54, 187, 72, 140, 239, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd85145e0_138f_47d7_9b3a_36bb488cef33);
 }
 impl ::windows::runtime::RuntimeName for IPInformation {
     const NAME: &'static str = "Windows.Networking.Connectivity.IPInformation";
@@ -2108,7 +2108,7 @@ unsafe impl ::core::marker::Sync for IPInformation {}
 pub struct IProviderNetworkUsage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProviderNetworkUsage {
     type Vtable = IProviderNetworkUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1590074884, 31025, 18632, [184, 243, 70, 48, 15, 164, 39, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ec69e04_7931_48c8_b8f3_46300fa42728);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2128,7 +2128,7 @@ pub struct IProviderNetworkUsage_abi(
 pub struct IProxyConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProxyConfiguration {
     type Vtable = IProxyConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4013580468, 36868, 19926, [183, 216, 179, 229, 2, 244, 170, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef3a60b4_9004_4dd6_b7d8_b3e502f4aad0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2148,7 +2148,7 @@ pub struct IProxyConfiguration_abi(
 pub struct IRoutePolicy(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRoutePolicy {
     type Vtable = IRoutePolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(296469676, 4039, 17124, [135, 66, 86, 153, 35, 177, 202, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11abc4ac_0fc7_42e4_8742_569923b1ca11);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2168,7 +2168,7 @@ pub struct IRoutePolicy_abi(
 pub struct IRoutePolicyFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRoutePolicyFactory {
     type Vtable = IRoutePolicyFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(906131763, 41358, 19893, [166, 151, 245, 143, 167, 54, 78, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36027933_a18e_4db5_a697_f58fa7364e44);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2186,7 +2186,7 @@ pub struct IRoutePolicyFactory_abi(
 pub struct IWlanConnectionProfileDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWlanConnectionProfileDetails {
     type Vtable = IWlanConnectionProfileDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1444976843, 45914, 19441, [168, 132, 183, 85, 126, 136, 255, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x562098cb_b35a_4bf1_a884_b7557e88ff86);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2204,7 +2204,7 @@ pub struct IWlanConnectionProfileDetails_abi(
 pub struct IWwanConnectionProfileDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWwanConnectionProfileDetails {
     type Vtable = IWwanConnectionProfileDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(239970558, 33631, 19955, [130, 253, 223, 85, 110, 188, 9, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e4da8fe_835f_4df3_82fd_df556ebc09ef);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2225,7 +2225,7 @@ pub struct IWwanConnectionProfileDetails_abi(
 pub struct IWwanConnectionProfileDetails2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWwanConnectionProfileDetails2 {
     type Vtable = IWwanConnectionProfileDetails2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2054508254, 41453, 18610, [142, 146, 180, 96, 3, 61, 82, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a754ede_a1ed_48b2_8e92_b460033d52e2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2275,7 +2275,7 @@ unsafe impl ::windows::runtime::RuntimeType for LanIdentifier {
 }
 unsafe impl ::windows::runtime::Interface for LanIdentifier {
     type Vtable = ILanIdentifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1219122090, 4360, 17734, [166, 203, 154, 116, 218, 75, 123, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48aa53aa_1108_4546_a6cb_9a74da4b7ba0);
 }
 impl ::windows::runtime::RuntimeName for LanIdentifier {
     const NAME: &'static str = "Windows.Networking.Connectivity.LanIdentifier";
@@ -2350,7 +2350,7 @@ unsafe impl ::windows::runtime::RuntimeType for LanIdentifierData {
 }
 unsafe impl ::windows::runtime::Interface for LanIdentifierData {
     type Vtable = ILanIdentifierData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2806940611, 54841, 17854, [163, 106, 196, 228, 174, 175, 109, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa74e83c3_d639_45be_a36a_c4e4aeaf6d9b);
 }
 impl ::windows::runtime::RuntimeName for LanIdentifierData {
     const NAME: &'static str = "Windows.Networking.Connectivity.LanIdentifierData";
@@ -2457,7 +2457,7 @@ unsafe impl ::windows::runtime::RuntimeType for NetworkAdapter {
 }
 unsafe impl ::windows::runtime::Interface for NetworkAdapter {
     type Vtable = INetworkAdapter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(995372547, 21384, 18796, [168, 163, 175, 253, 57, 174, 194, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b542e03_5388_496c_a8a3_affd39aec2e6);
 }
 impl ::windows::runtime::RuntimeName for NetworkAdapter {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkAdapter";
@@ -2729,7 +2729,7 @@ unsafe impl ::windows::runtime::RuntimeType for NetworkItem {
 }
 unsafe impl ::windows::runtime::Interface for NetworkItem {
     type Vtable = INetworkItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(29117753, 62944, 17767, [162, 140, 66, 8, 12, 131, 27, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01bc4d39_f5e0_4567_a28c_42080c831b2b);
 }
 impl ::windows::runtime::RuntimeName for NetworkItem {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkItem";
@@ -2803,7 +2803,7 @@ unsafe impl ::windows::runtime::RuntimeType for NetworkSecuritySettings {
 }
 unsafe impl ::windows::runtime::Interface for NetworkSecuritySettings {
     type Vtable = INetworkSecuritySettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2090892941, 37243, 19295, [184, 77, 40, 247, 165, 172, 84, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ca07e8d_917b_4b5f_b84d_28f7a5ac5402);
 }
 impl ::windows::runtime::RuntimeName for NetworkSecuritySettings {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkSecuritySettings";
@@ -2925,7 +2925,7 @@ unsafe impl ::windows::runtime::RuntimeType for NetworkStateChangeEventDetails {
 }
 unsafe impl ::windows::runtime::Interface for NetworkStateChangeEventDetails {
     type Vtable = INetworkStateChangeEventDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(520942387, 55206, 17629, [164, 233, 104, 124, 71, 107, 144, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f0cf333_d7a6_44dd_a4e9_687c476b903d);
 }
 impl ::windows::runtime::RuntimeName for NetworkStateChangeEventDetails {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkStateChangeEventDetails";
@@ -2996,7 +2996,7 @@ unsafe impl ::windows::runtime::RuntimeType for NetworkStatusChangedEventHandler
 }
 unsafe impl ::windows::runtime::Interface for NetworkStatusChangedEventHandler {
     type Vtable = NetworkStatusChangedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1908020287, 22926, 18896, [132, 235, 143, 235, 174, 220, 193, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71ba143f_598e_49d0_84eb_8febaedcc195);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3132,7 +3132,7 @@ unsafe impl ::windows::runtime::RuntimeType for NetworkUsage {
 }
 unsafe impl ::windows::runtime::Interface for NetworkUsage {
     type Vtable = INetworkUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1239060430, 39301, 18727, [191, 91, 7, 43, 92, 101, 248, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49da8fce_9985_4927_bf5b_072b5c65f8d9);
 }
 impl ::windows::runtime::RuntimeName for NetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkUsage";
@@ -3247,7 +3247,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProviderNetworkUsage {
 }
 unsafe impl ::windows::runtime::Interface for ProviderNetworkUsage {
     type Vtable = IProviderNetworkUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1590074884, 31025, 18632, [184, 243, 70, 48, 15, 164, 39, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ec69e04_7931_48c8_b8f3_46300fa42728);
 }
 impl ::windows::runtime::RuntimeName for ProviderNetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.ProviderNetworkUsage";
@@ -3322,7 +3322,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProxyConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for ProxyConfiguration {
     type Vtable = IProxyConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4013580468, 36868, 19926, [183, 216, 179, 229, 2, 244, 170, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef3a60b4_9004_4dd6_b7d8_b3e502f4aad0);
 }
 impl ::windows::runtime::RuntimeName for ProxyConfiguration {
     const NAME: &'static str = "Windows.Networking.Connectivity.ProxyConfiguration";
@@ -3466,7 +3466,7 @@ unsafe impl ::windows::runtime::RuntimeType for RoutePolicy {
 }
 unsafe impl ::windows::runtime::Interface for RoutePolicy {
     type Vtable = IRoutePolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(296469676, 4039, 17124, [135, 66, 86, 153, 35, 177, 202, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11abc4ac_0fc7_42e4_8742_569923b1ca11);
 }
 impl ::windows::runtime::RuntimeName for RoutePolicy {
     const NAME: &'static str = "Windows.Networking.Connectivity.RoutePolicy";
@@ -3555,7 +3555,7 @@ unsafe impl ::windows::runtime::RuntimeType for WlanConnectionProfileDetails {
 }
 unsafe impl ::windows::runtime::Interface for WlanConnectionProfileDetails {
     type Vtable = IWlanConnectionProfileDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1444976843, 45914, 19441, [168, 132, 183, 85, 126, 136, 255, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x562098cb_b35a_4bf1_a884_b7557e88ff86);
 }
 impl ::windows::runtime::RuntimeName for WlanConnectionProfileDetails {
     const NAME: &'static str = "Windows.Networking.Connectivity.WlanConnectionProfileDetails";
@@ -3662,7 +3662,7 @@ unsafe impl ::windows::runtime::RuntimeType for WwanConnectionProfileDetails {
 }
 unsafe impl ::windows::runtime::Interface for WwanConnectionProfileDetails {
     type Vtable = IWwanConnectionProfileDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(239970558, 33631, 19955, [130, 253, 223, 85, 110, 188, 9, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e4da8fe_835f_4df3_82fd_df556ebc09ef);
 }
 impl ::windows::runtime::RuntimeName for WwanConnectionProfileDetails {
     const NAME: &'static str = "Windows.Networking.Connectivity.WwanConnectionProfileDetails";

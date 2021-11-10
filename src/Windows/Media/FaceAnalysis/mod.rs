@@ -19,7 +19,7 @@ unsafe impl ::windows::runtime::RuntimeType for DetectedFace {
 }
 unsafe impl ::windows::runtime::Interface for DetectedFace {
     type Vtable = IDetectedFace_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2181092436, 26300, 13535, [148, 16, 232, 148, 0, 25, 84, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8200d454_66bc_34df_9410_e89400195414);
 }
 impl ::windows::runtime::RuntimeName for DetectedFace {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.DetectedFace";
@@ -160,7 +160,7 @@ unsafe impl ::windows::runtime::RuntimeType for FaceDetector {
 }
 unsafe impl ::windows::runtime::Interface for FaceDetector {
     type Vtable = IFaceDetector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(381055708, 65135, 12567, [141, 149, 195, 240, 77, 81, 99, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16b672dc_fe6f_3117_8d95_c3f04d51630c);
 }
 impl ::windows::runtime::RuntimeName for FaceDetector {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceDetector";
@@ -292,7 +292,7 @@ unsafe impl ::windows::runtime::RuntimeType for FaceTracker {
 }
 unsafe impl ::windows::runtime::Interface for FaceTracker {
     type Vtable = IFaceTracker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1806073228, 43073, 17440, [147, 230, 36, 32, 161, 136, 79, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ba67d8c_a841_4420_93e6_2420a1884fcf);
 }
 impl ::windows::runtime::RuntimeName for FaceTracker {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceTracker";
@@ -344,7 +344,7 @@ unsafe impl ::core::marker::Sync for FaceTracker {}
 pub struct IDetectedFace(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDetectedFace {
     type Vtable = IDetectedFace_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2181092436, 26300, 13535, [148, 16, 232, 148, 0, 25, 84, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8200d454_66bc_34df_9410_e89400195414);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -363,7 +363,7 @@ pub struct IDetectedFace_abi(
 pub struct IFaceDetector(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceDetector {
     type Vtable = IFaceDetector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(381055708, 65135, 12567, [141, 149, 195, 240, 77, 81, 99, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16b672dc_fe6f_3117_8d95_c3f04d51630c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -392,7 +392,7 @@ pub struct IFaceDetector_abi(
 pub struct IFaceDetectorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceDetectorStatics {
     type Vtable = IFaceDetectorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3154390375, 36935, 13302, [136, 27, 103, 70, 193, 178, 24, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc042d67_9047_33f6_881b_6746c1b218b8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -416,7 +416,7 @@ pub struct IFaceDetectorStatics_abi(
 pub struct IFaceTracker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceTracker {
     type Vtable = IFaceTracker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1806073228, 43073, 17440, [147, 230, 36, 32, 161, 136, 79, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ba67d8c_a841_4420_93e6_2420a1884fcf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -443,7 +443,7 @@ pub struct IFaceTracker_abi(
 pub struct IFaceTrackerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceTrackerStatics {
     type Vtable = IFaceTrackerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3915551128, 6145, 16293, [147, 46, 49, 215, 103, 175, 108, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9629198_1801_3fa5_932e_31d767af6c4d);
 }
 #[repr(C)]
 #[doc(hidden)]

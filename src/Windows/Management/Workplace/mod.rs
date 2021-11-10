@@ -4,7 +4,7 @@
 pub struct IMdmAllowPolicyStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMdmAllowPolicyStatics {
     type Vtable = IMdmAllowPolicyStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3281455591, 29724, 16882, [164, 182, 49, 76, 49, 80, 37, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc39709e7_741c_41f2_a4b6_314c31502586);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25,7 +25,7 @@ pub struct IMdmAllowPolicyStatics_abi(
 pub struct IMdmPolicyStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMdmPolicyStatics2 {
     type Vtable = IMdmPolicyStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3382474022, 980, 18937, [169, 147, 67, 239, 204, 210, 101, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc99c7526_03d4_49f9_a993_43efccd265c4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -43,7 +43,7 @@ pub struct IMdmPolicyStatics2_abi(
 pub struct IWorkplaceSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWorkplaceSettingsStatics {
     type Vtable = IWorkplaceSettingsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3831984125, 11666, 19464, [186, 212, 246, 89, 11, 84, 166, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4676ffd_2d92_4c08_bad4_f6590b54a6d3);
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -205,7 +205,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppInstallItem {
 }
 unsafe impl ::windows::runtime::Interface for AppInstallItem {
     type Vtable = IAppInstallItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1238622123, 5770, 19647, [169, 58, 158, 68, 140, 130, 115, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49d3dfab_168a_4cbf_a93a_9e448c82737d);
 }
 impl ::windows::runtime::RuntimeName for AppInstallItem {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallItem";
@@ -796,7 +796,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppInstallManager {
 }
 unsafe impl ::windows::runtime::Interface for AppInstallManager {
     type Vtable = IAppInstallManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2471747952, 33857, 19269, [189, 114, 124, 47, 169, 37, 190, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9353e170_8441_4b45_bd72_7c2fa925beee);
 }
 impl ::windows::runtime::RuntimeName for AppInstallManager {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManager";
@@ -862,7 +862,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppInstallManagerItemEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for AppInstallManagerItemEventArgs {
     type Vtable = IAppInstallManagerItemEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3159381827, 18036, 19921, [149, 126, 194, 86, 130, 8, 106, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc505743_4674_4dd1_957e_c25682086a14);
 }
 impl ::windows::runtime::RuntimeName for AppInstallManagerItemEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManagerItemEventArgs";
@@ -1124,7 +1124,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppInstallOptions {
 }
 unsafe impl ::windows::runtime::Interface for AppInstallOptions {
     type Vtable = IAppInstallOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3380642560, 7352, 20150, [140, 159, 106, 48, 198, 74, 91, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9808300_1cb8_4eb6_8c9f_6a30c64a5b51);
 }
 impl ::windows::runtime::RuntimeName for AppInstallOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallOptions";
@@ -1281,7 +1281,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppInstallStatus {
 }
 unsafe impl ::windows::runtime::Interface for AppInstallStatus {
     type Vtable = IAppInstallStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2473446650, 9296, 16678, [136, 177, 97, 39, 166, 68, 221, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x936dccfa_2450_4126_88b1_6127a644dd5c);
 }
 impl ::windows::runtime::RuntimeName for AppInstallStatus {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallStatus";
@@ -1432,7 +1432,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppUpdateOptions {
 }
 unsafe impl ::windows::runtime::Interface for AppUpdateOptions {
     type Vtable = IAppUpdateOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(653307951, 49907, 19178, [175, 140, 99, 8, 221, 157, 184, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26f0b02f_c2f3_4aea_af8c_6308dd9db85f);
 }
 impl ::windows::runtime::RuntimeName for AppUpdateOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppUpdateOptions";
@@ -1522,7 +1522,7 @@ unsafe impl ::windows::runtime::RuntimeType for GetEntitlementResult {
 }
 unsafe impl ::windows::runtime::Interface for GetEntitlementResult {
     type Vtable = IGetEntitlementResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1962705983, 6814, 17929, [142, 77, 129, 144, 134, 208, 138, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74fc843f_1a9e_4609_8e4d_819086d08a3d);
 }
 impl ::windows::runtime::RuntimeName for GetEntitlementResult {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementResult";
@@ -1598,7 +1598,7 @@ impl ::windows::runtime::DefaultType for GetEntitlementStatus {
 pub struct IAppInstallItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallItem {
     type Vtable = IAppInstallItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1238622123, 5770, 19647, [169, 58, 158, 68, 140, 130, 115, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49d3dfab_168a_4cbf_a93a_9e448c82737d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1631,7 +1631,7 @@ pub struct IAppInstallItem_abi(
 pub struct IAppInstallItem2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallItem2 {
     type Vtable = IAppInstallItem2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3549899512, 16576, 20439, [170, 108, 10, 161, 60, 166, 24, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3972af8_40c0_4fd7_aa6c_0aa13ca6188c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1651,7 +1651,7 @@ pub struct IAppInstallItem2_abi(
 pub struct IAppInstallItem3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallItem3 {
     type Vtable = IAppInstallItem3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1866320280, 56647, 17212, [146, 52, 86, 1, 114, 214, 122, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f3dc998_dd47_433c_9234_560172d67a45);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1671,7 +1671,7 @@ pub struct IAppInstallItem3_abi(
 pub struct IAppInstallItem4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallItem4 {
     type Vtable = IAppInstallItem4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3268529682, 29183, 20424, [181, 64, 69, 61, 75, 55, 225, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2d1ce12_71ff_4fc8_b540_453d4b37e1d1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1690,7 +1690,7 @@ pub struct IAppInstallItem4_abi(
 pub struct IAppInstallItem5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallItem5 {
     type Vtable = IAppInstallItem5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1427171276, 16502, 18955, [148, 114, 194, 29, 157, 56, 14, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5510e7cc_4076_4a0b_9472_c21d9d380e55);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1717,7 +1717,7 @@ pub struct IAppInstallItem5_abi(
 pub struct IAppInstallManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallManager {
     type Vtable = IAppInstallManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2471747952, 33857, 19269, [189, 114, 124, 47, 169, 37, 190, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9353e170_8441_4b45_bd72_7c2fa925beee);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1765,7 +1765,7 @@ pub struct IAppInstallManager_abi(
 pub struct IAppInstallManager2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallManager2 {
     type Vtable = IAppInstallManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(378763345, 60727, 18445, [131, 20, 82, 226, 124, 3, 240, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16937851_ed37_480d_8314_52e27c03f04a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1806,7 +1806,7 @@ pub struct IAppInstallManager2_abi(
 pub struct IAppInstallManager3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallManager3 {
     type Vtable = IAppInstallManager3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2511489815, 59754, 19726, [132, 225, 200, 203, 65, 122, 1, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95b24b17_e96a_4d0e_84e1_c8cb417a0178);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1865,7 +1865,7 @@ pub struct IAppInstallManager3_abi(
 pub struct IAppInstallManager4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallManager4 {
     type Vtable = IAppInstallManager4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(638200342, 23198, 20157, [185, 68, 242, 186, 117, 195, 17, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x260a2a16_5a9e_4ebd_b944_f2ba75c31159);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1888,7 +1888,7 @@ pub struct IAppInstallManager4_abi(
 pub struct IAppInstallManager5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallManager5 {
     type Vtable = IAppInstallManager5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1020771916, 7145, 20351, [182, 117, 170, 29, 100, 165, 41, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cd7be4c_1be9_4f7f_b675_aa1d64a529b2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1907,7 +1907,7 @@ pub struct IAppInstallManager5_abi(
 pub struct IAppInstallManager6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallManager6 {
     type Vtable = IAppInstallManager6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3387413512, 62074, 17521, [178, 244, 231, 110, 252, 190, 188, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9e7d408_f27a_4471_b2f4_e76efcbebcca);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1943,7 +1943,7 @@ pub struct IAppInstallManager6_abi(
 pub struct IAppInstallManager7(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallManager7 {
     type Vtable = IAppInstallManager7_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2783869744, 54756, 18851, [152, 83, 61, 176, 50, 3, 50, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5ee7b30_d5e4_49a3_9853_3db03203321d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1961,7 +1961,7 @@ pub struct IAppInstallManager7_abi(
 pub struct IAppInstallManagerItemEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallManagerItemEventArgs {
     type Vtable = IAppInstallManagerItemEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3159381827, 18036, 19921, [149, 126, 194, 86, 130, 8, 106, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc505743_4674_4dd1_957e_c25682086a14);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1979,7 +1979,7 @@ pub struct IAppInstallManagerItemEventArgs_abi(
 pub struct IAppInstallOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallOptions {
     type Vtable = IAppInstallOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3380642560, 7352, 20150, [140, 159, 106, 48, 198, 74, 91, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9808300_1cb8_4eb6_8c9f_6a30c64a5b51);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2010,7 +2010,7 @@ pub struct IAppInstallOptions_abi(
 pub struct IAppInstallOptions2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallOptions2 {
     type Vtable = IAppInstallOptions2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2315567319, 51531, 16990, [149, 180, 191, 39, 250, 234, 238, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a04c0d7_c94b_425e_95b4_bf27faeaee89);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2045,7 +2045,7 @@ pub struct IAppInstallOptions2_abi(
 pub struct IAppInstallStatus(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallStatus {
     type Vtable = IAppInstallStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2473446650, 9296, 16678, [136, 177, 97, 39, 166, 68, 221, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x936dccfa_2450_4126_88b1_6127a644dd5c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2067,7 +2067,7 @@ pub struct IAppInstallStatus_abi(
 pub struct IAppInstallStatus2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallStatus2 {
     type Vtable = IAppInstallStatus2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2531754378, 24210, 19113, [142, 220, 88, 254, 212, 184, 126, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96e7818a_5e92_4aa9_8edc_58fed4b87e00);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2087,7 +2087,7 @@ pub struct IAppInstallStatus2_abi(
 pub struct IAppInstallStatus3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallStatus3 {
     type Vtable = IAppInstallStatus3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3414690902, 33659, 19276, [158, 187, 109, 68, 160, 169, 99, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb880c56_837b_4b4c_9ebb_6d44a0a96307);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2105,7 +2105,7 @@ pub struct IAppInstallStatus3_abi(
 pub struct IAppUpdateOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUpdateOptions {
     type Vtable = IAppUpdateOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(653307951, 49907, 19178, [175, 140, 99, 8, 221, 157, 184, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26f0b02f_c2f3_4aea_af8c_6308dd9db85f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2126,7 +2126,7 @@ pub struct IAppUpdateOptions_abi(
 pub struct IAppUpdateOptions2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUpdateOptions2 {
     type Vtable = IAppUpdateOptions2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4100222472, 60710, 19449, [150, 121, 72, 246, 40, 229, 61, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf4646e08_ed26_4bf9_9679_48f628e53df8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2145,7 +2145,7 @@ pub struct IAppUpdateOptions2_abi(
 pub struct IGetEntitlementResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGetEntitlementResult {
     type Vtable = IGetEntitlementResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1962705983, 6814, 17929, [142, 77, 129, 144, 134, 208, 138, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74fc843f_1a9e_4609_8e4d_819086d08a3d);
 }
 #[repr(C)]
 #[doc(hidden)]

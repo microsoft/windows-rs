@@ -10,7 +10,7 @@ pub mod Spatial;
 pub struct IPerceptionTimestamp(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionTimestamp {
     type Vtable = IPerceptionTimestamp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2277656580, 41518, 19163, [186, 38, 215, 142, 246, 57, 188, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87c24804_a22e_4adb_ba26_d78ef639bcf4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -31,7 +31,7 @@ pub struct IPerceptionTimestamp_abi(
 pub struct IPerceptionTimestamp2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionTimestamp2 {
     type Vtable = IPerceptionTimestamp2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3813980141, 11217, 16823, [158, 208, 116, 161, 92, 53, 69, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe354b7ed_2bd1_41b7_9ed0_74a15c354537);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -50,7 +50,7 @@ pub struct IPerceptionTimestamp2_abi(
 pub struct IPerceptionTimestampHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionTimestampHelperStatics {
     type Vtable = IPerceptionTimestampHelperStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1202065876, 43487, 20188, [133, 93, 244, 211, 57, 217, 103, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47a611d4_a9df_4edc_855d_f4d339d967ac);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -69,7 +69,7 @@ pub struct IPerceptionTimestampHelperStatics_abi(
 pub struct IPerceptionTimestampHelperStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionTimestampHelperStatics2 {
     type Vtable = IPerceptionTimestampHelperStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1943119870, 16313, 17777, [135, 212, 60, 146, 10, 94, 134, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73d1a7fe_3fb9_4571_87d4_3c920a5e86eb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -121,7 +121,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionTimestamp {
 }
 unsafe impl ::windows::runtime::Interface for PerceptionTimestamp {
     type Vtable = IPerceptionTimestamp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2277656580, 41518, 19163, [186, 38, 215, 142, 246, 57, 188, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87c24804_a22e_4adb_ba26_d78ef639bcf4);
 }
 impl ::windows::runtime::RuntimeName for PerceptionTimestamp {
     const NAME: &'static str = "Windows.Perception.PerceptionTimestamp";

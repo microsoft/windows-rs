@@ -4,7 +4,7 @@
 pub struct IRadio(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadio {
     type Vtable = IRadio_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(622926047, 45886, 16746, [135, 95, 28, 243, 138, 226, 216, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x252118df_b33e_416a_875f_1cf38ae2d83e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30,7 +30,7 @@ pub struct IRadio_abi(
 pub struct IRadioStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadioStatics {
     type Vtable = IRadioStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1605804334, 26571, 18094, [170, 233, 101, 145, 159, 134, 239, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5fb6a12e_67cb_46ae_aae9_65919f86eff4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -143,7 +143,7 @@ unsafe impl ::windows::runtime::RuntimeType for Radio {
 }
 unsafe impl ::windows::runtime::Interface for Radio {
     type Vtable = IRadio_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(622926047, 45886, 16746, [135, 95, 28, 243, 138, 226, 216, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x252118df_b33e_416a_875f_1cf38ae2d83e);
 }
 impl ::windows::runtime::RuntimeName for Radio {
     const NAME: &'static str = "Windows.Devices.Radios.Radio";

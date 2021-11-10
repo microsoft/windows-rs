@@ -30,7 +30,7 @@ impl ::windows::runtime::RuntimeName for CoreUserActivityManager {
 pub struct ICoreUserActivityManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreUserActivityManagerStatics {
     type Vtable = ICoreUserActivityManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3392854786, 42174, 19789, [191, 168, 103, 149, 244, 38, 78, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca3adb02_a4be_4d4d_bfa8_6795f4264efb);
 }
 #[repr(C)]
 #[doc(hidden)]

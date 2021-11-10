@@ -113,7 +113,7 @@ impl IWdsTransportCacheable {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportCacheable {
     type Vtable = IWdsTransportCacheable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1185777995, 2987, 18396, [132, 178, 123, 85, 63, 29, 143, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46ad894b_0bab_47dc_84b2_7b553f1d8f80);
 }
 impl ::core::convert::From<IWdsTransportCacheable> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportCacheable) -> Self {
@@ -248,7 +248,7 @@ impl IWdsTransportClient {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportClient {
     type Vtable = IWdsTransportClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3051079994, 51902, 18122, [131, 127, 62, 68, 233, 60, 101, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5dbc93a_cabe_46ca_837f_3e44e93c6545);
 }
 impl ::core::convert::From<IWdsTransportClient> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportClient) -> Self {
@@ -348,7 +348,7 @@ impl IWdsTransportCollection {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportCollection {
     type Vtable = IWdsTransportCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3099216666, 12276, 17323, [153, 108, 178, 177, 10, 145, 166, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8ba4b1a_2ff4_43ab_996c_b2b10a91a6eb);
 }
 impl ::core::convert::From<IWdsTransportCollection> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportCollection) -> Self {
@@ -459,7 +459,7 @@ impl IWdsTransportConfigurationManager {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportConfigurationManager {
     type Vtable = IWdsTransportConfigurationManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2227980153, 17117, 18322, [137, 30, 19, 33, 214, 215, 75, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84cc4779_42dd_4792_891e_1321d6d74b44);
 }
 impl ::core::convert::From<IWdsTransportConfigurationManager> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportConfigurationManager) -> Self {
@@ -612,7 +612,7 @@ impl IWdsTransportConfigurationManager2 {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportConfigurationManager2 {
     type Vtable = IWdsTransportConfigurationManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3503840431, 41299, 20253, [169, 221, 150, 244, 49, 197, 7, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0d85caf_a153_4f1d_a9dd_96f431c50717);
 }
 impl ::core::convert::From<IWdsTransportConfigurationManager2> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportConfigurationManager2) -> Self {
@@ -735,7 +735,7 @@ impl IWdsTransportContent {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportContent {
     type Vtable = IWdsTransportContent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3557152529, 662, 19124, [168, 96, 172, 125, 50, 230, 87, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd405d711_0296_4ab4_a860_ac7d32e65798);
 }
 impl ::core::convert::From<IWdsTransportContent> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportContent) -> Self {
@@ -833,7 +833,7 @@ impl IWdsTransportContentProvider {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportContentProvider {
     type Vtable = IWdsTransportContentProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3108544292, 61977, 19151, [170, 215, 38, 92, 124, 8, 166, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9489f24_f219_4acf_aad7_265c7c08a6ae);
 }
 impl ::core::convert::From<IWdsTransportContentProvider> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportContentProvider) -> Self {
@@ -976,7 +976,7 @@ impl IWdsTransportDiagnosticsPolicy {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportDiagnosticsPolicy {
     type Vtable = IWdsTransportDiagnosticsPolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(330514172, 30806, 20321, [154, 89, 141, 230, 123, 107, 135, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13b33efc_7856_4f61_9a59_8de67b6b87b6);
 }
 impl ::core::convert::From<IWdsTransportDiagnosticsPolicy> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportDiagnosticsPolicy) -> Self {
@@ -1078,7 +1078,7 @@ impl IWdsTransportManager {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportManager {
     type Vtable = IWdsTransportManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1527592437, 6931, 19197, [184, 120, 101, 38, 220, 52, 11, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b0d35f5_1b13_4afd_b878_6526dc340b5d);
 }
 impl ::core::convert::From<IWdsTransportManager> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportManager) -> Self {
@@ -1233,7 +1233,7 @@ impl IWdsTransportMulticastSessionPolicy {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportMulticastSessionPolicy {
     type Vtable = IWdsTransportMulticastSessionPolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1314345935, 26860, 17668, [169, 81, 74, 0, 50, 102, 96, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e5753cf_68ec_4504_a951_4a003266606b);
 }
 impl ::core::convert::From<IWdsTransportMulticastSessionPolicy> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportMulticastSessionPolicy) -> Self {
@@ -1440,7 +1440,7 @@ impl IWdsTransportNamespace {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportNamespace {
     type Vtable = IWdsTransportNamespace_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4199948119, 64495, 20179, [176, 86, 18, 124, 177, 179, 59, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa561f57_fbef_4ed3_b056_127cb1b33b84);
 }
 impl ::core::convert::From<IWdsTransportNamespace> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportNamespace) -> Self {
@@ -1678,7 +1678,7 @@ impl IWdsTransportNamespaceAutoCast {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportNamespaceAutoCast {
     type Vtable = IWdsTransportNamespaceAutoCast_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2912098930, 50365, 19521, [143, 188, 89, 201, 199, 72, 223, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad931a72_c4bd_4c41_8fbc_59c9c748df9e);
 }
 impl ::core::convert::From<IWdsTransportNamespaceAutoCast> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportNamespaceAutoCast) -> Self {
@@ -1815,7 +1815,7 @@ impl IWdsTransportNamespaceManager {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportNamespaceManager {
     type Vtable = IWdsTransportNamespaceManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1042471414, 14199, 19864, [131, 225, 249, 134, 150, 113, 123, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e22d9f6_3777_4d98_83e1_f98696717ba3);
 }
 impl ::core::convert::From<IWdsTransportNamespaceManager> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportNamespaceManager) -> Self {
@@ -2032,7 +2032,7 @@ impl IWdsTransportNamespaceScheduledCast {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportNamespaceScheduledCast {
     type Vtable = IWdsTransportNamespaceScheduledCast_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(943771343, 55148, 16750, [164, 204, 49, 199, 65, 210, 135, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3840cecf_d76c_416e_a4cc_31c741d2874b);
 }
 impl ::core::convert::From<IWdsTransportNamespaceScheduledCast> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportNamespaceScheduledCast) -> Self {
@@ -2313,7 +2313,7 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportNamespaceScheduledCastAutoStart {
     type Vtable = IWdsTransportNamespaceScheduledCastAutoStart_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3590762301, 60060, 16921, [150, 30, 116, 145, 214, 24, 217, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd606af3d_ea9c_4219_961e_7491d618d9b9);
 }
 impl ::core::convert::From<IWdsTransportNamespaceScheduledCastAutoStart> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
@@ -2600,7 +2600,7 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportNamespaceScheduledCastManualStart {
     type Vtable = IWdsTransportNamespaceScheduledCastManualStart_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(20868684, 59047, 20405, [183, 255, 217, 245, 218, 128, 92, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x013e6e4c_e6a7_4fb5_b7ff_d9f5da805c31);
 }
 impl ::core::convert::From<IWdsTransportNamespaceScheduledCastManualStart> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportNamespaceScheduledCastManualStart) -> Self {
@@ -2765,7 +2765,7 @@ impl IWdsTransportServer {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportServer {
     type Vtable = IWdsTransportServer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(164417683, 33549, 17220, [163, 10, 115, 174, 142, 143, 202, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09ccd093_830d_4344_a30a_73ae8e8fca90);
 }
 impl ::core::convert::From<IWdsTransportServer> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportServer) -> Self {
@@ -2901,7 +2901,7 @@ impl IWdsTransportServer2 {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportServer2 {
     type Vtable = IWdsTransportServer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(628005279, 28148, 17720, [129, 185, 133, 123, 154, 184, 251, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x256e999f_6df4_4538_81b9_857b9ab8fb47);
 }
 impl ::core::convert::From<IWdsTransportServer2> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportServer2) -> Self {
@@ -3103,7 +3103,7 @@ impl IWdsTransportServicePolicy {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportServicePolicy {
     type Vtable = IWdsTransportServicePolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3108406648, 40747, 18636, [178, 122, 166, 7, 153, 194, 117, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9468578_9f2b_48cc_b27a_a60799c2750c);
 }
 impl ::core::convert::From<IWdsTransportServicePolicy> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportServicePolicy) -> Self {
@@ -3345,7 +3345,7 @@ impl IWdsTransportServicePolicy2 {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportServicePolicy2 {
     type Vtable = IWdsTransportServicePolicy2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1707187804, 43646, 19345, [137, 68, 145, 224, 229, 87, 39, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65c19e5c_aa7e_4b91_8944_91e0e5572797);
 }
 impl ::core::convert::From<IWdsTransportServicePolicy2> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportServicePolicy2) -> Self {
@@ -3520,7 +3520,7 @@ impl IWdsTransportSession {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportSession {
     type Vtable = IWdsTransportSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4109363848, 26033, 20272, [164, 185, 39, 147, 152, 119, 150, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf4efea88_65b1_4f30_a4b9_2793987796fb);
 }
 impl ::core::convert::From<IWdsTransportSession> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportSession) -> Self {
@@ -3623,7 +3623,7 @@ impl IWdsTransportSetupManager {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportSetupManager {
     type Vtable = IWdsTransportSetupManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4146299941, 61352, 16548, [174, 249, 201, 141, 150, 156, 11, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7238425_efa8_40a4_aef9_c98d969c0b75);
 }
 impl ::core::convert::From<IWdsTransportSetupManager> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportSetupManager) -> Self {
@@ -3765,7 +3765,7 @@ impl IWdsTransportSetupManager2 {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportSetupManager2 {
     type Vtable = IWdsTransportSetupManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(46037466, 32414, 17254, [139, 110, 42, 169, 169, 27, 228, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02be79da_7e9e_4366_8b6e_2aa9a91be47f);
 }
 impl ::core::convert::From<IWdsTransportSetupManager2> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportSetupManager2) -> Self {
@@ -3899,7 +3899,7 @@ impl IWdsTransportTftpClient {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportTftpClient {
     type Vtable = IWdsTransportTftpClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2955072430, 34893, 19845, [177, 70, 83, 50, 14, 118, 239, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb022d3ae_884d_4d85_b146_53320e76ef62);
 }
 impl ::core::convert::From<IWdsTransportTftpClient> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportTftpClient) -> Self {
@@ -3981,7 +3981,7 @@ impl IWdsTransportTftpManager {
 }
 unsafe impl ::windows::runtime::Interface for IWdsTransportTftpManager {
     type Vtable = IWdsTransportTftpManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(321365960, 44682, 20403, [129, 80, 19, 98, 39, 195, 126, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1327a7c8_ae8a_4fb3_8150_136227c37e9a);
 }
 impl ::core::convert::From<IWdsTransportTftpManager> for ::windows::runtime::IUnknown {
     fn from(value: IWdsTransportTftpManager) -> Self {
@@ -6451,8 +6451,8 @@ pub unsafe fn WdsCliWaitForTransfer<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const WdsTransportCacheable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1884883734, 61766, 18109, [189, 157, 74, 170, 144, 8, 75, 245]);
-pub const WdsTransportClient: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1725089257, 4086, 18924, [151, 51, 218, 251, 30, 1, 223, 28]);
+pub const WdsTransportCacheable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70590b16_f146_46bd_bd9d_4aaa90084bf5);
+pub const WdsTransportClient: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66d2c5e9_0ff6_49ec_9733_dafb1e01df1c);
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn WdsTransportClientAddRefBuffer(pvbuffer: *const ::core::ffi::c_void) -> u32 {
@@ -6644,20 +6644,20 @@ pub unsafe fn WdsTransportClientWaitForCompletion<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const WdsTransportCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3354495753, 14622, 17262, [177, 11, 195, 239, 70, 242, 195, 79]);
-pub const WdsTransportConfigurationManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2269378164, 36940, 18378, [133, 18, 53, 254, 152, 246, 176, 172]);
-pub const WdsTransportContent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(176758759, 19007, 19557, [182, 242, 20, 103, 97, 150, 121, 234]);
-pub const WdsTransportContentProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3770577951, 23157, 20153, [138, 45, 94, 24, 155, 69, 243, 39]);
-pub const WdsTransportDiagnosticsPolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3946001377, 42925, 18165, [128, 214, 107, 116, 2, 4, 229, 9]);
-pub const WdsTransportManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4061471734, 33660, 19032, [175, 153, 138, 126, 39, 248, 255, 89]);
-pub const WdsTransportMulticastSessionPolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1013695476, 25624, 18218, [182, 241, 82, 212, 87, 25, 84, 55]);
-pub const WdsTransportNamespace: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3627571048, 1842, 20161, [149, 234, 22, 218, 88, 25, 8, 161]);
-pub const WdsTransportNamespaceAutoCast: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2962355624, 27289, 18317, [178, 59, 9, 232, 254, 224, 69, 116]);
-pub const WdsTransportNamespaceManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4035763043, 34270, 18984, [161, 169, 92, 163, 231, 239, 218, 115]);
-pub const WdsTransportNamespaceScheduledCast: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3134986391, 28709, 17643, [145, 8, 251, 97, 196, 5, 87, 146]);
-pub const WdsTransportNamespaceScheduledCastAutoStart: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2702209106, 4652, 19329, [155, 124, 56, 110, 104, 85, 56, 63]);
-pub const WdsTransportNamespaceScheduledCastManualStart: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3554779818, 51884, 17934, [185, 138, 71, 249, 243, 24, 161, 250]);
-pub const WdsTransportServer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3927553603, 19167, 17427, [148, 44, 20, 243, 121, 17, 135, 96]);
+pub const WdsTransportCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7f18b09_391e_436e_b10b_c3ef46f2c34f);
+pub const WdsTransportConfigurationManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8743f674_904c_47ca_8512_35fe98f6b0ac);
+pub const WdsTransportContent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a891fe7_4a3f_4c65_b6f2_1467619679ea);
+pub const WdsTransportContentProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0be741f_5a75_4eb9_8a2d_5e189b45f327);
+pub const WdsTransportDiagnosticsPolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb3333e1_a7ad_46f5_80d6_6b740204e509);
+pub const WdsTransportManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf21523f6_837c_4a58_af99_8a7e27f8ff59);
+pub const WdsTransportMulticastSessionPolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c6bc3f4_6418_472a_b6f1_52d457195437);
+pub const WdsTransportNamespace: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8385768_0732_4ec1_95ea_16da581908a1);
+pub const WdsTransportNamespaceAutoCast: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb091f5a8_6a99_478d_b23b_09e8fee04574);
+pub const WdsTransportNamespaceManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf08cdb63_85de_4a28_a1a9_5ca3e7efda73);
+pub const WdsTransportNamespaceScheduledCast: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbadc1897_7025_44eb_9108_fb61c4055792);
+pub const WdsTransportNamespaceScheduledCastAutoStart: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1107052_122c_4b81_9b7c_386e6855383f);
+pub const WdsTransportNamespaceScheduledCastManualStart: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3e1a2aa_caac_460e_b98a_47f9f318a1fa);
+pub const WdsTransportServer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea19b643_4adf_4413_942c_14f379118760);
 #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -6748,8 +6748,8 @@ pub unsafe fn WdsTransportServerTraceV<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const WdsTransportServicePolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1705831132, 12043, 20291, [159, 77, 129, 24, 101, 216, 206, 173]);
-pub const WdsTransportSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1956300000, 26556, 18243, [191, 229, 202, 203, 31, 38, 245, 127]);
-pub const WdsTransportSetupManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3351177901, 40708, 18723, [159, 12, 251, 245, 43, 199, 89, 15]);
-pub const WdsTransportTftpClient: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1345599781, 31836, 19596, [150, 196, 173, 159, 165, 0, 95, 186]);
-pub const WdsTransportTftpManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3370769570, 12865, 20045, [184, 6, 188, 116, 1, 157, 254, 218]);
+pub const WdsTransportServicePolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65aceadc_2f0b_4f43_9f4d_811865d8cead);
+pub const WdsTransportSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x749ac4e0_67bc_4743_bfe5_cacb1f26f57f);
+pub const WdsTransportSetupManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7beeaad_9f04_4923_9f0c_fbf52bc7590f);
+pub const WdsTransportTftpClient: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50343925_7c5c_4c8c_96c4_ad9fa5005fba);
+pub const WdsTransportTftpManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8e9dca2_3241_4e4d_b806_bc74019dfeda);

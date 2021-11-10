@@ -93,7 +93,7 @@ unsafe impl ::windows::runtime::RuntimeType for CastingConnection {
 }
 unsafe impl ::windows::runtime::Interface for CastingConnection {
     type Vtable = ICastingConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3449099859, 49905, 17560, [139, 120, 95, 180, 205, 54, 64, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd951653_c2f1_4498_8b78_5fb4cd3640dd);
 }
 impl ::windows::runtime::RuntimeName for CastingConnection {
     const NAME: &'static str = "Windows.Media.Casting.CastingConnection";
@@ -193,7 +193,7 @@ unsafe impl ::windows::runtime::RuntimeType for CastingConnectionErrorOccurredEv
 }
 unsafe impl ::windows::runtime::Interface for CastingConnectionErrorOccurredEventArgs {
     type Vtable = ICastingConnectionErrorOccurredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2818260073, 34585, 20224, [129, 251, 150, 24, 99, 199, 154, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7fb3c69_8719_4f00_81fb_961863c79a32);
 }
 impl ::windows::runtime::RuntimeName for CastingConnectionErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Media.Casting.CastingConnectionErrorOccurredEventArgs";
@@ -380,7 +380,7 @@ unsafe impl ::windows::runtime::RuntimeType for CastingDevice {
 }
 unsafe impl ::windows::runtime::Interface for CastingDevice {
     type Vtable = ICastingDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3732020355, 19011, 19153, [166, 210, 36, 146, 167, 150, 195, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde721c83_4a43_4ad1_a6d2_2492a796c3f2);
 }
 impl ::windows::runtime::RuntimeName for CastingDevice {
     const NAME: &'static str = "Windows.Media.Casting.CastingDevice";
@@ -509,7 +509,7 @@ unsafe impl ::windows::runtime::RuntimeType for CastingDevicePicker {
 }
 unsafe impl ::windows::runtime::Interface for CastingDevicePicker {
     type Vtable = ICastingDevicePicker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3704854820, 1425, 18878, [170, 203, 75, 130, 238, 117, 106, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcd39924_0591_49be_aacb_4b82ee756a95);
 }
 impl ::windows::runtime::RuntimeName for CastingDevicePicker {
     const NAME: &'static str = "Windows.Media.Casting.CastingDevicePicker";
@@ -615,7 +615,7 @@ unsafe impl ::windows::runtime::RuntimeType for CastingDevicePickerFilter {
 }
 unsafe impl ::windows::runtime::Interface for CastingDevicePickerFilter {
     type Vtable = ICastingDevicePickerFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3196871068, 46435, 17236, [174, 51, 159, 218, 173, 140, 98, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe8c619c_b563_4354_ae33_9fdaad8c6291);
 }
 impl ::windows::runtime::RuntimeName for CastingDevicePickerFilter {
     const NAME: &'static str = "Windows.Media.Casting.CastingDevicePickerFilter";
@@ -681,7 +681,7 @@ unsafe impl ::windows::runtime::RuntimeType for CastingDeviceSelectedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for CastingDeviceSelectedEventArgs {
     type Vtable = ICastingDeviceSelectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3695419014, 56663, 19725, [148, 0, 175, 69, 228, 251, 54, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc439e86_dd57_4d0d_9400_af45e4fb3663);
 }
 impl ::windows::runtime::RuntimeName for CastingDeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.Casting.CastingDeviceSelectedEventArgs";
@@ -806,7 +806,7 @@ unsafe impl ::windows::runtime::RuntimeType for CastingSource {
 }
 unsafe impl ::windows::runtime::Interface for CastingSource {
     type Vtable = ICastingSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4096387698, 13415, 18406, [160, 39, 82, 41, 35, 233, 215, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf429ea72_3467_47e6_a027_522923e9d727);
 }
 impl ::windows::runtime::RuntimeName for CastingSource {
     const NAME: &'static str = "Windows.Media.Casting.CastingSource";
@@ -858,7 +858,7 @@ unsafe impl ::core::marker::Sync for CastingSource {}
 pub struct ICastingConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingConnection {
     type Vtable = ICastingConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3449099859, 49905, 17560, [139, 120, 95, 180, 205, 54, 64, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd951653_c2f1_4498_8b78_5fb4cd3640dd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -891,7 +891,7 @@ pub struct ICastingConnection_abi(
 pub struct ICastingConnectionErrorOccurredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingConnectionErrorOccurredEventArgs {
     type Vtable = ICastingConnectionErrorOccurredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2818260073, 34585, 20224, [129, 251, 150, 24, 99, 199, 154, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7fb3c69_8719_4f00_81fb_961863c79a32);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -910,7 +910,7 @@ pub struct ICastingConnectionErrorOccurredEventArgs_abi(
 pub struct ICastingDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingDevice {
     type Vtable = ICastingDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3732020355, 19011, 19153, [166, 210, 36, 146, 167, 150, 195, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde721c83_4a43_4ad1_a6d2_2492a796c3f2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -934,7 +934,7 @@ pub struct ICastingDevice_abi(
 pub struct ICastingDevicePicker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingDevicePicker {
     type Vtable = ICastingDevicePicker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3704854820, 1425, 18878, [170, 203, 75, 130, 238, 117, 106, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcd39924_0591_49be_aacb_4b82ee756a95);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -967,7 +967,7 @@ pub struct ICastingDevicePicker_abi(
 pub struct ICastingDevicePickerFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingDevicePickerFilter {
     type Vtable = ICastingDevicePickerFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3196871068, 46435, 17236, [174, 51, 159, 218, 173, 140, 98, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe8c619c_b563_4354_ae33_9fdaad8c6291);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -992,7 +992,7 @@ pub struct ICastingDevicePickerFilter_abi(
 pub struct ICastingDeviceSelectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingDeviceSelectedEventArgs {
     type Vtable = ICastingDeviceSelectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3695419014, 56663, 19725, [148, 0, 175, 69, 228, 251, 54, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc439e86_dd57_4d0d_9400_af45e4fb3663);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1010,7 +1010,7 @@ pub struct ICastingDeviceSelectedEventArgs_abi(
 pub struct ICastingDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingDeviceStatics {
     type Vtable = ICastingDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3889780951, 19731, 16951, [163, 101, 76, 79, 106, 76, 253, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7d958d7_4d13_4237_a365_4c4f6a4cfd2f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1034,7 +1034,7 @@ pub struct ICastingDeviceStatics_abi(
 pub struct ICastingSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingSource {
     type Vtable = ICastingSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4096387698, 13415, 18406, [160, 39, 82, 41, 35, 233, 215, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf429ea72_3467_47e6_a027_522923e9d727);
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -55,7 +55,7 @@ unsafe impl ::windows::runtime::RuntimeType for HidBooleanControl {
 }
 unsafe impl ::windows::runtime::Interface for HidBooleanControl {
     type Vtable = IHidBooleanControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1380840586, 13973, 16524, [187, 162, 226, 235, 90, 191, 188, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x524df48a_3695_408c_bba2_e2eb5abfbc20);
 }
 impl ::windows::runtime::RuntimeName for HidBooleanControl {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidBooleanControl";
@@ -170,7 +170,7 @@ unsafe impl ::windows::runtime::RuntimeType for HidBooleanControlDescription {
 }
 unsafe impl ::windows::runtime::Interface for HidBooleanControlDescription {
     type Vtable = IHidBooleanControlDescription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1637279043, 10712, 18986, [134, 131, 132, 158, 32, 123, 190, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6196e543_29d8_4a2a_8683_849e207bbe31);
 }
 impl ::windows::runtime::RuntimeName for HidBooleanControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription";
@@ -260,7 +260,7 @@ unsafe impl ::windows::runtime::RuntimeType for HidCollection {
 }
 unsafe impl ::windows::runtime::Interface for HidCollection {
     type Vtable = IHidCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1904866723, 13041, 18147, [190, 253, 68, 210, 102, 59, 126, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7189f5a3_32f1_46e3_befd_44d2663b7e6a);
 }
 impl ::windows::runtime::RuntimeName for HidCollection {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidCollection";
@@ -537,7 +537,7 @@ unsafe impl ::windows::runtime::RuntimeType for HidDevice {
 }
 unsafe impl ::windows::runtime::Interface for HidDevice {
     type Vtable = IHidDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1602884839, 8704, 17198, [149, 218, 208, 155, 135, 213, 116, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f8a14e7_2200_432e_95da_d09b87d574a8);
 }
 impl ::windows::runtime::RuntimeName for HidDevice {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidDevice";
@@ -676,7 +676,7 @@ unsafe impl ::windows::runtime::RuntimeType for HidFeatureReport {
 }
 unsafe impl ::windows::runtime::Interface for HidFeatureReport {
     type Vtable = IHidFeatureReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2216532857, 23269, 18147, [130, 239, 31, 236, 92, 137, 66, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x841d9b79_5ae5_46e3_82ef_1fec5c8942f4);
 }
 impl ::windows::runtime::RuntimeName for HidFeatureReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidFeatureReport";
@@ -801,7 +801,7 @@ unsafe impl ::windows::runtime::RuntimeType for HidInputReport {
 }
 unsafe impl ::windows::runtime::Interface for HidInputReport {
     type Vtable = IHidInputReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3277655632, 63463, 20109, [178, 62, 202, 187, 229, 107, 144, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc35d0e50_f7e7_4e8d_b23e_cabbe56b90e9);
 }
 impl ::windows::runtime::RuntimeName for HidInputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidInputReport";
@@ -867,7 +867,7 @@ unsafe impl ::windows::runtime::RuntimeType for HidInputReportReceivedEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for HidInputReportReceivedEventArgs {
     type Vtable = IHidInputReportReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1884931531, 22962, 19906, [152, 92, 10, 220, 97, 54, 250, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7059c5cb_59b2_4dc2_985c_0adc6136fa2d);
 }
 impl ::windows::runtime::RuntimeName for HidInputReportReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidInputReportReceivedEventArgs";
@@ -991,7 +991,7 @@ unsafe impl ::windows::runtime::RuntimeType for HidNumericControl {
 }
 unsafe impl ::windows::runtime::Interface for HidNumericControl {
     type Vtable = IHidNumericControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3817476773, 13735, 19317, [137, 200, 251, 31, 40, 177, 8, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe38a12a5_35a7_4b75_89c8_fb1f28b10823);
 }
 impl ::windows::runtime::RuntimeName for HidNumericControl {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidNumericControl";
@@ -1178,7 +1178,7 @@ unsafe impl ::windows::runtime::RuntimeType for HidNumericControlDescription {
 }
 unsafe impl ::windows::runtime::Interface for HidNumericControlDescription {
     type Vtable = IHidNumericControlDescription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1670209158, 7575, 19573, [146, 127, 95, 245, 139, 160, 94, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x638d5e86_1d97_4c75_927f_5ff58ba05e32);
 }
 impl ::windows::runtime::RuntimeName for HidNumericControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription";
@@ -1291,7 +1291,7 @@ unsafe impl ::windows::runtime::RuntimeType for HidOutputReport {
 }
 unsafe impl ::windows::runtime::Interface for HidOutputReport {
     type Vtable = IHidOutputReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1657480516, 51350, 17507, [147, 193, 223, 157, 176, 83, 196, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62cb2544_c896_4463_93c1_df9db053c450);
 }
 impl ::windows::runtime::RuntimeName for HidOutputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidOutputReport";
@@ -1366,7 +1366,7 @@ impl ::windows::runtime::DefaultType for HidReportType {
 pub struct IHidBooleanControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidBooleanControl {
     type Vtable = IHidBooleanControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1380840586, 13973, 16524, [187, 162, 226, 235, 90, 191, 188, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x524df48a_3695_408c_bba2_e2eb5abfbc20);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1389,7 +1389,7 @@ pub struct IHidBooleanControl_abi(
 pub struct IHidBooleanControlDescription(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidBooleanControlDescription {
     type Vtable = IHidBooleanControlDescription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1637279043, 10712, 18986, [134, 131, 132, 158, 32, 123, 190, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6196e543_29d8_4a2a_8683_849e207bbe31);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1413,7 +1413,7 @@ pub struct IHidBooleanControlDescription_abi(
 pub struct IHidBooleanControlDescription2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidBooleanControlDescription2 {
     type Vtable = IHidBooleanControlDescription2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3371094762, 35447, 19510, [170, 0, 95, 240, 68, 157, 62, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8eed2ea_8a77_4c36_aa00_5ff0449d3e73);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1431,7 +1431,7 @@ pub struct IHidBooleanControlDescription2_abi(
 pub struct IHidCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidCollection {
     type Vtable = IHidCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1904866723, 13041, 18147, [190, 253, 68, 210, 102, 59, 126, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7189f5a3_32f1_46e3_befd_44d2663b7e6a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1452,7 +1452,7 @@ pub struct IHidCollection_abi(
 pub struct IHidDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidDevice {
     type Vtable = IHidDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1602884839, 8704, 17198, [149, 218, 208, 155, 135, 213, 116, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f8a14e7_2200_432e_95da_d09b87d574a8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1498,7 +1498,7 @@ pub struct IHidDevice_abi(
 pub struct IHidDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidDeviceStatics {
     type Vtable = IHidDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2656666084, 38998, 16780, [159, 115, 119, 222, 12, 216, 87, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e5981e4_9856_418c_9f73_77de0cd85754);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1519,7 +1519,7 @@ pub struct IHidDeviceStatics_abi(
 pub struct IHidFeatureReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidFeatureReport {
     type Vtable = IHidFeatureReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2216532857, 23269, 18147, [130, 239, 31, 236, 92, 137, 66, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x841d9b79_5ae5_46e3_82ef_1fec5c8942f4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1545,7 +1545,7 @@ pub struct IHidFeatureReport_abi(
 pub struct IHidInputReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidInputReport {
     type Vtable = IHidInputReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3277655632, 63463, 20109, [178, 62, 202, 187, 229, 107, 144, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc35d0e50_f7e7_4e8d_b23e_cabbe56b90e9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1573,7 +1573,7 @@ pub struct IHidInputReport_abi(
 pub struct IHidInputReportReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidInputReportReceivedEventArgs {
     type Vtable = IHidInputReportReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1884931531, 22962, 19906, [152, 92, 10, 220, 97, 54, 250, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7059c5cb_59b2_4dc2_985c_0adc6136fa2d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1591,7 +1591,7 @@ pub struct IHidInputReportReceivedEventArgs_abi(
 pub struct IHidNumericControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidNumericControl {
     type Vtable = IHidNumericControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3817476773, 13735, 19317, [137, 200, 251, 31, 40, 177, 8, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe38a12a5_35a7_4b75_89c8_fb1f28b10823);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1617,7 +1617,7 @@ pub struct IHidNumericControl_abi(
 pub struct IHidNumericControlDescription(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidNumericControlDescription {
     type Vtable = IHidNumericControlDescription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1670209158, 7575, 19573, [146, 127, 95, 245, 139, 160, 94, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x638d5e86_1d97_4c75_927f_5ff58ba05e32);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1651,7 +1651,7 @@ pub struct IHidNumericControlDescription_abi(
 pub struct IHidOutputReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidOutputReport {
     type Vtable = IHidOutputReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1657480516, 51350, 17507, [147, 193, 223, 157, 176, 83, 196, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62cb2544_c896_4463_93c1_df9db053c450);
 }
 #[repr(C)]
 #[doc(hidden)]

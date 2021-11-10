@@ -181,7 +181,7 @@ unsafe impl ::windows::runtime::RuntimeType for ErrorDetails {
 }
 unsafe impl ::windows::runtime::Interface for ErrorDetails {
     type Vtable = IErrorDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(931969793, 11465, 17039, [140, 85, 44, 153, 13, 70, 62, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x378cbb01_2cc9_428f_8c55_2c990d463e8f);
 }
 impl ::windows::runtime::RuntimeName for ErrorDetails {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ErrorDetails";
@@ -353,7 +353,7 @@ unsafe impl ::windows::runtime::RuntimeType for FileLoggingSession {
 }
 unsafe impl ::windows::runtime::Interface for FileLoggingSession {
     type Vtable = IFileLoggingSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(617038358, 65234, 16460, [137, 95, 31, 150, 153, 203, 2, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24c74216_fed2_404c_895f_1f9699cb02f7);
 }
 impl ::windows::runtime::RuntimeName for FileLoggingSession {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.FileLoggingSession";
@@ -447,7 +447,7 @@ unsafe impl ::core::marker::Sync for FileLoggingSession {}
 pub struct IAsyncCausalityTracerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAsyncCausalityTracerStatics {
     type Vtable = IAsyncCausalityTracerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1350896422, 9854, 17691, [168, 144, 171, 106, 55, 2, 69, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50850b26_267e_451b_a890_ab6a370245ee);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -471,7 +471,7 @@ pub struct IAsyncCausalityTracerStatics_abi(
 pub struct IErrorDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IErrorDetails {
     type Vtable = IErrorDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(931969793, 11465, 17039, [140, 85, 44, 153, 13, 70, 62, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x378cbb01_2cc9_428f_8c55_2c990d463e8f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -491,7 +491,7 @@ pub struct IErrorDetails_abi(
 pub struct IErrorDetailsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IErrorDetailsStatics {
     type Vtable = IErrorDetailsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3077584720, 2845, 18120, [170, 14, 75, 129, 120, 228, 252, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7703750_0b1d_46c8_aa0e_4b8178e4fce9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -510,7 +510,7 @@ pub struct IErrorDetailsStatics_abi(
 pub struct IErrorReportingSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IErrorReportingSettings {
     type Vtable = IErrorReportingSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(372676498, 45118, 19361, [139, 184, 210, 143, 74, 180, 210, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16369792_b03e_4ba1_8bb8_d28f4ab4d2c0);
 }
 impl IErrorReportingSettings {
     #[doc = "*Required features: `Foundation_Diagnostics`*"]
@@ -588,7 +588,7 @@ pub struct IErrorReportingSettings_abi(
 pub struct IFileLoggingSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileLoggingSession {
     type Vtable = IFileLoggingSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(617038358, 65234, 16460, [137, 95, 31, 150, 153, 203, 2, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24c74216_fed2_404c_895f_1f9699cb02f7);
 }
 impl IFileLoggingSession {
     #[doc = "*Required features: `Foundation_Diagnostics`*"]
@@ -730,7 +730,7 @@ pub struct IFileLoggingSession_abi(
 pub struct IFileLoggingSessionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileLoggingSessionFactory {
     type Vtable = IFileLoggingSessionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4003499470, 33863, 19882, [145, 51, 18, 235, 70, 246, 151, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeea08dce_8447_4daa_9133_12eb46f697d4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -748,7 +748,7 @@ pub struct IFileLoggingSessionFactory_abi(
 pub struct ILogFileGeneratedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILogFileGeneratedEventArgs {
     type Vtable = ILogFileGeneratedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(647927663, 3384, 19482, [181, 63, 179, 149, 216, 129, 223, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x269e976f_0d38_4c1a_b53f_b395d881df84);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -767,7 +767,7 @@ pub struct ILogFileGeneratedEventArgs_abi(
 pub struct ILoggingActivity(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingActivity {
     type Vtable = ILoggingActivity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3154323777, 46950, 19637, [152, 72, 151, 172, 107, 166, 214, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc032941_b766_4cb5_9848_97ac6ba6d60c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -786,7 +786,7 @@ pub struct ILoggingActivity_abi(
 pub struct ILoggingActivity2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingActivity2 {
     type Vtable = ILoggingActivity2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(650287112, 25378, 17770, [175, 130, 128, 200, 100, 47, 23, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26c29808_6322_456a_af82_80c8642f178b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -807,7 +807,7 @@ pub struct ILoggingActivity2_abi(
 pub struct ILoggingActivityFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingActivityFactory {
     type Vtable = ILoggingActivityFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1798550659, 57610, 19544, [151, 213, 16, 251, 69, 16, 116, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b33b483_e10a_4c58_97d5_10fb451074fb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -827,7 +827,7 @@ pub struct ILoggingActivityFactory_abi(
 pub struct ILoggingChannel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingChannel {
     type Vtable = ILoggingChannel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3919905603, 4567, 20225, [181, 202, 207, 73, 82, 120, 192, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9a50343_11d7_4f01_b5ca_cf495278c0a8);
 }
 impl ILoggingChannel {
     #[doc = "*Required features: `Foundation_Diagnostics`*"]
@@ -982,7 +982,7 @@ pub struct ILoggingChannel_abi(
 pub struct ILoggingChannel2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingChannel2 {
     type Vtable = ILoggingChannel2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2672573683, 2988, 17829, [158, 51, 186, 243, 243, 162, 70, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f4c3cf3_0bac_45a5_9e33_baf3f3a246a5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1000,7 +1000,7 @@ pub struct ILoggingChannel2_abi(
 pub struct ILoggingChannelFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingChannelFactory {
     type Vtable = ILoggingChannelFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1323064220, 44928, 19099, [176, 220, 57, 143, 154, 229, 32, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4edc5b9c_af80_4a9b_b0dc_398f9ae5207b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1018,7 +1018,7 @@ pub struct ILoggingChannelFactory_abi(
 pub struct ILoggingChannelFactory2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingChannelFactory2 {
     type Vtable = ILoggingChannelFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1282340317, 15143, 19913, [153, 240, 41, 156, 110, 70, 3, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c6ef5dd_3b27_4dc9_99f0_299c6e4603a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1037,7 +1037,7 @@ pub struct ILoggingChannelFactory2_abi(
 pub struct ILoggingChannelOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingChannelOptions {
     type Vtable = ILoggingChannelOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3286779903, 3771, 19027, [140, 84, 222, 194, 73, 38, 203, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3e847ff_0ebb_4a53_8c54_dec24926cb2c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1056,7 +1056,7 @@ pub struct ILoggingChannelOptions_abi(
 pub struct ILoggingChannelOptionsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingChannelOptionsFactory {
     type Vtable = ILoggingChannelOptionsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2838581722, 32687, 16785, [135, 85, 94, 134, 220, 101, 216, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa93151da_7faf_4191_8755_5e86dc65d896);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1074,7 +1074,7 @@ pub struct ILoggingChannelOptionsFactory_abi(
 pub struct ILoggingFields(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingFields {
     type Vtable = ILoggingFields_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3623270319, 30253, 17785, [131, 189, 82, 194, 59, 195, 51, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7f6b7af_762d_4579_83bd_52c23bc333bc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1206,7 +1206,7 @@ pub struct ILoggingFields_abi(
 pub struct ILoggingOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingOptions {
     type Vtable = ILoggingOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2428270672, 402, 20317, [172, 38, 0, 106, 218, 202, 18, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90bc7850_0192_4f5d_ac26_006adaca12d8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1235,7 +1235,7 @@ pub struct ILoggingOptions_abi(
 pub struct ILoggingOptionsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingOptionsFactory {
     type Vtable = ILoggingOptionsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3608397515, 39083, 17995, [159, 34, 163, 38, 132, 120, 54, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd713c6cb_98ab_464b_9f22_a3268478368a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1254,7 +1254,7 @@ pub struct ILoggingOptionsFactory_abi(
 pub struct ILoggingSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingSession {
     type Vtable = ILoggingSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1646392070, 37760, 19159, [186, 245, 65, 234, 147, 16, 215, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6221f306_9380_4ad7_baf5_41ea9310d768);
 }
 impl ILoggingSession {
     #[doc = "*Required features: `Foundation_Diagnostics`*"]
@@ -1381,7 +1381,7 @@ pub struct ILoggingSession_abi(
 pub struct ILoggingSessionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingSessionFactory {
     type Vtable = ILoggingSessionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1318289125, 22781, 17888, [140, 47, 161, 50, 239, 249, 92, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e937ee5_58fd_45e0_8c2f_a132eff95c1e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1400,7 +1400,7 @@ pub struct ILoggingSessionFactory_abi(
 pub struct ILoggingTarget(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingTarget {
     type Vtable = ILoggingTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1710320693, 58248, 20006, [177, 122, 245, 28, 211, 168, 57, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65f16c35_e388_4e26_b17a_f51cd3a83916);
 }
 impl ILoggingTarget {
     #[doc = "*Required features: `Foundation_Diagnostics`*"]
@@ -1549,7 +1549,7 @@ pub struct ILoggingTarget_abi(
 pub struct ITracingStatusChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITracingStatusChangedEventArgs {
     type Vtable = ITracingStatusChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1091270417, 65339, 18303, [156, 154, 210, 239, 218, 48, 45, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x410b7711_ff3b_477f_9c9a_d2efda302dc3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1583,7 +1583,7 @@ unsafe impl ::windows::runtime::RuntimeType for LogFileGeneratedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for LogFileGeneratedEventArgs {
     type Vtable = ILogFileGeneratedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(647927663, 3384, 19482, [181, 63, 179, 149, 216, 129, 223, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x269e976f_0d38_4c1a_b53f_b395d881df84);
 }
 impl ::windows::runtime::RuntimeName for LogFileGeneratedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LogFileGeneratedEventArgs";
@@ -1779,7 +1779,7 @@ unsafe impl ::windows::runtime::RuntimeType for LoggingActivity {
 }
 unsafe impl ::windows::runtime::Interface for LoggingActivity {
     type Vtable = ILoggingActivity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3154323777, 46950, 19637, [152, 72, 151, 172, 107, 166, 214, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc032941_b766_4cb5_9848_97ac6ba6d60c);
 }
 impl ::windows::runtime::RuntimeName for LoggingActivity {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingActivity";
@@ -2057,7 +2057,7 @@ unsafe impl ::windows::runtime::RuntimeType for LoggingChannel {
 }
 unsafe impl ::windows::runtime::Interface for LoggingChannel {
     type Vtable = ILoggingChannel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3919905603, 4567, 20225, [181, 202, 207, 73, 82, 120, 192, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9a50343_11d7_4f01_b5ca_cf495278c0a8);
 }
 impl ::windows::runtime::RuntimeName for LoggingChannel {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingChannel";
@@ -2210,7 +2210,7 @@ unsafe impl ::windows::runtime::RuntimeType for LoggingChannelOptions {
 }
 unsafe impl ::windows::runtime::Interface for LoggingChannelOptions {
     type Vtable = ILoggingChannelOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3286779903, 3771, 19027, [140, 84, 222, 194, 73, 38, 203, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3e847ff_0ebb_4a53_8c54_dec24926cb2c);
 }
 impl ::windows::runtime::RuntimeName for LoggingChannelOptions {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingChannelOptions";
@@ -2889,7 +2889,7 @@ unsafe impl ::windows::runtime::RuntimeType for LoggingFields {
 }
 unsafe impl ::windows::runtime::Interface for LoggingFields {
     type Vtable = ILoggingFields_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3623270319, 30253, 17785, [131, 189, 82, 194, 59, 195, 51, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7f6b7af_762d_4579_83bd_52c23bc333bc);
 }
 impl ::windows::runtime::RuntimeName for LoggingFields {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingFields";
@@ -3095,7 +3095,7 @@ unsafe impl ::windows::runtime::RuntimeType for LoggingOptions {
 }
 unsafe impl ::windows::runtime::Interface for LoggingOptions {
     type Vtable = ILoggingOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2428270672, 402, 20317, [172, 38, 0, 106, 218, 202, 18, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90bc7850_0192_4f5d_ac26_006adaca12d8);
 }
 impl ::windows::runtime::RuntimeName for LoggingOptions {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingOptions";
@@ -3201,7 +3201,7 @@ unsafe impl ::windows::runtime::RuntimeType for LoggingSession {
 }
 unsafe impl ::windows::runtime::Interface for LoggingSession {
     type Vtable = ILoggingSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1646392070, 37760, 19159, [186, 245, 65, 234, 147, 16, 215, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6221f306_9380_4ad7_baf5_41ea9310d768);
 }
 impl ::windows::runtime::RuntimeName for LoggingSession {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingSession";
@@ -3321,7 +3321,7 @@ unsafe impl ::windows::runtime::RuntimeType for RuntimeBrokerErrorSettings {
 }
 unsafe impl ::windows::runtime::Interface for RuntimeBrokerErrorSettings {
     type Vtable = IErrorReportingSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(372676498, 45118, 19361, [139, 184, 210, 143, 74, 180, 210, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16369792_b03e_4ba1_8bb8_d28f4ab4d2c0);
 }
 impl ::windows::runtime::RuntimeName for RuntimeBrokerErrorSettings {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings";
@@ -3415,7 +3415,7 @@ unsafe impl ::windows::runtime::RuntimeType for TracingStatusChangedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for TracingStatusChangedEventArgs {
     type Vtable = ITracingStatusChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1091270417, 65339, 18303, [156, 154, 210, 239, 218, 48, 45, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x410b7711_ff3b_477f_9c9a_d2efda302dc3);
 }
 impl ::windows::runtime::RuntimeName for TracingStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs";

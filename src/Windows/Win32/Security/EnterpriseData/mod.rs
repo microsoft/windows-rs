@@ -123,7 +123,7 @@ impl IProtectionPolicyManagerInterop {
 }
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerInterop {
     type Vtable = IProtectionPolicyManagerInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1179804957, 49662, 19361, [159, 10, 192, 245, 101, 150, 247, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4652651d_c1fe_4ba1_9f0a_c0f56596f721);
 }
 impl ::core::convert::From<IProtectionPolicyManagerInterop> for ::windows::runtime::IUnknown {
     fn from(value: IProtectionPolicyManagerInterop) -> Self {
@@ -223,7 +223,7 @@ impl IProtectionPolicyManagerInterop2 {
 }
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerInterop2 {
     type Vtable = IProtectionPolicyManagerInterop2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(360512484, 42893, 16726, [179, 132, 97, 253, 172, 65, 230, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x157cfbe4_a78d_4156_b384_61fdac41e686);
 }
 impl ::core::convert::From<IProtectionPolicyManagerInterop2> for ::windows::runtime::IUnknown {
     fn from(value: IProtectionPolicyManagerInterop2) -> Self {
@@ -393,7 +393,7 @@ impl IProtectionPolicyManagerInterop3 {
 }
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerInterop3 {
     type Vtable = IProtectionPolicyManagerInterop3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3250600243, 45976, 19859, [176, 253, 41, 114, 173, 248, 2, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1c03933_b398_4d93_b0fd_2972adf802c2);
 }
 impl ::core::convert::From<IProtectionPolicyManagerInterop3> for ::windows::runtime::IUnknown {
     fn from(value: IProtectionPolicyManagerInterop3) -> Self {

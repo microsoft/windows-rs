@@ -37,7 +37,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppServiceClosedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for AppServiceClosedEventArgs {
     type Vtable = IAppServiceClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3730839286, 51971, 19765, [172, 141, 204, 99, 3, 35, 151, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde6016f6_cb03_4d35_ac8d_cc6303239731);
 }
 impl ::windows::runtime::RuntimeName for AppServiceClosedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceClosedEventArgs";
@@ -242,7 +242,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppServiceConnection {
 }
 unsafe impl ::windows::runtime::Interface for AppServiceConnection {
     type Vtable = IAppServiceConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2647946402, 34591, 19794, [137, 169, 158, 9, 5, 49, 189, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9dd474a2_871f_4d52_89a9_9e090531bd27);
 }
 impl ::windows::runtime::RuntimeName for AppServiceConnection {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceConnection";
@@ -363,7 +363,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppServiceDeferral {
 }
 unsafe impl ::windows::runtime::Interface for AppServiceDeferral {
     type Vtable = IAppServiceDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2115719970, 60080, 16968, [174, 4, 253, 249, 56, 56, 228, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e1b5322_eab0_4248_ae04_fdf93838e472);
 }
 impl ::windows::runtime::RuntimeName for AppServiceDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceDeferral";
@@ -439,7 +439,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppServiceRequest {
 }
 unsafe impl ::windows::runtime::Interface for AppServiceRequest {
     type Vtable = IAppServiceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(551914909, 6366, 19201, [128, 186, 144, 167, 98, 4, 227, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20e58d9d_18de_4b01_80ba_90a76204e3c8);
 }
 impl ::windows::runtime::RuntimeName for AppServiceRequest {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceRequest";
@@ -513,7 +513,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppServiceRequestReceivedEventAr
 }
 unsafe impl ::windows::runtime::Interface for AppServiceRequestReceivedEventArgs {
     type Vtable = IAppServiceRequestReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1846682464, 65381, 17582, [158, 69, 133, 127, 228, 24, 6, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e122360_ff65_44ae_9e45_857fe4180681);
 }
 impl ::windows::runtime::RuntimeName for AppServiceRequestReceivedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceRequestReceivedEventArgs";
@@ -588,7 +588,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppServiceResponse {
 }
 unsafe impl ::windows::runtime::Interface for AppServiceResponse {
     type Vtable = IAppServiceResponse_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2370845932, 39587, 20072, [149, 89, 157, 230, 62, 55, 44, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d503cec_9aa3_4e68_9559_9de63e372ce4);
 }
 impl ::windows::runtime::RuntimeName for AppServiceResponse {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceResponse";
@@ -726,7 +726,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppServiceTriggerDetails {
 }
 unsafe impl ::windows::runtime::Interface for AppServiceTriggerDetails {
     type Vtable = IAppServiceTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2292374700, 44328, 16824, [128, 187, 189, 241, 178, 22, 158, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88a2dcac_ad28_41b8_80bb_bdf1b2169e19);
 }
 impl ::windows::runtime::RuntimeName for AppServiceTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceTriggerDetails";
@@ -778,7 +778,7 @@ unsafe impl ::core::marker::Sync for AppServiceTriggerDetails {}
 pub struct IAppServiceCatalogStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceCatalogStatics {
     type Vtable = IAppServiceCatalogStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4010616071, 53554, 19589, [131, 149, 60, 49, 213, 161, 233, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef0d2507_d132_4c85_8395_3c31d5a1e941);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -797,7 +797,7 @@ pub struct IAppServiceCatalogStatics_abi(
 pub struct IAppServiceClosedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceClosedEventArgs {
     type Vtable = IAppServiceClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3730839286, 51971, 19765, [172, 141, 204, 99, 3, 35, 151, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde6016f6_cb03_4d35_ac8d_cc6303239731);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -815,7 +815,7 @@ pub struct IAppServiceClosedEventArgs_abi(
 pub struct IAppServiceConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceConnection {
     type Vtable = IAppServiceConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2647946402, 34591, 19794, [137, 169, 158, 9, 5, 49, 189, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9dd474a2_871f_4d52_89a9_9e090531bd27);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -848,7 +848,7 @@ pub struct IAppServiceConnection_abi(
 pub struct IAppServiceConnection2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceConnection2 {
     type Vtable = IAppServiceConnection2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2346700127, 8962, 20413, [128, 97, 82, 81, 28, 47, 139, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bdfcd5f_2302_4fbd_8061_52511c2f8bf9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -871,7 +871,7 @@ pub struct IAppServiceConnection2_abi(
 pub struct IAppServiceConnectionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceConnectionStatics {
     type Vtable = IAppServiceConnectionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2915396841, 54280, 22131, [134, 55, 130, 122, 75, 39, 65, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xadc56ce9_d408_5673_8637_827a4b274168);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -890,7 +890,7 @@ pub struct IAppServiceConnectionStatics_abi(
 pub struct IAppServiceDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceDeferral {
     type Vtable = IAppServiceDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2115719970, 60080, 16968, [174, 4, 253, 249, 56, 56, 228, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e1b5322_eab0_4248_ae04_fdf93838e472);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -908,7 +908,7 @@ pub struct IAppServiceDeferral_abi(
 pub struct IAppServiceRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceRequest {
     type Vtable = IAppServiceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(551914909, 6366, 19201, [128, 186, 144, 167, 98, 4, 227, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20e58d9d_18de_4b01_80ba_90a76204e3c8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -929,7 +929,7 @@ pub struct IAppServiceRequest_abi(
 pub struct IAppServiceRequestReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceRequestReceivedEventArgs {
     type Vtable = IAppServiceRequestReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1846682464, 65381, 17582, [158, 69, 133, 127, 228, 24, 6, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e122360_ff65_44ae_9e45_857fe4180681);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -948,7 +948,7 @@ pub struct IAppServiceRequestReceivedEventArgs_abi(
 pub struct IAppServiceResponse(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceResponse {
     type Vtable = IAppServiceResponse_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2370845932, 39587, 20072, [149, 89, 157, 230, 62, 55, 44, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d503cec_9aa3_4e68_9559_9de63e372ce4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -968,7 +968,7 @@ pub struct IAppServiceResponse_abi(
 pub struct IAppServiceTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceTriggerDetails {
     type Vtable = IAppServiceTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2292374700, 44328, 16824, [128, 187, 189, 241, 178, 22, 158, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88a2dcac_ad28_41b8_80bb_bdf1b2169e19);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -988,7 +988,7 @@ pub struct IAppServiceTriggerDetails_abi(
 pub struct IAppServiceTriggerDetails2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceTriggerDetails2 {
     type Vtable = IAppServiceTriggerDetails2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3896333490, 10444, 17394, [180, 101, 192, 72, 46, 89, 226, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe83d54b2_28cc_43f2_b465_c0482e59e2dc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1006,7 +1006,7 @@ pub struct IAppServiceTriggerDetails2_abi(
 pub struct IAppServiceTriggerDetails3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceTriggerDetails3 {
     type Vtable = IAppServiceTriggerDetails3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4225179169, 31033, 20072, [158, 60, 119, 128, 20, 122, 171, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbd71e21_7939_4e68_9e3c_7780147aabb6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1025,7 +1025,7 @@ pub struct IAppServiceTriggerDetails3_abi(
 pub struct IAppServiceTriggerDetails4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceTriggerDetails4 {
     type Vtable = IAppServiceTriggerDetails4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(293974400, 34913, 24112, [171, 85, 28, 244, 208, 139, 191, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1185b180_8861_5e30_ab55_1cf4d08bbf6d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1043,7 +1043,7 @@ pub struct IAppServiceTriggerDetails4_abi(
 pub struct IStatelessAppServiceResponse(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStatelessAppServiceResponse {
     type Vtable = IStatelessAppServiceResponse_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1131760375, 43500, 21246, [130, 231, 147, 155, 104, 220, 147, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43754af7_a9ec_52fe_82e7_939b68dc9388);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1086,7 +1086,7 @@ unsafe impl ::windows::runtime::RuntimeType for StatelessAppServiceResponse {
 }
 unsafe impl ::windows::runtime::Interface for StatelessAppServiceResponse {
     type Vtable = IStatelessAppServiceResponse_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1131760375, 43500, 21246, [130, 231, 147, 155, 104, 220, 147, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43754af7_a9ec_52fe_82e7_939b68dc9388);
 }
 impl ::windows::runtime::RuntimeName for StatelessAppServiceResponse {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.StatelessAppServiceResponse";

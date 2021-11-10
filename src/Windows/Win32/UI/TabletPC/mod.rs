@@ -1229,7 +1229,7 @@ pub unsafe fn DestroyWordList<'a, Param0: ::windows::runtime::IntoParam<'a, HREC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const DynamicRenderer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3973262058, 29807, 19915, [191, 104, 8, 39, 87, 250, 255, 24]);
+pub const DynamicRenderer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xecd32aea_746f_4dcb_bf68_082757faff18);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const EM_GETDRAWATTR: u32 = 1541u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -1730,30 +1730,30 @@ pub const GESTURE_UP_LEFT_LONG: u32 = 61540u32;
 pub const GESTURE_UP_RIGHT: u32 = 61545u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const GESTURE_UP_RIGHT_LONG: u32 = 61541u32;
-pub const GUID_DYNAMIC_RENDERER_CACHED_DATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3209894802, 9663, 19093, [137, 173, 14, 71, 107, 52, 180, 245]);
-pub const GUID_GESTURE_DATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1105521679, 9898, 17754, [154, 165, 44, 211, 108, 246, 63, 185]);
-pub const GUID_PACKETPROPERTY_GUID_ALTITUDE_ORIENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2195637703, 63162, 18694, [137, 79, 102, 214, 141, 252, 69, 108]);
-pub const GUID_PACKETPROPERTY_GUID_AZIMUTH_ORIENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(43066292, 34856, 16651, [178, 80, 160, 83, 101, 149, 229, 220]);
-pub const GUID_PACKETPROPERTY_GUID_BUTTON_PRESSURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2340417476, 38570, 19454, [172, 38, 138, 95, 11, 224, 123, 245]);
-pub const GUID_PACKETPROPERTY_GUID_DEVICE_CONTACT_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(39345041, 1179, 18256, [150, 21, 223, 137, 72, 171, 60, 156]);
-pub const GUID_PACKETPROPERTY_GUID_FINGERCONTACTCONFIDENCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3875981316, 22512, 20224, [138, 12, 133, 61, 87, 120, 155, 233]);
-pub const GUID_PACKETPROPERTY_GUID_HEIGHT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3860355282, 58439, 16920, [157, 63, 24, 134, 92, 32, 61, 244]);
-pub const GUID_PACKETPROPERTY_GUID_NORMAL_PRESSURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1929859117, 63988, 19992, [179, 242, 44, 225, 177, 163, 97, 12]);
-pub const GUID_PACKETPROPERTY_GUID_PACKET_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1846413247, 45031, 19703, [135, 209, 175, 100, 70, 32, 132, 24]);
-pub const GUID_PACKETPROPERTY_GUID_PITCH_ROTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2138986423, 48695, 19425, [163, 86, 122, 132, 22, 14, 24, 147]);
-pub const GUID_PACKETPROPERTY_GUID_ROLL_ROTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1566400086, 27561, 19547, [159, 176, 133, 28, 145, 113, 78, 86]);
-pub const GUID_PACKETPROPERTY_GUID_SERIAL_NUMBER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2024282966, 2357, 17555, [186, 174, 0, 84, 26, 138, 22, 196]);
-pub const GUID_PACKETPROPERTY_GUID_TANGENT_PRESSURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1839483019, 21060, 16876, [144, 91, 50, 216, 154, 184, 8, 9]);
-pub const GUID_PACKETPROPERTY_GUID_TIMER_TICK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1130696901, 65235, 17873, [139, 118, 113, 211, 234, 122, 130, 157]);
-pub const GUID_PACKETPROPERTY_GUID_TWIST_ORIENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(221399392, 5042, 16868, [172, 230, 122, 233, 212, 61, 45, 59]);
-pub const GUID_PACKETPROPERTY_GUID_WIDTH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3131828557, 10002, 18677, [190, 157, 143, 139, 94, 160, 113, 26]);
-pub const GUID_PACKETPROPERTY_GUID_X: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1502243471, 21184, 19360, [147, 175, 175, 53, 116, 17, 165, 97]);
-pub const GUID_PACKETPROPERTY_GUID_X_TILT_ORIENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2832235322, 35824, 16560, [149, 169, 184, 10, 107, 183, 135, 191]);
-pub const GUID_PACKETPROPERTY_GUID_Y: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3040845685, 1248, 17560, [167, 238, 195, 13, 187, 90, 144, 17]);
-pub const GUID_PACKETPROPERTY_GUID_YAW_ROTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1787074944, 31802, 17847, [170, 130, 144, 162, 98, 149, 14, 137]);
-pub const GUID_PACKETPROPERTY_GUID_Y_TILT_ORIENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(244523913, 7543, 17327, [172, 0, 91, 149, 13, 109, 75, 45]);
-pub const GUID_PACKETPROPERTY_GUID_Z: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1935334192, 3771, 18312, [160, 228, 15, 49, 100, 144, 5, 93]);
-pub const GestureRecognizer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3929065044, 50732, 17439, [172, 0, 149, 249, 161, 150, 120, 44]);
+pub const GUID_DYNAMIC_RENDERER_CACHED_DATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf531b92_25bf_4a95_89ad_0e476b34b4f5);
+pub const GUID_GESTURE_DATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41e4ec0f_26aa_455a_9aa5_2cd36cf63fb9);
+pub const GUID_PACKETPROPERTY_GUID_ALTITUDE_ORIENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82dec5c7_f6ba_4906_894f_66d68dfc456c);
+pub const GUID_PACKETPROPERTY_GUID_AZIMUTH_ORIENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x029123b4_8828_410b_b250_a0536595e5dc);
+pub const GUID_PACKETPROPERTY_GUID_BUTTON_PRESSURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b7fefc4_96aa_4bfe_ac26_8a5f0be07bf5);
+pub const GUID_PACKETPROPERTY_GUID_DEVICE_CONTACT_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02585b91_049b_4750_9615_df8948ab3c9c);
+pub const GUID_PACKETPROPERTY_GUID_FINGERCONTACTCONFIDENCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe706c804_57f0_4f00_8a0c_853d57789be9);
+pub const GUID_PACKETPROPERTY_GUID_HEIGHT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe61858d2_e447_4218_9d3f_18865c203df4);
+pub const GUID_PACKETPROPERTY_GUID_NORMAL_PRESSURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7307502d_f9f4_4e18_b3f2_2ce1b1a3610c);
+pub const GUID_PACKETPROPERTY_GUID_PACKET_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e0e07bf_afe7_4cf7_87d1_af6446208418);
+pub const GUID_PACKETPROPERTY_GUID_PITCH_ROTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f7e57b7_be37_4be1_a356_7a84160e1893);
+pub const GUID_PACKETPROPERTY_GUID_ROLL_ROTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d5d5e56_6ba9_4c5b_9fb0_851c91714e56);
+pub const GUID_PACKETPROPERTY_GUID_SERIAL_NUMBER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78a81b56_0935_4493_baae_00541a8a16c4);
+pub const GUID_PACKETPROPERTY_GUID_TANGENT_PRESSURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6da4488b_5244_41ec_905b_32d89ab80809);
+pub const GUID_PACKETPROPERTY_GUID_TIMER_TICK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x436510c5_fed3_45d1_8b76_71d3ea7a829d);
+pub const GUID_PACKETPROPERTY_GUID_TWIST_ORIENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d324960_13b2_41e4_ace6_7ae9d43d2d3b);
+pub const GUID_PACKETPROPERTY_GUID_WIDTH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbaabe94d_2712_48f5_be9d_8f8b5ea0711a);
+pub const GUID_PACKETPROPERTY_GUID_X: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x598a6a8f_52c0_4ba0_93af_af357411a561);
+pub const GUID_PACKETPROPERTY_GUID_X_TILT_ORIENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8d07b3a_8bf0_40b0_95a9_b80a6bb787bf);
+pub const GUID_PACKETPROPERTY_GUID_Y: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb53f9f75_04e0_4498_a7ee_c30dbb5a9011);
+pub const GUID_PACKETPROPERTY_GUID_YAW_ROTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a849980_7c3a_45b7_aa82_90a262950e89);
+pub const GUID_PACKETPROPERTY_GUID_Y_TILT_ORIENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e932389_1d77_43af_ac00_5b950d6d4b2d);
+pub const GUID_PACKETPROPERTY_GUID_Z: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x735adb30_0ebb_4788_a0e4_0f316490055d);
+pub const GestureRecognizer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea30c654_c62c_441f_ac00_95f9a196782c);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[inline]
 pub unsafe fn GetAllRecognizers(recognizerclsids: *mut *mut ::windows::runtime::GUID, count: *mut u32) -> ::windows::runtime::Result<()> {
@@ -1929,7 +1929,7 @@ unsafe impl ::windows::runtime::Handle for HRECOWORDLIST {}
 unsafe impl ::windows::runtime::Abi for HRECOWORDLIST {
     type Abi = Self;
 }
-pub const HandwrittenTextInsertion: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2668056290, 59113, 19850, [160, 71, 235, 91, 92, 60, 85, 218]);
+pub const HandwrittenTextInsertion: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f074ee2_e6e9_4d8a_a047_eb5b5c3c55da);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -2015,7 +2015,7 @@ impl IDynamicRenderer {
 }
 unsafe impl ::windows::runtime::Interface for IDynamicRenderer {
     type Vtable = IDynamicRenderer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2692302478, 29029, 18169, [183, 175, 152, 173, 1, 169, 48, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa079468e_7165_46f9_b7af_98ad01a93009);
 }
 impl ::core::convert::From<IDynamicRenderer> for ::windows::runtime::IUnknown {
     fn from(value: IDynamicRenderer) -> Self {
@@ -2220,7 +2220,7 @@ impl IGestureRecognizer {
 }
 unsafe impl ::windows::runtime::Interface for IGestureRecognizer {
     type Vtable = IGestureRecognizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2929653867, 28756, 17891, [174, 34, 49, 116, 220, 136, 17, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae9ef86b_7054_45e3_ae22_3174dc8811b7);
 }
 impl ::core::convert::From<IGestureRecognizer> for ::windows::runtime::IUnknown {
     fn from(value: IGestureRecognizer) -> Self {
@@ -2275,7 +2275,7 @@ impl IHandwrittenTextInsertion {
 }
 unsafe impl ::windows::runtime::Interface for IHandwrittenTextInsertion {
     type Vtable = IHandwrittenTextInsertion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1459481239, 60630, 17383, [170, 58, 129, 107, 231, 120, 88, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56fdea97_ecd6_43e7_aa3a_816be7785860);
 }
 impl ::core::convert::From<IHandwrittenTextInsertion> for ::windows::runtime::IUnknown {
     fn from(value: IHandwrittenTextInsertion) -> Self {
@@ -2315,7 +2315,7 @@ pub struct IInk(pub ::windows::runtime::IUnknown);
 impl IInk {}
 unsafe impl ::windows::runtime::Interface for IInk {
     type Vtable = IInk_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(66643217, 17313, 4563, [139, 182, 0, 128, 199, 214, 186, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03f8e511_43a1_11d3_8bb6_0080c7d6bad5);
 }
 impl ::core::convert::From<IInk> for ::windows::runtime::IUnknown {
     fn from(value: IInk) -> Self {
@@ -2568,7 +2568,7 @@ impl IInkCollector {
 }
 unsafe impl ::windows::runtime::Interface for IInkCollector {
     type Vtable = IInkCollector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4042285237, 35615, 19068, [137, 236, 136, 6, 146, 88, 138, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0f060b5_8b1f_4a7c_89ec_880692588a4f);
 }
 impl ::core::convert::From<IInkCollector> for ::windows::runtime::IUnknown {
     fn from(value: IInkCollector) -> Self {
@@ -2717,7 +2717,7 @@ impl IInkCursor {
 }
 unsafe impl ::windows::runtime::Interface for IInkCursor {
     type Vtable = IInkCursor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2905654832, 16581, 17232, [132, 5, 156, 113, 1, 47, 197, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad30c630_40c5_4350_8405_9c71012fc558);
 }
 impl ::core::convert::From<IInkCursor> for ::windows::runtime::IUnknown {
     fn from(value: IInkCursor) -> Self {
@@ -2811,7 +2811,7 @@ impl IInkCursorButton {
 }
 unsafe impl ::windows::runtime::Interface for IInkCursorButton {
     type Vtable = IInkCursorButton_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2247070743, 7513, 18866, [161, 60, 112, 44, 133, 67, 8, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85ef9417_1d59_49b2_a13c_702c85430894);
 }
 impl ::core::convert::From<IInkCursorButton> for ::windows::runtime::IUnknown {
     fn from(value: IInkCursorButton) -> Self {
@@ -2901,7 +2901,7 @@ impl IInkCursorButtons {
 }
 unsafe impl ::windows::runtime::Interface for IInkCursorButtons {
     type Vtable = IInkCursorButtons_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(913427520, 46628, 18033, [159, 160, 219, 17, 157, 149, 45, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3671cc40_b624_4671_9fa0_db119d952d54);
 }
 impl ::core::convert::From<IInkCursorButtons> for ::windows::runtime::IUnknown {
     fn from(value: IInkCursorButtons) -> Self {
@@ -2989,7 +2989,7 @@ impl IInkCursors {
 }
 unsafe impl ::windows::runtime::Interface for IInkCursors {
     type Vtable = IInkCursors_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2722677164, 50840, 19974, [158, 92, 213, 127, 119, 199, 230, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa248c1ac_c698_4e06_9e5c_d57f77c7e647);
 }
 impl ::core::convert::From<IInkCursors> for ::windows::runtime::IUnknown {
     fn from(value: IInkCursors) -> Self {
@@ -3091,7 +3091,7 @@ impl IInkCustomStrokes {
 }
 unsafe impl ::windows::runtime::Interface for IInkCustomStrokes {
     type Vtable = IInkCustomStrokes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2116266127, 49934, 16911, [155, 219, 40, 144, 37, 67, 240, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e23a88f_c30e_420f_9bdb_28902543f0c1);
 }
 impl ::core::convert::From<IInkCustomStrokes> for ::windows::runtime::IUnknown {
     fn from(value: IInkCustomStrokes) -> Self {
@@ -3295,7 +3295,7 @@ impl IInkDisp {
 }
 unsafe impl ::windows::runtime::Interface for IInkDisp {
     type Vtable = IInkDisp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2637795232, 50402, 20429, [153, 115, 151, 92, 170, 244, 126, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d398fa0_c4e2_4fcd_9973_975caaf47ea6);
 }
 impl ::core::convert::From<IInkDisp> for ::windows::runtime::IUnknown {
     fn from(value: IInkDisp) -> Self {
@@ -3430,7 +3430,7 @@ impl IInkDivider {
 }
 unsafe impl ::windows::runtime::Interface for IInkDivider {
     type Vtable = IInkDivider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1574962181, 63908, 18001, [176, 197, 195, 23, 222, 253, 88, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5de00405_f9a4_4651_b0c5_c317defd58b9);
 }
 impl ::core::convert::From<IInkDivider> for ::windows::runtime::IUnknown {
     fn from(value: IInkDivider) -> Self {
@@ -3516,7 +3516,7 @@ impl IInkDivisionResult {
 }
 unsafe impl ::windows::runtime::Interface for IInkDivisionResult {
     type Vtable = IInkDivisionResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(767475879, 29895, 19256, [129, 235, 170, 142, 240, 194, 73, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2dbec0a7_74c7_4b38_81eb_aa8ef0c24900);
 }
 impl ::core::convert::From<IInkDivisionResult> for ::windows::runtime::IUnknown {
     fn from(value: IInkDivisionResult) -> Self {
@@ -3608,7 +3608,7 @@ impl IInkDivisionUnit {
 }
 unsafe impl ::windows::runtime::Interface for IInkDivisionUnit {
     type Vtable = IInkDivisionUnit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2242831170, 18608, 16964, [157, 213, 30, 212, 53, 65, 15, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85aee342_48b0_4244_9dd5_1ed435410fab);
 }
 impl ::core::convert::From<IInkDivisionUnit> for ::windows::runtime::IUnknown {
     fn from(value: IInkDivisionUnit) -> Self {
@@ -3697,7 +3697,7 @@ impl IInkDivisionUnits {
 }
 unsafe impl ::windows::runtime::Interface for IInkDivisionUnits {
     type Vtable = IInkDivisionUnits_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(464903618, 12748, 16693, [171, 130, 44, 102, 201, 240, 12, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bb5ddc2_31cc_4135_ab82_2c66c9f00c41);
 }
 impl ::core::convert::From<IInkDivisionUnits> for ::windows::runtime::IUnknown {
     fn from(value: IInkDivisionUnits) -> Self {
@@ -3860,7 +3860,7 @@ impl IInkDrawingAttributes {
 }
 unsafe impl ::windows::runtime::Interface for IInkDrawingAttributes {
     type Vtable = IInkDrawingAttributes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3209796469, 2581, 17955, [173, 201, 192, 13, 67, 106, 128, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf519b75_0a15_4623_adc9_c00d436a8092);
 }
 impl ::core::convert::From<IInkDrawingAttributes> for ::windows::runtime::IUnknown {
     fn from(value: IInkDrawingAttributes) -> Self {
@@ -4328,7 +4328,7 @@ impl IInkEdit {
 }
 unsafe impl ::windows::runtime::Interface for IInkEdit {
     type Vtable = IInkEdit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4061297177, 64507, 19181, [132, 100, 63, 54, 215, 140, 254, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2127a19_fbfb_4aed_8464_3f36d78cfefb);
 }
 impl ::core::convert::From<IInkEdit> for ::windows::runtime::IUnknown {
     fn from(value: IInkEdit) -> Self {
@@ -4544,7 +4544,7 @@ impl IInkExtendedProperties {
 }
 unsafe impl ::windows::runtime::Interface for IInkExtendedProperties {
     type Vtable = IInkExtendedProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2314381502, 38313, 17712, [139, 143, 136, 233, 113, 227, 226, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89f2a8be_95a9_4530_8b8f_88e971e3e25f);
 }
 impl ::core::convert::From<IInkExtendedProperties> for ::windows::runtime::IUnknown {
     fn from(value: IInkExtendedProperties) -> Self {
@@ -4641,7 +4641,7 @@ impl IInkExtendedProperty {
 }
 unsafe impl ::windows::runtime::Interface for IInkExtendedProperty {
     type Vtable = IInkExtendedProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3678966281, 47043, 16669, [144, 246, 21, 72, 207, 255, 39, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb489209_b7c3_411d_90f6_1548cfff271e);
 }
 impl ::core::convert::From<IInkExtendedProperty> for ::windows::runtime::IUnknown {
     fn from(value: IInkExtendedProperty) -> Self {
@@ -4730,7 +4730,7 @@ impl IInkGesture {
 }
 unsafe impl ::windows::runtime::Interface for IInkGesture {
     type Vtable = IInkGesture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1004276375, 1253, 20006, [184, 19, 24, 240, 82, 212, 29, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3bdc0a97_04e5_4e26_b813_18f052d41def);
 }
 impl ::core::convert::From<IInkGesture> for ::windows::runtime::IUnknown {
     fn from(value: IInkGesture) -> Self {
@@ -4828,7 +4828,7 @@ impl IInkLineInfo {
 }
 unsafe impl ::windows::runtime::Interface for IInkLineInfo {
     type Vtable = IInkLineInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2619103958, 61999, 19940, [180, 83, 162, 204, 72, 46, 124, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c1c5ad6_f22f_4de4_b453_a2cc482e7c33);
 }
 impl ::core::convert::From<IInkLineInfo> for ::windows::runtime::IUnknown {
     fn from(value: IInkLineInfo) -> Self {
@@ -5120,7 +5120,7 @@ impl IInkOverlay {
 }
 unsafe impl ::windows::runtime::Interface for IInkOverlay {
     type Vtable = IInkOverlay_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3089778235, 49605, 17827, [153, 124, 222, 171, 86, 81, 182, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb82a463b_c1c5_45a3_997c_deab5651b67a);
 }
 impl ::core::convert::From<IInkOverlay> for ::windows::runtime::IUnknown {
     fn from(value: IInkOverlay) -> Self {
@@ -5521,7 +5521,7 @@ impl IInkPicture {
 }
 unsafe impl ::windows::runtime::Interface for IInkPicture {
     type Vtable = IInkPicture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3897975520, 14234, 16599, [155, 92, 117, 125, 35, 63, 153, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe85662e0_379a_40d7_9b5c_757d233f9923);
 }
 impl ::core::convert::From<IInkPicture> for ::windows::runtime::IUnknown {
     fn from(value: IInkPicture) -> Self {
@@ -5737,7 +5737,7 @@ impl IInkRecognitionAlternate {
 }
 unsafe impl ::windows::runtime::Interface for IInkRecognitionAlternate {
     type Vtable = IInkRecognitionAlternate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085328557, 30692, 17051, [173, 218, 135, 55, 128, 209, 252, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7e660ad_77e4_429b_adda_873780d1fc4a);
 }
 impl ::core::convert::From<IInkRecognitionAlternate> for ::windows::runtime::IUnknown {
     fn from(value: IInkRecognitionAlternate) -> Self {
@@ -5848,7 +5848,7 @@ impl IInkRecognitionAlternates {
 }
 unsafe impl ::windows::runtime::Interface for IInkRecognitionAlternates {
     type Vtable = IInkRecognitionAlternates_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(678041215, 40729, 19553, [157, 83, 79, 7, 190, 98, 43, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x286a167f_9f19_4c61_9d53_4f07be622b84);
 }
 impl ::core::convert::From<IInkRecognitionAlternates> for ::windows::runtime::IUnknown {
     fn from(value: IInkRecognitionAlternates) -> Self {
@@ -5955,7 +5955,7 @@ impl IInkRecognitionResult {
 }
 unsafe impl ::windows::runtime::Interface for IInkRecognitionResult {
     type Vtable = IInkRecognitionResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1002514856, 34509, 17837, [189, 232, 224, 211, 45, 97, 193, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3bc129a8_86cd_45ad_bde8_e0d32d61c16d);
 }
 impl ::core::convert::From<IInkRecognitionResult> for ::windows::runtime::IUnknown {
     fn from(value: IInkRecognitionResult) -> Self {
@@ -6072,7 +6072,7 @@ impl IInkRecognizer {
 }
 unsafe impl ::windows::runtime::Interface for IInkRecognizer {
     type Vtable = IInkRecognizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2016147407, 843, 17302, [138, 50, 58, 24, 51, 207, 107, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x782bf7cf_034b_4396_8a32_3a1833cf6b56);
 }
 impl ::core::convert::From<IInkRecognizer> for ::windows::runtime::IUnknown {
     fn from(value: IInkRecognizer) -> Self {
@@ -6165,7 +6165,7 @@ impl IInkRecognizer2 {
 }
 unsafe impl ::windows::runtime::Interface for IInkRecognizer2 {
     type Vtable = IInkRecognizer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1628443018, 14965, 19158, [178, 170, 4, 178, 183, 43, 190, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6110118a_3a75_4ad6_b2aa_04b2b72bbe65);
 }
 impl ::core::convert::From<IInkRecognizer2> for ::windows::runtime::IUnknown {
     fn from(value: IInkRecognizer2) -> Self {
@@ -6354,7 +6354,7 @@ impl IInkRecognizerContext {
 }
 unsafe impl ::windows::runtime::Interface for IInkRecognizerContext {
     type Vtable = IInkRecognizerContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3331281657, 12963, 17957, [144, 108, 68, 252, 35, 180, 9, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc68f52f9_32a3_4625_906c_44fc23b40958);
 }
 impl ::core::convert::From<IInkRecognizerContext> for ::windows::runtime::IUnknown {
     fn from(value: IInkRecognizerContext) -> Self {
@@ -6467,7 +6467,7 @@ impl IInkRecognizerContext2 {
 }
 unsafe impl ::windows::runtime::Interface for IInkRecognizerContext2 {
     type Vtable = IInkRecognizerContext2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3606111023, 29656, 16526, [142, 159, 95, 234, 89, 44, 54, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6f0e32f_73d8_408e_8e9f_5fea592c363f);
 }
 impl ::core::convert::From<IInkRecognizerContext2> for ::windows::runtime::IUnknown {
     fn from(value: IInkRecognizerContext2) -> Self {
@@ -6596,7 +6596,7 @@ impl IInkRecognizerGuide {
 }
 unsafe impl ::windows::runtime::Interface for IInkRecognizerGuide {
     type Vtable = IInkRecognizerGuide_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3644112391, 31620, 16904, [145, 54, 131, 194, 9, 148, 233, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd934be07_7b84_4208_9136_83c20994e905);
 }
 impl ::core::convert::From<IInkRecognizerGuide> for ::windows::runtime::IUnknown {
     fn from(value: IInkRecognizerGuide) -> Self {
@@ -6699,7 +6699,7 @@ impl IInkRecognizers {
 }
 unsafe impl ::windows::runtime::Interface for IInkRecognizers {
     type Vtable = IInkRecognizers_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2630635282, 45239, 19083, [191, 88, 74, 236, 164, 232, 206, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ccc4f12_b0b7_4a8b_bf58_4aeca4e8cefd);
 }
 impl ::core::convert::From<IInkRecognizers> for ::windows::runtime::IUnknown {
     fn from(value: IInkRecognizers) -> Self {
@@ -6827,7 +6827,7 @@ impl IInkRectangle {
 }
 unsafe impl ::windows::runtime::Interface for IInkRectangle {
     type Vtable = IInkRectangle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2543124354, 24689, 18199, [138, 139, 106, 199, 198, 74, 104, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9794ff82_6071_4717_8a8b_6ac7c64a686e);
 }
 impl ::core::convert::From<IInkRectangle> for ::windows::runtime::IUnknown {
     fn from(value: IInkRectangle) -> Self {
@@ -6974,7 +6974,7 @@ impl IInkRenderer {
 }
 unsafe impl ::windows::runtime::Interface for IInkRenderer {
     type Vtable = IInkRenderer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3861215900, 46353, 20300, [168, 176, 167, 219, 201, 80, 107, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6257a9c_b511_4f4c_a8b0_a7dbc9506b83);
 }
 impl ::core::convert::From<IInkRenderer> for ::windows::runtime::IUnknown {
     fn from(value: IInkRenderer) -> Self {
@@ -7229,7 +7229,7 @@ impl IInkStrokeDisp {
 }
 unsafe impl ::windows::runtime::Interface for IInkStrokeDisp {
     type Vtable = IInkStrokeDisp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1126445034, 37329, 19058, [150, 62, 251, 185, 24, 41, 207, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43242fea_91d1_4a72_963e_fbb91829cfa2);
 }
 impl ::core::convert::From<IInkStrokeDisp> for ::windows::runtime::IUnknown {
     fn from(value: IInkStrokeDisp) -> Self {
@@ -7433,7 +7433,7 @@ impl IInkStrokes {
 }
 unsafe impl ::windows::runtime::Interface for IInkStrokes {
     type Vtable = IInkStrokes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4059351512, 22794, 18787, [179, 174, 25, 53, 103, 27, 182, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1f4c9d8_590a_4963_b3ae_1935671bb6f3);
 }
 impl ::core::convert::From<IInkStrokes> for ::windows::runtime::IUnknown {
     fn from(value: IInkStrokes) -> Self {
@@ -7556,7 +7556,7 @@ impl IInkTablet {
 }
 unsafe impl ::windows::runtime::Interface for IInkTablet {
     type Vtable = IInkTablet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(769810090, 28408, 17109, [174, 233, 24, 91, 200, 27, 145, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2de25eaa_6ef8_42d5_aee9_185bc81b912d);
 }
 impl ::core::convert::From<IInkTablet> for ::windows::runtime::IUnknown {
     fn from(value: IInkTablet) -> Self {
@@ -7640,7 +7640,7 @@ impl IInkTablet2 {
 }
 unsafe impl ::windows::runtime::Interface for IInkTablet2 {
     type Vtable = IInkTablet2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2429098706, 64054, 18902, [149, 22, 206, 141, 87, 15, 111, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90c91ad2_fa36_49d6_9516_ce8d570f6f85);
 }
 impl ::core::convert::From<IInkTablet2> for ::windows::runtime::IUnknown {
     fn from(value: IInkTablet2) -> Self {
@@ -7720,7 +7720,7 @@ impl IInkTablet3 {
 }
 unsafe impl ::windows::runtime::Interface for IInkTablet3 {
     type Vtable = IInkTablet3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2117155223, 4903, 16861, [140, 169, 121, 242, 75, 225, 114, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e313997_1327_41dd_8ca9_79f24be17250);
 }
 impl ::core::convert::From<IInkTablet3> for ::windows::runtime::IUnknown {
     fn from(value: IInkTablet3) -> Self {
@@ -7817,7 +7817,7 @@ impl IInkTablets {
 }
 unsafe impl ::windows::runtime::Interface for IInkTablets {
     type Vtable = IInkTablets_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(287344345, 30585, 17717, [166, 153, 134, 43, 67, 172, 24, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x112086d9_7779_4535_a699_862b43ac1863);
 }
 impl ::core::convert::From<IInkTablets> for ::windows::runtime::IUnknown {
     fn from(value: IInkTablets) -> Self {
@@ -7989,7 +7989,7 @@ impl IInkTransform {
 }
 unsafe impl ::windows::runtime::Interface for IInkTransform {
     type Vtable = IInkTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1633623363, 34563, 17765, [136, 226, 130, 1, 210, 236, 215, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x615f1d43_8703_4565_88e2_8201d2ecd7b7);
 }
 impl ::core::convert::From<IInkTransform> for ::windows::runtime::IUnknown {
     fn from(value: IInkTransform) -> Self {
@@ -8096,7 +8096,7 @@ impl IInkWordList {
 }
 unsafe impl ::windows::runtime::Interface for IInkWordList {
     type Vtable = IInkWordList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1991914641, 52015, 16491, [153, 97, 14, 12, 76, 218, 174, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76ba3491_cb2f_406b_9961_0e0c4cdaaef2);
 }
 impl ::core::convert::From<IInkWordList> for ::windows::runtime::IUnknown {
     fn from(value: IInkWordList) -> Self {
@@ -8175,7 +8175,7 @@ impl IInkWordList2 {
 }
 unsafe impl ::windows::runtime::Interface for IInkWordList2 {
     type Vtable = IInkWordList2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(341058950, 4543, 20319, [182, 231, 73, 208, 116, 74, 171, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14542586_11bf_4f5f_b6e7_49d0744aab6e);
 }
 impl ::core::convert::From<IInkWordList2> for ::windows::runtime::IUnknown {
     fn from(value: IInkWordList2) -> Self {
@@ -8264,7 +8264,7 @@ impl IInputPanelWindowHandle {
 }
 unsafe impl ::windows::runtime::Interface for IInputPanelWindowHandle {
     type Vtable = IInputPanelWindowHandle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1257773127, 64964, 20419, [173, 11, 66, 36, 121, 193, 185, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4af81847_fdc4_4fc3_ad0b_422479c1b935);
 }
 impl ::core::convert::From<IInputPanelWindowHandle> for ::windows::runtime::IUnknown {
     fn from(value: IInputPanelWindowHandle) -> Self {
@@ -8380,7 +8380,7 @@ impl IMathInputControl {
 }
 unsafe impl ::windows::runtime::Interface for IMathInputControl {
     type Vtable = IMathInputControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953530282, 64198, 18232, [186, 95, 255, 9, 233, 254, 71, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba615aa_fac6_4738_ba5f_ff09e9fe473e);
 }
 impl ::core::convert::From<IMathInputControl> for ::windows::runtime::IUnknown {
     fn from(value: IMathInputControl) -> Self {
@@ -8621,7 +8621,7 @@ impl IPenInputPanel {
 }
 unsafe impl ::windows::runtime::Interface for IPenInputPanel {
     type Vtable = IPenInputPanel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4202315907, 22343, 16448, [161, 130, 11, 14, 159, 212, 250, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa7a4083_5747_4040_a182_0b0e9fd4fac7);
 }
 impl ::core::convert::From<IPenInputPanel> for ::windows::runtime::IUnknown {
     fn from(value: IPenInputPanel) -> Self {
@@ -8861,7 +8861,7 @@ impl IRealTimeStylus {
 }
 unsafe impl ::windows::runtime::Interface for IRealTimeStylus {
     type Vtable = IRealTimeStylus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2830851362, 12612, 19067, [147, 205, 243, 74, 22, 190, 81, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8bb5d22_3144_4a7b_93cd_f34a16be513a);
 }
 impl ::core::convert::From<IRealTimeStylus> for ::windows::runtime::IUnknown {
     fn from(value: IRealTimeStylus) -> Self {
@@ -8947,7 +8947,7 @@ impl IRealTimeStylus2 {
 }
 unsafe impl ::windows::runtime::Interface for IRealTimeStylus2 {
     type Vtable = IRealTimeStylus2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3052578509, 12665, 19006, [185, 196, 187, 88, 101, 150, 43, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5f2a6cd_3179_4a3e_b9c4_bb5865962be2);
 }
 impl ::core::convert::From<IRealTimeStylus2> for ::windows::runtime::IUnknown {
     fn from(value: IRealTimeStylus2) -> Self {
@@ -8999,7 +8999,7 @@ impl IRealTimeStylus3 {
 }
 unsafe impl ::windows::runtime::Interface for IRealTimeStylus3 {
     type Vtable = IRealTimeStylus3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3607244963, 27014, 16465, [181, 122, 28, 246, 159, 77, 157, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd70230a3_6986_4051_b57a_1cf69f4d9db5);
 }
 impl ::core::convert::From<IRealTimeStylus3> for ::windows::runtime::IUnknown {
     fn from(value: IRealTimeStylus3) -> Self {
@@ -9048,7 +9048,7 @@ impl IRealTimeStylusSynchronization {
 }
 unsafe impl ::windows::runtime::Interface for IRealTimeStylusSynchronization {
     type Vtable = IRealTimeStylusSynchronization_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2861034168, 43850, 19690, [181, 203, 70, 216, 76, 106, 37, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa87eab8_ab4a_4cea_b5cb_46d84c6a2509);
 }
 impl ::core::convert::From<IRealTimeStylusSynchronization> for ::windows::runtime::IUnknown {
     fn from(value: IRealTimeStylusSynchronization) -> Self {
@@ -9086,7 +9086,7 @@ pub struct ISketchInk(pub ::windows::runtime::IUnknown);
 impl ISketchInk {}
 unsafe impl ::windows::runtime::Interface for ISketchInk {
     type Vtable = ISketchInk_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3025548936, 39147, 17990, [178, 121, 68, 218, 20, 212, 87, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4563688_98eb_4646_b279_44da14d45748);
 }
 impl ::core::convert::From<ISketchInk> for ::windows::runtime::IUnknown {
     fn from(value: ISketchInk) -> Self {
@@ -9202,7 +9202,7 @@ impl IStrokeBuilder {
 }
 unsafe impl ::windows::runtime::Interface for IStrokeBuilder {
     type Vtable = IStrokeBuilder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2784841261, 50251, 16530, [145, 119, 38, 9, 5, 235, 103, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5fd4e2d_c44b_4092_9177_260905eb672b);
 }
 impl ::core::convert::From<IStrokeBuilder> for ::windows::runtime::IUnknown {
     fn from(value: IStrokeBuilder) -> Self {
@@ -9321,7 +9321,7 @@ impl IStylusAsyncPlugin {
 }
 unsafe impl ::windows::runtime::Interface for IStylusAsyncPlugin {
     type Vtable = IStylusAsyncPlugin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2815207514, 12732, 19666, [170, 220, 50, 137, 163, 175, 17, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7cca85a_31bc_4cd2_aadc_3289a3af11c8);
 }
 impl ::core::convert::From<IStylusAsyncPlugin> for ::windows::runtime::IUnknown {
     fn from(value: IStylusAsyncPlugin) -> Self {
@@ -9476,7 +9476,7 @@ impl IStylusPlugin {
 }
 unsafe impl ::windows::runtime::Interface for IStylusPlugin {
     type Vtable = IStylusPlugin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2819897048, 18263, 20433, [161, 133, 19, 63, 151, 198, 197, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa81436d8_4757_4fd1_a185_133f97c6c545);
 }
 impl ::core::convert::From<IStylusPlugin> for ::windows::runtime::IUnknown {
     fn from(value: IStylusPlugin) -> Self {
@@ -9611,7 +9611,7 @@ impl IStylusSyncPlugin {
 }
 unsafe impl ::windows::runtime::Interface for IStylusSyncPlugin {
     type Vtable = IStylusSyncPlugin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2706878836, 18479, 19825, [163, 246, 58, 65, 221, 209, 27, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa157b174_482f_4d71_a3f6_3a41ddd11be9);
 }
 impl ::core::convert::From<IStylusSyncPlugin> for ::windows::runtime::IUnknown {
     fn from(value: IStylusSyncPlugin) -> Self {
@@ -9812,7 +9812,7 @@ impl ITextInputPanel {
 }
 unsafe impl ::windows::runtime::Interface for ITextInputPanel {
     type Vtable = ITextInputPanel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1802134949, 27379, 18114, [182, 234, 86, 205, 31, 128, 223, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b6a65a5_6af3_46c2_b6ea_56cd1f80df71);
 }
 impl ::core::convert::From<ITextInputPanel> for ::windows::runtime::IUnknown {
     fn from(value: ITextInputPanel) -> Self {
@@ -9936,7 +9936,7 @@ impl ITextInputPanelEventSink {
 }
 unsafe impl ::windows::runtime::Interface for ITextInputPanelEventSink {
     type Vtable = ITextInputPanelEventSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(659948552, 36452, 20449, [128, 78, 66, 18, 1, 88, 75, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27560408_8e64_4fe1_804e_421201584b31);
 }
 impl ::core::convert::From<ITextInputPanelEventSink> for ::windows::runtime::IUnknown {
     fn from(value: ITextInputPanelEventSink) -> Self {
@@ -9997,7 +9997,7 @@ impl ITextInputPanelRunInfo {
 }
 unsafe impl ::windows::runtime::Interface for ITextInputPanelRunInfo {
     type Vtable = ITextInputPanelRunInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2671920488, 6432, 18636, [152, 17, 169, 147, 203, 245, 173, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f424568_1920_48cc_9811_a993cbf5adba);
 }
 impl ::core::convert::From<ITextInputPanelRunInfo> for ::windows::runtime::IUnknown {
     fn from(value: ITextInputPanelRunInfo) -> Self {
@@ -10061,7 +10061,7 @@ impl ITipAutoCompleteClient {
 }
 unsafe impl ::windows::runtime::Interface for ITipAutoCompleteClient {
     type Vtable = ITipAutoCompleteClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1577553411, 33381, 19390, [148, 135, 210, 66, 237, 190, 249, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e078e03_8265_4bbe_9487_d242edbef910);
 }
 impl ::core::convert::From<ITipAutoCompleteClient> for ::windows::runtime::IUnknown {
     fn from(value: ITipAutoCompleteClient) -> Self {
@@ -10117,7 +10117,7 @@ impl ITipAutoCompleteProvider {
 }
 unsafe impl ::windows::runtime::Interface for ITipAutoCompleteProvider {
     type Vtable = ITipAutoCompleteProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2087515245, 33796, 18105, [173, 51, 245, 182, 3, 109, 64, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c6cf46d_8404_46b9_ad33_f5b6036d4007);
 }
 impl ::core::convert::From<ITipAutoCompleteProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITipAutoCompleteProvider) -> Self {
@@ -10180,7 +10180,7 @@ impl ::core::convert::From<i32> for InPlaceState {
 unsafe impl ::windows::runtime::Abi for InPlaceState {
     type Abi = Self;
 }
-pub const Ink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(333335106, 36129, 19598, [191, 156, 143, 105, 203, 6, 143, 202]);
+pub const Ink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13de4a42_8d21_4c8e_bf9c_8f69cb068fca);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -10308,7 +10308,7 @@ impl ::core::convert::From<i32> for InkCollectionMode {
 unsafe impl ::windows::runtime::Abi for InkCollectionMode {
     type Abi = Self;
 }
-pub const InkCollector: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1140528467, 44404, 20200, [136, 228, 62, 109, 170, 201, 21, 219]);
+pub const InkCollector: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43fb1553_ad74_4ee8_88e4_3e6daac915db);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const InkCollectorClipInkToMargin: i32 = 0i32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -10358,7 +10358,7 @@ impl ::core::convert::From<i32> for InkCursorButtonState {
 unsafe impl ::windows::runtime::Abi for InkCursorButtonState {
     type Abi = Self;
 }
-pub const InkDisp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2474383924, 5405, 17936, [156, 166, 168, 204, 155, 219, 93, 131]);
+pub const InkDisp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x937c1a34_151d_4610_9ca6_a8cc9bdb5d83);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -10373,7 +10373,7 @@ impl ::core::convert::From<i32> for InkDisplayMode {
 unsafe impl ::windows::runtime::Abi for InkDisplayMode {
     type Abi = Self;
 }
-pub const InkDivider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2287269536, 18051, 19175, [145, 145, 117, 47, 230, 70, 18, 195]);
+pub const InkDivider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8854f6a0_4683_4ae7_9191_752fe64612c3);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -10390,8 +10390,8 @@ impl ::core::convert::From<i32> for InkDivisionType {
 unsafe impl ::windows::runtime::Abi for InkDivisionType {
     type Abi = Self;
 }
-pub const InkDrawingAttributes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3636408994, 1445, 17603, [179, 170, 94, 128, 172, 125, 37, 118]);
-pub const InkEdit: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3855243765, 22468, 19928, [155, 214, 29, 238, 237, 210, 122, 244]);
+pub const InkDrawingAttributes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8bf32a2_05a5_44c3_b3aa_5e80ac7d2576);
+pub const InkEdit: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5ca59f5_57c4_4dd8_9bd6_1deeedd27af4);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -10498,7 +10498,7 @@ impl ::core::convert::From<i32> for InkMousePointer {
 unsafe impl ::windows::runtime::Abi for InkMousePointer {
     type Abi = Self;
 }
-pub const InkOverlay: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1708131910, 52707, 19080, [145, 99, 103, 105, 240, 241, 169, 125]);
+pub const InkOverlay: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65d00646_cde3_4a88_9163_6769f0f1a97d);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -10587,7 +10587,7 @@ impl ::core::convert::From<i32> for InkPersistenceFormat {
 unsafe impl ::windows::runtime::Abi for InkPersistenceFormat {
     type Abi = Self;
 }
-pub const InkPicture: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(77718867, 65078, 20446, [134, 94, 52, 65, 148, 230, 148, 36]);
+pub const InkPicture: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04a1e553_fe36_4fde_865e_344194e69424);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -10792,11 +10792,11 @@ impl ::core::convert::From<i32> for InkRecognizerCharacterAutoCompletionMode {
 unsafe impl ::windows::runtime::Abi for InkRecognizerCharacterAutoCompletionMode {
     type Abi = Self;
 }
-pub const InkRecognizerContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2864998967, 37417, 20416, [140, 206, 68, 151, 86, 155, 244, 209]);
-pub const InkRecognizerGuide: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2272319809, 42554, 18033, [163, 117, 40, 85, 161, 142, 186, 115]);
-pub const InkRecognizers: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2681530376, 63206, 20069, [152, 211, 170, 57, 5, 76, 18, 85]);
-pub const InkRectangle: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1135637286, 43744, 19298, [168, 61, 95, 215, 104, 183, 53, 60]);
-pub const InkRenderer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2619131620, 55275, 20203, [144, 145, 21, 167, 200, 121, 30, 217]);
+pub const InkRecognizerContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaac46a37_9229_4fc0_8cce_4497569bf4d1);
+pub const InkRecognizerGuide: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8770d941_a63a_4671_a375_2855a18eba73);
+pub const InkRecognizers: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fd4e808_f6e6_4e65_98d3_aa39054c1255);
+pub const InkRectangle: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43b07326_aae0_4b62_a83d_5fd768b7353c);
+pub const InkRenderer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c1cc6e4_d7eb_4eeb_9091_15a7c8791ed9);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -10826,7 +10826,7 @@ impl ::core::convert::From<i32> for InkShiftKeyModifierFlags {
 unsafe impl ::windows::runtime::Abi for InkShiftKeyModifierFlags {
     type Abi = Self;
 }
-pub const InkStrokes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1223987644, 9230, 18528, [176, 121, 161, 233, 77, 61, 44, 134]);
+pub const InkStrokes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48f491bc_240e_4860_b079_a1e94d3d2c86);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -10849,9 +10849,9 @@ impl ::core::convert::From<i32> for InkSystemGesture {
 unsafe impl ::windows::runtime::Abi for InkSystemGesture {
     type Abi = Self;
 }
-pub const InkTablets: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1850723090, 20746, 19776, [147, 4, 29, 161, 10, 233, 20, 124]);
-pub const InkTransform: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3822442812, 5731, 19064, [161, 167, 34, 55, 93, 254, 186, 238]);
-pub const InkWordList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2649247892, 63263, 17649, [132, 113, 21, 162, 250, 118, 252, 243]);
+pub const InkTablets: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e4fcb12_510a_4d40_9304_1da10ae9147c);
+pub const InkTransform: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3d5d93c_1663_4a78_a1a7_22375dfebaee);
+pub const InkWordList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9de85094_f71f_44f1_8471_15a2fa76fcf3);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -11070,7 +11070,7 @@ pub unsafe fn MakeWordList<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOGN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const MathInputControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3311501676, 5336, 16528, [131, 12, 152, 217, 148, 178, 28, 123]);
+pub const MathInputControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc561816c_14d8_4090_830c_98d994b21c7b);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -11236,8 +11236,8 @@ impl ::core::convert::From<i32> for PanelType {
 unsafe impl ::windows::runtime::Abi for PanelType {
     type Abi = Self;
 }
-pub const PenInputPanel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4148487318, 7002, 18590, [129, 220, 251, 215, 172, 98, 152, 168]);
-pub const PenInputPanel_Internal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2150309817, 1387, 18208, [176, 204, 128, 210, 59, 113, 23, 30]);
+pub const PenInputPanel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf744e496_1b5a_489e_81dc_fbd7ac6298a8);
+pub const PenInputPanel_Internal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x802b1fb9_056b_4720_b0cc_80d23b71171e);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub type PfnRecoCallback = unsafe extern "system" fn(param0: u32, param1: *mut u8, param2: HRECOCONTEXT) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -11568,7 +11568,7 @@ pub const RF_REQUIRESSEGMENTATIONBREAKING: i32 = 131072i32;
 pub const RF_RIGHT_AND_DOWN: i32 = 64i32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const RF_STROKEREORDER: i32 = 8192i32;
-pub const RealTimeStylus: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3798677101, 63896, 17358, [131, 111, 203, 109, 144, 68, 50, 176]);
+pub const RealTimeStylus: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe26b366d_f998_43ce_836f_cb6d904432b0);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -11832,8 +11832,8 @@ pub unsafe fn SetWordList<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCON
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const SketchInk: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4029223041, 59516, 19975, [151, 218, 160, 160, 55, 97, 229, 134]);
-pub const StrokeBuilder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3893415655, 28241, 19632, [170, 58, 11, 152, 91, 112, 218, 247]);
+pub const SketchInk: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0291081_e87c_4e07_97da_a0a03761e586);
+pub const StrokeBuilder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe810cee7_6e51_4cb0_aa3a_0b985b70daf7);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -11959,8 +11959,8 @@ impl ::core::convert::From<i32> for TabletPropertyMetricUnit {
 unsafe impl ::windows::runtime::Abi for TabletPropertyMetricUnit {
     type Abi = Self;
 }
-pub const TextInputPanel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4189161943, 8843, 20267, [134, 80, 185, 127, 89, 224, 44, 140]);
-pub const TipAutoCompleteClient: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2155617900, 7424, 17727, [185, 32, 182, 27, 183, 205, 217, 151]);
+pub const TextInputPanel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9b189d7_228b_4f2b_8650_b97f59e02c8c);
+pub const TipAutoCompleteClient: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x807c1e6c_1d00_453f_b920_b61bb7cdd997);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -11997,7 +11997,7 @@ pub struct _IInkCollectorEvents(pub ::windows::runtime::IUnknown);
 impl _IInkCollectorEvents {}
 unsafe impl ::windows::runtime::Interface for _IInkCollectorEvents {
     type Vtable = _IInkCollectorEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(296059890, 28973, 20458, [171, 207, 171, 74, 243, 142, 160, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11a583f2_712d_4fea_abcf_ab4af38ea06b);
 }
 impl ::core::convert::From<_IInkCollectorEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IInkCollectorEvents) -> Self {
@@ -12065,7 +12065,7 @@ pub struct _IInkEditEvents(pub ::windows::runtime::IUnknown);
 impl _IInkEditEvents {}
 unsafe impl ::windows::runtime::Interface for _IInkEditEvents {
     type Vtable = _IInkEditEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3820009367, 42798, 18139, [160, 215, 108, 158, 186, 142, 155, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3b0b797_a72e_46db_a0d7_6c9eba8e9bbc);
 }
 impl ::core::convert::From<_IInkEditEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IInkEditEvents) -> Self {
@@ -12133,7 +12133,7 @@ pub struct _IInkEvents(pub ::windows::runtime::IUnknown);
 impl _IInkEvents {}
 unsafe impl ::windows::runtime::Interface for _IInkEvents {
     type Vtable = _IInkEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1115363429, 51775, 18330, [131, 169, 15, 66, 15, 42, 0, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x427b1865_ca3f_479a_83a9_0f420f2a0073);
 }
 impl ::core::convert::From<_IInkEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IInkEvents) -> Self {
@@ -12201,7 +12201,7 @@ pub struct _IInkOverlayEvents(pub ::windows::runtime::IUnknown);
 impl _IInkOverlayEvents {}
 unsafe impl ::windows::runtime::Interface for _IInkOverlayEvents {
     type Vtable = _IInkOverlayEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(823630697, 58723, 18590, [177, 111, 113, 47, 30, 138, 6, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31179b69_e563_489e_b16f_712f1e8a0651);
 }
 impl ::core::convert::From<_IInkOverlayEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IInkOverlayEvents) -> Self {
@@ -12269,7 +12269,7 @@ pub struct _IInkPictureEvents(pub ::windows::runtime::IUnknown);
 impl _IInkPictureEvents {}
 unsafe impl ::windows::runtime::Interface for _IInkPictureEvents {
     type Vtable = _IInkPictureEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1627344878, 8959, 17540, [172, 193, 211, 8, 217, 205, 126, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60ff4fee_22ff_4484_acc1_d308d9cd7ea3);
 }
 impl ::core::convert::From<_IInkPictureEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IInkPictureEvents) -> Self {
@@ -12337,7 +12337,7 @@ pub struct _IInkRecognitionEvents(pub ::windows::runtime::IUnknown);
 impl _IInkRecognitionEvents {}
 unsafe impl ::windows::runtime::Interface for _IInkRecognitionEvents {
     type Vtable = _IInkRecognitionEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(398256431, 11809, 18429, [157, 51, 60, 106, 251, 253, 140, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17bce92f_2e21_47fd_9d33_3c6afbfd8c59);
 }
 impl ::core::convert::From<_IInkRecognitionEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IInkRecognitionEvents) -> Self {
@@ -12405,7 +12405,7 @@ pub struct _IInkStrokesEvents(pub ::windows::runtime::IUnknown);
 impl _IInkStrokesEvents {}
 unsafe impl ::windows::runtime::Interface for _IInkStrokesEvents {
     type Vtable = _IInkStrokesEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4080030700, 23845, 17162, [146, 143, 118, 166, 73, 29, 222, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf33053ec_5d25_430a_928f_76a6491dde15);
 }
 impl ::core::convert::From<_IInkStrokesEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IInkStrokesEvents) -> Self {
@@ -12473,7 +12473,7 @@ pub struct _IMathInputControlEvents(pub ::windows::runtime::IUnknown);
 impl _IMathInputControlEvents {}
 unsafe impl ::windows::runtime::Interface for _IMathInputControlEvents {
     type Vtable = _IMathInputControlEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1748186805, 42109, 17240, [150, 249, 135, 90, 71, 42, 231, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x683336b5_a47d_4358_96f9_875a472ae70a);
 }
 impl ::core::convert::From<_IMathInputControlEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IMathInputControlEvents) -> Self {
@@ -12541,7 +12541,7 @@ pub struct _IPenInputPanelEvents(pub ::windows::runtime::IUnknown);
 impl _IPenInputPanelEvents {}
 unsafe impl ::windows::runtime::Interface for _IPenInputPanelEvents {
     type Vtable = _IPenInputPanelEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085208026, 14105, 17311, [132, 143, 231, 172, 189, 130, 15, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7e489da_3719_439f_848f_e7acbd820f17);
 }
 impl ::core::convert::From<_IPenInputPanelEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IPenInputPanelEvents) -> Self {

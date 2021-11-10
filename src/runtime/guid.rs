@@ -21,17 +21,27 @@ impl GUID {
     }
 
     /// Creates a `GUID` represented by the all-zero byte-pattern.
-    pub const fn zeroed() -> GUID {
-        GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] }
+    pub const fn zeroed() -> Self {
+        Self { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] }
     }
 
     /// Creates a `GUID` with the given constant values.
-    pub const fn from_values(data1: u32, data2: u16, data3: u16, data4: [u8; 8]) -> GUID {
-        GUID { data1, data2, data3, data4 }
+    pub const fn from_values(data1: u32, data2: u16, data3: u16, data4: [u8; 8]) -> Self {
+        Self { data1, data2, data3, data4 }
+    }
+
+    /// Creates a `GUID` from a `u128` value.
+    pub const fn from_u128(uuid: u128) -> Self {
+        Self {
+            data1: (uuid >> (8 * 12)) as u32,
+            data2: (uuid >> (8 * 10) & 0xffff) as u16,
+            data3: (uuid >> (8 * 8) & 0xffff) as u16,
+            data4: [(uuid >> 56 & 0xff) as u8, (uuid >> 48 & 0xff) as u8, (uuid >> 40 & 0xff) as u8, (uuid >> 32 & 0xff) as u8, (uuid >> 24 & 0xff) as u8, (uuid >> 16 & 0xff) as u8, (uuid >> 8 & 0xff) as u8, (uuid & 0xff) as u8],
+        }
     }
 
     /// Creates a `GUID` for a "generic" WinRT type.
-    pub const fn from_signature(signature: ConstBuffer) -> GUID {
+    pub const fn from_signature(signature: ConstBuffer) -> Self {
         let data = ConstBuffer::from_slice(&[0x11, 0xf4, 0x7a, 0xd5, 0x7b, 0x73, 0x42, 0xc0, 0xab, 0xae, 0x87, 0x8b, 0x1e, 0x16, 0xad, 0xee]);
 
         let data = data.push_other(signature);
@@ -67,7 +77,7 @@ impl core::fmt::Debug for GUID {
 }
 
 impl From<&str> for GUID {
-    fn from(value: &str) -> GUID {
+    fn from(value: &str) -> Self {
         assert!(value.len() == 36, "Invalid GUID string");
         let mut bytes = value.bytes();
 
@@ -88,7 +98,7 @@ impl From<&str> for GUID {
         let j = bytes.next_u8() * 16 + bytes.next_u8();
         let k = bytes.next_u8() * 16 + bytes.next_u8();
 
-        GUID::from_values(a, b, c, [d, e, f, g, h, i, j, k])
+        Self::from_values(a, b, c, [d, e, f, g, h, i, j, k])
     }
 }
 

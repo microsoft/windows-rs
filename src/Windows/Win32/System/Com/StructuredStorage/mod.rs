@@ -865,7 +865,7 @@ impl IDirectWriterLock {
 }
 unsafe impl ::windows::runtime::Interface for IDirectWriterLock {
     type Vtable = IDirectWriterLock_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(242044306, 26424, 4559, [150, 8, 0, 170, 0, 104, 13, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e6d4d92_6738_11cf_9608_00aa00680db4);
 }
 impl ::core::convert::From<IDirectWriterLock> for ::windows::runtime::IUnknown {
     fn from(value: IDirectWriterLock) -> Self {
@@ -923,7 +923,7 @@ impl IEnumSTATPROPSETSTG {
 }
 unsafe impl ::windows::runtime::Interface for IEnumSTATPROPSETSTG {
     type Vtable = IEnumSTATPROPSETSTG_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(315, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0000013b_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<IEnumSTATPROPSETSTG> for ::windows::runtime::IUnknown {
     fn from(value: IEnumSTATPROPSETSTG) -> Self {
@@ -983,7 +983,7 @@ impl IEnumSTATPROPSTG {
 }
 unsafe impl ::windows::runtime::Interface for IEnumSTATPROPSTG {
     type Vtable = IEnumSTATPROPSTG_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(313, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000139_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<IEnumSTATPROPSTG> for ::windows::runtime::IUnknown {
     fn from(value: IEnumSTATPROPSTG) -> Self {
@@ -1043,7 +1043,7 @@ impl IEnumSTATSTG {
 }
 unsafe impl ::windows::runtime::Interface for IEnumSTATSTG {
     type Vtable = IEnumSTATSTG_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(13, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0000000d_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<IEnumSTATSTG> for ::windows::runtime::IUnknown {
     fn from(value: IEnumSTATSTG) -> Self {
@@ -1104,7 +1104,7 @@ impl IFillLockBytes {
 }
 unsafe impl ::windows::runtime::Interface for IFillLockBytes {
     type Vtable = IFillLockBytes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2580213776, 16734, 4559, [136, 20, 0, 170, 0, 181, 105, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99caf010_415e_11cf_8814_00aa00b569f5);
 }
 impl ::core::convert::From<IFillLockBytes> for ::windows::runtime::IUnknown {
     fn from(value: IFillLockBytes) -> Self {
@@ -1168,7 +1168,7 @@ impl ILayoutStorage {
 }
 unsafe impl ::windows::runtime::Interface for ILayoutStorage {
     type Vtable = ILayoutStorage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(242044304, 26424, 4559, [150, 8, 0, 170, 0, 104, 13, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e6d4d90_6738_11cf_9608_00aa00680db4);
 }
 impl ::core::convert::From<ILayoutStorage> for ::windows::runtime::IUnknown {
     fn from(value: ILayoutStorage) -> Self {
@@ -1242,7 +1242,7 @@ impl ILockBytes {
 }
 unsafe impl ::windows::runtime::Interface for ILockBytes {
     type Vtable = ILockBytes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(10, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0000000a_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<ILockBytes> for ::windows::runtime::IUnknown {
     fn from(value: ILockBytes) -> Self {
@@ -1317,7 +1317,7 @@ impl IPersistStorage {
 }
 unsafe impl ::windows::runtime::Interface for IPersistStorage {
     type Vtable = IPersistStorage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(266, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0000010a_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<IPersistStorage> for ::windows::runtime::IUnknown {
     fn from(value: IPersistStorage) -> Self {
@@ -1392,7 +1392,7 @@ impl IPropertyBag {
 }
 unsafe impl ::windows::runtime::Interface for IPropertyBag {
     type Vtable = IPropertyBag_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1428630016, 17099, 4558, [129, 53, 0, 170, 0, 75, 184, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55272a00_42cb_11ce_8135_00aa004bb851);
 }
 impl ::core::convert::From<IPropertyBag> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyBag) -> Self {
@@ -1458,7 +1458,7 @@ impl IPropertyBag2 {
 }
 unsafe impl ::windows::runtime::Interface for IPropertyBag2 {
     type Vtable = IPropertyBag2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(586504322, 10251, 4560, [168, 169, 0, 160, 201, 12, 32, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22f55882_280b_11d0_a8a9_00a0c90c2004);
 }
 impl ::core::convert::From<IPropertyBag2> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyBag2) -> Self {
@@ -1523,7 +1523,7 @@ impl IPropertySetStorage {
 }
 unsafe impl ::windows::runtime::Interface for IPropertySetStorage {
     type Vtable = IPropertySetStorage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(314, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0000013a_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<IPropertySetStorage> for ::windows::runtime::IUnknown {
     fn from(value: IPropertySetStorage) -> Self {
@@ -1621,7 +1621,7 @@ impl IPropertyStorage {
 }
 unsafe impl ::windows::runtime::Interface for IPropertyStorage {
     type Vtable = IPropertyStorage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(312, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000138_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<IPropertyStorage> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyStorage) -> Self {
@@ -1682,7 +1682,7 @@ impl IRootStorage {
 }
 unsafe impl ::windows::runtime::Interface for IRootStorage {
     type Vtable = IRootStorage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(18, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000012_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<IRootStorage> for ::windows::runtime::IUnknown {
     fn from(value: IRootStorage) -> Self {
@@ -1793,7 +1793,7 @@ impl IStorage {
 }
 unsafe impl ::windows::runtime::Interface for IStorage {
     type Vtable = IStorage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(11, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0000000b_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<IStorage> for ::windows::runtime::IUnknown {
     fn from(value: IStorage) -> Self {

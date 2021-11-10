@@ -2982,7 +2982,7 @@ impl IEnumNetCfgBindingInterface {
 }
 unsafe impl ::windows::runtime::Interface for IEnumNetCfgBindingInterface {
     type Vtable = IEnumNetCfgBindingInterface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474512, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae90_306e_11d1_aacf_00805fc1270e);
 }
 impl ::core::convert::From<IEnumNetCfgBindingInterface> for ::windows::runtime::IUnknown {
     fn from(value: IEnumNetCfgBindingInterface) -> Self {
@@ -3040,7 +3040,7 @@ impl IEnumNetCfgBindingPath {
 }
 unsafe impl ::windows::runtime::Interface for IEnumNetCfgBindingPath {
     type Vtable = IEnumNetCfgBindingPath_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474513, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae91_306e_11d1_aacf_00805fc1270e);
 }
 impl ::core::convert::From<IEnumNetCfgBindingPath> for ::windows::runtime::IUnknown {
     fn from(value: IEnumNetCfgBindingPath) -> Self {
@@ -3098,7 +3098,7 @@ impl IEnumNetCfgComponent {
 }
 unsafe impl ::windows::runtime::Interface for IEnumNetCfgComponent {
     type Vtable = IEnumNetCfgComponent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474514, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae92_306e_11d1_aacf_00805fc1270e);
 }
 impl ::core::convert::From<IEnumNetCfgComponent> for ::windows::runtime::IUnknown {
     fn from(value: IEnumNetCfgComponent) -> Self {
@@ -3174,7 +3174,7 @@ impl INetCfg {
 }
 unsafe impl ::windows::runtime::Interface for INetCfg {
     type Vtable = INetCfg_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474515, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae93_306e_11d1_aacf_00805fc1270e);
 }
 impl ::core::convert::From<INetCfg> for ::windows::runtime::IUnknown {
     fn from(value: INetCfg) -> Self {
@@ -3235,7 +3235,7 @@ impl INetCfgBindingInterface {
 }
 unsafe impl ::windows::runtime::Interface for INetCfgBindingInterface {
     type Vtable = INetCfgBindingInterface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474516, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae94_306e_11d1_aacf_00805fc1270e);
 }
 impl ::core::convert::From<INetCfgBindingInterface> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgBindingInterface) -> Self {
@@ -3314,7 +3314,7 @@ impl INetCfgBindingPath {
 }
 unsafe impl ::windows::runtime::Interface for INetCfgBindingPath {
     type Vtable = INetCfgBindingPath_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474518, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae96_306e_11d1_aacf_00805fc1270e);
 }
 impl ::core::convert::From<INetCfgBindingPath> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgBindingPath) -> Self {
@@ -3372,7 +3372,7 @@ impl INetCfgClass {
 }
 unsafe impl ::windows::runtime::Interface for INetCfgClass {
     type Vtable = INetCfgClass_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474519, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae97_306e_11d1_aacf_00805fc1270e);
 }
 impl ::core::convert::From<INetCfgClass> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgClass) -> Self {
@@ -3429,7 +3429,7 @@ impl INetCfgClassSetup {
 }
 unsafe impl ::windows::runtime::Interface for INetCfgClassSetup {
     type Vtable = INetCfgClassSetup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474525, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae9d_306e_11d1_aacf_00805fc1270e);
 }
 impl ::core::convert::From<INetCfgClassSetup> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgClassSetup) -> Self {
@@ -3493,7 +3493,7 @@ impl INetCfgClassSetup2 {
 }
 unsafe impl ::windows::runtime::Interface for INetCfgClassSetup2 {
     type Vtable = INetCfgClassSetup2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474528, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8aea0_306e_11d1_aacf_00805fc1270e);
 }
 impl ::core::convert::From<INetCfgClassSetup2> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgClassSetup2) -> Self {
@@ -3623,7 +3623,7 @@ impl INetCfgComponent {
 }
 unsafe impl ::windows::runtime::Interface for INetCfgComponent {
     type Vtable = INetCfgComponent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474521, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae99_306e_11d1_aacf_00805fc1270e);
 }
 impl ::core::convert::From<INetCfgComponent> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgComponent) -> Self {
@@ -3714,7 +3714,7 @@ impl INetCfgComponentBindings {
 }
 unsafe impl ::windows::runtime::Interface for INetCfgComponentBindings {
     type Vtable = INetCfgComponentBindings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474526, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae9e_306e_11d1_aacf_00805fc1270e);
 }
 impl ::core::convert::From<INetCfgComponentBindings> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgComponentBindings) -> Self {
@@ -3777,7 +3777,7 @@ impl INetCfgComponentControl {
 }
 unsafe impl ::windows::runtime::Interface for INetCfgComponentControl {
     type Vtable = INetCfgComponentControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493535, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x932238df_bea1_11d0_9298_00c04fc99dcf);
 }
 impl ::core::convert::From<INetCfgComponentControl> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgComponentControl) -> Self {
@@ -3827,7 +3827,7 @@ impl INetCfgComponentNotifyBinding {
 }
 unsafe impl ::windows::runtime::Interface for INetCfgComponentNotifyBinding {
     type Vtable = INetCfgComponentNotifyBinding_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493537, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x932238e1_bea1_11d0_9298_00c04fc99dcf);
 }
 impl ::core::convert::From<INetCfgComponentNotifyBinding> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgComponentNotifyBinding) -> Self {
@@ -3883,7 +3883,7 @@ impl INetCfgComponentNotifyGlobal {
 }
 unsafe impl ::windows::runtime::Interface for INetCfgComponentNotifyGlobal {
     type Vtable = INetCfgComponentNotifyGlobal_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493538, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x932238e2_bea1_11d0_9298_00c04fc99dcf);
 }
 impl ::core::convert::From<INetCfgComponentNotifyGlobal> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgComponentNotifyGlobal) -> Self {
@@ -3950,7 +3950,7 @@ impl INetCfgComponentPropertyUi {
 }
 unsafe impl ::windows::runtime::Interface for INetCfgComponentPropertyUi {
     type Vtable = INetCfgComponentPropertyUi_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493536, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x932238e0_bea1_11d0_9298_00c04fc99dcf);
 }
 impl ::core::convert::From<INetCfgComponentPropertyUi> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgComponentPropertyUi) -> Self {
@@ -4012,7 +4012,7 @@ impl INetCfgComponentSetup {
 }
 unsafe impl ::windows::runtime::Interface for INetCfgComponentSetup {
     type Vtable = INetCfgComponentSetup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493539, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x932238e3_bea1_11d0_9298_00c04fc99dcf);
 }
 impl ::core::convert::From<INetCfgComponentSetup> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgComponentSetup) -> Self {
@@ -4064,7 +4064,7 @@ impl INetCfgComponentSysPrep {
 }
 unsafe impl ::windows::runtime::Interface for INetCfgComponentSysPrep {
     type Vtable = INetCfgComponentSysPrep_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474522, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae9a_306e_11d1_aacf_00805fc1270e);
 }
 impl ::core::convert::From<INetCfgComponentSysPrep> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgComponentSysPrep) -> Self {
@@ -4117,7 +4117,7 @@ impl INetCfgComponentUpperEdge {
 }
 unsafe impl ::windows::runtime::Interface for INetCfgComponentUpperEdge {
     type Vtable = INetCfgComponentUpperEdge_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493540, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x932238e4_bea1_11d0_9298_00c04fc99dcf);
 }
 impl ::core::convert::From<INetCfgComponentUpperEdge> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgComponentUpperEdge) -> Self {
@@ -4173,7 +4173,7 @@ impl INetCfgLock {
 }
 unsafe impl ::windows::runtime::Interface for INetCfgLock {
     type Vtable = INetCfgLock_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474527, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae9f_306e_11d1_aacf_00805fc1270e);
 }
 impl ::core::convert::From<INetCfgLock> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgLock) -> Self {
@@ -4220,7 +4220,7 @@ impl INetCfgPnpReconfigCallback {
 }
 unsafe impl ::windows::runtime::Interface for INetCfgPnpReconfigCallback {
     type Vtable = INetCfgPnpReconfigCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2374286645, 57895, 4562, [183, 0, 0, 160, 201, 138, 106, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d84bd35_e227_11d2_b700_00a0c98a6a85);
 }
 impl ::core::convert::From<INetCfgPnpReconfigCallback> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgPnpReconfigCallback) -> Self {
@@ -4279,7 +4279,7 @@ impl INetCfgSysPrep {
 }
 unsafe impl ::windows::runtime::Interface for INetCfgSysPrep {
     type Vtable = INetCfgSysPrep_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474520, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae98_306e_11d1_aacf_00805fc1270e);
 }
 impl ::core::convert::From<INetCfgSysPrep> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgSysPrep) -> Self {
@@ -4329,7 +4329,7 @@ impl INetLanConnectionUiInfo {
 }
 unsafe impl ::windows::runtime::Interface for INetLanConnectionUiInfo {
     type Vtable = INetLanConnectionUiInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226086, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc08956a6_1cd3_11d1_b1c5_00805fc1270e);
 }
 impl ::core::convert::From<INetLanConnectionUiInfo> for ::windows::runtime::IUnknown {
     fn from(value: INetLanConnectionUiInfo) -> Self {
@@ -4373,7 +4373,7 @@ impl INetRasConnectionIpUiInfo {
 }
 unsafe impl ::windows::runtime::Interface for INetRasConnectionIpUiInfo {
     type Vtable = INetRasConnectionIpUiInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4209889112, 12798, 4561, [170, 210, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfaedcf58_31fe_11d1_aad2_00805fc1270e);
 }
 impl ::core::convert::From<INetRasConnectionIpUiInfo> for ::windows::runtime::IUnknown {
     fn from(value: INetRasConnectionIpUiInfo) -> Self {
@@ -4427,7 +4427,7 @@ impl IProvisioningDomain {
 }
 unsafe impl ::windows::runtime::Interface for IProvisioningDomain {
     type Vtable = IProvisioningDomain_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3379543376, 9437, 4568, [137, 251, 0, 144, 75, 46, 169, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc96fbd50_24dd_11d8_89fb_00904b2ea9c6);
 }
 impl ::core::convert::From<IProvisioningDomain> for ::windows::runtime::IUnknown {
     fn from(value: IProvisioningDomain) -> Self {
@@ -4474,7 +4474,7 @@ impl IProvisioningProfileWireless {
 }
 unsafe impl ::windows::runtime::Interface for IProvisioningProfileWireless {
     type Vtable = IProvisioningProfileWireless_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3379543377, 9437, 4568, [137, 251, 0, 144, 75, 46, 169, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc96fbd51_24dd_11d8_89fb_00904b2ea9c6);
 }
 impl ::core::convert::From<IProvisioningProfileWireless> for ::windows::runtime::IUnknown {
     fn from(value: IProvisioningProfileWireless) -> Self {
@@ -8562,7 +8562,7 @@ pub unsafe fn NetProvisionComputerAccount<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const NetProvisioning: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(715306494, 47174, 19719, [129, 12, 178, 30, 228, 83, 32, 227]);
+pub const NetProvisioning: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2aa2b5fe_b846_4d07_810c_b21ee45320e3);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -15361,7 +15361,7 @@ pub const SV_XACTMEMSIZE_PARMNUM: u32 = 531u32;
 pub const SW_AUTOPROF_LOAD_MASK: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const SW_AUTOPROF_SAVE_MASK: u32 = 2u32;
-pub const ServiceAccountPasswordGUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(640588233, 24928, 18545, [172, 236, 78, 97, 115, 107, 111, 33]);
+pub const ServiceAccountPasswordGUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x262e99c9_6160_4871_acec_4e61736b6f21);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

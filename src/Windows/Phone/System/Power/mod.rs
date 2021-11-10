@@ -4,7 +4,7 @@
 pub struct IPowerManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPowerManagerStatics {
     type Vtable = IPowerManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(635342800, 7259, 4577, [189, 219, 8, 0, 32, 12, 154, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25de8fd0_1c5b_11e1_bddb_0800200c9a66);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26,7 +26,7 @@ pub struct IPowerManagerStatics_abi(
 pub struct IPowerManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPowerManagerStatics2 {
     type Vtable = IPowerManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1499608783, 6424, 17745, [164, 102, 197, 26, 174, 55, 59, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x596236cf_1918_4551_a466_c51aae373bf8);
 }
 #[repr(C)]
 #[doc(hidden)]

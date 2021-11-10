@@ -7,7 +7,7 @@ pub mod Interop;
 pub struct IWebViewControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControl {
     type Vtable = IWebViewControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1066537750, 48240, 19418, [145, 54, 201, 67, 112, 137, 159, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f921316_bc70_4bda_9136_c94370899fab);
 }
 impl IWebViewControl {
     #[cfg(feature = "Foundation")]
@@ -591,7 +591,7 @@ pub struct IWebViewControl_abi(
 pub struct IWebViewControl2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControl2 {
     type Vtable = IWebViewControl2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1295779577, 51423, 16844, [139, 213, 42, 148, 123, 32, 69, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d3c06f9_c8df_41cc_8bd5_2a947b204503);
 }
 impl IWebViewControl2 {
     #[doc = "*Required features: `Web_UI`*"]
@@ -659,7 +659,7 @@ pub struct IWebViewControl2_abi(
 pub struct IWebViewControlContentLoadingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlContentLoadingEventArgs {
     type Vtable = IWebViewControlContentLoadingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2587872434, 47547, 16459, [162, 43, 102, 220, 205, 18, 80, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a3fccb2_b9bb_404b_a22b_66dccd1250c6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -678,7 +678,7 @@ pub struct IWebViewControlContentLoadingEventArgs_abi(
 pub struct IWebViewControlDOMContentLoadedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlDOMContentLoadedEventArgs {
     type Vtable = IWebViewControlDOMContentLoadedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3196829704, 38209, 17733, [159, 242, 45, 245, 133, 178, 159, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe8bc008_9541_4545_9ff2_2df585b29f7d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -697,7 +697,7 @@ pub struct IWebViewControlDOMContentLoadedEventArgs_abi(
 pub struct IWebViewControlDeferredPermissionRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlDeferredPermissionRequest {
     type Vtable = IWebViewControlDeferredPermissionRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(753093088, 55129, 17500, [153, 38, 137, 149, 41, 143, 21, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ce349e0_d759_445c_9926_8995298f152b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -720,7 +720,7 @@ pub struct IWebViewControlDeferredPermissionRequest_abi(
 pub struct IWebViewControlLongRunningScriptDetectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlLongRunningScriptDetectedEventArgs {
     type Vtable = IWebViewControlLongRunningScriptDetectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(711875514, 39092, 17852, [187, 235, 15, 105, 206, 73, 197, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a6e5bba_98b4_45bc_bbeb_0f69ce49c599);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -741,7 +741,7 @@ pub struct IWebViewControlLongRunningScriptDetectedEventArgs_abi(
 pub struct IWebViewControlNavigationCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlNavigationCompletedEventArgs {
     type Vtable = IWebViewControlNavigationCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(541104408, 18965, 19526, [165, 93, 247, 158, 219, 11, 222, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20409918_4a15_4c46_a55d_f79edb0bde8b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -762,7 +762,7 @@ pub struct IWebViewControlNavigationCompletedEventArgs_abi(
 pub struct IWebViewControlNavigationStartingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlNavigationStartingEventArgs {
     type Vtable = IWebViewControlNavigationStartingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(210786245, 2568, 16839, [134, 59, 113, 227, 169, 84, 145, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c9057c5_0a08_41c7_863b_71e3a9549137);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -783,7 +783,7 @@ pub struct IWebViewControlNavigationStartingEventArgs_abi(
 pub struct IWebViewControlNewWindowRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlNewWindowRequestedEventArgs {
     type Vtable = IWebViewControlNewWindowRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1039420347, 41252, 18133, [160, 131, 208, 44, 172, 223, 245, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3df44bbb_a124_46d5_a083_d02cacdff5ad);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -806,7 +806,7 @@ pub struct IWebViewControlNewWindowRequestedEventArgs_abi(
 pub struct IWebViewControlNewWindowRequestedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlNewWindowRequestedEventArgs2 {
     type Vtable = IWebViewControlNewWindowRequestedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3040631974, 10926, 19452, [146, 185, 195, 14, 146, 180, 128, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb53c5ca6_2aae_4bfc_92b9_c30e92b48098);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -827,7 +827,7 @@ pub struct IWebViewControlNewWindowRequestedEventArgs2_abi(
 pub struct IWebViewControlPermissionRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlPermissionRequest {
     type Vtable = IWebViewControlPermissionRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3854336876, 61999, 16610, [149, 178, 119, 41, 248, 64, 235, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5bc836c_f22f_40e2_95b2_7729f840eb7f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -852,7 +852,7 @@ pub struct IWebViewControlPermissionRequest_abi(
 pub struct IWebViewControlPermissionRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlPermissionRequestedEventArgs {
     type Vtable = IWebViewControlPermissionRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(656428369, 9352, 19653, [150, 142, 10, 119, 30, 89, 193, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27204d51_2488_4cc5_968e_0a771e59c147);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -870,7 +870,7 @@ pub struct IWebViewControlPermissionRequestedEventArgs_abi(
 pub struct IWebViewControlScriptNotifyEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlScriptNotifyEventArgs {
     type Vtable = IWebViewControlScriptNotifyEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1226696059, 28489, 16827, [181, 145, 81, 184, 91, 129, 112, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x491de57b_6f49_41bb_b591_51b85b817037);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -890,7 +890,7 @@ pub struct IWebViewControlScriptNotifyEventArgs_abi(
 pub struct IWebViewControlSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlSettings {
     type Vtable = IWebViewControlSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3382083519, 24216, 19709, [140, 206, 39, 176, 145, 30, 61, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9967fbf_5e98_4cfd_8cce_27b0911e3de8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -913,7 +913,7 @@ pub struct IWebViewControlSettings_abi(
 pub struct IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
     type Vtable = IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3820493124, 58620, 17372, [148, 202, 249, 128, 243, 11, 197, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3b81944_e4fc_43dc_94ca_f980f30bc51d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -934,7 +934,7 @@ pub struct IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs_abi(
 pub struct IWebViewControlUnviewableContentIdentifiedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlUnviewableContentIdentifiedEventArgs {
     type Vtable = IWebViewControlUnviewableContentIdentifiedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1251377371, 35058, 20000, [182, 147, 180, 226, 223, 74, 165, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a9680db_88f2_4e20_b693_b4e2df4aa581);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -956,7 +956,7 @@ pub struct IWebViewControlUnviewableContentIdentifiedEventArgs_abi(
 pub struct IWebViewControlWebResourceRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControlWebResourceRequestedEventArgs {
     type Vtable = IWebViewControlWebResourceRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1154896461, 21924, 19851, [137, 28, 147, 29, 142, 37, 212, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44d6524d_55a4_4d8b_891c_931d8e25d42e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -996,7 +996,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebViewControlContentLoadingEven
 }
 unsafe impl ::windows::runtime::Interface for WebViewControlContentLoadingEventArgs {
     type Vtable = IWebViewControlContentLoadingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2587872434, 47547, 16459, [162, 43, 102, 220, 205, 18, 80, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a3fccb2_b9bb_404b_a22b_66dccd1250c6);
 }
 impl ::windows::runtime::RuntimeName for WebViewControlContentLoadingEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlContentLoadingEventArgs";
@@ -1061,7 +1061,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebViewControlDOMContentLoadedEv
 }
 unsafe impl ::windows::runtime::Interface for WebViewControlDOMContentLoadedEventArgs {
     type Vtable = IWebViewControlDOMContentLoadedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3196829704, 38209, 17733, [159, 242, 45, 245, 133, 178, 159, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe8bc008_9541_4545_9ff2_2df585b29f7d);
 }
 impl ::windows::runtime::RuntimeName for WebViewControlDOMContentLoadedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlDOMContentLoadedEventArgs";
@@ -1152,7 +1152,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebViewControlDeferredPermission
 }
 unsafe impl ::windows::runtime::Interface for WebViewControlDeferredPermissionRequest {
     type Vtable = IWebViewControlDeferredPermissionRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(753093088, 55129, 17500, [153, 38, 137, 149, 41, 143, 21, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ce349e0_d759_445c_9926_8995298f152b);
 }
 impl ::windows::runtime::RuntimeName for WebViewControlDeferredPermissionRequest {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlDeferredPermissionRequest";
@@ -1230,7 +1230,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebViewControlLongRunningScriptD
 }
 unsafe impl ::windows::runtime::Interface for WebViewControlLongRunningScriptDetectedEventArgs {
     type Vtable = IWebViewControlLongRunningScriptDetectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(711875514, 39092, 17852, [187, 235, 15, 105, 206, 73, 197, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a6e5bba_98b4_45bc_bbeb_0f69ce49c599);
 }
 impl ::windows::runtime::RuntimeName for WebViewControlLongRunningScriptDetectedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlLongRunningScriptDetectedEventArgs";
@@ -1311,7 +1311,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebViewControlNavigationComplete
 }
 unsafe impl ::windows::runtime::Interface for WebViewControlNavigationCompletedEventArgs {
     type Vtable = IWebViewControlNavigationCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(541104408, 18965, 19526, [165, 93, 247, 158, 219, 11, 222, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20409918_4a15_4c46_a55d_f79edb0bde8b);
 }
 impl ::windows::runtime::RuntimeName for WebViewControlNavigationCompletedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlNavigationCompletedEventArgs";
@@ -1389,7 +1389,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebViewControlNavigationStarting
 }
 unsafe impl ::windows::runtime::Interface for WebViewControlNavigationStartingEventArgs {
     type Vtable = IWebViewControlNavigationStartingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(210786245, 2568, 16839, [134, 59, 113, 227, 169, 84, 145, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c9057c5_0a08_41c7_863b_71e3a9549137);
 }
 impl ::windows::runtime::RuntimeName for WebViewControlNavigationStartingEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlNavigationStartingEventArgs";
@@ -1498,7 +1498,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebViewControlNewWindowRequested
 }
 unsafe impl ::windows::runtime::Interface for WebViewControlNewWindowRequestedEventArgs {
     type Vtable = IWebViewControlNewWindowRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1039420347, 41252, 18133, [160, 131, 208, 44, 172, 223, 245, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3df44bbb_a124_46d5_a083_d02cacdff5ad);
 }
 impl ::windows::runtime::RuntimeName for WebViewControlNewWindowRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlNewWindowRequestedEventArgs";
@@ -1602,7 +1602,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebViewControlPermissionRequest 
 }
 unsafe impl ::windows::runtime::Interface for WebViewControlPermissionRequest {
     type Vtable = IWebViewControlPermissionRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3854336876, 61999, 16610, [149, 178, 119, 41, 248, 64, 235, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5bc836c_f22f_40e2_95b2_7729f840eb7f);
 }
 impl ::windows::runtime::RuntimeName for WebViewControlPermissionRequest {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlPermissionRequest";
@@ -1666,7 +1666,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebViewControlPermissionRequeste
 }
 unsafe impl ::windows::runtime::Interface for WebViewControlPermissionRequestedEventArgs {
     type Vtable = IWebViewControlPermissionRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(656428369, 9352, 19653, [150, 142, 10, 119, 30, 89, 193, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27204d51_2488_4cc5_968e_0a771e59c147);
 }
 impl ::windows::runtime::RuntimeName for WebViewControlPermissionRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlPermissionRequestedEventArgs";
@@ -1790,7 +1790,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebViewControlScriptNotifyEventA
 }
 unsafe impl ::windows::runtime::Interface for WebViewControlScriptNotifyEventArgs {
     type Vtable = IWebViewControlScriptNotifyEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1226696059, 28489, 16827, [181, 145, 81, 184, 91, 129, 112, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x491de57b_6f49_41bb_b591_51b85b817037);
 }
 impl ::windows::runtime::RuntimeName for WebViewControlScriptNotifyEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlScriptNotifyEventArgs";
@@ -1885,7 +1885,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebViewControlSettings {
 }
 unsafe impl ::windows::runtime::Interface for WebViewControlSettings {
     type Vtable = IWebViewControlSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3382083519, 24216, 19709, [140, 206, 39, 176, 145, 30, 61, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9967fbf_5e98_4cfd_8cce_27b0911e3de8);
 }
 impl ::windows::runtime::RuntimeName for WebViewControlSettings {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlSettings";
@@ -1963,7 +1963,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebViewControlUnsupportedUriSche
 }
 unsafe impl ::windows::runtime::Interface for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
     type Vtable = IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3820493124, 58620, 17372, [148, 202, 249, 128, 243, 11, 197, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3b81944_e4fc_43dc_94ca_f980f30bc51d);
 }
 impl ::windows::runtime::RuntimeName for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlUnsupportedUriSchemeIdentifiedEventArgs";
@@ -2045,7 +2045,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebViewControlUnviewableContentI
 }
 unsafe impl ::windows::runtime::Interface for WebViewControlUnviewableContentIdentifiedEventArgs {
     type Vtable = IWebViewControlUnviewableContentIdentifiedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1251377371, 35058, 20000, [182, 147, 180, 226, 223, 74, 165, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a9680db_88f2_4e20_b693_b4e2df4aa581);
 }
 impl ::windows::runtime::RuntimeName for WebViewControlUnviewableContentIdentifiedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlUnviewableContentIdentifiedEventArgs";
@@ -2134,7 +2134,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebViewControlWebResourceRequest
 }
 unsafe impl ::windows::runtime::Interface for WebViewControlWebResourceRequestedEventArgs {
     type Vtable = IWebViewControlWebResourceRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1154896461, 21924, 19851, [137, 28, 147, 29, 142, 37, 212, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44d6524d_55a4_4d8b_891c_931d8e25d42e);
 }
 impl ::windows::runtime::RuntimeName for WebViewControlWebResourceRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlWebResourceRequestedEventArgs";

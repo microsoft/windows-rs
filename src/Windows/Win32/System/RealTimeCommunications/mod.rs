@@ -23,7 +23,7 @@ impl INetworkTransportSettings {
 }
 unsafe impl ::windows::runtime::Interface for INetworkTransportSettings {
     type Vtable = INetworkTransportSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1585101612, 62145, 19041, [189, 53, 222, 183, 160, 138, 176, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e7abb2c_f2c1_4a61_bd35_deb7a08ab0f1);
 }
 impl ::core::convert::From<INetworkTransportSettings> for ::windows::runtime::IUnknown {
     fn from(value: INetworkTransportSettings) -> Self {
@@ -72,7 +72,7 @@ impl INotificationTransportSync {
 }
 unsafe impl ::windows::runtime::Interface for INotificationTransportSync {
     type Vtable = INotificationTransportSync_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045449218, 2744, 18880, [158, 20, 161, 174, 75, 169, 48, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eb1402_0ab8_49c0_9e14_a1ae4ba93058);
 }
 impl ::core::convert::From<INotificationTransportSync> for ::windows::runtime::IUnknown {
     fn from(value: INotificationTransportSync) -> Self {
@@ -164,7 +164,7 @@ impl IRTCBuddy {
 }
 unsafe impl ::windows::runtime::Interface for IRTCBuddy {
     type Vtable = IRTCBuddy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4239472328, 31632, 19980, [190, 254, 86, 237, 240, 186, 111, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcb136c8_7b90_4e0c_befe_56edf0ba6f1c);
 }
 impl ::core::convert::From<IRTCBuddy> for ::windows::runtime::IUnknown {
     fn from(value: IRTCBuddy) -> Self {
@@ -331,7 +331,7 @@ impl IRTCBuddy2 {
 }
 unsafe impl ::windows::runtime::Interface for IRTCBuddy2 {
     type Vtable = IRTCBuddy2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(271553928, 9191, 16611, [149, 77, 205, 122, 29, 92, 3, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x102f9588_23e7_40e3_954d_cd7a1d5c0361);
 }
 impl ::core::convert::From<IRTCBuddy2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCBuddy2) -> Self {
@@ -439,7 +439,7 @@ impl IRTCBuddyEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCBuddyEvent {
     type Vtable = IRTCBuddyEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4084036957, 6118, 16462, [149, 79, 15, 192, 117, 116, 199, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf36d755d_17e6_404e_954f_0fc07574c78d);
 }
 impl ::core::convert::From<IRTCBuddyEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCBuddyEvent) -> Self {
@@ -561,7 +561,7 @@ impl IRTCBuddyEvent2 {
 }
 unsafe impl ::windows::runtime::Interface for IRTCBuddyEvent2 {
     type Vtable = IRTCBuddyEvent2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1212841758, 29680, 18832, [191, 194, 96, 188, 57, 120, 167, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x484a7f1e_73f0_4990_bfc2_60bc3978a720);
 }
 impl ::core::convert::From<IRTCBuddyEvent2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCBuddyEvent2) -> Self {
@@ -699,7 +699,7 @@ impl IRTCBuddyGroup {
 }
 unsafe impl ::windows::runtime::Interface for IRTCBuddyGroup {
     type Vtable = IRTCBuddyGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1614159464, 37220, 17289, [164, 198, 208, 179, 146, 91, 218, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60361e68_9164_4389_a4c6_d0b3925bda5e);
 }
 impl ::core::convert::From<IRTCBuddyGroup> for ::windows::runtime::IUnknown {
     fn from(value: IRTCBuddyGroup) -> Self {
@@ -769,7 +769,7 @@ impl IRTCBuddyGroupEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCBuddyGroupEvent {
     type Vtable = IRTCBuddyGroupEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(981066193, 46902, 17428, [150, 248, 187, 199, 240, 136, 99, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a79e1d1_b736_4414_96f8_bbc7f08863e4);
 }
 impl ::core::convert::From<IRTCBuddyGroupEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCBuddyGroupEvent) -> Self {
@@ -1041,7 +1041,7 @@ impl IRTCClient {
 }
 unsafe impl ::windows::runtime::Interface for IRTCClient {
     type Vtable = IRTCClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(126000709, 39476, 16526, [160, 17, 189, 223, 19, 72, 124, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x07829e45_9a34_408e_a011_bddf13487cd1);
 }
 impl ::core::convert::From<IRTCClient> for ::windows::runtime::IUnknown {
     fn from(value: IRTCClient) -> Self {
@@ -1391,7 +1391,7 @@ impl IRTCClient2 {
 }
 unsafe impl ::windows::runtime::Interface for IRTCClient2 {
     type Vtable = IRTCClient2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(210884381, 4196, 17114, [191, 165, 87, 43, 235, 142, 234, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c91d71d_1064_42da_bfa5_572beb8eea84);
 }
 impl ::core::convert::From<IRTCClient2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCClient2) -> Self {
@@ -1527,7 +1527,7 @@ impl IRTCClientEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCClientEvent {
     type Vtable = IRTCClientEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(726219642, 15546, 16752, [156, 139, 118, 169, 218, 205, 214, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b493b7a_3cba_4170_9c8b_76a9dacdd644);
 }
 impl ::core::convert::From<IRTCClientEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCClientEvent) -> Self {
@@ -1611,7 +1611,7 @@ impl IRTCClientPortManagement {
 }
 unsafe impl ::windows::runtime::Interface for IRTCClientPortManagement {
     type Vtable = IRTCClientPortManagement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3588177667, 19422, 17431, [174, 254, 113, 23, 123, 218, 234, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5df3f03_4bde_4417_aefe_71177bdaea66);
 }
 impl ::core::convert::From<IRTCClientPortManagement> for ::windows::runtime::IUnknown {
     fn from(value: IRTCClientPortManagement) -> Self {
@@ -1743,7 +1743,7 @@ impl IRTCClientPresence {
 }
 unsafe impl ::windows::runtime::Interface for IRTCClientPresence {
     type Vtable = IRTCClientPresence_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(298044364, 1860, 17105, [150, 138, 81, 170, 27, 178, 116, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11c3cbcc_0744_42d1_968a_51aa1bb274c6);
 }
 impl ::core::convert::From<IRTCClientPresence> for ::windows::runtime::IUnknown {
     fn from(value: IRTCClientPresence) -> Self {
@@ -2006,7 +2006,7 @@ impl IRTCClientPresence2 {
 }
 unsafe impl ::windows::runtime::Interface for IRTCClientPresence2 {
     type Vtable = IRTCClientPresence2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2904033768, 25335, 18307, [144, 154, 41, 201, 210, 203, 29, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad1809e8_62f7_4783_909a_29c9d2cb1d34);
 }
 impl ::core::convert::From<IRTCClientPresence2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCClientPresence2) -> Self {
@@ -2151,7 +2151,7 @@ impl IRTCClientProvisioning {
 }
 unsafe impl ::windows::runtime::Interface for IRTCClientProvisioning {
     type Vtable = IRTCClientProvisioning_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3119894278, 26041, 19072, [160, 230, 115, 202, 227, 239, 56, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9f5cf06_65b9_4a80_a0e6_73cae3ef3822);
 }
 impl ::core::convert::From<IRTCClientProvisioning> for ::windows::runtime::IUnknown {
     fn from(value: IRTCClientProvisioning) -> Self {
@@ -2235,7 +2235,7 @@ impl IRTCClientProvisioning2 {
 }
 unsafe impl ::windows::runtime::Interface for IRTCClientProvisioning2 {
     type Vtable = IRTCClientProvisioning2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2802387381, 62478, 17799, [187, 117, 230, 188, 8, 69, 2, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa70909b5_f40e_4587_bb75_e6bc0845023e);
 }
 impl ::core::convert::From<IRTCClientProvisioning2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCClientProvisioning2) -> Self {
@@ -2318,7 +2318,7 @@ impl IRTCCollection {
 }
 unsafe impl ::windows::runtime::Interface for IRTCCollection {
     type Vtable = IRTCCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3967582358, 47384, 16452, [148, 241, 228, 251, 160, 54, 29, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec7c8096_b918_4044_94f1_e4fba0361d5c);
 }
 impl ::core::convert::From<IRTCCollection> for ::windows::runtime::IUnknown {
     fn from(value: IRTCCollection) -> Self {
@@ -2389,7 +2389,7 @@ pub struct IRTCDispatchEventNotification(pub ::windows::runtime::IUnknown);
 impl IRTCDispatchEventNotification {}
 unsafe impl ::windows::runtime::Interface for IRTCDispatchEventNotification {
     type Vtable = IRTCDispatchEventNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(393076670, 65216, 19797, [188, 135, 132, 207, 241, 239, 127, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x176ddfbe_fec0_4d55_bc87_84cff1ef7f91);
 }
 impl ::core::convert::From<IRTCDispatchEventNotification> for ::windows::runtime::IUnknown {
     fn from(value: IRTCDispatchEventNotification) -> Self {
@@ -2474,7 +2474,7 @@ impl IRTCEnumBuddies {
 }
 unsafe impl ::windows::runtime::Interface for IRTCEnumBuddies {
     type Vtable = IRTCEnumBuddies_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4146686231, 21865, 19259, [179, 175, 152, 209, 20, 75, 43, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7296917_5569_4b3b_b3af_98d1144b2b87);
 }
 impl ::core::convert::From<IRTCEnumBuddies> for ::windows::runtime::IUnknown {
     fn from(value: IRTCEnumBuddies) -> Self {
@@ -2532,7 +2532,7 @@ impl IRTCEnumGroups {
 }
 unsafe impl ::windows::runtime::Interface for IRTCEnumGroups {
     type Vtable = IRTCEnumGroups_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1948481750, 41281, 17429, [143, 39, 53, 217, 144, 118, 207, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x742378d6_a141_4415_8f27_35d99076cf5d);
 }
 impl ::core::convert::From<IRTCEnumGroups> for ::windows::runtime::IUnknown {
     fn from(value: IRTCEnumGroups) -> Self {
@@ -2590,7 +2590,7 @@ impl IRTCEnumParticipants {
 }
 unsafe impl ::windows::runtime::Interface for IRTCEnumParticipants {
     type Vtable = IRTCEnumParticipants_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4241846057, 19023, 16818, [186, 92, 245, 188, 204, 6, 11, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcd56f29_4a4f_41b2_ba5c_f5bccc060bf6);
 }
 impl ::core::convert::From<IRTCEnumParticipants> for ::windows::runtime::IUnknown {
     fn from(value: IRTCEnumParticipants) -> Self {
@@ -2648,7 +2648,7 @@ impl IRTCEnumPresenceDevices {
 }
 unsafe impl ::windows::runtime::Interface for IRTCEnumPresenceDevices {
     type Vtable = IRTCEnumPresenceDevices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1888234167, 35832, 17144, [140, 125, 99, 81, 151, 173, 85, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x708c2ab7_8bf8_42f8_8c7d_635197ad5539);
 }
 impl ::core::convert::From<IRTCEnumPresenceDevices> for ::windows::runtime::IUnknown {
     fn from(value: IRTCEnumPresenceDevices) -> Self {
@@ -2706,7 +2706,7 @@ impl IRTCEnumProfiles {
 }
 unsafe impl ::windows::runtime::Interface for IRTCEnumProfiles {
     type Vtable = IRTCEnumProfiles_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(699909148, 60802, 19402, [132, 173, 57, 213, 16, 27, 88, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29b7c41c_ed82_4bca_84ad_39d5101b58e3);
 }
 impl ::core::convert::From<IRTCEnumProfiles> for ::windows::runtime::IUnknown {
     fn from(value: IRTCEnumProfiles) -> Self {
@@ -2764,7 +2764,7 @@ impl IRTCEnumUserSearchResults {
 }
 unsafe impl ::windows::runtime::Interface for IRTCEnumUserSearchResults {
     type Vtable = IRTCEnumUserSearchResults_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2211764343, 43613, 19035, [141, 14, 0, 42, 128, 103, 224, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83d4d877_aa5d_4a5b_8d0e_002a8067e0e8);
 }
 impl ::core::convert::From<IRTCEnumUserSearchResults> for ::windows::runtime::IUnknown {
     fn from(value: IRTCEnumUserSearchResults) -> Self {
@@ -2822,7 +2822,7 @@ impl IRTCEnumWatchers {
 }
 unsafe impl ::windows::runtime::Interface for IRTCEnumWatchers {
     type Vtable = IRTCEnumWatchers_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2826786263, 56180, 20177, [156, 164, 119, 160, 228, 27, 65, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa87d55d7_db74_4ed1_9ca4_77a0e41b413e);
 }
 impl ::core::convert::From<IRTCEnumWatchers> for ::windows::runtime::IUnknown {
     fn from(value: IRTCEnumWatchers) -> Self {
@@ -2868,7 +2868,7 @@ impl IRTCEventNotification {
 }
 unsafe impl ::windows::runtime::Interface for IRTCEventNotification {
     type Vtable = IRTCEventNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(335160519, 22344, 19233, [145, 245, 115, 151, 96, 156, 231, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13fa24c7_5748_4b21_91f5_7397609ce747);
 }
 impl ::core::convert::From<IRTCEventNotification> for ::windows::runtime::IUnknown {
     fn from(value: IRTCEventNotification) -> Self {
@@ -2929,7 +2929,7 @@ impl IRTCInfoEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCInfoEvent {
     type Vtable = IRTCInfoEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1310550190, 6418, 20297, [178, 195, 89, 79, 173, 253, 66, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e1d68ae_1912_4f49_b2c3_594fadfd425f);
 }
 impl ::core::convert::From<IRTCInfoEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCInfoEvent) -> Self {
@@ -3023,7 +3023,7 @@ impl IRTCIntensityEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCIntensityEvent {
     type Vtable = IRTCIntensityEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1277411153, 14604, 18834, [164, 29, 65, 238, 192, 91, 42, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c23bf51_390c_4992_a41d_41eec05b2a4b);
 }
 impl ::core::convert::From<IRTCIntensityEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCIntensityEvent) -> Self {
@@ -3110,7 +3110,7 @@ impl IRTCMediaEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCMediaEvent {
     type Vtable = IRTCMediaEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(161039611, 48346, 17726, [140, 65, 225, 61, 162, 173, 247, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x099944fb_bcda_453e_8c41_e13da2adf7f3);
 }
 impl ::core::convert::From<IRTCMediaEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCMediaEvent) -> Self {
@@ -3214,7 +3214,7 @@ impl IRTCMediaRequestEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCMediaRequestEvent {
     type Vtable = IRTCMediaRequestEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1381444885, 5260, 19863, [163, 108, 45, 165, 92, 40, 157, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52572d15_148c_4d97_a36c_2da55c289d63);
 }
 impl ::core::convert::From<IRTCMediaRequestEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCMediaRequestEvent) -> Self {
@@ -3321,7 +3321,7 @@ impl IRTCMessagingEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCMessagingEvent {
     type Vtable = IRTCMessagingEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3546322241, 6953, 19941, [164, 173, 90, 235, 175, 49, 149, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3609541_1b29_4de5_a4ad_5aebaf319512);
 }
 impl ::core::convert::From<IRTCMessagingEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCMessagingEvent) -> Self {
@@ -3424,7 +3424,7 @@ impl IRTCParticipant {
 }
 unsafe impl ::windows::runtime::Interface for IRTCParticipant {
     type Vtable = IRTCParticipant_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2928061909, 9905, 17428, [175, 29, 185, 76, 217, 56, 215, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae86add5_26b1_4414_af1d_b94cd938d739);
 }
 impl ::core::convert::From<IRTCParticipant> for ::windows::runtime::IUnknown {
     fn from(value: IRTCParticipant) -> Self {
@@ -3483,7 +3483,7 @@ impl IRTCParticipantStateChangeEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCParticipantStateChangeEvent {
     type Vtable = IRTCParticipantStateChangeEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(163362199, 61690, 18681, [180, 32, 70, 140, 234, 127, 222, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09bcb597_f0fa_48f9_b420_468cea7fde04);
 }
 impl ::core::convert::From<IRTCParticipantStateChangeEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCParticipantStateChangeEvent) -> Self {
@@ -3569,7 +3569,7 @@ impl IRTCPortManager {
 }
 unsafe impl ::windows::runtime::Interface for IRTCPortManager {
     type Vtable = IRTCPortManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3665281355, 25096, 17354, [141, 223, 91, 96, 160, 166, 159, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda77c14b_6208_43ca_8ddf_5b60a0a69fac);
 }
 impl ::core::convert::From<IRTCPortManager> for ::windows::runtime::IUnknown {
     fn from(value: IRTCPortManager) -> Self {
@@ -3654,7 +3654,7 @@ impl IRTCPresenceContact {
 }
 unsafe impl ::windows::runtime::Interface for IRTCPresenceContact {
     type Vtable = IRTCPresenceContact_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2334325036, 52624, 17115, [167, 51, 33, 34, 5, 195, 227, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b22f92c_cd90_42db_a733_212205c3e3df);
 }
 impl ::core::convert::From<IRTCPresenceContact> for ::windows::runtime::IUnknown {
     fn from(value: IRTCPresenceContact) -> Self {
@@ -3721,7 +3721,7 @@ impl IRTCPresenceDataEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCPresenceDataEvent {
     type Vtable = IRTCPresenceDataEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(955312012, 35719, 19460, [168, 45, 174, 221, 131, 201, 9, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38f0e78c_8b87_4c04_a82d_aedd83c909bb);
 }
 impl ::core::convert::From<IRTCPresenceDataEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCPresenceDataEvent) -> Self {
@@ -3816,7 +3816,7 @@ impl IRTCPresenceDevice {
 }
 unsafe impl ::windows::runtime::Interface for IRTCPresenceDevice {
     type Vtable = IRTCPresenceDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3161100509, 44442, 18650, [155, 12, 37, 21, 227, 133, 33, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc6a90dd_ad9a_48da_9b0c_2515e38521ad);
 }
 impl ::core::convert::From<IRTCPresenceDevice> for ::windows::runtime::IUnknown {
     fn from(value: IRTCPresenceDevice) -> Self {
@@ -3882,7 +3882,7 @@ impl IRTCPresencePropertyEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCPresencePropertyEvent {
     type Vtable = IRTCPresencePropertyEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4151833968, 43040, 18901, [134, 189, 224, 153, 73, 63, 21, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf777f570_a820_49d5_86bd_e099493f1518);
 }
 impl ::core::convert::From<IRTCPresencePropertyEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCPresencePropertyEvent) -> Self {
@@ -3972,7 +3972,7 @@ impl IRTCPresenceStatusEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCPresenceStatusEvent {
     type Vtable = IRTCPresenceStatusEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2020032306, 18959, 17964, [137, 170, 238, 119, 6, 112, 118, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78673f32_4a0f_462c_89aa_ee7706707678);
 }
 impl ::core::convert::From<IRTCPresenceStatusEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCPresenceStatusEvent) -> Self {
@@ -4149,7 +4149,7 @@ impl IRTCProfile {
 }
 unsafe impl ::windows::runtime::Interface for IRTCProfile {
     type Vtable = IRTCProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3497970334, 16482, 19924, [158, 125, 114, 42, 73, 186, 115, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd07eca9e_4062_4dd4_9e7d_722a49ba7303);
 }
 impl ::core::convert::From<IRTCProfile> for ::windows::runtime::IUnknown {
     fn from(value: IRTCProfile) -> Self {
@@ -4343,7 +4343,7 @@ impl IRTCProfile2 {
 }
 unsafe impl ::windows::runtime::Interface for IRTCProfile2 {
     type Vtable = IRTCProfile2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1266808910, 48583, 16772, [145, 84, 60, 178, 221, 121, 23, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b81f84e_bdc7_4184_9154_3cb2dd7917fb);
 }
 impl ::core::convert::From<IRTCProfile2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCProfile2) -> Self {
@@ -4454,7 +4454,7 @@ impl IRTCProfileEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCProfileEvent {
     type Vtable = IRTCProfileEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3604327227, 30478, 17384, [128, 10, 121, 176, 98, 57, 95, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6d5ab3b_770e_43e8_800a_79b062395fca);
 }
 impl ::core::convert::From<IRTCProfileEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCProfileEvent) -> Self {
@@ -4577,7 +4577,7 @@ impl IRTCProfileEvent2 {
 }
 unsafe impl ::windows::runtime::Interface for IRTCProfileEvent2 {
     type Vtable = IRTCProfileEvent2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1659203292, 1018, 16673, [148, 251, 35, 73, 63, 208, 174, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62e56edc_03fa_4121_94fb_23493fd0ae64);
 }
 impl ::core::convert::From<IRTCProfileEvent2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCProfileEvent2) -> Self {
@@ -4693,7 +4693,7 @@ impl IRTCReInviteEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCReInviteEvent {
     type Vtable = IRTCReInviteEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(290819460, 8268, 17383, [153, 176, 32, 52, 233, 65, 127, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11558d84_204c_43e7_99b0_2034e9417f7d);
 }
 impl ::core::convert::From<IRTCReInviteEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCReInviteEvent) -> Self {
@@ -4789,7 +4789,7 @@ impl IRTCRegistrationStateChangeEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCRegistrationStateChangeEvent {
     type Vtable = IRTCRegistrationStateChangeEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1657837851, 20651, 20226, [185, 72, 202, 148, 242, 111, 143, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62d0991b_50ab_4f02_b948_ca94f26f8f95);
 }
 impl ::core::convert::From<IRTCRegistrationStateChangeEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCRegistrationStateChangeEvent) -> Self {
@@ -4883,7 +4883,7 @@ impl IRTCRoamingEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCRoamingEvent {
     type Vtable = IRTCRoamingEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039876203, 3249, 19912, [168, 5, 115, 24, 233, 153, 2, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79960a6b_0cb1_4dc8_a805_7318e99902e8);
 }
 impl ::core::convert::From<IRTCRoamingEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCRoamingEvent) -> Self {
@@ -5052,7 +5052,7 @@ impl IRTCSession {
 }
 unsafe impl ::windows::runtime::Interface for IRTCSession {
     type Vtable = IRTCSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(947683462, 39358, 17147, [153, 115, 124, 15, 192, 202, 159, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x387c8086_99be_42fb_9973_7c0fc0ca9fa8);
 }
 impl ::core::convert::From<IRTCSession> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSession) -> Self {
@@ -5240,7 +5240,7 @@ impl IRTCSession2 {
 }
 unsafe impl ::windows::runtime::Interface for IRTCSession2 {
     type Vtable = IRTCSession2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(400018940, 45063, 18508, [153, 210, 134, 168, 168, 32, 153, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17d7cdfc_b007_484c_99d2_86a8a820991d);
 }
 impl ::core::convert::From<IRTCSession2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSession2) -> Self {
@@ -5377,7 +5377,7 @@ impl IRTCSessionCallControl {
 }
 unsafe impl ::windows::runtime::Interface for IRTCSessionCallControl {
     type Vtable = IRTCSessionCallControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3919908244, 6411, 20354, [149, 48, 59, 142, 191, 96, 117, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9a50d94_190b_4f82_9530_3b8ebf60758a);
 }
 impl ::core::convert::From<IRTCSessionCallControl> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSessionCallControl) -> Self {
@@ -5434,7 +5434,7 @@ impl IRTCSessionDescriptionManager {
 }
 unsafe impl ::windows::runtime::Interface for IRTCSessionDescriptionManager {
     type Vtable = IRTCSessionDescriptionManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3128906126, 54070, 16496, [147, 166, 134, 83, 149, 200, 67, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba7f518e_d336_4070_93a6_865395c843f9);
 }
 impl ::core::convert::From<IRTCSessionDescriptionManager> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSessionDescriptionManager) -> Self {
@@ -5494,7 +5494,7 @@ impl IRTCSessionOperationCompleteEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCSessionOperationCompleteEvent {
     type Vtable = IRTCSessionOperationCompleteEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2797597888, 63432, 19772, [154, 65, 53, 80, 247, 138, 149, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6bff4c0_f7c8_4d3c_9a41_3550f78a95b0);
 }
 impl ::core::convert::From<IRTCSessionOperationCompleteEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSessionOperationCompleteEvent) -> Self {
@@ -5630,7 +5630,7 @@ impl IRTCSessionOperationCompleteEvent2 {
 }
 unsafe impl ::windows::runtime::Interface for IRTCSessionOperationCompleteEvent2 {
     type Vtable = IRTCSessionOperationCompleteEvent2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4143721115, 54716, 16961, [180, 54, 27, 132, 96, 193, 56, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6fc2a9b_d5bc_4241_b436_1b8460c13832);
 }
 impl ::core::convert::From<IRTCSessionOperationCompleteEvent2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSessionOperationCompleteEvent2) -> Self {
@@ -5730,7 +5730,7 @@ impl IRTCSessionPortManagement {
 }
 unsafe impl ::windows::runtime::Interface for IRTCSessionPortManagement {
     type Vtable = IRTCSessionPortManagement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2691887574, 646, 19999, [133, 242, 23, 162, 148, 132, 86, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa072f1d6_0286_4e1f_85f2_17a2948456ec);
 }
 impl ::core::convert::From<IRTCSessionPortManagement> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSessionPortManagement) -> Self {
@@ -5789,7 +5789,7 @@ impl IRTCSessionReferStatusEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCSessionReferStatusEvent {
     type Vtable = IRTCSessionReferStatusEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1032831693, 23926, 17579, [187, 104, 42, 128, 53, 59, 52, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d8fc2cd_5d76_44ab_bb68_2a80353b34a2);
 }
 impl ::core::convert::From<IRTCSessionReferStatusEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSessionReferStatusEvent) -> Self {
@@ -5897,7 +5897,7 @@ impl IRTCSessionReferredEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCSessionReferredEvent {
     type Vtable = IRTCSessionReferredEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(392849448, 20428, 20264, [168, 98, 4, 89, 122, 108, 241, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x176a6828_4fcc_4f28_a862_04597a6cf1c4);
 }
 impl ::core::convert::From<IRTCSessionReferredEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSessionReferredEvent) -> Self {
@@ -5996,7 +5996,7 @@ impl IRTCSessionStateChangeEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCSessionStateChangeEvent {
     type Vtable = IRTCSessionStateChangeEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3048920835, 22866, 18611, [147, 33, 127, 69, 0, 82, 21, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5bad703_5952_48b3_9321_7f4500521506);
 }
 impl ::core::convert::From<IRTCSessionStateChangeEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSessionStateChangeEvent) -> Self {
@@ -6142,7 +6142,7 @@ impl IRTCSessionStateChangeEvent2 {
 }
 unsafe impl ::windows::runtime::Interface for IRTCSessionStateChangeEvent2 {
     type Vtable = IRTCSessionStateChangeEvent2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1335046513, 28565, 18560, [128, 217, 46, 200, 212, 149, 210, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f933171_6f95_4880_80d9_2ec8d495d261);
 }
 impl ::core::convert::From<IRTCSessionStateChangeEvent2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSessionStateChangeEvent2) -> Self {
@@ -6249,7 +6249,7 @@ impl IRTCUserSearch {
 }
 unsafe impl ::windows::runtime::Interface for IRTCUserSearch {
     type Vtable = IRTCUserSearch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3055126571, 34316, 19892, [190, 27, 105, 59, 101, 5, 187, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb619882b_860c_4db4_be1b_693b6505bbe5);
 }
 impl ::core::convert::From<IRTCUserSearch> for ::windows::runtime::IUnknown {
     fn from(value: IRTCUserSearch) -> Self {
@@ -6325,7 +6325,7 @@ impl IRTCUserSearchQuery {
 }
 unsafe impl ::windows::runtime::Interface for IRTCUserSearchQuery {
     type Vtable = IRTCUserSearchQuery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(679674101, 53818, 17253, [154, 115, 153, 133, 201, 140, 40, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x288300f5_d23a_4365_9a73_9985c98c2881);
 }
 impl ::core::convert::From<IRTCUserSearchQuery> for ::windows::runtime::IUnknown {
     fn from(value: IRTCUserSearchQuery) -> Self {
@@ -6380,7 +6380,7 @@ impl IRTCUserSearchResult {
 }
 unsafe impl ::windows::runtime::Interface for IRTCUserSearchResult {
     type Vtable = IRTCUserSearchResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2232580274, 38290, 18447, [141, 181, 45, 232, 107, 38, 181, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x851278b2_9592_480f_8db5_2de86b26b54d);
 }
 impl ::core::convert::From<IRTCUserSearchResult> for ::windows::runtime::IUnknown {
     fn from(value: IRTCUserSearchResult) -> Self {
@@ -6454,7 +6454,7 @@ impl IRTCUserSearchResultsEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCUserSearchResultsEvent {
     type Vtable = IRTCUserSearchResultsEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3637035981, 32684, 16520, [129, 197, 194, 76, 188, 9, 56, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8c8c3cd_7fac_4088_81c5_c24cbc0938e3);
 }
 impl ::core::convert::From<IRTCUserSearchResultsEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCUserSearchResultsEvent) -> Self {
@@ -6580,7 +6580,7 @@ impl IRTCWatcher {
 }
 unsafe impl ::windows::runtime::Interface for IRTCWatcher {
     type Vtable = IRTCWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3352222424, 13419, 19739, [172, 2, 162, 8, 141, 249, 190, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7cedad8_346b_4d1b_ac02_a2088df9be4f);
 }
 impl ::core::convert::From<IRTCWatcher> for ::windows::runtime::IUnknown {
     fn from(value: IRTCWatcher) -> Self {
@@ -6714,7 +6714,7 @@ impl IRTCWatcher2 {
 }
 unsafe impl ::windows::runtime::Interface for IRTCWatcher2 {
     type Vtable = IRTCWatcher2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3571029631, 53265, 19229, [145, 227, 171, 167, 143, 150, 57, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4d9967f_d011_4b1d_91e3_aba78f96393d);
 }
 impl ::core::convert::From<IRTCWatcher2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCWatcher2) -> Self {
@@ -6814,7 +6814,7 @@ impl IRTCWatcherEvent {
 }
 unsafe impl ::windows::runtime::Interface for IRTCWatcherEvent {
     type Vtable = IRTCWatcherEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4077744737, 22650, 16975, [130, 44, 49, 39, 136, 244, 53, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf30d7261_587a_424f_822c_312788f43548);
 }
 impl ::core::convert::From<IRTCWatcherEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCWatcherEvent) -> Self {
@@ -6930,7 +6930,7 @@ impl IRTCWatcherEvent2 {
 }
 unsafe impl ::windows::runtime::Interface for IRTCWatcherEvent2 {
     type Vtable = IRTCWatcherEvent2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3844641256, 6284, 18863, [176, 5, 152, 237, 19, 248, 63, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe52891e8_188c_49af_b005_98ed13f83f9c);
 }
 impl ::core::convert::From<IRTCWatcherEvent2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCWatcherEvent2) -> Self {
@@ -7031,7 +7031,7 @@ impl ITransportSettingsInternal {
 }
 unsafe impl ::windows::runtime::Interface for ITransportSettingsInternal {
     type Vtable = ITransportSettingsInternal_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1361305718, 10723, 19453, [132, 254, 1, 146, 212, 17, 227, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5123e076_29e3_4bfd_84fe_0192d411e3e8);
 }
 impl ::core::convert::From<ITransportSettingsInternal> for ::windows::runtime::IUnknown {
     fn from(value: ITransportSettingsInternal) -> Self {
@@ -7078,7 +7078,7 @@ pub const RTCAU_USE_LOGON_CRED: u32 = 65536u32;
 pub const RTCCS_FAIL_ON_REDIRECT: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCCS_FORCE_PROFILE: u32 = 1u32;
-pub const RTCClient: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2051205673, 41655, 16580, [176, 145, 246, 240, 36, 170, 137, 190]);
+pub const RTCClient: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a42ea29_a2b7_40c4_b091_f6f024aa89be);
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_ALL: u32 = 33554431u32;
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]

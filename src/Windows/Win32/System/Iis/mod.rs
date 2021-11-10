@@ -37,7 +37,7 @@ impl AsyncIFtpAuthenticationProvider {
 }
 unsafe impl ::windows::runtime::Interface for AsyncIFtpAuthenticationProvider {
     type Vtable = AsyncIFtpAuthenticationProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259956069, 40766, 18838, [143, 177, 206, 22, 105, 22, 186, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc24efb65_9f3e_4996_8fb1_ce166916bab5);
 }
 impl ::core::convert::From<AsyncIFtpAuthenticationProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIFtpAuthenticationProvider) -> Self {
@@ -88,7 +88,7 @@ impl AsyncIFtpAuthorizationProvider {
 }
 unsafe impl ::windows::runtime::Interface for AsyncIFtpAuthorizationProvider {
     type Vtable = AsyncIFtpAuthorizationProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2249048889, 2021, 19036, [156, 97, 136, 32, 206, 160, 18, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x860dc339_07e5_4a5c_9c61_8820cea012bc);
 }
 impl ::core::convert::From<AsyncIFtpAuthorizationProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIFtpAuthorizationProvider) -> Self {
@@ -139,7 +139,7 @@ impl AsyncIFtpHomeDirectoryProvider {
 }
 unsafe impl ::windows::runtime::Interface for AsyncIFtpHomeDirectoryProvider {
     type Vtable = AsyncIFtpHomeDirectoryProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1945638456, 25237, 17085, [162, 190, 74, 101, 127, 124, 71, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73f81638_6295_42bd_a2be_4a657f7c479c);
 }
 impl ::core::convert::From<AsyncIFtpHomeDirectoryProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIFtpHomeDirectoryProvider) -> Self {
@@ -189,7 +189,7 @@ impl AsyncIFtpLogProvider {
 }
 unsafe impl ::windows::runtime::Interface for AsyncIFtpLogProvider {
     type Vtable = AsyncIFtpLogProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(10530374, 9368, 18610, [149, 230, 223, 103, 142, 215, 212, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00a0ae46_2498_48b2_95e6_df678ed7d49f);
 }
 impl ::core::convert::From<AsyncIFtpLogProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIFtpLogProvider) -> Self {
@@ -239,7 +239,7 @@ impl AsyncIFtpPostprocessProvider {
 }
 unsafe impl ::windows::runtime::Interface for AsyncIFtpPostprocessProvider {
     type Vtable = AsyncIFtpPostprocessProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2708153666, 38548, 20145, [165, 100, 108, 46, 145, 253, 193, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa16b2542_9694_4eb1_a564_6c2e91fdc133);
 }
 impl ::core::convert::From<AsyncIFtpPostprocessProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIFtpPostprocessProvider) -> Self {
@@ -289,7 +289,7 @@ impl AsyncIFtpPreprocessProvider {
 }
 unsafe impl ::windows::runtime::Interface for AsyncIFtpPreprocessProvider {
     type Vtable = AsyncIFtpPreprocessProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1878392207, 64910, 18609, [163, 224, 191, 112, 115, 219, 77, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ff5fd8f_fd8e_48b1_a3e0_bf7073db4db5);
 }
 impl ::core::convert::From<AsyncIFtpPreprocessProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIFtpPreprocessProvider) -> Self {
@@ -340,7 +340,7 @@ impl AsyncIFtpRoleProvider {
 }
 unsafe impl ::windows::runtime::Interface for AsyncIFtpRoleProvider {
     type Vtable = AsyncIFtpRoleProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1048821657, 28908, 16842, [132, 182, 172, 167, 199, 166, 44, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e83bf99_70ec_41ca_84b6_aca7c7a62caf);
 }
 impl ::core::convert::From<AsyncIFtpRoleProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIFtpRoleProvider) -> Self {
@@ -398,7 +398,7 @@ impl AsyncIMSAdminBaseSinkW {
 }
 unsafe impl ::windows::runtime::Interface for AsyncIMSAdminBaseSinkW {
     type Vtable = AsyncIMSAdminBaseSinkW_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2850461203, 47117, 4560, [185, 185, 0, 160, 201, 34, 231, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9e69613_b80d_11d0_b9b9_00a0c922e750);
 }
 impl ::core::convert::From<AsyncIMSAdminBaseSinkW> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIMSAdminBaseSinkW) -> Self {
@@ -467,15 +467,15 @@ impl ::core::cmp::Eq for CERT_CONTEXT_EX {}
 unsafe impl ::windows::runtime::Abi for CERT_CONTEXT_EX {
     type Abi = Self;
 }
-pub const CLSID_IImgCtx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(810611670, 39093, 4559, [187, 130, 0, 170, 0, 189, 206, 11]);
-pub const CLSID_IisServiceControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3908797985, 22671, 4562, [157, 97, 0, 192, 79, 121, 197, 254]);
-pub const CLSID_MSAdminBase_W: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2850461200, 47117, 4560, [185, 185, 0, 160, 201, 34, 231, 80]);
-pub const CLSID_Request: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2450269648, 9689, 4560, [165, 95, 0, 160, 201, 12, 32, 145]);
-pub const CLSID_Response: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1189190560, 9693, 4560, [165, 95, 0, 160, 201, 12, 32, 145]);
-pub const CLSID_ScriptingContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3648679328, 43112, 4559, [131, 174, 17, 176, 201, 12, 43, 216]);
-pub const CLSID_Server: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2768687456, 9696, 4560, [165, 95, 0, 160, 201, 12, 32, 145]);
-pub const CLSID_Session: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1352634144, 9694, 4560, [165, 95, 0, 160, 201, 12, 32, 145]);
-pub const CLSID_WamAdmin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1634960964, 61846, 4560, [153, 83, 0, 192, 79, 217, 25, 193]);
+pub const CLSID_IImgCtx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3050f3d6_98b5_11cf_bb82_00aa00bdce0b);
+pub const CLSID_IisServiceControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8fb8621_588f_11d2_9d61_00c04f79c5fe);
+pub const CLSID_MSAdminBase_W: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9e69610_b80d_11d0_b9b9_00a0c922e750);
+pub const CLSID_Request: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x920c25d0_25d9_11d0_a55f_00a0c90c2091);
+pub const CLSID_Response: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46e19ba0_25dd_11d0_a55f_00a0c90c2091);
+pub const CLSID_ScriptingContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd97a6da0_a868_11cf_83ae_11b0c90c2bd8);
+pub const CLSID_Server: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa506d160_25e0_11d0_a55f_00a0c90c2091);
+pub const CLSID_Session: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x509f8f20_25de_11d0_a55f_00a0c90c2091);
+pub const CLSID_WamAdmin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61738644_f196_11d0_9953_00c04fd919c1);
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -677,14 +677,14 @@ impl ::core::convert::From<i32> for FTP_PROCESS_STATUS {
 unsafe impl ::windows::runtime::Abi for FTP_PROCESS_STATUS {
     type Abi = Self;
 }
-pub const FtpProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1891485287, 13234, 17904, [172, 82, 195, 202, 70, 247, 166, 86]);
-pub const GUID_IIS_ALL_TRACE_PROVIDERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0]);
-pub const GUID_IIS_ASPNET_TRACE_PROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2951774718, 583, 17013, [156, 78, 2, 31, 61, 193, 218, 53]);
-pub const GUID_IIS_ASP_TRACE_TRACE_PROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(112807322, 45406, 17774, [164, 239, 55, 201, 132, 162, 203, 75]);
-pub const GUID_IIS_ISAPI_TRACE_PROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2713846798, 34880, 19505, [186, 17, 152, 113, 3, 26, 25, 234]);
-pub const GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3579657161, 52137, 17631, [130, 126, 19, 45, 58, 69, 150, 194]);
-pub const GUID_IIS_WWW_SERVER_TRACE_PROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(975851140, 19489, 18817, [174, 16, 63, 218, 13, 155, 15, 131]);
-pub const GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3729148361, 5608, 20458, [157, 133, 28, 221, 165, 32, 195, 52]);
+pub const FtpProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70bdc667_33b2_45f0_ac52_c3ca46f7a656);
+pub const GUID_IIS_ALL_TRACE_PROVIDERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const GUID_IIS_ASPNET_TRACE_PROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaff081fe_0247_4275_9c4e_021f3dc1da35);
+pub const GUID_IIS_ASP_TRACE_TRACE_PROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06b94d9a_b15e_456e_a4ef_37c984a2cb4b);
+pub const GUID_IIS_ISAPI_TRACE_PROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1c2040e_8840_4c31_ba11_9871031a19ea);
+pub const GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd55d3bc9_cba9_44df_827e_132d3a4596c2);
+pub const GUID_IIS_WWW_SERVER_TRACE_PROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a2a4e84_4c21_4981_ae10_3fda0d9b0f83);
+pub const GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde4649c9_15e8_4fea_9d85_1cdda520c334);
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2034,7 +2034,7 @@ impl IADMEXT {
 }
 unsafe impl ::windows::runtime::Interface for IADMEXT {
     type Vtable = IADMEXT_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1373628784, 63218, 4560, [185, 189, 0, 160, 201, 34, 231, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51dfe970_f6f2_11d0_b9bd_00a0c922e750);
 }
 impl ::core::convert::From<IADMEXT> for ::windows::runtime::IUnknown {
     fn from(value: IADMEXT) -> Self {
@@ -2087,7 +2087,7 @@ impl IFtpAuthenticationProvider {
 }
 unsafe impl ::windows::runtime::Interface for IFtpAuthenticationProvider {
     type Vtable = IFtpAuthenticationProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180301660, 54696, 18183, [178, 252, 111, 213, 121, 66, 70, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4659f95c_d5a8_4707_b2fc_6fd5794246cf);
 }
 impl ::core::convert::From<IFtpAuthenticationProvider> for ::windows::runtime::IUnknown {
     fn from(value: IFtpAuthenticationProvider) -> Self {
@@ -2132,7 +2132,7 @@ impl IFtpAuthorizationProvider {
 }
 unsafe impl ::windows::runtime::Interface for IFtpAuthorizationProvider {
     type Vtable = IFtpAuthorizationProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2768955297, 41818, 17076, [164, 243, 244, 247, 5, 122, 5, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa50ae7a1_a35a_42b4_a4f3_f4f7057a05d1);
 }
 impl ::core::convert::From<IFtpAuthorizationProvider> for ::windows::runtime::IUnknown {
     fn from(value: IFtpAuthorizationProvider) -> Self {
@@ -2177,7 +2177,7 @@ impl IFtpHomeDirectoryProvider {
 }
 unsafe impl ::windows::runtime::Interface for IFtpHomeDirectoryProvider {
     type Vtable = IFtpHomeDirectoryProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(154383250, 6365, 16535, [139, 156, 131, 50, 92, 53, 217, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0933b392_18dd_4097_8b9c_83325c35d9a6);
 }
 impl ::core::convert::From<IFtpHomeDirectoryProvider> for ::windows::runtime::IUnknown {
     fn from(value: IFtpHomeDirectoryProvider) -> Self {
@@ -2221,7 +2221,7 @@ impl IFtpLogProvider {
 }
 unsafe impl ::windows::runtime::Interface for IFtpLogProvider {
     type Vtable = IFtpLogProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2710213836, 33433, 17416, [129, 108, 124, 59, 172, 161, 164, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa18a94cc_8299_4408_816c_7c3baca1a40e);
 }
 impl ::core::convert::From<IFtpLogProvider> for ::windows::runtime::IUnknown {
     fn from(value: IFtpLogProvider) -> Self {
@@ -2266,7 +2266,7 @@ impl IFtpPostprocessProvider {
 }
 unsafe impl ::windows::runtime::Interface for IFtpPostprocessProvider {
     type Vtable = IFtpPostprocessProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1159908294, 5837, 18861, [134, 83, 154, 44, 87, 158, 66, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4522cbc6_16cd_49ad_8653_9a2c579e4280);
 }
 impl ::core::convert::From<IFtpPostprocessProvider> for ::windows::runtime::IUnknown {
     fn from(value: IFtpPostprocessProvider) -> Self {
@@ -2311,7 +2311,7 @@ impl IFtpPreprocessProvider {
 }
 unsafe impl ::windows::runtime::Interface for IFtpPreprocessProvider {
     type Vtable = IFtpPreprocessProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2747374432, 23080, 18202, [143, 147, 171, 48, 65, 28, 238, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3c19b60_5a28_471a_8f93_ab30411cee82);
 }
 impl ::core::convert::From<IFtpPreprocessProvider> for ::windows::runtime::IUnknown {
     fn from(value: IFtpPreprocessProvider) -> Self {
@@ -2355,7 +2355,7 @@ impl IFtpProviderConstruct {
 }
 unsafe impl ::windows::runtime::Interface for IFtpProviderConstruct {
     type Vtable = IFtpProviderConstruct_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1293565819, 16685, 17532, [177, 153, 100, 249, 103, 233, 162, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d1a3f7b_412d_447c_b199_64f967e9a2da);
 }
 impl ::core::convert::From<IFtpProviderConstruct> for ::windows::runtime::IUnknown {
     fn from(value: IFtpProviderConstruct) -> Self {
@@ -2400,7 +2400,7 @@ impl IFtpRoleProvider {
 }
 unsafe impl ::windows::runtime::Interface for IFtpRoleProvider {
     type Vtable = IFtpRoleProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2426176781, 36000, 18036, [150, 184, 204, 41, 65, 83, 87, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x909c850d_8ca0_4674_96b8_cc2941535725);
 }
 impl ::core::convert::From<IFtpRoleProvider> for ::windows::runtime::IUnknown {
     fn from(value: IFtpRoleProvider) -> Self {
@@ -2734,7 +2734,7 @@ impl IMSAdminBase2W {
 }
 unsafe impl ::windows::runtime::Interface for IMSAdminBase2W {
     type Vtable = IMSAdminBase2W_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2191053057, 63890, 17335, [142, 202, 80, 82, 216, 133, 185, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8298d101_f992_43b7_8eca_5052d885b995);
 }
 impl ::core::convert::From<IMSAdminBase2W> for ::windows::runtime::IUnknown {
     fn from(value: IMSAdminBase2W) -> Self {
@@ -3074,7 +3074,7 @@ impl IMSAdminBase3W {
 }
 unsafe impl ::windows::runtime::Interface for IMSAdminBase3W {
     type Vtable = IMSAdminBase3W_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4128413005, 15115, 19542, [149, 99, 34, 123, 123, 230, 36, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf612954d_3b0b_4c56_9563_227b7be624b4);
 }
 impl ::core::convert::From<IMSAdminBase3W> for ::windows::runtime::IUnknown {
     fn from(value: IMSAdminBase3W) -> Self {
@@ -3227,7 +3227,7 @@ impl IMSAdminBaseSinkW {
 }
 unsafe impl ::windows::runtime::Interface for IMSAdminBaseSinkW {
     type Vtable = IMSAdminBaseSinkW_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2850461202, 47117, 4560, [185, 185, 0, 160, 201, 34, 231, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9e69612_b80d_11d0_b9b9_00a0c922e750);
 }
 impl ::core::convert::From<IMSAdminBaseSinkW> for ::windows::runtime::IUnknown {
     fn from(value: IMSAdminBaseSinkW) -> Self {
@@ -3450,7 +3450,7 @@ impl IMSAdminBaseW {
 }
 unsafe impl ::windows::runtime::Interface for IMSAdminBaseW {
     type Vtable = IMSAdminBaseW_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1890915376, 46794, 4560, [185, 185, 0, 160, 201, 34, 231, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70b51430_b6ca_11d0_b9b9_00a0c922e750);
 }
 impl ::core::convert::From<IMSAdminBaseW> for ::windows::runtime::IUnknown {
     fn from(value: IMSAdminBaseW) -> Self {
@@ -3545,7 +3545,7 @@ impl IMSImpExpHelpW {
 }
 unsafe impl ::windows::runtime::Interface for IMSImpExpHelpW {
     type Vtable = IMSImpExpHelpW_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(704604159, 32848, 18447, [159, 48, 204, 65, 99, 95, 47, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29ff67ff_8050_480f_9f30_cc41635f2f9d);
 }
 impl ::core::convert::From<IMSImpExpHelpW> for ::windows::runtime::IUnknown {
     fn from(value: IMSImpExpHelpW) -> Self {
@@ -3576,9 +3576,9 @@ pub struct IMSImpExpHelpW_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszfilename: super::super::Foundation::PWSTR, pszkeytype: super::super::Foundation::PWSTR, dwmdbuffersize: u32, pszbuffer: super::super::Foundation::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-pub const LIBID_ASPTypeLibrary: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3648679328, 43100, 4559, [131, 174, 0, 160, 201, 12, 43, 216]);
-pub const LIBID_IISRSTALib: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3908797972, 22671, 4562, [157, 97, 0, 192, 79, 121, 197, 254]);
-pub const LIBID_WAMREGLib: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(696396456, 62210, 4560, [153, 83, 0, 192, 79, 217, 25, 193]);
+pub const LIBID_ASPTypeLibrary: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd97a6da0_a85c_11cf_83ae_00a0c90c2bd8);
+pub const LIBID_IISRSTALib: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8fb8614_588f_11d2_9d61_00c04f79c5fe);
+pub const LIBID_WAMREGLib: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29822aa8_f302_11d0_9953_00c04fd919c1);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]

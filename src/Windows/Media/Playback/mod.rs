@@ -132,7 +132,7 @@ unsafe impl ::windows::runtime::RuntimeType for CurrentMediaPlaybackItemChangedE
 }
 unsafe impl ::windows::runtime::Interface for CurrentMediaPlaybackItemChangedEventArgs {
     type Vtable = ICurrentMediaPlaybackItemChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(390310034, 23619, 18965, [150, 122, 87, 45, 45, 15, 38, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1743a892_5c43_4a15_967a_572d2d0f26c6);
 }
 impl ::windows::runtime::RuntimeName for CurrentMediaPlaybackItemChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.CurrentMediaPlaybackItemChangedEventArgs";
@@ -207,7 +207,7 @@ impl ::windows::runtime::DefaultType for FailedMediaStreamKind {
 pub struct IBackgroundMediaPlayerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundMediaPlayerStatics {
     type Vtable = IBackgroundMediaPlayerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2238569409, 22007, 18207, [160, 242, 104, 172, 76, 144, 69, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x856ddbc1_55f7_471f_a0f2_68ac4c904592);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -239,7 +239,7 @@ pub struct IBackgroundMediaPlayerStatics_abi(
 pub struct ICurrentMediaPlaybackItemChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentMediaPlaybackItemChangedEventArgs {
     type Vtable = ICurrentMediaPlaybackItemChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(390310034, 23619, 18965, [150, 122, 87, 45, 45, 15, 38, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1743a892_5c43_4a15_967a_572d2d0f26c6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -258,7 +258,7 @@ pub struct ICurrentMediaPlaybackItemChangedEventArgs_abi(
 pub struct ICurrentMediaPlaybackItemChangedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentMediaPlaybackItemChangedEventArgs2 {
     type Vtable = ICurrentMediaPlaybackItemChangedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(494970142, 39278, 16553, [190, 72, 230, 110, 201, 11, 43, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d80a51e_996e_40a9_be48_e66ec90b2b7d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -276,7 +276,7 @@ pub struct ICurrentMediaPlaybackItemChangedEventArgs2_abi(
 pub struct IMediaBreak(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaBreak {
     type Vtable = IMediaBreak_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1900798576, 3567, 20156, [164, 137, 107, 52, 147, 14, 21, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x714be270_0def_4ebc_a489_6b34930e1558);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -301,7 +301,7 @@ pub struct IMediaBreak_abi(
 pub struct IMediaBreakEndedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaBreakEndedEventArgs {
     type Vtable = IMediaBreakEndedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(850997878, 7261, 20462, [135, 50, 35, 109, 195, 168, 133, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32b93276_1c5d_4fee_8732_236dc3a88580);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -319,7 +319,7 @@ pub struct IMediaBreakEndedEventArgs_abi(
 pub struct IMediaBreakFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaBreakFactory {
     type Vtable = IMediaBreakFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1159127042, 6368, 16505, [139, 95, 211, 52, 149, 193, 93, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4516e002_18e0_4079_8b5f_d33495c15d2e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -339,7 +339,7 @@ pub struct IMediaBreakFactory_abi(
 pub struct IMediaBreakManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaBreakManager {
     type Vtable = IMediaBreakManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2824134065, 65204, 19867, [157, 151, 15, 219, 229, 142, 94, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa854ddb1_feb4_4d9b_9d97_0fdbe58e5e39);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -376,7 +376,7 @@ pub struct IMediaBreakManager_abi(
 pub struct IMediaBreakSchedule(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaBreakSchedule {
     type Vtable = IMediaBreakSchedule_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2711246867, 39094, 16856, [131, 218, 249, 113, 210, 43, 123, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa19a5813_98b6_41d8_83da_f971d22b7bba);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -406,7 +406,7 @@ pub struct IMediaBreakSchedule_abi(
 pub struct IMediaBreakSeekedOverEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaBreakSeekedOverEventArgs {
     type Vtable = IMediaBreakSeekedOverEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3853150022, 1542, 17554, [185, 211, 195, 200, 253, 224, 164, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5aa6746_0606_4492_b9d3_c3c8fde0a4ea);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -429,7 +429,7 @@ pub struct IMediaBreakSeekedOverEventArgs_abi(
 pub struct IMediaBreakSkippedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaBreakSkippedEventArgs {
     type Vtable = IMediaBreakSkippedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1860783109, 12116, 19006, [163, 171, 36, 195, 178, 112, 180, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ee94c05_2f54_4a3e_a3ab_24c3b270b4a3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -447,7 +447,7 @@ pub struct IMediaBreakSkippedEventArgs_abi(
 pub struct IMediaBreakStartedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaBreakStartedEventArgs {
     type Vtable = IMediaBreakStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2826894961, 57300, 17738, [149, 110, 10, 74, 100, 131, 149, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa87efe71_dfd4_454a_956e_0a4a648395f8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -466,7 +466,7 @@ pub struct IMediaBreakStartedEventArgs_abi(
 pub struct IMediaEnginePlaybackSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEnginePlaybackSource {
     type Vtable = IMediaEnginePlaybackSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1545407399, 14422, 18617, [141, 198, 36, 75, 241, 7, 191, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c1d0ba7_3856_48b9_8dc6_244bf107bf8c);
 }
 impl IMediaEnginePlaybackSource {
     #[cfg(feature = "deprecated")]
@@ -545,7 +545,7 @@ pub struct IMediaEnginePlaybackSource_abi(
 pub struct IMediaItemDisplayProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaItemDisplayProperties {
     type Vtable = IMediaItemDisplayProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(507255624, 28823, 17284, [162, 23, 193, 41, 29, 250, 140, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e3c1b48_7097_4384_a217_c1291dfa8c16);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -571,7 +571,7 @@ pub struct IMediaItemDisplayProperties_abi(
 pub struct IMediaPlaybackCommandManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackCommandManager {
     type Vtable = IMediaPlaybackCommandManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1523508646, 23734, 19034, [133, 33, 204, 134, 177, 193, 237, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5acee5a6_5cb6_4a5a_8521_cc86b1c1ed37);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -641,7 +641,7 @@ pub struct IMediaPlaybackCommandManager_abi(
 pub struct IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1030704931, 21040, 17425, [160, 233, 186, 217, 76, 42, 4, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d6f4f23_5230_4411_a0e9_bad94c2a045c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -663,7 +663,7 @@ pub struct IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_abi(
 pub struct IMediaPlaybackCommandManagerCommandBehavior(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackCommandManagerCommandBehavior {
     type Vtable = IMediaPlaybackCommandManagerCommandBehavior_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2020351608, 52856, 18960, [175, 214, 132, 63, 203, 185, 12, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x786c1e78_ce78_4a10_afd6_843fcbb90c2e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -688,7 +688,7 @@ pub struct IMediaPlaybackCommandManagerCommandBehavior_abi(
 pub struct IMediaPlaybackCommandManagerFastForwardReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackCommandManagerFastForwardReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(821060825, 46225, 19722, [188, 33, 48, 152, 189, 19, 50, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30f064d9_b491_4d0a_bc21_3098bd1332e9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -709,7 +709,7 @@ pub struct IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_abi(
 pub struct IMediaPlaybackCommandManagerNextReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackCommandManagerNextReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerNextReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3780133939, 41648, 17876, [185, 222, 95, 66, 172, 20, 168, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1504433_a2b0_45d4_b9de_5f42ac14a839);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -730,7 +730,7 @@ pub struct IMediaPlaybackCommandManagerNextReceivedEventArgs_abi(
 pub struct IMediaPlaybackCommandManagerPauseReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackCommandManagerPauseReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPauseReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1559022876, 49756, 16929, [177, 108, 195, 201, 140, 224, 18, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ceccd1c_c25c_4221_b16c_c3c98ce012d6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -751,7 +751,7 @@ pub struct IMediaPlaybackCommandManagerPauseReceivedEventArgs_abi(
 pub struct IMediaPlaybackCommandManagerPlayReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackCommandManagerPlayReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPlayReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2599419982, 22411, 19542, [160, 6, 22, 21, 157, 136, 138, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9af0004e_578b_4c56_a006_16159d888a48);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -772,7 +772,7 @@ pub struct IMediaPlaybackCommandManagerPlayReceivedEventArgs_abi(
 pub struct IMediaPlaybackCommandManagerPositionReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackCommandManagerPositionReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPositionReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1435608916, 54823, 19421, [169, 13, 134, 160, 21, 178, 73, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5591a754_d627_4bdd_a90d_86a015b24902);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -795,7 +795,7 @@ pub struct IMediaPlaybackCommandManagerPositionReceivedEventArgs_abi(
 pub struct IMediaPlaybackCommandManagerPreviousReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackCommandManagerPreviousReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPreviousReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1381904513, 17970, 20342, [153, 177, 215, 113, 98, 63, 98, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x525e3081_4632_4f76_99b1_d771623f6287);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -816,7 +816,7 @@ pub struct IMediaPlaybackCommandManagerPreviousReceivedEventArgs_abi(
 pub struct IMediaPlaybackCommandManagerRateReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackCommandManagerRateReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerRateReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(418003257, 18966, 16745, [139, 5, 62, 185, 245, 255, 120, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18ea3939_4a16_4169_8b05_3eb9f5ff78eb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -838,7 +838,7 @@ pub struct IMediaPlaybackCommandManagerRateReceivedEventArgs_abi(
 pub struct IMediaPlaybackCommandManagerRewindReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackCommandManagerRewindReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerRewindReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2668124487, 41920, 16989, [170, 239, 151, 186, 120, 152, 177, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f085947_a3c0_425d_aaef_97ba7898b141);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -859,7 +859,7 @@ pub struct IMediaPlaybackCommandManagerRewindReceivedEventArgs_abi(
 pub struct IMediaPlaybackCommandManagerShuffleReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackCommandManagerShuffleReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerShuffleReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1352686831, 25582, 19094, [183, 181, 254, 224, 139, 159, 249, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50a05cef_63ee_4a96_b7b5_fee08b9ff90c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -881,7 +881,7 @@ pub struct IMediaPlaybackCommandManagerShuffleReceivedEventArgs_abi(
 pub struct IMediaPlaybackItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackItem {
     type Vtable = IMediaPlaybackItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(74487762, 58543, 18603, [178, 131, 105, 41, 230, 116, 236, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x047097d2_e4af_48ab_b283_6929e674ece2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -918,7 +918,7 @@ pub struct IMediaPlaybackItem_abi(
 pub struct IMediaPlaybackItem2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackItem2 {
     type Vtable = IMediaPlaybackItem2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3629764977, 55279, 19329, [172, 31, 244, 4, 147, 203, 176, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd859d171_d7ef_4b81_ac1f_f40493cbb091);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -944,7 +944,7 @@ pub struct IMediaPlaybackItem2_abi(
 pub struct IMediaPlaybackItem3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackItem3 {
     type Vtable = IMediaPlaybackItem3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(221413920, 47114, 19721, [159, 248, 248, 112, 148, 161, 200, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d328220_b80a_4d09_9ff8_f87094a1c831);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -966,7 +966,7 @@ pub struct IMediaPlaybackItem3_abi(
 pub struct IMediaPlaybackItemError(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackItemError {
     type Vtable = IMediaPlaybackItemError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1778118443, 56534, 19961, [164, 80, 219, 244, 198, 241, 194, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69fbef2b_dcd6_4df9_a450_dbf4c6f1c2c2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -985,7 +985,7 @@ pub struct IMediaPlaybackItemError_abi(
 pub struct IMediaPlaybackItemFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackItemFactory {
     type Vtable = IMediaPlaybackItemFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1899232481, 5993, 20473, [167, 193, 56, 210, 196, 212, 35, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7133fce1_1769_4ff9_a7c1_38d2c4d42360);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1004,7 +1004,7 @@ pub struct IMediaPlaybackItemFactory_abi(
 pub struct IMediaPlaybackItemFactory2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackItemFactory2 {
     type Vtable = IMediaPlaybackItemFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3615285050, 47431, 18802, [179, 93, 173, 251, 147, 26, 113, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd77cdf3a_b947_4972_b35d_adfb931a71e6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1025,7 +1025,7 @@ pub struct IMediaPlaybackItemFactory2_abi(
 pub struct IMediaPlaybackItemFailedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackItemFailedEventArgs {
     type Vtable = IMediaPlaybackItemFailedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1996690250, 59815, 18371, [134, 44, 198, 86, 211, 6, 131, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7703134a_e9a7_47c3_862c_c656d30683d4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1044,7 +1044,7 @@ pub struct IMediaPlaybackItemFailedEventArgs_abi(
 pub struct IMediaPlaybackItemOpenedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackItemOpenedEventArgs {
     type Vtable = IMediaPlaybackItemOpenedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3420044674, 12343, 20414, [174, 143, 57, 252, 57, 237, 244, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcbd9bd82_3037_4fbe_ae8f_39fc39edf4ef);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1062,7 +1062,7 @@ pub struct IMediaPlaybackItemOpenedEventArgs_abi(
 pub struct IMediaPlaybackItemStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackItemStatics {
     type Vtable = IMediaPlaybackItemStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1260120052, 17221, 16444, [138, 103, 245, 222, 145, 223, 76, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b1be7f4_4345_403c_8a67_f5de91df4c86);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1081,7 +1081,7 @@ pub struct IMediaPlaybackItemStatics_abi(
 pub struct IMediaPlaybackList(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackList {
     type Vtable = IMediaPlaybackList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2138566300, 56386, 20006, [169, 141, 120, 80, 223, 142, 201, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f77ee9c_dc42_4e26_a98d_7850df8ec925);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1121,7 +1121,7 @@ pub struct IMediaPlaybackList_abi(
 pub struct IMediaPlaybackList2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackList2 {
     type Vtable = IMediaPlaybackList2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(235517048, 24586, 17012, [161, 75, 11, 103, 35, 208, 244, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e09b478_600a_4274_a14b_0b6723d0f48b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1148,7 +1148,7 @@ pub struct IMediaPlaybackList2_abi(
 pub struct IMediaPlaybackList3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackList3 {
     type Vtable = IMediaPlaybackList3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3710172073, 48199, 17507, [170, 144, 193, 139, 126, 95, 253, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd24bba9_bc47_4463_aa90_c18b7e5ffde1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1169,7 +1169,7 @@ pub struct IMediaPlaybackList3_abi(
 pub struct IMediaPlaybackSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackSession {
     type Vtable = IMediaPlaybackSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3274401853, 1031, 16826, [137, 70, 139, 52, 90, 90, 84, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc32b683d_0407_41ba_8946_8b345a5a5435);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1251,7 +1251,7 @@ pub struct IMediaPlaybackSession_abi(
 pub struct IMediaPlaybackSession2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackSession2 {
     type Vtable = IMediaPlaybackSession2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4172971129, 8136, 16535, [173, 112, 192, 250, 24, 204, 0, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8ba7c79_1fc8_4097_ad70_c0fa18cc0050);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1294,7 +1294,7 @@ pub struct IMediaPlaybackSession2_abi(
 pub struct IMediaPlaybackSession3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackSession3 {
     type Vtable = IMediaPlaybackSession3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2074260506, 41954, 16479, [183, 123, 164, 129, 44, 35, 139, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ba2b41a_a3e2_405f_b77b_a4812c238b66);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1316,7 +1316,7 @@ pub struct IMediaPlaybackSession3_abi(
 pub struct IMediaPlaybackSessionBufferingStartedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackSessionBufferingStartedEventArgs {
     type Vtable = IMediaPlaybackSessionBufferingStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3446321133, 29922, 17333, [177, 21, 118, 35, 108, 51, 121, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd6aafed_74e2_43b5_b115_76236c33791a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1334,7 +1334,7 @@ pub struct IMediaPlaybackSessionBufferingStartedEventArgs_abi(
 pub struct IMediaPlaybackSessionOutputDegradationPolicyState(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackSessionOutputDegradationPolicyState {
     type Vtable = IMediaPlaybackSessionOutputDegradationPolicyState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1435398781, 63027, 18937, [150, 90, 171, 170, 29, 183, 9, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x558e727d_f633_49f9_965a_abaa1db709be);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1353,7 +1353,7 @@ pub struct IMediaPlaybackSessionOutputDegradationPolicyState_abi(
 pub struct IMediaPlaybackSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackSource {
     type Vtable = IMediaPlaybackSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020093628, 37655, 18070, [176, 81, 43, 173, 100, 49, 119, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef9dc2bc_9317_4696_b051_2bad643177b5);
 }
 impl IMediaPlaybackSource {}
 unsafe impl ::windows::runtime::RuntimeType for IMediaPlaybackSource {
@@ -1414,7 +1414,7 @@ pub struct IMediaPlaybackSource_abi(
 pub struct IMediaPlaybackSphericalVideoProjection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackSphericalVideoProjection {
     type Vtable = IMediaPlaybackSphericalVideoProjection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3557143420, 28430, 18017, [184, 238, 212, 135, 186, 151, 82, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd405b37c_6f0e_4661_b8ee_d487ba9752d5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1445,7 +1445,7 @@ pub struct IMediaPlaybackSphericalVideoProjection_abi(
 pub struct IMediaPlaybackTimedMetadataTrackList(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlaybackTimedMetadataTrackList {
     type Vtable = IMediaPlaybackTimedMetadataTrackList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1924403993, 48123, 18083, [147, 114, 156, 156, 116, 75, 148, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72b41319_bbfb_46a3_9372_9c9c744b9438);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1468,7 +1468,7 @@ pub struct IMediaPlaybackTimedMetadataTrackList_abi(
 pub struct IMediaPlayer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlayer {
     type Vtable = IMediaPlayer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(941261771, 28671, 18843, [141, 100, 40, 133, 223, 193, 36, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x381a83cb_6fff_499b_8d64_2885dfc1249e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1551,7 +1551,7 @@ pub struct IMediaPlayer_abi(
 pub struct IMediaPlayer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlayer2 {
     type Vtable = IMediaPlayer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1015288344, 8483, 20421, [144, 130, 47, 136, 63, 119, 189, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c841218_2123_4fc5_9082_2f883f77bdf5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1573,7 +1573,7 @@ pub struct IMediaPlayer2_abi(
 pub struct IMediaPlayer3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlayer3 {
     type Vtable = IMediaPlayer3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3993395418, 795, 20459, [189, 155, 146, 224, 160, 168, 210, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee0660da_031b_4feb_bd9b_92e0a0a8d299);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1621,7 +1621,7 @@ pub struct IMediaPlayer3_abi(
 pub struct IMediaPlayer4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlayer4 {
     type Vtable = IMediaPlayer4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2147704240, 29768, 18288, [175, 207, 42, 87, 69, 9, 20, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80035db0_7448_4770_afcf_2a57450914c5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1642,7 +1642,7 @@ pub struct IMediaPlayer4_abi(
 pub struct IMediaPlayer5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlayer5 {
     type Vtable = IMediaPlayer5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3487905789, 63594, 17478, [191, 77, 200, 231, 146, 183, 180, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfe537fd_f86a_4446_bf4d_c8e792b7b4b3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1671,7 +1671,7 @@ pub struct IMediaPlayer5_abi(
 pub struct IMediaPlayer6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlayer6 {
     type Vtable = IMediaPlayer6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3771375750, 44645, 16716, [176, 16, 139, 197, 95, 0, 230, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0caa086_ae65_414c_b010_8bc55f00e692);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1696,7 +1696,7 @@ pub struct IMediaPlayer6_abi(
 pub struct IMediaPlayer7(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlayer7 {
     type Vtable = IMediaPlayer7_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1562231928, 17664, 17713, [179, 244, 119, 122, 113, 73, 31, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d1dc478_4500_4531_b3f4_777a71491f7f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1715,7 +1715,7 @@ pub struct IMediaPlayer7_abi(
 pub struct IMediaPlayerDataReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlayerDataReceivedEventArgs {
     type Vtable = IMediaPlayerDataReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3344602117, 51201, 16682, [131, 91, 131, 252, 14, 98, 42, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc75a9405_c801_412a_835b_83fc0e622a8e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1734,7 +1734,7 @@ pub struct IMediaPlayerDataReceivedEventArgs_abi(
 pub struct IMediaPlayerEffects(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlayerEffects {
     type Vtable = IMediaPlayerEffects_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2241978074, 51894, 19648, [139, 227, 96, 53, 244, 222, 37, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85a1deda_cab6_4cc0_8be3_6035f4de2591);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1754,7 +1754,7 @@ pub struct IMediaPlayerEffects_abi(
 pub struct IMediaPlayerEffects2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlayerEffects2 {
     type Vtable = IMediaPlayerEffects2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4198603385, 7102, 18117, [174, 31, 142, 230, 159, 179, 194, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa419a79_1bbe_46c5_ae1f_8ee69fb3c2c7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1773,7 +1773,7 @@ pub struct IMediaPlayerEffects2_abi(
 pub struct IMediaPlayerFailedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlayerFailedEventArgs {
     type Vtable = IMediaPlayerFailedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(658827705, 42979, 20246, [186, 196, 121, 20, 235, 192, 131, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2744e9b9_a7e3_4f16_bac4_7914ebc08301);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1793,7 +1793,7 @@ pub struct IMediaPlayerFailedEventArgs_abi(
 pub struct IMediaPlayerRateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlayerRateChangedEventArgs {
     type Vtable = IMediaPlayerRateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1080036696, 15201, 19378, [152, 159, 252, 101, 96, 139, 108, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40600d58_3b61_4bb2_989f_fc65608b6cab);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1811,7 +1811,7 @@ pub struct IMediaPlayerRateChangedEventArgs_abi(
 pub struct IMediaPlayerSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlayerSource {
     type Vtable = IMediaPlayerSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3176106135, 5155, 19518, [130, 197, 15, 177, 175, 148, 247, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd4f8897_1423_4c3e_82c5_0fb1af94f715);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1838,7 +1838,7 @@ pub struct IMediaPlayerSource_abi(
 pub struct IMediaPlayerSource2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlayerSource2 {
     type Vtable = IMediaPlayerSource2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2185534367, 29474, 19467, [176, 59, 62, 105, 164, 130, 96, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82449b9f_7322_4c0b_b03b_3e69a48260c5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1857,7 +1857,7 @@ pub struct IMediaPlayerSource2_abi(
 pub struct IMediaPlayerSurface(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPlayerSurface {
     type Vtable = IMediaPlayerSurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(248927164, 46902, 18883, [131, 11, 118, 74, 56, 69, 49, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ed653bc_b736_49c3_830b_764a3845313a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1879,7 +1879,7 @@ pub struct IMediaPlayerSurface_abi(
 pub struct IPlaybackMediaMarker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaybackMediaMarker {
     type Vtable = IPlaybackMediaMarker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3302109020, 15388, 17476, [182, 185, 119, 139, 4, 34, 212, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4d22f5c_3c1c_4444_b6b9_778b0422d41a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1900,7 +1900,7 @@ pub struct IPlaybackMediaMarker_abi(
 pub struct IPlaybackMediaMarkerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaybackMediaMarkerFactory {
     type Vtable = IPlaybackMediaMarkerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2354252408, 57518, 19994, [168, 200, 226, 63, 152, 42, 147, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c530a78_e0ae_4e1a_a8c8_e23f982a937b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1921,7 +1921,7 @@ pub struct IPlaybackMediaMarkerFactory_abi(
 pub struct IPlaybackMediaMarkerReachedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaybackMediaMarkerReachedEventArgs {
     type Vtable = IPlaybackMediaMarkerReachedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1468846521, 37090, 20064, [171, 196, 135, 64, 176, 31, 97, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x578cd1b9_90e2_4e60_abc4_8740b01f6196);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1939,7 +1939,7 @@ pub struct IPlaybackMediaMarkerReachedEventArgs_abi(
 pub struct IPlaybackMediaMarkerSequence(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaybackMediaMarkerSequence {
     type Vtable = IPlaybackMediaMarkerSequence_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4068543726, 25483, 18127, [136, 23, 29, 17, 31, 233, 216, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2810cee_638b_46cf_8817_1d111fe9d8c4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1959,7 +1959,7 @@ pub struct IPlaybackMediaMarkerSequence_abi(
 pub struct ITimedMetadataPresentationModeChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataPresentationModeChangedEventArgs {
     type Vtable = ITimedMetadataPresentationModeChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3512950937, 26079, 17838, [140, 239, 220, 11, 83, 253, 194, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1636099_65df_45ae_8cef_dc0b53fdc2bb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2052,7 +2052,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaBreak {
 }
 unsafe impl ::windows::runtime::Interface for MediaBreak {
     type Vtable = IMediaBreak_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1900798576, 3567, 20156, [164, 137, 107, 52, 147, 14, 21, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x714be270_0def_4ebc_a489_6b34930e1558);
 }
 impl ::windows::runtime::RuntimeName for MediaBreak {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreak";
@@ -2118,7 +2118,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaBreakEndedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for MediaBreakEndedEventArgs {
     type Vtable = IMediaBreakEndedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(850997878, 7261, 20462, [135, 50, 35, 109, 195, 168, 133, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32b93276_1c5d_4fee_8732_236dc3a88580);
 }
 impl ::windows::runtime::RuntimeName for MediaBreakEndedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakEndedEventArgs";
@@ -2284,7 +2284,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaBreakManager {
 }
 unsafe impl ::windows::runtime::Interface for MediaBreakManager {
     type Vtable = IMediaBreakManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2824134065, 65204, 19867, [157, 151, 15, 219, 229, 142, 94, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa854ddb1_feb4_4d9b_9d97_0fdbe58e5e39);
 }
 impl ::windows::runtime::RuntimeName for MediaBreakManager {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakManager";
@@ -2410,7 +2410,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaBreakSchedule {
 }
 unsafe impl ::windows::runtime::Interface for MediaBreakSchedule {
     type Vtable = IMediaBreakSchedule_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2711246867, 39094, 16856, [131, 218, 249, 113, 210, 43, 123, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa19a5813_98b6_41d8_83da_f971d22b7bba);
 }
 impl ::windows::runtime::RuntimeName for MediaBreakSchedule {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakSchedule";
@@ -2495,7 +2495,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaBreakSeekedOverEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for MediaBreakSeekedOverEventArgs {
     type Vtable = IMediaBreakSeekedOverEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3853150022, 1542, 17554, [185, 211, 195, 200, 253, 224, 164, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5aa6746_0606_4492_b9d3_c3c8fde0a4ea);
 }
 impl ::windows::runtime::RuntimeName for MediaBreakSeekedOverEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakSeekedOverEventArgs";
@@ -2561,7 +2561,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaBreakSkippedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for MediaBreakSkippedEventArgs {
     type Vtable = IMediaBreakSkippedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1860783109, 12116, 19006, [163, 171, 36, 195, 178, 112, 180, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ee94c05_2f54_4a3e_a3ab_24c3b270b4a3);
 }
 impl ::windows::runtime::RuntimeName for MediaBreakSkippedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakSkippedEventArgs";
@@ -2627,7 +2627,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaBreakStartedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for MediaBreakStartedEventArgs {
     type Vtable = IMediaBreakStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2826894961, 57300, 17738, [149, 110, 10, 74, 100, 131, 149, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa87efe71_dfd4_454a_956e_0a4a648395f8);
 }
 impl ::windows::runtime::RuntimeName for MediaBreakStartedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakStartedEventArgs";
@@ -2757,7 +2757,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaItemDisplayProperties {
 }
 unsafe impl ::windows::runtime::Interface for MediaItemDisplayProperties {
     type Vtable = IMediaItemDisplayProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(507255624, 28823, 17284, [162, 23, 193, 41, 29, 250, 140, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e3c1b48_7097_4384_a217_c1291dfa8c16);
 }
 impl ::windows::runtime::RuntimeName for MediaItemDisplayProperties {
     const NAME: &'static str = "Windows.Media.Playback.MediaItemDisplayProperties";
@@ -3306,7 +3306,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackCommandManager {
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackCommandManager {
     type Vtable = IMediaPlaybackCommandManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1523508646, 23734, 19034, [133, 33, 204, 134, 177, 193, 237, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5acee5a6_5cb6_4a5a_8521_cc86b1c1ed37);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackCommandManager {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManager";
@@ -3394,7 +3394,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackCommandManagerAutoR
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1030704931, 21040, 17425, [160, 233, 186, 217, 76, 42, 4, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d6f4f23_5230_4411_a0e9_bad94c2a045c);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs";
@@ -3496,7 +3496,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackCommandManagerComma
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackCommandManagerCommandBehavior {
     type Vtable = IMediaPlaybackCommandManagerCommandBehavior_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2020351608, 52856, 18960, [175, 214, 132, 63, 203, 185, 12, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x786c1e78_ce78_4a10_afd6_843fcbb90c2e);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackCommandManagerCommandBehavior {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerCommandBehavior";
@@ -3576,7 +3576,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackCommandManagerFastF
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(821060825, 46225, 19722, [188, 33, 48, 152, 189, 19, 50, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30f064d9_b491_4d0a_bc21_3098bd1332e9);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerFastForwardReceivedEventArgs";
@@ -3656,7 +3656,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackCommandManagerNextR
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackCommandManagerNextReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerNextReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3780133939, 41648, 17876, [185, 222, 95, 66, 172, 20, 168, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1504433_a2b0_45d4_b9de_5f42ac14a839);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackCommandManagerNextReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerNextReceivedEventArgs";
@@ -3736,7 +3736,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackCommandManagerPause
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackCommandManagerPauseReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPauseReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1559022876, 49756, 16929, [177, 108, 195, 201, 140, 224, 18, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ceccd1c_c25c_4221_b16c_c3c98ce012d6);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackCommandManagerPauseReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPauseReceivedEventArgs";
@@ -3816,7 +3816,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackCommandManagerPlayR
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackCommandManagerPlayReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPlayReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2599419982, 22411, 19542, [160, 6, 22, 21, 157, 136, 138, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9af0004e_578b_4c56_a006_16159d888a48);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackCommandManagerPlayReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPlayReceivedEventArgs";
@@ -3905,7 +3905,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackCommandManagerPosit
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackCommandManagerPositionReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPositionReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1435608916, 54823, 19421, [169, 13, 134, 160, 21, 178, 73, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5591a754_d627_4bdd_a90d_86a015b24902);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackCommandManagerPositionReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPositionReceivedEventArgs";
@@ -3985,7 +3985,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackCommandManagerPrevi
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPreviousReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1381904513, 17970, 20342, [153, 177, 215, 113, 98, 63, 98, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x525e3081_4632_4f76_99b1_d771623f6287);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPreviousReceivedEventArgs";
@@ -4073,7 +4073,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackCommandManagerRateR
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackCommandManagerRateReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerRateReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(418003257, 18966, 16745, [139, 5, 62, 185, 245, 255, 120, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18ea3939_4a16_4169_8b05_3eb9f5ff78eb);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackCommandManagerRateReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerRateReceivedEventArgs";
@@ -4153,7 +4153,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackCommandManagerRewin
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackCommandManagerRewindReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerRewindReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2668124487, 41920, 16989, [170, 239, 151, 186, 120, 152, 177, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f085947_a3c0_425d_aaef_97ba7898b141);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackCommandManagerRewindReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerRewindReceivedEventArgs";
@@ -4241,7 +4241,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackCommandManagerShuff
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerShuffleReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1352686831, 25582, 19094, [183, 181, 254, 224, 139, 159, 249, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50a05cef_63ee_4a96_b7b5_fee08b9ff90c);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerShuffleReceivedEventArgs";
@@ -4510,7 +4510,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackItem {
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackItem {
     type Vtable = IMediaPlaybackItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(74487762, 58543, 18603, [178, 131, 105, 41, 230, 116, 236, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x047097d2_e4af_48ab_b283_6929e674ece2);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackItem {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItem";
@@ -4630,7 +4630,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackItemError {
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackItemError {
     type Vtable = IMediaPlaybackItemError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1778118443, 56534, 19961, [164, 80, 219, 244, 198, 241, 194, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69fbef2b_dcd6_4df9_a450_dbf4c6f1c2c2);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackItemError {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItemError";
@@ -4730,7 +4730,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackItemFailedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackItemFailedEventArgs {
     type Vtable = IMediaPlaybackItemFailedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1996690250, 59815, 18371, [134, 44, 198, 86, 211, 6, 131, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7703134a_e9a7_47c3_862c_c656d30683d4);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackItemFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItemFailedEventArgs";
@@ -4796,7 +4796,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackItemOpenedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackItemOpenedEventArgs {
     type Vtable = IMediaPlaybackItemOpenedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3420044674, 12343, 20414, [174, 143, 57, 252, 57, 237, 244, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcbd9bd82_3037_4fbe_ae8f_39fc39edf4ef);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackItemOpenedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItemOpenedEventArgs";
@@ -5039,7 +5039,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackList {
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackList {
     type Vtable = IMediaPlaybackList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2138566300, 56386, 20006, [169, 141, 120, 80, 223, 142, 201, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f77ee9c_dc42_4e26_a98d_7850df8ec925);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackList {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackList";
@@ -5547,7 +5547,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackSession {
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackSession {
     type Vtable = IMediaPlaybackSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3274401853, 1031, 16826, [137, 70, 139, 52, 90, 90, 84, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc32b683d_0407_41ba_8946_8b345a5a5435);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackSession {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSession";
@@ -5613,7 +5613,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackSessionBufferingSta
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackSessionBufferingStartedEventArgs {
     type Vtable = IMediaPlaybackSessionBufferingStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3446321133, 29922, 17333, [177, 21, 118, 35, 108, 51, 121, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd6aafed_74e2_43b5_b115_76236c33791a);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackSessionBufferingStartedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSessionBufferingStartedEventArgs";
@@ -5679,7 +5679,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackSessionOutputDegrad
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackSessionOutputDegradationPolicyState {
     type Vtable = IMediaPlaybackSessionOutputDegradationPolicyState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1435398781, 63027, 18937, [150, 90, 171, 170, 29, 183, 9, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x558e727d_f633_49f9_965a_abaa1db709be);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackSessionOutputDegradationPolicyState {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSessionOutputDegradationPolicyState";
@@ -5833,7 +5833,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackSphericalVideoProje
 }
 unsafe impl ::windows::runtime::Interface for MediaPlaybackSphericalVideoProjection {
     type Vtable = IMediaPlaybackSphericalVideoProjection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3557143420, 28430, 18017, [184, 238, 212, 135, 186, 151, 82, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd405b37c_6f0e_4661_b8ee_d487ba9752d5);
 }
 impl ::windows::runtime::RuntimeName for MediaPlaybackSphericalVideoProjection {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSphericalVideoProjection";
@@ -7066,7 +7066,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlayer {
 }
 unsafe impl ::windows::runtime::Interface for MediaPlayer {
     type Vtable = IMediaPlayer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(941261771, 28671, 18843, [141, 100, 40, 133, 223, 193, 36, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x381a83cb_6fff_499b_8d64_2885dfc1249e);
 }
 impl ::windows::runtime::RuntimeName for MediaPlayer {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayer";
@@ -7212,7 +7212,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlayerDataReceivedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for MediaPlayerDataReceivedEventArgs {
     type Vtable = IMediaPlayerDataReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3344602117, 51201, 16682, [131, 91, 131, 252, 14, 98, 42, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc75a9405_c801_412a_835b_83fc0e622a8e);
 }
 impl ::windows::runtime::RuntimeName for MediaPlayerDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerDataReceivedEventArgs";
@@ -7319,7 +7319,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlayerFailedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for MediaPlayerFailedEventArgs {
     type Vtable = IMediaPlayerFailedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(658827705, 42979, 20246, [186, 196, 121, 20, 235, 192, 131, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2744e9b9_a7e3_4f16_bac4_7914ebc08301);
 }
 impl ::windows::runtime::RuntimeName for MediaPlayerFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerFailedEventArgs";
@@ -7385,7 +7385,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlayerRateChangedEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for MediaPlayerRateChangedEventArgs {
     type Vtable = IMediaPlayerRateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1080036696, 15201, 19378, [152, 159, 252, 101, 96, 139, 108, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40600d58_3b61_4bb2_989f_fc65608b6cab);
 }
 impl ::windows::runtime::RuntimeName for MediaPlayerRateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerRateChangedEventArgs";
@@ -7501,7 +7501,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPlayerSurface {
 }
 unsafe impl ::windows::runtime::Interface for MediaPlayerSurface {
     type Vtable = IMediaPlayerSurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(248927164, 46902, 18883, [131, 11, 118, 74, 56, 69, 49, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ed653bc_b736_49c3_830b_764a3845313a);
 }
 impl ::windows::runtime::RuntimeName for MediaPlayerSurface {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerSurface";
@@ -7630,7 +7630,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlaybackMediaMarker {
 }
 unsafe impl ::windows::runtime::Interface for PlaybackMediaMarker {
     type Vtable = IPlaybackMediaMarker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3302109020, 15388, 17476, [182, 185, 119, 139, 4, 34, 212, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4d22f5c_3c1c_4444_b6b9_778b0422d41a);
 }
 impl ::windows::runtime::RuntimeName for PlaybackMediaMarker {
     const NAME: &'static str = "Windows.Media.Playback.PlaybackMediaMarker";
@@ -7696,7 +7696,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlaybackMediaMarkerReachedEventA
 }
 unsafe impl ::windows::runtime::Interface for PlaybackMediaMarkerReachedEventArgs {
     type Vtable = IPlaybackMediaMarkerReachedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1468846521, 37090, 20064, [171, 196, 135, 64, 176, 31, 97, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x578cd1b9_90e2_4e60_abc4_8740b01f6196);
 }
 impl ::windows::runtime::RuntimeName for PlaybackMediaMarkerReachedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.PlaybackMediaMarkerReachedEventArgs";
@@ -7781,7 +7781,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlaybackMediaMarkerSequence {
 }
 unsafe impl ::windows::runtime::Interface for PlaybackMediaMarkerSequence {
     type Vtable = IPlaybackMediaMarkerSequence_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4068543726, 25483, 18127, [136, 23, 29, 17, 31, 233, 216, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2810cee_638b_46cf_8817_1d111fe9d8c4);
 }
 impl ::windows::runtime::RuntimeName for PlaybackMediaMarkerSequence {
     const NAME: &'static str = "Windows.Media.Playback.PlaybackMediaMarkerSequence";
@@ -7950,7 +7950,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimedMetadataPresentationModeCha
 }
 unsafe impl ::windows::runtime::Interface for TimedMetadataPresentationModeChangedEventArgs {
     type Vtable = ITimedMetadataPresentationModeChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3512950937, 26079, 17838, [140, 239, 220, 11, 83, 253, 194, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1636099_65df_45ae_8cef_dc0b53fdc2bb);
 }
 impl ::windows::runtime::RuntimeName for TimedMetadataPresentationModeChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.TimedMetadataPresentationModeChangedEventArgs";

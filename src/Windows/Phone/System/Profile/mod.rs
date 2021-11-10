@@ -4,7 +4,7 @@
 pub struct IRetailModeStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRetailModeStatics {
     type Vtable = IRetailModeStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621703721, 64986, 17383, [147, 251, 229, 58, 182, 232, 158, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7ded029_fdda_43e7_93fb_e53ab6e89ec3);
 }
 #[repr(C)]
 #[doc(hidden)]

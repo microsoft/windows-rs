@@ -172,14 +172,14 @@ impl ::core::cmp::Eq for CANDIDATELIST {}
 unsafe impl ::windows::runtime::Abi for CANDIDATELIST {
     type Abi = Self;
 }
-pub const CATID_MSIME_IImePadApplet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1969670865, 20169, 17528, [159, 233, 142, 215, 102, 97, 158, 223]);
-pub const CATID_MSIME_IImePadApplet1000: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3766608342, 9097, 17355, [182, 111, 96, 159, 130, 61, 159, 156]);
-pub const CATID_MSIME_IImePadApplet1200: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2759833084, 32021, 16931, [167, 137, 183, 129, 191, 154, 230, 103]);
-pub const CATID_MSIME_IImePadApplet900: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4205728191, 24155, 18973, [141, 225, 23, 193, 217, 225, 114, 141]);
-pub const CATID_MSIME_IImePadApplet_VER7: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1242533425, 50158, 4561, [175, 239, 0, 128, 95, 12, 139, 109]);
-pub const CATID_MSIME_IImePadApplet_VER80: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1459070866, 65265, 4563, [132, 99, 0, 192, 79, 122, 6, 229]);
-pub const CATID_MSIME_IImePadApplet_VER81: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1701126320, 48008, 4564, [132, 192, 0, 192, 79, 122, 6, 229]);
-pub const CActiveIMM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1230363955, 45401, 4560, [143, 207, 0, 170, 0, 107, 204, 89]);
+pub const CATID_MSIME_IImePadApplet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7566cad1_4ec9_4478_9fe9_8ed766619edf);
+pub const CATID_MSIME_IImePadApplet1000: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe081e1d6_2389_43cb_b66f_609f823d9f9c);
+pub const CATID_MSIME_IImePadApplet1200: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa47fb5fc_7d15_4223_a789_b781bf9ae667);
+pub const CATID_MSIME_IImePadApplet900: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfaae51bf_5e5b_4a1d_8de1_17c1d9e1728d);
+pub const CATID_MSIME_IImePadApplet_VER7: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a0f8e31_c3ee_11d1_afef_00805f0c8b6d);
+pub const CATID_MSIME_IImePadApplet_VER80: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56f7a792_fef1_11d3_8463_00c04f7a06e5);
+pub const CATID_MSIME_IImePadApplet_VER81: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x656520b0_bb88_11d4_84c0_00c04f7a06e5);
+pub const CActiveIMM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4955dd33_b159_11d0_8fcf_00aa006bcc59);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const CFS_CANDIDATEPOS: u32 = 64u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -198,9 +198,9 @@ pub const CHARINFO_APPLETID_MASK: u32 = 4278190080u32;
 pub const CHARINFO_CHARID_MASK: u32 = 65535u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const CHARINFO_FEID_MASK: u32 = 15728640u32;
-pub const CLSID_ImePlugInDictDictionaryList_CHS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2079330971, 23535, 19940, [155, 11, 94, 219, 102, 172, 47, 166]);
-pub const CLSID_ImePlugInDictDictionaryList_JPN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1340241771, 45305, 17302, [181, 252, 233, 212, 207, 30, 193, 149]);
-pub const CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1787888286, 43593, 18203, [174, 231, 125, 51, 39, 133, 102, 13]);
+pub const CLSID_ImePlugInDictDictionaryList_CHS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bf0129b_5bef_4de4_9b0b_5edb66ac2fa6);
+pub const CLSID_ImePlugInDictDictionaryList_JPN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4fe2776b_b0f9_4396_b5fc_e9d4cf1ec195);
+pub const CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a91029e_aa49_471b_aee7_7d332785660d);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -743,7 +743,7 @@ impl IActiveIME {
 }
 unsafe impl ::windows::runtime::Interface for IActiveIME {
     type Vtable = IActiveIME_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1877084514, 53367, 4560, [143, 231, 0, 170, 0, 107, 204, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fe20962_d077_11d0_8fe7_00aa006bcc59);
 }
 impl ::core::convert::From<IActiveIME> for ::windows::runtime::IUnknown {
     fn from(value: IActiveIME) -> Self {
@@ -903,7 +903,7 @@ impl IActiveIME2 {
 }
 unsafe impl ::windows::runtime::Interface for IActiveIME2 {
     type Vtable = IActiveIME2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3787767566, 11603, 4562, [147, 225, 0, 96, 176, 103, 184, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1c4bf0e_2d53_11d2_93e1_0060b067b86e);
 }
 impl ::core::convert::From<IActiveIME2> for ::windows::runtime::IUnknown {
     fn from(value: IActiveIME2) -> Self {
@@ -1348,7 +1348,7 @@ impl IActiveIMMApp {
 }
 unsafe impl ::windows::runtime::Interface for IActiveIMMApp {
     type Vtable = IActiveIMMApp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(146858048, 25297, 4561, [147, 38, 0, 96, 176, 103, 184, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08c0e040_62d1_11d1_9326_0060b067b86e);
 }
 impl ::core::convert::From<IActiveIMMApp> for ::windows::runtime::IUnknown {
     fn from(value: IActiveIMMApp) -> Self {
@@ -1980,7 +1980,7 @@ impl IActiveIMMIME {
 }
 unsafe impl ::windows::runtime::Interface for IActiveIMMIME {
     type Vtable = IActiveIMMIME_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(146813969, 63851, 4560, [164, 117, 0, 170, 0, 107, 204, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08c03411_f96b_11d0_a475_00aa006bcc59);
 }
 impl ::core::convert::From<IActiveIMMIME> for ::windows::runtime::IUnknown {
     fn from(value: IActiveIMMIME) -> Self {
@@ -2209,7 +2209,7 @@ impl IActiveIMMMessagePumpOwner {
 }
 unsafe impl ::windows::runtime::Interface for IActiveIMMMessagePumpOwner {
     type Vtable = IActiveIMMMessagePumpOwner_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3050253562, 35563, 4561, [147, 100, 0, 96, 176, 103, 184, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5cf2cfa_8aeb_11d1_9364_0060b067b86e);
 }
 impl ::core::convert::From<IActiveIMMMessagePumpOwner> for ::windows::runtime::IUnknown {
     fn from(value: IActiveIMMMessagePumpOwner) -> Self {
@@ -2261,7 +2261,7 @@ impl IActiveIMMRegistrar {
 }
 unsafe impl ::windows::runtime::Interface for IActiveIMMRegistrar {
     type Vtable = IActiveIMMRegistrar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3007676546, 48384, 4561, [147, 155, 0, 96, 176, 103, 184, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3458082_bd00_11d1_939b_0060b067b86e);
 }
 impl ::core::convert::From<IActiveIMMRegistrar> for ::windows::runtime::IUnknown {
     fn from(value: IActiveIMMRegistrar) -> Self {
@@ -2319,7 +2319,7 @@ impl IEnumInputContext {
 }
 unsafe impl ::windows::runtime::Interface for IEnumInputContext {
     type Vtable = IEnumInputContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(162917040, 63895, 4561, [147, 212, 0, 96, 176, 103, 184, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09b5eab0_f997_11d1_93d4_0060b067b86e);
 }
 impl ::core::convert::From<IEnumInputContext> for ::windows::runtime::IUnknown {
     fn from(value: IEnumInputContext) -> Self {
@@ -2379,7 +2379,7 @@ impl IEnumRegisterWordA {
 }
 unsafe impl ::windows::runtime::Interface for IEnumRegisterWordA {
     type Vtable = IEnumRegisterWordA_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(146813970, 63851, 4560, [164, 117, 0, 170, 0, 107, 204, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08c03412_f96b_11d0_a475_00aa006bcc59);
 }
 impl ::core::convert::From<IEnumRegisterWordA> for ::windows::runtime::IUnknown {
     fn from(value: IEnumRegisterWordA) -> Self {
@@ -2439,7 +2439,7 @@ impl IEnumRegisterWordW {
 }
 unsafe impl ::windows::runtime::Interface for IEnumRegisterWordW {
     type Vtable = IEnumRegisterWordW_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1230363953, 45401, 4560, [143, 207, 0, 170, 0, 107, 204, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4955dd31_b159_11d0_8fcf_00aa006bcc59);
 }
 impl ::core::convert::From<IEnumRegisterWordW> for ::windows::runtime::IUnknown {
     fn from(value: IEnumRegisterWordW) -> Self {
@@ -2576,7 +2576,7 @@ impl IFECommon {
 }
 unsafe impl ::windows::runtime::Interface for IFECommon {
     type Vtable = IFECommon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(27226449, 59099, 4560, [131, 195, 0, 192, 79, 221, 184, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x019f7151_e6db_11d0_83c3_00c04fddb82e);
 }
 impl ::core::convert::From<IFECommon> for ::windows::runtime::IUnknown {
     fn from(value: IFECommon) -> Self {
@@ -2851,7 +2851,7 @@ impl IFEDictionary {
 }
 unsafe impl ::windows::runtime::Interface for IFEDictionary {
     type Vtable = IFEDictionary_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(27226451, 59099, 4560, [131, 195, 0, 192, 79, 221, 184, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x019f7153_e6db_11d0_83c3_00c04fddb82e);
 }
 impl ::core::convert::From<IFEDictionary> for ::windows::runtime::IUnknown {
     fn from(value: IFEDictionary) -> Self {
@@ -2944,7 +2944,7 @@ impl IFELanguage {
 }
 unsafe impl ::windows::runtime::Interface for IFELanguage {
     type Vtable = IFELanguage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(27226450, 59099, 4560, [131, 195, 0, 192, 79, 221, 184, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x019f7152_e6db_11d0_83c3_00c04fddb82e);
 }
 impl ::core::convert::From<IFELanguage> for ::windows::runtime::IUnknown {
     fn from(value: IFELanguage) -> Self {
@@ -3011,7 +3011,7 @@ impl IImePad {
 }
 unsafe impl ::windows::runtime::Interface for IImePad {
     type Vtable = IImePad_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1569612858, 50089, 4561, [175, 239, 0, 128, 95, 12, 139, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d8e643a_c3a9_11d1_afef_00805f0c8b6d);
 }
 impl ::core::convert::From<IImePad> for ::windows::runtime::IUnknown {
     fn from(value: IImePad) -> Self {
@@ -3073,7 +3073,7 @@ impl IImePadApplet {
 }
 unsafe impl ::windows::runtime::Interface for IImePadApplet {
     type Vtable = IImePadApplet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1569612859, 50089, 4561, [175, 239, 0, 128, 95, 12, 139, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d8e643b_c3a9_11d1_afef_00805f0c8b6d);
 }
 impl ::core::convert::From<IImePadApplet> for ::windows::runtime::IUnknown {
     fn from(value: IImePadApplet) -> Self {
@@ -3128,7 +3128,7 @@ impl IImePlugInDictDictionaryList {
 }
 unsafe impl ::windows::runtime::Interface for IImePlugInDictDictionaryList {
     type Vtable = IImePlugInDictDictionaryList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2557815156, 45222, 18587, [143, 111, 191, 243, 118, 156, 142, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98752974_b0a6_489b_8f6f_bff3769c8eeb);
 }
 impl ::core::convert::From<IImePlugInDictDictionaryList> for ::windows::runtime::IUnknown {
     fn from(value: IImePlugInDictDictionaryList) -> Self {
@@ -3173,7 +3173,7 @@ impl IImeSpecifyApplets {
 }
 unsafe impl ::windows::runtime::Interface for IImeSpecifyApplets {
     type Vtable = IImeSpecifyApplets_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1569612860, 50089, 4561, [175, 239, 0, 128, 95, 12, 139, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d8e643c_c3a9_11d1_afef_00805f0c8b6d);
 }
 impl ::core::convert::From<IImeSpecifyApplets> for ::windows::runtime::IUnknown {
     fn from(value: IImeSpecifyApplets) -> Self {

@@ -50,7 +50,7 @@ unsafe impl ::windows::runtime::RuntimeType for AccessibilitySettings {
 }
 unsafe impl ::windows::runtime::Interface for AccessibilitySettings {
     type Vtable = IAccessibilitySettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4262363463, 50368, 17762, [185, 98, 19, 39, 181, 42, 213, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe0e8147_c4c0_4562_b962_1327b52ad5b9);
 }
 impl ::windows::runtime::RuntimeName for AccessibilitySettings {
     const NAME: &'static str = "Windows.UI.ViewManagement.AccessibilitySettings";
@@ -134,7 +134,7 @@ unsafe impl ::windows::runtime::RuntimeType for ActivationViewSwitcher {
 }
 unsafe impl ::windows::runtime::Interface for ActivationViewSwitcher {
     type Vtable = IActivationViewSwitcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3701939126, 29520, 18731, [170, 199, 200, 161, 61, 114, 36, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdca71bb6_7350_492b_aac7_c8a13d7224ad);
 }
 impl ::windows::runtime::RuntimeName for ActivationViewSwitcher {
     const NAME: &'static str = "Windows.UI.ViewManagement.ActivationViewSwitcher";
@@ -587,7 +587,7 @@ unsafe impl ::windows::runtime::RuntimeType for ApplicationView {
 }
 unsafe impl ::windows::runtime::Interface for ApplicationView {
     type Vtable = IApplicationView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3525498137, 17249, 17694, [150, 196, 96, 244, 249, 116, 45, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd222d519_4361_451e_96c4_60f4f9742db0);
 }
 impl ::windows::runtime::RuntimeName for ApplicationView {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationView";
@@ -683,7 +683,7 @@ unsafe impl ::windows::runtime::RuntimeType for ApplicationViewConsolidatedEvent
 }
 unsafe impl ::windows::runtime::Interface for ApplicationViewConsolidatedEventArgs {
     type Vtable = IApplicationViewConsolidatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1363429868, 32418, 19943, [166, 166, 125, 251, 170, 235, 182, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x514449ec_7ea2_4de7_a6a6_7dfbaaebb6fb);
 }
 impl ::windows::runtime::RuntimeName for ApplicationViewConsolidatedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewConsolidatedEventArgs";
@@ -803,7 +803,7 @@ unsafe impl ::windows::runtime::RuntimeType for ApplicationViewScaling {
 }
 unsafe impl ::windows::runtime::Interface for ApplicationViewScaling {
     type Vtable = IApplicationViewScaling_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(487447587, 9203, 19245, [132, 254, 116, 191, 55, 180, 139, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d0ddc23_23f3_4b2d_84fe_74bf37b48b66);
 }
 impl ::windows::runtime::RuntimeName for ApplicationViewScaling {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewScaling";
@@ -1213,7 +1213,7 @@ unsafe impl ::windows::runtime::RuntimeType for ApplicationViewTitleBar {
 }
 unsafe impl ::windows::runtime::Interface for ApplicationViewTitleBar {
     type Vtable = IApplicationViewTitleBar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(9587392, 37675, 19051, [156, 75, 220, 56, 200, 36, 120, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00924ac0_932b_4a6b_9c4b_dc38c82478ce);
 }
 impl ::windows::runtime::RuntimeName for ApplicationViewTitleBar {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewTitleBar";
@@ -1302,7 +1302,7 @@ unsafe impl ::windows::runtime::RuntimeType for ApplicationViewTransferContext {
 }
 unsafe impl ::windows::runtime::Interface for ApplicationViewTransferContext {
     type Vtable = IApplicationViewTransferContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2239020131, 15383, 16526, [148, 8, 138, 26, 158, 168, 27, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8574bc63_3c17_408e_9408_8a1a9ea81bfa);
 }
 impl ::windows::runtime::RuntimeName for ApplicationViewTransferContext {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewTransferContext";
@@ -1421,7 +1421,7 @@ impl ::windows::runtime::DefaultType for HandPreference {
 pub struct IAccessibilitySettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccessibilitySettings {
     type Vtable = IAccessibilitySettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4262363463, 50368, 17762, [185, 98, 19, 39, 181, 42, 213, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe0e8147_c4c0_4562_b962_1327b52ad5b9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1444,7 +1444,7 @@ pub struct IAccessibilitySettings_abi(
 pub struct IActivationViewSwitcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationViewSwitcher {
     type Vtable = IActivationViewSwitcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3701939126, 29520, 18731, [170, 199, 200, 161, 61, 114, 36, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdca71bb6_7350_492b_aac7_c8a13d7224ad);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1466,7 +1466,7 @@ pub struct IActivationViewSwitcher_abi(
 pub struct IApplicationView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationView {
     type Vtable = IApplicationView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3525498137, 17249, 17694, [150, 196, 96, 244, 249, 116, 45, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd222d519_4361_451e_96c4_60f4f9742db0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1497,7 +1497,7 @@ pub struct IApplicationView_abi(
 pub struct IApplicationView2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationView2 {
     type Vtable = IApplicationView2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3900092822, 42309, 16604, [181, 148, 69, 12, 186, 104, 204, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe876b196_a545_40dc_b594_450cba68cc00);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1524,7 +1524,7 @@ pub struct IApplicationView2_abi(
 pub struct IApplicationView3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationView3 {
     type Vtable = IApplicationView3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2419891429, 31034, 20447, [162, 178, 175, 26, 194, 30, 49, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x903c9ce5_793a_4fdf_a2b2_af1ac21e3108);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1552,7 +1552,7 @@ pub struct IApplicationView3_abi(
 pub struct IApplicationView4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationView4 {
     type Vtable = IApplicationView4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(367381484, 40463, 18101, [188, 63, 155, 246, 83, 231, 75, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15e5cbec_9e0f_46b5_bc3f_9bf653e74b5e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1577,7 +1577,7 @@ pub struct IApplicationView4_abi(
 pub struct IApplicationView7(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationView7 {
     type Vtable = IApplicationView7_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2687931975, 24495, 23206, [156, 56, 190, 251, 177, 42, 7, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0369647_5faf_5aa6_9c38_befbb12a071e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1596,7 +1596,7 @@ pub struct IApplicationView7_abi(
 pub struct IApplicationView9(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationView9 {
     type Vtable = IApplicationView9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2623870713, 538, 24321, [147, 229, 155, 218, 210, 100, 117, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c6516f9_021a_5f01_93e5_9bdad2647574);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1617,7 +1617,7 @@ pub struct IApplicationView9_abi(
 pub struct IApplicationViewConsolidatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewConsolidatedEventArgs {
     type Vtable = IApplicationViewConsolidatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1363429868, 32418, 19943, [166, 166, 125, 251, 170, 235, 182, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x514449ec_7ea2_4de7_a6a6_7dfbaaebb6fb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1635,7 +1635,7 @@ pub struct IApplicationViewConsolidatedEventArgs_abi(
 pub struct IApplicationViewConsolidatedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewConsolidatedEventArgs2 {
     type Vtable = IApplicationViewConsolidatedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(471441100, 28097, 16628, [175, 238, 7, 217, 234, 41, 100, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c199ecc_6dc1_40f4_afee_07d9ea296430);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1653,7 +1653,7 @@ pub struct IApplicationViewConsolidatedEventArgs2_abi(
 pub struct IApplicationViewFullscreenStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewFullscreenStatics {
     type Vtable = IApplicationViewFullscreenStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3162058429, 25854, 19301, [160, 192, 144, 28, 226, 182, 134, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc792ebd_64fe_4b65_a0c0_901ce2b68636);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1671,7 +1671,7 @@ pub struct IApplicationViewFullscreenStatics_abi(
 pub struct IApplicationViewInteropStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewInteropStatics {
     type Vtable = IApplicationViewInteropStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3292986205, 18323, 18582, [168, 226, 190, 87, 168, 187, 15, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc446fb5d_4793_4896_a8e2_be57a8bb0f50);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1690,7 +1690,7 @@ pub struct IApplicationViewInteropStatics_abi(
 pub struct IApplicationViewScaling(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewScaling {
     type Vtable = IApplicationViewScaling_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(487447587, 9203, 19245, [132, 254, 116, 191, 55, 180, 139, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d0ddc23_23f3_4b2d_84fe_74bf37b48b66);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1707,7 +1707,7 @@ pub struct IApplicationViewScaling_abi(
 pub struct IApplicationViewScalingStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewScalingStatics {
     type Vtable = IApplicationViewScalingStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2962222320, 47430, 17864, [165, 227, 113, 245, 170, 120, 248, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb08fecf0_b946_45c8_a5e3_71f5aa78f861);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1726,7 +1726,7 @@ pub struct IApplicationViewScalingStatics_abi(
 pub struct IApplicationViewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewStatics {
     type Vtable = IApplicationViewStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(17457926, 50227, 17637, [169, 242, 189, 132, 212, 3, 10, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x010a6306_c433_44e5_a9f2_bd84d4030a95);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1745,7 +1745,7 @@ pub struct IApplicationViewStatics_abi(
 pub struct IApplicationViewStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewStatics2 {
     type Vtable = IApplicationViewStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2939390693, 53092, 16956, [133, 229, 243, 231, 36, 72, 251, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf338ae5_cf64_423c_85e5_f3e72448fb23);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1765,7 +1765,7 @@ pub struct IApplicationViewStatics2_abi(
 pub struct IApplicationViewStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewStatics3 {
     type Vtable = IApplicationViewStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2727179668, 35905, 19987, [151, 25, 81, 100, 121, 111, 228, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa28d7594_8c41_4e13_9719_5164796fe4c7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1788,7 +1788,7 @@ pub struct IApplicationViewStatics3_abi(
 pub struct IApplicationViewStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewStatics4 {
     type Vtable = IApplicationViewStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(150834483, 9745, 21302, [163, 21, 217, 142, 99, 102, 201, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08fd8d33_2611_5336_a315_d98e6366c9db);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1807,7 +1807,7 @@ pub struct IApplicationViewStatics4_abi(
 pub struct IApplicationViewSwitcherStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewSwitcherStatics {
     type Vtable = IApplicationViewSwitcherStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2539597598, 58966, 19550, [160, 161, 113, 124, 111, 250, 125, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x975f2f1e_e656_4c5e_a0a1_717c6ffa7d64);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1839,7 +1839,7 @@ pub struct IApplicationViewSwitcherStatics_abi(
 pub struct IApplicationViewSwitcherStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewSwitcherStatics2 {
     type Vtable = IApplicationViewSwitcherStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1625920973, 20418, 18628, [184, 227, 57, 95, 43, 159, 15, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60e995cd_4fc2_48c4_b8e3_395f2b9f0fc1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1857,7 +1857,7 @@ pub struct IApplicationViewSwitcherStatics2_abi(
 pub struct IApplicationViewSwitcherStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewSwitcherStatics3 {
     type Vtable = IApplicationViewSwitcherStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2449839136, 32935, 18541, [178, 31, 199, 164, 162, 66, 163, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92059420_80a7_486d_b21f_c7a4a242a383);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1878,7 +1878,7 @@ pub struct IApplicationViewSwitcherStatics3_abi(
 pub struct IApplicationViewTitleBar(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewTitleBar {
     type Vtable = IApplicationViewTitleBar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(9587392, 37675, 19051, [156, 75, 220, 56, 200, 36, 120, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00924ac0_932b_4a6b_9c4b_dc38c82478ce);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1943,7 +1943,7 @@ pub struct IApplicationViewTitleBar_abi(
 pub struct IApplicationViewTransferContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewTransferContext {
     type Vtable = IApplicationViewTransferContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2239020131, 15383, 16526, [148, 8, 138, 26, 158, 168, 27, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8574bc63_3c17_408e_9408_8a1a9ea81bfa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1962,7 +1962,7 @@ pub struct IApplicationViewTransferContext_abi(
 pub struct IApplicationViewTransferContextStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewTransferContextStatics {
     type Vtable = IApplicationViewTransferContextStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(363371922, 56697, 19211, [188, 71, 213, 241, 149, 241, 70, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15a89d92_dd79_4b0b_bc47_d5f195f14661);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1980,7 +1980,7 @@ pub struct IApplicationViewTransferContextStatics_abi(
 pub struct IApplicationViewWithContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewWithContext {
     type Vtable = IApplicationViewWithContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3176518930, 40385, 17660, [133, 1, 102, 102, 37, 223, 96, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd55d512_9dc1_44fc_8501_666625df60dc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1998,7 +1998,7 @@ pub struct IApplicationViewWithContext_abi(
 pub struct IInputPane(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputPane {
     type Vtable = IInputPane_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1678432880, 1779, 19591, [166, 120, 152, 41, 201, 18, 124, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x640ada70_06f3_4c87_a678_9829c9127c28);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2025,7 +2025,7 @@ pub struct IInputPane_abi(
 pub struct IInputPane2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputPane2 {
     type Vtable = IInputPane2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2322284326, 28816, 18323, [148, 76, 195, 242, 205, 226, 98, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a6b3f26_7090_4793_944c_c3f2cde26276);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2044,7 +2044,7 @@ pub struct IInputPane2_abi(
 pub struct IInputPaneControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputPaneControl {
     type Vtable = IInputPaneControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(143372879, 38447, 18589, [170, 110, 198, 190, 26, 10, 110, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x088bb24f_962f_489d_aa6e_c6be1a0a6e52);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2063,7 +2063,7 @@ pub struct IInputPaneControl_abi(
 pub struct IInputPaneStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputPaneStatics {
     type Vtable = IInputPaneStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2515840826, 61255, 16970, [151, 65, 253, 40, 21, 235, 162, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95f4af3a_ef47_424a_9741_fd2815eba2bd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2081,7 +2081,7 @@ pub struct IInputPaneStatics_abi(
 pub struct IInputPaneStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputPaneStatics2 {
     type Vtable = IInputPaneStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(459494043, 55788, 17713, [132, 69, 113, 186, 185, 251, 130, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b63529b_d9ec_4531_8445_71bab9fb828e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2099,7 +2099,7 @@ pub struct IInputPaneStatics2_abi(
 pub struct IInputPaneVisibilityEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputPaneVisibilityEventArgs {
     type Vtable = IInputPaneVisibilityEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3527663638, 55559, 20428, [187, 141, 247, 123, 170, 80, 40, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd243e016_d907_4fcc_bb8d_f77baa5028f1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2120,7 +2120,7 @@ pub struct IInputPaneVisibilityEventArgs_abi(
 pub struct IProjectionManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProjectionManagerStatics {
     type Vtable = IProjectionManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3059716413, 58096, 20477, [186, 149, 52, 36, 22, 71, 228, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb65f913d_e2f0_4ffd_ba95_34241647e45c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2148,7 +2148,7 @@ pub struct IProjectionManagerStatics_abi(
 pub struct IProjectionManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProjectionManagerStatics2 {
     type Vtable = IProjectionManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4080873283, 10057, 19678, [185, 119, 192, 196, 30, 116, 21, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf33d2f43_2749_4cde_b977_c0c41e7415d1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2172,7 +2172,7 @@ pub struct IProjectionManagerStatics2_abi(
 pub struct IStatusBar(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStatusBar {
     type Vtable = IStatusBar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(268223935, 39120, 18532, [177, 232, 179, 244, 2, 11, 232, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ffcc5bf_98d0_4864_b1e8_b3f4020be8b4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2214,7 +2214,7 @@ pub struct IStatusBar_abi(
 pub struct IStatusBarProgressIndicator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStatusBarProgressIndicator {
     type Vtable = IStatusBarProgressIndicator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1993025136, 41943, 18895, [130, 0, 79, 62, 237, 202, 39, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76cb2670_a3d7_49cf_8200_4f3eedca27bb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2241,7 +2241,7 @@ pub struct IStatusBarProgressIndicator_abi(
 pub struct IStatusBarStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStatusBarStatics {
     type Vtable = IStatusBarStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2336636895, 16943, 17761, [136, 6, 251, 18, 137, 202, 223, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b463fdf_422f_4561_8806_fb1289cadfb7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2259,7 +2259,7 @@ pub struct IStatusBarStatics_abi(
 pub struct IUISettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettings {
     type Vtable = IUISettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2234914304, 7267, 17959, [188, 177, 58, 137, 224, 188, 156, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85361600_1c63_4627_bcb1_3a89e0bc9c55);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2293,7 +2293,7 @@ pub struct IUISettings_abi(
 pub struct IUISettings2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettings2 {
     type Vtable = IUISettings2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3134727169, 10017, 17657, [187, 145, 43, 178, 40, 190, 68, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbad82401_2721_44f9_bb91_2bb228be442f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2315,7 +2315,7 @@ pub struct IUISettings2_abi(
 pub struct IUISettings3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettings3 {
     type Vtable = IUISettings3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(50469860, 21076, 18305, [129, 148, 81, 104, 247, 208, 109, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03021be4_5254_4781_8194_5168f7d06d7b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2337,7 +2337,7 @@ pub struct IUISettings3_abi(
 pub struct IUISettings4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettings4 {
     type Vtable = IUISettings4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1387999234, 37275, 19819, [155, 120, 141, 214, 111, 244, 185, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52bb3002_919b_4d6b_9b78_8dd66ff4b93b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2359,7 +2359,7 @@ pub struct IUISettings4_abi(
 pub struct IUISettings5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettings5 {
     type Vtable = IUISettings5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1397347720, 3253, 24325, [189, 52, 112, 107, 50, 49, 240, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5349d588_0cb5_5f05_bd34_706b3231f0bd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2381,7 +2381,7 @@ pub struct IUISettings5_abi(
 pub struct IUISettings6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettings6 {
     type Vtable = IUISettings6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2935069655, 65073, 23044, [173, 164, 70, 154, 174, 198, 223, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaef19bd7_fe31_5a04_ada4_469aaec6dfa9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2406,7 +2406,7 @@ pub struct IUISettings6_abi(
 pub struct IUISettingsAnimationsEnabledChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettingsAnimationsEnabledChangedEventArgs {
     type Vtable = IUISettingsAnimationsEnabledChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(209406781, 11937, 21310, [137, 77, 65, 91, 197, 36, 60, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c7b4b3d_2ea1_533e_894d_415bc5243c29);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2423,7 +2423,7 @@ pub struct IUISettingsAnimationsEnabledChangedEventArgs_abi(
 pub struct IUISettingsAutoHideScrollBarsChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettingsAutoHideScrollBarsChangedEventArgs {
     type Vtable = IUISettingsAutoHideScrollBarsChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2276447410, 37190, 24322, [143, 107, 6, 212, 84, 23, 76, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87afd4b2_9146_5f02_8f6b_06d454174c0f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2440,7 +2440,7 @@ pub struct IUISettingsAutoHideScrollBarsChangedEventArgs_abi(
 pub struct IUISettingsMessageDurationChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettingsMessageDurationChangedEventArgs {
     type Vtable = IUISettingsMessageDurationChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(864726354, 19037, 23385, [128, 2, 217, 48, 246, 8, 253, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x338aad52_4a5d_5b59_8002_d930f608fd6e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2457,7 +2457,7 @@ pub struct IUISettingsMessageDurationChangedEventArgs_abi(
 pub struct IUIViewSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUIViewSettings {
     type Vtable = IUIViewSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3325450230, 34896, 18189, [136, 248, 69, 94, 22, 234, 44, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc63657f6_8850_470d_88f8_455e16ea2c26);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2475,7 +2475,7 @@ pub struct IUIViewSettings_abi(
 pub struct IUIViewSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUIViewSettingsStatics {
     type Vtable = IUIViewSettingsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1499240357, 63734, 16847, [176, 251, 170, 205, 184, 31, 213, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x595c97a5_f8f6_41cf_b0fb_aacdb81fd5f6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2493,7 +2493,7 @@ pub struct IUIViewSettingsStatics_abi(
 pub struct IViewModePreferences(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IViewModePreferences {
     type Vtable = IViewModePreferences_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2274348346, 2969, 17097, [132, 208, 211, 241, 212, 3, 85, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x878fcd3a_0b99_42c9_84d0_d3f1d403554b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2516,7 +2516,7 @@ pub struct IViewModePreferences_abi(
 pub struct IViewModePreferencesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IViewModePreferencesStatics {
     type Vtable = IViewModePreferencesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1773537893, 24037, 16600, [131, 6, 56, 51, 223, 122, 34, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69b60a65_5de5_40d8_8306_3833df7a2274);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2630,7 +2630,7 @@ unsafe impl ::windows::runtime::RuntimeType for InputPane {
 }
 unsafe impl ::windows::runtime::Interface for InputPane {
     type Vtable = IInputPane_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1678432880, 1779, 19591, [166, 120, 152, 41, 201, 18, 124, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x640ada70_06f3_4c87_a678_9829c9127c28);
 }
 impl ::windows::runtime::RuntimeName for InputPane {
     const NAME: &'static str = "Windows.UI.ViewManagement.InputPane";
@@ -2708,7 +2708,7 @@ unsafe impl ::windows::runtime::RuntimeType for InputPaneVisibilityEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for InputPaneVisibilityEventArgs {
     type Vtable = IInputPaneVisibilityEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3527663638, 55559, 20428, [187, 141, 247, 123, 170, 80, 40, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd243e016_d907_4fcc_bb8d_f77baa5028f1);
 }
 impl ::windows::runtime::RuntimeName for InputPaneVisibilityEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.InputPaneVisibilityEventArgs";
@@ -2973,7 +2973,7 @@ unsafe impl ::windows::runtime::RuntimeType for StatusBar {
 }
 unsafe impl ::windows::runtime::Interface for StatusBar {
     type Vtable = IStatusBar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(268223935, 39120, 18532, [177, 232, 179, 244, 2, 11, 232, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ffcc5bf_98d0_4864_b1e8_b3f4020be8b4);
 }
 impl ::windows::runtime::RuntimeName for StatusBar {
     const NAME: &'static str = "Windows.UI.ViewManagement.StatusBar";
@@ -3077,7 +3077,7 @@ unsafe impl ::windows::runtime::RuntimeType for StatusBarProgressIndicator {
 }
 unsafe impl ::windows::runtime::Interface for StatusBarProgressIndicator {
     type Vtable = IStatusBarProgressIndicator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1993025136, 41943, 18895, [130, 0, 79, 62, 237, 202, 39, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76cb2670_a3d7_49cf_8200_4f3eedca27bb);
 }
 impl ::windows::runtime::RuntimeName for StatusBarProgressIndicator {
     const NAME: &'static str = "Windows.UI.ViewManagement.StatusBarProgressIndicator";
@@ -3448,7 +3448,7 @@ unsafe impl ::windows::runtime::RuntimeType for UISettings {
 }
 unsafe impl ::windows::runtime::Interface for UISettings {
     type Vtable = IUISettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2234914304, 7267, 17959, [188, 177, 58, 137, 224, 188, 156, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85361600_1c63_4627_bcb1_3a89e0bc9c55);
 }
 impl ::windows::runtime::RuntimeName for UISettings {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettings";
@@ -3505,7 +3505,7 @@ unsafe impl ::windows::runtime::RuntimeType for UISettingsAnimationsEnabledChang
 }
 unsafe impl ::windows::runtime::Interface for UISettingsAnimationsEnabledChangedEventArgs {
     type Vtable = IUISettingsAnimationsEnabledChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(209406781, 11937, 21310, [137, 77, 65, 91, 197, 36, 60, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c7b4b3d_2ea1_533e_894d_415bc5243c29);
 }
 impl ::windows::runtime::RuntimeName for UISettingsAnimationsEnabledChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettingsAnimationsEnabledChangedEventArgs";
@@ -3562,7 +3562,7 @@ unsafe impl ::windows::runtime::RuntimeType for UISettingsAutoHideScrollBarsChan
 }
 unsafe impl ::windows::runtime::Interface for UISettingsAutoHideScrollBarsChangedEventArgs {
     type Vtable = IUISettingsAutoHideScrollBarsChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2276447410, 37190, 24322, [143, 107, 6, 212, 84, 23, 76, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87afd4b2_9146_5f02_8f6b_06d454174c0f);
 }
 impl ::windows::runtime::RuntimeName for UISettingsAutoHideScrollBarsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettingsAutoHideScrollBarsChangedEventArgs";
@@ -3619,7 +3619,7 @@ unsafe impl ::windows::runtime::RuntimeType for UISettingsMessageDurationChanged
 }
 unsafe impl ::windows::runtime::Interface for UISettingsMessageDurationChangedEventArgs {
     type Vtable = IUISettingsMessageDurationChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(864726354, 19037, 23385, [128, 2, 217, 48, 246, 8, 253, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x338aad52_4a5d_5b59_8002_d930f608fd6e);
 }
 impl ::windows::runtime::RuntimeName for UISettingsMessageDurationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettingsMessageDurationChangedEventArgs";
@@ -3696,7 +3696,7 @@ unsafe impl ::windows::runtime::RuntimeType for UIViewSettings {
 }
 unsafe impl ::windows::runtime::Interface for UIViewSettings {
     type Vtable = IUIViewSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3325450230, 34896, 18189, [136, 248, 69, 94, 22, 234, 44, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc63657f6_8850_470d_88f8_455e16ea2c26);
 }
 impl ::windows::runtime::RuntimeName for UIViewSettings {
     const NAME: &'static str = "Windows.UI.ViewManagement.UIViewSettings";
@@ -3818,7 +3818,7 @@ unsafe impl ::windows::runtime::RuntimeType for ViewModePreferences {
 }
 unsafe impl ::windows::runtime::Interface for ViewModePreferences {
     type Vtable = IViewModePreferences_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2274348346, 2969, 17097, [132, 208, 211, 241, 212, 3, 85, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x878fcd3a_0b99_42c9_84d0_d3f1d403554b);
 }
 impl ::windows::runtime::RuntimeName for ViewModePreferences {
     const NAME: &'static str = "Windows.UI.ViewManagement.ViewModePreferences";

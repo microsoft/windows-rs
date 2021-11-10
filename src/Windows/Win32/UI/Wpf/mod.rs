@@ -1,10 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const CLSID_MILBitmapEffectBevel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4248182206, 27803, 19936, [130, 144, 246, 64, 12, 39, 55, 237]);
-pub const CLSID_MILBitmapEffectBlur: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2837766023, 8797, 17267, [143, 91, 185, 14, 200, 90, 227, 222]);
-pub const CLSID_MILBitmapEffectDropShadow: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1167736766, 55468, 18066, [135, 75, 122, 38, 87, 21, 170, 22]);
-pub const CLSID_MILBitmapEffectEmboss: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3442055238, 33359, 18412, [160, 7, 18, 170, 118, 127, 40, 22]);
-pub const CLSID_MILBitmapEffectGroup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2895911578, 32280, 20324, [172, 126, 71, 207, 127, 5, 30, 149]);
-pub const CLSID_MILBitmapEffectOuterGlow: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3793099741, 32438, 18213, [156, 11, 138, 42, 27, 79, 6, 103]);
+pub const CLSID_MILBitmapEffectBevel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd361dbe_6c9b_4de0_8290_f6400c2737ed);
+pub const CLSID_MILBitmapEffectBlur: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa924df87_225d_4373_8f5b_b90ec85ae3de);
+pub const CLSID_MILBitmapEffectDropShadow: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x459a3fbe_d8ac_4692_874b_7a265715aa16);
+pub const CLSID_MILBitmapEffectEmboss: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd299846_824f_47ec_a007_12aa767f2816);
+pub const CLSID_MILBitmapEffectGroup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac9c1a9a_7e18_4f64_ac7e_47cf7f051e95);
+pub const CLSID_MILBitmapEffectOuterGlow: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2161bdd_7eb6_4725_9c0b_8a2a1b4f0667);
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -29,7 +29,7 @@ impl IMILBitmapEffect {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffect {
     type Vtable = IMILBitmapEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2322592545, 51524, 18971, [153, 68, 153, 84, 175, 48, 18, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a6ff321_c944_4a1b_9944_9954af301258);
 }
 impl ::core::convert::From<IMILBitmapEffect> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffect) -> Self {
@@ -81,7 +81,7 @@ impl IMILBitmapEffectConnections {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectConnections {
     type Vtable = IMILBitmapEffectConnections_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3266697313, 39706, 17268, [137, 176, 222, 196, 135, 77, 106, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2b5d861_9b1a_4374_89b0_dec4874d6a81);
 }
 impl ::core::convert::From<IMILBitmapEffectConnections> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffectConnections) -> Self {
@@ -140,7 +140,7 @@ impl IMILBitmapEffectConnectionsInfo {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectConnectionsInfo {
     type Vtable = IMILBitmapEffectConnectionsInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1198216074, 51045, 16951, [186, 74, 214, 168, 128, 255, 12, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x476b538a_c765_4237_ba4a_d6a880ff0cfc);
 }
 impl ::core::convert::From<IMILBitmapEffectConnectionsInfo> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffectConnectionsInfo) -> Self {
@@ -211,7 +211,7 @@ impl IMILBitmapEffectConnector {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectConnector {
     type Vtable = IMILBitmapEffectConnector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4120209331, 30401, 19783, [186, 30, 121, 249, 85, 227, 80, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf59567b3_76c1_4d47_ba1e_79f955e350ef);
 }
 impl ::core::convert::From<IMILBitmapEffectConnector> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffectConnector) -> Self {
@@ -294,7 +294,7 @@ impl IMILBitmapEffectConnectorInfo {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectConnectorInfo {
     type Vtable = IMILBitmapEffectConnectorInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4134350411, 46187, 17148, [133, 158, 61, 160, 236, 219, 60, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf66d2e4b_b46b_42fc_859e_3da0ecdb3c43);
 }
 impl ::core::convert::From<IMILBitmapEffectConnectorInfo> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffectConnectorInfo) -> Self {
@@ -344,7 +344,7 @@ impl IMILBitmapEffectEvents {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectEvents {
     type Vtable = IMILBitmapEffectEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(780668376, 63694, 17787, [129, 153, 214, 11, 179, 215, 239, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e880dd8_f8ce_457b_8199_d60bb3d7ef98);
 }
 impl ::core::convert::From<IMILBitmapEffectEvents> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffectEvents) -> Self {
@@ -399,7 +399,7 @@ impl IMILBitmapEffectFactory {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectFactory {
     type Vtable = IMILBitmapEffectFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(866770740, 41987, 20167, [176, 126, 188, 6, 130, 55, 8, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33a9df34_a403_4ec7_b07e_bc0682370845);
 }
 impl ::core::convert::From<IMILBitmapEffectFactory> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffectFactory) -> Self {
@@ -453,7 +453,7 @@ impl IMILBitmapEffectGroup {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectGroup {
     type Vtable = IMILBitmapEffectGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(798303072, 27018, 19142, [129, 161, 188, 253, 240, 142, 184, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f952360_698a_4ac6_81a1_bcfdf08eb8e8);
 }
 impl ::core::convert::From<IMILBitmapEffectGroup> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffectGroup) -> Self {
@@ -507,7 +507,7 @@ impl IMILBitmapEffectGroupImpl {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectGroupImpl {
     type Vtable = IMILBitmapEffectGroupImpl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2029966616, 7420, 18439, [139, 133, 107, 110, 81, 57, 143, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78fed518_1cfc_4807_8b85_6b6e51398f62);
 }
 impl ::core::convert::From<IMILBitmapEffectGroupImpl> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffectGroupImpl) -> Self {
@@ -581,7 +581,7 @@ impl IMILBitmapEffectImpl {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectImpl {
     type Vtable = IMILBitmapEffectImpl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3424938226, 39222, 18366, [180, 175, 6, 181, 223, 93, 188, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc2468f2_9936_47be_b4af_06b5df5dbcbb);
 }
 impl ::core::convert::From<IMILBitmapEffectImpl> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffectImpl) -> Self {
@@ -667,7 +667,7 @@ impl IMILBitmapEffectInputConnector {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectInputConnector {
     type Vtable = IMILBitmapEffectInputConnector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2847206570, 31292, 17895, [133, 115, 244, 184, 27, 96, 221, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9b4ecaa_7a3c_45e7_8573_f4b81b60dd6c);
 }
 impl ::core::convert::From<IMILBitmapEffectInputConnector> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffectInputConnector) -> Self {
@@ -757,7 +757,7 @@ impl IMILBitmapEffectInteriorInputConnector {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectInteriorInputConnector {
     type Vtable = IMILBitmapEffectInteriorInputConnector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(539524766, 34466, 19989, [149, 61, 235, 20, 56, 165, 184, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20287e9e_86a2_4e15_953d_eb1438a5b842);
 }
 impl ::core::convert::From<IMILBitmapEffectInteriorInputConnector> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffectInteriorInputConnector) -> Self {
@@ -800,7 +800,7 @@ impl IMILBitmapEffectInteriorOutputConnector {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectInteriorOutputConnector {
     type Vtable = IMILBitmapEffectInteriorOutputConnector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(12302044, 44233, 19452, [179, 68, 139, 238, 56, 61, 254, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00bbb6dc_acc9_4bfc_b344_8bee383dfefa);
 }
 impl ::core::convert::From<IMILBitmapEffectInteriorOutputConnector> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffectInteriorOutputConnector) -> Self {
@@ -878,7 +878,7 @@ impl IMILBitmapEffectOutputConnector {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectOutputConnector {
     type Vtable = IMILBitmapEffectOutputConnector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2459269805, 33819, 18534, [130, 236, 135, 82, 70, 139, 7, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92957aad_841b_4866_82ec_8752468b07fd);
 }
 impl ::core::convert::From<IMILBitmapEffectOutputConnector> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffectOutputConnector) -> Self {
@@ -971,7 +971,7 @@ impl IMILBitmapEffectOutputConnectorImpl {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectOutputConnectorImpl {
     type Vtable = IMILBitmapEffectOutputConnectorImpl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(570091383, 35641, 19450, [159, 45, 243, 148, 30, 211, 105, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x21fae777_8b39_4bfa_9f2d_f3941ed36913);
 }
 impl ::core::convert::From<IMILBitmapEffectOutputConnectorImpl> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffectOutputConnectorImpl) -> Self {
@@ -1038,7 +1038,7 @@ impl IMILBitmapEffectPrimitive {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectPrimitive {
     type Vtable = IMILBitmapEffectPrimitive_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1742934053, 12433, 19964, [152, 214, 221, 73, 69, 81, 70, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x67e31025_3091_4dfc_98d6_dd494551461d);
 }
 impl ::core::convert::From<IMILBitmapEffectPrimitive> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffectPrimitive) -> Self {
@@ -1093,7 +1093,7 @@ impl IMILBitmapEffectPrimitiveImpl {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectPrimitiveImpl {
     type Vtable = IMILBitmapEffectPrimitiveImpl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3460423691, 61350, 17639, [176, 7, 221, 4, 46, 58, 225, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce41e00b_efa6_44e7_b007_dd042e3ae126);
 }
 impl ::core::convert::From<IMILBitmapEffectPrimitiveImpl> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffectPrimitiveImpl) -> Self {
@@ -1166,7 +1166,7 @@ impl IMILBitmapEffectRenderContext {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectRenderContext {
     type Vtable = IMILBitmapEffectRenderContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(312667262, 11571, 17586, [179, 52, 26, 187, 120, 70, 227, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12a2ec7e_2d33_44b2_b334_1abb7846e390);
 }
 impl ::core::convert::From<IMILBitmapEffectRenderContext> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffectRenderContext) -> Self {
@@ -1232,7 +1232,7 @@ impl IMILBitmapEffectRenderContextImpl {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectRenderContextImpl {
     type Vtable = IMILBitmapEffectRenderContextImpl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1294314699, 31101, 20434, [177, 40, 223, 254, 255, 132, 252, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d25accb_797d_4fd2_b128_dffeff84fcc3);
 }
 impl ::core::convert::From<IMILBitmapEffectRenderContextImpl> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffectRenderContextImpl) -> Self {
@@ -1294,7 +1294,7 @@ impl IMILBitmapEffects {
 }
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffects {
     type Vtable = IMILBitmapEffects_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1370242510, 26565, 17547, [145, 128, 173, 62, 171, 221, 213, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51ac3dce_67c5_448b_9180_ad3eabddd5dd);
 }
 impl ::core::convert::From<IMILBitmapEffects> for ::windows::runtime::IUnknown {
     fn from(value: IMILBitmapEffects) -> Self {

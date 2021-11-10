@@ -44,7 +44,7 @@ impl IADesktopP2 {
 }
 unsafe impl ::windows::runtime::Interface for IADesktopP2 {
     type Vtable = IADesktopP2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2988922082, 17780, 4561, [152, 136, 0, 96, 151, 222, 172, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb22754e2_4574_11d1_9888_006097deacf9);
 }
 impl ::core::convert::From<IADesktopP2> for ::windows::runtime::IUnknown {
     fn from(value: IADesktopP2) -> Self {
@@ -104,7 +104,7 @@ impl IActiveDesktopP {
 }
 unsafe impl ::windows::runtime::Interface for IActiveDesktopP {
     type Vtable = IActiveDesktopP_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1380986592, 60544, 4560, [137, 171, 0, 192, 79, 194, 151, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52502ee0_ec80_11d0_89ab_00c04fc2972d);
 }
 impl ::core::convert::From<IActiveDesktopP> for ::windows::runtime::IUnknown {
     fn from(value: IActiveDesktopP) -> Self {
@@ -152,7 +152,7 @@ impl IBriefcaseInitiator {
 }
 unsafe impl ::windows::runtime::Interface for IBriefcaseInitiator {
     type Vtable = IBriefcaseInitiator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2568487268, 55830, 4122, [147, 92, 68, 69, 83, 84, 0, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99180164_da16_101a_935c_444553540000);
 }
 impl ::core::convert::From<IBriefcaseInitiator> for ::windows::runtime::IUnknown {
     fn from(value: IBriefcaseInitiator) -> Self {
@@ -214,7 +214,7 @@ impl IEmptyVolumeCache {
 }
 unsafe impl ::windows::runtime::Interface for IEmptyVolumeCache {
     type Vtable = IEmptyVolumeCache_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2412663335, 1242, 4561, [160, 4, 0, 128, 95, 138, 190, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fce5227_04da_11d1_a004_00805f8abe06);
 }
 impl ::core::convert::From<IEmptyVolumeCache> for ::windows::runtime::IUnknown {
     fn from(value: IEmptyVolumeCache) -> Self {
@@ -295,7 +295,7 @@ impl IEmptyVolumeCache2 {
 }
 unsafe impl ::windows::runtime::Interface for IEmptyVolumeCache2 {
     type Vtable = IEmptyVolumeCache2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(45605818, 19891, 4562, [178, 217, 0, 192, 79, 142, 236, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02b7e3ba_4db3_11d2_b2d9_00c04f8eec8c);
 }
 impl ::core::convert::From<IEmptyVolumeCache2> for ::windows::runtime::IUnknown {
     fn from(value: IEmptyVolumeCache2) -> Self {
@@ -371,7 +371,7 @@ impl IEmptyVolumeCacheCallBack {
 }
 unsafe impl ::windows::runtime::Interface for IEmptyVolumeCacheCallBack {
     type Vtable = IEmptyVolumeCacheCallBack_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1853436769, 29638, 4560, [132, 105, 0, 170, 0, 68, 41, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e793361_73c6_11d0_8469_00aa00442901);
 }
 impl ::core::convert::From<IEmptyVolumeCacheCallBack> for ::windows::runtime::IUnknown {
     fn from(value: IEmptyVolumeCacheCallBack) -> Self {
@@ -445,7 +445,7 @@ impl IReconcilableObject {
 }
 unsafe impl ::windows::runtime::Interface for IReconcilableObject {
     type Vtable = IReconcilableObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2568487266, 55830, 4122, [147, 92, 68, 69, 83, 84, 0, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99180162_da16_101a_935c_444553540000);
 }
 impl ::core::convert::From<IReconcilableObject> for ::windows::runtime::IUnknown {
     fn from(value: IReconcilableObject) -> Self {
@@ -494,7 +494,7 @@ impl IReconcileInitiator {
 }
 unsafe impl ::windows::runtime::Interface for IReconcileInitiator {
     type Vtable = IReconcileInitiator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2568487265, 55830, 4122, [147, 92, 68, 69, 83, 84, 0, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99180161_da16_101a_935c_444553540000);
 }
 impl ::core::convert::From<IReconcileInitiator> for ::windows::runtime::IUnknown {
     fn from(value: IReconcileInitiator) -> Self {

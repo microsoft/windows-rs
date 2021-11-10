@@ -4,7 +4,7 @@
 pub struct IScreenReaderPositionChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScreenReaderPositionChangedEventArgs {
     type Vtable = IScreenReaderPositionChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1434367461, 21712, 23757, [159, 197, 237, 51, 53, 127, 138, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x557eb5e5_54d0_5ccd_9fc5_ed33357f8a9f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24,7 +24,7 @@ pub struct IScreenReaderPositionChangedEventArgs_abi(
 pub struct IScreenReaderService(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScreenReaderService {
     type Vtable = IScreenReaderService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(424104999, 60096, 20691, [189, 217, 155, 72, 122, 34, 98, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19475427_eac0_50d3_bdd9_9b487a226256);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -69,7 +69,7 @@ unsafe impl ::windows::runtime::RuntimeType for ScreenReaderPositionChangedEvent
 }
 unsafe impl ::windows::runtime::Interface for ScreenReaderPositionChangedEventArgs {
     type Vtable = IScreenReaderPositionChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1434367461, 21712, 23757, [159, 197, 237, 51, 53, 127, 138, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x557eb5e5_54d0_5ccd_9fc5_ed33357f8a9f);
 }
 impl ::windows::runtime::RuntimeName for ScreenReaderPositionChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Accessibility.ScreenReaderPositionChangedEventArgs";
@@ -157,7 +157,7 @@ unsafe impl ::windows::runtime::RuntimeType for ScreenReaderService {
 }
 unsafe impl ::windows::runtime::Interface for ScreenReaderService {
     type Vtable = IScreenReaderService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(424104999, 60096, 20691, [189, 217, 155, 72, 122, 34, 98, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19475427_eac0_50d3_bdd9_9b487a226256);
 }
 impl ::windows::runtime::RuntimeName for ScreenReaderService {
     const NAME: &'static str = "Windows.UI.Accessibility.ScreenReaderService";

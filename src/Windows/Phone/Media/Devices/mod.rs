@@ -85,7 +85,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioRoutingManager {
 }
 unsafe impl ::windows::runtime::Interface for AudioRoutingManager {
     type Vtable = IAudioRoutingManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2033454368, 29132, 17702, [159, 41, 252, 141, 36, 134, 65, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79340d20_71cc_4526_9f29_fc8d2486418b);
 }
 impl ::windows::runtime::RuntimeName for AudioRoutingManager {
     const NAME: &'static str = "Windows.Phone.Media.Devices.AudioRoutingManager";
@@ -189,7 +189,7 @@ impl ::core::ops::Not for AvailableAudioRoutingEndpoints {
 pub struct IAudioRoutingManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioRoutingManager {
     type Vtable = IAudioRoutingManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2033454368, 29132, 17702, [159, 41, 252, 141, 36, 134, 65, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79340d20_71cc_4526_9f29_fc8d2486418b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -213,7 +213,7 @@ pub struct IAudioRoutingManager_abi(
 pub struct IAudioRoutingManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioRoutingManagerStatics {
     type Vtable = IAudioRoutingManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2541728420, 21904, 19055, [173, 222, 106, 61, 10, 213, 130, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x977fb2a4_5590_4a6f_adde_6a3d0ad58250);
 }
 #[repr(C)]
 #[doc(hidden)]

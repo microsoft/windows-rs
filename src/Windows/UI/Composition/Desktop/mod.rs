@@ -130,7 +130,7 @@ unsafe impl ::windows::runtime::RuntimeType for DesktopWindowTarget {
 }
 unsafe impl ::windows::runtime::Interface for DesktopWindowTarget {
     type Vtable = IDesktopWindowTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1663686346, 13158, 18702, [157, 179, 37, 49, 41, 41, 172, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6329d6ca_3366_490e_9db3_25312929ac51);
 }
 impl ::windows::runtime::RuntimeName for DesktopWindowTarget {
     const NAME: &'static str = "Windows.UI.Composition.Desktop.DesktopWindowTarget";
@@ -270,7 +270,7 @@ unsafe impl ::core::marker::Sync for DesktopWindowTarget {}
 pub struct IDesktopWindowTarget(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesktopWindowTarget {
     type Vtable = IDesktopWindowTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1663686346, 13158, 18702, [157, 179, 37, 49, 41, 41, 172, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6329d6ca_3366_490e_9db3_25312929ac51);
 }
 #[repr(C)]
 #[doc(hidden)]

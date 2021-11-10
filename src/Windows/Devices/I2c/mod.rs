@@ -84,7 +84,7 @@ unsafe impl ::windows::runtime::RuntimeType for I2cConnectionSettings {
 }
 unsafe impl ::windows::runtime::Interface for I2cConnectionSettings {
     type Vtable = II2cConnectionSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4074443527, 43887, 17977, [167, 103, 84, 83, 109, 195, 70, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2db1307_ab6f_4639_a767_54536dc3460f);
 }
 impl ::windows::runtime::RuntimeName for I2cConnectionSettings {
     const NAME: &'static str = "Windows.Devices.I2c.I2cConnectionSettings";
@@ -170,7 +170,7 @@ unsafe impl ::windows::runtime::RuntimeType for I2cController {
 }
 unsafe impl ::windows::runtime::Interface for I2cController {
     type Vtable = II2cController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3297423794, 34720, 16742, [142, 62, 180, 184, 249, 124, 215, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc48ab1b2_87a0_4166_8e3e_b4b8f97cd729);
 }
 impl ::windows::runtime::RuntimeName for I2cController {
     const NAME: &'static str = "Windows.Devices.I2c.I2cController";
@@ -315,7 +315,7 @@ unsafe impl ::windows::runtime::RuntimeType for I2cDevice {
 }
 unsafe impl ::windows::runtime::Interface for I2cDevice {
     type Vtable = II2cDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2251735350, 47557, 20336, [148, 73, 204, 70, 220, 111, 87, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8636c136_b9c5_4f70_9449_cc46dc6f57eb);
 }
 impl ::windows::runtime::RuntimeName for I2cDevice {
     const NAME: &'static str = "Windows.Devices.I2c.I2cDevice";
@@ -473,7 +473,7 @@ impl ::windows::runtime::DefaultType for I2cTransferStatus {
 pub struct II2cConnectionSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for II2cConnectionSettings {
     type Vtable = II2cConnectionSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4074443527, 43887, 17977, [167, 103, 84, 83, 109, 195, 70, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2db1307_ab6f_4639_a767_54536dc3460f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -496,7 +496,7 @@ pub struct II2cConnectionSettings_abi(
 pub struct II2cConnectionSettingsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for II2cConnectionSettingsFactory {
     type Vtable = II2cConnectionSettingsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2176157363, 38547, 16817, [162, 67, 222, 212, 246, 230, 105, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81b586b3_9693_41b1_a243_ded4f6e66926);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -514,7 +514,7 @@ pub struct II2cConnectionSettingsFactory_abi(
 pub struct II2cController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for II2cController {
     type Vtable = II2cController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3297423794, 34720, 16742, [142, 62, 180, 184, 249, 124, 215, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc48ab1b2_87a0_4166_8e3e_b4b8f97cd729);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -532,7 +532,7 @@ pub struct II2cController_abi(
 pub struct II2cControllerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for II2cControllerStatics {
     type Vtable = II2cControllerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1090257765, 24325, 20094, [132, 189, 16, 13, 184, 224, 174, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40fc0365_5f05_4e7e_84bd_100db8e0aec5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -553,7 +553,7 @@ pub struct II2cControllerStatics_abi(
 pub struct II2cDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for II2cDevice {
     type Vtable = II2cDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2251735350, 47557, 20336, [148, 73, 204, 70, 220, 111, 87, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8636c136_b9c5_4f70_9449_cc46dc6f57eb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -579,7 +579,7 @@ pub struct II2cDevice_abi(
 pub struct II2cDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for II2cDeviceStatics {
     type Vtable = II2cDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2443394019, 29492, 17682, [150, 188, 251, 174, 148, 89, 245, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91a33be3_7334_4512_96bc_fbae9459f5f6);
 }
 impl II2cDeviceStatics {
     #[doc = "*Required features: `Devices_I2c`*"]

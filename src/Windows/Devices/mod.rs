@@ -70,7 +70,7 @@ pub struct DevicesLowLevelContract(pub u8);
 pub struct ILowLevelDevicesAggregateProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLevelDevicesAggregateProvider {
     type Vtable = ILowLevelDevicesAggregateProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2805880348, 43713, 20167, [168, 82, 71, 159, 112, 96, 208, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa73e561c_aac1_4ec7_a852_479f7060d01f);
 }
 impl ILowLevelDevicesAggregateProvider {
     #[cfg(feature = "Devices_Adc_Provider")]
@@ -187,7 +187,7 @@ pub struct ILowLevelDevicesAggregateProvider_abi(
 pub struct ILowLevelDevicesAggregateProviderFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLevelDevicesAggregateProviderFactory {
     type Vtable = ILowLevelDevicesAggregateProviderFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2596580086, 13427, 18014, [150, 213, 54, 40, 26, 44, 87, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ac4aaf6_3473_465e_96d5_36281a2c57af);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -206,7 +206,7 @@ pub struct ILowLevelDevicesAggregateProviderFactory_abi(
 pub struct ILowLevelDevicesController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLevelDevicesController {
     type Vtable = ILowLevelDevicesController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(784481748, 6043, 17886, [155, 57, 58, 224, 37, 39, 222, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ec23dd4_179b_45de_9b39_3ae02527de52);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -223,7 +223,7 @@ pub struct ILowLevelDevicesController_abi(
 pub struct ILowLevelDevicesControllerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLevelDevicesControllerStatics {
     type Vtable = ILowLevelDevicesControllerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(155095658, 64715, 17300, [166, 151, 25, 222, 99, 124, 45, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x093e926a_fccb_4394_a697_19de637c2db3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -311,7 +311,7 @@ unsafe impl ::windows::runtime::RuntimeType for LowLevelDevicesAggregateProvider
 }
 unsafe impl ::windows::runtime::Interface for LowLevelDevicesAggregateProvider {
     type Vtable = ILowLevelDevicesAggregateProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2805880348, 43713, 20167, [168, 82, 71, 159, 112, 96, 208, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa73e561c_aac1_4ec7_a852_479f7060d01f);
 }
 impl ::windows::runtime::RuntimeName for LowLevelDevicesAggregateProvider {
     const NAME: &'static str = "Windows.Devices.LowLevelDevicesAggregateProvider";
@@ -404,7 +404,7 @@ unsafe impl ::windows::runtime::RuntimeType for LowLevelDevicesController {
 }
 unsafe impl ::windows::runtime::Interface for LowLevelDevicesController {
     type Vtable = ILowLevelDevicesController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(784481748, 6043, 17886, [155, 57, 58, 224, 37, 39, 222, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ec23dd4_179b_45de_9b39_3ae02527de52);
 }
 impl ::windows::runtime::RuntimeName for LowLevelDevicesController {
     const NAME: &'static str = "Windows.Devices.LowLevelDevicesController";

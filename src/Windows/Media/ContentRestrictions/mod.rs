@@ -60,7 +60,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContentRestrictionsBrowsePolicy 
 }
 unsafe impl ::windows::runtime::Interface for ContentRestrictionsBrowsePolicy {
     type Vtable = IContentRestrictionsBrowsePolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2348888996, 17454, 17946, [135, 87, 250, 210, 245, 189, 55, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c0133a4_442e_461a_8757_fad2f5bd37e4);
 }
 impl ::windows::runtime::RuntimeName for ContentRestrictionsBrowsePolicy {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy";
@@ -112,7 +112,7 @@ unsafe impl ::core::marker::Sync for ContentRestrictionsBrowsePolicy {}
 pub struct IContentRestrictionsBrowsePolicy(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentRestrictionsBrowsePolicy {
     type Vtable = IContentRestrictionsBrowsePolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2348888996, 17454, 17946, [135, 87, 250, 210, 245, 189, 55, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c0133a4_442e_461a_8757_fad2f5bd37e4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -134,7 +134,7 @@ pub struct IContentRestrictionsBrowsePolicy_abi(
 pub struct IRatedContentDescription(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRatedContentDescription {
     type Vtable = IRatedContentDescription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1766352607, 26290, 19907, [150, 177, 240, 144, 238, 222, 226, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x694866df_66b2_4dc3_96b1_f090eedee255);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -165,7 +165,7 @@ pub struct IRatedContentDescription_abi(
 pub struct IRatedContentDescriptionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRatedContentDescriptionFactory {
     type Vtable = IRatedContentDescriptionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(775479138, 39824, 20390, [137, 193, 75, 141, 47, 251, 53, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e38df62_9b90_4fa6_89c1_4b8d2ffb3573);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -183,7 +183,7 @@ pub struct IRatedContentDescriptionFactory_abi(
 pub struct IRatedContentRestrictions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRatedContentRestrictions {
     type Vtable = IRatedContentRestrictions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1065296843, 47623, 17409, [164, 157, 139, 146, 34, 32, 87, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f7f23cb_ba07_4401_a49d_8b9222205723);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -210,7 +210,7 @@ pub struct IRatedContentRestrictions_abi(
 pub struct IRatedContentRestrictionsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRatedContentRestrictionsFactory {
     type Vtable = IRatedContentRestrictionsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4216007062, 50109, 18704, [150, 25, 151, 207, 208, 105, 77, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb4b2996_c3bd_4910_9619_97cfd0694d56);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -340,7 +340,7 @@ unsafe impl ::windows::runtime::RuntimeType for RatedContentDescription {
 }
 unsafe impl ::windows::runtime::Interface for RatedContentDescription {
     type Vtable = IRatedContentDescription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1766352607, 26290, 19907, [150, 177, 240, 144, 238, 222, 226, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x694866df_66b2_4dc3_96b1_f090eedee255);
 }
 impl ::windows::runtime::RuntimeName for RatedContentDescription {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.RatedContentDescription";
@@ -458,7 +458,7 @@ unsafe impl ::windows::runtime::RuntimeType for RatedContentRestrictions {
 }
 unsafe impl ::windows::runtime::Interface for RatedContentRestrictions {
     type Vtable = IRatedContentRestrictions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1065296843, 47623, 17409, [164, 157, 139, 146, 34, 32, 87, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f7f23cb_ba07_4401_a49d_8b9222205723);
 }
 impl ::windows::runtime::RuntimeName for RatedContentRestrictions {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.RatedContentRestrictions";

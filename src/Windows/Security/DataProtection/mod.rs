@@ -4,7 +4,7 @@
 pub struct IUserDataAvailabilityStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAvailabilityStateChangedEventArgs {
     type Vtable = IUserDataAvailabilityStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2808447689, 1698, 17011, [168, 3, 131, 76, 159, 135, 251, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa76582c9_06a2_4273_a803_834c9f87fbeb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23,7 +23,7 @@ pub struct IUserDataAvailabilityStateChangedEventArgs_abi(
 pub struct IUserDataBufferUnprotectResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataBufferUnprotectResult {
     type Vtable = IUserDataBufferUnprotectResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2398949008, 64154, 18084, [163, 119, 1, 206, 191, 30, 116, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8efd0e90_fa9a_46a4_a377_01cebf1e74d8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -43,7 +43,7 @@ pub struct IUserDataBufferUnprotectResult_abi(
 pub struct IUserDataProtectionManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataProtectionManager {
     type Vtable = IUserDataProtectionManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(521347965, 46126, 19080, [148, 128, 15, 36, 9, 36, 200, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f13237d_b42e_4a88_9480_0f240924c876);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -73,7 +73,7 @@ pub struct IUserDataProtectionManager_abi(
 pub struct IUserDataProtectionManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataProtectionManagerStatics {
     type Vtable = IUserDataProtectionManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2541191400, 28110, 20398, [175, 133, 120, 42, 194, 207, 69, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x977780e8_6dce_4fae_af85_782ac2cf4572);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -93,7 +93,7 @@ pub struct IUserDataProtectionManagerStatics_abi(
 pub struct IUserDataStorageItemProtectionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataStorageItemProtectionInfo {
     type Vtable = IUserDataStorageItemProtectionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1533444342, 59519, 16545, [177, 157, 166, 24, 122, 12, 102, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b6680f6_e87f_40a1_b19d_a6187a0c662f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -149,7 +149,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataAvailabilityStateChanged
 }
 unsafe impl ::windows::runtime::Interface for UserDataAvailabilityStateChangedEventArgs {
     type Vtable = IUserDataAvailabilityStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2808447689, 1698, 17011, [168, 3, 131, 76, 159, 135, 251, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa76582c9_06a2_4273_a803_834c9f87fbeb);
 }
 impl ::windows::runtime::RuntimeName for UserDataAvailabilityStateChangedEventArgs {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataAvailabilityStateChangedEventArgs";
@@ -224,7 +224,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataBufferUnprotectResult {
 }
 unsafe impl ::windows::runtime::Interface for UserDataBufferUnprotectResult {
     type Vtable = IUserDataBufferUnprotectResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2398949008, 64154, 18084, [163, 119, 1, 206, 191, 30, 116, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8efd0e90_fa9a_46a4_a377_01cebf1e74d8);
 }
 impl ::windows::runtime::RuntimeName for UserDataBufferUnprotectResult {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataBufferUnprotectResult";
@@ -382,7 +382,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataProtectionManager {
 }
 unsafe impl ::windows::runtime::Interface for UserDataProtectionManager {
     type Vtable = IUserDataProtectionManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(521347965, 46126, 19080, [148, 128, 15, 36, 9, 36, 200, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f13237d_b42e_4a88_9480_0f240924c876);
 }
 impl ::windows::runtime::RuntimeName for UserDataProtectionManager {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataProtectionManager";
@@ -448,7 +448,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataStorageItemProtectionInf
 }
 unsafe impl ::windows::runtime::Interface for UserDataStorageItemProtectionInfo {
     type Vtable = IUserDataStorageItemProtectionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1533444342, 59519, 16545, [177, 157, 166, 24, 122, 12, 102, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b6680f6_e87f_40a1_b19d_a6187a0c662f);
 }
 impl ::windows::runtime::RuntimeName for UserDataStorageItemProtectionInfo {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataStorageItemProtectionInfo";

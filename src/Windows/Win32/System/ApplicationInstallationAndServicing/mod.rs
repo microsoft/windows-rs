@@ -897,8 +897,8 @@ pub unsafe fn ApplyPatchToFileW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const CLSID_EvalCom2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1851660560, 32851, 18016, [183, 149, 107, 97, 46, 41, 188, 88]);
-pub const CLSID_MsmMerge2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4182345173, 10745, 18243, [152, 5, 153, 188, 63, 53, 182, 120]);
+pub const CLSID_EvalCom2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e5e1910_8053_4660_b795_6b612e29bc58);
+pub const CLSID_MsmMerge2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf94985d5_29f9_4743_9805_99bc3f35b678);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
@@ -1886,9 +1886,9 @@ impl ::core::cmp::Eq for FUSION_INSTALL_REFERENCE {}
 unsafe impl ::windows::runtime::Abi for FUSION_INSTALL_REFERENCE {
     type Abi = Self;
 }
-pub const FUSION_REFCOUNT_FILEPATH_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2955910501, 64375, 20346, [175, 165, 179, 145, 48, 159, 17, 201]);
-pub const FUSION_REFCOUNT_OPAQUE_STRING_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(784938083, 45251, 17889, [131, 100, 50, 126, 150, 174, 168, 86]);
-pub const FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2364391957, 44107, 18571, [147, 192, 165, 10, 73, 203, 47, 184]);
+pub const FUSION_REFCOUNT_FILEPATH_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb02f9d65_fb77_4f7a_afa5_b391309f11c9);
+pub const FUSION_REFCOUNT_OPAQUE_STRING_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ec93463_b0c3_45e1_8364_327e96aea856);
+pub const FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cedc215_ac4b_488b_93c0_a50a49cb2fb8);
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
@@ -2225,7 +2225,7 @@ impl IAssemblyCache {
 }
 unsafe impl ::windows::runtime::Interface for IAssemblyCache {
     type Vtable = IAssemblyCache_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3876052190, 53709, 4562, [186, 185, 0, 192, 79, 142, 206, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe707dcde_d1cd_11d2_bab9_00c04f8eceae);
 }
 impl ::core::convert::From<IAssemblyCache> for ::windows::runtime::IUnknown {
     fn from(value: IAssemblyCache) -> Self {
@@ -2284,7 +2284,7 @@ impl IAssemblyCacheItem {
 }
 unsafe impl ::windows::runtime::Interface for IAssemblyCacheItem {
     type Vtable = IAssemblyCacheItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2654645940, 53709, 4562, [186, 185, 0, 192, 79, 142, 206, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e3aaeb4_d1cd_11d2_bab9_00c04f8eceae);
 }
 impl ::core::convert::From<IAssemblyCacheItem> for ::windows::runtime::IUnknown {
     fn from(value: IAssemblyCacheItem) -> Self {
@@ -2386,7 +2386,7 @@ impl IAssemblyName {
 }
 unsafe impl ::windows::runtime::Interface for IAssemblyName {
     type Vtable = IAssemblyName_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3440982976, 46268, 4562, [152, 51, 0, 192, 79, 195, 29, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd193bc0_b4bc_11d2_9833_00c04fc31d2e);
 }
 impl ::core::convert::From<IAssemblyName> for ::windows::runtime::IUnknown {
     fn from(value: IAssemblyName) -> Self {
@@ -2452,7 +2452,7 @@ impl IEnumMsmDependency {
 }
 unsafe impl ::windows::runtime::Interface for IEnumMsmDependency {
     type Vtable = IEnumMsmDependency_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(182298668, 11302, 4562, [173, 101, 0, 160, 201, 175, 17, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0adda82c_2c26_11d2_ad65_00a0c9af11a6);
 }
 impl ::core::convert::From<IEnumMsmDependency> for ::windows::runtime::IUnknown {
     fn from(value: IEnumMsmDependency) -> Self {
@@ -2510,7 +2510,7 @@ impl IEnumMsmError {
 }
 unsafe impl ::windows::runtime::Interface for IEnumMsmError {
     type Vtable = IEnumMsmError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(182298665, 11302, 4562, [173, 101, 0, 160, 201, 175, 17, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0adda829_2c26_11d2_ad65_00a0c9af11a6);
 }
 impl ::core::convert::From<IEnumMsmError> for ::windows::runtime::IUnknown {
     fn from(value: IEnumMsmError) -> Self {
@@ -2569,7 +2569,7 @@ impl IEnumMsmString {
 }
 unsafe impl ::windows::runtime::Interface for IEnumMsmString {
     type Vtable = IEnumMsmString_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(182298662, 11302, 4562, [173, 101, 0, 160, 201, 175, 17, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0adda826_2c26_11d2_ad65_00a0c9af11a6);
 }
 impl ::core::convert::From<IEnumMsmString> for ::windows::runtime::IUnknown {
     fn from(value: IEnumMsmString) -> Self {
@@ -2625,7 +2625,7 @@ impl IMsmDependencies {
 }
 unsafe impl ::windows::runtime::Interface for IMsmDependencies {
     type Vtable = IMsmDependencies_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(182298669, 11302, 4562, [173, 101, 0, 160, 201, 175, 17, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0adda82d_2c26_11d2_ad65_00a0c9af11a6);
 }
 impl ::core::convert::From<IMsmDependencies> for ::windows::runtime::IUnknown {
     fn from(value: IMsmDependencies) -> Self {
@@ -2710,7 +2710,7 @@ impl IMsmDependency {
 }
 unsafe impl ::windows::runtime::Interface for IMsmDependency {
     type Vtable = IMsmDependency_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(182298667, 11302, 4562, [173, 101, 0, 160, 201, 175, 17, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0adda82b_2c26_11d2_ad65_00a0c9af11a6);
 }
 impl ::core::convert::From<IMsmDependency> for ::windows::runtime::IUnknown {
     fn from(value: IMsmDependency) -> Self {
@@ -2816,7 +2816,7 @@ impl IMsmError {
 }
 unsafe impl ::windows::runtime::Interface for IMsmError {
     type Vtable = IMsmError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(182298664, 11302, 4562, [173, 101, 0, 160, 201, 175, 17, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0adda828_2c26_11d2_ad65_00a0c9af11a6);
 }
 impl ::core::convert::From<IMsmError> for ::windows::runtime::IUnknown {
     fn from(value: IMsmError) -> Self {
@@ -2908,7 +2908,7 @@ impl IMsmErrors {
 }
 unsafe impl ::windows::runtime::Interface for IMsmErrors {
     type Vtable = IMsmErrors_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(182298666, 11302, 4562, [173, 101, 0, 160, 201, 175, 17, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0adda82a_2c26_11d2_ad65_00a0c9af11a6);
 }
 impl ::core::convert::From<IMsmErrors> for ::windows::runtime::IUnknown {
     fn from(value: IMsmErrors) -> Self {
@@ -2984,7 +2984,7 @@ impl IMsmGetFiles {
 }
 unsafe impl ::windows::runtime::Interface for IMsmGetFiles {
     type Vtable = IMsmGetFiles_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1883352614, 11640, 4562, [136, 138, 0, 160, 201, 129, 176, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7041ae26_2d78_11d2_888a_00a0c981b015);
 }
 impl ::core::convert::From<IMsmGetFiles> for ::windows::runtime::IUnknown {
     fn from(value: IMsmGetFiles) -> Self {
@@ -3115,7 +3115,7 @@ impl IMsmMerge {
 }
 unsafe impl ::windows::runtime::Interface for IMsmMerge {
     type Vtable = IMsmMerge_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(182298670, 11302, 4562, [173, 101, 0, 160, 201, 175, 17, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0adda82e_2c26_11d2_ad65_00a0c9af11a6);
 }
 impl ::core::convert::From<IMsmMerge> for ::windows::runtime::IUnknown {
     fn from(value: IMsmMerge) -> Self {
@@ -3218,7 +3218,7 @@ impl IMsmStrings {
 }
 unsafe impl ::windows::runtime::Interface for IMsmStrings {
     type Vtable = IMsmStrings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(182298663, 11302, 4562, [173, 101, 0, 160, 201, 175, 17, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0adda827_2c26_11d2_ad65_00a0c9af11a6);
 }
 impl ::core::convert::From<IMsmStrings> for ::windows::runtime::IUnknown {
     fn from(value: IMsmStrings) -> Self {
@@ -3827,7 +3827,7 @@ impl IPMApplicationInfo {
 }
 unsafe impl ::windows::runtime::Interface for IPMApplicationInfo {
     type Vtable = IPMApplicationInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1353692554, 17292, 16520, [151, 137, 248, 196, 137, 152, 41, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50afb58a_438c_4088_9789_f8c4899829c7);
 }
 impl ::core::convert::From<IPMApplicationInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMApplicationInfo) -> Self {
@@ -3966,7 +3966,7 @@ impl IPMApplicationInfoEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IPMApplicationInfoEnumerator {
     type Vtable = IPMApplicationInfoEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(247736982, 19782, 19910, [163, 217, 167, 172, 170, 192, 245, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ec42a96_4d46_4dc6_a3d9_a7acaac0f5fa);
 }
 impl ::core::convert::From<IPMApplicationInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IPMApplicationInfoEnumerator) -> Self {
@@ -4078,7 +4078,7 @@ impl IPMBackgroundServiceAgentInfo {
 }
 unsafe impl ::windows::runtime::Interface for IPMBackgroundServiceAgentInfo {
     type Vtable = IPMBackgroundServiceAgentInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(982206170, 37516, 18553, [153, 140, 9, 220, 150, 243, 212, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a8b46da_928c_4879_998c_09dc96f3d490);
 }
 impl ::core::convert::From<IPMBackgroundServiceAgentInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMBackgroundServiceAgentInfo) -> Self {
@@ -4146,7 +4146,7 @@ impl IPMBackgroundServiceAgentInfoEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IPMBackgroundServiceAgentInfoEnumerator {
     type Vtable = IPMBackgroundServiceAgentInfoEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(418062450, 43862, 17331, [135, 44, 190, 175, 183, 166, 179, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18eb2072_ab56_43b3_872c_beafb7a6b391);
 }
 impl ::core::convert::From<IPMBackgroundServiceAgentInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IPMBackgroundServiceAgentInfoEnumerator) -> Self {
@@ -4215,7 +4215,7 @@ impl IPMBackgroundWorkerInfo {
 }
 unsafe impl ::windows::runtime::Interface for IPMBackgroundWorkerInfo {
     type Vtable = IPMBackgroundWorkerInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2111066907, 54207, 19307, [148, 243, 105, 192, 152, 177, 73, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7dd4531b_d3bf_4b6b_94f3_69c098b1497d);
 }
 impl ::core::convert::From<IPMBackgroundWorkerInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMBackgroundWorkerInfo) -> Self {
@@ -4266,7 +4266,7 @@ impl IPMBackgroundWorkerInfoEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IPMBackgroundWorkerInfoEnumerator {
     type Vtable = IPMBackgroundWorkerInfoEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2280946168, 37080, 20167, [146, 185, 114, 120, 126, 47, 99, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87f479f8_90d8_4ec7_92b9_72787e2f636b);
 }
 impl ::core::convert::From<IPMBackgroundWorkerInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IPMBackgroundWorkerInfoEnumerator) -> Self {
@@ -4488,7 +4488,7 @@ impl IPMDeploymentManager {
 }
 unsafe impl ::windows::runtime::Interface for IPMDeploymentManager {
     type Vtable = IPMDeploymentManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(905414138, 6521, 19083, [188, 143, 253, 112, 235, 13, 21, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35f785fa_1979_4a8b_bc8f_fd70eb0d1544);
 }
 impl ::core::convert::From<IPMDeploymentManager> for ::windows::runtime::IUnknown {
     fn from(value: IPMDeploymentManager) -> Self {
@@ -4669,7 +4669,7 @@ impl IPMEnumerationManager {
 }
 unsafe impl ::windows::runtime::Interface for IPMEnumerationManager {
     type Vtable = IPMEnumerationManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1770870722, 10541, 19699, [183, 60, 217, 90, 105, 34, 237, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x698d57c2_292d_4cf3_b73c_d95a6922ed9a);
 }
 impl ::core::convert::From<IPMEnumerationManager> for ::windows::runtime::IUnknown {
     fn from(value: IPMEnumerationManager) -> Self {
@@ -4744,7 +4744,7 @@ impl IPMExtensionCachedFileUpdaterInfo {
 }
 unsafe impl ::windows::runtime::Interface for IPMExtensionCachedFileUpdaterInfo {
     type Vtable = IPMExtensionCachedFileUpdaterInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3805771017, 20056, 19369, [175, 126, 182, 66, 227, 112, 225, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2d77509_4e58_4ba9_af7e_b642e370e1b0);
 }
 impl ::core::convert::From<IPMExtensionCachedFileUpdaterInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMExtensionCachedFileUpdaterInfo) -> Self {
@@ -4788,7 +4788,7 @@ impl IPMExtensionContractInfo {
 }
 unsafe impl ::windows::runtime::Interface for IPMExtensionContractInfo {
     type Vtable = IPMExtensionContractInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3848692595, 31649, 18044, [184, 25, 177, 117, 219, 28, 41, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5666373_7ba1_467c_b819_b175db1c295b);
 }
 impl ::core::convert::From<IPMExtensionContractInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMExtensionContractInfo) -> Self {
@@ -4862,7 +4862,7 @@ impl IPMExtensionFileExtensionInfo {
 }
 unsafe impl ::windows::runtime::Interface for IPMExtensionFileExtensionInfo {
     type Vtable = IPMExtensionFileExtensionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1804061548, 2952, 18825, [164, 236, 3, 55, 20, 247, 16, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b87cb6c_0b88_4989_a4ec_033714f710d4);
 }
 impl ::core::convert::From<IPMExtensionFileExtensionInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMExtensionFileExtensionInfo) -> Self {
@@ -4924,7 +4924,7 @@ impl IPMExtensionFileOpenPickerInfo {
 }
 unsafe impl ::windows::runtime::Interface for IPMExtensionFileOpenPickerInfo {
     type Vtable = IPMExtensionFileOpenPickerInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1841896741, 38406, 16908, [154, 120, 224, 52, 163, 65, 131, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6dc91d25_9606_420c_9a78_e034a3418345);
 }
 impl ::core::convert::From<IPMExtensionFileOpenPickerInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMExtensionFileOpenPickerInfo) -> Self {
@@ -4976,7 +4976,7 @@ impl IPMExtensionFileSavePickerInfo {
 }
 unsafe impl ::windows::runtime::Interface for IPMExtensionFileSavePickerInfo {
     type Vtable = IPMExtensionFileSavePickerInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(939547834, 63514, 18750, [160, 248, 146, 44, 134, 128, 218, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38005cba_f81a_493e_a0f8_922c8680da43);
 }
 impl ::core::convert::From<IPMExtensionFileSavePickerInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMExtensionFileSavePickerInfo) -> Self {
@@ -5047,7 +5047,7 @@ impl IPMExtensionInfo {
 }
 unsafe impl ::windows::runtime::Interface for IPMExtensionInfo {
     type Vtable = IPMExtensionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1236065913, 38792, 19722, [138, 160, 23, 70, 175, 219, 158, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49acde79_9788_4d0a_8aa0_1746afdb9e9d);
 }
 impl ::core::convert::From<IPMExtensionInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMExtensionInfo) -> Self {
@@ -5100,7 +5100,7 @@ impl IPMExtensionInfoEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IPMExtensionInfoEnumerator {
     type Vtable = IPMExtensionInfoEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1077649026, 4465, 17779, [142, 111, 111, 51, 243, 155, 131, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x403b9e82_1171_4573_8e6f_6f33f39b83dd);
 }
 impl ::core::convert::From<IPMExtensionInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IPMExtensionInfoEnumerator) -> Self {
@@ -5148,7 +5148,7 @@ impl IPMExtensionProtocolInfo {
 }
 unsafe impl ::windows::runtime::Interface for IPMExtensionProtocolInfo {
     type Vtable = IPMExtensionProtocolInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(507486262, 20971, 17491, [186, 255, 184, 216, 228, 180, 108, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e3fa036_51eb_4453_baff_b8d8e4b46c8e);
 }
 impl ::core::convert::From<IPMExtensionProtocolInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMExtensionProtocolInfo) -> Self {
@@ -5205,7 +5205,7 @@ impl IPMExtensionShareTargetInfo {
 }
 unsafe impl ::windows::runtime::Interface for IPMExtensionShareTargetInfo {
     type Vtable = IPMExtensionShareTargetInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1416754315, 50780, 18006, [140, 112, 36, 46, 49, 25, 95, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5471f48b_c65c_4656_8c70_242e31195fea);
 }
 impl ::core::convert::From<IPMExtensionShareTargetInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMExtensionShareTargetInfo) -> Self {
@@ -5361,7 +5361,7 @@ impl IPMLiveTileJobInfo {
 }
 unsafe impl ::windows::runtime::Interface for IPMLiveTileJobInfo {
     type Vtable = IPMLiveTileJobInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1611245599, 18192, 18071, [181, 246, 34, 8, 246, 5, 123, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6009a81f_4710_4697_b5f6_2208f6057b8e);
 }
 impl ::core::convert::From<IPMLiveTileJobInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMLiveTileJobInfo) -> Self {
@@ -5434,7 +5434,7 @@ impl IPMLiveTileJobInfoEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IPMLiveTileJobInfoEnumerator {
     type Vtable = IPMLiveTileJobInfoEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3154388354, 37909, 20278, [159, 153, 6, 241, 4, 192, 124, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc042582_9415_4f36_9f99_06f104c07c03);
 }
 impl ::core::convert::From<IPMLiveTileJobInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IPMLiveTileJobInfoEnumerator) -> Self {
@@ -5580,7 +5580,7 @@ impl IPMTaskInfo {
 }
 unsafe impl ::windows::runtime::Interface for IPMTaskInfo {
     type Vtable = IPMTaskInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3206384691, 7157, 20192, [181, 73, 107, 157, 211, 131, 73, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf1d8c33_1bf5_4ee0_b549_6b9dd3834942);
 }
 impl ::core::convert::From<IPMTaskInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMTaskInfo) -> Self {
@@ -5655,7 +5655,7 @@ impl IPMTaskInfoEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IPMTaskInfoEnumerator {
     type Vtable = IPMTaskInfoEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(103854328, 3004, 18465, [190, 116, 199, 153, 81, 102, 237, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0630b0f8_0bbc_4821_be74_c7995166ed2a);
 }
 impl ::core::convert::From<IPMTaskInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IPMTaskInfoEnumerator) -> Self {
@@ -5817,7 +5817,7 @@ impl IPMTileInfo {
 }
 unsafe impl ::windows::runtime::Interface for IPMTileInfo {
     type Vtable = IPMTileInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3512748083, 11016, 16385, [130, 205, 24, 58, 215, 52, 247, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1604833_2b08_4001_82cd_183ad734f752);
 }
 impl ::core::convert::From<IPMTileInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMTileInfo) -> Self {
@@ -5898,7 +5898,7 @@ impl IPMTileInfoEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IPMTileInfoEnumerator {
     type Vtable = IPMTileInfoEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3738710117, 58466, 19244, [172, 181, 227, 156, 234, 97, 200, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xded83065_e462_4b2c_acb5_e39cea61c874);
 }
 impl ::core::convert::From<IPMTileInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IPMTileInfoEnumerator) -> Self {
@@ -5941,7 +5941,7 @@ impl IPMTilePropertyEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IPMTilePropertyEnumerator {
     type Vtable = IPMTilePropertyEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3427587625, 36935, 16976, [170, 200, 147, 14, 71, 129, 36, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc4cd629_9047_4250_aac8_930e47812421);
 }
 impl ::core::convert::From<IPMTilePropertyEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IPMTilePropertyEnumerator) -> Self {
@@ -5994,7 +5994,7 @@ impl IPMTilePropertyInfo {
 }
 unsafe impl ::windows::runtime::Interface for IPMTilePropertyInfo {
     type Vtable = IPMTilePropertyInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1814790167, 7930, 17063, [134, 192, 109, 75, 100, 11, 245, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c2b8017_1efa_42a7_86c0_6d4b640bf528);
 }
 impl ::core::convert::From<IPMTilePropertyInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMTilePropertyInfo) -> Self {
@@ -6069,7 +6069,7 @@ impl IValidate {
 }
 unsafe impl ::windows::runtime::Interface for IValidate {
     type Vtable = IValidate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3833783750, 58142, 16707, [162, 230, 219, 195, 216, 228, 184, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe482e5c6_e31e_4143_a2e6_dbc3d8e4b8d3);
 }
 impl ::core::convert::From<IValidate> for ::windows::runtime::IUnknown {
     fn from(value: IValidate) -> Self {
@@ -6110,7 +6110,7 @@ pub struct IValidate_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wzices: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-pub const LIBID_MsmMergeTypeLib: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(182298671, 11302, 4562, [173, 101, 0, 160, 201, 175, 17, 166]);
+pub const LIBID_MsmMergeTypeLib: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0adda82f_2c26_11d2_ad65_00a0c9af11a6);
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const LOGALL: u32 = 15u32;
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
@@ -10802,7 +10802,7 @@ pub unsafe fn MsiViewModify<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHAN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const MsmMerge: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(182298672, 11302, 4562, [173, 101, 0, 160, 201, 175, 17, 166]);
+pub const MsmMerge: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0adda830_2c26_11d2_ad65_00a0c9af11a6);
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -11324,7 +11324,7 @@ impl ::core::cmp::Eq for PMSIHANDLE {}
 unsafe impl ::windows::runtime::Abi for PMSIHANDLE {
     type Abi = Self;
 }
-pub const PMSvc: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3118797308, 58212, 18810, [161, 33, 183, 179, 97, 44, 237, 206]);
+pub const PMSvc: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9e511fc_e364_497a_a121_b7b3612cedce);
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]

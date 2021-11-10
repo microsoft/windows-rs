@@ -65,7 +65,7 @@ unsafe impl ::windows::runtime::RuntimeType for ExtendedExecutionRevokedEventArg
 }
 unsafe impl ::windows::runtime::Interface for ExtendedExecutionRevokedEventArgs {
     type Vtable = IExtendedExecutionRevokedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3216809750, 25525, 19467, [170, 214, 130, 138, 245, 55, 62, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfbc9f16_63b5_4c0b_aad6_828af5373ec3);
 }
 impl ::windows::runtime::RuntimeName for ExtendedExecutionRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs";
@@ -221,7 +221,7 @@ unsafe impl ::windows::runtime::RuntimeType for ExtendedExecutionSession {
 }
 unsafe impl ::windows::runtime::Interface for ExtendedExecutionSession {
     type Vtable = IExtendedExecutionSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2945485357, 4491, 18673, [147, 8, 12, 79, 196, 30, 32, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf908a2d_118b_48f1_9308_0c4fc41e200f);
 }
 impl ::windows::runtime::RuntimeName for ExtendedExecutionSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession";
@@ -299,7 +299,7 @@ unsafe impl ::core::marker::Sync for ExtendedExecutionSession {}
 pub struct IExtendedExecutionRevokedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExtendedExecutionRevokedEventArgs {
     type Vtable = IExtendedExecutionRevokedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3216809750, 25525, 19467, [170, 214, 130, 138, 245, 55, 62, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfbc9f16_63b5_4c0b_aad6_828af5373ec3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -317,7 +317,7 @@ pub struct IExtendedExecutionRevokedEventArgs_abi(
 pub struct IExtendedExecutionSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExtendedExecutionSession {
     type Vtable = IExtendedExecutionSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2945485357, 4491, 18673, [147, 8, 12, 79, 196, 30, 32, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf908a2d_118b_48f1_9308_0c4fc41e200f);
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -32,7 +32,7 @@ impl IWSDAddress {
 }
 unsafe impl ::windows::runtime::Interface for IWSDAddress {
     type Vtable = IWSDAddress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3109506156, 4774, 20340, [147, 161, 51, 24, 255, 96, 87, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9574c6c_12a6_4f74_93a1_3318ff605759);
 }
 impl ::core::convert::From<IWSDAddress> for ::windows::runtime::IUnknown {
     fn from(value: IWSDAddress) -> Self {
@@ -77,7 +77,7 @@ impl IWSDAsyncCallback {
 }
 unsafe impl ::windows::runtime::Interface for IWSDAsyncCallback {
     type Vtable = IWSDAsyncCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2789085341, 52850, 18914, [186, 152, 232, 69, 245, 238, 22, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa63e109d_ce72_49e2_ba98_e845f5ee1666);
 }
 impl ::core::convert::From<IWSDAsyncCallback> for ::windows::runtime::IUnknown {
     fn from(value: IWSDAsyncCallback) -> Self {
@@ -148,7 +148,7 @@ impl IWSDAsyncResult {
 }
 unsafe impl ::windows::runtime::Interface for IWSDAsyncResult {
     type Vtable = IWSDAsyncResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(296322346, 36312, 16958, [181, 55, 147, 86, 219, 79, 191, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11a9852a_8dd8_423e_b537_9356db4fbfb8);
 }
 impl ::core::convert::From<IWSDAsyncResult> for ::windows::runtime::IUnknown {
     fn from(value: IWSDAsyncResult) -> Self {
@@ -193,7 +193,7 @@ pub struct IWSDAttachment(pub ::windows::runtime::IUnknown);
 impl IWSDAttachment {}
 unsafe impl ::windows::runtime::Interface for IWSDAttachment {
     type Vtable = IWSDAttachment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1565894166, 40440, 19209, [177, 86, 155, 163, 81, 164, 139, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d55a616_9df8_4b09_b156_9ba351a48b76);
 }
 impl ::core::convert::From<IWSDAttachment> for ::windows::runtime::IUnknown {
     fn from(value: IWSDAttachment) -> Self {
@@ -288,7 +288,7 @@ impl IWSDDeviceHost {
 }
 unsafe impl ::windows::runtime::Interface for IWSDDeviceHost {
     type Vtable = IWSDDeviceHost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2441078929, 15635, 16696, [152, 9, 147, 76, 138, 190, 177, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x917fe891_3d13_4138_9809_934c8abeb12c);
 }
 impl ::core::convert::From<IWSDDeviceHost> for ::windows::runtime::IUnknown {
     fn from(value: IWSDDeviceHost) -> Self {
@@ -353,7 +353,7 @@ impl IWSDDeviceHostNotify {
 }
 unsafe impl ::windows::runtime::Interface for IWSDDeviceHostNotify {
     type Vtable = IWSDDeviceHostNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3049187833, 61146, 16894, [150, 247, 244, 94, 20, 153, 15, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5bee9f9_eeda_41fe_96f7_f45e14990fb0);
 }
 impl ::core::convert::From<IWSDDeviceHostNotify> for ::windows::runtime::IUnknown {
     fn from(value: IWSDDeviceHostNotify) -> Self {
@@ -447,7 +447,7 @@ impl IWSDDeviceProxy {
 }
 unsafe impl ::windows::runtime::Interface for IWSDDeviceProxy {
     type Vtable = IWSDDeviceProxy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4007706673, 50552, 19470, [154, 59, 151, 60, 53, 244, 9, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeee0c031_c578_4c0e_9a3b_973c35f409db);
 }
 impl ::core::convert::From<IWSDDeviceProxy> for ::windows::runtime::IUnknown {
     fn from(value: IWSDDeviceProxy) -> Self {
@@ -538,7 +538,7 @@ impl IWSDEndpointProxy {
 }
 unsafe impl ::windows::runtime::Interface for IWSDEndpointProxy {
     type Vtable = IWSDEndpointProxy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(408998960, 45644, 18805, [159, 144, 219, 179, 155, 170, 36, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1860d430_b24c_4975_9f90_dbb39baa24ec);
 }
 impl ::core::convert::From<IWSDEndpointProxy> for ::windows::runtime::IUnknown {
     fn from(value: IWSDEndpointProxy) -> Self {
@@ -603,7 +603,7 @@ impl IWSDEventingStatus {
 }
 unsafe impl ::windows::runtime::Interface for IWSDEventingStatus {
     type Vtable = IWSDEventingStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1236369234, 25466, 16506, [174, 153, 251, 232, 42, 77, 56, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49b17f52_637a_407a_ae99_fbe82a4d38c0);
 }
 impl ::core::convert::From<IWSDEventingStatus> for ::windows::runtime::IUnknown {
     fn from(value: IWSDEventingStatus) -> Self {
@@ -702,7 +702,7 @@ impl IWSDHttpAddress {
 }
 unsafe impl ::windows::runtime::Interface for IWSDHttpAddress {
     type Vtable = IWSDHttpAddress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3499804605, 10814, 19333, [134, 5, 39, 55, 255, 62, 78, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd09ac7bd_2a3e_4b85_8605_2737ff3e4ea0);
 }
 impl ::core::convert::From<IWSDHttpAddress> for ::windows::runtime::IUnknown {
     fn from(value: IWSDHttpAddress) -> Self {
@@ -809,7 +809,7 @@ impl IWSDHttpAuthParameters {
 }
 unsafe impl ::windows::runtime::Interface for IWSDHttpAuthParameters {
     type Vtable = IWSDHttpAuthParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(189230576, 36268, 18445, [176, 92, 153, 120, 26, 88, 132, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b476df0_8dac_480d_b05c_99781a5884aa);
 }
 impl ::core::convert::From<IWSDHttpAuthParameters> for ::windows::runtime::IUnknown {
     fn from(value: IWSDHttpAuthParameters) -> Self {
@@ -918,7 +918,7 @@ impl IWSDHttpMessageParameters {
 }
 unsafe impl ::windows::runtime::Interface for IWSDHttpMessageParameters {
     type Vtable = IWSDHttpMessageParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1410060578, 23683, 19948, [179, 150, 234, 98, 162, 105, 127, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x540bd122_5c83_4dec_b396_ea62a2697fdf);
 }
 impl ::core::convert::From<IWSDHttpMessageParameters> for ::windows::runtime::IUnknown {
     fn from(value: IWSDHttpMessageParameters) -> Self {
@@ -1003,7 +1003,7 @@ impl IWSDInboundAttachment {
 }
 unsafe impl ::windows::runtime::Interface for IWSDInboundAttachment {
     type Vtable = IWSDInboundAttachment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1540803173, 9020, 20408, [159, 122, 38, 65, 97, 150, 85, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5bd6ca65_233c_4fb8_9f7a_2641619655c9);
 }
 impl ::core::convert::From<IWSDInboundAttachment> for ::windows::runtime::IUnknown {
     fn from(value: IWSDInboundAttachment) -> Self {
@@ -1085,7 +1085,7 @@ impl IWSDMessageParameters {
 }
 unsafe impl ::windows::runtime::Interface for IWSDMessageParameters {
     type Vtable = IWSDMessageParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(531622050, 59132, 19328, [182, 207, 183, 212, 92, 65, 109, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1fafe8a2_e6fc_4b80_b6cf_b7d45c416d7c);
 }
 impl ::core::convert::From<IWSDMessageParameters> for ::windows::runtime::IUnknown {
     fn from(value: IWSDMessageParameters) -> Self {
@@ -1133,7 +1133,7 @@ impl IWSDMetadataExchange {
 }
 unsafe impl ::windows::runtime::Interface for IWSDMetadataExchange {
     type Vtable = IWSDMetadataExchange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(110718295, 7527, 18728, [147, 7, 61, 120, 51, 253, 184, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06996d57_1d67_4928_9307_3d7833fdb846);
 }
 impl ::core::convert::From<IWSDMetadataExchange> for ::windows::runtime::IUnknown {
     fn from(value: IWSDMetadataExchange) -> Self {
@@ -1185,7 +1185,7 @@ impl IWSDOutboundAttachment {
 }
 unsafe impl ::windows::runtime::Interface for IWSDOutboundAttachment {
     type Vtable = IWSDOutboundAttachment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2855284621, 23074, 19365, [179, 146, 170, 132, 134, 244, 193, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa302f8d_5a22_4ba5_b392_aa8486f4c15d);
 }
 impl ::core::convert::From<IWSDOutboundAttachment> for ::windows::runtime::IUnknown {
     fn from(value: IWSDOutboundAttachment) -> Self {
@@ -1257,7 +1257,7 @@ impl IWSDSSLClientCertificate {
 }
 unsafe impl ::windows::runtime::Interface for IWSDSSLClientCertificate {
     type Vtable = IWSDSSLClientCertificate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3725614727, 41178, 16782, [152, 173, 39, 185, 238, 216, 123, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde105e87_a0da_418e_98ad_27b9eed87bdc);
 }
 impl ::core::convert::From<IWSDSSLClientCertificate> for ::windows::runtime::IUnknown {
     fn from(value: IWSDSSLClientCertificate) -> Self {
@@ -1310,7 +1310,7 @@ impl IWSDScopeMatchingRule {
 }
 unsafe impl ::windows::runtime::Interface for IWSDScopeMatchingRule {
     type Vtable = IWSDScopeMatchingRule_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4239385636, 65269, 18458, [189, 159, 51, 206, 5, 116, 37, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcafe424_fef5_481a_bd9f_33ce0574256f);
 }
 impl ::core::convert::From<IWSDScopeMatchingRule> for ::windows::runtime::IUnknown {
     fn from(value: IWSDScopeMatchingRule) -> Self {
@@ -1361,7 +1361,7 @@ impl IWSDServiceMessaging {
 }
 unsafe impl ::windows::runtime::Interface for IWSDServiceMessaging {
     type Vtable = IWSDServiceMessaging_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2492943604, 3243, 17933, [163, 246, 122, 10, 214, 35, 192, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94974cf4_0cab_460d_a3f6_7a0ad623c0e6);
 }
 impl ::core::convert::From<IWSDServiceMessaging> for ::windows::runtime::IUnknown {
     fn from(value: IWSDServiceMessaging) -> Self {
@@ -1445,7 +1445,7 @@ impl IWSDServiceProxy {
 }
 unsafe impl ::windows::runtime::Interface for IWSDServiceProxy {
     type Vtable = IWSDServiceProxy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3569875868, 939, 16757, [157, 103, 9, 79, 175, 235, 244, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4c7fb9c_03ab_4175_9d67_094fafebf487);
 }
 impl ::core::convert::From<IWSDServiceProxy> for ::windows::runtime::IUnknown {
     fn from(value: IWSDServiceProxy) -> Self {
@@ -1631,7 +1631,7 @@ impl IWSDServiceProxyEventing {
 }
 unsafe impl ::windows::runtime::Interface for IWSDServiceProxyEventing {
     type Vtable = IWSDServiceProxyEventing_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4180122989, 4114, 19092, [184, 204, 253, 53, 210, 32, 43, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9279d6d_1012_4a94_b8cc_fd35d2202bfe);
 }
 impl ::core::convert::From<IWSDServiceProxyEventing> for ::windows::runtime::IUnknown {
     fn from(value: IWSDServiceProxyEventing) -> Self {
@@ -1769,7 +1769,7 @@ impl IWSDSignatureProperty {
 }
 unsafe impl ::windows::runtime::Interface for IWSDSignatureProperty {
     type Vtable = IWSDSignatureProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(63840426, 29124, 17890, [179, 46, 55, 102, 198, 28, 121, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03ce20aa_71c4_45e2_b32e_3766c61c790f);
 }
 impl ::core::convert::From<IWSDSignatureProperty> for ::windows::runtime::IUnknown {
     fn from(value: IWSDSignatureProperty) -> Self {
@@ -1849,7 +1849,7 @@ impl IWSDTransportAddress {
 }
 unsafe impl ::windows::runtime::Interface for IWSDTransportAddress {
     type Vtable = IWSDTransportAddress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1892824216, 20198, 17216, [163, 223, 216, 69, 210, 35, 84, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70d23498_4ee6_4340_a3df_d845d2235467);
 }
 impl ::core::convert::From<IWSDTransportAddress> for ::windows::runtime::IUnknown {
     fn from(value: IWSDTransportAddress) -> Self {
@@ -2001,7 +2001,7 @@ impl IWSDUdpAddress {
 }
 unsafe impl ::windows::runtime::Interface for IWSDUdpAddress {
     type Vtable = IWSDUdpAddress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1960186442, 42049, 20344, [161, 235, 151, 168, 209, 153, 104, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74d6124a_a441_4f78_a1eb_97a8d1996893);
 }
 impl ::core::convert::From<IWSDUdpAddress> for ::windows::runtime::IUnknown {
     fn from(value: IWSDUdpAddress) -> Self {
@@ -2135,7 +2135,7 @@ impl IWSDUdpMessageParameters {
 }
 unsafe impl ::windows::runtime::Interface for IWSDUdpMessageParameters {
     type Vtable = IWSDUdpMessageParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2570327199, 36620, 17531, [170, 11, 115, 18, 75, 12, 167, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9934149f_8f0c_447b_aa0b_73124b0ca7f0);
 }
 impl ::core::convert::From<IWSDUdpMessageParameters> for ::windows::runtime::IUnknown {
     fn from(value: IWSDUdpMessageParameters) -> Self {
@@ -2221,7 +2221,7 @@ impl IWSDXMLContext {
 }
 unsafe impl ::windows::runtime::Interface for IWSDXMLContext {
     type Vtable = IWSDXMLContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1977152494, 15962, 17332, [161, 90, 188, 246, 136, 116, 96, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75d8f3ee_3e5a_43b4_a15a_bcf6887460c0);
 }
 impl ::core::convert::From<IWSDXMLContext> for ::windows::runtime::IUnknown {
     fn from(value: IWSDXMLContext) -> Self {
@@ -2328,7 +2328,7 @@ impl IWSDiscoveredService {
 }
 unsafe impl ::windows::runtime::Interface for IWSDiscoveredService {
     type Vtable = IWSDiscoveredService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1269664315, 45940, 17440, [150, 50, 170, 201, 69, 179, 116, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bad8a3b_b374_4420_9632_aac945b374aa);
 }
 impl ::core::convert::From<IWSDiscoveredService> for ::windows::runtime::IUnknown {
     fn from(value: IWSDiscoveredService) -> Self {
@@ -2416,7 +2416,7 @@ impl IWSDiscoveryProvider {
 }
 unsafe impl ::windows::runtime::Interface for IWSDiscoveryProvider {
     type Vtable = IWSDiscoveryProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2415693397, 61675, 18447, [136, 183, 180, 53, 221, 40, 29, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ffc8e55_f0eb_480f_88b7_b435dd281d45);
 }
 impl ::core::convert::From<IWSDiscoveryProvider> for ::windows::runtime::IUnknown {
     fn from(value: IWSDiscoveryProvider) -> Self {
@@ -2481,7 +2481,7 @@ impl IWSDiscoveryProviderNotify {
 }
 unsafe impl ::windows::runtime::Interface for IWSDiscoveryProviderNotify {
     type Vtable = IWSDiscoveryProviderNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1944993005, 46822, 17193, [165, 70, 62, 138, 212, 101, 99, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73ee3ced_b6e6_4329_a546_3e8ad46563d2);
 }
 impl ::core::convert::From<IWSDiscoveryProviderNotify> for ::windows::runtime::IUnknown {
     fn from(value: IWSDiscoveryProviderNotify) -> Self {
@@ -2746,7 +2746,7 @@ impl IWSDiscoveryPublisher {
 }
 unsafe impl ::windows::runtime::Interface for IWSDiscoveryPublisher {
     type Vtable = IWSDiscoveryPublisher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2919358888, 16377, 16712, [129, 22, 5, 124, 198, 22, 254, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae01e1a8_3ff9_4148_8116_057cc616fe13);
 }
 impl ::core::convert::From<IWSDiscoveryPublisher> for ::windows::runtime::IUnknown {
     fn from(value: IWSDiscoveryPublisher) -> Self {
@@ -2865,7 +2865,7 @@ impl IWSDiscoveryPublisherNotify {
 }
 unsafe impl ::windows::runtime::Interface for IWSDiscoveryPublisherNotify {
     type Vtable = IWSDiscoveryPublisherNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3866513840, 13178, 19260, [151, 88, 115, 51, 136, 86, 130, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe67651b0_337a_4b3c_9758_733388568251);
 }
 impl ::core::convert::From<IWSDiscoveryPublisherNotify> for ::windows::runtime::IUnknown {
     fn from(value: IWSDiscoveryPublisherNotify) -> Self {

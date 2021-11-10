@@ -81,7 +81,7 @@ unsafe impl ::windows::runtime::RuntimeType for EasClientDeviceInformation {
 }
 unsafe impl ::windows::runtime::Interface for EasClientDeviceInformation {
     type Vtable = IEasClientDeviceInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1423956353, 6504, 19619, [185, 88, 229, 149, 209, 101, 5, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54dfd981_1968_4ca3_b958_e595d16505eb);
 }
 impl ::windows::runtime::RuntimeName for EasClientDeviceInformation {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation";
@@ -269,7 +269,7 @@ unsafe impl ::windows::runtime::RuntimeType for EasClientSecurityPolicy {
 }
 unsafe impl ::windows::runtime::Interface for EasClientSecurityPolicy {
     type Vtable = IEasClientSecurityPolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1169630050, 57274, 19099, [172, 237, 111, 226, 173, 203, 100, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45b72362_dfba_4a9b_aced_6fe2adcb6420);
 }
 impl ::windows::runtime::RuntimeName for EasClientSecurityPolicy {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasClientSecurityPolicy";
@@ -405,7 +405,7 @@ unsafe impl ::windows::runtime::RuntimeType for EasComplianceResults {
 }
 unsafe impl ::windows::runtime::Interface for EasComplianceResults {
     type Vtable = IEasComplianceResults_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1178347932, 32537, 19558, [180, 3, 203, 69, 221, 87, 162, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x463c299c_7f19_4c66_b403_cb45dd57a2b3);
 }
 impl ::windows::runtime::RuntimeName for EasComplianceResults {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasComplianceResults";
@@ -718,7 +718,7 @@ impl ::windows::runtime::DefaultType for EasRequireEncryptionResult {
 pub struct IEasClientDeviceInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasClientDeviceInformation {
     type Vtable = IEasClientDeviceInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1423956353, 6504, 19619, [185, 88, 229, 149, 209, 101, 5, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54dfd981_1968_4ca3_b958_e595d16505eb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -741,7 +741,7 @@ pub struct IEasClientDeviceInformation_abi(
 pub struct IEasClientDeviceInformation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasClientDeviceInformation2 {
     type Vtable = IEasClientDeviceInformation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4289943843, 47910, 19818, [129, 188, 22, 90, 238, 10, 215, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffb35923_bb26_4d6a_81bc_165aee0ad754);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -760,7 +760,7 @@ pub struct IEasClientDeviceInformation2_abi(
 pub struct IEasClientSecurityPolicy(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasClientSecurityPolicy {
     type Vtable = IEasClientSecurityPolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1169630050, 57274, 19099, [172, 237, 111, 226, 173, 203, 100, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45b72362_dfba_4a9b_aced_6fe2adcb6420);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -800,7 +800,7 @@ pub struct IEasClientSecurityPolicy_abi(
 pub struct IEasComplianceResults(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasComplianceResults {
     type Vtable = IEasComplianceResults_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1178347932, 32537, 19558, [180, 3, 203, 69, 221, 87, 162, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x463c299c_7f19_4c66_b403_cb45dd57a2b3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -826,7 +826,7 @@ pub struct IEasComplianceResults_abi(
 pub struct IEasComplianceResults2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasComplianceResults2 {
     type Vtable = IEasComplianceResults2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(801005769, 6824, 18421, [136, 187, 203, 62, 240, 191, 251, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2fbe60c9_1aa8_47f5_88bb_cb3ef0bffb15);
 }
 #[repr(C)]
 #[doc(hidden)]

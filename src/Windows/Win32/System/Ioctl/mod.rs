@@ -3632,49 +3632,49 @@ unsafe impl ::windows::runtime::Abi for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_Ioctl`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_Storage_Disk_Number: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_Ioctl`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_Storage_Gpt_Name: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_Ioctl`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_Storage_Gpt_Type: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_Ioctl`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_Storage_Mbr_Type: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_Ioctl`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_Storage_Partition_Number: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_Ioctl`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_Storage_Portable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_Ioctl`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_Storage_Removable_Media: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_Ioctl`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_Storage_System_Critical: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9),
     pid: 4u32,
 };
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -6487,9 +6487,9 @@ unsafe impl ::windows::runtime::Abi for FILE_SYSTEM_RECOGNITION_INFORMATION {
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_BEGIN: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_END: u32 = 2u32;
-pub const FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2638560951, 53926, 19901, [162, 227, 251, 208, 237, 145, 9, 169]);
-pub const FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3076672868, 47523, 19704, [128, 17, 91, 134, 201, 64, 231, 183]);
-pub const FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(218784929, 14588, 19896, [159, 231, 63, 67, 82, 205, 124, 92]);
+pub const FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d453eb7_d2a6_4dbd_a2e3_fbd0ed9109a9);
+pub const FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7624d64_b9a3_4cf8_8011_5b86c940e7b7);
+pub const FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d0a64a1_38fc_4db8_9fe7_3f4352cd7c5c);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -8104,29 +8104,29 @@ impl ::core::cmp::Eq for GP_LOG_PAGE_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for GP_LOG_PAGE_DESCRIPTOR {
     type Abi = Self;
 }
-pub const GUID_DEVICEDUMP_DRIVER_STORAGE_PORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3665970205, 28994, 19393, [184, 68, 8, 7, 197, 164, 182, 127]);
-pub const GUID_DEVICEDUMP_STORAGE_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3638712623, 6827, 19798, [167, 70, 31, 117, 133, 223, 64, 244]);
-pub const GUID_DEVINTERFACE_CDCHANGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590610, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
-pub const GUID_DEVINTERFACE_CDROM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590600, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
-pub const GUID_DEVINTERFACE_COMPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2262880736, 32905, 4560, [156, 228, 8, 0, 62, 48, 31, 115]);
-pub const GUID_DEVINTERFACE_DISK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590599, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
-pub const GUID_DEVINTERFACE_FLOPPY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590609, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
-pub const GUID_DEVINTERFACE_HIDDEN_VOLUME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2131790376, 38963, 19259, [183, 128, 44, 107, 95, 165, 192, 98]);
-pub const GUID_DEVINTERFACE_MEDIUMCHANGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590608, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
-pub const GUID_DEVINTERFACE_PARTITION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590602, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
-pub const GUID_DEVINTERFACE_SCM_PHYSICAL_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1115906205, 19906, 17342, [187, 180, 79, 21, 223, 206, 44, 97]);
-pub const GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1295444344, 58149, 4558, [191, 193, 8, 0, 43, 225, 3, 24]);
-pub const GUID_DEVINTERFACE_SERVICE_VOLUME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1856847234, 9708, 18108, [183, 253, 193, 240, 223, 143, 80, 55]);
-pub const GUID_DEVINTERFACE_SES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395364844, 18389, 19955, [181, 175, 154, 223, 60, 242, 62, 72]);
-pub const GUID_DEVINTERFACE_STORAGEPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(718077536, 49456, 4562, [176, 130, 0, 160, 201, 30, 251, 139]);
-pub const GUID_DEVINTERFACE_TAPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590603, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
-pub const GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(658799649, 48323, 19719, [160, 91, 163, 57, 91, 180, 238, 231]);
-pub const GUID_DEVINTERFACE_VMLUN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1866556953, 40745, 17061, [178, 11, 55, 226, 25, 202, 2, 176]);
-pub const GUID_DEVINTERFACE_VOLUME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590605, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
-pub const GUID_DEVINTERFACE_WRITEONCEDISK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590604, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
-pub const GUID_DEVINTERFACE_ZNSDISK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3094954437, 65499, 17351, [182, 177, 32, 182, 50, 240, 177, 9]);
-pub const GUID_SCM_PD_HEALTH_NOTIFICATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2644693894, 29429, 20195, [129, 85, 236, 160, 103, 142, 59, 6]);
-pub const GUID_SCM_PD_PASSTHROUGH_INVDIMM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1124707376, 3345, 4580, [145, 145, 8, 0, 32, 12, 154, 102]);
+pub const GUID_DEVICEDUMP_DRIVER_STORAGE_PORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda82441d_7142_4bc1_b844_0807c5a4b67f);
+pub const GUID_DEVICEDUMP_STORAGE_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8e2592f_1aab_4d56_a746_1f7585df40f4);
+pub const GUID_DEVINTERFACE_CDCHANGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f56312_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_CDROM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f56308_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_COMPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86e0d1e0_8089_11d0_9ce4_08003e301f73);
+pub const GUID_DEVINTERFACE_DISK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f56307_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_FLOPPY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f56311_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_HIDDEN_VOLUME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f108a28_9833_4b3b_b780_2c6b5fa5c062);
+pub const GUID_DEVINTERFACE_MEDIUMCHANGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f56310_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_PARTITION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f5630a_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_SCM_PHYSICAL_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4283609d_4dc2_43be_bbb4_4f15dfce2c61);
+pub const GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d36e978_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVINTERFACE_SERVICE_VOLUME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ead3d82_25ec_46bc_b7fd_c1f0df8f5037);
+pub const GUID_DEVINTERFACE_SES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1790c9ec_47d5_4df3_b5af_9adf3cf23e48);
+pub const GUID_DEVINTERFACE_STORAGEPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2accfe60_c130_11d2_b082_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_TAPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f5630b_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27447c21_bcc3_4d07_a05b_a3395bb4eee7);
+pub const GUID_DEVINTERFACE_VMLUN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f416619_9f29_42a5_b20b_37e219ca02b0);
+pub const GUID_DEVINTERFACE_VOLUME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f5630d_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_WRITEONCEDISK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f5630c_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_ZNSDISK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb87941c5_ffdb_43c7_b6b1_20b632f0b109);
+pub const GUID_SCM_PD_HEALTH_NOTIFICATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9da2d386_72f5_4ee3_8155_eca0678e3b06);
+pub const GUID_SCM_PD_PASSTHROUGH_INVDIMM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4309ac30_0d11_11e4_9191_0800200c9a66);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]

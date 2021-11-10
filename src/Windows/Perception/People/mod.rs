@@ -54,7 +54,7 @@ unsafe impl ::windows::runtime::RuntimeType for EyesPose {
 }
 unsafe impl ::windows::runtime::Interface for EyesPose {
     type Vtable = IEyesPose_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1747622691, 35358, 23430, [160, 96, 144, 111, 250, 203, 98, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x682a9b23_8a1e_5b86_a060_906ffacb62a4);
 }
 impl ::windows::runtime::RuntimeName for EyesPose {
     const NAME: &'static str = "Windows.Perception.People.EyesPose";
@@ -220,7 +220,7 @@ unsafe impl ::windows::runtime::RuntimeType for HandMeshObserver {
 }
 unsafe impl ::windows::runtime::Interface for HandMeshObserver {
     type Vtable = IHandMeshObserver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2242785483, 28611, 21956, [167, 180, 41, 227, 56, 150, 202, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85ae30cb_6fc3_55c4_a7b4_29e33896ca69);
 }
 impl ::windows::runtime::RuntimeName for HandMeshObserver {
     const NAME: &'static str = "Windows.Perception.People.HandMeshObserver";
@@ -343,7 +343,7 @@ unsafe impl ::windows::runtime::RuntimeType for HandMeshVertexState {
 }
 unsafe impl ::windows::runtime::Interface for HandMeshVertexState {
     type Vtable = IHandMeshVertexState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(74211311, 7563, 21982, [171, 44, 28, 212, 36, 136, 109, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x046c5fef_1d8b_55de_ab2c_1cd424886d8f);
 }
 impl ::windows::runtime::RuntimeName for HandMeshVertexState {
     const NAME: &'static str = "Windows.Perception.People.HandMeshVertexState";
@@ -434,7 +434,7 @@ unsafe impl ::windows::runtime::RuntimeType for HandPose {
 }
 unsafe impl ::windows::runtime::Interface for HandPose {
     type Vtable = IHandPose_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1301866394, 47880, 23817, [145, 222, 223, 13, 211, 250, 228, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d98e79a_bb08_5d09_91de_df0dd3fae46c);
 }
 impl ::windows::runtime::RuntimeName for HandPose {
     const NAME: &'static str = "Windows.Perception.People.HandPose";
@@ -519,7 +519,7 @@ unsafe impl ::windows::runtime::RuntimeType for HeadPose {
 }
 unsafe impl ::windows::runtime::Interface for HeadPose {
     type Vtable = IHeadPose_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2136655269, 18907, 14239, [148, 41, 50, 162, 250, 243, 79, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f5ac5a5_49db_379f_9429_32a2faf34fa6);
 }
 impl ::windows::runtime::RuntimeName for HeadPose {
     const NAME: &'static str = "Windows.Perception.People.HeadPose";
@@ -571,7 +571,7 @@ unsafe impl ::core::marker::Sync for HeadPose {}
 pub struct IEyesPose(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEyesPose {
     type Vtable = IEyesPose_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1747622691, 35358, 23430, [160, 96, 144, 111, 250, 203, 98, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x682a9b23_8a1e_5b86_a060_906ffacb62a4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -592,7 +592,7 @@ pub struct IEyesPose_abi(
 pub struct IEyesPoseStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEyesPoseStatics {
     type Vtable = IEyesPoseStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(486503443, 45599, 21696, [128, 193, 230, 13, 153, 76, 165, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cff7413_b21f_54c0_80c1_e60d994ca58c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -612,7 +612,7 @@ pub struct IEyesPoseStatics_abi(
 pub struct IHandMeshObserver(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHandMeshObserver {
     type Vtable = IHandMeshObserver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2242785483, 28611, 21956, [167, 180, 41, 227, 56, 150, 202, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85ae30cb_6fc3_55c4_a7b4_29e33896ca69);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -638,7 +638,7 @@ pub struct IHandMeshObserver_abi(
 pub struct IHandMeshVertexState(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHandMeshVertexState {
     type Vtable = IHandMeshVertexState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(74211311, 7563, 21982, [171, 44, 28, 212, 36, 136, 109, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x046c5fef_1d8b_55de_ab2c_1cd424886d8f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -660,7 +660,7 @@ pub struct IHandMeshVertexState_abi(
 pub struct IHandPose(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHandPose {
     type Vtable = IHandPose_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1301866394, 47880, 23817, [145, 222, 223, 13, 211, 250, 228, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d98e79a_bb08_5d09_91de_df0dd3fae46c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -685,7 +685,7 @@ pub struct IHandPose_abi(
 pub struct IHeadPose(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHeadPose {
     type Vtable = IHeadPose_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2136655269, 18907, 14239, [148, 41, 50, 162, 250, 243, 79, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f5ac5a5_49db_379f_9429_32a2faf34fa6);
 }
 #[repr(C)]
 #[doc(hidden)]

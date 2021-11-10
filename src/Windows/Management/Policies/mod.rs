@@ -4,7 +4,7 @@
 pub struct INamedPolicyData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INamedPolicyData {
     type Vtable = INamedPolicyData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(953987480, 38316, 16503, [166, 67, 128, 120, 202, 226, 100, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38dcb198_95ac_4077_a643_8078cae26400);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -38,7 +38,7 @@ pub struct INamedPolicyData_abi(
 pub struct INamedPolicyStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INamedPolicyStatics {
     type Vtable = INamedPolicyStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2138651623, 30404, 16472, [140, 173, 103, 102, 44, 208, 95, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f793be7_76c4_4058_8cad_67662cd05f0d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -195,7 +195,7 @@ unsafe impl ::windows::runtime::RuntimeType for NamedPolicyData {
 }
 unsafe impl ::windows::runtime::Interface for NamedPolicyData {
     type Vtable = INamedPolicyData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(953987480, 38316, 16503, [166, 67, 128, 120, 202, 226, 100, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38dcb198_95ac_4077_a643_8078cae26400);
 }
 impl ::windows::runtime::RuntimeName for NamedPolicyData {
     const NAME: &'static str = "Windows.Management.Policies.NamedPolicyData";

@@ -160,7 +160,7 @@ unsafe impl ::windows::runtime::RuntimeType for ArcadeStick {
 }
 unsafe impl ::windows::runtime::Interface for ArcadeStick {
     type Vtable = IArcadeStick_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2974438301, 48891, 19585, [128, 81, 21, 236, 243, 177, 48, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb14a539d_befb_4c81_8051_15ecf3b13036);
 }
 impl ::windows::runtime::RuntimeName for ArcadeStick {
     const NAME: &'static str = "Windows.Gaming.Input.ArcadeStick";
@@ -504,7 +504,7 @@ unsafe impl ::windows::runtime::RuntimeType for FlightStick {
 }
 unsafe impl ::windows::runtime::Interface for FlightStick {
     type Vtable = IFlightStick_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3030564892, 47163, 17497, [161, 169, 151, 176, 60, 51, 218, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4a2c01c_b83b_4459_a1a9_97b03c33da7c);
 }
 impl ::windows::runtime::RuntimeName for FlightStick {
     const NAME: &'static str = "Windows.Gaming.Input.FlightStick";
@@ -993,7 +993,7 @@ unsafe impl ::windows::runtime::RuntimeType for Gamepad {
 }
 unsafe impl ::windows::runtime::Interface for Gamepad {
     type Vtable = IGamepad_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3162223676, 2665, 14595, [158, 157, 165, 15, 134, 164, 93, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc7bb43c_0a69_3903_9e9d_a50f86a45de5);
 }
 impl ::windows::runtime::RuntimeName for Gamepad {
     const NAME: &'static str = "Windows.Gaming.Input.Gamepad";
@@ -1273,7 +1273,7 @@ unsafe impl ::windows::runtime::RuntimeType for Headset {
 }
 unsafe impl ::windows::runtime::Interface for Headset {
     type Vtable = IHeadset_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1070683887, 26917, 16296, [145, 129, 2, 156, 82, 35, 174, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3fd156ef_6925_3fa8_9181_029c5223ae3b);
 }
 impl ::windows::runtime::RuntimeName for Headset {
     const NAME: &'static str = "Windows.Gaming.Input.Headset";
@@ -1347,7 +1347,7 @@ unsafe impl ::core::marker::Sync for Headset {}
 pub struct IArcadeStick(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IArcadeStick {
     type Vtable = IArcadeStick_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2974438301, 48891, 19585, [128, 81, 21, 236, 243, 177, 48, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb14a539d_befb_4c81_8051_15ecf3b13036);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1366,7 +1366,7 @@ pub struct IArcadeStick_abi(
 pub struct IArcadeStickStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IArcadeStickStatics {
     type Vtable = IArcadeStickStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1547155656, 14257, 19160, [148, 88, 32, 15, 26, 48, 1, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c37b8c8_37b1_4ad8_9458_200f1a30018e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1393,7 +1393,7 @@ pub struct IArcadeStickStatics_abi(
 pub struct IArcadeStickStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IArcadeStickStatics2 {
     type Vtable = IArcadeStickStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1387648836, 48006, 17498, [181, 156, 89, 111, 14, 42, 73, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52b5d744_bb86_445a_b59c_596f0e2a49df);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1411,7 +1411,7 @@ pub struct IArcadeStickStatics2_abi(
 pub struct IFlightStick(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFlightStick {
     type Vtable = IFlightStick_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3030564892, 47163, 17497, [161, 169, 151, 176, 60, 51, 218, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4a2c01c_b83b_4459_a1a9_97b03c33da7c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1431,7 +1431,7 @@ pub struct IFlightStick_abi(
 pub struct IFlightStickStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFlightStickStatics {
     type Vtable = IFlightStickStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1427411530, 65228, 17246, [131, 220, 92, 236, 138, 24, 165, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5514924a_fecc_435e_83dc_5cec8a18a520);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1460,7 +1460,7 @@ pub struct IFlightStickStatics_abi(
 pub struct IGameController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameController {
     type Vtable = IGameController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(464479522, 24420, 17093, [130, 103, 185, 254, 34, 21, 191, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1baf6522_5f64_42c5_8267_b9fe2215bfbd);
 }
 impl IGameController {
     #[cfg(feature = "Foundation")]
@@ -1609,7 +1609,7 @@ pub struct IGameController_abi(
 pub struct IGameControllerBatteryInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameControllerBatteryInfo {
     type Vtable = IGameControllerBatteryInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3706504833, 14691, 19878, [149, 93, 85, 63, 59, 111, 97, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcecc681_3963_4da6_955d_553f3b6f6161);
 }
 impl IGameControllerBatteryInfo {
     #[cfg(feature = "Devices_Power")]
@@ -1682,7 +1682,7 @@ pub struct IGameControllerBatteryInfo_abi(
 pub struct IGamepad(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGamepad {
     type Vtable = IGamepad_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3162223676, 2665, 14595, [158, 157, 165, 15, 134, 164, 93, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc7bb43c_0a69_3903_9e9d_a50f86a45de5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1702,7 +1702,7 @@ pub struct IGamepad_abi(
 pub struct IGamepad2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGamepad2 {
     type Vtable = IGamepad2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1008110013, 22805, 16965, [176, 192, 200, 159, 174, 3, 8, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c1689bd_5915_4245_b0c0_c89fae0308ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1720,7 +1720,7 @@ pub struct IGamepad2_abi(
 pub struct IGamepadStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGamepadStatics {
     type Vtable = IGamepadStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2344412457, 54428, 14825, [149, 96, 228, 125, 222, 150, 183, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bbce529_d49c_39e9_9560_e47dde96b7c8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1747,7 +1747,7 @@ pub struct IGamepadStatics_abi(
 pub struct IGamepadStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGamepadStatics2 {
     type Vtable = IGamepadStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1114074565, 2134, 18372, [146, 19, 179, 149, 80, 76, 58, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42676dc5_0856_47c4_9213_b395504c3a3c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1765,7 +1765,7 @@ pub struct IGamepadStatics2_abi(
 pub struct IHeadset(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHeadset {
     type Vtable = IHeadset_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1070683887, 26917, 16296, [145, 129, 2, 156, 82, 35, 174, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3fd156ef_6925_3fa8_9181_029c5223ae3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1784,7 +1784,7 @@ pub struct IHeadset_abi(
 pub struct IRacingWheel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRacingWheel {
     type Vtable = IRacingWheel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4115031407, 57606, 19586, [169, 15, 85, 64, 18, 144, 75, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf546656f_e106_4c82_a90f_554012904b85);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1810,7 +1810,7 @@ pub struct IRacingWheel_abi(
 pub struct IRacingWheelStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRacingWheelStatics {
     type Vtable = IRacingWheelStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(985738453, 22555, 18742, [159, 148, 105, 241, 230, 81, 76, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ac12cd5_581b_4936_9f94_69f1e6514c7d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1837,7 +1837,7 @@ pub struct IRacingWheelStatics_abi(
 pub struct IRacingWheelStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRacingWheelStatics2 {
     type Vtable = IRacingWheelStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3865492650, 60925, 17187, [169, 246, 60, 56, 64, 72, 209, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe666bcaa_edfd_4323_a9f6_3c384048d1ed);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1855,7 +1855,7 @@ pub struct IRacingWheelStatics2_abi(
 pub struct IRawGameController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRawGameController {
     type Vtable = IRawGameController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2091740561, 42977, 20337, [154, 120, 51, 233, 197, 223, 234, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7cad6d91_a7e1_4f71_9a78_33e9c5dfea62);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1882,7 +1882,7 @@ pub struct IRawGameController_abi(
 pub struct IRawGameController2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRawGameController2 {
     type Vtable = IRawGameController2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1136705589, 47987, 18262, [167, 135, 62, 214, 190, 166, 23, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43c0c035_bb73_4756_a787_3ed6bea617bd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1903,7 +1903,7 @@ pub struct IRawGameController2_abi(
 pub struct IRawGameControllerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRawGameControllerStatics {
     type Vtable = IRawGameControllerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3951888274, 59738, 19225, [175, 199, 10, 89, 248, 191, 117, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb8d0792_e95a_4b19_afc7_0a59f8bf759e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1931,7 +1931,7 @@ pub struct IRawGameControllerStatics_abi(
 pub struct IUINavigationController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUINavigationController {
     type Vtable = IUINavigationController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3853447133, 62734, 19029, [140, 220, 211, 50, 41, 84, 129, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5aeefdd_f50e_4a55_8cdc_d33229548175);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1951,7 +1951,7 @@ pub struct IUINavigationController_abi(
 pub struct IUINavigationControllerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUINavigationControllerStatics {
     type Vtable = IUINavigationControllerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(789877514, 63224, 19016, [141, 137, 148, 120, 108, 202, 12, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f14930a_f6f8_4a48_8d89_94786cca0c2e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1978,7 +1978,7 @@ pub struct IUINavigationControllerStatics_abi(
 pub struct IUINavigationControllerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUINavigationControllerStatics2 {
     type Vtable = IUINavigationControllerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3771410659, 45579, 19211, [158, 212, 243, 213, 60, 236, 13, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0cb28e3_b20b_4b0b_9ed4_f3d53cec0de4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2256,7 +2256,7 @@ unsafe impl ::windows::runtime::RuntimeType for RacingWheel {
 }
 unsafe impl ::windows::runtime::Interface for RacingWheel {
     type Vtable = IRacingWheel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4115031407, 57606, 19586, [169, 15, 85, 64, 18, 144, 75, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf546656f_e106_4c82_a90f_554012904b85);
 }
 impl ::windows::runtime::RuntimeName for RacingWheel {
     const NAME: &'static str = "Windows.Gaming.Input.RacingWheel";
@@ -2699,7 +2699,7 @@ unsafe impl ::windows::runtime::RuntimeType for RawGameController {
 }
 unsafe impl ::windows::runtime::Interface for RawGameController {
     type Vtable = IRawGameController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2091740561, 42977, 20337, [154, 120, 51, 233, 197, 223, 234, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7cad6d91_a7e1_4f71_9a78_33e9c5dfea62);
 }
 impl ::windows::runtime::RuntimeName for RawGameController {
     const NAME: &'static str = "Windows.Gaming.Input.RawGameController";
@@ -3010,7 +3010,7 @@ unsafe impl ::windows::runtime::RuntimeType for UINavigationController {
 }
 unsafe impl ::windows::runtime::Interface for UINavigationController {
     type Vtable = IUINavigationController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3853447133, 62734, 19029, [140, 220, 211, 50, 41, 84, 129, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5aeefdd_f50e_4a55_8cdc_d33229548175);
 }
 impl ::windows::runtime::RuntimeName for UINavigationController {
     const NAME: &'static str = "Windows.Gaming.Input.UINavigationController";

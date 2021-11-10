@@ -43,7 +43,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastingMonitor {
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastingMonitor {
     type Vtable = IAppBroadcastingMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(16341608, 35079, 18592, [184, 239, 36, 210, 8, 19, 117, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00f95a68_8907_48a0_b8ef_24d208137542);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastingMonitor {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingMonitor";
@@ -117,7 +117,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastingStatus {
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastingStatus {
     type Vtable = IAppBroadcastingStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(304473311, 929, 17144, [139, 128, 201, 34, 140, 217, 207, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1225e4df_03a1_42f8_8b80_c9228cd9cf2e);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastingStatus {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingStatus";
@@ -239,7 +239,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastingStatusDetails {
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastingStatusDetails {
     type Vtable = IAppBroadcastingStatusDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(110996900, 46451, 20028, [142, 25, 27, 175, 172, 208, 151, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x069dada4_b573_4e3c_8e19_1bafacd09713);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastingStatusDetails {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails";
@@ -329,7 +329,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastingUI {
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastingUI {
     type Vtable = IAppBroadcastingUI_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3849297807, 61081, 19914, [163, 195, 112, 175, 61, 180, 79, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe56f9f8f_ee99_4dca_a3c3_70af3db44f5f);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastingUI {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingUI";
@@ -381,7 +381,7 @@ unsafe impl ::core::marker::Sync for AppBroadcastingUI {}
 pub struct IAppBroadcastingMonitor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastingMonitor {
     type Vtable = IAppBroadcastingMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(16341608, 35079, 18592, [184, 239, 36, 210, 8, 19, 117, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00f95a68_8907_48a0_b8ef_24d208137542);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -403,7 +403,7 @@ pub struct IAppBroadcastingMonitor_abi(
 pub struct IAppBroadcastingStatus(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastingStatus {
     type Vtable = IAppBroadcastingStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(304473311, 929, 17144, [139, 128, 201, 34, 140, 217, 207, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1225e4df_03a1_42f8_8b80_c9228cd9cf2e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -422,7 +422,7 @@ pub struct IAppBroadcastingStatus_abi(
 pub struct IAppBroadcastingStatusDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastingStatusDetails {
     type Vtable = IAppBroadcastingStatusDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(110996900, 46451, 20028, [142, 25, 27, 175, 172, 208, 151, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x069dada4_b573_4e3c_8e19_1bafacd09713);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -447,7 +447,7 @@ pub struct IAppBroadcastingStatusDetails_abi(
 pub struct IAppBroadcastingUI(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastingUI {
     type Vtable = IAppBroadcastingUI_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3849297807, 61081, 19914, [163, 195, 112, 175, 61, 180, 79, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe56f9f8f_ee99_4dca_a3c3_70af3db44f5f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -466,7 +466,7 @@ pub struct IAppBroadcastingUI_abi(
 pub struct IAppBroadcastingUIStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastingUIStatics {
     type Vtable = IAppBroadcastingUIStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1437116317, 9163, 17785, [156, 52, 136, 111, 224, 44, 4, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55a8a79d_23cb_4579_9c34_886fe02c045a);
 }
 #[repr(C)]
 #[doc(hidden)]

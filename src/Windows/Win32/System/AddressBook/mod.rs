@@ -4303,7 +4303,7 @@ impl IWABExtInit {
 }
 unsafe impl ::windows::runtime::Interface for IWABExtInit {
     type Vtable = IWABExtInit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3928157168, 34724, 4561, [154, 207, 0, 160, 201, 31, 156, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea22ebf0_87a4_11d1_9acf_00a0c91f9c8b);
 }
 impl ::core::convert::From<IWABExtInit> for ::windows::runtime::IUnknown {
     fn from(value: IWABExtInit) -> Self {

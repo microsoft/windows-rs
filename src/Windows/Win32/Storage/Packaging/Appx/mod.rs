@@ -770,11 +770,11 @@ impl ::core::convert::From<i32> for AppPolicyWindowingModel {
 unsafe impl ::windows::runtime::Abi for AppPolicyWindowingModel {
     type Abi = Self;
 }
-pub const AppxBundleFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(932054086, 21380, 17335, [136, 119, 231, 219, 221, 136, 52, 70]);
-pub const AppxEncryptionFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3697692637, 55400, 18158, [135, 128, 141, 25, 108, 183, 57, 247]);
-pub const AppxFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1480761664, 65439, 16742, [143, 92, 98, 245, 183, 176, 199, 129]);
-pub const AppxPackageEditor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4026856138, 44732, 19213, [191, 88, 229, 22, 213, 188, 192, 171]);
-pub const AppxPackagingDiagnosticEventSinkManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1355418182, 5512, 16737, [142, 210, 239, 158, 70, 156, 237, 93]);
+pub const AppxBundleFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x378e0446_5384_43b7_8877_e7dbdd883446);
+pub const AppxEncryptionFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc664fdd_d868_46ee_8780_8d196cb739f7);
+pub const AppxFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5842a140_ff9f_4166_8f5c_62f5b7b0c781);
+pub const AppxPackageEditor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf004f2ca_aebc_4b0d_bf58_e516d5bcc0ab);
+pub const AppxPackagingDiagnosticEventSinkManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ca0a46_1588_4161_8ed2_ef9e469ced5d);
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1373,7 +1373,7 @@ impl IAppxBlockMapBlock {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBlockMapBlock {
     type Vtable = IAppxBlockMapBlock_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1976514864, 12868, 20448, [168, 200, 224, 188, 178, 112, 184, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75cf3930_3244_4fe0_a8c8_e0bcb270b889);
 }
 impl ::core::convert::From<IAppxBlockMapBlock> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBlockMapBlock) -> Self {
@@ -1429,7 +1429,7 @@ impl IAppxBlockMapBlocksEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBlockMapBlocksEnumerator {
     type Vtable = IAppxBlockMapBlocksEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1799527259, 14063, 18334, [185, 235, 12, 20, 130, 180, 158, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b429b5b_36ef_479e_b9eb_0c1482b49e16);
 }
 impl ::core::convert::From<IAppxBlockMapBlocksEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBlockMapBlocksEnumerator) -> Self {
@@ -1498,7 +1498,7 @@ impl IAppxBlockMapFile {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBlockMapFile {
     type Vtable = IAppxBlockMapFile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(662074028, 20323, 17089, [138, 188, 190, 174, 54, 0, 235, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x277672ac_4f63_42c1_8abc_beae3600eb59);
 }
 impl ::core::convert::From<IAppxBlockMapFile> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBlockMapFile) -> Self {
@@ -1559,7 +1559,7 @@ impl IAppxBlockMapFilesEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBlockMapFilesEnumerator {
     type Vtable = IAppxBlockMapFilesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(45635234, 16994, 16496, [186, 203, 26, 140, 187, 196, 35, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02b856a2_4262_4070_bacb_1a8cbbc42305);
 }
 impl ::core::convert::From<IAppxBlockMapFilesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBlockMapFilesEnumerator) -> Self {
@@ -1624,7 +1624,7 @@ impl IAppxBlockMapReader {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBlockMapReader {
     type Vtable = IAppxBlockMapReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1593756049, 48291, 17105, [158, 194, 233, 45, 96, 158, 194, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5efec991_bca3_42d1_9ec2_e92d609ec22a);
 }
 impl ::core::convert::From<IAppxBlockMapReader> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBlockMapReader) -> Self {
@@ -1686,7 +1686,7 @@ impl IAppxBundleFactory {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBundleFactory {
     type Vtable = IAppxBundleFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3148240996, 38495, 19039, [133, 95, 240, 116, 189, 191, 58, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbba65864_965f_4a5f_855f_f074bdbf3a7b);
 }
 impl ::core::convert::From<IAppxBundleFactory> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleFactory) -> Self {
@@ -1745,7 +1745,7 @@ impl IAppxBundleManifestOptionalBundleInfo {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBundleManifestOptionalBundleInfo {
     type Vtable = IAppxBundleManifestOptionalBundleInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1364980456, 48304, 19817, [140, 72, 227, 131, 20, 123, 110, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x515bf2e8_bcb0_4d69_8c48_e383147b6e12);
 }
 impl ::core::convert::From<IAppxBundleManifestOptionalBundleInfo> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleManifestOptionalBundleInfo) -> Self {
@@ -1803,7 +1803,7 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBundleManifestOptionalBundleInfoEnumerator {
     type Vtable = IAppxBundleManifestOptionalBundleInfoEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2585233299, 63870, 18092, [170, 202, 221, 91, 164, 193, 119, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a178793_f97e_46ac_aaca_dd5ba4c177c8);
 }
 impl ::core::convert::From<IAppxBundleManifestOptionalBundleInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleManifestOptionalBundleInfoEnumerator) -> Self {
@@ -1876,7 +1876,7 @@ impl IAppxBundleManifestPackageInfo {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBundleManifestPackageInfo {
     type Vtable = IAppxBundleManifestPackageInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1422722753, 9871, 16571, [142, 210, 117, 122, 158, 186, 236, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54cd06c1_268f_40bb_8ed2_757a9ebaec8d);
 }
 impl ::core::convert::From<IAppxBundleManifestPackageInfo> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleManifestPackageInfo) -> Self {
@@ -1938,7 +1938,7 @@ impl IAppxBundleManifestPackageInfo2 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBundleManifestPackageInfo2 {
     type Vtable = IAppxBundleManifestPackageInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1153608892, 45775, 19659, [187, 219, 156, 109, 168, 195, 188, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44c2acbc_b2cf_4ccb_bbdb_9c6da8c3bc9e);
 }
 impl ::core::convert::From<IAppxBundleManifestPackageInfo2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleManifestPackageInfo2) -> Self {
@@ -1986,7 +1986,7 @@ impl IAppxBundleManifestPackageInfo3 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBundleManifestPackageInfo3 {
     type Vtable = IAppxBundleManifestPackageInfo3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1806125976, 47988, 17046, [128, 208, 95, 66, 86, 169, 150, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ba74b98_bb74_4296_80d0_5f4256a99675);
 }
 impl ::core::convert::From<IAppxBundleManifestPackageInfo3> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleManifestPackageInfo3) -> Self {
@@ -2030,7 +2030,7 @@ impl IAppxBundleManifestPackageInfo4 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBundleManifestPackageInfo4 {
     type Vtable = IAppxBundleManifestPackageInfo4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1571221821, 43175, 17714, [133, 124, 19, 147, 214, 89, 55, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5da6f13d_a8a7_4532_857c_1393d659371d);
 }
 impl ::core::convert::From<IAppxBundleManifestPackageInfo4> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleManifestPackageInfo4) -> Self {
@@ -2086,7 +2086,7 @@ impl IAppxBundleManifestPackageInfoEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBundleManifestPackageInfoEnumerator {
     type Vtable = IAppxBundleManifestPackageInfoEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4189607662, 18854, 19993, [178, 176, 106, 36, 6, 214, 58, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9b856ee_49a6_4e19_b2b0_6a2406d63a32);
 }
 impl ::core::convert::From<IAppxBundleManifestPackageInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleManifestPackageInfoEnumerator) -> Self {
@@ -2144,7 +2144,7 @@ impl IAppxBundleManifestReader {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBundleManifestReader {
     type Vtable = IAppxBundleManifestReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3473849281, 52377, 16646, [145, 235, 230, 116, 98, 224, 79, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf0ebbc1_cc99_4106_91eb_e67462e04fb0);
 }
 impl ::core::convert::From<IAppxBundleManifestReader> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleManifestReader) -> Self {
@@ -2190,7 +2190,7 @@ impl IAppxBundleManifestReader2 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBundleManifestReader2 {
     type Vtable = IAppxBundleManifestReader2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1427627888, 831, 19186, [130, 19, 135, 215, 102, 128, 92, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5517df70_033f_4af2_8213_87d766805c02);
 }
 impl ::core::convert::From<IAppxBundleManifestReader2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleManifestReader2) -> Self {
@@ -2254,7 +2254,7 @@ impl IAppxBundleReader {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBundleReader {
     type Vtable = IAppxBundleReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3715479744, 47734, 17328, [174, 15, 104, 101, 106, 29, 197, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd75b8c0_ba76_43b0_ae0f_68656a1dc5c8);
 }
 impl ::core::convert::From<IAppxBundleReader> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleReader) -> Self {
@@ -2306,7 +2306,7 @@ impl IAppxBundleWriter {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBundleWriter {
     type Vtable = IAppxBundleWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3963908072, 49132, 19556, [171, 79, 73, 240, 56, 240, 198, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec446fe8_bfec_4c64_ab4f_49f038f0c6d2);
 }
 impl ::core::convert::From<IAppxBundleWriter> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleWriter) -> Self {
@@ -2351,7 +2351,7 @@ impl IAppxBundleWriter2 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBundleWriter2 {
     type Vtable = IAppxBundleWriter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1838147953, 460, 18848, [182, 133, 35, 56, 81, 39, 153, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d8fe971_01cc_49a0_b685_233851279962);
 }
 impl ::core::convert::From<IAppxBundleWriter2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleWriter2) -> Self {
@@ -2400,7 +2400,7 @@ impl IAppxBundleWriter3 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBundleWriter3 {
     type Vtable = IAppxBundleWriter3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2909868370, 63849, 16787, [130, 213, 157, 223, 39, 134, 210, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad711152_f969_4193_82d5_9ddf2786d21a);
 }
 impl ::core::convert::From<IAppxBundleWriter3> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleWriter3) -> Self {
@@ -2456,7 +2456,7 @@ impl IAppxBundleWriter4 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxBundleWriter4 {
     type Vtable = IAppxBundleWriter4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2631521571, 20489, 19457, [152, 130, 220, 2, 159, 189, 71, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9cd9d523_5009_4c01_9882_dc029fbd47a3);
 }
 impl ::core::convert::From<IAppxBundleWriter4> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleWriter4) -> Self {
@@ -2510,7 +2510,7 @@ impl IAppxContentGroup {
 }
 unsafe impl ::windows::runtime::Interface for IAppxContentGroup {
     type Vtable = IAppxContentGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(848258152, 49231, 20028, [182, 250, 107, 141, 39, 243, 0, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x328f6468_c04f_4e3c_b6fa_6b8d27f3003a);
 }
 impl ::core::convert::From<IAppxContentGroup> for ::windows::runtime::IUnknown {
     fn from(value: IAppxContentGroup) -> Self {
@@ -2568,7 +2568,7 @@ impl IAppxContentGroupFilesEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAppxContentGroupFilesEnumerator {
     type Vtable = IAppxContentGroupFilesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(436839165, 29760, 17643, [140, 132, 132, 130, 5, 166, 161, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a09a2fd_7440_44eb_8c84_848205a6a1cc);
 }
 impl ::core::convert::From<IAppxContentGroupFilesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxContentGroupFilesEnumerator) -> Self {
@@ -2621,7 +2621,7 @@ impl IAppxContentGroupMapReader {
 }
 unsafe impl ::windows::runtime::Interface for IAppxContentGroupMapReader {
     type Vtable = IAppxContentGroupMapReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1099376344, 56729, 20317, [152, 134, 21, 122, 221, 32, 222, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x418726d8_dd99_4f5d_9886_157add20de01);
 }
 impl ::core::convert::From<IAppxContentGroupMapReader> for ::windows::runtime::IUnknown {
     fn from(value: IAppxContentGroupMapReader) -> Self {
@@ -2674,7 +2674,7 @@ impl IAppxContentGroupMapWriter {
 }
 unsafe impl ::windows::runtime::Interface for IAppxContentGroupMapWriter {
     type Vtable = IAppxContentGroupMapWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3497703286, 43486, 18328, [140, 20, 61, 179, 30, 104, 124, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd07ab776_a9de_4798_8c14_3db31e687c78);
 }
 impl ::core::convert::From<IAppxContentGroupMapWriter> for ::windows::runtime::IUnknown {
     fn from(value: IAppxContentGroupMapWriter) -> Self {
@@ -2733,7 +2733,7 @@ impl IAppxContentGroupsEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAppxContentGroupsEnumerator {
     type Vtable = IAppxContentGroupsEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(845472887, 5841, 19811, [130, 62, 125, 41, 132, 105, 102, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3264e477_16d1_4d63_823e_7d2984696634);
 }
 impl ::core::convert::From<IAppxContentGroupsEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxContentGroupsEnumerator) -> Self {
@@ -2784,7 +2784,7 @@ impl IAppxEncryptedBundleWriter {
 }
 unsafe impl ::windows::runtime::Interface for IAppxEncryptedBundleWriter {
     type Vtable = IAppxEncryptedBundleWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2159054895, 31728, 16663, [184, 198, 66, 121, 239, 129, 238, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80b0902f_7bf0_4117_b8c6_4279ef81ee77);
 }
 impl ::core::convert::From<IAppxEncryptedBundleWriter> for ::windows::runtime::IUnknown {
     fn from(value: IAppxEncryptedBundleWriter) -> Self {
@@ -2829,7 +2829,7 @@ impl IAppxEncryptedBundleWriter2 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxEncryptedBundleWriter2 {
     type Vtable = IAppxEncryptedBundleWriter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3863264898, 61690, 17080, [169, 86, 141, 28, 180, 142, 227, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe644be82_f0fa_42b8_a956_8d1cb48ee379);
 }
 impl ::core::convert::From<IAppxEncryptedBundleWriter2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxEncryptedBundleWriter2) -> Self {
@@ -2878,7 +2878,7 @@ impl IAppxEncryptedBundleWriter3 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxEncryptedBundleWriter3 {
     type Vtable = IAppxEncryptedBundleWriter3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(221568691, 23726, 19923, [151, 124, 80, 73, 50, 165, 29, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d34deb3_5cae_4dd3_977c_504932a51d31);
 }
 impl ::core::convert::From<IAppxEncryptedBundleWriter3> for ::windows::runtime::IUnknown {
     fn from(value: IAppxEncryptedBundleWriter3) -> Self {
@@ -2928,7 +2928,7 @@ impl IAppxEncryptedPackageWriter {
 }
 unsafe impl ::windows::runtime::Interface for IAppxEncryptedPackageWriter {
     type Vtable = IAppxEncryptedPackageWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4097641227, 4985, 16610, [155, 41, 104, 46, 162, 191, 66, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf43d0b0b_1379_40e2_9b29_682ea2bf42af);
 }
 impl ::core::convert::From<IAppxEncryptedPackageWriter> for ::windows::runtime::IUnknown {
     fn from(value: IAppxEncryptedPackageWriter) -> Self {
@@ -2973,7 +2973,7 @@ impl IAppxEncryptedPackageWriter2 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxEncryptedPackageWriter2 {
     type Vtable = IAppxEncryptedPackageWriter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1044862023, 14885, 16565, [138, 210, 249, 83, 174, 80, 201, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e475447_3a25_40b5_8ad2_f953ae50c92d);
 }
 impl ::core::convert::From<IAppxEncryptedPackageWriter2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxEncryptedPackageWriter2) -> Self {
@@ -3056,7 +3056,7 @@ impl IAppxEncryptionFactory {
 }
 unsafe impl ::windows::runtime::Interface for IAppxEncryptionFactory {
     type Vtable = IAppxEncryptionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2162745421, 35976, 17582, [160, 17, 124, 173, 246, 251, 46, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80e8e04d_8c88_44ae_a011_7cadf6fb2e72);
 }
 impl ::core::convert::From<IAppxEncryptionFactory> for ::windows::runtime::IUnknown {
     fn from(value: IAppxEncryptionFactory) -> Self {
@@ -3123,7 +3123,7 @@ impl IAppxEncryptionFactory2 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxEncryptionFactory2 {
     type Vtable = IAppxEncryptionFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3249610478, 50362, 19122, [165, 93, 208, 21, 254, 143, 246, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1b11eee_c4ba_4ab2_a55d_d015fe8ff64f);
 }
 impl ::core::convert::From<IAppxEncryptionFactory2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxEncryptionFactory2) -> Self {
@@ -3193,7 +3193,7 @@ impl IAppxEncryptionFactory3 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxEncryptionFactory3 {
     type Vtable = IAppxEncryptionFactory3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(166578743, 52580, 18390, [183, 232, 28, 177, 29, 79, 126, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09edca37_cd64_47d6_b7e8_1cb11d4f7e05);
 }
 impl ::core::convert::From<IAppxEncryptionFactory3> for ::windows::runtime::IUnknown {
     fn from(value: IAppxEncryptionFactory3) -> Self {
@@ -3244,7 +3244,7 @@ impl IAppxEncryptionFactory4 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxEncryptionFactory4 {
     type Vtable = IAppxEncryptionFactory4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2826527007, 4861, 16894, [133, 213, 6, 174, 119, 155, 186, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa879611f_12fd_41fe_85d5_06ae779bbaf5);
 }
 impl ::core::convert::From<IAppxEncryptionFactory4> for ::windows::runtime::IUnknown {
     fn from(value: IAppxEncryptionFactory4) -> Self {
@@ -3313,7 +3313,7 @@ impl IAppxFactory {
 }
 unsafe impl ::windows::runtime::Interface for IAppxFactory {
     type Vtable = IAppxFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3199813897, 58449, 17291, [181, 167, 215, 158, 118, 123, 117, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbeb94909_e451_438b_b5a7_d79e767b75d8);
 }
 impl ::core::convert::From<IAppxFactory> for ::windows::runtime::IUnknown {
     fn from(value: IAppxFactory) -> Self {
@@ -3378,7 +3378,7 @@ impl IAppxFactory2 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxFactory2 {
     type Vtable = IAppxFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4046745074, 49794, 20002, [185, 24, 116, 58, 146, 154, 141, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1346df2_c282_4e22_b918_743a929a8d55);
 }
 impl ::core::convert::From<IAppxFactory2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxFactory2) -> Self {
@@ -3449,7 +3449,7 @@ impl IAppxFile {
 }
 unsafe impl ::windows::runtime::Interface for IAppxFile {
     type Vtable = IAppxFile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2447344251, 38141, 18063, [130, 123, 87, 244, 27, 47, 111, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91df827b_94fd_468f_827b_57f41b2f6f2e);
 }
 impl ::core::convert::From<IAppxFile> for ::windows::runtime::IUnknown {
     fn from(value: IAppxFile) -> Self {
@@ -3511,7 +3511,7 @@ impl IAppxFilesEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAppxFilesEnumerator {
     type Vtable = IAppxFilesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4027051695, 38961, 16668, [152, 71, 145, 124, 220, 98, 209, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf007eeaf_9831_411c_9847_917cdc62d1fe);
 }
 impl ::core::convert::From<IAppxFilesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxFilesEnumerator) -> Self {
@@ -3565,7 +3565,7 @@ impl IAppxManifestApplication {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestApplication {
     type Vtable = IAppxManifestApplication_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1571331060, 14195, 18110, [182, 80, 126, 116, 72, 99, 183, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5da89bf4_3773_46be_b650_7e744863b7e8);
 }
 impl ::core::convert::From<IAppxManifestApplication> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestApplication) -> Self {
@@ -3623,7 +3623,7 @@ impl IAppxManifestApplicationsEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestApplicationsEnumerator {
     type Vtable = IAppxManifestApplicationsEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2662901082, 61515, 19725, [128, 141, 104, 97, 133, 212, 132, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9eb8a55a_f04b_4d0d_808d_686185d4847a);
 }
 impl ::core::convert::From<IAppxManifestApplicationsEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestApplicationsEnumerator) -> Self {
@@ -3683,7 +3683,7 @@ impl IAppxManifestCapabilitiesEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestCapabilitiesEnumerator {
     type Vtable = IAppxManifestCapabilitiesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(298984024, 62576, 17089, [178, 145, 131, 97, 197, 67, 126, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11d22258_f470_42c1_b291_8361c5437e41);
 }
 impl ::core::convert::From<IAppxManifestCapabilitiesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestCapabilitiesEnumerator) -> Self {
@@ -3744,7 +3744,7 @@ impl IAppxManifestDeviceCapabilitiesEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestDeviceCapabilitiesEnumerator {
     type Vtable = IAppxManifestDeviceCapabilitiesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(807421249, 17019, 18972, [186, 207, 101, 91, 244, 99, 165, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30204541_427b_4a1c_bacf_655bf463a540);
 }
 impl ::core::convert::From<IAppxManifestDeviceCapabilitiesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestDeviceCapabilitiesEnumerator) -> Self {
@@ -3804,7 +3804,7 @@ impl IAppxManifestDriverConstraint {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestDriverConstraint {
     type Vtable = IAppxManifestDriverConstraint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3224485604, 48076, 18666, [162, 55, 195, 64, 69, 200, 10, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc031bee4_bbcc_48ea_a237_c34045c80a07);
 }
 impl ::core::convert::From<IAppxManifestDriverConstraint> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestDriverConstraint) -> Self {
@@ -3863,7 +3863,7 @@ impl IAppxManifestDriverConstraintsEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestDriverConstraintsEnumerator {
     type Vtable = IAppxManifestDriverConstraintsEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3556946641, 62976, 18912, [149, 230, 151, 93, 141, 161, 61, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd402b2d1_f600_49e0_95e6_975d8da13d89);
 }
 impl ::core::convert::From<IAppxManifestDriverConstraintsEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestDriverConstraintsEnumerator) -> Self {
@@ -3922,7 +3922,7 @@ impl IAppxManifestDriverDependenciesEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestDriverDependenciesEnumerator {
     type Vtable = IAppxManifestDriverDependenciesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4261649842, 18047, 18261, [132, 4, 143, 94, 182, 134, 91, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe039db2_467f_4755_8404_8f5eb6865b33);
 }
 impl ::core::convert::From<IAppxManifestDriverDependenciesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestDriverDependenciesEnumerator) -> Self {
@@ -3969,7 +3969,7 @@ impl IAppxManifestDriverDependency {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestDriverDependency {
     type Vtable = IAppxManifestDriverDependency_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(303090580, 23186, 17922, [190, 36, 121, 243, 24, 175, 74, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1210cb94_5a92_4602_be24_79f318af4af9);
 }
 impl ::core::convert::From<IAppxManifestDriverDependency> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestDriverDependency) -> Self {
@@ -4024,7 +4024,7 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestHostRuntimeDependenciesEnumerator {
     type Vtable = IAppxManifestHostRuntimeDependenciesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1680320070, 32585, 17214, [177, 166, 13, 163, 9, 246, 136, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6427a646_7f49_433e_b1a6_0da309f6885a);
 }
 impl ::core::convert::From<IAppxManifestHostRuntimeDependenciesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestHostRuntimeDependenciesEnumerator) -> Self {
@@ -4083,7 +4083,7 @@ impl IAppxManifestHostRuntimeDependency {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestHostRuntimeDependency {
     type Vtable = IAppxManifestHostRuntimeDependency_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(878039604, 33812, 16653, [149, 199, 123, 53, 37, 91, 131, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3455d234_8414_410d_95c7_7b35255b8391);
 }
 impl ::core::convert::From<IAppxManifestHostRuntimeDependency> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestHostRuntimeDependency) -> Self {
@@ -4131,7 +4131,7 @@ impl IAppxManifestHostRuntimeDependency2 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestHostRuntimeDependency2 {
     type Vtable = IAppxManifestHostRuntimeDependency2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3262063528, 60944, 19158, [184, 152, 43, 77, 122, 235, 254, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc26f23a8_ee10_4ad6_b898_2b4d7aebfe6a);
 }
 impl ::core::convert::From<IAppxManifestHostRuntimeDependency2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestHostRuntimeDependency2) -> Self {
@@ -4187,7 +4187,7 @@ impl IAppxManifestMainPackageDependenciesEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestMainPackageDependenciesEnumerator {
     type Vtable = IAppxManifestMainPackageDependenciesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2845593344, 20946, 20239, [186, 70, 126, 213, 37, 94, 189, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa99c4f00_51d2_4f0f_ba46_7ed5255ebdff);
 }
 impl ::core::convert::From<IAppxManifestMainPackageDependenciesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestMainPackageDependenciesEnumerator) -> Self {
@@ -4247,7 +4247,7 @@ impl IAppxManifestMainPackageDependency {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestMainPackageDependency {
     type Vtable = IAppxManifestMainPackageDependency_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(97542428, 48169, 18133, [151, 226, 132, 185, 199, 155, 216, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05d0611c_bc29_46d5_97e2_84b9c79bd8ae);
 }
 impl ::core::convert::From<IAppxManifestMainPackageDependency> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestMainPackageDependency) -> Self {
@@ -4307,7 +4307,7 @@ impl IAppxManifestOSPackageDependenciesEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestOSPackageDependenciesEnumerator {
     type Vtable = IAppxManifestOSPackageDependenciesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3092131779, 63724, 19393, [138, 226, 21, 99, 70, 245, 255, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb84e2fc3_f8ec_4bc1_8ae2_156346f5ffea);
 }
 impl ::core::convert::From<IAppxManifestOSPackageDependenciesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestOSPackageDependenciesEnumerator) -> Self {
@@ -4360,7 +4360,7 @@ impl IAppxManifestOSPackageDependency {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestOSPackageDependency {
     type Vtable = IAppxManifestOSPackageDependency_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(357144046, 21670, 20244, [172, 151, 216, 207, 5, 25, 100, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x154995ee_54a6_4f14_ac97_d8cf0519644b);
 }
 impl ::core::convert::From<IAppxManifestOSPackageDependency> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestOSPackageDependency) -> Self {
@@ -4412,7 +4412,7 @@ impl IAppxManifestOptionalPackageInfo {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestOptionalPackageInfo {
     type Vtable = IAppxManifestOptionalPackageInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(640975997, 23389, 20453, [162, 67, 0, 47, 249, 94, 220, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2634847d_5b5d_4fe5_a243_002ff95edc7e);
 }
 impl ::core::convert::From<IAppxManifestOptionalPackageInfo> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestOptionalPackageInfo) -> Self {
@@ -4470,7 +4470,7 @@ impl IAppxManifestPackageDependenciesEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestPackageDependenciesEnumerator {
     type Vtable = IAppxManifestPackageDependenciesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3023813881, 26022, 17117, [186, 192, 140, 103, 65, 231, 245, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb43bbcf9_65a6_42dd_bac0_8c6741e7f5a4);
 }
 impl ::core::convert::From<IAppxManifestPackageDependenciesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestPackageDependenciesEnumerator) -> Self {
@@ -4529,7 +4529,7 @@ impl IAppxManifestPackageDependency {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestPackageDependency {
     type Vtable = IAppxManifestPackageDependency_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3834932057, 29502, 17392, [167, 36, 59, 222, 76, 18, 133, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4946b59_733e_43f0_a724_3bde4c1285a0);
 }
 impl ::core::convert::From<IAppxManifestPackageDependency> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestPackageDependency) -> Self {
@@ -4593,7 +4593,7 @@ impl IAppxManifestPackageDependency2 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestPackageDependency2 {
     type Vtable = IAppxManifestPackageDependency2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3718297363, 62463, 18899, [137, 138, 39, 134, 120, 12, 93, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdda0b713_f3ff_49d3_898a_2786780c5d98);
 }
 impl ::core::convert::From<IAppxManifestPackageDependency2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestPackageDependency2) -> Self {
@@ -4662,7 +4662,7 @@ impl IAppxManifestPackageDependency3 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestPackageDependency3 {
     type Vtable = IAppxManifestPackageDependency3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(449143668, 24984, 19819, [146, 228, 116, 157, 90, 184, 168, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ac56374_6198_4d6b_92e4_749d5ab8a895);
 }
 impl ::core::convert::From<IAppxManifestPackageDependency3> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestPackageDependency3) -> Self {
@@ -4747,7 +4747,7 @@ impl IAppxManifestPackageId {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestPackageId {
     type Vtable = IAppxManifestPackageId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(675078871, 29011, 19089, [150, 73, 122, 15, 114, 64, 148, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x283ce2d7_7153_4a91_9649_7a0f7240945f);
 }
 impl ::core::convert::From<IAppxManifestPackageId> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestPackageId) -> Self {
@@ -4849,7 +4849,7 @@ impl IAppxManifestPackageId2 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestPackageId2 {
     type Vtable = IAppxManifestPackageId2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(576100765, 54807, 17137, [136, 14, 11, 164, 84, 35, 25, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2256999d_d617_42f1_880e_0ba4542319d5);
 }
 impl ::core::convert::From<IAppxManifestPackageId2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestPackageId2) -> Self {
@@ -4933,7 +4933,7 @@ impl IAppxManifestProperties {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestProperties {
     type Vtable = IAppxManifestProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(66778701, 62063, 19244, [170, 247, 143, 231, 120, 155, 139, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03faf64d_f26f_4b2c_aaf7_8fe7789b8bca);
 }
 impl ::core::convert::From<IAppxManifestProperties> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestProperties) -> Self {
@@ -4990,7 +4990,7 @@ impl IAppxManifestQualifiedResource {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestQualifiedResource {
     type Vtable = IAppxManifestQualifiedResource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(995337367, 15452, 18641, [158, 163, 187, 126, 172, 140, 215, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b53a497_3c5c_48d1_9ea3_bb7eac8cd7d4);
 }
 impl ::core::convert::From<IAppxManifestQualifiedResource> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestQualifiedResource) -> Self {
@@ -5048,7 +5048,7 @@ impl IAppxManifestQualifiedResourcesEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestQualifiedResourcesEnumerator {
     type Vtable = IAppxManifestQualifiedResourcesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2398531070, 14178, 19087, [147, 115, 47, 197, 212, 68, 200, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ef6adfe_3762_4a8f_9373_2fc5d444c8d2);
 }
 impl ::core::convert::From<IAppxManifestQualifiedResourcesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestQualifiedResourcesEnumerator) -> Self {
@@ -5137,7 +5137,7 @@ impl IAppxManifestReader {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestReader {
     type Vtable = IAppxManifestReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1310445896, 21920, 17536, [163, 209, 21, 84, 71, 16, 99, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e1bd148_55a0_4480_a3d1_15544710637c);
 }
 impl ::core::convert::From<IAppxManifestReader> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestReader) -> Self {
@@ -5237,7 +5237,7 @@ impl IAppxManifestReader2 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestReader2 {
     type Vtable = IAppxManifestReader2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3496961980, 45853, 20154, [168, 175, 99, 142, 115, 231, 123, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd06f67bc_b31d_4eba_a8af_638e73e77b4d);
 }
 impl ::core::convert::From<IAppxManifestReader2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestReader2) -> Self {
@@ -5368,7 +5368,7 @@ impl IAppxManifestReader3 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestReader3 {
     type Vtable = IAppxManifestReader3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3292013995, 27063, 16394, [151, 9, 204, 55, 245, 167, 45, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc43825ab_69b7_400a_9709_cc37f5a72d24);
 }
 impl ::core::convert::From<IAppxManifestReader3> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestReader3) -> Self {
@@ -5526,7 +5526,7 @@ impl IAppxManifestReader4 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestReader4 {
     type Vtable = IAppxManifestReader4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1165605756, 29725, 16737, [181, 161, 71, 189, 59, 120, 173, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4579bb7c_741d_4161_b5a1_47bd3b78ad9b);
 }
 impl ::core::convert::From<IAppxManifestReader4> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestReader4) -> Self {
@@ -5643,7 +5643,7 @@ impl IAppxManifestReader5 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestReader5 {
     type Vtable = IAppxManifestReader5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2373640498, 42640, 19456, [183, 90, 106, 174, 31, 234, 172, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d7ae132_a690_4c00_b75a_6aae1feaac80);
 }
 impl ::core::convert::From<IAppxManifestReader5> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestReader5) -> Self {
@@ -5687,7 +5687,7 @@ impl IAppxManifestReader6 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestReader6 {
     type Vtable = IAppxManifestReader6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(887008420, 54208, 20030, [179, 18, 228, 38, 37, 227, 128, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34deaca4_d3c0_4e3e_b312_e42625e3807e);
 }
 impl ::core::convert::From<IAppxManifestReader6> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestReader6) -> Self {
@@ -5741,7 +5741,7 @@ impl IAppxManifestReader7 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestReader7 {
     type Vtable = IAppxManifestReader7_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2399039271, 3296, 18824, [179, 45, 115, 142, 182, 61, 179, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8efe6f27_0ce0_4988_b32d_738eb63db3b7);
 }
 impl ::core::convert::From<IAppxManifestReader7> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestReader7) -> Self {
@@ -5799,7 +5799,7 @@ impl IAppxManifestResourcesEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestResourcesEnumerator {
     type Vtable = IAppxManifestResourcesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3729652669, 34842, 18619, [133, 140, 214, 242, 186, 234, 230, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde4dfbbd_881a_48bb_858c_d6f2baeae6ed);
 }
 impl ::core::convert::From<IAppxManifestResourcesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestResourcesEnumerator) -> Self {
@@ -5859,7 +5859,7 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestTargetDeviceFamiliesEnumerator {
     type Vtable = IAppxManifestTargetDeviceFamiliesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(911441718, 10148, 18312, [136, 192, 115, 56, 25, 87, 80, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36537f36_27a4_4788_88c0_733819575017);
 }
 impl ::core::convert::From<IAppxManifestTargetDeviceFamiliesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestTargetDeviceFamiliesEnumerator) -> Self {
@@ -5917,7 +5917,7 @@ impl IAppxManifestTargetDeviceFamily {
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestTargetDeviceFamily {
     type Vtable = IAppxManifestTargetDeviceFamily_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2425467035, 51413, 20273, [134, 135, 163, 56, 37, 159, 174, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9091b09b_c8d5_4f31_8687_a338259faefb);
 }
 impl ::core::convert::From<IAppxManifestTargetDeviceFamily> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestTargetDeviceFamily) -> Self {
@@ -5994,7 +5994,7 @@ impl IAppxPackageEditor {
 }
 unsafe impl ::windows::runtime::Interface for IAppxPackageEditor {
     type Vtable = IAppxPackageEditor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3803035356, 24177, 17430, [134, 182, 134, 229, 245, 41, 26, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2adb6dc_5e71_4416_86b6_86e5f5291a6b);
 }
 impl ::core::convert::From<IAppxPackageEditor> for ::windows::runtime::IUnknown {
     fn from(value: IAppxPackageEditor) -> Self {
@@ -6069,7 +6069,7 @@ impl IAppxPackageReader {
 }
 unsafe impl ::windows::runtime::Interface for IAppxPackageReader {
     type Vtable = IAppxPackageReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3049559632, 39356, 18460, [154, 52, 61, 83, 164, 16, 103, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5c49650_99bc_481c_9a34_3d53a4106708);
 }
 impl ::core::convert::From<IAppxPackageReader> for ::windows::runtime::IUnknown {
     fn from(value: IAppxPackageReader) -> Self {
@@ -6122,7 +6122,7 @@ impl IAppxPackageWriter {
 }
 unsafe impl ::windows::runtime::Interface for IAppxPackageWriter {
     type Vtable = IAppxPackageWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2426004283, 9327, 16868, [136, 26, 0, 142, 182, 19, 248, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9099e33b_246f_41e4_881a_008eb613f858);
 }
 impl ::core::convert::From<IAppxPackageWriter> for ::windows::runtime::IUnknown {
     fn from(value: IAppxPackageWriter) -> Self {
@@ -6168,7 +6168,7 @@ impl IAppxPackageWriter2 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxPackageWriter2 {
     type Vtable = IAppxPackageWriter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(754304253, 58700, 20133, [186, 78, 248, 196, 177, 5, 168, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cf5c4fd_e54c_4ea5_ba4e_f8c4b105a8c8);
 }
 impl ::core::convert::From<IAppxPackageWriter2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxPackageWriter2) -> Self {
@@ -6212,7 +6212,7 @@ impl IAppxPackageWriter3 {
 }
 unsafe impl ::windows::runtime::Interface for IAppxPackageWriter3 {
     type Vtable = IAppxPackageWriter3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2822417619, 16832, 17665, [184, 163, 116, 22, 79, 80, 178, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa83aacd3_41c0_4501_b8a3_74164f50b2fd);
 }
 impl ::core::convert::From<IAppxPackageWriter3> for ::windows::runtime::IUnknown {
     fn from(value: IAppxPackageWriter3) -> Self {
@@ -6261,7 +6261,7 @@ impl IAppxPackagingDiagnosticEventSink {
 }
 unsafe impl ::windows::runtime::Interface for IAppxPackagingDiagnosticEventSink {
     type Vtable = IAppxPackagingDiagnosticEventSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(388209991, 27355, 17874, [128, 246, 249, 203, 195, 191, 5, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17239d47_6adb_45d2_80f6_f9cbc3bf059d);
 }
 impl ::core::convert::From<IAppxPackagingDiagnosticEventSink> for ::windows::runtime::IUnknown {
     fn from(value: IAppxPackagingDiagnosticEventSink) -> Self {
@@ -6306,7 +6306,7 @@ impl IAppxPackagingDiagnosticEventSinkManager {
 }
 unsafe impl ::windows::runtime::Interface for IAppxPackagingDiagnosticEventSinkManager {
     type Vtable = IAppxPackagingDiagnosticEventSinkManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(915818746, 42987, 18697, [161, 93, 105, 84, 160, 120, 241, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x369648fa_a7eb_4909_a15d_6954a078f18a);
 }
 impl ::core::convert::From<IAppxPackagingDiagnosticEventSinkManager> for ::windows::runtime::IUnknown {
     fn from(value: IAppxPackagingDiagnosticEventSinkManager) -> Self {
@@ -6354,7 +6354,7 @@ impl IAppxSourceContentGroupMapReader {
 }
 unsafe impl ::windows::runtime::Interface for IAppxSourceContentGroupMapReader {
     type Vtable = IAppxSourceContentGroupMapReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4079581469, 21515, 19103, [188, 117, 50, 130, 183, 215, 49, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf329791d_540b_4a9f_bc75_3282b7d73193);
 }
 impl ::core::convert::From<IAppxSourceContentGroupMapReader> for ::windows::runtime::IUnknown {
     fn from(value: IAppxSourceContentGroupMapReader) -> Self {

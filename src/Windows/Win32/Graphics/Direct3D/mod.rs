@@ -1094,8 +1094,8 @@ impl ::core::convert::From<i32> for D3D_TESSELLATOR_PARTITIONING {
 unsafe impl ::windows::runtime::Abi for D3D_TESSELLATOR_PARTITIONING {
     type Abi = Self;
 }
-pub const D3D_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1276062179, 16223, 19765, [132, 201, 188, 9, 131, 182, 44, 40]);
-pub const D3D_TEXTURE_LAYOUT_ROW_MAJOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3051103055, 29371, 19436, [151, 5, 140, 242, 88, 223, 107, 108]);
+pub const D3D_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c0f29e3_3f5f_4d35_84c9_bc0983b62c28);
+pub const D3D_TEXTURE_LAYOUT_ROW_MAJOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5dc234f_72bb_4bec_9705_8cf258df6b6c);
 #[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -1112,7 +1112,7 @@ impl ID3DBlob {
 }
 unsafe impl ::windows::runtime::Interface for ID3DBlob {
     type Vtable = ID3DBlob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2342910728, 20885, 16610, [172, 88, 13, 152, 156, 58, 1, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
 }
 impl ::core::convert::From<ID3DBlob> for ::windows::runtime::IUnknown {
     fn from(value: ID3DBlob) -> Self {
@@ -1160,7 +1160,7 @@ impl ID3DDestructionNotifier {
 }
 unsafe impl ::windows::runtime::Interface for ID3DDestructionNotifier {
     type Vtable = ID3DDestructionNotifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2691609498, 20698, 16987, [140, 49, 78, 236, 214, 194, 112, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
 }
 impl ::core::convert::From<ID3DDestructionNotifier> for ::windows::runtime::IUnknown {
     fn from(value: ID3DDestructionNotifier) -> Self {
@@ -1242,7 +1242,7 @@ pub struct ID3DInclude_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub type PFN_DESTRUCTION_CALLBACK = unsafe extern "system" fn(pdata: *mut ::core::ffi::c_void);
-pub const WKPDID_CommentStringW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3491012032, 37096, 20168, [129, 68, 233, 0, 173, 38, 107, 178]);
-pub const WKPDID_D3D12UniqueObjectId: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(456777237, 60420, 19374, [186, 77, 140, 239, 121, 252, 4, 193]);
-pub const WKPDID_D3DDebugObjectName: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1117490210, 37256, 19212, [135, 66, 172, 176, 191, 133, 194, 0]);
-pub const WKPDID_D3DDebugObjectNameW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1288331224, 37407, 17096, [133, 102, 112, 202, 242, 169, 183, 65]);
+pub const WKPDID_CommentStringW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0149dc0_90e8_4ec8_8144_e900ad266bb2);
+pub const WKPDID_D3D12UniqueObjectId: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b39de15_ec04_4bae_ba4d_8cef79fc04c1);
+pub const WKPDID_D3DDebugObjectName: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x429b8c22_9188_4b0c_8742_acb0bf85c200);
+pub const WKPDID_D3DDebugObjectNameW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4cca5fd8_921f_42c8_8566_70caf2a9b741);

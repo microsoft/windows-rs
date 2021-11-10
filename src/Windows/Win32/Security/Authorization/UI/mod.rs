@@ -124,7 +124,7 @@ impl IEffectivePermission {
 }
 unsafe impl ::windows::runtime::Interface for IEffectivePermission {
     type Vtable = IEffectivePermission_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(945020022, 40757, 16508, [136, 161, 209, 147, 68, 54, 95, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3853dc76_9f35_407c_88a1_d19344365fbc);
 }
 impl ::core::convert::From<IEffectivePermission> for ::windows::runtime::IUnknown {
     fn from(value: IEffectivePermission) -> Self {
@@ -202,7 +202,7 @@ impl IEffectivePermission2 {
 }
 unsafe impl ::windows::runtime::Interface for IEffectivePermission2 {
     type Vtable = IEffectivePermission2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2485103562, 56647, 20426, [144, 187, 176, 225, 2, 85, 242, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x941fabca_dd47_4fca_90bb_b0e10255f20d);
 }
 impl ::core::convert::From<IEffectivePermission2> for ::windows::runtime::IUnknown {
     fn from(value: IEffectivePermission2) -> Self {
@@ -292,7 +292,7 @@ impl ISecurityInformation {
 }
 unsafe impl ::windows::runtime::Interface for ISecurityInformation {
     type Vtable = ISecurityInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2522858336, 5887, 4560, [145, 203, 0, 170, 0, 187, 183, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x965fc360_16ff_11d0_91cb_00aa00bbb723);
 }
 impl ::core::convert::From<ISecurityInformation> for ::windows::runtime::IUnknown {
     fn from(value: ISecurityInformation) -> Self {
@@ -352,7 +352,7 @@ impl ISecurityInformation2 {
 }
 unsafe impl ::windows::runtime::Interface for ISecurityInformation2 {
     type Vtable = ISecurityInformation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3284991412, 28552, 4562, [163, 206, 0, 192, 79, 177, 120, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3ccfdb4_6f88_11d2_a3ce_00c04fb1782a);
 }
 impl ::core::convert::From<ISecurityInformation2> for ::windows::runtime::IUnknown {
     fn from(value: ISecurityInformation2) -> Self {
@@ -404,7 +404,7 @@ impl ISecurityInformation3 {
 }
 unsafe impl ::windows::runtime::Interface for ISecurityInformation3 {
     type Vtable = ISecurityInformation3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3805137356, 12733, 20367, [140, 139, 182, 65, 175, 81, 106, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2cdc9cc_31bd_4f8f_8c8b_b641af516a1a);
 }
 impl ::core::convert::From<ISecurityInformation3> for ::windows::runtime::IUnknown {
     fn from(value: ISecurityInformation3) -> Self {
@@ -450,7 +450,7 @@ impl ISecurityInformation4 {
 }
 unsafe impl ::windows::runtime::Interface for ISecurityInformation4 {
     type Vtable = ISecurityInformation4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3935703152, 52500, 17953, [172, 228, 246, 60, 3, 229, 131, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea961070_cd14_4621_ace4_f63c03e583e4);
 }
 impl ::core::convert::From<ISecurityInformation4> for ::windows::runtime::IUnknown {
     fn from(value: ISecurityInformation4) -> Self {
@@ -494,7 +494,7 @@ impl ISecurityObjectTypeInfo {
 }
 unsafe impl ::windows::runtime::Interface for ISecurityObjectTypeInfo {
     type Vtable = ISecurityObjectTypeInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4231030507, 31215, 17483, [145, 17, 209, 138, 117, 235, 242, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc3066eb_79ef_444b_9111_d18a75ebf2fa);
 }
 impl ::core::convert::From<ISecurityObjectTypeInfo> for ::windows::runtime::IUnknown {
     fn from(value: ISecurityObjectTypeInfo) -> Self {

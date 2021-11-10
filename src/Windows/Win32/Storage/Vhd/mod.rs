@@ -3654,5 +3654,5 @@ pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHD: u32 = 2u32;
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHDSET: u32 = 4u32;
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHDX: u32 = 3u32;
-pub const VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3969403628, 41209, 18409, [144, 31, 113, 65, 90, 102, 52, 91]);
-pub const VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0]);
+pub const VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec984aec_a0f9_47e9_901f_71415a66345b);
+pub const VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);

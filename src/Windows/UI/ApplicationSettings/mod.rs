@@ -80,7 +80,7 @@ unsafe impl ::windows::runtime::RuntimeType for AccountsSettingsPane {
 }
 unsafe impl ::windows::runtime::Interface for AccountsSettingsPane {
     type Vtable = IAccountsSettingsPane_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2179634220, 20233, 17414, [165, 56, 131, 141, 155, 20, 183, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81ea942c_4f09_4406_a538_838d9b14b7e6);
 }
 impl ::windows::runtime::RuntimeName for AccountsSettingsPane {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.AccountsSettingsPane";
@@ -202,7 +202,7 @@ unsafe impl ::windows::runtime::RuntimeType for AccountsSettingsPaneCommandsRequ
 }
 unsafe impl ::windows::runtime::Interface for AccountsSettingsPaneCommandsRequestedEventArgs {
     type Vtable = IAccountsSettingsPaneCommandsRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(996720793, 56089, 17872, [154, 191, 149, 211, 119, 60, 147, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b68c099_db19_45d0_9abf_95d3773c9330);
 }
 impl ::windows::runtime::RuntimeName for AccountsSettingsPaneCommandsRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.AccountsSettingsPaneCommandsRequestedEventArgs";
@@ -263,7 +263,7 @@ unsafe impl ::windows::runtime::RuntimeType for AccountsSettingsPaneEventDeferra
 }
 unsafe impl ::windows::runtime::Interface for AccountsSettingsPaneEventDeferral {
     type Vtable = IAccountsSettingsPaneEventDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3421658431, 58810, 16623, [147, 218, 101, 224, 150, 229, 251, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcbf25d3f_e5ba_40ef_93da_65e096e5fb04);
 }
 impl ::windows::runtime::RuntimeName for AccountsSettingsPaneEventDeferral {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.AccountsSettingsPaneEventDeferral";
@@ -359,7 +359,7 @@ unsafe impl ::windows::runtime::RuntimeType for CredentialCommand {
 }
 unsafe impl ::windows::runtime::Interface for CredentialCommand {
     type Vtable = ICredentialCommand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2784388582, 24899, 19066, [169, 113, 176, 23, 186, 151, 140, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5f665e6_6143_4a7a_a971_b017ba978ce2);
 }
 impl ::windows::runtime::RuntimeName for CredentialCommand {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.CredentialCommand";
@@ -428,7 +428,7 @@ unsafe impl ::windows::runtime::RuntimeType for CredentialCommandCredentialDelet
 }
 unsafe impl ::windows::runtime::Interface for CredentialCommandCredentialDeletedHandler {
     type Vtable = CredentialCommandCredentialDeletedHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1640030597, 2423, 18040, [180, 226, 152, 114, 122, 251, 238, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61c0e185_0977_4678_b4e2_98727afbeed9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -482,7 +482,7 @@ impl<F: FnMut(&::core::option::Option<CredentialCommand>) -> ::windows::runtime:
 pub struct IAccountsSettingsPane(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccountsSettingsPane {
     type Vtable = IAccountsSettingsPane_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2179634220, 20233, 17414, [165, 56, 131, 141, 155, 20, 183, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81ea942c_4f09_4406_a538_838d9b14b7e6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -503,7 +503,7 @@ pub struct IAccountsSettingsPane_abi(
 pub struct IAccountsSettingsPaneCommandsRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccountsSettingsPaneCommandsRequestedEventArgs {
     type Vtable = IAccountsSettingsPaneCommandsRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(996720793, 56089, 17872, [154, 191, 149, 211, 119, 60, 147, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b68c099_db19_45d0_9abf_95d3773c9330);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -531,7 +531,7 @@ pub struct IAccountsSettingsPaneCommandsRequestedEventArgs_abi(
 pub struct IAccountsSettingsPaneCommandsRequestedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccountsSettingsPaneCommandsRequestedEventArgs2 {
     type Vtable = IAccountsSettingsPaneCommandsRequestedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(909081517, 20023, 18791, [140, 64, 231, 142, 231, 161, 229, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x362f7bad_4e37_4967_8c40_e78ee7a1e5bb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -550,7 +550,7 @@ pub struct IAccountsSettingsPaneCommandsRequestedEventArgs2_abi(
 pub struct IAccountsSettingsPaneEventDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccountsSettingsPaneEventDeferral {
     type Vtable = IAccountsSettingsPaneEventDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3421658431, 58810, 16623, [147, 218, 101, 224, 150, 229, 251, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcbf25d3f_e5ba_40ef_93da_65e096e5fb04);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -568,7 +568,7 @@ pub struct IAccountsSettingsPaneEventDeferral_abi(
 pub struct IAccountsSettingsPaneStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccountsSettingsPaneStatics {
     type Vtable = IAccountsSettingsPaneStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1444907872, 45292, 16720, [168, 220, 32, 142, 228, 75, 6, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x561f8b60_b0ec_4150_a8dc_208ee44b068a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -587,7 +587,7 @@ pub struct IAccountsSettingsPaneStatics_abi(
 pub struct IAccountsSettingsPaneStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccountsSettingsPaneStatics2 {
     type Vtable = IAccountsSettingsPaneStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3525179330, 52749, 18511, [184, 232, 232, 35, 194, 21, 118, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd21df7c2_ce0d_484f_b8e8_e823c215765e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -608,7 +608,7 @@ pub struct IAccountsSettingsPaneStatics2_abi(
 pub struct IAccountsSettingsPaneStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccountsSettingsPaneStatics3 {
     type Vtable = IAccountsSettingsPaneStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(138478680, 41658, 19567, [180, 172, 72, 245, 20, 51, 18, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08410458_a2ba_4c6f_b4ac_48f514331216);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -629,7 +629,7 @@ pub struct IAccountsSettingsPaneStatics3_abi(
 pub struct ICredentialCommand(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICredentialCommand {
     type Vtable = ICredentialCommand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2784388582, 24899, 19066, [169, 113, 176, 23, 186, 151, 140, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5f665e6_6143_4a7a_a971_b017ba978ce2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -649,7 +649,7 @@ pub struct ICredentialCommand_abi(
 pub struct ICredentialCommandFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICredentialCommandFactory {
     type Vtable = ICredentialCommandFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(669551639, 48190, 19328, [148, 149, 78, 215, 32, 228, 138, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27e88c17_bc3e_4b80_9495_4ed720e48a91);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -670,7 +670,7 @@ pub struct ICredentialCommandFactory_abi(
 pub struct ISettingsCommandFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISettingsCommandFactory {
     type Vtable = ISettingsCommandFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1759599411, 7299, 17210, [170, 90, 206, 238, 165, 189, 71, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68e15b33_1c83_433a_aa5a_ceeea5bd4764);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -689,7 +689,7 @@ pub struct ISettingsCommandFactory_abi(
 pub struct ISettingsCommandStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISettingsCommandStatics {
     type Vtable = ISettingsCommandStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1956309332, 12137, 19223, [138, 186, 208, 92, 229, 119, 142, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x749ae954_2f69_4b17_8aba_d05ce5778e46);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -708,7 +708,7 @@ pub struct ISettingsCommandStatics_abi(
 pub struct ISettingsPane(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISettingsPane {
     type Vtable = ISettingsPane_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2983004466, 17776, 19561, [141, 56, 137, 68, 101, 97, 172, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1cd0932_4570_4c69_8d38_89446561ace0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -729,7 +729,7 @@ pub struct ISettingsPane_abi(
 pub struct ISettingsPaneCommandsRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISettingsPaneCommandsRequest {
     type Vtable = ISettingsPaneCommandsRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1155474350, 23918, 16488, [161, 104, 244, 118, 67, 24, 33, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44df23ae_5d6e_4068_a168_f47643182114);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -748,7 +748,7 @@ pub struct ISettingsPaneCommandsRequest_abi(
 pub struct ISettingsPaneCommandsRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISettingsPaneCommandsRequestedEventArgs {
     type Vtable = ISettingsPaneCommandsRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543120676, 6984, 17961, [166, 202, 47, 223, 237, 175, 183, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x205f5d24_1b48_4629_a6ca_2fdfedafb75d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -766,7 +766,7 @@ pub struct ISettingsPaneCommandsRequestedEventArgs_abi(
 pub struct ISettingsPaneStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISettingsPaneStatics {
     type Vtable = ISettingsPaneStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(476730053, 65305, 18203, [186, 107, 248, 243, 86, 148, 173, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c6a52c5_ff19_471b_ba6b_f8f35694ad9a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -786,7 +786,7 @@ pub struct ISettingsPaneStatics_abi(
 pub struct IWebAccountCommand(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountCommand {
     type Vtable = IWebAccountCommand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3399717784, 40186, 16966, [176, 196, 169, 19, 163, 137, 101, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcaa39398_9cfa_4246_b0c4_a913a3896541);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -807,7 +807,7 @@ pub struct IWebAccountCommand_abi(
 pub struct IWebAccountCommandFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountCommandFactory {
     type Vtable = IWebAccountCommandFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3215379967, 12077, 17141, [129, 222, 29, 86, 186, 252, 73, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfa6cdff_2f2d_42f5_81de_1d56bafc496d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -826,7 +826,7 @@ pub struct IWebAccountCommandFactory_abi(
 pub struct IWebAccountInvokedArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountInvokedArgs {
     type Vtable = IWebAccountInvokedArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3886795840, 41432, 19549, [154, 127, 29, 52, 178, 249, 10, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7abcc40_a1d8_4c5d_9a7f_1d34b2f90ad2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -844,7 +844,7 @@ pub struct IWebAccountInvokedArgs_abi(
 pub struct IWebAccountProviderCommand(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderCommand {
     type Vtable = IWebAccountProviderCommand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3600539034, 41126, 20123, [136, 220, 199, 30, 117, 122, 53, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd69bdd9a_a0a6_4e9b_88dc_c71e757a3501);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -864,7 +864,7 @@ pub struct IWebAccountProviderCommand_abi(
 pub struct IWebAccountProviderCommandFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderCommandFactory {
     type Vtable = IWebAccountProviderCommandFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3580201499, 45430, 18294, [132, 105, 169, 211, 255, 11, 63, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5658a1b_b176_4776_8469_a9d3ff0b3f59);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -962,7 +962,7 @@ unsafe impl ::windows::runtime::RuntimeType for SettingsCommand {
 #[cfg(feature = "UI_Popups")]
 unsafe impl ::windows::runtime::Interface for SettingsCommand {
     type Vtable = super::Popups::IUICommand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1341733493, 16709, 18431, [172, 127, 223, 241, 193, 250, 91, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f);
 }
 #[cfg(feature = "UI_Popups")]
 impl ::windows::runtime::RuntimeName for SettingsCommand {
@@ -1115,7 +1115,7 @@ unsafe impl ::windows::runtime::RuntimeType for SettingsPane {
 }
 unsafe impl ::windows::runtime::Interface for SettingsPane {
     type Vtable = ISettingsPane_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2983004466, 17776, 19561, [141, 56, 137, 68, 101, 97, 172, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1cd0932_4570_4c69_8d38_89446561ace0);
 }
 impl ::windows::runtime::RuntimeName for SettingsPane {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.SettingsPane";
@@ -1181,7 +1181,7 @@ unsafe impl ::windows::runtime::RuntimeType for SettingsPaneCommandsRequest {
 }
 unsafe impl ::windows::runtime::Interface for SettingsPaneCommandsRequest {
     type Vtable = ISettingsPaneCommandsRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1155474350, 23918, 16488, [161, 104, 244, 118, 67, 24, 33, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44df23ae_5d6e_4068_a168_f47643182114);
 }
 impl ::windows::runtime::RuntimeName for SettingsPaneCommandsRequest {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.SettingsPaneCommandsRequest";
@@ -1246,7 +1246,7 @@ unsafe impl ::windows::runtime::RuntimeType for SettingsPaneCommandsRequestedEve
 }
 unsafe impl ::windows::runtime::Interface for SettingsPaneCommandsRequestedEventArgs {
     type Vtable = ISettingsPaneCommandsRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543120676, 6984, 17961, [166, 202, 47, 223, 237, 175, 183, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x205f5d24_1b48_4629_a6ca_2fdfedafb75d);
 }
 impl ::windows::runtime::RuntimeName for SettingsPaneCommandsRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.SettingsPaneCommandsRequestedEventArgs";
@@ -1418,7 +1418,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebAccountCommand {
 }
 unsafe impl ::windows::runtime::Interface for WebAccountCommand {
     type Vtable = IWebAccountCommand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3399717784, 40186, 16966, [176, 196, 169, 19, 163, 137, 101, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcaa39398_9cfa_4246_b0c4_a913a3896541);
 }
 impl ::windows::runtime::RuntimeName for WebAccountCommand {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.WebAccountCommand";
@@ -1487,7 +1487,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebAccountCommandInvokedHandler 
 }
 unsafe impl ::windows::runtime::Interface for WebAccountCommandInvokedHandler {
     type Vtable = WebAccountCommandInvokedHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(518448217, 5893, 19098, [181, 153, 160, 195, 214, 146, 25, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ee6e459_1705_4a9a_b599_a0c3d6921973);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1559,7 +1559,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebAccountInvokedArgs {
 }
 unsafe impl ::windows::runtime::Interface for WebAccountInvokedArgs {
     type Vtable = IWebAccountInvokedArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3886795840, 41432, 19549, [154, 127, 29, 52, 178, 249, 10, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7abcc40_a1d8_4c5d_9a7f_1d34b2f90ad2);
 }
 impl ::windows::runtime::RuntimeName for WebAccountInvokedArgs {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.WebAccountInvokedArgs";
@@ -1644,7 +1644,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebAccountProviderCommand {
 }
 unsafe impl ::windows::runtime::Interface for WebAccountProviderCommand {
     type Vtable = IWebAccountProviderCommand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3600539034, 41126, 20123, [136, 220, 199, 30, 117, 122, 53, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd69bdd9a_a0a6_4e9b_88dc_c71e757a3501);
 }
 impl ::windows::runtime::RuntimeName for WebAccountProviderCommand {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.WebAccountProviderCommand";
@@ -1713,7 +1713,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebAccountProviderCommandInvoked
 }
 unsafe impl ::windows::runtime::Interface for WebAccountProviderCommandInvokedHandler {
     type Vtable = WebAccountProviderCommandInvokedHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3084801319, 19599, 17117, [132, 218, 94, 196, 147, 171, 219, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7de5527_4c8f_42dd_84da_5ec493abdb9a);
 }
 #[repr(C)]
 #[doc(hidden)]

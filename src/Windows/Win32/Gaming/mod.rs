@@ -168,8 +168,8 @@ impl ::core::convert::From<i32> for GAMING_DEVICE_VENDOR_ID {
 unsafe impl ::windows::runtime::Abi for GAMING_DEVICE_VENDOR_ID {
     type Abi = Self;
 }
-pub const GameExplorer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2589895056, 12340, 19823, [145, 40, 1, 243, 198, 16, 34, 188]);
-pub const GameStatistics: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3687340588, 49372, 18785, [182, 226, 210, 139, 98, 193, 26, 212]);
+pub const GameExplorer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a5ea990_3034_4d6f_9128_01f3c61022bc);
+pub const GameStatistics: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbc85a2c_c0dc_4961_b6e2_d28b62c11ad4);
 #[doc = "*Required features: `Win32_Gaming`*"]
 pub type GameUICompletionRoutine = unsafe extern "system" fn(returncode: ::windows::runtime::HRESULT, context: *const ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Gaming`*"]
@@ -245,7 +245,7 @@ impl IGameExplorer {
 }
 unsafe impl ::windows::runtime::Interface for IGameExplorer {
     type Vtable = IGameExplorer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3887266674, 55080, 18867, [165, 242, 24, 235, 245, 241, 52, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7b2fb72_d728_49b3_a5f2_18ebf5f1349e);
 }
 impl ::core::convert::From<IGameExplorer> for ::windows::runtime::IUnknown {
     fn from(value: IGameExplorer) -> Self {
@@ -304,7 +304,7 @@ impl IGameExplorer2 {
 }
 unsafe impl ::windows::runtime::Interface for IGameExplorer2 {
     type Vtable = IGameExplorer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2257013415, 41453, 17677, [167, 235, 184, 158, 32, 178, 255, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86874aa7_a1ed_450d_a7eb_b89e20b2fff3);
 }
 impl ::core::convert::From<IGameExplorer2> for ::windows::runtime::IUnknown {
     fn from(value: IGameExplorer2) -> Self {
@@ -407,7 +407,7 @@ impl IGameStatistics {
 }
 unsafe impl ::windows::runtime::Interface for IGameStatistics {
     type Vtable = IGameStatistics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(948423114, 1184, 17070, [188, 76, 95, 166, 199, 114, 17, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3887c9ca_04a0_42ae_bc4c_5fa6c7721145);
 }
 impl ::core::convert::From<IGameStatistics> for ::windows::runtime::IUnknown {
     fn from(value: IGameStatistics) -> Self {
@@ -471,7 +471,7 @@ impl IGameStatisticsMgr {
 }
 unsafe impl ::windows::runtime::Interface for IGameStatisticsMgr {
     type Vtable = IGameStatisticsMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2951997969, 59150, 16509, [149, 221, 53, 230, 18, 196, 28, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaff3ea11_e70e_407d_95dd_35e612c41ce2);
 }
 impl ::core::convert::From<IGameStatisticsMgr> for ::windows::runtime::IUnknown {
     fn from(value: IGameStatisticsMgr) -> Self {
@@ -581,7 +581,7 @@ impl IXblIdpAuthManager {
 }
 unsafe impl ::windows::runtime::Interface for IXblIdpAuthManager {
     type Vtable = IXblIdpAuthManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3948796680, 35775, 17563, [172, 33, 176, 45, 222, 179, 177, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb5ddb08_8bbf_449b_ac21_b02ddeb3b136);
 }
 impl ::core::convert::From<IXblIdpAuthManager> for ::windows::runtime::IUnknown {
     fn from(value: IXblIdpAuthManager) -> Self {
@@ -748,7 +748,7 @@ impl IXblIdpAuthTokenResult {
 }
 unsafe impl ::windows::runtime::Interface for IXblIdpAuthTokenResult {
     type Vtable = IXblIdpAuthTokenResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1187906085, 62055, 19816, [178, 153, 178, 118, 37, 82, 222, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46ce0225_f267_4d68_b299_b2762552dec1);
 }
 impl ::core::convert::From<IXblIdpAuthTokenResult> for ::windows::runtime::IUnknown {
     fn from(value: IXblIdpAuthTokenResult) -> Self {
@@ -841,7 +841,7 @@ impl IXblIdpAuthTokenResult2 {
 }
 unsafe impl ::windows::runtime::Interface for IXblIdpAuthTokenResult2 {
     type Vtable = IXblIdpAuthTokenResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1977049264, 24761, 16685, [153, 79, 38, 178, 205, 95, 120, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75d760b0_60b9_412d_994f_26b2cd5f7812);
 }
 impl ::core::convert::From<IXblIdpAuthTokenResult2> for ::windows::runtime::IUnknown {
     fn from(value: IXblIdpAuthTokenResult2) -> Self {
@@ -1351,5 +1351,5 @@ impl ::core::convert::From<i32> for XBL_IDP_AUTH_TOKEN_STATUS {
 unsafe impl ::windows::runtime::Abi for XBL_IDP_AUTH_TOKEN_STATUS {
     type Abi = Self;
 }
-pub const XblIdpAuthManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3458421579, 22232, 18808, [134, 162, 126, 229, 112, 100, 4, 104]);
-pub const XblIdpAuthTokenResult: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2672374849, 29770, 16652, [174, 43, 154, 34, 247, 199, 115, 31]);
+pub const XblIdpAuthManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce23534b_56d8_4978_86a2_7ee570640468);
+pub const XblIdpAuthTokenResult: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f493441_744a_410c_ae2b_9a22f7c7731f);

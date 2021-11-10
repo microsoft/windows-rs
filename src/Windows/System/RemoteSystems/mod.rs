@@ -4,7 +4,7 @@
 pub struct IKnownRemoteSystemCapabilitiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownRemoteSystemCapabilitiesStatics {
     type Vtable = IKnownRemoteSystemCapabilitiesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2164843392, 32650, 17636, [146, 205, 3, 182, 70, 155, 148, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8108e380_7f8a_44e4_92cd_03b6469b94a3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25,7 +25,7 @@ pub struct IKnownRemoteSystemCapabilitiesStatics_abi(
 pub struct IRemoteSystem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystem {
     type Vtable = IRemoteSystem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3981981901, 7696, 19084, [180, 166, 78, 95, 214, 249, 119, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed5838cd_1e10_4a8c_b4a6_4e5fd6f97721);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -47,7 +47,7 @@ pub struct IRemoteSystem_abi(
 pub struct IRemoteSystem2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystem2 {
     type Vtable = IRemoteSystem2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(165668076, 64395, 18952, [167, 88, 104, 118, 67, 93, 118, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09dfe4ec_fb8b_4a08_a758_6876435d769e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -67,7 +67,7 @@ pub struct IRemoteSystem2_abi(
 pub struct IRemoteSystem3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystem3 {
     type Vtable = IRemoteSystem3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1924445333, 47046, 16574, [131, 27, 115, 86, 47, 18, 255, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72b4b495_b7c6_40be_831b_73562f12ffa8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -86,7 +86,7 @@ pub struct IRemoteSystem3_abi(
 pub struct IRemoteSystem4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystem4 {
     type Vtable = IRemoteSystem4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4049928165, 47495, 19621, [153, 38, 250, 4, 56, 190, 98, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf164ffe5_b987_4ca5_9926_fa0438be6273);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -104,7 +104,7 @@ pub struct IRemoteSystem4_abi(
 pub struct IRemoteSystem5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystem5 {
     type Vtable = IRemoteSystem5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3945453347, 58850, 19170, [167, 167, 161, 9, 122, 9, 142, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb2ad723_e5e2_4ae2_a7a7_a1097a098e90);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -123,7 +123,7 @@ pub struct IRemoteSystem5_abi(
 pub struct IRemoteSystem6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystem6 {
     type Vtable = IRemoteSystem6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3570248002, 49191, 21310, [147, 132, 58, 25, 180, 247, 238, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4cda942_c027_533e_9384_3a19b4f7eef3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -141,7 +141,7 @@ pub struct IRemoteSystem6_abi(
 pub struct IRemoteSystemAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemAddedEventArgs {
     type Vtable = IRemoteSystemAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2402899471, 58676, 18071, [136, 54, 122, 190, 161, 81, 81, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f39560f_e534_4697_8836_7abea151516e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -159,7 +159,7 @@ pub struct IRemoteSystemAddedEventArgs_abi(
 pub struct IRemoteSystemApp(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemApp {
     type Vtable = IRemoteSystemApp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2162539709, 54605, 16817, [155, 22, 104, 16, 168, 113, 237, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80e5bcbd_d54d_41b1_9b16_6810a871ed4f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -182,7 +182,7 @@ pub struct IRemoteSystemApp_abi(
 pub struct IRemoteSystemApp2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemApp2 {
     type Vtable = IRemoteSystemApp2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1667874581, 2710, 22394, [143, 246, 195, 89, 4, 223, 168, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6369bf15_0a96_577a_8ff6_c35904dfa8f3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -201,7 +201,7 @@ pub struct IRemoteSystemApp2_abi(
 pub struct IRemoteSystemAppRegistration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemAppRegistration {
     type Vtable = IRemoteSystemAppRegistration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3027847093, 28725, 19034, [184, 223, 150, 45, 143, 132, 49, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb47947b5_7035_4a5a_b8df_962d8f8431f4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -223,7 +223,7 @@ pub struct IRemoteSystemAppRegistration_abi(
 pub struct IRemoteSystemAppRegistrationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemAppRegistrationStatics {
     type Vtable = IRemoteSystemAppRegistrationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(28940352, 53202, 17727, [174, 37, 194, 83, 159, 8, 106, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01b99840_cfd2_453f_ae25_c2539f086afd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -242,7 +242,7 @@ pub struct IRemoteSystemAppRegistrationStatics_abi(
 pub struct IRemoteSystemAuthorizationKindFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemAuthorizationKindFilter {
     type Vtable = IRemoteSystemAuthorizationKindFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1796071054, 1232, 16628, [162, 127, 194, 172, 187, 214, 183, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b0dde8e_04d0_40f4_a27f_c2acbbd6b734);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -260,7 +260,7 @@ pub struct IRemoteSystemAuthorizationKindFilter_abi(
 pub struct IRemoteSystemAuthorizationKindFilterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemAuthorizationKindFilterFactory {
     type Vtable = IRemoteSystemAuthorizationKindFilterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2909134669, 46698, 17828, [129, 119, 140, 174, 215, 93, 158, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad65df4d_b66a_45a4_8177_8caed75d9e5a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -278,7 +278,7 @@ pub struct IRemoteSystemAuthorizationKindFilterFactory_abi(
 pub struct IRemoteSystemConnectionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionInfo {
     type Vtable = IRemoteSystemConnectionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(589794243, 3337, 21195, [156, 106, 238, 210, 148, 11, 238, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23278bc3_0d09_52cb_9c6a_eed2940bee43);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -296,7 +296,7 @@ pub struct IRemoteSystemConnectionInfo_abi(
 pub struct IRemoteSystemConnectionInfoStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionInfoStatics {
     type Vtable = IRemoteSystemConnectionInfoStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2894274093, 26309, 22231, [164, 206, 112, 93, 148, 146, 90, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac831e2d_66c5_56d7_a4ce_705d94925ad6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -315,7 +315,7 @@ pub struct IRemoteSystemConnectionInfoStatics_abi(
 pub struct IRemoteSystemConnectionRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionRequest {
     type Vtable = IRemoteSystemConnectionRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2230141188, 36190, 19826, [130, 56, 118, 33, 87, 108, 122, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84ed4104_8d5e_4d72_8238_7621576c7a67);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -333,7 +333,7 @@ pub struct IRemoteSystemConnectionRequest_abi(
 pub struct IRemoteSystemConnectionRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionRequest2 {
     type Vtable = IRemoteSystemConnectionRequest2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(316632431, 49148, 18490, [138, 190, 211, 74, 108, 25, 249, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12df6d6f_bffc_483a_8abe_d34a6c19f92b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -351,7 +351,7 @@ pub struct IRemoteSystemConnectionRequest2_abi(
 pub struct IRemoteSystemConnectionRequest3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionRequest3 {
     type Vtable = IRemoteSystemConnectionRequest3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3733373927, 51660, 23120, [184, 217, 186, 123, 52, 187, 141, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde86c3e7_c9cc_5a50_b8d9_ba7b34bb8d0e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -369,7 +369,7 @@ pub struct IRemoteSystemConnectionRequest3_abi(
 pub struct IRemoteSystemConnectionRequestFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionRequestFactory {
     type Vtable = IRemoteSystemConnectionRequestFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2852784672, 47851, 17781, [181, 48, 129, 11, 185, 120, 99, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa0a0a20_baeb_4575_b530_810bb9786334);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -387,7 +387,7 @@ pub struct IRemoteSystemConnectionRequestFactory_abi(
 pub struct IRemoteSystemConnectionRequestStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionRequestStatics {
     type Vtable = IRemoteSystemConnectionRequestStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2261390397, 33300, 16988, [137, 50, 219, 73, 3, 45, 19, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86ca143d_8214_425c_8932_db49032d1306);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -405,7 +405,7 @@ pub struct IRemoteSystemConnectionRequestStatics_abi(
 pub struct IRemoteSystemConnectionRequestStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionRequestStatics2 {
     type Vtable = IRemoteSystemConnectionRequestStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1175392295, 25836, 22926, [168, 0, 79, 46, 229, 141, 239, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x460f1027_64ec_598e_a800_4f2ee58def19);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -424,7 +424,7 @@ pub struct IRemoteSystemConnectionRequestStatics2_abi(
 pub struct IRemoteSystemDiscoveryTypeFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemDiscoveryTypeFilter {
     type Vtable = IRemoteSystemDiscoveryTypeFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1121518623, 61018, 17370, [172, 106, 111, 238, 37, 70, 7, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42d9041f_ee5a_43da_ac6a_6fee25460741);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -442,7 +442,7 @@ pub struct IRemoteSystemDiscoveryTypeFilter_abi(
 pub struct IRemoteSystemDiscoveryTypeFilterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemDiscoveryTypeFilterFactory {
     type Vtable = IRemoteSystemDiscoveryTypeFilterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2677979539, 49760, 16737, [146, 242, 156, 2, 31, 35, 254, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f9eb993_c260_4161_92f2_9c021f23fe5d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -460,7 +460,7 @@ pub struct IRemoteSystemDiscoveryTypeFilterFactory_abi(
 pub struct IRemoteSystemEnumerationCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemEnumerationCompletedEventArgs {
     type Vtable = IRemoteSystemEnumerationCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3337108831, 16432, 17236, [160, 96, 20, 241, 178, 44, 84, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6e83d5f_4030_4354_a060_14f1b22c545d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -478,7 +478,7 @@ pub struct IRemoteSystemEnumerationCompletedEventArgs_abi(
 pub struct IRemoteSystemFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemFilter {
     type Vtable = IRemoteSystemFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1245424100, 39403, 17899, [186, 22, 3, 103, 114, 143, 243, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a3ba9e4_99eb_45eb_ba16_0367728ff374);
 }
 impl IRemoteSystemFilter {}
 unsafe impl ::windows::runtime::RuntimeType for IRemoteSystemFilter {
@@ -539,7 +539,7 @@ pub struct IRemoteSystemFilter_abi(
 pub struct IRemoteSystemKindFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemKindFilter {
     type Vtable = IRemoteSystemKindFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(954321388, 8899, 20214, [144, 26, 187, 177, 199, 170, 212, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38e1c9ec_22c3_4ef6_901a_bbb1c7aad4ed);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -558,7 +558,7 @@ pub struct IRemoteSystemKindFilter_abi(
 pub struct IRemoteSystemKindFilterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemKindFilterFactory {
     type Vtable = IRemoteSystemKindFilterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2717587694, 39402, 16572, [154, 57, 198, 112, 170, 128, 74, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1fb18ee_99ea_40bc_9a39_c670aa804a28);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -577,7 +577,7 @@ pub struct IRemoteSystemKindFilterFactory_abi(
 pub struct IRemoteSystemKindStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemKindStatics {
     type Vtable = IRemoteSystemKindStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4130436659, 43796, 16848, [149, 83, 121, 106, 173, 184, 130, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6317633_ab14_41d0_9553_796aadb882db);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -599,7 +599,7 @@ pub struct IRemoteSystemKindStatics_abi(
 pub struct IRemoteSystemKindStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemKindStatics2 {
     type Vtable = IRemoteSystemKindStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3118703568, 1126, 18249, [145, 232, 101, 249, 209, 154, 150, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9e3a3d0_0466_4749_91e8_65f9d19a96a5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -619,7 +619,7 @@ pub struct IRemoteSystemKindStatics2_abi(
 pub struct IRemoteSystemRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemRemovedEventArgs {
     type Vtable = IRemoteSystemRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2336036539, 29446, 18922, [183, 223, 103, 213, 113, 76, 176, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b3d16bb_7306_49ea_b7df_67d5714cb013);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -637,7 +637,7 @@ pub struct IRemoteSystemRemovedEventArgs_abi(
 pub struct IRemoteSystemSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSession {
     type Vtable = IRemoteSystemSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1766287873, 39642, 18703, [149, 73, 211, 28, 177, 76, 158, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69476a01_9ada_490f_9549_d31cb14c9e95);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -664,7 +664,7 @@ pub struct IRemoteSystemSession_abi(
 pub struct IRemoteSystemSessionAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionAddedEventArgs {
     type Vtable = IRemoteSystemSessionAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3582318420, 48279, 19513, [153, 180, 190, 202, 118, 224, 76, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd585d754_bc97_4c39_99b4_beca76e04c3f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -682,7 +682,7 @@ pub struct IRemoteSystemSessionAddedEventArgs_abi(
 pub struct IRemoteSystemSessionController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionController {
     type Vtable = IRemoteSystemSessionController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3834326482, 26656, 18535, [180, 37, 216, 156, 10, 62, 247, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe48b2dd2_6820_4867_b425_d89c0a3ef7ba);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -707,7 +707,7 @@ pub struct IRemoteSystemSessionController_abi(
 pub struct IRemoteSystemSessionControllerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionControllerFactory {
     type Vtable = IRemoteSystemSessionControllerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3217829739, 44093, 16793, [130, 205, 102, 112, 167, 115, 239, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfcc2f6b_ac3d_4199_82cd_6670a773ef2e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -726,7 +726,7 @@ pub struct IRemoteSystemSessionControllerFactory_abi(
 pub struct IRemoteSystemSessionCreationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionCreationResult {
     type Vtable = IRemoteSystemSessionCreationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2811761346, 14302, 17548, [139, 131, 163, 10, 163, 196, 234, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa79812c2_37de_448c_8b83_a30aa3c4ead6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -745,7 +745,7 @@ pub struct IRemoteSystemSessionCreationResult_abi(
 pub struct IRemoteSystemSessionDisconnectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionDisconnectedEventArgs {
     type Vtable = IRemoteSystemSessionDisconnectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3725313691, 30661, 17948, [130, 9, 124, 108, 93, 49, 17, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde0bc69b_77c5_461c_8209_7c6c5d3111ab);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -763,7 +763,7 @@ pub struct IRemoteSystemSessionDisconnectedEventArgs_abi(
 pub struct IRemoteSystemSessionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionInfo {
     type Vtable = IRemoteSystemSessionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4283299400, 35594, 20122, [153, 5, 105, 228, 184, 65, 197, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff4df648_8b0a_4e9a_9905_69e4b841c588);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -784,7 +784,7 @@ pub struct IRemoteSystemSessionInfo_abi(
 pub struct IRemoteSystemSessionInvitation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionInvitation {
     type Vtable = IRemoteSystemSessionInvitation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1043516561, 20951, 18278, [161, 33, 37, 81, 108, 59, 130, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e32cc91_51d7_4766_a121_25516c3b8294);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -803,7 +803,7 @@ pub struct IRemoteSystemSessionInvitation_abi(
 pub struct IRemoteSystemSessionInvitationListener(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionInvitationListener {
     type Vtable = IRemoteSystemSessionInvitationListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(150208575, 48241, 18913, [135, 74, 49, 221, 255, 154, 39, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08f4003f_bc71_49e1_874a_31ddff9a27b9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -824,7 +824,7 @@ pub struct IRemoteSystemSessionInvitationListener_abi(
 pub struct IRemoteSystemSessionInvitationReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionInvitationReceivedEventArgs {
     type Vtable = IRemoteSystemSessionInvitationReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1586907693, 41229, 20187, [141, 234, 84, 210, 10, 193, 149, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e964a2d_a10d_4edb_8dea_54d20ac19543);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -842,7 +842,7 @@ pub struct IRemoteSystemSessionInvitationReceivedEventArgs_abi(
 pub struct IRemoteSystemSessionJoinRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionJoinRequest {
     type Vtable = IRemoteSystemSessionJoinRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543162472, 31124, 17201, [134, 209, 216, 157, 136, 37, 133, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20600068_7994_4331_86d1_d89d882585ee);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -861,7 +861,7 @@ pub struct IRemoteSystemSessionJoinRequest_abi(
 pub struct IRemoteSystemSessionJoinRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionJoinRequestedEventArgs {
     type Vtable = IRemoteSystemSessionJoinRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3687468995, 33465, 18454, [156, 36, 228, 14, 97, 119, 75, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbca4fc3_82b9_4816_9c24_e40e61774bd8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -881,7 +881,7 @@ pub struct IRemoteSystemSessionJoinRequestedEventArgs_abi(
 pub struct IRemoteSystemSessionJoinResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionJoinResult {
     type Vtable = IRemoteSystemSessionJoinResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3464175364, 41022, 16804, [144, 11, 30, 121, 50, 140, 18, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce7b1f04_a03e_41a4_900b_1e79328c1267);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -900,7 +900,7 @@ pub struct IRemoteSystemSessionJoinResult_abi(
 pub struct IRemoteSystemSessionMessageChannel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionMessageChannel {
     type Vtable = IRemoteSystemSessionMessageChannel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2502218026, 29657, 19472, [183, 81, 194, 103, 132, 67, 113, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9524d12a_73d9_4c10_b751_c26784437127);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -928,7 +928,7 @@ pub struct IRemoteSystemSessionMessageChannel_abi(
 pub struct IRemoteSystemSessionMessageChannelFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionMessageChannelFactory {
     type Vtable = IRemoteSystemSessionMessageChannelFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(694033482, 48406, 17048, [183, 206, 65, 84, 130, 176, 225, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x295e1c4a_bd16_4298_b7ce_415482b0e11d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -947,7 +947,7 @@ pub struct IRemoteSystemSessionMessageChannelFactory_abi(
 pub struct IRemoteSystemSessionOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionOptions {
     type Vtable = IRemoteSystemSessionOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1947129685, 33816, 20225, [147, 83, 226, 28, 158, 204, 108, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x740ed755_8418_4f01_9353_e21c9ecc6cfc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -966,7 +966,7 @@ pub struct IRemoteSystemSessionOptions_abi(
 pub struct IRemoteSystemSessionParticipant(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionParticipant {
     type Vtable = IRemoteSystemSessionParticipant_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2123367820, 44281, 18217, [138, 23, 68, 231, 186, 237, 93, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e90058c_acf9_4729_8a17_44e7baed5dcc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -986,7 +986,7 @@ pub struct IRemoteSystemSessionParticipant_abi(
 pub struct IRemoteSystemSessionParticipantAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionParticipantAddedEventArgs {
     type Vtable = IRemoteSystemSessionParticipantAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3545913304, 51617, 19383, [182, 176, 121, 187, 145, 173, 249, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd35a57d8_c9a1_4bb7_b6b0_79bb91adf93d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1004,7 +1004,7 @@ pub struct IRemoteSystemSessionParticipantAddedEventArgs_abi(
 pub struct IRemoteSystemSessionParticipantRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionParticipantRemovedEventArgs {
     type Vtable = IRemoteSystemSessionParticipantRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2255417480, 56936, 19135, [136, 161, 249, 13, 22, 39, 65, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x866ef088_de68_4abf_88a1_f90d16274192);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1022,7 +1022,7 @@ pub struct IRemoteSystemSessionParticipantRemovedEventArgs_abi(
 pub struct IRemoteSystemSessionParticipantWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionParticipantWatcher {
     type Vtable = IRemoteSystemSessionParticipantWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3705471692, 43655, 19833, [182, 204, 68, 89, 179, 233, 32, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcdd02cc_aa87_4d79_b6cc_4459b3e92075);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1054,7 +1054,7 @@ pub struct IRemoteSystemSessionParticipantWatcher_abi(
 pub struct IRemoteSystemSessionRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionRemovedEventArgs {
     type Vtable = IRemoteSystemSessionRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2944569678, 14753, 19946, [157, 99, 67, 121, 141, 91, 187, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf82914e_39a1_4dea_9d63_43798d5bbbd0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1072,7 +1072,7 @@ pub struct IRemoteSystemSessionRemovedEventArgs_abi(
 pub struct IRemoteSystemSessionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionStatics {
     type Vtable = IRemoteSystemSessionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2233764255, 64800, 17635, [149, 101, 231, 90, 59, 20, 198, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8524899f_fd20_44e3_9565_e75a3b14c66e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1090,7 +1090,7 @@ pub struct IRemoteSystemSessionStatics_abi(
 pub struct IRemoteSystemSessionUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionUpdatedEventArgs {
     type Vtable = IRemoteSystemSessionUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(377966697, 8990, 19601, [142, 200, 179, 163, 157, 158, 85, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16875069_231e_4c91_8ec8_b3a39d9e55a3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1108,7 +1108,7 @@ pub struct IRemoteSystemSessionUpdatedEventArgs_abi(
 pub struct IRemoteSystemSessionValueSetReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionValueSetReceivedEventArgs {
     type Vtable = IRemoteSystemSessionValueSetReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(116594565, 11685, 20056, [167, 143, 158, 141, 7, 132, 238, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06f31785_2da5_4e58_a78f_9e8d0784ee25);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1128,7 +1128,7 @@ pub struct IRemoteSystemSessionValueSetReceivedEventArgs_abi(
 pub struct IRemoteSystemSessionWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionWatcher {
     type Vtable = IRemoteSystemSessionWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2147738432, 3137, 19042, [182, 215, 189, 190, 43, 25, 190, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8003e340_0c41_4a62_b6d7_bdbe2b19be2d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1160,7 +1160,7 @@ pub struct IRemoteSystemSessionWatcher_abi(
 pub struct IRemoteSystemStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemStatics {
     type Vtable = IRemoteSystemStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2760225682, 65323, 19271, [190, 98, 116, 63, 47, 20, 15, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa485b392_ff2b_4b47_be62_743f2f140f30);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1184,7 +1184,7 @@ pub struct IRemoteSystemStatics_abi(
 pub struct IRemoteSystemStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemStatics2 {
     type Vtable = IRemoteSystemStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(211348938, 28569, 19538, [162, 114, 234, 79, 54, 71, 23, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c98edca_6f99_4c52_a272_ea4f36471744);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1202,7 +1202,7 @@ pub struct IRemoteSystemStatics2_abi(
 pub struct IRemoteSystemStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemStatics3 {
     type Vtable = IRemoteSystemStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2576740719, 2876, 23237, [179, 37, 204, 115, 244, 55, 223, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9995f16f_0b3c_5ac5_b325_cc73f437dfcd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1222,7 +1222,7 @@ pub struct IRemoteSystemStatics3_abi(
 pub struct IRemoteSystemStatusTypeFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemStatusTypeFilter {
     type Vtable = IRemoteSystemStatusTypeFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(205082958, 52150, 18295, [133, 52, 46, 12, 82, 26, 255, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c39514e_cbb6_4777_8534_2e0c521affa2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1240,7 +1240,7 @@ pub struct IRemoteSystemStatusTypeFilter_abi(
 pub struct IRemoteSystemStatusTypeFilterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemStatusTypeFilterFactory {
     type Vtable = IRemoteSystemStatusTypeFilterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(869234938, 55076, 16677, [172, 122, 141, 40, 30, 68, 201, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33cf78fa_d724_4125_ac7a_8d281e44c949);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1258,7 +1258,7 @@ pub struct IRemoteSystemStatusTypeFilterFactory_abi(
 pub struct IRemoteSystemUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemUpdatedEventArgs {
     type Vtable = IRemoteSystemUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1963130638, 56267, 16725, [180, 202, 179, 10, 4, 242, 118, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7502ff0e_dbcb_4155_b4ca_b30a04f27627);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1276,7 +1276,7 @@ pub struct IRemoteSystemUpdatedEventArgs_abi(
 pub struct IRemoteSystemWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemWatcher {
     type Vtable = IRemoteSystemWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1566575742, 11271, 18629, [136, 156, 69, 93, 43, 9, 151, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d600c7e_2c07_48c5_889c_455d2b099771);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1307,7 +1307,7 @@ pub struct IRemoteSystemWatcher_abi(
 pub struct IRemoteSystemWatcher2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemWatcher2 {
     type Vtable = IRemoteSystemWatcher2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1933797120, 6602, 18681, [164, 205, 120, 15, 122, 213, 140, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73436700_19ca_48f9_a4cd_780f7ad58c71);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1332,7 +1332,7 @@ pub struct IRemoteSystemWatcher2_abi(
 pub struct IRemoteSystemWatcher3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemWatcher3 {
     type Vtable = IRemoteSystemWatcher3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4154200015, 43283, 21971, [132, 19, 65, 143, 207, 21, 186, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf79c0fcf_a913_55d3_8413_418fcf15ba54);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1350,7 +1350,7 @@ pub struct IRemoteSystemWatcher3_abi(
 pub struct IRemoteSystemWatcherErrorOccurredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemWatcherErrorOccurredEventArgs {
     type Vtable = IRemoteSystemWatcherErrorOccurredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1959118511, 20756, 17446, [146, 22, 32, 216, 31, 133, 25, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74c5c6af_5114_4426_9216_20d81f8519ae);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1368,7 +1368,7 @@ pub struct IRemoteSystemWatcherErrorOccurredEventArgs_abi(
 pub struct IRemoteSystemWebAccountFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemWebAccountFilter {
     type Vtable = IRemoteSystemWebAccountFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1068980339, 34760, 23951, [151, 126, 246, 159, 150, 214, 114, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3fb75873_87c8_5d8f_977e_f69f96d67238);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1387,7 +1387,7 @@ pub struct IRemoteSystemWebAccountFilter_abi(
 pub struct IRemoteSystemWebAccountFilterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemWebAccountFilterFactory {
     type Vtable = IRemoteSystemWebAccountFilterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(881469193, 24397, 20775, [180, 167, 191, 153, 213, 37, 43, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x348a2709_5f4d_5127_b4a7_bf99d5252b1b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1614,7 +1614,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystem {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystem {
     type Vtable = IRemoteSystem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3981981901, 7696, 19084, [180, 166, 78, 95, 214, 249, 119, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed5838cd_1e10_4a8c_b4a6_4e5fd6f97721);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystem {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystem";
@@ -1704,7 +1704,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemAddedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemAddedEventArgs {
     type Vtable = IRemoteSystemAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2402899471, 58676, 18071, [136, 54, 122, 190, 161, 81, 81, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f39560f_e534_4697_8836_7abea151516e);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemAddedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemAddedEventArgs";
@@ -1819,7 +1819,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemApp {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemApp {
     type Vtable = IRemoteSystemApp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2162539709, 54605, 16817, [155, 22, 104, 16, 168, 113, 237, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80e5bcbd_d54d_41b1_9b16_6810a871ed4f);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemApp {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemApp";
@@ -1921,7 +1921,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemAppRegistration {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemAppRegistration {
     type Vtable = IRemoteSystemAppRegistration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3027847093, 28725, 19034, [184, 223, 150, 45, 143, 132, 49, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb47947b5_7035_4a5a_b8df_962d8f8431f4);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemAppRegistration {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemAppRegistration";
@@ -2020,7 +2020,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemAuthorizationKindFil
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemAuthorizationKindFilter {
     type Vtable = IRemoteSystemAuthorizationKindFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1796071054, 1232, 16628, [162, 127, 194, 172, 187, 214, 183, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b0dde8e_04d0_40f4_a27f_c2acbbd6b734);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemAuthorizationKindFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemAuthorizationKindFilter";
@@ -2120,7 +2120,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemConnectionInfo {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemConnectionInfo {
     type Vtable = IRemoteSystemConnectionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(589794243, 3337, 21195, [156, 106, 238, 210, 148, 11, 238, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23278bc3_0d09_52cb_9c6a_eed2940bee43);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemConnectionInfo {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemConnectionInfo";
@@ -2242,7 +2242,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemConnectionRequest {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemConnectionRequest {
     type Vtable = IRemoteSystemConnectionRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2230141188, 36190, 19826, [130, 56, 118, 33, 87, 108, 122, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84ed4104_8d5e_4d72_8238_7621576c7a67);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemConnectionRequest {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemConnectionRequest";
@@ -2343,7 +2343,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemDiscoveryTypeFilter 
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemDiscoveryTypeFilter {
     type Vtable = IRemoteSystemDiscoveryTypeFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1121518623, 61018, 17370, [172, 106, 111, 238, 37, 70, 7, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42d9041f_ee5a_43da_ac6a_6fee25460741);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemDiscoveryTypeFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemDiscoveryTypeFilter";
@@ -2422,7 +2422,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemEnumerationCompleted
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemEnumerationCompletedEventArgs {
     type Vtable = IRemoteSystemEnumerationCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3337108831, 16432, 17236, [160, 96, 20, 241, 178, 44, 84, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6e83d5f_4030_4354_a060_14f1b22c545d);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemEnumerationCompletedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemEnumerationCompletedEventArgs";
@@ -2501,7 +2501,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemKindFilter {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemKindFilter {
     type Vtable = IRemoteSystemKindFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(954321388, 8899, 20214, [144, 26, 187, 177, 199, 170, 212, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38e1c9ec_22c3_4ef6_901a_bbb1c7aad4ed);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemKindFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemKindFilter";
@@ -2685,7 +2685,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemRemovedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemRemovedEventArgs {
     type Vtable = IRemoteSystemRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2336036539, 29446, 18922, [183, 223, 103, 213, 113, 76, 176, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b3d16bb_7306_49ea_b7df_67d5714cb013);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemRemovedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemRemovedEventArgs";
@@ -2816,7 +2816,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSession {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSession {
     type Vtable = IRemoteSystemSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1766287873, 39642, 18703, [149, 73, 211, 28, 177, 76, 158, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69476a01_9ada_490f_9549_d31cb14c9e95);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSession {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSession";
@@ -2908,7 +2908,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionAddedEventArg
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionAddedEventArgs {
     type Vtable = IRemoteSystemSessionAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3582318420, 48279, 19513, [153, 180, 190, 202, 118, 224, 76, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd585d754_bc97_4c39_99b4_beca76e04c3f);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionAddedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionAddedEventArgs";
@@ -3017,7 +3017,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionController {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionController {
     type Vtable = IRemoteSystemSessionController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3834326482, 26656, 18535, [180, 37, 216, 156, 10, 62, 247, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe48b2dd2_6820_4867_b425_d89c0a3ef7ba);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionController {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionController";
@@ -3091,7 +3091,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionCreationResul
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionCreationResult {
     type Vtable = IRemoteSystemSessionCreationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2811761346, 14302, 17548, [139, 131, 163, 10, 163, 196, 234, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa79812c2_37de_448c_8b83_a30aa3c4ead6);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionCreationResult {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionCreationResult";
@@ -3180,7 +3180,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionDisconnectedE
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionDisconnectedEventArgs {
     type Vtable = IRemoteSystemSessionDisconnectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3725313691, 30661, 17948, [130, 9, 124, 108, 93, 49, 17, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde0bc69b_77c5_461c_8209_7c6c5d3111ab);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionDisconnectedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedEventArgs";
@@ -3286,7 +3286,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionInfo {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionInfo {
     type Vtable = IRemoteSystemSessionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4283299400, 35594, 20122, [153, 5, 105, 228, 184, 65, 197, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff4df648_8b0a_4e9a_9905_69e4b841c588);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionInfo {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInfo";
@@ -3360,7 +3360,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionInvitation {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionInvitation {
     type Vtable = IRemoteSystemSessionInvitation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1043516561, 20951, 18278, [161, 33, 37, 81, 108, 59, 130, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e32cc91_51d7_4766_a121_25516c3b8294);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionInvitation {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInvitation";
@@ -3440,7 +3440,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionInvitationLis
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionInvitationListener {
     type Vtable = IRemoteSystemSessionInvitationListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(150208575, 48241, 18913, [135, 74, 49, 221, 255, 154, 39, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08f4003f_bc71_49e1_874a_31ddff9a27b9);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionInvitationListener {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInvitationListener";
@@ -3506,7 +3506,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionInvitationRec
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionInvitationReceivedEventArgs {
     type Vtable = IRemoteSystemSessionInvitationReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1586907693, 41229, 20187, [141, 234, 84, 210, 10, 193, 149, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e964a2d_a10d_4edb_8dea_54d20ac19543);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionInvitationReceivedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInvitationReceivedEventArgs";
@@ -3577,7 +3577,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionJoinRequest {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionJoinRequest {
     type Vtable = IRemoteSystemSessionJoinRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543162472, 31124, 17201, [134, 209, 216, 157, 136, 37, 133, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20600068_7994_4331_86d1_d89d882585ee);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionJoinRequest {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionJoinRequest";
@@ -3652,7 +3652,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionJoinRequested
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionJoinRequestedEventArgs {
     type Vtable = IRemoteSystemSessionJoinRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3687468995, 33465, 18454, [156, 36, 228, 14, 97, 119, 75, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbca4fc3_82b9_4816_9c24_e40e61774bd8);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionJoinRequestedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionJoinRequestedEventArgs";
@@ -3726,7 +3726,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionJoinResult {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionJoinResult {
     type Vtable = IRemoteSystemSessionJoinResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3464175364, 41022, 16804, [144, 11, 30, 121, 50, 140, 18, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce7b1f04_a03e_41a4_900b_1e79328c1267);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionJoinResult {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionJoinResult";
@@ -3877,7 +3877,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionMessageChanne
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionMessageChannel {
     type Vtable = IRemoteSystemSessionMessageChannel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2502218026, 29657, 19472, [183, 81, 194, 103, 132, 67, 113, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9524d12a_73d9_4c10_b751_c26784437127);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionMessageChannel {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionMessageChannel";
@@ -3977,7 +3977,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionOptions {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionOptions {
     type Vtable = IRemoteSystemSessionOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1947129685, 33816, 20225, [147, 83, 226, 28, 158, 204, 108, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x740ed755_8418_4f01_9353_e21c9ecc6cfc);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionOptions {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionOptions";
@@ -4052,7 +4052,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionParticipant {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionParticipant {
     type Vtable = IRemoteSystemSessionParticipant_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2123367820, 44281, 18217, [138, 23, 68, 231, 186, 237, 93, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e90058c_acf9_4729_8a17_44e7baed5dcc);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionParticipant {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipant";
@@ -4118,7 +4118,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionParticipantAd
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionParticipantAddedEventArgs {
     type Vtable = IRemoteSystemSessionParticipantAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3545913304, 51617, 19383, [182, 176, 121, 187, 145, 173, 249, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd35a57d8_c9a1_4bb7_b6b0_79bb91adf93d);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionParticipantAddedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipantAddedEventArgs";
@@ -4184,7 +4184,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionParticipantRe
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionParticipantRemovedEventArgs {
     type Vtable = IRemoteSystemSessionParticipantRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2255417480, 56936, 19135, [136, 161, 249, 13, 22, 39, 65, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x866ef088_de68_4abf_88a1_f90d16274192);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionParticipantRemovedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipantRemovedEventArgs";
@@ -4305,7 +4305,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionParticipantWa
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionParticipantWatcher {
     type Vtable = IRemoteSystemSessionParticipantWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3705471692, 43655, 19833, [182, 204, 68, 89, 179, 233, 32, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcdd02cc_aa87_4d79_b6cc_4459b3e92075);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionParticipantWatcher {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcher";
@@ -4397,7 +4397,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionRemovedEventA
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionRemovedEventArgs {
     type Vtable = IRemoteSystemSessionRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2944569678, 14753, 19946, [157, 99, 67, 121, 141, 91, 187, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf82914e_39a1_4dea_9d63_43798d5bbbd0);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionRemovedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionRemovedEventArgs";
@@ -4463,7 +4463,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionUpdatedEventA
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionUpdatedEventArgs {
     type Vtable = IRemoteSystemSessionUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(377966697, 8990, 19601, [142, 200, 179, 163, 157, 158, 85, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16875069_231e_4c91_8ec8_b3a39d9e55a3);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionUpdatedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionUpdatedEventArgs";
@@ -4538,7 +4538,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionValueSetRecei
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionValueSetReceivedEventArgs {
     type Vtable = IRemoteSystemSessionValueSetReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(116594565, 11685, 20056, [167, 143, 158, 141, 7, 132, 238, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06f31785_2da5_4e58_a78f_9e8d0784ee25);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionValueSetReceivedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionValueSetReceivedEventArgs";
@@ -4659,7 +4659,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionWatcher {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemSessionWatcher {
     type Vtable = IRemoteSystemSessionWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2147738432, 3137, 19042, [182, 215, 189, 190, 43, 25, 190, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8003e340_0c41_4a62_b6d7_bdbe2b19be2d);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemSessionWatcher {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionWatcher";
@@ -4808,7 +4808,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemStatusTypeFilter {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemStatusTypeFilter {
     type Vtable = IRemoteSystemStatusTypeFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(205082958, 52150, 18295, [133, 52, 46, 12, 82, 26, 255, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c39514e_cbb6_4777_8534_2e0c521affa2);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemStatusTypeFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemStatusTypeFilter";
@@ -4896,7 +4896,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemUpdatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemUpdatedEventArgs {
     type Vtable = IRemoteSystemUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1963130638, 56267, 16725, [180, 202, 179, 10, 4, 242, 118, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7502ff0e_dbcb_4155_b4ca_b30a04f27627);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemUpdatedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemUpdatedEventArgs";
@@ -5047,7 +5047,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemWatcher {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemWatcher {
     type Vtable = IRemoteSystemWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1566575742, 11271, 18629, [136, 156, 69, 93, 43, 9, 151, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d600c7e_2c07_48c5_889c_455d2b099771);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemWatcher {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemWatcher";
@@ -5136,7 +5136,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemWatcherErrorOccurred
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemWatcherErrorOccurredEventArgs {
     type Vtable = IRemoteSystemWatcherErrorOccurredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1959118511, 20756, 17446, [146, 22, 32, 216, 31, 133, 25, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74c5c6af_5114_4426_9216_20d81f8519ae);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemWatcherErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemWatcherErrorOccurredEventArgs";
@@ -5215,7 +5215,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteSystemWebAccountFilter {
 }
 unsafe impl ::windows::runtime::Interface for RemoteSystemWebAccountFilter {
     type Vtable = IRemoteSystemWebAccountFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1068980339, 34760, 23951, [151, 126, 246, 159, 150, 214, 114, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3fb75873_87c8_5d8f_977e_f69f96d67238);
 }
 impl ::windows::runtime::RuntimeName for RemoteSystemWebAccountFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemWebAccountFilter";

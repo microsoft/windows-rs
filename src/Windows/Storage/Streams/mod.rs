@@ -62,7 +62,7 @@ unsafe impl ::windows::runtime::RuntimeType for Buffer {
 }
 unsafe impl ::windows::runtime::Interface for Buffer {
     type Vtable = IBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421821408, 48211, 4575, [140, 73, 0, 30, 79, 198, 134, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x905a0fe0_bc53_11df_8c49_001e4fc686da);
 }
 impl ::windows::runtime::RuntimeName for Buffer {
     const NAME: &'static str = "Windows.Storage.Streams.Buffer";
@@ -389,7 +389,7 @@ unsafe impl ::windows::runtime::RuntimeType for DataReader {
 }
 unsafe impl ::windows::runtime::Interface for DataReader {
     type Vtable = IDataReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3803512873, 46273, 17172, [164, 184, 251, 129, 58, 47, 39, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2b50029_b4c1_4314_a4b8_fb813a2f275e);
 }
 impl ::windows::runtime::RuntimeName for DataReader {
     const NAME: &'static str = "Windows.Storage.Streams.DataReader";
@@ -899,7 +899,7 @@ unsafe impl ::windows::runtime::RuntimeType for DataWriter {
 }
 unsafe impl ::windows::runtime::Interface for DataWriter {
     type Vtable = IDataWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1689817701, 54081, 18722, [179, 138, 221, 74, 248, 128, 140, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64b89265_d341_4922_b38a_dd4af8808c4e);
 }
 impl ::windows::runtime::RuntimeName for DataWriter {
     const NAME: &'static str = "Windows.Storage.Streams.DataWriter";
@@ -1234,7 +1234,7 @@ unsafe impl ::windows::runtime::RuntimeType for FileInputStream {
 }
 unsafe impl ::windows::runtime::Interface for FileInputStream {
     type Vtable = IInputStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421821410, 48211, 4575, [140, 73, 0, 30, 79, 198, 134, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x905a0fe2_bc53_11df_8c49_001e4fc686da);
 }
 impl ::windows::runtime::RuntimeName for FileInputStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileInputStream";
@@ -1387,7 +1387,7 @@ unsafe impl ::windows::runtime::RuntimeType for FileOutputStream {
 }
 unsafe impl ::windows::runtime::Interface for FileOutputStream {
     type Vtable = IOutputStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421821414, 48211, 4575, [140, 73, 0, 30, 79, 198, 134, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x905a0fe6_bc53_11df_8c49_001e4fc686da);
 }
 impl ::windows::runtime::RuntimeName for FileOutputStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileOutputStream";
@@ -1658,7 +1658,7 @@ unsafe impl ::windows::runtime::RuntimeType for FileRandomAccessStream {
 }
 unsafe impl ::windows::runtime::Interface for FileRandomAccessStream {
     type Vtable = IRandomAccessStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421821409, 48211, 4575, [140, 73, 0, 30, 79, 198, 134, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x905a0fe1_bc53_11df_8c49_001e4fc686da);
 }
 impl ::windows::runtime::RuntimeName for FileRandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileRandomAccessStream";
@@ -1801,7 +1801,7 @@ unsafe impl ::core::marker::Sync for FileRandomAccessStream {}
 pub struct IBuffer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBuffer {
     type Vtable = IBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421821408, 48211, 4575, [140, 73, 0, 30, 79, 198, 134, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x905a0fe0_bc53_11df_8c49_001e4fc686da);
 }
 impl IBuffer {
     #[doc = "*Required features: `Storage_Streams`*"]
@@ -1887,7 +1887,7 @@ pub struct IBuffer_abi(
 pub struct IBufferFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBufferFactory {
     type Vtable = IBufferFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1907331405, 49423, 18507, [188, 80, 20, 188, 98, 59, 58, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71af914d_c10f_484b_bc50_14bc623b3a27);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1905,7 +1905,7 @@ pub struct IBufferFactory_abi(
 pub struct IBufferStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBufferStatics {
     type Vtable = IBufferStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3909215835, 55062, 18266, [169, 10, 175, 114, 41, 177, 231, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe901e65b_d716_475a_a90a_af7229b1e741);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1927,7 +1927,7 @@ pub struct IBufferStatics_abi(
 pub struct IContentTypeProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentTypeProvider {
     type Vtable = IContentTypeProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547030181, 15257, 19945, [136, 165, 225, 29, 47, 80, 199, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97d098a5_3b99_4de9_88a5_e11d2f50c795);
 }
 impl IContentTypeProvider {
     #[doc = "*Required features: `Storage_Streams`*"]
@@ -1999,7 +1999,7 @@ pub struct IContentTypeProvider_abi(
 pub struct IDataReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataReader {
     type Vtable = IDataReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3803512873, 46273, 17172, [164, 184, 251, 129, 58, 47, 39, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2b50029_b4c1_4314_a4b8_fb813a2f275e);
 }
 impl IDataReader {
     #[doc = "*Required features: `Storage_Streams`*"]
@@ -2289,7 +2289,7 @@ pub struct IDataReader_abi(
 pub struct IDataReaderFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataReaderFactory {
     type Vtable = IDataReaderFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3612506183, 22490, 19989, [145, 76, 6, 128, 102, 153, 160, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7527847_57da_4e15_914c_06806699a098);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2307,7 +2307,7 @@ pub struct IDataReaderFactory_abi(
 pub struct IDataReaderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataReaderStatics {
     type Vtable = IDataReaderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(301776840, 63802, 18203, [177, 33, 243, 121, 227, 73, 49, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11fcbfc8_f93a_471b_b121_f379e349313c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2326,7 +2326,7 @@ pub struct IDataReaderStatics_abi(
 pub struct IDataWriter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataWriter {
     type Vtable = IDataWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1689817701, 54081, 18722, [179, 138, 221, 74, 248, 128, 140, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64b89265_d341_4922_b38a_dd4af8808c4e);
 }
 impl IDataWriter {
     #[doc = "*Required features: `Storage_Streams`*"]
@@ -2585,7 +2585,7 @@ pub struct IDataWriter_abi(
 pub struct IDataWriterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataWriterFactory {
     type Vtable = IDataWriterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(864839618, 35716, 19499, [156, 80, 123, 135, 103, 132, 122, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x338c67c2_8b84_4c2b_9c50_7b8767847a1f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2603,7 +2603,7 @@ pub struct IDataWriterFactory_abi(
 pub struct IFileRandomAccessStreamStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileRandomAccessStreamStatics {
     type Vtable = IFileRandomAccessStreamStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1934950663, 15191, 19293, [131, 69, 85, 77, 47, 198, 33, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73550107_3b57_4b5d_8345_554d2fc621f0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2637,7 +2637,7 @@ pub struct IFileRandomAccessStreamStatics_abi(
 pub struct IInputStream(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputStream {
     type Vtable = IInputStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421821410, 48211, 4575, [140, 73, 0, 30, 79, 198, 134, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x905a0fe2_bc53_11df_8c49_001e4fc686da);
 }
 impl IInputStream {
     #[cfg(feature = "Foundation")]
@@ -2743,7 +2743,7 @@ pub struct IInputStream_abi(
 pub struct IInputStreamReference(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputStreamReference {
     type Vtable = IInputStreamReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1133681944, 24265, 19290, [145, 156, 66, 5, 176, 200, 4, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43929d18_5ec9_4b5a_919c_4205b0c804b6);
 }
 impl IInputStreamReference {
     #[cfg(feature = "Foundation")]
@@ -2817,7 +2817,7 @@ pub struct IInputStreamReference_abi(
 pub struct IOutputStream(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOutputStream {
     type Vtable = IOutputStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421821414, 48211, 4575, [140, 73, 0, 30, 79, 198, 134, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x905a0fe6_bc53_11df_8c49_001e4fc686da);
 }
 impl IOutputStream {
     #[cfg(feature = "Foundation")]
@@ -2934,7 +2934,7 @@ pub struct IOutputStream_abi(
 pub struct IPropertySetSerializer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPropertySetSerializer {
     type Vtable = IPropertySetSerializer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1854848796, 61245, 17270, [178, 14, 91, 230, 56, 174, 172, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e8ebf1c_ef3d_4376_b20e_5be638aeac77);
 }
 impl IPropertySetSerializer {
     #[cfg(feature = "Foundation_Collections")]
@@ -3016,7 +3016,7 @@ pub struct IPropertySetSerializer_abi(
 pub struct IRandomAccessStream(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRandomAccessStream {
     type Vtable = IRandomAccessStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421821409, 48211, 4575, [140, 73, 0, 30, 79, 198, 134, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x905a0fe1_bc53_11df_8c49_001e4fc686da);
 }
 impl IRandomAccessStream {
     #[doc = "*Required features: `Storage_Streams`*"]
@@ -3257,7 +3257,7 @@ pub struct IRandomAccessStream_abi(
 pub struct IRandomAccessStreamReference(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRandomAccessStreamReference {
     type Vtable = IRandomAccessStreamReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(871248180, 7638, 20026, [128, 103, 209, 193, 98, 232, 100, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33ee3134_1dd6_4e3a_8067_d1c162e8642b);
 }
 impl IRandomAccessStreamReference {
     #[cfg(feature = "Foundation")]
@@ -3330,7 +3330,7 @@ pub struct IRandomAccessStreamReference_abi(
 pub struct IRandomAccessStreamReferenceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRandomAccessStreamReferenceStatics {
     type Vtable = IRandomAccessStreamReferenceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2238908892, 16319, 20093, [152, 111, 239, 59, 26, 7, 169, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x857309dc_3fbf_4e7d_986f_ef3b1a07a964);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3351,7 +3351,7 @@ pub struct IRandomAccessStreamReferenceStatics_abi(
 pub struct IRandomAccessStreamStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRandomAccessStreamStatics {
     type Vtable = IRandomAccessStreamStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1380773327, 28201, 19685, [149, 115, 107, 117, 61, 182, 108, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x524cedcf_6e29_4ce5_9573_6b753db66c3a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3375,7 +3375,7 @@ pub struct IRandomAccessStreamStatics_abi(
 pub struct IRandomAccessStreamWithContentType(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRandomAccessStreamWithContentType {
     type Vtable = IRandomAccessStreamWithContentType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3424995367, 19261, 17295, [146, 50, 16, 199, 107, 199, 224, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc254827_4b3d_438f_9232_10c76bc7e038);
 }
 impl IRandomAccessStreamWithContentType {
     #[cfg(feature = "Foundation")]
@@ -3770,7 +3770,7 @@ unsafe impl ::windows::runtime::RuntimeType for InMemoryRandomAccessStream {
 }
 unsafe impl ::windows::runtime::Interface for InMemoryRandomAccessStream {
     type Vtable = IRandomAccessStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421821409, 48211, 4575, [140, 73, 0, 30, 79, 198, 134, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x905a0fe1_bc53_11df_8c49_001e4fc686da);
 }
 impl ::windows::runtime::RuntimeName for InMemoryRandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.InMemoryRandomAccessStream";
@@ -3984,7 +3984,7 @@ unsafe impl ::windows::runtime::RuntimeType for InputStreamOverStream {
 }
 unsafe impl ::windows::runtime::Interface for InputStreamOverStream {
     type Vtable = IInputStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421821410, 48211, 4575, [140, 73, 0, 30, 79, 198, 134, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x905a0fe2_bc53_11df_8c49_001e4fc686da);
 }
 impl ::windows::runtime::RuntimeName for InputStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.InputStreamOverStream";
@@ -4112,7 +4112,7 @@ unsafe impl ::windows::runtime::RuntimeType for OutputStreamOverStream {
 }
 unsafe impl ::windows::runtime::Interface for OutputStreamOverStream {
     type Vtable = IOutputStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421821414, 48211, 4575, [140, 73, 0, 30, 79, 198, 134, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x905a0fe6_bc53_11df_8c49_001e4fc686da);
 }
 impl ::windows::runtime::RuntimeName for OutputStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.OutputStreamOverStream";
@@ -4350,7 +4350,7 @@ unsafe impl ::windows::runtime::RuntimeType for RandomAccessStreamOverStream {
 }
 unsafe impl ::windows::runtime::Interface for RandomAccessStreamOverStream {
     type Vtable = IRandomAccessStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421821409, 48211, 4575, [140, 73, 0, 30, 79, 198, 134, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x905a0fe1_bc53_11df_8c49_001e4fc686da);
 }
 impl ::windows::runtime::RuntimeName for RandomAccessStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.RandomAccessStreamOverStream";
@@ -4533,7 +4533,7 @@ unsafe impl ::windows::runtime::RuntimeType for RandomAccessStreamReference {
 }
 unsafe impl ::windows::runtime::Interface for RandomAccessStreamReference {
     type Vtable = IRandomAccessStreamReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(871248180, 7638, 20026, [128, 103, 209, 193, 98, 232, 100, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33ee3134_1dd6_4e3a_8067_d1c162e8642b);
 }
 impl ::windows::runtime::RuntimeName for RandomAccessStreamReference {
     const NAME: &'static str = "Windows.Storage.Streams.RandomAccessStreamReference";

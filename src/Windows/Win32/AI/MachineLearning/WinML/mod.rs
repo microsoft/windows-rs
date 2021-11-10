@@ -29,7 +29,7 @@ impl IMLOperatorAttributes {
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorAttributes {
     type Vtable = IMLOperatorAttributes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1260066649, 60480, 18028, [170, 180, 190, 181, 52, 127, 210, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b1b1759_ec40_466c_aab4_beb5347fd24c);
 }
 impl ::core::convert::From<IMLOperatorAttributes> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorAttributes) -> Self {
@@ -78,7 +78,7 @@ impl IMLOperatorKernel {
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorKernel {
     type Vtable = IMLOperatorKernel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(298103968, 46183, 20138, [161, 166, 185, 97, 216, 208, 237, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11c4b4a0_b467_4eaa_a1a6_b961d8d0ed79);
 }
 impl ::core::convert::From<IMLOperatorKernel> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorKernel) -> Self {
@@ -140,7 +140,7 @@ impl IMLOperatorKernelContext {
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorKernelContext {
     type Vtable = IMLOperatorKernelContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2186504744, 61474, 18281, [157, 63, 139, 39, 143, 132, 192, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82536a28_f022_4769_9d3f_8b278f84c0c3);
 }
 impl ::core::convert::From<IMLOperatorKernelContext> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorKernelContext) -> Self {
@@ -243,7 +243,7 @@ impl IMLOperatorKernelCreationContext {
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorKernelCreationContext {
     type Vtable = IMLOperatorKernelCreationContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1415165245, 41212, 18021, [173, 221, 112, 23, 30, 247, 230, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5459b53d_a0fc_4665_addd_70171ef7e631);
 }
 impl ::core::convert::From<IMLOperatorKernelCreationContext> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorKernelCreationContext) -> Self {
@@ -322,7 +322,7 @@ impl IMLOperatorKernelFactory {
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorKernelFactory {
     type Vtable = IMLOperatorKernelFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4011175279, 3529, 18696, [171, 53, 165, 117, 163, 13, 251, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef15ad6f_0dc9_4908_ab35_a575a30dfbf8);
 }
 impl ::core::convert::From<IMLOperatorKernelFactory> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorKernelFactory) -> Self {
@@ -370,7 +370,7 @@ impl IMLOperatorRegistry {
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorRegistry {
     type Vtable = IMLOperatorRegistry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(721018157, 46358, 18034, [154, 181, 83, 12, 32, 132, 147, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2af9dd2d_b516_4672_9ab5_530c208493ad);
 }
 impl ::core::convert::From<IMLOperatorRegistry> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorRegistry) -> Self {
@@ -467,7 +467,7 @@ impl IMLOperatorShapeInferenceContext {
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorShapeInferenceContext {
     type Vtable = IMLOperatorShapeInferenceContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(274426665, 21512, 19048, [153, 89, 9, 181, 149, 90, 52, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x105b6b29_5408_4a68_9959_09b5955a3492);
 }
 impl ::core::convert::From<IMLOperatorShapeInferenceContext> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorShapeInferenceContext) -> Self {
@@ -544,7 +544,7 @@ impl IMLOperatorShapeInferrer {
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorShapeInferrer {
     type Vtable = IMLOperatorShapeInferrer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1410065854, 42697, 16622, [131, 246, 210, 184, 180, 10, 119, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x540be5be_a6c9_40ee_83f6_d2b8b40a7798);
 }
 impl ::core::convert::From<IMLOperatorShapeInferrer> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorShapeInferrer) -> Self {
@@ -610,7 +610,7 @@ impl IMLOperatorTensor {
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorTensor {
     type Vtable = IMLOperatorTensor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2145656641, 62512, 17422, [174, 206, 84, 65, 109, 200, 185, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fe41f41_f430_440e_aece_54416dc8b9db);
 }
 impl ::core::convert::From<IMLOperatorTensor> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorTensor) -> Self {
@@ -676,7 +676,7 @@ impl IMLOperatorTensorShapeDescription {
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorTensorShapeDescription {
     type Vtable = IMLOperatorTensorShapeDescription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4061039806, 15144, 16968, [190, 149, 249, 111, 188, 110, 70, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf20e8cbe_3b28_4248_be95_f96fbc6e4643);
 }
 impl ::core::convert::From<IMLOperatorTensorShapeDescription> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorTensorShapeDescription) -> Self {
@@ -765,7 +765,7 @@ impl IMLOperatorTypeInferenceContext {
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorTypeInferenceContext {
     type Vtable = IMLOperatorTypeInferenceContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3968416689, 63800, 17019, [132, 136, 200, 220, 247, 117, 241, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec893bb1_f938_427b_8488_c8dcf775f138);
 }
 impl ::core::convert::From<IMLOperatorTypeInferenceContext> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorTypeInferenceContext) -> Self {
@@ -840,7 +840,7 @@ impl IMLOperatorTypeInferrer {
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorTypeInferrer {
     type Vtable = IMLOperatorTypeInferrer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2015030088, 39883, 18327, [191, 119, 139, 244, 85, 33, 123, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x781aeb48_9bcb_4797_bf77_8bf455217beb);
 }
 impl ::core::convert::From<IMLOperatorTypeInferrer> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorTypeInferrer) -> Self {
@@ -893,7 +893,7 @@ impl IWinMLEvaluationContext {
 }
 unsafe impl ::windows::runtime::Interface for IWinMLEvaluationContext {
     type Vtable = IWinMLEvaluationContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2508492702, 22589, 16468, [175, 18, 145, 99, 135, 205, 132, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95848f9e_583d_4054_af12_916387cd8426);
 }
 impl ::core::convert::From<IWinMLEvaluationContext> for ::windows::runtime::IUnknown {
     fn from(value: IWinMLEvaluationContext) -> Self {
@@ -958,7 +958,7 @@ impl IWinMLModel {
 }
 unsafe impl ::windows::runtime::Interface for IWinMLModel {
     type Vtable = IWinMLModel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3807295145, 62239, 16469, [165, 33, 227, 11, 91, 51, 102, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2eeb6a9_f31f_4055_a521_e30b5b33664a);
 }
 impl ::core::convert::From<IWinMLModel> for ::windows::runtime::IUnknown {
     fn from(value: IWinMLModel) -> Self {
@@ -1019,7 +1019,7 @@ impl IWinMLRuntime {
 }
 unsafe impl ::windows::runtime::Interface for IWinMLRuntime {
     type Vtable = IWinMLRuntime_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2688701225, 16558, 18649, [188, 227, 130, 158, 247, 184, 164, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0425329_40ae_48d9_bce3_829ef7b8a41a);
 }
 impl ::core::convert::From<IWinMLRuntime> for ::windows::runtime::IUnknown {
     fn from(value: IWinMLRuntime) -> Self {
@@ -1066,7 +1066,7 @@ impl IWinMLRuntimeFactory {
 }
 unsafe impl ::windows::runtime::Interface for IWinMLRuntimeFactory {
     type Vtable = IWinMLRuntimeFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2819078221, 19173, 19392, [167, 106, 148, 26, 162, 70, 189, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa807b84d_4ae5_4bc0_a76a_941aa246bd41);
 }
 impl ::core::convert::From<IWinMLRuntimeFactory> for ::windows::runtime::IUnknown {
     fn from(value: IWinMLRuntimeFactory) -> Self {

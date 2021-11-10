@@ -30,7 +30,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionDebugHeatMaps {
 }
 unsafe impl ::windows::runtime::Interface for CompositionDebugHeatMaps {
     type Vtable = ICompositionDebugHeatMaps_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3835465900, 12275, 22533, [113, 140, 183, 37, 238, 7, 101, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe49c90ac_2ff3_5805_718c_b725ee07650f);
 }
 impl ::windows::runtime::RuntimeName for CompositionDebugHeatMaps {
     const NAME: &'static str = "Windows.UI.Composition.Diagnostics.CompositionDebugHeatMaps";
@@ -164,7 +164,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionDebugSettings {
 }
 unsafe impl ::windows::runtime::Interface for CompositionDebugSettings {
     type Vtable = ICompositionDebugSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(674338942, 7554, 19768, [183, 183, 239, 209, 28, 123, 195, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2831987e_1d82_4d38_b7b7_efd11c7bc3d1);
 }
 impl ::windows::runtime::RuntimeName for CompositionDebugSettings {
     const NAME: &'static str = "Windows.UI.Composition.Diagnostics.CompositionDebugSettings";
@@ -216,7 +216,7 @@ unsafe impl ::core::marker::Sync for CompositionDebugSettings {}
 pub struct ICompositionDebugHeatMaps(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionDebugHeatMaps {
     type Vtable = ICompositionDebugHeatMaps_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3835465900, 12275, 22533, [113, 140, 183, 37, 238, 7, 101, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe49c90ac_2ff3_5805_718c_b725ee07650f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -237,7 +237,7 @@ pub struct ICompositionDebugHeatMaps_abi(
 pub struct ICompositionDebugSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionDebugSettings {
     type Vtable = ICompositionDebugSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(674338942, 7554, 19768, [183, 183, 239, 209, 28, 123, 195, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2831987e_1d82_4d38_b7b7_efd11c7bc3d1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -255,7 +255,7 @@ pub struct ICompositionDebugSettings_abi(
 pub struct ICompositionDebugSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionDebugSettingsStatics {
     type Vtable = ICompositionDebugSettingsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1693196062, 27384, 19192, [184, 20, 200, 112, 253, 90, 149, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64ec1f1e_6af8_4af8_b814_c870fd5a9505);
 }
 #[repr(C)]
 #[doc(hidden)]

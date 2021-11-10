@@ -59,7 +59,7 @@ unsafe impl ::windows::runtime::RuntimeType for BluetoothLEAdvertisementPublishe
 }
 unsafe impl ::windows::runtime::Interface for BluetoothLEAdvertisementPublisherTriggerDetails {
     type Vtable = IBluetoothLEAdvertisementPublisherTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1628359302, 13440, 16841, [169, 24, 125, 218, 223, 32, 126, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x610eca86_3480_41c9_a918_7ddadf207e00);
 }
 impl ::windows::runtime::RuntimeName for BluetoothLEAdvertisementPublisherTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.BluetoothLEAdvertisementPublisherTriggerDetails";
@@ -142,7 +142,7 @@ unsafe impl ::windows::runtime::RuntimeType for BluetoothLEAdvertisementWatcherT
 }
 unsafe impl ::windows::runtime::Interface for BluetoothLEAdvertisementWatcherTriggerDetails {
     type Vtable = IBluetoothLEAdvertisementWatcherTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2816170711, 8791, 20073, [151, 132, 254, 230, 69, 193, 220, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7db5ad7_2257_4e69_9784_fee645c1dce0);
 }
 impl ::windows::runtime::RuntimeName for BluetoothLEAdvertisementWatcherTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.BluetoothLEAdvertisementWatcherTriggerDetails";
@@ -243,7 +243,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattCharacteristicNotificationTr
 }
 unsafe impl ::windows::runtime::Interface for GattCharacteristicNotificationTriggerDetails {
     type Vtable = IGattCharacteristicNotificationTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2610969368, 4076, 17258, [147, 177, 244, 108, 105, 117, 50, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ba03b18_0fec_436a_93b1_f46c697532a2);
 }
 impl ::windows::runtime::RuntimeName for GattCharacteristicNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.GattCharacteristicNotificationTriggerDetails";
@@ -335,7 +335,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattServiceProviderConnection {
 }
 unsafe impl ::windows::runtime::Interface for GattServiceProviderConnection {
     type Vtable = IGattServiceProviderConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2141305273, 12051, 16565, [149, 130, 142, 183, 142, 152, 239, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fa1b9b9_2f13_40b5_9582_8eb78e98ef13);
 }
 impl ::windows::runtime::RuntimeName for GattServiceProviderConnection {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.GattServiceProviderConnection";
@@ -401,7 +401,7 @@ unsafe impl ::windows::runtime::RuntimeType for GattServiceProviderTriggerDetail
 }
 unsafe impl ::windows::runtime::Interface for GattServiceProviderTriggerDetails {
     type Vtable = IGattServiceProviderTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2928412197, 1535, 19195, [177, 106, 222, 149, 243, 207, 1, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae8c0625_05ff_4afb_b16a_de95f3cf0158);
 }
 impl ::windows::runtime::RuntimeName for GattServiceProviderTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.GattServiceProviderTriggerDetails";
@@ -453,7 +453,7 @@ unsafe impl ::core::marker::Sync for GattServiceProviderTriggerDetails {}
 pub struct IBluetoothLEAdvertisementPublisherTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementPublisherTriggerDetails {
     type Vtable = IBluetoothLEAdvertisementPublisherTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1628359302, 13440, 16841, [169, 24, 125, 218, 223, 32, 126, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x610eca86_3480_41c9_a918_7ddadf207e00);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -473,7 +473,7 @@ pub struct IBluetoothLEAdvertisementPublisherTriggerDetails_abi(
 pub struct IBluetoothLEAdvertisementPublisherTriggerDetails2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementPublisherTriggerDetails2 {
     type Vtable = IBluetoothLEAdvertisementPublisherTriggerDetails2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3567505445, 50689, 17110, [152, 41, 76, 203, 63, 92, 215, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4a3d025_c601_42d6_9829_4ccb3f5cd77f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -492,7 +492,7 @@ pub struct IBluetoothLEAdvertisementPublisherTriggerDetails2_abi(
 pub struct IBluetoothLEAdvertisementWatcherTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementWatcherTriggerDetails {
     type Vtable = IBluetoothLEAdvertisementWatcherTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2816170711, 8791, 20073, [151, 132, 254, 230, 69, 193, 220, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7db5ad7_2257_4e69_9784_fee645c1dce0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -513,7 +513,7 @@ pub struct IBluetoothLEAdvertisementWatcherTriggerDetails_abi(
 pub struct IGattCharacteristicNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristicNotificationTriggerDetails {
     type Vtable = IGattCharacteristicNotificationTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2610969368, 4076, 17258, [147, 177, 244, 108, 105, 117, 50, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ba03b18_0fec_436a_93b1_f46c697532a2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -534,7 +534,7 @@ pub struct IGattCharacteristicNotificationTriggerDetails_abi(
 pub struct IGattCharacteristicNotificationTriggerDetails2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristicNotificationTriggerDetails2 {
     type Vtable = IGattCharacteristicNotificationTriggerDetails2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1920618716, 38045, 17738, [177, 146, 152, 52, 103, 227, 213, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x727a50dc_949d_454a_b192_983467e3d50f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -555,7 +555,7 @@ pub struct IGattCharacteristicNotificationTriggerDetails2_abi(
 pub struct IGattServiceProviderConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderConnection {
     type Vtable = IGattServiceProviderConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2141305273, 12051, 16565, [149, 130, 142, 183, 142, 152, 239, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fa1b9b9_2f13_40b5_9582_8eb78e98ef13);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -576,7 +576,7 @@ pub struct IGattServiceProviderConnection_abi(
 pub struct IGattServiceProviderConnectionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderConnectionStatics {
     type Vtable = IGattServiceProviderConnectionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1028693835, 2830, 17510, [184, 205, 110, 189, 218, 31, 161, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d509f4b_0b0e_4466_b8cd_6ebdda1fa17d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -595,7 +595,7 @@ pub struct IGattServiceProviderConnectionStatics_abi(
 pub struct IGattServiceProviderTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderTriggerDetails {
     type Vtable = IGattServiceProviderTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2928412197, 1535, 19195, [177, 106, 222, 149, 243, 207, 1, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae8c0625_05ff_4afb_b16a_de95f3cf0158);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -613,7 +613,7 @@ pub struct IGattServiceProviderTriggerDetails_abi(
 pub struct IRfcommConnectionTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommConnectionTriggerDetails {
     type Vtable = IRfcommConnectionTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4179784525, 11836, 20220, [171, 89, 252, 92, 249, 111, 151, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf922734d_2e3c_4efc_ab59_fc5cf96f97e3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -634,7 +634,7 @@ pub struct IRfcommConnectionTriggerDetails_abi(
 pub struct IRfcommInboundConnectionInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommInboundConnectionInformation {
     type Vtable = IRfcommInboundConnectionInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1832809896, 21545, 16473, [146, 227, 30, 139, 101, 82, 135, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d3e75a8_5429_4059_92e3_1e8b65528707);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -661,7 +661,7 @@ pub struct IRfcommInboundConnectionInformation_abi(
 pub struct IRfcommOutboundConnectionInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommOutboundConnectionInformation {
     type Vtable = IRfcommOutboundConnectionInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2962301563, 62516, 19632, [153, 177, 74, 184, 206, 218, 237, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb091227b_f434_4cb0_99b1_4ab8cedaedd7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -713,7 +713,7 @@ unsafe impl ::windows::runtime::RuntimeType for RfcommConnectionTriggerDetails {
 }
 unsafe impl ::windows::runtime::Interface for RfcommConnectionTriggerDetails {
     type Vtable = IRfcommConnectionTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4179784525, 11836, 20220, [171, 89, 252, 92, 249, 111, 151, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf922734d_2e3c_4efc_ab59_fc5cf96f97e3);
 }
 impl ::windows::runtime::RuntimeName for RfcommConnectionTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.RfcommConnectionTriggerDetails";
@@ -814,7 +814,7 @@ unsafe impl ::windows::runtime::RuntimeType for RfcommInboundConnectionInformati
 }
 unsafe impl ::windows::runtime::Interface for RfcommInboundConnectionInformation {
     type Vtable = IRfcommInboundConnectionInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1832809896, 21545, 16473, [146, 227, 30, 139, 101, 82, 135, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d3e75a8_5429_4059_92e3_1e8b65528707);
 }
 impl ::windows::runtime::RuntimeName for RfcommInboundConnectionInformation {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.RfcommInboundConnectionInformation";
@@ -887,7 +887,7 @@ unsafe impl ::windows::runtime::RuntimeType for RfcommOutboundConnectionInformat
 }
 unsafe impl ::windows::runtime::Interface for RfcommOutboundConnectionInformation {
     type Vtable = IRfcommOutboundConnectionInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2962301563, 62516, 19632, [153, 177, 74, 184, 206, 218, 237, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb091227b_f434_4cb0_99b1_4ab8cedaedd7);
 }
 impl ::windows::runtime::RuntimeName for RfcommOutboundConnectionInformation {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.RfcommOutboundConnectionInformation";

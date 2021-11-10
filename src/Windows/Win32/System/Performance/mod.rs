@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_System_Performance_HardwareCounterProfiling")]
 pub mod HardwareCounterProfiling;
-pub const AppearPropPage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3835118057, 37800, 19121, [142, 150, 191, 68, 130, 40, 46, 156]);
+pub const AppearPropPage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe49741e9_93a8_4ab1_8e96_bf4482282e9c);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -39,8 +39,8 @@ pub unsafe fn BackupPerfRegistryToFileW<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const BootTraceSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946872, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
-pub const BootTraceSessionCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946873, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+pub const BootTraceSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837538_098b_11d8_9414_505054503030);
+pub const BootTraceSessionCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837539_098b_11d8_9414_505054503030);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -75,12 +75,12 @@ impl ::core::convert::From<i32> for CommitMode {
 unsafe impl ::windows::runtime::Abi for CommitMode {
     type Abi = Self;
 }
-pub const CounterItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3302152416, 53725, 4558, [148, 15, 0, 128, 41, 0, 67, 72]);
-pub const CounterItem2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1125739618, 49951, 19683, [160, 46, 121, 239, 224, 246, 165, 37]);
+pub const CounterItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4d2d8e0_d1dd_11ce_940f_008029004348);
+pub const CounterItem2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43196c62_c31f_4ce3_a02e_79efe0f6a525);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub type CounterPathCallBack = unsafe extern "system" fn(param0: usize) -> i32;
-pub const CounterPropPage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3482617185, 60904, 4558, [148, 30, 0, 128, 41, 0, 67, 71]);
-pub const Counters: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2997905106, 10924, 4559, [148, 47, 0, 128, 41, 0, 67, 71]);
+pub const CounterPropPage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf948561_ede8_11ce_941e_008029004347);
+pub const Counters: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2b066d2_2aac_11cf_942f_008029004347);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -88,7 +88,7 @@ pub struct DICounterItem(pub ::windows::runtime::IUnknown);
 impl DICounterItem {}
 unsafe impl ::windows::runtime::Interface for DICounterItem {
     type Vtable = DICounterItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230420978, 3630, 4559, [148, 44, 0, 128, 41, 0, 67, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc08c4ff2_0e2e_11cf_942c_008029004347);
 }
 impl ::core::convert::From<DICounterItem> for ::windows::runtime::IUnknown {
     fn from(value: DICounterItem) -> Self {
@@ -148,11 +148,11 @@ pub struct DICounterItem_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-pub const DIID_DICounterItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230420978, 3630, 4559, [148, 44, 0, 128, 41, 0, 67, 71]);
-pub const DIID_DILogFileItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2366193660, 63351, 18711, [130, 209, 131, 63, 188, 84, 197, 143]);
-pub const DIID_DISystemMonitor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(332873089, 49966, 4559, [147, 152, 0, 170, 0, 163, 221, 234]);
-pub const DIID_DISystemMonitorEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2224527664, 19123, 4559, [148, 58, 0, 128, 41, 0, 67, 71]);
-pub const DIID_DISystemMonitorInternal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(424587842, 49964, 4559, [147, 152, 0, 170, 0, 163, 221, 234]);
+pub const DIID_DICounterItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc08c4ff2_0e2e_11cf_942c_008029004347);
+pub const DIID_DILogFileItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d093ffc_f777_4917_82d1_833fbc54c58f);
+pub const DIID_DISystemMonitor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13d73d81_c32e_11cf_9398_00aa00a3ddea);
+pub const DIID_DISystemMonitorEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84979930_4ab3_11cf_943a_008029004347);
+pub const DIID_DISystemMonitorInternal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x194eb242_c32c_11cf_9398_00aa00a3ddea);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -160,7 +160,7 @@ pub struct DILogFileItem(pub ::windows::runtime::IUnknown);
 impl DILogFileItem {}
 unsafe impl ::windows::runtime::Interface for DILogFileItem {
     type Vtable = DILogFileItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2366193660, 63351, 18711, [130, 209, 131, 63, 188, 84, 197, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d093ffc_f777_4917_82d1_833fbc54c58f);
 }
 impl ::core::convert::From<DILogFileItem> for ::windows::runtime::IUnknown {
     fn from(value: DILogFileItem) -> Self {
@@ -227,7 +227,7 @@ pub struct DISystemMonitor(pub ::windows::runtime::IUnknown);
 impl DISystemMonitor {}
 unsafe impl ::windows::runtime::Interface for DISystemMonitor {
     type Vtable = DISystemMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(332873089, 49966, 4559, [147, 152, 0, 170, 0, 163, 221, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13d73d81_c32e_11cf_9398_00aa00a3ddea);
 }
 impl ::core::convert::From<DISystemMonitor> for ::windows::runtime::IUnknown {
     fn from(value: DISystemMonitor) -> Self {
@@ -294,7 +294,7 @@ pub struct DISystemMonitorEvents(pub ::windows::runtime::IUnknown);
 impl DISystemMonitorEvents {}
 unsafe impl ::windows::runtime::Interface for DISystemMonitorEvents {
     type Vtable = DISystemMonitorEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2224527664, 19123, 4559, [148, 58, 0, 128, 41, 0, 67, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84979930_4ab3_11cf_943a_008029004347);
 }
 impl ::core::convert::From<DISystemMonitorEvents> for ::windows::runtime::IUnknown {
     fn from(value: DISystemMonitorEvents) -> Self {
@@ -361,7 +361,7 @@ pub struct DISystemMonitorInternal(pub ::windows::runtime::IUnknown);
 impl DISystemMonitorInternal {}
 unsafe impl ::windows::runtime::Interface for DISystemMonitorInternal {
     type Vtable = DISystemMonitorInternal_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(424587842, 49964, 4559, [147, 152, 0, 170, 0, 163, 221, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x194eb242_c32c_11cf_9398_00aa00a3ddea);
 }
 impl ::core::convert::From<DISystemMonitorInternal> for ::windows::runtime::IUnknown {
     fn from(value: DISystemMonitorInternal) -> Self {
@@ -421,8 +421,8 @@ pub struct DISystemMonitorInternal_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-pub const DataCollectorSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946849, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
-pub const DataCollectorSetCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946853, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+pub const DataCollectorSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837521_098b_11d8_9414_505054503030);
+pub const DataCollectorSetCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837525_098b_11d8_9414_505054503030);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -540,8 +540,8 @@ impl ::core::convert::From<i32> for FolderActionSteps {
 unsafe impl ::windows::runtime::Abi for FolderActionSteps {
     type Abi = Self;
 }
-pub const GeneralPropPage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3286619090, 6659, 4559, [148, 45, 0, 128, 41, 0, 67, 71]);
-pub const GraphPropPage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3286619091, 6659, 4559, [148, 45, 0, 128, 41, 0, 67, 71]);
+pub const GeneralPropPage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3e5d3d2_1a03_11cf_942d_008029004347);
+pub const GraphPropPage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3e5d3d3_1a03_11cf_942d_008029004347);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const H_WBEM_DATASOURCE: i32 = -1i32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
@@ -793,7 +793,7 @@ impl IAlertDataCollector {
 }
 unsafe impl ::windows::runtime::Interface for IAlertDataCollector {
     type Vtable = IAlertDataCollector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946838, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837516_098b_11d8_9414_505054503030);
 }
 impl ::core::convert::From<IAlertDataCollector> for ::windows::runtime::IUnknown {
     fn from(value: IAlertDataCollector) -> Self {
@@ -1176,7 +1176,7 @@ impl IApiTracingDataCollector {
 }
 unsafe impl ::windows::runtime::Interface for IApiTracingDataCollector {
     type Vtable = IApiTracingDataCollector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946842, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0383751a_098b_11d8_9414_505054503030);
 }
 impl ::core::convert::From<IApiTracingDataCollector> for ::windows::runtime::IUnknown {
     fn from(value: IApiTracingDataCollector) -> Self {
@@ -1573,7 +1573,7 @@ impl IConfigurationDataCollector {
 }
 unsafe impl ::windows::runtime::Interface for IConfigurationDataCollector {
     type Vtable = IConfigurationDataCollector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946836, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837514_098b_11d8_9414_505054503030);
 }
 impl ::core::convert::From<IConfigurationDataCollector> for ::windows::runtime::IUnknown {
     fn from(value: IConfigurationDataCollector) -> Self {
@@ -1779,7 +1779,7 @@ impl ICounterItem {
 }
 unsafe impl ::windows::runtime::Interface for ICounterItem {
     type Vtable = ICounterItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1998230816, 60968, 4558, [148, 30, 0, 128, 41, 0, 67, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x771a9520_ee28_11ce_941e_008029004347);
 }
 impl ::core::convert::From<ICounterItem> for ::windows::runtime::IUnknown {
     fn from(value: ICounterItem) -> Self {
@@ -1908,7 +1908,7 @@ impl ICounterItem2 {
 }
 unsafe impl ::windows::runtime::Interface for ICounterItem2 {
     type Vtable = ICounterItem2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4009546977, 59932, 17461, [183, 244, 227, 65, 186, 3, 180, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeefcd4e1_ea1c_4435_b7f4_e341ba03b4f9);
 }
 impl ::core::convert::From<ICounterItem2> for ::windows::runtime::IUnknown {
     fn from(value: ICounterItem2) -> Self {
@@ -2011,7 +2011,7 @@ impl ICounters {
 }
 unsafe impl ::windows::runtime::Interface for ICounters {
     type Vtable = ICounters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2031516002, 10492, 4559, [148, 47, 0, 128, 41, 0, 67, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79167962_28fc_11cf_942f_008029004347);
 }
 impl ::core::convert::From<ICounters> for ::windows::runtime::IUnknown {
     fn from(value: ICounters) -> Self {
@@ -2214,7 +2214,7 @@ impl IDataCollector {
 }
 unsafe impl ::windows::runtime::Interface for IDataCollector {
     type Vtable = IDataCollector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946815, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x038374ff_098b_11d8_9414_505054503030);
 }
 impl ::core::convert::From<IDataCollector> for ::windows::runtime::IUnknown {
     fn from(value: IDataCollector) -> Self {
@@ -2362,7 +2362,7 @@ impl IDataCollectorCollection {
 }
 unsafe impl ::windows::runtime::Interface for IDataCollectorCollection {
     type Vtable = IDataCollectorCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946818, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837502_098b_11d8_9414_505054503030);
 }
 impl ::core::convert::From<IDataCollectorCollection> for ::windows::runtime::IUnknown {
     fn from(value: IDataCollectorCollection) -> Self {
@@ -2751,7 +2751,7 @@ impl IDataCollectorSet {
 }
 unsafe impl ::windows::runtime::Interface for IDataCollectorSet {
     type Vtable = IDataCollectorSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946848, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837520_098b_11d8_9414_505054503030);
 }
 impl ::core::convert::From<IDataCollectorSet> for ::windows::runtime::IUnknown {
     fn from(value: IDataCollectorSet) -> Self {
@@ -2952,7 +2952,7 @@ impl IDataCollectorSetCollection {
 }
 unsafe impl ::windows::runtime::Interface for IDataCollectorSetCollection {
     type Vtable = IDataCollectorSetCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946852, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837524_098b_11d8_9414_505054503030);
 }
 impl ::core::convert::From<IDataCollectorSetCollection> for ::windows::runtime::IUnknown {
     fn from(value: IDataCollectorSetCollection) -> Self {
@@ -3156,7 +3156,7 @@ impl IDataManager {
 }
 unsafe impl ::windows::runtime::Interface for IDataManager {
     type Vtable = IDataManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946881, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837541_098b_11d8_9414_505054503030);
 }
 impl ::core::convert::From<IDataManager> for ::windows::runtime::IUnknown {
     fn from(value: IDataManager) -> Self {
@@ -3299,7 +3299,7 @@ impl IFolderAction {
 }
 unsafe impl ::windows::runtime::Interface for IFolderAction {
     type Vtable = IFolderAction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946883, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837543_098b_11d8_9414_505054503030);
 }
 impl ::core::convert::From<IFolderAction> for ::windows::runtime::IUnknown {
     fn from(value: IFolderAction) -> Self {
@@ -3415,7 +3415,7 @@ impl IFolderActionCollection {
 }
 unsafe impl ::windows::runtime::Interface for IFolderActionCollection {
     type Vtable = IFolderActionCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946884, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837544_098b_11d8_9414_505054503030);
 }
 impl ::core::convert::From<IFolderActionCollection> for ::windows::runtime::IUnknown {
     fn from(value: IFolderActionCollection) -> Self {
@@ -3499,7 +3499,7 @@ impl ILogFileItem {
 }
 unsafe impl ::windows::runtime::Interface for ILogFileItem {
     type Vtable = ILogFileItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3602192605, 1479, 16778, [137, 230, 79, 156, 232, 198, 132, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6b518dd_05c7_418a_89e6_4f9ce8c6841e);
 }
 impl ::core::convert::From<ILogFileItem> for ::windows::runtime::IUnknown {
     fn from(value: ILogFileItem) -> Self {
@@ -3565,7 +3565,7 @@ impl ILogFiles {
 }
 unsafe impl ::windows::runtime::Interface for ILogFiles {
     type Vtable = ILogFiles_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1781176294, 26705, 16874, [135, 173, 42, 130, 37, 51, 88, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a2a97e6_6851_41ea_87ad_2a8225335865);
 }
 impl ::core::convert::From<ILogFiles> for ::windows::runtime::IUnknown {
     fn from(value: ILogFiles) -> Self {
@@ -3849,7 +3849,7 @@ impl IPerformanceCounterDataCollector {
 }
 unsafe impl ::windows::runtime::Interface for IPerformanceCounterDataCollector {
     type Vtable = IPerformanceCounterDataCollector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946822, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837506_098b_11d8_9414_505054503030);
 }
 impl ::core::convert::From<IPerformanceCounterDataCollector> for ::windows::runtime::IUnknown {
     fn from(value: IPerformanceCounterDataCollector) -> Self {
@@ -4030,7 +4030,7 @@ impl ISchedule {
 }
 unsafe impl ::windows::runtime::Interface for ISchedule {
     type Vtable = ISchedule_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946874, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0383753a_098b_11d8_9414_505054503030);
 }
 impl ::core::convert::From<ISchedule> for ::windows::runtime::IUnknown {
     fn from(value: ISchedule) -> Self {
@@ -4150,7 +4150,7 @@ impl IScheduleCollection {
 }
 unsafe impl ::windows::runtime::Interface for IScheduleCollection {
     type Vtable = IScheduleCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946877, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0383753d_098b_11d8_9414_505054503030);
 }
 impl ::core::convert::From<IScheduleCollection> for ::windows::runtime::IUnknown {
     fn from(value: IScheduleCollection) -> Self {
@@ -4581,7 +4581,7 @@ impl ISystemMonitor {
 }
 unsafe impl ::windows::runtime::Interface for ISystemMonitor {
     type Vtable = ISystemMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(424587841, 49964, 4559, [147, 152, 0, 170, 0, 163, 221, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x194eb241_c32c_11cf_9398_00aa00a3ddea);
 }
 impl ::core::convert::From<ISystemMonitor> for ::windows::runtime::IUnknown {
     fn from(value: ISystemMonitor) -> Self {
@@ -5150,7 +5150,7 @@ impl ISystemMonitor2 {
 }
 unsafe impl ::windows::runtime::Interface for ISystemMonitor2 {
     type Vtable = ISystemMonitor2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(149102698, 24530, 20446, [168, 165, 140, 179, 182, 61, 38, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08e3206a_5fd2_4fde_a8a5_8cb3b63d2677);
 }
 impl ::core::convert::From<ISystemMonitor2> for ::windows::runtime::IUnknown {
     fn from(value: ISystemMonitor2) -> Self {
@@ -5339,7 +5339,7 @@ impl ISystemMonitorEvents {
 }
 unsafe impl ::windows::runtime::Interface for ISystemMonitorEvents {
     type Vtable = ISystemMonitorEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3999665824, 19133, 4559, [148, 58, 0, 128, 41, 0, 67, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee660ea0_4abd_11cf_943a_008029004347);
 }
 impl ::core::convert::From<ISystemMonitorEvents> for ::windows::runtime::IUnknown {
     fn from(value: ISystemMonitorEvents) -> Self {
@@ -5723,7 +5723,7 @@ impl ITraceDataCollector {
 }
 unsafe impl ::windows::runtime::Interface for ITraceDataCollector {
     type Vtable = ITraceDataCollector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946827, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0383750b_098b_11d8_9414_505054503030);
 }
 impl ::core::convert::From<ITraceDataCollector> for ::windows::runtime::IUnknown {
     fn from(value: ITraceDataCollector) -> Self {
@@ -5985,7 +5985,7 @@ impl ITraceDataProvider {
 }
 unsafe impl ::windows::runtime::Interface for ITraceDataProvider {
     type Vtable = ITraceDataProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946834, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837512_098b_11d8_9414_505054503030);
 }
 impl ::core::convert::From<ITraceDataProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITraceDataProvider) -> Self {
@@ -6128,7 +6128,7 @@ impl ITraceDataProviderCollection {
 }
 unsafe impl ::windows::runtime::Interface for ITraceDataProviderCollection {
     type Vtable = ITraceDataProviderCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946832, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837510_098b_11d8_9414_505054503030);
 }
 impl ::core::convert::From<ITraceDataProviderCollection> for ::windows::runtime::IUnknown {
     fn from(value: ITraceDataProviderCollection) -> Self {
@@ -6280,7 +6280,7 @@ impl IValueMap {
 }
 unsafe impl ::windows::runtime::Interface for IValueMap {
     type Vtable = IValueMap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946868, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837534_098b_11d8_9414_505054503030);
 }
 impl ::core::convert::From<IValueMap> for ::windows::runtime::IUnknown {
     fn from(value: IValueMap) -> Self {
@@ -6420,7 +6420,7 @@ impl IValueMapItem {
 }
 unsafe impl ::windows::runtime::Interface for IValueMapItem {
     type Vtable = IValueMapItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946867, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837533_098b_11d8_9414_505054503030);
 }
 impl ::core::convert::From<IValueMapItem> for ::windows::runtime::IUnknown {
     fn from(value: IValueMapItem) -> Self {
@@ -6526,11 +6526,11 @@ pub unsafe fn InstallPerfDllW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const LIBID_SystemMonitor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(460799554, 9481, 4559, [148, 47, 0, 128, 41, 0, 67, 71]);
-pub const LegacyDataCollectorSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946854, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
-pub const LegacyDataCollectorSetCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946855, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
-pub const LegacyTraceSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946856, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
-pub const LegacyTraceSessionCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946857, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+pub const LIBID_SystemMonitor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b773e42_2509_11cf_942f_008029004347);
+pub const LegacyDataCollectorSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837526_098b_11d8_9414_505054503030);
+pub const LegacyDataCollectorSetCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837527_098b_11d8_9414_505054503030);
+pub const LegacyTraceSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837528_098b_11d8_9414_505054503030);
+pub const LegacyTraceSessionCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837529_098b_11d8_9414_505054503030);
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -6561,8 +6561,8 @@ pub unsafe fn LoadPerfCounterTextStringsW<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const LogFileItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(384588776, 57235, 16951, [148, 228, 158, 233, 24, 17, 29, 113]);
-pub const LogFiles: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657840637, 63161, 20249, [165, 217, 226, 208, 104, 88, 75, 197]);
+pub const LogFileItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16ec5be8_df93_4237_94e4_9ee918111d71);
+pub const LogFiles: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2735d9fd_f6b9_4f19_a5d9_e2d068584bc5);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const MAX_COUNTER_PATH: u32 = 256u32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
@@ -11480,9 +11480,9 @@ pub unsafe fn RestorePerfRegistryFromFileW<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const S_PDH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(81159000, 50337, 16795, [128, 35, 35, 183, 57, 2, 222, 44]);
-pub const ServerDataCollectorSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946865, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
-pub const ServerDataCollectorSetCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946866, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+pub const S_PDH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04d66358_c4a1_419b_8023_23b73902de2c);
+pub const ServerDataCollectorSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837531_098b_11d8_9414_505054503030);
+pub const ServerDataCollectorSetCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837532_098b_11d8_9414_505054503030);
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -11513,7 +11513,7 @@ pub unsafe fn SetServiceAsTrustedW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const SourcePropPage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(217262753, 30065, 4560, [147, 196, 0, 170, 0, 163, 221, 234]);
+pub const SourcePropPage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cf32aa1_7571_11d0_93c4_00aa00a3ddea);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -11582,14 +11582,14 @@ impl ::core::convert::From<i32> for SysmonFileType {
 unsafe impl ::windows::runtime::Abi for SysmonFileType {
     type Abi = Self;
 }
-pub const SystemDataCollectorSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946886, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
-pub const SystemDataCollectorSetCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946887, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
-pub const SystemMonitor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3302152416, 53725, 4558, [148, 15, 0, 128, 41, 0, 67, 71]);
-pub const SystemMonitor2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2133874572, 24376, 17938, [172, 254, 110, 208, 76, 123, 122, 248]);
-pub const TraceDataProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946835, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
-pub const TraceDataProviderCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946833, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
-pub const TraceSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946844, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
-pub const TraceSessionCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946864, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
+pub const SystemDataCollectorSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837546_098b_11d8_9414_505054503030);
+pub const SystemDataCollectorSetCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837547_098b_11d8_9414_505054503030);
+pub const SystemMonitor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4d2d8e0_d1dd_11ce_940f_008029004347);
+pub const SystemMonitor2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f30578c_5f38_4612_acfe_6ed04c7b7af8);
+pub const TraceDataProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837513_098b_11d8_9414_505054503030);
+pub const TraceDataProviderCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837511_098b_11d8_9414_505054503030);
+pub const TraceSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0383751c_098b_11d8_9414_505054503030);
+pub const TraceSessionCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03837530_098b_11d8_9414_505054503030);
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -11782,7 +11782,7 @@ impl _ICounterItemUnion {
 }
 unsafe impl ::windows::runtime::Interface for _ICounterItemUnion {
     type Vtable = _ICounterItemUnion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3726273396, 37250, 19521, [142, 44, 36, 194, 205, 48, 238, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde1a6b74_9182_4c41_8e2c_24c2cd30ee83);
 }
 impl ::core::convert::From<_ICounterItemUnion> for ::windows::runtime::IUnknown {
     fn from(value: _ICounterItemUnion) -> Self {
@@ -12281,7 +12281,7 @@ impl _ISystemMonitorUnion {
 }
 unsafe impl ::windows::runtime::Interface for _ISystemMonitorUnion {
     type Vtable = _ISystemMonitorUnion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3366417208, 9823, 19941, [170, 37, 199, 218, 28, 229, 168, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8a77338_265f_4de5_aa25_c7da1ce5a8f4);
 }
 impl ::core::convert::From<_ISystemMonitorUnion> for ::windows::runtime::IUnknown {
     fn from(value: _ISystemMonitorUnion) -> Self {

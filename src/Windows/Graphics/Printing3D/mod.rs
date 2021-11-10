@@ -4,7 +4,7 @@
 pub struct IPrint3DManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DManager {
     type Vtable = IPrint3DManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1294977802, 29542, 18801, [139, 213, 23, 196, 227, 232, 198, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d2fcb0a_7366_4971_8bd5_17c4e3e8c6c0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25,7 +25,7 @@ pub struct IPrint3DManager_abi(
 pub struct IPrint3DManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DManagerStatics {
     type Vtable = IPrint3DManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(250727166, 43437, 19464, [169, 23, 29, 31, 134, 62, 171, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ef1cafe_a9ad_4c08_a917_1d1f863eabcb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -45,7 +45,7 @@ pub struct IPrint3DManagerStatics_abi(
 pub struct IPrint3DTask(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DTask {
     type Vtable = IPrint3DTask_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2363740288, 8472, 19496, [128, 222, 244, 38, 215, 1, 145, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ce3d080_2118_4c28_80de_f426d70191ae);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -75,7 +75,7 @@ pub struct IPrint3DTask_abi(
 pub struct IPrint3DTaskCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DTaskCompletedEventArgs {
     type Vtable = IPrint3DTaskCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3424195759, 9748, 20253, [172, 204, 214, 252, 79, 218, 84, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc1914af_2614_4f1d_accc_d6fc4fda5455);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -94,7 +94,7 @@ pub struct IPrint3DTaskCompletedEventArgs_abi(
 pub struct IPrint3DTaskRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DTaskRequest {
     type Vtable = IPrint3DTaskRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(630572143, 8773, 19546, [135, 49, 13, 96, 77, 198, 188, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2595c46f_2245_4c5a_8731_0d604dc6bc3c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -112,7 +112,7 @@ pub struct IPrint3DTaskRequest_abi(
 pub struct IPrint3DTaskRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DTaskRequestedEventArgs {
     type Vtable = IPrint3DTaskRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(353154943, 6341, 16599, [159, 64, 250, 179, 9, 110, 5, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x150cb77f_18c5_40d7_9f40_fab3096e05a9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -130,7 +130,7 @@ pub struct IPrint3DTaskRequestedEventArgs_abi(
 pub struct IPrint3DTaskSourceChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DTaskSourceChangedEventArgs {
     type Vtable = IPrint3DTaskSourceChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1540175023, 9449, 19472, [141, 7, 20, 195, 70, 186, 63, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5bcd34af_24e9_4c10_8d07_14c346ba3fcf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -148,7 +148,7 @@ pub struct IPrint3DTaskSourceChangedEventArgs_abi(
 pub struct IPrint3DTaskSourceRequestedArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DTaskSourceRequestedArgs {
     type Vtable = IPrint3DTaskSourceRequestedArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3346832058, 9391, 16973, [163, 191, 146, 37, 12, 53, 86, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc77c9aba_24af_424d_a3bf_92250c355602);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -166,7 +166,7 @@ pub struct IPrint3DTaskSourceRequestedArgs_abi(
 pub struct IPrinting3D3MFPackage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3D3MFPackage {
     type Vtable = IPrinting3D3MFPackage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4132296136, 10935, 17833, [161, 183, 38, 126, 148, 141, 91, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf64dd5c8_2ab7_45a9_a1b7_267e948d5b18);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -201,7 +201,7 @@ pub struct IPrinting3D3MFPackage_abi(
 pub struct IPrinting3D3MFPackage2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3D3MFPackage2 {
     type Vtable = IPrinting3D3MFPackage2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2522643140, 37835, 17456, [146, 184, 120, 156, 212, 84, 248, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x965c7ac4_93cb_4430_92b8_789cd454f883);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -220,7 +220,7 @@ pub struct IPrinting3D3MFPackage2_abi(
 pub struct IPrinting3D3MFPackageStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3D3MFPackageStatics {
     type Vtable = IPrinting3D3MFPackageStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1884871087, 31386, 18311, [184, 23, 246, 244, 89, 33, 72, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7058d9af_7a9a_4787_b817_f6f459214823);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -239,7 +239,7 @@ pub struct IPrinting3D3MFPackageStatics_abi(
 pub struct IPrinting3DBaseMaterial(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DBaseMaterial {
     type Vtable = IPrinting3DBaseMaterial_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3505448771, 50444, 19403, [157, 4, 252, 22, 173, 206, 162, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0f0e743_c50c_4bcb_9d04_fc16adcea2c9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -260,7 +260,7 @@ pub struct IPrinting3DBaseMaterial_abi(
 pub struct IPrinting3DBaseMaterialGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DBaseMaterialGroup {
     type Vtable = IPrinting3DBaseMaterialGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2498785464, 9493, 19085, [161, 240, 208, 252, 19, 208, 96, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94f070b8_2515_4a8d_a1f0_d0fc13d06021);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -280,7 +280,7 @@ pub struct IPrinting3DBaseMaterialGroup_abi(
 pub struct IPrinting3DBaseMaterialGroupFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DBaseMaterialGroupFactory {
     type Vtable = IPrinting3DBaseMaterialGroupFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1544898268, 34455, 16787, [151, 107, 132, 187, 65, 22, 229, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c1546dc_8697_4193_976b_84bb4116e5bf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -298,7 +298,7 @@ pub struct IPrinting3DBaseMaterialGroupFactory_abi(
 pub struct IPrinting3DBaseMaterialStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DBaseMaterialStatics {
     type Vtable = IPrinting3DBaseMaterialStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2170177468, 14154, 18285, [190, 146, 62, 207, 209, 203, 151, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x815a47bc_374a_476d_be92_3ecfd1cb9776);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -317,7 +317,7 @@ pub struct IPrinting3DBaseMaterialStatics_abi(
 pub struct IPrinting3DColorMaterial(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DColorMaterial {
     type Vtable = IPrinting3DColorMaterial_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3783891240, 31975, 17029, [163, 93, 241, 69, 201, 81, 12, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1899928_7ce7_4285_a35d_f145c9510c7b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -336,7 +336,7 @@ pub struct IPrinting3DColorMaterial_abi(
 pub struct IPrinting3DColorMaterial2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DColorMaterial2 {
     type Vtable = IPrinting3DColorMaterial2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4205897810, 2799, 17641, [157, 221, 54, 238, 234, 90, 205, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfab0e852_0aef_44e9_9ddd_36eeea5acd44);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -357,7 +357,7 @@ pub struct IPrinting3DColorMaterial2_abi(
 pub struct IPrinting3DColorMaterialGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DColorMaterialGroup {
     type Vtable = IPrinting3DColorMaterialGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1731536, 43743, 16934, [175, 233, 243, 105, 160, 180, 80, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x001a6bd0_aadf_4226_afe9_f369a0b45004);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -377,7 +377,7 @@ pub struct IPrinting3DColorMaterialGroup_abi(
 pub struct IPrinting3DColorMaterialGroupFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DColorMaterialGroupFactory {
     type Vtable = IPrinting3DColorMaterialGroupFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1909689709, 45546, 19035, [188, 84, 25, 198, 95, 61, 240, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71d38d6d_b1ea_4a5b_bc54_19c65f3df044);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -395,7 +395,7 @@ pub struct IPrinting3DColorMaterialGroupFactory_abi(
 pub struct IPrinting3DComponent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DComponent {
     type Vtable = IPrinting3DComponent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2116581445, 49023, 19675, [162, 127, 48, 160, 20, 55, 254, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e287845_bf7f_4cdb_a27f_30a01437fede);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -424,7 +424,7 @@ pub struct IPrinting3DComponent_abi(
 pub struct IPrinting3DComponentWithMatrix(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DComponentWithMatrix {
     type Vtable = IPrinting3DComponentWithMatrix_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(846852917, 3824, 17771, [154, 33, 73, 190, 190, 139, 81, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3279f335_0ef0_456b_9a21_49bebe8b51c2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -447,7 +447,7 @@ pub struct IPrinting3DComponentWithMatrix_abi(
 pub struct IPrinting3DCompositeMaterial(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DCompositeMaterial {
     type Vtable = IPrinting3DCompositeMaterial_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1176647901, 22062, 20332, [136, 45, 244, 216, 65, 253, 99, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x462238dd_562e_4f6c_882d_f4d841fd63c7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -466,7 +466,7 @@ pub struct IPrinting3DCompositeMaterial_abi(
 pub struct IPrinting3DCompositeMaterialGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DCompositeMaterialGroup {
     type Vtable = IPrinting3DCompositeMaterialGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2375314011, 16625, 18797, [165, 251, 52, 10, 90, 103, 142, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d946a5b_40f1_496d_a5fb_340a5a678e30);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -488,7 +488,7 @@ pub struct IPrinting3DCompositeMaterialGroup_abi(
 pub struct IPrinting3DCompositeMaterialGroup2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DCompositeMaterialGroup2 {
     type Vtable = IPrinting3DCompositeMaterialGroup2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(115895650, 32059, 16865, [148, 76, 186, 253, 228, 85, 84, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06e86d62_7d3b_41e1_944c_bafde4555483);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -507,7 +507,7 @@ pub struct IPrinting3DCompositeMaterialGroup2_abi(
 pub struct IPrinting3DCompositeMaterialGroupFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DCompositeMaterialGroupFactory {
     type Vtable = IPrinting3DCompositeMaterialGroupFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3499019539, 37631, 17322, [166, 39, 141, 67, 194, 44, 129, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd08ecd13_92ff_43aa_a627_8d43c22c817e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -525,7 +525,7 @@ pub struct IPrinting3DCompositeMaterialGroupFactory_abi(
 pub struct IPrinting3DFaceReductionOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DFaceReductionOptions {
     type Vtable = IPrinting3DFaceReductionOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3154039703, 11636, 18167, [190, 133, 153, 166, 123, 187, 102, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbbfed397_2d74_46f7_be85_99a67bbb6629);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -548,7 +548,7 @@ pub struct IPrinting3DFaceReductionOptions_abi(
 pub struct IPrinting3DMaterial(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DMaterial {
     type Vtable = IPrinting3DMaterial_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(932033110, 60770, 18770, [184, 91, 3, 86, 125, 124, 70, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x378db256_ed62_4952_b85b_03567d7c465e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -575,7 +575,7 @@ pub struct IPrinting3DMaterial_abi(
 pub struct IPrinting3DMesh(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DMesh {
     type Vtable = IPrinting3DMesh_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(422482140, 552, 11777, [188, 32, 197, 41, 12, 191, 50, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x192e90dc_0228_2e01_bc20_c5290cbf32c4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -622,7 +622,7 @@ pub struct IPrinting3DMesh_abi(
 pub struct IPrinting3DMeshVerificationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DMeshVerificationResult {
     type Vtable = IPrinting3DMeshVerificationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(425095610, 59706, 20106, [164, 111, 222, 168, 232, 82, 25, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x195671ba_e93a_4e8a_a46f_dea8e852197e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -644,7 +644,7 @@ pub struct IPrinting3DMeshVerificationResult_abi(
 pub struct IPrinting3DModel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DModel {
     type Vtable = IPrinting3DModel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(755052272, 21243, 37274, [119, 176, 75, 26, 59, 128, 50, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d012ef0_52fb_919a_77b0_4b1a3b80324f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -682,7 +682,7 @@ pub struct IPrinting3DModel_abi(
 pub struct IPrinting3DModel2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DModel2 {
     type Vtable = IPrinting3DModel2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3374344647, 51265, 18419, [168, 78, 161, 73, 253, 8, 182, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc92069c7_c841_47f3_a84e_a149fd08b657);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -711,7 +711,7 @@ pub struct IPrinting3DModel2_abi(
 pub struct IPrinting3DModelTexture(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DModelTexture {
     type Vtable = IPrinting3DModelTexture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1571802881, 46493, 18492, [151, 187, 164, 213, 70, 209, 199, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5dafcf01_b59d_483c_97bb_a4d546d1c75c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -734,7 +734,7 @@ pub struct IPrinting3DModelTexture_abi(
 pub struct IPrinting3DMultiplePropertyMaterial(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DMultiplePropertyMaterial {
     type Vtable = IPrinting3DMultiplePropertyMaterial_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(631645515, 50921, 18509, [162, 20, 162, 94, 87, 118, 186, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25a6254b_c6e9_484d_a214_a25e5776ba62);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -753,7 +753,7 @@ pub struct IPrinting3DMultiplePropertyMaterial_abi(
 pub struct IPrinting3DMultiplePropertyMaterialGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DMultiplePropertyMaterialGroup {
     type Vtable = IPrinting3DMultiplePropertyMaterialGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4036298009, 44729, 17685, [163, 155, 160, 136, 251, 187, 39, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0950519_aeb9_4515_a39b_a088fbbb277c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -775,7 +775,7 @@ pub struct IPrinting3DMultiplePropertyMaterialGroup_abi(
 pub struct IPrinting3DMultiplePropertyMaterialGroupFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DMultiplePropertyMaterialGroupFactory {
     type Vtable = IPrinting3DMultiplePropertyMaterialGroupFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(842930542, 54470, 17694, [168, 20, 77, 120, 162, 16, 254, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x323e196e_d4c6_451e_a814_4d78a210fe53);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -793,7 +793,7 @@ pub struct IPrinting3DMultiplePropertyMaterialGroupFactory_abi(
 pub struct IPrinting3DTexture2CoordMaterial(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DTexture2CoordMaterial {
     type Vtable = IPrinting3DTexture2CoordMaterial_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2374257659, 2025, 18822, [152, 51, 141, 211, 212, 140, 104, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d844bfb_07e9_4986_9833_8dd3d48c6859);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -816,7 +816,7 @@ pub struct IPrinting3DTexture2CoordMaterial_abi(
 pub struct IPrinting3DTexture2CoordMaterialGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DTexture2CoordMaterialGroup {
     type Vtable = IPrinting3DTexture2CoordMaterialGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1652391079, 28048, 20409, [159, 196, 159, 239, 243, 223, 168, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x627d7ca7_6d90_4fb9_9fc4_9feff3dfa892);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -836,7 +836,7 @@ pub struct IPrinting3DTexture2CoordMaterialGroup_abi(
 pub struct IPrinting3DTexture2CoordMaterialGroup2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DTexture2CoordMaterialGroup2 {
     type Vtable = IPrinting3DTexture2CoordMaterialGroup2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1778113466, 45358, 17051, [131, 134, 223, 82, 132, 246, 232, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69fbdbba_b12e_429b_8386_df5284f6e80f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -855,7 +855,7 @@ pub struct IPrinting3DTexture2CoordMaterialGroup2_abi(
 pub struct IPrinting3DTexture2CoordMaterialGroupFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DTexture2CoordMaterialGroupFactory {
     type Vtable = IPrinting3DTexture2CoordMaterialGroupFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3417328048, 18058, 19567, [178, 162, 142, 184, 186, 141, 234, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcbb049b0_468a_4c6f_b2a2_8eb8ba8dea48);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -873,7 +873,7 @@ pub struct IPrinting3DTexture2CoordMaterialGroupFactory_abi(
 pub struct IPrinting3DTextureResource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DTextureResource {
     type Vtable = IPrinting3DTextureResource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2802709293, 27313, 17582, [188, 69, 162, 115, 130, 192, 211, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa70df32d_6ab1_44ae_bc45_a27382c0d38c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -936,7 +936,7 @@ unsafe impl ::windows::runtime::RuntimeType for Print3DManager {
 }
 unsafe impl ::windows::runtime::Interface for Print3DManager {
     type Vtable = IPrint3DManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1294977802, 29542, 18801, [139, 213, 23, 196, 227, 232, 198, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d2fcb0a_7366_4971_8bd5_17c4e3e8c6c0);
 }
 impl ::windows::runtime::RuntimeName for Print3DManager {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DManager";
@@ -1047,7 +1047,7 @@ unsafe impl ::windows::runtime::RuntimeType for Print3DTask {
 }
 unsafe impl ::windows::runtime::Interface for Print3DTask {
     type Vtable = IPrint3DTask_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2363740288, 8472, 19496, [128, 222, 244, 38, 215, 1, 145, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ce3d080_2118_4c28_80de_f426d70191ae);
 }
 impl ::windows::runtime::RuntimeName for Print3DTask {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTask";
@@ -1121,7 +1121,7 @@ unsafe impl ::windows::runtime::RuntimeType for Print3DTaskCompletedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for Print3DTaskCompletedEventArgs {
     type Vtable = IPrint3DTaskCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3424195759, 9748, 20253, [172, 204, 214, 252, 79, 218, 84, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc1914af_2614_4f1d_accc_d6fc4fda5455);
 }
 impl ::windows::runtime::RuntimeName for Print3DTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskCompletedEventArgs";
@@ -1239,7 +1239,7 @@ unsafe impl ::windows::runtime::RuntimeType for Print3DTaskRequest {
 }
 unsafe impl ::windows::runtime::Interface for Print3DTaskRequest {
     type Vtable = IPrint3DTaskRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(630572143, 8773, 19546, [135, 49, 13, 96, 77, 198, 188, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2595c46f_2245_4c5a_8731_0d604dc6bc3c);
 }
 impl ::windows::runtime::RuntimeName for Print3DTaskRequest {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskRequest";
@@ -1305,7 +1305,7 @@ unsafe impl ::windows::runtime::RuntimeType for Print3DTaskRequestedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for Print3DTaskRequestedEventArgs {
     type Vtable = IPrint3DTaskRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(353154943, 6341, 16599, [159, 64, 250, 179, 9, 110, 5, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x150cb77f_18c5_40d7_9f40_fab3096e05a9);
 }
 impl ::windows::runtime::RuntimeName for Print3DTaskRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskRequestedEventArgs";
@@ -1371,7 +1371,7 @@ unsafe impl ::windows::runtime::RuntimeType for Print3DTaskSourceChangedEventArg
 }
 unsafe impl ::windows::runtime::Interface for Print3DTaskSourceChangedEventArgs {
     type Vtable = IPrint3DTaskSourceChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1540175023, 9449, 19472, [141, 7, 20, 195, 70, 186, 63, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5bcd34af_24e9_4c10_8d07_14c346ba3fcf);
 }
 impl ::windows::runtime::RuntimeName for Print3DTaskSourceChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskSourceChangedEventArgs";
@@ -1434,7 +1434,7 @@ unsafe impl ::windows::runtime::RuntimeType for Print3DTaskSourceRequestedArgs {
 }
 unsafe impl ::windows::runtime::Interface for Print3DTaskSourceRequestedArgs {
     type Vtable = IPrint3DTaskSourceRequestedArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3346832058, 9391, 16973, [163, 191, 146, 37, 12, 53, 86, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc77c9aba_24af_424d_a3bf_92250c355602);
 }
 impl ::windows::runtime::RuntimeName for Print3DTaskSourceRequestedArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskSourceRequestedArgs";
@@ -1505,7 +1505,7 @@ unsafe impl ::windows::runtime::RuntimeType for Print3DTaskSourceRequestedHandle
 }
 unsafe impl ::windows::runtime::Interface for Print3DTaskSourceRequestedHandler {
     type Vtable = Print3DTaskSourceRequestedHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3910622832, 51479, 18142, [187, 81, 217, 169, 77, 179, 113, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9175e70_c917_46de_bb51_d9a94db3711f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1676,7 +1676,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3D3MFPackage {
 }
 unsafe impl ::windows::runtime::Interface for Printing3D3MFPackage {
     type Vtable = IPrinting3D3MFPackage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4132296136, 10935, 17833, [161, 183, 38, 126, 148, 141, 91, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf64dd5c8_2ab7_45a9_a1b7_267e948d5b18);
 }
 impl ::windows::runtime::RuntimeName for Printing3D3MFPackage {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3D3MFPackage";
@@ -1785,7 +1785,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3DBaseMaterial {
 }
 unsafe impl ::windows::runtime::Interface for Printing3DBaseMaterial {
     type Vtable = IPrinting3DBaseMaterial_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3505448771, 50444, 19403, [157, 4, 252, 22, 173, 206, 162, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0f0e743_c50c_4bcb_9d04_fc16adcea2c9);
 }
 impl ::windows::runtime::RuntimeName for Printing3DBaseMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DBaseMaterial";
@@ -1871,7 +1871,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3DBaseMaterialGroup {
 }
 unsafe impl ::windows::runtime::Interface for Printing3DBaseMaterialGroup {
     type Vtable = IPrinting3DBaseMaterialGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2498785464, 9493, 19085, [161, 240, 208, 252, 19, 208, 96, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94f070b8_2515_4a8d_a1f0_d0fc13d06021);
 }
 impl ::windows::runtime::RuntimeName for Printing3DBaseMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DBaseMaterialGroup";
@@ -2024,7 +2024,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3DColorMaterial {
 }
 unsafe impl ::windows::runtime::Interface for Printing3DColorMaterial {
     type Vtable = IPrinting3DColorMaterial_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3783891240, 31975, 17029, [163, 93, 241, 69, 201, 81, 12, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1899928_7ce7_4285_a35d_f145c9510c7b);
 }
 impl ::windows::runtime::RuntimeName for Printing3DColorMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DColorMaterial";
@@ -2110,7 +2110,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3DColorMaterialGroup {
 }
 unsafe impl ::windows::runtime::Interface for Printing3DColorMaterialGroup {
     type Vtable = IPrinting3DColorMaterialGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1731536, 43743, 16934, [175, 233, 243, 105, 160, 180, 80, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x001a6bd0_aadf_4226_afe9_f369a0b45004);
 }
 impl ::windows::runtime::RuntimeName for Printing3DColorMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DColorMaterialGroup";
@@ -2249,7 +2249,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3DComponent {
 }
 unsafe impl ::windows::runtime::Interface for Printing3DComponent {
     type Vtable = IPrinting3DComponent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2116581445, 49023, 19675, [162, 127, 48, 160, 20, 55, 254, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e287845_bf7f_4cdb_a27f_30a01437fede);
 }
 impl ::windows::runtime::RuntimeName for Printing3DComponent {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DComponent";
@@ -2342,7 +2342,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3DComponentWithMatrix {
 }
 unsafe impl ::windows::runtime::Interface for Printing3DComponentWithMatrix {
     type Vtable = IPrinting3DComponentWithMatrix_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(846852917, 3824, 17771, [154, 33, 73, 190, 190, 139, 81, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3279f335_0ef0_456b_9a21_49bebe8b51c2);
 }
 impl ::windows::runtime::RuntimeName for Printing3DComponentWithMatrix {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DComponentWithMatrix";
@@ -2416,7 +2416,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3DCompositeMaterial {
 }
 unsafe impl ::windows::runtime::Interface for Printing3DCompositeMaterial {
     type Vtable = IPrinting3DCompositeMaterial_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1176647901, 22062, 20332, [136, 45, 244, 216, 65, 253, 99, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x462238dd_562e_4f6c_882d_f4d841fd63c7);
 }
 impl ::windows::runtime::RuntimeName for Printing3DCompositeMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DCompositeMaterial";
@@ -2524,7 +2524,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3DCompositeMaterialGroup
 }
 unsafe impl ::windows::runtime::Interface for Printing3DCompositeMaterialGroup {
     type Vtable = IPrinting3DCompositeMaterialGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2375314011, 16625, 18797, [165, 251, 52, 10, 90, 103, 142, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d946a5b_40f1_496d_a5fb_340a5a678e30);
 }
 impl ::windows::runtime::RuntimeName for Printing3DCompositeMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DCompositeMaterialGroup";
@@ -2631,7 +2631,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3DFaceReductionOptions {
 }
 unsafe impl ::windows::runtime::Interface for Printing3DFaceReductionOptions {
     type Vtable = IPrinting3DFaceReductionOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3154039703, 11636, 18167, [190, 133, 153, 166, 123, 187, 102, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbbfed397_2d74_46f7_be85_99a67bbb6629);
 }
 impl ::windows::runtime::RuntimeName for Printing3DFaceReductionOptions {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DFaceReductionOptions";
@@ -2741,7 +2741,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3DMaterial {
 }
 unsafe impl ::windows::runtime::Interface for Printing3DMaterial {
     type Vtable = IPrinting3DMaterial_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(932033110, 60770, 18770, [184, 91, 3, 86, 125, 124, 70, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x378db256_ed62_4952_b85b_03567d7c465e);
 }
 impl ::windows::runtime::RuntimeName for Printing3DMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMaterial";
@@ -2967,7 +2967,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3DMesh {
 }
 unsafe impl ::windows::runtime::Interface for Printing3DMesh {
     type Vtable = IPrinting3DMesh_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(422482140, 552, 11777, [188, 32, 197, 41, 12, 191, 50, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x192e90dc_0228_2e01_bc20_c5290cbf32c4);
 }
 impl ::windows::runtime::RuntimeName for Printing3DMesh {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMesh";
@@ -3073,7 +3073,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3DMeshVerificationResult
 }
 unsafe impl ::windows::runtime::Interface for Printing3DMeshVerificationResult {
     type Vtable = IPrinting3DMeshVerificationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(425095610, 59706, 20106, [164, 111, 222, 168, 232, 82, 25, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x195671ba_e93a_4e8a_a46f_dea8e852197e);
 }
 impl ::windows::runtime::RuntimeName for Printing3DMeshVerificationResult {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMeshVerificationResult";
@@ -3306,7 +3306,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3DModel {
 }
 unsafe impl ::windows::runtime::Interface for Printing3DModel {
     type Vtable = IPrinting3DModel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(755052272, 21243, 37274, [119, 176, 75, 26, 59, 128, 50, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d012ef0_52fb_919a_77b0_4b1a3b80324f);
 }
 impl ::windows::runtime::RuntimeName for Printing3DModel {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DModel";
@@ -3410,7 +3410,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3DModelTexture {
 }
 unsafe impl ::windows::runtime::Interface for Printing3DModelTexture {
     type Vtable = IPrinting3DModelTexture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1571802881, 46493, 18492, [151, 187, 164, 213, 70, 209, 199, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5dafcf01_b59d_483c_97bb_a4d546d1c75c);
 }
 impl ::windows::runtime::RuntimeName for Printing3DModelTexture {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DModelTexture";
@@ -3510,7 +3510,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3DMultiplePropertyMateri
 }
 unsafe impl ::windows::runtime::Interface for Printing3DMultiplePropertyMaterial {
     type Vtable = IPrinting3DMultiplePropertyMaterial_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(631645515, 50921, 18509, [162, 20, 162, 94, 87, 118, 186, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25a6254b_c6e9_484d_a214_a25e5776ba62);
 }
 impl ::windows::runtime::RuntimeName for Printing3DMultiplePropertyMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterial";
@@ -3605,7 +3605,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3DMultiplePropertyMateri
 }
 unsafe impl ::windows::runtime::Interface for Printing3DMultiplePropertyMaterialGroup {
     type Vtable = IPrinting3DMultiplePropertyMaterialGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4036298009, 44729, 17685, [163, 155, 160, 136, 251, 187, 39, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0950519_aeb9_4515_a39b_a088fbbb277c);
 }
 impl ::windows::runtime::RuntimeName for Printing3DMultiplePropertyMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterialGroup";
@@ -3755,7 +3755,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3DTexture2CoordMaterial 
 }
 unsafe impl ::windows::runtime::Interface for Printing3DTexture2CoordMaterial {
     type Vtable = IPrinting3DTexture2CoordMaterial_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2374257659, 2025, 18822, [152, 51, 141, 211, 212, 140, 104, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d844bfb_07e9_4986_9833_8dd3d48c6859);
 }
 impl ::windows::runtime::RuntimeName for Printing3DTexture2CoordMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterial";
@@ -3854,7 +3854,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3DTexture2CoordMaterialG
 }
 unsafe impl ::windows::runtime::Interface for Printing3DTexture2CoordMaterialGroup {
     type Vtable = IPrinting3DTexture2CoordMaterialGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1652391079, 28048, 20409, [159, 196, 159, 239, 243, 223, 168, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x627d7ca7_6d90_4fb9_9fc4_9feff3dfa892);
 }
 impl ::windows::runtime::RuntimeName for Printing3DTexture2CoordMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterialGroup";
@@ -3971,7 +3971,7 @@ unsafe impl ::windows::runtime::RuntimeType for Printing3DTextureResource {
 }
 unsafe impl ::windows::runtime::Interface for Printing3DTextureResource {
     type Vtable = IPrinting3DTextureResource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2802709293, 27313, 17582, [188, 69, 162, 115, 130, 192, 211, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa70df32d_6ab1_44ae_bc45_a27382c0d38c);
 }
 impl ::windows::runtime::RuntimeName for Printing3DTextureResource {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DTextureResource";

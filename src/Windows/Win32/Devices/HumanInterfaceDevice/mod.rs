@@ -37,10 +37,10 @@ pub const BUTTON_BIT_VOLUMEDOWN: u32 = 8u32;
 pub const BUTTON_BIT_VOLUMEUP: u32 = 4u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const BUTTON_BIT_WINDOWS: u32 = 2u32;
-pub const CLSID_DirectInput: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(635832800, 45657, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const CLSID_DirectInput8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(635832804, 45657, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const CLSID_DirectInputDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(635832801, 45657, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const CLSID_DirectInputDevice8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(635832805, 45657, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const CLSID_DirectInput: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25e609e0_b259_11cf_bfc7_444553540000);
+pub const CLSID_DirectInput8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25e609e4_b259_11cf_bfc7_444553540000);
+pub const CLSID_DirectInputDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25e609e1_b259_11cf_bfc7_444553540000);
+pub const CLSID_DirectInputDevice8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25e609e5_b259_11cf_bfc7_444553540000);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
@@ -71,49 +71,49 @@ unsafe impl ::windows::runtime::Abi for CPOINT {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceInterface_HID_BackgroundAccess: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceInterface_HID_IsReadOnly: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceInterface_HID_ProductId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceInterface_HID_UsageId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceInterface_HID_UsagePage: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceInterface_HID_VendorId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceInterface_HID_VersionNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceInterface_HID_WakeScreenOnInputCapable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b),
     pid: 9u32,
 };
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
@@ -5867,45 +5867,45 @@ impl ::core::convert::From<i32> for GPIOBUTTONS_BUTTON_TYPE {
 unsafe impl ::windows::runtime::Abi for GPIOBUTTONS_BUTTON_TYPE {
     type Abi = Self;
 }
-pub const GUID_Button: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830384, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const GUID_ConstantForce: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279328, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
-pub const GUID_CustomForce: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279339, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
-pub const GUID_DEVINTERFACE_HID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1293833650, 61807, 4559, [136, 203, 0, 17, 17, 0, 0, 48]);
-pub const GUID_DEVINTERFACE_KEYBOARD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286655171, 22255, 4561, [188, 140, 0, 160, 201, 20, 5, 221]);
-pub const GUID_DEVINTERFACE_MOUSE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(932045900, 22255, 4561, [188, 140, 0, 160, 201, 20, 5, 221]);
-pub const GUID_Damper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279336, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
-pub const GUID_Friction: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279338, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
-pub const GUID_HIDClass: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1952061344, 29907, 4560, [182, 254, 0, 160, 201, 15, 87, 218]);
-pub const GUID_HID_INTERFACE_HIDPARSE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4123202981, 27052, 19394, [146, 121, 208, 182, 69, 118, 244, 75]);
-pub const GUID_HID_INTERFACE_NOTIFY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(743321224, 9702, 19507, [136, 47, 61, 130, 230, 7, 54, 129]);
-pub const GUID_Inertia: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279337, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
-pub const GUID_Joystick: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1864182640, 54688, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const GUID_Key: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1433567776, 54076, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const GUID_KeyboardClass: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1295444331, 58149, 4558, [191, 193, 8, 0, 43, 225, 3, 24]);
-pub const GUID_MediaClass: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1295444332, 58149, 4558, [191, 193, 8, 0, 43, 225, 3, 24]);
-pub const GUID_MouseClass: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1295444335, 58149, 4558, [191, 193, 8, 0, 43, 225, 3, 24]);
-pub const GUID_POV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830386, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const GUID_RampForce: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279329, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
-pub const GUID_RxAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830388, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const GUID_RyAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830389, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const GUID_RzAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830371, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const GUID_SawtoothDown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279334, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
-pub const GUID_SawtoothUp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279333, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
-pub const GUID_Sine: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279331, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
-pub const GUID_Slider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830372, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const GUID_Spring: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279335, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
-pub const GUID_Square: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279330, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
-pub const GUID_SysKeyboard: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1864182625, 54688, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const GUID_SysKeyboardEm: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1864182658, 54688, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const GUID_SysKeyboardEm2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1864182659, 54688, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const GUID_SysMouse: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1864182624, 54688, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const GUID_SysMouseEm: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1864182656, 54688, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const GUID_SysMouseEm2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1864182657, 54688, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const GUID_Triangle: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279332, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
-pub const GUID_Unknown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830387, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const GUID_XAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830368, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const GUID_YAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830369, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const GUID_ZAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830370, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const GUID_Button: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa36d02f0_c9f3_11cf_bfc7_444553540000);
+pub const GUID_ConstantForce: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13541c20_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_CustomForce: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13541c2b_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_DEVINTERFACE_HID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d1e55b2_f16f_11cf_88cb_001111000030);
+pub const GUID_DEVINTERFACE_KEYBOARD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884b96c3_56ef_11d1_bc8c_00a0c91405dd);
+pub const GUID_DEVINTERFACE_MOUSE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x378de44c_56ef_11d1_bc8c_00a0c91405dd);
+pub const GUID_Damper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13541c28_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_Friction: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13541c2a_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_HIDClass: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x745a17a0_74d3_11d0_b6fe_00a0c90f57da);
+pub const GUID_HID_INTERFACE_HIDPARSE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5c315a5_69ac_4bc2_9279_d0b64576f44b);
+pub const GUID_HID_INTERFACE_NOTIFY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c4e2e88_25e6_4c33_882f_3d82e6073681);
+pub const GUID_Inertia: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13541c29_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_Joystick: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f1d2b70_d5a0_11cf_bfc7_444553540000);
+pub const GUID_Key: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55728220_d33c_11cf_bfc7_444553540000);
+pub const GUID_KeyboardClass: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d36e96b_e325_11ce_bfc1_08002be10318);
+pub const GUID_MediaClass: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d36e96c_e325_11ce_bfc1_08002be10318);
+pub const GUID_MouseClass: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d36e96f_e325_11ce_bfc1_08002be10318);
+pub const GUID_POV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa36d02f2_c9f3_11cf_bfc7_444553540000);
+pub const GUID_RampForce: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13541c21_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_RxAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa36d02f4_c9f3_11cf_bfc7_444553540000);
+pub const GUID_RyAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa36d02f5_c9f3_11cf_bfc7_444553540000);
+pub const GUID_RzAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa36d02e3_c9f3_11cf_bfc7_444553540000);
+pub const GUID_SawtoothDown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13541c26_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_SawtoothUp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13541c25_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_Sine: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13541c23_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_Slider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa36d02e4_c9f3_11cf_bfc7_444553540000);
+pub const GUID_Spring: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13541c27_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_Square: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13541c22_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_SysKeyboard: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f1d2b61_d5a0_11cf_bfc7_444553540000);
+pub const GUID_SysKeyboardEm: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f1d2b82_d5a0_11cf_bfc7_444553540000);
+pub const GUID_SysKeyboardEm2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f1d2b83_d5a0_11cf_bfc7_444553540000);
+pub const GUID_SysMouse: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f1d2b60_d5a0_11cf_bfc7_444553540000);
+pub const GUID_SysMouseEm: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f1d2b80_d5a0_11cf_bfc7_444553540000);
+pub const GUID_SysMouseEm2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f1d2b81_d5a0_11cf_bfc7_444553540000);
+pub const GUID_Triangle: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13541c24_8e33_11d0_9ad0_00a0c9a06e35);
+pub const GUID_Unknown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa36d02f3_c9f3_11cf_bfc7_444553540000);
+pub const GUID_XAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa36d02e0_c9f3_11cf_bfc7_444553540000);
+pub const GUID_YAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa36d02e1_c9f3_11cf_bfc7_444553540000);
+pub const GUID_ZAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa36d02e2_c9f3_11cf_bfc7_444553540000);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
@@ -8708,7 +8708,7 @@ impl IDirectInput2A {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInput2A {
     type Vtable = IDirectInput2A_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687650, 43658, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5944e662_aa8a_11cf_bfc7_444553540000);
 }
 impl ::core::convert::From<IDirectInput2A> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInput2A) -> Self {
@@ -8803,7 +8803,7 @@ impl IDirectInput2W {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInput2W {
     type Vtable = IDirectInput2W_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687651, 43658, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5944e663_aa8a_11cf_bfc7_444553540000);
 }
 impl ::core::convert::From<IDirectInput2W> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInput2W) -> Self {
@@ -8902,7 +8902,7 @@ impl IDirectInput7A {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInput7A {
     type Vtable = IDirectInput7A_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2588718724, 9069, 4563, [142, 157, 0, 192, 79, 104, 68, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a4cb684_236d_11d3_8e9d_00c04f6844ae);
 }
 impl ::core::convert::From<IDirectInput7A> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInput7A) -> Self {
@@ -9022,7 +9022,7 @@ impl IDirectInput7W {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInput7W {
     type Vtable = IDirectInput7W_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2588718725, 9069, 4563, [142, 157, 0, 192, 79, 104, 68, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a4cb685_236d_11d3_8e9d_00c04f6844ae);
 }
 impl ::core::convert::From<IDirectInput7W> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInput7W) -> Self {
@@ -9148,7 +9148,7 @@ impl IDirectInput8A {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInput8A {
     type Vtable = IDirectInput8A_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3212410928, 18490, 19874, [170, 153, 93, 100, 237, 54, 151, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf798030_483a_4da2_aa99_5d64ed369700);
 }
 impl ::core::convert::From<IDirectInput8A> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInput8A) -> Self {
@@ -9237,7 +9237,7 @@ impl IDirectInput8W {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInput8W {
     type Vtable = IDirectInput8W_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3212410929, 18490, 19874, [170, 153, 93, 100, 237, 54, 151, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf798031_483a_4da2_aa99_5d64ed369700);
 }
 impl ::core::convert::From<IDirectInput8W> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInput8W) -> Self {
@@ -9311,7 +9311,7 @@ impl IDirectInputA {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputA {
     type Vtable = IDirectInputA_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2303857504, 43658, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89521360_aa8a_11cf_bfc7_444553540000);
 }
 impl ::core::convert::From<IDirectInputA> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputA) -> Self {
@@ -9462,7 +9462,7 @@ impl IDirectInputDevice2A {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDevice2A {
     type Vtable = IDirectInputDevice2A_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687682, 51502, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5944e682_c92e_11cf_bfc7_444553540000);
 }
 impl ::core::convert::From<IDirectInputDevice2A> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDevice2A) -> Self {
@@ -9656,7 +9656,7 @@ impl IDirectInputDevice2W {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDevice2W {
     type Vtable = IDirectInputDevice2W_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687683, 51502, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5944e683_c92e_11cf_bfc7_444553540000);
 }
 impl ::core::convert::From<IDirectInputDevice2W> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDevice2W) -> Self {
@@ -9860,7 +9860,7 @@ impl IDirectInputDevice7A {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDevice7A {
     type Vtable = IDirectInputDevice7A_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473758908, 9046, 4563, [142, 157, 0, 192, 79, 104, 68, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57d7c6bc_2356_11d3_8e9d_00c04f6844ae);
 }
 impl ::core::convert::From<IDirectInputDevice7A> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDevice7A) -> Self {
@@ -10088,7 +10088,7 @@ impl IDirectInputDevice7W {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDevice7W {
     type Vtable = IDirectInputDevice7W_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473758909, 9046, 4563, [142, 157, 0, 192, 79, 104, 68, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57d7c6bd_2356_11d3_8e9d_00c04f6844ae);
 }
 impl ::core::convert::From<IDirectInputDevice7W> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDevice7W) -> Self {
@@ -10331,7 +10331,7 @@ impl IDirectInputDevice8A {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDevice8A {
     type Vtable = IDirectInputDevice8A_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1423184000, 56341, 18483, [164, 27, 116, 143, 115, 163, 129, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54d41080_dc15_4833_a41b_748f73a38179);
 }
 impl ::core::convert::From<IDirectInputDevice8A> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDevice8A) -> Self {
@@ -10540,7 +10540,7 @@ impl IDirectInputDevice8W {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDevice8W {
     type Vtable = IDirectInputDevice8W_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1423184001, 56341, 18483, [164, 27, 116, 143, 115, 163, 129, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54d41081_dc15_4833_a41b_748f73a38179);
 }
 impl ::core::convert::From<IDirectInputDevice8W> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDevice8W) -> Self {
@@ -10685,7 +10685,7 @@ impl IDirectInputDeviceA {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDeviceA {
     type Vtable = IDirectInputDeviceA_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687680, 51502, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5944e680_c92e_11cf_bfc7_444553540000);
 }
 impl ::core::convert::From<IDirectInputDeviceA> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDeviceA) -> Self {
@@ -10809,7 +10809,7 @@ impl IDirectInputDeviceW {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDeviceW {
     type Vtable = IDirectInputDeviceW_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687681, 51502, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5944e681_c92e_11cf_bfc7_444553540000);
 }
 impl ::core::convert::From<IDirectInputDeviceW> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDeviceW) -> Self {
@@ -10907,7 +10907,7 @@ impl IDirectInputEffect {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputEffect {
     type Vtable = IDirectInputEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3890345920, 35026, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7e1f7c0_88d2_11d0_9ad0_00a0c9a06e35);
 }
 impl ::core::convert::From<IDirectInputEffect> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputEffect) -> Self {
@@ -10999,7 +10999,7 @@ impl IDirectInputEffectDriver {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputEffectDriver {
     type Vtable = IDirectInputEffectDriver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(39026992, 35215, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02538130_898f_11d0_9ad0_00a0c9a06e35);
 }
 impl ::core::convert::From<IDirectInputEffectDriver> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputEffectDriver) -> Self {
@@ -11119,7 +11119,7 @@ impl IDirectInputJoyConfig {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputJoyConfig {
     type Vtable = IDirectInputJoyConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(501295793, 51701, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1de12ab1_c9f5_11cf_bfc7_444553540000);
 }
 impl ::core::convert::From<IDirectInputJoyConfig> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputJoyConfig) -> Self {
@@ -11252,7 +11252,7 @@ impl IDirectInputJoyConfig8 {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputJoyConfig8 {
     type Vtable = IDirectInputJoyConfig8_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3943529978, 6544, 20263, [180, 214, 237, 242, 238, 196, 164, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb0d7dfa_1990_4f27_b4d6_edf2eec4a44c);
 }
 impl ::core::convert::From<IDirectInputJoyConfig8> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputJoyConfig8) -> Self {
@@ -11336,7 +11336,7 @@ impl IDirectInputW {
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputW {
     type Vtable = IDirectInputW_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2303857505, 43658, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89521361_aa8a_11cf_bfc7_444553540000);
 }
 impl ::core::convert::From<IDirectInputW> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputW) -> Self {

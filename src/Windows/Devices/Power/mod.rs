@@ -67,7 +67,7 @@ unsafe impl ::windows::runtime::RuntimeType for Battery {
 }
 unsafe impl ::windows::runtime::Interface for Battery {
     type Vtable = IBattery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3163115462, 114, 18376, [139, 93, 97, 74, 170, 122, 67, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc894fc6_0072_47c8_8b5d_614aaa7a437e);
 }
 impl ::windows::runtime::RuntimeName for Battery {
     const NAME: &'static str = "Windows.Devices.Power.Battery";
@@ -170,7 +170,7 @@ unsafe impl ::windows::runtime::RuntimeType for BatteryReport {
 }
 unsafe impl ::windows::runtime::Interface for BatteryReport {
     type Vtable = IBatteryReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3380972602, 19987, 16906, [168, 208, 36, 241, 143, 57, 84, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9858c3a_4e13_420a_a8d0_24f18f395401);
 }
 impl ::windows::runtime::RuntimeName for BatteryReport {
     const NAME: &'static str = "Windows.Devices.Power.BatteryReport";
@@ -222,7 +222,7 @@ unsafe impl ::core::marker::Sync for BatteryReport {}
 pub struct IBattery(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBattery {
     type Vtable = IBattery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3163115462, 114, 18376, [139, 93, 97, 74, 170, 122, 67, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc894fc6_0072_47c8_8b5d_614aaa7a437e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -245,7 +245,7 @@ pub struct IBattery_abi(
 pub struct IBatteryReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBatteryReport {
     type Vtable = IBatteryReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3380972602, 19987, 16906, [168, 208, 36, 241, 143, 57, 84, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9858c3a_4e13_420a_a8d0_24f18f395401);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -272,7 +272,7 @@ pub struct IBatteryReport_abi(
 pub struct IBatteryStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBatteryStatics {
     type Vtable = IBatteryStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2043507382, 40542, 17490, [190, 166, 223, 205, 84, 30, 89, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79cd72b6_9e5e_4452_bea6_dfcd541e597f);
 }
 #[repr(C)]
 #[doc(hidden)]

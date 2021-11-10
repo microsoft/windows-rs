@@ -50,7 +50,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppActivationResult {
 }
 unsafe impl ::windows::runtime::Interface for AppActivationResult {
     type Vtable = IAppActivationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1800571136, 62574, 20144, [170, 108, 56, 175, 85, 124, 249, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b528900_f46e_4eb0_aa6c_38af557cf9ed);
 }
 impl ::windows::runtime::RuntimeName for AppActivationResult {
     const NAME: &'static str = "Windows.System.AppActivationResult";
@@ -198,7 +198,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppDiagnosticInfo {
 }
 unsafe impl ::windows::runtime::Interface for AppDiagnosticInfo {
     type Vtable = IAppDiagnosticInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3813189274, 34953, 19619, [190, 7, 213, 255, 255, 95, 8, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe348a69a_8889_4ca3_be07_d5ffff5f0804);
 }
 impl ::windows::runtime::RuntimeName for AppDiagnosticInfo {
     const NAME: &'static str = "Windows.System.AppDiagnosticInfo";
@@ -334,7 +334,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppDiagnosticInfoWatcher {
 }
 unsafe impl ::windows::runtime::Interface for AppDiagnosticInfoWatcher {
     type Vtable = IAppDiagnosticInfoWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1968656496, 467, 18586, [147, 37, 82, 249, 204, 110, 222, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75575070_01d3_489a_9325_52f9cc6ede0a);
 }
 impl ::windows::runtime::RuntimeName for AppDiagnosticInfoWatcher {
     const NAME: &'static str = "Windows.System.AppDiagnosticInfoWatcher";
@@ -400,7 +400,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppDiagnosticInfoWatcherEventArg
 }
 unsafe impl ::windows::runtime::Interface for AppDiagnosticInfoWatcherEventArgs {
     type Vtable = IAppDiagnosticInfoWatcherEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1880606486, 57818, 19557, [153, 223, 4, 109, 255, 91, 231, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7017c716_e1da_4c65_99df_046dff5be71a);
 }
 impl ::windows::runtime::RuntimeName for AppDiagnosticInfoWatcherEventArgs {
     const NAME: &'static str = "Windows.System.AppDiagnosticInfoWatcherEventArgs";
@@ -492,7 +492,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppExecutionStateChangeResult {
 }
 unsafe impl ::windows::runtime::Interface for AppExecutionStateChangeResult {
     type Vtable = IAppExecutionStateChangeResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1862507504, 63771, 19960, [174, 119, 48, 51, 204, 182, 145, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f039bf0_f91b_4df8_ae77_3033ccb69114);
 }
 impl ::windows::runtime::RuntimeName for AppExecutionStateChangeResult {
     const NAME: &'static str = "Windows.System.AppExecutionStateChangeResult";
@@ -590,7 +590,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppMemoryReport {
 }
 unsafe impl ::windows::runtime::Interface for AppMemoryReport {
     type Vtable = IAppMemoryReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1835348891, 19823, 17852, [156, 94, 228, 155, 63, 242, 117, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d65339b_4d6f_45bc_9c5e_e49b3ff2758d);
 }
 impl ::windows::runtime::RuntimeName for AppMemoryReport {
     const NAME: &'static str = "Windows.System.AppMemoryReport";
@@ -688,7 +688,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppMemoryUsageLimitChangingEvent
 }
 unsafe impl ::windows::runtime::Interface for AppMemoryUsageLimitChangingEventArgs {
     type Vtable = IAppMemoryUsageLimitChangingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2046322276, 65226, 19877, [158, 64, 43, 198, 62, 253, 201, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79f86664_feca_4da5_9e40_2bc63efdc979);
 }
 impl ::windows::runtime::RuntimeName for AppMemoryUsageLimitChangingEventArgs {
     const NAME: &'static str = "Windows.System.AppMemoryUsageLimitChangingEventArgs";
@@ -778,7 +778,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppResourceGroupBackgroundTaskRe
 }
 unsafe impl ::windows::runtime::Interface for AppResourceGroupBackgroundTaskReport {
     type Vtable = IAppResourceGroupBackgroundTaskReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(627500878, 45149, 16578, [157, 193, 26, 79, 3, 158, 161, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2566e74e_b05d_40c2_9dc1_1a4f039ea120);
 }
 impl ::windows::runtime::RuntimeName for AppResourceGroupBackgroundTaskReport {
     const NAME: &'static str = "Windows.System.AppResourceGroupBackgroundTaskReport";
@@ -961,7 +961,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppResourceGroupInfo {
 }
 unsafe impl ::windows::runtime::Interface for AppResourceGroupInfo {
     type Vtable = IAppResourceGroupInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3105093498, 59399, 18932, [132, 94, 123, 139, 220, 254, 142, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb913f77a_e807_49f4_845e_7b8bdcfe8ee7);
 }
 impl ::windows::runtime::RuntimeName for AppResourceGroupInfo {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfo";
@@ -1112,7 +1112,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppResourceGroupInfoWatcher {
 }
 unsafe impl ::windows::runtime::Interface for AppResourceGroupInfoWatcher {
     type Vtable = IAppResourceGroupInfoWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3652231421, 28250, 19570, [139, 23, 9, 254, 196, 162, 18, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9b0a0fd_6e5a_4c72_8b17_09fec4a212bd);
 }
 impl ::windows::runtime::RuntimeName for AppResourceGroupInfoWatcher {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfoWatcher";
@@ -1187,7 +1187,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppResourceGroupInfoWatcherEvent
 }
 unsafe impl ::windows::runtime::Interface for AppResourceGroupInfoWatcherEventArgs {
     type Vtable = IAppResourceGroupInfoWatcherEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2054714935, 25346, 19759, [191, 137, 28, 18, 208, 178, 166, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a787637_6302_4d2f_bf89_1c12d0b2a6b9);
 }
 impl ::windows::runtime::RuntimeName for AppResourceGroupInfoWatcherEventArgs {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfoWatcherEventArgs";
@@ -1262,7 +1262,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppResourceGroupInfoWatcherExecu
 }
 unsafe impl ::windows::runtime::Interface for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     type Vtable = IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(467398103, 65254, 20436, [152, 221, 233, 42, 44, 194, 153, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bdbedd7_fee6_4fd4_98dd_e92a2cc299f3);
 }
 impl ::windows::runtime::RuntimeName for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfoWatcherExecutionStateChangedEventArgs";
@@ -1378,7 +1378,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppResourceGroupMemoryReport {
 }
 unsafe impl ::windows::runtime::Interface for AppResourceGroupMemoryReport {
     type Vtable = IAppResourceGroupMemoryReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747374257, 32177, 19537, [162, 37, 127, 174, 45, 73, 228, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c8c06b1_7db1_4c51_a225_7fae2d49e431);
 }
 impl ::windows::runtime::RuntimeName for AppResourceGroupMemoryReport {
     const NAME: &'static str = "Windows.System.AppResourceGroupMemoryReport";
@@ -1452,7 +1452,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppResourceGroupStateReport {
 }
 unsafe impl ::windows::runtime::Interface for AppResourceGroupStateReport {
     type Vtable = IAppResourceGroupStateReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1384423192, 12144, 16950, [171, 64, 208, 77, 176, 199, 185, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52849f18_2f70_4236_ab40_d04db0c7b931);
 }
 impl ::windows::runtime::RuntimeName for AppResourceGroupStateReport {
     const NAME: &'static str = "Windows.System.AppResourceGroupStateReport";
@@ -1554,7 +1554,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppUriHandlerHost {
 }
 unsafe impl ::windows::runtime::Interface for AppUriHandlerHost {
     type Vtable = IAppUriHandlerHost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1565575877, 37586, 21513, [181, 111, 127, 115, 225, 14, 164, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d50cac5_92d2_5409_b56f_7f73e10ea4c3);
 }
 impl ::windows::runtime::RuntimeName for AppUriHandlerHost {
     const NAME: &'static str = "Windows.System.AppUriHandlerHost";
@@ -1669,7 +1669,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppUriHandlerRegistration {
 }
 unsafe impl ::windows::runtime::Interface for AppUriHandlerRegistration {
     type Vtable = IAppUriHandlerRegistration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1869852337, 17769, 23615, [155, 160, 153, 18, 62, 234, 50, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f73aeb1_4569_5c3f_9ba0_99123eea32c3);
 }
 impl ::windows::runtime::RuntimeName for AppUriHandlerRegistration {
     const NAME: &'static str = "Windows.System.AppUriHandlerRegistration";
@@ -1787,7 +1787,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppUriHandlerRegistrationManager
 }
 unsafe impl ::windows::runtime::Interface for AppUriHandlerRegistrationManager {
     type Vtable = IAppUriHandlerRegistrationManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3861682770, 44180, 22352, [172, 27, 108, 251, 111, 37, 2, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe62c9a52_ac94_5750_ac1b_6cfb6f250263);
 }
 impl ::windows::runtime::RuntimeName for AppUriHandlerRegistrationManager {
     const NAME: &'static str = "Windows.System.AppUriHandlerRegistrationManager";
@@ -1981,7 +1981,7 @@ unsafe impl ::windows::runtime::RuntimeType for DispatcherQueue {
 }
 unsafe impl ::windows::runtime::Interface for DispatcherQueue {
     type Vtable = IDispatcherQueue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1614711012, 41784, 20478, [164, 87, 165, 207, 185, 206, 184, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x603e88e4_a338_4ffe_a457_a5cfb9ceb899);
 }
 impl ::windows::runtime::RuntimeName for DispatcherQueue {
     const NAME: &'static str = "Windows.System.DispatcherQueue";
@@ -2067,7 +2067,7 @@ unsafe impl ::windows::runtime::RuntimeType for DispatcherQueueController {
 }
 unsafe impl ::windows::runtime::Interface for DispatcherQueueController {
     type Vtable = IDispatcherQueueController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(586370662, 20699, 20022, [169, 141, 97, 192, 27, 56, 77, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22f34e66_50db_4e36_a98d_61c01b384d20);
 }
 impl ::windows::runtime::RuntimeName for DispatcherQueueController {
     const NAME: &'static str = "Windows.System.DispatcherQueueController";
@@ -2138,7 +2138,7 @@ unsafe impl ::windows::runtime::RuntimeType for DispatcherQueueHandler {
 }
 unsafe impl ::windows::runtime::Interface for DispatcherQueueHandler {
     type Vtable = DispatcherQueueHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3751992476, 6701, 18711, [152, 242, 147, 154, 241, 214, 224, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdfa2dc9c_1a2d_4917_98f2_939af1d6e0c8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2230,7 +2230,7 @@ unsafe impl ::windows::runtime::RuntimeType for DispatcherQueueShutdownStartingE
 }
 unsafe impl ::windows::runtime::Interface for DispatcherQueueShutdownStartingEventArgs {
     type Vtable = IDispatcherQueueShutdownStartingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3295824972, 65431, 16576, [162, 38, 204, 10, 170, 84, 94, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4724c4c_ff97_40c0_a226_cc0aaa545e89);
 }
 impl ::windows::runtime::RuntimeName for DispatcherQueueShutdownStartingEventArgs {
     const NAME: &'static str = "Windows.System.DispatcherQueueShutdownStartingEventArgs";
@@ -2349,7 +2349,7 @@ unsafe impl ::windows::runtime::RuntimeType for DispatcherQueueTimer {
 }
 unsafe impl ::windows::runtime::Interface for DispatcherQueueTimer {
     type Vtable = IDispatcherQueueTimer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1609218845, 41756, 18215, [177, 172, 55, 69, 70, 73, 213, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5feabb1d_a31c_4727_b1ac_37454649d56a);
 }
 impl ::windows::runtime::RuntimeName for DispatcherQueueTimer {
     const NAME: &'static str = "Windows.System.DispatcherQueueTimer";
@@ -2438,7 +2438,7 @@ unsafe impl ::windows::runtime::RuntimeType for FolderLauncherOptions {
 }
 unsafe impl ::windows::runtime::Interface for FolderLauncherOptions {
     type Vtable = IFolderLauncherOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3146891901, 27527, 17194, [189, 4, 119, 108, 111, 95, 178, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb91c27d_6b87_432a_bd04_776c6f5fb2ab);
 }
 impl ::windows::runtime::RuntimeName for FolderLauncherOptions {
     const NAME: &'static str = "Windows.System.FolderLauncherOptions";
@@ -2512,7 +2512,7 @@ unsafe impl ::core::marker::Sync for FolderLauncherOptions {}
 pub struct IAppActivationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppActivationResult {
     type Vtable = IAppActivationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1800571136, 62574, 20144, [170, 108, 56, 175, 85, 124, 249, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b528900_f46e_4eb0_aa6c_38af557cf9ed);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2531,7 +2531,7 @@ pub struct IAppActivationResult_abi(
 pub struct IAppDiagnosticInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppDiagnosticInfo {
     type Vtable = IAppDiagnosticInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3813189274, 34953, 19619, [190, 7, 213, 255, 255, 95, 8, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe348a69a_8889_4ca3_be07_d5ffff5f0804);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2550,7 +2550,7 @@ pub struct IAppDiagnosticInfo_abi(
 pub struct IAppDiagnosticInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppDiagnosticInfo2 {
     type Vtable = IAppDiagnosticInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3745971159, 6426, 17516, [148, 115, 143, 188, 35, 116, 163, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf46fbd7_191a_446c_9473_8fbc2374a354);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2570,7 +2570,7 @@ pub struct IAppDiagnosticInfo2_abi(
 pub struct IAppDiagnosticInfo3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppDiagnosticInfo3 {
     type Vtable = IAppDiagnosticInfo3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3365258813, 56673, 19557, [186, 189, 129, 161, 11, 79, 152, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc895c63d_dd61_4c65_babd_81a10b4f9815);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2589,7 +2589,7 @@ pub struct IAppDiagnosticInfo3_abi(
 pub struct IAppDiagnosticInfoStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppDiagnosticInfoStatics {
     type Vtable = IAppDiagnosticInfoStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3462997439, 4298, 16584, [169, 202, 197, 201, 101, 1, 134, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce6925bf_10ca_40c8_a9ca_c5c96501866e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2608,7 +2608,7 @@ pub struct IAppDiagnosticInfoStatics_abi(
 pub struct IAppDiagnosticInfoStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppDiagnosticInfoStatics2 {
     type Vtable = IAppDiagnosticInfoStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(95570822, 4096, 19600, [187, 159, 114, 53, 7, 28, 80, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05b24b86_1000_4c90_bb9f_7235071c50fe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2634,7 +2634,7 @@ pub struct IAppDiagnosticInfoStatics2_abi(
 pub struct IAppDiagnosticInfoWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppDiagnosticInfoWatcher {
     type Vtable = IAppDiagnosticInfoWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1968656496, 467, 18586, [147, 37, 82, 249, 204, 110, 222, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75575070_01d3_489a_9325_52f9cc6ede0a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2670,7 +2670,7 @@ pub struct IAppDiagnosticInfoWatcher_abi(
 pub struct IAppDiagnosticInfoWatcherEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppDiagnosticInfoWatcherEventArgs {
     type Vtable = IAppDiagnosticInfoWatcherEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1880606486, 57818, 19557, [153, 223, 4, 109, 255, 91, 231, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7017c716_e1da_4c65_99df_046dff5be71a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2688,7 +2688,7 @@ pub struct IAppDiagnosticInfoWatcherEventArgs_abi(
 pub struct IAppExecutionStateChangeResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExecutionStateChangeResult {
     type Vtable = IAppExecutionStateChangeResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1862507504, 63771, 19960, [174, 119, 48, 51, 204, 182, 145, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f039bf0_f91b_4df8_ae77_3033ccb69114);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2706,7 +2706,7 @@ pub struct IAppExecutionStateChangeResult_abi(
 pub struct IAppMemoryReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppMemoryReport {
     type Vtable = IAppMemoryReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1835348891, 19823, 17852, [156, 94, 228, 155, 63, 242, 117, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d65339b_4d6f_45bc_9c5e_e49b3ff2758d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2727,7 +2727,7 @@ pub struct IAppMemoryReport_abi(
 pub struct IAppMemoryReport2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppMemoryReport2 {
     type Vtable = IAppMemoryReport2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1602172728, 20919, 17116, [183, 237, 121, 186, 70, 210, 136, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f7f3738_51b7_42dc_b7ed_79ba46d28857);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2745,7 +2745,7 @@ pub struct IAppMemoryReport2_abi(
 pub struct IAppMemoryUsageLimitChangingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppMemoryUsageLimitChangingEventArgs {
     type Vtable = IAppMemoryUsageLimitChangingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2046322276, 65226, 19877, [158, 64, 43, 198, 62, 253, 201, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79f86664_feca_4da5_9e40_2bc63efdc979);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2764,7 +2764,7 @@ pub struct IAppMemoryUsageLimitChangingEventArgs_abi(
 pub struct IAppResourceGroupBackgroundTaskReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppResourceGroupBackgroundTaskReport {
     type Vtable = IAppResourceGroupBackgroundTaskReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(627500878, 45149, 16578, [157, 193, 26, 79, 3, 158, 161, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2566e74e_b05d_40c2_9dc1_1a4f039ea120);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2785,7 +2785,7 @@ pub struct IAppResourceGroupBackgroundTaskReport_abi(
 pub struct IAppResourceGroupInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppResourceGroupInfo {
     type Vtable = IAppResourceGroupInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3105093498, 59399, 18932, [132, 94, 123, 139, 220, 254, 142, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb913f77a_e807_49f4_845e_7b8bdcfe8ee7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2810,7 +2810,7 @@ pub struct IAppResourceGroupInfo_abi(
 pub struct IAppResourceGroupInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppResourceGroupInfo2 {
     type Vtable = IAppResourceGroupInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4003144557, 54021, 19819, [146, 247, 106, 253, 173, 114, 222, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee9b236d_d305_4d6b_92f7_6afdad72dedc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2833,7 +2833,7 @@ pub struct IAppResourceGroupInfo2_abi(
 pub struct IAppResourceGroupInfoWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppResourceGroupInfoWatcher {
     type Vtable = IAppResourceGroupInfoWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3652231421, 28250, 19570, [139, 23, 9, 254, 196, 162, 18, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9b0a0fd_6e5a_4c72_8b17_09fec4a212bd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2873,7 +2873,7 @@ pub struct IAppResourceGroupInfoWatcher_abi(
 pub struct IAppResourceGroupInfoWatcherEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppResourceGroupInfoWatcherEventArgs {
     type Vtable = IAppResourceGroupInfoWatcherEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2054714935, 25346, 19759, [191, 137, 28, 18, 208, 178, 166, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a787637_6302_4d2f_bf89_1c12d0b2a6b9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2893,7 +2893,7 @@ pub struct IAppResourceGroupInfoWatcherEventArgs_abi(
 pub struct IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     type Vtable = IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(467398103, 65254, 20436, [152, 221, 233, 42, 44, 194, 153, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bdbedd7_fee6_4fd4_98dd_e92a2cc299f3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2913,7 +2913,7 @@ pub struct IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs_abi(
 pub struct IAppResourceGroupMemoryReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppResourceGroupMemoryReport {
     type Vtable = IAppResourceGroupMemoryReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747374257, 32177, 19537, [162, 37, 127, 174, 45, 73, 228, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c8c06b1_7db1_4c51_a225_7fae2d49e431);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2934,7 +2934,7 @@ pub struct IAppResourceGroupMemoryReport_abi(
 pub struct IAppResourceGroupStateReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppResourceGroupStateReport {
     type Vtable = IAppResourceGroupStateReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1384423192, 12144, 16950, [171, 64, 208, 77, 176, 199, 185, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52849f18_2f70_4236_ab40_d04db0c7b931);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2953,7 +2953,7 @@ pub struct IAppResourceGroupStateReport_abi(
 pub struct IAppUriHandlerHost(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUriHandlerHost {
     type Vtable = IAppUriHandlerHost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1565575877, 37586, 21513, [181, 111, 127, 115, 225, 14, 164, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d50cac5_92d2_5409_b56f_7f73e10ea4c3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2972,7 +2972,7 @@ pub struct IAppUriHandlerHost_abi(
 pub struct IAppUriHandlerHost2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUriHandlerHost2 {
     type Vtable = IAppUriHandlerHost2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(973860501, 10724, 20927, [128, 149, 163, 192, 104, 227, 199, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a0bee95_29e4_51bf_8095_a3c068e3c72a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2991,7 +2991,7 @@ pub struct IAppUriHandlerHost2_abi(
 pub struct IAppUriHandlerHostFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUriHandlerHostFactory {
     type Vtable = IAppUriHandlerHostFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(628898966, 52740, 24472, [150, 187, 62, 189, 62, 146, 117, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x257c3c96_ce04_5f98_96bb_3ebd3e9275bb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3009,7 +3009,7 @@ pub struct IAppUriHandlerHostFactory_abi(
 pub struct IAppUriHandlerRegistration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUriHandlerRegistration {
     type Vtable = IAppUriHandlerRegistration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1869852337, 17769, 23615, [155, 160, 153, 18, 62, 234, 50, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f73aeb1_4569_5c3f_9ba0_99123eea32c3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3032,7 +3032,7 @@ pub struct IAppUriHandlerRegistration_abi(
 pub struct IAppUriHandlerRegistration2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUriHandlerRegistration2 {
     type Vtable = IAppUriHandlerRegistration2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3578637463, 52025, 24351, [136, 62, 1, 133, 55, 48, 189, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd54dac97_cb39_5f1f_883e_01853730bd6d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3054,7 +3054,7 @@ pub struct IAppUriHandlerRegistration2_abi(
 pub struct IAppUriHandlerRegistrationManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUriHandlerRegistrationManager {
     type Vtable = IAppUriHandlerRegistrationManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3861682770, 44180, 22352, [172, 27, 108, 251, 111, 37, 2, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe62c9a52_ac94_5750_ac1b_6cfb6f250263);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3073,7 +3073,7 @@ pub struct IAppUriHandlerRegistrationManager_abi(
 pub struct IAppUriHandlerRegistrationManager2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUriHandlerRegistrationManager2 {
     type Vtable = IAppUriHandlerRegistrationManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3185560305, 46362, 24169, [174, 253, 112, 136, 217, 242, 177, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbddfcaf1_b51a_5e69_aefd_7088d9f2b123);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3091,7 +3091,7 @@ pub struct IAppUriHandlerRegistrationManager2_abi(
 pub struct IAppUriHandlerRegistrationManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUriHandlerRegistrationManagerStatics {
     type Vtable = IAppUriHandlerRegistrationManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3587104159, 22313, 23414, [161, 212, 2, 133, 242, 149, 193, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5cedd9f_5729_5b76_a1d4_0285f295c124);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3110,7 +3110,7 @@ pub struct IAppUriHandlerRegistrationManagerStatics_abi(
 pub struct IAppUriHandlerRegistrationManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUriHandlerRegistrationManagerStatics2 {
     type Vtable = IAppUriHandlerRegistrationManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(351765369, 26768, 20608, [144, 167, 152, 130, 74, 127, 7, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14f78379_6890_5080_90a7_98824a7f079e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3129,7 +3129,7 @@ pub struct IAppUriHandlerRegistrationManagerStatics2_abi(
 pub struct IDateTimeSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDateTimeSettingsStatics {
     type Vtable = IDateTimeSettingsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1562464465, 18414, 18603, [165, 43, 159, 25, 84, 39, 141, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d2150d1_47ee_48ab_a52b_9f1954278d82);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3148,7 +3148,7 @@ pub struct IDateTimeSettingsStatics_abi(
 pub struct IDispatcherQueue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDispatcherQueue {
     type Vtable = IDispatcherQueue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1614711012, 41784, 20478, [164, 87, 165, 207, 185, 206, 184, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x603e88e4_a338_4ffe_a457_a5cfb9ceb899);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3176,7 +3176,7 @@ pub struct IDispatcherQueue_abi(
 pub struct IDispatcherQueue2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDispatcherQueue2 {
     type Vtable = IDispatcherQueue2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3357722183, 12527, 20590, [189, 30, 166, 71, 174, 102, 117, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc822c647_30ef_506e_bd1e_a647ae6675ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3194,7 +3194,7 @@ pub struct IDispatcherQueue2_abi(
 pub struct IDispatcherQueueController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDispatcherQueueController {
     type Vtable = IDispatcherQueueController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(586370662, 20699, 20022, [169, 141, 97, 192, 27, 56, 77, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22f34e66_50db_4e36_a98d_61c01b384d20);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3214,7 +3214,7 @@ pub struct IDispatcherQueueController_abi(
 pub struct IDispatcherQueueControllerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDispatcherQueueControllerStatics {
     type Vtable = IDispatcherQueueControllerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(174889184, 20888, 18850, [163, 19, 63, 112, 209, 241, 60, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a6c98e0_5198_49a2_a313_3f70d1f13c27);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3232,7 +3232,7 @@ pub struct IDispatcherQueueControllerStatics_abi(
 pub struct IDispatcherQueueShutdownStartingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDispatcherQueueShutdownStartingEventArgs {
     type Vtable = IDispatcherQueueShutdownStartingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3295824972, 65431, 16576, [162, 38, 204, 10, 170, 84, 94, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4724c4c_ff97_40c0_a226_cc0aaa545e89);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3251,7 +3251,7 @@ pub struct IDispatcherQueueShutdownStartingEventArgs_abi(
 pub struct IDispatcherQueueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDispatcherQueueStatics {
     type Vtable = IDispatcherQueueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2842526679, 37745, 17687, [146, 69, 208, 130, 74, 193, 44, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa96d83d7_9371_4517_9245_d0824ac12c74);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3269,7 +3269,7 @@ pub struct IDispatcherQueueStatics_abi(
 pub struct IDispatcherQueueTimer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDispatcherQueueTimer {
     type Vtable = IDispatcherQueueTimer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1609218845, 41756, 18215, [177, 172, 55, 69, 70, 73, 213, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5feabb1d_a31c_4727_b1ac_37454649d56a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3299,7 +3299,7 @@ pub struct IDispatcherQueueTimer_abi(
 pub struct IFolderLauncherOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFolderLauncherOptions {
     type Vtable = IFolderLauncherOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3146891901, 27527, 17194, [189, 4, 119, 108, 111, 95, 178, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb91c27d_6b87_432a_bd04_776c6f5fb2ab);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3318,7 +3318,7 @@ pub struct IFolderLauncherOptions_abi(
 pub struct IKnownUserPropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownUserPropertiesStatics {
     type Vtable = IKnownUserPropertiesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2002096410, 28869, 18661, [182, 55, 91, 163, 68, 30, 78, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7755911a_70c5_48e5_b637_5ba3441e4ee4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3344,7 +3344,7 @@ pub struct IKnownUserPropertiesStatics_abi(
 pub struct IKnownUserPropertiesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownUserPropertiesStatics2 {
     type Vtable = IKnownUserPropertiesStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1531250562, 63008, 22398, [177, 179, 221, 86, 100, 77, 121, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b450782_f620_577e_b1b3_dd56644d79b1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3362,7 +3362,7 @@ pub struct IKnownUserPropertiesStatics2_abi(
 pub struct ILaunchUriResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILaunchUriResult {
     type Vtable = ILaunchUriResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3962022111, 63189, 17866, [145, 58, 112, 164, 12, 92, 130, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec27a8df_f6d5_45ca_913a_70a40c5c8221);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3382,7 +3382,7 @@ pub struct ILaunchUriResult_abi(
 pub struct ILauncherOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherOptions {
     type Vtable = ILauncherOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3136954840, 45169, 19672, [133, 62, 52, 18, 3, 229, 87, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbafa21d8_b071_4cd8_853e_341203e557d3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3414,7 +3414,7 @@ pub struct ILauncherOptions_abi(
 pub struct ILauncherOptions2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherOptions2 {
     type Vtable = ILauncherOptions2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1000378036, 28224, 19918, [161, 163, 47, 83, 149, 10, 251, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ba08eb4_6e40_4dce_a1a3_2f53950afb49);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3437,7 +3437,7 @@ pub struct ILauncherOptions2_abi(
 pub struct ILauncherOptions3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherOptions3 {
     type Vtable = ILauncherOptions3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4034332245, 19299, 20026, [145, 7, 78, 104, 120, 65, 146, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0770655_4b63_4e3a_9107_4e687841923a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3456,7 +3456,7 @@ pub struct ILauncherOptions3_abi(
 pub struct ILauncherOptions4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherOptions4 {
     type Vtable = ILauncherOptions4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4017082638, 59131, 18452, [164, 78, 87, 232, 185, 217, 160, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef6fd10e_e6fb_4814_a44e_57e8b9d9a01b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3475,7 +3475,7 @@ pub struct ILauncherOptions4_abi(
 pub struct ILauncherStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherStatics {
     type Vtable = ILauncherStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(661737923, 40510, 17142, [145, 164, 93, 253, 235, 35, 36, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x277151c3_9e3e_42f6_91a4_5dfdeb232451);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3500,7 +3500,7 @@ pub struct ILauncherStatics_abi(
 pub struct ILauncherStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherStatics2 {
     type Vtable = ILauncherStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1505374139, 9419, 19458, [164, 196, 130, 148, 86, 157, 84, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59ba2fbb_24cb_4c02_a4c4_8294569d54f1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3537,7 +3537,7 @@ pub struct ILauncherStatics2_abi(
 pub struct ILauncherStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherStatics3 {
     type Vtable = ILauncherStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(591552936, 40371, 18051, [170, 66, 220, 111, 81, 211, 56, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x234261a8_9db3_4683_aa42_dc6f51d33847);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3558,7 +3558,7 @@ pub struct ILauncherStatics3_abi(
 pub struct ILauncherStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherStatics4 {
     type Vtable = ILauncherStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3119284639, 46501, 16838, [179, 179, 221, 27, 49, 120, 188, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9ec819f_b5a5_41c6_b3b3_dd1b3178bcf2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3591,7 +3591,7 @@ pub struct ILauncherStatics4_abi(
 pub struct ILauncherStatics5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherStatics5 {
     type Vtable = ILauncherStatics5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1529147268, 55445, 24554, [145, 83, 26, 196, 154, 237, 155, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b24ef84_d895_5fea_9153_1ac49aed9ba9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3616,7 +3616,7 @@ pub struct ILauncherStatics5_abi(
 pub struct ILauncherUIOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherUIOptions {
     type Vtable = ILauncherUIOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(455465582, 35494, 16873, [130, 81, 65, 101, 245, 152, 95, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b25da6e_8aa6_41e9_8251_4165f5985f49);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3646,7 +3646,7 @@ pub struct ILauncherUIOptions_abi(
 pub struct ILauncherViewOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherViewOptions {
     type Vtable = ILauncherViewOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2325424625, 31911, 18910, [155, 211, 60, 91, 113, 132, 246, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a9b29f1_7ca7_49de_9bd3_3c5b7184f616);
 }
 impl ILauncherViewOptions {
     #[cfg(feature = "UI_ViewManagement")]
@@ -3727,7 +3727,7 @@ pub struct ILauncherViewOptions_abi(
 pub struct IMemoryManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMemoryManagerStatics {
     type Vtable = IMemoryManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1550591900, 55242, 18297, [145, 136, 64, 87, 33, 156, 230, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c6c279c_d7ca_4779_9188_4057219ce64c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3759,7 +3759,7 @@ pub struct IMemoryManagerStatics_abi(
 pub struct IMemoryManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMemoryManagerStatics2 {
     type Vtable = IMemoryManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1861104927, 28002, 16959, [148, 121, 176, 31, 156, 159, 118, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6eee351f_6d62_423f_9479_b01f9c9f7669);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3778,7 +3778,7 @@ pub struct IMemoryManagerStatics2_abi(
 pub struct IMemoryManagerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMemoryManagerStatics3 {
     type Vtable = IMemoryManagerStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(345725390, 37549, 20021, [137, 235, 80, 223, 180, 192, 217, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x149b59ce_92ad_4e35_89eb_50dfb4c0d91c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3796,7 +3796,7 @@ pub struct IMemoryManagerStatics3_abi(
 pub struct IMemoryManagerStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMemoryManagerStatics4 {
     type Vtable = IMemoryManagerStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3316205608, 59470, 18566, [138, 13, 68, 179, 25, 14, 59, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5a94828_e84e_4886_8a0d_44b3190e3b72);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3814,7 +3814,7 @@ pub struct IMemoryManagerStatics4_abi(
 pub struct IProcessLauncherOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessLauncherOptions {
     type Vtable = IProcessLauncherOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(813742543, 62532, 19075, [190, 175, 165, 73, 160, 243, 34, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3080b9cf_f444_4a83_beaf_a549a0f3229c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3845,7 +3845,7 @@ pub struct IProcessLauncherOptions_abi(
 pub struct IProcessLauncherResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessLauncherResult {
     type Vtable = IProcessLauncherResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1414302004, 34520, 18833, [142, 117, 236, 232, 164, 59, 107, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x544c8934_86d8_4991_8e75_ece8a43b6b6d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3863,7 +3863,7 @@ pub struct IProcessLauncherResult_abi(
 pub struct IProcessLauncherStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessLauncherStatics {
     type Vtable = IProcessLauncherStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(866871015, 11534, 17547, [166, 160, 193, 60, 56, 54, 208, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33ab66e7_2d0e_448b_a6a0_c13c3836d09c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3884,7 +3884,7 @@ pub struct IProcessLauncherStatics_abi(
 pub struct IProcessMemoryReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessMemoryReport {
     type Vtable = IProcessMemoryReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(141755816, 39792, 18306, [135, 65, 58, 152, 43, 108, 229, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x087305a8_9b70_4782_8741_3a982b6ce5e4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3903,7 +3903,7 @@ pub struct IProcessMemoryReport_abi(
 pub struct IProtocolForResultsOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtocolForResultsOperation {
     type Vtable = IProtocolForResultsOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3582011706, 28137, 19752, [147, 120, 248, 103, 130, 225, 130, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd581293a_6de9_4d28_9378_f86782e182bb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3922,7 +3922,7 @@ pub struct IProtocolForResultsOperation_abi(
 pub struct IRemoteLauncherOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteLauncherOptions {
     type Vtable = IRemoteLauncherOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2654611336, 10385, 19679, [162, 214, 157, 255, 125, 2, 230, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e3a2788_2891_4cdf_a2d6_9dff7d02e693);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3945,7 +3945,7 @@ pub struct IRemoteLauncherOptions_abi(
 pub struct IRemoteLauncherStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteLauncherStatics {
     type Vtable = IRemoteLauncherStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621485203, 41740, 18615, [159, 33, 5, 16, 38, 164, 229, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7db7a93_a30c_48b7_9f21_051026a4e517);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3968,7 +3968,7 @@ pub struct IRemoteLauncherStatics_abi(
 pub struct IShutdownManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShutdownManagerStatics {
     type Vtable = IShutdownManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1927432173, 56667, 19820, [177, 208, 197, 122, 123, 187, 95, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72e247ed_dd5b_4d6c_b1d0_c57a7bbb5f94);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3988,7 +3988,7 @@ pub struct IShutdownManagerStatics_abi(
 pub struct IShutdownManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShutdownManagerStatics2 {
     type Vtable = IShutdownManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(258580527, 39988, 17351, [168, 195, 112, 179, 10, 127, 117, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f69a02f_9c34_43c7_a8c3_70b30a7f7504);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4009,7 +4009,7 @@ pub struct IShutdownManagerStatics2_abi(
 pub struct ITimeZoneSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimeZoneSettingsStatics {
     type Vtable = ITimeZoneSettingsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2604346346, 41217, 16814, [159, 189, 2, 135, 40, 186, 183, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b3b2bea_a101_41ae_9fbd_028728bab73d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4031,7 +4031,7 @@ pub struct ITimeZoneSettingsStatics_abi(
 pub struct ITimeZoneSettingsStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimeZoneSettingsStatics2 {
     type Vtable = ITimeZoneSettingsStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1432096184, 14760, 18938, [180, 246, 162, 199, 252, 40, 66, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x555c0db8_39a8_49fa_b4f6_a2c7fc2842ec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4050,7 +4050,7 @@ pub struct ITimeZoneSettingsStatics2_abi(
 pub struct IUser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUser {
     type Vtable = IUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3751421638, 59206, 19405, [181, 212, 18, 1, 3, 196, 32, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf9a26c6_e746_4bcd_b5d4_120103c4209b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4076,7 +4076,7 @@ pub struct IUser_abi(
 pub struct IUser2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUser2 {
     type Vtable = IUser2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2562348584, 42723, 20878, [137, 217, 211, 178, 177, 153, 26, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98ba5628_a6e3_518e_89d9_d3b2b1991a10);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4095,7 +4095,7 @@ pub struct IUser2_abi(
 pub struct IUserAuthenticationStatusChangeDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserAuthenticationStatusChangeDeferral {
     type Vtable = IUserAuthenticationStatusChangeDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2293601640, 47920, 17147, [162, 112, 233, 144, 46, 64, 239, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88b59568_bb30_42fb_a270_e9902e40efa7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4113,7 +4113,7 @@ pub struct IUserAuthenticationStatusChangeDeferral_abi(
 pub struct IUserAuthenticationStatusChangingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserAuthenticationStatusChangingEventArgs {
     type Vtable = IUserAuthenticationStatusChangingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2349010728, 42769, 19486, [171, 72, 4, 23, 156, 21, 147, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c030f28_a711_4c1e_ab48_04179c15938f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4134,7 +4134,7 @@ pub struct IUserAuthenticationStatusChangingEventArgs_abi(
 pub struct IUserChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserChangedEventArgs {
     type Vtable = IUserChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(140794332, 6342, 18651, [188, 153, 114, 79, 185, 32, 60, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x086459dc_18c6_48db_bc99_724fb9203ccc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4152,7 +4152,7 @@ pub struct IUserChangedEventArgs_abi(
 pub struct IUserChangedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserChangedEventArgs2 {
     type Vtable = IUserChangedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1798097732, 28417, 22028, [151, 173, 252, 127, 50, 236, 88, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b2ccb44_6f01_560c_97ad_fc7f32ec581f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4171,7 +4171,7 @@ pub struct IUserChangedEventArgs2_abi(
 pub struct IUserDeviceAssociationChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDeviceAssociationChangedEventArgs {
     type Vtable = IUserDeviceAssociationChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3172953964, 47965, 19835, [165, 240, 200, 205, 17, 163, 141, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd1f6f6c_bb5d_4d7b_a5f0_c8cd11a38d42);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4191,7 +4191,7 @@ pub struct IUserDeviceAssociationChangedEventArgs_abi(
 pub struct IUserDeviceAssociationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDeviceAssociationStatics {
     type Vtable = IUserDeviceAssociationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2118721044, 63578, 19463, [141, 169, 127, 227, 208, 84, 35, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e491e14_f85a_4c07_8da9_7fe3d0542343);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4213,7 +4213,7 @@ pub struct IUserDeviceAssociationStatics_abi(
 pub struct IUserPicker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserPicker {
     type Vtable = IUserPicker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2102689800, 61923, 19052, [141, 220, 169, 187, 15, 72, 138, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d548008_f1e3_4a6c_8ddc_a9bb0f488aed);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4236,7 +4236,7 @@ pub struct IUserPicker_abi(
 pub struct IUserPickerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserPickerStatics {
     type Vtable = IUserPickerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3727855836, 32371, 19958, [161, 174, 77, 126, 202, 130, 180, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde3290dc_7e73_4df6_a1ae_4d7eca82b40d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4254,7 +4254,7 @@ pub struct IUserPickerStatics_abi(
 pub struct IUserStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserStatics {
     type Vtable = IUserStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(358527547, 9258, 17888, [162, 233, 49, 113, 252, 106, 127, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x155eb23b_242a_45e0_a2e9_3171fc6a7fdd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4279,7 +4279,7 @@ pub struct IUserStatics_abi(
 pub struct IUserStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserStatics2 {
     type Vtable = IUserStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1956871697, 11957, 17543, [176, 213, 44, 103, 144, 224, 19, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74a37e11_2eb5_4487_b0d5_2c6790e013e9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4297,7 +4297,7 @@ pub struct IUserStatics2_abi(
 pub struct IUserWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserWatcher {
     type Vtable = IUserWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(358527547, 9258, 17888, [162, 233, 49, 113, 252, 106, 127, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x155eb23b_242a_45e0_a2e9_3171fc6a7fbb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4525,7 +4525,7 @@ unsafe impl ::windows::runtime::RuntimeType for LaunchUriResult {
 }
 unsafe impl ::windows::runtime::Interface for LaunchUriResult {
     type Vtable = ILaunchUriResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3962022111, 63189, 17866, [145, 58, 112, 164, 12, 92, 130, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec27a8df_f6d5_45ca_913a_70a40c5c8221);
 }
 impl ::windows::runtime::RuntimeName for LaunchUriResult {
     const NAME: &'static str = "Windows.System.LaunchUriResult";
@@ -5022,7 +5022,7 @@ unsafe impl ::windows::runtime::RuntimeType for LauncherOptions {
 }
 unsafe impl ::windows::runtime::Interface for LauncherOptions {
     type Vtable = ILauncherOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3136954840, 45169, 19672, [133, 62, 52, 18, 3, 229, 87, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbafa21d8_b071_4cd8_853e_341203e557d3);
 }
 impl ::windows::runtime::RuntimeName for LauncherOptions {
     const NAME: &'static str = "Windows.System.LauncherOptions";
@@ -5147,7 +5147,7 @@ unsafe impl ::windows::runtime::RuntimeType for LauncherUIOptions {
 }
 unsafe impl ::windows::runtime::Interface for LauncherUIOptions {
     type Vtable = ILauncherUIOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(455465582, 35494, 16873, [130, 81, 65, 101, 245, 152, 95, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b25da6e_8aa6_41e9_8251_4165f5985f49);
 }
 impl ::windows::runtime::RuntimeName for LauncherUIOptions {
     const NAME: &'static str = "Windows.System.LauncherUIOptions";
@@ -5430,7 +5430,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProcessLauncherOptions {
 }
 unsafe impl ::windows::runtime::Interface for ProcessLauncherOptions {
     type Vtable = IProcessLauncherOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(813742543, 62532, 19075, [190, 175, 165, 73, 160, 243, 34, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3080b9cf_f444_4a83_beaf_a549a0f3229c);
 }
 impl ::windows::runtime::RuntimeName for ProcessLauncherOptions {
     const NAME: &'static str = "Windows.System.ProcessLauncherOptions";
@@ -5496,7 +5496,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProcessLauncherResult {
 }
 unsafe impl ::windows::runtime::Interface for ProcessLauncherResult {
     type Vtable = IProcessLauncherResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1414302004, 34520, 18833, [142, 117, 236, 232, 164, 59, 107, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x544c8934_86d8_4991_8e75_ece8a43b6b6d);
 }
 impl ::windows::runtime::RuntimeName for ProcessLauncherResult {
     const NAME: &'static str = "Windows.System.ProcessLauncherResult";
@@ -5570,7 +5570,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProcessMemoryReport {
 }
 unsafe impl ::windows::runtime::Interface for ProcessMemoryReport {
     type Vtable = IProcessMemoryReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(141755816, 39792, 18306, [135, 65, 58, 152, 43, 108, 229, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x087305a8_9b70_4782_8741_3a982b6ce5e4);
 }
 impl ::windows::runtime::RuntimeName for ProcessMemoryReport {
     const NAME: &'static str = "Windows.System.ProcessMemoryReport";
@@ -5661,7 +5661,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProtocolForResultsOperation {
 }
 unsafe impl ::windows::runtime::Interface for ProtocolForResultsOperation {
     type Vtable = IProtocolForResultsOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3582011706, 28137, 19752, [147, 120, 248, 103, 130, 225, 130, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd581293a_6de9_4d28_9378_f86782e182bb);
 }
 impl ::windows::runtime::RuntimeName for ProtocolForResultsOperation {
     const NAME: &'static str = "Windows.System.ProtocolForResultsOperation";
@@ -5818,7 +5818,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteLauncherOptions {
 }
 unsafe impl ::windows::runtime::Interface for RemoteLauncherOptions {
     type Vtable = IRemoteLauncherOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2654611336, 10385, 19679, [162, 214, 157, 255, 125, 2, 230, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e3a2788_2891_4cdf_a2d6_9dff7d02e693);
 }
 impl ::windows::runtime::RuntimeName for RemoteLauncherOptions {
     const NAME: &'static str = "Windows.System.RemoteLauncherOptions";
@@ -6105,7 +6105,7 @@ unsafe impl ::windows::runtime::RuntimeType for User {
 }
 unsafe impl ::windows::runtime::Interface for User {
     type Vtable = IUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3751421638, 59206, 19405, [181, 212, 18, 1, 3, 196, 32, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf9a26c6_e746_4bcd_b5d4_120103c4209b);
 }
 impl ::windows::runtime::RuntimeName for User {
     const NAME: &'static str = "Windows.System.User";
@@ -6239,7 +6239,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserAuthenticationStatusChangeDe
 }
 unsafe impl ::windows::runtime::Interface for UserAuthenticationStatusChangeDeferral {
     type Vtable = IUserAuthenticationStatusChangeDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2293601640, 47920, 17147, [162, 112, 233, 144, 46, 64, 239, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88b59568_bb30_42fb_a270_e9902e40efa7);
 }
 impl ::windows::runtime::RuntimeName for UserAuthenticationStatusChangeDeferral {
     const NAME: &'static str = "Windows.System.UserAuthenticationStatusChangeDeferral";
@@ -6329,7 +6329,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserAuthenticationStatusChanging
 }
 unsafe impl ::windows::runtime::Interface for UserAuthenticationStatusChangingEventArgs {
     type Vtable = IUserAuthenticationStatusChangingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2349010728, 42769, 19486, [171, 72, 4, 23, 156, 21, 147, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c030f28_a711_4c1e_ab48_04179c15938f);
 }
 impl ::windows::runtime::RuntimeName for UserAuthenticationStatusChangingEventArgs {
     const NAME: &'static str = "Windows.System.UserAuthenticationStatusChangingEventArgs";
@@ -6404,7 +6404,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserChangedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for UserChangedEventArgs {
     type Vtable = IUserChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(140794332, 6342, 18651, [188, 153, 114, 79, 185, 32, 60, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x086459dc_18c6_48db_bc99_724fb9203ccc);
 }
 impl ::windows::runtime::RuntimeName for UserChangedEventArgs {
     const NAME: &'static str = "Windows.System.UserChangedEventArgs";
@@ -6517,7 +6517,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDeviceAssociationChangedEven
 }
 unsafe impl ::windows::runtime::Interface for UserDeviceAssociationChangedEventArgs {
     type Vtable = IUserDeviceAssociationChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3172953964, 47965, 19835, [165, 240, 200, 205, 17, 163, 141, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd1f6f6c_bb5d_4d7b_a5f0_c8cd11a38d42);
 }
 impl ::windows::runtime::RuntimeName for UserDeviceAssociationChangedEventArgs {
     const NAME: &'static str = "Windows.System.UserDeviceAssociationChangedEventArgs";
@@ -6628,7 +6628,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserPicker {
 }
 unsafe impl ::windows::runtime::Interface for UserPicker {
     type Vtable = IUserPicker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2102689800, 61923, 19052, [141, 220, 169, 187, 15, 72, 138, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d548008_f1e3_4a6c_8ddc_a9bb0f488aed);
 }
 impl ::windows::runtime::RuntimeName for UserPicker {
     const NAME: &'static str = "Windows.System.UserPicker";
@@ -6858,7 +6858,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserWatcher {
 }
 unsafe impl ::windows::runtime::Interface for UserWatcher {
     type Vtable = IUserWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(358527547, 9258, 17888, [162, 233, 49, 113, 252, 106, 127, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x155eb23b_242a_45e0_a2e9_3171fc6a7fbb);
 }
 impl ::windows::runtime::RuntimeName for UserWatcher {
     const NAME: &'static str = "Windows.System.UserWatcher";

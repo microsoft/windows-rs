@@ -4,7 +4,7 @@
 pub struct ILocalCategoriesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalCategoriesStatics {
     type Vtable = ILocalCategoriesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4103313909, 33377, 17185, [153, 116, 239, 146, 212, 154, 141, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf49399f5_8261_4321_9974_ef92d49a8dca);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29,7 +29,7 @@ pub struct ILocalCategoriesStatics_abi(
 pub struct ILocalLocation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalLocation {
     type Vtable = ILocalLocation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3138382251, 17666, 20268, [148, 169, 13, 96, 222, 14, 33, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb0fe9ab_4502_4f2c_94a9_0d60de0e2163);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -54,7 +54,7 @@ pub struct ILocalLocation_abi(
 pub struct ILocalLocation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalLocation2 {
     type Vtable = ILocalLocation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1855860860, 60597, 20476, [187, 140, 186, 80, 186, 140, 45, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e9e307c_ecb5_4ffc_bb8c_ba50ba8c2dc6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -75,7 +75,7 @@ pub struct ILocalLocation2_abi(
 pub struct ILocalLocationFinderResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalLocationFinderResult {
     type Vtable = ILocalLocationFinderResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3499846854, 62264, 16785, [159, 216, 84, 64, 185, 166, 143, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd09b6cc6_f338_4191_9fd8_5440b9a68f52);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -95,7 +95,7 @@ pub struct ILocalLocationFinderResult_abi(
 pub struct ILocalLocationFinderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalLocationFinderStatics {
     type Vtable = ILocalLocationFinderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3538907972, 41182, 18634, [129, 168, 7, 199, 220, 253, 55, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2ef7344_a0de_48ca_81a8_07c7dcfd37ab);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -114,7 +114,7 @@ pub struct ILocalLocationFinderStatics_abi(
 pub struct ILocalLocationHoursOfOperationItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalLocationHoursOfOperationItem {
     type Vtable = ILocalLocationHoursOfOperationItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(592743538, 41415, 17393, [164, 240, 16, 145, 195, 158, 198, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23548c72_a1c7_43f1_a4f0_1091c39ec640);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -137,7 +137,7 @@ pub struct ILocalLocationHoursOfOperationItem_abi(
 pub struct ILocalLocationRatingInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalLocationRatingInfo {
     type Vtable = ILocalLocationRatingInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3407719254, 13140, 17169, [139, 192, 162, 212, 213, 235, 128, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb1dab56_3354_4311_8bc0_a2d4d5eb806e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -159,7 +159,7 @@ pub struct ILocalLocationRatingInfo_abi(
 pub struct IPlaceInfoHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaceInfoHelperStatics {
     type Vtable = IPlaceInfoHelperStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3709643175, 43462, 18715, [188, 9, 232, 15, 206, 164, 142, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd1ca9a7_a9c6_491b_bc09_e80fcea48ee6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -332,7 +332,7 @@ unsafe impl ::windows::runtime::RuntimeType for LocalLocation {
 }
 unsafe impl ::windows::runtime::Interface for LocalLocation {
     type Vtable = ILocalLocation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3138382251, 17666, 20268, [148, 169, 13, 96, 222, 14, 33, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb0fe9ab_4502_4f2c_94a9_0d60de0e2163);
 }
 impl ::windows::runtime::RuntimeName for LocalLocation {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocation";
@@ -426,7 +426,7 @@ unsafe impl ::windows::runtime::RuntimeType for LocalLocationFinderResult {
 }
 unsafe impl ::windows::runtime::Interface for LocalLocationFinderResult {
     type Vtable = ILocalLocationFinderResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3499846854, 62264, 16785, [159, 216, 84, 64, 185, 166, 143, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd09b6cc6_f338_4191_9fd8_5440b9a68f52);
 }
 impl ::windows::runtime::RuntimeName for LocalLocationFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationFinderResult";
@@ -539,7 +539,7 @@ unsafe impl ::windows::runtime::RuntimeType for LocalLocationHoursOfOperationIte
 }
 unsafe impl ::windows::runtime::Interface for LocalLocationHoursOfOperationItem {
     type Vtable = ILocalLocationHoursOfOperationItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(592743538, 41415, 17393, [164, 240, 16, 145, 195, 158, 198, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23548c72_a1c7_43f1_a4f0_1091c39ec640);
 }
 impl ::windows::runtime::RuntimeName for LocalLocationHoursOfOperationItem {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationHoursOfOperationItem";
@@ -623,7 +623,7 @@ unsafe impl ::windows::runtime::RuntimeType for LocalLocationRatingInfo {
 }
 unsafe impl ::windows::runtime::Interface for LocalLocationRatingInfo {
     type Vtable = ILocalLocationRatingInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3407719254, 13140, 17169, [139, 192, 162, 212, 213, 235, 128, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb1dab56_3354_4311_8bc0_a2d4d5eb806e);
 }
 impl ::windows::runtime::RuntimeName for LocalLocationRatingInfo {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationRatingInfo";

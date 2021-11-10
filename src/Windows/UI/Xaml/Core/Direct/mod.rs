@@ -4,7 +4,7 @@
 pub struct IXamlDirect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlDirect {
     type Vtable = IXamlDirect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1610224277, 44498, 22799, [160, 81, 112, 152, 155, 134, 106, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ffa1295_add2_590f_a051_70989b866ade);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -90,7 +90,7 @@ pub struct IXamlDirect_abi(
 pub struct IXamlDirectObject(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlDirectObject {
     type Vtable = IXamlDirectObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(274811522, 52964, 17989, [186, 37, 208, 113, 206, 119, 131, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10614a82_cee4_4645_ba25_d071ce778355);
 }
 impl IXamlDirectObject {}
 unsafe impl ::windows::runtime::RuntimeType for IXamlDirectObject {
@@ -151,7 +151,7 @@ pub struct IXamlDirectObject_abi(
 pub struct IXamlDirectStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlDirectStatics {
     type Vtable = IXamlDirectStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(840468428, 5348, 23663, [135, 141, 251, 182, 4, 173, 125, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x321887cc_14e4_5c6f_878d_fbb604ad7d17);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -537,7 +537,7 @@ unsafe impl ::windows::runtime::RuntimeType for XamlDirect {
 }
 unsafe impl ::windows::runtime::Interface for XamlDirect {
     type Vtable = IXamlDirect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1610224277, 44498, 22799, [160, 81, 112, 152, 155, 134, 106, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ffa1295_add2_590f_a051_70989b866ade);
 }
 impl ::windows::runtime::RuntimeName for XamlDirect {
     const NAME: &'static str = "Windows.UI.Xaml.Core.Direct.XamlDirect";

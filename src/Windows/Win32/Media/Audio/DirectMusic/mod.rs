@@ -1,9 +1,9 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const CLSID_DirectMusic: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1667997456, 3197, 4561, [149, 178, 0, 32, 175, 220, 116, 33]);
-pub const CLSID_DirectMusicCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1209005232, 10418, 4561, [190, 247, 0, 192, 79, 191, 143, 239]);
-pub const CLSID_DirectMusicSynth: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1489155280, 18151, 4561, [137, 172, 0, 160, 201, 5, 65, 41]);
-pub const CLSID_DirectMusicSynthSink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2931916003, 42260, 4561, [175, 166, 0, 170, 0, 36, 216, 182]);
-pub const CLSID_DirectSoundPrivate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(296435392, 9708, 4561, [164, 216, 0, 192, 79, 194, 138, 202]);
+pub const CLSID_DirectMusic: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x636b9f10_0c7d_11d1_95b2_0020afdc7421);
+pub const CLSID_DirectMusicCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x480ff4b0_28b2_11d1_bef7_00c04fbf8fef);
+pub const CLSID_DirectMusicSynth: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58c2b4d0_46e7_11d1_89ac_00a0c9054129);
+pub const CLSID_DirectMusicSynthSink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaec17ce3_a514_11d1_afa6_00aa0024d8b6);
+pub const CLSID_DirectSoundPrivate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11ab3ec0_25ec_11d1_a4d8_00c04fc28aca);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
@@ -295,15 +295,15 @@ impl ::core::cmp::Eq for DLSID {}
 unsafe impl ::windows::runtime::Abi for DLSID {
     type Abi = Self;
 }
-pub const DLSID_GMInHardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259684, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
-pub const DLSID_GSInHardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259685, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
-pub const DLSID_ManufacturersID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2956857729, 32917, 4562, [161, 239, 0, 96, 8, 51, 219, 216]);
-pub const DLSID_ProductID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2956857730, 32917, 4562, [161, 239, 0, 96, 8, 51, 219, 216]);
-pub const DLSID_SampleMemorySize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259688, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
-pub const DLSID_SamplePlaybackRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(714209043, 42175, 4562, [187, 223, 0, 96, 8, 51, 219, 216]);
-pub const DLSID_SupportsDLS1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259687, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
-pub const DLSID_SupportsDLS2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4047870437, 18057, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
-pub const DLSID_XGInHardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259686, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
+pub const DLSID_GMInHardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x178f2f24_c364_11d1_a760_0000f875ac12);
+pub const DLSID_GSInHardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x178f2f25_c364_11d1_a760_0000f875ac12);
+pub const DLSID_ManufacturersID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb03e1181_8095_11d2_a1ef_00600833dbd8);
+pub const DLSID_ProductID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb03e1182_8095_11d2_a1ef_00600833dbd8);
+pub const DLSID_SampleMemorySize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x178f2f28_c364_11d1_a760_0000f875ac12);
+pub const DLSID_SamplePlaybackRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a91f713_a4bf_11d2_bbdf_00600833dbd8);
+pub const DLSID_SupportsDLS1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x178f2f27_c364_11d1_a760_0000f875ac12);
+pub const DLSID_SupportsDLS2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf14599e5_4689_11d2_afa6_00aa0024d8b6);
+pub const DLSID_XGInHardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x178f2f26_c364_11d1_a760_0000f875ac12);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
@@ -1762,7 +1762,7 @@ impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
 unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
     type Abi = Self;
 }
-pub const DSPROPSETID_DirectSoundDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2221035394, 9708, 4561, [164, 216, 0, 192, 79, 194, 138, 202]);
+pub const DSPROPSETID_DirectSoundDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84624f82_25ec_11d1_a4d8_00c04fc28aca);
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DV_AUDIOMODE: u32 = 3840u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
@@ -1805,27 +1805,27 @@ pub const F_WAVELINK_PHASE_MASTER: u32 = 1u32;
 pub const F_WSMP_NO_COMPRESSION: i32 = 2i32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const F_WSMP_NO_TRUNCATION: i32 = 1i32;
-pub const GUID_DMUS_PROP_DLS1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259687, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
-pub const GUID_DMUS_PROP_DLS2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4047870437, 18057, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
-pub const GUID_DMUS_PROP_Effects: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3450394129, 26698, 4562, [135, 30, 0, 96, 8, 147, 177, 189]);
-pub const GUID_DMUS_PROP_GM_Hardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259684, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
-pub const GUID_DMUS_PROP_GS_Capable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1687595938, 25008, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
-pub const GUID_DMUS_PROP_GS_Hardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259685, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
-pub const GUID_DMUS_PROP_INSTRUMENT2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2254426994, 40807, 4562, [135, 42, 0, 96, 8, 147, 177, 189]);
-pub const GUID_DMUS_PROP_LegacyCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3483880898, 161, 4562, [170, 213, 0, 0, 248, 117, 172, 18]);
-pub const GUID_DMUS_PROP_MemorySize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259688, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
-pub const GUID_DMUS_PROP_SampleMemorySize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259688, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
-pub const GUID_DMUS_PROP_SamplePlaybackRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(714209043, 42175, 4562, [187, 223, 0, 96, 8, 51, 219, 216]);
-pub const GUID_DMUS_PROP_SetSynthSink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(171596709, 14262, 4562, [185, 249, 0, 0, 248, 117, 172, 18]);
-pub const GUID_DMUS_PROP_SinkUsesDSound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3189803095, 35154, 4562, [186, 28, 0, 0, 248, 117, 172, 18]);
-pub const GUID_DMUS_PROP_SynthSink_DSOUND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(178878532, 51319, 4561, [135, 12, 0, 96, 8, 147, 177, 189]);
-pub const GUID_DMUS_PROP_SynthSink_WAVE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(178878533, 51319, 4561, [135, 12, 0, 96, 8, 147, 177, 189]);
-pub const GUID_DMUS_PROP_Volume: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4276071973, 58478, 4561, [170, 206, 0, 0, 248, 117, 172, 18]);
-pub const GUID_DMUS_PROP_WavesReverb: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(80434722, 13029, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
-pub const GUID_DMUS_PROP_WriteLatency: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(646582176, 24818, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
-pub const GUID_DMUS_PROP_WritePeriod: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(646582177, 24818, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
-pub const GUID_DMUS_PROP_XG_Capable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1687595937, 25008, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
-pub const GUID_DMUS_PROP_XG_Hardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259686, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
+pub const GUID_DMUS_PROP_DLS1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x178f2f27_c364_11d1_a760_0000f875ac12);
+pub const GUID_DMUS_PROP_DLS2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf14599e5_4689_11d2_afa6_00aa0024d8b6);
+pub const GUID_DMUS_PROP_Effects: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcda8d611_684a_11d2_871e_00600893b1bd);
+pub const GUID_DMUS_PROP_GM_Hardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x178f2f24_c364_11d1_a760_0000f875ac12);
+pub const GUID_DMUS_PROP_GS_Capable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6496aba2_61b0_11d2_afa6_00aa0024d8b6);
+pub const GUID_DMUS_PROP_GS_Hardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x178f2f25_c364_11d1_a760_0000f875ac12);
+pub const GUID_DMUS_PROP_INSTRUMENT2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x865fd372_9f67_11d2_872a_00600893b1bd);
+pub const GUID_DMUS_PROP_LegacyCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfa7cdc2_00a1_11d2_aad5_0000f875ac12);
+pub const GUID_DMUS_PROP_MemorySize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x178f2f28_c364_11d1_a760_0000f875ac12);
+pub const GUID_DMUS_PROP_SampleMemorySize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x178f2f28_c364_11d1_a760_0000f875ac12);
+pub const GUID_DMUS_PROP_SamplePlaybackRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a91f713_a4bf_11d2_bbdf_00600833dbd8);
+pub const GUID_DMUS_PROP_SetSynthSink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a3a5ba5_37b6_11d2_b9f9_0000f875ac12);
+pub const GUID_DMUS_PROP_SinkUsesDSound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe208857_8952_11d2_ba1c_0000f875ac12);
+pub const GUID_DMUS_PROP_SynthSink_DSOUND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0aa97844_c877_11d1_870c_00600893b1bd);
+pub const GUID_DMUS_PROP_SynthSink_WAVE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0aa97845_c877_11d1_870c_00600893b1bd);
+pub const GUID_DMUS_PROP_Volume: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfedfae25_e46e_11d1_aace_0000f875ac12);
+pub const GUID_DMUS_PROP_WavesReverb: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04cb5622_32e5_11d2_afa6_00aa0024d8b6);
+pub const GUID_DMUS_PROP_WriteLatency: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x268a0fa0_60f2_11d2_afa6_00aa0024d8b6);
+pub const GUID_DMUS_PROP_WritePeriod: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x268a0fa1_60f2_11d2_afa6_00aa0024d8b6);
+pub const GUID_DMUS_PROP_XG_Capable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6496aba1_61b0_11d2_afa6_00aa0024d8b6);
+pub const GUID_DMUS_PROP_XG_Hardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x178f2f26_c364_11d1_a760_0000f875ac12);
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -1873,7 +1873,7 @@ impl IDirectMusic {
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusic {
     type Vtable = IDirectMusic_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1698042202, 31533, 4562, [186, 24, 0, 0, 248, 117, 172, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6536115a_7b2d_11d2_ba18_0000f875ac12);
 }
 impl ::core::convert::From<IDirectMusic> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusic) -> Self {
@@ -1965,7 +1965,7 @@ impl IDirectMusic8 {
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusic8 {
     type Vtable = IDirectMusic8_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(758524407, 33085, 18745, [133, 8, 240, 92, 107, 117, 253, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d3629f7_813d_4939_8508_f05c6b75fd97);
 }
 impl ::core::convert::From<IDirectMusic8> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusic8) -> Self {
@@ -2087,7 +2087,7 @@ impl IDirectMusicBuffer {
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicBuffer {
     type Vtable = IDirectMusicBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534497912, 45979, 4561, [135, 4, 0, 96, 8, 147, 177, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2ac2878_b39b_11d1_8704_00600893b1bd);
 }
 impl ::core::convert::From<IDirectMusicBuffer> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicBuffer) -> Self {
@@ -2147,7 +2147,7 @@ impl IDirectMusicCollection {
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicCollection {
     type Vtable = IDirectMusicCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534497916, 45979, 4561, [135, 4, 0, 96, 8, 147, 177, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2ac287c_b39b_11d1_8704_00600893b1bd);
 }
 impl ::core::convert::From<IDirectMusicCollection> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicCollection) -> Self {
@@ -2191,7 +2191,7 @@ impl IDirectMusicDownload {
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicDownload {
     type Vtable = IDirectMusicDownload_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534497915, 45979, 4561, [135, 4, 0, 96, 8, 147, 177, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2ac287b_b39b_11d1_8704_00600893b1bd);
 }
 impl ::core::convert::From<IDirectMusicDownload> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicDownload) -> Self {
@@ -2228,7 +2228,7 @@ pub struct IDirectMusicDownloadedInstrument(pub ::windows::runtime::IUnknown);
 impl IDirectMusicDownloadedInstrument {}
 unsafe impl ::windows::runtime::Interface for IDirectMusicDownloadedInstrument {
     type Vtable = IDirectMusicDownloadedInstrument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534497918, 45979, 4561, [135, 4, 0, 96, 8, 147, 177, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2ac287e_b39b_11d1_8704_00600893b1bd);
 }
 impl ::core::convert::From<IDirectMusicDownloadedInstrument> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicDownloadedInstrument) -> Self {
@@ -2273,7 +2273,7 @@ impl IDirectMusicInstrument {
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicInstrument {
     type Vtable = IDirectMusicInstrument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534497917, 45979, 4561, [135, 4, 0, 96, 8, 147, 177, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2ac287d_b39b_11d1_8704_00600893b1bd);
 }
 impl ::core::convert::From<IDirectMusicInstrument> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicInstrument) -> Self {
@@ -2395,7 +2395,7 @@ impl IDirectMusicPort {
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicPort {
     type Vtable = IDirectMusicPort_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(150132937, 14274, 4562, [185, 249, 0, 0, 248, 117, 172, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08f2d8c9_37c2_11d2_b9f9_0000f875ac12);
 }
 impl ::core::convert::From<IDirectMusicPort> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicPort) -> Self {
@@ -2479,7 +2479,7 @@ impl IDirectMusicPortDownload {
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicPortDownload {
     type Vtable = IDirectMusicPortDownload_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534497914, 45979, 4561, [135, 4, 0, 96, 8, 147, 177, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2ac287a_b39b_11d1_8704_00600893b1bd);
 }
 impl ::core::convert::From<IDirectMusicPortDownload> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicPortDownload) -> Self {
@@ -2595,7 +2595,7 @@ impl IDirectMusicSynth {
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicSynth {
     type Vtable = IDirectMusicSynth_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(159528545, 23685, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09823661_5c85_11d2_afa6_00aa0024d8b6);
 }
 impl ::core::convert::From<IDirectMusicSynth> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicSynth) -> Self {
@@ -2760,7 +2760,7 @@ impl IDirectMusicSynth8 {
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicSynth8 {
     type Vtable = IDirectMusicSynth8_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1405793829, 10001, 19615, [157, 231, 27, 127, 146, 95, 111, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53cab625_2711_4c9f_9de7_1b7f925f6fc8);
 }
 impl ::core::convert::From<IDirectMusicSynth8> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicSynth8) -> Self {
@@ -2879,7 +2879,7 @@ impl IDirectMusicSynthSink {
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicSynthSink {
     type Vtable = IDirectMusicSynthSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(159528547, 23685, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09823663_5c85_11d2_afa6_00aa0024d8b6);
 }
 impl ::core::convert::From<IDirectMusicSynthSink> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicSynthSink) -> Self {
@@ -2930,7 +2930,7 @@ impl IDirectMusicThru {
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicThru {
     type Vtable = IDirectMusicThru_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3469824999, 13830, 4562, [185, 249, 0, 0, 248, 117, 172, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xced153e7_3606_11d2_b9f9_0000f875ac12);
 }
 impl ::core::convert::From<IDirectMusicThru> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicThru) -> Self {

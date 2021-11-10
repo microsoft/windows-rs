@@ -13,7 +13,7 @@ impl IIsolatedEnvironmentInterop {
 }
 unsafe impl ::windows::runtime::Interface for IIsolatedEnvironmentInterop {
     type Vtable = IIsolatedEnvironmentInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2238790702, 36450, 18117, [141, 226, 198, 71, 225, 213, 70, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85713c2e_8e62_46c5_8de2_c647e1d54636);
 }
 impl ::core::convert::From<IIsolatedEnvironmentInterop> for ::windows::runtime::IUnknown {
     fn from(value: IIsolatedEnvironmentInterop) -> Self {

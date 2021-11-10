@@ -188,7 +188,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpCacheDirectiveHeaderValueCol
 }
 unsafe impl ::windows::runtime::Interface for HttpCacheDirectiveHeaderValueCollection {
     type Vtable = IHttpCacheDirectiveHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2589485961, 54736, 20414, [189, 157, 181, 179, 99, 104, 17, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a586b89_d5d0_4fbe_bd9d_b5b3636811b4);
 }
 impl ::windows::runtime::RuntimeName for HttpCacheDirectiveHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCacheDirectiveHeaderValueCollection";
@@ -410,7 +410,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpChallengeHeaderValue {
 }
 unsafe impl ::windows::runtime::Interface for HttpChallengeHeaderValue {
     type Vtable = IHttpChallengeHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(959668655, 3965, 18464, [159, 221, 162, 185, 86, 238, 174, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x393361af_0f7d_4820_9fdd_a2b956eeaeab);
 }
 impl ::windows::runtime::RuntimeName for HttpChallengeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpChallengeHeaderValue";
@@ -612,7 +612,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpChallengeHeaderValueCollecti
 }
 unsafe impl ::windows::runtime::Interface for HttpChallengeHeaderValueCollection {
     type Vtable = IHttpChallengeHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3399376769, 44768, 17235, [161, 11, 230, 37, 186, 189, 100, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca9e5f81_aee0_4353_a10b_e625babd64c2);
 }
 impl ::windows::runtime::RuntimeName for HttpChallengeHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpChallengeHeaderValueCollection";
@@ -810,7 +810,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpConnectionOptionHeaderValue 
 }
 unsafe impl ::windows::runtime::Interface for HttpConnectionOptionHeaderValue {
     type Vtable = IHttpConnectionOptionHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3410686586, 20112, 17899, [141, 205, 253, 20, 8, 244, 196, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb4af27a_4e90_45eb_8dcd_fd1408f4c44f);
 }
 impl ::windows::runtime::RuntimeName for HttpConnectionOptionHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue";
@@ -1012,7 +1012,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpConnectionOptionHeaderValueC
 }
 unsafe impl ::windows::runtime::Interface for HttpConnectionOptionHeaderValueCollection {
     type Vtable = IHttpConnectionOptionHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3841289245, 20802, 19968, [142, 15, 1, 149, 9, 51, 118, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4f56c1d_5142_4e00_8e0f_019509337629);
 }
 impl ::windows::runtime::RuntimeName for HttpConnectionOptionHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpConnectionOptionHeaderValueCollection";
@@ -1210,7 +1210,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpContentCodingHeaderValue {
 }
 unsafe impl ::windows::runtime::Interface for HttpContentCodingHeaderValue {
     type Vtable = IHttpContentCodingHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3170367786, 37750, 19845, [188, 204, 159, 79, 154, 202, 180, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbcf7f92a_9376_4d85_bccc_9f4f9acab434);
 }
 impl ::windows::runtime::RuntimeName for HttpContentCodingHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingHeaderValue";
@@ -1412,7 +1412,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpContentCodingHeaderValueColl
 }
 unsafe impl ::windows::runtime::Interface for HttpContentCodingHeaderValueCollection {
     type Vtable = IHttpContentCodingHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2099386145, 42715, 17262, [142, 131, 145, 89, 97, 146, 129, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d221721_a6db_436e_8e83_91596192819c);
 }
 impl ::windows::runtime::RuntimeName for HttpContentCodingHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingHeaderValueCollection";
@@ -1626,7 +1626,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpContentCodingWithQualityHead
 }
 unsafe impl ::windows::runtime::Interface for HttpContentCodingWithQualityHeaderValue {
     type Vtable = IHttpContentCodingWithQualityHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2488474837, 35603, 19827, [134, 81, 247, 107, 56, 248, 132, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94531cd5_8b13_4d73_8651_f76b38f88495);
 }
 impl ::windows::runtime::RuntimeName for HttpContentCodingWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue";
@@ -1828,7 +1828,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpContentCodingWithQualityHead
 }
 unsafe impl ::windows::runtime::Interface for HttpContentCodingWithQualityHeaderValueCollection {
     type Vtable = IHttpContentCodingWithQualityHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2081256766, 59545, 17272, [181, 200, 65, 45, 130, 7, 17, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c0d753e_e899_4378_b5c8_412d820711cc);
 }
 impl ::windows::runtime::RuntimeName for HttpContentCodingWithQualityHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValueCollection";
@@ -2094,7 +2094,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpContentDispositionHeaderValu
 }
 unsafe impl ::windows::runtime::Interface for HttpContentDispositionHeaderValue {
     type Vtable = IHttpContentDispositionHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4070764252, 9769, 19273, [153, 8, 150, 161, 104, 233, 54, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2a2eedc_2629_4b49_9908_96a168e9365e);
 }
 impl ::windows::runtime::RuntimeName for HttpContentDispositionHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentDispositionHeaderValue";
@@ -2403,7 +2403,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpContentHeaderCollection {
 }
 unsafe impl ::windows::runtime::Interface for HttpContentHeaderCollection {
     type Vtable = IHttpContentHeaderCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1080109636, 18350, 19326, [145, 36, 105, 98, 139, 100, 170, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40612a44_47ae_4b7e_9124_69628b64aa18);
 }
 impl ::windows::runtime::RuntimeName for HttpContentHeaderCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentHeaderCollection";
@@ -2647,7 +2647,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpContentRangeHeaderValue {
 }
 unsafe impl ::windows::runtime::Interface for HttpContentRangeHeaderValue {
     type Vtable = IHttpContentRangeHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(81356755, 42230, 18780, [149, 48, 133, 121, 252, 186, 138, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04d967d3_a4f6_495c_9530_8579fcba8aa9);
 }
 impl ::windows::runtime::RuntimeName for HttpContentRangeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentRangeHeaderValue";
@@ -2797,7 +2797,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpCookiePairHeaderValue {
 }
 unsafe impl ::windows::runtime::Interface for HttpCookiePairHeaderValue {
     type Vtable = IHttpCookiePairHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3419693591, 19241, 16683, [189, 144, 179, 216, 20, 171, 142, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcbd46217_4b29_412b_bd90_b3d814ab8e1b);
 }
 impl ::windows::runtime::RuntimeName for HttpCookiePairHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCookiePairHeaderValue";
@@ -2999,7 +2999,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpCookiePairHeaderValueCollect
 }
 unsafe impl ::windows::runtime::Interface for HttpCookiePairHeaderValueCollection {
     type Vtable = IHttpCookiePairHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4092871504, 22558, 20172, [159, 89, 229, 7, 208, 79, 6, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3f44350_581e_4ecc_9f59_e507d04f06e6);
 }
 impl ::windows::runtime::RuntimeName for HttpCookiePairHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCookiePairHeaderValueCollection";
@@ -3221,7 +3221,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpCredentialsHeaderValue {
 }
 unsafe impl ::windows::runtime::Interface for HttpCredentialsHeaderValue {
     type Vtable = IHttpCredentialsHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3276587979, 21550, 16759, [166, 199, 182, 116, 206, 25, 63, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc34cc3cb_542e_4177_a6c7_b674ce193fbf);
 }
 impl ::windows::runtime::RuntimeName for HttpCredentialsHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCredentialsHeaderValue";
@@ -3350,7 +3350,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpDateOrDeltaHeaderValue {
 }
 unsafe impl ::windows::runtime::Interface for HttpDateOrDeltaHeaderValue {
     type Vtable = IHttpDateOrDeltaHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3942427242, 50396, 18914, [162, 125, 4, 58, 223, 88, 103, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeafcaa6a_c4dc_49e2_a27d_043adf5867a3);
 }
 impl ::windows::runtime::RuntimeName for HttpDateOrDeltaHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpDateOrDeltaHeaderValue";
@@ -3509,7 +3509,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpExpectationHeaderValue {
 }
 unsafe impl ::windows::runtime::Interface for HttpExpectationHeaderValue {
     type Vtable = IHttpExpectationHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1290110413, 15001, 17327, [162, 230, 236, 35, 47, 234, 150, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ce585cd_3a99_43af_a2e6_ec232fea9658);
 }
 impl ::windows::runtime::RuntimeName for HttpExpectationHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpExpectationHeaderValue";
@@ -3711,7 +3711,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpExpectationHeaderValueCollec
 }
 unsafe impl ::windows::runtime::Interface for HttpExpectationHeaderValueCollection {
     type Vtable = IHttpExpectationHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3884261811, 41186, 19140, [158, 102, 121, 112, 108, 185, 253, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe78521b3_a0e2_4ac4_9e66_79706cb9fd58);
 }
 impl ::windows::runtime::RuntimeName for HttpExpectationHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpExpectationHeaderValueCollection";
@@ -3981,7 +3981,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpLanguageHeaderValueCollectio
 }
 unsafe impl ::windows::runtime::Interface for HttpLanguageHeaderValueCollection {
     type Vtable = IHttpLanguageHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2663218339, 33305, 17654, [153, 2, 140, 86, 223, 211, 52, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ebd7ca3_8219_44f6_9902_8c56dfd3340c);
 }
 impl ::windows::runtime::RuntimeName for HttpLanguageHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpLanguageHeaderValueCollection";
@@ -4195,7 +4195,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpLanguageRangeWithQualityHead
 }
 unsafe impl ::windows::runtime::Interface for HttpLanguageRangeWithQualityHeaderValue {
     type Vtable = IHttpLanguageRangeWithQualityHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1918296322, 128, 19892, [160, 131, 125, 231, 178, 229, 186, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7256e102_0080_4db4_a083_7de7b2e5ba4c);
 }
 impl ::windows::runtime::RuntimeName for HttpLanguageRangeWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue";
@@ -4397,7 +4397,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpLanguageRangeWithQualityHead
 }
 unsafe impl ::windows::runtime::Interface for HttpLanguageRangeWithQualityHeaderValueCollection {
     type Vtable = IHttpLanguageRangeWithQualityHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2287819453, 19279, 18442, [137, 206, 138, 237, 206, 230, 227, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x885d5abd_4b4f_480a_89ce_8aedcee6e3a0);
 }
 impl ::windows::runtime::RuntimeName for HttpLanguageRangeWithQualityHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValueCollection";
@@ -4622,7 +4622,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpMediaTypeHeaderValue {
 }
 unsafe impl ::windows::runtime::Interface for HttpMediaTypeHeaderValue {
     type Vtable = IHttpMediaTypeHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(380798259, 59176, 20427, [189, 176, 8, 164, 49, 161, 72, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16b28533_e728_4fcb_bdb0_08a431a14844);
 }
 impl ::windows::runtime::RuntimeName for HttpMediaTypeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMediaTypeHeaderValue";
@@ -4801,7 +4801,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpMediaTypeWithQualityHeaderVa
 }
 unsafe impl ::windows::runtime::Interface for HttpMediaTypeWithQualityHeaderValue {
     type Vtable = IHttpMediaTypeWithQualityHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(411917874, 30398, 17568, [177, 205, 32, 116, 189, 237, 45, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x188d5e32_76be_44a0_b1cd_2074bded2dde);
 }
 impl ::windows::runtime::RuntimeName for HttpMediaTypeWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue";
@@ -5003,7 +5003,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpMediaTypeWithQualityHeaderVa
 }
 unsafe impl ::windows::runtime::Interface for HttpMediaTypeWithQualityHeaderValueCollection {
     type Vtable = IHttpMediaTypeWithQualityHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1007446899, 4930, 17799, [160, 86, 24, 208, 47, 246, 113, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c0c6b73_1342_4587_a056_18d02ff67165);
 }
 impl ::windows::runtime::RuntimeName for HttpMediaTypeWithQualityHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValueCollection";
@@ -5273,7 +5273,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpMethodHeaderValueCollection 
 }
 unsafe impl ::windows::runtime::Interface for HttpMethodHeaderValueCollection {
     type Vtable = IHttpMethodHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1136410612, 24857, 19167, [147, 140, 52, 191, 255, 207, 146, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43bc3ff4_6119_4adf_938c_34bfffcf92ed);
 }
 impl ::windows::runtime::RuntimeName for HttpMethodHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMethodHeaderValueCollection";
@@ -5491,7 +5491,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpNameValueHeaderValue {
 }
 unsafe impl ::windows::runtime::Interface for HttpNameValueHeaderValue {
     type Vtable = IHttpNameValueHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3636098147, 23450, 19739, [147, 249, 170, 91, 68, 236, 253, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8ba7463_5b9a_4d1b_93f9_aa5b44ecfddf);
 }
 impl ::windows::runtime::RuntimeName for HttpNameValueHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpNameValueHeaderValue";
@@ -5636,7 +5636,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpProductHeaderValue {
 }
 unsafe impl ::windows::runtime::Interface for HttpProductHeaderValue {
     type Vtable = IHttpProductHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4110347779, 60372, 16736, [185, 255, 128, 124, 81, 131, 182, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf4feee03_ebd4_4160_b9ff_807c5183b6e6);
 }
 impl ::windows::runtime::RuntimeName for HttpProductHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpProductHeaderValue";
@@ -5781,7 +5781,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpProductInfoHeaderValue {
 }
 unsafe impl ::windows::runtime::Interface for HttpProductInfoHeaderValue {
     type Vtable = IHttpProductInfoHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(454723378, 19509, 18538, [150, 111, 100, 100, 137, 25, 142, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b1a8732_4c35_486a_966f_646489198e4d);
 }
 impl ::windows::runtime::RuntimeName for HttpProductInfoHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpProductInfoHeaderValue";
@@ -5983,7 +5983,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpProductInfoHeaderValueCollec
 }
 unsafe impl ::windows::runtime::Interface for HttpProductInfoHeaderValueCollection {
     type Vtable = IHttpProductInfoHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2273179466, 54939, 17656, [173, 79, 69, 58, 249, 196, 46, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x877df74a_d69b_44f8_ad4f_453af9c42ed0);
 }
 impl ::windows::runtime::RuntimeName for HttpProductInfoHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpProductInfoHeaderValueCollection";
@@ -6424,7 +6424,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpRequestHeaderCollection {
 }
 unsafe impl ::windows::runtime::Interface for HttpRequestHeaderCollection {
     type Vtable = IHttpRequestHeaderCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2940220059, 46404, 18075, [134, 185, 172, 61, 70, 111, 234, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf40329b_b544_469b_86b9_ac3d466fea36);
 }
 impl ::windows::runtime::RuntimeName for HttpRequestHeaderCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpRequestHeaderCollection";
@@ -6770,7 +6770,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpResponseHeaderCollection {
 }
 unsafe impl ::windows::runtime::Interface for HttpResponseHeaderCollection {
     type Vtable = IHttpResponseHeaderCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2056849769, 64063, 16877, [170, 198, 191, 149, 121, 117, 193, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a990969_fa3f_41ed_aac6_bf957975c16b);
 }
 impl ::windows::runtime::RuntimeName for HttpResponseHeaderCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpResponseHeaderCollection";
@@ -6977,7 +6977,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpTransferCodingHeaderValue {
 }
 unsafe impl ::windows::runtime::Interface for HttpTransferCodingHeaderValue {
     type Vtable = IHttpTransferCodingHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1131361017, 15853, 17085, [179, 138, 84, 150, 162, 81, 28, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x436f32f9_3ded_42bd_b38a_5496a2511ce6);
 }
 impl ::windows::runtime::RuntimeName for HttpTransferCodingHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpTransferCodingHeaderValue";
@@ -7179,7 +7179,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpTransferCodingHeaderValueCol
 }
 unsafe impl ::windows::runtime::Interface for HttpTransferCodingHeaderValueCollection {
     type Vtable = IHttpTransferCodingHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(539790388, 11267, 18872, [150, 101, 115, 226, 124, 178, 252, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x202c8c34_2c03_49b8_9665_73e27cb2fc79);
 }
 impl ::windows::runtime::RuntimeName for HttpTransferCodingHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpTransferCodingHeaderValueCollection";
@@ -7325,7 +7325,7 @@ impl ::core::iter::IntoIterator for &HttpTransferCodingHeaderValueCollection {
 pub struct IHttpCacheDirectiveHeaderValueCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpCacheDirectiveHeaderValueCollection {
     type Vtable = IHttpCacheDirectiveHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2589485961, 54736, 20414, [189, 157, 181, 179, 99, 104, 17, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a586b89_d5d0_4fbe_bd9d_b5b3636811b4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7360,7 +7360,7 @@ pub struct IHttpCacheDirectiveHeaderValueCollection_abi(
 pub struct IHttpChallengeHeaderValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpChallengeHeaderValue {
     type Vtable = IHttpChallengeHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(959668655, 3965, 18464, [159, 221, 162, 185, 86, 238, 174, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x393361af_0f7d_4820_9fdd_a2b956eeaeab);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7381,7 +7381,7 @@ pub struct IHttpChallengeHeaderValue_abi(
 pub struct IHttpChallengeHeaderValueCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpChallengeHeaderValueCollection {
     type Vtable = IHttpChallengeHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3399376769, 44768, 17235, [161, 11, 230, 37, 186, 189, 100, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca9e5f81_aee0_4353_a10b_e625babd64c2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7400,7 +7400,7 @@ pub struct IHttpChallengeHeaderValueCollection_abi(
 pub struct IHttpChallengeHeaderValueFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpChallengeHeaderValueFactory {
     type Vtable = IHttpChallengeHeaderValueFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3293758545, 55708, 16554, [147, 153, 144, 238, 185, 143, 198, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc452c451_d99c_40aa_9399_90eeb98fc613);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7419,7 +7419,7 @@ pub struct IHttpChallengeHeaderValueFactory_abi(
 pub struct IHttpChallengeHeaderValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpChallengeHeaderValueStatics {
     type Vtable = IHttpChallengeHeaderValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4090727026, 64513, 19713, [160, 8, 252, 183, 196, 89, 214, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3d38a72_fc01_4d01_a008_fcb7c459d635);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7438,7 +7438,7 @@ pub struct IHttpChallengeHeaderValueStatics_abi(
 pub struct IHttpConnectionOptionHeaderValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpConnectionOptionHeaderValue {
     type Vtable = IHttpConnectionOptionHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3410686586, 20112, 17899, [141, 205, 253, 20, 8, 244, 196, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb4af27a_4e90_45eb_8dcd_fd1408f4c44f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7456,7 +7456,7 @@ pub struct IHttpConnectionOptionHeaderValue_abi(
 pub struct IHttpConnectionOptionHeaderValueCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpConnectionOptionHeaderValueCollection {
     type Vtable = IHttpConnectionOptionHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3841289245, 20802, 19968, [142, 15, 1, 149, 9, 51, 118, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4f56c1d_5142_4e00_8e0f_019509337629);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7475,7 +7475,7 @@ pub struct IHttpConnectionOptionHeaderValueCollection_abi(
 pub struct IHttpConnectionOptionHeaderValueFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpConnectionOptionHeaderValueFactory {
     type Vtable = IHttpConnectionOptionHeaderValueFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3644640286, 2941, 19519, [165, 141, 162, 161, 189, 234, 188, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd93ccc1e_0b7d_4c3f_a58d_a2a1bdeabc0a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7493,7 +7493,7 @@ pub struct IHttpConnectionOptionHeaderValueFactory_abi(
 pub struct IHttpConnectionOptionHeaderValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpConnectionOptionHeaderValueStatics {
     type Vtable = IHttpConnectionOptionHeaderValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2863095095, 43334, 19231, [133, 175, 72, 182, 139, 60, 80, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaaa75d37_a946_4b1f_85af_48b68b3c50bd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7512,7 +7512,7 @@ pub struct IHttpConnectionOptionHeaderValueStatics_abi(
 pub struct IHttpContentCodingHeaderValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpContentCodingHeaderValue {
     type Vtable = IHttpContentCodingHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3170367786, 37750, 19845, [188, 204, 159, 79, 154, 202, 180, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbcf7f92a_9376_4d85_bccc_9f4f9acab434);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7530,7 +7530,7 @@ pub struct IHttpContentCodingHeaderValue_abi(
 pub struct IHttpContentCodingHeaderValueCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpContentCodingHeaderValueCollection {
     type Vtable = IHttpContentCodingHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2099386145, 42715, 17262, [142, 131, 145, 89, 97, 146, 129, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d221721_a6db_436e_8e83_91596192819c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7549,7 +7549,7 @@ pub struct IHttpContentCodingHeaderValueCollection_abi(
 pub struct IHttpContentCodingHeaderValueFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpContentCodingHeaderValueFactory {
     type Vtable = IHttpContentCodingHeaderValueFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3309120471, 13099, 17232, [133, 16, 46, 103, 162, 40, 154, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc53d2bd7_332b_4350_8510_2e67a2289a5a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7567,7 +7567,7 @@ pub struct IHttpContentCodingHeaderValueFactory_abi(
 pub struct IHttpContentCodingHeaderValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpContentCodingHeaderValueStatics {
     type Vtable = IHttpContentCodingHeaderValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2497208366, 63935, 17143, [170, 70, 237, 39, 42, 65, 226, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94d8602e_f9bf_42f7_aa46_ed272a41e212);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7586,7 +7586,7 @@ pub struct IHttpContentCodingHeaderValueStatics_abi(
 pub struct IHttpContentCodingWithQualityHeaderValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpContentCodingWithQualityHeaderValue {
     type Vtable = IHttpContentCodingWithQualityHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2488474837, 35603, 19827, [134, 81, 247, 107, 56, 248, 132, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94531cd5_8b13_4d73_8651_f76b38f88495);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7606,7 +7606,7 @@ pub struct IHttpContentCodingWithQualityHeaderValue_abi(
 pub struct IHttpContentCodingWithQualityHeaderValueCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpContentCodingWithQualityHeaderValueCollection {
     type Vtable = IHttpContentCodingWithQualityHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2081256766, 59545, 17272, [181, 200, 65, 45, 130, 7, 17, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c0d753e_e899_4378_b5c8_412d820711cc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7625,7 +7625,7 @@ pub struct IHttpContentCodingWithQualityHeaderValueCollection_abi(
 pub struct IHttpContentCodingWithQualityHeaderValueFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpContentCodingWithQualityHeaderValueFactory {
     type Vtable = IHttpContentCodingWithQualityHeaderValueFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3294555674, 50515, 18172, [173, 226, 215, 92, 29, 83, 223, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc45eee1a_c553_46fc_ade2_d75c1d53df7b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7644,7 +7644,7 @@ pub struct IHttpContentCodingWithQualityHeaderValueFactory_abi(
 pub struct IHttpContentCodingWithQualityHeaderValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpContentCodingWithQualityHeaderValueStatics {
     type Vtable = IHttpContentCodingWithQualityHeaderValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3905500540, 36745, 18433, [142, 117, 76, 154, 191, 195, 222, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8c9357c_8f89_4801_8e75_4c9abfc3de71);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7663,7 +7663,7 @@ pub struct IHttpContentCodingWithQualityHeaderValueStatics_abi(
 pub struct IHttpContentDispositionHeaderValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpContentDispositionHeaderValue {
     type Vtable = IHttpContentDispositionHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4070764252, 9769, 19273, [153, 8, 150, 161, 104, 233, 54, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2a2eedc_2629_4b49_9908_96a168e9365e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7694,7 +7694,7 @@ pub struct IHttpContentDispositionHeaderValue_abi(
 pub struct IHttpContentDispositionHeaderValueFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpContentDispositionHeaderValueFactory {
     type Vtable = IHttpContentDispositionHeaderValueFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2568338372, 17772, 20097, [130, 149, 178, 171, 60, 188, 245, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9915bbc4_456c_4e81_8295_b2ab3cbcf545);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7712,7 +7712,7 @@ pub struct IHttpContentDispositionHeaderValueFactory_abi(
 pub struct IHttpContentDispositionHeaderValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpContentDispositionHeaderValueStatics {
     type Vtable = IHttpContentDispositionHeaderValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(700801127, 23095, 18148, [176, 116, 197, 23, 125, 105, 202, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29c56067_5a37_46e4_b074_c5177d69ca66);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7731,7 +7731,7 @@ pub struct IHttpContentDispositionHeaderValueStatics_abi(
 pub struct IHttpContentHeaderCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpContentHeaderCollection {
     type Vtable = IHttpContentHeaderCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1080109636, 18350, 19326, [145, 36, 105, 98, 139, 100, 170, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40612a44_47ae_4b7e_9124_69628b64aa18);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7778,7 +7778,7 @@ pub struct IHttpContentHeaderCollection_abi(
 pub struct IHttpContentRangeHeaderValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpContentRangeHeaderValue {
     type Vtable = IHttpContentRangeHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(81356755, 42230, 18780, [149, 48, 133, 121, 252, 186, 138, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04d967d3_a4f6_495c_9530_8579fcba8aa9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7803,7 +7803,7 @@ pub struct IHttpContentRangeHeaderValue_abi(
 pub struct IHttpContentRangeHeaderValueFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpContentRangeHeaderValueFactory {
     type Vtable = IHttpContentRangeHeaderValueFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1062983313, 41020, 17494, [154, 111, 239, 39, 236, 208, 60, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f5bd691_a03c_4456_9a6f_ef27ecd03cae);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7823,7 +7823,7 @@ pub struct IHttpContentRangeHeaderValueFactory_abi(
 pub struct IHttpContentRangeHeaderValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpContentRangeHeaderValueStatics {
     type Vtable = IHttpContentRangeHeaderValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2158184138, 5964, 20398, [130, 28, 19, 76, 210, 148, 170, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80a346ca_174c_4fae_821c_134cd294aa38);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7842,7 +7842,7 @@ pub struct IHttpContentRangeHeaderValueStatics_abi(
 pub struct IHttpCookiePairHeaderValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpCookiePairHeaderValue {
     type Vtable = IHttpCookiePairHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3419693591, 19241, 16683, [189, 144, 179, 216, 20, 171, 142, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcbd46217_4b29_412b_bd90_b3d814ab8e1b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7862,7 +7862,7 @@ pub struct IHttpCookiePairHeaderValue_abi(
 pub struct IHttpCookiePairHeaderValueCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpCookiePairHeaderValueCollection {
     type Vtable = IHttpCookiePairHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4092871504, 22558, 20172, [159, 89, 229, 7, 208, 79, 6, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3f44350_581e_4ecc_9f59_e507d04f06e6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7881,7 +7881,7 @@ pub struct IHttpCookiePairHeaderValueCollection_abi(
 pub struct IHttpCookiePairHeaderValueFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpCookiePairHeaderValueFactory {
     type Vtable = IHttpCookiePairHeaderValueFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1667117679, 5231, 20310, [170, 33, 44, 183, 214, 213, 139, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x635e326f_146f_4f56_aa21_2cb7d6d58b1e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7900,7 +7900,7 @@ pub struct IHttpCookiePairHeaderValueFactory_abi(
 pub struct IHttpCookiePairHeaderValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpCookiePairHeaderValueStatics {
     type Vtable = IHttpCookiePairHeaderValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1854303560, 1711, 17506, [129, 88, 153, 56, 141, 93, 202, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e866d48_06af_4462_8158_99388d5dca81);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7919,7 +7919,7 @@ pub struct IHttpCookiePairHeaderValueStatics_abi(
 pub struct IHttpCredentialsHeaderValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpCredentialsHeaderValue {
     type Vtable = IHttpCredentialsHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3276587979, 21550, 16759, [166, 199, 182, 116, 206, 25, 63, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc34cc3cb_542e_4177_a6c7_b674ce193fbf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7940,7 +7940,7 @@ pub struct IHttpCredentialsHeaderValue_abi(
 pub struct IHttpCredentialsHeaderValueFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpCredentialsHeaderValueFactory {
     type Vtable = IHttpCredentialsHeaderValueFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4062027409, 19740, 16770, [191, 209, 52, 71, 10, 98, 249, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf21d9e91_4d1c_4182_bfd1_34470a62f950);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7959,7 +7959,7 @@ pub struct IHttpCredentialsHeaderValueFactory_abi(
 pub struct IHttpCredentialsHeaderValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpCredentialsHeaderValueStatics {
     type Vtable = IHttpCredentialsHeaderValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2795187174, 52876, 17475, [163, 90, 27, 114, 123, 19, 16, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa69b2be6_ce8c_4443_a35a_1b727b131036);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7978,7 +7978,7 @@ pub struct IHttpCredentialsHeaderValueStatics_abi(
 pub struct IHttpDateOrDeltaHeaderValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDateOrDeltaHeaderValue {
     type Vtable = IHttpDateOrDeltaHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3942427242, 50396, 18914, [162, 125, 4, 58, 223, 88, 103, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeafcaa6a_c4dc_49e2_a27d_043adf5867a3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7999,7 +7999,7 @@ pub struct IHttpDateOrDeltaHeaderValue_abi(
 pub struct IHttpDateOrDeltaHeaderValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDateOrDeltaHeaderValueStatics {
     type Vtable = IHttpDateOrDeltaHeaderValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2082888104, 26226, 20112, [154, 154, 243, 151, 102, 247, 245, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c2659a8_6672_4e90_9a9a_f39766f7f576);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8018,7 +8018,7 @@ pub struct IHttpDateOrDeltaHeaderValueStatics_abi(
 pub struct IHttpExpectationHeaderValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpExpectationHeaderValue {
     type Vtable = IHttpExpectationHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1290110413, 15001, 17327, [162, 230, 236, 35, 47, 234, 150, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ce585cd_3a99_43af_a2e6_ec232fea9658);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8040,7 +8040,7 @@ pub struct IHttpExpectationHeaderValue_abi(
 pub struct IHttpExpectationHeaderValueCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpExpectationHeaderValueCollection {
     type Vtable = IHttpExpectationHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3884261811, 41186, 19140, [158, 102, 121, 112, 108, 185, 253, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe78521b3_a0e2_4ac4_9e66_79706cb9fd58);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8059,7 +8059,7 @@ pub struct IHttpExpectationHeaderValueCollection_abi(
 pub struct IHttpExpectationHeaderValueFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpExpectationHeaderValueFactory {
     type Vtable = IHttpExpectationHeaderValueFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1319269835, 54590, 18536, [136, 86, 30, 33, 165, 3, 13, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ea275cb_d53e_4868_8856_1e21a5030dc0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8078,7 +8078,7 @@ pub struct IHttpExpectationHeaderValueFactory_abi(
 pub struct IHttpExpectationHeaderValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpExpectationHeaderValueStatics {
     type Vtable = IHttpExpectationHeaderValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(806988770, 53221, 18235, [165, 127, 251, 165, 177, 78, 178, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3019abe2_cfe5_473b_a57f_fba5b14eb257);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8097,7 +8097,7 @@ pub struct IHttpExpectationHeaderValueStatics_abi(
 pub struct IHttpLanguageHeaderValueCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpLanguageHeaderValueCollection {
     type Vtable = IHttpLanguageHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2663218339, 33305, 17654, [153, 2, 140, 86, 223, 211, 52, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ebd7ca3_8219_44f6_9902_8c56dfd3340c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8116,7 +8116,7 @@ pub struct IHttpLanguageHeaderValueCollection_abi(
 pub struct IHttpLanguageRangeWithQualityHeaderValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpLanguageRangeWithQualityHeaderValue {
     type Vtable = IHttpLanguageRangeWithQualityHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1918296322, 128, 19892, [160, 131, 125, 231, 178, 229, 186, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7256e102_0080_4db4_a083_7de7b2e5ba4c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8136,7 +8136,7 @@ pub struct IHttpLanguageRangeWithQualityHeaderValue_abi(
 pub struct IHttpLanguageRangeWithQualityHeaderValueCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpLanguageRangeWithQualityHeaderValueCollection {
     type Vtable = IHttpLanguageRangeWithQualityHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2287819453, 19279, 18442, [137, 206, 138, 237, 206, 230, 227, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x885d5abd_4b4f_480a_89ce_8aedcee6e3a0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8155,7 +8155,7 @@ pub struct IHttpLanguageRangeWithQualityHeaderValueCollection_abi(
 pub struct IHttpLanguageRangeWithQualityHeaderValueFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpLanguageRangeWithQualityHeaderValueFactory {
     type Vtable = IHttpLanguageRangeWithQualityHeaderValueFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2075670896, 30735, 19587, [159, 228, 220, 48, 135, 246, 189, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bb83970_780f_4c83_9fe4_dc3087f6bd55);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8174,7 +8174,7 @@ pub struct IHttpLanguageRangeWithQualityHeaderValueFactory_abi(
 pub struct IHttpLanguageRangeWithQualityHeaderValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpLanguageRangeWithQualityHeaderValueStatics {
     type Vtable = IHttpLanguageRangeWithQualityHeaderValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(625074502, 62216, 18165, [182, 149, 66, 245, 64, 36, 236, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2541e146_f308_46f5_b695_42f54024ec68);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8193,7 +8193,7 @@ pub struct IHttpLanguageRangeWithQualityHeaderValueStatics_abi(
 pub struct IHttpMediaTypeHeaderValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMediaTypeHeaderValue {
     type Vtable = IHttpMediaTypeHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(380798259, 59176, 20427, [189, 176, 8, 164, 49, 161, 72, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16b28533_e728_4fcb_bdb0_08a431a14844);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8216,7 +8216,7 @@ pub struct IHttpMediaTypeHeaderValue_abi(
 pub struct IHttpMediaTypeHeaderValueFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMediaTypeHeaderValueFactory {
     type Vtable = IHttpMediaTypeHeaderValueFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3201779624, 52503, 17117, [147, 103, 171, 156, 91, 86, 221, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbed747a8_cd17_42dd_9367_ab9c5b56dd7d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8234,7 +8234,7 @@ pub struct IHttpMediaTypeHeaderValueFactory_abi(
 pub struct IHttpMediaTypeHeaderValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMediaTypeHeaderValueStatics {
     type Vtable = IHttpMediaTypeHeaderValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3763176415, 7489, 19852, [162, 222, 111, 210, 237, 135, 57, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe04d83df_1d41_4d8c_a2de_6fd2ed87399b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8253,7 +8253,7 @@ pub struct IHttpMediaTypeHeaderValueStatics_abi(
 pub struct IHttpMediaTypeWithQualityHeaderValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMediaTypeWithQualityHeaderValue {
     type Vtable = IHttpMediaTypeWithQualityHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(411917874, 30398, 17568, [177, 205, 32, 116, 189, 237, 45, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x188d5e32_76be_44a0_b1cd_2074bded2dde);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8280,7 +8280,7 @@ pub struct IHttpMediaTypeWithQualityHeaderValue_abi(
 pub struct IHttpMediaTypeWithQualityHeaderValueCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMediaTypeWithQualityHeaderValueCollection {
     type Vtable = IHttpMediaTypeWithQualityHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1007446899, 4930, 17799, [160, 86, 24, 208, 47, 246, 113, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c0c6b73_1342_4587_a056_18d02ff67165);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8299,7 +8299,7 @@ pub struct IHttpMediaTypeWithQualityHeaderValueCollection_abi(
 pub struct IHttpMediaTypeWithQualityHeaderValueFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMediaTypeWithQualityHeaderValueFactory {
     type Vtable = IHttpMediaTypeWithQualityHeaderValueFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1282220276, 37975, 17638, [163, 35, 209, 34, 185, 88, 120, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c6d20f4_9457_44e6_a323_d122b958780b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8318,7 +8318,7 @@ pub struct IHttpMediaTypeWithQualityHeaderValueFactory_abi(
 pub struct IHttpMediaTypeWithQualityHeaderValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMediaTypeWithQualityHeaderValueStatics {
     type Vtable = IHttpMediaTypeWithQualityHeaderValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1527188697, 46432, 20424, [152, 53, 126, 108, 10, 101, 123, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b070cd9_b560_4fc8_9835_7e6c0a657b24);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8337,7 +8337,7 @@ pub struct IHttpMediaTypeWithQualityHeaderValueStatics_abi(
 pub struct IHttpMethodHeaderValueCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMethodHeaderValueCollection {
     type Vtable = IHttpMethodHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1136410612, 24857, 19167, [147, 140, 52, 191, 255, 207, 146, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43bc3ff4_6119_4adf_938c_34bfffcf92ed);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8356,7 +8356,7 @@ pub struct IHttpMethodHeaderValueCollection_abi(
 pub struct IHttpNameValueHeaderValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpNameValueHeaderValue {
     type Vtable = IHttpNameValueHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3636098147, 23450, 19739, [147, 249, 170, 91, 68, 236, 253, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8ba7463_5b9a_4d1b_93f9_aa5b44ecfddf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8376,7 +8376,7 @@ pub struct IHttpNameValueHeaderValue_abi(
 pub struct IHttpNameValueHeaderValueFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpNameValueHeaderValueFactory {
     type Vtable = IHttpNameValueHeaderValueFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1997415015, 52216, 18230, [169, 37, 147, 251, 225, 12, 124, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x770e2267_cbf8_4736_a925_93fbe10c7ca8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8395,7 +8395,7 @@ pub struct IHttpNameValueHeaderValueFactory_abi(
 pub struct IHttpNameValueHeaderValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpNameValueHeaderValueStatics {
     type Vtable = IHttpNameValueHeaderValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4292084495, 4400, 16722, [134, 89, 37, 105, 9, 169, 209, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffd4030f_1130_4152_8659_256909a9d115);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8414,7 +8414,7 @@ pub struct IHttpNameValueHeaderValueStatics_abi(
 pub struct IHttpProductHeaderValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpProductHeaderValue {
     type Vtable = IHttpProductHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4110347779, 60372, 16736, [185, 255, 128, 124, 81, 131, 182, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf4feee03_ebd4_4160_b9ff_807c5183b6e6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8433,7 +8433,7 @@ pub struct IHttpProductHeaderValue_abi(
 pub struct IHttpProductHeaderValueFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpProductHeaderValueFactory {
     type Vtable = IHttpProductHeaderValueFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1629136117, 33468, 17147, [151, 123, 220, 0, 83, 110, 94, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x611aa4f5_82bc_42fb_977b_dc00536e5e86);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8452,7 +8452,7 @@ pub struct IHttpProductHeaderValueFactory_abi(
 pub struct IHttpProductHeaderValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpProductHeaderValueStatics {
     type Vtable = IHttpProductHeaderValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2428714537, 48892, 17207, [190, 98, 73, 240, 151, 151, 95, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90c33e29_befc_4337_be62_49f097975f53);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8471,7 +8471,7 @@ pub struct IHttpProductHeaderValueStatics_abi(
 pub struct IHttpProductInfoHeaderValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpProductInfoHeaderValue {
     type Vtable = IHttpProductInfoHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(454723378, 19509, 18538, [150, 111, 100, 100, 137, 25, 142, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b1a8732_4c35_486a_966f_646489198e4d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8490,7 +8490,7 @@ pub struct IHttpProductInfoHeaderValue_abi(
 pub struct IHttpProductInfoHeaderValueCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpProductInfoHeaderValueCollection {
     type Vtable = IHttpProductInfoHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2273179466, 54939, 17656, [173, 79, 69, 58, 249, 196, 46, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x877df74a_d69b_44f8_ad4f_453af9c42ed0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8509,7 +8509,7 @@ pub struct IHttpProductInfoHeaderValueCollection_abi(
 pub struct IHttpProductInfoHeaderValueFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpProductInfoHeaderValueFactory {
     type Vtable = IHttpProductInfoHeaderValueFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(606212030, 60094, 17508, [180, 96, 236, 1, 11, 124, 65, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24220fbe_eabe_4464_b460_ec010b7c41e2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8528,7 +8528,7 @@ pub struct IHttpProductInfoHeaderValueFactory_abi(
 pub struct IHttpProductInfoHeaderValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpProductInfoHeaderValueStatics {
     type Vtable = IHttpProductInfoHeaderValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3682588759, 12922, 20083, [129, 229, 112, 89, 163, 2, 176, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb7fd857_327a_4e73_81e5_7059a302b042);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8547,7 +8547,7 @@ pub struct IHttpProductInfoHeaderValueStatics_abi(
 pub struct IHttpRequestHeaderCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpRequestHeaderCollection {
     type Vtable = IHttpRequestHeaderCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2940220059, 46404, 18075, [134, 185, 172, 61, 70, 111, 234, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf40329b_b544_469b_86b9_ac3d466fea36);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8605,7 +8605,7 @@ pub struct IHttpRequestHeaderCollection_abi(
 pub struct IHttpResponseHeaderCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpResponseHeaderCollection {
     type Vtable = IHttpResponseHeaderCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2056849769, 64063, 16877, [170, 198, 191, 149, 121, 117, 193, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a990969_fa3f_41ed_aac6_bf957975c16b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8644,7 +8644,7 @@ pub struct IHttpResponseHeaderCollection_abi(
 pub struct IHttpTransferCodingHeaderValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpTransferCodingHeaderValue {
     type Vtable = IHttpTransferCodingHeaderValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1131361017, 15853, 17085, [179, 138, 84, 150, 162, 81, 28, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x436f32f9_3ded_42bd_b38a_5496a2511ce6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8664,7 +8664,7 @@ pub struct IHttpTransferCodingHeaderValue_abi(
 pub struct IHttpTransferCodingHeaderValueCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpTransferCodingHeaderValueCollection {
     type Vtable = IHttpTransferCodingHeaderValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(539790388, 11267, 18872, [150, 101, 115, 226, 124, 178, 252, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x202c8c34_2c03_49b8_9665_73e27cb2fc79);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8683,7 +8683,7 @@ pub struct IHttpTransferCodingHeaderValueCollection_abi(
 pub struct IHttpTransferCodingHeaderValueFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpTransferCodingHeaderValueFactory {
     type Vtable = IHttpTransferCodingHeaderValueFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3143819260, 58209, 20232, [142, 79, 201, 231, 35, 222, 112, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb62dffc_e361_4f08_8e4f_c9e723de703b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8701,7 +8701,7 @@ pub struct IHttpTransferCodingHeaderValueFactory_abi(
 pub struct IHttpTransferCodingHeaderValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpTransferCodingHeaderValueStatics {
     type Vtable = IHttpTransferCodingHeaderValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1790478634, 6808, 19762, [169, 6, 116, 112, 169, 135, 92, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ab8892a_1a98_4d32_a906_7470a9875ce5);
 }
 #[repr(C)]
 #[doc(hidden)]

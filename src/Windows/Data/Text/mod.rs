@@ -59,7 +59,7 @@ unsafe impl ::windows::runtime::RuntimeType for AlternateWordForm {
 }
 unsafe impl ::windows::runtime::Interface for AlternateWordForm {
     type Vtable = IAlternateWordForm_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1194945566, 20921, 16903, [145, 70, 36, 142, 99, 106, 29, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47396c1e_51b9_4207_9146_248e636a1d1d);
 }
 impl ::windows::runtime::RuntimeName for AlternateWordForm {
     const NAME: &'static str = "Windows.Data.Text.AlternateWordForm";
@@ -111,7 +111,7 @@ unsafe impl ::core::marker::Sync for AlternateWordForm {}
 pub struct IAlternateWordForm(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAlternateWordForm {
     type Vtable = IAlternateWordForm_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1194945566, 20921, 16903, [145, 70, 36, 142, 99, 106, 29, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47396c1e_51b9_4207_9146_248e636a1d1d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -131,7 +131,7 @@ pub struct IAlternateWordForm_abi(
 pub struct ISelectableWordSegment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISelectableWordSegment {
     type Vtable = ISelectableWordSegment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2439662775, 35495, 19576, [179, 116, 93, 237, 183, 82, 230, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x916a4cb7_8aa7_4c78_b374_5dedb752e60b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -150,7 +150,7 @@ pub struct ISelectableWordSegment_abi(
 pub struct ISelectableWordsSegmenter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISelectableWordsSegmenter {
     type Vtable = ISelectableWordsSegmenter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4141625831, 19219, 17861, [136, 151, 125, 113, 38, 158, 8, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6dc31e7_4b13_45c5_8897_7d71269e085d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -173,7 +173,7 @@ pub struct ISelectableWordsSegmenter_abi(
 pub struct ISelectableWordsSegmenterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISelectableWordsSegmenterFactory {
     type Vtable = ISelectableWordsSegmenterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2356835912, 24663, 17209, [188, 112, 242, 16, 1, 10, 65, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c7a7648_6057_4339_bc70_f210010a4150);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -191,7 +191,7 @@ pub struct ISelectableWordsSegmenterFactory_abi(
 pub struct ISemanticTextQuery(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISemanticTextQuery {
     type Vtable = ISemanticTextQuery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1780263761, 8114, 18697, [128, 184, 53, 115, 26, 43, 62, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a1cab51_1fb2_4909_80b8_35731a2b3e7f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -212,7 +212,7 @@ pub struct ISemanticTextQuery_abi(
 pub struct ISemanticTextQueryFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISemanticTextQueryFactory {
     type Vtable = ISemanticTextQueryFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(596378883, 63893, 17799, [135, 119, 162, 183, 216, 10, 207, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x238c0503_f995_4587_8777_a2b7d80acfef);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -231,7 +231,7 @@ pub struct ISemanticTextQueryFactory_abi(
 pub struct ITextConversionGenerator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextConversionGenerator {
     type Vtable = ITextConversionGenerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(56650334, 10921, 19126, [175, 139, 165, 98, 182, 58, 137, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03606a5e_2aa9_4ab6_af8b_a562b63a8992);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -254,7 +254,7 @@ pub struct ITextConversionGenerator_abi(
 pub struct ITextConversionGeneratorFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextConversionGeneratorFactory {
     type Vtable = ITextConversionGeneratorFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4239013761, 12419, 18859, [190, 21, 86, 223, 187, 183, 77, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcaa3781_3083_49ab_be15_56dfbbb74d6f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -272,7 +272,7 @@ pub struct ITextConversionGeneratorFactory_abi(
 pub struct ITextPhoneme(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextPhoneme {
     type Vtable = ITextPhoneme_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2472715274, 39802, 17769, [148, 207, 216, 79, 47, 56, 207, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9362a40a_9b7a_4569_94cf_d84f2f38cf9b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -291,7 +291,7 @@ pub struct ITextPhoneme_abi(
 pub struct ITextPredictionGenerator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextPredictionGenerator {
     type Vtable = ITextPredictionGenerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1588374279, 44017, 19638, [157, 158, 50, 111, 43, 70, 135, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5eacab07_abf1_4cb6_9d9e_326f2b468756);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -314,7 +314,7 @@ pub struct ITextPredictionGenerator_abi(
 pub struct ITextPredictionGenerator2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextPredictionGenerator2 {
     type Vtable = ITextPredictionGenerator2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3091669944, 11383, 18538, [144, 10, 163, 69, 62, 237, 193, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb84723b8_2c77_486a_900a_a3453eedc15d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -339,7 +339,7 @@ pub struct ITextPredictionGenerator2_abi(
 pub struct ITextPredictionGeneratorFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextPredictionGeneratorFactory {
     type Vtable = ITextPredictionGeneratorFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1918350358, 35746, 18257, [157, 48, 157, 133, 67, 86, 83, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7257b416_8ba2_4751_9d30_9d85435653a2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -357,7 +357,7 @@ pub struct ITextPredictionGeneratorFactory_abi(
 pub struct ITextReverseConversionGenerator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextReverseConversionGenerator {
     type Vtable = ITextReverseConversionGenerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1374156052, 40017, 19846, [174, 27, 180, 152, 251, 173, 131, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51e7f514_9c51_4d86_ae1b_b498fbad8313);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -378,7 +378,7 @@ pub struct ITextReverseConversionGenerator_abi(
 pub struct ITextReverseConversionGenerator2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextReverseConversionGenerator2 {
     type Vtable = ITextReverseConversionGenerator2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(447730412, 34262, 18173, [130, 138, 58, 72, 48, 250, 110, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1aafd2ec_85d6_46fd_828a_3a4830fa6e18);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -397,7 +397,7 @@ pub struct ITextReverseConversionGenerator2_abi(
 pub struct ITextReverseConversionGeneratorFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextReverseConversionGeneratorFactory {
     type Vtable = ITextReverseConversionGeneratorFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1673450278, 8154, 16886, [137, 213, 35, 221, 234, 60, 114, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63bed326_1fda_41f6_89d5_23ddea3c729a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -415,7 +415,7 @@ pub struct ITextReverseConversionGeneratorFactory_abi(
 pub struct IUnicodeCharactersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnicodeCharactersStatics {
     type Vtable = IUnicodeCharactersStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2542837383, 37521, 20369, [182, 200, 182, 227, 89, 215, 167, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97909e87_9291_4f91_b6c8_b6e359d7a7fb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -449,7 +449,7 @@ pub struct IUnicodeCharactersStatics_abi(
 pub struct IWordSegment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWordSegment {
     type Vtable = IWordSegment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3537156717, 39036, 19648, [182, 189, 212, 154, 17, 179, 143, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2d4ba6d_987c_4cc0_b6bd_d49a11b38f9a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -470,7 +470,7 @@ pub struct IWordSegment_abi(
 pub struct IWordsSegmenter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWordsSegmenter {
     type Vtable = IWordsSegmenter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2259997905, 45822, 20020, [168, 29, 102, 100, 3, 0, 69, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86b4d4d1_b2fe_4e34_a81d_66640300454f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -493,7 +493,7 @@ pub struct IWordsSegmenter_abi(
 pub struct IWordsSegmenterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWordsSegmenterFactory {
     type Vtable = IWordsSegmenterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3868684916, 64565, 17756, [139, 251, 109, 127, 70, 83, 202, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6977274_fc35_455c_8bfb_6d7f4653ca97);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -533,7 +533,7 @@ unsafe impl ::windows::runtime::RuntimeType for SelectableWordSegment {
 }
 unsafe impl ::windows::runtime::Interface for SelectableWordSegment {
     type Vtable = ISelectableWordSegment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2439662775, 35495, 19576, [179, 116, 93, 237, 183, 82, 230, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x916a4cb7_8aa7_4c78_b374_5dedb752e60b);
 }
 impl ::windows::runtime::RuntimeName for SelectableWordSegment {
     const NAME: &'static str = "Windows.Data.Text.SelectableWordSegment";
@@ -609,7 +609,7 @@ unsafe impl ::windows::runtime::RuntimeType for SelectableWordSegmentsTokenizing
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::runtime::Interface for SelectableWordSegmentsTokenizingHandler {
     type Vtable = SelectableWordSegmentsTokenizingHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(977140892, 44766, 19911, [158, 108, 65, 192, 68, 189, 53, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a3dfc9c_aede_4dc7_9e6c_41c044bd3592);
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(C)]
@@ -718,7 +718,7 @@ unsafe impl ::windows::runtime::RuntimeType for SelectableWordsSegmenter {
 }
 unsafe impl ::windows::runtime::Interface for SelectableWordsSegmenter {
     type Vtable = ISelectableWordsSegmenter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4141625831, 19219, 17861, [136, 151, 125, 113, 38, 158, 8, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6dc31e7_4b13_45c5_8897_7d71269e085d);
 }
 impl ::windows::runtime::RuntimeName for SelectableWordsSegmenter {
     const NAME: &'static str = "Windows.Data.Text.SelectableWordsSegmenter";
@@ -812,7 +812,7 @@ unsafe impl ::windows::runtime::RuntimeType for SemanticTextQuery {
 }
 unsafe impl ::windows::runtime::Interface for SemanticTextQuery {
     type Vtable = ISemanticTextQuery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1780263761, 8114, 18697, [128, 184, 53, 115, 26, 43, 62, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a1cab51_1fb2_4909_80b8_35731a2b3e7f);
 }
 impl ::windows::runtime::RuntimeName for SemanticTextQuery {
     const NAME: &'static str = "Windows.Data.Text.SemanticTextQuery";
@@ -915,7 +915,7 @@ unsafe impl ::windows::runtime::RuntimeType for TextConversionGenerator {
 }
 unsafe impl ::windows::runtime::Interface for TextConversionGenerator {
     type Vtable = ITextConversionGenerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(56650334, 10921, 19126, [175, 139, 165, 98, 182, 58, 137, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03606a5e_2aa9_4ab6_af8b_a562b63a8992);
 }
 impl ::windows::runtime::RuntimeName for TextConversionGenerator {
     const NAME: &'static str = "Windows.Data.Text.TextConversionGenerator";
@@ -989,7 +989,7 @@ unsafe impl ::windows::runtime::RuntimeType for TextPhoneme {
 }
 unsafe impl ::windows::runtime::Interface for TextPhoneme {
     type Vtable = ITextPhoneme_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2472715274, 39802, 17769, [148, 207, 216, 79, 47, 56, 207, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9362a40a_9b7a_4569_94cf_d84f2f38cf9b);
 }
 impl ::windows::runtime::RuntimeName for TextPhoneme {
     const NAME: &'static str = "Windows.Data.Text.TextPhoneme";
@@ -1131,7 +1131,7 @@ unsafe impl ::windows::runtime::RuntimeType for TextPredictionGenerator {
 }
 unsafe impl ::windows::runtime::Interface for TextPredictionGenerator {
     type Vtable = ITextPredictionGenerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1588374279, 44017, 19638, [157, 158, 50, 111, 43, 70, 135, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5eacab07_abf1_4cb6_9d9e_326f2b468756);
 }
 impl ::windows::runtime::RuntimeName for TextPredictionGenerator {
     const NAME: &'static str = "Windows.Data.Text.TextPredictionGenerator";
@@ -1285,7 +1285,7 @@ unsafe impl ::windows::runtime::RuntimeType for TextReverseConversionGenerator {
 }
 unsafe impl ::windows::runtime::Interface for TextReverseConversionGenerator {
     type Vtable = ITextReverseConversionGenerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1374156052, 40017, 19846, [174, 27, 180, 152, 251, 173, 131, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51e7f514_9c51_4d86_ae1b_b498fbad8313);
 }
 impl ::windows::runtime::RuntimeName for TextReverseConversionGenerator {
     const NAME: &'static str = "Windows.Data.Text.TextReverseConversionGenerator";
@@ -1602,7 +1602,7 @@ unsafe impl ::windows::runtime::RuntimeType for WordSegment {
 }
 unsafe impl ::windows::runtime::Interface for WordSegment {
     type Vtable = IWordSegment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3537156717, 39036, 19648, [182, 189, 212, 154, 17, 179, 143, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2d4ba6d_987c_4cc0_b6bd_d49a11b38f9a);
 }
 impl ::windows::runtime::RuntimeName for WordSegment {
     const NAME: &'static str = "Windows.Data.Text.WordSegment";
@@ -1678,7 +1678,7 @@ unsafe impl ::windows::runtime::RuntimeType for WordSegmentsTokenizingHandler {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::runtime::Interface for WordSegmentsTokenizingHandler {
     type Vtable = WordSegmentsTokenizingHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2782749527, 48938, 19535, [163, 31, 41, 231, 28, 111, 139, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5dd6357_bf2a_4c4f_a31f_29e71c6f8b35);
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(C)]
@@ -1787,7 +1787,7 @@ unsafe impl ::windows::runtime::RuntimeType for WordsSegmenter {
 }
 unsafe impl ::windows::runtime::Interface for WordsSegmenter {
     type Vtable = IWordsSegmenter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2259997905, 45822, 20020, [168, 29, 102, 100, 3, 0, 69, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86b4d4d1_b2fe_4e34_a81d_66640300454f);
 }
 impl ::windows::runtime::RuntimeName for WordsSegmenter {
     const NAME: &'static str = "Windows.Data.Text.WordsSegmenter";

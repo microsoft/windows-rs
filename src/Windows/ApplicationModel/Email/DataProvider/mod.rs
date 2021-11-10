@@ -240,7 +240,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailDataProviderConnection {
 }
 unsafe impl ::windows::runtime::Interface for EmailDataProviderConnection {
     type Vtable = IEmailDataProviderConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1000119751, 14258, 19440, [174, 48, 123, 100, 74, 28, 150, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b9c9dc7_37b2_4bf0_ae30_7b644a1c96e1);
 }
 impl ::windows::runtime::RuntimeName for EmailDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailDataProviderConnection";
@@ -306,7 +306,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailDataProviderTriggerDetails 
 }
 unsafe impl ::windows::runtime::Interface for EmailDataProviderTriggerDetails {
     type Vtable = IEmailDataProviderTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2403225168, 13342, 17907, [187, 160, 132, 160, 5, 225, 49, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f3e4e50_341e_45f3_bba0_84a005e1319a);
 }
 impl ::windows::runtime::RuntimeName for EmailDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailDataProviderTriggerDetails";
@@ -406,7 +406,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxCreateFolderRequest 
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxCreateFolderRequest {
     type Vtable = IEmailMailboxCreateFolderRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(407713653, 51489, 19513, [163, 9, 225, 108, 159, 34, 176, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x184d3775_c921_4c39_a309_e16c9f22b04b);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxCreateFolderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxCreateFolderRequest";
@@ -481,7 +481,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxCreateFolderRequestE
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxCreateFolderRequestEventArgs {
     type Vtable = IEmailMailboxCreateFolderRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(65323052, 9244, 20137, [166, 143, 255, 32, 188, 90, 252, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03e4c02c_241c_4ea9_a68f_ff20bc5afc85);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxCreateFolderRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxCreateFolderRequestEventArgs";
@@ -573,7 +573,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxDeleteFolderRequest 
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxDeleteFolderRequest {
     type Vtable = IEmailMailboxDeleteFolderRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2489968778, 43313, 18297, [146, 61, 9, 163, 234, 41, 46, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9469e88a_a931_4779_923d_09a3ea292e29);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxDeleteFolderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDeleteFolderRequest";
@@ -648,7 +648,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxDeleteFolderRequestE
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxDeleteFolderRequestEventArgs {
     type Vtable = IEmailMailboxDeleteFolderRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3033738502, 9010, 18040, [131, 120, 40, 181, 121, 51, 104, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4d32d06_2332_4678_8378_28b579336846);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxDeleteFolderRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDeleteFolderRequestEventArgs";
@@ -748,7 +748,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxDownloadAttachmentRe
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxDownloadAttachmentRequest {
     type Vtable = IEmailMailboxDownloadAttachmentRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(186497972, 29964, 18657, [188, 228, 141, 88, 150, 132, 255, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b1dbbb4_750c_48e1_bce4_8d589684ffbc);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxDownloadAttachmentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadAttachmentRequest";
@@ -823,7 +823,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxDownloadAttachmentRe
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxDownloadAttachmentRequestEventArgs {
     type Vtable = IEmailMailboxDownloadAttachmentRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3437085805, 65448, 18551, [159, 157, 254, 215, 188, 175, 65, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xccddc46d_ffa8_4877_9f9d_fed7bcaf4104);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxDownloadAttachmentRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadAttachmentRequestEventArgs";
@@ -915,7 +915,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxDownloadMessageReque
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxDownloadMessageRequest {
     type Vtable = IEmailMailboxDownloadMessageRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1232814471, 23373, 19235, [129, 108, 243, 132, 43, 235, 117, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x497b4187_5b4d_4b23_816c_f3842beb753e);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxDownloadMessageRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadMessageRequest";
@@ -990,7 +990,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxDownloadMessageReque
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxDownloadMessageRequestEventArgs {
     type Vtable = IEmailMailboxDownloadMessageRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1191446957, 53408, 19035, [187, 42, 55, 98, 16, 57, 197, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x470409ad_d0a0_4a5b_bb2a_37621039c53e);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxDownloadMessageRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadMessageRequestEventArgs";
@@ -1082,7 +1082,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxEmptyFolderRequest {
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxEmptyFolderRequest {
     type Vtable = IEmailMailboxEmptyFolderRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4266329003, 63597, 18137, [180, 206, 188, 138, 109, 158, 146, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe4b03ab_f86d_46d9_b4ce_bc8a6d9e9268);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxEmptyFolderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxEmptyFolderRequest";
@@ -1157,7 +1157,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxEmptyFolderRequestEv
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxEmptyFolderRequestEventArgs {
     type Vtable = IEmailMailboxEmptyFolderRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1904473220, 39002, 19136, [179, 63, 238, 14, 38, 39, 163, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7183f484_985a_4ac0_b33f_ee0e2627a3c0);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxEmptyFolderRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxEmptyFolderRequestEventArgs";
@@ -1290,7 +1290,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxForwardMeetingReques
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxForwardMeetingRequest {
     type Vtable = IEmailMailboxForwardMeetingRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1634560753, 28884, 18482, [184, 105, 184, 5, 66, 174, 155, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x616d6af1_70d4_4832_b869_b80542ae9be8);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxForwardMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxForwardMeetingRequest";
@@ -1365,7 +1365,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxForwardMeetingReques
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxForwardMeetingRequestEventArgs {
     type Vtable = IEmailMailboxForwardMeetingRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(735638330, 10612, 18265, [165, 165, 88, 244, 77, 60, 2, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bd8f33a_2974_4759_a5a5_58f44d3c0275);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxForwardMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxForwardMeetingRequestEventArgs";
@@ -1457,7 +1457,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxGetAutoReplySettings
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxGetAutoReplySettingsRequest {
     type Vtable = IEmailMailboxGetAutoReplySettingsRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2604140425, 7816, 19969, [132, 204, 19, 134, 173, 154, 44, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b380789_1e88_4e01_84cc_1386ad9a2c2f);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxGetAutoReplySettingsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxGetAutoReplySettingsRequest";
@@ -1532,7 +1532,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxGetAutoReplySettings
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxGetAutoReplySettingsRequestEventArgs {
     type Vtable = IEmailMailboxGetAutoReplySettingsRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3617543618, 64837, 16388, [138, 145, 155, 172, 243, 139, 112, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd79f55c2_fd45_4004_8a91_9bacf38b7022);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxGetAutoReplySettingsRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxGetAutoReplySettingsRequestEventArgs";
@@ -1640,7 +1640,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxMoveFolderRequest {
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxMoveFolderRequest {
     type Vtable = IEmailMailboxMoveFolderRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(280635478, 19093, 16488, [145, 204, 103, 204, 122, 207, 69, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10ba2856_4a95_4068_91cc_67cc7acf454f);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxMoveFolderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxMoveFolderRequest";
@@ -1715,7 +1715,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxMoveFolderRequestEve
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxMoveFolderRequestEventArgs {
     type Vtable = IEmailMailboxMoveFolderRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(945958944, 5306, 19592, [134, 152, 114, 57, 227, 200, 170, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38623020_14ba_4c88_8698_7239e3c8aaa7);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxMoveFolderRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxMoveFolderRequestEventArgs";
@@ -1841,7 +1841,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxProposeNewTimeForMee
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxProposeNewTimeForMeetingRequest {
     type Vtable = IEmailMailboxProposeNewTimeForMeetingRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1525674322, 38809, 20383, [163, 153, 255, 7, 243, 238, 240, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5aeff152_9799_4f9f_a399_ff07f3eef04e);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxProposeNewTimeForMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxProposeNewTimeForMeetingRequest";
@@ -1916,7 +1916,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxProposeNewTimeForMee
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
     type Vtable = IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4215802776, 13229, 19047, [130, 81, 15, 156, 36, 155, 106, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb480b98_33ad_4a67_8251_0f9c249b6a20);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxProposeNewTimeForMeetingRequestEventArgs";
@@ -2009,7 +2009,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxResolveRecipientsReq
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxResolveRecipientsRequest {
     type Vtable = IEmailMailboxResolveRecipientsRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020555632, 31545, 19611, [129, 30, 65, 234, 244, 58, 51, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefa4cf70_7b39_4c9b_811e_41eaf43a332d);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxResolveRecipientsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxResolveRecipientsRequest";
@@ -2084,7 +2084,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxResolveRecipientsReq
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxResolveRecipientsRequestEventArgs {
     type Vtable = IEmailMailboxResolveRecipientsRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(638557698, 45775, 16632, [140, 40, 227, 237, 67, 177, 232, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x260f9e02_b2cf_40f8_8c28_e3ed43b1e89a);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxResolveRecipientsRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxResolveRecipientsRequestEventArgs";
@@ -2209,7 +2209,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxServerSearchReadBatc
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxServerSearchReadBatchRequest {
     type Vtable = IEmailMailboxServerSearchReadBatchRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(151972831, 23190, 16851, [138, 216, 52, 145, 47, 154, 166, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x090eebdf_5a96_41d3_8ad8_34912f9aa60e);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxServerSearchReadBatchRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxServerSearchReadBatchRequest";
@@ -2284,7 +2284,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxServerSearchReadBatc
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxServerSearchReadBatchRequestEventArgs {
     type Vtable = IEmailMailboxServerSearchReadBatchRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(336599886, 60830, 17873, [173, 122, 204, 155, 127, 100, 58, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14101b4e_ed9e_45d1_ad7a_cc9b7f643ae2);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxServerSearchReadBatchRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxServerSearchReadBatchRequestEventArgs";
@@ -2376,7 +2376,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxSetAutoReplySettings
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxSetAutoReplySettingsRequest {
     type Vtable = IEmailMailboxSetAutoReplySettingsRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1973691088, 43150, 20052, [141, 199, 194, 67, 24, 107, 119, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75a422d0_a88e_4e54_8dc7_c243186b774e);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxSetAutoReplySettingsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxSetAutoReplySettingsRequest";
@@ -2451,7 +2451,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxSetAutoReplySettings
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxSetAutoReplySettingsRequestEventArgs {
     type Vtable = IEmailMailboxSetAutoReplySettingsRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(165286317, 55242, 16519, [172, 134, 83, 250, 103, 247, 98, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09da11ad_d7ca_4087_ac86_53fa67f76246);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxSetAutoReplySettingsRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxSetAutoReplySettingsRequestEventArgs";
@@ -2535,7 +2535,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxSyncManagerSyncReque
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxSyncManagerSyncRequest {
     type Vtable = IEmailMailboxSyncManagerSyncRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1309731044, 32359, 16474, [182, 115, 220, 96, 201, 16, 144, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e10e8e4_7e67_405a_b673_dc60c91090fc);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxSyncManagerSyncRequest";
@@ -2610,7 +2610,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxSyncManagerSyncReque
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxSyncManagerSyncRequestEventArgs {
     type Vtable = IEmailMailboxSyncManagerSyncRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1134166810, 36812, 19173, [185, 181, 212, 52, 224, 166, 90, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x439a031a_8fcc_4ae5_b9b5_d434e0a65aa8);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxSyncManagerSyncRequestEventArgs";
@@ -2734,7 +2734,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxUpdateMeetingRespons
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxUpdateMeetingResponseRequest {
     type Vtable = IEmailMailboxUpdateMeetingResponseRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1536797843, 45775, 18568, [186, 79, 48, 107, 107, 102, 223, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b99ac93_b2cf_4888_ba4f_306b6b66df30);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxUpdateMeetingResponseRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxUpdateMeetingResponseRequest";
@@ -2809,7 +2809,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxUpdateMeetingRespons
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxUpdateMeetingResponseRequestEventArgs {
     type Vtable = IEmailMailboxUpdateMeetingResponseRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1754847073, 22217, 20247, [190, 49, 102, 253, 169, 75, 161, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6898d761_56c9_4f17_be31_66fda94ba159);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxUpdateMeetingResponseRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxUpdateMeetingResponseRequestEventArgs";
@@ -2902,7 +2902,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxValidateCertificates
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxValidateCertificatesRequest {
     type Vtable = IEmailMailboxValidateCertificatesRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2840410417, 57626, 20375, [184, 26, 24, 122, 112, 168, 244, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa94d3931_e11a_4f97_b81a_187a70a8f41a);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxValidateCertificatesRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxValidateCertificatesRequest";
@@ -2977,7 +2977,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxValidateCertificates
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxValidateCertificatesRequestEventArgs {
     type Vtable = IEmailMailboxValidateCertificatesRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(629391127, 767, 18942, [167, 60, 3, 243, 117, 102, 198, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2583bf17_02ff_49fe_a73c_03f37566c691);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxValidateCertificatesRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxValidateCertificatesRequestEventArgs";
@@ -3029,7 +3029,7 @@ unsafe impl ::core::marker::Sync for EmailMailboxValidateCertificatesRequestEven
 pub struct IEmailDataProviderConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailDataProviderConnection {
     type Vtable = IEmailDataProviderConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1000119751, 14258, 19440, [174, 48, 123, 100, 74, 28, 150, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b9c9dc7_37b2_4bf0_ae30_7b644a1c96e1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3107,7 +3107,7 @@ pub struct IEmailDataProviderConnection_abi(
 pub struct IEmailDataProviderTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailDataProviderTriggerDetails {
     type Vtable = IEmailDataProviderTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2403225168, 13342, 17907, [187, 160, 132, 160, 5, 225, 49, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f3e4e50_341e_45f3_bba0_84a005e1319a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3125,7 +3125,7 @@ pub struct IEmailDataProviderTriggerDetails_abi(
 pub struct IEmailMailboxCreateFolderRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCreateFolderRequest {
     type Vtable = IEmailMailboxCreateFolderRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(407713653, 51489, 19513, [163, 9, 225, 108, 159, 34, 176, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x184d3775_c921_4c39_a309_e16c9f22b04b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3149,7 +3149,7 @@ pub struct IEmailMailboxCreateFolderRequest_abi(
 pub struct IEmailMailboxCreateFolderRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCreateFolderRequestEventArgs {
     type Vtable = IEmailMailboxCreateFolderRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(65323052, 9244, 20137, [166, 143, 255, 32, 188, 90, 252, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03e4c02c_241c_4ea9_a68f_ff20bc5afc85);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3169,7 +3169,7 @@ pub struct IEmailMailboxCreateFolderRequestEventArgs_abi(
 pub struct IEmailMailboxDeleteFolderRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxDeleteFolderRequest {
     type Vtable = IEmailMailboxDeleteFolderRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2489968778, 43313, 18297, [146, 61, 9, 163, 234, 41, 46, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9469e88a_a931_4779_923d_09a3ea292e29);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3192,7 +3192,7 @@ pub struct IEmailMailboxDeleteFolderRequest_abi(
 pub struct IEmailMailboxDeleteFolderRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxDeleteFolderRequestEventArgs {
     type Vtable = IEmailMailboxDeleteFolderRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3033738502, 9010, 18040, [131, 120, 40, 181, 121, 51, 104, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4d32d06_2332_4678_8378_28b579336846);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3212,7 +3212,7 @@ pub struct IEmailMailboxDeleteFolderRequestEventArgs_abi(
 pub struct IEmailMailboxDownloadAttachmentRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxDownloadAttachmentRequest {
     type Vtable = IEmailMailboxDownloadAttachmentRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(186497972, 29964, 18657, [188, 228, 141, 88, 150, 132, 255, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b1dbbb4_750c_48e1_bce4_8d589684ffbc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3236,7 +3236,7 @@ pub struct IEmailMailboxDownloadAttachmentRequest_abi(
 pub struct IEmailMailboxDownloadAttachmentRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxDownloadAttachmentRequestEventArgs {
     type Vtable = IEmailMailboxDownloadAttachmentRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3437085805, 65448, 18551, [159, 157, 254, 215, 188, 175, 65, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xccddc46d_ffa8_4877_9f9d_fed7bcaf4104);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3256,7 +3256,7 @@ pub struct IEmailMailboxDownloadAttachmentRequestEventArgs_abi(
 pub struct IEmailMailboxDownloadMessageRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxDownloadMessageRequest {
     type Vtable = IEmailMailboxDownloadMessageRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1232814471, 23373, 19235, [129, 108, 243, 132, 43, 235, 117, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x497b4187_5b4d_4b23_816c_f3842beb753e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3279,7 +3279,7 @@ pub struct IEmailMailboxDownloadMessageRequest_abi(
 pub struct IEmailMailboxDownloadMessageRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxDownloadMessageRequestEventArgs {
     type Vtable = IEmailMailboxDownloadMessageRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1191446957, 53408, 19035, [187, 42, 55, 98, 16, 57, 197, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x470409ad_d0a0_4a5b_bb2a_37621039c53e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3299,7 +3299,7 @@ pub struct IEmailMailboxDownloadMessageRequestEventArgs_abi(
 pub struct IEmailMailboxEmptyFolderRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxEmptyFolderRequest {
     type Vtable = IEmailMailboxEmptyFolderRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4266329003, 63597, 18137, [180, 206, 188, 138, 109, 158, 146, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe4b03ab_f86d_46d9_b4ce_bc8a6d9e9268);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3322,7 +3322,7 @@ pub struct IEmailMailboxEmptyFolderRequest_abi(
 pub struct IEmailMailboxEmptyFolderRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxEmptyFolderRequestEventArgs {
     type Vtable = IEmailMailboxEmptyFolderRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1904473220, 39002, 19136, [179, 63, 238, 14, 38, 39, 163, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7183f484_985a_4ac0_b33f_ee0e2627a3c0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3342,7 +3342,7 @@ pub struct IEmailMailboxEmptyFolderRequestEventArgs_abi(
 pub struct IEmailMailboxForwardMeetingRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxForwardMeetingRequest {
     type Vtable = IEmailMailboxForwardMeetingRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1634560753, 28884, 18482, [184, 105, 184, 5, 66, 174, 155, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x616d6af1_70d4_4832_b869_b80542ae9be8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3371,7 +3371,7 @@ pub struct IEmailMailboxForwardMeetingRequest_abi(
 pub struct IEmailMailboxForwardMeetingRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxForwardMeetingRequestEventArgs {
     type Vtable = IEmailMailboxForwardMeetingRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(735638330, 10612, 18265, [165, 165, 88, 244, 77, 60, 2, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bd8f33a_2974_4759_a5a5_58f44d3c0275);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3391,7 +3391,7 @@ pub struct IEmailMailboxForwardMeetingRequestEventArgs_abi(
 pub struct IEmailMailboxGetAutoReplySettingsRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxGetAutoReplySettingsRequest {
     type Vtable = IEmailMailboxGetAutoReplySettingsRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2604140425, 7816, 19969, [132, 204, 19, 134, 173, 154, 44, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b380789_1e88_4e01_84cc_1386ad9a2c2f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3414,7 +3414,7 @@ pub struct IEmailMailboxGetAutoReplySettingsRequest_abi(
 pub struct IEmailMailboxGetAutoReplySettingsRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxGetAutoReplySettingsRequestEventArgs {
     type Vtable = IEmailMailboxGetAutoReplySettingsRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3617543618, 64837, 16388, [138, 145, 155, 172, 243, 139, 112, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd79f55c2_fd45_4004_8a91_9bacf38b7022);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3434,7 +3434,7 @@ pub struct IEmailMailboxGetAutoReplySettingsRequestEventArgs_abi(
 pub struct IEmailMailboxMoveFolderRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxMoveFolderRequest {
     type Vtable = IEmailMailboxMoveFolderRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(280635478, 19093, 16488, [145, 204, 103, 204, 122, 207, 69, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10ba2856_4a95_4068_91cc_67cc7acf454f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3459,7 +3459,7 @@ pub struct IEmailMailboxMoveFolderRequest_abi(
 pub struct IEmailMailboxMoveFolderRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxMoveFolderRequestEventArgs {
     type Vtable = IEmailMailboxMoveFolderRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(945958944, 5306, 19592, [134, 152, 114, 57, 227, 200, 170, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38623020_14ba_4c88_8698_7239e3c8aaa7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3479,7 +3479,7 @@ pub struct IEmailMailboxMoveFolderRequestEventArgs_abi(
 pub struct IEmailMailboxProposeNewTimeForMeetingRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxProposeNewTimeForMeetingRequest {
     type Vtable = IEmailMailboxProposeNewTimeForMeetingRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1525674322, 38809, 20383, [163, 153, 255, 7, 243, 238, 240, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5aeff152_9799_4f9f_a399_ff07f3eef04e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3508,7 +3508,7 @@ pub struct IEmailMailboxProposeNewTimeForMeetingRequest_abi(
 pub struct IEmailMailboxProposeNewTimeForMeetingRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxProposeNewTimeForMeetingRequestEventArgs {
     type Vtable = IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4215802776, 13229, 19047, [130, 81, 15, 156, 36, 155, 106, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb480b98_33ad_4a67_8251_0f9c249b6a20);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3528,7 +3528,7 @@ pub struct IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_abi(
 pub struct IEmailMailboxResolveRecipientsRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxResolveRecipientsRequest {
     type Vtable = IEmailMailboxResolveRecipientsRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020555632, 31545, 19611, [129, 30, 65, 234, 244, 58, 51, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefa4cf70_7b39_4c9b_811e_41eaf43a332d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3552,7 +3552,7 @@ pub struct IEmailMailboxResolveRecipientsRequest_abi(
 pub struct IEmailMailboxResolveRecipientsRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxResolveRecipientsRequestEventArgs {
     type Vtable = IEmailMailboxResolveRecipientsRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(638557698, 45775, 16632, [140, 40, 227, 237, 67, 177, 232, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x260f9e02_b2cf_40f8_8c28_e3ed43b1e89a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3572,7 +3572,7 @@ pub struct IEmailMailboxResolveRecipientsRequestEventArgs_abi(
 pub struct IEmailMailboxServerSearchReadBatchRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxServerSearchReadBatchRequest {
     type Vtable = IEmailMailboxServerSearchReadBatchRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(151972831, 23190, 16851, [138, 216, 52, 145, 47, 154, 166, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x090eebdf_5a96_41d3_8ad8_34912f9aa60e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3600,7 +3600,7 @@ pub struct IEmailMailboxServerSearchReadBatchRequest_abi(
 pub struct IEmailMailboxServerSearchReadBatchRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxServerSearchReadBatchRequestEventArgs {
     type Vtable = IEmailMailboxServerSearchReadBatchRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(336599886, 60830, 17873, [173, 122, 204, 155, 127, 100, 58, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14101b4e_ed9e_45d1_ad7a_cc9b7f643ae2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3620,7 +3620,7 @@ pub struct IEmailMailboxServerSearchReadBatchRequestEventArgs_abi(
 pub struct IEmailMailboxSetAutoReplySettingsRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxSetAutoReplySettingsRequest {
     type Vtable = IEmailMailboxSetAutoReplySettingsRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1973691088, 43150, 20052, [141, 199, 194, 67, 24, 107, 119, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75a422d0_a88e_4e54_8dc7_c243186b774e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3643,7 +3643,7 @@ pub struct IEmailMailboxSetAutoReplySettingsRequest_abi(
 pub struct IEmailMailboxSetAutoReplySettingsRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxSetAutoReplySettingsRequestEventArgs {
     type Vtable = IEmailMailboxSetAutoReplySettingsRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(165286317, 55242, 16519, [172, 134, 83, 250, 103, 247, 98, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09da11ad_d7ca_4087_ac86_53fa67f76246);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3663,7 +3663,7 @@ pub struct IEmailMailboxSetAutoReplySettingsRequestEventArgs_abi(
 pub struct IEmailMailboxSyncManagerSyncRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxSyncManagerSyncRequest {
     type Vtable = IEmailMailboxSyncManagerSyncRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1309731044, 32359, 16474, [182, 115, 220, 96, 201, 16, 144, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e10e8e4_7e67_405a_b673_dc60c91090fc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3685,7 +3685,7 @@ pub struct IEmailMailboxSyncManagerSyncRequest_abi(
 pub struct IEmailMailboxSyncManagerSyncRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxSyncManagerSyncRequestEventArgs {
     type Vtable = IEmailMailboxSyncManagerSyncRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1134166810, 36812, 19173, [185, 181, 212, 52, 224, 166, 90, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x439a031a_8fcc_4ae5_b9b5_d434e0a65aa8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3705,7 +3705,7 @@ pub struct IEmailMailboxSyncManagerSyncRequestEventArgs_abi(
 pub struct IEmailMailboxUpdateMeetingResponseRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxUpdateMeetingResponseRequest {
     type Vtable = IEmailMailboxUpdateMeetingResponseRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1536797843, 45775, 18568, [186, 79, 48, 107, 107, 102, 223, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b99ac93_b2cf_4888_ba4f_306b6b66df30);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3732,7 +3732,7 @@ pub struct IEmailMailboxUpdateMeetingResponseRequest_abi(
 pub struct IEmailMailboxUpdateMeetingResponseRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxUpdateMeetingResponseRequestEventArgs {
     type Vtable = IEmailMailboxUpdateMeetingResponseRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1754847073, 22217, 20247, [190, 49, 102, 253, 169, 75, 161, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6898d761_56c9_4f17_be31_66fda94ba159);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3752,7 +3752,7 @@ pub struct IEmailMailboxUpdateMeetingResponseRequestEventArgs_abi(
 pub struct IEmailMailboxValidateCertificatesRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxValidateCertificatesRequest {
     type Vtable = IEmailMailboxValidateCertificatesRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2840410417, 57626, 20375, [184, 26, 24, 122, 112, 168, 244, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa94d3931_e11a_4f97_b81a_187a70a8f41a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3776,7 +3776,7 @@ pub struct IEmailMailboxValidateCertificatesRequest_abi(
 pub struct IEmailMailboxValidateCertificatesRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxValidateCertificatesRequestEventArgs {
     type Vtable = IEmailMailboxValidateCertificatesRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(629391127, 767, 18942, [167, 60, 3, 243, 117, 102, 198, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2583bf17_02ff_49fe_a73c_03f37566c691);
 }
 #[repr(C)]
 #[doc(hidden)]

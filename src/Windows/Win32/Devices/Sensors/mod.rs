@@ -248,39 +248,39 @@ pub unsafe fn EvaluateActivityThresholds(newsample: *const SENSOR_COLLECTION_LIS
 }
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 pub const GNSS_CLEAR_ALL_ASSISTANCE_DATA: u32 = 1u32;
-pub const GUID_DEVINTERFACE_SENSOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3122378386, 39802, 18483, [154, 30, 82, 94, 209, 52, 231, 226]);
-pub const GUID_SensorCategory_All: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3273114246, 50280, 17032, [153, 117, 212, 196, 88, 124, 68, 44]);
-pub const GUID_SensorCategory_Biometric: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3390662927, 41671, 18301, [169, 158, 153, 236, 110, 43, 86, 72]);
-pub const GUID_SensorCategory_Electrical: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4218682584, 64586, 18492, [172, 88, 39, 182, 145, 198, 190, 255]);
-pub const GUID_SensorCategory_Environmental: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(842283434, 32614, 18731, [186, 12, 115, 233, 170, 10, 101, 213]);
-pub const GUID_SensorCategory_Light: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(396780992, 36963, 16918, [178, 2, 92, 122, 37, 94, 24, 206]);
-pub const GUID_SensorCategory_Location: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3215430884, 63844, 20443, [144, 246, 81, 5, 107, 254, 75, 68]);
-pub const GUID_SensorCategory_Mechanical: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2366840168, 36599, 18006, [128, 181, 204, 203, 217, 55, 145, 197]);
-pub const GUID_SensorCategory_Motion: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3439975153, 15150, 19517, [181, 152, 181, 229, 255, 147, 253, 70]);
-pub const GUID_SensorCategory_Orientation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2657879222, 38654, 18772, [183, 38, 104, 104, 42, 71, 63, 105]);
-pub const GUID_SensorCategory_Other: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747693993, 62665, 20386, [175, 55, 86, 212, 113, 254, 90, 61]);
-pub const GUID_SensorCategory_PersonalActivity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4049637505, 7698, 16683, [161, 77, 203, 176, 233, 91, 210, 229]);
-pub const GUID_SensorCategory_Scanner: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2952849278, 62901, 16911, [129, 93, 2, 112, 167, 38, 242, 112]);
-pub const GUID_SensorCategory_Unsupported: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(736815098, 6576, 18629, [161, 246, 181, 72, 13, 194, 6, 176]);
-pub const GUID_SensorType_Accelerometer3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3271233375, 58066, 19576, [188, 208, 53, 42, 149, 130, 129, 157]);
-pub const GUID_SensorType_ActivityDetection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2644377880, 6151, 20270, [150, 228, 44, 229, 113, 66, 225, 150]);
-pub const GUID_SensorType_AmbientLight: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2549159368, 22938, 16723, [136, 148, 210, 209, 40, 153, 145, 138]);
-pub const GUID_SensorType_Barometer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(244332585, 65418, 19091, [151, 223, 61, 203, 222, 64, 34, 136]);
-pub const GUID_SensorType_Custom: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3896177193, 34368, 19736, [162, 19, 226, 38, 117, 235, 178, 195]);
-pub const GUID_SensorType_FloorElevation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2917439615, 31428, 19962, [151, 34, 10, 2, 113, 129, 199, 71]);
-pub const GUID_SensorType_GeomagneticOrientation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3882980856, 11551, 18467, [151, 27, 28, 68, 103, 85, 108, 157]);
-pub const GUID_SensorType_GravityVector: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(62205043, 47990, 17983, [149, 36, 56, 222, 118, 235, 112, 11]);
-pub const GUID_SensorType_Gyrometer3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(155737946, 30110, 17090, [189, 75, 163, 73, 183, 92, 134, 67]);
-pub const GUID_SensorType_HingeAngle: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2184544357, 62660, 19873, [178, 114, 19, 194, 51, 50, 162, 7]);
-pub const GUID_SensorType_Humidity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1551023975, 48510, 16983, [153, 11, 152, 163, 186, 59, 64, 10]);
-pub const GUID_SensorType_LinearAccelerometer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(59441795, 38836, 16840, [188, 36, 95, 241, 170, 72, 254, 199]);
-pub const GUID_SensorType_Magnetometer3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1441132539, 5575, 16607, [134, 152, 168, 75, 124, 134, 60, 83]);
-pub const GUID_SensorType_Orientation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3451246839, 15613, 16840, [133, 66, 204, 230, 34, 207, 93, 110]);
-pub const GUID_SensorType_Pedometer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2980022703, 58347, 17483, [141, 234, 32, 37, 117, 167, 21, 153]);
-pub const GUID_SensorType_Proximity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1377884905, 12665, 17456, [159, 144, 6, 38, 109, 42, 52, 222]);
-pub const GUID_SensorType_RelativeOrientation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1083784017, 18182, 17628, [152, 213, 201, 32, 192, 55, 255, 171]);
-pub const GUID_SensorType_SimpleDeviceOrientation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2258735761, 1154, 16428, [191, 76, 173, 218, 197, 43, 28, 57]);
-pub const GUID_SensorType_Temperature: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(83693252, 54746, 17914, [149, 169, 93, 179, 142, 225, 147, 6]);
+pub const GUID_DEVINTERFACE_SENSOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba1bb692_9b7a_4833_9a1e_525ed134e7e2);
+pub const GUID_SensorCategory_All: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc317c286_c468_4288_9975_d4c4587c442c);
+pub const GUID_SensorCategory_Biometric: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca19690f_a2c7_477d_a99e_99ec6e2b5648);
+pub const GUID_SensorCategory_Electrical: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb73fcd8_fc4a_483c_ac58_27b691c6beff);
+pub const GUID_SensorCategory_Environmental: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x323439aa_7f66_492b_ba0c_73e9aa0a65d5);
+pub const GUID_SensorCategory_Light: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17a665c0_9063_4216_b202_5c7a255e18ce);
+pub const GUID_SensorCategory_Location: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfa794e4_f964_4fdb_90f6_51056bfe4b44);
+pub const GUID_SensorCategory_Mechanical: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d131d68_8ef7_4656_80b5_cccbd93791c5);
+pub const GUID_SensorCategory_Motion: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd09daf1_3b2e_4c3d_b598_b5e5ff93fd46);
+pub const GUID_SensorCategory_Orientation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e6c04b6_96fe_4954_b726_68682a473f69);
+pub const GUID_SensorCategory_Other: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c90e7a9_f4c9_4fa2_af37_56d471fe5a3d);
+pub const GUID_SensorCategory_PersonalActivity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1609081_1e12_412b_a14d_cbb0e95bd2e5);
+pub const GUID_SensorCategory_Scanner: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb000e77e_f5b5_420f_815d_0270a726f270);
+pub const GUID_SensorCategory_Unsupported: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2beae7fa_19b0_48c5_a1f6_b5480dc206b0);
+pub const GUID_SensorType_Accelerometer3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2fb0f5f_e2d2_4c78_bcd0_352a9582819d);
+pub const GUID_SensorType_ActivityDetection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d9e0118_1807_4f2e_96e4_2ce57142e196);
+pub const GUID_SensorType_AmbientLight: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97f115c8_599a_4153_8894_d2d12899918a);
+pub const GUID_SensorType_Barometer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e903829_ff8a_4a93_97df_3dcbde402288);
+pub const GUID_SensorType_Custom: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe83af229_8640_4d18_a213_e22675ebb2c3);
+pub const GUID_SensorType_FloorElevation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xade4987f_7ac4_4dfa_9722_0a027181c747);
+pub const GUID_SensorType_GeomagneticOrientation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe77195f8_2d1f_4823_971b_1c4467556c9d);
+pub const GUID_SensorType_GravityVector: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03b52c73_bb76_463f_9524_38de76eb700b);
+pub const GUID_SensorType_Gyrometer3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09485f5a_759e_42c2_bd4b_a349b75c8643);
+pub const GUID_SensorType_HingeAngle: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82358065_f4c4_4da1_b272_13c23332a207);
+pub const GUID_SensorType_Humidity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c72bf67_bd7e_4257_990b_98a3ba3b400a);
+pub const GUID_SensorType_LinearAccelerometer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x038b0283_97b4_41c8_bc24_5ff1aa48fec7);
+pub const GUID_SensorType_Magnetometer3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55e5effb_15c7_40df_8698_a84b7c863c53);
+pub const GUID_SensorType_Orientation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcdb5d8f7_3cfd_41c8_8542_cce622cf5d6e);
+pub const GUID_SensorType_Pedometer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb19f89af_e3eb_444b_8dea_202575a71599);
+pub const GUID_SensorType_Proximity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5220dae9_3179_4430_9f90_06266d2a34de);
+pub const GUID_SensorType_RelativeOrientation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40993b51_4706_44dc_98d5_c920c037ffab);
+pub const GUID_SensorType_SimpleDeviceOrientation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86a19291_0482_402c_bf4c_addac52b1c39);
+pub const GUID_SensorType_Temperature: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04fd0ec4_d5da_45fa_95a9_5db38ee19306);
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -344,7 +344,7 @@ impl ILocationPermissions {
 }
 unsafe impl ::windows::runtime::Interface for ILocationPermissions {
     type Vtable = ILocationPermissions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3589999231, 59214, 17653, [142, 2, 72, 6, 134, 58, 39, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5fb0a7f_e74e_44f5_8e02_4806863a274f);
 }
 impl ::core::convert::From<ILocationPermissions> for ::windows::runtime::IUnknown {
     fn from(value: ILocationPermissions) -> Self {
@@ -462,7 +462,7 @@ impl ISensor {
 }
 unsafe impl ::windows::runtime::Interface for ISensor {
     type Vtable = ISensor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1604358016, 9815, 17806, [175, 117, 70, 247, 63, 166, 172, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5fa08f80_2657_458e_af75_46f73fa6ac5c);
 }
 impl ::core::convert::From<ISensor> for ::windows::runtime::IUnknown {
     fn from(value: ISensor) -> Self {
@@ -546,7 +546,7 @@ impl ISensorCollection {
 }
 unsafe impl ::windows::runtime::Interface for ISensorCollection {
     type Vtable = ISensorCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(592911889, 58693, 19928, [163, 55, 184, 155, 244, 75, 16, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23571e11_e545_4dd8_a337_b89bf44b10df);
 }
 impl ::core::convert::From<ISensorCollection> for ::windows::runtime::IUnknown {
     fn from(value: ISensorCollection) -> Self {
@@ -607,7 +607,7 @@ impl ISensorDataReport {
 }
 unsafe impl ::windows::runtime::Interface for ISensorDataReport {
     type Vtable = ISensorDataReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(179953563, 50357, 18326, [136, 152, 4, 112, 112, 106, 46, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ab9df9b_c4b5_4796_8898_0470706a2e1d);
 }
 impl ::core::convert::From<ISensorDataReport> for ::windows::runtime::IUnknown {
     fn from(value: ISensorDataReport) -> Self {
@@ -667,7 +667,7 @@ impl ISensorEvents {
 }
 unsafe impl ::windows::runtime::Interface for ISensorEvents {
     type Vtable = ISensorEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1569574033, 17985, 18407, [183, 195, 183, 79, 72, 166, 195, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d8dcc91_4641_47e7_b7c3_b74f48a6c391);
 }
 impl ::core::convert::From<ISensorEvents> for ::windows::runtime::IUnknown {
     fn from(value: ISensorEvents) -> Self {
@@ -733,7 +733,7 @@ impl ISensorManager {
 }
 unsafe impl ::windows::runtime::Interface for ISensorManager {
     type Vtable = ISensorManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3178748775, 17832, 17116, [141, 0, 109, 207, 21, 248, 55, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd77db67_45a8_42dc_8d00_6dcf15f8377a);
 }
 impl ::core::convert::From<ISensorManager> for ::windows::runtime::IUnknown {
     fn from(value: ISensorManager) -> Self {
@@ -780,7 +780,7 @@ impl ISensorManagerEvents {
 }
 unsafe impl ::windows::runtime::Interface for ISensorManagerEvents {
     type Vtable = ISensorManagerEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2604338054, 9834, 19117, [178, 31, 253, 229, 80, 16, 1, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b3b0b86_266a_4aad_b21f_fde5501001b7);
 }
 impl ::core::convert::From<ISensorManagerEvents> for ::windows::runtime::IUnknown {
     fn from(value: ISensorManagerEvents) -> Self {
@@ -1414,18 +1414,18 @@ impl ::core::cmp::Eq for QUATERNION {}
 unsafe impl ::windows::runtime::Abi for QUATERNION {
     type Abi = Self;
 }
-pub const SENSOR_CATEGORY_ALL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3273114246, 50280, 17032, [153, 117, 212, 196, 88, 124, 68, 44]);
-pub const SENSOR_CATEGORY_BIOMETRIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3390662927, 41671, 18301, [169, 158, 153, 236, 110, 43, 86, 72]);
-pub const SENSOR_CATEGORY_ELECTRICAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4218682584, 64586, 18492, [172, 88, 39, 182, 145, 198, 190, 255]);
-pub const SENSOR_CATEGORY_ENVIRONMENTAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(842283434, 32614, 18731, [186, 12, 115, 233, 170, 10, 101, 213]);
-pub const SENSOR_CATEGORY_LIGHT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(396780992, 36963, 16918, [178, 2, 92, 122, 37, 94, 24, 206]);
-pub const SENSOR_CATEGORY_LOCATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3215430884, 63844, 20443, [144, 246, 81, 5, 107, 254, 75, 68]);
-pub const SENSOR_CATEGORY_MECHANICAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2366840168, 36599, 18006, [128, 181, 204, 203, 217, 55, 145, 197]);
-pub const SENSOR_CATEGORY_MOTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3439975153, 15150, 19517, [181, 152, 181, 229, 255, 147, 253, 70]);
-pub const SENSOR_CATEGORY_ORIENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2657879222, 38654, 18772, [183, 38, 104, 104, 42, 71, 63, 105]);
-pub const SENSOR_CATEGORY_OTHER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747693993, 62665, 20386, [175, 55, 86, 212, 113, 254, 90, 61]);
-pub const SENSOR_CATEGORY_SCANNER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2952849278, 62901, 16911, [129, 93, 2, 112, 167, 38, 242, 112]);
-pub const SENSOR_CATEGORY_UNSUPPORTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(736815098, 6576, 18629, [161, 246, 181, 72, 13, 194, 6, 176]);
+pub const SENSOR_CATEGORY_ALL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc317c286_c468_4288_9975_d4c4587c442c);
+pub const SENSOR_CATEGORY_BIOMETRIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca19690f_a2c7_477d_a99e_99ec6e2b5648);
+pub const SENSOR_CATEGORY_ELECTRICAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb73fcd8_fc4a_483c_ac58_27b691c6beff);
+pub const SENSOR_CATEGORY_ENVIRONMENTAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x323439aa_7f66_492b_ba0c_73e9aa0a65d5);
+pub const SENSOR_CATEGORY_LIGHT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17a665c0_9063_4216_b202_5c7a255e18ce);
+pub const SENSOR_CATEGORY_LOCATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfa794e4_f964_4fdb_90f6_51056bfe4b44);
+pub const SENSOR_CATEGORY_MECHANICAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d131d68_8ef7_4656_80b5_cccbd93791c5);
+pub const SENSOR_CATEGORY_MOTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd09daf1_3b2e_4c3d_b598_b5e5ff93fd46);
+pub const SENSOR_CATEGORY_ORIENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e6c04b6_96fe_4954_b726_68682a473f69);
+pub const SENSOR_CATEGORY_OTHER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c90e7a9_f4c9_4fa2_af37_56d471fe5a3d);
+pub const SENSOR_CATEGORY_SCANNER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb000e77e_f5b5_420f_815d_0270a726f270);
+pub const SENSOR_CATEGORY_UNSUPPORTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2beae7fa_19b0_48c5_a1f6_b5480dc206b0);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::clone::Clone for SENSOR_COLLECTION_LIST {
     fn clone(&self) -> Self {
@@ -1478,877 +1478,877 @@ unsafe impl ::windows::runtime::Abi for SENSOR_CONNECTION_TYPES {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ABSOLUTE_PRESSURE_PASCAL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(945179260, 62194, 18875, [155, 43, 186, 96, 246, 106, 88, 223]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x38564a7c_f2f2_49bb_9b2b_ba60f66a58df),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ACCELERATION_X_G: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1066035618, 1989, 20040, [169, 101, 205, 121, 122, 171, 86, 213]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x3f8a69a2_07c5_4e48_a965_cd797aab56d5),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ACCELERATION_Y_G: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1066035618, 1989, 20040, [169, 101, 205, 121, 122, 171, 86, 213]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x3f8a69a2_07c5_4e48_a965_cd797aab56d5),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ACCELERATION_Z_G: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1066035618, 1989, 20040, [169, 101, 205, 121, 122, 171, 86, 213]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x3f8a69a2_07c5_4e48_a965_cd797aab56d5),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ADDRESS1: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 23u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ADDRESS2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 24u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ALTITUDE_ANTENNA_SEALEVEL_METERS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 36u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ALTITUDE_ELLIPSOID_ERROR_METERS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 29u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ALTITUDE_ELLIPSOID_METERS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ALTITUDE_SEALEVEL_ERROR_METERS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 30u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ALTITUDE_SEALEVEL_METERS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ANGULAR_ACCELERATION_X_DEGREES_PER_SECOND_SQUARED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1066035618, 1989, 20040, [169, 101, 205, 121, 122, 171, 86, 213]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x3f8a69a2_07c5_4e48_a965_cd797aab56d5),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ANGULAR_ACCELERATION_Y_DEGREES_PER_SECOND_SQUARED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1066035618, 1989, 20040, [169, 101, 205, 121, 122, 171, 86, 213]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x3f8a69a2_07c5_4e48_a965_cd797aab56d5),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ANGULAR_ACCELERATION_Z_DEGREES_PER_SECOND_SQUARED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1066035618, 1989, 20040, [169, 101, 205, 121, 122, 171, 86, 213]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x3f8a69a2_07c5_4e48_a965_cd797aab56d5),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ANGULAR_VELOCITY_X_DEGREES_PER_SECOND: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1066035618, 1989, 20040, [169, 101, 205, 121, 122, 171, 86, 213]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x3f8a69a2_07c5_4e48_a965_cd797aab56d5),
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ANGULAR_VELOCITY_Y_DEGREES_PER_SECOND: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1066035618, 1989, 20040, [169, 101, 205, 121, 122, 171, 86, 213]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x3f8a69a2_07c5_4e48_a965_cd797aab56d5),
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ANGULAR_VELOCITY_Z_DEGREES_PER_SECOND: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1066035618, 1989, 20040, [169, 101, 205, 121, 122, 171, 86, 213]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x3f8a69a2_07c5_4e48_a965_cd797aab56d5),
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ATMOSPHERIC_PRESSURE_BAR: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2332730097, 11607, 17134, [140, 192, 77, 39, 98, 43, 70, 196]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x8b0aa2f1_2d57_42ee_8cc0_4d27622b46c4),
     pid: 4u32,
 };
-pub const SENSOR_DATA_TYPE_BIOMETRIC_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(580462730, 28062, 19211, [183, 236, 53, 40, 248, 158, 64, 175]);
+pub const SENSOR_DATA_TYPE_BIOMETRIC_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2299288a_6d9e_4b0b_b7ec_3528f89e40af);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_BOOLEAN_SWITCH_ARRAY_STATES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(945179260, 62194, 18875, [155, 43, 186, 96, 246, 106, 88, 223]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x38564a7c_f2f2_49bb_9b2b_ba60f66a58df),
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_BOOLEAN_SWITCH_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(945179260, 62194, 18875, [155, 43, 186, 96, 246, 106, 88, 223]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x38564a7c_f2f2_49bb_9b2b_ba60f66a58df),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CAPACITANCE_FARAD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3149022929, 57922, 18304, [162, 211, 205, 237, 132, 243, 88, 66]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xbbb246d1_e242_4780_a2d3_cded84f35842),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 25u32,
 };
-pub const SENSOR_DATA_TYPE_COMMON_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3680374002, 53023, 19480, [180, 108, 216, 96, 17, 214, 33, 80]);
+pub const SENSOR_DATA_TYPE_COMMON_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb5e0cf2_cf1f_4c18_b46c_d86011d62150);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_COUNTRY_REGION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 28u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CURRENT_AMPS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3149022929, 57922, 18304, [162, 211, 205, 237, 132, 243, 88, 66]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xbbb246d1_e242_4780_a2d3_cded84f35842),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_BOOLEAN_ARRAY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 6u32,
 };
-pub const SENSOR_DATA_TYPE_CUSTOM_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]);
+pub const SENSOR_DATA_TYPE_CUSTOM_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_USAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE1: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE10: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE11: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE12: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 18u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE13: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 19u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE14: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 20u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE15: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 21u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE16: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 22u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE17: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 23u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE18: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 24u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE19: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 25u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE20: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 26u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE21: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 27u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE22: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 28u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE23: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 29u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE24: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 30u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE25: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 31u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE26: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 32u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE27: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 33u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE28: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 34u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE3: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE4: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE5: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE6: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE7: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE8: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_CUSTOM_VALUE9: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2974578255, 1999, 16872, [157, 130, 235, 227, 208, 119, 106, 111]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xb14c764f_07cf_41e8_9d82_ebe3d0776a6f),
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_DGPS_DATA_AGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 35u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_DIFFERENTIAL_REFERENCE_STATION_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 37u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_DISTANCE_X_METERS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_DISTANCE_Y_METERS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_DISTANCE_Z_METERS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ELECTRICAL_FREQUENCY_HERTZ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3149022929, 57922, 18304, [162, 211, 205, 237, 132, 243, 88, 66]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xbbb246d1_e242_4780_a2d3_cded84f35842),
     pid: 9u32,
 };
-pub const SENSOR_DATA_TYPE_ELECTRICAL_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3149022929, 57922, 18304, [162, 211, 205, 237, 132, 243, 88, 66]);
+pub const SENSOR_DATA_TYPE_ELECTRICAL_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbbb246d1_e242_4780_a2d3_cded84f35842);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ELECTRICAL_PERCENT_OF_RANGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3149022929, 57922, 18304, [162, 211, 205, 237, 132, 243, 88, 66]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xbbb246d1_e242_4780_a2d3_cded84f35842),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ELECTRICAL_POWER_WATTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3149022929, 57922, 18304, [162, 211, 205, 237, 132, 243, 88, 66]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xbbb246d1_e242_4780_a2d3_cded84f35842),
     pid: 7u32,
 };
-pub const SENSOR_DATA_TYPE_ENVIRONMENTAL_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2332730097, 11607, 17134, [140, 192, 77, 39, 98, 43, 70, 196]);
+pub const SENSOR_DATA_TYPE_ENVIRONMENTAL_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b0aa2f1_2d57_42ee_8cc0_4d27622b46c4);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ERROR_RADIUS_METERS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 22u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_FIX_QUALITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_FIX_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_FORCE_NEWTONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(945179260, 62194, 18875, [155, 43, 186, 96, 246, 106, 88, 223]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x38564a7c_f2f2_49bb_9b2b_ba60f66a58df),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_GAUGE_PRESSURE_PASCAL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(945179260, 62194, 18875, [155, 43, 186, 96, 246, 106, 88, 223]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x38564a7c_f2f2_49bb_9b2b_ba60f66a58df),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_GEOIDAL_SEPARATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 34u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_GPS_OPERATION_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 32u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_GPS_SELECTION_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 31u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_GPS_STATUS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 33u32,
 };
-pub const SENSOR_DATA_TYPE_GUID_MECHANICAL_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(945179260, 62194, 18875, [155, 43, 186, 96, 246, 106, 88, 223]);
+pub const SENSOR_DATA_TYPE_GUID_MECHANICAL_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38564a7c_f2f2_49bb_9b2b_ba60f66a58df);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_HORIZONAL_DILUTION_OF_PRECISION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_HUMAN_PRESENCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(580462730, 28062, 19211, [183, 236, 53, 40, 248, 158, 64, 175]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x2299288a_6d9e_4b0b_b7ec_3528f89e40af),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_HUMAN_PROXIMITY_METERS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(580462730, 28062, 19211, [183, 236, 53, 40, 248, 158, 64, 175]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x2299288a_6d9e_4b0b_b7ec_3528f89e40af),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_INDUCTANCE_HENRY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3149022929, 57922, 18304, [162, 211, 205, 237, 132, 243, 88, 66]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xbbb246d1_e242_4780_a2d3_cded84f35842),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_LATITUDE_DEGREES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_LIGHT_CHROMACITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3838278882, 56503, 18153, [132, 57, 79, 236, 84, 136, 51, 166]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xe4c77ce2_dcb7_46e9_8439_4fec548833a6),
     pid: 4u32,
 };
-pub const SENSOR_DATA_TYPE_LIGHT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3838278882, 56503, 18153, [132, 57, 79, 236, 84, 136, 51, 166]);
+pub const SENSOR_DATA_TYPE_LIGHT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4c77ce2_dcb7_46e9_8439_4fec548833a6);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_LIGHT_LEVEL_LUX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3838278882, 56503, 18153, [132, 57, 79, 236, 84, 136, 51, 166]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xe4c77ce2_dcb7_46e9_8439_4fec548833a6),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_LIGHT_TEMPERATURE_KELVIN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3838278882, 56503, 18153, [132, 57, 79, 236, 84, 136, 51, 166]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xe4c77ce2_dcb7_46e9_8439_4fec548833a6),
     pid: 3u32,
 };
-pub const SENSOR_DATA_TYPE_LOCATION_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]);
+pub const SENSOR_DATA_TYPE_LOCATION_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_LOCATION_SOURCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 40u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_LONGITUDE_DEGREES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_MAGNETIC_FIELD_STRENGTH_X_MILLIGAUSS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 19u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_MAGNETIC_FIELD_STRENGTH_Y_MILLIGAUSS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 20u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_MAGNETIC_FIELD_STRENGTH_Z_MILLIGAUSS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 21u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_MAGNETIC_HEADING_COMPENSATED_MAGNETIC_NORTH_DEGREES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_MAGNETIC_HEADING_COMPENSATED_TRUE_NORTH_DEGREES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_MAGNETIC_HEADING_DEGREES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_MAGNETIC_HEADING_MAGNETIC_NORTH_DEGREES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_MAGNETIC_HEADING_TRUE_NORTH_DEGREES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_MAGNETIC_HEADING_X_DEGREES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_MAGNETIC_HEADING_Y_DEGREES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_MAGNETIC_HEADING_Z_DEGREES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_MAGNETIC_VARIATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_MAGNETOMETER_ACCURACY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 22u32,
 };
-pub const SENSOR_DATA_TYPE_MOTION_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1066035618, 1989, 20040, [169, 101, 205, 121, 122, 171, 86, 213]);
+pub const SENSOR_DATA_TYPE_MOTION_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f8a69a2_07c5_4e48_a965_cd797aab56d5);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_MOTION_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1066035618, 1989, 20040, [169, 101, 205, 121, 122, 171, 86, 213]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x3f8a69a2_07c5_4e48_a965_cd797aab56d5),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_MULTIVALUE_SWITCH_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(945179260, 62194, 18875, [155, 43, 186, 96, 246, 106, 88, 223]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x38564a7c_f2f2_49bb_9b2b_ba60f66a58df),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_NMEA_SENTENCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 38u32,
 };
-pub const SENSOR_DATA_TYPE_ORIENTATION_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]);
+pub const SENSOR_DATA_TYPE_ORIENTATION_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_POSITION_DILUTION_OF_PRECISION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_POSTALCODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 27u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_QUADRANT_ANGLE_DEGREES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_QUATERNION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_RELATIVE_HUMIDITY_PERCENT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2332730097, 11607, 17134, [140, 192, 77, 39, 98, 43, 70, 196]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x8b0aa2f1_2d57_42ee_8cc0_4d27622b46c4),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_RESISTANCE_OHMS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3149022929, 57922, 18304, [162, 211, 205, 237, 132, 243, 88, 66]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xbbb246d1_e242_4780_a2d3_cded84f35842),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_RFID_TAG_40_BIT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3617954364, 13345, 17579, [141, 58, 157, 232, 171, 108, 76, 174]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd7a59a3c_3421_44ab_8d3a_9de8ab6c4cae),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_ROTATION_MATRIX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_SATELLITES_IN_VIEW: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_SATELLITES_IN_VIEW_AZIMUTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 20u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_SATELLITES_IN_VIEW_ELEVATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 19u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_SATELLITES_IN_VIEW_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 39u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_SATELLITES_IN_VIEW_PRNS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 18u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_SATELLITES_IN_VIEW_STN_RATIO: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 21u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_SATELLITES_USED_COUNT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_SATELLITES_USED_PRNS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_SATELLITES_USED_PRNS_AND_CONSTELLATIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 41u32,
 };
-pub const SENSOR_DATA_TYPE_SCANNER_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3617954364, 13345, 17579, [141, 58, 157, 232, 171, 108, 76, 174]);
+pub const SENSOR_DATA_TYPE_SCANNER_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7a59a3c_3421_44ab_8d3a_9de8ab6c4cae);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_SIMPLE_DEVICE_ORIENTATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 18u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_SPEED_KNOTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_SPEED_METERS_PER_SECOND: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1066035618, 1989, 20040, [169, 101, 205, 121, 122, 171, 86, 213]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x3f8a69a2_07c5_4e48_a965_cd797aab56d5),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_STATE_PROVINCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 26u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_STRAIN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(945179260, 62194, 18875, [155, 43, 186, 96, 246, 106, 88, 223]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x38564a7c_f2f2_49bb_9b2b_ba60f66a58df),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_TEMPERATURE_CELSIUS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2332730097, 11607, 17134, [140, 192, 77, 39, 98, 43, 70, 196]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x8b0aa2f1_2d57_42ee_8cc0_4d27622b46c4),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_TILT_X_DEGREES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_TILT_Y_DEGREES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_TILT_Z_DEGREES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(372758690, 16968, 17013, [134, 93, 85, 141, 232, 74, 237, 253]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1637d8a2_4248_4275_865d_558de84aedfd),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_TIMESTAMP: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3680374002, 53023, 19480, [180, 108, 216, 96, 17, 214, 33, 80]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xdb5e0cf2_cf1f_4c18_b46c_d86011d62150),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_TOUCH_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(580462730, 28062, 19211, [183, 236, 53, 40, 248, 158, 64, 175]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x2299288a_6d9e_4b0b_b7ec_3528f89e40af),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_TRUE_HEADING_DEGREES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_VERTICAL_DILUTION_OF_PRECISION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(89945304, 51823, 18390, [149, 198, 30, 211, 99, 122, 15, 244]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x055c74d8_ca6f_47d6_95c6_1ed3637a0ff4),
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_VOLTAGE_VOLTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3149022929, 57922, 18304, [162, 211, 205, 237, 132, 243, 88, 66]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xbbb246d1_e242_4780_a2d3_cded84f35842),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_WEIGHT_KILOGRAMS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(945179260, 62194, 18875, [155, 43, 186, 96, 246, 106, 88, 223]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x38564a7c_f2f2_49bb_9b2b_ba60f66a58df),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_WIND_DIRECTION_DEGREES_ANTICLOCKWISE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2332730097, 11607, 17134, [140, 192, 77, 39, 98, 43, 70, 196]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x8b0aa2f1_2d57_42ee_8cc0_4d27622b46c4),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_DATA_TYPE_WIND_SPEED_METERS_PER_SECOND: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2332730097, 11607, 17134, [140, 192, 77, 39, 98, 43, 70, 196]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x8b0aa2f1_2d57_42ee_8cc0_4d27622b46c4),
     pid: 6u32,
 };
-pub const SENSOR_ERROR_PARAMETER_COMMON_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1997614029, 64737, 20291, [184, 184, 168, 130, 86, 173, 180, 179]);
-pub const SENSOR_EVENT_ACCELEROMETER_SHAKE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2187287188, 3912, 17302, [156, 160, 110, 203, 92, 153, 217, 21]);
-pub const SENSOR_EVENT_DATA_UPDATED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(785445540, 135, 16851, [135, 219, 103, 115, 55, 11, 60, 136]);
-pub const SENSOR_EVENT_PARAMETER_COMMON_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1681157680, 34600, 19252, [189, 246, 79, 82, 68, 44, 92, 40]);
+pub const SENSOR_ERROR_PARAMETER_COMMON_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77112bcd_fce1_4f43_b8b8_a88256adb4b3);
+pub const SENSOR_EVENT_ACCELEROMETER_SHAKE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x825f5a94_0f48_4396_9ca0_6ecb5c99d915);
+pub const SENSOR_EVENT_DATA_UPDATED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ed0f2a4_0087_41d3_87db_6773370b3c88);
+pub const SENSOR_EVENT_PARAMETER_COMMON_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64346e30_8728_4b34_bdf6_4f52442c5c28);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_EVENT_PARAMETER_EVENT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1681157680, 34600, 19252, [189, 246, 79, 82, 68, 44, 92, 40]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x64346e30_8728_4b34_bdf6_4f52442c5c28),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_EVENT_PARAMETER_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1681157680, 34600, 19252, [189, 246, 79, 82, 68, 44, 92, 40]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x64346e30_8728_4b34_bdf6_4f52442c5c28),
     pid: 3u32,
 };
-pub const SENSOR_EVENT_PROPERTY_CHANGED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(593031321, 33993, 19773, [144, 223, 194, 66, 30, 43, 32, 69]);
-pub const SENSOR_EVENT_STATE_CHANGED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3218694166, 27607, 17760, [173, 52, 242, 246, 96, 126, 143, 129]);
+pub const SENSOR_EVENT_PROPERTY_CHANGED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2358f099_84c9_4d3d_90df_c2421e2b2045);
+pub const SENSOR_EVENT_STATE_CHANGED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfd96016_6bd7_4560_ad34_f2f6607e8f81);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_ACCURACY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_CHANGE_SENSITIVITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_CLEAR_ASSISTANCE_DATA: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3790168820, 28261, 17911, [156, 54, 212, 135, 183, 177, 189, 52]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xe1e962f4_6e65_45f7_9c36_d487b7b1bd34),
     pid: 2u32,
 };
-pub const SENSOR_PROPERTY_COMMON_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]);
+pub const SENSOR_PROPERTY_COMMON_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_CONNECTION_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_CURRENT_REPORT_INTERVAL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_DEVICE_PATH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_FRIENDLY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_HID_USAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 22u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_LIGHT_RESPONSE_CURVE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 16u32,
 };
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2391,86 +2391,86 @@ pub const SENSOR_PROPERTY_LIST_HEADER_SIZE: u32 = 8u32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_LOCATION_DESIRED_ACCURACY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 19u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_MANUFACTURER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_MIN_REPORT_INTERVAL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_MODEL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_PERSISTENT_UNIQUE_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_RADIO_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 23u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_RADIO_STATE_PREVIOUS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 24u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_RANGE_MAXIMUM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 21u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_RANGE_MINIMUM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 20u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_RESOLUTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 18u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_SERIAL_NUMBER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 3u32,
 };
-pub const SENSOR_PROPERTY_TEST_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3790168820, 28261, 17911, [156, 54, 212, 135, 183, 177, 189, 52]);
+pub const SENSOR_PROPERTY_TEST_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1e962f4_6e65_45f7_9c36_d487b7b1bd34);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_TURN_ON_OFF_NMEA: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3790168820, 28261, 17911, [156, 54, 212, 135, 183, 177, 189, 52]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xe1e962f4_6e65_45f7_9c36_d487b7b1bd34),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SENSOR_PROPERTY_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2139325420, 54252, 18780, [168, 207, 184, 187, 232, 92, 41, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920),
     pid: 2u32,
 };
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
@@ -2489,61 +2489,61 @@ impl ::core::convert::From<i32> for SENSOR_STATE {
 unsafe impl ::windows::runtime::Abi for SENSOR_STATE {
     type Abi = Self;
 }
-pub const SENSOR_TYPE_ACCELEROMETER_1D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3226280839, 29504, 19650, [153, 30, 59, 24, 203, 142, 242, 244]);
-pub const SENSOR_TYPE_ACCELEROMETER_2D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2999261096, 63157, 19366, [164, 35, 93, 245, 96, 180, 204, 7]);
-pub const SENSOR_TYPE_ACCELEROMETER_3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3271233375, 58066, 19576, [188, 208, 53, 42, 149, 130, 129, 157]);
-pub const SENSOR_TYPE_AGGREGATED_DEVICE_ORIENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3451246839, 15613, 16840, [133, 66, 204, 230, 34, 207, 93, 110]);
-pub const SENSOR_TYPE_AGGREGATED_QUADRANT_ORIENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2676093359, 50347, 17159, [153, 4, 200, 40, 191, 185, 8, 41]);
-pub const SENSOR_TYPE_AGGREGATED_SIMPLE_DEVICE_ORIENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2258735761, 1154, 16428, [191, 76, 173, 218, 197, 43, 28, 57]);
-pub const SENSOR_TYPE_AMBIENT_LIGHT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2549159368, 22938, 16723, [136, 148, 210, 209, 40, 153, 145, 138]);
-pub const SENSOR_TYPE_BARCODE_SCANNER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2567650703, 34235, 17919, [145, 77, 153, 140, 4, 243, 114, 223]);
-pub const SENSOR_TYPE_BOOLEAN_SWITCH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2625517343, 4161, 17931, [141, 92, 113, 228, 117, 46, 53, 12]);
-pub const SENSOR_TYPE_BOOLEAN_SWITCH_ARRAY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1415351205, 45379, 17733, [134, 143, 202, 127, 217, 134, 180, 246]);
-pub const SENSOR_TYPE_CAPACITANCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3392142108, 8983, 18880, [160, 180, 182, 60, 230, 52, 97, 160]);
-pub const SENSOR_TYPE_COMPASS_1D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2752902853, 52048, 18896, [142, 98, 168, 39, 11, 215, 162, 108]);
-pub const SENSOR_TYPE_COMPASS_2D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(358964416, 39290, 19760, [132, 219, 87, 202, 186, 54, 72, 187]);
-pub const SENSOR_TYPE_COMPASS_3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1991626253, 6109, 16717, [147, 161, 225, 39, 244, 11, 223, 110]);
-pub const SENSOR_TYPE_CURRENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1524408270, 5536, 19390, [161, 173, 45, 56, 169, 174, 131, 28]);
-pub const SENSOR_TYPE_CUSTOM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3896177193, 34368, 19736, [162, 19, 226, 38, 117, 235, 178, 195]);
-pub const SENSOR_TYPE_DISTANCE_1D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1595190063, 5127, 17158, [169, 63, 177, 219, 171, 228, 249, 192]);
-pub const SENSOR_TYPE_DISTANCE_2D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1559864428, 43426, 20053, [182, 161, 160, 74, 175, 169, 90, 146]);
-pub const SENSOR_TYPE_DISTANCE_3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2718740017, 3621, 18290, [159, 229, 150, 96, 138, 19, 84, 178]);
-pub const SENSOR_TYPE_ELECTRICAL_POWER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(556732661, 5291, 17270, [154, 67, 167, 121, 64, 152, 194, 254]);
-pub const SENSOR_TYPE_ENVIRONMENTAL_ATMOSPHERIC_PRESSURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(244332585, 65418, 19091, [151, 223, 61, 203, 222, 64, 34, 136]);
-pub const SENSOR_TYPE_ENVIRONMENTAL_HUMIDITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1551023975, 48510, 16983, [153, 11, 152, 163, 186, 59, 64, 10]);
-pub const SENSOR_TYPE_ENVIRONMENTAL_TEMPERATURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(83693252, 54746, 17914, [149, 169, 93, 179, 142, 225, 147, 6]);
-pub const SENSOR_TYPE_ENVIRONMENTAL_WIND_DIRECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2666887733, 37638, 17229, [175, 9, 55, 250, 90, 156, 0, 189]);
-pub const SENSOR_TYPE_ENVIRONMENTAL_WIND_SPEED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3713032315, 42079, 17101, [142, 253, 236, 97, 118, 28, 66, 38]);
-pub const SENSOR_TYPE_FORCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3265997570, 6684, 18296, [168, 27, 149, 74, 23, 136, 204, 117]);
-pub const SENSOR_TYPE_FREQUENCY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2362624950, 29670, 17984, [167, 9, 114, 174, 143, 182, 13, 127]);
-pub const SENSOR_TYPE_GYROMETER_1D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4194862900, 62802, 17796, [131, 36, 237, 250, 246, 73, 101, 44]);
-pub const SENSOR_TYPE_GYROMETER_2D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(837767043, 37275, 18623, [141, 224, 93, 122, 157, 36, 5, 86]);
-pub const SENSOR_TYPE_GYROMETER_3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(155737946, 30110, 17090, [189, 75, 163, 73, 183, 92, 134, 67]);
-pub const SENSOR_TYPE_HUMAN_PRESENCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3241722155, 44370, 17692, [147, 117, 135, 245, 24, 255, 16, 198]);
-pub const SENSOR_TYPE_HUMAN_PROXIMITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1377884905, 12665, 17456, [159, 144, 6, 38, 109, 42, 52, 222]);
-pub const SENSOR_TYPE_INCLINOMETER_1D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3111098565, 31349, 19367, [148, 233, 172, 134, 140, 150, 109, 216]);
-pub const SENSOR_TYPE_INCLINOMETER_2D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2870218605, 33771, 16996, [183, 11, 177, 106, 91, 37, 106, 1]);
-pub const SENSOR_TYPE_INCLINOMETER_3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3091798523, 60037, 18806, [132, 68, 111, 111, 92, 109, 49, 219]);
-pub const SENSOR_TYPE_INDUCTANCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3692925759, 50229, 19581, [162, 254, 96, 113, 146, 165, 36, 211]);
-pub const SENSOR_TYPE_LOCATION_BROADCAST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3530131663, 20834, 16441, [187, 23, 76, 88, 182, 152, 228, 74]);
-pub const SENSOR_TYPE_LOCATION_DEAD_RECKONING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(439866680, 62091, 17114, [159, 206, 169, 208, 162, 166, 216, 41]);
-pub const SENSOR_TYPE_LOCATION_GPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3981223305, 12922, 20473, [165, 96, 145, 218, 75, 72, 39, 94]);
-pub const SENSOR_TYPE_LOCATION_LOOKUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(992915018, 29390, 17261, [150, 210, 60, 91, 133, 112, 233, 135]);
-pub const SENSOR_TYPE_LOCATION_OTHER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2603418982, 872, 20337, [184, 141, 83, 63, 19, 32, 49, 222]);
-pub const SENSOR_TYPE_LOCATION_STATIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(157254020, 4009, 17477, [142, 110, 183, 15, 50, 11, 107, 76]);
-pub const SENSOR_TYPE_LOCATION_TRIANGULATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1763456026, 21510, 20449, [148, 47, 34, 70, 203, 235, 57, 224]);
-pub const SENSOR_TYPE_MOTION_DETECTOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1551637010, 12453, 17337, [164, 178, 207, 9, 236, 91, 123, 232]);
-pub const SENSOR_TYPE_MULTIVALUE_SWITCH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3018739062, 14244, 17410, [178, 94, 153, 198, 10, 119, 95, 161]);
-pub const SENSOR_TYPE_POTENTIOMETER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(724992425, 51932, 17834, [166, 255, 84, 149, 124, 139, 180, 64]);
-pub const SENSOR_TYPE_PRESSURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(651370292, 25426, 16847, [183, 147, 234, 7, 19, 213, 61, 119]);
-pub const SENSOR_TYPE_RESISTANCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2576601800, 49495, 19026, [167, 181, 25, 92, 118, 3, 114, 49]);
-pub const SENSOR_TYPE_RFID_SCANNER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1144164085, 733, 20109, [173, 93, 146, 73, 131, 43, 46, 202]);
-pub const SENSOR_TYPE_SCALE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3228424492, 32747, 17294, [155, 246, 130, 32, 127, 255, 91, 184]);
-pub const SENSOR_TYPE_SPEEDOMETER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1809267743, 2996, 17168, [129, 178, 223, 193, 138, 82, 191, 148]);
-pub const SENSOR_TYPE_STRAIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3335646222, 26627, 17249, [173, 61, 133, 188, 197, 140, 109, 41]);
-pub const SENSOR_TYPE_TOUCH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(400240664, 1732, 20349, [129, 175, 146, 116, 183, 89, 156, 39]);
-pub const SENSOR_TYPE_UNKNOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(280658915, 61263, 16877, [152, 133, 168, 125, 100, 53, 168, 225]);
-pub const SENSOR_TYPE_VOLTAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3309848119, 20407, 18771, [152, 184, 165, 109, 138, 161, 251, 30]);
+pub const SENSOR_TYPE_ACCELEROMETER_1D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc04d2387_7340_4cc2_991e_3b18cb8ef2f4);
+pub const SENSOR_TYPE_ACCELEROMETER_2D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2c517a8_f6b5_4ba6_a423_5df560b4cc07);
+pub const SENSOR_TYPE_ACCELEROMETER_3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2fb0f5f_e2d2_4c78_bcd0_352a9582819d);
+pub const SENSOR_TYPE_AGGREGATED_DEVICE_ORIENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcdb5d8f7_3cfd_41c8_8542_cce622cf5d6e);
+pub const SENSOR_TYPE_AGGREGATED_QUADRANT_ORIENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f81f1af_c4ab_4307_9904_c828bfb90829);
+pub const SENSOR_TYPE_AGGREGATED_SIMPLE_DEVICE_ORIENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86a19291_0482_402c_bf4c_addac52b1c39);
+pub const SENSOR_TYPE_AMBIENT_LIGHT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97f115c8_599a_4153_8894_d2d12899918a);
+pub const SENSOR_TYPE_BARCODE_SCANNER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x990b3d8f_85bb_45ff_914d_998c04f372df);
+pub const SENSOR_TYPE_BOOLEAN_SWITCH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c7e371f_1041_460b_8d5c_71e4752e350c);
+pub const SENSOR_TYPE_BOOLEAN_SWITCH_ARRAY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x545c8ba5_b143_4545_868f_ca7fd986b4f6);
+pub const SENSOR_TYPE_CAPACITANCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca2ffb1c_2317_49c0_a0b4_b63ce63461a0);
+pub const SENSOR_TYPE_COMPASS_1D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa415f6c5_cb50_49d0_8e62_a8270bd7a26c);
+pub const SENSOR_TYPE_COMPASS_2D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15655cc0_997a_4d30_84db_57caba3648bb);
+pub const SENSOR_TYPE_COMPASS_3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76b5ce0d_17dd_414d_93a1_e127f40bdf6e);
+pub const SENSOR_TYPE_CURRENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5adc9fce_15a0_4bbe_a1ad_2d38a9ae831c);
+pub const SENSOR_TYPE_CUSTOM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe83af229_8640_4d18_a213_e22675ebb2c3);
+pub const SENSOR_TYPE_DISTANCE_1D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f14ab2f_1407_4306_a93f_b1dbabe4f9c0);
+pub const SENSOR_TYPE_DISTANCE_2D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5cf9a46c_a9a2_4e55_b6a1_a04aafa95a92);
+pub const SENSOR_TYPE_DISTANCE_3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa20cae31_0e25_4772_9fe5_96608a1354b2);
+pub const SENSOR_TYPE_ELECTRICAL_POWER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x212f10f5_14ab_4376_9a43_a7794098c2fe);
+pub const SENSOR_TYPE_ENVIRONMENTAL_ATMOSPHERIC_PRESSURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e903829_ff8a_4a93_97df_3dcbde402288);
+pub const SENSOR_TYPE_ENVIRONMENTAL_HUMIDITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c72bf67_bd7e_4257_990b_98a3ba3b400a);
+pub const SENSOR_TYPE_ENVIRONMENTAL_TEMPERATURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04fd0ec4_d5da_45fa_95a9_5db38ee19306);
+pub const SENSOR_TYPE_ENVIRONMENTAL_WIND_DIRECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ef57a35_9306_434d_af09_37fa5a9c00bd);
+pub const SENSOR_TYPE_ENVIRONMENTAL_WIND_SPEED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd50607b_a45f_42cd_8efd_ec61761c4226);
+pub const SENSOR_TYPE_FORCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2ab2b02_1a1c_4778_a81b_954a1788cc75);
+pub const SENSOR_TYPE_FREQUENCY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cd2cbb6_73e6_4640_a709_72ae8fb60d7f);
+pub const SENSOR_TYPE_GYROMETER_1D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa088734_f552_4584_8324_edfaf649652c);
+pub const SENSOR_TYPE_GYROMETER_2D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31ef4f83_919b_48bf_8de0_5d7a9d240556);
+pub const SENSOR_TYPE_GYROMETER_3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09485f5a_759e_42c2_bd4b_a349b75c8643);
+pub const SENSOR_TYPE_HUMAN_PRESENCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc138c12b_ad52_451c_9375_87f518ff10c6);
+pub const SENSOR_TYPE_HUMAN_PROXIMITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5220dae9_3179_4430_9f90_06266d2a34de);
+pub const SENSOR_TYPE_INCLINOMETER_1D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb96f98c5_7a75_4ba7_94e9_ac868c966dd8);
+pub const SENSOR_TYPE_INCLINOMETER_2D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab140f6d_83eb_4264_b70b_b16a5b256a01);
+pub const SENSOR_TYPE_INCLINOMETER_3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb84919fb_ea85_4976_8444_6f6f5c6d31db);
+pub const SENSOR_TYPE_INDUCTANCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc1d933f_c435_4c7d_a2fe_607192a524d3);
+pub const SENSOR_TYPE_LOCATION_BROADCAST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd26988cf_5162_4039_bb17_4c58b698e44a);
+pub const SENSOR_TYPE_LOCATION_DEAD_RECKONING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a37d538_f28b_42da_9fce_a9d0a2a6d829);
+pub const SENSOR_TYPE_LOCATION_GPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed4ca589_327a_4ff9_a560_91da4b48275e);
+pub const SENSOR_TYPE_LOCATION_LOOKUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b2eae4a_72ce_436d_96d2_3c5b8570e987);
+pub const SENSOR_TYPE_LOCATION_OTHER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b2d0566_0368_4f71_b88d_533f132031de);
+pub const SENSOR_TYPE_LOCATION_STATIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x095f8184_0fa9_4445_8e6e_b70f320b6b4c);
+pub const SENSOR_TYPE_LOCATION_TRIANGULATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x691c341a_5406_4fe1_942f_2246cbeb39e0);
+pub const SENSOR_TYPE_MOTION_DETECTOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c7c1a12_30a5_43b9_a4b2_cf09ec5b7be8);
+pub const SENSOR_TYPE_MULTIVALUE_SWITCH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3ee4d76_37a4_4402_b25e_99c60a775fa1);
+pub const SENSOR_TYPE_POTENTIOMETER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b3681a9_cadc_45aa_a6ff_54957c8bb440);
+pub const SENSOR_TYPE_PRESSURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26d31f34_6352_41cf_b793_ea0713d53d77);
+pub const SENSOR_TYPE_RESISTANCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9993d2c8_c157_4a52_a7b5_195c76037231);
+pub const SENSOR_TYPE_RFID_SCANNER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44328ef5_02dd_4e8d_ad5d_9249832b2eca);
+pub const SENSOR_TYPE_SCALE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc06dd92c_7feb_438e_9bf6_82207fff5bb8);
+pub const SENSOR_TYPE_SPEEDOMETER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6bd73c1f_0bb4_4310_81b2_dfc18a52bf94);
+pub const SENSOR_TYPE_STRAIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6d1ec0e_6803_4361_ad3d_85bcc58c6d29);
+pub const SENSOR_TYPE_TOUCH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17db3018_06c4_4f7d_81af_9274b7599c27);
+pub const SENSOR_TYPE_UNKNOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10ba83e3_ef4f_41ed_9885_a87d6435a8e1);
+pub const SENSOR_TYPE_VOLTAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5484637_4fb7_4953_98b8_a56d8aa1fb1e);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::clone::Clone for SENSOR_VALUE_PAIR {
     fn clone(&self) -> Self {
@@ -2595,8 +2595,8 @@ impl ::core::convert::From<i32> for SIMPLE_DEVICE_ORIENTATION {
 unsafe impl ::windows::runtime::Abi for SIMPLE_DEVICE_ORIENTATION {
     type Abi = Self;
 }
-pub const Sensor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3917278464, 21050, 16691, [191, 111, 211, 162, 218, 231, 246, 186]);
-pub const SensorCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2042903259, 42025, 18079, [170, 57, 47, 43, 116, 183, 89, 55]);
+pub const Sensor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe97ced00_523a_4133_bf6f_d3a2dae7f6ba);
+pub const SensorCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79c43adb_a429_469f_aa39_2f2b74b75937);
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
@@ -2627,8 +2627,8 @@ impl ::core::convert::From<i32> for SensorConnectionType {
 unsafe impl ::windows::runtime::Abi for SensorConnectionType {
     type Abi = Self;
 }
-pub const SensorDataReport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1319753455, 26955, 16920, [136, 22, 204, 218, 141, 167, 75, 186]);
-pub const SensorManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2007091239, 64722, 18057, [137, 21, 157, 97, 60, 197, 250, 62]);
+pub const SensorDataReport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ea9d6ef_694b_4218_8816_ccda8da74bba);
+pub const SensorManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77a1c827_fcd2_4689_8915_9d613cc5fa3e);
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]

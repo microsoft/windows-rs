@@ -66,7 +66,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConditionForceEffect {
 }
 unsafe impl ::windows::runtime::Interface for ConditionForceEffect {
     type Vtable = IForceFeedbackEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2709502476, 10980, 18626, [128, 99, 234, 189, 7, 119, 203, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
 }
 impl ::windows::runtime::RuntimeName for ConditionForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ConditionForceEffect";
@@ -229,7 +229,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConstantForceEffect {
 }
 unsafe impl ::windows::runtime::Interface for ConstantForceEffect {
     type Vtable = IForceFeedbackEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2709502476, 10980, 18626, [128, 99, 234, 189, 7, 119, 203, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
 }
 impl ::windows::runtime::RuntimeName for ConstantForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ConstantForceEffect";
@@ -503,7 +503,7 @@ unsafe impl ::windows::runtime::RuntimeType for ForceFeedbackMotor {
 }
 unsafe impl ::windows::runtime::Interface for ForceFeedbackMotor {
     type Vtable = IForceFeedbackMotor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2369601916, 42474, 17686, [128, 38, 43, 0, 247, 78, 246, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d3d417c_a5ea_4516_8026_2b00f74ef6e5);
 }
 impl ::windows::runtime::RuntimeName for ForceFeedbackMotor {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor";
@@ -555,7 +555,7 @@ unsafe impl ::core::marker::Sync for ForceFeedbackMotor {}
 pub struct IConditionForceEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConditionForceEffect {
     type Vtable = IConditionForceEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(852617832, 13973, 20073, [133, 192, 205, 25, 68, 24, 145, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32d1ea68_3695_4e69_85c0_cd1944189140);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -575,7 +575,7 @@ pub struct IConditionForceEffect_abi(
 pub struct IConditionForceEffectFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConditionForceEffectFactory {
     type Vtable = IConditionForceEffectFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2443809380, 6160, 20150, [167, 115, 191, 211, 184, 205, 219, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91a99264_1810_4eb6_a773_bfd3b8cddbab);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -593,7 +593,7 @@ pub struct IConditionForceEffectFactory_abi(
 pub struct IConstantForceEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConstantForceEffect {
     type Vtable = IConstantForceEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2616852800, 62407, 16732, [176, 104, 15, 6, 135, 52, 188, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9bfa0140_f3c7_415c_b068_0f068734bce0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -616,7 +616,7 @@ pub struct IConstantForceEffect_abi(
 pub struct IForceFeedbackEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IForceFeedbackEffect {
     type Vtable = IForceFeedbackEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2709502476, 10980, 18626, [128, 99, 234, 189, 7, 119, 203, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
 }
 impl IForceFeedbackEffect {
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
@@ -714,7 +714,7 @@ pub struct IForceFeedbackEffect_abi(
 pub struct IForceFeedbackMotor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IForceFeedbackMotor {
     type Vtable = IForceFeedbackMotor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2369601916, 42474, 17686, [128, 38, 43, 0, 247, 78, 246, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d3d417c_a5ea_4516_8026_2b00f74ef6e5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -749,7 +749,7 @@ pub struct IForceFeedbackMotor_abi(
 pub struct IPeriodicForceEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPeriodicForceEffect {
     type Vtable = IPeriodicForceEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1548826839, 64629, 19794, [154, 10, 239, 228, 202, 181, 254, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c5138d7_fc75_4d52_9a0a_efe4cab5fe64);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -786,7 +786,7 @@ pub struct IPeriodicForceEffect_abi(
 pub struct IPeriodicForceEffectFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPeriodicForceEffectFactory {
     type Vtable = IPeriodicForceEffectFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1868753690, 38993, 18299, [179, 24, 53, 236, 170, 21, 7, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f62eb1a_9851_477b_b318_35ecaa15070f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -804,7 +804,7 @@ pub struct IPeriodicForceEffectFactory_abi(
 pub struct IRampForceEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRampForceEffect {
     type Vtable = IRampForceEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4059566681, 7334, 16512, [181, 109, 180, 63, 51, 84, 208, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1f81259_1ca6_4080_b56d_b43f3354d052);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -920,7 +920,7 @@ unsafe impl ::windows::runtime::RuntimeType for PeriodicForceEffect {
 }
 unsafe impl ::windows::runtime::Interface for PeriodicForceEffect {
     type Vtable = IForceFeedbackEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2709502476, 10980, 18626, [128, 99, 234, 189, 7, 119, 203, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
 }
 impl ::windows::runtime::RuntimeName for PeriodicForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.PeriodicForceEffect";
@@ -1093,7 +1093,7 @@ unsafe impl ::windows::runtime::RuntimeType for RampForceEffect {
 }
 unsafe impl ::windows::runtime::Interface for RampForceEffect {
     type Vtable = IForceFeedbackEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2709502476, 10980, 18626, [128, 99, 234, 189, 7, 119, 203, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
 }
 impl ::windows::runtime::RuntimeName for RampForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.RampForceEffect";

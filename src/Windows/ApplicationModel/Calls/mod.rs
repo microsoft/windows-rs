@@ -22,7 +22,7 @@ unsafe impl ::windows::runtime::RuntimeType for CallAnswerEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for CallAnswerEventArgs {
     type Vtable = ICallAnswerEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4252538391, 11735, 19596, [178, 189, 149, 209, 122, 91, 183, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd789617_2dd7_4c8c_b2bd_95d17a5bb733);
 }
 impl ::windows::runtime::RuntimeName for CallAnswerEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.CallAnswerEventArgs";
@@ -88,7 +88,7 @@ unsafe impl ::windows::runtime::RuntimeType for CallRejectEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for CallRejectEventArgs {
     type Vtable = ICallRejectEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3662150359, 5076, 19858, [161, 194, 183, 120, 17, 238, 55, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda47fad7_13d4_4d92_a1c2_b77811ee37ec);
 }
 impl ::windows::runtime::RuntimeName for CallRejectEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.CallRejectEventArgs";
@@ -154,7 +154,7 @@ unsafe impl ::windows::runtime::RuntimeType for CallStateChangeEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for CallStateChangeEventArgs {
     type Vtable = ICallStateChangeEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3937547422, 26357, 18425, [159, 181, 69, 156, 81, 152, 199, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeab2349e_66f5_47f9_9fb5_459c5198c720);
 }
 impl ::windows::runtime::RuntimeName for CallStateChangeEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.CallStateChangeEventArgs";
@@ -288,7 +288,7 @@ impl ::windows::runtime::DefaultType for DtmfToneAudioPlayback {
 pub struct ICallAnswerEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICallAnswerEventArgs {
     type Vtable = ICallAnswerEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4252538391, 11735, 19596, [178, 189, 149, 209, 122, 91, 183, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd789617_2dd7_4c8c_b2bd_95d17a5bb733);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -306,7 +306,7 @@ pub struct ICallAnswerEventArgs_abi(
 pub struct ICallRejectEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICallRejectEventArgs {
     type Vtable = ICallRejectEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3662150359, 5076, 19858, [161, 194, 183, 120, 17, 238, 55, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda47fad7_13d4_4d92_a1c2_b77811ee37ec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -324,7 +324,7 @@ pub struct ICallRejectEventArgs_abi(
 pub struct ICallStateChangeEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICallStateChangeEventArgs {
     type Vtable = ICallStateChangeEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3937547422, 26357, 18425, [159, 181, 69, 156, 81, 152, 199, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeab2349e_66f5_47f9_9fb5_459c5198c720);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -342,7 +342,7 @@ pub struct ICallStateChangeEventArgs_abi(
 pub struct ILockScreenCallEndCallDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenCallEndCallDeferral {
     type Vtable = ILockScreenCallEndCallDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(769125645, 39149, 16449, [150, 50, 80, 255, 129, 43, 119, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2dd7ed0d_98ed_4041_9632_50ff812b773f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -360,7 +360,7 @@ pub struct ILockScreenCallEndCallDeferral_abi(
 pub struct ILockScreenCallEndRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenCallEndRequestedEventArgs {
     type Vtable = ILockScreenCallEndRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2173739875, 28455, 18153, [174, 182, 192, 174, 131, 228, 125, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8190a363_6f27_46e9_aeb6_c0ae83e47dc7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -380,7 +380,7 @@ pub struct ILockScreenCallEndRequestedEventArgs_abi(
 pub struct ILockScreenCallUI(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenCallUI {
     type Vtable = ILockScreenCallUI_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3315006861, 29641, 18964, [176, 33, 236, 28, 80, 163, 183, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc596fd8d_73c9_4a14_b021_ec1c50a3b727);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -408,7 +408,7 @@ pub struct ILockScreenCallUI_abi(
 pub struct IMuteChangeEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMuteChangeEventArgs {
     type Vtable = IMuteChangeEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2240143705, 3137, 17196, [129, 77, 197, 241, 253, 245, 48, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8585e159_0c41_432c_814d_c5f1fdf530be);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -426,7 +426,7 @@ pub struct IMuteChangeEventArgs_abi(
 pub struct IPhoneCall(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCall {
     type Vtable = IPhoneCall_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3243167992, 49533, 22994, [150, 40, 102, 229, 69, 182, 205, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc14ed0f8_c17d_59d2_9628_66e545b6cd21);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -489,7 +489,7 @@ pub struct IPhoneCall_abi(
 pub struct IPhoneCallBlockingStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallBlockingStatics {
     type Vtable = IPhoneCallBlockingStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(426012548, 11129, 9969, [164, 111, 105, 75, 224, 67, 243, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19646f84_2b79_26f1_a46f_694be043f313);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -512,7 +512,7 @@ pub struct IPhoneCallBlockingStatics_abi(
 pub struct IPhoneCallHistoryEntry(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallHistoryEntry {
     type Vtable = IPhoneCallHistoryEntry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4205895977, 12964, 19333, [131, 209, 249, 13, 140, 35, 168, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfab0e129_32a4_4b85_83d1_f90d8c23a857);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -567,7 +567,7 @@ pub struct IPhoneCallHistoryEntry_abi(
 pub struct IPhoneCallHistoryEntryAddress(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallHistoryEntryAddress {
     type Vtable = IPhoneCallHistoryEntryAddress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(821123546, 14677, 16450, [132, 230, 102, 238, 191, 130, 230, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30f159da_3955_4042_84e6_66eebf82e67f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -592,7 +592,7 @@ pub struct IPhoneCallHistoryEntryAddress_abi(
 pub struct IPhoneCallHistoryEntryAddressFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallHistoryEntryAddressFactory {
     type Vtable = IPhoneCallHistoryEntryAddressFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4212108730, 51184, 19382, [159, 107, 186, 93, 115, 32, 154, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb0fadba_c7f0_4bb6_9f6b_ba5d73209aca);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -610,7 +610,7 @@ pub struct IPhoneCallHistoryEntryAddressFactory_abi(
 pub struct IPhoneCallHistoryEntryQueryOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallHistoryEntryQueryOptions {
     type Vtable = IPhoneCallHistoryEntryQueryOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2623529308, 35821, 16586, [176, 110, 196, 202, 142, 174, 92, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c5fe15c_8bed_40ca_b06e_c4ca8eae5c87);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -631,7 +631,7 @@ pub struct IPhoneCallHistoryEntryQueryOptions_abi(
 pub struct IPhoneCallHistoryEntryReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallHistoryEntryReader {
     type Vtable = IPhoneCallHistoryEntryReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1642915006, 36230, 18335, [132, 4, 169, 132, 105, 32, 254, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61ece4be_8d86_479f_8404_a9846920fee6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -650,7 +650,7 @@ pub struct IPhoneCallHistoryEntryReader_abi(
 pub struct IPhoneCallHistoryManagerForUser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallHistoryManagerForUser {
     type Vtable = IPhoneCallHistoryManagerForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3643131171, 62815, 17235, [157, 180, 2, 5, 165, 38, 90, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd925c523_f55f_4353_9db4_0205a5265a55);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -671,7 +671,7 @@ pub struct IPhoneCallHistoryManagerForUser_abi(
 pub struct IPhoneCallHistoryManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallHistoryManagerStatics {
     type Vtable = IPhoneCallHistoryManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4121352761, 45855, 20293, [172, 142, 27, 8, 137, 60, 27, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5a6da39_b31f_4f45_ac8e_1b08893c1b50);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -690,7 +690,7 @@ pub struct IPhoneCallHistoryManagerStatics_abi(
 pub struct IPhoneCallHistoryManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallHistoryManagerStatics2 {
     type Vtable = IPhoneCallHistoryManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4023678192, 41691, 16776, [158, 146, 188, 60, 250, 104, 19, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefd474f0_a2db_4188_9e92_bc3cfa6813cf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -709,7 +709,7 @@ pub struct IPhoneCallHistoryManagerStatics2_abi(
 pub struct IPhoneCallHistoryStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallHistoryStore {
     type Vtable = IPhoneCallHistoryStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(797998520, 46094, 16939, [133, 69, 203, 25, 16, 166, 28, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f907db8_b40e_422b_8545_cb1910a61c52);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -748,7 +748,7 @@ pub struct IPhoneCallHistoryStore_abi(
 pub struct IPhoneCallInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallInfo {
     type Vtable = IPhoneCallInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(582231415, 15949, 24006, [137, 194, 70, 159, 229, 255, 193, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22b42577_3e4d_5dc6_89c2_469fe5ffc189);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -772,7 +772,7 @@ pub struct IPhoneCallInfo_abi(
 pub struct IPhoneCallManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallManagerStatics {
     type Vtable = IPhoneCallManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1626188920, 30886, 18546, [163, 239, 152, 50, 94, 200, 184, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60edac78_78a6_4872_a3ef_98325ec8b843);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -790,7 +790,7 @@ pub struct IPhoneCallManagerStatics_abi(
 pub struct IPhoneCallManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallManagerStatics2 {
     type Vtable = IPhoneCallManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3353594044, 9072, 17180, [152, 253, 67, 190, 95, 3, 8, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7e3c8bc_2370_431c_98fd_43be5f03086d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -816,7 +816,7 @@ pub struct IPhoneCallManagerStatics2_abi(
 pub struct IPhoneCallStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallStatics {
     type Vtable = IPhoneCallStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(572059307, 62987, 21479, [186, 19, 90, 234, 251, 194, 41, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2218eeab_f60b_53e7_ba13_5aeafbc22957);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -834,7 +834,7 @@ pub struct IPhoneCallStatics_abi(
 pub struct IPhoneCallStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallStore {
     type Vtable = IPhoneCallStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1600194376, 6310, 16755, [134, 209, 40, 190, 157, 198, 45, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f610748_18a6_4173_86d1_28be9dc62dba);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -856,7 +856,7 @@ pub struct IPhoneCallStore_abi(
 pub struct IPhoneCallVideoCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallVideoCapabilities {
     type Vtable = IPhoneCallVideoCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(37234566, 45418, 20443, [190, 59, 196, 36, 14, 19, 173, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02382786_b16a_4fdb_be3b_c4240e13ad0d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -874,7 +874,7 @@ pub struct IPhoneCallVideoCapabilities_abi(
 pub struct IPhoneCallVideoCapabilitiesManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallVideoCapabilitiesManagerStatics {
     type Vtable = IPhoneCallVideoCapabilitiesManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4089858902, 61451, 18972, [160, 198, 238, 25, 16, 116, 156, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3c64b56_f00b_4a1c_a0c6_ee1910749ce7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -893,7 +893,7 @@ pub struct IPhoneCallVideoCapabilitiesManagerStatics_abi(
 pub struct IPhoneCallsResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallsResult {
     type Vtable = IPhoneCallsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(469422949, 22479, 22493, [152, 109, 176, 87, 201, 30, 172, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bfad365_57cf_57dd_986d_b057c91eac33);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -913,7 +913,7 @@ pub struct IPhoneCallsResult_abi(
 pub struct IPhoneDialOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneDialOptions {
     type Vtable = IPhoneDialOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3057239224, 61551, 14027, [168, 99, 130, 55, 66, 181, 242, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb639c4b8_f06f_36cb_a863_823742b5f2d4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -946,7 +946,7 @@ pub struct IPhoneDialOptions_abi(
 pub struct IPhoneLine(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLine {
     type Vtable = IPhoneLine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(667316016, 27241, 13514, [162, 186, 101, 48, 37, 48, 195, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27c66f30_6a69_34ca_a2ba_65302530c311);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -984,7 +984,7 @@ pub struct IPhoneLine_abi(
 pub struct IPhoneLine2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLine2 {
     type Vtable = IPhoneLine2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(23590250, 21316, 23908, [138, 243, 163, 26, 149, 14, 145, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0167f56a_5344_5d64_8af3_a31a950e916a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1003,7 +1003,7 @@ pub struct IPhoneLine2_abi(
 pub struct IPhoneLine3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLine3 {
     type Vtable = IPhoneLine3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3806543095, 9222, 22515, [130, 106, 229, 165, 244, 13, 111, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2e33cf7_2406_57f3_826a_e5a5f40d6fb5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1026,7 +1026,7 @@ pub struct IPhoneLine3_abi(
 pub struct IPhoneLineCellularDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineCellularDetails {
     type Vtable = IPhoneLineCellularDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(421921237, 5244, 18281, [182, 115, 152, 165, 236, 132, 38, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x192601d5_147c_4769_b673_98a5ec8426cb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1048,7 +1048,7 @@ pub struct IPhoneLineCellularDetails_abi(
 pub struct IPhoneLineConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineConfiguration {
     type Vtable = IPhoneLineConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4263925858, 63055, 17170, [178, 168, 78, 37, 119, 33, 170, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe265862_f64f_4312_b2a8_4e257721aa95);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1068,7 +1068,7 @@ pub struct IPhoneLineConfiguration_abi(
 pub struct IPhoneLineDialResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineDialResult {
     type Vtable = IPhoneLineDialResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3894780682, 23679, 21615, [185, 24, 58, 210, 254, 112, 251, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe825a30a_5c7f_546f_b918_3ad2fe70fb34);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1087,7 +1087,7 @@ pub struct IPhoneLineDialResult_abi(
 pub struct IPhoneLineStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineStatics {
     type Vtable = IPhoneLineStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4085997347, 52912, 16463, [188, 242, 186, 159, 105, 125, 138, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf38b5f23_ceb0_404f_bcf2_ba9f697d8adf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1106,7 +1106,7 @@ pub struct IPhoneLineStatics_abi(
 pub struct IPhoneLineTransportDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineTransportDevice {
     type Vtable = IPhoneLineTransportDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020828297, 53242, 23028, [151, 228, 116, 112, 91, 125, 196, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefa8f889_cffa_59f4_97e4_74705b7dc490);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1137,7 +1137,7 @@ pub struct IPhoneLineTransportDevice_abi(
 pub struct IPhoneLineTransportDevice2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineTransportDevice2 {
     type Vtable = IPhoneLineTransportDevice2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1690863090, 60660, 22369, [140, 4, 60, 36, 140, 230, 22, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64c885f2_ecf4_5761_8c04_3c248ce61690);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1164,7 +1164,7 @@ pub struct IPhoneLineTransportDevice2_abi(
 pub struct IPhoneLineTransportDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineTransportDeviceStatics {
     type Vtable = IPhoneLineTransportDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(254878124, 54793, 20897, [150, 243, 251, 0, 209, 129, 146, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f3121ac_d609_51a1_96f3_fb00d1819252);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1184,7 +1184,7 @@ pub struct IPhoneLineTransportDeviceStatics_abi(
 pub struct IPhoneLineWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineWatcher {
     type Vtable = IPhoneLineWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2319830282, 25379, 17632, [166, 246, 159, 33, 246, 77, 201, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a45cd0a_6323_44e0_a6f6_9f21f64dc90a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1224,7 +1224,7 @@ pub struct IPhoneLineWatcher_abi(
 pub struct IPhoneLineWatcherEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineWatcherEventArgs {
     type Vtable = IPhoneLineWatcherEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3497817406, 40466, 18999, [130, 183, 173, 83, 93, 173, 106, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd07c753e_9e12_4a37_82b7_ad535dad6a67);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1242,7 +1242,7 @@ pub struct IPhoneLineWatcherEventArgs_abi(
 pub struct IPhoneVoicemail(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneVoicemail {
     type Vtable = IPhoneVoicemail_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3385751542, 28319, 14987, [183, 39, 110, 12, 246, 153, 130, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9ce77f6_6e9f_3a8b_b727_6e0cf6998224);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1264,7 +1264,7 @@ pub struct IPhoneVoicemail_abi(
 pub struct IVoipCallCoordinator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoipCallCoordinator {
     type Vtable = IVoipCallCoordinator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1326549967, 59631, 17460, [156, 95, 168, 216, 147, 250, 254, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f118bcf_e8ef_4434_9c5f_a8d893fafe79);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1324,7 +1324,7 @@ pub struct IVoipCallCoordinator_abi(
 pub struct IVoipCallCoordinator2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoipCallCoordinator2 {
     type Vtable = IVoipCallCoordinator2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3199511027, 50948, 16948, [137, 206, 232, 140, 192, 210, 143, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbeb4a9f3_c704_4234_89ce_e88cc0d28fbe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1342,7 +1342,7 @@ pub struct IVoipCallCoordinator2_abi(
 pub struct IVoipCallCoordinator3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoipCallCoordinator3 {
     type Vtable = IVoipCallCoordinator3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(864881855, 39765, 16417, [135, 202, 230, 75, 155, 214, 102, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x338d0cbf_9b55_4021_87ca_e64b9bd666c7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1377,7 +1377,7 @@ pub struct IVoipCallCoordinator3_abi(
 pub struct IVoipCallCoordinator4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoipCallCoordinator4 {
     type Vtable = IVoipCallCoordinator4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2205381177, 37649, 18063, [187, 73, 71, 224, 223, 181, 217, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83737239_9311_468f_bb49_47e0dfb5d93e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1396,7 +1396,7 @@ pub struct IVoipCallCoordinator4_abi(
 pub struct IVoipCallCoordinatorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoipCallCoordinatorStatics {
     type Vtable = IVoipCallCoordinatorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2136809259, 57418, 19728, [179, 26, 165, 92, 146, 44, 194, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f5d1f2b_e04a_4d10_b31a_a55c922cc2fb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1414,7 +1414,7 @@ pub struct IVoipCallCoordinatorStatics_abi(
 pub struct IVoipPhoneCall(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoipPhoneCall {
     type Vtable = IVoipPhoneCall_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1827795354, 30612, 19034, [140, 104, 174, 135, 148, 122, 105, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6cf1f19a_7794_4a5a_8c68_ae87947a6990);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1463,7 +1463,7 @@ pub struct IVoipPhoneCall_abi(
 pub struct IVoipPhoneCall2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoipPhoneCall2 {
     type Vtable = IVoipPhoneCall2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1947944673, 9311, 16883, [147, 153, 49, 65, 210, 91, 82, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x741b46e1_245f_41f3_9399_3141d25b52e3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1481,7 +1481,7 @@ pub struct IVoipPhoneCall2_abi(
 pub struct IVoipPhoneCall3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoipPhoneCall3 {
     type Vtable = IVoipPhoneCall3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(227087650, 57944, 19113, [144, 122, 26, 164, 19, 194, 85, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d891522_e258_4aa9_907a_1aa413c25523);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1513,7 +1513,7 @@ unsafe impl ::windows::runtime::RuntimeType for LockScreenCallEndCallDeferral {
 }
 unsafe impl ::windows::runtime::Interface for LockScreenCallEndCallDeferral {
     type Vtable = ILockScreenCallEndCallDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(769125645, 39149, 16449, [150, 50, 80, 255, 129, 43, 119, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2dd7ed0d_98ed_4041_9632_50ff812b773f);
 }
 impl ::windows::runtime::RuntimeName for LockScreenCallEndCallDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallEndCallDeferral";
@@ -1588,7 +1588,7 @@ unsafe impl ::windows::runtime::RuntimeType for LockScreenCallEndRequestedEventA
 }
 unsafe impl ::windows::runtime::Interface for LockScreenCallEndRequestedEventArgs {
     type Vtable = ILockScreenCallEndRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2173739875, 28455, 18153, [174, 182, 192, 174, 131, 228, 125, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8190a363_6f27_46e9_aeb6_c0ae83e47dc7);
 }
 impl ::windows::runtime::RuntimeName for LockScreenCallEndRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallEndRequestedEventArgs";
@@ -1694,7 +1694,7 @@ unsafe impl ::windows::runtime::RuntimeType for LockScreenCallUI {
 }
 unsafe impl ::windows::runtime::Interface for LockScreenCallUI {
     type Vtable = ILockScreenCallUI_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3315006861, 29641, 18964, [176, 33, 236, 28, 80, 163, 183, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc596fd8d_73c9_4a14_b021_ec1c50a3b727);
 }
 impl ::windows::runtime::RuntimeName for LockScreenCallUI {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallUI";
@@ -1760,7 +1760,7 @@ unsafe impl ::windows::runtime::RuntimeType for MuteChangeEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for MuteChangeEventArgs {
     type Vtable = IMuteChangeEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2240143705, 3137, 17196, [129, 77, 197, 241, 253, 245, 48, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8585e159_0c41_432c_814d_c5f1fdf530be);
 }
 impl ::windows::runtime::RuntimeName for MuteChangeEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.MuteChangeEventArgs";
@@ -2099,7 +2099,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneCall {
 }
 unsafe impl ::windows::runtime::Interface for PhoneCall {
     type Vtable = IPhoneCall_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3243167992, 49533, 22994, [150, 40, 102, 229, 69, 182, 205, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc14ed0f8_c17d_59d2_9628_66e545b6cd21);
 }
 impl ::windows::runtime::RuntimeName for PhoneCall {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCall";
@@ -2479,7 +2479,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistoryEntry {
 }
 unsafe impl ::windows::runtime::Interface for PhoneCallHistoryEntry {
     type Vtable = IPhoneCallHistoryEntry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4205895977, 12964, 19333, [131, 209, 249, 13, 140, 35, 168, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfab0e129_32a4_4b85_83d1_f90d8c23a857);
 }
 impl ::windows::runtime::RuntimeName for PhoneCallHistoryEntry {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntry";
@@ -2607,7 +2607,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistoryEntryAddress {
 }
 unsafe impl ::windows::runtime::Interface for PhoneCallHistoryEntryAddress {
     type Vtable = IPhoneCallHistoryEntryAddress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(821123546, 14677, 16450, [132, 230, 102, 238, 191, 130, 230, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30f159da_3955_4042_84e6_66eebf82e67f);
 }
 impl ::windows::runtime::RuntimeName for PhoneCallHistoryEntryAddress {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryAddress";
@@ -2790,7 +2790,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistoryEntryQueryOption
 }
 unsafe impl ::windows::runtime::Interface for PhoneCallHistoryEntryQueryOptions {
     type Vtable = IPhoneCallHistoryEntryQueryOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2623529308, 35821, 16586, [176, 110, 196, 202, 142, 174, 92, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c5fe15c_8bed_40ca_b06e_c4ca8eae5c87);
 }
 impl ::windows::runtime::RuntimeName for PhoneCallHistoryEntryQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryOptions";
@@ -2879,7 +2879,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistoryEntryReader {
 }
 unsafe impl ::windows::runtime::Interface for PhoneCallHistoryEntryReader {
     type Vtable = IPhoneCallHistoryEntryReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1642915006, 36230, 18335, [132, 4, 169, 132, 105, 32, 254, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61ece4be_8d86_479f_8404_a9846920fee6);
 }
 impl ::windows::runtime::RuntimeName for PhoneCallHistoryEntryReader {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryReader";
@@ -2986,7 +2986,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistoryManagerForUser {
 }
 unsafe impl ::windows::runtime::Interface for PhoneCallHistoryManagerForUser {
     type Vtable = IPhoneCallHistoryManagerForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3643131171, 62815, 17235, [157, 180, 2, 5, 165, 38, 90, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd925c523_f55f_4353_9db4_0205a5265a55);
 }
 impl ::windows::runtime::RuntimeName for PhoneCallHistoryManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryManagerForUser";
@@ -3172,7 +3172,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistoryStore {
 }
 unsafe impl ::windows::runtime::Interface for PhoneCallHistoryStore {
     type Vtable = IPhoneCallHistoryStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(797998520, 46094, 16939, [133, 69, 203, 25, 16, 166, 28, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f907db8_b40e_422b_8545_cb1910a61c52);
 }
 impl ::windows::runtime::RuntimeName for PhoneCallHistoryStore {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryStore";
@@ -3302,7 +3302,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneCallInfo {
 }
 unsafe impl ::windows::runtime::Interface for PhoneCallInfo {
     type Vtable = IPhoneCallInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(582231415, 15949, 24006, [137, 194, 70, 159, 229, 255, 193, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22b42577_3e4d_5dc6_89c2_469fe5ffc189);
 }
 impl ::windows::runtime::RuntimeName for PhoneCallInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallInfo";
@@ -3518,7 +3518,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneCallStore {
 }
 unsafe impl ::windows::runtime::Interface for PhoneCallStore {
     type Vtable = IPhoneCallStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1600194376, 6310, 16755, [134, 209, 40, 190, 157, 198, 45, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f610748_18a6_4173_86d1_28be9dc62dba);
 }
 impl ::windows::runtime::RuntimeName for PhoneCallStore {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallStore";
@@ -3584,7 +3584,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneCallVideoCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for PhoneCallVideoCapabilities {
     type Vtable = IPhoneCallVideoCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(37234566, 45418, 20443, [190, 59, 196, 36, 14, 19, 173, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02382786_b16a_4fdb_be3b_c4240e13ad0d);
 }
 impl ::windows::runtime::RuntimeName for PhoneCallVideoCapabilities {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallVideoCapabilities";
@@ -3678,7 +3678,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneCallsResult {
 }
 unsafe impl ::windows::runtime::Interface for PhoneCallsResult {
     type Vtable = IPhoneCallsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(469422949, 22479, 22493, [152, 109, 176, 87, 201, 30, 172, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bfad365_57cf_57dd_986d_b057c91eac33);
 }
 impl ::windows::runtime::RuntimeName for PhoneCallsResult {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallsResult";
@@ -3825,7 +3825,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneDialOptions {
 }
 unsafe impl ::windows::runtime::Interface for PhoneDialOptions {
     type Vtable = IPhoneDialOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3057239224, 61551, 14027, [168, 99, 130, 55, 66, 181, 242, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb639c4b8_f06f_36cb_a863_823742b5f2d4);
 }
 impl ::windows::runtime::RuntimeName for PhoneDialOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneDialOptions";
@@ -4073,7 +4073,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneLine {
 }
 unsafe impl ::windows::runtime::Interface for PhoneLine {
     type Vtable = IPhoneLine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(667316016, 27241, 13514, [162, 186, 101, 48, 37, 48, 195, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27c66f30_6a69_34ca_a2ba_65302530c311);
 }
 impl ::windows::runtime::RuntimeName for PhoneLine {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLine";
@@ -4171,7 +4171,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneLineCellularDetails {
 }
 unsafe impl ::windows::runtime::Interface for PhoneLineCellularDetails {
     type Vtable = IPhoneLineCellularDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(421921237, 5244, 18281, [182, 115, 152, 165, 236, 132, 38, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x192601d5_147c_4769_b673_98a5ec8426cb);
 }
 impl ::windows::runtime::RuntimeName for PhoneLineCellularDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineCellularDetails";
@@ -4246,7 +4246,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneLineConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for PhoneLineConfiguration {
     type Vtable = IPhoneLineConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4263925858, 63055, 17170, [178, 168, 78, 37, 119, 33, 170, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe265862_f64f_4312_b2a8_4e257721aa95);
 }
 impl ::windows::runtime::RuntimeName for PhoneLineConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineConfiguration";
@@ -4320,7 +4320,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneLineDialResult {
 }
 unsafe impl ::windows::runtime::Interface for PhoneLineDialResult {
     type Vtable = IPhoneLineDialResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3894780682, 23679, 21615, [185, 24, 58, 210, 254, 112, 251, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe825a30a_5c7f_546f_b918_3ad2fe70fb34);
 }
 impl ::windows::runtime::RuntimeName for PhoneLineDialResult {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineDialResult";
@@ -4593,7 +4593,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneLineTransportDevice {
 }
 unsafe impl ::windows::runtime::Interface for PhoneLineTransportDevice {
     type Vtable = IPhoneLineTransportDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020828297, 53242, 23028, [151, 228, 116, 112, 91, 125, 196, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefa8f889_cffa_59f4_97e4_74705b7dc490);
 }
 impl ::windows::runtime::RuntimeName for PhoneLineTransportDevice {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineTransportDevice";
@@ -4744,7 +4744,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneLineWatcher {
 }
 unsafe impl ::windows::runtime::Interface for PhoneLineWatcher {
     type Vtable = IPhoneLineWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2319830282, 25379, 17632, [166, 246, 159, 33, 246, 77, 201, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a45cd0a_6323_44e0_a6f6_9f21f64dc90a);
 }
 impl ::windows::runtime::RuntimeName for PhoneLineWatcher {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineWatcher";
@@ -4810,7 +4810,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneLineWatcherEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for PhoneLineWatcherEventArgs {
     type Vtable = IPhoneLineWatcherEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3497817406, 40466, 18999, [130, 183, 173, 83, 93, 173, 106, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd07c753e_9e12_4a37_82b7_ad535dad6a67);
 }
 impl ::windows::runtime::RuntimeName for PhoneLineWatcherEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineWatcherEventArgs";
@@ -4981,7 +4981,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneVoicemail {
 }
 unsafe impl ::windows::runtime::Interface for PhoneVoicemail {
     type Vtable = IPhoneVoicemail_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3385751542, 28319, 14987, [183, 39, 110, 12, 246, 153, 130, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9ce77f6_6e9f_3a8b_b727_6e0cf6998224);
 }
 impl ::windows::runtime::RuntimeName for PhoneVoicemail {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneVoicemail";
@@ -5320,7 +5320,7 @@ unsafe impl ::windows::runtime::RuntimeType for VoipCallCoordinator {
 }
 unsafe impl ::windows::runtime::Interface for VoipCallCoordinator {
     type Vtable = IVoipCallCoordinator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1326549967, 59631, 17460, [156, 95, 168, 216, 147, 250, 254, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f118bcf_e8ef_4434_9c5f_a8d893fafe79);
 }
 impl ::windows::runtime::RuntimeName for VoipCallCoordinator {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.VoipCallCoordinator";
@@ -5524,7 +5524,7 @@ unsafe impl ::windows::runtime::RuntimeType for VoipPhoneCall {
 }
 unsafe impl ::windows::runtime::Interface for VoipPhoneCall {
     type Vtable = IVoipPhoneCall_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1827795354, 30612, 19034, [140, 104, 174, 135, 148, 122, 105, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6cf1f19a_7794_4a5a_8c68_ae87947a6990);
 }
 impl ::windows::runtime::RuntimeName for VoipPhoneCall {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.VoipPhoneCall";

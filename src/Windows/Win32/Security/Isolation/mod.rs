@@ -122,7 +122,7 @@ impl IIsolatedAppLauncher {
 }
 unsafe impl ::windows::runtime::Interface for IIsolatedAppLauncher {
     type Vtable = IIsolatedAppLauncher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4136011663, 31554, 19652, [150, 251, 244, 243, 182, 227, 210, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf686878f_7b42_4cc4_96fb_f4f3b6e3d24d);
 }
 impl ::core::convert::From<IIsolatedAppLauncher> for ::windows::runtime::IUnknown {
     fn from(value: IIsolatedAppLauncher) -> Self {
@@ -201,7 +201,7 @@ pub unsafe fn IsProcessInWDAGContainer(reserved: *const ::core::ffi::c_void) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const IsolatedAppLauncher: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3162580016, 59230, 20433, [150, 65, 31, 159, 30, 45, 154, 31]);
+pub const IsolatedAppLauncher: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc812430_e75e_4fd1_9641_1f9f1e2d9a1f);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]

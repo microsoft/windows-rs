@@ -49,7 +49,7 @@ unsafe impl ::windows::runtime::RuntimeType for FrameNavigationOptions {
 }
 unsafe impl ::windows::runtime::Interface for FrameNavigationOptions {
     type Vtable = IFrameNavigationOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3040455978, 40887, 21002, [143, 65, 87, 165, 12, 89, 207, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb539ad2a_9fb7_520a_8f41_57a50c59cf92);
 }
 impl ::windows::runtime::RuntimeName for FrameNavigationOptions {
     const NAME: &'static str = "Windows.UI.Xaml.Navigation.FrameNavigationOptions";
@@ -101,7 +101,7 @@ unsafe impl ::core::marker::Sync for FrameNavigationOptions {}
 pub struct IFrameNavigationOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameNavigationOptions {
     type Vtable = IFrameNavigationOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3040455978, 40887, 21002, [143, 65, 87, 165, 12, 89, 207, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb539ad2a_9fb7_520a_8f41_57a50c59cf92);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -124,7 +124,7 @@ pub struct IFrameNavigationOptions_abi(
 pub struct IFrameNavigationOptionsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameNavigationOptionsFactory {
     type Vtable = IFrameNavigationOptionsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3563593281, 32365, 23676, [172, 160, 71, 134, 129, 204, 111, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4681e41_7e6d_5c7c_aca0_478681cc6fce);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -142,7 +142,7 @@ pub struct IFrameNavigationOptionsFactory_abi(
 pub struct INavigatingCancelEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INavigatingCancelEventArgs {
     type Vtable = INavigatingCancelEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4246562734, 60155, 16505, [190, 128, 109, 201, 42, 3, 174, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd1d67ae_eafb_4079_be80_6dc92a03aedf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -164,7 +164,7 @@ pub struct INavigatingCancelEventArgs_abi(
 pub struct INavigatingCancelEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INavigatingCancelEventArgs2 {
     type Vtable = INavigatingCancelEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1409791748, 33095, 17219, [131, 143, 221, 30, 233, 8, 193, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5407b704_8147_4343_838f_dd1ee908c137);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -184,7 +184,7 @@ pub struct INavigatingCancelEventArgs2_abi(
 pub struct INavigationEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INavigationEventArgs {
     type Vtable = INavigationEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3064633396, 26257, 17617, [189, 247, 88, 130, 12, 39, 176, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6aa9834_6691_44d1_bdf7_58820c27b0d0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -210,7 +210,7 @@ pub struct INavigationEventArgs_abi(
 pub struct INavigationEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INavigationEventArgs2 {
     type Vtable = INavigationEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3690951129, 38810, 19246, [164, 155, 59, 177, 127, 222, 245, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbff71d9_979a_4b2e_a49b_3bb17fdef574);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -229,7 +229,7 @@ pub struct INavigationEventArgs2_abi(
 pub struct INavigationFailedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INavigationFailedEventArgs {
     type Vtable = INavigationFailedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(297918455, 14018, 16642, [178, 239, 2, 23, 169, 114, 137, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11c1dff7_36c2_4102_b2ef_0217a97289b3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -251,7 +251,7 @@ pub struct INavigationFailedEventArgs_abi(
 pub struct IPageStackEntry(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPageStackEntry {
     type Vtable = IPageStackEntry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4018672806, 37768, 19146, [133, 114, 64, 81, 148, 6, 144, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef8814a6_9388_4aca_8572_405194069080);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -273,7 +273,7 @@ pub struct IPageStackEntry_abi(
 pub struct IPageStackEntryFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPageStackEntryFactory {
     type Vtable = IPageStackEntryFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1146356874, 43193, 20344, [155, 132, 31, 81, 245, 136, 81, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4454048a_a8b9_4f78_9b84_1f51f58851ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -292,7 +292,7 @@ pub struct IPageStackEntryFactory_abi(
 pub struct IPageStackEntryStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPageStackEntryStatics {
     type Vtable = IPageStackEntryStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2901407971, 9324, 16435, [159, 1, 1, 203, 13, 165, 37, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaceff8e3_246c_4033_9f01_01cb0da5254e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -329,7 +329,7 @@ unsafe impl ::windows::runtime::RuntimeType for LoadCompletedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for LoadCompletedEventHandler {
     type Vtable = LoadCompletedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2931488645, 17404, 20012, [149, 195, 151, 174, 132, 234, 188, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaebaf785_43fc_4e2c_95c3_97ae84eabc8e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -406,7 +406,7 @@ unsafe impl ::windows::runtime::RuntimeType for NavigatedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for NavigatedEventHandler {
     type Vtable = NavigatedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2077347668, 9167, 19662, [178, 245, 76, 231, 141, 150, 137, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bd1cf54_23cf_4cce_b2f5_4ce78d96896e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -517,7 +517,7 @@ unsafe impl ::windows::runtime::RuntimeType for NavigatingCancelEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for NavigatingCancelEventArgs {
     type Vtable = INavigatingCancelEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4246562734, 60155, 16505, [190, 128, 109, 201, 42, 3, 174, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd1d67ae_eafb_4079_be80_6dc92a03aedf);
 }
 impl ::windows::runtime::RuntimeName for NavigatingCancelEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Navigation.NavigatingCancelEventArgs";
@@ -588,7 +588,7 @@ unsafe impl ::windows::runtime::RuntimeType for NavigatingCancelEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for NavigatingCancelEventHandler {
     type Vtable = NavigatingCancelEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1977001871, 41730, 17545, [152, 152, 36, 234, 73, 24, 41, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75d6a78f_a302_4489_9898_24ea49182910);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -732,7 +732,7 @@ unsafe impl ::windows::runtime::RuntimeType for NavigationEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for NavigationEventArgs {
     type Vtable = INavigationEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3064633396, 26257, 17617, [189, 247, 88, 130, 12, 39, 176, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6aa9834_6691_44d1_bdf7_58820c27b0d0);
 }
 impl ::windows::runtime::RuntimeName for NavigationEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Navigation.NavigationEventArgs";
@@ -820,7 +820,7 @@ unsafe impl ::windows::runtime::RuntimeType for NavigationFailedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for NavigationFailedEventArgs {
     type Vtable = INavigationFailedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(297918455, 14018, 16642, [178, 239, 2, 23, 169, 114, 137, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11c1dff7_36c2_4102_b2ef_0217a97289b3);
 }
 impl ::windows::runtime::RuntimeName for NavigationFailedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Navigation.NavigationFailedEventArgs";
@@ -891,7 +891,7 @@ unsafe impl ::windows::runtime::RuntimeType for NavigationFailedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for NavigationFailedEventHandler {
     type Vtable = NavigationFailedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1303070321, 4786, 17351, [184, 146, 155, 226, 220, 211, 232, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4dab4671_12b2_43c7_b892_9be2dcd3e88d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -992,7 +992,7 @@ unsafe impl ::windows::runtime::RuntimeType for NavigationStoppedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for NavigationStoppedEventHandler {
     type Vtable = NavigationStoppedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4027678171, 4858, 19853, [139, 38, 179, 131, 208, 156, 43, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0117ddb_12fa_4d8d_8b26_b383d09c2b3c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1161,7 +1161,7 @@ unsafe impl ::windows::runtime::RuntimeType for PageStackEntry {
 }
 unsafe impl ::windows::runtime::Interface for PageStackEntry {
     type Vtable = IPageStackEntry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4018672806, 37768, 19146, [133, 114, 64, 81, 148, 6, 144, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef8814a6_9388_4aca_8572_405194069080);
 }
 impl ::windows::runtime::RuntimeName for PageStackEntry {
     const NAME: &'static str = "Windows.UI.Xaml.Navigation.PageStackEntry";

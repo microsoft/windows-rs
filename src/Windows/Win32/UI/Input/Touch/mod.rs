@@ -507,7 +507,7 @@ impl IInertiaProcessor {
 }
 unsafe impl ::windows::runtime::Interface for IInertiaProcessor {
     type Vtable = IInertiaProcessor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(414190701, 50670, 16817, [144, 169, 157, 74, 146, 144, 149, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18b00c6d_c5ee_41b1_90a9_9d4a929095ad);
 }
 impl ::core::convert::From<IInertiaProcessor> for ::windows::runtime::IUnknown {
     fn from(value: IInertiaProcessor) -> Self {
@@ -688,7 +688,7 @@ impl IManipulationProcessor {
 }
 unsafe impl ::windows::runtime::Interface for IManipulationProcessor {
     type Vtable = IManipulationProcessor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2720711961, 33536, 18592, [190, 244, 241, 190, 135, 55, 219, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa22ac519_8300_48a0_bef4_f1be8737dba4);
 }
 impl ::core::convert::From<IManipulationProcessor> for ::windows::runtime::IUnknown {
     fn from(value: IManipulationProcessor) -> Self {
@@ -738,7 +738,7 @@ pub struct IManipulationProcessor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, minradius: *mut f32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, minradius: f32) -> ::windows::runtime::HRESULT,
 );
-pub const InertiaProcessor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2880598151, 19680, 20056, [160, 203, 226, 77, 249, 104, 20, 190]);
+pub const InertiaProcessor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xabb27087_4ce0_4e58_a0cb_e24df96814be);
 #[doc = "*Required features: `Win32_UI_Input_Touch`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -772,7 +772,7 @@ impl ::core::convert::From<i32> for MANIPULATION_PROCESSOR_MANIPULATIONS {
 unsafe impl ::windows::runtime::Abi for MANIPULATION_PROCESSOR_MANIPULATIONS {
     type Abi = Self;
 }
-pub const ManipulationProcessor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1501384624, 18429, 19199, [137, 185, 198, 207, 174, 140, 240, 142]);
+pub const ManipulationProcessor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x597d4fb0_47fd_4aff_89b9_c6cfae8cf08e);
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -1049,7 +1049,7 @@ impl _IManipulationEvents {
 }
 unsafe impl ::windows::runtime::Interface for _IManipulationEvents {
     type Vtable = _IManipulationEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1331874010, 40019, 19234, [147, 223, 146, 122, 134, 43, 187, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f62c8da_9c53_4b22_93df_927a862bbb03);
 }
 impl ::core::convert::From<_IManipulationEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IManipulationEvents) -> Self {

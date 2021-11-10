@@ -5,7 +5,7 @@
 pub struct IAnnotationProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnnotationProvider {
     type Vtable = IAnnotationProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2512000023, 17463, 17691, [148, 97, 5, 10, 73, 181, 157, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95ba1417_4437_451b_9461_050a49b59d06);
 }
 impl IAnnotationProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -113,7 +113,7 @@ pub struct IAnnotationProvider_abi(
 pub struct ICustomNavigationProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomNavigationProvider {
     type Vtable = ICustomNavigationProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(735618768, 12195, 18199, [178, 140, 73, 23, 206, 84, 146, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bd8a6d0_2fa3_4717_b28c_4917ce54928d);
 }
 impl ICustomNavigationProvider {
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
@@ -187,7 +187,7 @@ pub struct ICustomNavigationProvider_abi(
 pub struct IDockProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDockProvider {
     type Vtable = IDockProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1220690936, 30897, 17568, [172, 95, 117, 7, 87, 188, 222, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48c243f8_78b1_44a0_ac5f_750757bcde3c);
 }
 impl IDockProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -265,7 +265,7 @@ pub struct IDockProvider_abi(
 pub struct IDragProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDragProvider {
     type Vtable = IDragProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(779585193, 32764, 20311, [185, 101, 30, 241, 243, 115, 245, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e7786a9_7ffc_4f57_b965_1ef1f373f546);
 }
 impl IDragProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -364,7 +364,7 @@ pub struct IDragProvider_abi(
 pub struct IDropTargetProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDropTargetProvider {
     type Vtable = IDropTargetProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2049203165, 46168, 20448, [152, 200, 170, 200, 157, 245, 109, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a245bdd_b458_4fe0_98c8_aac89df56d61);
 }
 impl IDropTargetProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -445,7 +445,7 @@ pub struct IDropTargetProvider_abi(
 pub struct IExpandCollapseProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExpandCollapseProvider {
     type Vtable = IExpandCollapseProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1236042649, 54822, 17731, [148, 185, 166, 217, 169, 89, 58, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49ac8399_d626_4543_94b9_a6d9a9593af6);
 }
 impl IExpandCollapseProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -529,7 +529,7 @@ pub struct IExpandCollapseProvider_abi(
 pub struct IGridItemProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGridItemProvider {
     type Vtable = IGridItemProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4294142012, 29703, 17851, [169, 54, 223, 62, 214, 211, 131, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfff3683c_7407_45bb_a936_df3ed6d3837d);
 }
 impl IGridItemProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -637,7 +637,7 @@ pub struct IGridItemProvider_abi(
 pub struct IGridProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGridProvider {
     type Vtable = IGridProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2338502560, 37676, 17552, [154, 19, 2, 253, 179, 154, 143, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b62b7a0_932c_4490_9a13_02fdb39a8f5b);
 }
 impl IGridProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -726,7 +726,7 @@ pub struct IGridProvider_abi(
 pub struct IIRawElementProviderSimple(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIRawElementProviderSimple {
     type Vtable = IIRawElementProviderSimple_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3967099428, 39799, 18208, [187, 33, 74, 200, 159, 219, 26, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec752224_9b77_4720_bb21_4ac89fdb1afd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -744,7 +744,7 @@ pub struct IIRawElementProviderSimple_abi(
 pub struct IInvokeProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInvokeProvider {
     type Vtable = IInvokeProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4157710727, 45372, 17728, [176, 158, 103, 120, 226, 220, 155, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7d1a187_b13c_4540_b09e_6778e2dc9ba5);
 }
 impl IInvokeProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -813,7 +813,7 @@ pub struct IInvokeProvider_abi(
 pub struct IItemContainerProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IItemContainerProvider {
     type Vtable = IItemContainerProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4015839301, 57812, 16628, [186, 213, 199, 250, 212, 74, 112, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef5cd845_e1d4_40f4_bad5_c7fad44a703e);
 }
 impl IItemContainerProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -885,7 +885,7 @@ pub struct IItemContainerProvider_abi(
 pub struct IMultipleViewProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMultipleViewProvider {
     type Vtable = IMultipleViewProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3491029398, 3664, 18499, [165, 210, 194, 40, 151, 200, 132, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd014e196_0e50_4843_a5d2_c22897c8845a);
 }
 impl IMultipleViewProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -981,7 +981,7 @@ pub struct IMultipleViewProvider_abi(
 pub struct IObjectModelProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IObjectModelProvider {
     type Vtable = IObjectModelProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3284809401, 1939, 20176, [187, 244, 159, 244, 224, 249, 143, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3ca36b9_0793_4ed0_bbf4_9ff4e0f98f80);
 }
 impl IObjectModelProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -1053,7 +1053,7 @@ pub struct IObjectModelProvider_abi(
 pub struct IRangeValueProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRangeValueProvider {
     type Vtable = IRangeValueProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2206872744, 32095, 16505, [175, 3, 195, 208, 21, 233, 52, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x838a34a8_7d5f_4079_af03_c3d015e93413);
 }
 impl IRangeValueProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -1237,7 +1237,7 @@ unsafe impl ::windows::runtime::RuntimeType for IRawElementProviderSimple {
 }
 unsafe impl ::windows::runtime::Interface for IRawElementProviderSimple {
     type Vtable = IIRawElementProviderSimple_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3967099428, 39799, 18208, [187, 33, 74, 200, 159, 219, 26, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec752224_9b77_4720_bb21_4ac89fdb1afd);
 }
 impl ::windows::runtime::RuntimeName for IRawElementProviderSimple {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple";
@@ -1310,7 +1310,7 @@ unsafe impl ::core::marker::Sync for IRawElementProviderSimple {}
 pub struct IScrollItemProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScrollItemProvider {
     type Vtable = IScrollItemProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2587803792, 23852, 20034, [158, 230, 157, 88, 219, 16, 11, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a3ec090_5d2c_4e42_9ee6_9d58db100b55);
 }
 impl IScrollItemProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -1379,7 +1379,7 @@ pub struct IScrollItemProvider_abi(
 pub struct IScrollProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScrollProvider {
     type Vtable = IScrollProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(927724929, 30486, 19388, [130, 235, 217, 151, 0, 110, 169, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x374bf581_7716_4bbc_82eb_d997006ea999);
 }
 impl IScrollProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -1508,7 +1508,7 @@ pub struct IScrollProvider_abi(
 pub struct ISelectionItemProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISelectionItemProvider {
     type Vtable = ISelectionItemProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1783199681, 33549, 17106, [191, 98, 4, 46, 189, 222, 204, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a4977c1_830d_42d2_bf62_042ebddecc19);
 }
 impl ISelectionItemProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -1607,7 +1607,7 @@ pub struct ISelectionItemProvider_abi(
 pub struct ISelectionProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISelectionProvider {
     type Vtable = ISelectionProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(520196042, 47428, 17301, [141, 225, 136, 246, 116, 175, 81, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f018fca_b944_4395_8de1_88f674af51d3);
 }
 impl ISelectionProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -1697,7 +1697,7 @@ pub struct ISelectionProvider_abi(
 pub struct ISpreadsheetItemProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpreadsheetItemProvider {
     type Vtable = ISpreadsheetItemProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3957231506, 24597, 18470, [183, 25, 71, 82, 26, 129, 198, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xebde8f92_6015_4826_b719_47521a81c67e);
 }
 impl ISpreadsheetItemProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -1787,7 +1787,7 @@ pub struct ISpreadsheetItemProvider_abi(
 pub struct ISpreadsheetProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpreadsheetProvider {
     type Vtable = ISpreadsheetProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(355831955, 48537, 19709, [159, 7, 59, 20, 179, 21, 226, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15359093_bd99_4cfd_9f07_3b14b315e23d);
 }
 impl ISpreadsheetProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -1859,7 +1859,7 @@ pub struct ISpreadsheetProvider_abi(
 pub struct IStylesProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStylesProvider {
     type Vtable = IStylesProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(442202647, 31745, 19436, [156, 212, 45, 250, 125, 194, 70, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a5b7a17_7c01_4bec_9cd4_2dfa7dc246cd);
 }
 impl IStylesProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -1985,7 +1985,7 @@ pub struct IStylesProvider_abi(
 pub struct ISynchronizedInputProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISynchronizedInputProvider {
     type Vtable = ISynchronizedInputProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029754571, 55892, 19107, [185, 21, 227, 36, 68, 39, 212, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d60cecb_da54_4aa3_b915_e3244427d4ac);
 }
 impl ISynchronizedInputProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -2060,7 +2060,7 @@ pub struct ISynchronizedInputProvider_abi(
 pub struct ITableItemProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITableItemProvider {
     type Vtable = ITableItemProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(992758221, 7650, 20194, [163, 225, 251, 85, 53, 89, 209, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b2c49cd_1de2_4ee2_a3e1_fb553559d15d);
 }
 impl ITableItemProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -2141,7 +2141,7 @@ pub struct ITableItemProvider_abi(
 pub struct ITableProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITableProvider {
     type Vtable = ITableProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2056180633, 26660, 17813, [186, 179, 70, 75, 201, 160, 68, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a8ed399_6824_4595_bab3_464bc9a04417);
 }
 impl ITableProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -2231,7 +2231,7 @@ pub struct ITableProvider_abi(
 pub struct ITextChildProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextChildProvider {
     type Vtable = ITextChildProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(288604982, 43163, 16688, [155, 230, 85, 227, 51, 52, 245, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1133c336_a89b_4130_9be6_55e33334f557);
 }
 impl ITextChildProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -2312,7 +2312,7 @@ pub struct ITextChildProvider_abi(
 pub struct ITextEditProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextEditProvider {
     type Vtable = ITextEditProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3929408948, 14853, 16398, [181, 249, 78, 145, 180, 15, 97, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea3605b4_3a05_400e_b5f9_4e91b40f6176);
 }
 impl ITextEditProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -2464,7 +2464,7 @@ pub struct ITextEditProvider_abi(
 pub struct ITextProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextProvider {
     type Vtable = ITextProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3680222367, 18439, 20266, [134, 120, 27, 19, 243, 198, 14, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb5bbc9f_4807_4f2a_8678_1b13f3c60e22);
 }
 impl ITextProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -2583,7 +2583,7 @@ pub struct ITextProvider_abi(
 pub struct ITextProvider2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextProvider2 {
     type Vtable = ITextProvider2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3743238332, 1159, 20095, [157, 94, 240, 158, 119, 228, 18, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf1d48bc_0487_4e7f_9d5e_f09e77e41246);
 }
 impl ITextProvider2 {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -2735,7 +2735,7 @@ pub struct ITextProvider2_abi(
 pub struct ITextRangeProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextRangeProvider {
     type Vtable = ITextRangeProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(41183373, 1769, 20326, [148, 70, 40, 165, 190, 152, 251, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0274688d_06e9_4f66_9446_28a5be98fbd0);
 }
 impl ITextRangeProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -2949,7 +2949,7 @@ pub struct ITextRangeProvider_abi(
 pub struct ITextRangeProvider2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextRangeProvider2 {
     type Vtable = ITextRangeProvider2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3552460283, 40788, 17986, [167, 165, 92, 24, 213, 238, 42, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3be3dfb_9f54_4642_a7a5_5c18d5ee2a3f);
 }
 impl ITextRangeProvider2 {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -3168,7 +3168,7 @@ pub struct ITextRangeProvider2_abi(
 pub struct IToggleProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToggleProvider {
     type Vtable = IToggleProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2478342800, 25967, 17655, [174, 175, 120, 184, 249, 68, 208, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93b88290_656f_44f7_aeaf_78b8f944d062);
 }
 impl IToggleProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -3246,7 +3246,7 @@ pub struct IToggleProvider_abi(
 pub struct ITransformProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransformProvider {
     type Vtable = ITransformProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2036797405, 63145, 19045, [175, 23, 134, 29, 183, 153, 162, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79670fdd_f6a9_4a65_af17_861db799a2da);
 }
 impl ITransformProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -3354,7 +3354,7 @@ pub struct ITransformProvider_abi(
 pub struct ITransformProvider2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransformProvider2 {
     type Vtable = ITransformProvider2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2830178134, 41887, 20119, [140, 125, 193, 234, 141, 214, 51, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8b11756_a39f_4e97_8c7d_c1ea8dd633c5);
 }
 impl ITransformProvider2 {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -3526,7 +3526,7 @@ pub struct ITransformProvider2_abi(
 pub struct IValueProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IValueProvider {
     type Vtable = IValueProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(545699751, 44046, 18385, [171, 155, 42, 100, 41, 42, 253, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2086b7a7_ac0e_47d1_ab9b_2a64292afdf8);
 }
 impl IValueProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -3613,7 +3613,7 @@ pub struct IValueProvider_abi(
 pub struct IVirtualizedItemProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVirtualizedItemProvider {
     type Vtable = IVirtualizedItemProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(399810635, 54872, 18656, [165, 116, 90, 81, 108, 88, 223, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17d4a04b_d658_48e0_a574_5a516c58dfa7);
 }
 impl IVirtualizedItemProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -3682,7 +3682,7 @@ pub struct IVirtualizedItemProvider_abi(
 pub struct IWindowProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowProvider {
     type Vtable = IWindowProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(464161597, 14543, 16730, [133, 211, 32, 228, 58, 14, 193, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1baa8b3d_38cf_415a_85d3_20e43a0ec1b1);
 }
 impl IWindowProvider {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]

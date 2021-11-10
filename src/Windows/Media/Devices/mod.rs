@@ -32,7 +32,7 @@ unsafe impl ::windows::runtime::RuntimeType for AdvancedPhotoCaptureSettings {
 }
 unsafe impl ::windows::runtime::Interface for AdvancedPhotoCaptureSettings {
     type Vtable = IAdvancedPhotoCaptureSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(150177338, 24, 17499, [147, 210, 100, 109, 28, 94, 208, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08f3863a_0018_445b_93d2_646d1c5ed05c);
 }
 impl ::windows::runtime::RuntimeName for AdvancedPhotoCaptureSettings {
     const NAME: &'static str = "Windows.Media.Devices.AdvancedPhotoCaptureSettings";
@@ -120,7 +120,7 @@ unsafe impl ::windows::runtime::RuntimeType for AdvancedPhotoControl {
 }
 unsafe impl ::windows::runtime::Interface for AdvancedPhotoControl {
     type Vtable = IAdvancedPhotoControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3316733062, 36865, 18050, [147, 9, 104, 234, 224, 8, 14, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5b15486_9001_4682_9309_68eae0080eec);
 }
 impl ::windows::runtime::RuntimeName for AdvancedPhotoControl {
     const NAME: &'static str = "Windows.Media.Devices.AdvancedPhotoControl";
@@ -255,7 +255,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioDeviceController {
 }
 unsafe impl ::windows::runtime::Interface for AudioDeviceController {
     type Vtable = IAudioDeviceController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3990135688, 31175, 20348, [144, 232, 239, 147, 75, 33, 88, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xedd4a388_79c7_4f7c_90e8_ef934b21580a);
 }
 impl ::windows::runtime::RuntimeName for AudioDeviceController {
     const NAME: &'static str = "Windows.Media.Devices.AudioDeviceController";
@@ -382,7 +382,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioDeviceModule {
 }
 unsafe impl ::windows::runtime::Interface for AudioDeviceModule {
     type Vtable = IAudioDeviceModule_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2261756982, 18369, 19251, [152, 82, 135, 115, 236, 75, 225, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86cfac36_47c1_4b33_9852_8773ec4be123);
 }
 impl ::windows::runtime::RuntimeName for AudioDeviceModule {
     const NAME: &'static str = "Windows.Media.Devices.AudioDeviceModule";
@@ -455,7 +455,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioDeviceModuleNotificationEve
 }
 unsafe impl ::windows::runtime::Interface for AudioDeviceModuleNotificationEventArgs {
     type Vtable = IAudioDeviceModuleNotificationEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3823357103, 8780, 18622, [149, 107, 154, 19, 19, 78, 150, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3e3ccaf_224c_48be_956b_9a13134e96e8);
 }
 impl ::windows::runtime::RuntimeName for AudioDeviceModuleNotificationEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.AudioDeviceModuleNotificationEventArgs";
@@ -557,7 +557,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioDeviceModulesManager {
 }
 unsafe impl ::windows::runtime::Interface for AudioDeviceModulesManager {
     type Vtable = IAudioDeviceModulesManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1789135949, 38410, 19740, [179, 24, 0, 34, 96, 69, 71, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6aa40c4d_960a_4d1c_b318_0022604547ed);
 }
 impl ::windows::runtime::RuntimeName for AudioDeviceModulesManager {
     const NAME: &'static str = "Windows.Media.Devices.AudioDeviceModulesManager";
@@ -802,7 +802,7 @@ unsafe impl ::windows::runtime::RuntimeType for CallControl {
 }
 unsafe impl ::windows::runtime::Interface for CallControl {
     type Vtable = ICallControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2770391254, 44685, 17883, [128, 17, 202, 73, 211, 179, 229, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa520d0d6_ae8d_45db_8011_ca49d3b3e578);
 }
 impl ::windows::runtime::RuntimeName for CallControl {
     const NAME: &'static str = "Windows.Media.Devices.CallControl";
@@ -876,7 +876,7 @@ unsafe impl ::windows::runtime::RuntimeType for CallControlEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for CallControlEventHandler {
     type Vtable = CallControlEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1500476831, 20703, 17492, [188, 99, 77, 61, 1, 182, 25, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x596f759f_50df_4454_bc63_4d3d01b61958);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -967,7 +967,7 @@ unsafe impl ::windows::runtime::RuntimeType for CameraOcclusionInfo {
 }
 unsafe impl ::windows::runtime::Interface for CameraOcclusionInfo {
     type Vtable = ICameraOcclusionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2943109840, 43085, 23990, [190, 88, 165, 218, 33, 207, 224, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf6c4ad0_a84d_5db6_be58_a5da21cfe011);
 }
 impl ::windows::runtime::RuntimeName for CameraOcclusionInfo {
     const NAME: &'static str = "Windows.Media.Devices.CameraOcclusionInfo";
@@ -1063,7 +1063,7 @@ unsafe impl ::windows::runtime::RuntimeType for CameraOcclusionState {
 }
 unsafe impl ::windows::runtime::Interface for CameraOcclusionState {
     type Vtable = ICameraOcclusionState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1124785848, 26690, 24149, [155, 222, 4, 180, 239, 58, 138, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x430adeb8_6842_5e55_9bde_04b4ef3a8a57);
 }
 impl ::windows::runtime::RuntimeName for CameraOcclusionState {
     const NAME: &'static str = "Windows.Media.Devices.CameraOcclusionState";
@@ -1129,7 +1129,7 @@ unsafe impl ::windows::runtime::RuntimeType for CameraOcclusionStateChangedEvent
 }
 unsafe impl ::windows::runtime::Interface for CameraOcclusionStateChangedEventArgs {
     type Vtable = ICameraOcclusionStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2232604744, 49374, 22474, [161, 202, 251, 44, 61, 35, 223, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8512d848_c0de_57ca_a1ca_fb2c3d23df55);
 }
 impl ::windows::runtime::RuntimeName for CameraOcclusionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.CameraOcclusionStateChangedEventArgs";
@@ -1311,7 +1311,7 @@ unsafe impl ::windows::runtime::RuntimeType for DefaultAudioCaptureDeviceChanged
 }
 unsafe impl ::windows::runtime::Interface for DefaultAudioCaptureDeviceChangedEventArgs {
     type Vtable = IDefaultAudioDeviceChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(286230575, 7173, 18007, [161, 142, 71, 201, 182, 159, 7, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x110f882f_1c05_4657_a18e_47c9b69f07ab);
 }
 impl ::windows::runtime::RuntimeName for DefaultAudioCaptureDeviceChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.DefaultAudioCaptureDeviceChangedEventArgs";
@@ -1405,7 +1405,7 @@ unsafe impl ::windows::runtime::RuntimeType for DefaultAudioRenderDeviceChangedE
 }
 unsafe impl ::windows::runtime::Interface for DefaultAudioRenderDeviceChangedEventArgs {
     type Vtable = IDefaultAudioDeviceChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(286230575, 7173, 18007, [161, 142, 71, 201, 182, 159, 7, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x110f882f_1c05_4657_a18e_47c9b69f07ab);
 }
 impl ::windows::runtime::RuntimeName for DefaultAudioRenderDeviceChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.DefaultAudioRenderDeviceChangedEventArgs";
@@ -1496,7 +1496,7 @@ unsafe impl ::windows::runtime::RuntimeType for DialRequestedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for DialRequestedEventArgs {
     type Vtable = IDialRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58430110, 38204, 17030, [136, 102, 79, 15, 55, 108, 133, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x037b929e_953c_4286_8866_4f0f376c855a);
 }
 impl ::windows::runtime::RuntimeName for DialRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.DialRequestedEventArgs";
@@ -1567,7 +1567,7 @@ unsafe impl ::windows::runtime::RuntimeType for DialRequestedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for DialRequestedEventHandler {
     type Vtable = DialRequestedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1522270171, 49695, 19396, [137, 27, 37, 126, 40, 193, 177, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5abbffdb_c21f_4bc4_891b_257e28c1b1a4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1673,7 +1673,7 @@ unsafe impl ::windows::runtime::RuntimeType for DigitalWindowBounds {
 }
 unsafe impl ::windows::runtime::Interface for DigitalWindowBounds {
     type Vtable = IDigitalWindowBounds_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3712950749, 53619, 23659, [140, 37, 189, 210, 109, 81, 34, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd4f21dd_d173_5c6b_8c25_bdd26d5122b1);
 }
 impl ::windows::runtime::RuntimeName for DigitalWindowBounds {
     const NAME: &'static str = "Windows.Media.Devices.DigitalWindowBounds";
@@ -1780,7 +1780,7 @@ unsafe impl ::windows::runtime::RuntimeType for DigitalWindowCapability {
 }
 unsafe impl ::windows::runtime::Interface for DigitalWindowCapability {
     type Vtable = IDigitalWindowCapability_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3616255276, 63265, 21060, [161, 150, 181, 108, 203, 236, 96, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd78bad2c_f721_5244_a196_b56ccbec606c);
 }
 impl ::windows::runtime::RuntimeName for DigitalWindowCapability {
     const NAME: &'static str = "Windows.Media.Devices.DigitalWindowCapability";
@@ -1897,7 +1897,7 @@ unsafe impl ::windows::runtime::RuntimeType for DigitalWindowControl {
 }
 unsafe impl ::windows::runtime::Interface for DigitalWindowControl {
     type Vtable = IDigitalWindowControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(599170815, 26066, 21482, [135, 128, 222, 88, 43, 72, 181, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23b69eff_65d2_53ea_8780_de582b48b544);
 }
 impl ::windows::runtime::RuntimeName for DigitalWindowControl {
     const NAME: &'static str = "Windows.Media.Devices.DigitalWindowControl";
@@ -2027,7 +2027,7 @@ unsafe impl ::windows::runtime::RuntimeType for ExposureCompensationControl {
 }
 unsafe impl ::windows::runtime::Interface for ExposureCompensationControl {
     type Vtable = IExposureCompensationControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2177427508, 56556, 16401, [166, 16, 31, 56, 71, 230, 74, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81c8e834_dcec_4011_a610_1f3847e64aca);
 }
 impl ::windows::runtime::RuntimeName for ExposureCompensationControl {
     const NAME: &'static str = "Windows.Media.Devices.ExposureCompensationControl";
@@ -2153,7 +2153,7 @@ unsafe impl ::windows::runtime::RuntimeType for ExposureControl {
 }
 unsafe impl ::windows::runtime::Interface for ExposureControl {
     type Vtable = IExposureControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(166251490, 44438, 20264, [160, 224, 150, 237, 126, 27, 95, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09e8cbe2_ad96_4f28_a0e0_96ed7e1b5fd2);
 }
 impl ::windows::runtime::RuntimeName for ExposureControl {
     const NAME: &'static str = "Windows.Media.Devices.ExposureControl";
@@ -2230,7 +2230,7 @@ unsafe impl ::windows::runtime::RuntimeType for ExposurePriorityVideoControl {
 }
 unsafe impl ::windows::runtime::Interface for ExposurePriorityVideoControl {
     type Vtable = IExposurePriorityVideoControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(749879459, 20840, 17009, [158, 165, 71, 98, 26, 152, 163, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cb240a3_5168_4271_9ea5_47621a98a352);
 }
 impl ::windows::runtime::RuntimeName for ExposurePriorityVideoControl {
     const NAME: &'static str = "Windows.Media.Devices.ExposurePriorityVideoControl";
@@ -2385,7 +2385,7 @@ unsafe impl ::windows::runtime::RuntimeType for FlashControl {
 }
 unsafe impl ::windows::runtime::Interface for FlashControl {
     type Vtable = IFlashControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3740540350, 32104, 17891, [140, 15, 190, 123, 179, 40, 55, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdef41dbe_7d68_45e3_8c0f_be7bb32837d0);
 }
 impl ::windows::runtime::RuntimeName for FlashControl {
     const NAME: &'static str = "Windows.Media.Devices.FlashControl";
@@ -2616,7 +2616,7 @@ unsafe impl ::windows::runtime::RuntimeType for FocusControl {
 }
 unsafe impl ::windows::runtime::Interface for FocusControl {
     type Vtable = IFocusControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3235416566, 21032, 17491, [177, 83, 133, 96, 101, 146, 178, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0d889f6_5228_4453_b153_85606592b238);
 }
 impl ::windows::runtime::RuntimeName for FocusControl {
     const NAME: &'static str = "Windows.Media.Devices.FocusControl";
@@ -2811,7 +2811,7 @@ unsafe impl ::windows::runtime::RuntimeType for FocusSettings {
 }
 unsafe impl ::windows::runtime::Interface for FocusSettings {
     type Vtable = IFocusSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039844715, 12899, 17013, [133, 214, 174, 174, 137, 28, 150, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79958f6b_3263_4275_85d6_aeae891c96ee);
 }
 impl ::windows::runtime::RuntimeName for FocusSettings {
     const NAME: &'static str = "Windows.Media.Devices.FocusSettings";
@@ -2899,7 +2899,7 @@ unsafe impl ::windows::runtime::RuntimeType for HdrVideoControl {
 }
 unsafe impl ::windows::runtime::Interface for HdrVideoControl {
     type Vtable = IHdrVideoControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1440277200, 12480, 17343, [155, 154, 151, 153, 215, 12, 237, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55d8e2d0_30c0_43bf_9b9a_9799d70ced94);
 }
 impl ::windows::runtime::RuntimeName for HdrVideoControl {
     const NAME: &'static str = "Windows.Media.Devices.HdrVideoControl";
@@ -2974,7 +2974,7 @@ impl ::windows::runtime::DefaultType for HdrVideoMode {
 pub struct IAdvancedPhotoCaptureSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedPhotoCaptureSettings {
     type Vtable = IAdvancedPhotoCaptureSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(150177338, 24, 17499, [147, 210, 100, 109, 28, 94, 208, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08f3863a_0018_445b_93d2_646d1c5ed05c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2993,7 +2993,7 @@ pub struct IAdvancedPhotoCaptureSettings_abi(
 pub struct IAdvancedPhotoControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedPhotoControl {
     type Vtable = IAdvancedPhotoControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3316733062, 36865, 18050, [147, 9, 104, 234, 224, 8, 14, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5b15486_9001_4682_9309_68eae0080eec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3015,7 +3015,7 @@ pub struct IAdvancedPhotoControl_abi(
 pub struct IAdvancedVideoCaptureDeviceController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController {
     type Vtable = IAdvancedVideoCaptureDeviceController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3731879123, 11158, 17795, [128, 171, 181, 176, 29, 198, 168, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde6ff4d3_2b96_4583_80ab_b5b01dc6a8d7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3034,7 +3034,7 @@ pub struct IAdvancedVideoCaptureDeviceController_abi(
 pub struct IAdvancedVideoCaptureDeviceController10(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController10 {
     type Vtable = IAdvancedVideoCaptureDeviceController10_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3324098605, 55024, 23579, [163, 136, 166, 233, 56, 64, 113, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc621b82d_d6f0_5c1b_a388_a6e938407146);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3052,7 +3052,7 @@ pub struct IAdvancedVideoCaptureDeviceController10_abi(
 pub struct IAdvancedVideoCaptureDeviceController2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController2 {
     type Vtable = IAdvancedVideoCaptureDeviceController2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2344177551, 61722, 17371, [180, 2, 17, 147, 11, 128, 174, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bb94f8f_f11a_43db_b402_11930b80ae56);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3082,7 +3082,7 @@ pub struct IAdvancedVideoCaptureDeviceController2_abi(
 pub struct IAdvancedVideoCaptureDeviceController3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController3 {
     type Vtable = IAdvancedVideoCaptureDeviceController3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2844495668, 60941, 18188, [185, 240, 66, 41, 196, 187, 208, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa98b8f34_ee0d_470c_b9f0_4229c4bbd089);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3103,7 +3103,7 @@ pub struct IAdvancedVideoCaptureDeviceController3_abi(
 pub struct IAdvancedVideoCaptureDeviceController4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController4 {
     type Vtable = IAdvancedVideoCaptureDeviceController4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3936337839, 54129, 16835, [154, 23, 130, 74, 135, 235, 223, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea9fbfaf_d371_41c3_9a17_824a87ebdfd2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3126,7 +3126,7 @@ pub struct IAdvancedVideoCaptureDeviceController4_abi(
 pub struct IAdvancedVideoCaptureDeviceController5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController5 {
     type Vtable = IAdvancedVideoCaptureDeviceController5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(860957463, 47563, 18979, [184, 117, 249, 234, 171, 83, 84, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33512b17_b9cb_4a23_b875_f9eaab535492);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3150,7 +3150,7 @@ pub struct IAdvancedVideoCaptureDeviceController5_abi(
 pub struct IAdvancedVideoCaptureDeviceController6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController6 {
     type Vtable = IAdvancedVideoCaptureDeviceController6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3059104339, 26785, 17591, [159, 137, 181, 250, 151, 172, 12, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6563a53_68a1_44b7_9f89_b5fa97ac0cbe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3168,7 +3168,7 @@ pub struct IAdvancedVideoCaptureDeviceController6_abi(
 pub struct IAdvancedVideoCaptureDeviceController7(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController7 {
     type Vtable = IAdvancedVideoCaptureDeviceController7_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2368284656, 41044, 20711, [183, 223, 124, 4, 35, 77, 16, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d2927f0_a054_50e7_b7df_7c04234d10f0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3186,7 +3186,7 @@ pub struct IAdvancedVideoCaptureDeviceController7_abi(
 pub struct IAdvancedVideoCaptureDeviceController8(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController8 {
     type Vtable = IAdvancedVideoCaptureDeviceController8_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3628331024, 59387, 22875, [154, 120, 14, 84, 196, 83, 43, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd843f010_e7fb_595b_9a78_0e54c4532b43);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3204,7 +3204,7 @@ pub struct IAdvancedVideoCaptureDeviceController8_abi(
 pub struct IAdvancedVideoCaptureDeviceController9(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController9 {
     type Vtable = IAdvancedVideoCaptureDeviceController9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2346494301, 597, 20924, [161, 13, 90, 22, 158, 193, 98, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bdca95d_0255_51bc_a10d_5a169ec1625a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3222,7 +3222,7 @@ pub struct IAdvancedVideoCaptureDeviceController9_abi(
 pub struct IAudioDeviceController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioDeviceController {
     type Vtable = IAudioDeviceController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3990135688, 31175, 20348, [144, 232, 239, 147, 75, 33, 88, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xedd4a388_79c7_4f7c_90e8_ef934b21580a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3243,7 +3243,7 @@ pub struct IAudioDeviceController_abi(
 pub struct IAudioDeviceModule(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioDeviceModule {
     type Vtable = IAudioDeviceModule_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2261756982, 18369, 19251, [152, 82, 135, 115, 236, 75, 225, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86cfac36_47c1_4b33_9852_8773ec4be123);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3267,7 +3267,7 @@ pub struct IAudioDeviceModule_abi(
 pub struct IAudioDeviceModuleNotificationEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioDeviceModuleNotificationEventArgs {
     type Vtable = IAudioDeviceModuleNotificationEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3823357103, 8780, 18622, [149, 107, 154, 19, 19, 78, 150, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3e3ccaf_224c_48be_956b_9a13134e96e8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3287,7 +3287,7 @@ pub struct IAudioDeviceModuleNotificationEventArgs_abi(
 pub struct IAudioDeviceModulesManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioDeviceModulesManager {
     type Vtable = IAudioDeviceModulesManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1789135949, 38410, 19740, [179, 24, 0, 34, 96, 69, 71, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6aa40c4d_960a_4d1c_b318_0022604547ed);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3312,7 +3312,7 @@ pub struct IAudioDeviceModulesManager_abi(
 pub struct IAudioDeviceModulesManagerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioDeviceModulesManagerFactory {
     type Vtable = IAudioDeviceModulesManagerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2377135728, 58957, 18291, [150, 192, 188, 126, 191, 14, 6, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8db03670_e64d_4773_96c0_bc7ebf0e063f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3330,7 +3330,7 @@ pub struct IAudioDeviceModulesManagerFactory_abi(
 pub struct ICallControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICallControl {
     type Vtable = ICallControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2770391254, 44685, 17883, [128, 17, 202, 73, 211, 179, 229, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa520d0d6_ae8d_45db_8011_ca49d3b3e578);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3376,7 +3376,7 @@ pub struct ICallControl_abi(
 pub struct ICallControlStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICallControlStatics {
     type Vtable = ICallControlStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(60054229, 34219, 16609, [175, 25, 86, 201, 67, 3, 176, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03945ad5_85ab_40e1_af19_56c94303b019);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3395,7 +3395,7 @@ pub struct ICallControlStatics_abi(
 pub struct ICameraOcclusionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraOcclusionInfo {
     type Vtable = ICameraOcclusionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2943109840, 43085, 23990, [190, 88, 165, 218, 33, 207, 224, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf6c4ad0_a84d_5db6_be58_a5da21cfe011);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3418,7 +3418,7 @@ pub struct ICameraOcclusionInfo_abi(
 pub struct ICameraOcclusionState(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraOcclusionState {
     type Vtable = ICameraOcclusionState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1124785848, 26690, 24149, [155, 222, 4, 180, 239, 58, 138, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x430adeb8_6842_5e55_9bde_04b4ef3a8a57);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3437,7 +3437,7 @@ pub struct ICameraOcclusionState_abi(
 pub struct ICameraOcclusionStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraOcclusionStateChangedEventArgs {
     type Vtable = ICameraOcclusionStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2232604744, 49374, 22474, [161, 202, 251, 44, 61, 35, 223, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8512d848_c0de_57ca_a1ca_fb2c3d23df55);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3456,7 +3456,7 @@ pub struct ICameraOcclusionStateChangedEventArgs_abi(
 pub struct IDefaultAudioDeviceChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDefaultAudioDeviceChangedEventArgs {
     type Vtable = IDefaultAudioDeviceChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(286230575, 7173, 18007, [161, 142, 71, 201, 182, 159, 7, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x110f882f_1c05_4657_a18e_47c9b69f07ab);
 }
 impl IDefaultAudioDeviceChangedEventArgs {
     #[doc = "*Required features: `Media_Devices`*"]
@@ -3536,7 +3536,7 @@ pub struct IDefaultAudioDeviceChangedEventArgs_abi(
 pub struct IDialRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialRequestedEventArgs {
     type Vtable = IDialRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58430110, 38204, 17030, [136, 102, 79, 15, 55, 108, 133, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x037b929e_953c_4286_8866_4f0f376c855a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3555,7 +3555,7 @@ pub struct IDialRequestedEventArgs_abi(
 pub struct IDigitalWindowBounds(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDigitalWindowBounds {
     type Vtable = IDigitalWindowBounds_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3712950749, 53619, 23659, [140, 37, 189, 210, 109, 81, 34, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd4f21dd_d173_5c6b_8c25_bdd26d5122b1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3578,7 +3578,7 @@ pub struct IDigitalWindowBounds_abi(
 pub struct IDigitalWindowCapability(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDigitalWindowCapability {
     type Vtable = IDigitalWindowCapability_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3616255276, 63265, 21060, [161, 150, 181, 108, 203, 236, 96, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd78bad2c_f721_5244_a196_b56ccbec606c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3602,7 +3602,7 @@ pub struct IDigitalWindowCapability_abi(
 pub struct IDigitalWindowControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDigitalWindowControl {
     type Vtable = IDigitalWindowControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(599170815, 26066, 21482, [135, 128, 222, 88, 43, 72, 181, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23b69eff_65d2_53ea_8780_de582b48b544);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3628,7 +3628,7 @@ pub struct IDigitalWindowControl_abi(
 pub struct IExposureCompensationControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExposureCompensationControl {
     type Vtable = IExposureCompensationControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2177427508, 56556, 16401, [166, 16, 31, 56, 71, 230, 74, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81c8e834_dcec_4011_a610_1f3847e64aca);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3652,7 +3652,7 @@ pub struct IExposureCompensationControl_abi(
 pub struct IExposureControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExposureControl {
     type Vtable = IExposureControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(166251490, 44438, 20264, [160, 224, 150, 237, 126, 27, 95, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09e8cbe2_ad96_4f28_a0e0_96ed7e1b5fd2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3683,7 +3683,7 @@ pub struct IExposureControl_abi(
 pub struct IExposurePriorityVideoControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExposurePriorityVideoControl {
     type Vtable = IExposurePriorityVideoControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(749879459, 20840, 17009, [158, 165, 71, 98, 26, 152, 163, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cb240a3_5168_4271_9ea5_47621a98a352);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3703,7 +3703,7 @@ pub struct IExposurePriorityVideoControl_abi(
 pub struct IFlashControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFlashControl {
     type Vtable = IFlashControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3740540350, 32104, 17891, [140, 15, 190, 123, 179, 40, 55, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdef41dbe_7d68_45e3_8c0f_be7bb32837d0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3731,7 +3731,7 @@ pub struct IFlashControl_abi(
 pub struct IFlashControl2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFlashControl2 {
     type Vtable = IFlashControl2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2099891358, 30177, 19191, [189, 125, 78, 56, 225, 192, 108, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d29cc9e_75e1_4af7_bd7d_4e38e1c06cd6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3751,7 +3751,7 @@ pub struct IFlashControl2_abi(
 pub struct IFocusControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFocusControl {
     type Vtable = IFocusControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3235416566, 21032, 17491, [177, 83, 133, 96, 101, 146, 178, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0d889f6_5228_4453_b153_85606592b238);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3784,7 +3784,7 @@ pub struct IFocusControl_abi(
 pub struct IFocusControl2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFocusControl2 {
     type Vtable = IFocusControl2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1065156424, 50484, 20126, [148, 195, 82, 239, 42, 253, 93, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f7cff48_c534_4e9e_94c3_52ef2afd5d07);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3816,7 +3816,7 @@ pub struct IFocusControl2_abi(
 pub struct IFocusSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFocusSettings {
     type Vtable = IFocusSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039844715, 12899, 17013, [133, 214, 174, 174, 137, 28, 150, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79958f6b_3263_4275_85d6_aeae891c96ee);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3849,7 +3849,7 @@ pub struct IFocusSettings_abi(
 pub struct IHdrVideoControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdrVideoControl {
     type Vtable = IHdrVideoControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1440277200, 12480, 17343, [155, 154, 151, 153, 215, 12, 237, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55d8e2d0_30c0_43bf_9b9a_9799d70ced94);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3871,7 +3871,7 @@ pub struct IHdrVideoControl_abi(
 pub struct IInfraredTorchControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInfraredTorchControl {
     type Vtable = IInfraredTorchControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(481963139, 27830, 23044, [166, 252, 59, 231, 179, 63, 240, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cba2c83_6cb6_5a04_a6fc_3be7b33ff056);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3898,7 +3898,7 @@ pub struct IInfraredTorchControl_abi(
 pub struct IIsoSpeedControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsoSpeedControl {
     type Vtable = IIsoSpeedControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(666288930, 9645, 20251, [170, 171, 82, 74, 179, 118, 202, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27b6c322_25ad_4f1b_aaab_524ab376ca33);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3921,7 +3921,7 @@ pub struct IIsoSpeedControl_abi(
 pub struct IIsoSpeedControl2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsoSpeedControl2 {
     type Vtable = IIsoSpeedControl2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1863678194, 28023, 20362, [140, 47, 97, 48, 182, 57, 80, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f1578f2_6d77_4f8a_8c2f_6130b6395053);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3947,7 +3947,7 @@ pub struct IIsoSpeedControl2_abi(
 pub struct IKeypadPressedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeypadPressedEventArgs {
     type Vtable = IKeypadPressedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3550755072, 46330, 18893, [148, 66, 137, 175, 101, 104, 246, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3a43900_b4fa_49cd_9442_89af6568f601);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3965,7 +3965,7 @@ pub struct IKeypadPressedEventArgs_abi(
 pub struct ILowLagPhotoControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLagPhotoControl {
     type Vtable = ILowLagPhotoControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1834765776, 64223, 16733, [174, 230, 59, 170, 82, 147, 0, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d5c4dd0_fadf_415d_aee6_3baa529300c9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3995,7 +3995,7 @@ pub struct ILowLagPhotoControl_abi(
 pub struct ILowLagPhotoSequenceControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLagPhotoSequenceControl {
     type Vtable = ILowLagPhotoSequenceControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1037013149, 27926, 16540, [186, 254, 185, 165, 148, 198, 253, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3dcf909d_6d16_409c_bafe_b9a594c6fde6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4032,7 +4032,7 @@ pub struct ILowLagPhotoSequenceControl_abi(
 pub struct IMediaDeviceControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaDeviceControl {
     type Vtable = IMediaDeviceControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020821929, 28533, 18531, [186, 11, 88, 63, 48, 54, 180, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefa8dfa9_6f75_4863_ba0b_583f3036b4de);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4054,7 +4054,7 @@ pub struct IMediaDeviceControl_abi(
 pub struct IMediaDeviceControlCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaDeviceControlCapabilities {
     type Vtable = IMediaDeviceControlCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(587225110, 60293, 17378, [185, 43, 130, 64, 213, 238, 112, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23005816_eb85_43e2_b92b_8240d5ee70ec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4078,7 +4078,7 @@ pub struct IMediaDeviceControlCapabilities_abi(
 pub struct IMediaDeviceController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaDeviceController {
     type Vtable = IMediaDeviceController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4143510990, 8346, 18683, [134, 252, 212, 69, 120, 243, 23, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6f8f5ce_209a_48fb_86fc_d44578f317e6);
 }
 impl IMediaDeviceController {
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
@@ -4173,7 +4173,7 @@ pub struct IMediaDeviceController_abi(
 pub struct IMediaDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaDeviceStatics {
     type Vtable = IMediaDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2855115328, 37023, 19386, [191, 139, 12, 13, 41, 111, 20, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa2d9a40_909f_4bba_bf8b_0c0d296f14f0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4203,7 +4203,7 @@ pub struct IMediaDeviceStatics_abi(
 pub struct IModuleCommandResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IModuleCommandResult {
     type Vtable = IModuleCommandResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1376591540, 4980, 19581, [177, 228, 57, 220, 223, 62, 174, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x520d1eb4_1374_4c7d_b1e4_39dcdf3eae4e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4223,7 +4223,7 @@ pub struct IModuleCommandResult_abi(
 pub struct IOpticalImageStabilizationControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOpticalImageStabilizationControl {
     type Vtable = IOpticalImageStabilizationControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3215825949, 188, 16955, [142, 178, 160, 23, 140, 169, 66, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfad9c1d_00bc_423b_8eb2_a0178ca94247);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4245,7 +4245,7 @@ pub struct IOpticalImageStabilizationControl_abi(
 pub struct IPanelBasedOptimizationControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPanelBasedOptimizationControl {
     type Vtable = IPanelBasedOptimizationControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(858927651, 25159, 21529, [165, 164, 61, 128, 134, 69, 217, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33323223_6247_5419_a5a4_3d808645d917);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4267,7 +4267,7 @@ pub struct IPanelBasedOptimizationControl_abi(
 pub struct IPhotoConfirmationControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoConfirmationControl {
     type Vtable = IPhotoConfirmationControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3371430755, 65374, 17794, [169, 168, 5, 80, 248, 90, 74, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8f3f363_ff5e_4582_a9a8_0550f85a4a76);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4291,7 +4291,7 @@ pub struct IPhotoConfirmationControl_abi(
 pub struct IRedialRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRedialRequestedEventArgs {
     type Vtable = IRedialRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2125812233, 30379, 19505, [180, 14, 75, 88, 55, 157, 88, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7eb55209_76ab_4c31_b40e_4b58379d580c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4309,7 +4309,7 @@ pub struct IRedialRequestedEventArgs_abi(
 pub struct IRegionOfInterest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRegionOfInterest {
     type Vtable = IRegionOfInterest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3857500212, 52838, 19973, [167, 143, 207, 57, 26, 94, 194, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5ecc834_ce66_4e05_a78f_cf391a5ec2d1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4336,7 +4336,7 @@ pub struct IRegionOfInterest_abi(
 pub struct IRegionOfInterest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRegionOfInterest2 {
     type Vtable = IRegionOfInterest2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(436087441, 29610, 19793, [138, 157, 86, 204, 247, 219, 127, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19fe2a91_73aa_4d51_8a9d_56ccf7db7f54);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4359,7 +4359,7 @@ pub struct IRegionOfInterest2_abi(
 pub struct IRegionsOfInterestControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRegionsOfInterestControl {
     type Vtable = IRegionsOfInterestControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3273913639, 43787, 17752, [139, 91, 223, 86, 147, 219, 3, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc323f527_ab0b_4558_8b5b_df5693db0378);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4386,7 +4386,7 @@ pub struct IRegionsOfInterestControl_abi(
 pub struct ISceneModeControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneModeControl {
     type Vtable = ISceneModeControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3566099191, 36185, 18516, [140, 98, 18, 199, 11, 168, 155, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd48e5af7_8d59_4854_8c62_12c70ba89b7c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4408,7 +4408,7 @@ pub struct ISceneModeControl_abi(
 pub struct ITorchControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITorchControl {
     type Vtable = ITorchControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2785359461, 33360, 16748, [145, 154, 114, 66, 150, 175, 163, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6053665_8250_416c_919a_724296afa306);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4431,7 +4431,7 @@ pub struct ITorchControl_abi(
 pub struct IVideoDeviceController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoDeviceController {
     type Vtable = IVideoDeviceController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2572506485, 11822, 16568, [182, 199, 248, 45, 16, 1, 50, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99555575_2e2e_40b8_b6c7_f82d10013210);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4463,7 +4463,7 @@ pub struct IVideoDeviceController_abi(
 pub struct IVideoDeviceControllerGetDevicePropertyResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoDeviceControllerGetDevicePropertyResult {
     type Vtable = IVideoDeviceControllerGetDevicePropertyResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3319301013, 28373, 18320, [139, 93, 14, 241, 57, 53, 208, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5d88395_6ed5_4790_8b5d_0ef13935d0f8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4482,7 +4482,7 @@ pub struct IVideoDeviceControllerGetDevicePropertyResult_abi(
 pub struct IVideoTemporalDenoisingControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoTemporalDenoisingControl {
     type Vtable = IVideoTemporalDenoisingControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2058569525, 15914, 18994, [186, 255, 67, 88, 196, 251, 221, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ab34735_3e2a_4a32_baff_4358c4fbdd57);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4504,7 +4504,7 @@ pub struct IVideoTemporalDenoisingControl_abi(
 pub struct IWhiteBalanceControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWhiteBalanceControl {
     type Vtable = IWhiteBalanceControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2015298686, 29026, 18888, [168, 249, 148, 129, 197, 101, 54, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x781f047e_7162_49c8_a8f9_9481c565363e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4531,7 +4531,7 @@ pub struct IWhiteBalanceControl_abi(
 pub struct IZoomControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IZoomControl {
     type Vtable = IZoomControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(975047442, 13018, 19479, [191, 215, 141, 12, 115, 200, 245, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a1e0b12_32da_4c17_bfd7_8d0c73c8f5a5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4554,7 +4554,7 @@ pub struct IZoomControl_abi(
 pub struct IZoomControl2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IZoomControl2 {
     type Vtable = IZoomControl2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1770274224, 11929, 17985, [133, 41, 24, 79, 49, 157, 22, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69843db0_2e99_4641_8529_184f319d1671);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4575,7 +4575,7 @@ pub struct IZoomControl2_abi(
 pub struct IZoomSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IZoomSettings {
     type Vtable = IZoomSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1792437028, 5300, 19453, [177, 143, 136, 254, 36, 70, 59, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ad66b24_14b4_4bfd_b18f_88fe24463b52);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4669,7 +4669,7 @@ unsafe impl ::windows::runtime::RuntimeType for InfraredTorchControl {
 }
 unsafe impl ::windows::runtime::Interface for InfraredTorchControl {
     type Vtable = IInfraredTorchControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(481963139, 27830, 23044, [166, 252, 59, 231, 179, 63, 240, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cba2c83_6cb6_5a04_a6fc_3be7b33ff056);
 }
 impl ::windows::runtime::RuntimeName for InfraredTorchControl {
     const NAME: &'static str = "Windows.Media.Devices.InfraredTorchControl";
@@ -4845,7 +4845,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsoSpeedControl {
 }
 unsafe impl ::windows::runtime::Interface for IsoSpeedControl {
     type Vtable = IIsoSpeedControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(666288930, 9645, 20251, [170, 171, 82, 74, 179, 118, 202, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27b6c322_25ad_4f1b_aaab_524ab376ca33);
 }
 impl ::windows::runtime::RuntimeName for IsoSpeedControl {
     const NAME: &'static str = "Windows.Media.Devices.IsoSpeedControl";
@@ -4941,7 +4941,7 @@ unsafe impl ::windows::runtime::RuntimeType for KeypadPressedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for KeypadPressedEventArgs {
     type Vtable = IKeypadPressedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3550755072, 46330, 18893, [148, 66, 137, 175, 101, 104, 246, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3a43900_b4fa_49cd_9442_89af6568f601);
 }
 impl ::windows::runtime::RuntimeName for KeypadPressedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.KeypadPressedEventArgs";
@@ -5012,7 +5012,7 @@ unsafe impl ::windows::runtime::RuntimeType for KeypadPressedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for KeypadPressedEventHandler {
     type Vtable = KeypadPressedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3862406228, 50471, 16940, [137, 38, 201, 175, 131, 181, 89, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe637a454_c527_422c_8926_c9af83b559a0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5139,7 +5139,7 @@ unsafe impl ::windows::runtime::RuntimeType for LowLagPhotoControl {
 }
 unsafe impl ::windows::runtime::Interface for LowLagPhotoControl {
     type Vtable = ILowLagPhotoControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1834765776, 64223, 16733, [174, 230, 59, 170, 82, 147, 0, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d5c4dd0_fadf_415d_aee6_3baa529300c9);
 }
 impl ::windows::runtime::RuntimeName for LowLagPhotoControl {
     const NAME: &'static str = "Windows.Media.Devices.LowLagPhotoControl";
@@ -5312,7 +5312,7 @@ unsafe impl ::windows::runtime::RuntimeType for LowLagPhotoSequenceControl {
 }
 unsafe impl ::windows::runtime::Interface for LowLagPhotoSequenceControl {
     type Vtable = ILowLagPhotoSequenceControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1037013149, 27926, 16540, [186, 254, 185, 165, 148, 198, 253, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3dcf909d_6d16_409c_bafe_b9a594c6fde6);
 }
 impl ::windows::runtime::RuntimeName for LowLagPhotoSequenceControl {
     const NAME: &'static str = "Windows.Media.Devices.LowLagPhotoSequenceControl";
@@ -5577,7 +5577,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaDeviceControl {
 }
 unsafe impl ::windows::runtime::Interface for MediaDeviceControl {
     type Vtable = IMediaDeviceControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020821929, 28533, 18531, [186, 11, 88, 63, 48, 54, 180, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefa8dfa9_6f75_4863_ba0b_583f3036b4de);
 }
 impl ::windows::runtime::RuntimeName for MediaDeviceControl {
     const NAME: &'static str = "Windows.Media.Devices.MediaDeviceControl";
@@ -5681,7 +5681,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaDeviceControlCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for MediaDeviceControlCapabilities {
     type Vtable = IMediaDeviceControlCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(587225110, 60293, 17378, [185, 43, 130, 64, 213, 238, 112, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23005816_eb85_43e2_b92b_8240d5ee70ec);
 }
 impl ::windows::runtime::RuntimeName for MediaDeviceControlCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.MediaDeviceControlCapabilities";
@@ -5754,7 +5754,7 @@ unsafe impl ::windows::runtime::RuntimeType for ModuleCommandResult {
 }
 unsafe impl ::windows::runtime::Interface for ModuleCommandResult {
     type Vtable = IModuleCommandResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1376591540, 4980, 19581, [177, 228, 57, 220, 223, 62, 174, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x520d1eb4_1374_4c7d_b1e4_39dcdf3eae4e);
 }
 impl ::windows::runtime::RuntimeName for ModuleCommandResult {
     const NAME: &'static str = "Windows.Media.Devices.ModuleCommandResult";
@@ -5840,7 +5840,7 @@ unsafe impl ::windows::runtime::RuntimeType for OpticalImageStabilizationControl
 }
 unsafe impl ::windows::runtime::Interface for OpticalImageStabilizationControl {
     type Vtable = IOpticalImageStabilizationControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3215825949, 188, 16955, [142, 178, 160, 23, 140, 169, 66, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfad9c1d_00bc_423b_8eb2_a0178ca94247);
 }
 impl ::windows::runtime::RuntimeName for OpticalImageStabilizationControl {
     const NAME: &'static str = "Windows.Media.Devices.OpticalImageStabilizationControl";
@@ -5944,7 +5944,7 @@ unsafe impl ::windows::runtime::RuntimeType for PanelBasedOptimizationControl {
 }
 unsafe impl ::windows::runtime::Interface for PanelBasedOptimizationControl {
     type Vtable = IPanelBasedOptimizationControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(858927651, 25159, 21529, [165, 164, 61, 128, 134, 69, 217, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33323223_6247_5419_a5a4_3d808645d917);
 }
 impl ::windows::runtime::RuntimeName for PanelBasedOptimizationControl {
     const NAME: &'static str = "Windows.Media.Devices.PanelBasedOptimizationControl";
@@ -6038,7 +6038,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoConfirmationControl {
 }
 unsafe impl ::windows::runtime::Interface for PhotoConfirmationControl {
     type Vtable = IPhotoConfirmationControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3371430755, 65374, 17794, [169, 168, 5, 80, 248, 90, 74, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8f3f363_ff5e_4582_a9a8_0550f85a4a76);
 }
 impl ::windows::runtime::RuntimeName for PhotoConfirmationControl {
     const NAME: &'static str = "Windows.Media.Devices.PhotoConfirmationControl";
@@ -6099,7 +6099,7 @@ unsafe impl ::windows::runtime::RuntimeType for RedialRequestedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for RedialRequestedEventArgs {
     type Vtable = IRedialRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2125812233, 30379, 19505, [180, 14, 75, 88, 55, 157, 88, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7eb55209_76ab_4c31_b40e_4b58379d580c);
 }
 impl ::windows::runtime::RuntimeName for RedialRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.RedialRequestedEventArgs";
@@ -6170,7 +6170,7 @@ unsafe impl ::windows::runtime::RuntimeType for RedialRequestedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for RedialRequestedEventHandler {
     type Vtable = RedialRequestedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3136444369, 20157, 19332, [159, 71, 110, 196, 61, 117, 216, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbaf257d1_4ebd_4b84_9f47_6ec43d75d8b1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6334,7 +6334,7 @@ unsafe impl ::windows::runtime::RuntimeType for RegionOfInterest {
 }
 unsafe impl ::windows::runtime::Interface for RegionOfInterest {
     type Vtable = IRegionOfInterest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3857500212, 52838, 19973, [167, 143, 207, 57, 26, 94, 194, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5ecc834_ce66_4e05_a78f_cf391a5ec2d1);
 }
 impl ::windows::runtime::RuntimeName for RegionOfInterest {
     const NAME: &'static str = "Windows.Media.Devices.RegionOfInterest";
@@ -6473,7 +6473,7 @@ unsafe impl ::windows::runtime::RuntimeType for RegionsOfInterestControl {
 }
 unsafe impl ::windows::runtime::Interface for RegionsOfInterestControl {
     type Vtable = IRegionsOfInterestControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3273913639, 43787, 17752, [139, 91, 223, 86, 147, 219, 3, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc323f527_ab0b_4558_8b5b_df5693db0378);
 }
 impl ::windows::runtime::RuntimeName for RegionsOfInterestControl {
     const NAME: &'static str = "Windows.Media.Devices.RegionsOfInterestControl";
@@ -6555,7 +6555,7 @@ unsafe impl ::windows::runtime::RuntimeType for SceneModeControl {
 }
 unsafe impl ::windows::runtime::Interface for SceneModeControl {
     type Vtable = ISceneModeControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3566099191, 36185, 18516, [140, 98, 18, 199, 11, 168, 155, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd48e5af7_8d59_4854_8c62_12c70ba89b7c);
 }
 impl ::windows::runtime::RuntimeName for SceneModeControl {
     const NAME: &'static str = "Windows.Media.Devices.SceneModeControl";
@@ -6711,7 +6711,7 @@ unsafe impl ::windows::runtime::RuntimeType for TorchControl {
 }
 unsafe impl ::windows::runtime::Interface for TorchControl {
     type Vtable = ITorchControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2785359461, 33360, 16748, [145, 154, 114, 66, 150, 175, 163, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6053665_8250_416c_919a_724296afa306);
 }
 impl ::windows::runtime::RuntimeName for TorchControl {
     const NAME: &'static str = "Windows.Media.Devices.TorchControl";
@@ -7166,7 +7166,7 @@ unsafe impl ::windows::runtime::RuntimeType for VideoDeviceController {
 }
 unsafe impl ::windows::runtime::Interface for VideoDeviceController {
     type Vtable = IVideoDeviceController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2572506485, 11822, 16568, [182, 199, 248, 45, 16, 1, 50, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99555575_2e2e_40b8_b6c7_f82d10013210);
 }
 impl ::windows::runtime::RuntimeName for VideoDeviceController {
     const NAME: &'static str = "Windows.Media.Devices.VideoDeviceController";
@@ -7260,7 +7260,7 @@ unsafe impl ::windows::runtime::RuntimeType for VideoDeviceControllerGetDevicePr
 }
 unsafe impl ::windows::runtime::Interface for VideoDeviceControllerGetDevicePropertyResult {
     type Vtable = IVideoDeviceControllerGetDevicePropertyResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3319301013, 28373, 18320, [139, 93, 14, 241, 57, 53, 208, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5d88395_6ed5_4790_8b5d_0ef13935d0f8);
 }
 impl ::windows::runtime::RuntimeName for VideoDeviceControllerGetDevicePropertyResult {
     const NAME: &'static str = "Windows.Media.Devices.VideoDeviceControllerGetDevicePropertyResult";
@@ -7401,7 +7401,7 @@ unsafe impl ::windows::runtime::RuntimeType for VideoTemporalDenoisingControl {
 }
 unsafe impl ::windows::runtime::Interface for VideoTemporalDenoisingControl {
     type Vtable = IVideoTemporalDenoisingControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2058569525, 15914, 18994, [186, 255, 67, 88, 196, 251, 221, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ab34735_3e2a_4a32_baff_4358c4fbdd57);
 }
 impl ::windows::runtime::RuntimeName for VideoTemporalDenoisingControl {
     const NAME: &'static str = "Windows.Media.Devices.VideoTemporalDenoisingControl";
@@ -7548,7 +7548,7 @@ unsafe impl ::windows::runtime::RuntimeType for WhiteBalanceControl {
 }
 unsafe impl ::windows::runtime::Interface for WhiteBalanceControl {
     type Vtable = IWhiteBalanceControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2015298686, 29026, 18888, [168, 249, 148, 129, 197, 101, 54, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x781f047e_7162_49c8_a8f9_9481c565363e);
 }
 impl ::windows::runtime::RuntimeName for WhiteBalanceControl {
     const NAME: &'static str = "Windows.Media.Devices.WhiteBalanceControl";
@@ -7671,7 +7671,7 @@ unsafe impl ::windows::runtime::RuntimeType for ZoomControl {
 }
 unsafe impl ::windows::runtime::Interface for ZoomControl {
     type Vtable = IZoomControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(975047442, 13018, 19479, [191, 215, 141, 12, 115, 200, 245, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a1e0b12_32da_4c17_bfd7_8d0c73c8f5a5);
 }
 impl ::windows::runtime::RuntimeName for ZoomControl {
     const NAME: &'static str = "Windows.Media.Devices.ZoomControl";
@@ -7760,7 +7760,7 @@ unsafe impl ::windows::runtime::RuntimeType for ZoomSettings {
 }
 unsafe impl ::windows::runtime::Interface for ZoomSettings {
     type Vtable = IZoomSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1792437028, 5300, 19453, [177, 143, 136, 254, 36, 70, 59, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ad66b24_14b4_4bfd_b18f_88fe24463b52);
 }
 impl ::windows::runtime::RuntimeName for ZoomSettings {
     const NAME: &'static str = "Windows.Media.Devices.ZoomSettings";

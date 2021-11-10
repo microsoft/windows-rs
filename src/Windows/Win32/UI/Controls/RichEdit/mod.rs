@@ -1918,7 +1918,7 @@ impl IRichEditOle {
 }
 unsafe impl ::windows::runtime::Interface for IRichEditOle {
     type Vtable = IRichEditOle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(134400, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00020d00_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<IRichEditOle> for ::windows::runtime::IUnknown {
     fn from(value: IRichEditOle) -> Self {
@@ -2032,7 +2032,7 @@ impl IRichEditOleCallback {
 }
 unsafe impl ::windows::runtime::Interface for IRichEditOleCallback {
     type Vtable = IRichEditOleCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(134403, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00020d03_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<IRichEditOleCallback> for ::windows::runtime::IUnknown {
     fn from(value: IRichEditOleCallback) -> Self {
@@ -2132,7 +2132,7 @@ pub struct ITextDisplays(pub ::windows::runtime::IUnknown);
 impl ITextDisplays {}
 unsafe impl ::windows::runtime::Interface for ITextDisplays {
     type Vtable = ITextDisplays_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259102706, 29190, 4568, [162, 199, 0, 160, 209, 214, 198, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc241f5f2_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 impl ::core::convert::From<ITextDisplays> for ::windows::runtime::IUnknown {
     fn from(value: ITextDisplays) -> Self {
@@ -2292,7 +2292,7 @@ impl ITextDocument {
 }
 unsafe impl ::windows::runtime::Interface for ITextDocument {
     type Vtable = ITextDocument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2361694144, 41439, 4558, [128, 152, 0, 170, 0, 71, 190, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cc497c0_a1df_11ce_8098_00aa0047be5d);
 }
 impl ::core::convert::From<ITextDocument> for ::windows::runtime::IUnknown {
     fn from(value: ITextDocument) -> Self {
@@ -2719,7 +2719,7 @@ impl ITextDocument2 {
 }
 unsafe impl ::windows::runtime::Interface for ITextDocument2 {
     type Vtable = ITextDocument2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259102688, 29190, 4568, [162, 199, 0, 160, 209, 214, 198, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc241f5e0_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 impl ::core::convert::From<ITextDocument2> for ::windows::runtime::IUnknown {
     fn from(value: ITextDocument2) -> Self {
@@ -3117,7 +3117,7 @@ impl ITextDocument2Old {
 }
 unsafe impl ::windows::runtime::Interface for ITextDocument2Old {
     type Vtable = ITextDocument2Old_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(29512960, 17000, 4561, [136, 58, 60, 139, 0, 193, 0, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01c25500_4268_11d1_883a_3c8b00c10000);
 }
 impl ::core::convert::From<ITextDocument2Old> for ::windows::runtime::IUnknown {
     fn from(value: ITextDocument2Old) -> Self {
@@ -3503,7 +3503,7 @@ impl ITextFont {
 }
 unsafe impl ::windows::runtime::Interface for ITextFont {
     type Vtable = ITextFont_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2361694147, 41439, 4558, [128, 152, 0, 170, 0, 71, 190, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cc497c3_a1df_11ce_8098_00aa0047be5d);
 }
 impl ::core::convert::From<ITextFont> for ::windows::runtime::IUnknown {
     fn from(value: ITextFont) -> Self {
@@ -4117,7 +4117,7 @@ impl ITextFont2 {
 }
 unsafe impl ::windows::runtime::Interface for ITextFont2 {
     type Vtable = ITextFont2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259102691, 29190, 4568, [162, 199, 0, 160, 209, 214, 198, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc241f5e3_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 impl ::core::convert::From<ITextFont2> for ::windows::runtime::IUnknown {
     fn from(value: ITextFont2) -> Self {
@@ -5187,7 +5187,7 @@ impl ITextPara {
 }
 unsafe impl ::windows::runtime::Interface for ITextPara {
     type Vtable = ITextPara_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2361694148, 41439, 4558, [128, 152, 0, 170, 0, 71, 190, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cc497c4_a1df_11ce_8098_00aa0047be5d);
 }
 impl ::core::convert::From<ITextPara> for ::windows::runtime::IUnknown {
     fn from(value: ITextPara) -> Self {
@@ -5624,7 +5624,7 @@ impl ITextPara2 {
 }
 unsafe impl ::windows::runtime::Interface for ITextPara2 {
     type Vtable = ITextPara2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259102692, 29190, 4568, [162, 199, 0, 160, 209, 214, 198, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc241f5e4_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 impl ::core::convert::From<ITextPara2> for ::windows::runtime::IUnknown {
     fn from(value: ITextPara2) -> Self {
@@ -6031,7 +6031,7 @@ impl ITextRange {
 }
 unsafe impl ::windows::runtime::Interface for ITextRange {
     type Vtable = ITextRange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2361694146, 41439, 4558, [128, 152, 0, 170, 0, 71, 190, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cc497c2_a1df_11ce_8098_00aa0047be5d);
 }
 impl ::core::convert::From<ITextRange> for ::windows::runtime::IUnknown {
     fn from(value: ITextRange) -> Self {
@@ -6696,7 +6696,7 @@ impl ITextRange2 {
 }
 unsafe impl ::windows::runtime::Interface for ITextRange2 {
     type Vtable = ITextRange2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259102690, 29190, 4568, [162, 199, 0, 160, 209, 214, 198, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc241f5e2_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 impl ::core::convert::From<ITextRange2> for ::windows::runtime::IUnknown {
     fn from(value: ITextRange2) -> Self {
@@ -7133,7 +7133,7 @@ impl ITextRow {
 }
 unsafe impl ::windows::runtime::Interface for ITextRow {
     type Vtable = ITextRow_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259102703, 29190, 4568, [162, 199, 0, 160, 209, 214, 198, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc241f5ef_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 impl ::core::convert::From<ITextRow> for ::windows::runtime::IUnknown {
     fn from(value: ITextRow) -> Self {
@@ -7583,7 +7583,7 @@ impl ITextSelection {
 }
 unsafe impl ::windows::runtime::Interface for ITextSelection {
     type Vtable = ITextSelection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2361694145, 41439, 4558, [128, 152, 0, 170, 0, 71, 190, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cc497c1_a1df_11ce_8098_00aa0047be5d);
 }
 impl ::core::convert::From<ITextSelection> for ::windows::runtime::IUnknown {
     fn from(value: ITextSelection) -> Self {
@@ -8279,7 +8279,7 @@ impl ITextSelection2 {
 }
 unsafe impl ::windows::runtime::Interface for ITextSelection2 {
     type Vtable = ITextSelection2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259102689, 29190, 4568, [162, 199, 0, 160, 209, 214, 198, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc241f5e1_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 impl ::core::convert::From<ITextSelection2> for ::windows::runtime::IUnknown {
     fn from(value: ITextSelection2) -> Self {
@@ -9123,7 +9123,7 @@ impl ITextStory {
 }
 unsafe impl ::windows::runtime::Interface for ITextStory {
     type Vtable = ITextStory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259102707, 29190, 4568, [162, 199, 0, 160, 209, 214, 198, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc241f5f3_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 impl ::core::convert::From<ITextStory> for ::windows::runtime::IUnknown {
     fn from(value: ITextStory) -> Self {
@@ -9189,7 +9189,7 @@ impl ITextStoryRanges {
 }
 unsafe impl ::windows::runtime::Interface for ITextStoryRanges {
     type Vtable = ITextStoryRanges_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2361694149, 41439, 4558, [128, 152, 0, 170, 0, 71, 190, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cc497c5_a1df_11ce_8098_00aa0047be5d);
 }
 impl ::core::convert::From<ITextStoryRanges> for ::windows::runtime::IUnknown {
     fn from(value: ITextStoryRanges) -> Self {
@@ -9313,7 +9313,7 @@ impl ITextStoryRanges2 {
 }
 unsafe impl ::windows::runtime::Interface for ITextStoryRanges2 {
     type Vtable = ITextStoryRanges2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259102693, 29190, 4568, [162, 199, 0, 160, 209, 214, 198, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc241f5e5_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 impl ::core::convert::From<ITextStoryRanges2> for ::windows::runtime::IUnknown {
     fn from(value: ITextStoryRanges2) -> Self {
@@ -9493,7 +9493,7 @@ impl ITextStrings {
 }
 unsafe impl ::windows::runtime::Interface for ITextStrings {
     type Vtable = ITextStrings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259102695, 29190, 4568, [162, 199, 0, 160, 209, 214, 198, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc241f5e7_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 impl ::core::convert::From<ITextStrings> for ::windows::runtime::IUnknown {
     fn from(value: ITextStrings) -> Self {

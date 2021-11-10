@@ -99,7 +99,7 @@ unsafe impl ::windows::runtime::RuntimeType for BitmapBuffer {
 }
 unsafe impl ::windows::runtime::Interface for BitmapBuffer {
     type Vtable = IBitmapBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2772305092, 14748, 17292, [178, 143, 166, 58, 107, 131, 209, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa53e04c4_399c_438c_b28f_a63a6b83d1a1);
 }
 impl ::windows::runtime::RuntimeName for BitmapBuffer {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapBuffer";
@@ -266,7 +266,7 @@ unsafe impl ::windows::runtime::RuntimeType for BitmapCodecInformation {
 }
 unsafe impl ::windows::runtime::Interface for BitmapCodecInformation {
     type Vtable = IBitmapCodecInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1074572018, 50352, 17298, [163, 176, 111, 111, 155, 169, 92, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x400caaf2_c4b0_4392_a3b0_6f6f9ba95cb4);
 }
 impl ::windows::runtime::RuntimeName for BitmapCodecInformation {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapCodecInformation";
@@ -587,7 +587,7 @@ unsafe impl ::windows::runtime::RuntimeType for BitmapDecoder {
 }
 unsafe impl ::windows::runtime::Interface for BitmapDecoder {
     type Vtable = IBitmapDecoder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2901353146, 7540, 19601, [157, 252, 150, 32, 116, 82, 51, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xacef22ba_1d74_4c91_9dfc_9620745233e6);
 }
 impl ::windows::runtime::RuntimeName for BitmapDecoder {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapDecoder";
@@ -898,7 +898,7 @@ unsafe impl ::windows::runtime::RuntimeType for BitmapEncoder {
 }
 unsafe impl ::windows::runtime::Interface for BitmapEncoder {
     type Vtable = IBitmapEncoder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(734292195, 57848, 19284, [149, 232, 50, 145, 149, 81, 206, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bc468e3_e1f8_4b54_95e8_32919551ce62);
 }
 impl ::windows::runtime::RuntimeName for BitmapEncoder {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapEncoder";
@@ -1105,7 +1105,7 @@ unsafe impl ::windows::runtime::RuntimeType for BitmapFrame {
 }
 unsafe impl ::windows::runtime::Interface for BitmapFrame {
     type Vtable = IBitmapFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1923389980, 32897, 17293, [145, 188, 148, 236, 252, 129, 133, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72a49a1c_8081_438d_91bc_94ecfc8185c6);
 }
 impl ::windows::runtime::RuntimeName for BitmapFrame {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapFrame";
@@ -1311,7 +1311,7 @@ unsafe impl ::windows::runtime::RuntimeType for BitmapProperties {
 }
 unsafe impl ::windows::runtime::Interface for BitmapProperties {
     type Vtable = IBitmapProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3936309019, 46341, 17488, [164, 209, 232, 202, 148, 82, 157, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea9f4f1b_b505_4450_a4d1_e8ca94529d8d);
 }
 impl ::windows::runtime::RuntimeName for BitmapProperties {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapProperties";
@@ -1400,7 +1400,7 @@ unsafe impl ::windows::runtime::RuntimeType for BitmapPropertiesView {
 }
 unsafe impl ::windows::runtime::Interface for BitmapPropertiesView {
     type Vtable = IBitmapPropertiesView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2114971770, 14960, 18680, [156, 85, 25, 108, 245, 165, 69, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e0fe87a_3a70_48f8_9c55_196cf5a545f5);
 }
 impl ::windows::runtime::RuntimeName for BitmapPropertiesView {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapPropertiesView";
@@ -1832,7 +1832,7 @@ unsafe impl ::windows::runtime::RuntimeType for BitmapTransform {
 }
 unsafe impl ::windows::runtime::Interface for BitmapTransform {
     type Vtable = IBitmapTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2926924612, 57960, 19765, [173, 207, 233, 149, 211, 26, 141, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae755344_e268_4d35_adcf_e995d31a8d34);
 }
 impl ::windows::runtime::RuntimeName for BitmapTransform {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapTransform";
@@ -1919,7 +1919,7 @@ unsafe impl ::windows::runtime::RuntimeType for BitmapTypedValue {
 }
 unsafe impl ::windows::runtime::Interface for BitmapTypedValue {
     type Vtable = IBitmapTypedValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3447735465, 9283, 16384, [176, 205, 121, 49, 108, 86, 245, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd8044a9_2443_4000_b0cd_79316c56f589);
 }
 impl ::windows::runtime::RuntimeName for BitmapTypedValue {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapTypedValue";
@@ -2015,7 +2015,7 @@ impl ::windows::runtime::DefaultType for ExifOrientationMode {
 pub struct IBitmapBuffer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapBuffer {
     type Vtable = IBitmapBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2772305092, 14748, 17292, [178, 143, 166, 58, 107, 131, 209, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa53e04c4_399c_438c_b28f_a63a6b83d1a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2034,7 +2034,7 @@ pub struct IBitmapBuffer_abi(
 pub struct IBitmapCodecInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapCodecInformation {
     type Vtable = IBitmapCodecInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1074572018, 50352, 17298, [163, 176, 111, 111, 155, 169, 92, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x400caaf2_c4b0_4392_a3b0_6f6f9ba95cb4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2057,7 +2057,7 @@ pub struct IBitmapCodecInformation_abi(
 pub struct IBitmapDecoder(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapDecoder {
     type Vtable = IBitmapDecoder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2901353146, 7540, 19601, [157, 252, 150, 32, 116, 82, 51, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xacef22ba_1d74_4c91_9dfc_9620745233e6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2081,7 +2081,7 @@ pub struct IBitmapDecoder_abi(
 pub struct IBitmapDecoderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapDecoderStatics {
     type Vtable = IBitmapDecoderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1133300518, 48367, 20117, [186, 214, 35, 168, 34, 229, 141, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x438ccb26_bcef_4e95_bad6_23a822e58d01);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2111,7 +2111,7 @@ pub struct IBitmapDecoderStatics_abi(
 pub struct IBitmapDecoderStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapDecoderStatics2 {
     type Vtable = IBitmapDecoderStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1354393834, 39329, 16580, [128, 217, 174, 240, 218, 250, 108, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ba68ea_99a1_40c4_80d9_aef0dafa6c3f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2130,7 +2130,7 @@ pub struct IBitmapDecoderStatics2_abi(
 pub struct IBitmapEncoder(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapEncoder {
     type Vtable = IBitmapEncoder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(734292195, 57848, 19284, [149, 232, 50, 145, 149, 81, 206, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bc468e3_e1f8_4b54_95e8_32919551ce62);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2164,7 +2164,7 @@ pub struct IBitmapEncoder_abi(
 pub struct IBitmapEncoderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapEncoderStatics {
     type Vtable = IBitmapEncoderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2806208167, 42212, 20153, [142, 64, 86, 77, 231, 225, 204, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa74356a7_a4e4_4eb9_8e40_564de7e1ccb2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2197,7 +2197,7 @@ pub struct IBitmapEncoderStatics_abi(
 pub struct IBitmapEncoderStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapEncoderStatics2 {
     type Vtable = IBitmapEncoderStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(868991577, 65073, 16817, [184, 18, 8, 109, 33, 232, 126, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33cbc259_fe31_41b1_b812_086d21e87e16);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2215,7 +2215,7 @@ pub struct IBitmapEncoderStatics2_abi(
 pub struct IBitmapEncoderWithSoftwareBitmap(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapEncoderWithSoftwareBitmap {
     type Vtable = IBitmapEncoderWithSoftwareBitmap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1751962177, 17200, 19575, [172, 228, 3, 52, 150, 139, 23, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x686cd241_4330_4c77_ace4_0334968b1768);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2234,7 +2234,7 @@ pub struct IBitmapEncoderWithSoftwareBitmap_abi(
 pub struct IBitmapFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapFrame {
     type Vtable = IBitmapFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1923389980, 32897, 17293, [145, 188, 148, 236, 252, 129, 133, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72a49a1c_8081_438d_91bc_94ecfc8185c6);
 }
 impl IBitmapFrame {
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -2411,7 +2411,7 @@ pub struct IBitmapFrame_abi(
 pub struct IBitmapFrameWithSoftwareBitmap(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapFrameWithSoftwareBitmap {
     type Vtable = IBitmapFrameWithSoftwareBitmap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4264066202, 16908, 18787, [135, 173, 105, 20, 54, 224, 131, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe287c9a_420c_4963_87ad_691436e08383);
 }
 impl IBitmapFrameWithSoftwareBitmap {
     #[cfg(feature = "Foundation")]
@@ -2627,7 +2627,7 @@ pub struct IBitmapFrameWithSoftwareBitmap_abi(
 pub struct IBitmapProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapProperties {
     type Vtable = IBitmapProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3936309019, 46341, 17488, [164, 209, 232, 202, 148, 82, 157, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea9f4f1b_b505_4450_a4d1_e8ca94529d8d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2647,7 +2647,7 @@ pub struct IBitmapProperties_abi(
 pub struct IBitmapPropertiesView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapPropertiesView {
     type Vtable = IBitmapPropertiesView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2114971770, 14960, 18680, [156, 85, 25, 108, 245, 165, 69, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e0fe87a_3a70_48f8_9c55_196cf5a545f5);
 }
 impl IBitmapPropertiesView {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -2720,7 +2720,7 @@ pub struct IBitmapPropertiesView_abi(
 pub struct IBitmapTransform(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapTransform {
     type Vtable = IBitmapTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2926924612, 57960, 19765, [173, 207, 233, 149, 211, 26, 141, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae755344_e268_4d35_adcf_e995d31a8d34);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2749,7 +2749,7 @@ pub struct IBitmapTransform_abi(
 pub struct IBitmapTypedValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapTypedValue {
     type Vtable = IBitmapTypedValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3447735465, 9283, 16384, [176, 205, 121, 49, 108, 86, 245, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd8044a9_2443_4000_b0cd_79316c56f589);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2769,7 +2769,7 @@ pub struct IBitmapTypedValue_abi(
 pub struct IBitmapTypedValueFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapTypedValueFactory {
     type Vtable = IBitmapTypedValueFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2463872409, 52755, 18107, [149, 69, 203, 58, 63, 99, 235, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92dbb599_ce13_46bb_9545_cb3a3f63eb8b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2788,7 +2788,7 @@ pub struct IBitmapTypedValueFactory_abi(
 pub struct IPixelDataProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPixelDataProvider {
     type Vtable = IPixelDataProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3716357925, 6236, 17813, [159, 185, 204, 190, 110, 193, 138, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd831f25_185c_4595_9fb9_ccbe6ec18a6f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2806,7 +2806,7 @@ pub struct IPixelDataProvider_abi(
 pub struct ISoftwareBitmap(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISoftwareBitmap {
     type Vtable = ISoftwareBitmap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1755186952, 32495, 18495, [150, 63, 218, 147, 136, 24, 224, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x689e0708_7eef_483f_963f_da938818e073);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2839,7 +2839,7 @@ pub struct ISoftwareBitmap_abi(
 pub struct ISoftwareBitmapFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISoftwareBitmapFactory {
     type Vtable = ISoftwareBitmapFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3382700905, 11618, 19783, [166, 179, 79, 219, 106, 7, 253, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc99feb69_2d62_4d47_a6b3_4fdb6a07fdf8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2858,7 +2858,7 @@ pub struct ISoftwareBitmapFactory_abi(
 pub struct ISoftwareBitmapStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISoftwareBitmapStatics {
     type Vtable = ISoftwareBitmapStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3741550043, 26415, 19101, [128, 110, 194, 68, 47, 52, 62, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf0385db_672f_4a9d_806e_c2442f343e86);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3013,7 +3013,7 @@ unsafe impl ::windows::runtime::RuntimeType for ImageStream {
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::runtime::Interface for ImageStream {
     type Vtable = super::super::Storage::Streams::IRandomAccessStreamWithContentType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3424995367, 19261, 17295, [146, 50, 16, 199, 107, 199, 224, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc254827_4b3d_438f_9232_10c76bc7e038);
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::runtime::RuntimeName for ImageStream {
@@ -3268,7 +3268,7 @@ unsafe impl ::windows::runtime::RuntimeType for PixelDataProvider {
 }
 unsafe impl ::windows::runtime::Interface for PixelDataProvider {
     type Vtable = IPixelDataProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3716357925, 6236, 17813, [159, 185, 204, 190, 110, 193, 138, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd831f25_185c_4595_9fb9_ccbe6ec18a6f);
 }
 impl ::windows::runtime::RuntimeName for PixelDataProvider {
     const NAME: &'static str = "Windows.Graphics.Imaging.PixelDataProvider";
@@ -3533,7 +3533,7 @@ unsafe impl ::windows::runtime::RuntimeType for SoftwareBitmap {
 }
 unsafe impl ::windows::runtime::Interface for SoftwareBitmap {
     type Vtable = ISoftwareBitmap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1755186952, 32495, 18495, [150, 63, 218, 147, 136, 24, 224, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x689e0708_7eef_483f_963f_da938818e073);
 }
 impl ::windows::runtime::RuntimeName for SoftwareBitmap {
     const NAME: &'static str = "Windows.Graphics.Imaging.SoftwareBitmap";

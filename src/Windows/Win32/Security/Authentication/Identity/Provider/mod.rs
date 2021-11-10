@@ -51,7 +51,7 @@ impl AsyncIAssociatedIdentityProvider {
 }
 unsafe impl ::windows::runtime::Interface for AsyncIAssociatedIdentityProvider {
     type Vtable = AsyncIAssociatedIdentityProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(674551533, 10622, 20082, [138, 81, 150, 30, 134, 240, 81, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2834d6ed_297e_4e72_8a51_961e86f05152);
 }
 impl ::core::convert::From<AsyncIAssociatedIdentityProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIAssociatedIdentityProvider) -> Self {
@@ -143,7 +143,7 @@ impl AsyncIConnectedIdentityProvider {
 }
 unsafe impl ::windows::runtime::Interface for AsyncIConnectedIdentityProvider {
     type Vtable = AsyncIConnectedIdentityProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2632274241, 48361, 19989, [130, 77, 67, 215, 159, 81, 47, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ce55141_bce9_4e15_824d_43d79f512f93);
 }
 impl ::core::convert::From<AsyncIConnectedIdentityProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIConnectedIdentityProvider) -> Self {
@@ -202,7 +202,7 @@ impl AsyncIIdentityAdvise {
 }
 unsafe impl ::windows::runtime::Interface for AsyncIIdentityAdvise {
     type Vtable = AsyncIIdentityAdvise_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(984926426, 53304, 18480, [141, 217, 50, 83, 197, 90, 18, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ab4c8da_d038_4830_8dd9_3253c55a127f);
 }
 impl ::core::convert::From<AsyncIIdentityAdvise> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIIdentityAdvise) -> Self {
@@ -260,7 +260,7 @@ impl AsyncIIdentityAuthentication {
 }
 unsafe impl ::windows::runtime::Interface for AsyncIIdentityAuthentication {
     type Vtable = AsyncIIdentityAuthentication_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4188207384, 65226, 20124, [150, 51, 97, 203, 241, 62, 211, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9a2f918_feca_4e9c_9633_61cbf13ed34d);
 }
 impl ::core::convert::From<AsyncIIdentityAuthentication> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIIdentityAuthentication) -> Self {
@@ -381,7 +381,7 @@ impl AsyncIIdentityProvider {
 }
 unsafe impl ::windows::runtime::Interface for AsyncIIdentityProvider {
     type Vtable = AsyncIIdentityProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3338443009, 50227, 17990, [143, 72, 78, 70, 135, 170, 226, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6fc9901_c433_4646_8f48_4e4687aae2a0);
 }
 impl ::core::convert::From<AsyncIIdentityProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIIdentityProvider) -> Self {
@@ -498,7 +498,7 @@ impl AsyncIIdentityStore {
 }
 unsafe impl ::windows::runtime::Interface for AsyncIIdentityStore {
     type Vtable = AsyncIIdentityStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4009367062, 18654, 18546, [170, 100, 110, 98, 6, 83, 90, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeefa1616_48de_4872_aa64_6e6206535a51);
 }
 impl ::core::convert::From<AsyncIIdentityStore> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIIdentityStore) -> Self {
@@ -570,7 +570,7 @@ impl AsyncIIdentityStoreEx {
 }
 unsafe impl ::windows::runtime::Interface for AsyncIIdentityStoreEx {
     type Vtable = AsyncIIdentityStoreEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4238585754, 35335, 20142, [134, 50, 236, 61, 230, 88, 163, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfca3af9a_8a07_4eae_8632_ec3de658a36a);
 }
 impl ::core::convert::From<AsyncIIdentityStoreEx> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIIdentityStoreEx) -> Self {
@@ -605,8 +605,8 @@ pub struct AsyncIIdentityStoreEx_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
-pub const CIdentityProfileHandler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3975528262, 58294, 17562, [181, 107, 67, 245, 143, 134, 120, 20]);
-pub const CoClassIdentityStore: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(819237446, 53783, 18015, [176, 11, 172, 157, 221, 101, 46, 183]);
+pub const CIdentityProfileHandler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xecf5bf46_e3b6_449a_b56b_43f58f867814);
+pub const CoClassIdentityStore: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30d49246_d217_465f_b00b_ac9ddd652eb7);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -631,7 +631,7 @@ impl IAssociatedIdentityProvider {
 }
 unsafe impl ::windows::runtime::Interface for IAssociatedIdentityProvider {
     type Vtable = IAssociatedIdentityProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(720398003, 19643, 19642, [167, 152, 32, 75, 106, 246, 140, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2af066b3_4cbb_4cba_a798_204b6af68cc0);
 }
 impl ::core::convert::From<IAssociatedIdentityProvider> for ::windows::runtime::IUnknown {
     fn from(value: IAssociatedIdentityProvider) -> Self {
@@ -698,7 +698,7 @@ impl IConnectedIdentityProvider {
 }
 unsafe impl ::windows::runtime::Interface for IConnectedIdentityProvider {
     type Vtable = IConnectedIdentityProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3074521940, 57484, 17051, [150, 200, 103, 141, 19, 105, 236, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7417b54_e08c_429b_96c8_678d1369ecb1);
 }
 impl ::core::convert::From<IConnectedIdentityProvider> for ::windows::runtime::IUnknown {
     fn from(value: IConnectedIdentityProvider) -> Self {
@@ -780,7 +780,7 @@ impl IIdentityAdvise {
 }
 unsafe impl ::windows::runtime::Interface for IIdentityAdvise {
     type Vtable = IIdentityAdvise_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1318596589, 53579, 17420, [184, 214, 187, 56, 100, 83, 211, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e982fed_d14b_440c_b8d6_bb386453d386);
 }
 impl ::core::convert::From<IIdentityAdvise> for ::windows::runtime::IUnknown {
     fn from(value: IIdentityAdvise) -> Self {
@@ -828,7 +828,7 @@ impl IIdentityAuthentication {
 }
 unsafe impl ::windows::runtime::Interface for IIdentityAuthentication {
     type Vtable = IIdentityAuthentication_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1585377876, 38815, 17333, [183, 78, 6, 228, 235, 125, 240, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e7ef254_979f_43b5_b74e_06e4eb7df0f9);
 }
 impl ::core::convert::From<IIdentityAuthentication> for ::windows::runtime::IUnknown {
     fn from(value: IIdentityAuthentication) -> Self {
@@ -910,7 +910,7 @@ impl IIdentityProvider {
 }
 unsafe impl ::windows::runtime::Interface for IIdentityProvider {
     type Vtable = IIdentityProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(219913740, 59578, 20309, [168, 27, 188, 233, 52, 185, 72, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d1b9e0c_e8ba_4f55_a81b_bce934b948f5);
 }
 impl ::core::convert::From<IIdentityProvider> for ::windows::runtime::IUnknown {
     fn from(value: IIdentityProvider) -> Self {
@@ -991,7 +991,7 @@ impl IIdentityStore {
 }
 unsafe impl ::windows::runtime::Interface for IIdentityStore {
     type Vtable = IIdentityStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3747114917, 28469, 17649, [178, 9, 179, 142, 22, 151, 114, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf586fa5_6f35_44f1_b209_b38e169772eb);
 }
 impl ::core::convert::From<IIdentityStore> for ::windows::runtime::IUnknown {
     fn from(value: IIdentityStore) -> Self {
@@ -1048,7 +1048,7 @@ impl IIdentityStoreEx {
 }
 unsafe impl ::windows::runtime::Interface for IIdentityStoreEx {
     type Vtable = IIdentityStoreEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4193905560, 36735, 20024, [149, 119, 105, 128, 17, 76, 227, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9f9eb98_8f7f_4e38_9577_6980114ce32b);
 }
 impl ::core::convert::From<IIdentityStoreEx> for ::windows::runtime::IUnknown {
     fn from(value: IIdentityStoreEx) -> Self {
@@ -1129,4 +1129,4 @@ impl ::core::ops::Not for IdentityUpdateEvent {
         Self(self.0.not())
     }
 }
-pub const OID_OAssociatedIdentityProviderObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2563089373, 56168, 20250, [141, 43, 144, 121, 205, 254, 175, 97]);
+pub const OID_OAssociatedIdentityProviderObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98c5a3dd_db68_4f1a_8d2b_9079cdfeaf61);

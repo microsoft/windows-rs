@@ -114,7 +114,7 @@ unsafe impl ::windows::runtime::RuntimeType for AutomationRemoteOperationResult 
 }
 unsafe impl ::windows::runtime::Interface for AutomationRemoteOperationResult {
     type Vtable = IAutomationRemoteOperationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3774352450, 19047, 21812, [191, 90, 9, 232, 169, 155, 54, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0f80c42_4a67_5534_bf5a_09e8a99b36b1);
 }
 impl ::windows::runtime::RuntimeName for AutomationRemoteOperationResult {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.AutomationRemoteOperationResult";
@@ -262,7 +262,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreAutomationRemoteOperation {
 }
 unsafe impl ::windows::runtime::Interface for CoreAutomationRemoteOperation {
     type Vtable = ICoreAutomationRemoteOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(986076916, 58044, 23662, [184, 231, 178, 36, 251, 116, 176, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ac656f4_e2bc_5c6e_b8e7_b224fb74b060);
 }
 impl ::windows::runtime::RuntimeName for CoreAutomationRemoteOperation {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperation";
@@ -338,7 +338,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreAutomationRemoteOperationCon
 }
 unsafe impl ::windows::runtime::Interface for CoreAutomationRemoteOperationContext {
     type Vtable = ICoreAutomationRemoteOperationContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3115293883, 15678, 22808, [161, 107, 120, 97, 98, 106, 58, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9af9cbb_3d3e_5918_a16b_7861626a3aeb);
 }
 impl ::windows::runtime::RuntimeName for CoreAutomationRemoteOperationContext {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperationContext";
@@ -390,7 +390,7 @@ unsafe impl ::core::marker::Sync for CoreAutomationRemoteOperationContext {}
 pub struct IAutomationRemoteOperationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationRemoteOperationResult {
     type Vtable = IAutomationRemoteOperationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3774352450, 19047, 21812, [191, 90, 9, 232, 169, 155, 54, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0f80c42_4a67_5534_bf5a_09e8a99b36b1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -413,7 +413,7 @@ pub struct IAutomationRemoteOperationResult_abi(
 pub struct ICoreAutomationConnectionBoundObjectProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreAutomationConnectionBoundObjectProvider {
     type Vtable = ICoreAutomationConnectionBoundObjectProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(102808420, 38422, 21907, [190, 58, 235, 142, 109, 174, 179, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0620bb64_9616_5593_be3a_eb8e6daeb3fa);
 }
 impl ICoreAutomationConnectionBoundObjectProvider {
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
@@ -484,7 +484,7 @@ pub struct ICoreAutomationConnectionBoundObjectProvider_abi(
 pub struct ICoreAutomationRegistrarStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreAutomationRegistrarStatics {
     type Vtable = ICoreAutomationRegistrarStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1045435035, 55004, 22144, [181, 128, 255, 255, 120, 48, 3, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e50129b_d6dc_5680_b580_ffff78300304);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -503,7 +503,7 @@ pub struct ICoreAutomationRegistrarStatics_abi(
 pub struct ICoreAutomationRemoteOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreAutomationRemoteOperation {
     type Vtable = ICoreAutomationRemoteOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(986076916, 58044, 23662, [184, 231, 178, 36, 251, 116, 176, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ac656f4_e2bc_5c6e_b8e7_b224fb74b060);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -525,7 +525,7 @@ pub struct ICoreAutomationRemoteOperation_abi(
 pub struct ICoreAutomationRemoteOperation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreAutomationRemoteOperation2 {
     type Vtable = ICoreAutomationRemoteOperation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4009425007, 59731, 20633, [140, 233, 220, 168, 19, 72, 43, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeefaf86f_e953_5099_8ce9_dca813482ba0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -543,7 +543,7 @@ pub struct ICoreAutomationRemoteOperation2_abi(
 pub struct ICoreAutomationRemoteOperationContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreAutomationRemoteOperationContext {
     type Vtable = ICoreAutomationRemoteOperationContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3115293883, 15678, 22808, [161, 107, 120, 97, 98, 106, 58, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9af9cbb_3d3e_5918_a16b_7861626a3aeb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -564,7 +564,7 @@ pub struct ICoreAutomationRemoteOperationContext_abi(
 pub struct ICoreAutomationRemoteOperationExtensionProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreAutomationRemoteOperationExtensionProvider {
     type Vtable = ICoreAutomationRemoteOperationExtensionProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2297773671, 56425, 21819, [160, 170, 112, 71, 126, 114, 77, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88f53e67_dc69_553b_a0aa_70477e724da8);
 }
 impl ICoreAutomationRemoteOperationExtensionProvider {
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
@@ -641,7 +641,7 @@ pub struct ICoreAutomationRemoteOperationExtensionProvider_abi(
 pub struct IRemoteAutomationClientSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteAutomationClientSession {
     type Vtable = IRemoteAutomationClientSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1552550173, 38092, 23347, [175, 219, 103, 140, 222, 210, 189, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c8a091d_94cc_5b33_afdb_678cded2bd54);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -671,7 +671,7 @@ pub struct IRemoteAutomationClientSession_abi(
 pub struct IRemoteAutomationClientSessionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteAutomationClientSessionFactory {
     type Vtable = IRemoteAutomationClientSessionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4065338941, 24663, 21363, [165, 165, 237, 114, 101, 254, 3, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf250263d_6057_5373_a5a5_ed7265fe0376);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -690,7 +690,7 @@ pub struct IRemoteAutomationClientSessionFactory_abi(
 pub struct IRemoteAutomationConnectionRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteAutomationConnectionRequestedEventArgs {
     type Vtable = IRemoteAutomationConnectionRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3929217448, 58280, 24006, [173, 248, 4, 78, 70, 177, 74, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea3319a8_e3a8_5dc6_adf8_044e46b14af5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -709,7 +709,7 @@ pub struct IRemoteAutomationConnectionRequestedEventArgs_abi(
 pub struct IRemoteAutomationDisconnectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteAutomationDisconnectedEventArgs {
     type Vtable = IRemoteAutomationDisconnectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3149085245, 23952, 23608, [158, 178, 221, 157, 204, 27, 46, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbbb33a3d_5d90_5c38_9eb2_dd9dcc1b2e3f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -727,7 +727,7 @@ pub struct IRemoteAutomationDisconnectedEventArgs_abi(
 pub struct IRemoteAutomationServerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteAutomationServerStatics {
     type Vtable = IRemoteAutomationServerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3874002014, 3089, 20520, [154, 227, 194, 119, 18, 136, 182, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6e8945e_0c11_5028_9ae3_c2771288b6b7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -745,7 +745,7 @@ pub struct IRemoteAutomationServerStatics_abi(
 pub struct IRemoteAutomationWindow(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteAutomationWindow {
     type Vtable = IRemoteAutomationWindow_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2086696585, 18797, 20778, [155, 213, 192, 80, 207, 175, 20, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c607689_496d_512a_9bd5_c050cfaf1428);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -846,7 +846,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteAutomationClientSession {
 }
 unsafe impl ::windows::runtime::Interface for RemoteAutomationClientSession {
     type Vtable = IRemoteAutomationClientSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1552550173, 38092, 23347, [175, 219, 103, 140, 222, 210, 189, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c8a091d_94cc_5b33_afdb_678cded2bd54);
 }
 impl ::windows::runtime::RuntimeName for RemoteAutomationClientSession {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationClientSession";
@@ -920,7 +920,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteAutomationConnectionReques
 }
 unsafe impl ::windows::runtime::Interface for RemoteAutomationConnectionRequestedEventArgs {
     type Vtable = IRemoteAutomationConnectionRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3929217448, 58280, 24006, [173, 248, 4, 78, 70, 177, 74, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea3319a8_e3a8_5dc6_adf8_044e46b14af5);
 }
 impl ::windows::runtime::RuntimeName for RemoteAutomationConnectionRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationConnectionRequestedEventArgs";
@@ -986,7 +986,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteAutomationDisconnectedEven
 }
 unsafe impl ::windows::runtime::Interface for RemoteAutomationDisconnectedEventArgs {
     type Vtable = IRemoteAutomationDisconnectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3149085245, 23952, 23608, [158, 178, 221, 157, 204, 27, 46, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbbb33a3d_5d90_5c38_9eb2_dd9dcc1b2e3f);
 }
 impl ::windows::runtime::RuntimeName for RemoteAutomationDisconnectedEventArgs {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationDisconnectedEventArgs";
@@ -1076,7 +1076,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteAutomationWindow {
 }
 unsafe impl ::windows::runtime::Interface for RemoteAutomationWindow {
     type Vtable = IRemoteAutomationWindow_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2086696585, 18797, 20778, [155, 213, 192, 80, 207, 175, 20, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c607689_496d_512a_9bd5_c050cfaf1428);
 }
 impl ::windows::runtime::RuntimeName for RemoteAutomationWindow {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationWindow";

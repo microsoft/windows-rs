@@ -122,7 +122,7 @@ impl ::core::cmp::Eq for BlackInformation {}
 unsafe impl ::windows::runtime::Abi for BlackInformation {
     type Abi = Self;
 }
-pub const CATID_WcsPlugin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2696151776, 33344, 16479, [138, 22, 138, 91, 77, 242, 240, 221]);
+pub const CATID_WcsPlugin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0b402e0_8240_405f_8a16_8a5b4df2f0dd);
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2266,7 +2266,7 @@ impl IDeviceModelPlugIn {
 }
 unsafe impl ::windows::runtime::Interface for IDeviceModelPlugIn {
     type Vtable = IDeviceModelPlugIn_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(483800181, 1988, 18174, [169, 3, 214, 85, 49, 109, 17, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cd63475_07c4_46fe_a903_d655316d11fd);
 }
 impl ::core::convert::From<IDeviceModelPlugIn> for ::windows::runtime::IUnknown {
     fn from(value: IDeviceModelPlugIn) -> Self {
@@ -2325,7 +2325,7 @@ impl IGamutMapModelPlugIn {
 }
 unsafe impl ::windows::runtime::Interface for IGamutMapModelPlugIn {
     type Vtable = IGamutMapModelPlugIn_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(769130773, 44318, 16886, [162, 25, 164, 244, 181, 131, 209, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2dd80115_ad1e_41f6_a219_a4f4b583d1f9);
 }
 impl ::core::convert::From<IGamutMapModelPlugIn> for ::windows::runtime::IUnknown {
     fn from(value: IGamutMapModelPlugIn) -> Self {

@@ -4,7 +4,7 @@
 pub struct IInstalledVoicesStatic(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInstalledVoicesStatic {
     type Vtable = IInstalledVoicesStatic_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2102554316, 30003, 19519, [133, 190, 136, 140, 43, 174, 235, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d526ecc_7533_4c3f_85be_888c2baeebdc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24,7 +24,7 @@ pub struct IInstalledVoicesStatic_abi(
 pub struct IInstalledVoicesStatic2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInstalledVoicesStatic2 {
     type Vtable = IInstalledVoicesStatic2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1680170798, 13709, 16472, [190, 154, 253, 63, 203, 66, 53, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64255f2e_358d_4058_be9a_fd3fcb423530);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -43,7 +43,7 @@ pub struct IInstalledVoicesStatic2_abi(
 pub struct ISpeechSynthesisStream(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechSynthesisStream {
     type Vtable = ISpeechSynthesisStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2212785811, 9292, 17954, [186, 11, 98, 41, 196, 208, 214, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83e46e93_244c_4622_ba0b_6229c4d0d65d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -62,7 +62,7 @@ pub struct ISpeechSynthesisStream_abi(
 pub struct ISpeechSynthesizer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechSynthesizer {
     type Vtable = ISpeechSynthesizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3466558582, 38900, 19693, [173, 104, 213, 28, 69, 142, 69, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce9f7c76_97f4_4ced_ad68_d51c458e45c6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -85,7 +85,7 @@ pub struct ISpeechSynthesizer_abi(
 pub struct ISpeechSynthesizer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechSynthesizer2 {
     type Vtable = ISpeechSynthesizer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2814766258, 17209, 19818, [187, 248, 199, 164, 241, 84, 76, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7c5ecb2_4339_4d6a_bbf8_c7a4f1544c2e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -103,7 +103,7 @@ pub struct ISpeechSynthesizer2_abi(
 pub struct ISpeechSynthesizerOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechSynthesizerOptions {
     type Vtable = ISpeechSynthesizerOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2699180145, 52285, 17353, [145, 177, 238, 24, 83, 36, 216, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0e23871_cc3d_43c9_91b1_ee185324d83d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -124,7 +124,7 @@ pub struct ISpeechSynthesizerOptions_abi(
 pub struct ISpeechSynthesizerOptions2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechSynthesizerOptions2 {
     type Vtable = ISpeechSynthesizerOptions2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(482276878, 4508, 19437, [177, 24, 210, 80, 195, 162, 87, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cbef60e_119c_4bed_b118_d250c3a25793);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -147,7 +147,7 @@ pub struct ISpeechSynthesizerOptions2_abi(
 pub struct ISpeechSynthesizerOptions3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechSynthesizerOptions3 {
     type Vtable = ISpeechSynthesizerOptions3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1075763319, 36908, 18452, [165, 130, 165, 208, 192, 118, 159, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x401ed877_902c_4814_a582_a5d0c0769fa8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -168,7 +168,7 @@ pub struct ISpeechSynthesizerOptions3_abi(
 pub struct IVoiceInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceInformation {
     type Vtable = IVoiceInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2972178084, 4753, 17924, [170, 156, 131, 19, 64, 131, 53, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb127d6a4_1291_4604_aa9c_83134083352c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -375,7 +375,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechSynthesisStream {
 }
 unsafe impl ::windows::runtime::Interface for SpeechSynthesisStream {
     type Vtable = ISpeechSynthesisStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2212785811, 9292, 17954, [186, 11, 98, 41, 196, 208, 214, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83e46e93_244c_4622_ba0b_6229c4d0d65d);
 }
 impl ::windows::runtime::RuntimeName for SpeechSynthesisStream {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesisStream";
@@ -698,7 +698,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechSynthesizer {
 }
 unsafe impl ::windows::runtime::Interface for SpeechSynthesizer {
     type Vtable = ISpeechSynthesizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3466558582, 38900, 19693, [173, 104, 213, 28, 69, 142, 69, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce9f7c76_97f4_4ced_ad68_d51c458e45c6);
 }
 impl ::windows::runtime::RuntimeName for SpeechSynthesizer {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesizer";
@@ -873,7 +873,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechSynthesizerOptions {
 }
 unsafe impl ::windows::runtime::Interface for SpeechSynthesizerOptions {
     type Vtable = ISpeechSynthesizerOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2699180145, 52285, 17353, [145, 177, 238, 24, 83, 36, 216, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0e23871_cc3d_43c9_91b1_ee185324d83d);
 }
 impl ::windows::runtime::RuntimeName for SpeechSynthesizerOptions {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesizerOptions";
@@ -993,7 +993,7 @@ unsafe impl ::windows::runtime::RuntimeType for VoiceInformation {
 }
 unsafe impl ::windows::runtime::Interface for VoiceInformation {
     type Vtable = IVoiceInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2972178084, 4753, 17924, [170, 156, 131, 19, 64, 131, 53, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb127d6a4_1291_4604_aa9c_83134083352c);
 }
 impl ::windows::runtime::RuntimeName for VoiceInformation {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.VoiceInformation";

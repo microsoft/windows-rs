@@ -53,7 +53,7 @@ unsafe impl ::windows::runtime::RuntimeType for Battery {
 }
 unsafe impl ::windows::runtime::Interface for Battery {
     type Vtable = IBattery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2536168413, 26400, 18178, [164, 118, 185, 211, 138, 0, 112, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x972adbdd_6720_4702_a476_b9d38a0070e3);
 }
 impl ::windows::runtime::RuntimeName for Battery {
     const NAME: &'static str = "Windows.Phone.Devices.Power.Battery";
@@ -105,7 +105,7 @@ unsafe impl ::core::marker::Sync for Battery {}
 pub struct IBattery(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBattery {
     type Vtable = IBattery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2536168413, 26400, 18178, [164, 118, 185, 211, 138, 0, 112, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x972adbdd_6720_4702_a476_b9d38a0070e3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -129,7 +129,7 @@ pub struct IBattery_abi(
 pub struct IBatteryStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBatteryStatics {
     type Vtable = IBatteryStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4210408560, 25449, 4577, [184, 108, 8, 0, 32, 12, 154, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfaf5bc70_6369_11e1_b86c_0800200c9a66);
 }
 #[repr(C)]
 #[doc(hidden)]

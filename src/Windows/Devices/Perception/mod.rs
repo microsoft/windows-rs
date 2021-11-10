@@ -6,7 +6,7 @@ pub mod Provider;
 pub struct IKnownCameraIntrinsicsPropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownCameraIntrinsicsPropertiesStatics {
     type Vtable = IKnownCameraIntrinsicsPropertiesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(146815352, 17274, 19863, [166, 99, 253, 49, 149, 96, 2, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08c03978_437a_4d97_a663_fd3195600249);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27,7 +27,7 @@ pub struct IKnownCameraIntrinsicsPropertiesStatics_abi(
 pub struct IKnownPerceptionColorFrameSourcePropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownPerceptionColorFrameSourcePropertiesStatics {
     type Vtable = IKnownPerceptionColorFrameSourcePropertiesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1576127650, 504, 19079, [184, 89, 213, 229, 183, 225, 222, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de4b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -47,7 +47,7 @@ pub struct IKnownPerceptionColorFrameSourcePropertiesStatics_abi(
 pub struct IKnownPerceptionDepthFrameSourcePropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownPerceptionDepthFrameSourcePropertiesStatics {
     type Vtable = IKnownPerceptionDepthFrameSourcePropertiesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1576127650, 504, 19079, [184, 89, 213, 229, 183, 225, 222, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de4a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -66,7 +66,7 @@ pub struct IKnownPerceptionDepthFrameSourcePropertiesStatics_abi(
 pub struct IKnownPerceptionFrameSourcePropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownPerceptionFrameSourcePropertiesStatics {
     type Vtable = IKnownPerceptionFrameSourcePropertiesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1576127650, 504, 19079, [184, 89, 213, 229, 183, 225, 222, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de47);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -88,7 +88,7 @@ pub struct IKnownPerceptionFrameSourcePropertiesStatics_abi(
 pub struct IKnownPerceptionFrameSourcePropertiesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownPerceptionFrameSourcePropertiesStatics2 {
     type Vtable = IKnownPerceptionFrameSourcePropertiesStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2848483441, 1500, 19021, [138, 92, 164, 236, 242, 107, 188, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9c86871_05dc_4a4d_8a5c_a4ecf26bbc46);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -106,7 +106,7 @@ pub struct IKnownPerceptionFrameSourcePropertiesStatics2_abi(
 pub struct IKnownPerceptionInfraredFrameSourcePropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownPerceptionInfraredFrameSourcePropertiesStatics {
     type Vtable = IKnownPerceptionInfraredFrameSourcePropertiesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1576127650, 504, 19079, [184, 89, 213, 229, 183, 225, 222, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de49);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -130,7 +130,7 @@ pub struct IKnownPerceptionInfraredFrameSourcePropertiesStatics_abi(
 pub struct IKnownPerceptionVideoFrameSourcePropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownPerceptionVideoFrameSourcePropertiesStatics {
     type Vtable = IKnownPerceptionVideoFrameSourcePropertiesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1576127650, 504, 19079, [184, 89, 213, 229, 183, 225, 222, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de48);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -152,7 +152,7 @@ pub struct IKnownPerceptionVideoFrameSourcePropertiesStatics_abi(
 pub struct IKnownPerceptionVideoProfilePropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownPerceptionVideoProfilePropertiesStatics {
     type Vtable = IKnownPerceptionVideoProfilePropertiesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2399724263, 23158, 17379, [161, 58, 218, 61, 145, 169, 239, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f08e2e7_5a76_43e3_a13a_da3d91a9ef98);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -174,7 +174,7 @@ pub struct IKnownPerceptionVideoProfilePropertiesStatics_abi(
 pub struct IPerceptionColorFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionColorFrame {
     type Vtable = IPerceptionColorFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4267840841, 11455, 20372, [152, 97, 248, 23, 234, 49, 119, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe621549_2cbf_4f94_9861_f817ea317747);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -193,7 +193,7 @@ pub struct IPerceptionColorFrame_abi(
 pub struct IPerceptionColorFrameArrivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionColorFrameArrivedEventArgs {
     type Vtable = IPerceptionColorFrameArrivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2410480341, 34551, 19853, [185, 102, 90, 55, 97, 186, 159, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fad02d5_86f7_4d8d_b966_5a3761ba9f59);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -213,7 +213,7 @@ pub struct IPerceptionColorFrameArrivedEventArgs_abi(
 pub struct IPerceptionColorFrameReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionColorFrameReader {
     type Vtable = IPerceptionColorFrameReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1985017198, 47605, 17947, [131, 173, 242, 34, 175, 42, 170, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7650f56e_b9f5_461b_83ad_f222af2aaadc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -238,7 +238,7 @@ pub struct IPerceptionColorFrameReader_abi(
 pub struct IPerceptionColorFrameSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionColorFrameSource {
     type Vtable = IPerceptionColorFrameSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3698178684, 2904, 18061, [156, 161, 109, 176, 76, 192, 71, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc6dba7c_0b58_468d_9ca1_6db04cc0477c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -302,7 +302,7 @@ pub struct IPerceptionColorFrameSource_abi(
 pub struct IPerceptionColorFrameSource2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionColorFrameSource2 {
     type Vtable = IPerceptionColorFrameSource2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4169140453, 22065, 17901, [173, 152, 140, 106, 160, 76, 251, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf88008e5_5631_45ed_ad98_8c6aa04cfb91);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -320,7 +320,7 @@ pub struct IPerceptionColorFrameSource2_abi(
 pub struct IPerceptionColorFrameSourceAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionColorFrameSourceAddedEventArgs {
     type Vtable = IPerceptionColorFrameSourceAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3513513190, 55844, 17452, [187, 213, 85, 84, 155, 91, 148, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd16bf4e6_da24_442c_bbd5_55549b5b94f3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -338,7 +338,7 @@ pub struct IPerceptionColorFrameSourceAddedEventArgs_abi(
 pub struct IPerceptionColorFrameSourceRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionColorFrameSourceRemovedEventArgs {
     type Vtable = IPerceptionColorFrameSourceRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3531078249, 60236, 17135, [186, 79, 40, 143, 97, 92, 147, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd277fa69_eb4c_42ef_ba4f_288f615c93c1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -356,7 +356,7 @@ pub struct IPerceptionColorFrameSourceRemovedEventArgs_abi(
 pub struct IPerceptionColorFrameSourceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionColorFrameSourceStatics {
     type Vtable = IPerceptionColorFrameSourceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1576258722, 504, 19079, [184, 89, 213, 229, 183, 225, 222, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5df3cca2_01f8_4a87_b859_d5e5b7e1de49);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -380,7 +380,7 @@ pub struct IPerceptionColorFrameSourceStatics_abi(
 pub struct IPerceptionColorFrameSourceWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionColorFrameSourceWatcher {
     type Vtable = IPerceptionColorFrameSourceWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2528973714, 58983, 16580, [137, 249, 20, 98, 222, 166, 169, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96bd1392_e667_40c4_89f9_1462dea6a9cc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -417,7 +417,7 @@ pub struct IPerceptionColorFrameSourceWatcher_abi(
 pub struct IPerceptionControlSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionControlSession {
     type Vtable = IPerceptionControlSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2576975443, 23101, 16767, [146, 57, 241, 136, 158, 84, 139, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99998653_5a3d_417f_9239_f1889e548b48);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -440,7 +440,7 @@ pub struct IPerceptionControlSession_abi(
 pub struct IPerceptionDepthCorrelatedCameraIntrinsics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthCorrelatedCameraIntrinsics {
     type Vtable = IPerceptionDepthCorrelatedCameraIntrinsics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1699269121, 34526, 23521, [101, 130, 128, 127, 207, 76, 149, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6548ca01_86de_5be1_6582_807fcf4c95cf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -465,7 +465,7 @@ pub struct IPerceptionDepthCorrelatedCameraIntrinsics_abi(
 pub struct IPerceptionDepthCorrelatedCoordinateMapper(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthCorrelatedCoordinateMapper {
     type Vtable = IPerceptionDepthCorrelatedCoordinateMapper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1531813149, 46582, 18076, [184, 194, 185, 122, 69, 230, 134, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b4d9d1d_b5f6_469c_b8c2_b97a45e6863b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -490,7 +490,7 @@ pub struct IPerceptionDepthCorrelatedCoordinateMapper_abi(
 pub struct IPerceptionDepthFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthFrame {
     type Vtable = IPerceptionDepthFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2742780412, 39174, 20477, [145, 97, 0, 36, 179, 96, 182, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa37b81fc_9906_4ffd_9161_0024b360b657);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -509,7 +509,7 @@ pub struct IPerceptionDepthFrame_abi(
 pub struct IPerceptionDepthFrameArrivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthFrameArrivedEventArgs {
     type Vtable = IPerceptionDepthFrameArrivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1144858034, 45698, 17975, [145, 115, 172, 151, 132, 53, 201, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x443d25b2_b282_4637_9173_ac978435c985);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -529,7 +529,7 @@ pub struct IPerceptionDepthFrameArrivedEventArgs_abi(
 pub struct IPerceptionDepthFrameReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthFrameReader {
     type Vtable = IPerceptionDepthFrameReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2980298911, 10651, 17938, [164, 247, 39, 15, 37, 160, 150, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1a3c09f_299b_4612_a4f7_270f25a096ec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -554,7 +554,7 @@ pub struct IPerceptionDepthFrameReader_abi(
 pub struct IPerceptionDepthFrameSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthFrameSource {
     type Vtable = IPerceptionDepthFrameSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2043950038, 18427, 19953, [191, 201, 240, 29, 64, 189, 153, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79d433d6_47fb_4df1_bfc9_f01d40bd9942);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -618,7 +618,7 @@ pub struct IPerceptionDepthFrameSource_abi(
 pub struct IPerceptionDepthFrameSource2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthFrameSource2 {
     type Vtable = IPerceptionDepthFrameSource2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3822206254, 28204, 20077, [145, 217, 112, 76, 216, 223, 247, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3d23d2e_6e2c_4e6d_91d9_704cd8dff79d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -636,7 +636,7 @@ pub struct IPerceptionDepthFrameSource2_abi(
 pub struct IPerceptionDepthFrameSourceAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthFrameSourceAddedEventArgs {
     type Vtable = IPerceptionDepthFrameSourceAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2477031784, 35832, 17874, [162, 248, 74, 192, 147, 28, 199, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93a48168_8bf8_45d2_a2f8_4ac0931cc7a6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -654,7 +654,7 @@ pub struct IPerceptionDepthFrameSourceAddedEventArgs_abi(
 pub struct IPerceptionDepthFrameSourceRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthFrameSourceRemovedEventArgs {
     type Vtable = IPerceptionDepthFrameSourceRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2696989773, 59756, 19841, [134, 221, 56, 185, 94, 73, 198, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0c0cc4d_e96c_4d81_86dd_38b95e49c6df);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -672,7 +672,7 @@ pub struct IPerceptionDepthFrameSourceRemovedEventArgs_abi(
 pub struct IPerceptionDepthFrameSourceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthFrameSourceStatics {
     type Vtable = IPerceptionDepthFrameSourceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1576258722, 504, 19079, [184, 89, 213, 229, 183, 225, 222, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5df3cca2_01f8_4a87_b859_d5e5b7e1de48);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -696,7 +696,7 @@ pub struct IPerceptionDepthFrameSourceStatics_abi(
 pub struct IPerceptionDepthFrameSourceWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthFrameSourceWatcher {
     type Vtable = IPerceptionDepthFrameSourceWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2014222033, 36098, 19755, [173, 164, 91, 166, 36, 160, 235, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x780e96d1_8d02_4d2b_ada4_5ba624a0eb10);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -733,7 +733,7 @@ pub struct IPerceptionDepthFrameSourceWatcher_abi(
 pub struct IPerceptionFrameSourcePropertiesChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFrameSourcePropertiesChangedEventArgs {
     type Vtable = IPerceptionFrameSourcePropertiesChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1818812520, 48369, 20172, [184, 145, 118, 37, 209, 36, 75, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c68e068_bcf1_4ecc_b891_7625d1244b6b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -753,7 +753,7 @@ pub struct IPerceptionFrameSourcePropertiesChangedEventArgs_abi(
 pub struct IPerceptionFrameSourcePropertyChangeResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFrameSourcePropertyChangeResult {
     type Vtable = IPerceptionFrameSourcePropertyChangeResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(506673418, 15504, 19746, [184, 152, 244, 43, 186, 100, 24, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e33390a_3c90_4d22_b898_f42bba6418ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -772,7 +772,7 @@ pub struct IPerceptionFrameSourcePropertyChangeResult_abi(
 pub struct IPerceptionInfraredFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionInfraredFrame {
     type Vtable = IPerceptionInfraredFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2961728118, 33950, 19578, [138, 230, 181, 96, 100, 83, 33, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0886276_849e_4c7a_8ae6_b56064532153);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -791,7 +791,7 @@ pub struct IPerceptionInfraredFrame_abi(
 pub struct IPerceptionInfraredFrameArrivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionInfraredFrameArrivedEventArgs {
     type Vtable = IPerceptionInfraredFrameArrivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2675440327, 46269, 18519, [157, 80, 190, 142, 240, 117, 218, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f77fac7_b4bd_4857_9d50_be8ef075daef);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -811,7 +811,7 @@ pub struct IPerceptionInfraredFrameArrivedEventArgs_abi(
 pub struct IPerceptionInfraredFrameReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionInfraredFrameReader {
     type Vtable = IPerceptionInfraredFrameReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2036387352, 54171, 20424, [160, 74, 146, 151, 52, 198, 117, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7960ce18_d39b_4fc8_a04a_929734c6756c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -836,7 +836,7 @@ pub struct IPerceptionInfraredFrameReader_abi(
 pub struct IPerceptionInfraredFrameSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionInfraredFrameSource {
     type Vtable = IPerceptionInfraredFrameSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1437632322, 6152, 18766, [158, 48, 157, 42, 123, 232, 247, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55b08742_1808_494e_9e30_9d2a7be8f700);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -900,7 +900,7 @@ pub struct IPerceptionInfraredFrameSource_abi(
 pub struct IPerceptionInfraredFrameSource2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionInfraredFrameSource2 {
     type Vtable = IPerceptionInfraredFrameSource2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3704936344, 19211, 17152, [141, 133, 65, 8, 23, 250, 160, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcd4d798_4b0b_4300_8d85_410817faa032);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -918,7 +918,7 @@ pub struct IPerceptionInfraredFrameSource2_abi(
 pub struct IPerceptionInfraredFrameSourceAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionInfraredFrameSourceAddedEventArgs {
     type Vtable = IPerceptionInfraredFrameSourceAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1832075552, 38350, 18016, [144, 122, 217, 128, 53, 170, 43, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d334120_95ce_4660_907a_d98035aa2b7c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -936,7 +936,7 @@ pub struct IPerceptionInfraredFrameSourceAddedEventArgs_abi(
 pub struct IPerceptionInfraredFrameSourceRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionInfraredFrameSourceRemovedEventArgs {
     type Vtable = IPerceptionInfraredFrameSourceRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3927605361, 31344, 19041, [175, 148, 7, 48, 56, 83, 246, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea1a8071_7a70_4a61_af94_07303853f695);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -954,7 +954,7 @@ pub struct IPerceptionInfraredFrameSourceRemovedEventArgs_abi(
 pub struct IPerceptionInfraredFrameSourceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionInfraredFrameSourceStatics {
     type Vtable = IPerceptionInfraredFrameSourceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1576258722, 504, 19079, [184, 89, 213, 229, 183, 225, 222, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5df3cca2_01f8_4a87_b859_d5e5b7e1de47);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -978,7 +978,7 @@ pub struct IPerceptionInfraredFrameSourceStatics_abi(
 pub struct IPerceptionInfraredFrameSourceWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionInfraredFrameSourceWatcher {
     type Vtable = IPerceptionInfraredFrameSourceWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(943521689, 55052, 17485, [168, 176, 114, 12, 46, 102, 254, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x383cff99_d70c_444d_a8b0_720c2e66fe3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1015,7 +1015,7 @@ pub struct IPerceptionInfraredFrameSourceWatcher_abi(
 pub struct IPerceptionVideoProfile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionVideoProfile {
     type Vtable = IPerceptionVideoProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1970683555, 282, 18190, [130, 37, 111, 5, 173, 226, 86, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75763ea3_011a_470e_8225_6f05ade25648);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1400,7 +1400,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionColorFrame {
 }
 unsafe impl ::windows::runtime::Interface for PerceptionColorFrame {
     type Vtable = IPerceptionColorFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4267840841, 11455, 20372, [152, 97, 248, 23, 234, 49, 119, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe621549_2cbf_4f94_9861_f817ea317747);
 }
 impl ::windows::runtime::RuntimeName for PerceptionColorFrame {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrame";
@@ -1503,7 +1503,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionColorFrameArrivedEvent
 }
 unsafe impl ::windows::runtime::Interface for PerceptionColorFrameArrivedEventArgs {
     type Vtable = IPerceptionColorFrameArrivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2410480341, 34551, 19853, [185, 102, 90, 55, 97, 186, 159, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fad02d5_86f7_4d8d_b966_5a3761ba9f59);
 }
 impl ::windows::runtime::RuntimeName for PerceptionColorFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrameArrivedEventArgs";
@@ -1617,7 +1617,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionColorFrameReader {
 }
 unsafe impl ::windows::runtime::Interface for PerceptionColorFrameReader {
     type Vtable = IPerceptionColorFrameReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1985017198, 47605, 17947, [131, 173, 242, 34, 175, 42, 170, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7650f56e_b9f5_461b_83ad_f222af2aaadc);
 }
 impl ::windows::runtime::RuntimeName for PerceptionColorFrameReader {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrameReader";
@@ -2013,7 +2013,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionColorFrameSource {
 }
 unsafe impl ::windows::runtime::Interface for PerceptionColorFrameSource {
     type Vtable = IPerceptionColorFrameSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3698178684, 2904, 18061, [156, 161, 109, 176, 76, 192, 71, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc6dba7c_0b58_468d_9ca1_6db04cc0477c);
 }
 impl ::windows::runtime::RuntimeName for PerceptionColorFrameSource {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrameSource";
@@ -2080,7 +2080,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionColorFrameSourceAddedE
 }
 unsafe impl ::windows::runtime::Interface for PerceptionColorFrameSourceAddedEventArgs {
     type Vtable = IPerceptionColorFrameSourceAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3513513190, 55844, 17452, [187, 213, 85, 84, 155, 91, 148, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd16bf4e6_da24_442c_bbd5_55549b5b94f3);
 }
 impl ::windows::runtime::RuntimeName for PerceptionColorFrameSourceAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrameSourceAddedEventArgs";
@@ -2147,7 +2147,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionColorFrameSourceRemove
 }
 unsafe impl ::windows::runtime::Interface for PerceptionColorFrameSourceRemovedEventArgs {
     type Vtable = IPerceptionColorFrameSourceRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3531078249, 60236, 17135, [186, 79, 40, 143, 97, 92, 147, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd277fa69_eb4c_42ef_ba4f_288f615c93c1);
 }
 impl ::windows::runtime::RuntimeName for PerceptionColorFrameSourceRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrameSourceRemovedEventArgs";
@@ -2295,7 +2295,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionColorFrameSourceWatche
 }
 unsafe impl ::windows::runtime::Interface for PerceptionColorFrameSourceWatcher {
     type Vtable = IPerceptionColorFrameSourceWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2528973714, 58983, 16580, [137, 249, 20, 98, 222, 166, 169, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96bd1392_e667_40c4_89f9_1462dea6a9cc);
 }
 impl ::windows::runtime::RuntimeName for PerceptionColorFrameSourceWatcher {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrameSourceWatcher";
@@ -2386,7 +2386,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionControlSession {
 }
 unsafe impl ::windows::runtime::Interface for PerceptionControlSession {
     type Vtable = IPerceptionControlSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2576975443, 23101, 16767, [146, 57, 241, 136, 158, 84, 139, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99998653_5a3d_417f_9239_f1889e548b48);
 }
 impl ::windows::runtime::RuntimeName for PerceptionControlSession {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionControlSession";
@@ -2507,7 +2507,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionDepthCorrelatedCameraI
 }
 unsafe impl ::windows::runtime::Interface for PerceptionDepthCorrelatedCameraIntrinsics {
     type Vtable = IPerceptionDepthCorrelatedCameraIntrinsics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1699269121, 34526, 23521, [101, 130, 128, 127, 207, 76, 149, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6548ca01_86de_5be1_6582_807fcf4c95cf);
 }
 impl ::windows::runtime::RuntimeName for PerceptionDepthCorrelatedCameraIntrinsics {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthCorrelatedCameraIntrinsics";
@@ -2602,7 +2602,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionDepthCorrelatedCoordin
 }
 unsafe impl ::windows::runtime::Interface for PerceptionDepthCorrelatedCoordinateMapper {
     type Vtable = IPerceptionDepthCorrelatedCoordinateMapper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1531813149, 46582, 18076, [184, 194, 185, 122, 69, 230, 134, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b4d9d1d_b5f6_469c_b8c2_b97a45e6863b);
 }
 impl ::windows::runtime::RuntimeName for PerceptionDepthCorrelatedCoordinateMapper {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthCorrelatedCoordinateMapper";
@@ -2676,7 +2676,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionDepthFrame {
 }
 unsafe impl ::windows::runtime::Interface for PerceptionDepthFrame {
     type Vtable = IPerceptionDepthFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2742780412, 39174, 20477, [145, 97, 0, 36, 179, 96, 182, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa37b81fc_9906_4ffd_9161_0024b360b657);
 }
 impl ::windows::runtime::RuntimeName for PerceptionDepthFrame {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrame";
@@ -2779,7 +2779,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionDepthFrameArrivedEvent
 }
 unsafe impl ::windows::runtime::Interface for PerceptionDepthFrameArrivedEventArgs {
     type Vtable = IPerceptionDepthFrameArrivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1144858034, 45698, 17975, [145, 115, 172, 151, 132, 53, 201, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x443d25b2_b282_4637_9173_ac978435c985);
 }
 impl ::windows::runtime::RuntimeName for PerceptionDepthFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrameArrivedEventArgs";
@@ -2893,7 +2893,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionDepthFrameReader {
 }
 unsafe impl ::windows::runtime::Interface for PerceptionDepthFrameReader {
     type Vtable = IPerceptionDepthFrameReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2980298911, 10651, 17938, [164, 247, 39, 15, 37, 160, 150, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1a3c09f_299b_4612_a4f7_270f25a096ec);
 }
 impl ::windows::runtime::RuntimeName for PerceptionDepthFrameReader {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrameReader";
@@ -3289,7 +3289,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionDepthFrameSource {
 }
 unsafe impl ::windows::runtime::Interface for PerceptionDepthFrameSource {
     type Vtable = IPerceptionDepthFrameSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2043950038, 18427, 19953, [191, 201, 240, 29, 64, 189, 153, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79d433d6_47fb_4df1_bfc9_f01d40bd9942);
 }
 impl ::windows::runtime::RuntimeName for PerceptionDepthFrameSource {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrameSource";
@@ -3356,7 +3356,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionDepthFrameSourceAddedE
 }
 unsafe impl ::windows::runtime::Interface for PerceptionDepthFrameSourceAddedEventArgs {
     type Vtable = IPerceptionDepthFrameSourceAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2477031784, 35832, 17874, [162, 248, 74, 192, 147, 28, 199, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93a48168_8bf8_45d2_a2f8_4ac0931cc7a6);
 }
 impl ::windows::runtime::RuntimeName for PerceptionDepthFrameSourceAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrameSourceAddedEventArgs";
@@ -3423,7 +3423,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionDepthFrameSourceRemove
 }
 unsafe impl ::windows::runtime::Interface for PerceptionDepthFrameSourceRemovedEventArgs {
     type Vtable = IPerceptionDepthFrameSourceRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2696989773, 59756, 19841, [134, 221, 56, 185, 94, 73, 198, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0c0cc4d_e96c_4d81_86dd_38b95e49c6df);
 }
 impl ::windows::runtime::RuntimeName for PerceptionDepthFrameSourceRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrameSourceRemovedEventArgs";
@@ -3571,7 +3571,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionDepthFrameSourceWatche
 }
 unsafe impl ::windows::runtime::Interface for PerceptionDepthFrameSourceWatcher {
     type Vtable = IPerceptionDepthFrameSourceWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2014222033, 36098, 19755, [173, 164, 91, 166, 36, 160, 235, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x780e96d1_8d02_4d2b_ada4_5ba624a0eb10);
 }
 impl ::windows::runtime::RuntimeName for PerceptionDepthFrameSourceWatcher {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrameSourceWatcher";
@@ -3672,7 +3672,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionFrameSourcePropertiesC
 }
 unsafe impl ::windows::runtime::Interface for PerceptionFrameSourcePropertiesChangedEventArgs {
     type Vtable = IPerceptionFrameSourcePropertiesChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1818812520, 48369, 20172, [184, 145, 118, 37, 209, 36, 75, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c68e068_bcf1_4ecc_b891_7625d1244b6b);
 }
 impl ::windows::runtime::RuntimeName for PerceptionFrameSourcePropertiesChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionFrameSourcePropertiesChangedEventArgs";
@@ -3748,7 +3748,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionFrameSourcePropertyCha
 }
 unsafe impl ::windows::runtime::Interface for PerceptionFrameSourcePropertyChangeResult {
     type Vtable = IPerceptionFrameSourcePropertyChangeResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(506673418, 15504, 19746, [184, 152, 244, 43, 186, 100, 24, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e33390a_3c90_4d22_b898_f42bba6418ff);
 }
 impl ::windows::runtime::RuntimeName for PerceptionFrameSourcePropertyChangeResult {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionFrameSourcePropertyChangeResult";
@@ -3848,7 +3848,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionInfraredFrame {
 }
 unsafe impl ::windows::runtime::Interface for PerceptionInfraredFrame {
     type Vtable = IPerceptionInfraredFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2961728118, 33950, 19578, [138, 230, 181, 96, 100, 83, 33, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0886276_849e_4c7a_8ae6_b56064532153);
 }
 impl ::windows::runtime::RuntimeName for PerceptionInfraredFrame {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrame";
@@ -3951,7 +3951,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionInfraredFrameArrivedEv
 }
 unsafe impl ::windows::runtime::Interface for PerceptionInfraredFrameArrivedEventArgs {
     type Vtable = IPerceptionInfraredFrameArrivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2675440327, 46269, 18519, [157, 80, 190, 142, 240, 117, 218, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f77fac7_b4bd_4857_9d50_be8ef075daef);
 }
 impl ::windows::runtime::RuntimeName for PerceptionInfraredFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrameArrivedEventArgs";
@@ -4065,7 +4065,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionInfraredFrameReader {
 }
 unsafe impl ::windows::runtime::Interface for PerceptionInfraredFrameReader {
     type Vtable = IPerceptionInfraredFrameReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2036387352, 54171, 20424, [160, 74, 146, 151, 52, 198, 117, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7960ce18_d39b_4fc8_a04a_929734c6756c);
 }
 impl ::windows::runtime::RuntimeName for PerceptionInfraredFrameReader {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrameReader";
@@ -4461,7 +4461,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionInfraredFrameSource {
 }
 unsafe impl ::windows::runtime::Interface for PerceptionInfraredFrameSource {
     type Vtable = IPerceptionInfraredFrameSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1437632322, 6152, 18766, [158, 48, 157, 42, 123, 232, 247, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55b08742_1808_494e_9e30_9d2a7be8f700);
 }
 impl ::windows::runtime::RuntimeName for PerceptionInfraredFrameSource {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrameSource";
@@ -4528,7 +4528,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionInfraredFrameSourceAdd
 }
 unsafe impl ::windows::runtime::Interface for PerceptionInfraredFrameSourceAddedEventArgs {
     type Vtable = IPerceptionInfraredFrameSourceAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1832075552, 38350, 18016, [144, 122, 217, 128, 53, 170, 43, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d334120_95ce_4660_907a_d98035aa2b7c);
 }
 impl ::windows::runtime::RuntimeName for PerceptionInfraredFrameSourceAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrameSourceAddedEventArgs";
@@ -4595,7 +4595,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionInfraredFrameSourceRem
 }
 unsafe impl ::windows::runtime::Interface for PerceptionInfraredFrameSourceRemovedEventArgs {
     type Vtable = IPerceptionInfraredFrameSourceRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3927605361, 31344, 19041, [175, 148, 7, 48, 56, 83, 246, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea1a8071_7a70_4a61_af94_07303853f695);
 }
 impl ::windows::runtime::RuntimeName for PerceptionInfraredFrameSourceRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrameSourceRemovedEventArgs";
@@ -4743,7 +4743,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionInfraredFrameSourceWat
 }
 unsafe impl ::windows::runtime::Interface for PerceptionInfraredFrameSourceWatcher {
     type Vtable = IPerceptionInfraredFrameSourceWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(943521689, 55052, 17485, [168, 176, 114, 12, 46, 102, 254, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x383cff99_d70c_444d_a8b0_720c2e66fe3b);
 }
 impl ::windows::runtime::RuntimeName for PerceptionInfraredFrameSourceWatcher {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrameSourceWatcher";
@@ -4858,7 +4858,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionVideoProfile {
 }
 unsafe impl ::windows::runtime::Interface for PerceptionVideoProfile {
     type Vtable = IPerceptionVideoProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1970683555, 282, 18190, [130, 37, 111, 5, 173, 226, 86, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75763ea3_011a_470e_8225_6f05ade25648);
 }
 impl ::windows::runtime::RuntimeName for PerceptionVideoProfile {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionVideoProfile";

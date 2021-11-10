@@ -106,7 +106,7 @@ impl ICompositionFramePresentStatistics {
 }
 unsafe impl ::windows::runtime::Interface for ICompositionFramePresentStatistics {
     type Vtable = ICompositionFramePresentStatistics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2873217319, 49409, 19466, [145, 29, 249, 242, 233, 208, 142, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab41d127_c101_4c0a_911d_f9f2e9d08e64);
 }
 impl ::core::convert::From<ICompositionFramePresentStatistics> for ::windows::runtime::IUnknown {
     fn from(value: ICompositionFramePresentStatistics) -> Self {
@@ -204,7 +204,7 @@ impl IIndependentFlipFramePresentStatistics {
 }
 unsafe impl ::windows::runtime::Interface for IIndependentFlipFramePresentStatistics {
     type Vtable = IIndependentFlipFramePresentStatistics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2358492711, 44436, 19872, [143, 212, 36, 19, 19, 45, 18, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c93be27_ad94_4da0_8fd4_2413132d124e);
 }
 impl ::core::convert::From<IIndependentFlipFramePresentStatistics> for ::windows::runtime::IUnknown {
     fn from(value: IIndependentFlipFramePresentStatistics) -> Self {
@@ -277,7 +277,7 @@ impl IPresentStatistics {
 }
 unsafe impl ::windows::runtime::Interface for IPresentStatistics {
     type Vtable = IPresentStatistics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3024849882, 29314, 18781, [157, 215, 206, 173, 216, 180, 187, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb44b8bda_7282_495d_9dd7_ceadd8b4bb86);
 }
 impl ::core::convert::From<IPresentStatistics> for ::windows::runtime::IUnknown {
     fn from(value: IPresentStatistics) -> Self {
@@ -332,7 +332,7 @@ impl IPresentStatusPresentStatistics {
 }
 unsafe impl ::windows::runtime::Interface for IPresentStatusPresentStatistics {
     type Vtable = IPresentStatusPresentStatistics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3387763265, 31179, 17246, [150, 78, 200, 85, 48, 85, 66, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9ed2a41_79cb_435e_964e_c8553055420c);
 }
 impl ::core::convert::From<IPresentStatusPresentStatistics> for ::windows::runtime::IUnknown {
     fn from(value: IPresentStatusPresentStatistics) -> Self {
@@ -404,7 +404,7 @@ impl IPresentationBuffer {
 }
 unsafe impl ::windows::runtime::Interface for IPresentationBuffer {
     type Vtable = IPresentationBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(773946682, 23227, 16696, [154, 19, 167, 117, 89, 60, 137, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e217d3a_5abb_4138_9a13_a775593c89ca);
 }
 impl ::core::convert::From<IPresentationBuffer> for ::windows::runtime::IUnknown {
     fn from(value: IPresentationBuffer) -> Self {
@@ -448,7 +448,7 @@ impl IPresentationContent {
 }
 unsafe impl ::windows::runtime::Interface for IPresentationContent {
     type Vtable = IPresentationContent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1449704313, 15758, 16732, [178, 21, 243, 128, 32, 242, 210, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5668bb79_3d8e_415c_b215_f38020f2d252);
 }
 impl ::core::convert::From<IPresentationContent> for ::windows::runtime::IUnknown {
     fn from(value: IPresentationContent) -> Self {
@@ -499,7 +499,7 @@ impl IPresentationFactory {
 }
 unsafe impl ::windows::runtime::Interface for IPresentationFactory {
     type Vtable = IPresentationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2410904408, 7540, 20324, [164, 156, 31, 151, 168, 10, 46, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fb37b58_1d74_4f64_a49c_1f97a80a2ec0);
 }
 impl ::core::convert::From<IPresentationFactory> for ::windows::runtime::IUnknown {
     fn from(value: IPresentationFactory) -> Self {
@@ -599,7 +599,7 @@ impl IPresentationManager {
 }
 unsafe impl ::windows::runtime::Interface for IPresentationManager {
     type Vtable = IPresentationManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4216729474, 25234, 18186, [136, 177, 132, 54, 97, 231, 242, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb562f82_6292_470a_88b1_843661e7f20c);
 }
 impl ::core::convert::From<IPresentationManager> for ::windows::runtime::IUnknown {
     fn from(value: IPresentationManager) -> Self {
@@ -691,7 +691,7 @@ impl IPresentationSurface {
 }
 unsafe impl ::windows::runtime::Interface for IPresentationSurface {
     type Vtable = IPresentationSurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2506559739, 59968, 20154, [163, 235, 67, 117, 160, 235, 78, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x956710fb_ea40_4eba_a3eb_4375a0eb4edc);
 }
 impl ::core::convert::From<IPresentationSurface> for ::windows::runtime::IUnknown {
     fn from(value: IPresentationSurface) -> Self {

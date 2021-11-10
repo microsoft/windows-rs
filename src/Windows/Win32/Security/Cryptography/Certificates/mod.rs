@@ -202,48 +202,48 @@ pub const CA_DISP_REVOKED: u32 = 2u32;
 pub const CA_DISP_UNDER_SUBMISSION: u32 = 5u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CA_DISP_VALID: u32 = 3u32;
-pub const CAlternativeName: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821395, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CAlternativeNames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821396, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CBinaryConverter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821378, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+pub const CAlternativeName: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2013_217d_11da_b2a4_000e7bbb2b09);
+pub const CAlternativeNames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2014_217d_11da_b2a4_000e7bbb2b09);
+pub const CBinaryConverter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2002_217d_11da_b2a4_000e7bbb2b09);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CCLOCKSKEWMINUTESDEFAULT: u32 = 10u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CC_UIPICKCONFIGSKIPLOCALCA: u32 = 5u32;
-pub const CCertAdmin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(938130160, 32694, 4560, [136, 23, 0, 160, 201, 3, 184, 60]);
-pub const CCertConfig: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(925879864, 17188, 4560, [136, 16, 0, 160, 201, 3, 184, 60]);
-pub const CCertEncodeAltName: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(486296794, 4721, 4561, [155, 212, 0, 192, 79, 182, 131, 250]);
-pub const CCertEncodeBitString: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1835744472, 4728, 4561, [155, 212, 0, 192, 79, 182, 131, 250]);
-pub const CCertEncodeCRLDistInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(33185952, 48127, 4560, [136, 37, 0, 160, 201, 3, 184, 60]);
-pub const CCertEncodeDateArray: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(807368624, 42096, 4560, [136, 33, 0, 160, 201, 3, 184, 60]);
-pub const CCertEncodeLongArray: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1309048992, 41122, 4560, [136, 33, 0, 160, 201, 3, 184, 60]);
-pub const CCertEncodeStringArray: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(430403552, 29844, 4560, [136, 22, 0, 160, 201, 3, 184, 60]);
-pub const CCertGetConfig: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3335276976, 52759, 4560, [136, 51, 0, 160, 201, 3, 184, 60]);
-pub const CCertProperties: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821423, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCertProperty: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821422, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCertPropertyArchived: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821431, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCertPropertyArchivedKeyHash: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821435, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCertPropertyAutoEnroll: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821426, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCertPropertyBackedUp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821432, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCertPropertyDescription: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821425, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCertPropertyEnrollment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821433, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCertPropertyEnrollmentPolicyServer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821452, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCertPropertyFriendlyName: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821424, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCertPropertyKeyProvInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821430, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCertPropertyRenewal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821434, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCertPropertyRequestOriginator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821427, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCertPropertySHA1Hash: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821428, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCertRequest: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2561668080, 21796, 4560, [136, 18, 0, 160, 201, 3, 184, 60]);
-pub const CCertServerExit: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1279942208, 29484, 4560, [136, 22, 0, 160, 201, 3, 184, 60]);
-pub const CCertServerPolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2852129062, 65470, 4559, [136, 0, 0, 160, 201, 3, 184, 60]);
-pub const CCertView: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2704084858, 7812, 4561, [155, 214, 0, 192, 79, 182, 131, 250]);
-pub const CCertificateAttestationChallenge: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(325234081, 60256, 17770, [182, 225, 17, 128, 80, 219, 116, 27]);
-pub const CCertificatePolicies: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821407, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCertificatePolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821406, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCryptAttribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821420, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCryptAttributes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821421, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCspInformation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821383, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCspInformations: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821384, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CCspStatus: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821385, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+pub const CCertAdmin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x37eabaf0_7fb6_11d0_8817_00a0c903b83c);
+pub const CCertConfig: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x372fce38_4324_11d0_8810_00a0c903b83c);
+pub const CCertEncodeAltName: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cfc4cda_1271_11d1_9bd4_00c04fb683fa);
+pub const CCertEncodeBitString: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d6b3cd8_1278_11d1_9bd4_00c04fb683fa);
+pub const CCertEncodeCRLDistInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01fa60a0_bbff_11d0_8825_00a0c903b83c);
+pub const CCertEncodeDateArray: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x301f77b0_a470_11d0_8821_00a0c903b83c);
+pub const CCertEncodeLongArray: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e0680a0_a0a2_11d0_8821_00a0c903b83c);
+pub const CCertEncodeStringArray: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19a76fe0_7494_11d0_8816_00a0c903b83c);
+pub const CCertGetConfig: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6cc49b0_ce17_11d0_8833_00a0c903b83c);
+pub const CCertProperties: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e202f_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertProperty: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e202e_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyArchived: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2037_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyArchivedKeyHash: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e203b_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyAutoEnroll: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2032_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyBackedUp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2038_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyDescription: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2031_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyEnrollment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2039_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyEnrollmentPolicyServer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e204c_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyFriendlyName: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2030_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyKeyProvInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2036_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyRenewal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e203a_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyRequestOriginator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2033_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertySHA1Hash: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2034_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertRequest: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98aff3f0_5524_11d0_8812_00a0c903b83c);
+pub const CCertServerExit: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c4a5e40_732c_11d0_8816_00a0c903b83c);
+pub const CCertServerPolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa000926_ffbe_11cf_8800_00a0c903b83c);
+pub const CCertView: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa12d0f7a_1e84_11d1_9bd6_00c04fb683fa);
+pub const CCertificateAttestationChallenge: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1362ada1_eb60_456a_b6e1_118050db741b);
+pub const CCertificatePolicies: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e201f_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertificatePolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e201e_217d_11da_b2a4_000e7bbb2b09);
+pub const CCryptAttribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e202c_217d_11da_b2a4_000e7bbb2b09);
+pub const CCryptAttributes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e202d_217d_11da_b2a4_000e7bbb2b09);
+pub const CCspInformation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2007_217d_11da_b2a4_000e7bbb2b09);
+pub const CCspInformations: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2008_217d_11da_b2a4_000e7bbb2b09);
+pub const CCspStatus: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2009_217d_11da_b2a4_000e7bbb2b09);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -1327,14 +1327,14 @@ impl ::core::ops::Not for CERT_VIEW_SEEK_OPERATOR_FLAGS {
         Self(self.0.not())
     }
 }
-pub const CEnroll: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1140388489, 31264, 4560, [143, 6, 0, 192, 79, 194, 149, 225]);
-pub const CEnroll2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(309762276, 59184, 20060, [162, 177, 33, 73, 10, 112, 200, 161]);
+pub const CEnroll: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43f8f289_7a20_11d0_8f06_00c04fc295e1);
+pub const CEnroll2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x127698e4_e730_4e5c_a2b1_21490a70c8a1);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CMM_READONLY: u32 = 2u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CMM_REFRESHONLY: u32 = 1u32;
-pub const CObjectId: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821376, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CObjectIds: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821377, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+pub const CObjectId: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2000_217d_11da_b2a4_000e7bbb2b09);
+pub const CObjectIds: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2001_217d_11da_b2a4_000e7bbb2b09);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CPF_BADURL_ERROR: u32 = 32u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -1363,8 +1363,8 @@ pub const CPF_POSTPONED_BASE_LDAP_ERROR: u32 = 4096u32;
 pub const CPF_SHADOW: u32 = 8u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CPF_SIGNATURE_ERROR: u32 = 128u32;
-pub const CPolicyQualifier: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821404, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CPolicyQualifiers: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821405, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+pub const CPolicyQualifier: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e201c_217d_11da_b2a4_000e7bbb2b09);
+pub const CPolicyQualifiers: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e201d_217d_11da_b2a4_000e7bbb2b09);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CRLF_ALLOW_REQUEST_ATTRIBUTE_SUBJECT: u32 = 65536u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -1839,9 +1839,9 @@ pub const CSVER_MINOR_WIN7: u32 = 1u32;
 pub const CSVER_MINOR_WIN8: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CSVER_MINOR_WINBLUE: u32 = 1u32;
-pub const CSignerCertificate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821437, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CSmimeCapabilities: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821402, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CSmimeCapability: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821401, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+pub const CSignerCertificate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e203d_217d_11da_b2a4_000e7bbb2b09);
+pub const CSmimeCapabilities: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e201a_217d_11da_b2a4_000e7bbb2b09);
+pub const CSmimeCapability: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2019_217d_11da_b2a4_000e7bbb2b09);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CVIEWAGEMINUTESDEFAULT: u32 = 16u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -1964,51 +1964,51 @@ pub const CV_OUT_HEXRAW: u32 = 12u32;
 pub const CV_OUT_NOCR: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CV_OUT_NOCRLF: u32 = 1073741824u32;
-pub const CX500DistinguishedName: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821379, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821410, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509AttributeArchiveKey: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821415, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509AttributeArchiveKeyHash: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821416, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509AttributeClientId: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821413, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509AttributeCspProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821419, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509AttributeExtensions: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821412, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509AttributeOSVersion: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821418, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509AttributeRenewalCertificate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821414, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509Attributes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821411, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509CertificateRequestCertificate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821443, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509CertificateRequestCmc: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821445, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509CertificateRequestPkcs10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821442, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509CertificateRequestPkcs7: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821444, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509CertificateRevocationList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821472, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509CertificateRevocationListEntries: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821471, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509CertificateRevocationListEntry: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821470, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509CertificateTemplateADWritable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2201412387, 11882, 18948, [147, 124, 84, 143, 104, 24, 57, 179]);
-pub const CX509EndorsementKey: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(295852573, 47523, 20189, [175, 131, 59, 89, 173, 190, 211, 97]);
-pub const CX509Enrollment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821446, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509EnrollmentHelper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821456, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509EnrollmentPolicyActiveDirectory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2448658471, 8575, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509EnrollmentPolicyWebService: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2448658472, 8575, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509EnrollmentWebClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821449, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509Extension: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821389, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509ExtensionAlternativeNames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821397, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509ExtensionAuthorityKeyIdentifier: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821400, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509ExtensionBasicConstraints: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821398, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509ExtensionCertificatePolicies: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821408, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509ExtensionEnhancedKeyUsage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821392, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509ExtensionKeyUsage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821391, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509ExtensionMSApplicationPolicies: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821409, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509ExtensionSmimeCapabilities: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821403, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509ExtensionSubjectKeyIdentifier: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821399, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509ExtensionTemplate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821394, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509ExtensionTemplateName: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821393, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509Extensions: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821390, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509MachineEnrollmentFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821457, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509NameValuePair: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821439, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509PolicyServerListManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2448658473, 8575, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509PolicyServerUrl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2448658474, 8575, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509PrivateKey: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821388, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509PublicKey: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821387, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509SCEPEnrollment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821473, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
-pub const CX509SCEPEnrollmentHelper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821474, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+pub const CX500DistinguishedName: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2003_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2022_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509AttributeArchiveKey: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2027_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509AttributeArchiveKeyHash: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2028_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509AttributeClientId: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2025_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509AttributeCspProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e202b_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509AttributeExtensions: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2024_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509AttributeOSVersion: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e202a_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509AttributeRenewalCertificate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2026_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509Attributes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2023_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509CertificateRequestCertificate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2043_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509CertificateRequestCmc: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2045_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509CertificateRequestPkcs10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2042_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509CertificateRequestPkcs7: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2044_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509CertificateRevocationList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2060_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509CertificateRevocationListEntries: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e205f_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509CertificateRevocationListEntry: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e205e_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509CertificateTemplateADWritable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8336e323_2e6a_4a04_937c_548f681839b3);
+pub const CX509EndorsementKey: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11a25a1d_b9a3_4edd_af83_3b59adbed361);
+pub const CX509Enrollment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2046_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509EnrollmentHelper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2050_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509EnrollmentPolicyActiveDirectory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91f39027_217f_11da_b2a4_000e7bbb2b09);
+pub const CX509EnrollmentPolicyWebService: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91f39028_217f_11da_b2a4_000e7bbb2b09);
+pub const CX509EnrollmentWebClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2049_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509Extension: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e200d_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionAlternativeNames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2015_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionAuthorityKeyIdentifier: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2018_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionBasicConstraints: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2016_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionCertificatePolicies: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2020_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionEnhancedKeyUsage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2010_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionKeyUsage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e200f_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionMSApplicationPolicies: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2021_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionSmimeCapabilities: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e201b_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionSubjectKeyIdentifier: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2017_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionTemplate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2012_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionTemplateName: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2011_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509Extensions: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e200e_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509MachineEnrollmentFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2051_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509NameValuePair: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e203f_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509PolicyServerListManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91f39029_217f_11da_b2a4_000e7bbb2b09);
+pub const CX509PolicyServerUrl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91f3902a_217f_11da_b2a4_000e7bbb2b09);
+pub const CX509PrivateKey: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e200c_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509PublicKey: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e200b_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509SCEPEnrollment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2061_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509SCEPEnrollmentHelper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e2062_217d_11da_b2a4_000e7bbb2b09);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[inline]
 pub unsafe fn CertSrvBackupClose(hbc: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -2892,7 +2892,7 @@ impl IAlternativeName {
 }
 unsafe impl ::windows::runtime::Interface for IAlternativeName {
     type Vtable = IAlternativeName_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692435, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab313_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IAlternativeName> for ::windows::runtime::IUnknown {
     fn from(value: IAlternativeName) -> Self {
@@ -3000,7 +3000,7 @@ impl IAlternativeNames {
 }
 unsafe impl ::windows::runtime::Interface for IAlternativeNames {
     type Vtable = IAlternativeNames_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692436, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab314_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IAlternativeNames> for ::windows::runtime::IUnknown {
     fn from(value: IAlternativeNames) -> Self {
@@ -3093,7 +3093,7 @@ impl IBinaryConverter {
 }
 unsafe impl ::windows::runtime::Interface for IBinaryConverter {
     type Vtable = IBinaryConverter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692418, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab302_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IBinaryConverter> for ::windows::runtime::IUnknown {
     fn from(value: IBinaryConverter) -> Self {
@@ -3230,7 +3230,7 @@ impl IBinaryConverter2 {
 }
 unsafe impl ::windows::runtime::Interface for IBinaryConverter2 {
     type Vtable = IBinaryConverter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2373527732, 19991, 17037, [154, 23, 114, 141, 240, 13, 27, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d7928b4_4e17_428d_9a17_728df00d1b2b);
 }
 impl ::core::convert::From<IBinaryConverter2> for ::windows::runtime::IUnknown {
     fn from(value: IBinaryConverter2) -> Self {
@@ -3621,7 +3621,7 @@ impl ICEnroll {
 }
 unsafe impl ::windows::runtime::Interface for ICEnroll {
     type Vtable = ICEnroll_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1140388488, 31264, 4560, [143, 6, 0, 192, 79, 194, 149, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43f8f288_7a20_11d0_8f06_00c04fc295e1);
 }
 impl ::core::convert::From<ICEnroll> for ::windows::runtime::IUnknown {
     fn from(value: ICEnroll) -> Self {
@@ -4142,7 +4142,7 @@ impl ICEnroll2 {
 }
 unsafe impl ::windows::runtime::Interface for ICEnroll2 {
     type Vtable = ICEnroll2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1884071728, 51467, 4561, [155, 236, 0, 192, 79, 194, 149, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x704ca730_c90b_11d1_9bec_00c04fc295e1);
 }
 impl ::core::convert::From<ICEnroll2> for ::windows::runtime::IUnknown {
     fn from(value: ICEnroll2) -> Self {
@@ -4768,7 +4768,7 @@ impl ICEnroll3 {
 }
 unsafe impl ::windows::runtime::Interface for ICEnroll3 {
     type Vtable = ICEnroll3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3263966613, 47070, 4562, [164, 33, 0, 192, 79, 121, 254, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc28c2d95_b7de_11d2_a421_00c04f79fe8e);
 }
 impl ::core::convert::From<ICEnroll3> for ::windows::runtime::IUnknown {
     fn from(value: ICEnroll3) -> Self {
@@ -5610,7 +5610,7 @@ impl ICEnroll4 {
 }
 unsafe impl ::windows::runtime::Interface for ICEnroll4 {
     type Vtable = ICEnroll4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3253803146, 11957, 19072, [132, 27, 126, 114, 154, 53, 109, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1f1188a_2eb5_4a80_841b_7e729a356d90);
 }
 impl ::core::convert::From<ICEnroll4> for ::windows::runtime::IUnknown {
     fn from(value: ICEnroll4) -> Self {
@@ -5988,7 +5988,7 @@ impl ICertAdmin {
 }
 unsafe impl ::windows::runtime::Interface for ICertAdmin {
     type Vtable = ICertAdmin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(887056720, 32694, 4560, [136, 23, 0, 160, 201, 3, 184, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34df6950_7fb6_11d0_8817_00a0c903b83c);
 }
 impl ::core::convert::From<ICertAdmin> for ::windows::runtime::IUnknown {
     fn from(value: ICertAdmin) -> Self {
@@ -6225,7 +6225,7 @@ impl ICertAdmin2 {
 }
 unsafe impl ::windows::runtime::Interface for ICertAdmin2 {
     type Vtable = ICertAdmin2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4156795969, 47310, 20404, [170, 88, 61, 29, 192, 227, 107, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7c3ac41_b8ce_4fb4_aa58_3d1dc0e36b39);
 }
 impl ::core::convert::From<ICertAdmin2> for ::windows::runtime::IUnknown {
     fn from(value: ICertAdmin2) -> Self {
@@ -6380,7 +6380,7 @@ impl ICertConfig {
 }
 unsafe impl ::windows::runtime::Interface for ICertConfig {
     type Vtable = ICertConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(925879860, 17188, 4560, [136, 16, 0, 160, 201, 3, 184, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x372fce34_4324_11d0_8810_00a0c903b83c);
 }
 impl ::core::convert::From<ICertConfig> for ::windows::runtime::IUnknown {
     fn from(value: ICertConfig) -> Self {
@@ -6514,7 +6514,7 @@ impl ICertConfig2 {
 }
 unsafe impl ::windows::runtime::Interface for ICertConfig2 {
     type Vtable = ICertConfig2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2048454110, 32376, 16739, [141, 237, 120, 226, 201, 206, 233, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a18edde_7e78_4163_8ded_78e2c9cee924);
 }
 impl ::core::convert::From<ICertConfig2> for ::windows::runtime::IUnknown {
     fn from(value: ICertConfig2) -> Self {
@@ -6647,7 +6647,7 @@ impl ICertEncodeAltName {
 }
 unsafe impl ::windows::runtime::Interface for ICertEncodeAltName {
     type Vtable = ICertEncodeAltName_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(479890544, 4721, 4561, [155, 212, 0, 192, 79, 182, 131, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c9a8c70_1271_11d1_9bd4_00c04fb683fa);
 }
 impl ::core::convert::From<ICertEncodeAltName> for ::windows::runtime::IUnknown {
     fn from(value: ICertEncodeAltName) -> Self {
@@ -6817,7 +6817,7 @@ impl ICertEncodeAltName2 {
 }
 unsafe impl ::windows::runtime::Interface for ICertEncodeAltName2 {
     type Vtable = ICertEncodeAltName2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4135575927, 24305, 17717, [180, 206, 41, 223, 21, 226, 224, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf67fe177_5ef1_4535_b4ce_29df15e2e0c3);
 }
 impl ::core::convert::From<ICertEncodeAltName2> for ::windows::runtime::IUnknown {
     fn from(value: ICertEncodeAltName2) -> Self {
@@ -6947,7 +6947,7 @@ impl ICertEncodeBitString {
 }
 unsafe impl ::windows::runtime::Interface for ICertEncodeBitString {
     type Vtable = ICertEncodeBitString_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1840588222, 4728, 4561, [155, 212, 0, 192, 79, 182, 131, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6db525be_1278_11d1_9bd4_00c04fb683fa);
 }
 impl ::core::convert::From<ICertEncodeBitString> for ::windows::runtime::IUnknown {
     fn from(value: ICertEncodeBitString) -> Self {
@@ -7094,7 +7094,7 @@ impl ICertEncodeBitString2 {
 }
 unsafe impl ::windows::runtime::Interface for ICertEncodeBitString2 {
     type Vtable = ICertEncodeBitString2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3765491431, 9199, 19922, [130, 66, 235, 217, 201, 40, 203, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe070d6e7_23ef_4dd2_8242_ebd9c928cb30);
 }
 impl ::core::convert::From<ICertEncodeBitString2> for ::windows::runtime::IUnknown {
     fn from(value: ICertEncodeBitString2) -> Self {
@@ -7241,7 +7241,7 @@ impl ICertEncodeCRLDistInfo {
 }
 unsafe impl ::windows::runtime::Interface for ICertEncodeCRLDistInfo {
     type Vtable = ICertEncodeCRLDistInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(26576448, 48127, 4560, [136, 37, 0, 160, 201, 3, 184, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01958640_bbff_11d0_8825_00a0c903b83c);
 }
 impl ::core::convert::From<ICertEncodeCRLDistInfo> for ::windows::runtime::IUnknown {
     fn from(value: ICertEncodeCRLDistInfo) -> Self {
@@ -7411,7 +7411,7 @@ impl ICertEncodeCRLDistInfo2 {
 }
 unsafe impl ::windows::runtime::Interface for ICertEncodeCRLDistInfo2 {
     type Vtable = ICertEncodeCRLDistInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3022478667, 15920, 17519, [173, 54, 9, 208, 49, 32, 176, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4275d4b_3e30_446f_ad36_09d03120b078);
 }
 impl ::core::convert::From<ICertEncodeCRLDistInfo2> for ::windows::runtime::IUnknown {
     fn from(value: ICertEncodeCRLDistInfo2) -> Self {
@@ -7546,7 +7546,7 @@ impl ICertEncodeDateArray {
 }
 unsafe impl ::windows::runtime::Interface for ICertEncodeDateArray {
     type Vtable = ICertEncodeDateArray_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(798255520, 42096, 4560, [136, 33, 0, 160, 201, 3, 184, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f9469a0_a470_11d0_8821_00a0c903b83c);
 }
 impl ::core::convert::From<ICertEncodeDateArray> for ::windows::runtime::IUnknown {
     fn from(value: ICertEncodeDateArray) -> Self {
@@ -7695,7 +7695,7 @@ impl ICertEncodeDateArray2 {
 }
 unsafe impl ::windows::runtime::Interface for ICertEncodeDateArray2 {
     type Vtable = ICertEncodeDateArray2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2577722805, 11150, 17549, [191, 149, 187, 168, 215, 120, 157, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99a4edb5_2b8e_448d_bf95_bba8d7789dc8);
 }
 impl ::core::convert::From<ICertEncodeDateArray2> for ::windows::runtime::IUnknown {
     fn from(value: ICertEncodeDateArray2) -> Self {
@@ -7825,7 +7825,7 @@ impl ICertEncodeLongArray {
 }
 unsafe impl ::windows::runtime::Interface for ICertEncodeLongArray {
     type Vtable = ICertEncodeLongArray_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(367194672, 41122, 4560, [136, 33, 0, 160, 201, 3, 184, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15e2f230_a0a2_11d0_8821_00a0c903b83c);
 }
 impl ::core::convert::From<ICertEncodeLongArray> for ::windows::runtime::IUnknown {
     fn from(value: ICertEncodeLongArray) -> Self {
@@ -7974,7 +7974,7 @@ impl ICertEncodeLongArray2 {
 }
 unsafe impl ::windows::runtime::Interface for ICertEncodeLongArray2 {
     type Vtable = ICertEncodeLongArray2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1325262922, 48539, 20418, [161, 8, 195, 71, 212, 120, 132, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4efde84a_bd9b_4fc2_a108_c347d478840f);
 }
 impl ::core::convert::From<ICertEncodeLongArray2> for ::windows::runtime::IUnknown {
     fn from(value: ICertEncodeLongArray2) -> Self {
@@ -8111,7 +8111,7 @@ impl ICertEncodeStringArray {
 }
 unsafe impl ::windows::runtime::Interface for ICertEncodeStringArray {
     type Vtable = ICertEncodeStringArray_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(313034784, 29844, 4560, [136, 22, 0, 160, 201, 3, 184, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12a88820_7494_11d0_8816_00a0c903b83c);
 }
 impl ::core::convert::From<ICertEncodeStringArray> for ::windows::runtime::IUnknown {
     fn from(value: ICertEncodeStringArray) -> Self {
@@ -8270,7 +8270,7 @@ impl ICertEncodeStringArray2 {
 }
 unsafe impl ::windows::runtime::Interface for ICertEncodeStringArray2 {
     type Vtable = ICertEncodeStringArray2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2624064915, 39805, 20117, [144, 24, 79, 254, 16, 186, 90, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c680d93_9b7d_4e95_9018_4ffe10ba5ada);
 }
 impl ::core::convert::From<ICertEncodeStringArray2> for ::windows::runtime::IUnknown {
     fn from(value: ICertEncodeStringArray2) -> Self {
@@ -8390,7 +8390,7 @@ impl ICertExit {
 }
 unsafe impl ::windows::runtime::Interface for ICertExit {
     type Vtable = ICertExit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3785023904, 29540, 4560, [136, 22, 0, 160, 201, 3, 184, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe19ae1a0_7364_11d0_8816_00a0c903b83c);
 }
 impl ::core::convert::From<ICertExit> for ::windows::runtime::IUnknown {
     fn from(value: ICertExit) -> Self {
@@ -8517,7 +8517,7 @@ impl ICertExit2 {
 }
 unsafe impl ::windows::runtime::Interface for ICertExit2 {
     type Vtable = ICertExit2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(180308043, 53321, 17997, [167, 237, 85, 46, 117, 41, 176, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0abf484b_d049_464d_a7ed_552e7529b0ff);
 }
 impl ::core::convert::From<ICertExit2> for ::windows::runtime::IUnknown {
     fn from(value: ICertExit2) -> Self {
@@ -8618,7 +8618,7 @@ impl ICertGetConfig {
 }
 unsafe impl ::windows::runtime::Interface for ICertGetConfig {
     type Vtable = ICertGetConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3354003904, 52759, 4560, [136, 51, 0, 160, 201, 3, 184, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7ea09c0_ce17_11d0_8833_00a0c903b83c);
 }
 impl ::core::convert::From<ICertGetConfig> for ::windows::runtime::IUnknown {
     fn from(value: ICertGetConfig) -> Self {
@@ -8705,7 +8705,7 @@ impl ICertManageModule {
 }
 unsafe impl ::windows::runtime::Interface for ICertManageModule {
     type Vtable = ICertManageModule_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3889671490, 48445, 4561, [154, 77, 0, 192, 79, 194, 151, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7d7ad42_bd3d_11d1_9a4d_00c04fc297eb);
 }
 impl ::core::convert::From<ICertManageModule> for ::windows::runtime::IUnknown {
     fn from(value: ICertManageModule) -> Self {
@@ -8803,7 +8803,7 @@ impl ICertPolicy {
 }
 unsafe impl ::windows::runtime::Interface for ICertPolicy {
     type Vtable = ICertPolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(951802368, 30262, 4560, [180, 19, 0, 160, 201, 27, 191, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38bb5a00_7636_11d0_b413_00a0c91bbf8c);
 }
 impl ::core::convert::From<ICertPolicy> for ::windows::runtime::IUnknown {
     fn from(value: ICertPolicy) -> Self {
@@ -8937,7 +8937,7 @@ impl ICertPolicy2 {
 }
 unsafe impl ::windows::runtime::Interface for ICertPolicy2 {
     type Vtable = ICertPolicy2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1035243790, 32769, 19441, [170, 27, 244, 58, 128, 131, 23, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3db4910e_8001_4bf1_aa1b_f43a808317a0);
 }
 impl ::core::convert::From<ICertPolicy2> for ::windows::runtime::IUnknown {
     fn from(value: ICertPolicy2) -> Self {
@@ -9066,7 +9066,7 @@ impl ICertProperties {
 }
 unsafe impl ::windows::runtime::Interface for ICertProperties {
     type Vtable = ICertProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692463, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab32f_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICertProperties> for ::windows::runtime::IUnknown {
     fn from(value: ICertProperties) -> Self {
@@ -9178,7 +9178,7 @@ impl ICertProperty {
 }
 unsafe impl ::windows::runtime::Interface for ICertProperty {
     type Vtable = ICertProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692462, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab32e_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICertProperty> for ::windows::runtime::IUnknown {
     fn from(value: ICertProperty) -> Self {
@@ -9335,7 +9335,7 @@ impl ICertPropertyArchived {
 }
 unsafe impl ::windows::runtime::Interface for ICertPropertyArchived {
     type Vtable = ICertPropertyArchived_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692471, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab337_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICertPropertyArchived> for ::windows::runtime::IUnknown {
     fn from(value: ICertPropertyArchived) -> Self {
@@ -9516,7 +9516,7 @@ impl ICertPropertyArchivedKeyHash {
 }
 unsafe impl ::windows::runtime::Interface for ICertPropertyArchivedKeyHash {
     type Vtable = ICertPropertyArchivedKeyHash_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692475, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab33b_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICertPropertyArchivedKeyHash> for ::windows::runtime::IUnknown {
     fn from(value: ICertPropertyArchivedKeyHash) -> Self {
@@ -9699,7 +9699,7 @@ impl ICertPropertyAutoEnroll {
 }
 unsafe impl ::windows::runtime::Interface for ICertPropertyAutoEnroll {
     type Vtable = ICertPropertyAutoEnroll_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692466, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab332_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICertPropertyAutoEnroll> for ::windows::runtime::IUnknown {
     fn from(value: ICertPropertyAutoEnroll) -> Self {
@@ -9889,7 +9889,7 @@ impl ICertPropertyBackedUp {
 }
 unsafe impl ::windows::runtime::Interface for ICertPropertyBackedUp {
     type Vtable = ICertPropertyBackedUp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692472, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab338_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICertPropertyBackedUp> for ::windows::runtime::IUnknown {
     fn from(value: ICertPropertyBackedUp) -> Self {
@@ -10072,7 +10072,7 @@ impl ICertPropertyDescription {
 }
 unsafe impl ::windows::runtime::Interface for ICertPropertyDescription {
     type Vtable = ICertPropertyDescription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692465, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab331_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICertPropertyDescription> for ::windows::runtime::IUnknown {
     fn from(value: ICertPropertyDescription) -> Self {
@@ -10272,7 +10272,7 @@ impl ICertPropertyEnrollment {
 }
 unsafe impl ::windows::runtime::Interface for ICertPropertyEnrollment {
     type Vtable = ICertPropertyEnrollment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692473, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab339_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICertPropertyEnrollment> for ::windows::runtime::IUnknown {
     fn from(value: ICertPropertyEnrollment) -> Self {
@@ -10519,7 +10519,7 @@ impl ICertPropertyEnrollmentPolicyServer {
 }
 unsafe impl ::windows::runtime::Interface for ICertPropertyEnrollmentPolicyServer {
     type Vtable = ICertPropertyEnrollmentPolicyServer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692490, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab34a_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICertPropertyEnrollmentPolicyServer> for ::windows::runtime::IUnknown {
     fn from(value: ICertPropertyEnrollmentPolicyServer) -> Self {
@@ -10723,7 +10723,7 @@ impl ICertPropertyFriendlyName {
 }
 unsafe impl ::windows::runtime::Interface for ICertPropertyFriendlyName {
     type Vtable = ICertPropertyFriendlyName_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692464, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab330_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICertPropertyFriendlyName> for ::windows::runtime::IUnknown {
     fn from(value: ICertPropertyFriendlyName) -> Self {
@@ -10904,7 +10904,7 @@ impl ICertPropertyKeyProvInfo {
 }
 unsafe impl ::windows::runtime::Interface for ICertPropertyKeyProvInfo {
     type Vtable = ICertPropertyKeyProvInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692470, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab336_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICertPropertyKeyProvInfo> for ::windows::runtime::IUnknown {
     fn from(value: ICertPropertyKeyProvInfo) -> Self {
@@ -11090,7 +11090,7 @@ impl ICertPropertyRenewal {
 }
 unsafe impl ::windows::runtime::Interface for ICertPropertyRenewal {
     type Vtable = ICertPropertyRenewal_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692474, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab33a_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICertPropertyRenewal> for ::windows::runtime::IUnknown {
     fn from(value: ICertPropertyRenewal) -> Self {
@@ -11279,7 +11279,7 @@ impl ICertPropertyRequestOriginator {
 }
 unsafe impl ::windows::runtime::Interface for ICertPropertyRequestOriginator {
     type Vtable = ICertPropertyRequestOriginator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692467, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab333_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICertPropertyRequestOriginator> for ::windows::runtime::IUnknown {
     fn from(value: ICertPropertyRequestOriginator) -> Self {
@@ -11463,7 +11463,7 @@ impl ICertPropertySHA1Hash {
 }
 unsafe impl ::windows::runtime::Interface for ICertPropertySHA1Hash {
     type Vtable = ICertPropertySHA1Hash_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692468, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab334_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICertPropertySHA1Hash> for ::windows::runtime::IUnknown {
     fn from(value: ICertPropertySHA1Hash) -> Self {
@@ -11608,7 +11608,7 @@ impl ICertRequest {
 }
 unsafe impl ::windows::runtime::Interface for ICertRequest {
     type Vtable = ICertRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(21907520, 21795, 4560, [136, 18, 0, 160, 201, 3, 184, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x014e4840_5523_11d0_8812_00a0c903b83c);
 }
 impl ::core::convert::From<ICertRequest> for ::windows::runtime::IUnknown {
     fn from(value: ICertRequest) -> Self {
@@ -11797,7 +11797,7 @@ impl ICertRequest2 {
 }
 unsafe impl ::windows::runtime::Interface for ICertRequest2 {
     type Vtable = ICertRequest2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2759272840, 19077, 20393, [130, 78, 181, 207, 92, 22, 64, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4772988_4a85_4fa9_824e_b5cf5c16405a);
 }
 impl ::core::convert::From<ICertRequest2> for ::windows::runtime::IUnknown {
     fn from(value: ICertRequest2) -> Self {
@@ -12040,7 +12040,7 @@ impl ICertRequest3 {
 }
 unsafe impl ::windows::runtime::Interface for ICertRequest3 {
     type Vtable = ICertRequest3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2949183787, 13218, 18529, [191, 54, 41, 51, 183, 205, 103, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xafc8f92b_33a2_4861_bf36_2933b7cd67b3);
 }
 impl ::core::convert::From<ICertRequest3> for ::windows::runtime::IUnknown {
     fn from(value: ICertRequest3) -> Self {
@@ -12208,7 +12208,7 @@ impl ICertRequestD {
 }
 unsafe impl ::windows::runtime::Interface for ICertRequestD {
     type Vtable = ICertRequestD_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3651038832, 64648, 4560, [180, 152, 0, 160, 201, 3, 18, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd99e6e70_fc88_11d0_b498_00a0c90312f3);
 }
 impl ::core::convert::From<ICertRequestD> for ::windows::runtime::IUnknown {
     fn from(value: ICertRequestD) -> Self {
@@ -12325,7 +12325,7 @@ impl ICertRequestD2 {
 }
 unsafe impl ::windows::runtime::Interface for ICertRequestD2 {
     type Vtable = ICertRequestD2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1411579194, 54456, 19695, [161, 46, 232, 125, 76, 162, 46, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5422fd3a_d4b8_4cef_a12e_e87d4ca22e90);
 }
 impl ::core::convert::From<ICertRequestD2> for ::windows::runtime::IUnknown {
     fn from(value: ICertRequestD2) -> Self {
@@ -12458,7 +12458,7 @@ impl ICertServerExit {
 }
 unsafe impl ::windows::runtime::Interface for ICertServerExit {
     type Vtable = ICertServerExit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1269427088, 29484, 4560, [136, 22, 0, 160, 201, 3, 184, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ba9eb90_732c_11d0_8816_00a0c903b83c);
 }
 impl ::core::convert::From<ICertServerExit> for ::windows::runtime::IUnknown {
     fn from(value: ICertServerExit) -> Self {
@@ -12616,7 +12616,7 @@ impl ICertServerPolicy {
 }
 unsafe impl ::windows::runtime::Interface for ICertServerPolicy {
     type Vtable = ICertServerPolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2852129058, 65470, 4559, [136, 0, 0, 160, 201, 3, 184, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa000922_ffbe_11cf_8800_00a0c903b83c);
 }
 impl ::core::convert::From<ICertServerPolicy> for ::windows::runtime::IUnknown {
     fn from(value: ICertServerPolicy) -> Self {
@@ -12744,7 +12744,7 @@ impl ICertView {
 }
 unsafe impl ::windows::runtime::Interface for ICertView {
     type Vtable = ICertView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3287991108, 7812, 4561, [155, 214, 0, 192, 79, 182, 131, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3fac344_1e84_11d1_9bd6_00c04fb683fa);
 }
 impl ::core::convert::From<ICertView> for ::windows::runtime::IUnknown {
     fn from(value: ICertView) -> Self {
@@ -12897,7 +12897,7 @@ impl ICertView2 {
 }
 unsafe impl ::windows::runtime::Interface for ICertView2 {
     type Vtable = ICertView2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3583292034, 34897, 19297, [156, 102, 62, 218, 223, 132, 136, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd594b282_8851_4b61_9c66_3edadf848863);
 }
 impl ::core::convert::From<ICertView2> for ::windows::runtime::IUnknown {
     fn from(value: ICertView2) -> Self {
@@ -13015,7 +13015,7 @@ impl ICertificateAttestationChallenge {
 }
 unsafe impl ::windows::runtime::Interface for ICertificateAttestationChallenge {
     type Vtable = ICertificateAttestationChallenge_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1863801468, 19002, 16558, [157, 186, 89, 47, 214, 187, 249, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f175a7c_4a3a_40ae_9dba_592fd6bbf9b8);
 }
 impl ::core::convert::From<ICertificateAttestationChallenge> for ::windows::runtime::IUnknown {
     fn from(value: ICertificateAttestationChallenge) -> Self {
@@ -13149,7 +13149,7 @@ impl ICertificateAttestationChallenge2 {
 }
 unsafe impl ::windows::runtime::Interface for ICertificateAttestationChallenge2 {
     type Vtable = ICertificateAttestationChallenge2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1177629517, 57958, 18390, [189, 121, 190, 83, 203, 46, 39, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4631334d_e266_47d6_bd79_be53cb2e2753);
 }
 impl ::core::convert::From<ICertificateAttestationChallenge2> for ::windows::runtime::IUnknown {
     fn from(value: ICertificateAttestationChallenge2) -> Self {
@@ -13275,7 +13275,7 @@ impl ICertificatePolicies {
 }
 unsafe impl ::windows::runtime::Interface for ICertificatePolicies {
     type Vtable = ICertificatePolicies_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692447, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab31f_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICertificatePolicies> for ::windows::runtime::IUnknown {
     fn from(value: ICertificatePolicies) -> Self {
@@ -13364,7 +13364,7 @@ impl ICertificatePolicy {
 }
 unsafe impl ::windows::runtime::Interface for ICertificatePolicy {
     type Vtable = ICertificatePolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692446, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab31e_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICertificatePolicy> for ::windows::runtime::IUnknown {
     fn from(value: ICertificatePolicy) -> Self {
@@ -13473,7 +13473,7 @@ impl ICertificationAuthorities {
 }
 unsafe impl ::windows::runtime::Interface for ICertificationAuthorities {
     type Vtable = ICertificationAuthorities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(330797061, 8577, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13b79005_2181_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICertificationAuthorities> for ::windows::runtime::IUnknown {
     fn from(value: ICertificationAuthorities) -> Self {
@@ -13557,7 +13557,7 @@ impl ICertificationAuthority {
 }
 unsafe impl ::windows::runtime::Interface for ICertificationAuthority {
     type Vtable = ICertificationAuthority_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2203918177, 7829, 19400, [180, 211, 151, 108, 66, 185, 104, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x835d1f61_1e95_4bc8_b4d3_976c42b968f7);
 }
 impl ::core::convert::From<ICertificationAuthority> for ::windows::runtime::IUnknown {
     fn from(value: ICertificationAuthority) -> Self {
@@ -13646,7 +13646,7 @@ impl ICryptAttribute {
 }
 unsafe impl ::windows::runtime::Interface for ICryptAttribute {
     type Vtable = ICryptAttribute_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692460, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab32c_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICryptAttribute> for ::windows::runtime::IUnknown {
     fn from(value: ICryptAttribute) -> Self {
@@ -13755,7 +13755,7 @@ impl ICryptAttributes {
 }
 unsafe impl ::windows::runtime::Interface for ICryptAttributes {
     type Vtable = ICryptAttributes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692461, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab32d_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICryptAttributes> for ::windows::runtime::IUnknown {
     fn from(value: ICryptAttributes) -> Self {
@@ -13884,7 +13884,7 @@ impl ICspAlgorithm {
 }
 unsafe impl ::windows::runtime::Interface for ICspAlgorithm {
     type Vtable = ICspAlgorithm_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692421, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab305_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICspAlgorithm> for ::windows::runtime::IUnknown {
     fn from(value: ICspAlgorithm) -> Self {
@@ -14003,7 +14003,7 @@ impl ICspAlgorithms {
 }
 unsafe impl ::windows::runtime::Interface for ICspAlgorithms {
     type Vtable = ICspAlgorithms_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692422, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab306_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICspAlgorithms> for ::windows::runtime::IUnknown {
     fn from(value: ICspAlgorithms) -> Self {
@@ -14167,7 +14167,7 @@ impl ICspInformation {
 }
 unsafe impl ::windows::runtime::Interface for ICspInformation {
     type Vtable = ICspInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692423, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab307_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICspInformation> for ::windows::runtime::IUnknown {
     fn from(value: ICspInformation) -> Self {
@@ -14314,7 +14314,7 @@ impl ICspInformations {
 }
 unsafe impl ::windows::runtime::Interface for ICspInformations {
     type Vtable = ICspInformations_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692424, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab308_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICspInformations> for ::windows::runtime::IUnknown {
     fn from(value: ICspInformations) -> Self {
@@ -14431,7 +14431,7 @@ impl ICspStatus {
 }
 unsafe impl ::windows::runtime::Interface for ICspStatus {
     type Vtable = ICspStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692425, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab309_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICspStatus> for ::windows::runtime::IUnknown {
     fn from(value: ICspStatus) -> Self {
@@ -14557,7 +14557,7 @@ impl ICspStatuses {
 }
 unsafe impl ::windows::runtime::Interface for ICspStatuses {
     type Vtable = ICspStatuses_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692426, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab30a_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ICspStatuses> for ::windows::runtime::IUnknown {
     fn from(value: ICspStatuses) -> Self {
@@ -14967,7 +14967,7 @@ impl IEnroll {
 }
 unsafe impl ::windows::runtime::Interface for IEnroll {
     type Vtable = IEnroll_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2896853048, 17797, 4561, [171, 87, 0, 192, 79, 194, 149, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xacaa7838_4585_11d1_ab57_00c04fc295e1);
 }
 impl ::core::convert::From<IEnroll> for ::windows::runtime::IUnknown {
     fn from(value: IEnroll) -> Self {
@@ -15532,7 +15532,7 @@ impl IEnroll2 {
 }
 unsafe impl ::windows::runtime::Interface for IEnroll2 {
     type Vtable = IEnroll2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3229671833, 47071, 4562, [164, 33, 0, 192, 79, 121, 254, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc080e199_b7df_11d2_a421_00c04f79fe8e);
 }
 impl ::core::convert::From<IEnroll2> for ::windows::runtime::IUnknown {
     fn from(value: IEnroll2) -> Self {
@@ -16291,7 +16291,7 @@ impl IEnroll4 {
 }
 unsafe impl ::windows::runtime::Interface for IEnroll4 {
     type Vtable = IEnroll4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4161093605, 30964, 17551, [160, 219, 65, 214, 27, 115, 68, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8053fe5_78f4_448f_a0db_41d61b73446b);
 }
 impl ::core::convert::From<IEnroll4> for ::windows::runtime::IUnknown {
     fn from(value: IEnroll4) -> Self {
@@ -16592,7 +16592,7 @@ impl IEnumCERTVIEWATTRIBUTE {
 }
 unsafe impl ::windows::runtime::Interface for IEnumCERTVIEWATTRIBUTE {
     type Vtable = IEnumCERTVIEWATTRIBUTE_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3883775574, 30291, 4561, [155, 222, 0, 192, 79, 182, 131, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe77db656_7653_11d1_9bde_00c04fb683fa);
 }
 impl ::core::convert::From<IEnumCERTVIEWATTRIBUTE> for ::windows::runtime::IUnknown {
     fn from(value: IEnumCERTVIEWATTRIBUTE) -> Self {
@@ -16713,7 +16713,7 @@ impl IEnumCERTVIEWCOLUMN {
 }
 unsafe impl ::windows::runtime::Interface for IEnumCERTVIEWCOLUMN {
     type Vtable = IEnumCERTVIEWCOLUMN_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2624805858, 22437, 4561, [155, 219, 0, 192, 79, 182, 131, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c735be2_57a5_11d1_9bdb_00c04fb683fa);
 }
 impl ::core::convert::From<IEnumCERTVIEWCOLUMN> for ::windows::runtime::IUnknown {
     fn from(value: IEnumCERTVIEWCOLUMN) -> Self {
@@ -16826,7 +16826,7 @@ impl IEnumCERTVIEWEXTENSION {
 }
 unsafe impl ::windows::runtime::Interface for IEnumCERTVIEWEXTENSION {
     type Vtable = IEnumCERTVIEWEXTENSION_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3890025574, 30291, 4561, [155, 222, 0, 192, 79, 182, 131, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7dd1466_7653_11d1_9bde_00c04fb683fa);
 }
 impl ::core::convert::From<IEnumCERTVIEWEXTENSION> for ::windows::runtime::IUnknown {
     fn from(value: IEnumCERTVIEWEXTENSION) -> Self {
@@ -16940,7 +16940,7 @@ impl IEnumCERTVIEWROW {
 }
 unsafe impl ::windows::runtime::Interface for IEnumCERTVIEWROW {
     type Vtable = IEnumCERTVIEWROW_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3507846988, 23282, 4561, [155, 220, 0, 192, 79, 182, 131, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1157f4c_5af2_11d1_9bdc_00c04fb683fa);
 }
 impl ::core::convert::From<IEnumCERTVIEWROW> for ::windows::runtime::IUnknown {
     fn from(value: IEnumCERTVIEWROW) -> Self {
@@ -17069,7 +17069,7 @@ impl INDESPolicy {
 }
 unsafe impl ::windows::runtime::Interface for INDESPolicy {
     type Vtable = INDESPolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(332026205, 17181, 18124, [140, 46, 29, 162, 105, 187, 214, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13ca515d_431d_46cc_8c2e_1da269bbd625);
 }
 impl ::core::convert::From<INDESPolicy> for ::windows::runtime::IUnknown {
     fn from(value: INDESPolicy) -> Self {
@@ -17168,7 +17168,7 @@ impl IOCSPAdmin {
 }
 unsafe impl ::windows::runtime::Interface for IOCSPAdmin {
     type Vtable = IOCSPAdmin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(841909005, 26587, 20457, [149, 119, 69, 150, 217, 240, 146, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x322e830d_67db_4fe9_9577_4596d9f09294);
 }
 impl ::core::convert::From<IOCSPAdmin> for ::windows::runtime::IUnknown {
     fn from(value: IOCSPAdmin) -> Self {
@@ -17383,7 +17383,7 @@ impl IOCSPCAConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for IOCSPCAConfiguration {
     type Vtable = IOCSPCAConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2932419392, 15686, 17215, [135, 209, 184, 77, 92, 30, 121, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaec92b40_3d46_433f_87d1_b84d5c1e790d);
 }
 impl ::core::convert::From<IOCSPCAConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: IOCSPCAConfiguration) -> Self {
@@ -17526,7 +17526,7 @@ impl IOCSPCAConfigurationCollection {
 }
 unsafe impl ::windows::runtime::Interface for IOCSPCAConfigurationCollection {
     type Vtable = IOCSPCAConfigurationCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(736881163, 24270, 20264, [169, 28, 134, 180, 187, 32, 240, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bebea0b_5ece_4f28_a91c_86b4bb20f0d3);
 }
 impl ::core::convert::From<IOCSPCAConfigurationCollection> for ::windows::runtime::IUnknown {
     fn from(value: IOCSPCAConfigurationCollection) -> Self {
@@ -17627,7 +17627,7 @@ impl IOCSPProperty {
 }
 unsafe impl ::windows::runtime::Interface for IOCSPProperty {
     type Vtable = IOCSPProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1727756345, 24324, 19493, [173, 24, 159, 241, 168, 55, 110, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66fb7839_5f04_4c25_ad18_9ff1a8376ee0);
 }
 impl ::core::convert::From<IOCSPProperty> for ::windows::runtime::IUnknown {
     fn from(value: IOCSPProperty) -> Self {
@@ -17747,7 +17747,7 @@ impl IOCSPPropertyCollection {
 }
 unsafe impl ::windows::runtime::Interface for IOCSPPropertyCollection {
     type Vtable = IOCSPPropertyCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(630702477, 21734, 19316, [159, 169, 166, 191, 218, 153, 203, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2597c18d_54e6_4b74_9fa9_a6bfda99cbbe);
 }
 impl ::core::convert::From<IOCSPPropertyCollection> for ::windows::runtime::IUnknown {
     fn from(value: IOCSPPropertyCollection) -> Self {
@@ -17872,7 +17872,7 @@ impl IObjectId {
 }
 unsafe impl ::windows::runtime::Interface for IObjectId {
     type Vtable = IObjectId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692416, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab300_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IObjectId> for ::windows::runtime::IUnknown {
     fn from(value: IObjectId) -> Self {
@@ -17986,7 +17986,7 @@ impl IObjectIds {
 }
 unsafe impl ::windows::runtime::Interface for IObjectIds {
     type Vtable = IObjectIds_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692417, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab301_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IObjectIds> for ::windows::runtime::IUnknown {
     fn from(value: IObjectIds) -> Self {
@@ -18089,7 +18089,7 @@ impl IPolicyQualifier {
 }
 unsafe impl ::windows::runtime::Interface for IPolicyQualifier {
     type Vtable = IPolicyQualifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692444, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab31c_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IPolicyQualifier> for ::windows::runtime::IUnknown {
     fn from(value: IPolicyQualifier) -> Self {
@@ -18193,7 +18193,7 @@ impl IPolicyQualifiers {
 }
 unsafe impl ::windows::runtime::Interface for IPolicyQualifiers {
     type Vtable = IPolicyQualifiers_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692445, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab31d_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IPolicyQualifiers> for ::windows::runtime::IUnknown {
     fn from(value: IPolicyQualifiers) -> Self {
@@ -18339,7 +18339,7 @@ impl ISignerCertificate {
 }
 unsafe impl ::windows::runtime::Interface for ISignerCertificate {
     type Vtable = ISignerCertificate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692477, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab33d_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ISignerCertificate> for ::windows::runtime::IUnknown {
     fn from(value: ISignerCertificate) -> Self {
@@ -18456,7 +18456,7 @@ impl ISignerCertificates {
 }
 unsafe impl ::windows::runtime::Interface for ISignerCertificates {
     type Vtable = ISignerCertificates_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692478, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab33e_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ISignerCertificates> for ::windows::runtime::IUnknown {
     fn from(value: ISignerCertificates) -> Self {
@@ -18567,7 +18567,7 @@ impl ISmimeCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for ISmimeCapabilities {
     type Vtable = ISmimeCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692442, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab31a_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ISmimeCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: ISmimeCapabilities) -> Self {
@@ -18658,7 +18658,7 @@ impl ISmimeCapability {
 }
 unsafe impl ::windows::runtime::Interface for ISmimeCapability {
     type Vtable = ISmimeCapability_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692441, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab319_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<ISmimeCapability> for ::windows::runtime::IUnknown {
     fn from(value: ISmimeCapability) -> Self {
@@ -18752,7 +18752,7 @@ impl IX500DistinguishedName {
 }
 unsafe impl ::windows::runtime::Interface for IX500DistinguishedName {
     type Vtable = IX500DistinguishedName_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692419, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab303_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX500DistinguishedName> for ::windows::runtime::IUnknown {
     fn from(value: IX500DistinguishedName) -> Self {
@@ -18845,7 +18845,7 @@ impl IX509Attribute {
 }
 unsafe impl ::windows::runtime::Interface for IX509Attribute {
     type Vtable = IX509Attribute_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692450, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab322_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509Attribute> for ::windows::runtime::IUnknown {
     fn from(value: IX509Attribute) -> Self {
@@ -18993,7 +18993,7 @@ impl IX509AttributeArchiveKey {
 }
 unsafe impl ::windows::runtime::Interface for IX509AttributeArchiveKey {
     type Vtable = IX509AttributeArchiveKey_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692455, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab327_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509AttributeArchiveKey> for ::windows::runtime::IUnknown {
     fn from(value: IX509AttributeArchiveKey) -> Self {
@@ -19159,7 +19159,7 @@ impl IX509AttributeArchiveKeyHash {
 }
 unsafe impl ::windows::runtime::Interface for IX509AttributeArchiveKeyHash {
     type Vtable = IX509AttributeArchiveKeyHash_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692456, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab328_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509AttributeArchiveKeyHash> for ::windows::runtime::IUnknown {
     fn from(value: IX509AttributeArchiveKeyHash) -> Self {
@@ -19340,7 +19340,7 @@ impl IX509AttributeClientId {
 }
 unsafe impl ::windows::runtime::Interface for IX509AttributeClientId {
     type Vtable = IX509AttributeClientId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692453, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab325_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509AttributeClientId> for ::windows::runtime::IUnknown {
     fn from(value: IX509AttributeClientId) -> Self {
@@ -19520,7 +19520,7 @@ impl IX509AttributeCspProvider {
 }
 unsafe impl ::windows::runtime::Interface for IX509AttributeCspProvider {
     type Vtable = IX509AttributeCspProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692459, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab32b_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509AttributeCspProvider> for ::windows::runtime::IUnknown {
     fn from(value: IX509AttributeCspProvider) -> Self {
@@ -19685,7 +19685,7 @@ impl IX509AttributeExtensions {
 }
 unsafe impl ::windows::runtime::Interface for IX509AttributeExtensions {
     type Vtable = IX509AttributeExtensions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692452, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab324_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509AttributeExtensions> for ::windows::runtime::IUnknown {
     fn from(value: IX509AttributeExtensions) -> Self {
@@ -19847,7 +19847,7 @@ impl IX509AttributeOSVersion {
 }
 unsafe impl ::windows::runtime::Interface for IX509AttributeOSVersion {
     type Vtable = IX509AttributeOSVersion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692458, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab32a_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509AttributeOSVersion> for ::windows::runtime::IUnknown {
     fn from(value: IX509AttributeOSVersion) -> Self {
@@ -20011,7 +20011,7 @@ impl IX509AttributeRenewalCertificate {
 }
 unsafe impl ::windows::runtime::Interface for IX509AttributeRenewalCertificate {
     type Vtable = IX509AttributeRenewalCertificate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692454, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab326_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509AttributeRenewalCertificate> for ::windows::runtime::IUnknown {
     fn from(value: IX509AttributeRenewalCertificate) -> Self {
@@ -20138,7 +20138,7 @@ impl IX509Attributes {
 }
 unsafe impl ::windows::runtime::Interface for IX509Attributes {
     type Vtable = IX509Attributes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692451, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab323_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509Attributes> for ::windows::runtime::IUnknown {
     fn from(value: IX509Attributes) -> Self {
@@ -20331,7 +20331,7 @@ impl IX509CertificateRequest {
 }
 unsafe impl ::windows::runtime::Interface for IX509CertificateRequest {
     type Vtable = IX509CertificateRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692481, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab341_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509CertificateRequest> for ::windows::runtime::IUnknown {
     fn from(value: IX509CertificateRequest) -> Self {
@@ -20772,7 +20772,7 @@ impl IX509CertificateRequestCertificate {
 }
 unsafe impl ::windows::runtime::Interface for IX509CertificateRequestCertificate {
     type Vtable = IX509CertificateRequestCertificate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692483, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab343_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509CertificateRequestCertificate> for ::windows::runtime::IUnknown {
     fn from(value: IX509CertificateRequestCertificate) -> Self {
@@ -21322,7 +21322,7 @@ impl IX509CertificateRequestCertificate2 {
 }
 unsafe impl ::windows::runtime::Interface for IX509CertificateRequestCertificate2 {
     type Vtable = IX509CertificateRequestCertificate2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692506, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab35a_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509CertificateRequestCertificate2> for ::windows::runtime::IUnknown {
     fn from(value: IX509CertificateRequestCertificate2) -> Self {
@@ -21839,7 +21839,7 @@ impl IX509CertificateRequestCmc {
 }
 unsafe impl ::windows::runtime::Interface for IX509CertificateRequestCmc {
     type Vtable = IX509CertificateRequestCmc_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692485, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab345_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509CertificateRequestCmc> for ::windows::runtime::IUnknown {
     fn from(value: IX509CertificateRequestCmc) -> Self {
@@ -22349,7 +22349,7 @@ impl IX509CertificateRequestCmc2 {
 }
 unsafe impl ::windows::runtime::Interface for IX509CertificateRequestCmc2 {
     type Vtable = IX509CertificateRequestCmc2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692509, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab35d_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509CertificateRequestCmc2> for ::windows::runtime::IUnknown {
     fn from(value: IX509CertificateRequestCmc2) -> Self {
@@ -22847,7 +22847,7 @@ impl IX509CertificateRequestPkcs10 {
 }
 unsafe impl ::windows::runtime::Interface for IX509CertificateRequestPkcs10 {
     type Vtable = IX509CertificateRequestPkcs10_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692482, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab342_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509CertificateRequestPkcs10> for ::windows::runtime::IUnknown {
     fn from(value: IX509CertificateRequestPkcs10) -> Self {
@@ -23317,7 +23317,7 @@ impl IX509CertificateRequestPkcs10V2 {
 }
 unsafe impl ::windows::runtime::Interface for IX509CertificateRequestPkcs10V2 {
     type Vtable = IX509CertificateRequestPkcs10V2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692507, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab35b_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509CertificateRequestPkcs10V2> for ::windows::runtime::IUnknown {
     fn from(value: IX509CertificateRequestPkcs10V2) -> Self {
@@ -23866,7 +23866,7 @@ impl IX509CertificateRequestPkcs10V3 {
 }
 unsafe impl ::windows::runtime::Interface for IX509CertificateRequestPkcs10V3 {
     type Vtable = IX509CertificateRequestPkcs10V3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1424660802, 15718, 17712, [183, 110, 124, 145, 112, 211, 236, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54ea9942_3d66_4530_b76e_7c9170d3ec52);
 }
 impl ::core::convert::From<IX509CertificateRequestPkcs10V3> for ::windows::runtime::IUnknown {
     fn from(value: IX509CertificateRequestPkcs10V3) -> Self {
@@ -24468,7 +24468,7 @@ impl IX509CertificateRequestPkcs10V4 {
 }
 unsafe impl ::windows::runtime::Interface for IX509CertificateRequestPkcs10V4 {
     type Vtable = IX509CertificateRequestPkcs10V4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692515, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab363_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509CertificateRequestPkcs10V4> for ::windows::runtime::IUnknown {
     fn from(value: IX509CertificateRequestPkcs10V4) -> Self {
@@ -24898,7 +24898,7 @@ impl IX509CertificateRequestPkcs7 {
 }
 unsafe impl ::windows::runtime::Interface for IX509CertificateRequestPkcs7 {
     type Vtable = IX509CertificateRequestPkcs7_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692484, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab344_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509CertificateRequestPkcs7> for ::windows::runtime::IUnknown {
     fn from(value: IX509CertificateRequestPkcs7) -> Self {
@@ -25237,7 +25237,7 @@ impl IX509CertificateRequestPkcs7V2 {
 }
 unsafe impl ::windows::runtime::Interface for IX509CertificateRequestPkcs7V2 {
     type Vtable = IX509CertificateRequestPkcs7V2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692508, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab35c_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509CertificateRequestPkcs7V2> for ::windows::runtime::IUnknown {
     fn from(value: IX509CertificateRequestPkcs7V2) -> Self {
@@ -25540,7 +25540,7 @@ impl IX509CertificateRevocationList {
 }
 unsafe impl ::windows::runtime::Interface for IX509CertificateRevocationList {
     type Vtable = IX509CertificateRevocationList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692512, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab360_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509CertificateRevocationList> for ::windows::runtime::IUnknown {
     fn from(value: IX509CertificateRevocationList) -> Self {
@@ -25683,7 +25683,7 @@ impl IX509CertificateRevocationListEntries {
 }
 unsafe impl ::windows::runtime::Interface for IX509CertificateRevocationListEntries {
     type Vtable = IX509CertificateRevocationListEntries_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692511, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab35f_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509CertificateRevocationListEntries> for ::windows::runtime::IUnknown {
     fn from(value: IX509CertificateRevocationListEntries) -> Self {
@@ -25796,7 +25796,7 @@ impl IX509CertificateRevocationListEntry {
 }
 unsafe impl ::windows::runtime::Interface for IX509CertificateRevocationListEntry {
     type Vtable = IX509CertificateRevocationListEntry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692510, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab35e_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509CertificateRevocationListEntry> for ::windows::runtime::IUnknown {
     fn from(value: IX509CertificateRevocationListEntry) -> Self {
@@ -25880,7 +25880,7 @@ impl IX509CertificateTemplate {
 }
 unsafe impl ::windows::runtime::Interface for IX509CertificateTemplate {
     type Vtable = IX509CertificateTemplate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1411664403, 21850, 20002, [137, 109, 27, 14, 82, 247, 100, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54244a13_555a_4e22_896d_1b0e52f76406);
 }
 impl ::core::convert::From<IX509CertificateTemplate> for ::windows::runtime::IUnknown {
     fn from(value: IX509CertificateTemplate) -> Self {
@@ -25976,7 +25976,7 @@ impl IX509CertificateTemplateWritable {
 }
 unsafe impl ::windows::runtime::Interface for IX509CertificateTemplateWritable {
     type Vtable = IX509CertificateTemplateWritable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4103366311, 14682, 20126, [182, 231, 50, 179, 49, 96, 13, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf49466a7_395a_4e9e_b6e7_32b331600dc0);
 }
 impl ::core::convert::From<IX509CertificateTemplateWritable> for ::windows::runtime::IUnknown {
     fn from(value: IX509CertificateTemplateWritable) -> Self {
@@ -26091,7 +26091,7 @@ impl IX509CertificateTemplates {
 }
 unsafe impl ::windows::runtime::Interface for IX509CertificateTemplates {
     type Vtable = IX509CertificateTemplates_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(330797059, 8577, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13b79003_2181_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509CertificateTemplates> for ::windows::runtime::IUnknown {
     fn from(value: IX509CertificateTemplates) -> Self {
@@ -26224,7 +26224,7 @@ impl IX509EndorsementKey {
 }
 unsafe impl ::windows::runtime::Interface for IX509EndorsementKey {
     type Vtable = IX509EndorsementKey_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2971457621, 62660, 20422, [183, 16, 68, 34, 35, 127, 9, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb11cd855_f4c4_4fc6_b710_4422237f09e9);
 }
 impl ::core::convert::From<IX509EndorsementKey> for ::windows::runtime::IUnknown {
     fn from(value: IX509EndorsementKey) -> Self {
@@ -26426,7 +26426,7 @@ impl IX509Enrollment {
 }
 unsafe impl ::windows::runtime::Interface for IX509Enrollment {
     type Vtable = IX509Enrollment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692486, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab346_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509Enrollment> for ::windows::runtime::IUnknown {
     fn from(value: IX509Enrollment) -> Self {
@@ -26724,7 +26724,7 @@ impl IX509Enrollment2 {
 }
 unsafe impl ::windows::runtime::Interface for IX509Enrollment2 {
     type Vtable = IX509Enrollment2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692496, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab350_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509Enrollment2> for ::windows::runtime::IUnknown {
     fn from(value: IX509Enrollment2) -> Self {
@@ -26893,7 +26893,7 @@ impl IX509EnrollmentHelper {
 }
 unsafe impl ::windows::runtime::Interface for IX509EnrollmentHelper {
     type Vtable = IX509EnrollmentHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692497, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab351_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509EnrollmentHelper> for ::windows::runtime::IUnknown {
     fn from(value: IX509EnrollmentHelper) -> Self {
@@ -27101,7 +27101,7 @@ impl IX509EnrollmentPolicyServer {
 }
 unsafe impl ::windows::runtime::Interface for IX509EnrollmentPolicyServer {
     type Vtable = IX509EnrollmentPolicyServer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(330797094, 8577, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13b79026_2181_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509EnrollmentPolicyServer> for ::windows::runtime::IUnknown {
     fn from(value: IX509EnrollmentPolicyServer) -> Self {
@@ -27261,7 +27261,7 @@ impl IX509EnrollmentStatus {
 }
 unsafe impl ::windows::runtime::Interface for IX509EnrollmentStatus {
     type Vtable = IX509EnrollmentStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692420, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab304_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509EnrollmentStatus> for ::windows::runtime::IUnknown {
     fn from(value: IX509EnrollmentStatus) -> Self {
@@ -27352,7 +27352,7 @@ impl IX509EnrollmentWebClassFactory {
 }
 unsafe impl ::windows::runtime::Interface for IX509EnrollmentWebClassFactory {
     type Vtable = IX509EnrollmentWebClassFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692489, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab349_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509EnrollmentWebClassFactory> for ::windows::runtime::IUnknown {
     fn from(value: IX509EnrollmentWebClassFactory) -> Self {
@@ -27448,7 +27448,7 @@ impl IX509Extension {
 }
 unsafe impl ::windows::runtime::Interface for IX509Extension {
     type Vtable = IX509Extension_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692429, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab30d_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509Extension> for ::windows::runtime::IUnknown {
     fn from(value: IX509Extension) -> Self {
@@ -27595,7 +27595,7 @@ impl IX509ExtensionAlternativeNames {
 }
 unsafe impl ::windows::runtime::Interface for IX509ExtensionAlternativeNames {
     type Vtable = IX509ExtensionAlternativeNames_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692437, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab315_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509ExtensionAlternativeNames> for ::windows::runtime::IUnknown {
     fn from(value: IX509ExtensionAlternativeNames) -> Self {
@@ -27768,7 +27768,7 @@ impl IX509ExtensionAuthorityKeyIdentifier {
 }
 unsafe impl ::windows::runtime::Interface for IX509ExtensionAuthorityKeyIdentifier {
     type Vtable = IX509ExtensionAuthorityKeyIdentifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692440, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab318_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509ExtensionAuthorityKeyIdentifier> for ::windows::runtime::IUnknown {
     fn from(value: IX509ExtensionAuthorityKeyIdentifier) -> Self {
@@ -27946,7 +27946,7 @@ impl IX509ExtensionBasicConstraints {
 }
 unsafe impl ::windows::runtime::Interface for IX509ExtensionBasicConstraints {
     type Vtable = IX509ExtensionBasicConstraints_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692438, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab316_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509ExtensionBasicConstraints> for ::windows::runtime::IUnknown {
     fn from(value: IX509ExtensionBasicConstraints) -> Self {
@@ -28118,7 +28118,7 @@ impl IX509ExtensionCertificatePolicies {
 }
 unsafe impl ::windows::runtime::Interface for IX509ExtensionCertificatePolicies {
     type Vtable = IX509ExtensionCertificatePolicies_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692448, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab320_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509ExtensionCertificatePolicies> for ::windows::runtime::IUnknown {
     fn from(value: IX509ExtensionCertificatePolicies) -> Self {
@@ -28289,7 +28289,7 @@ impl IX509ExtensionEnhancedKeyUsage {
 }
 unsafe impl ::windows::runtime::Interface for IX509ExtensionEnhancedKeyUsage {
     type Vtable = IX509ExtensionEnhancedKeyUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692432, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab310_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509ExtensionEnhancedKeyUsage> for ::windows::runtime::IUnknown {
     fn from(value: IX509ExtensionEnhancedKeyUsage) -> Self {
@@ -28460,7 +28460,7 @@ impl IX509ExtensionKeyUsage {
 }
 unsafe impl ::windows::runtime::Interface for IX509ExtensionKeyUsage {
     type Vtable = IX509ExtensionKeyUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692431, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab30f_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509ExtensionKeyUsage> for ::windows::runtime::IUnknown {
     fn from(value: IX509ExtensionKeyUsage) -> Self {
@@ -28631,7 +28631,7 @@ impl IX509ExtensionMSApplicationPolicies {
 }
 unsafe impl ::windows::runtime::Interface for IX509ExtensionMSApplicationPolicies {
     type Vtable = IX509ExtensionMSApplicationPolicies_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692449, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab321_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509ExtensionMSApplicationPolicies> for ::windows::runtime::IUnknown {
     fn from(value: IX509ExtensionMSApplicationPolicies) -> Self {
@@ -28802,7 +28802,7 @@ impl IX509ExtensionSmimeCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for IX509ExtensionSmimeCapabilities {
     type Vtable = IX509ExtensionSmimeCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692443, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab31b_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509ExtensionSmimeCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: IX509ExtensionSmimeCapabilities) -> Self {
@@ -28975,7 +28975,7 @@ impl IX509ExtensionSubjectKeyIdentifier {
 }
 unsafe impl ::windows::runtime::Interface for IX509ExtensionSubjectKeyIdentifier {
     type Vtable = IX509ExtensionSubjectKeyIdentifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692439, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab317_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509ExtensionSubjectKeyIdentifier> for ::windows::runtime::IUnknown {
     fn from(value: IX509ExtensionSubjectKeyIdentifier) -> Self {
@@ -29158,7 +29158,7 @@ impl IX509ExtensionTemplate {
 }
 unsafe impl ::windows::runtime::Interface for IX509ExtensionTemplate {
     type Vtable = IX509ExtensionTemplate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692434, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab312_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509ExtensionTemplate> for ::windows::runtime::IUnknown {
     fn from(value: IX509ExtensionTemplate) -> Self {
@@ -29333,7 +29333,7 @@ impl IX509ExtensionTemplateName {
 }
 unsafe impl ::windows::runtime::Interface for IX509ExtensionTemplateName {
     type Vtable = IX509ExtensionTemplateName_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692433, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab311_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509ExtensionTemplateName> for ::windows::runtime::IUnknown {
     fn from(value: IX509ExtensionTemplateName) -> Self {
@@ -29471,7 +29471,7 @@ impl IX509Extensions {
 }
 unsafe impl ::windows::runtime::Interface for IX509Extensions {
     type Vtable = IX509Extensions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692430, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab30e_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509Extensions> for ::windows::runtime::IUnknown {
     fn from(value: IX509Extensions) -> Self {
@@ -29554,7 +29554,7 @@ impl IX509MachineEnrollmentFactory {
 }
 unsafe impl ::windows::runtime::Interface for IX509MachineEnrollmentFactory {
     type Vtable = IX509MachineEnrollmentFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692498, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab352_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509MachineEnrollmentFactory> for ::windows::runtime::IUnknown {
     fn from(value: IX509MachineEnrollmentFactory) -> Self {
@@ -29642,7 +29642,7 @@ impl IX509NameValuePair {
 }
 unsafe impl ::windows::runtime::Interface for IX509NameValuePair {
     type Vtable = IX509NameValuePair_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692479, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab33f_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509NameValuePair> for ::windows::runtime::IUnknown {
     fn from(value: IX509NameValuePair) -> Self {
@@ -29744,7 +29744,7 @@ impl IX509NameValuePairs {
 }
 unsafe impl ::windows::runtime::Interface for IX509NameValuePairs {
     type Vtable = IX509NameValuePairs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692480, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab340_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509NameValuePairs> for ::windows::runtime::IUnknown {
     fn from(value: IX509NameValuePairs) -> Self {
@@ -29850,7 +29850,7 @@ impl IX509PolicyServerListManager {
 }
 unsafe impl ::windows::runtime::Interface for IX509PolicyServerListManager {
     type Vtable = IX509PolicyServerListManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821451, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e204b_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509PolicyServerListManager> for ::windows::runtime::IUnknown {
     fn from(value: IX509PolicyServerListManager) -> Self {
@@ -29996,7 +29996,7 @@ impl IX509PolicyServerUrl {
 }
 unsafe impl ::windows::runtime::Interface for IX509PolicyServerUrl {
     type Vtable = IX509PolicyServerUrl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286821450, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x884e204a_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509PolicyServerUrl> for ::windows::runtime::IUnknown {
     fn from(value: IX509PolicyServerUrl) -> Self {
@@ -30366,7 +30366,7 @@ impl IX509PrivateKey {
 }
 unsafe impl ::windows::runtime::Interface for IX509PrivateKey {
     type Vtable = IX509PrivateKey_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692428, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab30c_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509PrivateKey> for ::windows::runtime::IUnknown {
     fn from(value: IX509PrivateKey) -> Self {
@@ -30880,7 +30880,7 @@ impl IX509PrivateKey2 {
 }
 unsafe impl ::windows::runtime::Interface for IX509PrivateKey2 {
     type Vtable = IX509PrivateKey2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692514, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab362_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509PrivateKey2> for ::windows::runtime::IUnknown {
     fn from(value: IX509PrivateKey2) -> Self {
@@ -31103,7 +31103,7 @@ impl IX509PublicKey {
 }
 unsafe impl ::windows::runtime::Interface for IX509PublicKey {
     type Vtable = IX509PublicKey_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692427, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab30b_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509PublicKey> for ::windows::runtime::IUnknown {
     fn from(value: IX509PublicKey) -> Self {
@@ -31296,7 +31296,7 @@ impl IX509SCEPEnrollment {
 }
 unsafe impl ::windows::runtime::Interface for IX509SCEPEnrollment {
     type Vtable = IX509SCEPEnrollment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692513, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab361_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509SCEPEnrollment> for ::windows::runtime::IUnknown {
     fn from(value: IX509SCEPEnrollment) -> Self {
@@ -31577,7 +31577,7 @@ impl IX509SCEPEnrollment2 {
 }
 unsafe impl ::windows::runtime::Interface for IX509SCEPEnrollment2 {
     type Vtable = IX509SCEPEnrollment2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692516, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab364_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509SCEPEnrollment2> for ::windows::runtime::IUnknown {
     fn from(value: IX509SCEPEnrollment2) -> Self {
@@ -31742,7 +31742,7 @@ impl IX509SCEPEnrollmentHelper {
 }
 unsafe impl ::windows::runtime::Interface for IX509SCEPEnrollmentHelper {
     type Vtable = IX509SCEPEnrollmentHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692517, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab365_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509SCEPEnrollmentHelper> for ::windows::runtime::IUnknown {
     fn from(value: IX509SCEPEnrollmentHelper) -> Self {
@@ -31881,7 +31881,7 @@ impl IX509SignatureInformation {
 }
 unsafe impl ::windows::runtime::Interface for IX509SignatureInformation {
     type Vtable = IX509SignatureInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921692476, 8573, 4570, [178, 164, 0, 14, 123, 187, 43, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x728ab33c_217d_11da_b2a4_000e7bbb2b09);
 }
 impl ::core::convert::From<IX509SignatureInformation> for ::windows::runtime::IUnknown {
     fn from(value: IX509SignatureInformation) -> Self {
@@ -32076,8 +32076,8 @@ unsafe impl ::windows::runtime::Abi for KeyIdentifierHashAlgorithm {
 pub const LDAPF_SIGNDISABLE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const LDAPF_SSLENABLE: u32 = 1u32;
-pub const OCSPAdmin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3556193553, 37577, 18379, [143, 242, 141, 137, 26, 124, 77, 228]);
-pub const OCSPPropertyCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4181042472, 47754, 19929, [186, 121, 242, 131, 39, 92, 178, 222]);
+pub const OCSPAdmin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3f73511_92c9_47cb_8ff2_8d891a7c4de4);
+pub const OCSPPropertyCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf935a528_ba8a_4dd9_ba79_f283275cb2de);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]

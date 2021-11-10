@@ -1346,7 +1346,7 @@ impl IMarshal {
 }
 unsafe impl ::windows::runtime::Interface for IMarshal {
     type Vtable = IMarshal_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000003_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<IMarshal> for ::windows::runtime::IUnknown {
     fn from(value: IMarshal) -> Self {
@@ -1413,7 +1413,7 @@ impl IMarshal2 {
 }
 unsafe impl ::windows::runtime::Interface for IMarshal2 {
     type Vtable = IMarshal2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(463, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x000001cf_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<IMarshal2> for ::windows::runtime::IUnknown {
     fn from(value: IMarshal2) -> Self {
@@ -1529,7 +1529,7 @@ impl IMarshalingStream {
 }
 unsafe impl ::windows::runtime::Interface for IMarshalingStream {
     type Vtable = IMarshalingStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3639801318, 24834, 18531, [159, 38, 56, 154, 70, 118, 239, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8f2f5e6_6102_4863_9f26_389a4676efde);
 }
 impl ::core::convert::From<IMarshalingStream> for ::windows::runtime::IUnknown {
     fn from(value: IMarshalingStream) -> Self {

@@ -123,7 +123,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameServicePropertyCollection {
 }
 unsafe impl ::windows::runtime::Interface for GameServicePropertyCollection {
     type Vtable = IGameServicePropertyCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(132480968, 57019, 17929, [156, 200, 82, 157, 22, 188, 43, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x07e57fc8_debb_4609_9cc8_529d16bc2bd9);
 }
 impl ::windows::runtime::RuntimeName for GameServicePropertyCollection {
     const NAME: &'static str = "Windows.Phone.System.UserProfile.GameServices.Core.GameServicePropertyCollection";
@@ -197,7 +197,7 @@ impl ::windows::runtime::DefaultType for GameServiceScoreKind {
 pub struct IGameService(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameService {
     type Vtable = IGameService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(774721688, 18601, 20220, [175, 214, 142, 109, 160, 144, 3, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e2d5098_48a9_4efc_afd6_8e6da09003fb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -228,7 +228,7 @@ pub struct IGameService_abi(
 pub struct IGameService2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameService2 {
     type Vtable = IGameService2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3526774518, 59927, 19429, [141, 138, 200, 96, 136, 94, 5, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2364ef6_ea17_4be5_8d8a_c860885e051f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -248,7 +248,7 @@ pub struct IGameService2_abi(
 pub struct IGameServicePropertyCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameServicePropertyCollection {
     type Vtable = IGameServicePropertyCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(132480968, 57019, 17929, [156, 200, 82, 157, 22, 188, 43, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x07e57fc8_debb_4609_9cc8_529d16bc2bd9);
 }
 #[repr(C)]
 #[doc(hidden)]

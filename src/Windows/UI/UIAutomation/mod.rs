@@ -36,7 +36,7 @@ unsafe impl ::windows::runtime::RuntimeType for AutomationConnection {
 }
 unsafe impl ::windows::runtime::Interface for AutomationConnection {
     type Vtable = IAutomationConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2865914605, 3828, 23875, [151, 190, 168, 52, 226, 123, 101, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaad262ed_0ef4_5d43_97be_a834e27b65b9);
 }
 impl ::windows::runtime::RuntimeName for AutomationConnection {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationConnection";
@@ -102,7 +102,7 @@ unsafe impl ::windows::runtime::RuntimeType for AutomationConnectionBoundObject 
 }
 unsafe impl ::windows::runtime::Interface for AutomationConnectionBoundObject {
     type Vtable = IAutomationConnectionBoundObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1585797371, 51794, 23397, [152, 48, 221, 41, 5, 129, 96, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e8558fb_ca52_5b65_9830_dd2905816093);
 }
 impl ::windows::runtime::RuntimeName for AutomationConnectionBoundObject {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationConnectionBoundObject";
@@ -184,7 +184,7 @@ unsafe impl ::windows::runtime::RuntimeType for AutomationElement {
 }
 unsafe impl ::windows::runtime::Interface for AutomationElement {
     type Vtable = IAutomationElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2710143856, 11271, 22269, [153, 63, 97, 167, 42, 8, 5, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1898370_2c07_56fd_993f_61a72a08058c);
 }
 impl ::windows::runtime::RuntimeName for AutomationElement {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationElement";
@@ -241,7 +241,7 @@ unsafe impl ::windows::runtime::RuntimeType for AutomationTextRange {
 }
 unsafe impl ::windows::runtime::Interface for AutomationTextRange {
     type Vtable = IAutomationTextRange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2114984805, 16595, 22932, [133, 169, 10, 12, 185, 164, 236, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e101b65_40d3_5994_85a9_0a0cb9a4ec98);
 }
 impl ::windows::runtime::RuntimeName for AutomationTextRange {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationTextRange";
@@ -293,7 +293,7 @@ unsafe impl ::core::marker::Sync for AutomationTextRange {}
 pub struct IAutomationConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationConnection {
     type Vtable = IAutomationConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2865914605, 3828, 23875, [151, 190, 168, 52, 226, 123, 101, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaad262ed_0ef4_5d43_97be_a834e27b65b9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -313,7 +313,7 @@ pub struct IAutomationConnection_abi(
 pub struct IAutomationConnectionBoundObject(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationConnectionBoundObject {
     type Vtable = IAutomationConnectionBoundObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1585797371, 51794, 23397, [152, 48, 221, 41, 5, 129, 96, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e8558fb_ca52_5b65_9830_dd2905816093);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -331,7 +331,7 @@ pub struct IAutomationConnectionBoundObject_abi(
 pub struct IAutomationElement(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElement {
     type Vtable = IAutomationElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2710143856, 11271, 22269, [153, 63, 97, 167, 42, 8, 5, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1898370_2c07_56fd_993f_61a72a08058c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -351,7 +351,7 @@ pub struct IAutomationElement_abi(
 pub struct IAutomationTextRange(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationTextRange {
     type Vtable = IAutomationTextRange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2114984805, 16595, 22932, [133, 169, 10, 12, 185, 164, 236, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e101b65_40d3_5994_85a9_0a0cb9a4ec98);
 }
 #[repr(C)]
 #[doc(hidden)]

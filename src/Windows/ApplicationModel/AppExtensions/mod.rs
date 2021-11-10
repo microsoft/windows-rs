@@ -76,7 +76,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppExtension {
 }
 unsafe impl ::windows::runtime::Interface for AppExtension {
     type Vtable = IAppExtension_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2219872300, 5613, 20399, [147, 234, 34, 55, 187, 248, 203, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8450902c_15ed_4faf_93ea_2237bbf8cbd6);
 }
 impl ::windows::runtime::RuntimeName for AppExtension {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtension";
@@ -238,7 +238,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppExtensionCatalog {
 }
 unsafe impl ::windows::runtime::Interface for AppExtensionCatalog {
     type Vtable = IAppExtensionCatalog_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2542215218, 33830, 19153, [144, 132, 146, 232, 140, 45, 162, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97872032_8426_4ad1_9084_92e88c2da200);
 }
 impl ::windows::runtime::RuntimeName for AppExtensionCatalog {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionCatalog";
@@ -319,7 +319,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppExtensionPackageInstalledEven
 }
 unsafe impl ::windows::runtime::Interface for AppExtensionPackageInstalledEventArgs {
     type Vtable = IAppExtensionPackageInstalledEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(971346484, 13137, 19085, [151, 69, 231, 211, 221, 69, 188, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39e59234_3351_4a8d_9745_e7d3dd45bc48);
 }
 impl ::windows::runtime::RuntimeName for AppExtensionPackageInstalledEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageInstalledEventArgs";
@@ -393,7 +393,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppExtensionPackageStatusChanged
 }
 unsafe impl ::windows::runtime::Interface for AppExtensionPackageStatusChangedEventArgs {
     type Vtable = IAppExtensionPackageStatusChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(484537395, 4435, 17661, [135, 177, 138, 225, 5, 3, 3, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ce17433_1153_44fd_87b1_8ae1050303df);
 }
 impl ::windows::runtime::RuntimeName for AppExtensionPackageStatusChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageStatusChangedEventArgs";
@@ -467,7 +467,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppExtensionPackageUninstallingE
 }
 unsafe impl ::windows::runtime::Interface for AppExtensionPackageUninstallingEventArgs {
     type Vtable = IAppExtensionPackageUninstallingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1626431685, 5918, 16639, [174, 152, 171, 44, 32, 221, 77, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60f160c5_171e_40ff_ae98_ab2c20dd4d75);
 }
 impl ::windows::runtime::RuntimeName for AppExtensionPackageUninstallingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUninstallingEventArgs";
@@ -550,7 +550,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppExtensionPackageUpdatedEventA
 }
 unsafe impl ::windows::runtime::Interface for AppExtensionPackageUpdatedEventArgs {
     type Vtable = IAppExtensionPackageUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(981713983, 31102, 17589, [186, 36, 164, 200, 181, 165, 67, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a83c43f_797e_44b5_ba24_a4c8b5a543d7);
 }
 impl ::windows::runtime::RuntimeName for AppExtensionPackageUpdatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatedEventArgs";
@@ -624,7 +624,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppExtensionPackageUpdatingEvent
 }
 unsafe impl ::windows::runtime::Interface for AppExtensionPackageUpdatingEventArgs {
     type Vtable = IAppExtensionPackageUpdatingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2127926057, 6757, 18432, [167, 0, 179, 33, 0, 158, 48, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ed59329_1a65_4800_a700_b321009e306a);
 }
 impl ::windows::runtime::RuntimeName for AppExtensionPackageUpdatingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatingEventArgs";
@@ -676,7 +676,7 @@ unsafe impl ::core::marker::Sync for AppExtensionPackageUpdatingEventArgs {}
 pub struct IAppExtension(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExtension {
     type Vtable = IAppExtension_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2219872300, 5613, 20399, [147, 234, 34, 55, 187, 248, 203, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8450902c_15ed_4faf_93ea_2237bbf8cbd6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -702,7 +702,7 @@ pub struct IAppExtension_abi(
 pub struct IAppExtension2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExtension2 {
     type Vtable = IAppExtension2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2872776176, 5369, 19359, [148, 25, 163, 73, 162, 66, 239, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab3b15f0_14f9_4b9f_9419_a349a242ef38);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -720,7 +720,7 @@ pub struct IAppExtension2_abi(
 pub struct IAppExtensionCatalog(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExtensionCatalog {
     type Vtable = IAppExtensionCatalog_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2542215218, 33830, 19153, [144, 132, 146, 232, 140, 45, 162, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97872032_8426_4ad1_9084_92e88c2da200);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -761,7 +761,7 @@ pub struct IAppExtensionCatalog_abi(
 pub struct IAppExtensionCatalogStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExtensionCatalogStatics {
     type Vtable = IAppExtensionCatalogStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1010198154, 24344, 20235, [156, 229, 202, 182, 29, 25, 111, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c36668a_5f18_4f0b_9ce5_cab61d196f11);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -779,7 +779,7 @@ pub struct IAppExtensionCatalogStatics_abi(
 pub struct IAppExtensionPackageInstalledEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExtensionPackageInstalledEventArgs {
     type Vtable = IAppExtensionPackageInstalledEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(971346484, 13137, 19085, [151, 69, 231, 211, 221, 69, 188, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39e59234_3351_4a8d_9745_e7d3dd45bc48);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -800,7 +800,7 @@ pub struct IAppExtensionPackageInstalledEventArgs_abi(
 pub struct IAppExtensionPackageStatusChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExtensionPackageStatusChangedEventArgs {
     type Vtable = IAppExtensionPackageStatusChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(484537395, 4435, 17661, [135, 177, 138, 225, 5, 3, 3, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ce17433_1153_44fd_87b1_8ae1050303df);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -819,7 +819,7 @@ pub struct IAppExtensionPackageStatusChangedEventArgs_abi(
 pub struct IAppExtensionPackageUninstallingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExtensionPackageUninstallingEventArgs {
     type Vtable = IAppExtensionPackageUninstallingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1626431685, 5918, 16639, [174, 152, 171, 44, 32, 221, 77, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60f160c5_171e_40ff_ae98_ab2c20dd4d75);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -838,7 +838,7 @@ pub struct IAppExtensionPackageUninstallingEventArgs_abi(
 pub struct IAppExtensionPackageUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExtensionPackageUpdatedEventArgs {
     type Vtable = IAppExtensionPackageUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(981713983, 31102, 17589, [186, 36, 164, 200, 181, 165, 67, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a83c43f_797e_44b5_ba24_a4c8b5a543d7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -859,7 +859,7 @@ pub struct IAppExtensionPackageUpdatedEventArgs_abi(
 pub struct IAppExtensionPackageUpdatingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExtensionPackageUpdatingEventArgs {
     type Vtable = IAppExtensionPackageUpdatingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2127926057, 6757, 18432, [167, 0, 179, 33, 0, 158, 48, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ed59329_1a65_4800_a700_b321009e306a);
 }
 #[repr(C)]
 #[doc(hidden)]

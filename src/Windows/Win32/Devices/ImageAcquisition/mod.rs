@@ -39,7 +39,7 @@ pub const CAPTUREMODE_NORMAL: u32 = 1u32;
 pub const CAPTUREMODE_TIMELAPSE: u32 = 3u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CENTERED: u32 = 1u32;
-pub const CLSID_WiaDefaultSegFilter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3572814603, 2857, 17672, [137, 34, 12, 87, 151, 212, 39, 101]);
+pub const CLSID_WiaDefaultSegFilter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4f4d30b_0b29_4508_8922_0c5797d42765);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_GETADFAVAILABLE: u32 = 117u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -319,7 +319,7 @@ pub const FOCUSMODE_MANUAL: u32 = 1u32;
 pub const FRONT_FIRST: u32 = 8u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FRONT_ONLY: u32 = 32u32;
-pub const GUID_DEVINTERFACE_IMAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1809653702, 33039, 4560, [190, 199, 8, 0, 43, 226, 9, 47]);
+pub const GUID_DEVINTERFACE_IMAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6bdd1fc6_810f_11d0_bec7_08002be2092f);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -351,7 +351,7 @@ impl IEnumWIA_DEV_CAPS {
 }
 unsafe impl ::windows::runtime::Interface for IEnumWIA_DEV_CAPS {
     type Vtable = IEnumWIA_DEV_CAPS_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(533480071, 44198, 4562, [160, 147, 0, 192, 79, 114, 220, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1fcc4287_aca6_11d2_a093_00c04f72dc3c);
 }
 impl ::core::convert::From<IEnumWIA_DEV_CAPS> for ::windows::runtime::IUnknown {
     fn from(value: IEnumWIA_DEV_CAPS) -> Self {
@@ -416,7 +416,7 @@ impl IEnumWIA_DEV_INFO {
 }
 unsafe impl ::windows::runtime::Interface for IEnumWIA_DEV_INFO {
     type Vtable = IEnumWIA_DEV_INFO_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1580775484, 36081, 4561, [191, 146, 0, 96, 8, 30, 216, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e38b83c_8cf1_11d1_bf92_0060081ed811);
 }
 impl ::core::convert::From<IEnumWIA_DEV_INFO> for ::windows::runtime::IUnknown {
     fn from(value: IEnumWIA_DEV_INFO) -> Self {
@@ -480,7 +480,7 @@ impl IEnumWIA_FORMAT_INFO {
 }
 unsafe impl ::windows::runtime::Interface for IEnumWIA_FORMAT_INFO {
     type Vtable = IEnumWIA_FORMAT_INFO_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2176777307, 25965, 17649, [178, 76, 212, 29, 81, 180, 220, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81befc5b_656d_44f1_b24c_d41d51b4dc81);
 }
 impl ::core::convert::From<IEnumWIA_FORMAT_INFO> for ::windows::runtime::IUnknown {
     fn from(value: IEnumWIA_FORMAT_INFO) -> Self {
@@ -544,7 +544,7 @@ impl IEnumWiaItem {
 }
 unsafe impl ::windows::runtime::Interface for IEnumWiaItem {
     type Vtable = IEnumWiaItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1585677308, 13201, 4562, [154, 51, 0, 192, 79, 163, 97, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e8383fc_3391_11d2_9a33_00c04fa36145);
 }
 impl ::core::convert::From<IEnumWiaItem> for ::windows::runtime::IUnknown {
     fn from(value: IEnumWiaItem) -> Self {
@@ -608,7 +608,7 @@ impl IEnumWiaItem2 {
 }
 unsafe impl ::windows::runtime::Interface for IEnumWiaItem2 {
     type Vtable = IEnumWiaItem2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1503070964, 52493, 17625, [171, 36, 82, 41, 86, 48, 229, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59970af4_cd0d_44d9_ab24_52295630e582);
 }
 impl ::core::convert::From<IEnumWiaItem2> for ::windows::runtime::IUnknown {
     fn from(value: IEnumWiaItem2) -> Self {
@@ -686,7 +686,7 @@ impl IWiaAppErrorHandler {
 }
 unsafe impl ::windows::runtime::Interface for IWiaAppErrorHandler {
     type Vtable = IWiaAppErrorHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1813387372, 53414, 16396, [128, 244, 210, 105, 134, 160, 231, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c16186c_d0a6_400c_80f4_d26986a0e734);
 }
 impl ::core::convert::From<IWiaAppErrorHandler> for ::windows::runtime::IUnknown {
     fn from(value: IWiaAppErrorHandler) -> Self {
@@ -741,7 +741,7 @@ impl IWiaDataCallback {
 }
 unsafe impl ::windows::runtime::Interface for IWiaDataCallback {
     type Vtable = IWiaDataCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2774050918, 42416, 4562, [160, 143, 0, 192, 79, 114, 220, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa558a866_a5b0_11d2_a08f_00c04f72dc3c);
 }
 impl ::core::convert::From<IWiaDataCallback> for ::windows::runtime::IUnknown {
     fn from(value: IWiaDataCallback) -> Self {
@@ -803,7 +803,7 @@ impl IWiaDataTransfer {
 }
 unsafe impl ::windows::runtime::Interface for IWiaDataTransfer {
     type Vtable = IWiaDataTransfer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2798582168, 42416, 4562, [160, 143, 0, 192, 79, 114, 220, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6cef998_a5b0_11d2_a08f_00c04f72dc3c);
 }
 impl ::core::convert::From<IWiaDataTransfer> for ::windows::runtime::IUnknown {
     fn from(value: IWiaDataTransfer) -> Self {
@@ -912,7 +912,7 @@ impl IWiaDevMgr {
 }
 unsafe impl ::windows::runtime::Interface for IWiaDevMgr {
     type Vtable = IWiaDevMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1588744234, 36081, 4561, [191, 146, 0, 96, 8, 30, 216, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5eb2502a_8cf1_11d1_bf92_0060081ed811);
 }
 impl ::core::convert::From<IWiaDevMgr> for ::windows::runtime::IUnknown {
     fn from(value: IWiaDevMgr) -> Self {
@@ -1078,7 +1078,7 @@ impl IWiaDevMgr2 {
 }
 unsafe impl ::windows::runtime::Interface for IWiaDevMgr2 {
     type Vtable = IWiaDevMgr2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2042658033, 52189, 16878, [142, 195, 240, 0, 128, 202, 218, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79c07cf1_cbdd_41ee_8ec3_f00080cada7a);
 }
 impl ::core::convert::From<IWiaDevMgr2> for ::windows::runtime::IUnknown {
     fn from(value: IWiaDevMgr2) -> Self {
@@ -1220,7 +1220,7 @@ impl IWiaDrvItem {
 }
 unsafe impl ::windows::runtime::Interface for IWiaDrvItem {
     type Vtable = IWiaDrvItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(520271301, 45068, 4562, [160, 148, 0, 192, 79, 114, 220, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f02b5c5_b00c_11d2_a094_00c04f72dc3c);
 }
 impl ::core::convert::From<IWiaDrvItem> for ::windows::runtime::IUnknown {
     fn from(value: IWiaDrvItem) -> Self {
@@ -1286,7 +1286,7 @@ impl IWiaErrorHandler {
 }
 unsafe impl ::windows::runtime::Interface for IWiaErrorHandler {
     type Vtable = IWiaErrorHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(239751601, 48159, 17469, [168, 53, 114, 232, 144, 117, 158, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e4a51b1_bc1f_443d_a835_72e890759ef3);
 }
 impl ::core::convert::From<IWiaErrorHandler> for ::windows::runtime::IUnknown {
     fn from(value: IWiaErrorHandler) -> Self {
@@ -1353,7 +1353,7 @@ impl IWiaEventCallback {
 }
 unsafe impl ::windows::runtime::Interface for IWiaEventCallback {
     type Vtable = IWiaEventCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2925692848, 132, 4562, [151, 59, 0, 160, 201, 6, 143, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae6287b0_0084_11d2_973b_00a0c9068f2e);
 }
 impl ::core::convert::From<IWiaEventCallback> for ::windows::runtime::IUnknown {
     fn from(value: IWiaEventCallback) -> Self {
@@ -1420,7 +1420,7 @@ impl IWiaImageFilter {
 }
 unsafe impl ::windows::runtime::Interface for IWiaImageFilter {
     type Vtable = IWiaImageFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2829557754, 17675, 16881, [143, 135, 132, 156, 205, 148, 235, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8a79ffa_450b_41f1_8f87_849ccd94ebf6);
 }
 impl ::core::convert::From<IWiaImageFilter> for ::windows::runtime::IUnknown {
     fn from(value: IWiaImageFilter) -> Self {
@@ -1538,7 +1538,7 @@ impl IWiaItem {
 }
 unsafe impl ::windows::runtime::Interface for IWiaItem {
     type Vtable = IWiaItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1303489808, 13201, 4562, [154, 51, 0, 192, 79, 163, 97, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4db1ad10_3391_11d2_9a33_00c04fa36145);
 }
 impl ::core::convert::From<IWiaItem> for ::windows::runtime::IUnknown {
     fn from(value: IWiaItem) -> Self {
@@ -1684,7 +1684,7 @@ impl IWiaItem2 {
 }
 unsafe impl ::windows::runtime::Interface for IWiaItem2 {
     type Vtable = IWiaItem2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1824129141, 4743, 16509, [155, 119, 207, 14, 3, 4, 53, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6cba0075_1287_407d_9b77_cf0e030435cc);
 }
 impl ::core::convert::From<IWiaItem2> for ::windows::runtime::IUnknown {
     fn from(value: IWiaItem2) -> Self {
@@ -1756,7 +1756,7 @@ impl IWiaItemExtras {
 }
 unsafe impl ::windows::runtime::Interface for IWiaItemExtras {
     type Vtable = IWiaItemExtras_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1653731116, 14063, 17714, [135, 106, 142, 19, 37, 147, 119, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6291ef2c_36ef_4532_876a_8e132593778d);
 }
 impl ::core::convert::From<IWiaItemExtras> for ::windows::runtime::IUnknown {
     fn from(value: IWiaItemExtras) -> Self {
@@ -1810,7 +1810,7 @@ impl IWiaLog {
 }
 unsafe impl ::windows::runtime::Interface for IWiaLog {
     type Vtable = IWiaLog_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2685145270, 33441, 17711, [139, 108, 134, 6, 42, 173, 104, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa00c10b6_82a1_452f_8b6c_86062aad6890);
 }
 impl ::core::convert::From<IWiaLog> for ::windows::runtime::IUnknown {
     fn from(value: IWiaLog) -> Self {
@@ -1873,7 +1873,7 @@ impl IWiaLogEx {
 }
 unsafe impl ::windows::runtime::Interface for IWiaLogEx {
     type Vtable = IWiaLogEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2938053292, 31296, 18311, [180, 33, 174, 180, 122, 31, 189, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf1f22ac_7a40_4787_b421_aeb47a1fbd0b);
 }
 impl ::core::convert::From<IWiaLogEx> for ::windows::runtime::IUnknown {
     fn from(value: IWiaLogEx) -> Self {
@@ -2024,7 +2024,7 @@ impl IWiaMiniDrv {
 }
 unsafe impl ::windows::runtime::Interface for IWiaMiniDrv {
     type Vtable = IWiaMiniDrv_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3637374484, 15468, 4562, [154, 53, 0, 192, 79, 163, 97, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8cdee14_3c6c_11d2_9a35_00c04fa36145);
 }
 impl ::core::convert::From<IWiaMiniDrv> for ::windows::runtime::IUnknown {
     fn from(value: IWiaMiniDrv) -> Self {
@@ -2103,7 +2103,7 @@ impl IWiaMiniDrvCallBack {
 }
 unsafe impl ::windows::runtime::Interface for IWiaMiniDrvCallBack {
     type Vtable = IWiaMiniDrvCallBack_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(866483546, 15848, 4562, [154, 54, 0, 192, 79, 163, 97, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33a57d5a_3de8_11d2_9a36_00c04fa36145);
 }
 impl ::core::convert::From<IWiaMiniDrvCallBack> for ::windows::runtime::IUnknown {
     fn from(value: IWiaMiniDrvCallBack) -> Self {
@@ -2152,7 +2152,7 @@ impl IWiaMiniDrvTransferCallback {
 }
 unsafe impl ::windows::runtime::Interface for IWiaMiniDrvTransferCallback {
     type Vtable = IWiaMiniDrvTransferCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2849173129, 11493, 20464, [138, 219, 201, 97, 209, 215, 116, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9d2ee89_2ce5_4ff0_8adb_c961d1d774ca);
 }
 impl ::core::convert::From<IWiaMiniDrvTransferCallback> for ::windows::runtime::IUnknown {
     fn from(value: IWiaMiniDrvTransferCallback) -> Self {
@@ -2196,7 +2196,7 @@ impl IWiaNotifyDevMgr {
 }
 unsafe impl ::windows::runtime::Interface for IWiaNotifyDevMgr {
     type Vtable = IWiaNotifyDevMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1885871776, 59327, 17041, [159, 177, 78, 136, 19, 163, 247, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70681ea0_e7bf_4291_9fb1_4e8813a3f78e);
 }
 impl ::core::convert::From<IWiaNotifyDevMgr> for ::windows::runtime::IUnknown {
     fn from(value: IWiaNotifyDevMgr) -> Self {
@@ -2250,7 +2250,7 @@ impl IWiaPreview {
 }
 unsafe impl ::windows::runtime::Interface for IWiaPreview {
     type Vtable = IWiaPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2512565501, 13298, 19846, [173, 64, 148, 49, 240, 223, 8, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95c2b4fd_33f2_4d86_ad40_9431f0df08f7);
 }
 impl ::core::convert::From<IWiaPreview> for ::windows::runtime::IUnknown {
     fn from(value: IWiaPreview) -> Self {
@@ -2369,7 +2369,7 @@ impl IWiaPropertyStorage {
 }
 unsafe impl ::windows::runtime::Interface for IWiaPropertyStorage {
     type Vtable = IWiaPropertyStorage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2562058400, 10700, 18714, [170, 192, 230, 219, 79, 220, 206, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98b5e8a0_29cc_491a_aac0_e6db4fdcceb6);
 }
 impl ::core::convert::From<IWiaPropertyStorage> for ::windows::runtime::IUnknown {
     fn from(value: IWiaPropertyStorage) -> Self {
@@ -2438,7 +2438,7 @@ impl IWiaSegmentationFilter {
 }
 unsafe impl ::windows::runtime::Interface for IWiaSegmentationFilter {
     type Vtable = IWiaSegmentationFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3964053143, 44036, 17479, [143, 101, 255, 99, 213, 21, 75, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec46a697_ac04_4447_8f65_ff63d5154b21);
 }
 impl ::core::convert::From<IWiaSegmentationFilter> for ::windows::runtime::IUnknown {
     fn from(value: IWiaSegmentationFilter) -> Self {
@@ -2495,7 +2495,7 @@ impl IWiaTransfer {
 }
 unsafe impl ::windows::runtime::Interface for IWiaTransfer {
     type Vtable = IWiaTransfer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3281873218, 12110, 19716, [146, 254, 78, 244, 211, 161, 222, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc39d6942_2f4e_4d04_92fe_4ef4d3a1de5a);
 }
 impl ::core::convert::From<IWiaTransfer> for ::windows::runtime::IUnknown {
     fn from(value: IWiaTransfer) -> Self {
@@ -2547,7 +2547,7 @@ impl IWiaTransferCallback {
 }
 unsafe impl ::windows::runtime::Interface for IWiaTransferCallback {
     type Vtable = IWiaTransferCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(668265135, 10406, 19621, [154, 171, 230, 120, 22, 139, 149, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27d4eaaf_28a6_4ca5_9aab_e678168b9527);
 }
 impl ::core::convert::From<IWiaTransferCallback> for ::windows::runtime::IUnknown {
     fn from(value: IWiaTransferCallback) -> Self {
@@ -2602,7 +2602,7 @@ impl IWiaUIExtension {
 }
 unsafe impl ::windows::runtime::Interface for IWiaUIExtension {
     type Vtable = IWiaUIExtension_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3660681491, 20718, 19584, [180, 96, 87, 208, 5, 212, 74, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda319113_50ee_4c80_b460_57d005d44a2c);
 }
 impl ::core::convert::From<IWiaUIExtension> for ::windows::runtime::IUnknown {
     fn from(value: IWiaUIExtension) -> Self {
@@ -2655,7 +2655,7 @@ impl IWiaUIExtension2 {
 }
 unsafe impl ::windows::runtime::Interface for IWiaUIExtension2 {
     type Vtable = IWiaUIExtension2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(810942679, 20616, 18135, [154, 21, 183, 123, 9, 205, 186, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x305600d7_5088_46d7_9a15_b77b09cdba7a);
 }
 impl ::core::convert::From<IWiaUIExtension2> for ::windows::runtime::IUnknown {
     fn from(value: IWiaUIExtension2) -> Self {
@@ -2761,7 +2761,7 @@ impl IWiaVideo {
 }
 unsafe impl ::windows::runtime::Interface for IWiaVideo {
     type Vtable = IWiaVideo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3576242346, 56200, 16880, [148, 108, 224, 13, 192, 161, 156, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd52920aa_db88_41f0_946c_e00dc0a19cfa);
 }
 impl ::core::convert::From<IWiaVideo> for ::windows::runtime::IUnknown {
     fn from(value: IWiaVideo) -> Self {
@@ -3809,32 +3809,32 @@ pub const WIA_BLANK_PAGE_DETECTION_DISABLED: u32 = 0u32;
 pub const WIA_BLANK_PAGE_DISCARD: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BLANK_PAGE_JOB_SEPARATOR: u32 = 2u32;
-pub const WIA_CATEGORY_AUTO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3741212632, 27799, 19934, [177, 30, 203, 80, 155, 39, 14, 17]);
-pub const WIA_CATEGORY_BARCODE_READER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(920746144, 18239, 18763, [175, 143, 108, 63, 109, 116, 134, 252]);
-pub const WIA_CATEGORY_ENDORSER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1192242371, 4735, 18289, [173, 252, 153, 26, 184, 238, 30, 151]);
-pub const WIA_CATEGORY_FEEDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4262664500, 63564, 17069, [141, 164, 97, 41, 205, 221, 114, 136]);
-pub const WIA_CATEGORY_FEEDER_BACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1640658132, 14811, 17066, [137, 177, 140, 25, 201, 205, 76, 35]);
-pub const WIA_CATEGORY_FEEDER_FRONT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1210259292, 15144, 18555, [167, 230, 238, 188, 23, 97, 79, 209]);
-pub const WIA_CATEGORY_FILM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4244003815, 15587, 17523, [175, 133, 245, 211, 125, 33, 182, 138]);
-pub const WIA_CATEGORY_FINISHED_FILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4281038794, 53124, 17195, [167, 53, 58, 19, 13, 222, 42, 136]);
-pub const WIA_CATEGORY_FLATBED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4217404191, 17395, 18571, [133, 91, 251, 112, 62, 195, 66, 166]);
-pub const WIA_CATEGORY_FOLDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3331499078, 28506, 18461, [133, 187, 146, 226, 232, 111, 211, 10]);
-pub const WIA_CATEGORY_IMPRINTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4234477933, 37378, 17373, [145, 167, 100, 194, 149, 76, 251, 139]);
-pub const WIA_CATEGORY_MICR_READER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(998687212, 29116, 17989, [180, 213, 27, 25, 218, 43, 233, 120]);
-pub const WIA_CATEGORY_PATCH_CODE_READER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2410289773, 40074, 17101, [152, 179, 238, 151, 0, 203, 199, 79]);
-pub const WIA_CATEGORY_ROOT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4052963951, 22968, 18982, [152, 136, 225, 110, 79, 151, 206, 16]);
-pub const WIA_CMD_BUILD_DEVICE_TREE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2629459168, 56298, 4562, [132, 22, 0, 192, 79, 163, 97, 69]);
-pub const WIA_CMD_CHANGE_DOCUMENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(82257328, 44206, 4562, [160, 147, 0, 192, 79, 114, 220, 60]);
-pub const WIA_CMD_DELETE_ALL_ITEMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3792224624, 44205, 4562, [160, 147, 0, 192, 79, 114, 220, 60]);
-pub const WIA_CMD_DELETE_DEVICE_TREE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1937856834, 56298, 4562, [132, 22, 0, 192, 79, 163, 97, 69]);
-pub const WIA_CMD_DIAGNOSTIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(285168373, 56836, 19696, [165, 173, 105, 31, 141, 206, 1, 65]);
-pub const WIA_CMD_FORMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3282473898, 63368, 19764, [165, 176, 190, 113, 144, 117, 154, 36]);
-pub const WIA_CMD_PAUSE_FEEDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1352162893, 42418, 19313, [156, 149, 109, 125, 124, 70, 154, 67]);
-pub const WIA_CMD_START_FEEDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1520301769, 24365, 19001, [157, 108, 0, 69, 109, 4, 127, 0]);
-pub const WIA_CMD_STOP_FEEDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3628576877, 14597, 17820, [149, 9, 155, 41, 205, 182, 145, 231]);
-pub const WIA_CMD_SYNCHRONIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2603005874, 44205, 4562, [160, 147, 0, 192, 79, 114, 220, 60]);
-pub const WIA_CMD_TAKE_PICTURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2945662124, 44205, 4562, [160, 147, 0, 192, 79, 114, 220, 60]);
-pub const WIA_CMD_UNLOAD_DOCUMENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(523976078, 44206, 4562, [160, 147, 0, 192, 79, 114, 220, 60]);
+pub const WIA_CATEGORY_AUTO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdefe5fd8_6c97_4dde_b11e_cb509b270e11);
+pub const WIA_CATEGORY_BARCODE_READER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36e178a0_473f_494b_af8f_6c3f6d7486fc);
+pub const WIA_CATEGORY_ENDORSER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47102cc3_127f_4771_adfc_991ab8ee1e97);
+pub const WIA_CATEGORY_FEEDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe131934_f84c_42ad_8da4_6129cddd7288);
+pub const WIA_CATEGORY_FEEDER_BACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61ca74d4_39db_42aa_89b1_8c19c9cd4c23);
+pub const WIA_CATEGORY_FEEDER_FRONT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4823175c_3b28_487b_a7e6_eebc17614fd1);
+pub const WIA_CATEGORY_FILM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcf65be7_3ce3_4473_af85_f5d37d21b68a);
+pub const WIA_CATEGORY_FINISHED_FILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff2b77ca_cf84_432b_a735_3a130dde2a88);
+pub const WIA_CATEGORY_FLATBED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb607b1f_43f3_488b_855b_fb703ec342a6);
+pub const WIA_CATEGORY_FOLDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc692a446_6f5a_481d_85bb_92e2e86fd30a);
+pub const WIA_CATEGORY_IMPRINTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc65016d_9202_43dd_91a7_64c2954cfb8b);
+pub const WIA_CATEGORY_MICR_READER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b86c1ec_71bc_4645_b4d5_1b19da2be978);
+pub const WIA_CATEGORY_PATCH_CODE_READER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8faa1a6d_9c8a_42cd_98b3_ee9700cbc74f);
+pub const WIA_CATEGORY_ROOT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf193526f_59b8_4a26_9888_e16e4f97ce10);
+pub const WIA_CMD_BUILD_DEVICE_TREE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9cba5ce0_dbea_11d2_8416_00c04fa36145);
+pub const WIA_CMD_CHANGE_DOCUMENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04e725b0_acae_11d2_a093_00c04f72dc3c);
+pub const WIA_CMD_DELETE_ALL_ITEMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe208c170_acad_11d2_a093_00c04f72dc3c);
+pub const WIA_CMD_DELETE_DEVICE_TREE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73815942_dbea_11d2_8416_00c04fa36145);
+pub const WIA_CMD_DIAGNOSTIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10ff52f5_de04_4cf0_a5ad_691f8dce0141);
+pub const WIA_CMD_FORMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3a693aa_f788_4d34_a5b0_be7190759a24);
+pub const WIA_CMD_PAUSE_FEEDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50985e4d_a5b2_4b71_9c95_6d7d7c469a43);
+pub const WIA_CMD_START_FEEDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a9df6c9_5f2d_4a39_9d6c_00456d047f00);
+pub const WIA_CMD_STOP_FEEDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd847b06d_3905_459c_9509_9b29cdb691e7);
+pub const WIA_CMD_SYNCHRONIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b26b7b2_acad_11d2_a093_00c04f72dc3c);
+pub const WIA_CMD_TAKE_PICTURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf933cac_acad_11d2_a093_00c04f72dc3c);
+pub const WIA_CMD_UNLOAD_DOCUMENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f3b3d8e_acae_11d2_a093_00c04f72dc3c);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_COLOR_DROP_BLUE: u32 = 3u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -4360,37 +4360,37 @@ pub const WIA_ERROR_PAPER_PROBLEM: ::windows::runtime::HRESULT = ::windows::runt
 pub const WIA_ERROR_USER_INTERVENTION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320952i32 as _);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_WARMING_UP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320953i32 as _);
-pub const WIA_EVENT_CANCEL_IO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3361798072, 40141, 16874, [187, 191, 77, 208, 156, 91, 23, 149]);
-pub const WIA_EVENT_COVER_CLOSED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1729405414, 57989, 18060, [155, 140, 218, 125, 196, 203, 170, 5]);
-pub const WIA_EVENT_COVER_OPEN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(429990198, 64028, 20326, [144, 15, 143, 145, 78, 199, 78, 201]);
-pub const WIA_EVENT_DEVICE_CONNECTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2727066334, 25782, 4562, [162, 49, 0, 192, 79, 163, 24, 9]);
-pub const WIA_EVENT_DEVICE_DISCONNECTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(339627651, 25751, 4562, [162, 49, 0, 192, 79, 163, 24, 9]);
-pub const WIA_EVENT_DEVICE_NOT_READY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3633720702, 58588, 19277, [186, 41, 102, 138, 135, 244, 46, 111]);
-pub const WIA_EVENT_DEVICE_READY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1965288556, 39051, 16798, [154, 10, 66, 90, 195, 27, 55, 220]);
-pub const WIA_EVENT_FEEDER_EMPTIED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3876277122, 28122, 18107, [143, 249, 83, 206, 177, 160, 62, 53]);
-pub const WIA_EVENT_FEEDER_LOADED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3431821342, 39610, 18461, [191, 116, 120, 247, 99, 220, 52, 42]);
-pub const WIA_EVENT_FLATBED_LID_CLOSED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4168724239, 39721, 17027, [173, 149, 212, 18, 22, 77, 57, 169]);
-pub const WIA_EVENT_FLATBED_LID_OPEN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3121219107, 17277, 20227, [169, 125, 119, 147, 177, 35, 17, 60]);
-pub const WIA_EVENT_HANDLER_NO_ACTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3761711997, 57621, 17701, [188, 85, 182, 41, 230, 140, 116, 90]);
-pub const WIA_EVENT_HANDLER_PROMPT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1598794448, 19801, 20429, [178, 19, 120, 60, 231, 169, 47, 34]);
-pub const WIA_EVENT_ITEM_CREATED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1284460277, 57679, 4562, [179, 38, 0, 192, 79, 104, 206, 97]);
-pub const WIA_EVENT_ITEM_DELETED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(488809817, 57679, 4562, [179, 38, 0, 192, 79, 104, 206, 97]);
-pub const WIA_EVENT_POWER_RESUME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1636767038, 63110, 17232, [150, 52, 65, 21, 163, 4, 131, 12]);
-pub const WIA_EVENT_POWER_SUSPEND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2693935097, 50100, 16668, [158, 41, 3, 166, 105, 147, 210, 190]);
-pub const WIA_EVENT_SCAN_EMAIL_IMAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3330727150, 21746, 16798, [154, 39, 47, 199, 242, 233, 143, 158]);
-pub const WIA_EVENT_SCAN_FAX_IMAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3222189971, 35950, 4562, [151, 122, 0, 0, 248, 122, 146, 111]);
-pub const WIA_EVENT_SCAN_FILM_IMAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2603312684, 24965, 17292, [182, 139, 227, 158, 226, 94, 113, 203]);
-pub const WIA_EVENT_SCAN_IMAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2797971221, 35950, 4562, [151, 122, 0, 0, 248, 122, 146, 111]);
-pub const WIA_EVENT_SCAN_IMAGE2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4232538049, 51379, 18594, [156, 250, 46, 144, 203, 61, 53, 144]);
-pub const WIA_EVENT_SCAN_IMAGE3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(357443518, 46615, 18003, [172, 197, 15, 215, 189, 76, 101, 206]);
-pub const WIA_EVENT_SCAN_IMAGE4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2791010378, 32572, 17479, [167, 93, 138, 38, 223, 202, 31, 223]);
-pub const WIA_EVENT_SCAN_OCR_IMAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2634636169, 14294, 18551, [175, 237, 98, 162, 151, 220, 109, 190]);
-pub const WIA_EVENT_SCAN_PRINT_IMAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3024221221, 35950, 4562, [151, 122, 0, 0, 248, 122, 146, 111]);
-pub const WIA_EVENT_STI_PROXY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3608279071, 7949, 16941, [134, 65, 146, 125, 27, 147, 229, 229]);
-pub const WIA_EVENT_STORAGE_CREATED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(892537010, 65139, 18120, [137, 94, 250, 69, 81, 204, 200, 90]);
-pub const WIA_EVENT_STORAGE_DELETED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1581377374, 37776, 17605, [154, 81, 228, 112, 25, 227, 144, 207]);
-pub const WIA_EVENT_TREE_UPDATED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3380976529, 19122, 19670, [161, 252, 88, 46, 236, 85, 229, 133]);
-pub const WIA_EVENT_VOLUME_INSERT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520300541, 53693, 4562, [179, 31, 0, 192, 79, 104, 206, 97]);
+pub const WIA_EVENT_CANCEL_IO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc860f7b8_9ccd_41ea_bbbf_4dd09c5b1795);
+pub const WIA_EVENT_COVER_CLOSED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6714a1e6_e285_468c_9b8c_da7dc4cbaa05);
+pub const WIA_EVENT_COVER_OPEN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19a12136_fa1c_4f66_900f_8f914ec74ec9);
+pub const WIA_EVENT_DEVICE_CONNECTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa28bbade_64b6_11d2_a231_00c04fa31809);
+pub const WIA_EVENT_DEVICE_DISCONNECTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x143e4e83_6497_11d2_a231_00c04fa31809);
+pub const WIA_EVENT_DEVICE_NOT_READY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8962d7e_e4dc_4b4d_ba29_668a87f42e6f);
+pub const WIA_EVENT_DEVICE_READY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7523ec6c_988b_419e_9a0a_425ac31b37dc);
+pub const WIA_EVENT_FEEDER_EMPTIED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe70b4b82_6dda_46bb_8ff9_53ceb1a03e35);
+pub const WIA_EVENT_FEEDER_LOADED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc8d701e_9aba_481d_bf74_78f763dc342a);
+pub const WIA_EVENT_FLATBED_LID_CLOSED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf879af0f_9b29_4283_ad95_d412164d39a9);
+pub const WIA_EVENT_FLATBED_LID_OPEN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba0a0623_437d_4f03_a97d_7793b123113c);
+pub const WIA_EVENT_HANDLER_NO_ACTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0372b7d_e115_4525_bc55_b629e68c745a);
+pub const WIA_EVENT_HANDLER_PROMPT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f4baad0_4d59_4fcd_b213_783ce7a92f22);
+pub const WIA_EVENT_ITEM_CREATED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c8f4ef5_e14f_11d2_b326_00c04f68ce61);
+pub const WIA_EVENT_ITEM_DELETED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d22a559_e14f_11d2_b326_00c04f68ce61);
+pub const WIA_EVENT_POWER_RESUME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x618f153e_f686_4350_9634_4115a304830c);
+pub const WIA_EVENT_POWER_SUSPEND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0922ff9_c3b4_411c_9e29_03a66993d2be);
+pub const WIA_EVENT_SCAN_EMAIL_IMAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc686dcee_54f2_419e_9a27_2fc7f2e98f9e);
+pub const WIA_EVENT_SCAN_FAX_IMAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc00eb793_8c6e_11d2_977a_0000f87a926f);
+pub const WIA_EVENT_SCAN_FILM_IMAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b2b662c_6185_438c_b68b_e39ee25e71cb);
+pub const WIA_EVENT_SCAN_IMAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6c5a715_8c6e_11d2_977a_0000f87a926f);
+pub const WIA_EVENT_SCAN_IMAGE2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc4767c1_c8b3_48a2_9cfa_2e90cb3d3590);
+pub const WIA_EVENT_SCAN_IMAGE3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x154e27be_b617_4653_acc5_0fd7bd4c65ce);
+pub const WIA_EVENT_SCAN_IMAGE4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa65b704a_7f3c_4447_a75d_8a26dfca1fdf);
+pub const WIA_EVENT_SCAN_OCR_IMAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d095b89_37d6_4877_afed_62a297dc6dbe);
+pub const WIA_EVENT_SCAN_PRINT_IMAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb441f425_8c6e_11d2_977a_0000f87a926f);
+pub const WIA_EVENT_STI_PROXY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd711f81f_1f0d_422d_8641_927d1b93e5e5);
+pub const WIA_EVENT_STORAGE_CREATED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x353308b2_fe73_46c8_895e_fa4551ccc85a);
+pub const WIA_EVENT_STORAGE_DELETED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e41e75e_9390_44c5_9a51_e47019e390cf);
+pub const WIA_EVENT_TREE_UPDATED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9859b91_4ab2_4cd6_a1fc_582eec55e585);
+pub const WIA_EVENT_VOLUME_INSERT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9638bbfd_d1bd_11d2_b31f_00c04f68ce61);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -5875,54 +5875,54 @@ pub const WIA_WSD_PRESENTATION_URL: u32 = 38919u32;
 pub const WIA_WSD_SCAN_AVAILABLE_ITEM: u32 = 38922u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_WSD_SERIAL_NUMBER: u32 = 38921u32;
-pub const WiaAudFmt_AIFF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1726136143, 46844, 17471, [148, 200, 47, 51, 200, 166, 90, 175]);
-pub const WiaAudFmt_MP3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(264008187, 17343, 18930, [145, 144, 230, 254, 207, 243, 126, 84]);
-pub const WiaAudFmt_WAV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4162380102, 1967, 16639, [174, 85, 190, 143, 44, 6, 93, 190]);
-pub const WiaAudFmt_WMA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3592250387, 35778, 17295, [147, 173, 33, 189, 72, 77, 182, 161]);
-pub const WiaDevMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2717181734, 36081, 4561, [191, 146, 0, 96, 8, 30, 216, 17]);
-pub const WiaDevMgr2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3066204860, 31880, 16878, [139, 84, 142, 201, 38, 23, 229, 153]);
-pub const WiaImgFmt_ASF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2375323369, 53418, 18962, [157, 154, 156, 197, 222, 54, 25, 155]);
-pub const WiaImgFmt_AVI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(855165460, 2172, 18696, [183, 196, 103, 87, 254, 126, 144, 171]);
-pub const WiaImgFmt_BMP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3110812843, 1832, 4563, [157, 123, 0, 0, 248, 30, 243, 46]);
-pub const WiaImgFmt_CIFF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2552342699, 14974, 16917, [148, 224, 210, 122, 70, 12, 3, 178]);
-pub const WiaImgFmt_CSV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(895212068, 23199, 17556, [128, 220, 190, 117, 44, 236, 188, 140]);
-pub const WiaImgFmt_DPOF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(916385451, 41192, 17866, [134, 166, 168, 60, 229, 105, 126, 40]);
-pub const WiaImgFmt_EMF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3110812844, 1832, 4563, [157, 123, 0, 0, 248, 30, 243, 46]);
-pub const WiaImgFmt_EXEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1214095511, 5150, 19109, [187, 59, 165, 97, 141, 149, 208, 43]);
-pub const WiaImgFmt_EXIF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3110812850, 1832, 4563, [157, 123, 0, 0, 248, 30, 243, 46]);
-pub const WiaImgFmt_FLASHPIX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3110812852, 1832, 4563, [157, 123, 0, 0, 248, 30, 243, 46]);
-pub const WiaImgFmt_GIF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3110812848, 1832, 4563, [157, 123, 0, 0, 248, 30, 243, 46]);
-pub const WiaImgFmt_HTML: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3382333026, 39390, 19092, [172, 202, 113, 149, 106, 194, 151, 125]);
-pub const WiaImgFmt_ICO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3110812853, 1832, 4563, [157, 123, 0, 0, 248, 30, 243, 46]);
-pub const WiaImgFmt_JBIG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1105780114, 12042, 17364, [134, 54, 241, 97, 75, 161, 30, 70]);
-pub const WiaImgFmt_JBIG2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3146677863, 10300, 16949, [158, 89, 11, 155, 249, 76, 166, 135]);
-pub const WiaImgFmt_JPEG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3110812846, 1832, 4563, [157, 123, 0, 0, 248, 30, 243, 46]);
-pub const WiaImgFmt_JPEG2K: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(877585074, 14811, 19934, [129, 115, 196, 183, 95, 143, 30, 73]);
-pub const WiaImgFmt_JPEG2KX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1138837012, 51210, 18512, [186, 243, 75, 21, 45, 200, 218, 39]);
-pub const WiaImgFmt_MEMORYBMP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3110812842, 1832, 4563, [157, 123, 0, 0, 248, 30, 243, 46]);
-pub const WiaImgFmt_MPG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3973535716, 53996, 20311, [149, 93, 188, 248, 169, 124, 78, 82]);
-pub const WiaImgFmt_OXPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(746263104, 49485, 16649, [151, 85, 4, 184, 144, 37, 21, 58]);
-pub const WiaImgFmt_PDFA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2575351131, 13411, 17351, [189, 202, 60, 170, 20, 111, 34, 159]);
-pub const WiaImgFmt_PHOTOCD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3110812851, 1832, 4563, [157, 123, 0, 0, 248, 30, 243, 46]);
-pub const WiaImgFmt_PICT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2797372888, 27454, 16622, [169, 92, 37, 212, 130, 228, 26, 220]);
-pub const WiaImgFmt_PNG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3110812847, 1832, 4563, [157, 123, 0, 0, 248, 30, 243, 46]);
-pub const WiaImgFmt_RAW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1863452441, 61864, 19975, [154, 222, 155, 100, 198, 58, 61, 204]);
-pub const WiaImgFmt_RAWBAR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3663984691, 53870, 17694, [144, 210, 234, 85, 161, 54, 93, 98]);
-pub const WiaImgFmt_RAWMIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(583331928, 3464, 16540, [172, 28, 238, 193, 43, 14, 166, 128]);
-pub const WiaImgFmt_RAWPAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2002800764, 20580, 16396, [154, 23, 87, 86, 36, 216, 130, 75]);
-pub const WiaImgFmt_RAWRGB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3164900181, 62066, 17265, [176, 241, 74, 21, 13, 5, 123, 180]);
-pub const WiaImgFmt_RTF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1463670435, 18484, 17197, [169, 181, 225, 152, 221, 158, 137, 13]);
-pub const WiaImgFmt_SCRIPT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4269632595, 11692, 17514, [176, 189, 215, 62, 33, 233, 36, 201]);
-pub const WiaImgFmt_TIFF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3110812849, 1832, 4563, [157, 123, 0, 0, 248, 30, 243, 46]);
-pub const WiaImgFmt_TXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4210904450, 29247, 16927, [147, 24, 48, 80, 26, 196, 75, 89]);
-pub const WiaImgFmt_UNDEFINED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3110812841, 1832, 4563, [157, 123, 0, 0, 248, 30, 243, 46]);
-pub const WiaImgFmt_UNICODE16: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(460732854, 25431, 18385, [154, 7, 18, 69, 45, 192, 115, 233]);
-pub const WiaImgFmt_WMF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3110812845, 1832, 4563, [157, 123, 0, 0, 248, 30, 243, 46]);
-pub const WiaImgFmt_XML: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3105297495, 56008, 18564, [179, 147, 21, 180, 113, 213, 240, 126]);
-pub const WiaImgFmt_XMLBAR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1647669276, 15000, 18508, [178, 168, 253, 255, 216, 126, 107, 22]);
-pub const WiaImgFmt_XMLMIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(756436065, 47534, 19235, [137, 115, 199, 6, 126, 31, 189, 49]);
-pub const WiaImgFmt_XMLPAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4170739541, 61522, 17933, [149, 35, 58, 125, 254, 219, 179, 60]);
-pub const WiaImgFmt_XPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1879788047, 8209, 16668, [180, 48, 209, 224, 178, 225, 11, 40]);
+pub const WiaAudFmt_AIFF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66e2bf4f_b6fc_443f_94c8_2f33c8a65aaf);
+pub const WiaAudFmt_MP3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0fbc71fb_43bf_49f2_9190_e6fecff37e54);
+pub const WiaAudFmt_WAV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf818e146_07af_40ff_ae55_be8f2c065dbe);
+pub const WiaAudFmt_WMA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd61d6413_8bc2_438f_93ad_21bd484db6a1);
+pub const WiaDevMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1f4e726_8cf1_11d1_bf92_0060081ed811);
+pub const WiaDevMgr2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6c292bc_7c88_41ee_8b54_8ec92617e599);
+pub const WiaImgFmt_ASF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d948ee9_d0aa_4a12_9d9a_9cc5de36199b);
+pub const WiaImgFmt_AVI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32f8ca14_087c_4908_b7c4_6757fe7e90ab);
+pub const WiaImgFmt_BMP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb96b3cab_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_CIFF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9821a8ab_3a7e_4215_94e0_d27a460c03b2);
+pub const WiaImgFmt_CSV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x355bda24_5a9f_4494_80dc_be752cecbc8c);
+pub const WiaImgFmt_DPOF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x369eeeab_a0e8_45ca_86a6_a83ce5697e28);
+pub const WiaImgFmt_EMF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb96b3cac_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_EXEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x485da097_141e_4aa5_bb3b_a5618d95d02b);
+pub const WiaImgFmt_EXIF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb96b3cb2_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_FLASHPIX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb96b3cb4_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_GIF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb96b3cb0_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_HTML: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc99a4e62_99de_4a94_acca_71956ac2977d);
+pub const WiaImgFmt_ICO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb96b3cb5_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_JBIG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41e8dd92_2f0a_43d4_8636_f1614ba11e46);
+pub const WiaImgFmt_JBIG2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb8e7e67_283c_4235_9e59_0b9bf94ca687);
+pub const WiaImgFmt_JPEG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb96b3cae_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_JPEG2K: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x344ee2b2_39db_4dde_8173_c4b75f8f1e49);
+pub const WiaImgFmt_JPEG2KX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43e14614_c80a_4850_baf3_4b152dc8da27);
+pub const WiaImgFmt_MEMORYBMP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb96b3caa_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_MPG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xecd757e4_d2ec_4f57_955d_bcf8a97c4e52);
+pub const WiaImgFmt_OXPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c7b1240_c14d_4109_9755_04b89025153a);
+pub const WiaImgFmt_PDFA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9980bd5b_3463_43c7_bdca_3caa146f229f);
+pub const WiaImgFmt_PHOTOCD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb96b3cb3_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_PICT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6bc85d8_6b3e_40ee_a95c_25d482e41adc);
+pub const WiaImgFmt_PNG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb96b3caf_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_RAW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f120719_f1a8_4e07_9ade_9b64c63a3dcc);
+pub const WiaImgFmt_RAWBAR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda63f833_d26e_451e_90d2_ea55a1365d62);
+pub const WiaImgFmt_RAWMIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22c4f058_0d88_409c_ac1c_eec12b0ea680);
+pub const WiaImgFmt_RAWPAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7760507c_5064_400c_9a17_575624d8824b);
+pub const WiaImgFmt_RAWRGB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbca48b55_f272_4371_b0f1_4a150d057bb4);
+pub const WiaImgFmt_RTF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x573dd6a3_4834_432d_a9b5_e198dd9e890d);
+pub const WiaImgFmt_SCRIPT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe7d6c53_2dac_446a_b0bd_d73e21e924c9);
+pub const WiaImgFmt_TIFF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb96b3cb1_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_TXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfafd4d82_723f_421f_9318_30501ac44b59);
+pub const WiaImgFmt_UNDEFINED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb96b3ca9_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_UNICODE16: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b7639b6_6357_47d1_9a07_12452dc073e9);
+pub const WiaImgFmt_WMF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb96b3cad_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_XML: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9171457_dac8_4884_b393_15b471d5f07e);
+pub const WiaImgFmt_XMLBAR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6235701c_3a98_484c_b2a8_fdffd87e6b16);
+pub const WiaImgFmt_XMLMIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d164c61_b9ae_4b23_8973_c7067e1fbd31);
+pub const WiaImgFmt_XMLPAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8986f55_f052_460d_9523_3a7dfedbb33c);
+pub const WiaImgFmt_XPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x700b4a0f_2011_411c_b430_d1e0b2e10b28);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeAnalyze: u32 = 16u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -5969,7 +5969,7 @@ pub const WiaItemTypeTwainCapabilityPassThrough: u32 = 131072u32;
 pub const WiaItemTypeVPanorama: u32 = 1024u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeVideo: u32 = 65536u32;
-pub const WiaLog: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2716291927, 34842, 16798, [131, 226, 187, 22, 219, 25, 124, 104]);
+pub const WiaLog: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1e75357_881a_419e_83e2_bb16db197c68);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -5999,4 +5999,4 @@ impl ::core::cmp::Eq for WiaTransferParams {}
 unsafe impl ::windows::runtime::Abi for WiaTransferParams {
     type Abi = Self;
 }
-pub const WiaVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(956875725, 17528, 17718, [175, 47, 16, 194, 93, 78, 248, 154]);
+pub const WiaVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3908c3cd_4478_4536_af2f_10c25d4ef89a);

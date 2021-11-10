@@ -41,19 +41,19 @@ impl ::core::ops::Not for ANCHOR_CHANGE_HISTORY_FLAGS {
         Self(self.0.not())
     }
 }
-pub const AccClientDocMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4232629296, 20286, 20385, [128, 59, 173, 14, 25, 106, 131, 177]);
-pub const AccDictionary: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1702030870, 24549, 17201, [187, 109, 118, 164, 156, 86, 228, 35]);
-pub const AccServerDocMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1619633022, 60298, 18477, [189, 111, 249, 244, 105, 4, 209, 109]);
-pub const AccStore: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1413514111, 19455, 19173, [161, 177, 119, 34, 236, 198, 51, 42]);
-pub const CLSID_TF_CategoryMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2763343009, 17293, 19265, [147, 37, 134, 149, 35, 226, 214, 199]);
-pub const CLSID_TF_ClassicLangBar: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(857224716, 6908, 19721, [168, 107, 159, 156, 182, 220, 235, 156]);
-pub const CLSID_TF_DisplayAttributeMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1021791716, 21459, 19828, [139, 131, 67, 27, 56, 40, 186, 83]);
-pub const CLSID_TF_InputProcessorProfiles: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(868563536, 62550, 18564, [176, 73, 133, 253, 100, 62, 207, 237]);
-pub const CLSID_TF_LangBarItemMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3113424530, 41651, 20395, [191, 51, 158, 198, 249, 251, 150, 172]);
-pub const CLSID_TF_LangBarMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3954216005, 27722, 20444, [174, 83, 78, 184, 196, 199, 219, 142]);
-pub const CLSID_TF_ThreadMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1385864811, 25991, 20259, [171, 158, 156, 125, 104, 62, 60, 80]);
-pub const CLSID_TF_TransitoryExtensionUIEntry: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2926305288, 2043, 16397, [139, 235, 51, 122, 100, 247, 5, 31]);
-pub const CLSID_TsfServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(967760896, 27488, 18139, [141, 49, 54, 66, 190, 14, 67, 115]);
+pub const AccClientDocMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc48cc30_4f3e_4fa1_803b_ad0e196a83b1);
+pub const AccDictionary: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6572ee16_5fe5_4331_bb6d_76a49c56e423);
+pub const AccServerDocMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6089a37e_eb8a_482d_bd6f_f9f46904d16d);
+pub const AccStore: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5440837f_4bff_4ae5_a1b1_7722ecc6332a);
+pub const CLSID_TF_CategoryMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4b544a1_438d_4b41_9325_869523e2d6c7);
+pub const CLSID_TF_ClassicLangBar: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3318360c_1afc_4d09_a86b_9f9cb6dceb9c);
+pub const CLSID_TF_DisplayAttributeMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ce74de4_53d3_4d74_8b83_431b3828ba53);
+pub const CLSID_TF_InputProcessorProfiles: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33c53a50_f456_4884_b049_85fd643ecfed);
+pub const CLSID_TF_LangBarItemMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9931692_a2b3_4fab_bf33_9ec6f9fb96ac);
+pub const CLSID_TF_LangBarMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xebb08c45_6c4a_4fdc_ae53_4eb8c4c7db8e);
+pub const CLSID_TF_ThreadMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x529a9e6b_6587_4f23_ab9e_9c7d683e3c50);
+pub const CLSID_TF_TransitoryExtensionUIEntry: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae6be008_07fb_400d_8beb_337a64f7051f);
+pub const CLSID_TsfServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39aedc00_6b60_46db_8d31_3642be0e4373);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const DCM_FLAGS_CTFMON: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -75,7 +75,7 @@ pub unsafe fn DoMsCtfMonitor<'a, Param1: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const DocWrap: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3208802174, 31326, 17622, [131, 12, 163, 144, 234, 148, 98, 163]);
+pub const DocWrap: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -118,77 +118,77 @@ impl ::core::ops::Not for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
         Self(self.0.not())
     }
 }
-pub const GUID_APP_FUNCTIONPROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1286533150, 4783, 19214, [157, 177, 166, 236, 91, 136, 18, 8]);
-pub const GUID_COMPARTMENT_CONVERSIONMODEBIAS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1419244822, 61073, 17262, [185, 70, 170, 44, 5, 241, 172, 91]);
-pub const GUID_COMPARTMENT_EMPTYCONTEXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3611852223, 32846, 16837, [137, 77, 173, 150, 253, 78, 234, 19]);
-pub const GUID_COMPARTMENT_ENABLED_PROFILES_UPDATED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2462186824, 43438, 19068, [190, 8, 67, 41, 228, 114, 56, 23]);
-pub const GUID_COMPARTMENT_HANDWRITING_OPENCLOSE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4188941419, 6246, 17249, [175, 114, 122, 163, 9, 72, 137, 14]);
-pub const GUID_COMPARTMENT_KEYBOARD_DISABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1906684499, 6481, 18027, [159, 188, 156, 136, 8, 250, 132, 242]);
-pub const GUID_COMPARTMENT_KEYBOARD_INPUTMODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3059295505, 48366, 16674, [167, 196, 9, 244, 179, 250, 67, 150]);
-pub const GUID_COMPARTMENT_KEYBOARD_INPUTMODE_CONVERSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3438304728, 19079, 4567, [166, 226, 0, 6, 91, 132, 67, 92]);
-pub const GUID_COMPARTMENT_KEYBOARD_INPUTMODE_SENTENCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3438304729, 19079, 4567, [166, 226, 0, 6, 91, 132, 67, 92]);
-pub const GUID_COMPARTMENT_KEYBOARD_OPENCLOSE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1478965933, 443, 16740, [149, 198, 117, 91, 160, 181, 22, 45]);
-pub const GUID_COMPARTMENT_SAPI_AUDIO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1370431622, 52331, 17789, [181, 170, 139, 25, 220, 41, 10, 180]);
-pub const GUID_COMPARTMENT_SPEECH_CFGMENU: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4218182701, 20099, 19382, [145, 162, 224, 25, 191, 246, 118, 45]);
-pub const GUID_COMPARTMENT_SPEECH_DISABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1455801863, 1795, 20057, [142, 82, 203, 200, 78, 139, 190, 53]);
-pub const GUID_COMPARTMENT_SPEECH_GLOBALSTATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(710213262, 3336, 17932, [167, 93, 135, 3, 95, 244, 54, 197]);
-pub const GUID_COMPARTMENT_SPEECH_OPENCLOSE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1414359651, 58088, 18258, [187, 209, 0, 9, 96, 188, 160, 131]);
-pub const GUID_COMPARTMENT_SPEECH_UI_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3642758896, 37735, 20455, [154, 191, 188, 89, 218, 203, 224, 227]);
-pub const GUID_COMPARTMENT_TIPUISTATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(344761324, 870, 16412, [141, 117, 237, 151, 141, 133, 251, 201]);
-pub const GUID_COMPARTMENT_TRANSITORYEXTENSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2346928117, 51104, 4567, [180, 8, 0, 6, 91, 132, 67, 92]);
-pub const GUID_COMPARTMENT_TRANSITORYEXTENSION_DOCUMENTMANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2346928119, 51104, 4567, [180, 8, 0, 6, 91, 132, 67, 92]);
-pub const GUID_COMPARTMENT_TRANSITORYEXTENSION_PARENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2346928120, 51104, 4567, [180, 8, 0, 6, 91, 132, 67, 92]);
-pub const GUID_INTEGRATIONSTYLE_SEARCHBOX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3872505105, 33527, 18691, [174, 33, 26, 99, 151, 205, 226, 235]);
-pub const GUID_LBI_INPUTMODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(746039326, 16844, 16760, [163, 167, 95, 138, 152, 117, 104, 230]);
-pub const GUID_LBI_SAPILAYR_CFGMENUBUTTON: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3492750497, 37933, 16942, [141, 153, 180, 242, 173, 222, 233, 153]);
-pub const GUID_MODEBIAS_CHINESE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2061313758, 17192, 18587, [131, 174, 100, 147, 117, 12, 173, 92]);
-pub const GUID_MODEBIAS_CONVERSATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(256819460, 6032, 17467, [149, 241, 225, 15, 147, 157, 101, 70]);
-pub const GUID_MODEBIAS_DATETIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4072518514, 32609, 16441, [146, 239, 28, 53, 89, 159, 2, 34]);
-pub const GUID_MODEBIAS_FILENAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3623290878, 17606, 20426, [142, 118, 134, 171, 80, 199, 147, 27]);
-pub const GUID_MODEBIAS_FULLWIDTHALPHANUMERIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2169020344, 45930, 18237, [129, 70, 228, 162, 37, 139, 36, 174]);
-pub const GUID_MODEBIAS_FULLWIDTHHANGUL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3222988489, 17845, 20432, [156, 177, 159, 76, 235, 195, 159, 234]);
-pub const GUID_MODEBIAS_HALFWIDTHKATAKANA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(6253411, 30932, 16844, [136, 89, 72, 92, 168, 33, 167, 149]);
-pub const GUID_MODEBIAS_HANGUL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1995375937, 9139, 19831, [160, 116, 105, 24, 1, 204, 234, 23]);
-pub const GUID_MODEBIAS_HIRAGANA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3611111790, 39825, 18161, [162, 128, 49, 89, 127, 82, 198, 148]);
-pub const GUID_MODEBIAS_KATAKANA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(772730333, 14874, 18846, [133, 67, 60, 126, 231, 148, 152, 17]);
-pub const GUID_MODEBIAS_NAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4259057904, 53817, 18879, [184, 252, 84, 16, 202, 170, 66, 126]);
-pub const GUID_MODEBIAS_NONE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0]);
-pub const GUID_MODEBIAS_NUMERIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1075934828, 59506, 18685, [156, 238, 78, 197, 199, 94, 22, 195]);
-pub const GUID_MODEBIAS_READING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3809887139, 25702, 19647, [141, 139, 11, 212, 216, 84, 84, 97]);
-pub const GUID_MODEBIAS_URLHISTORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2332972249, 25586, 19560, [132, 212, 121, 174, 231, 165, 159, 9]);
-pub const GUID_PROP_ATTRIBUTE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(884233840, 29990, 4562, [161, 71, 0, 16, 90, 39, 153, 181]);
-pub const GUID_PROP_COMPOSING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3777675360, 44821, 4562, [175, 197, 0, 16, 90, 39, 153, 181]);
-pub const GUID_PROP_INPUTSCOPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(387177818, 26855, 19035, [154, 246, 89, 42, 89, 92, 119, 141]);
-pub const GUID_PROP_LANGID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(847302176, 32818, 4562, [182, 3, 0, 16, 90, 39, 153, 181]);
-pub const GUID_PROP_MODEBIAS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(925763350, 38735, 16556, [160, 136, 8, 205, 201, 46, 191, 188]);
-pub const GUID_PROP_READING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1415837632, 36401, 4562, [191, 70, 0, 16, 90, 39, 153, 181]);
-pub const GUID_PROP_TEXTOWNER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4058174752, 2409, 4563, [141, 240, 0, 16, 90, 39, 153, 181]);
-pub const GUID_PROP_TKB_ALTERNATES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1890756611, 38541, 17966, [185, 59, 33, 100, 201, 21, 23, 247]);
-pub const GUID_SYSTEM_FUNCTIONPROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2590608304, 3873, 4563, [141, 241, 0, 16, 90, 39, 153, 181]);
-pub const GUID_TFCAT_CATEGORY_OF_TIP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1397508289, 1543, 16536, [165, 33, 79, 200, 153, 199, 62, 144]);
-pub const GUID_TFCAT_DISPLAYATTRIBUTEPROPERTY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3110017051, 59980, 19185, [128, 86, 124, 50, 26, 187, 176, 145]);
-pub const GUID_TFCAT_DISPLAYATTRIBUTEPROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(74157184, 5703, 16631, [155, 33, 185, 59, 129, 170, 188, 27]);
-pub const GUID_TFCAT_PROPSTYLE_STATIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1449113816, 27604, 19617, [178, 35, 15, 44, 203, 143, 79, 150]);
-pub const GUID_TFCAT_PROP_AUDIODATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608587689, 59563, 19783, [168, 254, 37, 79, 164, 35, 67, 109]);
-pub const GUID_TFCAT_PROP_INKDATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2087355054, 45271, 20244, [167, 69, 20, 242, 139, 0, 157, 97]);
-pub const GUID_TFCAT_TIPCAP_COMLESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(910300633, 30140, 4567, [166, 239, 0, 6, 91, 132, 67, 92]);
-pub const GUID_TFCAT_TIPCAP_DUALMODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(989009058, 55199, 19227, [153, 146, 21, 8, 109, 51, 155, 5]);
-pub const GUID_TFCAT_TIPCAP_IMMERSIVEONLY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(977426860, 25613, 19156, [137, 247, 30, 182, 126, 124, 78, 232]);
-pub const GUID_TFCAT_TIPCAP_IMMERSIVESUPPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(329258719, 22027, 18125, [148, 122, 76, 58, 241, 224, 227, 93]);
-pub const GUID_TFCAT_TIPCAP_INPUTMODECOMPARTMENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3438304727, 19079, 4567, [166, 226, 0, 6, 91, 132, 67, 92]);
-pub const GUID_TFCAT_TIPCAP_LOCALSERVER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1953930985, 19046, 20381, [144, 214, 191, 139, 124, 62, 180, 97]);
-pub const GUID_TFCAT_TIPCAP_SECUREMODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1238563278, 8030, 4567, [166, 211, 0, 6, 91, 132, 67, 92]);
-pub const GUID_TFCAT_TIPCAP_SYSTRAYSUPPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(626020276, 31659, 19393, [156, 105, 207, 129, 137, 15, 14, 245]);
-pub const GUID_TFCAT_TIPCAP_TSF3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131904687, 39134, 17736, [190, 247, 37, 189, 69, 151, 154, 31]);
-pub const GUID_TFCAT_TIPCAP_UIELEMENTENABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1238563279, 8030, 4567, [166, 211, 0, 6, 91, 132, 67, 92]);
-pub const GUID_TFCAT_TIPCAP_WOW16: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(910300634, 30140, 4567, [166, 239, 0, 6, 91, 132, 67, 92]);
-pub const GUID_TFCAT_TIP_HANDWRITING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(611240839, 49906, 19134, [144, 91, 200, 179, 138, 221, 44, 67]);
-pub const GUID_TFCAT_TIP_KEYBOARD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(880041059, 45808, 18308, [139, 103, 94, 18, 200, 112, 26, 49]);
-pub const GUID_TFCAT_TIP_SPEECH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3047636177, 33621, 17003, [161, 97, 37, 152, 8, 242, 107, 20]);
-pub const GUID_TFCAT_TRANSITORYEXTENSIONUI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1661132322, 42447, 19202, [191, 232, 77, 114, 178, 190, 211, 198]);
-pub const GUID_TS_SERVICE_ACCESSIBLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4185416192, 42431, 18959, [140, 36, 251, 22, 245, 209, 170, 187]);
-pub const GUID_TS_SERVICE_ACTIVEX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3935533648, 51622, 19325, [137, 74, 73, 217, 155, 120, 72, 52]);
-pub const GUID_TS_SERVICE_DATAOBJECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1619458997, 57893, 18126, [167, 112, 193, 187, 211, 224, 93, 123]);
+pub const GUID_APP_FUNCTIONPROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4caef01e_12af_4b0e_9db1_a6ec5b881208);
+pub const GUID_COMPARTMENT_CONVERSIONMODEBIAS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5497f516_ee91_436e_b946_aa2c05f1ac5b);
+pub const GUID_COMPARTMENT_EMPTYCONTEXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7487dbf_804e_41c5_894d_ad96fd4eea13);
+pub const GUID_COMPARTMENT_ENABLED_PROFILES_UPDATED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92c1fd48_a9ae_4a7c_be08_4329e4723817);
+pub const GUID_COMPARTMENT_HANDWRITING_OPENCLOSE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9ae2c6b_1866_4361_af72_7aa30948890e);
+pub const GUID_COMPARTMENT_KEYBOARD_DISABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71a5b253_1951_466b_9fbc_9c8808fa84f2);
+pub const GUID_COMPARTMENT_KEYBOARD_INPUTMODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6592511_bcee_4122_a7c4_09f4b3fa4396);
+pub const GUID_COMPARTMENT_KEYBOARD_INPUTMODE_CONVERSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xccf05dd8_4a87_11d7_a6e2_00065b84435c);
+pub const GUID_COMPARTMENT_KEYBOARD_INPUTMODE_SENTENCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xccf05dd9_4a87_11d7_a6e2_00065b84435c);
+pub const GUID_COMPARTMENT_KEYBOARD_OPENCLOSE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58273aad_01bb_4164_95c6_755ba0b5162d);
+pub const GUID_COMPARTMENT_SAPI_AUDIO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51af2086_cc6b_457d_b5aa_8b19dc290ab4);
+pub const GUID_COMPARTMENT_SPEECH_CFGMENU: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb6c5c2d_4e83_4bb6_91a2_e019bff6762d);
+pub const GUID_COMPARTMENT_SPEECH_DISABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56c5c607_0703_4e59_8e52_cbc84e8bbe35);
+pub const GUID_COMPARTMENT_SPEECH_GLOBALSTATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a54fe8e_0d08_460c_a75d_87035ff436c5);
+pub const GUID_COMPARTMENT_SPEECH_OPENCLOSE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x544d6a63_e2e8_4752_bbd1_000960bca083);
+pub const GUID_COMPARTMENT_SPEECH_UI_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd92016f0_9367_4fe7_9abf_bc59dacbe0e3);
+pub const GUID_COMPARTMENT_TIPUISTATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x148ca3ec_0366_401c_8d75_ed978d85fbc9);
+pub const GUID_COMPARTMENT_TRANSITORYEXTENSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8be347f5_c7a0_11d7_b408_00065b84435c);
+pub const GUID_COMPARTMENT_TRANSITORYEXTENSION_DOCUMENTMANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8be347f7_c7a0_11d7_b408_00065b84435c);
+pub const GUID_COMPARTMENT_TRANSITORYEXTENSION_PARENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8be347f8_c7a0_11d7_b408_00065b84435c);
+pub const GUID_INTEGRATIONSTYLE_SEARCHBOX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6d1bd11_82f7_4903_ae21_1a6397cde2eb);
+pub const GUID_LBI_INPUTMODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c77a81e_41cc_4178_a3a7_5f8a987568e6);
+pub const GUID_LBI_SAPILAYR_CFGMENUBUTTON: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd02f24a1_942d_422e_8d99_b4f2addee999);
+pub const GUID_MODEBIAS_CHINESE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7add26de_4328_489b_83ae_6493750cad5c);
+pub const GUID_MODEBIAS_CONVERSATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f4ec104_1790_443b_95f1_e10f939d6546);
+pub const GUID_MODEBIAS_DATETIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2bdb372_7f61_4039_92ef_1c35599f0222);
+pub const GUID_MODEBIAS_FILENAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7f707fe_44c6_4fca_8e76_86ab50c7931b);
+pub const GUID_MODEBIAS_FULLWIDTHALPHANUMERIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81489fb8_b36a_473d_8146_e4a2258b24ae);
+pub const GUID_MODEBIAS_FULLWIDTHHANGUL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc01ae6c9_45b5_4fd0_9cb1_9f4cebc39fea);
+pub const GUID_MODEBIAS_HALFWIDTHKATAKANA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x005f6b63_78d4_41cc_8859_485ca821a795);
+pub const GUID_MODEBIAS_HANGUL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76ef0541_23b3_4d77_a074_691801ccea17);
+pub const GUID_MODEBIAS_HIRAGANA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd73d316e_9b91_46f1_a280_31597f52c694);
+pub const GUID_MODEBIAS_KATAKANA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e0eeddd_3a1a_499e_8543_3c7ee7949811);
+pub const GUID_MODEBIAS_NAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfddc10f0_d239_49bf_b8fc_5410caaa427e);
+pub const GUID_MODEBIAS_NONE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const GUID_MODEBIAS_NUMERIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4021766c_e872_48fd_9cee_4ec5c75e16c3);
+pub const GUID_MODEBIAS_READING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe31643a3_6466_4cbf_8d8b_0bd4d8545461);
+pub const GUID_MODEBIAS_URLHISTORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b0e54d9_63f2_4c68_84d4_79aee7a59f09);
+pub const GUID_PROP_ATTRIBUTE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34b45670_7526_11d2_a147_00105a2799b5);
+pub const GUID_PROP_COMPOSING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe12ac060_af15_11d2_afc5_00105a2799b5);
+pub const GUID_PROP_INPUTSCOPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1713dd5a_68e7_4a5b_9af6_592a595c778d);
+pub const GUID_PROP_LANGID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3280ce20_8032_11d2_b603_00105a2799b5);
+pub const GUID_PROP_MODEBIAS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x372e0716_974f_40ac_a088_08cdc92ebfbc);
+pub const GUID_PROP_READING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5463f7c0_8e31_11d2_bf46_00105a2799b5);
+pub const GUID_PROP_TEXTOWNER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1e2d520_0969_11d3_8df0_00105a2799b5);
+pub const GUID_PROP_TKB_ALTERNATES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70b2a803_968d_462e_b93b_2164c91517f7);
+pub const GUID_SYSTEM_FUNCTIONPROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a698bb0_0f21_11d3_8df1_00105a2799b5);
+pub const GUID_TFCAT_CATEGORY_OF_TIP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x534c48c1_0607_4098_a521_4fc899c73e90);
+pub const GUID_TFCAT_DISPLAYATTRIBUTEPROPERTY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb95f181b_ea4c_4af1_8056_7c321abbb091);
+pub const GUID_TFCAT_DISPLAYATTRIBUTEPROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x046b8c80_1647_40f7_9b21_b93b81aabc1b);
+pub const GUID_TFCAT_PROPSTYLE_STATIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x565fb8d8_6bd4_4ca1_b223_0f2ccb8f4f96);
+pub const GUID_TFCAT_PROP_AUDIODATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7be3a9_e8ab_4d47_a8fe_254fa423436d);
+pub const GUID_TFCAT_PROP_INKDATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c6a82ae_b0d7_4f14_a745_14f28b009d61);
+pub const GUID_TFCAT_TIPCAP_COMLESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x364215d9_75bc_11d7_a6ef_00065b84435c);
+pub const GUID_TFCAT_TIPCAP_DUALMODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3af314a2_d79f_4b1b_9992_15086d339b05);
+pub const GUID_TFCAT_TIPCAP_IMMERSIVEONLY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a4259ac_640d_4ad4_89f7_1eb67e7c4ee8);
+pub const GUID_TFCAT_TIPCAP_IMMERSIVESUPPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13a016df_560b_46cd_947a_4c3af1e0e35d);
+pub const GUID_TFCAT_TIPCAP_INPUTMODECOMPARTMENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xccf05dd7_4a87_11d7_a6e2_00065b84435c);
+pub const GUID_TFCAT_TIPCAP_LOCALSERVER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74769ee9_4a66_4f9d_90d6_bf8b7c3eb461);
+pub const GUID_TFCAT_TIPCAP_SECUREMODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49d2f9ce_1f5e_11d7_a6d3_00065b84435c);
+pub const GUID_TFCAT_TIPCAP_SYSTRAYSUPPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25504fb4_7bab_4bc1_9c69_cf81890f0ef5);
+pub const GUID_TFCAT_TIPCAP_TSF3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x07dcb4af_98de_4548_bef7_25bd45979a1f);
+pub const GUID_TFCAT_TIPCAP_UIELEMENTENABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49d2f9cf_1f5e_11d7_a6d3_00065b84435c);
+pub const GUID_TFCAT_TIPCAP_WOW16: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x364215da_75bc_11d7_a6ef_00065b84435c);
+pub const GUID_TFCAT_TIP_HANDWRITING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x246ecb87_c2f2_4abe_905b_c8b38add2c43);
+pub const GUID_TFCAT_TIP_KEYBOARD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34745c63_b2f0_4784_8b67_5e12c8701a31);
+pub const GUID_TFCAT_TIP_SPEECH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5a73cd1_8355_426b_a161_259808f26b14);
+pub const GUID_TFCAT_TRANSITORYEXTENSIONUI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6302de22_a5cf_4b02_bfe8_4d72b2bed3c6);
+pub const GUID_TS_SERVICE_ACCESSIBLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9786200_a5bf_4a0f_8c24_fb16f5d1aabb);
+pub const GUID_TS_SERVICE_ACTIVEX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea937a50_c9a6_4b7d_894a_49d99b784834);
+pub const GUID_TS_SERVICE_DATAOBJECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6086fbb5_e225_46ce_a770_c1bbd3e05d7b);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const GXFPF_NEAREST: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -236,7 +236,7 @@ impl IAccClientDocMgr {
 }
 unsafe impl ::windows::runtime::Interface for IAccClientDocMgr {
     type Vtable = IAccClientDocMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1284071481, 31597, 18918, [168, 193, 69, 17, 106, 152, 41, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c896039_7b6d_49e6_a8c1_45116a98292b);
 }
 impl ::core::convert::From<IAccClientDocMgr> for ::windows::runtime::IUnknown {
     fn from(value: IAccClientDocMgr) -> Self {
@@ -307,7 +307,7 @@ impl IAccDictionary {
 }
 unsafe impl ::windows::runtime::Interface for IAccDictionary {
     type Vtable = IAccDictionary_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499436383, 55095, 18253, [173, 233, 92, 207, 201, 188, 28, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1dc4cb5f_d737_474d_ade9_5ccfc9bc1cc9);
 }
 impl ::core::convert::From<IAccDictionary> for ::windows::runtime::IUnknown {
     fn from(value: IAccDictionary) -> Self {
@@ -365,7 +365,7 @@ impl IAccServerDocMgr {
 }
 unsafe impl ::windows::runtime::Interface for IAccServerDocMgr {
     type Vtable = IAccServerDocMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2910614479, 28117, 18517, [171, 194, 176, 75, 173, 91, 145, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad7c73cf_6dd5_4855_abc2_b04bad5b9153);
 }
 impl ::core::convert::From<IAccServerDocMgr> for ::windows::runtime::IUnknown {
     fn from(value: IAccServerDocMgr) -> Self {
@@ -440,7 +440,7 @@ impl IAccStore {
 }
 unsafe impl ::windows::runtime::Interface for IAccStore {
     type Vtable = IAccStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3805104739, 11122, 19784, [183, 57, 149, 228, 118, 81, 149, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2cd4a63_2b72_4d48_b739_95e4765195ba);
 }
 impl ::core::convert::From<IAccStore> for ::windows::runtime::IUnknown {
     fn from(value: IAccStore) -> Self {
@@ -539,7 +539,7 @@ impl IAnchor {
 }
 unsafe impl ::windows::runtime::Interface for IAnchor {
     type Vtable = IAnchor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(267091508, 23136, 17238, [142, 247, 171, 222, 194, 255, 124, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0feb7e34_5a60_4356_8ef7_abdec2ff7cf8);
 }
 impl ::core::convert::From<IAnchor> for ::windows::runtime::IUnknown {
     fn from(value: IAnchor) -> Self {
@@ -594,7 +594,7 @@ impl IClonableWrapper {
 }
 unsafe impl ::windows::runtime::Interface for IClonableWrapper {
     type Vtable = IClonableWrapper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3007215103, 59468, 19914, [162, 92, 51, 184, 220, 0, 51, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb33e75ff_e84c_4dca_a25c_33b8dc003374);
 }
 impl ::core::convert::From<IClonableWrapper> for ::windows::runtime::IUnknown {
     fn from(value: IClonableWrapper) -> Self {
@@ -637,7 +637,7 @@ impl ICoCreateLocally {
 }
 unsafe impl ::windows::runtime::Interface for ICoCreateLocally {
     type Vtable = ICoCreateLocally_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(64880810, 62066, 16867, [153, 203, 3, 197, 232, 17, 78, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03de00aa_f272_41e3_99cb_03c5e8114ea0);
 }
 impl ::core::convert::From<ICoCreateLocally> for ::windows::runtime::IUnknown {
     fn from(value: ICoCreateLocally) -> Self {
@@ -681,7 +681,7 @@ impl ICoCreatedLocally {
 }
 unsafe impl ::windows::runtime::Interface for ICoCreatedLocally {
     type Vtable = ICoCreatedLocally_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(173271916, 6408, 18242, [140, 255, 44, 238, 46, 147, 249, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a53eb6c_1908_4742_8cff_2cee2e93f94c);
 }
 impl ::core::convert::From<ICoCreatedLocally> for ::windows::runtime::IUnknown {
     fn from(value: ICoCreatedLocally) -> Self {
@@ -729,7 +729,7 @@ impl IDocWrap {
 }
 unsafe impl ::windows::runtime::Interface for IDocWrap {
     type Vtable = IDocWrap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3704784382, 3040, 17341, [153, 201, 170, 174, 197, 19, 197, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcd285fe_0be0_43bd_99c9_aaaec513c555);
 }
 impl ::core::convert::From<IDocWrap> for ::windows::runtime::IUnknown {
     fn from(value: IDocWrap) -> Self {
@@ -785,7 +785,7 @@ impl IEnumITfCompositionView {
 }
 unsafe impl ::windows::runtime::Interface for IEnumITfCompositionView {
     type Vtable = IEnumITfCompositionView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1593647802, 30776, 18123, [136, 226, 202, 219, 20, 18, 79, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5efd22ba_7838_46cb_88e2_cadb14124f8f);
 }
 impl ::core::convert::From<IEnumITfCompositionView> for ::windows::runtime::IUnknown {
     fn from(value: IEnumITfCompositionView) -> Self {
@@ -843,7 +843,7 @@ impl IEnumSpeechCommands {
 }
 unsafe impl ::windows::runtime::Interface for IEnumSpeechCommands {
     type Vtable = IEnumSpeechCommands_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2354949199, 2108, 19333, [164, 201, 113, 116, 96, 72, 173, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c5dac4f_083c_4b85_a4c9_71746048adca);
 }
 impl ::core::convert::From<IEnumSpeechCommands> for ::windows::runtime::IUnknown {
     fn from(value: IEnumSpeechCommands) -> Self {
@@ -901,7 +901,7 @@ impl IEnumTfCandidates {
 }
 unsafe impl ::windows::runtime::Interface for IEnumTfCandidates {
     type Vtable = IEnumTfCandidates_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3740997926, 27776, 19688, [135, 212, 214, 183, 43, 129, 43, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdefb1926_6c80_4ce8_87d4_d6b72b812bde);
 }
 impl ::core::convert::From<IEnumTfCandidates> for ::windows::runtime::IUnknown {
     fn from(value: IEnumTfCandidates) -> Self {
@@ -959,7 +959,7 @@ impl IEnumTfContextViews {
 }
 unsafe impl ::windows::runtime::Interface for IEnumTfContextViews {
     type Vtable = IEnumTfContextViews_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4039178461, 53048, 17633, [187, 15, 104, 207, 13, 85, 28, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0c0f8dd_cf38_44e1_bb0f_68cf0d551c78);
 }
 impl ::core::convert::From<IEnumTfContextViews> for ::windows::runtime::IUnknown {
     fn from(value: IEnumTfContextViews) -> Self {
@@ -1017,7 +1017,7 @@ impl IEnumTfContexts {
 }
 unsafe impl ::windows::runtime::Interface for IEnumTfContexts {
     type Vtable = IEnumTfContexts_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400878246, 5716, 17666, [168, 110, 178, 144, 35, 68, 213, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f1a7ea6_1654_4502_a86e_b2902344d507);
 }
 impl ::core::convert::From<IEnumTfContexts> for ::windows::runtime::IUnknown {
     fn from(value: IEnumTfContexts) -> Self {
@@ -1075,7 +1075,7 @@ impl IEnumTfDisplayAttributeInfo {
 }
 unsafe impl ::windows::runtime::Interface for IEnumTfDisplayAttributeInfo {
     type Vtable = IEnumTfDisplayAttributeInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2096039127, 52085, 20096, [167, 171, 95, 91, 199, 211, 50, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7cef04d7_cb75_4e80_a7ab_5f5bc7d332de);
 }
 impl ::core::convert::From<IEnumTfDisplayAttributeInfo> for ::windows::runtime::IUnknown {
     fn from(value: IEnumTfDisplayAttributeInfo) -> Self {
@@ -1133,7 +1133,7 @@ impl IEnumTfDocumentMgrs {
 }
 unsafe impl ::windows::runtime::Interface for IEnumTfDocumentMgrs {
     type Vtable = IEnumTfDocumentMgrs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574728, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa80e808_2021_11d2_93e0_0060b067b86e);
 }
 impl ::core::convert::From<IEnumTfDocumentMgrs> for ::windows::runtime::IUnknown {
     fn from(value: IEnumTfDocumentMgrs) -> Self {
@@ -1191,7 +1191,7 @@ impl IEnumTfFunctionProviders {
 }
 unsafe impl ::windows::runtime::Interface for IEnumTfFunctionProviders {
     type Vtable = IEnumTfFunctionProviders_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3836890544, 2448, 4563, [141, 240, 0, 16, 90, 39, 153, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4b24db0_0990_11d3_8df0_00105a2799b5);
 }
 impl ::core::convert::From<IEnumTfFunctionProviders> for ::windows::runtime::IUnknown {
     fn from(value: IEnumTfFunctionProviders) -> Self {
@@ -1249,7 +1249,7 @@ impl IEnumTfInputProcessorProfiles {
 }
 unsafe impl ::windows::runtime::Interface for IEnumTfInputProcessorProfiles {
     type Vtable = IEnumTfInputProcessorProfiles_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1908860749, 3880, 4568, [168, 42, 0, 6, 91, 132, 67, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71c6e74d_0f28_11d8_a82a_00065b84435c);
 }
 impl ::core::convert::From<IEnumTfInputProcessorProfiles> for ::windows::runtime::IUnknown {
     fn from(value: IEnumTfInputProcessorProfiles) -> Self {
@@ -1307,7 +1307,7 @@ impl IEnumTfLangBarItems {
 }
 unsafe impl ::windows::runtime::Interface for IEnumTfLangBarItems {
     type Vtable = IEnumTfLangBarItems_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1480537296, 56869, 4562, [175, 221, 0, 16, 90, 39, 153, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x583f34d0_de25_11d2_afdd_00105a2799b5);
 }
 impl ::core::convert::From<IEnumTfLangBarItems> for ::windows::runtime::IUnknown {
     fn from(value: IEnumTfLangBarItems) -> Self {
@@ -1366,7 +1366,7 @@ impl IEnumTfLanguageProfiles {
 }
 unsafe impl ::windows::runtime::Interface for IEnumTfLanguageProfiles {
     type Vtable = IEnumTfLanguageProfiles_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029816081, 44127, 17096, [164, 203, 147, 27, 204, 40, 199, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d61bf11_ac5f_42c8_a4cb_931bcc28c744);
 }
 impl ::core::convert::From<IEnumTfLanguageProfiles> for ::windows::runtime::IUnknown {
     fn from(value: IEnumTfLanguageProfiles) -> Self {
@@ -1426,7 +1426,7 @@ impl IEnumTfLatticeElements {
 }
 unsafe impl ::windows::runtime::Interface for IEnumTfLatticeElements {
     type Vtable = IEnumTfLatticeElements_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1452834898, 18394, 18949, [145, 26, 227, 217, 65, 241, 113, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56988052_47da_4a05_911a_e3d941f17145);
 }
 impl ::core::convert::From<IEnumTfLatticeElements> for ::windows::runtime::IUnknown {
     fn from(value: IEnumTfLatticeElements) -> Self {
@@ -1485,7 +1485,7 @@ impl IEnumTfProperties {
 }
 unsafe impl ::windows::runtime::Interface for IEnumTfProperties {
     type Vtable = IEnumTfProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(421039280, 44201, 4562, [175, 197, 0, 16, 90, 39, 153, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19188cb0_aca9_11d2_afc5_00105a2799b5);
 }
 impl ::core::convert::From<IEnumTfProperties> for ::windows::runtime::IUnknown {
     fn from(value: IEnumTfProperties) -> Self {
@@ -1544,7 +1544,7 @@ impl IEnumTfPropertyValue {
 }
 unsafe impl ::windows::runtime::Interface for IEnumTfPropertyValue {
     type Vtable = IEnumTfPropertyValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2396559387, 31760, 19837, [159, 179, 171, 114, 233, 199, 95, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ed8981b_7c10_4d7d_9fb3_ab72e9c75f72);
 }
 impl ::core::convert::From<IEnumTfPropertyValue> for ::windows::runtime::IUnknown {
     fn from(value: IEnumTfPropertyValue) -> Self {
@@ -1603,7 +1603,7 @@ impl IEnumTfRanges {
 }
 unsafe impl ::windows::runtime::Interface for IEnumTfRanges {
     type Vtable = IEnumTfRanges_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4187832128, 36402, 4562, [191, 70, 0, 16, 90, 39, 153, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf99d3f40_8e32_11d2_bf46_00105a2799b5);
 }
 impl ::core::convert::From<IEnumTfRanges> for ::windows::runtime::IUnknown {
     fn from(value: IEnumTfRanges) -> Self {
@@ -1661,7 +1661,7 @@ impl IEnumTfUIElements {
 }
 unsafe impl ::windows::runtime::Interface for IEnumTfUIElements {
     type Vtable = IEnumTfUIElements_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2289740062, 44218, 18737, [132, 218, 60, 82, 8, 207, 84, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x887aa91e_acba_4931_84da_3c5208cf543f);
 }
 impl ::core::convert::From<IEnumTfUIElements> for ::windows::runtime::IUnknown {
     fn from(value: IEnumTfUIElements) -> Self {
@@ -1706,7 +1706,7 @@ impl IInternalDocWrap {
 }
 unsafe impl ::windows::runtime::Interface for IInternalDocWrap {
     type Vtable = IInternalDocWrap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3786040422, 40372, 16570, [190, 3, 119, 195, 142, 142, 96, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1aa6466_9db4_40ba_be03_77c38e8e60b2);
 }
 impl ::core::convert::From<IInternalDocWrap> for ::windows::runtime::IUnknown {
     fn from(value: IInternalDocWrap) -> Self {
@@ -1801,7 +1801,7 @@ impl ISpeechCommandProvider {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechCommandProvider {
     type Vtable = ISpeechCommandProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(954244428, 22637, 17242, [181, 146, 200, 168, 102, 145, 222, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38e09d4c_586d_435a_b592_c8a86691dec6);
 }
 impl ::core::convert::From<ISpeechCommandProvider> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechCommandProvider) -> Self {
@@ -1995,7 +1995,7 @@ impl ITextStoreACP {
 }
 unsafe impl ::windows::runtime::Interface for ITextStoreACP {
     type Vtable = ITextStoreACP_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(680038371, 49824, 18490, [163, 234, 140, 177, 206, 81, 255, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28888fe3_c2a0_483a_a3ea_8cb1ce51ff3d);
 }
 impl ::core::convert::From<ITextStoreACP> for ::windows::runtime::IUnknown {
     fn from(value: ITextStoreACP) -> Self {
@@ -2221,7 +2221,7 @@ impl ITextStoreACP2 {
 }
 unsafe impl ::windows::runtime::Interface for ITextStoreACP2 {
     type Vtable = ITextStoreACP2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4167751839, 24548, 19341, [187, 159, 239, 55, 151, 168, 79, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf86ad89f_5fe4_4b8d_bb9f_ef3797a84f1f);
 }
 impl ::core::convert::From<ITextStoreACP2> for ::windows::runtime::IUnknown {
     fn from(value: ITextStoreACP2) -> Self {
@@ -2302,7 +2302,7 @@ impl ITextStoreACPEx {
 }
 unsafe impl ::windows::runtime::Interface for ITextStoreACPEx {
     type Vtable = ITextStoreACPEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2732473282, 15758, 4563, [129, 169, 247, 83, 251, 230, 26, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2de3bc2_3d8e_11d3_81a9_f753fbe61a00);
 }
 impl ::core::convert::From<ITextStoreACPEx> for ::windows::runtime::IUnknown {
     fn from(value: ITextStoreACPEx) -> Self {
@@ -2360,7 +2360,7 @@ impl ITextStoreACPServices {
 }
 unsafe impl ::windows::runtime::Interface for ITextStoreACPServices {
     type Vtable = ITextStoreACPServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574977, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa80e901_2021_11d2_93e0_0060b067b86e);
 }
 impl ::core::convert::From<ITextStoreACPServices> for ::windows::runtime::IUnknown {
     fn from(value: ITextStoreACPServices) -> Self {
@@ -2435,7 +2435,7 @@ impl ITextStoreACPSink {
 }
 unsafe impl ::windows::runtime::Interface for ITextStoreACPSink {
     type Vtable = ITextStoreACPSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(584338580, 42009, 17730, [162, 114, 174, 38, 9, 62, 206, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22d44c94_a419_4542_a272_ae26093ececf);
 }
 impl ::core::convert::From<ITextStoreACPSink> for ::windows::runtime::IUnknown {
     fn from(value: ITextStoreACPSink) -> Self {
@@ -2516,7 +2516,7 @@ impl ITextStoreACPSinkEx {
 }
 unsafe impl ::windows::runtime::Interface for ITextStoreACPSinkEx {
     type Vtable = ITextStoreACPSinkEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(736072804, 16866, 17379, [149, 12, 166, 134, 91, 162, 92, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bdf9464_41e2_43e3_950c_a6865ba25cd4);
 }
 impl ::core::convert::From<ITextStoreACPSinkEx> for ::windows::runtime::IUnknown {
     fn from(value: ITextStoreACPSinkEx) -> Self {
@@ -2716,7 +2716,7 @@ impl ITextStoreAnchor {
 }
 unsafe impl ::windows::runtime::Interface for ITextStoreAnchor {
     type Vtable = ITextStoreAnchor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2602596272, 24344, 19948, [190, 233, 60, 199, 34, 245, 223, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b2077b0_5f18_4dec_bee9_3cc722f5dfe0);
 }
 impl ::core::convert::From<ITextStoreAnchor> for ::windows::runtime::IUnknown {
     fn from(value: ITextStoreAnchor) -> Self {
@@ -2800,7 +2800,7 @@ impl ITextStoreAnchorEx {
 }
 unsafe impl ::windows::runtime::Interface for ITextStoreAnchorEx {
     type Vtable = ITextStoreAnchorEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2732473281, 15758, 4563, [129, 169, 247, 83, 251, 230, 26, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2de3bc1_3d8e_11d3_81a9_f753fbe61a00);
 }
 impl ::core::convert::From<ITextStoreAnchorEx> for ::windows::runtime::IUnknown {
     fn from(value: ITextStoreAnchorEx) -> Self {
@@ -2871,7 +2871,7 @@ impl ITextStoreAnchorSink {
 }
 unsafe impl ::windows::runtime::Interface for ITextStoreAnchorSink {
     type Vtable = ITextStoreAnchorSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574981, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa80e905_2021_11d2_93e0_0060b067b86e);
 }
 impl ::core::convert::From<ITextStoreAnchorSink> for ::windows::runtime::IUnknown {
     fn from(value: ITextStoreAnchorSink) -> Self {
@@ -2952,7 +2952,7 @@ impl ITextStoreSinkAnchorEx {
 }
 unsafe impl ::windows::runtime::Interface for ITextStoreSinkAnchorEx {
     type Vtable = ITextStoreSinkAnchorEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(627319846, 653, 17524, [151, 123, 17, 27, 177, 20, 254, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25642426_028d_4474_977b_111bb114fe3e);
 }
 impl ::core::convert::From<ITextStoreSinkAnchorEx> for ::windows::runtime::IUnknown {
     fn from(value: ITextStoreSinkAnchorEx) -> Self {
@@ -3023,7 +3023,7 @@ impl ITfActiveLanguageProfileNotifySink {
 }
 unsafe impl ::windows::runtime::Interface for ITfActiveLanguageProfileNotifySink {
     type Vtable = ITfActiveLanguageProfileNotifySink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2990984053, 43326, 18002, [191, 140, 179, 254, 12, 253, 126, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb246cb75_a93e_4652_bf8c_b3fe0cfd7e57);
 }
 impl ::core::convert::From<ITfActiveLanguageProfileNotifySink> for ::windows::runtime::IUnknown {
     fn from(value: ITfActiveLanguageProfileNotifySink) -> Self {
@@ -3081,7 +3081,7 @@ impl ITfCandidateList {
 }
 unsafe impl ::windows::runtime::Interface for ITfCandidateList {
     type Vtable = ITfCandidateList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2746044667, 39899, 18915, [168, 67, 108, 118, 82, 15, 191, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3ad50fb_9bdb_49e3_a843_6c76520fbf5d);
 }
 impl ::core::convert::From<ITfCandidateList> for ::windows::runtime::IUnknown {
     fn from(value: ITfCandidateList) -> Self {
@@ -3183,7 +3183,7 @@ impl ITfCandidateListUIElement {
 }
 unsafe impl ::windows::runtime::Interface for ITfCandidateListUIElement {
     type Vtable = ITfCandidateListUIElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3927875896, 6623, 4567, [166, 210, 0, 6, 91, 132, 67, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea1ea138_19df_11d7_a6d2_00065b84435c);
 }
 impl ::core::convert::From<ITfCandidateListUIElement> for ::windows::runtime::IUnknown {
     fn from(value: ITfCandidateListUIElement) -> Self {
@@ -3329,7 +3329,7 @@ impl ITfCandidateListUIElementBehavior {
 }
 unsafe impl ::windows::runtime::Interface for ITfCandidateListUIElementBehavior {
     type Vtable = ITfCandidateListUIElementBehavior_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2247807365, 22734, 18810, [148, 96, 53, 83, 102, 182, 75, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85fad185_58ce_497a_9460_355366b64b9a);
 }
 impl ::core::convert::From<ITfCandidateListUIElementBehavior> for ::windows::runtime::IUnknown {
     fn from(value: ITfCandidateListUIElementBehavior) -> Self {
@@ -3436,7 +3436,7 @@ impl ITfCandidateString {
 }
 unsafe impl ::windows::runtime::Interface for ITfCandidateString {
     type Vtable = ITfCandidateString_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1478439294, 64925, 17471, [185, 114, 237, 0, 70, 124, 93, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x581f317e_fd9d_443f_b972_ed00467c5d40);
 }
 impl ::core::convert::From<ITfCandidateString> for ::windows::runtime::IUnknown {
     fn from(value: ITfCandidateString) -> Self {
@@ -3544,7 +3544,7 @@ impl ITfCategoryMgr {
 }
 unsafe impl ::windows::runtime::Interface for ITfCategoryMgr {
     type Vtable = ITfCategoryMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3282890677, 63133, 18693, [147, 143, 252, 173, 207, 75, 232, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3acefb5_f69d_4905_938f_fcadcf4be830);
 }
 impl ::core::convert::From<ITfCategoryMgr> for ::windows::runtime::IUnknown {
     fn from(value: ITfCategoryMgr) -> Self {
@@ -3608,7 +3608,7 @@ impl ITfCleanupContextDurationSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfCleanupContextDurationSink {
     type Vtable = ITfCleanupContextDurationSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1170428228, 5454, 18327, [190, 216, 211, 58, 231, 191, 135, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45c35144_154e_4797_bed8_d33ae7bf8794);
 }
 impl ::core::convert::From<ITfCleanupContextDurationSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfCleanupContextDurationSink) -> Self {
@@ -3651,7 +3651,7 @@ impl ITfCleanupContextSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfCleanupContextSink {
     type Vtable = ITfCleanupContextSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(23631497, 31435, 20123, [171, 124, 126, 164, 107, 18, 181, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01689689_7acb_4e9b_ab7c_7ea46b12b522);
 }
 impl ::core::convert::From<ITfCleanupContextSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfCleanupContextSink) -> Self {
@@ -3694,7 +3694,7 @@ impl ITfClientId {
 }
 unsafe impl ::windows::runtime::Interface for ITfClientId {
     type Vtable = ITfClientId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3591011145, 7071, 19426, [183, 2, 71, 233, 220, 5, 222, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd60a7b49_1b9f_4be2_b702_47e9dc05dec3);
 }
 impl ::core::convert::From<ITfClientId> for ::windows::runtime::IUnknown {
     fn from(value: ITfClientId) -> Self {
@@ -3743,7 +3743,7 @@ impl ITfCompartment {
 }
 unsafe impl ::windows::runtime::Interface for ITfCompartment {
     type Vtable = ITfCompartment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3137927081, 24698, 17284, [134, 35, 5, 104, 146, 182, 67, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb08f7a9_607a_4384_8623_056892b64371);
 }
 impl ::core::convert::From<ITfCompartment> for ::windows::runtime::IUnknown {
     fn from(value: ITfCompartment) -> Self {
@@ -3788,7 +3788,7 @@ impl ITfCompartmentEventSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfCompartmentEventSink {
     type Vtable = ITfCompartmentEventSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1950006623, 62061, 18655, [140, 197, 35, 132, 146, 65, 155, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x743abd5f_f26d_48df_8cc5_238492419b64);
 }
 impl ::core::convert::From<ITfCompartmentEventSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfCompartmentEventSink) -> Self {
@@ -3841,7 +3841,7 @@ impl ITfCompartmentMgr {
 }
 unsafe impl ::windows::runtime::Interface for ITfCompartmentMgr {
     type Vtable = ITfCompartmentMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2110740396, 6317, 17291, [130, 77, 151, 155, 255, 183, 75, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7dcf57ac_18ad_438b_824d_979bffb74b7c);
 }
 impl ::core::convert::From<ITfCompartmentMgr> for ::windows::runtime::IUnknown {
     fn from(value: ITfCompartmentMgr) -> Self {
@@ -3899,7 +3899,7 @@ impl ITfComposition {
 }
 unsafe impl ::windows::runtime::Interface for ITfComposition {
     type Vtable = ITfComposition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(538348900, 23183, 19034, [183, 189, 207, 162, 159, 77, 15, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20168d64_5a8f_4a5a_b7bd_cfa29f4d0fd9);
 }
 impl ::core::convert::From<ITfComposition> for ::windows::runtime::IUnknown {
     fn from(value: ITfComposition) -> Self {
@@ -3944,7 +3944,7 @@ impl ITfCompositionSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfCompositionSink {
     type Vtable = ITfCompositionSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2810278284, 22426, 19221, [162, 128, 50, 184, 87, 122, 204, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa781718c_579a_4b15_a280_32b8577acc5e);
 }
 impl ::core::convert::From<ITfCompositionSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfCompositionSink) -> Self {
@@ -3992,7 +3992,7 @@ impl ITfCompositionView {
 }
 unsafe impl ::windows::runtime::Interface for ITfCompositionView {
     type Vtable = ITfCompositionView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3612607041, 63905, 17252, [190, 252, 219, 205, 44, 67, 149, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7540241_f9a1_4364_befc_dbcd2c4395b7);
 }
 impl ::core::convert::From<ITfCompositionView> for ::windows::runtime::IUnknown {
     fn from(value: ITfCompositionView) -> Self {
@@ -4039,7 +4039,7 @@ impl ITfConfigureSystemKeystrokeFeed {
 }
 unsafe impl ::windows::runtime::Interface for ITfConfigureSystemKeystrokeFeed {
     type Vtable = ITfConfigureSystemKeystrokeFeed_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(221025946, 48284, 17276, [132, 238, 149, 28, 73, 177, 167, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d2c969a_bc9c_437c_84ee_951c49b1a764);
 }
 impl ::core::convert::From<ITfConfigureSystemKeystrokeFeed> for ::windows::runtime::IUnknown {
     fn from(value: ITfConfigureSystemKeystrokeFeed) -> Self {
@@ -4154,7 +4154,7 @@ impl ITfContext {
 }
 unsafe impl ::windows::runtime::Interface for ITfContext {
     type Vtable = ITfContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574717, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa80e7fd_2021_11d2_93e0_0060b067b86e);
 }
 impl ::core::convert::From<ITfContext> for ::windows::runtime::IUnknown {
     fn from(value: ITfContext) -> Self {
@@ -4229,7 +4229,7 @@ impl ITfContextComposition {
 }
 unsafe impl ::windows::runtime::Interface for ITfContextComposition {
     type Vtable = ITfContextComposition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3557591726, 44178, 20423, [154, 17, 14, 224, 226, 58, 163, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd40c8aae_ac92_4fc7_9a11_0ee0e23aa39b);
 }
 impl ::core::convert::From<ITfContextComposition> for ::windows::runtime::IUnknown {
     fn from(value: ITfContextComposition) -> Self {
@@ -4294,7 +4294,7 @@ impl ITfContextKeyEventSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfContextKeyEventSink {
     type Vtable = ITfContextKeyEventSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(89307741, 51253, 18740, [191, 80, 132, 106, 170, 103, 67, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0552ba5d_c835_4934_bf50_846aaa67432f);
 }
 impl ::core::convert::From<ITfContextKeyEventSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfContextKeyEventSink) -> Self {
@@ -4373,7 +4373,7 @@ impl ITfContextOwner {
 }
 unsafe impl ::windows::runtime::Interface for ITfContextOwner {
     type Vtable = ITfContextOwner_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574732, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa80e80c_2021_11d2_93e0_0060b067b86e);
 }
 impl ::core::convert::From<ITfContextOwner> for ::windows::runtime::IUnknown {
     fn from(value: ITfContextOwner) -> Self {
@@ -4445,7 +4445,7 @@ impl ITfContextOwnerCompositionServices {
 }
 unsafe impl ::windows::runtime::Interface for ITfContextOwnerCompositionServices {
     type Vtable = ITfContextOwnerCompositionServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2252744720, 22843, 18710, [151, 100, 25, 192, 142, 156, 225, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86462810_593b_4916_9764_19c08e9ce110);
 }
 impl ::core::convert::From<ITfContextOwnerCompositionServices> for ::windows::runtime::IUnknown {
     fn from(value: ITfContextOwnerCompositionServices) -> Self {
@@ -4521,7 +4521,7 @@ impl ITfContextOwnerCompositionSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfContextOwnerCompositionSink {
     type Vtable = ITfContextOwnerCompositionSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1595976256, 46458, 20276, [150, 171, 53, 118, 243, 119, 204, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f20aa40_b57a_4f34_96ab_3576f377cc79);
 }
 impl ::core::convert::From<ITfContextOwnerCompositionSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfContextOwnerCompositionSink) -> Self {
@@ -4593,7 +4593,7 @@ impl ITfContextOwnerServices {
 }
 unsafe impl ::windows::runtime::Interface for ITfContextOwnerServices {
     type Vtable = ITfContextOwnerServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2990454320, 15900, 4563, [167, 69, 0, 80, 4, 10, 180, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb23eb630_3e1c_11d3_a745_0050040ab407);
 }
 impl ::core::convert::From<ITfContextOwnerServices> for ::windows::runtime::IUnknown {
     fn from(value: ITfContextOwnerServices) -> Self {
@@ -4662,7 +4662,7 @@ impl ITfContextView {
 }
 unsafe impl ::windows::runtime::Interface for ITfContextView {
     type Vtable = ITfContextView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(607371150, 3995, 17244, [186, 44, 24, 6, 17, 151, 140, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2433bf8e_0f9b_435c_ba2c_180611978c30);
 }
 impl ::core::convert::From<ITfContextView> for ::windows::runtime::IUnknown {
     fn from(value: ITfContextView) -> Self {
@@ -4719,7 +4719,7 @@ impl ITfCreatePropertyStore {
 }
 unsafe impl ::windows::runtime::Interface for ITfCreatePropertyStore {
     type Vtable = ITfCreatePropertyStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(610532336, 45231, 4562, [175, 197, 0, 16, 90, 39, 153, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2463fbf0_b0af_11d2_afc5_00105a2799b5);
 }
 impl ::core::convert::From<ITfCreatePropertyStore> for ::windows::runtime::IUnknown {
     fn from(value: ITfCreatePropertyStore) -> Self {
@@ -4786,7 +4786,7 @@ impl ITfDisplayAttributeInfo {
 }
 unsafe impl ::windows::runtime::Interface for ITfDisplayAttributeInfo {
     type Vtable = ITfDisplayAttributeInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1884457042, 12070, 19178, [140, 150, 33, 81, 80, 87, 137, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70528852_2f26_4aea_8c96_215150578932);
 }
 impl ::core::convert::From<ITfDisplayAttributeInfo> for ::windows::runtime::IUnknown {
     fn from(value: ITfDisplayAttributeInfo) -> Self {
@@ -4844,7 +4844,7 @@ impl ITfDisplayAttributeMgr {
 }
 unsafe impl ::windows::runtime::Interface for ITfDisplayAttributeMgr {
     type Vtable = ITfDisplayAttributeMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2381149075, 23985, 18268, [158, 113, 163, 145, 17, 176, 255, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ded7393_5db1_475c_9e71_a39111b0ff67);
 }
 impl ::core::convert::From<ITfDisplayAttributeMgr> for ::windows::runtime::IUnknown {
     fn from(value: ITfDisplayAttributeMgr) -> Self {
@@ -4888,7 +4888,7 @@ impl ITfDisplayAttributeNotifySink {
 }
 unsafe impl ::windows::runtime::Interface for ITfDisplayAttributeNotifySink {
     type Vtable = ITfDisplayAttributeNotifySink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2908156930, 57698, 20261, [144, 143, 125, 87, 124, 249, 189, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad56f402_e162_4f25_908f_7d577cf9bda9);
 }
 impl ::core::convert::From<ITfDisplayAttributeNotifySink> for ::windows::runtime::IUnknown {
     fn from(value: ITfDisplayAttributeNotifySink) -> Self {
@@ -4936,7 +4936,7 @@ impl ITfDisplayAttributeProvider {
 }
 unsafe impl ::windows::runtime::Interface for ITfDisplayAttributeProvider {
     type Vtable = ITfDisplayAttributeProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4276385655, 5692, 18281, [153, 106, 110, 156, 80, 173, 143, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfee47777_163c_4769_996a_6e9c50ad8f54);
 }
 impl ::core::convert::From<ITfDisplayAttributeProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITfDisplayAttributeProvider) -> Self {
@@ -5002,7 +5002,7 @@ impl ITfDocumentMgr {
 }
 unsafe impl ::windows::runtime::Interface for ITfDocumentMgr {
     type Vtable = ITfDocumentMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574708, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa80e7f4_2021_11d2_93e0_0060b067b86e);
 }
 impl ::core::convert::From<ITfDocumentMgr> for ::windows::runtime::IUnknown {
     fn from(value: ITfDocumentMgr) -> Self {
@@ -5056,7 +5056,7 @@ impl ITfEditRecord {
 }
 unsafe impl ::windows::runtime::Interface for ITfEditRecord {
     type Vtable = ITfEditRecord_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1121243289, 31770, 19081, [184, 54, 108, 111, 34, 22, 13, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42d4d099_7c1a_4a89_b836_6c6f22160df0);
 }
 impl ::core::convert::From<ITfEditRecord> for ::windows::runtime::IUnknown {
     fn from(value: ITfEditRecord) -> Self {
@@ -5100,7 +5100,7 @@ impl ITfEditSession {
 }
 unsafe impl ::windows::runtime::Interface for ITfEditSession {
     type Vtable = ITfEditSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574723, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa80e803_2021_11d2_93e0_0060b067b86e);
 }
 impl ::core::convert::From<ITfEditSession> for ::windows::runtime::IUnknown {
     fn from(value: ITfEditSession) -> Self {
@@ -5146,7 +5146,7 @@ impl ITfEditTransactionSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfEditTransactionSink {
     type Vtable = ITfEditTransactionSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1888468848, 46368, 16747, [176, 108, 44, 65, 171, 68, 248, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x708fbf70_b520_416b_b06c_2c41ab44f8ba);
 }
 impl ::core::convert::From<ITfEditTransactionSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfEditTransactionSink) -> Self {
@@ -5200,7 +5200,7 @@ impl ITfFnAdviseText {
 }
 unsafe impl ::windows::runtime::Interface for ITfFnAdviseText {
     type Vtable = ITfFnAdviseText_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(891758219, 32083, 19929, [146, 183, 114, 150, 174, 70, 18, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3527268b_7d53_4dd9_92b7_7296ae461249);
 }
 impl ::core::convert::From<ITfFnAdviseText> for ::windows::runtime::IUnknown {
     fn from(value: ITfFnAdviseText) -> Self {
@@ -5267,7 +5267,7 @@ impl ITfFnBalloon {
 }
 unsafe impl ::windows::runtime::Interface for ITfFnBalloon {
     type Vtable = ITfFnBalloon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1001097700, 24510, 17908, [165, 188, 220, 163, 106, 210, 37, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3bab89e4_5fbe_45f4_a5bc_dca36ad225a8);
 }
 impl ::core::convert::From<ITfFnBalloon> for ::windows::runtime::IUnknown {
     fn from(value: ITfFnBalloon) -> Self {
@@ -5317,7 +5317,7 @@ impl ITfFnConfigure {
 }
 unsafe impl ::windows::runtime::Interface for ITfFnConfigure {
     type Vtable = ITfFnConfigure_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2297784262, 5975, 18936, [161, 178, 137, 35, 76, 30, 239, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88f567c6_1757_49f8_a1b2_89234c1eeff9);
 }
 impl ::core::convert::From<ITfFnConfigure> for ::windows::runtime::IUnknown {
     fn from(value: ITfFnConfigure) -> Self {
@@ -5389,7 +5389,7 @@ impl ITfFnConfigureRegisterEudc {
 }
 unsafe impl ::windows::runtime::Interface for ITfFnConfigureRegisterEudc {
     type Vtable = ITfFnConfigureRegisterEudc_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3051515893, 55213, 17156, [145, 63, 33, 162, 237, 149, 161, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5e26ff5_d7ad_4304_913f_21a2ed95a1b0);
 }
 impl ::core::convert::From<ITfFnConfigureRegisterEudc> for ::windows::runtime::IUnknown {
     fn from(value: ITfFnConfigureRegisterEudc) -> Self {
@@ -5461,7 +5461,7 @@ impl ITfFnConfigureRegisterWord {
 }
 unsafe impl ::windows::runtime::Interface for ITfFnConfigureRegisterWord {
     type Vtable = ITfFnConfigureRegisterWord_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3147137162, 28047, 19402, [132, 0, 83, 144, 181, 134, 174, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb95808a_6d8f_4bca_8400_5390b586aedf);
 }
 impl ::core::convert::From<ITfFnConfigureRegisterWord> for ::windows::runtime::IUnknown {
     fn from(value: ITfFnConfigureRegisterWord) -> Self {
@@ -5532,7 +5532,7 @@ impl ITfFnCustomSpeechCommand {
 }
 unsafe impl ::windows::runtime::Interface for ITfFnCustomSpeechCommand {
     type Vtable = ITfFnCustomSpeechCommand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4238787401, 41263, 17315, [141, 214, 90, 90, 66, 130, 87, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfca6c349_a12f_43a3_8dd6_5a5a4282577b);
 }
 impl ::core::convert::From<ITfFnCustomSpeechCommand> for ::windows::runtime::IUnknown {
     fn from(value: ITfFnCustomSpeechCommand) -> Self {
@@ -5603,7 +5603,7 @@ impl ITfFnGetLinguisticAlternates {
 }
 unsafe impl ::windows::runtime::Interface for ITfFnGetLinguisticAlternates {
     type Vtable = ITfFnGetLinguisticAlternates_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3927325922, 31333, 17670, [130, 163, 197, 40, 33, 93, 166, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea163ce2_7a65_4506_82a3_c528215da64e);
 }
 impl ::core::convert::From<ITfFnGetLinguisticAlternates> for ::windows::runtime::IUnknown {
     fn from(value: ITfFnGetLinguisticAlternates) -> Self {
@@ -5673,7 +5673,7 @@ impl ITfFnGetPreferredTouchKeyboardLayout {
 }
 unsafe impl ::windows::runtime::Interface for ITfFnGetPreferredTouchKeyboardLayout {
     type Vtable = ITfFnGetPreferredTouchKeyboardLayout_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1597020737, 22794, 19148, [169, 127, 216, 239, 255, 19, 253, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f309a41_590a_4acc_a97f_d8efff13fdfc);
 }
 impl ::core::convert::From<ITfFnGetPreferredTouchKeyboardLayout> for ::windows::runtime::IUnknown {
     fn from(value: ITfFnGetPreferredTouchKeyboardLayout) -> Self {
@@ -5744,7 +5744,7 @@ impl ITfFnGetSAPIObject {
 }
 unsafe impl ::windows::runtime::Interface for ITfFnGetSAPIObject {
     type Vtable = ITfFnGetSAPIObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1544206314, 5757, 20313, [191, 181, 70, 147, 117, 94, 144, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c0ab7ea_167d_4f59_bfb5_4693755e90ca);
 }
 impl ::core::convert::From<ITfFnGetSAPIObject> for ::windows::runtime::IUnknown {
     fn from(value: ITfFnGetSAPIObject) -> Self {
@@ -5849,7 +5849,7 @@ impl ITfFnLMInternal {
 }
 unsafe impl ::windows::runtime::Interface for ITfFnLMInternal {
     type Vtable = ITfFnLMInternal_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(79177137, 44186, 20347, [181, 173, 199, 22, 143, 30, 228, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04b825b1_ac9a_4f7b_b5ad_c7168f1ee445);
 }
 impl ::core::convert::From<ITfFnLMInternal> for ::windows::runtime::IUnknown {
     fn from(value: ITfFnLMInternal) -> Self {
@@ -5981,7 +5981,7 @@ impl ITfFnLMProcessor {
 }
 unsafe impl ::windows::runtime::Interface for ITfFnLMProcessor {
     type Vtable = ITfFnLMProcessor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2063333607, 44107, 16514, [176, 88, 137, 8, 153, 211, 160, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7afbf8e7_ac4b_4082_b058_890899d3a010);
 }
 impl ::core::convert::From<ITfFnLMProcessor> for ::windows::runtime::IUnknown {
     fn from(value: ITfFnLMProcessor) -> Self {
@@ -6067,7 +6067,7 @@ impl ITfFnLangProfileUtil {
 }
 unsafe impl ::windows::runtime::Interface for ITfFnLangProfileUtil {
     type Vtable = ITfFnLangProfileUtil_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2826601844, 42689, 19989, [153, 240, 61, 57, 101, 245, 72, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa87a8574_a6c1_4e15_99f0_3d3965f548eb);
 }
 impl ::core::convert::From<ITfFnLangProfileUtil> for ::windows::runtime::IUnknown {
     fn from(value: ITfFnLangProfileUtil) -> Self {
@@ -6144,7 +6144,7 @@ impl ITfFnPlayBack {
 }
 unsafe impl ::windows::runtime::Interface for ITfFnPlayBack {
     type Vtable = ITfFnPlayBack_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2745439908, 3940, 4563, [181, 183, 0, 192, 79, 195, 36, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3a416a4_0f64_11d3_b5b7_00c04fc324a1);
 }
 impl ::core::convert::From<ITfFnPlayBack> for ::windows::runtime::IUnknown {
     fn from(value: ITfFnPlayBack) -> Self {
@@ -6221,7 +6221,7 @@ impl ITfFnPropertyUIStatus {
 }
 unsafe impl ::windows::runtime::Interface for ITfFnPropertyUIStatus {
     type Vtable = ITfFnPropertyUIStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(590916718, 11165, 17600, [167, 94, 238, 100, 242, 86, 179, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2338ac6e_2b9d_44c0_a75e_ee64f256b3bd);
 }
 impl ::core::convert::From<ITfFnPropertyUIStatus> for ::windows::runtime::IUnknown {
     fn from(value: ITfFnPropertyUIStatus) -> Self {
@@ -6302,7 +6302,7 @@ impl ITfFnReconversion {
 }
 unsafe impl ::windows::runtime::Interface for ITfFnReconversion {
     type Vtable = ITfFnReconversion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1290441664, 2648, 4563, [141, 240, 0, 16, 90, 39, 153, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4cea93c0_0a58_11d3_8df0_00105a2799b5);
 }
 impl ::core::convert::From<ITfFnReconversion> for ::windows::runtime::IUnknown {
     fn from(value: ITfFnReconversion) -> Self {
@@ -6382,7 +6382,7 @@ impl ITfFnSearchCandidateProvider {
 }
 unsafe impl ::windows::runtime::Interface for ITfFnSearchCandidateProvider {
     type Vtable = ITfFnSearchCandidateProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2275585423, 62075, 18720, [133, 1, 103, 96, 34, 128, 23, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87a2ad8f_f27b_4920_8501_67602280175d);
 }
 impl ::core::convert::From<ITfFnSearchCandidateProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITfFnSearchCandidateProvider) -> Self {
@@ -6456,7 +6456,7 @@ impl ITfFnShowHelp {
 }
 unsafe impl ::windows::runtime::Interface for ITfFnShowHelp {
     type Vtable = ITfFnShowHelp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1521603340, 2381, 19497, [142, 165, 11, 245, 155, 232, 123, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ab1d30c_094d_4c29_8ea5_0bf59be87bf3);
 }
 impl ::core::convert::From<ITfFnShowHelp> for ::windows::runtime::IUnknown {
     fn from(value: ITfFnShowHelp) -> Self {
@@ -6523,7 +6523,7 @@ impl ITfFunction {
 }
 unsafe impl ::windows::runtime::Interface for ITfFunction {
     type Vtable = ITfFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3680056464, 2447, 4563, [141, 240, 0, 16, 90, 39, 153, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb593490_098f_11d3_8df0_00105a2799b5);
 }
 impl ::core::convert::From<ITfFunction> for ::windows::runtime::IUnknown {
     fn from(value: ITfFunction) -> Self {
@@ -6578,7 +6578,7 @@ impl ITfFunctionProvider {
 }
 unsafe impl ::windows::runtime::Interface for ITfFunctionProvider {
     type Vtable = ITfFunctionProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(270362128, 2448, 4563, [141, 240, 0, 16, 90, 39, 153, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x101d6610_0990_11d3_8df0_00105a2799b5);
 }
 impl ::core::convert::From<ITfFunctionProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITfFunctionProvider) -> Self {
@@ -6623,7 +6623,7 @@ impl ITfInputProcessorProfileActivationSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfInputProcessorProfileActivationSink {
     type Vtable = ITfInputProcessorProfileActivationSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1908860750, 3880, 4568, [168, 42, 0, 6, 91, 132, 67, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71c6e74e_0f28_11d8_a82a_00065b84435c);
 }
 impl ::core::convert::From<ITfInputProcessorProfileActivationSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfInputProcessorProfileActivationSink) -> Self {
@@ -6726,7 +6726,7 @@ impl ITfInputProcessorProfileMgr {
 }
 unsafe impl ::windows::runtime::Interface for ITfInputProcessorProfileMgr {
     type Vtable = ITfInputProcessorProfileMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1908860748, 3880, 4568, [168, 42, 0, 6, 91, 132, 67, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71c6e74c_0f28_11d8_a82a_00065b84435c);
 }
 impl ::core::convert::From<ITfInputProcessorProfileMgr> for ::windows::runtime::IUnknown {
     fn from(value: ITfInputProcessorProfileMgr) -> Self {
@@ -6777,7 +6777,7 @@ impl ITfInputProcessorProfileSubstituteLayout {
 }
 unsafe impl ::windows::runtime::Interface for ITfInputProcessorProfileSubstituteLayout {
     type Vtable = ITfInputProcessorProfileSubstituteLayout_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1339453844, 4098, 17683, [191, 242, 192, 221, 246, 37, 133, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4fd67194_1002_4513_bff2_c0ddf6258552);
 }
 impl ::core::convert::From<ITfInputProcessorProfileSubstituteLayout> for ::windows::runtime::IUnknown {
     fn from(value: ITfInputProcessorProfileSubstituteLayout) -> Self {
@@ -6898,7 +6898,7 @@ impl ITfInputProcessorProfiles {
 }
 unsafe impl ::windows::runtime::Interface for ITfInputProcessorProfiles {
     type Vtable = ITfInputProcessorProfiles_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(520271557, 30786, 20198, [138, 11, 154, 36, 24, 58, 149, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f02b6c5_7842_4ee6_8a0b_9a24183a95ca);
 }
 impl ::core::convert::From<ITfInputProcessorProfiles> for ::windows::runtime::IUnknown {
     fn from(value: ITfInputProcessorProfiles) -> Self {
@@ -7047,7 +7047,7 @@ impl ITfInputProcessorProfilesEx {
 }
 unsafe impl ::windows::runtime::Interface for ITfInputProcessorProfilesEx {
     type Vtable = ITfInputProcessorProfilesEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2301567759, 65024, 19009, [169, 142, 252, 214, 222, 13, 53, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x892f230f_fe00_4a41_a98e_fcd6de0d35ef);
 }
 impl ::core::convert::From<ITfInputProcessorProfilesEx> for ::windows::runtime::IUnknown {
     fn from(value: ITfInputProcessorProfilesEx) -> Self {
@@ -7157,7 +7157,7 @@ impl ITfInputScope {
 }
 unsafe impl ::windows::runtime::Interface for ITfInputScope {
     type Vtable = ITfInputScope_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4259441390, 26916, 19679, [145, 231, 218, 56, 207, 245, 85, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfde1eaee_6924_4cdf_91e7_da38cff5559d);
 }
 impl ::core::convert::From<ITfInputScope> for ::windows::runtime::IUnknown {
     fn from(value: ITfInputScope) -> Self {
@@ -7236,7 +7236,7 @@ impl ITfInputScope2 {
 }
 unsafe impl ::windows::runtime::Interface for ITfInputScope2 {
     type Vtable = ITfInputScope2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1462889120, 27586, 18049, [165, 50, 146, 251, 183, 77, 124, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5731eaa0_6bc2_4681_a532_92fbb74d7c41);
 }
 impl ::core::convert::From<ITfInputScope2> for ::windows::runtime::IUnknown {
     fn from(value: ITfInputScope2) -> Self {
@@ -7316,7 +7316,7 @@ impl ITfInsertAtSelection {
 }
 unsafe impl ::windows::runtime::Interface for ITfInsertAtSelection {
     type Vtable = ITfInsertAtSelection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1439569594, 12308, 16833, [156, 235, 250, 222, 20, 70, 172, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55ce16ba_3014_41c1_9ceb_fade1446ac6c);
 }
 impl ::core::convert::From<ITfInsertAtSelection> for ::windows::runtime::IUnknown {
     fn from(value: ITfInsertAtSelection) -> Self {
@@ -7382,7 +7382,7 @@ impl ITfIntegratableCandidateListUIElement {
 }
 unsafe impl ::windows::runtime::Interface for ITfIntegratableCandidateListUIElement {
     type Vtable = ITfIntegratableCandidateListUIElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3349607759, 45440, 16751, [178, 191, 123, 242, 228, 104, 61, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7a6f54f_b180_416f_b2bf_7bf2e4683d7b);
 }
 impl ::core::convert::From<ITfIntegratableCandidateListUIElement> for ::windows::runtime::IUnknown {
     fn from(value: ITfIntegratableCandidateListUIElement) -> Self {
@@ -7461,7 +7461,7 @@ impl ITfKeyEventSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfKeyEventSink {
     type Vtable = ITfKeyEventSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574709, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa80e7f5_2021_11d2_93e0_0060b067b86e);
 }
 impl ::core::convert::From<ITfKeyEventSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfKeyEventSink) -> Self {
@@ -7520,7 +7520,7 @@ impl ITfKeyTraceEventSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfKeyTraceEventSink {
     type Vtable = ITfKeyTraceEventSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(483705147, 7222, 16785, [167, 10, 127, 62, 97, 31, 54, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cd4c13b_1c36_4191_a70a_7f3e611f367d);
 }
 impl ::core::convert::From<ITfKeyTraceEventSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfKeyTraceEventSink) -> Self {
@@ -7636,7 +7636,7 @@ impl ITfKeystrokeMgr {
 }
 unsafe impl ::windows::runtime::Interface for ITfKeystrokeMgr {
     type Vtable = ITfKeystrokeMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574704, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa80e7f0_2021_11d2_93e0_0060b067b86e);
 }
 impl ::core::convert::From<ITfKeystrokeMgr> for ::windows::runtime::IUnknown {
     fn from(value: ITfKeystrokeMgr) -> Self {
@@ -7708,7 +7708,7 @@ impl ITfLMLattice {
 }
 unsafe impl ::windows::runtime::Interface for ITfLMLattice {
     type Vtable = ITfLMLattice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3559089781, 42431, 17776, [157, 66, 93, 109, 123, 2, 213, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4236675_a5bf_4570_9d42_5d6d7b02d59b);
 }
 impl ::core::convert::From<ITfLMLattice> for ::windows::runtime::IUnknown {
     fn from(value: ITfLMLattice) -> Self {
@@ -7775,7 +7775,7 @@ impl ITfLangBarEventSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfLangBarEventSink {
     type Vtable = ITfLangBarEventSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(413460736, 57518, 4562, [175, 221, 0, 16, 90, 39, 153, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18a4e900_e0ae_11d2_afdd_00105a2799b5);
 }
 impl ::core::convert::From<ITfLangBarEventSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfLangBarEventSink) -> Self {
@@ -7841,7 +7841,7 @@ impl ITfLangBarItem {
 }
 unsafe impl ::windows::runtime::Interface for ITfLangBarItem {
     type Vtable = ITfLangBarItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1934888297, 60907, 20201, [150, 201, 35, 170, 48, 178, 89, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73540d69_edeb_4ee9_96c9_23aa30b25916);
 }
 impl ::core::convert::From<ITfLangBarItem> for ::windows::runtime::IUnknown {
     fn from(value: ITfLangBarItem) -> Self {
@@ -7922,7 +7922,7 @@ impl ITfLangBarItemBalloon {
 }
 unsafe impl ::windows::runtime::Interface for ITfLangBarItemBalloon {
     type Vtable = ITfLangBarItemBalloon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(29545093, 54215, 19323, [181, 181, 217, 116, 17, 208, 194, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01c2d285_d3c7_4b7b_b5b5_d97411d0c283);
 }
 impl ::core::convert::From<ITfLangBarItemBalloon> for ::windows::runtime::IUnknown {
     fn from(value: ITfLangBarItemBalloon) -> Self {
@@ -8028,7 +8028,7 @@ impl ITfLangBarItemBitmap {
 }
 unsafe impl ::windows::runtime::Interface for ITfLangBarItemBitmap {
     type Vtable = ITfLangBarItemBitmap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1937965906, 55074, 16761, [173, 165, 240, 69, 201, 141, 243, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73830352_d722_4179_ada5_f045c98df355);
 }
 impl ::core::convert::From<ITfLangBarItemBitmap> for ::windows::runtime::IUnknown {
     fn from(value: ITfLangBarItemBitmap) -> Self {
@@ -8148,7 +8148,7 @@ impl ITfLangBarItemBitmapButton {
 }
 unsafe impl ::windows::runtime::Interface for ITfLangBarItemBitmapButton {
     type Vtable = ITfLangBarItemBitmapButton_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2724857125, 16302, 20384, [137, 238, 136, 169, 100, 249, 241, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa26a0525_3fae_4fa0_89ee_88a964f9f1b5);
 }
 impl ::core::convert::From<ITfLangBarItemBitmapButton> for ::windows::runtime::IUnknown {
     fn from(value: ITfLangBarItemBitmapButton) -> Self {
@@ -8267,7 +8267,7 @@ impl ITfLangBarItemButton {
 }
 unsafe impl ::windows::runtime::Interface for ITfLangBarItemButton {
     type Vtable = ITfLangBarItemButton_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(684192208, 56869, 4562, [175, 221, 0, 16, 90, 39, 153, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28c7f1d0_de25_11d2_afdd_00105a2799b5);
 }
 impl ::core::convert::From<ITfLangBarItemButton> for ::windows::runtime::IUnknown {
     fn from(value: ITfLangBarItemButton) -> Self {
@@ -8391,7 +8391,7 @@ impl ITfLangBarItemMgr {
 }
 unsafe impl ::windows::runtime::Interface for ITfLangBarItemMgr {
     type Vtable = ITfLangBarItemMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3125185621, 39254, 20401, [165, 157, 82, 167, 221, 124, 198, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba468c55_9956_4fb1_a59d_52a7dd7cc6aa);
 }
 impl ::core::convert::From<ITfLangBarItemMgr> for ::windows::runtime::IUnknown {
     fn from(value: ITfLangBarItemMgr) -> Self {
@@ -8445,7 +8445,7 @@ impl ITfLangBarItemSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfLangBarItemSink {
     type Vtable = ITfLangBarItemSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1474027936, 56869, 4562, [175, 221, 0, 16, 90, 39, 153, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57dbe1a0_de25_11d2_afdd_00105a2799b5);
 }
 impl ::core::convert::From<ITfLangBarItemSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfLangBarItemSink) -> Self {
@@ -8523,7 +8523,7 @@ impl ITfLangBarMgr {
 }
 unsafe impl ::windows::runtime::Interface for ITfLangBarMgr {
     type Vtable = ITfLangBarMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2274711184, 58919, 4562, [141, 219, 0, 16, 90, 39, 153, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87955690_e627_11d2_8ddb_00105a2799b5);
 }
 impl ::core::convert::From<ITfLangBarMgr> for ::windows::runtime::IUnknown {
     fn from(value: ITfLangBarMgr) -> Self {
@@ -8581,7 +8581,7 @@ impl ITfLanguageProfileNotifySink {
 }
 unsafe impl ::windows::runtime::Interface for ITfLanguageProfileNotifySink {
     type Vtable = ITfLanguageProfileNotifySink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1137311253, 62612, 19479, [157, 226, 184, 164, 172, 53, 10, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43c9fe15_f494_4c17_9de2_b8a4ac350aa8);
 }
 impl ::core::convert::From<ITfLanguageProfileNotifySink> for ::windows::runtime::IUnknown {
     fn from(value: ITfLanguageProfileNotifySink) -> Self {
@@ -8629,7 +8629,7 @@ impl ITfMSAAControl {
 }
 unsafe impl ::windows::runtime::Interface for ITfMSAAControl {
     type Vtable = ITfMSAAControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3052993339, 14655, 20348, [132, 203, 80, 73, 36, 194, 112, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5f8fb3b_393f_4f7c_84cb_504924c2705a);
 }
 impl ::core::convert::From<ITfMSAAControl> for ::windows::runtime::IUnknown {
     fn from(value: ITfMSAAControl) -> Self {
@@ -8673,7 +8673,7 @@ impl ITfMenu {
 }
 unsafe impl ::windows::runtime::Interface for ITfMenu {
     type Vtable = ITfMenu_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1871354084, 43680, 20245, [140, 91, 7, 224, 223, 10, 61, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f8a98e4_aaa0_4f15_8c5b_07e0df0a3dd8);
 }
 impl ::core::convert::From<ITfMenu> for ::windows::runtime::IUnknown {
     fn from(value: ITfMenu) -> Self {
@@ -8732,7 +8732,7 @@ impl ITfMessagePump {
 }
 unsafe impl ::windows::runtime::Interface for ITfMessagePump {
     type Vtable = ITfMessagePump_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400946904, 2923, 18548, [144, 197, 189, 118, 1, 30, 143, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f1b8ad8_0b6b_4874_90c5_bd76011e8f7c);
 }
 impl ::core::convert::From<ITfMessagePump> for ::windows::runtime::IUnknown {
     fn from(value: ITfMessagePump) -> Self {
@@ -8783,7 +8783,7 @@ impl ITfMouseSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfMouseSink {
     type Vtable = ITfMouseSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2712513186, 14884, 17565, [172, 150, 81, 131, 231, 245, 194, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1adaaa2_3a24_449d_ac96_5183e7f5c217);
 }
 impl ::core::convert::From<ITfMouseSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfMouseSink) -> Self {
@@ -8831,7 +8831,7 @@ impl ITfMouseTracker {
 }
 unsafe impl ::windows::runtime::Interface for ITfMouseTracker {
     type Vtable = ITfMouseTracker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(164710093, 42308, 16690, [146, 91, 122, 250, 142, 243, 34, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09d146cd_a544_4132_925b_7afa8ef322d0);
 }
 impl ::core::convert::From<ITfMouseTracker> for ::windows::runtime::IUnknown {
     fn from(value: ITfMouseTracker) -> Self {
@@ -8879,7 +8879,7 @@ impl ITfMouseTrackerACP {
 }
 unsafe impl ::windows::runtime::Interface for ITfMouseTrackerACP {
     type Vtable = ITfMouseTrackerACP_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1004370146, 49518, 18429, [184, 131, 206, 111, 172, 193, 162, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3bdd78e2_c16e_47fd_b883_ce6facc1a208);
 }
 impl ::core::convert::From<ITfMouseTrackerACP> for ::windows::runtime::IUnknown {
     fn from(value: ITfMouseTrackerACP) -> Self {
@@ -8924,7 +8924,7 @@ impl ITfPersistentPropertyLoaderACP {
 }
 unsafe impl ::windows::runtime::Interface for ITfPersistentPropertyLoaderACP {
     type Vtable = ITfPersistentPropertyLoaderACP_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1324912976, 2055, 4563, [141, 240, 0, 16, 90, 39, 153, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ef89150_0807_11d3_8df0_00105a2799b5);
 }
 impl ::core::convert::From<ITfPersistentPropertyLoaderACP> for ::windows::runtime::IUnknown {
     fn from(value: ITfPersistentPropertyLoaderACP) -> Self {
@@ -8967,7 +8967,7 @@ impl ITfPreservedKeyNotifySink {
 }
 unsafe impl ::windows::runtime::Interface for ITfPreservedKeyNotifySink {
     type Vtable = ITfPreservedKeyNotifySink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1870121363, 53937, 17518, [133, 62, 89, 18, 239, 200, 162, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f77c993_d2b1_446e_853e_5912efc8a286);
 }
 impl ::core::convert::From<ITfPreservedKeyNotifySink> for ::windows::runtime::IUnknown {
     fn from(value: ITfPreservedKeyNotifySink) -> Self {
@@ -9042,7 +9042,7 @@ impl ITfProperty {
 }
 unsafe impl ::windows::runtime::Interface for ITfProperty {
     type Vtable = ITfProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3796145760, 38210, 4562, [191, 70, 0, 16, 90, 39, 153, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2449660_9542_11d2_bf46_00105a2799b5);
 }
 impl ::core::convert::From<ITfProperty> for ::windows::runtime::IUnknown {
     fn from(value: ITfProperty) -> Self {
@@ -9158,7 +9158,7 @@ impl ITfPropertyStore {
 }
 unsafe impl ::windows::runtime::Interface for ITfPropertyStore {
     type Vtable = ITfPropertyStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1748283680, 35019, 4562, [191, 69, 0, 16, 90, 39, 153, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6834b120_88cb_11d2_bf45_00105a2799b5);
 }
 impl ::core::convert::From<ITfPropertyStore> for ::windows::runtime::IUnknown {
     fn from(value: ITfPropertyStore) -> Self {
@@ -9214,7 +9214,7 @@ impl ITfQueryEmbedded {
 }
 unsafe impl ::windows::runtime::Interface for ITfQueryEmbedded {
     type Vtable = ITfQueryEmbedded_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(262904795, 53840, 16745, [132, 229, 107, 225, 24, 253, 215, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0fab9bdb_d250_4169_84e5_6be118fdd7a8);
 }
 impl ::core::convert::From<ITfQueryEmbedded> for ::windows::runtime::IUnknown {
     fn from(value: ITfQueryEmbedded) -> Self {
@@ -9363,7 +9363,7 @@ impl ITfRange {
 }
 unsafe impl ::windows::runtime::Interface for ITfRange {
     type Vtable = ITfRange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574719, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa80e7ff_2021_11d2_93e0_0060b067b86e);
 }
 impl ::core::convert::From<ITfRange> for ::windows::runtime::IUnknown {
     fn from(value: ITfRange) -> Self {
@@ -9550,7 +9550,7 @@ impl ITfRangeACP {
 }
 unsafe impl ::windows::runtime::Interface for ITfRangeACP {
     type Vtable = ITfRangeACP_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(91906710, 667, 16724, [183, 154, 13, 70, 29, 78, 169, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x057a6296_029b_4154_b79a_0d461d4ea94c);
 }
 impl ::core::convert::From<ITfRangeACP> for ::windows::runtime::IUnknown {
     fn from(value: ITfRangeACP) -> Self {
@@ -9645,7 +9645,7 @@ impl ITfRangeBackup {
 }
 unsafe impl ::windows::runtime::Interface for ITfRangeBackup {
     type Vtable = ITfRangeBackup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1178226797, 27026, 18898, [155, 136, 147, 213, 94, 112, 187, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x463a506d_6992_49d2_9b88_93d55e70bb16);
 }
 impl ::core::convert::From<ITfRangeBackup> for ::windows::runtime::IUnknown {
     fn from(value: ITfRangeBackup) -> Self {
@@ -9703,7 +9703,7 @@ impl ITfReadOnlyProperty {
 }
 unsafe impl ::windows::runtime::Interface for ITfReadOnlyProperty {
     type Vtable = ITfReadOnlyProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(399809085, 63672, 19247, [178, 84, 82, 49, 157, 214, 76, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17d49a3d_f8b8_4b2f_b254_52319dd64c53);
 }
 impl ::core::convert::From<ITfReadOnlyProperty> for ::windows::runtime::IUnknown {
     fn from(value: ITfReadOnlyProperty) -> Self {
@@ -9799,7 +9799,7 @@ impl ITfReadingInformationUIElement {
 }
 unsafe impl ::windows::runtime::Interface for ITfReadingInformationUIElement {
     type Vtable = ITfReadingInformationUIElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3927875897, 6623, 4567, [166, 210, 0, 6, 91, 132, 67, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea1ea139_19df_11d7_a6d2_00065b84435c);
 }
 impl ::core::convert::From<ITfReadingInformationUIElement> for ::windows::runtime::IUnknown {
     fn from(value: ITfReadingInformationUIElement) -> Self {
@@ -9877,7 +9877,7 @@ impl ITfReverseConversion {
 }
 unsafe impl ::windows::runtime::Interface for ITfReverseConversion {
     type Vtable = ITfReverseConversion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2752897378, 5501, 16765, [138, 140, 10, 178, 108, 125, 39, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa415e162_157d_417d_8a8c_0ab26c7d2781);
 }
 impl ::core::convert::From<ITfReverseConversion> for ::windows::runtime::IUnknown {
     fn from(value: ITfReverseConversion) -> Self {
@@ -9927,7 +9927,7 @@ impl ITfReverseConversionList {
 }
 unsafe impl ::windows::runtime::Interface for ITfReverseConversionList {
     type Vtable = ITfReverseConversionList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(354249200, 34548, 18036, [183, 33, 86, 145, 30, 121, 127, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x151d69f0_86f4_4674_b721_56911e797f47);
 }
 impl ::core::convert::From<ITfReverseConversionList> for ::windows::runtime::IUnknown {
     fn from(value: ITfReverseConversionList) -> Self {
@@ -9972,7 +9972,7 @@ impl ITfReverseConversionMgr {
 }
 unsafe impl ::windows::runtime::Interface for ITfReverseConversionMgr {
     type Vtable = ITfReverseConversionMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3057893942, 50323, 16822, [171, 179, 105, 36, 18, 119, 92, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb643c236_c493_41b6_abb3_692412775cc4);
 }
 impl ::core::convert::From<ITfReverseConversionMgr> for ::windows::runtime::IUnknown {
     fn from(value: ITfReverseConversionMgr) -> Self {
@@ -10019,7 +10019,7 @@ impl ITfSource {
 }
 unsafe impl ::windows::runtime::Interface for ITfSource {
     type Vtable = ITfSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1319406133, 24750, 17519, [143, 214, 230, 168, 216, 36, 89, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ea48a35_60ae_446f_8fd6_e6a8d82459f7);
 }
 impl ::core::convert::From<ITfSource> for ::windows::runtime::IUnknown {
     fn from(value: ITfSource) -> Self {
@@ -10066,7 +10066,7 @@ impl ITfSourceSingle {
 }
 unsafe impl ::windows::runtime::Interface for ITfSourceSingle {
     type Vtable = ITfSourceSingle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1930633116, 22185, 18909, [176, 238, 208, 70, 99, 63, 117, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73131f9c_56a9_49dd_b0ee_d046633f7528);
 }
 impl ::core::convert::From<ITfSourceSingle> for ::windows::runtime::IUnknown {
     fn from(value: ITfSourceSingle) -> Self {
@@ -10119,7 +10119,7 @@ impl ITfSpeechUIServer {
 }
 unsafe impl ::windows::runtime::Interface for ITfSpeechUIServer {
     type Vtable = ITfSpeechUIServer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2431232324, 37444, 18591, [167, 143, 222, 103, 175, 192, 19, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90e9a944_9244_489f_a78f_de67afc013a7);
 }
 impl ::core::convert::From<ITfSpeechUIServer> for ::windows::runtime::IUnknown {
     fn from(value: ITfSpeechUIServer) -> Self {
@@ -10165,7 +10165,7 @@ impl ITfStatusSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfStatusSink {
     type Vtable = ITfStatusSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1803390323, 45671, 20329, [179, 46, 28, 163, 33, 206, 79, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b7d8d73_b267_4f69_b32e_1ca321ce4f45);
 }
 impl ::core::convert::From<ITfStatusSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfStatusSink) -> Self {
@@ -10212,7 +10212,7 @@ impl ITfSystemDeviceTypeLangBarItem {
 }
 unsafe impl ::windows::runtime::Interface for ITfSystemDeviceTypeLangBarItem {
     type Vtable = ITfSystemDeviceTypeLangBarItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1164390073, 36953, 18082, [131, 141, 69, 48, 53, 95, 106, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45672eb9_9059_46a2_838d_4530355f6a77);
 }
 impl ::core::convert::From<ITfSystemDeviceTypeLangBarItem> for ::windows::runtime::IUnknown {
     fn from(value: ITfSystemDeviceTypeLangBarItem) -> Self {
@@ -10261,7 +10261,7 @@ impl ITfSystemLangBarItem {
 }
 unsafe impl ::windows::runtime::Interface for ITfSystemLangBarItem {
     type Vtable = ITfSystemLangBarItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(504621548, 27443, 19786, [181, 235, 138, 146, 240, 41, 243, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e13e9ec_6b33_4d4a_b5eb_8a92f029f356);
 }
 impl ::core::convert::From<ITfSystemLangBarItem> for ::windows::runtime::IUnknown {
     fn from(value: ITfSystemLangBarItem) -> Self {
@@ -10310,7 +10310,7 @@ impl ITfSystemLangBarItemSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfSystemLangBarItemSink {
     type Vtable = ITfSystemLangBarItemSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(340384171, 5071, 18055, [170, 62, 141, 139, 24, 87, 67, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1449d9ab_13cf_4687_aa3e_8d8b18574396);
 }
 impl ::core::convert::From<ITfSystemLangBarItemSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfSystemLangBarItemSink) -> Self {
@@ -10360,7 +10360,7 @@ impl ITfSystemLangBarItemText {
 }
 unsafe impl ::windows::runtime::Interface for ITfSystemLangBarItemText {
     type Vtable = ITfSystemLangBarItemText_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1548542181, 47689, 19282, [172, 107, 59, 57, 123, 79, 112, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c4ce0e5_ba49_4b52_ac6b_3b397b4f701f);
 }
 impl ::core::convert::From<ITfSystemLangBarItemText> for ::windows::runtime::IUnknown {
     fn from(value: ITfSystemLangBarItemText) -> Self {
@@ -10405,7 +10405,7 @@ impl ITfTextEditSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfTextEditSink {
     type Vtable = ITfTextEditSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2166871049, 52435, 18051, [150, 122, 180, 61, 91, 72, 43, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8127d409_ccd3_4683_967a_b43d5b482bf7);
 }
 impl ::core::convert::From<ITfTextEditSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfTextEditSink) -> Self {
@@ -10451,7 +10451,7 @@ impl ITfTextInputProcessor {
 }
 unsafe impl ::windows::runtime::Interface for ITfTextInputProcessor {
     type Vtable = ITfTextInputProcessor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574711, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa80e7f7_2021_11d2_93e0_0060b067b86e);
 }
 impl ::core::convert::From<ITfTextInputProcessor> for ::windows::runtime::IUnknown {
     fn from(value: ITfTextInputProcessor) -> Self {
@@ -10502,7 +10502,7 @@ impl ITfTextInputProcessorEx {
 }
 unsafe impl ::windows::runtime::Interface for ITfTextInputProcessorEx {
     type Vtable = ITfTextInputProcessorEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1850614018, 63949, 17213, [180, 150, 48, 60, 224, 58, 101, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e4e2102_f9cd_433d_b496_303ce03a6507);
 }
 impl ::core::convert::From<ITfTextInputProcessorEx> for ::windows::runtime::IUnknown {
     fn from(value: ITfTextInputProcessorEx) -> Self {
@@ -10566,7 +10566,7 @@ impl ITfTextLayoutSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfTextLayoutSink {
     type Vtable = ITfTextLayoutSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(720556138, 56667, 18727, [160, 180, 84, 241, 156, 145, 250, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2af2d06a_dd5b_4927_a0b4_54f19c91fade);
 }
 impl ::core::convert::From<ITfTextLayoutSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfTextLayoutSink) -> Self {
@@ -10612,7 +10612,7 @@ impl ITfThreadFocusSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfThreadFocusSink {
     type Vtable = ITfThreadFocusSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3237075724, 14880, 16476, [163, 3, 150, 182, 1, 10, 136, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0f1db0c_3a20_405c_a303_96b6010a885f);
 }
 impl ::core::convert::From<ITfThreadFocusSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfThreadFocusSink) -> Self {
@@ -10706,7 +10706,7 @@ impl ITfThreadMgr {
 }
 unsafe impl ::windows::runtime::Interface for ITfThreadMgr {
     type Vtable = ITfThreadMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574721, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa80e801_2021_11d2_93e0_0060b067b86e);
 }
 impl ::core::convert::From<ITfThreadMgr> for ::windows::runtime::IUnknown {
     fn from(value: ITfThreadMgr) -> Self {
@@ -10822,7 +10822,7 @@ impl ITfThreadMgr2 {
 }
 unsafe impl ::windows::runtime::Interface for ITfThreadMgr2 {
     type Vtable = ITfThreadMgr2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(179411183, 25719, 20200, [136, 18, 103, 128, 237, 184, 45, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ab198ef_6477_4ee8_8812_6780edb82d5e);
 }
 impl ::core::convert::From<ITfThreadMgr2> for ::windows::runtime::IUnknown {
     fn from(value: ITfThreadMgr2) -> Self {
@@ -10894,7 +10894,7 @@ impl ITfThreadMgrEventSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfThreadMgrEventSink {
     type Vtable = ITfThreadMgrEventSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574734, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa80e80e_2021_11d2_93e0_0060b067b86e);
 }
 impl ::core::convert::From<ITfThreadMgrEventSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfThreadMgrEventSink) -> Self {
@@ -11000,7 +11000,7 @@ impl ITfThreadMgrEx {
 }
 unsafe impl ::windows::runtime::Interface for ITfThreadMgrEx {
     type Vtable = ITfThreadMgrEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1049669091, 30100, 19632, [187, 88, 105, 98, 143, 95, 69, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e90ade3_7594_4cb0_bb58_69628f5f458c);
 }
 impl ::core::convert::From<ITfThreadMgrEx> for ::windows::runtime::IUnknown {
     fn from(value: ITfThreadMgrEx) -> Self {
@@ -11100,7 +11100,7 @@ impl ITfToolTipUIElement {
 }
 unsafe impl ::windows::runtime::Interface for ITfToolTipUIElement {
     type Vtable = ITfToolTipUIElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1387367260, 21853, 18098, [176, 10, 250, 104, 1, 68, 251, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52b18b5c_555d_46b2_b00a_fa680144fbdb);
 }
 impl ::core::convert::From<ITfToolTipUIElement> for ::windows::runtime::IUnknown {
     fn from(value: ITfToolTipUIElement) -> Self {
@@ -11172,7 +11172,7 @@ impl ITfTransitoryExtensionSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfTransitoryExtensionSink {
     type Vtable = ITfTransitoryExtensionSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2786396527, 7255, 18451, [138, 21, 85, 238, 110, 90, 131, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa615096f_1c57_4813_8a15_55ee6e5a839c);
 }
 impl ::core::convert::From<ITfTransitoryExtensionSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfTransitoryExtensionSink) -> Self {
@@ -11238,7 +11238,7 @@ impl ITfTransitoryExtensionUIElement {
 }
 unsafe impl ::windows::runtime::Interface for ITfTransitoryExtensionUIElement {
     type Vtable = ITfTransitoryExtensionUIElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2240779626, 38703, 17058, [162, 242, 3, 33, 225, 171, 226, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x858f956a_972f_42a2_a2f2_0321e1abe209);
 }
 impl ::core::convert::From<ITfTransitoryExtensionUIElement> for ::windows::runtime::IUnknown {
     fn from(value: ITfTransitoryExtensionUIElement) -> Self {
@@ -11325,7 +11325,7 @@ impl ITfUIElement {
 }
 unsafe impl ::windows::runtime::Interface for ITfUIElement {
     type Vtable = ITfUIElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3927875895, 6623, 4567, [166, 210, 0, 6, 91, 132, 67, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea1ea137_19df_11d7_a6d2_00065b84435c);
 }
 impl ::core::convert::From<ITfUIElement> for ::windows::runtime::IUnknown {
     fn from(value: ITfUIElement) -> Self {
@@ -11392,7 +11392,7 @@ impl ITfUIElementMgr {
 }
 unsafe impl ::windows::runtime::Interface for ITfUIElementMgr {
     type Vtable = ITfUIElementMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3927875893, 6623, 4567, [166, 210, 0, 6, 91, 132, 67, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea1ea135_19df_11d7_a6d2_00065b84435c);
 }
 impl ::core::convert::From<ITfUIElementMgr> for ::windows::runtime::IUnknown {
     fn from(value: ITfUIElementMgr) -> Self {
@@ -11448,7 +11448,7 @@ impl ITfUIElementSink {
 }
 unsafe impl ::windows::runtime::Interface for ITfUIElementSink {
     type Vtable = ITfUIElementSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3927875894, 6623, 4567, [166, 210, 0, 6, 91, 132, 67, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea1ea136_19df_11d7_a6d2_00065b84435c);
 }
 impl ::core::convert::From<ITfUIElementSink> for ::windows::runtime::IUnknown {
     fn from(value: ITfUIElementSink) -> Self {
@@ -11517,7 +11517,7 @@ impl IUIManagerEventSink {
 }
 unsafe impl ::windows::runtime::Interface for IUIManagerEventSink {
     type Vtable = IUIManagerEventSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3448886928, 42984, 16997, [155, 56, 139, 179, 187, 171, 167, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd91d690_a7e8_4265_9b38_8bb3bbaba7de);
 }
 impl ::core::convert::From<IUIManagerEventSink> for ::windows::runtime::IUnknown {
     fn from(value: IUIManagerEventSink) -> Self {
@@ -11590,7 +11590,7 @@ impl IVersionInfo {
 }
 unsafe impl ::windows::runtime::Interface for IVersionInfo {
     type Vtable = IVersionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1075124460, 56064, 17937, [155, 41, 42, 14, 75, 154, 250, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x401518ec_db00_4611_9b29_2a0e4b9afa85);
 }
 impl ::core::convert::From<IVersionInfo> for ::windows::runtime::IUnknown {
     fn from(value: IVersionInfo) -> Self {
@@ -11768,8 +11768,8 @@ impl ::core::ops::Not for LANG_BAR_ITEM_ICON_MODE_FLAGS {
         Self(self.0.not())
     }
 }
-pub const LIBID_MSAATEXTLib: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(353250682, 56001, 17794, [148, 125, 42, 143, 215, 139, 130, 205]);
-pub const MSAAControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(147691071, 31294, 20316, [155, 216, 214, 146, 187, 4, 60, 91]);
+pub const LIBID_MSAATEXTLib: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x150e2d7a_dac1_4582_947d_2a8fd78b82cd);
+pub const MSAAControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -12581,20 +12581,20 @@ unsafe impl ::windows::runtime::Abi for TF_PRESERVEDKEY {
 pub const TF_PROFILETYPE_INPUTPROCESSOR: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_PROFILETYPE_KEYBOARDLAYOUT: u32 = 2u32;
-pub const TF_PROFILE_ARRAY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3549364069, 43590, 20437, [145, 167, 103, 132, 95, 176, 47, 91]);
-pub const TF_PROFILE_CANTONESE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(183242908, 32406, 4564, [178, 239, 0, 128, 200, 130, 104, 126]);
-pub const TF_PROFILE_CHANGJIE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1272946435, 51155, 4564, [178, 171, 0, 128, 200, 130, 104, 126]);
-pub const TF_PROFILE_DAYI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58403877, 18444, 19839, [176, 39, 214, 202, 107, 105, 120, 138]);
-pub const TF_PROFILE_NEWCHANGJIE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4089090170, 27774, 4564, [151, 250, 0, 128, 200, 130, 104, 126]);
-pub const TF_PROFILE_NEWPHONETIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3002713346, 5954, 4564, [151, 144, 0, 128, 200, 130, 104, 126]);
-pub const TF_PROFILE_NEWQUICK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(193477536, 49607, 4564, [135, 249, 0, 128, 200, 130, 104, 126]);
-pub const TF_PROFILE_PHONETIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1980959198, 12666, 4564, [155, 93, 0, 128, 200, 130, 104, 126]);
-pub const TF_PROFILE_PINYIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4089090167, 27774, 4564, [151, 250, 0, 128, 200, 130, 104, 126]);
-pub const TF_PROFILE_QUICK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1613018207, 23636, 4564, [185, 33, 0, 128, 200, 130, 104, 126]);
-pub const TF_PROFILE_SIMPLEFAST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4199877380, 23255, 16671, [165, 172, 202, 3, 142, 197, 21, 215]);
-pub const TF_PROFILE_TIGRINYA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1017874615, 52286, 18086, [151, 101, 183, 114, 173, 119, 97, 255]);
-pub const TF_PROFILE_WUBI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2186873875, 62685, 17652, [186, 29, 134, 103, 36, 111, 223, 142]);
-pub const TF_PROFILE_YI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1083999094, 123, 17239, [174, 142, 38, 49, 110, 227, 251, 13]);
+pub const TF_PROFILE_ARRAY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd38eff65_aa46_4fd5_91a7_67845fb02f5b);
+pub const TF_PROFILE_CANTONESE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0aec109c_7e96_11d4_b2ef_0080c882687e);
+pub const TF_PROFILE_CHANGJIE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bdf9f03_c7d3_11d4_b2ab_0080c882687e);
+pub const TF_PROFILE_DAYI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x037b2c25_480c_4d7f_b027_d6ca6b69788a);
+pub const TF_PROFILE_NEWCHANGJIE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3ba907a_6c7e_11d4_97fa_0080c882687e);
+pub const TF_PROFILE_NEWPHONETIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2f9c502_1742_11d4_9790_0080c882687e);
+pub const TF_PROFILE_NEWQUICK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b883ba0_c1c7_11d4_87f9_0080c882687e);
+pub const TF_PROFILE_PHONETIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x761309de_317a_11d4_9b5d_0080c882687e);
+pub const TF_PROFILE_PINYIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3ba9077_6c7e_11d4_97fa_0080c882687e);
+pub const TF_PROFILE_QUICK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6024b45f_5c54_11d4_b921_0080c882687e);
+pub const TF_PROFILE_SIMPLEFAST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa550b04_5ad7_411f_a5ac_ca038ec515d7);
+pub const TF_PROFILE_TIGRINYA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cab88b7_cc3e_46a6_9765_b772ad7761ff);
+pub const TF_PROFILE_WUBI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82590c13_f4dd_44f4_ba1d_8667246fdf8e);
+pub const TF_PROFILE_YI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x409c8376_007b_4357_ae8e_26316ee3fb0d);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for TF_PROPERTYVAL {
     fn clone(&self) -> Self {
@@ -12873,90 +12873,90 @@ pub const TKB_ALTERNATES_FOR_AUTOCORRECTION: u32 = 2u32;
 pub const TKB_ALTERNATES_FOR_PREDICTION: u32 = 3u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TKB_ALTERNATES_STANDARD: u32 = 1u32;
-pub const TSATTRID_App: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2819586015, 16951, 16613, [132, 156, 181, 250, 81, 193, 58, 199]);
-pub const TSATTRID_App_IncorrectGrammar: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3176457112, 44291, 19316, [182, 179, 94, 219, 25, 153, 99, 136]);
-pub const TSATTRID_App_IncorrectSpelling: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4096648252, 61202, 17165, [148, 76, 154, 8, 151, 10, 37, 210]);
-pub const TSATTRID_Font: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1463724069, 29851, 20362, [156, 253, 33, 195, 96, 92, 168, 40]);
-pub const TSATTRID_Font_FaceName: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3040259766, 1339, 20152, [182, 90, 80, 218, 30, 129, 231, 46]);
-pub const TSATTRID_Font_SizePts: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3360240386, 42473, 17773, [175, 4, 128, 5, 228, 19, 15, 3]);
-pub const TSATTRID_Font_Style: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1756538751, 27406, 20264, [129, 119, 87, 28, 47, 58, 66, 177]);
-pub const TSATTRID_Font_Style_Animation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3707190562, 57385, 18359, [187, 54, 242, 99, 163, 208, 4, 204]);
-pub const TSATTRID_Font_Style_Animation_BlinkingBackground: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2263200004, 260, 19216, [181, 133, 0, 242, 82, 117, 34, 181]);
-pub const TSATTRID_Font_Style_Animation_LasVegasLights: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4093912021, 3975, 20367, [186, 218, 230, 214, 12, 37, 225, 82]);
-pub const TSATTRID_Font_Style_Animation_MarchingBlackAnts: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1984225383, 61830, 18690, [191, 198, 236, 129, 90, 162, 14, 157]);
-pub const TSATTRID_Font_Style_Animation_MarchingRedAnts: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2016841133, 20731, 19567, [132, 11, 212, 134, 187, 108, 247, 129]);
-pub const TSATTRID_Font_Style_Animation_Shimmer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(753081176, 21139, 19510, [136, 9, 191, 139, 181, 26, 39, 179]);
-pub const TSATTRID_Font_Style_Animation_SparkleText: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1396354336, 38444, 20127, [140, 9, 180, 46, 164, 116, 151, 17]);
-pub const TSATTRID_Font_Style_Animation_WipeDown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1483925620, 13947, 18435, [177, 96, 201, 15, 246, 37, 105, 208]);
-pub const TSATTRID_Font_Style_Animation_WipeRight: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3092630499, 15660, 17920, [177, 233, 225, 201, 206, 2, 248, 66]);
-pub const TSATTRID_Font_Style_BackgroundColor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3037637198, 12433, 17512, [129, 219, 215, 158, 161, 144, 199, 199]);
-pub const TSATTRID_Font_Style_Blink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3216162870, 31439, 17714, [183, 32, 180, 22, 221, 119, 101, 168]);
-pub const TSATTRID_Font_Style_Bold: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1216428611, 35360, 18752, [142, 88, 151, 130, 63, 123, 38, 138]);
-pub const TSATTRID_Font_Style_Capitalize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2105910202, 46333, 17331, [190, 252, 107, 152, 92, 132, 49, 65]);
-pub const TSATTRID_Font_Style_Color: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2239396407, 47279, 20122, [129, 180, 172, 247, 0, 200, 65, 27]);
-pub const TSATTRID_Font_Style_Emboss: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3180255042, 13470, 20023, [130, 251, 67, 121, 121, 203, 83, 167]);
-pub const TSATTRID_Font_Style_Engrave: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2620617182, 33586, 18583, [190, 93, 137, 35, 50, 35, 23, 154]);
-pub const TSATTRID_Font_Style_Height: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2123592823, 4838, 17803, [146, 106, 31, 164, 78, 232, 243, 145]);
-pub const TSATTRID_Font_Style_Hidden: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2984413040, 34844, 18271, [134, 63, 136, 122, 100, 123, 16, 144]);
-pub const TSATTRID_Font_Style_Italic: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2269145130, 42853, 18657, [172, 252, 210, 34, 34, 178, 248, 16]);
-pub const TSATTRID_Font_Style_Kerning: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3425100212, 12186, 18376, [139, 255, 191, 30, 183, 204, 224, 221]);
-pub const TSATTRID_Font_Style_Lowercase: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1993919669, 51835, 17560, [142, 233, 213, 196, 246, 247, 76, 96]);
-pub const TSATTRID_Font_Style_Outlined: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(283564849, 56077, 19142, [167, 245, 156, 156, 255, 111, 42, 180]);
-pub const TSATTRID_Font_Style_Overline: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3818430282, 39211, 17153, [140, 225, 165, 183, 198, 209, 243, 200]);
-pub const TSATTRID_Font_Style_Overline_Double: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3695576634, 57621, 18147, [188, 216, 202, 103, 114, 170, 149, 180]);
-pub const TSATTRID_Font_Style_Overline_Single: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2218842444, 20942, 18354, [141, 76, 21, 117, 30, 95, 114, 27]);
-pub const TSATTRID_Font_Style_Position: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(365766315, 62203, 16482, [181, 166, 154, 73, 225, 165, 204, 11]);
-pub const TSATTRID_Font_Style_Protected: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(475364530, 5327, 17748, [165, 116, 236, 178, 247, 231, 239, 212]);
-pub const TSATTRID_Font_Style_Shadow: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1600679215, 50893, 19542, [138, 26, 153, 74, 75, 151, 102, 190]);
-pub const TSATTRID_Font_Style_SmallCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4207635398, 37120, 19654, [185, 105, 17, 238, 164, 90, 134, 180]);
-pub const TSATTRID_Font_Style_Spacing: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2562793485, 36614, 16538, [142, 73, 106, 85, 75, 247, 193, 83]);
-pub const TSATTRID_Font_Style_Strikethrough: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(206971283, 11528, 18024, [150, 1, 206, 212, 19, 9, 215, 175]);
-pub const TSATTRID_Font_Style_Strikethrough_Double: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1648925489, 41959, 20372, [172, 67, 235, 175, 143, 204, 122, 159]);
-pub const TSATTRID_Font_Style_Strikethrough_Single: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1977038518, 15503, 19351, [171, 120, 24, 119, 203, 153, 13, 49]);
-pub const TSATTRID_Font_Style_Subscript: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1467284356, 14491, 17340, [167, 75, 21, 104, 52, 124, 240, 244]);
-pub const TSATTRID_Font_Style_Superscript: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(782539068, 22076, 18858, [147, 114, 11, 239, 9, 169, 37, 91]);
-pub const TSATTRID_Font_Style_Underline: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3284781555, 30978, 17483, [154, 123, 72, 231, 15, 75, 80, 247]);
-pub const TSATTRID_Font_Style_Underline_Double: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1959938726, 7603, 19561, [161, 118, 49, 18, 14, 117, 134, 213]);
-pub const TSATTRID_Font_Style_Underline_Single: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(459743461, 3955, 18769, [166, 179, 111, 25, 228, 60, 148, 97]);
-pub const TSATTRID_Font_Style_Uppercase: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(866320616, 58176, 18743, [182, 151, 143, 35, 64, 69, 205, 154]);
-pub const TSATTRID_Font_Style_Weight: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(317921436, 35760, 17947, [177, 250, 234, 249, 7, 4, 127, 224]);
-pub const TSATTRID_List: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1131243323, 9969, 19182, [158, 101, 143, 131, 164, 237, 72, 132]);
-pub const TSATTRID_List_LevelIndel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2138884249, 12575, 18555, [173, 93, 226, 164, 89, 225, 45, 66]);
-pub const TSATTRID_List_Type: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2923325022, 19406, 18915, [160, 254, 45, 180, 125, 58, 23, 174]);
-pub const TSATTRID_List_Type_Arabic: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(322487766, 39075, 20387, [155, 209, 122, 96, 238, 248, 233, 224]);
-pub const TSATTRID_List_Type_Bullet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3167582149, 19533, 19682, [177, 2, 85, 159, 59, 43, 252, 234]);
-pub const TSATTRID_List_Type_LowerLetter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520195717, 62415, 18718, [169, 37, 56, 50, 52, 127, 210, 55]);
-pub const TSATTRID_List_Type_LowerRoman: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2420531810, 14720, 19342, [147, 104, 145, 139, 209, 33, 138, 65]);
-pub const TSATTRID_List_Type_UpperLetter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2038937549, 52818, 17035, [155, 149, 163, 87, 246, 241, 12, 69]);
-pub const TSATTRID_List_Type_UpperRoman: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(258651474, 19072, 18047, [178, 241, 18, 126, 42, 163, 186, 158]);
-pub const TSATTRID_OTHERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3015912185, 22480, 18089, [188, 168, 218, 194, 56, 161, 48, 87]);
-pub const TSATTRID_Text: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2128318056, 33273, 17565, [161, 90, 135, 168, 56, 143, 170, 192]);
-pub const TSATTRID_Text_Alignment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(328810982, 5991, 17773, [147, 142, 53, 186, 86, 139, 92, 212]);
-pub const TSATTRID_Text_Alignment_Center: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2762562582, 21439, 19797, [139, 135, 75, 221, 141, 66, 117, 252]);
-pub const TSATTRID_Text_Alignment_Justify: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3979675456, 41207, 17107, [142, 168, 248, 27, 100, 136, 250, 240]);
-pub const TSATTRID_Text_Alignment_Left: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(380540371, 25441, 17314, [132, 149, 208, 15, 57, 127, 22, 147]);
-pub const TSATTRID_Text_Alignment_Right: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3010400152, 7070, 17248, [134, 22, 3, 251, 8, 167, 132, 86]);
-pub const TSATTRID_Text_EmbeddedObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2128318056, 33273, 17565, [161, 90, 135, 168, 56, 143, 170, 192]);
-pub const TSATTRID_Text_Hyphenation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3672065317, 24974, 18923, [177, 168, 59, 104, 189, 118, 72, 227]);
-pub const TSATTRID_Text_Language: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3636481777, 22355, 19493, [136, 135, 133, 68, 63, 229, 248, 25]);
-pub const TSATTRID_Text_Link: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1204654161, 14114, 19672, [183, 200, 78, 23, 202, 23, 89, 245]);
-pub const TSATTRID_Text_Orientation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1806397567, 34693, 19513, [139, 82, 150, 248, 120, 48, 63, 251]);
-pub const TSATTRID_Text_Para: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1591498786, 39388, 19926, [174, 195, 182, 43, 170, 91, 46, 124]);
-pub const TSATTRID_Text_Para_FirstLineIndent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(130644499, 29810, 19928, [144, 169, 145, 227, 215, 228, 242, 156]);
-pub const TSATTRID_Text_Para_LeftIndent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4213721321, 29809, 16841, [182, 179, 138, 20, 80, 224, 24, 151]);
-pub const TSATTRID_Text_Para_LineSpacing: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1771780109, 32652, 18134, [167, 59, 223, 227, 209, 83, 141, 243]);
-pub const TSATTRID_Text_Para_LineSpacing_AtLeast: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2919161649, 11588, 17460, [165, 255, 127, 76, 73, 144, 169, 5]);
-pub const TSATTRID_Text_Para_LineSpacing_Double: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2197493765, 42692, 16945, [172, 18, 98, 96, 175, 42, 186, 40]);
-pub const TSATTRID_Text_Para_LineSpacing_Exactly: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1027976512, 9182, 18647, [166, 179, 118, 84, 32, 198, 32, 204]);
-pub const TSATTRID_Text_Para_LineSpacing_Multiple: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2433687100, 54992, 20325, [138, 60, 66, 180, 179, 24, 104, 197]);
-pub const TSATTRID_Text_Para_LineSpacing_OnePtFive: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(69771297, 919, 19287, [154, 23, 7, 149, 153, 76, 211, 197]);
-pub const TSATTRID_Text_Para_LineSpacing_Single: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3979675456, 41207, 17107, [142, 168, 248, 27, 100, 136, 250, 240]);
-pub const TSATTRID_Text_Para_RightIndent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(746530553, 42466, 18650, [185, 138, 82, 12, 177, 101, 19, 191]);
-pub const TSATTRID_Text_Para_SpaceAfter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2064269141, 8924, 16991, [164, 17, 147, 218, 29, 143, 155, 170]);
-pub const TSATTRID_Text_Para_SpaceBefore: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2381940105, 6474, 17921, [178, 81, 152, 101, 163, 233, 6, 221]);
-pub const TSATTRID_Text_ReadOnly: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2239981079, 56882, 19197, [165, 15, 162, 219, 17, 14, 110, 77]);
-pub const TSATTRID_Text_RightToLeft: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3395710577, 6920, 17725, [191, 221, 40, 224, 140, 138, 175, 122]);
-pub const TSATTRID_Text_VerticalWriting: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1807384981, 1135, 20137, [179, 17, 151, 253, 102, 196, 39, 75]);
+pub const TSATTRID_App: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa80f77df_4237_40e5_849c_b5fa51c13ac7);
+pub const TSATTRID_App_IncorrectGrammar: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd54e398_ad03_4b74_b6b3_5edb19996388);
+pub const TSATTRID_App_IncorrectSpelling: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf42de43c_ef12_430d_944c_9a08970a25d2);
+pub const TSATTRID_Font: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x573ea825_749b_4f8a_9cfd_21c3605ca828);
+pub const TSATTRID_Font_FaceName: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb536aeb6_053b_4eb8_b65a_50da1e81e72e);
+pub const TSATTRID_Font_SizePts: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8493302_a5e9_456d_af04_8005e4130f03);
+pub const TSATTRID_Font_Style: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68b2a77f_6b0e_4f28_8177_571c2f3a42b1);
+pub const TSATTRID_Font_Style_Animation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcf73d22_e029_47b7_bb36_f263a3d004cc);
+pub const TSATTRID_Font_Style_Animation_BlinkingBackground: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86e5b104_0104_4b10_b585_00f2527522b5);
+pub const TSATTRID_Font_Style_Animation_LasVegasLights: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf40423d5_0f87_4f8f_bada_e6d60c25e152);
+pub const TSATTRID_Font_Style_Animation_MarchingBlackAnts: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7644e067_f186_4902_bfc6_ec815aa20e9d);
+pub const TSATTRID_Font_Style_Animation_MarchingRedAnts: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78368dad_50fb_4c6f_840b_d486bb6cf781);
+pub const TSATTRID_Font_Style_Animation_Shimmer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ce31b58_5293_4c36_8809_bf8bb51a27b3);
+pub const TSATTRID_Font_Style_Animation_SparkleText: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x533aad20_962c_4e9f_8c09_b42ea4749711);
+pub const TSATTRID_Font_Style_Animation_WipeDown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5872e874_367b_4803_b160_c90ff62569d0);
+pub const TSATTRID_Font_Style_Animation_WipeRight: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb855cbe3_3d2c_4600_b1e9_e1c9ce02f842);
+pub const TSATTRID_Font_Style_BackgroundColor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb50eaa4e_3091_4468_81db_d79ea190c7c7);
+pub const TSATTRID_Font_Style_Blink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfb2c036_7acf_4532_b720_b416dd7765a8);
+pub const TSATTRID_Font_Style_Bold: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48813a43_8a20_4940_8e58_97823f7b268a);
+pub const TSATTRID_Font_Style_Capitalize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d85a3ba_b4fd_43b3_befc_6b985c843141);
+pub const TSATTRID_Font_Style_Color: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x857a7a37_b8af_4e9a_81b4_acf700c8411b);
+pub const TSATTRID_Font_Style_Emboss: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd8ed742_349e_4e37_82fb_437979cb53a7);
+pub const TSATTRID_Font_Style_Engrave: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c3371de_8332_4897_be5d_89233223179a);
+pub const TSATTRID_Font_Style_Height: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e937477_12e6_458b_926a_1fa44ee8f391);
+pub const TSATTRID_Font_Style_Hidden: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1e28770_881c_475f_863f_887a647b1090);
+pub const TSATTRID_Font_Style_Italic: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8740682a_a765_48e1_acfc_d22222b2f810);
+pub const TSATTRID_Font_Style_Kerning: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc26e1b4_2f9a_47c8_8bff_bf1eb7cce0dd);
+pub const TSATTRID_Font_Style_Lowercase: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76d8ccb5_ca7b_4498_8ee9_d5c4f6f74c60);
+pub const TSATTRID_Font_Style_Outlined: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10e6db31_db0d_4ac6_a7f5_9c9cff6f2ab4);
+pub const TSATTRID_Font_Style_Overline: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3989f4a_992b_4301_8ce1_a5b7c6d1f3c8);
+pub const TSATTRID_Font_Style_Overline_Double: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc46063a_e115_46e3_bcd8_ca6772aa95b4);
+pub const TSATTRID_Font_Style_Overline_Single: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8440d94c_51ce_47b2_8d4c_15751e5f721b);
+pub const TSATTRID_Font_Style_Position: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15cd26ab_f2fb_4062_b5a6_9a49e1a5cc0b);
+pub const TSATTRID_Font_Style_Protected: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c557cb2_14cf_4554_a574_ecb2f7e7efd4);
+pub const TSATTRID_Font_Style_Shadow: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f686d2f_c6cd_4c56_8a1a_994a4b9766be);
+pub const TSATTRID_Font_Style_SmallCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfacb6bc6_9100_4cc6_b969_11eea45a86b4);
+pub const TSATTRID_Font_Style_Spacing: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98c1200d_8f06_409a_8e49_6a554bf7c153);
+pub const TSATTRID_Font_Style_Strikethrough: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c562193_2d08_4668_9601_ced41309d7af);
+pub const TSATTRID_Font_Style_Strikethrough_Double: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62489b31_a3e7_4f94_ac43_ebaf8fcc7a9f);
+pub const TSATTRID_Font_Style_Strikethrough_Single: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75d736b6_3c8f_4b97_ab78_1877cb990d31);
+pub const TSATTRID_Font_Style_Subscript: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5774fb84_389b_43bc_a74b_1568347cf0f4);
+pub const TSATTRID_Font_Style_Superscript: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ea4993c_563c_49aa_9372_0bef09a9255b);
+pub const TSATTRID_Font_Style_Underline: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3c9c9f3_7902_444b_9a7b_48e70f4b50f7);
+pub const TSATTRID_Font_Style_Underline_Double: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74d24aa6_1db3_4c69_a176_31120e7586d5);
+pub const TSATTRID_Font_Style_Underline_Single: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b6720e5_0f73_4951_a6b3_6f19e43c9461);
+pub const TSATTRID_Font_Style_Uppercase: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33a300e8_e340_4937_b697_8f234045cd9a);
+pub const TSATTRID_Font_Style_Weight: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12f3189c_8bb0_461b_b1fa_eaf907047fe0);
+pub const TSATTRID_List: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x436d673b_26f1_4aee_9e65_8f83a4ed4884);
+pub const TSATTRID_List_LevelIndel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f7cc899_311f_487b_ad5d_e2a459e12d42);
+pub const TSATTRID_List_Type: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae3e665e_4bce_49e3_a0fe_2db47d3a17ae);
+pub const TSATTRID_List_Type_Arabic: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1338c5d6_98a3_4fa3_9bd1_7a60eef8e9e0);
+pub const TSATTRID_List_Type_Bullet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbccd77c5_4c4d_4ce2_b102_559f3b2bfcea);
+pub const TSATTRID_List_Type_LowerLetter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96372285_f3cf_491e_a925_3832347fd237);
+pub const TSATTRID_List_Type_LowerRoman: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90466262_3980_4b8e_9368_918bd1218a41);
+pub const TSATTRID_List_Type_UpperLetter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7987b7cd_ce52_428b_9b95_a357f6f10c45);
+pub const TSATTRID_List_Type_UpperRoman: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f6ab552_4a80_467f_b2f1_127e2aa3ba9e);
+pub const TSATTRID_OTHERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3c32af9_57d0_46a9_bca8_dac238a13057);
+pub const TSATTRID_Text: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7edb8e68_81f9_449d_a15a_87a8388faac0);
+pub const TSATTRID_Text_Alignment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x139941e6_1767_456d_938e_35ba568b5cd4);
+pub const TSATTRID_Text_Alignment_Center: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4a95c16_53bf_4d55_8b87_4bdd8d4275fc);
+pub const TSATTRID_Text_Alignment_Justify: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed350740_a0f7_42d3_8ea8_f81b6488faf0);
+pub const TSATTRID_Text_Alignment_Left: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16ae95d3_6361_43a2_8495_d00f397f1693);
+pub const TSATTRID_Text_Alignment_Right: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb36f0f98_1b9e_4360_8616_03fb08a78456);
+pub const TSATTRID_Text_EmbeddedObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7edb8e68_81f9_449d_a15a_87a8388faac0);
+pub const TSATTRID_Text_Hyphenation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdadf4525_618e_49eb_b1a8_3b68bd7648e3);
+pub const TSATTRID_Text_Language: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8c04ef1_5753_4c25_8887_85443fe5f819);
+pub const TSATTRID_Text_Link: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47cd9051_3722_4cd8_b7c8_4e17ca1759f5);
+pub const TSATTRID_Text_Orientation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6bab707f_8785_4c39_8b52_96f878303ffb);
+pub const TSATTRID_Text_Para: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5edc5822_99dc_4dd6_aec3_b62baa5b2e7c);
+pub const TSATTRID_Text_Para_FirstLineIndent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x07c97a13_7472_4dd8_90a9_91e3d7e4f29c);
+pub const TSATTRID_Text_Para_LeftIndent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb2848e9_7471_41c9_b6b3_8a1450e01897);
+pub const TSATTRID_Text_Para_LineSpacing: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x699b380d_7f8c_46d6_a73b_dfe3d1538df3);
+pub const TSATTRID_Text_Para_LineSpacing_AtLeast: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xadfedf31_2d44_4434_a5ff_7f4c4990a905);
+pub const TSATTRID_Text_Para_LineSpacing_Double: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82fb1805_a6c4_4231_ac12_6260af2aba28);
+pub const TSATTRID_Text_Para_LineSpacing_Exactly: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d45ad40_23de_48d7_a6b3_765420c620cc);
+pub const TSATTRID_Text_Para_LineSpacing_Multiple: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x910f1e3c_d6d0_4f65_8a3c_42b4b31868c5);
+pub const TSATTRID_Text_Para_LineSpacing_OnePtFive: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0428a021_0397_4b57_9a17_0795994cd3c5);
+pub const TSATTRID_Text_Para_LineSpacing_Single: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed350740_a0f7_42d3_8ea8_f81b6488faf0);
+pub const TSATTRID_Text_Para_RightIndent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c7f26f9_a5e2_48da_b98a_520cb16513bf);
+pub const TSATTRID_Text_Para_SpaceAfter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b0a3f55_22dc_425f_a411_93da1d8f9baa);
+pub const TSATTRID_Text_Para_SpaceBefore: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8df98589_194a_4601_b251_9865a3e906dd);
+pub const TSATTRID_Text_ReadOnly: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85836617_de32_4afd_a50f_a2db110e6e4d);
+pub const TSATTRID_Text_RightToLeft: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca666e71_1b08_453d_bfdd_28e08c8aaf7a);
+pub const TSATTRID_Text_VerticalWriting: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6bba8195_046f_4ea9_b311_97fd66c4274b);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_AS_ATTR_CHANGE: u32 = 8u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]

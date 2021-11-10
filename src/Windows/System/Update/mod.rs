@@ -4,7 +4,7 @@
 pub struct ISystemUpdateItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemUpdateItem {
     type Vtable = ISystemUpdateItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2006401259, 22052, 20894, [168, 226, 9, 233, 23, 59, 63, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x779740eb_5624_519e_a8e2_09e9173b3fb7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29,7 +29,7 @@ pub struct ISystemUpdateItem_abi(
 pub struct ISystemUpdateLastErrorInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemUpdateLastErrorInfo {
     type Vtable = ISystemUpdateLastErrorInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2129168375, 35396, 23406, [189, 7, 122, 236, 228, 17, 110, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ee887f7_8a44_5b6e_bd07_7aece4116ea9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -49,7 +49,7 @@ pub struct ISystemUpdateLastErrorInfo_abi(
 pub struct ISystemUpdateManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemUpdateManagerStatics {
     type Vtable = ISystemUpdateManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3000237295, 10609, 20926, [180, 26, 139, 215, 3, 187, 112, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2d3fcef_2971_51be_b41a_8bd703bb701a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -196,7 +196,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemUpdateItem {
 }
 unsafe impl ::windows::runtime::Interface for SystemUpdateItem {
     type Vtable = ISystemUpdateItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2006401259, 22052, 20894, [168, 226, 9, 233, 23, 59, 63, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x779740eb_5624_519e_a8e2_09e9173b3fb7);
 }
 impl ::windows::runtime::RuntimeName for SystemUpdateItem {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateItem";
@@ -307,7 +307,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemUpdateLastErrorInfo {
 }
 unsafe impl ::windows::runtime::Interface for SystemUpdateLastErrorInfo {
     type Vtable = ISystemUpdateLastErrorInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2129168375, 35396, 23406, [189, 7, 122, 236, 228, 17, 110, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ee887f7_8a44_5b6e_bd07_7aece4116ea9);
 }
 impl ::windows::runtime::RuntimeName for SystemUpdateLastErrorInfo {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateLastErrorInfo";

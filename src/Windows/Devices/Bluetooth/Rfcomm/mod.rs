@@ -4,7 +4,7 @@
 pub struct IRfcommDeviceService(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommDeviceService {
     type Vtable = IRfcommDeviceService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2927755039, 50593, 19520, [140, 40, 243, 239, 214, 144, 98, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae81ff1f_c5a1_4c40_8c28_f3efd69062f3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -33,7 +33,7 @@ pub struct IRfcommDeviceService_abi(
 pub struct IRfcommDeviceService2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommDeviceService2 {
     type Vtable = IRfcommDeviceService2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1399647508, 60365, 18942, [191, 159, 64, 239, 198, 137, 178, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x536ced14_ebcd_49fe_bf9f_40efc689b20d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -51,7 +51,7 @@ pub struct IRfcommDeviceService2_abi(
 pub struct IRfcommDeviceService3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommDeviceService3 {
     type Vtable = IRfcommDeviceService3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(472034534, 56644, 19747, [134, 109, 143, 52, 134, 238, 100, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c22ace6_dd44_4d23_866d_8f3486ee6490);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -72,7 +72,7 @@ pub struct IRfcommDeviceService3_abi(
 pub struct IRfcommDeviceServiceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommDeviceServiceStatics {
     type Vtable = IRfcommDeviceServiceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2762033647, 25197, 16812, [178, 83, 135, 172, 92, 39, 226, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4a149ef_626d_41ac_b253_87ac5c27e28a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -92,7 +92,7 @@ pub struct IRfcommDeviceServiceStatics_abi(
 pub struct IRfcommDeviceServiceStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommDeviceServiceStatics2 {
     type Vtable = IRfcommDeviceServiceStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2861347273, 59277, 19428, [128, 118, 10, 61, 135, 160, 160, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa8cb1c9_e78d_4be4_8076_0a3d87a0a05f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -113,7 +113,7 @@ pub struct IRfcommDeviceServiceStatics2_abi(
 pub struct IRfcommDeviceServicesResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommDeviceServicesResult {
     type Vtable = IRfcommDeviceServicesResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(994588812, 31951, 18574, [150, 37, 210, 89, 165, 115, 45, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b48388c_7ccf_488e_9625_d259a5732d55);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -133,7 +133,7 @@ pub struct IRfcommDeviceServicesResult_abi(
 pub struct IRfcommServiceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommServiceId {
     type Vtable = IRfcommServiceId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(576885252, 32258, 16407, [129, 54, 218, 27, 106, 27, 155, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22629204_7e02_4017_8136_da1b6a1b9bbf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -153,7 +153,7 @@ pub struct IRfcommServiceId_abi(
 pub struct IRfcommServiceIdStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommServiceIdStatics {
     type Vtable = IRfcommServiceIdStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(706191034, 43381, 18147, [181, 107, 8, 255, 215, 131, 165, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a179eba_a975_46e3_b56b_08ffd783a5fe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -178,7 +178,7 @@ pub struct IRfcommServiceIdStatics_abi(
 pub struct IRfcommServiceProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommServiceProvider {
     type Vtable = IRfcommServiceProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3940285892, 45558, 17663, [159, 124, 231, 168, 42, 184, 104, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeadbfdc4_b1f6_44ff_9f7c_e7a82ab86821);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -201,7 +201,7 @@ pub struct IRfcommServiceProvider_abi(
 pub struct IRfcommServiceProvider2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommServiceProvider2 {
     type Vtable = IRfcommServiceProvider2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1936449478, 15489, 19742, [186, 242, 221, 187, 129, 40, 69, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x736bdfc6_3c81_4d1e_baf2_ddbb81284512);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -220,7 +220,7 @@ pub struct IRfcommServiceProvider2_abi(
 pub struct IRfcommServiceProviderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommServiceProviderStatics {
     type Vtable = IRfcommServiceProviderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2559083267, 27082, 16698, [132, 247, 67, 68, 199, 41, 41, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98888303_69ca_413a_84f7_4344c7292997);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -389,7 +389,7 @@ unsafe impl ::windows::runtime::RuntimeType for RfcommDeviceService {
 }
 unsafe impl ::windows::runtime::Interface for RfcommDeviceService {
     type Vtable = IRfcommDeviceService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2927755039, 50593, 19520, [140, 40, 243, 239, 214, 144, 98, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae81ff1f_c5a1_4c40_8c28_f3efd69062f3);
 }
 impl ::windows::runtime::RuntimeName for RfcommDeviceService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService";
@@ -490,7 +490,7 @@ unsafe impl ::windows::runtime::RuntimeType for RfcommDeviceServicesResult {
 }
 unsafe impl ::windows::runtime::Interface for RfcommDeviceServicesResult {
     type Vtable = IRfcommDeviceServicesResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(994588812, 31951, 18574, [150, 37, 210, 89, 165, 115, 45, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b48388c_7ccf_488e_9625_d259a5732d55);
 }
 impl ::windows::runtime::RuntimeName for RfcommDeviceServicesResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceServicesResult";
@@ -632,7 +632,7 @@ unsafe impl ::windows::runtime::RuntimeType for RfcommServiceId {
 }
 unsafe impl ::windows::runtime::Interface for RfcommServiceId {
     type Vtable = IRfcommServiceId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(576885252, 32258, 16407, [129, 54, 218, 27, 106, 27, 155, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22629204_7e02_4017_8136_da1b6a1b9bbf);
 }
 impl ::windows::runtime::RuntimeName for RfcommServiceId {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceId";
@@ -736,7 +736,7 @@ unsafe impl ::windows::runtime::RuntimeType for RfcommServiceProvider {
 }
 unsafe impl ::windows::runtime::Interface for RfcommServiceProvider {
     type Vtable = IRfcommServiceProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3940285892, 45558, 17663, [159, 124, 231, 168, 42, 184, 104, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeadbfdc4_b1f6_44ff_9f7c_e7a82ab86821);
 }
 impl ::windows::runtime::RuntimeName for RfcommServiceProvider {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider";

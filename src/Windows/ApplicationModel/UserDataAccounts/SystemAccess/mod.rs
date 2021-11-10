@@ -623,7 +623,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceAccountConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for DeviceAccountConfiguration {
     type Vtable = IDeviceAccountConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2902533027, 64476, 19739, [190, 67, 90, 39, 234, 74, 27, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad0123a3_fbdc_4d1b_be43_5a27ea4a1b63);
 }
 impl ::windows::runtime::RuntimeName for DeviceAccountConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountConfiguration";
@@ -776,7 +776,7 @@ impl ::windows::runtime::DefaultType for DeviceAccountSyncScheduleKind {
 pub struct IDeviceAccountConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceAccountConfiguration {
     type Vtable = IDeviceAccountConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2902533027, 64476, 19739, [190, 67, 90, 39, 234, 74, 27, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad0123a3_fbdc_4d1b_be43_5a27ea4a1b63);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -825,7 +825,7 @@ pub struct IDeviceAccountConfiguration_abi(
 pub struct IDeviceAccountConfiguration2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceAccountConfiguration2 {
     type Vtable = IDeviceAccountConfiguration2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4071810470, 29325, 19018, [137, 69, 43, 248, 88, 1, 54, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2b2e5a6_728d_4a4a_8945_2bf8580136de);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -906,7 +906,7 @@ pub struct IDeviceAccountConfiguration2_abi(
 pub struct IUserDataAccountSystemAccessManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountSystemAccessManagerStatics {
     type Vtable = IUserDataAccountSystemAccessManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2641039801, 52197, 17909, [130, 43, 194, 103, 184, 29, 189, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d6b11b9_cbe5_45f5_822b_c267b81dbdb6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -925,7 +925,7 @@ pub struct IUserDataAccountSystemAccessManagerStatics_abi(
 pub struct IUserDataAccountSystemAccessManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountSystemAccessManagerStatics2 {
     type Vtable = IUserDataAccountSystemAccessManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2487190861, 19278, 17311, [131, 211, 151, 155, 39, 192, 90, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x943f854d_4b4e_439f_83d3_979b27c05ac7);
 }
 #[repr(C)]
 #[doc(hidden)]

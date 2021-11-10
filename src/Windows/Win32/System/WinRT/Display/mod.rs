@@ -18,7 +18,7 @@ impl IDisplayDeviceInterop {
 }
 unsafe impl ::windows::runtime::Interface for IDisplayDeviceInterop {
     type Vtable = IDisplayDeviceInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1681097560, 13930, 18203, [189, 86, 221, 142, 244, 142, 67, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64338358_366a_471b_bd56_dd8ef48e439b);
 }
 impl ::core::convert::From<IDisplayDeviceInterop> for ::windows::runtime::IUnknown {
     fn from(value: IDisplayDeviceInterop) -> Self {
@@ -70,7 +70,7 @@ impl IDisplayPathInterop {
 }
 unsafe impl ::windows::runtime::Interface for IDisplayPathInterop {
     type Vtable = IDisplayPathInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2797224453, 58782, 20081, [178, 91, 78, 67, 109, 33, 238, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6ba4205_e59e_4e71_b25b_4e436d21ee3d);
 }
 impl ::core::convert::From<IDisplayPathInterop> for ::windows::runtime::IUnknown {
     fn from(value: IDisplayPathInterop) -> Self {

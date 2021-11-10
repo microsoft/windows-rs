@@ -12,7 +12,7 @@ impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
     type Vtable = IWindowsDevicesAllJoynBusAttachmentFactoryInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1267692805, 45625, 20091, [136, 175, 246, 104, 37, 117, 216, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b8f7505_b239_4e7b_88af_f6682575d861);
 }
 impl ::core::convert::From<IWindowsDevicesAllJoynBusAttachmentFactoryInterop> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsDevicesAllJoynBusAttachmentFactoryInterop) -> Self {
@@ -58,7 +58,7 @@ impl IWindowsDevicesAllJoynBusAttachmentInterop {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsDevicesAllJoynBusAttachmentInterop {
     type Vtable = IWindowsDevicesAllJoynBusAttachmentInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4253664859, 46350, 18969, [157, 12, 180, 43, 120, 50, 129, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd89c65b_b50e_4a19_9d0c_b42b783281cd);
 }
 impl ::core::convert::From<IWindowsDevicesAllJoynBusAttachmentInterop> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsDevicesAllJoynBusAttachmentInterop) -> Self {
@@ -104,7 +104,7 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInterop {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsDevicesAllJoynBusObjectFactoryInterop {
     type Vtable = IWindowsDevicesAllJoynBusObjectFactoryInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1635050758, 35733, 20022, [149, 192, 184, 143, 237, 52, 147, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6174e506_8b95_4e36_95c0_b88fed34938c);
 }
 impl ::core::convert::From<IWindowsDevicesAllJoynBusObjectFactoryInterop> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsDevicesAllJoynBusObjectFactoryInterop) -> Self {
@@ -158,7 +158,7 @@ impl IWindowsDevicesAllJoynBusObjectInterop {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsDevicesAllJoynBusObjectInterop {
     type Vtable = IWindowsDevicesAllJoynBusObjectInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3616187349, 20564, 17039, [153, 242, 236, 58, 93, 227, 195, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd78aa3d5_5054_428f_99f2_ec3a5de3c3bc);
 }
 impl ::core::convert::From<IWindowsDevicesAllJoynBusObjectInterop> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsDevicesAllJoynBusObjectInterop) -> Self {

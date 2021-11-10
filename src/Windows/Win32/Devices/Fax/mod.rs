@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const CLSID_Sti: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3005479136, 11880, 4560, [144, 234, 0, 170, 0, 96, 248, 108]);
+pub const CLSID_Sti: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb323f8e0_2e68_11d0_90ea_00aa0060f86c);
 #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -18,13 +18,13 @@ pub unsafe fn CanSendToFaxRecipient() -> super::super::Foundation::BOOL {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WIA_DeviceType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1809653702, 33039, 4560, [190, 199, 8, 0, 43, 226, 9, 47]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x6bdd1fc6_810f_11d0_bec7_08002be2092f),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WIA_USDClassId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1809653702, 33039, 4560, [190, 199, 8, 0, 43, 226, 9, 47]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x6bdd1fc6_810f_11d0_bec7_08002be2092f),
     pid: 3u32,
 };
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
@@ -2567,16 +2567,16 @@ pub unsafe fn FaxAccessCheck<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const FaxAccount: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2816500863, 17700, 17508, [165, 109, 185, 254, 102, 111, 113, 94]);
-pub const FaxAccountFolders: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2235141961, 49204, 19007, [130, 28, 219, 125, 104, 94, 129, 41]);
-pub const FaxAccountIncomingArchive: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(347291061, 19520, 20175, [158, 248, 163, 96, 203, 232, 9, 237]);
-pub const FaxAccountIncomingQueue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2614059156, 46298, 17908, [184, 214, 221, 235, 33, 134, 101, 44]);
-pub const FaxAccountOutgoingArchive: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2233367285, 17210, 18233, [162, 223, 173, 36, 92, 44, 185, 142]);
-pub const FaxAccountOutgoingQueue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4276940539, 49481, 18618, [186, 184, 183, 145, 225, 1, 246, 47]);
-pub const FaxAccountSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4223810635, 31200, 17041, [188, 86, 193, 46, 37, 59, 191, 58]);
-pub const FaxAccounts: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3659502762, 60972, 18368, [143, 79, 42, 33, 112, 117, 183, 110]);
-pub const FaxActivity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3488570638, 59469, 17966, [170, 187, 135, 211, 30, 176, 79, 239]);
-pub const FaxActivityLogging: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4037028174, 15293, 18616, [143, 19, 140, 89, 26, 85, 189, 188]);
+pub const FaxAccount: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7e0647f_4524_4464_a56d_b9fe666f715e);
+pub const FaxAccountFolders: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85398f49_c034_4a3f_821c_db7d685e8129);
+pub const FaxAccountIncomingArchive: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14b33db5_4c40_4ecf_9ef8_a360cbe809ed);
+pub const FaxAccountIncomingQueue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9bcf6094_b4da_45f4_b8d6_ddeb2186652c);
+pub const FaxAccountOutgoingArchive: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x851e7af5_433a_4739_a2df_ad245c2cb98e);
+pub const FaxAccountOutgoingQueue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfeeceefb_c149_48ba_bab8_b791e101f62f);
+pub const FaxAccountSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbc23c4b_79e0_4291_bc56_c12e253bbf3a);
+pub const FaxAccounts: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda1f94aa_ee2c_47c0_8f4f_2a217075b76e);
+pub const FaxActivity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfef5d0e_e84d_462e_aabb_87d31eb04fef);
+pub const FaxActivityLogging: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0a0294e_3bbd_48b8_8f13_8c591a55bdbc);
 #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2622,7 +2622,7 @@ pub unsafe fn FaxCompleteJobParamsW(jobparams: *mut *mut FAX_JOB_PARAMW, coverpa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const FaxConfiguration: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1482109551, 59315, 16807, [156, 25, 169, 27, 70, 62, 45, 86]);
+pub const FaxConfiguration: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5857326f_e7b3_41a7_9c19_a91b463e2d56);
 #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2653,12 +2653,12 @@ pub unsafe fn FaxConnectFaxServerW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const FaxDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1508091314, 54902, 18507, [166, 222, 114, 11, 250, 137, 181, 175]);
-pub const FaxDeviceIds: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3452254698, 29303, 17934, [141, 224, 72, 160, 165, 118, 13, 31]);
-pub const FaxDeviceProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(399448739, 62955, 18506, [156, 154, 68, 64, 165, 186, 171, 252]);
-pub const FaxDeviceProviders: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3952076648, 34650, 20319, [130, 197, 3, 242, 58, 172, 27, 215]);
-pub const FaxDevices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1435099790, 9163, 18713, [136, 8, 230, 16, 24, 70, 232, 13]);
-pub const FaxDocument: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(255827857, 51256, 16734, [164, 243, 62, 130, 140, 164, 69, 224]);
+pub const FaxDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59e3a5b2_d676_484b_a6de_720bfa89b5af);
+pub const FaxDeviceIds: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcdc539ea_7277_460e_8de0_48a0a5760d1f);
+pub const FaxDeviceProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17cf1aa3_f5eb_484a_9c9a_4440a5baabfc);
+pub const FaxDeviceProviders: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb8fe768_875a_4f5f_82c5_03f23aac1bd7);
+pub const FaxDevices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5589e28e_23cb_4919_8808_e6101846e80d);
+pub const FaxDocument: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f3f9f91_c838_415e_a4f3_3e828ca445e0);
 #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2809,8 +2809,8 @@ pub unsafe fn FaxEnumRoutingMethodsW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const FaxEventLogging: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2793736496, 41206, 19055, [149, 183, 219, 46, 191, 61, 2, 227]);
-pub const FaxFolders: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3276935639, 22390, 18635, [175, 68, 195, 27, 227, 178, 207, 229]);
+pub const FaxEventLogging: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6850930_a0f6_4a6f_95b7_db2ebf3d02e3);
+pub const FaxFolders: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc35211d7_5776_48cb_af44_c31be3b2cfe5);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[inline]
 pub unsafe fn FaxFreeBuffer(buffer: *mut ::core::ffi::c_void) {
@@ -3020,17 +3020,17 @@ pub unsafe fn FaxGetRoutingInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const FaxInboundRouting: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3892463853, 44389, 16920, [129, 8, 153, 25, 36, 212, 231, 237]);
-pub const FaxInboundRoutingExtension: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(494795601, 29191, 17462, [160, 217, 36, 227, 46, 229, 105, 136]);
-pub const FaxInboundRoutingExtensions: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(412764397, 25148, 19469, [128, 242, 214, 108, 123, 158, 254, 194]);
-pub const FaxInboundRoutingMethod: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1268766556, 404, 19314, [156, 229, 2, 168, 32, 90, 199, 212]);
-pub const FaxInboundRoutingMethods: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(637319018, 46928, 19330, [146, 102, 251, 187, 174, 137, 34, 186]);
-pub const FaxIncomingArchive: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2217133418, 13729, 19567, [175, 147, 252, 149, 36, 34, 226, 194]);
-pub const FaxIncomingJob: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3295875564, 44594, 16824, [174, 75, 62, 174, 6, 41, 208, 201]);
-pub const FaxIncomingJobs: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2713422403, 34918, 20407, [161, 93, 98, 102, 200, 117, 165, 204]);
-pub const FaxIncomingMessage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(422771959, 40259, 19802, [137, 255, 3, 134, 27, 50, 23, 54]);
-pub const FaxIncomingMessageIterator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1619583448, 16328, 17858, [135, 177, 144, 154, 41, 96, 126, 169]);
-pub const FaxIncomingQueue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1762858775, 62449, 16611, [128, 157, 166, 203, 247, 189, 133, 229]);
+pub const FaxInboundRouting: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe80248ed_ad65_4218_8108_991924d4e7ed);
+pub const FaxInboundRoutingExtension: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d7dfb51_7207_4436_a0d9_24e32ee56988);
+pub const FaxInboundRoutingExtensions: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x189a48ed_623c_4c0d_80f2_d66c7b9efec2);
+pub const FaxInboundRoutingMethod: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b9fd75c_0194_4b72_9ce5_02a8205ac7d4);
+pub const FaxInboundRoutingMethods: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25fcb76a_b750_4b82_9266_fbbbae8922ba);
+pub const FaxIncomingArchive: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8426c56a_35a1_4c6f_af93_fc952422e2c2);
+pub const FaxIncomingJob: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc47311ec_ae32_41b8_ae4b_3eae0629d0c9);
+pub const FaxIncomingJobs: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1bb8a43_8866_4fb7_a15d_6266c875a5cc);
+pub const FaxIncomingMessage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1932fcf7_9d43_4d5a_89ff_03861b321736);
+pub const FaxIncomingMessageIterator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6088e1d8_3fc8_45c2_87b1_909a29607ea9);
+pub const FaxIncomingQueue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69131717_f3f1_40e3_809d_a6cbf7bd85e5);
 #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -3046,8 +3046,8 @@ pub unsafe fn FaxInitializeEventQueue<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const FaxJobStatus: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2079466228, 48781, 17455, [132, 29, 97, 50, 116, 36, 35, 187]);
-pub const FaxLoggingOptions: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(469364390, 60640, 18309, [161, 139, 222, 86, 233, 238, 249, 106]);
+pub const FaxJobStatus: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bf222f4_be8d_442f_841d_6132742423bb);
+pub const FaxLoggingOptions: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bf9eea6_ece0_4785_a18b_de56e9eef96a);
 #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -3063,17 +3063,17 @@ pub unsafe fn FaxOpenPort<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const FaxOutboundRouting: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3357227102, 47209, 19197, [134, 192, 97, 100, 152, 237, 155, 226]);
-pub const FaxOutboundRoutingGroup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(34862048, 26513, 19831, [162, 113, 4, 210, 53, 124, 80, 214]);
-pub const FaxOutboundRoutingGroups: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3435045285, 58036, 19287, [148, 33, 176, 75, 98, 137, 70, 75]);
-pub const FaxOutboundRoutingRule: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1699344063, 2257, 18266, [130, 139, 59, 241, 5, 149, 47, 160]);
-pub const FaxOutboundRoutingRules: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3548757706, 58916, 17523, [191, 170, 159, 64, 0, 131, 31, 84]);
-pub const FaxOutgoingArchive: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1136821251, 57423, 18253, [153, 12, 185, 70, 105, 20, 143, 89]);
-pub const FaxOutgoingJob: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1908097692, 3833, 18709, [190, 197, 165, 216, 151, 163, 233, 36]);
-pub const FaxOutgoingJobs: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2462001772, 14270, 17402, [163, 125, 203, 14, 95, 117, 59, 53]);
-pub const FaxOutgoingMessage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2444534648, 19160, 19183, [164, 220, 151, 217, 110, 147, 154, 58]);
-pub const FaxOutgoingMessageIterator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2318542032, 54027, 18910, [152, 19, 203, 56, 87, 144, 251, 187]);
-pub const FaxOutgoingQueue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1948325534, 35907, 19213, [187, 22, 100, 92, 143, 164, 3, 87]);
+pub const FaxOutboundRouting: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc81b385e_b869_4afd_86c0_616498ed9be2);
+pub const FaxOutboundRoutingGroup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0213f3e0_6791_4d77_a271_04d2357c50d6);
+pub const FaxOutboundRoutingGroups: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xccbea1a5_e2b4_4b57_9421_b04b6289464b);
+pub const FaxOutboundRoutingRule: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6549eebf_08d1_475a_828b_3bf105952fa0);
+pub const FaxOutboundRoutingRules: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd385beca_e624_4473_bfaa_9f4000831f54);
+pub const FaxOutgoingArchive: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43c28403_e04f_474d_990c_b94669148f59);
+pub const FaxOutgoingJob: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71bb429c_0ef9_4915_bec5_a5d897a3e924);
+pub const FaxOutgoingJobs: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92bf2a6c_37be_43fa_a37d_cb0e5f753b35);
+pub const FaxOutgoingMessage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91b4a378_4ad8_4aef_a4dc_97d96e939a3a);
+pub const FaxOutgoingMessageIterator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a3224d0_d30b_49de_9813_cb385790fbbb);
+pub const FaxOutgoingQueue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7421169e_8c43_4b0d_bb16_645c8fa40357);
 #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
@@ -3104,9 +3104,9 @@ pub unsafe fn FaxPrintCoverPageW(faxcontextinfo: *const FAX_CONTEXT_INFOW, cover
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const FaxReceiptOptions: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1770145915, 8827, 19606, [166, 28, 36, 131, 72, 176, 90, 182]);
-pub const FaxRecipient: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1623143169, 32248, 19416, [145, 72, 123, 88, 1, 249, 239, 223]);
-pub const FaxRecipients: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3936083795, 4265, 19791, [160, 103, 99, 200, 248, 79, 1, 176]);
+pub const FaxReceiptOptions: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6982487b_227b_4c96_a61c_248348b05ab6);
+pub const FaxRecipient: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60bf3301_7df8_4bd8_9148_7b5801f9efdf);
+pub const FaxRecipients: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea9bdf53_10a9_4d4f_a067_63c8f84f01b0);
 #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -3144,8 +3144,8 @@ pub unsafe fn FaxRegisterServiceProviderW<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const FaxSecurity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(281337310, 44016, 17375, [150, 79, 127, 58, 194, 26, 76, 123]);
-pub const FaxSecurity2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1935413832, 60553, 19504, [161, 39, 101, 110, 146, 227, 196, 234]);
+pub const FaxSecurity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10c4ddde_abf0_43df_964f_7f3ac21a4c7b);
+pub const FaxSecurity2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x735c1248_ec89_4c30_a127_656e92e3c4ea);
 #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -3206,8 +3206,8 @@ pub unsafe fn FaxSendDocumentW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const FaxSender: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(643663056, 6224, 17248, [183, 200, 117, 139, 187, 95, 11, 150]);
-pub const FaxServer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3450383536, 36085, 20332, [155, 162, 89, 49, 212, 12, 140, 174]);
+pub const FaxSender: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x265d84d0_1850_4360_b7c8_758bbb5f0b96);
+pub const FaxServer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcda8acb0_8cf5_4f6c_9ba2_5931d40c8cae);
 #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -3433,13 +3433,13 @@ pub unsafe fn FaxUnregisterServiceProviderW<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const GUID_DeviceArrivedLaunch: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1947049702, 28913, 4561, [173, 16, 0, 160, 36, 56, 173, 72]);
-pub const GUID_STIUserDefined1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3222189973, 35950, 4562, [151, 122, 0, 0, 248, 122, 146, 111]);
-pub const GUID_STIUserDefined2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3346721221, 35950, 4562, [151, 122, 0, 0, 248, 122, 146, 111]);
-pub const GUID_STIUserDefined3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3346721222, 35950, 4562, [151, 122, 0, 0, 248, 122, 146, 111]);
-pub const GUID_ScanFaxImage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3222189971, 35950, 4562, [151, 122, 0, 0, 248, 122, 146, 111]);
-pub const GUID_ScanImage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2797971221, 35950, 4562, [151, 122, 0, 0, 248, 122, 146, 111]);
-pub const GUID_ScanPrintImage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3024221221, 35950, 4562, [151, 122, 0, 0, 248, 122, 146, 111]);
+pub const GUID_DeviceArrivedLaunch: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x740d9ee6_70f1_11d1_ad10_00a02438ad48);
+pub const GUID_STIUserDefined1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc00eb795_8c6e_11d2_977a_0000f87a926f);
+pub const GUID_STIUserDefined2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc77ae9c5_8c6e_11d2_977a_0000f87a926f);
+pub const GUID_STIUserDefined3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc77ae9c6_8c6e_11d2_977a_0000f87a926f);
+pub const GUID_ScanFaxImage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc00eb793_8c6e_11d2_977a_0000f87a926f);
+pub const GUID_ScanImage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6c5a715_8c6e_11d2_977a_0000f87a926f);
+pub const GUID_ScanPrintImage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb441f425_8c6e_11d2_977a_0000f87a926f);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -3468,7 +3468,7 @@ impl IFaxAccount {
 }
 unsafe impl ::windows::runtime::Interface for IFaxAccount {
     type Vtable = IFaxAccount_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1750293299, 24004, 16518, [190, 38, 183, 111, 155, 113, 16, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68535b33_5dc4_4086_be26_b76f9b711006);
 }
 impl ::core::convert::From<IFaxAccount> for ::windows::runtime::IUnknown {
     fn from(value: IFaxAccount) -> Self {
@@ -3562,7 +3562,7 @@ impl IFaxAccountFolders {
 }
 unsafe impl ::windows::runtime::Interface for IFaxAccountFolders {
     type Vtable = IFaxAccountFolders_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1684273309, 9176, 18089, [143, 134, 196, 123, 119, 202, 121, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6463f89d_23d8_46a9_8f86_c47b77ca7926);
 }
 impl ::core::convert::From<IFaxAccountFolders> for ::windows::runtime::IUnknown {
     fn from(value: IFaxAccountFolders) -> Self {
@@ -3660,7 +3660,7 @@ impl IFaxAccountIncomingArchive {
 }
 unsafe impl ::windows::runtime::Interface for IFaxAccountIncomingArchive {
     type Vtable = IFaxAccountIncomingArchive_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2829432559, 57558, 19182, [149, 92, 145, 98, 91, 236, 157, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8a5b6ef_e0d6_4aee_955c_91625bec9db4);
 }
 impl ::core::convert::From<IFaxAccountIncomingArchive> for ::windows::runtime::IUnknown {
     fn from(value: IFaxAccountIncomingArchive) -> Self {
@@ -3746,7 +3746,7 @@ impl IFaxAccountIncomingQueue {
 }
 unsafe impl ::windows::runtime::Interface for IFaxAccountIncomingQueue {
     type Vtable = IFaxAccountIncomingQueue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3709087122, 390, 19093, [160, 144, 203, 195, 234, 219, 166, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd142d92_0186_4a95_a090_cbc3eadba6b4);
 }
 impl ::core::convert::From<IFaxAccountIncomingQueue> for ::windows::runtime::IUnknown {
     fn from(value: IFaxAccountIncomingQueue) -> Self {
@@ -3817,7 +3817,7 @@ pub struct IFaxAccountNotify(pub ::windows::runtime::IUnknown);
 impl IFaxAccountNotify {}
 unsafe impl ::windows::runtime::Interface for IFaxAccountNotify {
     type Vtable = IFaxAccountNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(190733265, 47273, 18336, [163, 35, 239, 74, 41, 59, 160, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b5e5bd1_b8a9_47a0_a323_ef4a293ba06a);
 }
 impl ::core::convert::From<IFaxAccountNotify> for ::windows::runtime::IUnknown {
     fn from(value: IFaxAccountNotify) -> Self {
@@ -3911,7 +3911,7 @@ impl IFaxAccountOutgoingArchive {
 }
 unsafe impl ::windows::runtime::Interface for IFaxAccountOutgoingArchive {
     type Vtable = IFaxAccountOutgoingArchive_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1415776109, 60436, 18719, [146, 110, 179, 206, 218, 94, 86, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5463076d_ec14_491f_926e_b3ceda5e5662);
 }
 impl ::core::convert::From<IFaxAccountOutgoingArchive> for ::windows::runtime::IUnknown {
     fn from(value: IFaxAccountOutgoingArchive) -> Self {
@@ -3997,7 +3997,7 @@ impl IFaxAccountOutgoingQueue {
 }
 unsafe impl ::windows::runtime::Interface for IFaxAccountOutgoingQueue {
     type Vtable = IFaxAccountOutgoingQueue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(252978409, 61997, 17747, [183, 165, 13, 36, 189, 13, 126, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f1424e9_f22d_4553_b7a5_0d24bd0d7e46);
 }
 impl ::core::convert::From<IFaxAccountOutgoingQueue> for ::windows::runtime::IUnknown {
     fn from(value: IFaxAccountOutgoingQueue) -> Self {
@@ -4091,7 +4091,7 @@ impl IFaxAccountSet {
 }
 unsafe impl ::windows::runtime::Interface for IFaxAccountSet {
     type Vtable = IFaxAccountSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1948842926, 33822, 18360, [134, 244, 34, 136, 148, 109, 202, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7428fbae_841e_47b8_86f4_2288946dca1b);
 }
 impl ::core::convert::From<IFaxAccountSet> for ::windows::runtime::IUnknown {
     fn from(value: IFaxAccountSet) -> Self {
@@ -4183,7 +4183,7 @@ impl IFaxAccounts {
 }
 unsafe impl ::windows::runtime::Interface for IFaxAccounts {
     type Vtable = IFaxAccounts_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2481619298, 35815, 17105, [174, 123, 236, 116, 226, 217, 137, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93ea8162_8be7_42d1_ae7b_ec74e2d989da);
 }
 impl ::core::convert::From<IFaxAccounts> for ::windows::runtime::IUnknown {
     fn from(value: IFaxAccounts) -> Self {
@@ -4280,7 +4280,7 @@ impl IFaxActivity {
 }
 unsafe impl ::windows::runtime::Interface for IFaxActivity {
     type Vtable = IFaxActivity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1259368343, 15861, 16626, [188, 60, 68, 203, 129, 21, 235, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b106f97_3df5_40f2_bc3c_44cb8115ebdf);
 }
 impl ::core::convert::From<IFaxActivity> for ::windows::runtime::IUnknown {
     fn from(value: IFaxActivity) -> Self {
@@ -4391,7 +4391,7 @@ impl IFaxActivityLogging {
 }
 unsafe impl ::windows::runtime::Interface for IFaxActivityLogging {
     type Vtable = IFaxActivityLogging_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(506005387, 23145, 18811, [149, 146, 73, 183, 231, 250, 221, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e29078b_5a69_497b_9592_49b7e7faddb5);
 }
 impl ::core::convert::From<IFaxActivityLogging> for ::windows::runtime::IUnknown {
     fn from(value: IFaxActivityLogging) -> Self {
@@ -4661,7 +4661,7 @@ impl IFaxConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for IFaxConfiguration {
     type Vtable = IFaxConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(284479735, 2452, 17731, [171, 110, 80, 105, 73, 18, 140, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10f4d0f7_0994_4543_ab6e_506949128c40);
 }
 impl ::core::convert::From<IFaxConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: IFaxConfiguration) -> Self {
@@ -4905,7 +4905,7 @@ impl IFaxDevice {
 }
 unsafe impl ::windows::runtime::Interface for IFaxDevice {
     type Vtable = IFaxDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1227910233, 46382, 18535, [157, 244, 202, 88, 65, 201, 86, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49306c59_b52e_4867_9df4_ca5841c956d0);
 }
 impl ::core::convert::From<IFaxDevice> for ::windows::runtime::IUnknown {
     fn from(value: IFaxDevice) -> Self {
@@ -5039,7 +5039,7 @@ impl IFaxDeviceIds {
 }
 unsafe impl ::windows::runtime::Interface for IFaxDeviceIds {
     type Vtable = IFaxDeviceIds_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(789545279, 19689, 17470, [140, 161, 115, 140, 250, 238, 225, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f0f813f_4ce9_443e_8ca1_738cfaeee149);
 }
 impl ::core::convert::From<IFaxDeviceIds> for ::windows::runtime::IUnknown {
     fn from(value: IFaxDeviceIds) -> Self {
@@ -5179,7 +5179,7 @@ impl IFaxDeviceProvider {
 }
 unsafe impl ::windows::runtime::Interface for IFaxDeviceProvider {
     type Vtable = IFaxDeviceProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(688827491, 33772, 17564, [132, 23, 241, 72, 223, 140, 104, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x290eac63_83ec_449c_8417_f148df8c682a);
 }
 impl ::core::convert::From<IFaxDeviceProvider> for ::windows::runtime::IUnknown {
     fn from(value: IFaxDeviceProvider) -> Self {
@@ -5281,7 +5281,7 @@ impl IFaxDeviceProviders {
 }
 unsafe impl ::windows::runtime::Interface for IFaxDeviceProviders {
     type Vtable = IFaxDeviceProviders_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2679598946, 19582, 17317, [182, 253, 80, 40, 147, 247, 225, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fb76f62_4c7e_43a5_b6fd_502893f7e13e);
 }
 impl ::core::convert::From<IFaxDeviceProviders> for ::windows::runtime::IUnknown {
     fn from(value: IFaxDeviceProviders) -> Self {
@@ -5375,7 +5375,7 @@ impl IFaxDevices {
 }
 unsafe impl ::windows::runtime::Interface for IFaxDevices {
     type Vtable = IFaxDevices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2655418430, 62287, 18478, [163, 96, 4, 22, 190, 203, 189, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e46783e_f34f_482e_a360_0416becbbd96);
 }
 impl ::core::convert::From<IFaxDevices> for ::windows::runtime::IUnknown {
     fn from(value: IFaxDevices) -> Self {
@@ -5620,7 +5620,7 @@ impl IFaxDocument {
 }
 unsafe impl ::windows::runtime::Interface for IFaxDocument {
     type Vtable = IFaxDocument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2986844742, 2531, 19022, [167, 220, 254, 163, 29, 41, 69, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb207a246_09e3_4a4e_a7dc_fea31d29458f);
 }
 impl ::core::convert::From<IFaxDocument> for ::windows::runtime::IUnknown {
     fn from(value: IFaxDocument) -> Self {
@@ -5969,7 +5969,7 @@ impl IFaxDocument2 {
 }
 unsafe impl ::windows::runtime::Interface for IFaxDocument2 {
     type Vtable = IFaxDocument2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3778311777, 63983, 19821, [180, 165, 192, 160, 104, 182, 92, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1347661_f9ef_4d6d_b4a5_c0a068b65cff);
 }
 impl ::core::convert::From<IFaxDocument2> for ::windows::runtime::IUnknown {
     fn from(value: IFaxDocument2) -> Self {
@@ -6162,7 +6162,7 @@ impl IFaxEventLogging {
 }
 unsafe impl ::windows::runtime::Interface for IFaxEventLogging {
     type Vtable = IFaxEventLogging_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(142661989, 8424, 17124, [142, 23, 148, 79, 25, 44, 170, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0880d965_20e8_42e4_8e17_944f192caad4);
 }
 impl ::core::convert::From<IFaxEventLogging> for ::windows::runtime::IUnknown {
     fn from(value: IFaxEventLogging) -> Self {
@@ -6261,7 +6261,7 @@ impl IFaxFolders {
 }
 unsafe impl ::windows::runtime::Interface for IFaxFolders {
     type Vtable = IFaxFolders_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3705909928, 42923, 17084, [157, 10, 49, 73, 69, 114, 97, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdce3b2a8_a7ab_42bc_9d0a_3149457261a0);
 }
 impl ::core::convert::From<IFaxFolders> for ::windows::runtime::IUnknown {
     fn from(value: IFaxFolders) -> Self {
@@ -6344,7 +6344,7 @@ impl IFaxInboundRouting {
 }
 unsafe impl ::windows::runtime::Interface for IFaxInboundRouting {
     type Vtable = IFaxInboundRouting_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2169029135, 40274, 17841, [191, 150, 56, 252, 18, 113, 53, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8148c20f_9d52_45b1_bf96_38fc12713527);
 }
 impl ::core::convert::From<IFaxInboundRouting> for ::windows::runtime::IUnknown {
     fn from(value: IFaxInboundRouting) -> Self {
@@ -6474,7 +6474,7 @@ impl IFaxInboundRoutingExtension {
 }
 unsafe impl ::windows::runtime::Interface for IFaxInboundRoutingExtension {
     type Vtable = IFaxInboundRoutingExtension_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2287689224, 49772, 20217, [175, 131, 81, 88, 10, 117, 11, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x885b5e08_c26c_4ef9_af83_51580a750be1);
 }
 impl ::core::convert::From<IFaxInboundRoutingExtension> for ::windows::runtime::IUnknown {
     fn from(value: IFaxInboundRoutingExtension) -> Self {
@@ -6574,7 +6574,7 @@ impl IFaxInboundRoutingExtensions {
 }
 unsafe impl ::windows::runtime::Interface for IFaxInboundRoutingExtensions {
     type Vtable = IFaxInboundRoutingExtensions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(795645555, 31526, 17118, [142, 176, 145, 93, 205, 42, 79, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f6c9673_7b26_42de_8eb0_915dcd2a4f4c);
 }
 impl ::core::convert::From<IFaxInboundRoutingExtensions> for ::windows::runtime::IUnknown {
     fn from(value: IFaxInboundRoutingExtensions) -> Self {
@@ -6694,7 +6694,7 @@ impl IFaxInboundRoutingMethod {
 }
 unsafe impl ::windows::runtime::Interface for IFaxInboundRoutingMethod {
     type Vtable = IFaxInboundRoutingMethod_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1164968033, 44445, 18294, [168, 196, 100, 6, 84, 146, 207, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45700061_ad9d_4776_a8c4_64065492cf4b);
 }
 impl ::core::convert::From<IFaxInboundRoutingMethod> for ::windows::runtime::IUnknown {
     fn from(value: IFaxInboundRoutingMethod) -> Self {
@@ -6793,7 +6793,7 @@ impl IFaxInboundRoutingMethods {
 }
 unsafe impl ::windows::runtime::Interface for IFaxInboundRoutingMethods {
     type Vtable = IFaxInboundRoutingMethods_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2017446416, 35080, 17523, [157, 105, 246, 127, 190, 160, 198, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x783fca10_8908_4473_9d69_f67fbea0c6b9);
 }
 impl ::core::convert::From<IFaxInboundRoutingMethods> for ::windows::runtime::IUnknown {
     fn from(value: IFaxInboundRoutingMethods) -> Self {
@@ -6951,7 +6951,7 @@ impl IFaxIncomingArchive {
 }
 unsafe impl ::windows::runtime::Interface for IFaxIncomingArchive {
     type Vtable = IFaxIncomingArchive_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1980116167, 63252, 20413, [170, 6, 237, 110, 74, 75, 112, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76062cc7_f714_4fbd_aa06_ed6e4a4b70f3);
 }
 impl ::core::convert::From<IFaxIncomingArchive> for ::windows::runtime::IUnknown {
     fn from(value: IFaxIncomingArchive) -> Self {
@@ -7140,7 +7140,7 @@ impl IFaxIncomingJob {
 }
 unsafe impl ::windows::runtime::Interface for IFaxIncomingJob {
     type Vtable = IFaxIncomingJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(544549350, 25930, 18710, [159, 136, 77, 35, 46, 232, 161, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x207529e6_654a_4916_9f88_4d232ee8a107);
 }
 impl ::core::convert::From<IFaxIncomingJob> for ::windows::runtime::IUnknown {
     fn from(value: IFaxIncomingJob) -> Self {
@@ -7251,7 +7251,7 @@ impl IFaxIncomingJobs {
 }
 unsafe impl ::windows::runtime::Interface for IFaxIncomingJobs {
     type Vtable = IFaxIncomingJobs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(18810089, 20438, 19491, [149, 19, 182, 182, 107, 178, 107, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x011f04e9_4fd6_4c23_9513_b6b66bb26be9);
 }
 impl ::core::convert::From<IFaxIncomingJobs> for ::windows::runtime::IUnknown {
     fn from(value: IFaxIncomingJobs) -> Self {
@@ -7394,7 +7394,7 @@ impl IFaxIncomingMessage {
 }
 unsafe impl ::windows::runtime::Interface for IFaxIncomingMessage {
     type Vtable = IFaxIncomingMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2091616506, 12025, 18513, [178, 243, 29, 20, 143, 237, 132, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7cab88fa_2ef9_4851_b2f3_1d148fed8447);
 }
 impl ::core::convert::From<IFaxIncomingMessage> for ::windows::runtime::IUnknown {
     fn from(value: IFaxIncomingMessage) -> Self {
@@ -7664,7 +7664,7 @@ impl IFaxIncomingMessage2 {
 }
 unsafe impl ::windows::runtime::Interface for IFaxIncomingMessage2 {
     type Vtable = IFaxIncomingMessage2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4179657987, 58044, 18675, [158, 192, 230, 35, 111, 155, 80, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9208503_e2bc_48f3_9ec0_e6236f9b509a);
 }
 impl ::core::convert::From<IFaxIncomingMessage2> for ::windows::runtime::IUnknown {
     fn from(value: IFaxIncomingMessage2) -> Self {
@@ -7824,7 +7824,7 @@ impl IFaxIncomingMessageIterator {
 }
 unsafe impl ::windows::runtime::Interface for IFaxIncomingMessageIterator {
     type Vtable = IFaxIncomingMessageIterator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4252232900, 28422, 20306, [130, 168, 247, 186, 6, 174, 49, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd73ecc4_6f06_4f52_82a8_f7ba06ae3108);
 }
 impl ::core::convert::From<IFaxIncomingMessageIterator> for ::windows::runtime::IUnknown {
     fn from(value: IFaxIncomingMessageIterator) -> Self {
@@ -7927,7 +7927,7 @@ impl IFaxIncomingQueue {
 }
 unsafe impl ::windows::runtime::Interface for IFaxIncomingQueue {
     type Vtable = IFaxIncomingQueue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2418959599, 36824, 19317, [151, 37, 96, 20, 223, 22, 21, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x902e64ef_8fd8_4b75_9725_6014df161545);
 }
 impl ::core::convert::From<IFaxIncomingQueue> for ::windows::runtime::IUnknown {
     fn from(value: IFaxIncomingQueue) -> Self {
@@ -8093,7 +8093,7 @@ impl IFaxJobStatus {
 }
 unsafe impl ::windows::runtime::Interface for IFaxJobStatus {
     type Vtable = IFaxJobStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2340877445, 64895, 18468, [136, 107, 64, 197, 202, 166, 23, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b86f485_fd7f_4824_886b_40c5caa617cc);
 }
 impl ::core::convert::From<IFaxJobStatus> for ::windows::runtime::IUnknown {
     fn from(value: IFaxJobStatus) -> Self {
@@ -8194,7 +8194,7 @@ impl IFaxLoggingOptions {
 }
 unsafe impl ::windows::runtime::Interface for IFaxLoggingOptions {
     type Vtable = IFaxLoggingOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(887508921, 27441, 19762, [139, 39, 210, 134, 192, 195, 54, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34e64fb9_6b31_4d32_8b27_d286c0c33606);
 }
 impl ::core::convert::From<IFaxLoggingOptions> for ::windows::runtime::IUnknown {
     fn from(value: IFaxLoggingOptions) -> Self {
@@ -8275,7 +8275,7 @@ impl IFaxOutboundRouting {
 }
 unsafe impl ::windows::runtime::Interface for IFaxOutboundRouting {
     type Vtable = IFaxOutboundRouting_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(635176356, 39177, 16829, [169, 91, 126, 93, 29, 236, 29, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25dc05a4_9909_41bd_a95b_7e5d1dec1d43);
 }
 impl ::core::convert::From<IFaxOutboundRouting> for ::windows::runtime::IUnknown {
     fn from(value: IFaxOutboundRouting) -> Self {
@@ -8362,7 +8362,7 @@ impl IFaxOutboundRoutingGroup {
 }
 unsafe impl ::windows::runtime::Interface for IFaxOutboundRoutingGroup {
     type Vtable = IFaxOutboundRoutingGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3395455393, 32293, 20359, [154, 11, 147, 54, 87, 52, 150, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca6289a1_7e25_4f87_9a0b_93365734962c);
 }
 impl ::core::convert::From<IFaxOutboundRoutingGroup> for ::windows::runtime::IUnknown {
     fn from(value: IFaxOutboundRoutingGroup) -> Self {
@@ -8462,7 +8462,7 @@ impl IFaxOutboundRoutingGroups {
 }
 unsafe impl ::windows::runtime::Interface for IFaxOutboundRoutingGroups {
     type Vtable = IFaxOutboundRoutingGroups_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(593280759, 49886, 19453, [184, 218, 117, 9, 124, 130, 200, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x235cbef7_c2de_4bfd_b8da_75097c82c87f);
 }
 impl ::core::convert::From<IFaxOutboundRoutingGroups> for ::windows::runtime::IUnknown {
     fn from(value: IFaxOutboundRoutingGroups) -> Self {
@@ -8591,7 +8591,7 @@ impl IFaxOutboundRoutingRule {
 }
 unsafe impl ::windows::runtime::Interface for IFaxOutboundRoutingRule {
     type Vtable = IFaxOutboundRoutingRule_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3791099349, 1986, 18079, [176, 39, 172, 172, 194, 50, 25, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1f795d5_07c2_469f_b027_acacc23219da);
 }
 impl ::core::convert::From<IFaxOutboundRoutingRule> for ::windows::runtime::IUnknown {
     fn from(value: IFaxOutboundRoutingRule) -> Self {
@@ -8707,7 +8707,7 @@ impl IFaxOutboundRoutingRules {
 }
 unsafe impl ::windows::runtime::Interface for IFaxOutboundRoutingRules {
     type Vtable = IFaxOutboundRoutingRules_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3706692071, 44669, 20182, [133, 33, 54, 158, 220, 202, 81, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcefa1e7_ae7d_4ed6_8521_369edcca5120);
 }
 impl ::core::convert::From<IFaxOutboundRoutingRules> for ::windows::runtime::IUnknown {
     fn from(value: IFaxOutboundRoutingRules) -> Self {
@@ -8869,7 +8869,7 @@ impl IFaxOutgoingArchive {
 }
 unsafe impl ::windows::runtime::Interface for IFaxOutgoingArchive {
     type Vtable = IFaxOutgoingArchive_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3384971072, 36224, 20051, [129, 15, 154, 121, 145, 155, 73, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9c28f40_8d80_4e53_810f_9a79919b49fd);
 }
 impl ::core::convert::From<IFaxOutgoingArchive> for ::windows::runtime::IUnknown {
     fn from(value: IFaxOutgoingArchive) -> Self {
@@ -9116,7 +9116,7 @@ impl IFaxOutgoingJob {
 }
 unsafe impl ::windows::runtime::Interface for IFaxOutgoingJob {
     type Vtable = IFaxOutgoingJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1666636461, 26132, 17795, [191, 122, 58, 214, 123, 191, 199, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6356daad_6614_4583_bf7a_3ad67bbfc71c);
 }
 impl ::core::convert::From<IFaxOutgoingJob> for ::windows::runtime::IUnknown {
     fn from(value: IFaxOutgoingJob) -> Self {
@@ -9429,7 +9429,7 @@ impl IFaxOutgoingJob2 {
 }
 unsafe impl ::windows::runtime::Interface for IFaxOutgoingJob2 {
     type Vtable = IFaxOutgoingJob2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1099599254, 22944, 18313, [177, 118, 237, 243, 220, 143, 168, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x418a8d96_59a0_4789_b176_edf3dc8fa8f7);
 }
 impl ::core::convert::From<IFaxOutgoingJob2> for ::windows::runtime::IUnknown {
     fn from(value: IFaxOutgoingJob2) -> Self {
@@ -9577,7 +9577,7 @@ impl IFaxOutgoingJobs {
 }
 unsafe impl ::windows::runtime::Interface for IFaxOutgoingJobs {
     type Vtable = IFaxOutgoingJobs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(743889126, 35887, 17779, [148, 76, 229, 5, 248, 245, 174, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c56d8e6_8c2f_4573_944c_e505f8f5aeed);
 }
 impl ::core::convert::From<IFaxOutgoingJobs> for ::windows::runtime::IUnknown {
     fn from(value: IFaxOutgoingJobs) -> Self {
@@ -9751,7 +9751,7 @@ impl IFaxOutgoingMessage {
 }
 unsafe impl ::windows::runtime::Interface for IFaxOutgoingMessage {
     type Vtable = IFaxOutgoingMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4041881054, 51877, 19068, [130, 199, 43, 96, 186, 95, 43, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0ea35de_caa5_4a7c_82c7_2b60ba5f2be2);
 }
 impl ::core::convert::From<IFaxOutgoingMessage> for ::windows::runtime::IUnknown {
     fn from(value: IFaxOutgoingMessage) -> Self {
@@ -10013,7 +10013,7 @@ impl IFaxOutgoingMessage2 {
 }
 unsafe impl ::windows::runtime::Interface for IFaxOutgoingMessage2 {
     type Vtable = IFaxOutgoingMessage2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3011376775, 48264, 19270, [179, 190, 180, 88, 179, 234, 158, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb37df687_bc88_4b46_b3be_b458b3ea9e7f);
 }
 impl ::core::convert::From<IFaxOutgoingMessage2> for ::windows::runtime::IUnknown {
     fn from(value: IFaxOutgoingMessage2) -> Self {
@@ -10164,7 +10164,7 @@ impl IFaxOutgoingMessageIterator {
 }
 unsafe impl ::windows::runtime::Interface for IFaxOutgoingMessageIterator {
     type Vtable = IFaxOutgoingMessageIterator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4125908303, 47168, 17199, [153, 128, 17, 47, 228, 42, 155, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5ec5d4f_b840_432f_9980_112fe42a9b7a);
 }
 impl ::core::convert::From<IFaxOutgoingMessageIterator> for ::windows::runtime::IUnknown {
     fn from(value: IFaxOutgoingMessageIterator) -> Self {
@@ -10348,7 +10348,7 @@ impl IFaxOutgoingQueue {
 }
 unsafe impl ::windows::runtime::Interface for IFaxOutgoingQueue {
     type Vtable = IFaxOutgoingQueue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2159140644, 55724, 17203, [179, 115, 72, 124, 237, 200, 12, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80b1df24_d9ac_4333_b373_487cedc80ce5);
 }
 impl ::core::convert::From<IFaxOutgoingQueue> for ::windows::runtime::IUnknown {
     fn from(value: IFaxOutgoingQueue) -> Self {
@@ -10530,7 +10530,7 @@ impl IFaxReceiptOptions {
 }
 unsafe impl ::windows::runtime::Interface for IFaxReceiptOptions {
     type Vtable = IFaxReceiptOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(932117227, 24523, 19195, [178, 238, 225, 110, 128, 97, 68, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x378efaeb_5fcb_4afb_b2ee_e16e80614487);
 }
 impl ::core::convert::From<IFaxReceiptOptions> for ::windows::runtime::IUnknown {
     fn from(value: IFaxReceiptOptions) -> Self {
@@ -10647,7 +10647,7 @@ impl IFaxRecipient {
 }
 unsafe impl ::windows::runtime::Interface for IFaxRecipient {
     type Vtable = IFaxRecipient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2587730848, 21389, 17078, [148, 68, 170, 165, 125, 12, 226, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a3da3a0_538d_42b6_9444_aaa57d0ce2bc);
 }
 impl ::core::convert::From<IFaxRecipient> for ::windows::runtime::IUnknown {
     fn from(value: IFaxRecipient) -> Self {
@@ -10749,7 +10749,7 @@ impl IFaxRecipients {
 }
 unsafe impl ::windows::runtime::Interface for IFaxRecipients {
     type Vtable = IFaxRecipients_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3117014618, 35150, 17554, [159, 163, 8, 198, 39, 193, 29, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9c9de5a_894e_4492_9fa3_08c627c11d5d);
 }
 impl ::core::convert::From<IFaxRecipients> for ::windows::runtime::IUnknown {
     fn from(value: IFaxRecipients) -> Self {
@@ -10857,7 +10857,7 @@ impl IFaxSecurity {
 }
 unsafe impl ::windows::runtime::Interface for IFaxSecurity {
     type Vtable = IFaxSecurity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2008352961, 2496, 18338, [145, 235, 252, 231, 253, 242, 105, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77b508c1_09c0_47a2_91eb_fce7fdf2690e);
 }
 impl ::core::convert::From<IFaxSecurity> for ::windows::runtime::IUnknown {
     fn from(value: IFaxSecurity) -> Self {
@@ -10968,7 +10968,7 @@ impl IFaxSecurity2 {
 }
 unsafe impl ::windows::runtime::Interface for IFaxSecurity2 {
     type Vtable = IFaxSecurity2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(400052724, 53403, 18684, [153, 201, 143, 36, 196, 219, 154, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17d851f4_d09b_48fc_99c9_8f24c4db9ab1);
 }
 impl ::core::convert::From<IFaxSecurity2> for ::windows::runtime::IUnknown {
     fn from(value: IFaxSecurity2) -> Self {
@@ -11230,7 +11230,7 @@ impl IFaxSender {
 }
 unsafe impl ::windows::runtime::Interface for IFaxSender {
     type Vtable = IFaxSender_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(226991485, 62842, 19654, [166, 249, 62, 229, 213, 39, 180, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d879d7d_f57a_4cc6_a6f9_3ee5d527b46a);
 }
 impl ::core::convert::From<IFaxSender> for ::windows::runtime::IUnknown {
     fn from(value: IFaxSender) -> Self {
@@ -11495,7 +11495,7 @@ impl IFaxServer {
 }
 unsafe impl ::windows::runtime::Interface for IFaxServer {
     type Vtable = IFaxServer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1197171817, 37029, 18552, [165, 119, 23, 168, 110, 142, 52, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x475b6469_90a5_4878_a577_17a86e8e3462);
 }
 impl ::core::convert::From<IFaxServer> for ::windows::runtime::IUnknown {
     fn from(value: IFaxServer) -> Self {
@@ -11781,7 +11781,7 @@ impl IFaxServer2 {
 }
 unsafe impl ::windows::runtime::Interface for IFaxServer2 {
     type Vtable = IFaxServer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1461513487, 22025, 20288, [145, 118, 84, 126, 58, 114, 202, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x571ced0f_5609_4f40_9176_547e3a72ca7c);
 }
 impl ::core::convert::From<IFaxServer2> for ::windows::runtime::IUnknown {
     fn from(value: IFaxServer2) -> Self {
@@ -11908,7 +11908,7 @@ pub struct IFaxServerNotify(pub ::windows::runtime::IUnknown);
 impl IFaxServerNotify {}
 unsafe impl ::windows::runtime::Interface for IFaxServerNotify {
     type Vtable = IFaxServerNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(771980071, 53130, 19133, [177, 224, 87, 4, 148, 59, 234, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e037b27_cf8a_4abd_b1e0_5704943bea6f);
 }
 impl ::core::convert::From<IFaxServerNotify> for ::windows::runtime::IUnknown {
     fn from(value: IFaxServerNotify) -> Self {
@@ -11976,7 +11976,7 @@ pub struct IFaxServerNotify2(pub ::windows::runtime::IUnknown);
 impl IFaxServerNotify2 {}
 unsafe impl ::windows::runtime::Interface for IFaxServerNotify2 {
     type Vtable = IFaxServerNotify2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1634511062, 42874, 16482, [171, 253, 14, 71, 18, 65, 199, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x616ca8d6_a77a_4062_abfd_0e471241c7aa);
 }
 impl ::core::convert::From<IFaxServerNotify2> for ::windows::runtime::IUnknown {
     fn from(value: IFaxServerNotify2) -> Self {
@@ -12124,7 +12124,7 @@ impl IStiDevice {
 }
 unsafe impl ::windows::runtime::Interface for IStiDevice {
     type Vtable = IStiDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1828346496, 11720, 4560, [144, 234, 0, 170, 0, 96, 248, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6cfa5a80_2dc8_11d0_90ea_00aa0060f86c);
 }
 impl ::core::convert::From<IStiDevice> for ::windows::runtime::IUnknown {
     fn from(value: IStiDevice) -> Self {
@@ -12236,7 +12236,7 @@ impl IStiDeviceControl {
 }
 unsafe impl ::windows::runtime::Interface for IStiDeviceControl {
     type Vtable = IStiDeviceControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(311072864, 21212, 4560, [158, 223, 68, 69, 83, 84, 0, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x128a9860_52dc_11d0_9edf_444553540000);
 }
 impl ::core::convert::From<IStiDeviceControl> for ::windows::runtime::IUnknown {
     fn from(value: IStiDeviceControl) -> Self {
@@ -12369,7 +12369,7 @@ impl IStiUSD {
 }
 unsafe impl ::windows::runtime::Interface for IStiUSD {
     type Vtable = IStiUSD_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(211530848, 20908, 4560, [144, 234, 0, 170, 0, 96, 248, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c9bb460_51ac_11d0_90ea_00aa0060f86c);
 }
 impl ::core::convert::From<IStiUSD> for ::windows::runtime::IUnknown {
     fn from(value: IStiUSD) -> Self {
@@ -12503,7 +12503,7 @@ impl IStillImageW {
 }
 unsafe impl ::windows::runtime::Interface for IStillImageW {
     type Vtable = IStillImageW_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1679546496, 11720, 4560, [144, 234, 0, 170, 0, 96, 248, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x641bd880_2dc8_11d0_90ea_00aa0060f86c);
 }
 impl ::core::convert::From<IStillImageW> for ::windows::runtime::IUnknown {
     fn from(value: IStillImageW) -> Self {
@@ -13486,7 +13486,7 @@ impl _IFaxAccountNotify {
 }
 unsafe impl ::windows::runtime::Interface for _IFaxAccountNotify {
     type Vtable = _IFaxAccountNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3115564161, 44059, 18163, [179, 157, 10, 220, 48, 225, 183, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9b3bc81_ac1b_46f3_b39d_0adc30e1b788);
 }
 impl ::core::convert::From<_IFaxAccountNotify> for ::windows::runtime::IUnknown {
     fn from(value: _IFaxAccountNotify) -> Self {
@@ -13691,7 +13691,7 @@ impl _IFaxServerNotify2 {
 }
 unsafe impl ::windows::runtime::Interface for _IFaxServerNotify2 {
     type Vtable = _IFaxServerNotify2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3969673657, 24551, 18437, [148, 103, 130, 252, 217, 106, 249, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec9c69b9_5fe7_4805_9467_82fcd96af903);
 }
 impl ::core::convert::From<_IFaxServerNotify2> for ::windows::runtime::IUnknown {
     fn from(value: _IFaxServerNotify2) -> Self {

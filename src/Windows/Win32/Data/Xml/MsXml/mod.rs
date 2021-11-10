@@ -1091,9 +1091,9 @@ pub const DISPID_XTLRUNTIME_FORMATTIME: u32 = 195u32;
 pub const DISPID_XTLRUNTIME_UNIQUEID: u32 = 187u32;
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XTLRUNTIME__TOP: u32 = 196u32;
-pub const DOMDocument: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257232, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
-pub const DOMDocument60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949829, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
-pub const DOMFreeThreadedDocument: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257233, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+pub const DOMDocument: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf90_7b36_11d2_b20e_00c04f983e60);
+pub const DOMDocument60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88d96a05_f192_11d4_a65f_0040963251e5);
+pub const DOMFreeThreadedDocument: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf91_7b36_11d2_b20e_00c04f983e60);
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -1127,8 +1127,8 @@ pub const E_XML_INVALID: i32 = -1072897499i32;
 pub const E_XML_NODTD: i32 = -1072897500i32;
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const E_XML_NOTWF: i32 = -1072897501i32;
-pub const FreeThreadedDOMDocument60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949830, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
-pub const FreeThreadedXMLHTTP60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949833, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
+pub const FreeThreadedDOMDocument60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88d96a06_f192_11d4_a65f_0040963251e5);
+pub const FreeThreadedXMLHTTP60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88d96a09_f192_11d4_a65f_0040963251e5);
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -1205,7 +1205,7 @@ impl IMXAttributes {
 }
 unsafe impl ::windows::runtime::Interface for IMXAttributes {
     type Vtable = IMXAttributes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4044171212, 16064, 16732, [142, 216, 119, 171, 28, 94, 114, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf10d27cc_3ec0_415c_8ed8_77ab1c5e7262);
 }
 impl ::core::convert::From<IMXAttributes> for ::windows::runtime::IUnknown {
     fn from(value: IMXAttributes) -> Self {
@@ -1341,7 +1341,7 @@ impl IMXNamespaceManager {
 }
 unsafe impl ::windows::runtime::Interface for IMXNamespaceManager {
     type Vtable = IMXNamespaceManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3372438262, 25660, 20412, [187, 35, 233, 150, 235, 45, 81, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc90352f6_643c_4fbc_bb23_e996eb2d51fd);
 }
 impl ::core::convert::From<IMXNamespaceManager> for ::windows::runtime::IUnknown {
     fn from(value: IMXNamespaceManager) -> Self {
@@ -1408,7 +1408,7 @@ impl IMXNamespacePrefixes {
 }
 unsafe impl ::windows::runtime::Interface for IMXNamespacePrefixes {
     type Vtable = IMXNamespacePrefixes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3372438260, 25660, 20412, [187, 35, 233, 150, 235, 45, 81, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc90352f4_643c_4fbc_bb23_e996eb2d51fd);
 }
 impl ::core::convert::From<IMXNamespacePrefixes> for ::windows::runtime::IUnknown {
     fn from(value: IMXNamespacePrefixes) -> Self {
@@ -1493,7 +1493,7 @@ impl IMXReaderControl {
 }
 unsafe impl ::windows::runtime::Interface for IMXReaderControl {
     type Vtable = IMXReaderControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2156875317, 36186, 20414, [132, 102, 51, 164, 18, 121, 237, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x808f4e35_8d5a_4fbe_8466_33a41279ed30);
 }
 impl ::core::convert::From<IMXReaderControl> for ::windows::runtime::IUnknown {
     fn from(value: IMXReaderControl) -> Self {
@@ -1569,7 +1569,7 @@ impl IMXSchemaDeclHandler {
 }
 unsafe impl ::windows::runtime::Interface for IMXSchemaDeclHandler {
     type Vtable = IMXSchemaDeclHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4199265164, 64249, 19658, [147, 2, 209, 221, 15, 229, 32, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa4bb38c_faf9_4cca_9302_d1dd0fe520db);
 }
 impl ::core::convert::From<IMXSchemaDeclHandler> for ::windows::runtime::IUnknown {
     fn from(value: IMXSchemaDeclHandler) -> Self {
@@ -1721,7 +1721,7 @@ impl IMXWriter {
 }
 unsafe impl ::windows::runtime::Interface for IMXWriter {
     type Vtable = IMXWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1300231354, 5477, 20136, [148, 225, 110, 114, 74, 70, 249, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d7ff4ba_1565_4ea8_94e1_6e724a46f98d);
 }
 impl ::core::convert::From<IMXWriter> for ::windows::runtime::IUnknown {
     fn from(value: IMXWriter) -> Self {
@@ -1871,7 +1871,7 @@ impl IMXXMLFilter {
 }
 unsafe impl ::windows::runtime::Interface for IMXXMLFilter {
     type Vtable = IMXXMLFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3372438263, 25660, 20412, [187, 35, 233, 150, 235, 45, 81, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc90352f7_643c_4fbc_bb23_e996eb2d51fd);
 }
 impl ::core::convert::From<IMXXMLFilter> for ::windows::runtime::IUnknown {
     fn from(value: IMXXMLFilter) -> Self {
@@ -2017,7 +2017,7 @@ impl ISAXAttributes {
 }
 unsafe impl ::windows::runtime::Interface for ISAXAttributes {
     type Vtable = ISAXAttributes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4034440161, 17874, 18482, [145, 234, 68, 102, 206, 47, 37, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf078abe1_45d2_4832_91ea_4466ce2f25c9);
 }
 impl ::core::convert::From<ISAXAttributes> for ::windows::runtime::IUnknown {
     fn from(value: ISAXAttributes) -> Self {
@@ -2134,7 +2134,7 @@ impl ISAXContentHandler {
 }
 unsafe impl ::windows::runtime::Interface for ISAXContentHandler {
     type Vtable = ISAXContentHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(356896250, 40526, 17559, [168, 164, 43, 247, 208, 17, 44, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1545cdfa_9e4e_4497_a8a4_2bf7d0112c44);
 }
 impl ::core::convert::From<ISAXContentHandler> for ::windows::runtime::IUnknown {
     fn from(value: ISAXContentHandler) -> Self {
@@ -2221,7 +2221,7 @@ impl ISAXDTDHandler {
 }
 unsafe impl ::windows::runtime::Interface for ISAXDTDHandler {
     type Vtable = ISAXDTDHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3780909999, 44979, 19808, [140, 54, 25, 168, 196, 93, 239, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe15c1baf_afb3_4d60_8c36_19a8c45defed);
 }
 impl ::core::convert::From<ISAXDTDHandler> for ::windows::runtime::IUnknown {
     fn from(value: ISAXDTDHandler) -> Self {
@@ -2307,7 +2307,7 @@ impl ISAXDeclHandler {
 }
 unsafe impl ::windows::runtime::Interface for ISAXDeclHandler {
     type Vtable = ISAXDeclHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2250647980, 30490, 18354, [131, 55, 78, 104, 67, 193, 190, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x862629ac_771a_47b2_8337_4e6843c1be90);
 }
 impl ::core::convert::From<ISAXDeclHandler> for ::windows::runtime::IUnknown {
     fn from(value: ISAXDeclHandler) -> Self {
@@ -2359,7 +2359,7 @@ impl ISAXEntityResolver {
 }
 unsafe impl ::windows::runtime::Interface for ISAXEntityResolver {
     type Vtable = ISAXEntityResolver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2579277757, 59588, 19807, [160, 207, 109, 144, 121, 1, 255, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99bca7bd_e8c4_4d5f_a0cf_6d907901ff07);
 }
 impl ::core::convert::From<ISAXEntityResolver> for ::windows::runtime::IUnknown {
     fn from(value: ISAXEntityResolver) -> Self {
@@ -2413,7 +2413,7 @@ impl ISAXErrorHandler {
 }
 unsafe impl ::windows::runtime::Interface for ISAXErrorHandler {
     type Vtable = ISAXErrorHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2785350084, 52469, 18334, [152, 163, 220, 141, 197, 69, 183, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa60511c4_ccf5_479e_98a3_dc8dc545b7d0);
 }
 impl ::core::convert::From<ISAXErrorHandler> for ::windows::runtime::IUnknown {
     fn from(value: ISAXErrorHandler) -> Self {
@@ -2488,7 +2488,7 @@ impl ISAXLexicalHandler {
 }
 unsafe impl ::windows::runtime::Interface for ISAXLexicalHandler {
     type Vtable = ISAXLexicalHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2139477493, 18344, 17559, [189, 165, 132, 186, 4, 129, 158, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f85d5f5_47a8_4497_bda5_84ba04819ea6);
 }
 impl ::core::convert::From<ISAXLexicalHandler> for ::windows::runtime::IUnknown {
     fn from(value: ISAXLexicalHandler) -> Self {
@@ -2556,7 +2556,7 @@ impl ISAXLocator {
 }
 unsafe impl ::windows::runtime::Interface for ISAXLocator {
     type Vtable = ISAXLocator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608744234, 3556, 17984, [191, 243, 132, 211, 138, 5, 28, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e472a_0de4_4640_bff3_84d38a051c31);
 }
 impl ::core::convert::From<ISAXLocator> for ::windows::runtime::IUnknown {
     fn from(value: ISAXLocator) -> Self {
@@ -2694,7 +2694,7 @@ impl ISAXXMLFilter {
 }
 unsafe impl ::windows::runtime::Interface for ISAXXMLFilter {
     type Vtable = ISAXXMLFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1883279906, 51721, 17525, [172, 184, 64, 49, 47, 232, 209, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70409222_ca09_4475_acb8_40312fe8d145);
 }
 impl ::core::convert::From<ISAXXMLFilter> for ::windows::runtime::IUnknown {
     fn from(value: ISAXXMLFilter) -> Self {
@@ -2867,7 +2867,7 @@ impl ISAXXMLReader {
 }
 unsafe impl ::windows::runtime::Interface for ISAXXMLReader {
     type Vtable = ISAXXMLReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2767810256, 63529, 18286, [129, 192, 205, 199, 189, 42, 8, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4f96ed0_f829_476e_81c0_cdc7bd2a0802);
 }
 impl ::core::convert::From<ISAXXMLReader> for ::windows::runtime::IUnknown {
     fn from(value: ISAXXMLReader) -> Self {
@@ -3047,7 +3047,7 @@ impl ISchema {
 }
 unsafe impl ::windows::runtime::Interface for ISchema {
     type Vtable = ISchema_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514932, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ea08b4_dd1b_4664_9a50_c2f40f4bd79a);
 }
 impl ::core::convert::From<ISchema> for ::windows::runtime::IUnknown {
     fn from(value: ISchema) -> Self {
@@ -3249,7 +3249,7 @@ impl ISchemaAny {
 }
 unsafe impl ::windows::runtime::Interface for ISchemaAny {
     type Vtable = ISchemaAny_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514940, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ea08bc_dd1b_4664_9a50_c2f40f4bd79a);
 }
 impl ::core::convert::From<ISchemaAny> for ::windows::runtime::IUnknown {
     fn from(value: ISchemaAny) -> Self {
@@ -3476,7 +3476,7 @@ impl ISchemaAttribute {
 }
 unsafe impl ::windows::runtime::Interface for ISchemaAttribute {
     type Vtable = ISchemaAttribute_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514934, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ea08b6_dd1b_4664_9a50_c2f40f4bd79a);
 }
 impl ::core::convert::From<ISchemaAttribute> for ::windows::runtime::IUnknown {
     fn from(value: ISchemaAttribute) -> Self {
@@ -3663,7 +3663,7 @@ impl ISchemaAttributeGroup {
 }
 unsafe impl ::windows::runtime::Interface for ISchemaAttributeGroup {
     type Vtable = ISchemaAttributeGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514938, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ea08ba_dd1b_4664_9a50_c2f40f4bd79a);
 }
 impl ::core::convert::From<ISchemaAttributeGroup> for ::windows::runtime::IUnknown {
     fn from(value: ISchemaAttributeGroup) -> Self {
@@ -3959,7 +3959,7 @@ impl ISchemaComplexType {
 }
 unsafe impl ::windows::runtime::Interface for ISchemaComplexType {
     type Vtable = ISchemaComplexType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514937, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ea08b9_dd1b_4664_9a50_c2f40f4bd79a);
 }
 impl ::core::convert::From<ISchemaComplexType> for ::windows::runtime::IUnknown {
     fn from(value: ISchemaComplexType) -> Self {
@@ -4250,7 +4250,7 @@ impl ISchemaElement {
 }
 unsafe impl ::windows::runtime::Interface for ISchemaElement {
     type Vtable = ISchemaElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514935, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ea08b7_dd1b_4664_9a50_c2f40f4bd79a);
 }
 impl ::core::convert::From<ISchemaElement> for ::windows::runtime::IUnknown {
     fn from(value: ISchemaElement) -> Self {
@@ -4472,7 +4472,7 @@ impl ISchemaIdentityConstraint {
 }
 unsafe impl ::windows::runtime::Interface for ISchemaIdentityConstraint {
     type Vtable = ISchemaIdentityConstraint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514941, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ea08bd_dd1b_4664_9a50_c2f40f4bd79a);
 }
 impl ::core::convert::From<ISchemaIdentityConstraint> for ::windows::runtime::IUnknown {
     fn from(value: ISchemaIdentityConstraint) -> Self {
@@ -4613,7 +4613,7 @@ impl ISchemaItem {
 }
 unsafe impl ::windows::runtime::Interface for ISchemaItem {
     type Vtable = ISchemaItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514931, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ea08b3_dd1b_4664_9a50_c2f40f4bd79a);
 }
 impl ::core::convert::From<ISchemaItem> for ::windows::runtime::IUnknown {
     fn from(value: ISchemaItem) -> Self {
@@ -4719,7 +4719,7 @@ impl ISchemaItemCollection {
 }
 unsafe impl ::windows::runtime::Interface for ISchemaItemCollection {
     type Vtable = ISchemaItemCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514930, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ea08b2_dd1b_4664_9a50_c2f40f4bd79a);
 }
 impl ::core::convert::From<ISchemaItemCollection> for ::windows::runtime::IUnknown {
     fn from(value: ISchemaItemCollection) -> Self {
@@ -4882,7 +4882,7 @@ impl ISchemaModelGroup {
 }
 unsafe impl ::windows::runtime::Interface for ISchemaModelGroup {
     type Vtable = ISchemaModelGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514939, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ea08bb_dd1b_4664_9a50_c2f40f4bd79a);
 }
 impl ::core::convert::From<ISchemaModelGroup> for ::windows::runtime::IUnknown {
     fn from(value: ISchemaModelGroup) -> Self {
@@ -5088,7 +5088,7 @@ impl ISchemaNotation {
 }
 unsafe impl ::windows::runtime::Interface for ISchemaNotation {
     type Vtable = ISchemaNotation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514942, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ea08be_dd1b_4664_9a50_c2f40f4bd79a);
 }
 impl ::core::convert::From<ISchemaNotation> for ::windows::runtime::IUnknown {
     fn from(value: ISchemaNotation) -> Self {
@@ -5273,7 +5273,7 @@ impl ISchemaParticle {
 }
 unsafe impl ::windows::runtime::Interface for ISchemaParticle {
     type Vtable = ISchemaParticle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514933, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ea08b5_dd1b_4664_9a50_c2f40f4bd79a);
 }
 impl ::core::convert::From<ISchemaParticle> for ::windows::runtime::IUnknown {
     fn from(value: ISchemaParticle) -> Self {
@@ -5392,7 +5392,7 @@ impl ISchemaStringCollection {
 }
 unsafe impl ::windows::runtime::Interface for ISchemaStringCollection {
     type Vtable = ISchemaStringCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514929, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ea08b1_dd1b_4664_9a50_c2f40f4bd79a);
 }
 impl ::core::convert::From<ISchemaStringCollection> for ::windows::runtime::IUnknown {
     fn from(value: ISchemaStringCollection) -> Self {
@@ -5630,7 +5630,7 @@ impl ISchemaType {
 }
 unsafe impl ::windows::runtime::Interface for ISchemaType {
     type Vtable = ISchemaType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514936, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ea08b8_dd1b_4664_9a50_c2f40f4bd79a);
 }
 impl ::core::convert::From<ISchemaType> for ::windows::runtime::IUnknown {
     fn from(value: ISchemaType) -> Self {
@@ -5892,7 +5892,7 @@ impl IServerXMLHTTPRequest {
 }
 unsafe impl ::windows::runtime::Interface for IServerXMLHTTPRequest {
     type Vtable = IServerXMLHTTPRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(781293247, 5050, 19924, [145, 202, 108, 87, 31, 40, 20, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e9196bf_13ba_4dd4_91ca_6c571f281495);
 }
 impl ::core::convert::From<IServerXMLHTTPRequest> for ::windows::runtime::IUnknown {
     fn from(value: IServerXMLHTTPRequest) -> Self {
@@ -6160,7 +6160,7 @@ impl IServerXMLHTTPRequest2 {
 }
 unsafe impl ::windows::runtime::Interface for IServerXMLHTTPRequest2 {
     type Vtable = IServerXMLHTTPRequest2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(771830043, 49954, 19210, [189, 119, 185, 12, 253, 200, 220, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e01311b_c322_4b0a_bd77_b90cfdc8dce7);
 }
 impl ::core::convert::From<IServerXMLHTTPRequest2> for ::windows::runtime::IUnknown {
     fn from(value: IServerXMLHTTPRequest2) -> Self {
@@ -6359,7 +6359,7 @@ impl IVBMXNamespaceManager {
 }
 unsafe impl ::windows::runtime::Interface for IVBMXNamespaceManager {
     type Vtable = IVBMXNamespaceManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3372438261, 25660, 20412, [187, 35, 233, 150, 235, 45, 81, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc90352f5_643c_4fbc_bb23_e996eb2d51fd);
 }
 impl ::core::convert::From<IVBMXNamespaceManager> for ::windows::runtime::IUnknown {
     fn from(value: IVBMXNamespaceManager) -> Self {
@@ -6514,7 +6514,7 @@ impl IVBSAXAttributes {
 }
 unsafe impl ::windows::runtime::Interface for IVBSAXAttributes {
     type Vtable = IVBSAXAttributes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(282854790, 4907, 19628, [139, 179, 219, 0, 172, 139, 126, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10dc0586_132b_4cac_8bb3_db00ac8b7ee0);
 }
 impl ::core::convert::From<IVBSAXAttributes> for ::windows::runtime::IUnknown {
     fn from(value: IVBSAXAttributes) -> Self {
@@ -6658,7 +6658,7 @@ impl IVBSAXContentHandler {
 }
 unsafe impl ::windows::runtime::Interface for IVBSAXContentHandler {
     type Vtable = IVBSAXContentHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(785852682, 19925, 19270, [187, 38, 78, 65, 85, 231, 127, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ed7290a_4dd5_4b46_bb26_4e4155e77faa);
 }
 impl ::core::convert::From<IVBSAXContentHandler> for ::windows::runtime::IUnknown {
     fn from(value: IVBSAXContentHandler) -> Self {
@@ -6756,7 +6756,7 @@ impl IVBSAXDTDHandler {
 }
 unsafe impl ::windows::runtime::Interface for IVBSAXDTDHandler {
     type Vtable = IVBSAXDTDHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(620442263, 12333, 17952, [186, 57, 58, 115, 45, 133, 5, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24fb3297_302d_4620_ba39_3a732d850558);
 }
 impl ::core::convert::From<IVBSAXDTDHandler> for ::windows::runtime::IUnknown {
     fn from(value: IVBSAXDTDHandler) -> Self {
@@ -6849,7 +6849,7 @@ impl IVBSAXDeclHandler {
 }
 unsafe impl ::windows::runtime::Interface for IVBSAXDeclHandler {
     type Vtable = IVBSAXDeclHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3901846112, 30073, 19425, [181, 221, 122, 251, 250, 111, 7, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8917260_7579_4be1_b5dd_7afbfa6f077b);
 }
 impl ::core::convert::From<IVBSAXDeclHandler> for ::windows::runtime::IUnknown {
     fn from(value: IVBSAXDeclHandler) -> Self {
@@ -6939,7 +6939,7 @@ impl IVBSAXEntityResolver {
 }
 unsafe impl ::windows::runtime::Interface for IVBSAXEntityResolver {
     type Vtable = IVBSAXEntityResolver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(201707670, 62555, 19146, [173, 26, 170, 11, 194, 85, 24, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c05d096_f45b_4aca_ad1a_aa0bc25518dc);
 }
 impl ::core::convert::From<IVBSAXEntityResolver> for ::windows::runtime::IUnknown {
     fn from(value: IVBSAXEntityResolver) -> Self {
@@ -7025,7 +7025,7 @@ impl IVBSAXErrorHandler {
 }
 unsafe impl ::windows::runtime::Interface for IVBSAXErrorHandler {
     type Vtable = IVBSAXErrorHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3647198206, 5948, 18530, [144, 149, 185, 47, 102, 153, 95, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd963d3fe_173c_4862_9095_b92f66995f52);
 }
 impl ::core::convert::From<IVBSAXErrorHandler> for ::windows::runtime::IUnknown {
     fn from(value: IVBSAXErrorHandler) -> Self {
@@ -7132,7 +7132,7 @@ impl IVBSAXLexicalHandler {
 }
 unsafe impl ::windows::runtime::Interface for IVBSAXLexicalHandler {
     type Vtable = IVBSAXLexicalHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(53128245, 35854, 19869, [151, 159, 227, 183, 2, 147, 85, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x032aac35_8c0e_4d9d_979f_e3b702935576);
 }
 impl ::core::convert::From<IVBSAXLexicalHandler> for ::windows::runtime::IUnknown {
     fn from(value: IVBSAXLexicalHandler) -> Self {
@@ -7234,7 +7234,7 @@ impl IVBSAXLocator {
 }
 unsafe impl ::windows::runtime::Interface for IVBSAXLocator {
     type Vtable = IVBSAXLocator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037283525, 23202, 20223, [172, 173, 63, 170, 240, 26, 50, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x796e7ac5_5aa2_4eff_acad_3faaf01a3288);
 }
 impl ::core::convert::From<IVBSAXLocator> for ::windows::runtime::IUnknown {
     fn from(value: IVBSAXLocator) -> Self {
@@ -7318,7 +7318,7 @@ impl IVBSAXXMLFilter {
 }
 unsafe impl ::windows::runtime::Interface for IVBSAXXMLFilter {
     type Vtable = IVBSAXXMLFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(312077083, 23432, 17214, [130, 222, 130, 202, 117, 173, 78, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1299eb1b_5b88_433e_82de_82ca75ad4e04);
 }
 impl ::core::convert::From<IVBSAXXMLFilter> for ::windows::runtime::IUnknown {
     fn from(value: IVBSAXXMLFilter) -> Self {
@@ -7479,7 +7479,7 @@ impl IVBSAXXMLReader {
 }
 unsafe impl ::windows::runtime::Interface for IVBSAXXMLReader {
     type Vtable = IVBSAXXMLReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2349022378, 27862, 20339, [183, 40, 69, 49, 175, 116, 148, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c033caa_6cd6_4f73_b728_4531af74945f);
 }
 impl ::core::convert::From<IVBSAXXMLReader> for ::windows::runtime::IUnknown {
     fn from(value: IVBSAXXMLReader) -> Self {
@@ -7588,7 +7588,7 @@ impl IXMLAttribute {
 }
 unsafe impl ::windows::runtime::Interface for IXMLAttribute {
     type Vtable = IXMLAttribute_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3570704636, 15219, 4561, [178, 180, 0, 192, 79, 185, 37, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4d4a0fc_3b73_11d1_b2b4_00c04fb92596);
 }
 impl ::core::convert::From<IXMLAttribute> for ::windows::runtime::IUnknown {
     fn from(value: IXMLAttribute) -> Self {
@@ -7887,7 +7887,7 @@ impl IXMLDOMAttribute {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMAttribute {
     type Vtable = IXMLDOMAttribute_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257221, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf85_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXMLDOMAttribute> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMAttribute) -> Self {
@@ -8291,7 +8291,7 @@ impl IXMLDOMCDATASection {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMCDATASection {
     type Vtable = IXMLDOMCDATASection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257226, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf8a_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXMLDOMCDATASection> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMCDATASection) -> Self {
@@ -8739,7 +8739,7 @@ impl IXMLDOMCharacterData {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMCharacterData {
     type Vtable = IXMLDOMCharacterData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257220, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf84_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXMLDOMCharacterData> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMCharacterData) -> Self {
@@ -9146,7 +9146,7 @@ impl IXMLDOMComment {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMComment {
     type Vtable = IXMLDOMComment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257224, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf88_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXMLDOMComment> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMComment) -> Self {
@@ -9699,7 +9699,7 @@ impl IXMLDOMDocument {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMDocument {
     type Vtable = IXMLDOMDocument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257217, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf81_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXMLDOMDocument> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMDocument) -> Self {
@@ -10300,7 +10300,7 @@ impl IXMLDOMDocument2 {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMDocument2 {
     type Vtable = IXMLDOMDocument2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257237, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf95_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXMLDOMDocument2> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMDocument2) -> Self {
@@ -10941,7 +10941,7 @@ impl IXMLDOMDocument3 {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMDocument3 {
     type Vtable = IXMLDOMDocument3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257238, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf96_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXMLDOMDocument3> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMDocument3) -> Self {
@@ -11398,7 +11398,7 @@ impl IXMLDOMDocumentFragment {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMDocumentFragment {
     type Vtable = IXMLDOMDocumentFragment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1056613395, 10031, 4562, [131, 111, 0, 0, 248, 122, 119, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3efaa413_272f_11d2_836f_0000f87a7782);
 }
 impl ::core::convert::From<IXMLDOMDocumentFragment> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMDocumentFragment) -> Self {
@@ -11768,7 +11768,7 @@ impl IXMLDOMDocumentType {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMDocumentType {
     type Vtable = IXMLDOMDocumentType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257227, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf8b_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXMLDOMDocumentType> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMDocumentType) -> Self {
@@ -12173,7 +12173,7 @@ impl IXMLDOMElement {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMElement {
     type Vtable = IXMLDOMElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257222, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf86_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXMLDOMElement> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMElement) -> Self {
@@ -12558,7 +12558,7 @@ impl IXMLDOMEntity {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMEntity {
     type Vtable = IXMLDOMEntity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257229, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf8d_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXMLDOMEntity> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMEntity) -> Self {
@@ -12919,7 +12919,7 @@ impl IXMLDOMEntityReference {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMEntityReference {
     type Vtable = IXMLDOMEntityReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257230, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf8e_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXMLDOMEntityReference> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMEntityReference) -> Self {
@@ -13068,7 +13068,7 @@ impl IXMLDOMImplementation {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMImplementation {
     type Vtable = IXMLDOMImplementation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257231, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf8f_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXMLDOMImplementation> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMImplementation) -> Self {
@@ -13191,7 +13191,7 @@ impl IXMLDOMNamedNodeMap {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMNamedNodeMap {
     type Vtable = IXMLDOMNamedNodeMap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257219, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf83_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXMLDOMNamedNodeMap> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMNamedNodeMap) -> Self {
@@ -13453,7 +13453,7 @@ impl IXMLDOMNode {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMNode {
     type Vtable = IXMLDOMNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257216, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf80_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXMLDOMNode> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMNode) -> Self {
@@ -13600,7 +13600,7 @@ impl IXMLDOMNodeList {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMNodeList {
     type Vtable = IXMLDOMNodeList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257218, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf82_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXMLDOMNodeList> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMNodeList) -> Self {
@@ -13895,7 +13895,7 @@ impl IXMLDOMNotation {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMNotation {
     type Vtable = IXMLDOMNotation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257228, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf8c_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXMLDOMNotation> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMNotation) -> Self {
@@ -14074,7 +14074,7 @@ impl IXMLDOMParseError {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMParseError {
     type Vtable = IXMLDOMParseError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1056613414, 10031, 4562, [131, 111, 0, 0, 248, 122, 119, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3efaa426_272f_11d2_836f_0000f87a7782);
 }
 impl ::core::convert::From<IXMLDOMParseError> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMParseError) -> Self {
@@ -14238,7 +14238,7 @@ impl IXMLDOMParseError2 {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMParseError2 {
     type Vtable = IXMLDOMParseError2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1056613416, 10031, 4562, [131, 111, 0, 0, 248, 122, 119, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3efaa428_272f_11d2_836f_0000f87a7782);
 }
 impl ::core::convert::From<IXMLDOMParseError2> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMParseError2) -> Self {
@@ -14367,7 +14367,7 @@ impl IXMLDOMParseErrorCollection {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMParseErrorCollection {
     type Vtable = IXMLDOMParseErrorCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1056613417, 10031, 4562, [131, 111, 0, 0, 248, 122, 119, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3efaa429_272f_11d2_836f_0000f87a7782);
 }
 impl ::core::convert::From<IXMLDOMParseErrorCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMParseErrorCollection) -> Self {
@@ -14667,7 +14667,7 @@ impl IXMLDOMProcessingInstruction {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMProcessingInstruction {
     type Vtable = IXMLDOMProcessingInstruction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257225, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf89_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXMLDOMProcessingInstruction> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMProcessingInstruction) -> Self {
@@ -14853,7 +14853,7 @@ impl IXMLDOMSchemaCollection {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMSchemaCollection {
     type Vtable = IXMLDOMSchemaCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(926516424, 47173, 17563, [145, 231, 69, 172, 131, 3, 106, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x373984c8_b845_449b_91e7_45ac83036ade);
 }
 impl ::core::convert::From<IXMLDOMSchemaCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMSchemaCollection) -> Self {
@@ -15025,7 +15025,7 @@ impl IXMLDOMSchemaCollection2 {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMSchemaCollection2 {
     type Vtable = IXMLDOMSchemaCollection2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514928, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ea08b0_dd1b_4664_9a50_c2f40f4bd79a);
 }
 impl ::core::convert::From<IXMLDOMSchemaCollection2> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMSchemaCollection2) -> Self {
@@ -15241,7 +15241,7 @@ impl IXMLDOMSelection {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMSelection {
     type Vtable = IXMLDOMSelection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2858635207, 22664, 17575, [162, 87, 58, 71, 21, 13, 58, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa634fc7_5888_44a7_a257_3a47150d3a0e);
 }
 impl ::core::convert::From<IXMLDOMSelection> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMSelection) -> Self {
@@ -15604,7 +15604,7 @@ impl IXMLDOMText {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDOMText {
     type Vtable = IXMLDOMText_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257223, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf87_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXMLDOMText> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDOMText) -> Self {
@@ -15806,7 +15806,7 @@ impl IXMLDSOControl {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDSOControl {
     type Vtable = IXMLDSOControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(822803042, 1397, 4562, [156, 169, 0, 96, 176, 236, 61, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x310afa62_0575_11d2_9ca9_0060b0ec3d39);
 }
 impl ::core::convert::From<IXMLDSOControl> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDSOControl) -> Self {
@@ -15962,7 +15962,7 @@ impl IXMLDocument {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDocument {
     type Vtable = IXMLDocument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4113443681, 6305, 4561, [177, 5, 0, 128, 95, 73, 145, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf52e2b61_18a1_11d1_b105_00805f49916b);
 }
 impl ::core::convert::From<IXMLDocument> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDocument) -> Self {
@@ -16146,7 +16146,7 @@ impl IXMLDocument2 {
 }
 unsafe impl ::windows::runtime::Interface for IXMLDocument2 {
     type Vtable = IXMLDocument2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(730718974, 36141, 4561, [178, 252, 0, 192, 79, 217, 21, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b8de2fe_8d2d_11d1_b2fc_00c04fd915a9);
 }
 impl ::core::convert::From<IXMLDocument2> for ::windows::runtime::IUnknown {
     fn from(value: IXMLDocument2) -> Self {
@@ -16304,7 +16304,7 @@ impl IXMLElement {
 }
 unsafe impl ::windows::runtime::Interface for IXMLElement {
     type Vtable = IXMLElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1065300396, 57695, 4560, [156, 37, 0, 192, 79, 201, 156, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f7f31ac_e15f_11d0_9c25_00c04fc99c8e);
 }
 impl ::core::convert::From<IXMLElement> for ::windows::runtime::IUnknown {
     fn from(value: IXMLElement) -> Self {
@@ -16458,7 +16458,7 @@ impl IXMLElement2 {
 }
 unsafe impl ::windows::runtime::Interface for IXMLElement2 {
     type Vtable = IXMLElement2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(730718975, 36141, 4561, [178, 252, 0, 192, 79, 217, 21, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b8de2ff_8d2d_11d1_b2fc_00c04fd915a9);
 }
 impl ::core::convert::From<IXMLElement2> for ::windows::runtime::IUnknown {
     fn from(value: IXMLElement2) -> Self {
@@ -16567,7 +16567,7 @@ impl IXMLElementCollection {
 }
 unsafe impl ::windows::runtime::Interface for IXMLElementCollection {
     type Vtable = IXMLElementCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1701991808, 39773, 4560, [155, 254, 0, 192, 79, 201, 156, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65725580_9b5d_11d0_9bfe_00c04fc99c8e);
 }
 impl ::core::convert::From<IXMLElementCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXMLElementCollection) -> Self {
@@ -16646,7 +16646,7 @@ impl IXMLError {
 }
 unsafe impl ::windows::runtime::Interface for IXMLError {
     type Vtable = IXMLError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2492226259, 50573, 4560, [156, 11, 0, 192, 79, 201, 156, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x948c5ad3_c58d_11d0_9c0b_00c04fc99c8e);
 }
 impl ::core::convert::From<IXMLError> for ::windows::runtime::IUnknown {
     fn from(value: IXMLError) -> Self {
@@ -16768,7 +16768,7 @@ impl IXMLHTTPRequest {
 }
 unsafe impl ::windows::runtime::Interface for IXMLHTTPRequest {
     type Vtable = IXMLHTTPRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3985379469, 17225, 4562, [145, 164, 0, 192, 79, 121, 105, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed8c108d_4349_11d2_91a4_00c04f7969e8);
 }
 impl ::core::convert::From<IXMLHTTPRequest> for ::windows::runtime::IUnknown {
     fn from(value: IXMLHTTPRequest) -> Self {
@@ -16931,7 +16931,7 @@ impl IXMLHTTPRequest2 {
 }
 unsafe impl ::windows::runtime::Interface for IXMLHTTPRequest2 {
     type Vtable = IXMLHTTPRequest2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3855842752, 21802, 19794, [156, 192, 161, 77, 84, 111, 189, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5d37dc0_552a_4d52_9cc0_a14d546fbd04);
 }
 impl ::core::convert::From<IXMLHTTPRequest2> for ::windows::runtime::IUnknown {
     fn from(value: IXMLHTTPRequest2) -> Self {
@@ -17010,7 +17010,7 @@ impl IXMLHTTPRequest2Callback {
 }
 unsafe impl ::windows::runtime::Interface for IXMLHTTPRequest2Callback {
     type Vtable = IXMLHTTPRequest2Callback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2756350617, 58145, 16606, [136, 102, 52, 27, 65, 102, 145, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa44a9299_e321_40de_8866_341b41669162);
 }
 impl ::core::convert::From<IXMLHTTPRequest2Callback> for ::windows::runtime::IUnknown {
     fn from(value: IXMLHTTPRequest2Callback) -> Self {
@@ -17129,7 +17129,7 @@ impl IXMLHTTPRequest3 {
 }
 unsafe impl ::windows::runtime::Interface for IXMLHTTPRequest3 {
     type Vtable = IXMLHTTPRequest3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2714369774, 1559, 20259, [157, 88, 137, 97, 234, 67, 86, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1c9feee_0617_4f23_9d58_8961ea43567c);
 }
 impl ::core::convert::From<IXMLHTTPRequest3> for ::windows::runtime::IUnknown {
     fn from(value: IXMLHTTPRequest3) -> Self {
@@ -17238,7 +17238,7 @@ impl IXMLHTTPRequest3Callback {
 }
 unsafe impl ::windows::runtime::Interface for IXMLHTTPRequest3Callback {
     type Vtable = IXMLHTTPRequest3Callback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3118823472, 35948, 19055, [156, 19, 71, 119, 43, 176, 71, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9e57830_8c6c_4a6f_9c13_47772bb047bb);
 }
 impl ::core::convert::From<IXMLHTTPRequest3Callback> for ::windows::runtime::IUnknown {
     fn from(value: IXMLHTTPRequest3Callback) -> Self {
@@ -17389,7 +17389,7 @@ impl IXMLHttpRequest {
 }
 unsafe impl ::windows::runtime::Interface for IXMLHttpRequest {
     type Vtable = IXMLHttpRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3985379469, 17225, 4562, [145, 164, 0, 192, 79, 121, 105, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed8c108d_4349_11d2_91a4_00c04f7969e8);
 }
 impl ::core::convert::From<IXMLHttpRequest> for ::windows::runtime::IUnknown {
     fn from(value: IXMLHttpRequest) -> Self {
@@ -17557,7 +17557,7 @@ impl IXSLProcessor {
 }
 unsafe impl ::windows::runtime::Interface for IXSLProcessor {
     type Vtable = IXSLProcessor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257234, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf92_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXSLProcessor> for ::windows::runtime::IUnknown {
     fn from(value: IXSLProcessor) -> Self {
@@ -17663,7 +17663,7 @@ impl IXSLTemplate {
 }
 unsafe impl ::windows::runtime::Interface for IXSLTemplate {
     type Vtable = IXSLTemplate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257235, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2933bf93_7b36_11d2_b20e_00c04f983e60);
 }
 impl ::core::convert::From<IXSLTemplate> for ::windows::runtime::IUnknown {
     fn from(value: IXSLTemplate) -> Self {
@@ -17987,7 +17987,7 @@ impl IXTLRuntime {
 }
 unsafe impl ::windows::runtime::Interface for IXTLRuntime {
     type Vtable = IXTLRuntime_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1056613413, 10031, 4562, [131, 111, 0, 0, 248, 122, 119, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3efaa425_272f_11d2_836f_0000f87a7782);
 }
 impl ::core::convert::From<IXTLRuntime> for ::windows::runtime::IUnknown {
     fn from(value: IXTLRuntime) -> Self {
@@ -18139,11 +18139,11 @@ pub struct IXTLRuntime_abi(
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, vartime: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstrformat: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, vardestlocale: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pbstrformattedstring: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-pub const MXHTMLWriter60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949840, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
-pub const MXNamespaceManager60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949841, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
-pub const MXXMLWriter60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949839, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
-pub const SAXAttributes60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949838, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
-pub const SAXXMLReader60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949836, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
+pub const MXHTMLWriter60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88d96a10_f192_11d4_a65f_0040963251e5);
+pub const MXNamespaceManager60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88d96a11_f192_11d4_a65f_0040963251e5);
+pub const MXXMLWriter60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88d96a0f_f192_11d4_a65f_0040963251e5);
+pub const SAXAttributes60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88d96a0e_f192_11d4_a65f_0040963251e5);
+pub const SAXXMLReader60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88d96a0c_f192_11d4_a65f_0040963251e5);
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -18378,7 +18378,7 @@ impl ::core::convert::From<i32> for SXH_SERVER_CERT_OPTION {
 unsafe impl ::windows::runtime::Abi for SXH_SERVER_CERT_OPTION {
     type Abi = Self;
 }
-pub const ServerXMLHTTP60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949835, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
+pub const ServerXMLHTTP60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88d96a0b_f192_11d4_a65f_0040963251e5);
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -18641,7 +18641,7 @@ pub struct XMLDOMDocumentEvents(pub ::windows::runtime::IUnknown);
 impl XMLDOMDocumentEvents {}
 unsafe impl ::windows::runtime::Interface for XMLDOMDocumentEvents {
     type Vtable = XMLDOMDocumentEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1056613415, 10031, 4562, [131, 111, 0, 0, 248, 122, 119, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3efaa427_272f_11d2_836f_0000f87a7782);
 }
 impl ::core::convert::From<XMLDOMDocumentEvents> for ::windows::runtime::IUnknown {
     fn from(value: XMLDOMDocumentEvents) -> Self {
@@ -18702,8 +18702,8 @@ pub struct XMLDOMDocumentEvents_abi(
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-pub const XMLDSOControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1426971184, 1345, 4562, [156, 169, 0, 96, 176, 236, 61, 57]);
-pub const XMLDocument: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3485702575, 55414, 4560, [156, 16, 0, 192, 79, 201, 156, 142]);
+pub const XMLDSOControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x550dda30_0541_11d2_9ca9_0060b0ec3d39);
+pub const XMLDocument: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfc399af_d876_11d0_9c10_00c04fc99c8e);
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -18723,9 +18723,9 @@ impl ::core::convert::From<i32> for XMLEMEM_TYPE {
 unsafe impl ::windows::runtime::Abi for XMLEMEM_TYPE {
     type Abi = Self;
 }
-pub const XMLHTTP60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949834, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
-pub const XMLHTTPRequest: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3985379470, 17225, 4562, [145, 164, 0, 192, 79, 121, 105, 232]);
-pub const XMLSchemaCache60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949831, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
+pub const XMLHTTP60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88d96a0a_f192_11d4_a65f_0040963251e5);
+pub const XMLHTTPRequest: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed8c108e_4349_11d2_91a4_00c04f7969e8);
+pub const XMLSchemaCache60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88d96a07_f192_11d4_a65f_0040963251e5);
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -18775,7 +18775,7 @@ impl ::core::cmp::Eq for XML_ERROR {}
 unsafe impl ::windows::runtime::Abi for XML_ERROR {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-pub const XSLTemplate60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949832, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
+pub const XSLTemplate60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88d96a08_f192_11d4_a65f_0040963251e5);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]

@@ -1352,25 +1352,25 @@ unsafe impl ::windows::runtime::Abi for DEVINFO {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_Device_ActivityId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3305783056, 43612, 16967, [184, 48, 214, 166, 248, 234, 163, 16]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_Device_AdapterLuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3305783056, 43612, 16967, [184, 48, 214, 166, 248, 234, 163, 16]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_Device_TerminalLuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3305783056, 43612, 16967, [184, 48, 214, 166, 248, 234, 163, 16]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_IndirectDisplay: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3305783056, 43612, 16967, [184, 48, 214, 166, 248, 234, 163, 16]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310),
     pid: 1u32,
 };
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -5976,11 +5976,11 @@ pub const GS_16BIT_HANDLES: u32 = 4u32;
 pub const GS_8BIT_HANDLES: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const GS_UNICODE_HANDLES: u32 = 1u32;
-pub const GUID_DEVINTERFACE_DISPLAY_ADAPTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1531256861, 62194, 20283, [133, 187, 48, 255, 31, 149, 53, 153]);
-pub const GUID_DEVINTERFACE_MONITOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3874519903, 61079, 19088, [176, 118, 51, 245, 123, 244, 234, 167]);
-pub const GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(450487536, 63629, 17248, [186, 185, 76, 45, 85, 229, 100, 205]);
-pub const GUID_DISPLAY_DEVICE_ARRIVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(480268672, 42649, 17674, [154, 12, 222, 79, 190, 61, 221, 137]);
-pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4053188655, 63599, 20378, [170, 21, 233, 206, 189, 254, 59, 150]);
+pub const GUID_DEVINTERFACE_DISPLAY_ADAPTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b45201d_f2f2_4f3b_85bb_30ff1f953599);
+pub const GUID_DEVINTERFACE_MONITOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6f07b5f_ee97_4a90_b076_33f57bf4eaa7);
+pub const GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ad9e4f0_f88d_4360_bab9_4c2d55e564cd);
+pub const GUID_DISPLAY_DEVICE_ARRIVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ca05180_a699_450a_9a0c_de4fbe3ddd89);
+pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf196c02f_f86f_4f9a_aa15_e9cebdfe3b96);
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const GX_GENERAL: i32 = 3i32;
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -6564,7 +6564,7 @@ impl ICloneViewHelper {
 }
 unsafe impl ::windows::runtime::Interface for ICloneViewHelper {
     type Vtable = ICloneViewHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4137931972, 22066, 19843, [176, 161, 251, 136, 113, 43, 30, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6a3d4c4_5632_4d83_b0a1_fb88712b1eb7);
 }
 impl ::core::convert::From<ICloneViewHelper> for ::windows::runtime::IUnknown {
     fn from(value: ICloneViewHelper) -> Self {
@@ -7492,7 +7492,7 @@ impl IViewHelper {
 }
 unsafe impl ::windows::runtime::Interface for IViewHelper {
     type Vtable = IViewHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3898396405, 43690, 18416, [181, 227, 97, 247, 174, 205, 196, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe85ccef5_aaaa_47f0_b5e3_61f7aecdc4c1);
 }
 impl ::core::convert::From<IViewHelper> for ::windows::runtime::IUnknown {
     fn from(value: IViewHelper) -> Self {

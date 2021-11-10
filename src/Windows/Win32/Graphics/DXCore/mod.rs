@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const DXCORE_ADAPTER_ATTRIBUTE_D3D11_GRAPHICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2353497707, 30083, 17677, [240, 240, 107, 173, 168, 149, 175, 75]);
-pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_CORE_COMPUTE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(613296128, 42899, 18212, [171, 170, 35, 166, 222, 27, 224, 144]);
-pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_GRAPHICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(211734093, 12142, 20225, [140, 150, 232, 158, 51, 27, 71, 177]);
+pub const DXCORE_ADAPTER_ATTRIBUTE_D3D11_GRAPHICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c47866b_7583_450d_f0f0_6bada895af4b);
+pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_CORE_COMPUTE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x248e2800_a793_4724_abaa_23a6de1be090);
+pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_GRAPHICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c9ece4d_2f6e_4f01_8c96_e89e331b47b1);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
@@ -408,7 +408,7 @@ impl IDXCoreAdapter {
 }
 unsafe impl ::windows::runtime::Interface for IDXCoreAdapter {
     type Vtable = IDXCoreAdapter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4040903807, 65114, 17058, [189, 98, 242, 166, 207, 111, 200, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0db4c7f_fe5a_42a2_bd62_f2a6cf6fc83e);
 }
 impl ::core::convert::From<IDXCoreAdapter> for ::windows::runtime::IUnknown {
     fn from(value: IDXCoreAdapter) -> Self {
@@ -479,7 +479,7 @@ impl IDXCoreAdapterFactory {
 }
 unsafe impl ::windows::runtime::Interface for IDXCoreAdapterFactory {
     type Vtable = IDXCoreAdapterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2028886341, 50030, 19219, [166, 105, 0, 93, 209, 28, 15, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78ee5945_c36e_4b13_a669_005dd11c0f06);
 }
 impl ::core::convert::From<IDXCoreAdapterFactory> for ::windows::runtime::IUnknown {
     fn from(value: IDXCoreAdapterFactory) -> Self {
@@ -548,7 +548,7 @@ impl IDXCoreAdapterList {
 }
 unsafe impl ::windows::runtime::Interface for IDXCoreAdapterList {
     type Vtable = IDXCoreAdapterList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1382840182, 16617, 17819, [183, 17, 243, 42, 215, 109, 252, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x526c7776_40e9_459b_b711_f32ad76dfc28);
 }
 impl ::core::convert::From<IDXCoreAdapterList> for ::windows::runtime::IUnknown {
     fn from(value: IDXCoreAdapterList) -> Self {

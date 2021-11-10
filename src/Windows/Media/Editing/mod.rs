@@ -140,7 +140,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundAudioTrack {
 }
 unsafe impl ::windows::runtime::Interface for BackgroundAudioTrack {
     type Vtable = IBackgroundAudioTrack_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1267839933, 40481, 16998, [169, 194, 103, 221, 1, 26, 35, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b91b3bd_9e21_4266_a9c2_67dd011a2357);
 }
 impl ::windows::runtime::RuntimeName for BackgroundAudioTrack {
     const NAME: &'static str = "Windows.Media.Editing.BackgroundAudioTrack";
@@ -207,7 +207,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmbeddedAudioTrack {
 }
 unsafe impl ::windows::runtime::Interface for EmbeddedAudioTrack {
     type Vtable = IEmbeddedAudioTrack_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1441684090, 11568, 16314, [161, 144, 79, 26, 100, 84, 248, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55ee5a7a_2d30_3fba_a190_4f1a6454f88f);
 }
 impl ::windows::runtime::RuntimeName for EmbeddedAudioTrack {
     const NAME: &'static str = "Windows.Media.Editing.EmbeddedAudioTrack";
@@ -259,7 +259,7 @@ unsafe impl ::core::marker::Sync for EmbeddedAudioTrack {}
 pub struct IBackgroundAudioTrack(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundAudioTrack {
     type Vtable = IBackgroundAudioTrack_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1267839933, 40481, 16998, [169, 194, 103, 221, 1, 26, 35, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b91b3bd_9e21_4266_a9c2_67dd011a2357);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -301,7 +301,7 @@ pub struct IBackgroundAudioTrack_abi(
 pub struct IBackgroundAudioTrackStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundAudioTrackStatics {
     type Vtable = IBackgroundAudioTrackStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3652305111, 53272, 17064, [165, 89, 203, 77, 158, 151, 230, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9b1c0d7_d018_42a8_a559_cb4d9e97e664);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -321,7 +321,7 @@ pub struct IBackgroundAudioTrackStatics_abi(
 pub struct IEmbeddedAudioTrack(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmbeddedAudioTrack {
     type Vtable = IEmbeddedAudioTrack_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1441684090, 11568, 16314, [161, 144, 79, 26, 100, 84, 248, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55ee5a7a_2d30_3fba_a190_4f1a6454f88f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -340,7 +340,7 @@ pub struct IEmbeddedAudioTrack_abi(
 pub struct IMediaClip(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaClip {
     type Vtable = IMediaClip_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408389990, 24506, 16036, [134, 147, 36, 118, 24, 17, 20, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f25366_5fba_3ea4_8693_24761811140a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -388,7 +388,7 @@ pub struct IMediaClip_abi(
 pub struct IMediaClipStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaClipStatics {
     type Vtable = IMediaClipStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4198509416, 37519, 17348, [188, 110, 120, 58, 26, 53, 150, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa402b68_928f_43c4_bc6e_783a1a359656);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -411,7 +411,7 @@ pub struct IMediaClipStatics_abi(
 pub struct IMediaClipStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaClipStatics2 {
     type Vtable = IMediaClipStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1528682419, 34126, 19867, [135, 125, 71, 116, 165, 86, 205, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b1dd7b3_854e_4d9b_877d_4774a556cd12);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -430,7 +430,7 @@ pub struct IMediaClipStatics2_abi(
 pub struct IMediaComposition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaComposition {
     type Vtable = IMediaComposition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(772204037, 56433, 16854, [184, 55, 45, 43, 193, 74, 41, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e06e605_dc71_41d6_b837_2d2bc14a2947);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -476,7 +476,7 @@ pub struct IMediaComposition_abi(
 pub struct IMediaComposition2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaComposition2 {
     type Vtable = IMediaComposition2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2778616690, 9062, 18732, [190, 200, 230, 223, 186, 109, 2, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa59e5372_2366_492c_bec8_e6dfba6d0281);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -495,7 +495,7 @@ pub struct IMediaComposition2_abi(
 pub struct IMediaCompositionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCompositionStatics {
     type Vtable = IMediaCompositionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2275446532, 58154, 17870, [143, 102, 163, 13, 240, 118, 98, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87a08f04_e32a_45ce_8f66_a30df0766224);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -514,7 +514,7 @@ pub struct IMediaCompositionStatics_abi(
 pub struct IMediaOverlay(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaOverlay {
     type Vtable = IMediaOverlay_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2835525213, 30825, 18480, [138, 177, 148, 220, 1, 192, 95, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa902ae5d_7869_4830_8ab1_94dc01c05fa4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -545,7 +545,7 @@ pub struct IMediaOverlay_abi(
 pub struct IMediaOverlayFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaOverlayFactory {
     type Vtable = IMediaOverlayFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3045360266, 24968, 20367, [162, 224, 170, 85, 45, 89, 142, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb584828a_6188_4f8f_a2e0_aa552d598e18);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -565,7 +565,7 @@ pub struct IMediaOverlayFactory_abi(
 pub struct IMediaOverlayLayer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaOverlayLayer {
     type Vtable = IMediaOverlayLayer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2799286871, 61146, 18118, [187, 229, 227, 152, 200, 65, 104, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6d9ba57_eeda_46c6_bbe5_e398c84168ac);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -587,7 +587,7 @@ pub struct IMediaOverlayLayer_abi(
 pub struct IMediaOverlayLayerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaOverlayLayerFactory {
     type Vtable = IMediaOverlayLayerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2491200627, 41886, 17250, [171, 191, 159, 139, 80, 112, 160, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x947cb473_a39e_4362_abbf_9f8b5070a062);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -797,7 +797,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaClip {
 }
 unsafe impl ::windows::runtime::Interface for MediaClip {
     type Vtable = IMediaClip_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408389990, 24506, 16036, [134, 147, 36, 118, 24, 17, 20, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f25366_5fba_3ea4_8693_24761811140a);
 }
 impl ::windows::runtime::RuntimeName for MediaClip {
     const NAME: &'static str = "Windows.Media.Editing.MediaClip";
@@ -1017,7 +1017,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaComposition {
 }
 unsafe impl ::windows::runtime::Interface for MediaComposition {
     type Vtable = IMediaComposition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(772204037, 56433, 16854, [184, 55, 45, 43, 193, 74, 41, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e06e605_dc71_41d6_b837_2d2bc14a2947);
 }
 impl ::windows::runtime::RuntimeName for MediaComposition {
     const NAME: &'static str = "Windows.Media.Editing.MediaComposition";
@@ -1166,7 +1166,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaOverlay {
 }
 unsafe impl ::windows::runtime::Interface for MediaOverlay {
     type Vtable = IMediaOverlay_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2835525213, 30825, 18480, [138, 177, 148, 220, 1, 192, 95, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa902ae5d_7869_4830_8ab1_94dc01c05fa4);
 }
 impl ::windows::runtime::RuntimeName for MediaOverlay {
     const NAME: &'static str = "Windows.Media.Editing.MediaOverlay";
@@ -1269,7 +1269,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaOverlayLayer {
 }
 unsafe impl ::windows::runtime::Interface for MediaOverlayLayer {
     type Vtable = IMediaOverlayLayer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2799286871, 61146, 18118, [187, 229, 227, 152, 200, 65, 104, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6d9ba57_eeda_46c6_bbe5_e398c84168ac);
 }
 impl ::windows::runtime::RuntimeName for MediaOverlayLayer {
     const NAME: &'static str = "Windows.Media.Editing.MediaOverlayLayer";

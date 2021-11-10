@@ -80,7 +80,7 @@ impl IObjectArray {
 }
 unsafe impl ::windows::runtime::Interface for IObjectArray {
     type Vtable = IObjectArray_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2462752205, 22050, 19386, [168, 5, 94, 159, 84, 27, 216, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92ca9dcd_5622_4bba_a805_5e9f541bd8c9);
 }
 impl ::core::convert::From<IObjectArray> for ::windows::runtime::IUnknown {
     fn from(value: IObjectArray) -> Self {
@@ -145,7 +145,7 @@ impl IObjectCollection {
 }
 unsafe impl ::windows::runtime::Interface for IObjectCollection {
     type Vtable = IObjectCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1446162852, 58250, 16394, [146, 138, 212, 205, 99, 35, 2, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5632b1a4_e38a_400a_928a_d4cd63230295);
 }
 impl ::core::convert::From<IObjectCollection> for ::windows::runtime::IUnknown {
     fn from(value: IObjectCollection) -> Self {

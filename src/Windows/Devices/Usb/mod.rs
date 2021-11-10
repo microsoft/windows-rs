@@ -4,7 +4,7 @@
 pub struct IUsbBulkInEndpointDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbBulkInEndpointDescriptor {
     type Vtable = IUsbBulkInEndpointDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1013860422, 1743, 17065, [157, 194, 151, 28, 27, 20, 182, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c6e4846_06cf_42a9_9dc2_971c1b14b6e3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24,7 +24,7 @@ pub struct IUsbBulkInEndpointDescriptor_abi(
 pub struct IUsbBulkInPipe(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbBulkInPipe {
     type Vtable = IUsbBulkInPipe_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4028443963, 17736, 19792, [179, 38, 216, 44, 218, 190, 18, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf01d2d3b_4548_4d50_b326_d82cdabe1220);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -50,7 +50,7 @@ pub struct IUsbBulkInPipe_abi(
 pub struct IUsbBulkOutEndpointDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbBulkOutEndpointDescriptor {
     type Vtable = IUsbBulkOutEndpointDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(673219706, 65518, 20320, [155, 225, 149, 108, 172, 62, 203, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2820847a_ffee_4f60_9be1_956cac3ecb65);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -70,7 +70,7 @@ pub struct IUsbBulkOutEndpointDescriptor_abi(
 pub struct IUsbBulkOutPipe(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbBulkOutPipe {
     type Vtable = IUsbBulkOutPipe_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2833903214, 277, 17834, [139, 33, 55, 178, 37, 188, 206, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8e9ee6e_0115_45aa_8b21_37b225bccee7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -94,7 +94,7 @@ pub struct IUsbBulkOutPipe_abi(
 pub struct IUsbConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbConfiguration {
     type Vtable = IUsbConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1746367529, 13993, 18135, [184, 115, 252, 104, 146, 81, 236, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68177429_36a9_46d7_b873_fc689251ec30);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -116,7 +116,7 @@ pub struct IUsbConfiguration_abi(
 pub struct IUsbConfigurationDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbConfigurationDescriptor {
     type Vtable = IUsbConfigurationDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4061621650, 46146, 16506, [130, 7, 125, 100, 108, 3, 133, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2176d92_b442_407a_8207_7d646c0385f3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -137,7 +137,7 @@ pub struct IUsbConfigurationDescriptor_abi(
 pub struct IUsbConfigurationDescriptorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbConfigurationDescriptorStatics {
     type Vtable = IUsbConfigurationDescriptorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1112337811, 59200, 16545, [146, 189, 218, 18, 14, 160, 73, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x424ced93_e740_40a1_92bd_da120ea04914);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -156,7 +156,7 @@ pub struct IUsbConfigurationDescriptorStatics_abi(
 pub struct IUsbControlRequestType(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbControlRequestType {
     type Vtable = IUsbControlRequestType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2392090022, 55101, 18142, [148, 190, 170, 231, 240, 124, 15, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e9465a6_d73d_46de_94be_aae7f07c0f5c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -181,7 +181,7 @@ pub struct IUsbControlRequestType_abi(
 pub struct IUsbDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDescriptor {
     type Vtable = IUsbDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(176812566, 24477, 18548, [137, 4, 218, 154, 211, 245, 82, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a89f216_5f9d_4874_8904_da9ad3f5528f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -202,7 +202,7 @@ pub struct IUsbDescriptor_abi(
 pub struct IUsbDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDevice {
     type Vtable = IUsbDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1380563346, 50262, 17621, [173, 94, 36, 245, 160, 137, 246, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5249b992_c456_44d5_ad5e_24f5a089f63b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -230,7 +230,7 @@ pub struct IUsbDevice_abi(
 pub struct IUsbDeviceClass(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDeviceClass {
     type Vtable = IUsbDeviceClass_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(85541625, 33886, 18411, [177, 42, 56, 242, 246, 23, 175, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x051942f9_845e_47eb_b12a_38f2f617afe7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -257,7 +257,7 @@ pub struct IUsbDeviceClass_abi(
 pub struct IUsbDeviceClasses(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDeviceClasses {
     type Vtable = IUsbDeviceClasses_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1752143197, 39826, 19248, [151, 129, 194, 44, 85, 172, 53, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x686f955d_9b92_4b30_9781_c22c55ac35cb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -274,7 +274,7 @@ pub struct IUsbDeviceClasses_abi(
 pub struct IUsbDeviceClassesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDeviceClassesStatics {
     type Vtable = IUsbDeviceClassesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2987066663, 50560, 17817, [161, 101, 152, 27, 79, 208, 50, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb20b0527_c580_4599_a165_981b4fd03230);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -300,7 +300,7 @@ pub struct IUsbDeviceClassesStatics_abi(
 pub struct IUsbDeviceDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDeviceDescriptor {
     type Vtable = IUsbDeviceDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(524866038, 47767, 17186, [185, 44, 181, 177, 137, 33, 101, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f48d1f6_ba97_4322_b92c_b5b189216588);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -323,7 +323,7 @@ pub struct IUsbDeviceDescriptor_abi(
 pub struct IUsbDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDeviceStatics {
     type Vtable = IUsbDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(107709858, 2487, 17478, [133, 2, 111, 230, 220, 170, 115, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x066b85a2_09b7_4446_8502_6fe6dcaa7309);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -346,7 +346,7 @@ pub struct IUsbDeviceStatics_abi(
 pub struct IUsbEndpointDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbEndpointDescriptor {
     type Vtable = IUsbEndpointDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1799906009, 36343, 19264, [172, 131, 87, 143, 19, 159, 5, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b4862d9_8df7_4b40_ac83_578f139f0575);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -370,7 +370,7 @@ pub struct IUsbEndpointDescriptor_abi(
 pub struct IUsbEndpointDescriptorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbEndpointDescriptorStatics {
     type Vtable = IUsbEndpointDescriptorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3364925953, 39530, 18782, [168, 44, 41, 91, 158, 112, 129, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc890b201_9a6a_495e_a82c_295b9e708106);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -389,7 +389,7 @@ pub struct IUsbEndpointDescriptorStatics_abi(
 pub struct IUsbInterface(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterface {
     type Vtable = IUsbInterface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2687642517, 32583, 18603, [167, 39, 103, 140, 37, 190, 33, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0322b95_7f47_48ab_a727_678c25be2112);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -419,7 +419,7 @@ pub struct IUsbInterface_abi(
 pub struct IUsbInterfaceDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterfaceDescriptor {
     type Vtable = IUsbInterfaceDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(429289671, 47086, 20368, [140, 213, 148, 162, 226, 87, 89, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x199670c7_b7ee_4f90_8cd5_94a2e257598a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -441,7 +441,7 @@ pub struct IUsbInterfaceDescriptor_abi(
 pub struct IUsbInterfaceDescriptorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterfaceDescriptorStatics {
     type Vtable = IUsbInterfaceDescriptorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3813318645, 30678, 18614, [176, 190, 22, 198, 66, 35, 22, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe34a9ff5_77d6_48b6_b0be_16c6422316fe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -460,7 +460,7 @@ pub struct IUsbInterfaceDescriptorStatics_abi(
 pub struct IUsbInterfaceSetting(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterfaceSetting {
     type Vtable = IUsbInterfaceSetting_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(405257127, 36263, 19191, [143, 76, 127, 48, 50, 231, 129, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1827bba7_8da7_4af7_8f4c_7f3032e781f5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -491,7 +491,7 @@ pub struct IUsbInterfaceSetting_abi(
 pub struct IUsbInterruptInEndpointDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterruptInEndpointDescriptor {
     type Vtable = IUsbInterruptInEndpointDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3226634599, 51473, 19514, [134, 178, 65, 156, 45, 168, 144, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0528967_c911_4c3a_86b2_419c2da89039);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -513,7 +513,7 @@ pub struct IUsbInterruptInEndpointDescriptor_abi(
 pub struct IUsbInterruptInEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterruptInEventArgs {
     type Vtable = IUsbInterruptInEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3081781394, 5144, 18742, [130, 9, 41, 156, 245, 96, 85, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7b04092_1418_4936_8209_299cf5605583);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -532,7 +532,7 @@ pub struct IUsbInterruptInEventArgs_abi(
 pub struct IUsbInterruptInPipe(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterruptInPipe {
     type Vtable = IUsbInterruptInPipe_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4194332950, 34007, 18631, [138, 63, 76, 11, 35, 95, 46, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa007116_84d7_48c7_8a3f_4c0b235f2ea6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -556,7 +556,7 @@ pub struct IUsbInterruptInPipe_abi(
 pub struct IUsbInterruptOutEndpointDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterruptOutEndpointDescriptor {
     type Vtable = IUsbInterruptOutEndpointDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3433033089, 4298, 17715, [149, 45, 158, 39, 131, 65, 232, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc9fed81_10ca_4533_952d_9e278341e80f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -578,7 +578,7 @@ pub struct IUsbInterruptOutEndpointDescriptor_abi(
 pub struct IUsbInterruptOutPipe(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterruptOutPipe {
     type Vtable = IUsbInterruptOutPipe_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3917793449, 43769, 18896, [185, 108, 246, 97, 171, 74, 127, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe984c8a9_aaf9_49d0_b96c_f661ab4a7f95);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -602,7 +602,7 @@ pub struct IUsbInterruptOutPipe_abi(
 pub struct IUsbSetupPacket(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbSetupPacket {
     type Vtable = IUsbSetupPacket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(273391922, 51087, 19537, [182, 84, 228, 157, 2, 242, 203, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x104ba132_c78f_4c51_b654_e49d02f2cb03);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -629,7 +629,7 @@ pub struct IUsbSetupPacket_abi(
 pub struct IUsbSetupPacketFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbSetupPacketFactory {
     type Vtable = IUsbSetupPacketFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3374677328, 6958, 19009, [162, 167, 51, 143, 12, 239, 60, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9257d50_1b2e_4a41_a2a7_338f0cef3c14);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -678,7 +678,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbBulkInEndpointDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for UsbBulkInEndpointDescriptor {
     type Vtable = IUsbBulkInEndpointDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1013860422, 1743, 17065, [157, 194, 151, 28, 27, 20, 182, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c6e4846_06cf_42a9_9dc2_971c1b14b6e3);
 }
 impl ::windows::runtime::RuntimeName for UsbBulkInEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkInEndpointDescriptor";
@@ -788,7 +788,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbBulkInPipe {
 }
 unsafe impl ::windows::runtime::Interface for UsbBulkInPipe {
     type Vtable = IUsbBulkInPipe_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4028443963, 17736, 19792, [179, 38, 216, 44, 218, 190, 18, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf01d2d3b_4548_4d50_b326_d82cdabe1220);
 }
 impl ::windows::runtime::RuntimeName for UsbBulkInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkInPipe";
@@ -870,7 +870,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbBulkOutEndpointDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for UsbBulkOutEndpointDescriptor {
     type Vtable = IUsbBulkOutEndpointDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(673219706, 65518, 20320, [155, 225, 149, 108, 172, 62, 203, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2820847a_ffee_4f60_9be1_956cac3ecb65);
 }
 impl ::windows::runtime::RuntimeName for UsbBulkOutEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkOutEndpointDescriptor";
@@ -967,7 +967,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbBulkOutPipe {
 }
 unsafe impl ::windows::runtime::Interface for UsbBulkOutPipe {
     type Vtable = IUsbBulkOutPipe_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2833903214, 277, 17834, [139, 33, 55, 178, 37, 188, 206, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8e9ee6e_0115_45aa_8b21_37b225bccee7);
 }
 impl ::windows::runtime::RuntimeName for UsbBulkOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkOutPipe";
@@ -1051,7 +1051,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for UsbConfiguration {
     type Vtable = IUsbConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1746367529, 13993, 18135, [184, 115, 252, 104, 146, 81, 236, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68177429_36a9_46d7_b873_fc689251ec30);
 }
 impl ::windows::runtime::RuntimeName for UsbConfiguration {
     const NAME: &'static str = "Windows.Devices.Usb.UsbConfiguration";
@@ -1159,7 +1159,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbConfigurationDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for UsbConfigurationDescriptor {
     type Vtable = IUsbConfigurationDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4061621650, 46146, 16506, [130, 7, 125, 100, 108, 3, 133, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2176d92_b442_407a_8207_7d646c0385f3);
 }
 impl ::windows::runtime::RuntimeName for UsbConfigurationDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbConfigurationDescriptor";
@@ -1301,7 +1301,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbControlRequestType {
 }
 unsafe impl ::windows::runtime::Interface for UsbControlRequestType {
     type Vtable = IUsbControlRequestType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2392090022, 55101, 18142, [148, 190, 170, 231, 240, 124, 15, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e9465a6_d73d_46de_94be_aae7f07c0f5c);
 }
 impl ::windows::runtime::RuntimeName for UsbControlRequestType {
     const NAME: &'static str = "Windows.Devices.Usb.UsbControlRequestType";
@@ -1404,7 +1404,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for UsbDescriptor {
     type Vtable = IUsbDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(176812566, 24477, 18548, [137, 4, 218, 154, 211, 245, 82, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a89f216_5f9d_4874_8904_da9ad3f5528f);
 }
 impl ::windows::runtime::RuntimeName for UsbDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDescriptor";
@@ -1568,7 +1568,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbDevice {
 }
 unsafe impl ::windows::runtime::Interface for UsbDevice {
     type Vtable = IUsbDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1380563346, 50262, 17621, [173, 94, 36, 245, 160, 137, 246, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5249b992_c456_44d5_ad5e_24f5a089f63b);
 }
 impl ::windows::runtime::RuntimeName for UsbDevice {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDevice";
@@ -1702,7 +1702,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbDeviceClass {
 }
 unsafe impl ::windows::runtime::Interface for UsbDeviceClass {
     type Vtable = IUsbDeviceClass_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(85541625, 33886, 18411, [177, 42, 56, 242, 246, 23, 175, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x051942f9_845e_47eb_b12a_38f2f617afe7);
 }
 impl ::windows::runtime::RuntimeName for UsbDeviceClass {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceClass";
@@ -1827,7 +1827,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbDeviceClasses {
 }
 unsafe impl ::windows::runtime::Interface for UsbDeviceClasses {
     type Vtable = IUsbDeviceClasses_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1752143197, 39826, 19248, [151, 129, 194, 44, 85, 172, 53, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x686f955d_9b92_4b30_9781_c22c55ac35cb);
 }
 impl ::windows::runtime::RuntimeName for UsbDeviceClasses {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceClasses";
@@ -1933,7 +1933,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbDeviceDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for UsbDeviceDescriptor {
     type Vtable = IUsbDeviceDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(524866038, 47767, 17186, [185, 44, 181, 177, 137, 33, 101, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f48d1f6_ba97_4322_b92c_b5b189216588);
 }
 impl ::windows::runtime::RuntimeName for UsbDeviceDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceDescriptor";
@@ -2065,7 +2065,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbEndpointDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for UsbEndpointDescriptor {
     type Vtable = IUsbEndpointDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1799906009, 36343, 19264, [172, 131, 87, 143, 19, 159, 5, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b4862d9_8df7_4b40_ac83_578f139f0575);
 }
 impl ::windows::runtime::RuntimeName for UsbEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbEndpointDescriptor";
@@ -2209,7 +2209,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbInterface {
 }
 unsafe impl ::windows::runtime::Interface for UsbInterface {
     type Vtable = IUsbInterface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2687642517, 32583, 18603, [167, 39, 103, 140, 37, 190, 33, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0322b95_7f47_48ab_a727_678c25be2112);
 }
 impl ::windows::runtime::RuntimeName for UsbInterface {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterface";
@@ -2325,7 +2325,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbInterfaceDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for UsbInterfaceDescriptor {
     type Vtable = IUsbInterfaceDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(429289671, 47086, 20368, [140, 213, 148, 162, 226, 87, 89, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x199670c7_b7ee_4f90_8cd5_94a2e257598a);
 }
 impl ::windows::runtime::RuntimeName for UsbInterfaceDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterfaceDescriptor";
@@ -2453,7 +2453,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbInterfaceSetting {
 }
 unsafe impl ::windows::runtime::Interface for UsbInterfaceSetting {
     type Vtable = IUsbInterfaceSetting_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(405257127, 36263, 19191, [143, 76, 127, 48, 50, 231, 129, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1827bba7_8da7_4af7_8f4c_7f3032e781f5);
 }
 impl ::windows::runtime::RuntimeName for UsbInterfaceSetting {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterfaceSetting";
@@ -2544,7 +2544,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbInterruptInEndpointDescriptor
 }
 unsafe impl ::windows::runtime::Interface for UsbInterruptInEndpointDescriptor {
     type Vtable = IUsbInterruptInEndpointDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3226634599, 51473, 19514, [134, 178, 65, 156, 45, 168, 144, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0528967_c911_4c3a_86b2_419c2da89039);
 }
 impl ::windows::runtime::RuntimeName for UsbInterruptInEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInEndpointDescriptor";
@@ -2611,7 +2611,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbInterruptInEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for UsbInterruptInEventArgs {
     type Vtable = IUsbInterruptInEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3081781394, 5144, 18742, [130, 9, 41, 156, 245, 96, 85, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7b04092_1418_4936_8209_299cf5605583);
 }
 impl ::windows::runtime::RuntimeName for UsbInterruptInEventArgs {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInEventArgs";
@@ -2701,7 +2701,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbInterruptInPipe {
 }
 unsafe impl ::windows::runtime::Interface for UsbInterruptInPipe {
     type Vtable = IUsbInterruptInPipe_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4194332950, 34007, 18631, [138, 63, 76, 11, 35, 95, 46, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa007116_84d7_48c7_8a3f_4c0b235f2ea6);
 }
 impl ::windows::runtime::RuntimeName for UsbInterruptInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInPipe";
@@ -2792,7 +2792,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbInterruptOutEndpointDescripto
 }
 unsafe impl ::windows::runtime::Interface for UsbInterruptOutEndpointDescriptor {
     type Vtable = IUsbInterruptOutEndpointDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3433033089, 4298, 17715, [149, 45, 158, 39, 131, 65, 232, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc9fed81_10ca_4533_952d_9e278341e80f);
 }
 impl ::windows::runtime::RuntimeName for UsbInterruptOutEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor";
@@ -2889,7 +2889,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbInterruptOutPipe {
 }
 unsafe impl ::windows::runtime::Interface for UsbInterruptOutPipe {
     type Vtable = IUsbInterruptOutPipe_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3917793449, 43769, 18896, [185, 108, 246, 97, 171, 74, 127, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe984c8a9_aaf9_49d0_b96c_f661ab4a7f95);
 }
 impl ::windows::runtime::RuntimeName for UsbInterruptOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptOutPipe";
@@ -3084,7 +3084,7 @@ unsafe impl ::windows::runtime::RuntimeType for UsbSetupPacket {
 }
 unsafe impl ::windows::runtime::Interface for UsbSetupPacket {
     type Vtable = IUsbSetupPacket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(273391922, 51087, 19537, [182, 84, 228, 157, 2, 242, 203, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x104ba132_c78f_4c51_b654_e49d02f2cb03);
 }
 impl ::windows::runtime::RuntimeName for UsbSetupPacket {
     const NAME: &'static str = "Windows.Devices.Usb.UsbSetupPacket";

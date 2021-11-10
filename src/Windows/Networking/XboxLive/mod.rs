@@ -4,7 +4,7 @@
 pub struct IXboxLiveDeviceAddress(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveDeviceAddress {
     type Vtable = IXboxLiveDeviceAddress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4122727033, 15494, 19287, [163, 26, 185, 70, 36, 8, 253, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5bbd279_3c86_4b57_a31a_b9462408fd01);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -33,7 +33,7 @@ pub struct IXboxLiveDeviceAddress_abi(
 pub struct IXboxLiveDeviceAddressStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveDeviceAddressStatics {
     type Vtable = IXboxLiveDeviceAddressStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1498720281, 19065, 18737, [130, 124, 127, 80, 62, 150, 50, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5954a819_4a79_4931_827c_7f503e963263);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -56,7 +56,7 @@ pub struct IXboxLiveDeviceAddressStatics_abi(
 pub struct IXboxLiveEndpointPair(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPair {
     type Vtable = IXboxLiveEndpointPair_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(513442715, 33086, 17632, [184, 127, 200, 122, 9, 52, 117, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e9a839b_813e_44e0_b87f_c87a093475e4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -88,7 +88,7 @@ pub struct IXboxLiveEndpointPair_abi(
 pub struct IXboxLiveEndpointPairCreationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairCreationResult {
     type Vtable = IXboxLiveEndpointPairCreationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3651713941, 10923, 19742, [151, 148, 51, 236, 192, 220, 240, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9a8bb95_2aab_4d1e_9794_33ecc0dcf0fe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -109,7 +109,7 @@ pub struct IXboxLiveEndpointPairCreationResult_abi(
 pub struct IXboxLiveEndpointPairStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairStateChangedEventArgs {
     type Vtable = IXboxLiveEndpointPairStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1496202069, 56840, 17639, [172, 59, 185, 185, 161, 105, 88, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x592e3b55_de08_44e7_ac3b_b9b9a169583a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -128,7 +128,7 @@ pub struct IXboxLiveEndpointPairStateChangedEventArgs_abi(
 pub struct IXboxLiveEndpointPairStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairStatics {
     type Vtable = IXboxLiveEndpointPairStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1680960304, 8570, 16963, [142, 225, 103, 41, 40, 29, 39, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64316b30_217a_4243_8ee1_6729281d27db);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -147,7 +147,7 @@ pub struct IXboxLiveEndpointPairStatics_abi(
 pub struct IXboxLiveEndpointPairTemplate(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairTemplate {
     type Vtable = IXboxLiveEndpointPairTemplate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1797811919, 13399, 16590, [185, 161, 192, 207, 224, 33, 62, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b286ecf_3457_40ce_b9a1_c0cfe0213ea7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -184,7 +184,7 @@ pub struct IXboxLiveEndpointPairTemplate_abi(
 pub struct IXboxLiveEndpointPairTemplateStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairTemplateStatics {
     type Vtable = IXboxLiveEndpointPairTemplateStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(504566651, 29563, 18979, [188, 100, 8, 112, 247, 86, 85, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e13137b_737b_4a23_bc64_0870f75655ba);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -204,7 +204,7 @@ pub struct IXboxLiveEndpointPairTemplateStatics_abi(
 pub struct IXboxLiveInboundEndpointPairCreatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveInboundEndpointPairCreatedEventArgs {
     type Vtable = IXboxLiveInboundEndpointPairCreatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3692575586, 8890, 18642, [128, 222, 194, 57, 104, 189, 25, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc183b62_22ba_48d2_80de_c23968bd198b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -222,7 +222,7 @@ pub struct IXboxLiveInboundEndpointPairCreatedEventArgs_abi(
 pub struct IXboxLiveQualityOfServiceMeasurement(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveQualityOfServiceMeasurement {
     type Vtable = IXboxLiveQualityOfServiceMeasurement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1298672590, 42454, 18406, [162, 54, 207, 222, 95, 189, 242, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d682bce_a5d6_47e6_a236_cfde5fbdf2ed);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -262,7 +262,7 @@ pub struct IXboxLiveQualityOfServiceMeasurement_abi(
 pub struct IXboxLiveQualityOfServiceMeasurementStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveQualityOfServiceMeasurementStatics {
     type Vtable = IXboxLiveQualityOfServiceMeasurementStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1848978890, 9167, 17418, [176, 119, 94, 48, 133, 122, 130, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e352dca_23cf_440a_b077_5e30857a8234);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -292,7 +292,7 @@ pub struct IXboxLiveQualityOfServiceMeasurementStatics_abi(
 pub struct IXboxLiveQualityOfServiceMetricResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveQualityOfServiceMetricResult {
     type Vtable = IXboxLiveQualityOfServiceMetricResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2934723537, 13665, 18306, [176, 207, 211, 174, 41, 217, 250, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaeec53d1_3561_4782_b0cf_d3ae29d9fa87);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -313,7 +313,7 @@ pub struct IXboxLiveQualityOfServiceMetricResult_abi(
 pub struct IXboxLiveQualityOfServicePrivatePayloadResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveQualityOfServicePrivatePayloadResult {
     type Vtable = IXboxLiveQualityOfServicePrivatePayloadResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1516438190, 28472, 16832, [159, 204, 234, 108, 185, 120, 202, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a6302ae_6f38_41c0_9fcc_ea6cb978cafc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -449,7 +449,7 @@ unsafe impl ::windows::runtime::RuntimeType for XboxLiveDeviceAddress {
 }
 unsafe impl ::windows::runtime::Interface for XboxLiveDeviceAddress {
     type Vtable = IXboxLiveDeviceAddress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4122727033, 15494, 19287, [163, 26, 185, 70, 36, 8, 253, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5bbd279_3c86_4b57_a31a_b9462408fd01);
 }
 impl ::windows::runtime::RuntimeName for XboxLiveDeviceAddress {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveDeviceAddress";
@@ -615,7 +615,7 @@ unsafe impl ::windows::runtime::RuntimeType for XboxLiveEndpointPair {
 }
 unsafe impl ::windows::runtime::Interface for XboxLiveEndpointPair {
     type Vtable = IXboxLiveEndpointPair_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(513442715, 33086, 17632, [184, 127, 200, 122, 9, 52, 117, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e9a839b_813e_44e0_b87f_c87a093475e4);
 }
 impl ::windows::runtime::RuntimeName for XboxLiveEndpointPair {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPair";
@@ -755,7 +755,7 @@ unsafe impl ::windows::runtime::RuntimeType for XboxLiveEndpointPairCreationResu
 }
 unsafe impl ::windows::runtime::Interface for XboxLiveEndpointPairCreationResult {
     type Vtable = IXboxLiveEndpointPairCreationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3651713941, 10923, 19742, [151, 148, 51, 236, 192, 220, 240, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9a8bb95_2aab_4d1e_9794_33ecc0dcf0fe);
 }
 impl ::windows::runtime::RuntimeName for XboxLiveEndpointPairCreationResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPairCreationResult";
@@ -885,7 +885,7 @@ unsafe impl ::windows::runtime::RuntimeType for XboxLiveEndpointPairStateChanged
 }
 unsafe impl ::windows::runtime::Interface for XboxLiveEndpointPairStateChangedEventArgs {
     type Vtable = IXboxLiveEndpointPairStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1496202069, 56840, 17639, [172, 59, 185, 185, 161, 105, 88, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x592e3b55_de08_44e7_ac3b_b9b9a169583a);
 }
 impl ::windows::runtime::RuntimeName for XboxLiveEndpointPairStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPairStateChangedEventArgs";
@@ -1076,7 +1076,7 @@ unsafe impl ::windows::runtime::RuntimeType for XboxLiveEndpointPairTemplate {
 }
 unsafe impl ::windows::runtime::Interface for XboxLiveEndpointPairTemplate {
     type Vtable = IXboxLiveEndpointPairTemplate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1797811919, 13399, 16590, [185, 161, 192, 207, 224, 33, 62, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b286ecf_3457_40ce_b9a1_c0cfe0213ea7);
 }
 impl ::windows::runtime::RuntimeName for XboxLiveEndpointPairTemplate {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPairTemplate";
@@ -1142,7 +1142,7 @@ unsafe impl ::windows::runtime::RuntimeType for XboxLiveInboundEndpointPairCreat
 }
 unsafe impl ::windows::runtime::Interface for XboxLiveInboundEndpointPairCreatedEventArgs {
     type Vtable = IXboxLiveInboundEndpointPairCreatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3692575586, 8890, 18642, [128, 222, 194, 57, 104, 189, 25, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc183b62_22ba_48d2_80de_c23968bd198b);
 }
 impl ::windows::runtime::RuntimeName for XboxLiveInboundEndpointPairCreatedEventArgs {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveInboundEndpointPairCreatedEventArgs";
@@ -1421,7 +1421,7 @@ unsafe impl ::windows::runtime::RuntimeType for XboxLiveQualityOfServiceMeasurem
 }
 unsafe impl ::windows::runtime::Interface for XboxLiveQualityOfServiceMeasurement {
     type Vtable = IXboxLiveQualityOfServiceMeasurement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1298672590, 42454, 18406, [162, 54, 207, 222, 95, 189, 242, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d682bce_a5d6_47e6_a236_cfde5fbdf2ed);
 }
 impl ::windows::runtime::RuntimeName for XboxLiveQualityOfServiceMeasurement {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement";
@@ -1572,7 +1572,7 @@ unsafe impl ::windows::runtime::RuntimeType for XboxLiveQualityOfServiceMetricRe
 }
 unsafe impl ::windows::runtime::Interface for XboxLiveQualityOfServiceMetricResult {
     type Vtable = IXboxLiveQualityOfServiceMetricResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2934723537, 13665, 18306, [176, 207, 211, 174, 41, 217, 250, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaeec53d1_3561_4782_b0cf_d3ae29d9fa87);
 }
 impl ::windows::runtime::RuntimeName for XboxLiveQualityOfServiceMetricResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetricResult";
@@ -1655,7 +1655,7 @@ unsafe impl ::windows::runtime::RuntimeType for XboxLiveQualityOfServicePrivateP
 }
 unsafe impl ::windows::runtime::Interface for XboxLiveQualityOfServicePrivatePayloadResult {
     type Vtable = IXboxLiveQualityOfServicePrivatePayloadResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1516438190, 28472, 16832, [159, 204, 234, 108, 185, 120, 202, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a6302ae_6f38_41c0_9fcc_ea6cb978cafc);
 }
 impl ::windows::runtime::RuntimeName for XboxLiveQualityOfServicePrivatePayloadResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveQualityOfServicePrivatePayloadResult";

@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const CLSID_SoftwareBitmapNativeFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2229687953, 34306, 19076, [190, 70, 112, 139, 233, 205, 75, 116]);
+pub const CLSID_SoftwareBitmapNativeFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84e65691_8602_4a84_be46_708be9cd4b74);
 #[doc = "*Required features: `Win32_System_WinRT_Graphics_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -13,7 +13,7 @@ impl ISoftwareBitmapNative {
 }
 unsafe impl ::windows::runtime::Interface for ISoftwareBitmapNative {
     type Vtable = ISoftwareBitmapNative_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2495382549, 1258, 19246, [175, 19, 77, 233, 90, 168, 152, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94bc8415_04ea_4b2e_af13_4de95aa898eb);
 }
 impl ::core::convert::From<ISoftwareBitmapNative> for ::windows::runtime::IUnknown {
     fn from(value: ISoftwareBitmapNative) -> Self {
@@ -85,7 +85,7 @@ impl ISoftwareBitmapNativeFactory {
 }
 unsafe impl ::windows::runtime::Interface for ISoftwareBitmapNativeFactory {
     type Vtable = ISoftwareBitmapNativeFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3284238828, 10516, 18321, [175, 2, 2, 210, 36, 161, 11, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3c181ec_2914_4791_af02_02d224a10b43);
 }
 impl ::core::convert::From<ISoftwareBitmapNativeFactory> for ::windows::runtime::IUnknown {
     fn from(value: ISoftwareBitmapNativeFactory) -> Self {

@@ -251,7 +251,7 @@ unsafe impl ::windows::runtime::RuntimeType for AsymmetricKeyAlgorithmProvider {
 }
 unsafe impl ::windows::runtime::Interface for AsymmetricKeyAlgorithmProvider {
     type Vtable = IAsymmetricKeyAlgorithmProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3906142007, 25177, 20104, [183, 224, 148, 25, 31, 222, 105, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8d2ff37_6259_4e88_b7e0_94191fde699e);
 }
 impl ::windows::runtime::RuntimeName for AsymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider";
@@ -468,7 +468,7 @@ unsafe impl ::windows::runtime::RuntimeType for CryptographicHash {
 }
 unsafe impl ::windows::runtime::Interface for CryptographicHash {
     type Vtable = IHashComputation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1493488054, 44337, 17923, [163, 164, 177, 189, 169, 142, 37, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5904d1b6_ad31_4603_a3a4_b1bda98e2562);
 }
 impl ::windows::runtime::RuntimeName for CryptographicHash {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.CryptographicHash";
@@ -570,7 +570,7 @@ unsafe impl ::windows::runtime::RuntimeType for CryptographicKey {
 }
 unsafe impl ::windows::runtime::Interface for CryptographicKey {
     type Vtable = ICryptographicKey_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3978967920, 36475, 16393, [132, 1, 255, 209, 166, 46, 235, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed2a3b70_8e7b_4009_8401_ffd1a62eeb27);
 }
 impl ::windows::runtime::RuntimeName for CryptographicKey {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.CryptographicKey";
@@ -1054,7 +1054,7 @@ unsafe impl ::windows::runtime::RuntimeType for EncryptedAndAuthenticatedData {
 }
 unsafe impl ::windows::runtime::Interface for EncryptedAndAuthenticatedData {
     type Vtable = IEncryptedAndAuthenticatedData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1873031143, 7883, 19200, [190, 165, 96, 184, 63, 134, 47, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fa42fe7_1ecb_4b00_bea5_60b83f862f17);
 }
 impl ::windows::runtime::RuntimeName for EncryptedAndAuthenticatedData {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.EncryptedAndAuthenticatedData";
@@ -1202,7 +1202,7 @@ unsafe impl ::windows::runtime::RuntimeType for HashAlgorithmProvider {
 }
 unsafe impl ::windows::runtime::Interface for HashAlgorithmProvider {
     type Vtable = IHashAlgorithmProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3197841536, 45763, 16939, [188, 225, 236, 144, 239, 181, 215, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe9b3080_b2c3_422b_bce1_ec90efb5d7b5);
 }
 impl ::windows::runtime::RuntimeName for HashAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.HashAlgorithmProvider";
@@ -1254,7 +1254,7 @@ unsafe impl ::core::marker::Sync for HashAlgorithmProvider {}
 pub struct IAsymmetricAlgorithmNamesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAsymmetricAlgorithmNamesStatics {
     type Vtable = IAsymmetricAlgorithmNamesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3405184228, 26560, 18090, [132, 249, 117, 46, 119, 68, 159, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcaf6fce4_67c0_46aa_84f9_752e77449f9b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1289,7 +1289,7 @@ pub struct IAsymmetricAlgorithmNamesStatics_abi(
 pub struct IAsymmetricAlgorithmNamesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAsymmetricAlgorithmNamesStatics2 {
     type Vtable = IAsymmetricAlgorithmNamesStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4047618262, 19455, 20259, [186, 102, 96, 69, 177, 55, 213, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf141c0d6_4bff_4f23_ba66_6045b137d5df);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1309,7 +1309,7 @@ pub struct IAsymmetricAlgorithmNamesStatics2_abi(
 pub struct IAsymmetricKeyAlgorithmProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAsymmetricKeyAlgorithmProvider {
     type Vtable = IAsymmetricKeyAlgorithmProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3906142007, 25177, 20104, [183, 224, 148, 25, 31, 222, 105, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8d2ff37_6259_4e88_b7e0_94191fde699e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1336,7 +1336,7 @@ pub struct IAsymmetricKeyAlgorithmProvider_abi(
 pub struct IAsymmetricKeyAlgorithmProvider2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAsymmetricKeyAlgorithmProvider2 {
     type Vtable = IAsymmetricKeyAlgorithmProvider2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1311910526, 31821, 18839, [172, 79, 27, 132, 139, 54, 48, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e322a7e_7c4d_4997_ac4f_1b848b36306e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1355,7 +1355,7 @@ pub struct IAsymmetricKeyAlgorithmProvider2_abi(
 pub struct IAsymmetricKeyAlgorithmProviderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAsymmetricKeyAlgorithmProviderStatics {
     type Vtable = IAsymmetricKeyAlgorithmProviderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1113316888, 42995, 18342, [168, 210, 196, 141, 96, 51, 166, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x425bde18_a7f3_47a6_a8d2_c48d6033a65c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1373,7 +1373,7 @@ pub struct IAsymmetricKeyAlgorithmProviderStatics_abi(
 pub struct ICryptographicEngineStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICryptographicEngineStatics {
     type Vtable = ICryptographicEngineStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2682914361, 28663, 19589, [160, 149, 149, 235, 49, 113, 94, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fea0639_6ff7_4c85_a095_95eb31715eb9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1404,7 +1404,7 @@ pub struct ICryptographicEngineStatics_abi(
 pub struct ICryptographicEngineStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICryptographicEngineStatics2 {
     type Vtable = ICryptographicEngineStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1733904638, 57247, 16785, [146, 199, 108, 230, 245, 132, 32, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x675948fe_df9f_4191_92c7_6ce6f58420e0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1431,7 +1431,7 @@ pub struct ICryptographicEngineStatics2_abi(
 pub struct ICryptographicKey(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICryptographicKey {
     type Vtable = ICryptographicKey_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3978967920, 36475, 16393, [132, 1, 255, 209, 166, 46, 235, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed2a3b70_8e7b_4009_8401_ffd1a62eeb27);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1457,7 +1457,7 @@ pub struct ICryptographicKey_abi(
 pub struct IEccCurveNamesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEccCurveNamesStatics {
     type Vtable = IEccCurveNamesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3019870988, 44779, 16542, [183, 212, 155, 149, 41, 90, 174, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3ff930c_aeeb_409e_b7d4_9b95295aaecf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1521,7 +1521,7 @@ pub struct IEccCurveNamesStatics_abi(
 pub struct IEncryptedAndAuthenticatedData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEncryptedAndAuthenticatedData {
     type Vtable = IEncryptedAndAuthenticatedData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1873031143, 7883, 19200, [190, 165, 96, 184, 63, 134, 47, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fa42fe7_1ecb_4b00_bea5_60b83f862f17);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1542,7 +1542,7 @@ pub struct IEncryptedAndAuthenticatedData_abi(
 pub struct IHashAlgorithmNamesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHashAlgorithmNamesStatics {
     type Vtable = IHashAlgorithmNamesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1801323798, 56982, 20234, [141, 87, 220, 201, 218, 227, 108, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b5e0516_de96_4f0a_8d57_dcc9dae36c76);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1564,7 +1564,7 @@ pub struct IHashAlgorithmNamesStatics_abi(
 pub struct IHashAlgorithmProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHashAlgorithmProvider {
     type Vtable = IHashAlgorithmProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3197841536, 45763, 16939, [188, 225, 236, 144, 239, 181, 215, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe9b3080_b2c3_422b_bce1_ec90efb5d7b5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1586,7 +1586,7 @@ pub struct IHashAlgorithmProvider_abi(
 pub struct IHashAlgorithmProviderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHashAlgorithmProviderStatics {
     type Vtable = IHashAlgorithmProviderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2678888257, 23748, 17206, [174, 56, 98, 18, 183, 90, 145, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fac9741_5cc4_4336_ae38_6212b75a915a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1604,7 +1604,7 @@ pub struct IHashAlgorithmProviderStatics_abi(
 pub struct IHashComputation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHashComputation {
     type Vtable = IHashComputation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1493488054, 44337, 17923, [163, 164, 177, 189, 169, 142, 37, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5904d1b6_ad31_4603_a3a4_b1bda98e2562);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1625,7 +1625,7 @@ pub struct IHashComputation_abi(
 pub struct IKeyDerivationAlgorithmNamesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyDerivationAlgorithmNamesStatics {
     type Vtable = IKeyDerivationAlgorithmNamesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2070820414, 38098, 18233, [165, 123, 2, 46, 12, 58, 64, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b6e363e_94d2_4739_a57b_022e0c3a402a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1657,7 +1657,7 @@ pub struct IKeyDerivationAlgorithmNamesStatics_abi(
 pub struct IKeyDerivationAlgorithmNamesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyDerivationAlgorithmNamesStatics2 {
     type Vtable = IKeyDerivationAlgorithmNamesStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1469398955, 24644, 18031, [151, 244, 51, 123, 120, 8, 56, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57953fab_6044_466f_97f4_337b7808384d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1679,7 +1679,7 @@ pub struct IKeyDerivationAlgorithmNamesStatics2_abi(
 pub struct IKeyDerivationAlgorithmProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyDerivationAlgorithmProvider {
     type Vtable = IKeyDerivationAlgorithmProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3791366203, 18033, 17335, [145, 88, 118, 58, 170, 152, 182, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1fba83b_4671_43b7_9158_763aaa98b6bf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1699,7 +1699,7 @@ pub struct IKeyDerivationAlgorithmProvider_abi(
 pub struct IKeyDerivationAlgorithmProviderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyDerivationAlgorithmProviderStatics {
     type Vtable = IKeyDerivationAlgorithmProviderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(170002810, 2588, 17467, [148, 24, 185, 73, 138, 235, 22, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a22097a_0a1c_443b_9418_b9498aeb1603);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1717,7 +1717,7 @@ pub struct IKeyDerivationAlgorithmProviderStatics_abi(
 pub struct IKeyDerivationParameters(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyDerivationParameters {
     type Vtable = IKeyDerivationParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2079349095, 1147, 19084, [150, 74, 70, 159, 253, 85, 34, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bf05967_047b_4a8c_964a_469ffd5522e2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1739,7 +1739,7 @@ pub struct IKeyDerivationParameters_abi(
 pub struct IKeyDerivationParameters2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyDerivationParameters2 {
     type Vtable = IKeyDerivationParameters2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3443615441, 16766, 20300, [182, 102, 192, 216, 121, 243, 248, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd4166d1_417e_4f4c_b666_c0d879f3f8e0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1758,7 +1758,7 @@ pub struct IKeyDerivationParameters2_abi(
 pub struct IKeyDerivationParametersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyDerivationParametersStatics {
     type Vtable = IKeyDerivationParametersStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3935707070, 62335, 16710, [157, 254, 164, 86, 241, 115, 95, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea961fbe_f37f_4146_9dfe_a456f1735f4b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1781,7 +1781,7 @@ pub struct IKeyDerivationParametersStatics_abi(
 pub struct IKeyDerivationParametersStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyDerivationParametersStatics2 {
     type Vtable = IKeyDerivationParametersStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2776120789, 22755, 20219, [178, 131, 161, 101, 49, 38, 225, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5783dd5_58e3_4efb_b283_a1653126e1be);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1799,7 +1799,7 @@ pub struct IKeyDerivationParametersStatics2_abi(
 pub struct IMacAlgorithmNamesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMacAlgorithmNamesStatics {
     type Vtable = IMacAlgorithmNamesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1094788728, 64286, 17316, [137, 94, 169, 2, 110, 67, 144, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41412678_fb1e_43a4_895e_a9026e4390a3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1822,7 +1822,7 @@ pub struct IMacAlgorithmNamesStatics_abi(
 pub struct IMacAlgorithmProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMacAlgorithmProvider {
     type Vtable = IMacAlgorithmProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1245693379, 7357, 16846, [160, 146, 170, 11, 197, 210, 210, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a3fc5c3_1cbd_41ce_a092_aa0bc5d2d2f5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1843,7 +1843,7 @@ pub struct IMacAlgorithmProvider_abi(
 pub struct IMacAlgorithmProvider2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMacAlgorithmProvider2 {
     type Vtable = IMacAlgorithmProvider2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1839409685, 55601, 17133, [142, 126, 195, 1, 202, 238, 17, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6da32a15_d931_42ed_8e7e_c301caee119c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1862,7 +1862,7 @@ pub struct IMacAlgorithmProvider2_abi(
 pub struct IMacAlgorithmProviderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMacAlgorithmProviderStatics {
     type Vtable = IMacAlgorithmProviderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3384656199, 52343, 19952, [158, 78, 185, 33, 224, 128, 100, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9bdc147_cc77_4df0_9e4e_b921e080644c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1880,7 +1880,7 @@ pub struct IMacAlgorithmProviderStatics_abi(
 pub struct IPersistedKeyProviderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPersistedKeyProviderStatics {
     type Vtable = IPersistedKeyProviderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1999063060, 55764, 19701, [182, 104, 224, 69, 125, 243, 8, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77274814_d9d4_4cf5_b668_e0457df30894);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1901,7 +1901,7 @@ pub struct IPersistedKeyProviderStatics_abi(
 pub struct ISymmetricAlgorithmNamesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISymmetricAlgorithmNamesStatics {
     type Vtable = ISymmetricAlgorithmNamesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1752199803, 51606, 20142, [132, 215, 121, 178, 174, 183, 59, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6870727b_c996_4eae_84d7_79b2aeb73b9c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1937,7 +1937,7 @@ pub struct ISymmetricAlgorithmNamesStatics_abi(
 pub struct ISymmetricKeyAlgorithmProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISymmetricKeyAlgorithmProvider {
     type Vtable = ISymmetricKeyAlgorithmProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1031686707, 15312, 18690, [138, 200, 71, 13, 80, 210, 19, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d7e4a33_3bd0_4902_8ac8_470d50d21376);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1958,7 +1958,7 @@ pub struct ISymmetricKeyAlgorithmProvider_abi(
 pub struct ISymmetricKeyAlgorithmProviderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISymmetricKeyAlgorithmProviderStatics {
     type Vtable = ISymmetricKeyAlgorithmProviderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2369463078, 7991, 18719, [182, 14, 245, 67, 27, 38, 180, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d3b2326_1f37_491f_b60e_f5431b26b483);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2165,7 +2165,7 @@ unsafe impl ::windows::runtime::RuntimeType for KeyDerivationAlgorithmProvider {
 }
 unsafe impl ::windows::runtime::Interface for KeyDerivationAlgorithmProvider {
     type Vtable = IKeyDerivationAlgorithmProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3791366203, 18033, 17335, [145, 88, 118, 58, 170, 152, 182, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1fba83b_4671_43b7_9158_763aaa98b6bf);
 }
 impl ::windows::runtime::RuntimeName for KeyDerivationAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider";
@@ -2304,7 +2304,7 @@ unsafe impl ::windows::runtime::RuntimeType for KeyDerivationParameters {
 }
 unsafe impl ::windows::runtime::Interface for KeyDerivationParameters {
     type Vtable = IKeyDerivationParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2079349095, 1147, 19084, [150, 74, 70, 159, 253, 85, 34, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bf05967_047b_4a8c_964a_469ffd5522e2);
 }
 impl ::windows::runtime::RuntimeName for KeyDerivationParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.KeyDerivationParameters";
@@ -2460,7 +2460,7 @@ unsafe impl ::windows::runtime::RuntimeType for MacAlgorithmProvider {
 }
 unsafe impl ::windows::runtime::Interface for MacAlgorithmProvider {
     type Vtable = IMacAlgorithmProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1245693379, 7357, 16846, [160, 146, 170, 11, 197, 210, 210, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a3fc5c3_1cbd_41ce_a092_aa0bc5d2d2f5);
 }
 impl ::windows::runtime::RuntimeName for MacAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.MacAlgorithmProvider";
@@ -2725,7 +2725,7 @@ unsafe impl ::windows::runtime::RuntimeType for SymmetricKeyAlgorithmProvider {
 }
 unsafe impl ::windows::runtime::Interface for SymmetricKeyAlgorithmProvider {
     type Vtable = ISymmetricKeyAlgorithmProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1031686707, 15312, 18690, [138, 200, 71, 13, 80, 210, 19, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d7e4a33_3bd0_4902_8ac8_470d50d21376);
 }
 impl ::windows::runtime::RuntimeName for SymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider";

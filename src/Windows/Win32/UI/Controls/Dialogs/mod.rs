@@ -1343,7 +1343,7 @@ impl IPrintDialogCallback {
 }
 unsafe impl ::windows::runtime::Interface for IPrintDialogCallback {
     type Vtable = IPrintDialogCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1481810627, 25904, 4561, [182, 163, 0, 0, 248, 117, 123, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5852a2c3_6530_11d1_b6a3_0000f8757bf9);
 }
 impl ::core::convert::From<IPrintDialogCallback> for ::windows::runtime::IUnknown {
     fn from(value: IPrintDialogCallback) -> Self {
@@ -1399,7 +1399,7 @@ impl IPrintDialogServices {
 }
 unsafe impl ::windows::runtime::Interface for IPrintDialogServices {
     type Vtable = IPrintDialogServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1352314586, 22073, 4561, [182, 161, 0, 0, 248, 117, 123, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x509aaeda_5639_11d1_b6a1_0000f8757bf9);
 }
 impl ::core::convert::From<IPrintDialogServices> for ::windows::runtime::IUnknown {
     fn from(value: IPrintDialogServices) -> Self {

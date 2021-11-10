@@ -117,7 +117,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppDataPaths {
 }
 unsafe impl ::windows::runtime::Interface for AppDataPaths {
     type Vtable = IAppDataPaths_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1929500170, 31138, 18633, [158, 192, 63, 218, 9, 47, 121, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7301d60a_79a2_48c9_9ec0_3fda092f79e1);
 }
 impl ::windows::runtime::RuntimeName for AppDataPaths {
     const NAME: &'static str = "Windows.Storage.AppDataPaths";
@@ -340,7 +340,7 @@ unsafe impl ::windows::runtime::RuntimeType for ApplicationData {
 }
 unsafe impl ::windows::runtime::Interface for ApplicationData {
     type Vtable = IApplicationData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3285872567, 46916, 19269, [176, 184, 34, 58, 9, 56, 208, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3da6fb7_b744_4b45_b0b8_223a0938d0dc);
 }
 impl ::windows::runtime::RuntimeName for ApplicationData {
     const NAME: &'static str = "Windows.Storage.ApplicationData";
@@ -516,7 +516,7 @@ unsafe impl ::windows::runtime::RuntimeType for ApplicationDataCompositeValue {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::runtime::Interface for ApplicationDataCompositeValue {
     type Vtable = super::Foundation::Collections::IPropertySet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2319707551, 62694, 17441, [172, 249, 29, 171, 41, 134, 130, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::runtime::RuntimeName for ApplicationDataCompositeValue {
@@ -756,7 +756,7 @@ unsafe impl ::windows::runtime::RuntimeType for ApplicationDataContainer {
 }
 unsafe impl ::windows::runtime::Interface for ApplicationDataContainer {
     type Vtable = IApplicationDataContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3316579614, 62567, 16570, [133, 102, 171, 100, 10, 68, 30, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5aefd1e_f467_40ba_8566_ab640a441e1d);
 }
 impl ::windows::runtime::RuntimeName for ApplicationDataContainer {
     const NAME: &'static str = "Windows.Storage.ApplicationDataContainer";
@@ -925,7 +925,7 @@ unsafe impl ::windows::runtime::RuntimeType for ApplicationDataContainerSettings
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::runtime::Interface for ApplicationDataContainerSettings {
     type Vtable = super::Foundation::Collections::IPropertySet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2319707551, 62694, 17441, [172, 249, 29, 171, 41, 134, 130, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::runtime::RuntimeName for ApplicationDataContainerSettings {
@@ -1172,7 +1172,7 @@ unsafe impl ::windows::runtime::RuntimeType for ApplicationDataSetVersionHandler
 }
 unsafe impl ::windows::runtime::Interface for ApplicationDataSetVersionHandler {
     type Vtable = ApplicationDataSetVersionHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2690093542, 52383, 18055, [172, 171, 163, 100, 253, 120, 84, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa05791e6_cc9f_4687_acab_a364fd785463);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1559,7 +1559,7 @@ impl ::windows::runtime::RuntimeName for FileIO {
 pub struct IAppDataPaths(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppDataPaths {
     type Vtable = IAppDataPaths_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1929500170, 31138, 18633, [158, 192, 63, 218, 9, 47, 121, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7301d60a_79a2_48c9_9ec0_3fda092f79e1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1585,7 +1585,7 @@ pub struct IAppDataPaths_abi(
 pub struct IAppDataPathsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppDataPathsStatics {
     type Vtable = IAppDataPathsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3639290622, 43481, 19220, [185, 153, 227, 146, 19, 121, 217, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8eb2afe_a9d9_4b14_b999_e3921379d903);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1605,7 +1605,7 @@ pub struct IAppDataPathsStatics_abi(
 pub struct IApplicationData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationData {
     type Vtable = IApplicationData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3285872567, 46916, 19269, [176, 184, 34, 58, 9, 56, 208, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3da6fb7_b744_4b45_b0b8_223a0938d0dc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1640,7 +1640,7 @@ pub struct IApplicationData_abi(
 pub struct IApplicationData2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationData2 {
     type Vtable = IApplicationData2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2657471849, 2979, 20018, [190, 41, 176, 45, 230, 96, 118, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e65cd69_0ba3_4e32_be29_b02de6607638);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1658,7 +1658,7 @@ pub struct IApplicationData2_abi(
 pub struct IApplicationData3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationData3 {
     type Vtable = IApplicationData3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3693227252, 10098, 19485, [170, 44, 201, 247, 67, 173, 232, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc222cf4_2772_4c1d_aa2c_c9f743ade8d1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1679,7 +1679,7 @@ pub struct IApplicationData3_abi(
 pub struct IApplicationDataContainer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationDataContainer {
     type Vtable = IApplicationDataContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3316579614, 62567, 16570, [133, 102, 171, 100, 10, 68, 30, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5aefd1e_f467_40ba_8566_ab640a441e1d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1704,7 +1704,7 @@ pub struct IApplicationDataContainer_abi(
 pub struct IApplicationDataStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationDataStatics {
     type Vtable = IApplicationDataStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1444025467, 59459, 17891, [148, 216, 6, 22, 158, 60, 142, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5612147b_e843_45e3_94d8_06169e3c8e17);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1722,7 +1722,7 @@ pub struct IApplicationDataStatics_abi(
 pub struct IApplicationDataStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationDataStatics2 {
     type Vtable = IApplicationDataStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3445645841, 53065, 16548, [164, 124, 199, 240, 219, 186, 129, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd606211_cf49_40a4_a47c_c7f0dbba8107);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1741,7 +1741,7 @@ pub struct IApplicationDataStatics2_abi(
 pub struct ICachedFileManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICachedFileManagerStatics {
     type Vtable = ICachedFileManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2415665738, 59266, 18781, [182, 20, 101, 76, 79, 11, 35, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ffc224a_e782_495d_b614_654c4f0b2370);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1761,7 +1761,7 @@ pub struct ICachedFileManagerStatics_abi(
 pub struct IDownloadsFolderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDownloadsFolderStatics {
     type Vtable = IDownloadsFolderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(663105232, 16462, 18399, [161, 226, 227, 115, 8, 190, 123, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27862ed0_404e_47df_a1e2_e37308be7b37);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1786,7 +1786,7 @@ pub struct IDownloadsFolderStatics_abi(
 pub struct IDownloadsFolderStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDownloadsFolderStatics2 {
     type Vtable = IDownloadsFolderStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3912254909, 36600, 20366, [141, 21, 172, 14, 38, 95, 57, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe93045bd_8ef8_4f8e_8d15_ac0e265f390d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1811,7 +1811,7 @@ pub struct IDownloadsFolderStatics2_abi(
 pub struct IFileIOStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileIOStatics {
     type Vtable = IFileIOStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2289308139, 32596, 18226, [165, 240, 94, 67, 227, 184, 194, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x887411eb_7f54_4732_a5f0_5e43e3b8c2f5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1858,7 +1858,7 @@ pub struct IFileIOStatics_abi(
 pub struct IKnownFoldersCameraRollStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownFoldersCameraRollStatics {
     type Vtable = IKnownFoldersCameraRollStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1561419366, 10216, 18735, [184, 229, 47, 144, 137, 108, 212, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d115e66_27e8_492f_b8e5_2f90896cd4cd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1876,7 +1876,7 @@ pub struct IKnownFoldersCameraRollStatics_abi(
 pub struct IKnownFoldersPlaylistsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownFoldersPlaylistsStatics {
     type Vtable = IKnownFoldersPlaylistsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3671452886, 12399, 19818, [180, 150, 70, 186, 142, 177, 6, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdad5ecd6_306f_4d6a_b496_46ba8eb106ce);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1894,7 +1894,7 @@ pub struct IKnownFoldersPlaylistsStatics_abi(
 pub struct IKnownFoldersSavedPicturesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownFoldersSavedPicturesStatics {
     type Vtable = IKnownFoldersSavedPicturesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(89953258, 9533, 18044, [182, 202, 169, 125, 161, 233, 161, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x055c93ea_253d_467c_b6ca_a97da1e9a18d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1912,7 +1912,7 @@ pub struct IKnownFoldersSavedPicturesStatics_abi(
 pub struct IKnownFoldersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownFoldersStatics {
     type Vtable = IKnownFoldersStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1512731936, 18434, 17709, [154, 217, 67, 81, 173, 167, 236, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a2a7520_4802_452d_9ad9_4351ada7ec35);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1936,7 +1936,7 @@ pub struct IKnownFoldersStatics_abi(
 pub struct IKnownFoldersStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownFoldersStatics2 {
     type Vtable = IKnownFoldersStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(424399053, 53102, 19719, [157, 83, 233, 22, 58, 37, 54, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x194bd0cd_cf6e_4d07_9d53_e9163a2536e9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1956,7 +1956,7 @@ pub struct IKnownFoldersStatics2_abi(
 pub struct IKnownFoldersStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownFoldersStatics3 {
     type Vtable = IKnownFoldersStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3306767169, 38722, 20181, [130, 61, 252, 20, 1, 20, 135, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5194341_9742_4ed5_823d_fc1401148764);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1975,7 +1975,7 @@ pub struct IKnownFoldersStatics3_abi(
 pub struct IKnownFoldersStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownFoldersStatics4 {
     type Vtable = IKnownFoldersStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(388163263, 40953, 19233, [190, 213, 144, 236, 177, 58, 25, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1722e6bf_9ff9_4b21_bed5_90ecb13a192e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1998,7 +1998,7 @@ pub struct IKnownFoldersStatics4_abi(
 pub struct IPathIOStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPathIOStatics {
     type Vtable = IPathIOStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(254752600, 36551, 17281, [146, 43, 143, 108, 7, 210, 136, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f2f3758_8ec7_4381_922b_8f6c07d288f3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2045,7 +2045,7 @@ pub struct IPathIOStatics_abi(
 pub struct ISetVersionDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISetVersionDeferral {
     type Vtable = ISetVersionDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(53807266, 30746, 17274, [176, 120, 63, 50, 186, 220, 254, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x033508a2_781a_437a_b078_3f32badcfe47);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2063,7 +2063,7 @@ pub struct ISetVersionDeferral_abi(
 pub struct ISetVersionRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISetVersionRequest {
     type Vtable = ISetVersionRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3116854171, 4182, 20073, [131, 48, 22, 38, 25, 149, 111, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9c76b9b_1056_4e69_8330_162619956f9b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2084,7 +2084,7 @@ pub struct ISetVersionRequest_abi(
 pub struct IStorageFile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFile {
     type Vtable = IStorageFile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4198457734, 16916, 17036, [166, 76, 20, 201, 172, 115, 21, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa3f6186_4214_428c_a64c_14c9ac7315ea);
 }
 impl IStorageFile {
     #[doc = "*Required features: `Storage`*"]
@@ -2453,7 +2453,7 @@ pub struct IStorageFile_abi(
 pub struct IStorageFile2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFile2 {
     type Vtable = IStorageFile2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2504936399, 2679, 17147, [183, 119, 194, 237, 88, 165, 46, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x954e4bcf_0a77_42fb_b777_c2ed58a52e44);
 }
 impl IStorageFile2 {
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -2538,7 +2538,7 @@ pub struct IStorageFile2_abi(
 pub struct IStorageFilePropertiesWithAvailability(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFilePropertiesWithAvailability {
     type Vtable = IStorageFilePropertiesWithAvailability_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2949365403, 22571, 16691, [150, 72, 228, 76, 164, 110, 228, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xafcbbe9b_582b_4133_9648_e44ca46ee491);
 }
 impl IStorageFilePropertiesWithAvailability {
     #[doc = "*Required features: `Storage`*"]
@@ -2609,7 +2609,7 @@ pub struct IStorageFilePropertiesWithAvailability_abi(
 pub struct IStorageFileStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFileStatics {
     type Vtable = IStorageFileStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1501873936, 56050, 17352, [139, 180, 164, 211, 234, 207, 208, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5984c710_daf2_43c8_8bb4_a4d3eacfd03f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2638,7 +2638,7 @@ pub struct IStorageFileStatics_abi(
 pub struct IStorageFileStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFileStatics2 {
     type Vtable = IStorageFileStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1551280001, 8494, 19193, [143, 4, 116, 12, 174, 16, 137, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c76a781_212e_4af9_8f04_740cae108974);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2658,7 +2658,7 @@ pub struct IStorageFileStatics2_abi(
 pub struct IStorageFolder(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFolder {
     type Vtable = IStorageFolder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1926351736, 46063, 20341, [168, 11, 111, 217, 218, 226, 148, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72d1cb78_b3ef_4f75_a80b_6fd9dae2944b);
 }
 impl IStorageFolder {
     #[cfg(feature = "Foundation")]
@@ -2939,7 +2939,7 @@ pub struct IStorageFolder_abi(
 pub struct IStorageFolder2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFolder2 {
     type Vtable = IStorageFolder2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3894929593, 2265, 19086, [160, 172, 254, 94, 211, 203, 187, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe827e8b9_08d9_4a8e_a0ac_fe5ed3cbbbd3);
 }
 impl IStorageFolder2 {
     #[cfg(feature = "Foundation")]
@@ -3012,7 +3012,7 @@ pub struct IStorageFolder2_abi(
 pub struct IStorageFolder3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFolder3 {
     type Vtable = IStorageFolder3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2673965209, 48609, 16676, [174, 179, 176, 106, 217, 111, 152, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f617899_bde1_4124_aeb3_b06ad96f98d4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3030,7 +3030,7 @@ pub struct IStorageFolder3_abi(
 pub struct IStorageFolderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFolderStatics {
     type Vtable = IStorageFolderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(150153215, 34261, 18617, [174, 233, 40, 81, 30, 51, 159, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08f327ff_85d5_48b9_aee9_28511e339f9f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3049,7 +3049,7 @@ pub struct IStorageFolderStatics_abi(
 pub struct IStorageFolderStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFolderStatics2 {
     type Vtable = IStorageFolderStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3026546115, 29138, 18045, [139, 41, 55, 31, 15, 98, 191, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4656dc3_71d2_467d_8b29_371f0f62bf6f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3069,7 +3069,7 @@ pub struct IStorageFolderStatics2_abi(
 pub struct IStorageItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageItem {
     type Vtable = IStorageItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1107798422, 51759, 17143, [189, 232, 139, 16, 69, 122, 127, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4207a996_ca2f_42f7_bde8_8b10457a7f30);
 }
 impl IStorageItem {
     #[cfg(feature = "Foundation")]
@@ -3234,7 +3234,7 @@ pub struct IStorageItem_abi(
 pub struct IStorageItem2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageItem2 {
     type Vtable = IStorageItem2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408837330, 2108, 17027, [180, 91, 129, 192, 7, 35, 126, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f926d2_083c_4283_b45b_81c007237e44);
 }
 impl IStorageItem2 {
     #[cfg(feature = "Foundation")]
@@ -3425,7 +3425,7 @@ pub struct IStorageItem2_abi(
 pub struct IStorageItemProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageItemProperties {
     type Vtable = IStorageItemProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2254849144, 32809, 18174, [167, 137, 28, 47, 62, 47, 251, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86664478_8029_46fe_a789_1c2f3e2ffb5c);
 }
 impl IStorageItemProperties {
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
@@ -3559,7 +3559,7 @@ pub struct IStorageItemProperties_abi(
 pub struct IStorageItemProperties2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageItemProperties2 {
     type Vtable = IStorageItemProperties2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2391189841, 1209, 19410, [146, 157, 254, 243, 247, 22, 33, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e86a951_04b9_4bd2_929d_fef3f71621d0);
 }
 impl IStorageItemProperties2 {
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
@@ -3737,7 +3737,7 @@ pub struct IStorageItemProperties2_abi(
 pub struct IStorageItemPropertiesWithProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageItemPropertiesWithProvider {
     type Vtable = IStorageItemPropertiesWithProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2249978779, 25448, 19950, [180, 14, 116, 104, 74, 92, 231, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x861bf39b_6368_4dee_b40e_74684a5ce714);
 }
 impl IStorageItemPropertiesWithProvider {
     #[doc = "*Required features: `Storage`*"]
@@ -3890,7 +3890,7 @@ pub struct IStorageItemPropertiesWithProvider_abi(
 pub struct IStorageLibrary(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibrary {
     type Vtable = IStorageLibrary_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(517828867, 3678, 19820, [181, 232, 147, 24, 152, 61, 106, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1edd7103_0e5e_4d6c_b5e8_9318983d6a03);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3918,7 +3918,7 @@ pub struct IStorageLibrary_abi(
 pub struct IStorageLibrary2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibrary2 {
     type Vtable = IStorageLibrary2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1527571272, 64691, 16433, [175, 176, 166, 141, 123, 212, 69, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b0ce348_fcb3_4031_afb0_a68d7bd44534);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3936,7 +3936,7 @@ pub struct IStorageLibrary2_abi(
 pub struct IStorageLibrary3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibrary3 {
     type Vtable = IStorageLibrary3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2317882001, 8532, 16897, [129, 19, 210, 192, 92, 225, 173, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a281291_2154_4201_8113_d2c05ce1ad23);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3955,7 +3955,7 @@ pub struct IStorageLibrary3_abi(
 pub struct IStorageLibraryChange(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryChange {
     type Vtable = IStorageLibraryChange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(9964323, 11234, 18697, [170, 72, 21, 159, 82, 3, 165, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00980b23_2be2_4909_aa48_159f5203a51e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3978,7 +3978,7 @@ pub struct IStorageLibraryChange_abi(
 pub struct IStorageLibraryChangeReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryChangeReader {
     type Vtable = IStorageLibraryChangeReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4060462211, 64674, 16889, [137, 84, 238, 46, 153, 30, 185, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf205bc83_fca2_41f9_8954_ee2e991eb96f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3999,7 +3999,7 @@ pub struct IStorageLibraryChangeReader_abi(
 pub struct IStorageLibraryChangeReader2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryChangeReader2 {
     type Vtable = IStorageLibraryChangeReader2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2884929163, 64460, 19023, [153, 158, 231, 171, 124, 100, 109, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xabf4868b_fbcc_4a4f_999e_e7ab7c646dbe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4017,7 +4017,7 @@ pub struct IStorageLibraryChangeReader2_abi(
 pub struct IStorageLibraryChangeTracker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryChangeTracker {
     type Vtable = IStorageLibraryChangeTracker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2652205846, 24691, 17654, [150, 129, 116, 146, 209, 40, 108, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e157316_6073_44f6_9681_7492d1286c90);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4037,7 +4037,7 @@ pub struct IStorageLibraryChangeTracker_abi(
 pub struct IStorageLibraryChangeTracker2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryChangeTracker2 {
     type Vtable = IStorageLibraryChangeTracker2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3439664187, 3999, 17145, [143, 179, 21, 141, 130, 225, 56, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd051c3b_0f9f_42f9_8fb3_158d82e13821);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4056,7 +4056,7 @@ pub struct IStorageLibraryChangeTracker2_abi(
 pub struct IStorageLibraryChangeTrackerOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryChangeTrackerOptions {
     type Vtable = IStorageLibraryChangeTrackerOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3142761684, 6765, 22976, [173, 42, 130, 58, 32, 83, 36, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb52bcd4_1a6d_59c0_ad2a_823a20532483);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4075,7 +4075,7 @@ pub struct IStorageLibraryChangeTrackerOptions_abi(
 pub struct IStorageLibraryLastChangeId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryLastChangeId {
     type Vtable = IStorageLibraryLastChangeId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1384219242, 48097, 21436, [130, 202, 129, 204, 127, 3, 147, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5281826a_bbe1_53bc_82ca_81cc7f039329);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4092,7 +4092,7 @@ pub struct IStorageLibraryLastChangeId_abi(
 pub struct IStorageLibraryLastChangeIdStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryLastChangeIdStatics {
     type Vtable = IStorageLibraryLastChangeIdStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2175045928, 11427, 21257, [176, 209, 207, 7, 136, 228, 7, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81a49128_2ca3_5309_b0d1_cf0788e40762);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4110,7 +4110,7 @@ pub struct IStorageLibraryLastChangeIdStatics_abi(
 pub struct IStorageLibraryStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryStatics {
     type Vtable = IStorageLibraryStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1107863259, 26698, 18886, [158, 89, 144, 18, 30, 224, 80, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4208a6db_684a_49c6_9e59_90121ee050d6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4129,7 +4129,7 @@ pub struct IStorageLibraryStatics_abi(
 pub struct IStorageLibraryStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryStatics2 {
     type Vtable = IStorageLibraryStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4289760732, 64117, 18069, [185, 209, 127, 129, 249, 120, 50, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffb08ddc_fa75_4695_b9d1_7f81f97832e3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4148,7 +4148,7 @@ pub struct IStorageLibraryStatics2_abi(
 pub struct IStorageProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProvider {
     type Vtable = IStorageProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3875925716, 54392, 18390, [186, 70, 26, 142, 190, 17, 74, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe705eed4_d478_47d6_ba46_1a8ebe114a20);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4167,7 +4167,7 @@ pub struct IStorageProvider_abi(
 pub struct IStorageProvider2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProvider2 {
     type Vtable = IStorageProvider2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(17635607, 13316, 16715, [159, 215, 205, 68, 71, 46, 170, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x010d1917_3404_414b_9fd7_cd44472eaa39);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4186,7 +4186,7 @@ pub struct IStorageProvider2_abi(
 pub struct IStorageStreamTransaction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageStreamTransaction {
     type Vtable = IStorageStreamTransaction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4135383907, 42301, 19860, [174, 44, 103, 35, 45, 147, 172, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf67cf363_a53d_4d94_ae2c_67232d93acdd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4208,7 +4208,7 @@ pub struct IStorageStreamTransaction_abi(
 pub struct IStreamedFileDataRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamedFileDataRequest {
     type Vtable = IStreamedFileDataRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(376700110, 55997, 19792, [190, 238, 24, 11, 138, 129, 145, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1673fcce_dabd_4d50_beee_180b8a8191b6);
 }
 impl IStreamedFileDataRequest {
     #[doc = "*Required features: `Storage`*"]
@@ -4276,7 +4276,7 @@ pub struct IStreamedFileDataRequest_abi(
 pub struct ISystemAudioProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemAudioProperties {
     type Vtable = ISystemAudioProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1066350775, 12428, 18401, [146, 77, 134, 69, 52, 142, 93, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f8f38b7_308c_47e1_924d_8645348e5db7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4294,7 +4294,7 @@ pub struct ISystemAudioProperties_abi(
 pub struct ISystemDataPaths(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemDataPaths {
     type Vtable = ISystemDataPaths_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3811229552, 55546, 17900, [169, 66, 210, 226, 111, 182, 11, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe32abf70_d8fa_45ec_a942_d2e26fb60ba5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4327,7 +4327,7 @@ pub struct ISystemDataPaths_abi(
 pub struct ISystemDataPathsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemDataPathsStatics {
     type Vtable = ISystemDataPathsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3774443472, 39200, 19402, [179, 121, 249, 111, 223, 124, 170, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0f96fd0_9920_4bca_b379_f96fdf7caad8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4345,7 +4345,7 @@ pub struct ISystemDataPathsStatics_abi(
 pub struct ISystemGPSProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemGPSProperties {
     type Vtable = ISystemGPSProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3237244596, 49524, 18458, [188, 37, 146, 25, 134, 246, 166, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0f46eb4_c174_481a_bc25_921986f6a6f3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4364,7 +4364,7 @@ pub struct ISystemGPSProperties_abi(
 pub struct ISystemImageProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemImageProperties {
     type Vtable = ISystemImageProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(18558512, 35641, 17160, [190, 161, 232, 170, 97, 228, 120, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x011b2e30_8b39_4308_bea1_e8aa61e47826);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4383,7 +4383,7 @@ pub struct ISystemImageProperties_abi(
 pub struct ISystemMediaProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemMediaProperties {
     type Vtable = ISystemMediaProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2754294550, 33813, 16604, [140, 68, 152, 54, 29, 35, 84, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa42b3316_8415_40dc_8c44_98361d235430);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4406,7 +4406,7 @@ pub struct ISystemMediaProperties_abi(
 pub struct ISystemMusicProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemMusicProperties {
     type Vtable = ISystemMusicProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3027863765, 26543, 19395, [141, 57, 91, 137, 2, 32, 38, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb47988d5_67af_4bc3_8d39_5b89022026a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4431,7 +4431,7 @@ pub struct ISystemMusicProperties_abi(
 pub struct ISystemPhotoProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemPhotoProperties {
     type Vtable = ISystemPhotoProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1194654781, 43809, 17444, [183, 53, 244, 53, 58, 86, 200, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4734fc3d_ab21_4424_b735_f4353a56c8fc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4453,7 +4453,7 @@ pub struct ISystemPhotoProperties_abi(
 pub struct ISystemProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemProperties {
     type Vtable = ISystemProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2440720833, 34291, 19921, [176, 1, 165, 11, 253, 33, 200, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x917a71c1_85f3_4dd1_b001_a50bfd21c8d2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4483,7 +4483,7 @@ pub struct ISystemProperties_abi(
 pub struct ISystemVideoProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemVideoProperties {
     type Vtable = ISystemVideoProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(541128469, 26616, 17186, [155, 128, 79, 169, 254, 251, 131, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2040f715_67f8_4322_9b80_4fa9fefb83e8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4505,7 +4505,7 @@ pub struct ISystemVideoProperties_abi(
 pub struct IUserDataPaths(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataPaths {
     type Vtable = IUserDataPaths_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4190451986, 43972, 18175, [138, 43, 220, 157, 127, 166, 229, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9c53912_abc4_46ff_8a2b_dc9d7fa6e52f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4541,7 +4541,7 @@ pub struct IUserDataPaths_abi(
 pub struct IUserDataPathsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataPathsStatics {
     type Vtable = IUserDataPathsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(28483055, 57442, 18593, [139, 12, 242, 199, 169, 202, 86, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01b29def_e062_48a1_8b0c_f2c7a9ca56c0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4971,7 +4971,7 @@ unsafe impl ::windows::runtime::RuntimeType for SetVersionDeferral {
 }
 unsafe impl ::windows::runtime::Interface for SetVersionDeferral {
     type Vtable = ISetVersionDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(53807266, 30746, 17274, [176, 120, 63, 50, 186, 220, 254, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x033508a2_781a_437a_b078_3f32badcfe47);
 }
 impl ::windows::runtime::RuntimeName for SetVersionDeferral {
     const NAME: &'static str = "Windows.Storage.SetVersionDeferral";
@@ -5053,7 +5053,7 @@ unsafe impl ::windows::runtime::RuntimeType for SetVersionRequest {
 }
 unsafe impl ::windows::runtime::Interface for SetVersionRequest {
     type Vtable = ISetVersionRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3116854171, 4182, 20073, [131, 48, 22, 38, 25, 149, 111, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9c76b9b_1056_4e69_8330_162619956f9b);
 }
 impl ::windows::runtime::RuntimeName for SetVersionRequest {
     const NAME: &'static str = "Windows.Storage.SetVersionRequest";
@@ -5545,7 +5545,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageFile {
 }
 unsafe impl ::windows::runtime::Interface for StorageFile {
     type Vtable = IStorageFile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4198457734, 16916, 17036, [166, 76, 20, 201, 172, 115, 21, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa3f6186_4214_428c_a64c_14c9ac7315ea);
 }
 impl ::windows::runtime::RuntimeName for StorageFile {
     const NAME: &'static str = "Windows.Storage.StorageFile";
@@ -6309,7 +6309,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageFolder {
 }
 unsafe impl ::windows::runtime::Interface for StorageFolder {
     type Vtable = IStorageFolder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1926351736, 46063, 20341, [168, 11, 111, 217, 218, 226, 148, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72d1cb78_b3ef_4f75_a80b_6fd9dae2944b);
 }
 impl ::windows::runtime::RuntimeName for StorageFolder {
     const NAME: &'static str = "Windows.Storage.StorageFolder";
@@ -6685,7 +6685,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageLibrary {
 }
 unsafe impl ::windows::runtime::Interface for StorageLibrary {
     type Vtable = IStorageLibrary_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(517828867, 3678, 19820, [181, 232, 147, 24, 152, 61, 106, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1edd7103_0e5e_4d6c_b5e8_9318983d6a03);
 }
 impl ::windows::runtime::RuntimeName for StorageLibrary {
     const NAME: &'static str = "Windows.Storage.StorageLibrary";
@@ -6782,7 +6782,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageLibraryChange {
 }
 unsafe impl ::windows::runtime::Interface for StorageLibraryChange {
     type Vtable = IStorageLibraryChange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(9964323, 11234, 18697, [170, 72, 21, 159, 82, 3, 165, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00980b23_2be2_4909_aa48_159f5203a51e);
 }
 impl ::windows::runtime::RuntimeName for StorageLibraryChange {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChange";
@@ -6866,7 +6866,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageLibraryChangeReader {
 }
 unsafe impl ::windows::runtime::Interface for StorageLibraryChangeReader {
     type Vtable = IStorageLibraryChangeReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4060462211, 64674, 16889, [137, 84, 238, 46, 153, 30, 185, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf205bc83_fca2_41f9_8954_ee2e991eb96f);
 }
 impl ::windows::runtime::RuntimeName for StorageLibraryChangeReader {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChangeReader";
@@ -6952,7 +6952,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageLibraryChangeTracker {
 }
 unsafe impl ::windows::runtime::Interface for StorageLibraryChangeTracker {
     type Vtable = IStorageLibraryChangeTracker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2652205846, 24691, 17654, [150, 129, 116, 146, 209, 40, 108, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e157316_6073_44f6_9681_7492d1286c90);
 }
 impl ::windows::runtime::RuntimeName for StorageLibraryChangeTracker {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChangeTracker";
@@ -7030,7 +7030,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageLibraryChangeTrackerOptio
 }
 unsafe impl ::windows::runtime::Interface for StorageLibraryChangeTrackerOptions {
     type Vtable = IStorageLibraryChangeTrackerOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3142761684, 6765, 22976, [173, 42, 130, 58, 32, 83, 36, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb52bcd4_1a6d_59c0_ad2a_823a20532483);
 }
 impl ::windows::runtime::RuntimeName for StorageLibraryChangeTrackerOptions {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChangeTrackerOptions";
@@ -7129,7 +7129,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageLibraryLastChangeId {
 }
 unsafe impl ::windows::runtime::Interface for StorageLibraryLastChangeId {
     type Vtable = IStorageLibraryLastChangeId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1384219242, 48097, 21436, [130, 202, 129, 204, 127, 3, 147, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5281826a_bbe1_53bc_82ca_81cc7f039329);
 }
 impl ::windows::runtime::RuntimeName for StorageLibraryLastChangeId {
     const NAME: &'static str = "Windows.Storage.StorageLibraryLastChangeId";
@@ -7263,7 +7263,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageProvider {
 }
 unsafe impl ::windows::runtime::Interface for StorageProvider {
     type Vtable = IStorageProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3875925716, 54392, 18390, [186, 70, 26, 142, 190, 17, 74, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe705eed4_d478_47d6_ba46_1a8ebe114a20);
 }
 impl ::windows::runtime::RuntimeName for StorageProvider {
     const NAME: &'static str = "Windows.Storage.StorageProvider";
@@ -7343,7 +7343,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageStreamTransaction {
 }
 unsafe impl ::windows::runtime::Interface for StorageStreamTransaction {
     type Vtable = IStorageStreamTransaction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4135383907, 42301, 19860, [174, 44, 103, 35, 45, 147, 172, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf67cf363_a53d_4d94_ae2c_67232d93acdd);
 }
 impl ::windows::runtime::RuntimeName for StorageStreamTransaction {
     const NAME: &'static str = "Windows.Storage.StorageStreamTransaction";
@@ -7458,7 +7458,7 @@ unsafe impl ::windows::runtime::RuntimeType for StreamedFileDataRequest {
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::runtime::Interface for StreamedFileDataRequest {
     type Vtable = Streams::IOutputStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421821414, 48211, 4575, [140, 73, 0, 30, 79, 198, 134, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x905a0fe6_bc53_11df_8c49_001e4fc686da);
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::runtime::RuntimeName for StreamedFileDataRequest {
@@ -7617,7 +7617,7 @@ unsafe impl ::windows::runtime::RuntimeType for StreamedFileDataRequestedHandler
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::runtime::Interface for StreamedFileDataRequestedHandler {
     type Vtable = StreamedFileDataRequestedHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4277577764, 12257, 19719, [163, 91, 183, 124, 80, 181, 244, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfef6a824_2fe1_4d07_a35b_b77c50b5f4cc);
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(C)]
@@ -7711,7 +7711,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemAudioProperties {
 }
 unsafe impl ::windows::runtime::Interface for SystemAudioProperties {
     type Vtable = ISystemAudioProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1066350775, 12428, 18401, [146, 77, 134, 69, 52, 142, 93, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f8f38b7_308c_47e1_924d_8645348e5db7);
 }
 impl ::windows::runtime::RuntimeName for SystemAudioProperties {
     const NAME: &'static str = "Windows.Storage.SystemAudioProperties";
@@ -7908,7 +7908,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemDataPaths {
 }
 unsafe impl ::windows::runtime::Interface for SystemDataPaths {
     type Vtable = ISystemDataPaths_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3811229552, 55546, 17900, [169, 66, 210, 226, 111, 182, 11, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe32abf70_d8fa_45ec_a942_d2e26fb60ba5);
 }
 impl ::windows::runtime::RuntimeName for SystemDataPaths {
     const NAME: &'static str = "Windows.Storage.SystemDataPaths";
@@ -7982,7 +7982,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemGPSProperties {
 }
 unsafe impl ::windows::runtime::Interface for SystemGPSProperties {
     type Vtable = ISystemGPSProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3237244596, 49524, 18458, [188, 37, 146, 25, 134, 246, 166, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0f46eb4_c174_481a_bc25_921986f6a6f3);
 }
 impl ::windows::runtime::RuntimeName for SystemGPSProperties {
     const NAME: &'static str = "Windows.Storage.SystemGPSProperties";
@@ -8056,7 +8056,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemImageProperties {
 }
 unsafe impl ::windows::runtime::Interface for SystemImageProperties {
     type Vtable = ISystemImageProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(18558512, 35641, 17160, [190, 161, 232, 170, 97, 228, 120, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x011b2e30_8b39_4308_bea1_e8aa61e47826);
 }
 impl ::windows::runtime::RuntimeName for SystemImageProperties {
     const NAME: &'static str = "Windows.Storage.SystemImageProperties";
@@ -8162,7 +8162,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemMediaProperties {
 }
 unsafe impl ::windows::runtime::Interface for SystemMediaProperties {
     type Vtable = ISystemMediaProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2754294550, 33813, 16604, [140, 68, 152, 54, 29, 35, 84, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa42b3316_8415_40dc_8c44_98361d235430);
 }
 impl ::windows::runtime::RuntimeName for SystemMediaProperties {
     const NAME: &'static str = "Windows.Storage.SystemMediaProperties";
@@ -8284,7 +8284,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemMusicProperties {
 }
 unsafe impl ::windows::runtime::Interface for SystemMusicProperties {
     type Vtable = ISystemMusicProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3027863765, 26543, 19395, [141, 57, 91, 137, 2, 32, 38, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb47988d5_67af_4bc3_8d39_5b89022026a1);
 }
 impl ::windows::runtime::RuntimeName for SystemMusicProperties {
     const NAME: &'static str = "Windows.Storage.SystemMusicProperties";
@@ -8382,7 +8382,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemPhotoProperties {
 }
 unsafe impl ::windows::runtime::Interface for SystemPhotoProperties {
     type Vtable = ISystemPhotoProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1194654781, 43809, 17444, [183, 53, 244, 53, 58, 86, 200, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4734fc3d_ab21_4424_b735_f4353a56c8fc);
 }
 impl ::windows::runtime::RuntimeName for SystemPhotoProperties {
     const NAME: &'static str = "Windows.Storage.SystemPhotoProperties";
@@ -8582,7 +8582,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemVideoProperties {
 }
 unsafe impl ::windows::runtime::Interface for SystemVideoProperties {
     type Vtable = ISystemVideoProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(541128469, 26616, 17186, [155, 128, 79, 169, 254, 251, 131, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2040f715_67f8_4322_9b80_4fa9fefb83e8);
 }
 impl ::windows::runtime::RuntimeName for SystemVideoProperties {
     const NAME: &'static str = "Windows.Storage.SystemVideoProperties";
@@ -8811,7 +8811,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataPaths {
 }
 unsafe impl ::windows::runtime::Interface for UserDataPaths {
     type Vtable = IUserDataPaths_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4190451986, 43972, 18175, [138, 43, 220, 157, 127, 166, 229, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9c53912_abc4_46ff_8a2b_dc9d7fa6e52f);
 }
 impl ::windows::runtime::RuntimeName for UserDataPaths {
     const NAME: &'static str = "Windows.Storage.UserDataPaths";

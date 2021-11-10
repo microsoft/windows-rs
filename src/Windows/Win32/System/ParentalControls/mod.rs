@@ -33,7 +33,7 @@ impl IWPCGamesSettings {
 }
 unsafe impl ::windows::runtime::Interface for IWPCGamesSettings {
     type Vtable = IWPCGamesSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2515040128, 57688, 18590, [180, 82, 187, 184, 80, 121, 7, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95e87780_e158_489e_b452_bbb850790715);
 }
 impl ::core::convert::From<IWPCGamesSettings> for ::windows::runtime::IUnknown {
     fn from(value: IWPCGamesSettings) -> Self {
@@ -112,7 +112,7 @@ impl IWPCProviderConfig {
 }
 unsafe impl ::windows::runtime::Interface for IWPCProviderConfig {
     type Vtable = IWPCProviderConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3203744150, 11522, 18982, [182, 229, 214, 90, 242, 149, 208, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbef54196_2d02_4a26_b6e5_d65af295d0f1);
 }
 impl ::core::convert::From<IWPCProviderConfig> for ::windows::runtime::IUnknown {
     fn from(value: IWPCProviderConfig) -> Self {
@@ -163,7 +163,7 @@ impl IWPCProviderState {
 }
 unsafe impl ::windows::runtime::Interface for IWPCProviderState {
     type Vtable = IWPCProviderState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1354146407, 50365, 17675, [173, 181, 117, 144, 115, 131, 124, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50b6a267_c4bd_450b_adb5_759073837c9e);
 }
 impl ::core::convert::From<IWPCProviderState> for ::windows::runtime::IUnknown {
     fn from(value: IWPCProviderState) -> Self {
@@ -207,7 +207,7 @@ impl IWPCProviderSupport {
 }
 unsafe impl ::windows::runtime::Interface for IWPCProviderSupport {
     type Vtable = IWPCProviderSupport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1105962354, 9197, 18297, [190, 193, 141, 249, 98, 6, 196, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41eba572_23ed_4779_bec1_8df96206c44c);
 }
 impl ::core::convert::From<IWPCProviderSupport> for ::windows::runtime::IUnknown {
     fn from(value: IWPCProviderSupport) -> Self {
@@ -262,7 +262,7 @@ impl IWPCSettings {
 }
 unsafe impl ::windows::runtime::Interface for IWPCSettings {
     type Vtable = IWPCSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2413784225, 393, 18404, [182, 112, 26, 138, 70, 54, 227, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fdf6ca1_0189_47e4_b670_1a8a4636e340);
 }
 impl ::core::convert::From<IWPCSettings> for ::windows::runtime::IUnknown {
     fn from(value: IWPCSettings) -> Self {
@@ -332,7 +332,7 @@ impl IWPCWebSettings {
 }
 unsafe impl ::windows::runtime::Interface for IWPCWebSettings {
     type Vtable = IWPCWebSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4291607992, 2450, 19504, [176, 241, 28, 187, 9, 194, 64, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffccbdb8_0992_4c30_b0f1_1cbb09c240aa);
 }
 impl ::core::convert::From<IWPCWebSettings> for ::windows::runtime::IUnknown {
     fn from(value: IWPCWebSettings) -> Self {
@@ -425,7 +425,7 @@ impl IWindowsParentalControls {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsParentalControls {
     type Vtable = IWindowsParentalControls_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(682940555, 57458, 18918, [128, 77, 38, 237, 190, 33, 167, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28b4d88b_e072_49e6_804d_26edbe21a7b9);
 }
 impl ::core::convert::From<IWindowsParentalControls> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsParentalControls) -> Self {
@@ -513,7 +513,7 @@ impl IWindowsParentalControlsCore {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsParentalControlsCore {
     type Vtable = IWindowsParentalControlsCore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1341393423, 16187, 19836, [164, 27, 79, 57, 215, 180, 77, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ff40a0f_3f3b_4d7c_a41b_4f39d7b44d05);
 }
 impl ::core::convert::From<IWindowsParentalControlsCore> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsParentalControlsCore) -> Self {
@@ -846,7 +846,7 @@ impl ::core::convert::From<i32> for WPCFLAG_WEB_SETTING {
 unsafe impl ::windows::runtime::Abi for WPCFLAG_WEB_SETTING {
     type Abi = Self;
 }
-pub const WPCPROV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(17367141, 46183, 17667, [155, 40, 83, 55, 102, 118, 16, 135]);
+pub const WPCPROV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01090065_b467_4503_9b28_533766761087);
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_KEYWORD_ThirdParty: u32 = 32u32;
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
@@ -1440,6 +1440,6 @@ pub const WPC_SETTINGS_MODIFY: u32 = 21u32;
 pub const WPC_SYSTEM: u32 = 23u32;
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPC_WEB: u32 = 24u32;
-pub const WindowsParentalControls: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3883714715, 29697, 19460, [140, 237, 20, 157, 179, 90, 221, 4]);
-pub const WpcProviderSupport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3138963360, 8582, 19424, [151, 216, 4, 132, 123, 98, 142, 2]);
-pub const WpcSettingsProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(895352746, 15263, 17244, [180, 40, 93, 68, 41, 11, 197, 242]);
+pub const WindowsParentalControls: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe77cc89b_7401_4c04_8ced_149db35add04);
+pub const WpcProviderSupport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb18c7a0_2186_4be0_97d8_04847b628e02);
+pub const WpcSettingsProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x355dffaa_3b9f_435c_b428_5d44290bc5f2);

@@ -23,7 +23,7 @@ impl ::windows::runtime::RuntimeName for AdaptiveCardBuilder {
 pub struct IAdaptiveCard(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveCard {
     type Vtable = IAdaptiveCard_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1926256268, 41588, 16845, [130, 168, 152, 157, 64, 185, 176, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72d0568c_a274_41cd_82a8_989d40b9b05e);
 }
 impl IAdaptiveCard {
     #[doc = "*Required features: `UI_Shell`*"]
@@ -95,7 +95,7 @@ pub struct IAdaptiveCard_abi(
 pub struct IAdaptiveCardBuilderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveCardBuilderStatics {
     type Vtable = IAdaptiveCardBuilderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1986891528, 54270, 17223, [160, 188, 185, 234, 154, 109, 194, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x766d8f08_d3fe_4347_a0bc_b9ea9a6dc28e);
 }
 impl IAdaptiveCardBuilderStatics {
     #[doc = "*Required features: `UI_Shell`*"]
@@ -166,7 +166,7 @@ pub struct IAdaptiveCardBuilderStatics_abi(
 pub struct ISecurityAppManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecurityAppManager {
     type Vtable = ISecurityAppManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2527875084, 44756, 22045, [189, 232, 149, 53, 32, 52, 58, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96ac500c_aed4_561d_bde8_953520343a2d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -188,7 +188,7 @@ pub struct ISecurityAppManager_abi(
 pub struct IShareWindowCommandEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareWindowCommandEventArgs {
     type Vtable = IShareWindowCommandEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1165548553, 42275, 22358, [169, 149, 228, 254, 185, 145, 255, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4578dc09_a523_5756_a995_e4feb991fff0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -208,7 +208,7 @@ pub struct IShareWindowCommandEventArgs_abi(
 pub struct IShareWindowCommandSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareWindowCommandSource {
     type Vtable = IShareWindowCommandSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3409672931, 27548, 22046, [188, 204, 97, 230, 142, 10, 191, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb3b7ae3_6b9c_561e_bccc_61e68e0abfef);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -236,7 +236,7 @@ pub struct IShareWindowCommandSource_abi(
 pub struct IShareWindowCommandSourceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareWindowCommandSourceStatics {
     type Vtable = IShareWindowCommandSourceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2968217174, 40108, 20860, [182, 199, 142, 247, 21, 8, 66, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0eb6656_9cac_517c_b6c7_8ef715084295);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -254,7 +254,7 @@ pub struct IShareWindowCommandSourceStatics_abi(
 pub struct ITaskbarManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITaskbarManager {
     type Vtable = ITaskbarManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2269710873, 6873, 18932, [178, 232, 134, 115, 141, 197, 172, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87490a19_1ad9_49f4_b2e8_86738dc5ac40);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -281,7 +281,7 @@ pub struct ITaskbarManager_abi(
 pub struct ITaskbarManager2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITaskbarManager2 {
     type Vtable = ITaskbarManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045812846, 31490, 18705, [145, 140, 222, 224, 187, 210, 11, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79f0a06e_7b02_4911_918c_dee0bbd20ba4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -304,7 +304,7 @@ pub struct ITaskbarManager2_abi(
 pub struct ITaskbarManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITaskbarManagerStatics {
     type Vtable = ITaskbarManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3677530996, 56914, 20454, [183, 182, 149, 255, 159, 131, 149, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb32ab74_de52_4fe6_b7b6_95ff9f8395df);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -376,7 +376,7 @@ unsafe impl ::windows::runtime::RuntimeType for SecurityAppManager {
 }
 unsafe impl ::windows::runtime::Interface for SecurityAppManager {
     type Vtable = ISecurityAppManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2527875084, 44756, 22045, [189, 232, 149, 53, 32, 52, 58, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96ac500c_aed4_561d_bde8_953520343a2d);
 }
 impl ::windows::runtime::RuntimeName for SecurityAppManager {
     const NAME: &'static str = "Windows.UI.Shell.SecurityAppManager";
@@ -527,7 +527,7 @@ unsafe impl ::windows::runtime::RuntimeType for ShareWindowCommandEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ShareWindowCommandEventArgs {
     type Vtable = IShareWindowCommandEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1165548553, 42275, 22358, [169, 149, 228, 254, 185, 145, 255, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4578dc09_a523_5756_a995_e4feb991fff0);
 }
 impl ::windows::runtime::RuntimeName for ShareWindowCommandEventArgs {
     const NAME: &'static str = "Windows.UI.Shell.ShareWindowCommandEventArgs";
@@ -641,7 +641,7 @@ unsafe impl ::windows::runtime::RuntimeType for ShareWindowCommandSource {
 }
 unsafe impl ::windows::runtime::Interface for ShareWindowCommandSource {
     type Vtable = IShareWindowCommandSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3409672931, 27548, 22046, [188, 204, 97, 230, 142, 10, 191, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb3b7ae3_6b9c_561e_bccc_61e68e0abfef);
 }
 impl ::windows::runtime::RuntimeName for ShareWindowCommandSource {
     const NAME: &'static str = "Windows.UI.Shell.ShareWindowCommandSource";
@@ -789,7 +789,7 @@ unsafe impl ::windows::runtime::RuntimeType for TaskbarManager {
 }
 unsafe impl ::windows::runtime::Interface for TaskbarManager {
     type Vtable = ITaskbarManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2269710873, 6873, 18932, [178, 232, 134, 115, 141, 197, 172, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87490a19_1ad9_49f4_b2e8_86738dc5ac40);
 }
 impl ::windows::runtime::RuntimeName for TaskbarManager {
     const NAME: &'static str = "Windows.UI.Shell.TaskbarManager";

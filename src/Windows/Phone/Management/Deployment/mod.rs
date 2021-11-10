@@ -60,7 +60,7 @@ unsafe impl ::windows::runtime::RuntimeType for Enterprise {
 }
 unsafe impl ::windows::runtime::Interface for Enterprise {
     type Vtable = IEnterprise_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2522427277, 34156, 17446, [169, 71, 176, 99, 7, 113, 128, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96592f8d_856c_4426_a947_b06307718078);
 }
 impl ::windows::runtime::RuntimeName for Enterprise {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.Enterprise";
@@ -184,7 +184,7 @@ unsafe impl ::windows::runtime::RuntimeType for EnterpriseEnrollmentResult {
 }
 unsafe impl ::windows::runtime::Interface for EnterpriseEnrollmentResult {
     type Vtable = IEnterpriseEnrollmentResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2683772134, 37083, 17218, [179, 38, 23, 41, 170, 145, 48, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ff71ce6_90db_4342_b326_1729aa91301c);
 }
 impl ::windows::runtime::RuntimeName for EnterpriseEnrollmentResult {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.EnterpriseEnrollmentResult";
@@ -281,7 +281,7 @@ impl ::windows::runtime::DefaultType for EnterpriseStatus {
 pub struct IEnterprise(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnterprise {
     type Vtable = IEnterprise_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2522427277, 34156, 17446, [169, 71, 176, 99, 7, 113, 128, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96592f8d_856c_4426_a947_b06307718078);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -306,7 +306,7 @@ pub struct IEnterprise_abi(
 pub struct IEnterpriseEnrollmentManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnterpriseEnrollmentManager {
     type Vtable = IEnterpriseEnrollmentManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(553251728, 11369, 16856, [136, 230, 228, 179, 136, 64, 38, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20f9f390_2c69_41d8_88e6_e4b3884026cb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -332,7 +332,7 @@ pub struct IEnterpriseEnrollmentManager_abi(
 pub struct IEnterpriseEnrollmentResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnterpriseEnrollmentResult {
     type Vtable = IEnterpriseEnrollmentResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2683772134, 37083, 17218, [179, 38, 23, 41, 170, 145, 48, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ff71ce6_90db_4342_b326_1729aa91301c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -351,7 +351,7 @@ pub struct IEnterpriseEnrollmentResult_abi(
 pub struct IInstallationManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInstallationManagerStatics {
     type Vtable = IInstallationManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2459608888, 36169, 17068, [128, 201, 180, 173, 121, 60, 67, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x929aa738_8d49_42ac_80c9_b4ad793c43f2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -378,7 +378,7 @@ pub struct IInstallationManagerStatics_abi(
 pub struct IInstallationManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInstallationManagerStatics2 {
     type Vtable = IInstallationManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2087464125, 64074, 19598, [171, 151, 217, 89, 69, 47, 25, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c6c2cbd_fa4a_4c8e_ab97_d959452f19e5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -401,7 +401,7 @@ pub struct IInstallationManagerStatics2_abi(
 pub struct IPackageInstallResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageInstallResult {
     type Vtable = IPackageInstallResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(870903509, 3966, 17523, [150, 124, 125, 110, 28, 14, 125, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33e8eed5_0f7e_4473_967c_7d6e1c0e7de1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -421,7 +421,7 @@ pub struct IPackageInstallResult_abi(
 pub struct IPackageInstallResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageInstallResult2 {
     type Vtable = IPackageInstallResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1900665097, 16377, 16877, [167, 23, 43, 198, 95, 252, 97, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7149d909_3ff9_41ed_a717_2bc65ffc61d2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -559,7 +559,7 @@ unsafe impl ::windows::runtime::RuntimeType for PackageInstallResult {
 }
 unsafe impl ::windows::runtime::Interface for PackageInstallResult {
     type Vtable = IPackageInstallResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(870903509, 3966, 17523, [150, 124, 125, 110, 28, 14, 125, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33e8eed5_0f7e_4473_967c_7d6e1c0e7de1);
 }
 impl ::windows::runtime::RuntimeName for PackageInstallResult {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.PackageInstallResult";

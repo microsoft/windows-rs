@@ -4,7 +4,7 @@
 pub struct IPalmRejectionDelayZonePreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPalmRejectionDelayZonePreview {
     type Vtable = IPalmRejectionDelayZonePreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1656002251, 21405, 21315, [166, 95, 65, 245, 48, 14, 199, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62b496cb_539d_5343_a65f_41f5300ec70c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21,7 +21,7 @@ pub struct IPalmRejectionDelayZonePreview_abi(
 pub struct IPalmRejectionDelayZonePreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPalmRejectionDelayZonePreviewStatics {
     type Vtable = IPalmRejectionDelayZonePreviewStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3455016672, 37840, 21417, [143, 14, 154, 55, 159, 143, 117, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcdef5ee0_93d0_53a9_8f0e_9a379f8f7530);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -79,7 +79,7 @@ unsafe impl ::windows::runtime::RuntimeType for PalmRejectionDelayZonePreview {
 }
 unsafe impl ::windows::runtime::Interface for PalmRejectionDelayZonePreview {
     type Vtable = IPalmRejectionDelayZonePreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1656002251, 21405, 21315, [166, 95, 65, 245, 48, 14, 199, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62b496cb_539d_5343_a65f_41f5300ec70c);
 }
 impl ::windows::runtime::RuntimeName for PalmRejectionDelayZonePreview {
     const NAME: &'static str = "Windows.UI.Input.Inking.Preview.PalmRejectionDelayZonePreview";

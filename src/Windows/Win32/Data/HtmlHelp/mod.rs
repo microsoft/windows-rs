@@ -1,18 +1,18 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const CLSID_IITCmdInt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180883618, 54163, 4560, [154, 86, 0, 192, 79, 182, 139, 247]);
-pub const CLSID_IITDatabase: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1718039634, 35875, 4560, [168, 78, 0, 170, 0, 108, 125, 1]);
-pub const CLSID_IITDatabaseLocal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180883625, 54163, 4560, [154, 86, 0, 192, 79, 182, 139, 247]);
-pub const CLSID_IITGroupUpdate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180883620, 54163, 4560, [154, 86, 0, 192, 79, 182, 139, 247]);
-pub const CLSID_IITIndexBuild: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409682346, 57055, 4560, [154, 97, 0, 192, 79, 182, 139, 247]);
-pub const CLSID_IITPropList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180883630, 54163, 4560, [154, 86, 0, 192, 79, 182, 139, 247]);
-pub const CLSID_IITResultSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180883623, 54163, 4560, [154, 86, 0, 192, 79, 182, 139, 247]);
-pub const CLSID_IITSvMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180883619, 54163, 4560, [154, 86, 0, 192, 79, 182, 139, 247]);
-pub const CLSID_IITWWFilterBuild: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409682347, 57055, 4560, [154, 97, 0, 192, 79, 182, 139, 247]);
-pub const CLSID_IITWordWheel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3610715586, 35858, 4560, [168, 78, 0, 170, 0, 108, 125, 1]);
-pub const CLSID_IITWordWheelLocal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180883624, 54163, 4560, [154, 86, 0, 192, 79, 182, 139, 247]);
-pub const CLSID_IITWordWheelUpdate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180883621, 54163, 4560, [154, 86, 0, 192, 79, 182, 139, 247]);
-pub const CLSID_ITEngStemmer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409682344, 57055, 4560, [154, 97, 0, 192, 79, 182, 139, 247]);
-pub const CLSID_ITStdBreaker: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180883631, 54163, 4560, [154, 86, 0, 192, 79, 182, 139, 247]);
+pub const CLSID_IITCmdInt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4662daa2_d393_11d0_9a56_00c04fb68bf7);
+pub const CLSID_IITDatabase: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66673452_8c23_11d0_a84e_00aa006c7d01);
+pub const CLSID_IITDatabaseLocal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4662daa9_d393_11d0_9a56_00c04fb68bf7);
+pub const CLSID_IITGroupUpdate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4662daa4_d393_11d0_9a56_00c04fb68bf7);
+pub const CLSID_IITIndexBuild: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fa0d5aa_dedf_11d0_9a61_00c04fb68bf7);
+pub const CLSID_IITPropList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4662daae_d393_11d0_9a56_00c04fb68bf7);
+pub const CLSID_IITResultSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4662daa7_d393_11d0_9a56_00c04fb68bf7);
+pub const CLSID_IITSvMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4662daa3_d393_11d0_9a56_00c04fb68bf7);
+pub const CLSID_IITWWFilterBuild: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fa0d5ab_dedf_11d0_9a61_00c04fb68bf7);
+pub const CLSID_IITWordWheel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd73725c2_8c12_11d0_a84e_00aa006c7d01);
+pub const CLSID_IITWordWheelLocal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4662daa8_d393_11d0_9a56_00c04fb68bf7);
+pub const CLSID_IITWordWheelUpdate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4662daa5_d393_11d0_9a56_00c04fb68bf7);
+pub const CLSID_ITEngStemmer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fa0d5a8_dedf_11d0_9a61_00c04fb68bf7);
+pub const CLSID_ITStdBreaker: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4662daaf_d393_11d0_9a56_00c04fb68bf7);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
@@ -1099,7 +1099,7 @@ impl IITDatabase {
 }
 unsafe impl ::windows::runtime::Interface for IITDatabase {
     type Vtable = IITDatabase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409682338, 57055, 4560, [154, 97, 0, 192, 79, 182, 139, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fa0d5a2_dedf_11d0_9a61_00c04fb68bf7);
 }
 impl ::core::convert::From<IITDatabase> for ::windows::runtime::IUnknown {
     fn from(value: IITDatabase) -> Self {
@@ -1254,7 +1254,7 @@ impl IITPropList {
 }
 unsafe impl ::windows::runtime::Interface for IITPropList {
     type Vtable = IITPropList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(524303281, 39319, 4560, [168, 80, 0, 170, 0, 108, 125, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f403bb1_9997_11d0_a850_00aa006c7d01);
 }
 impl ::core::convert::From<IITPropList> for ::windows::runtime::IUnknown {
     fn from(value: IITPropList) -> Self {
@@ -1500,7 +1500,7 @@ impl IITResultSet {
 }
 unsafe impl ::windows::runtime::Interface for IITResultSet {
     type Vtable = IITResultSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1001987393, 39307, 4560, [168, 80, 0, 170, 0, 108, 125, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3bb91d41_998b_11d0_a850_00aa006c7d01);
 }
 impl ::core::convert::From<IITResultSet> for ::windows::runtime::IUnknown {
     fn from(value: IITResultSet) -> Self {
@@ -1632,7 +1632,7 @@ impl IITWordWheel {
 }
 unsafe impl ::windows::runtime::Interface for IITWordWheel {
     type Vtable = IITWordWheel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409682340, 57055, 4560, [154, 97, 0, 192, 79, 182, 139, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fa0d5a4_dedf_11d0_9a61_00c04fb68bf7);
 }
 impl ::core::convert::From<IITWordWheel> for ::windows::runtime::IUnknown {
     fn from(value: IITWordWheel) -> Self {
@@ -1694,7 +1694,7 @@ impl IStemSink {
 }
 unsafe impl ::windows::runtime::Interface for IStemSink {
     type Vtable = IStemSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4269261616, 32578, 4558, [190, 87, 0, 170, 0, 81, 254, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe77c330_7f42_11ce_be57_00aa0051fe20);
 }
 impl ::core::convert::From<IStemSink> for ::windows::runtime::IUnknown {
     fn from(value: IStemSink) -> Self {
@@ -1756,7 +1756,7 @@ impl IStemmerConfig {
 }
 unsafe impl ::windows::runtime::Interface for IStemmerConfig {
     type Vtable = IStemmerConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409682343, 57055, 4560, [154, 97, 0, 192, 79, 182, 139, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fa0d5a7_dedf_11d0_9a61_00c04fb68bf7);
 }
 impl ::core::convert::From<IStemmerConfig> for ::windows::runtime::IUnknown {
     fn from(value: IStemmerConfig) -> Self {
@@ -1849,7 +1849,7 @@ impl IWordBreakerConfig {
 }
 unsafe impl ::windows::runtime::Interface for IWordBreakerConfig {
     type Vtable = IWordBreakerConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409682342, 57055, 4560, [154, 97, 0, 192, 79, 182, 139, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fa0d5a6_dedf_11d0_9a61_00c04fb68bf7);
 }
 impl ::core::convert::From<IWordBreakerConfig> for ::windows::runtime::IUnknown {
     fn from(value: IWordBreakerConfig) -> Self {

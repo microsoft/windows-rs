@@ -27,7 +27,7 @@ unsafe impl ::windows::runtime::RuntimeType for BufferProtectUnprotectResult {
 }
 unsafe impl ::windows::runtime::Interface for BufferProtectUnprotectResult {
     type Vtable = IBufferProtectUnprotectResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1201233628, 27884, 20026, [178, 81, 158, 116, 133, 215, 158, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47995edc_6cec_4e3a_b251_9e7485d79e7a);
 }
 impl ::windows::runtime::RuntimeName for BufferProtectUnprotectResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.BufferProtectUnprotectResult";
@@ -101,7 +101,7 @@ unsafe impl ::windows::runtime::RuntimeType for DataProtectionInfo {
 }
 unsafe impl ::windows::runtime::Interface for DataProtectionInfo {
     type Vtable = IDataProtectionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2216734913, 24113, 17413, [149, 64, 63, 148, 58, 240, 203, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8420b0c1_5e31_4405_9540_3f943af0cb26);
 }
 impl ::windows::runtime::RuntimeName for DataProtectionInfo {
     const NAME: &'static str = "Windows.Security.EnterpriseData.DataProtectionInfo";
@@ -303,7 +303,7 @@ unsafe impl ::windows::runtime::RuntimeType for FileProtectionInfo {
 }
 unsafe impl ::windows::runtime::Interface for FileProtectionInfo {
     type Vtable = IFileProtectionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1323918470, 5246, 19920, [143, 175, 82, 83, 237, 145, 173, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ee96486_147e_4dd0_8faf_5253ed91ad0c);
 }
 impl ::windows::runtime::RuntimeName for FileProtectionInfo {
     const NAME: &'static str = "Windows.Security.EnterpriseData.FileProtectionInfo";
@@ -575,7 +575,7 @@ unsafe impl ::windows::runtime::RuntimeType for FileUnprotectOptions {
 }
 unsafe impl ::windows::runtime::Interface for FileUnprotectOptions {
     type Vtable = IFileUnprotectOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2098402033, 15117, 19928, [161, 248, 30, 197, 56, 34, 226, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d1312f1_3b0d_4dd8_a1f8_1ec53822e2f3);
 }
 impl ::windows::runtime::RuntimeName for FileUnprotectOptions {
     const NAME: &'static str = "Windows.Security.EnterpriseData.FileUnprotectOptions";
@@ -627,7 +627,7 @@ unsafe impl ::core::marker::Sync for FileUnprotectOptions {}
 pub struct IBufferProtectUnprotectResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBufferProtectUnprotectResult {
     type Vtable = IBufferProtectUnprotectResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1201233628, 27884, 20026, [178, 81, 158, 116, 133, 215, 158, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47995edc_6cec_4e3a_b251_9e7485d79e7a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -647,7 +647,7 @@ pub struct IBufferProtectUnprotectResult_abi(
 pub struct IDataProtectionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataProtectionInfo {
     type Vtable = IDataProtectionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2216734913, 24113, 17413, [149, 64, 63, 148, 58, 240, 203, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8420b0c1_5e31_4405_9540_3f943af0cb26);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -666,7 +666,7 @@ pub struct IDataProtectionInfo_abi(
 pub struct IDataProtectionManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataProtectionManagerStatics {
     type Vtable = IDataProtectionManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3054803828, 37188, 20196, [138, 138, 48, 181, 243, 97, 67, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6149b74_9144_4ee4_8a8a_30b5f361430e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -695,7 +695,7 @@ pub struct IDataProtectionManagerStatics_abi(
 pub struct IFileProtectionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileProtectionInfo {
     type Vtable = IFileProtectionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1323918470, 5246, 19920, [143, 175, 82, 83, 237, 145, 173, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ee96486_147e_4dd0_8faf_5253ed91ad0c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -715,7 +715,7 @@ pub struct IFileProtectionInfo_abi(
 pub struct IFileProtectionInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileProtectionInfo2 {
     type Vtable = IFileProtectionInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2182232652, 21882, 18829, [142, 148, 148, 76, 213, 131, 100, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82123a4c_557a_498d_8e94_944cd5836432);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -733,7 +733,7 @@ pub struct IFileProtectionInfo2_abi(
 pub struct IFileProtectionManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileProtectionManagerStatics {
     type Vtable = IFileProtectionManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1481047195, 58899, 17003, [187, 56, 136, 203, 161, 220, 154, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5846fc9b_e613_426b_bb38_88cba1dc9adb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -764,7 +764,7 @@ pub struct IFileProtectionManagerStatics_abi(
 pub struct IFileProtectionManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileProtectionManagerStatics2 {
     type Vtable = IFileProtectionManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2211620677, 1155, 16811, [178, 213, 188, 127, 35, 215, 78, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83d2a745_0483_41ab_b2d5_bc7f23d74ebb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -787,7 +787,7 @@ pub struct IFileProtectionManagerStatics2_abi(
 pub struct IFileProtectionManagerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileProtectionManagerStatics3 {
     type Vtable = IFileProtectionManagerStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1763214490, 25167, 18134, [178, 65, 233, 205, 95, 223, 62, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6918849a_624f_46d6_b241_e9cd5fdf3e3f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -808,7 +808,7 @@ pub struct IFileProtectionManagerStatics3_abi(
 pub struct IFileRevocationManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileRevocationManagerStatics {
     type Vtable = IFileRevocationManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(627817533, 7261, 16992, [140, 117, 145, 68, 207, 183, 139, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x256bbc3d_1c5d_4260_8c75_9144cfb78ba9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -832,7 +832,7 @@ pub struct IFileRevocationManagerStatics_abi(
 pub struct IFileUnprotectOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileUnprotectOptions {
     type Vtable = IFileUnprotectOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2098402033, 15117, 19928, [161, 248, 30, 197, 56, 34, 226, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d1312f1_3b0d_4dd8_a1f8_1ec53822e2f3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -851,7 +851,7 @@ pub struct IFileUnprotectOptions_abi(
 pub struct IFileUnprotectOptionsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileUnprotectOptionsFactory {
     type Vtable = IFileUnprotectOptionsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1370403740, 55948, 19519, [155, 251, 203, 115, 167, 204, 224, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51aeb39c_da8c_4c3f_9bfb_cb73a7cce0dd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -869,7 +869,7 @@ pub struct IFileUnprotectOptionsFactory_abi(
 pub struct IProtectedAccessResumedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectedAccessResumedEventArgs {
     type Vtable = IProtectedAccessResumedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2890779225, 23936, 20117, [140, 95, 133, 57, 69, 14, 235, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac4dca59_5d80_4e95_8c5f_8539450eebe0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -888,7 +888,7 @@ pub struct IProtectedAccessResumedEventArgs_abi(
 pub struct IProtectedAccessSuspendingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectedAccessSuspendingEventArgs {
     type Vtable = IProtectedAccessSuspendingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1973523424, 41796, 17055, [185, 117, 4, 252, 31, 136, 193, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75a193e0_a344_429f_b975_04fc1f88c185);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -911,7 +911,7 @@ pub struct IProtectedAccessSuspendingEventArgs_abi(
 pub struct IProtectedContainerExportResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectedContainerExportResult {
     type Vtable = IProtectedContainerExportResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(961081237, 63483, 19266, [175, 176, 223, 112, 180, 21, 67, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3948ef95_f7fb_4b42_afb0_df70b41543c1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -931,7 +931,7 @@ pub struct IProtectedContainerExportResult_abi(
 pub struct IProtectedContainerImportResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectedContainerImportResult {
     type Vtable = IProtectedContainerImportResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3451355345, 59323, 19738, [147, 57, 52, 220, 65, 20, 159, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcdb780d1_e7bb_4d1a_9339_34dc41149f9b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -951,7 +951,7 @@ pub struct IProtectedContainerImportResult_abi(
 pub struct IProtectedContentRevokedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectedContentRevokedEventArgs {
     type Vtable = IProtectedContentRevokedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1667786785, 22713, 18414, [147, 217, 240, 247, 65, 207, 67, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63686821_58b9_47ee_93d9_f0f741cf43f0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -970,7 +970,7 @@ pub struct IProtectedContentRevokedEventArgs_abi(
 pub struct IProtectedFileCreateResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectedFileCreateResult {
     type Vtable = IProtectedFileCreateResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(686026090, 59879, 18947, [159, 83, 189, 177, 97, 114, 105, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28e3ed6a_e9e7_4a03_9f53_bdb16172699b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -992,7 +992,7 @@ pub struct IProtectedFileCreateResult_abi(
 pub struct IProtectionPolicyAuditInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyAuditInfo {
     type Vtable = IProtectionPolicyAuditInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1113241572, 65207, 17660, [179, 187, 195, 196, 215, 236, 190, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x425ab7e4_feb7_44fc_b3bb_c3c4d7ecbebb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1017,7 +1017,7 @@ pub struct IProtectionPolicyAuditInfo_abi(
 pub struct IProtectionPolicyAuditInfoFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyAuditInfoFactory {
     type Vtable = IProtectionPolicyAuditInfoFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2127829003, 37608, 17109, [131, 212, 37, 68, 11, 66, 53, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ed4180b_92e8_42d5_83d4_25440b423549);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1036,7 +1036,7 @@ pub struct IProtectionPolicyAuditInfoFactory_abi(
 pub struct IProtectionPolicyManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyManager {
     type Vtable = IProtectionPolicyManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3580902936, 41101, 18406, [162, 64, 153, 52, 215, 22, 94, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5703e18_a08d_47e6_a240_9934d7165eb5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1055,7 +1055,7 @@ pub struct IProtectionPolicyManager_abi(
 pub struct IProtectionPolicyManager2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyManager2 {
     type Vtable = IProtectionPolicyManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2885112442, 33845, 16767, [153, 182, 81, 190, 175, 54, 88, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xabf7527a_8435_417f_99b6_51beaf365888);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1074,7 +1074,7 @@ pub struct IProtectionPolicyManager2_abi(
 pub struct IProtectionPolicyManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerStatics {
     type Vtable = IProtectionPolicyManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3233807462, 35901, 19798, [136, 4, 198, 143, 10, 211, 46, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0bffc66_8c3d_4d56_8804_c68f0ad32ec5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1114,7 +1114,7 @@ pub struct IProtectionPolicyManagerStatics_abi(
 pub struct IProtectionPolicyManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerStatics2 {
     type Vtable = IProtectionPolicyManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3062864524, 14816, 17993, [178, 228, 7, 10, 184, 165, 121, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb68f9a8c_39e0_4649_b2e4_070ab8a579b3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1144,7 +1144,7 @@ pub struct IProtectionPolicyManagerStatics2_abi(
 pub struct IProtectionPolicyManagerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerStatics3 {
     type Vtable = IProtectionPolicyManagerStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1224711820, 27247, 19871, [188, 237, 24, 171, 83, 122, 160, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48ff9e8c_6a6f_4d9f_bced_18ab537aa015);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1170,7 +1170,7 @@ pub struct IProtectionPolicyManagerStatics3_abi(
 pub struct IProtectionPolicyManagerStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerStatics4 {
     type Vtable = IProtectionPolicyManagerStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(548902107, 52413, 18703, [140, 131, 73, 204, 183, 122, 234, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20b794db_ccbd_490f_8c83_49ccb77aea6c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1207,7 +1207,7 @@ pub struct IProtectionPolicyManagerStatics4_abi(
 pub struct IThreadNetworkContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IThreadNetworkContext {
     type Vtable = IThreadNetworkContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4199459049, 61203, 16474, [177, 44, 215, 52, 140, 111, 65, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa4ea8e9_ef13_405a_b12c_d7348c6f41fc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1239,7 +1239,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProtectedAccessResumedEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for ProtectedAccessResumedEventArgs {
     type Vtable = IProtectedAccessResumedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2890779225, 23936, 20117, [140, 95, 133, 57, 69, 14, 235, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac4dca59_5d80_4e95_8c5f_8539450eebe0);
 }
 impl ::windows::runtime::RuntimeName for ProtectedAccessResumedEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedAccessResumedEventArgs";
@@ -1324,7 +1324,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProtectedAccessSuspendingEventAr
 }
 unsafe impl ::windows::runtime::Interface for ProtectedAccessSuspendingEventArgs {
     type Vtable = IProtectedAccessSuspendingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1973523424, 41796, 17055, [185, 117, 4, 252, 31, 136, 193, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75a193e0_a344_429f_b975_04fc1f88c185);
 }
 impl ::windows::runtime::RuntimeName for ProtectedAccessSuspendingEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedAccessSuspendingEventArgs";
@@ -1399,7 +1399,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProtectedContainerExportResult {
 }
 unsafe impl ::windows::runtime::Interface for ProtectedContainerExportResult {
     type Vtable = IProtectedContainerExportResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(961081237, 63483, 19266, [175, 176, 223, 112, 180, 21, 67, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3948ef95_f7fb_4b42_afb0_df70b41543c1);
 }
 impl ::windows::runtime::RuntimeName for ProtectedContainerExportResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedContainerExportResult";
@@ -1474,7 +1474,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProtectedContainerImportResult {
 }
 unsafe impl ::windows::runtime::Interface for ProtectedContainerImportResult {
     type Vtable = IProtectedContainerImportResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3451355345, 59323, 19738, [147, 57, 52, 220, 65, 20, 159, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcdb780d1_e7bb_4d1a_9339_34dc41149f9b);
 }
 impl ::windows::runtime::RuntimeName for ProtectedContainerImportResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedContainerImportResult";
@@ -1541,7 +1541,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProtectedContentRevokedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for ProtectedContentRevokedEventArgs {
     type Vtable = IProtectedContentRevokedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1667786785, 22713, 18414, [147, 217, 240, 247, 65, 207, 67, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63686821_58b9_47ee_93d9_f0f741cf43f0);
 }
 impl ::windows::runtime::RuntimeName for ProtectedContentRevokedEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedContentRevokedEventArgs";
@@ -1625,7 +1625,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProtectedFileCreateResult {
 }
 unsafe impl ::windows::runtime::Interface for ProtectedFileCreateResult {
     type Vtable = IProtectedFileCreateResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(686026090, 59879, 18947, [159, 83, 189, 177, 97, 114, 105, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28e3ed6a_e9e7_4a03_9f53_bdb16172699b);
 }
 impl ::windows::runtime::RuntimeName for ProtectedFileCreateResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedFileCreateResult";
@@ -1805,7 +1805,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProtectionPolicyAuditInfo {
 }
 unsafe impl ::windows::runtime::Interface for ProtectionPolicyAuditInfo {
     type Vtable = IProtectionPolicyAuditInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1113241572, 65207, 17660, [179, 187, 195, 196, 215, 236, 190, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x425ab7e4_feb7_44fc_b3bb_c3c4d7ecbebb);
 }
 impl ::windows::runtime::RuntimeName for ProtectionPolicyAuditInfo {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectionPolicyAuditInfo";
@@ -2245,7 +2245,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProtectionPolicyManager {
 }
 unsafe impl ::windows::runtime::Interface for ProtectionPolicyManager {
     type Vtable = IProtectionPolicyManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3580902936, 41101, 18406, [162, 64, 153, 52, 215, 22, 94, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5703e18_a08d_47e6_a240_9934d7165eb5);
 }
 impl ::windows::runtime::RuntimeName for ProtectionPolicyManager {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectionPolicyManager";
@@ -2331,7 +2331,7 @@ unsafe impl ::windows::runtime::RuntimeType for ThreadNetworkContext {
 }
 unsafe impl ::windows::runtime::Interface for ThreadNetworkContext {
     type Vtable = IThreadNetworkContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4199459049, 61203, 16474, [177, 44, 215, 52, 140, 111, 65, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa4ea8e9_ef13_405a_b12c_d7348c6f41fc);
 }
 impl ::windows::runtime::RuntimeName for ThreadNetworkContext {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ThreadNetworkContext";

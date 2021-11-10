@@ -4,7 +4,7 @@
 pub struct IRadialControllerIndependentInputSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerIndependentInputSource {
     type Vtable = IRadialControllerIndependentInputSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144310, 19694, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef6_4cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24,7 +24,7 @@ pub struct IRadialControllerIndependentInputSource_abi(
 pub struct IRadialControllerIndependentInputSource2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerIndependentInputSource2 {
     type Vtable = IRadialControllerIndependentInputSource2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1886628568, 13811, 20203, [135, 81, 190, 77, 10, 102, 250, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7073aad8_35f3_4eeb_8751_be4d0a66faf4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -43,7 +43,7 @@ pub struct IRadialControllerIndependentInputSource2_abi(
 pub struct IRadialControllerIndependentInputSourceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerIndependentInputSourceStatics {
     type Vtable = IRadialControllerIndependentInputSourceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144309, 19694, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef5_4cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -106,7 +106,7 @@ unsafe impl ::windows::runtime::RuntimeType for RadialControllerIndependentInput
 }
 unsafe impl ::windows::runtime::Interface for RadialControllerIndependentInputSource {
     type Vtable = IRadialControllerIndependentInputSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144310, 19694, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef6_4cee_11e6_b535_001bdc06ab3b);
 }
 impl ::windows::runtime::RuntimeName for RadialControllerIndependentInputSource {
     const NAME: &'static str = "Windows.UI.Input.Core.RadialControllerIndependentInputSource";

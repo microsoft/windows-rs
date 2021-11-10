@@ -2607,9 +2607,9 @@ pub unsafe fn AuthzUnregisterSecurityEventSource(dwflags: u32, pheventprovider: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const AzAuthorizationStore: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2998730585, 42839, 19211, [161, 188, 234, 105, 152, 29, 166, 158]);
-pub const AzBizRuleContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1546504559, 36177, 17227, [179, 60, 55, 155, 204, 174, 119, 195]);
-pub const AzPrincipalLocator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1211824989, 28895, 19990, [171, 220, 161, 222, 77, 1, 90, 62]);
+pub const AzAuthorizationStore: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2bcff59_a757_4b0b_a1bc_ea69981da69e);
+pub const AzBizRuleContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c2dc96f_8d51_434b_b33c_379bccae77c3);
+pub const AzPrincipalLocator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x483afb5d_70df_4e16_abdc_a1de4d015a3e);
 #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -3824,7 +3824,7 @@ impl IAzApplication {
 }
 unsafe impl ::windows::runtime::Interface for IAzApplication {
     type Vtable = IAzApplication_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2558248903, 47123, 19751, [190, 222, 107, 165, 174, 134, 126, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x987bc7c7_b813_4d27_bede_6ba5ae867e95);
 }
 impl ::core::convert::From<IAzApplication> for ::windows::runtime::IUnknown {
     fn from(value: IAzApplication) -> Self {
@@ -4387,7 +4387,7 @@ impl IAzApplication2 {
 }
 unsafe impl ::windows::runtime::Interface for IAzApplication2 {
     type Vtable = IAzApplication2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(141191343, 41545, 17276, [177, 141, 212, 216, 109, 106, 150, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x086a68af_a249_437c_b18d_d4d86d6a9660);
 }
 impl ::core::convert::From<IAzApplication2> for ::windows::runtime::IUnknown {
     fn from(value: IAzApplication2) -> Self {
@@ -5050,7 +5050,7 @@ impl IAzApplication3 {
 }
 unsafe impl ::windows::runtime::Interface for IAzApplication3 {
     type Vtable = IAzApplication3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(404522078, 29078, 19069, [172, 46, 2, 12, 11, 183, 163, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x181c845e_7196_4a7d_ac2e_020c0bb7a303);
 }
 impl ::core::convert::From<IAzApplication3> for ::windows::runtime::IUnknown {
     fn from(value: IAzApplication3) -> Self {
@@ -5474,7 +5474,7 @@ impl IAzApplicationGroup {
 }
 unsafe impl ::windows::runtime::Interface for IAzApplicationGroup {
     type Vtable = IAzApplicationGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4055319757, 22694, 19974, [159, 191, 54, 246, 215, 121, 226, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1b744cd_58a6_4e06_9fbf_36f6d779e21e);
 }
 impl ::core::convert::From<IAzApplicationGroup> for ::windows::runtime::IUnknown {
     fn from(value: IAzApplicationGroup) -> Self {
@@ -5846,7 +5846,7 @@ impl IAzApplicationGroup2 {
 }
 unsafe impl ::windows::runtime::Interface for IAzApplicationGroup2 {
     type Vtable = IAzApplicationGroup2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1057362940, 46874, 17998, [161, 29, 91, 136, 26, 86, 206, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f0613fc_b71a_464e_a11d_5b881a56cefa);
 }
 impl ::core::convert::From<IAzApplicationGroup2> for ::windows::runtime::IUnknown {
     fn from(value: IAzApplicationGroup2) -> Self {
@@ -6027,7 +6027,7 @@ impl IAzApplicationGroups {
 }
 unsafe impl ::windows::runtime::Interface for IAzApplicationGroups {
     type Vtable = IAzApplicationGroups_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1290169045, 40764, 18077, [169, 17, 185, 152, 135, 167, 230, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ce66ad5_9f3c_469d_a911_b99887a7e685);
 }
 impl ::core::convert::From<IAzApplicationGroups> for ::windows::runtime::IUnknown {
     fn from(value: IAzApplicationGroups) -> Self {
@@ -6116,7 +6116,7 @@ impl IAzApplications {
 }
 unsafe impl ::windows::runtime::Interface for IAzApplications {
     type Vtable = IAzApplications_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2459636137, 38341, 19076, [162, 154, 32, 173, 66, 194, 241, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x929b11a9_95c5_4a84_a29a_20ad42c2f16c);
 }
 impl ::core::convert::From<IAzApplications> for ::windows::runtime::IUnknown {
     fn from(value: IAzApplications) -> Self {
@@ -6458,7 +6458,7 @@ impl IAzAuthorizationStore {
 }
 unsafe impl ::windows::runtime::Interface for IAzAuthorizationStore {
     type Vtable = IAzAuthorizationStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3988626601, 39810, 20330, [158, 139, 152, 48, 30, 69, 15, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xedbd9ca9_9b82_4f6a_9e8b_98301e450f14);
 }
 impl ::core::convert::From<IAzAuthorizationStore> for ::windows::runtime::IUnknown {
     fn from(value: IAzAuthorizationStore) -> Self {
@@ -6934,7 +6934,7 @@ impl IAzAuthorizationStore2 {
 }
 unsafe impl ::windows::runtime::Interface for IAzAuthorizationStore2 {
     type Vtable = IAzAuthorizationStore2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2971555204, 54647, 17011, [182, 197, 9, 115, 224, 248, 232, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb11e5584_d577_4273_b6c5_0973e0f8e80d);
 }
 impl ::core::convert::From<IAzAuthorizationStore2> for ::windows::runtime::IUnknown {
     fn from(value: IAzAuthorizationStore2) -> Self {
@@ -7457,7 +7457,7 @@ impl IAzAuthorizationStore3 {
 }
 unsafe impl ::windows::runtime::Interface for IAzAuthorizationStore3 {
     type Vtable = IAzAuthorizationStore3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2881520677, 3206, 20384, [155, 227, 113, 137, 149, 108, 146, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xabc08425_0c86_4fa0_9be3_7189956c926e);
 }
 impl ::core::convert::From<IAzAuthorizationStore3> for ::windows::runtime::IUnknown {
     fn from(value: IAzAuthorizationStore3) -> Self {
@@ -7691,7 +7691,7 @@ impl IAzBizRuleContext {
 }
 unsafe impl ::windows::runtime::Interface for IAzBizRuleContext {
     type Vtable = IAzBizRuleContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3784503677, 54687, 17758, [161, 82, 148, 3, 22, 205, 119, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe192f17d_d59f_455e_a152_940316cd77b2);
 }
 impl ::core::convert::From<IAzBizRuleContext> for ::windows::runtime::IUnknown {
     fn from(value: IAzBizRuleContext) -> Self {
@@ -7797,7 +7797,7 @@ impl IAzBizRuleInterfaces {
 }
 unsafe impl ::windows::runtime::Interface for IAzBizRuleInterfaces {
     type Vtable = IAzBizRuleInterfaces_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3913361607, 59866, 17612, [176, 189, 83, 3, 111, 58, 171, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe94128c7_e9da_44cc_b0bd_53036f3aab3d);
 }
 impl ::core::convert::From<IAzBizRuleInterfaces> for ::windows::runtime::IUnknown {
     fn from(value: IAzBizRuleInterfaces) -> Self {
@@ -7906,7 +7906,7 @@ impl IAzBizRuleParameters {
 }
 unsafe impl ::windows::runtime::Interface for IAzBizRuleParameters {
     type Vtable = IAzBizRuleParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4229392479, 57949, 19917, [186, 225, 39, 110, 201, 83, 60, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc17685f_e25d_4dcd_bae1_276ec9533cb5);
 }
 impl ::core::convert::From<IAzBizRuleParameters> for ::windows::runtime::IUnknown {
     fn from(value: IAzBizRuleParameters) -> Self {
@@ -8094,7 +8094,7 @@ impl IAzClientContext {
 }
 unsafe impl ::windows::runtime::Interface for IAzClientContext {
     type Vtable = IAzClientContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4025610251, 18570, 18029, [175, 217, 164, 1, 197, 249, 238, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeff1f00b_488a_466d_afd9_a401c5f9eef5);
 }
 impl ::core::convert::From<IAzClientContext> for ::windows::runtime::IUnknown {
     fn from(value: IAzClientContext) -> Self {
@@ -8373,7 +8373,7 @@ impl IAzClientContext2 {
 }
 unsafe impl ::windows::runtime::Interface for IAzClientContext2 {
     type Vtable = IAzClientContext2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(722244280, 8330, 18570, [143, 129, 228, 237, 178, 33, 17, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b0c92b8_208a_488a_8f81_e4edb22111cd);
 }
 impl ::core::convert::From<IAzClientContext2> for ::windows::runtime::IUnknown {
     fn from(value: IAzClientContext2) -> Self {
@@ -8730,7 +8730,7 @@ impl IAzClientContext3 {
 }
 unsafe impl ::windows::runtime::Interface for IAzClientContext3 {
     type Vtable = IAzClientContext3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(294211550, 7659, 19275, [137, 7, 109, 28, 218, 31, 93, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11894fde_1deb_4b4b_8907_6d1cda1f5d4f);
 }
 impl ::core::convert::From<IAzClientContext3> for ::windows::runtime::IUnknown {
     fn from(value: IAzClientContext3) -> Self {
@@ -8913,7 +8913,7 @@ impl IAzNameResolver {
 }
 unsafe impl ::windows::runtime::Interface for IAzNameResolver {
     type Vtable = IAzNameResolver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1347227413, 29666, 17375, [168, 112, 166, 79, 64, 113, 79, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x504d0f15_73e2_43df_a870_a64f40714f53);
 }
 impl ::core::convert::From<IAzNameResolver> for ::windows::runtime::IUnknown {
     fn from(value: IAzNameResolver) -> Self {
@@ -8997,7 +8997,7 @@ impl IAzObjectPicker {
 }
 unsafe impl ::windows::runtime::Interface for IAzObjectPicker {
     type Vtable = IAzObjectPicker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1662192200, 27034, 17112, [191, 1, 198, 42, 195, 251, 121, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63130a48_699a_42d8_bf01_c62ac3fb79f9);
 }
 impl ::core::convert::From<IAzObjectPicker> for ::windows::runtime::IUnknown {
     fn from(value: IAzObjectPicker) -> Self {
@@ -9135,7 +9135,7 @@ impl IAzOperation {
 }
 unsafe impl ::windows::runtime::Interface for IAzOperation {
     type Vtable = IAzOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1582740047, 59905, 19809, [190, 68, 196, 155, 94, 78, 175, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e56b24f_ea01_4d61_be44_c49b5e4eaf74);
 }
 impl ::core::convert::From<IAzOperation> for ::windows::runtime::IUnknown {
     fn from(value: IAzOperation) -> Self {
@@ -9328,7 +9328,7 @@ impl IAzOperation2 {
 }
 unsafe impl ::windows::runtime::Interface for IAzOperation2 {
     type Vtable = IAzOperation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(526295071, 17570, 16772, [156, 72, 167, 91, 77, 204, 140, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f5ea01f_44a2_4184_9c48_a75b4dcc8ccc);
 }
 impl ::core::convert::From<IAzOperation2> for ::windows::runtime::IUnknown {
     fn from(value: IAzOperation2) -> Self {
@@ -9457,7 +9457,7 @@ impl IAzOperations {
 }
 unsafe impl ::windows::runtime::Interface for IAzOperations {
     type Vtable = IAzOperations_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2431622151, 38662, 18905, [175, 128, 4, 56, 165, 243, 236, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90ef9c07_9706_49d9_af80_0438a5f3ec35);
 }
 impl ::core::convert::From<IAzOperations> for ::windows::runtime::IUnknown {
     fn from(value: IAzOperations) -> Self {
@@ -9540,7 +9540,7 @@ impl IAzPrincipalLocator {
 }
 unsafe impl ::windows::runtime::Interface for IAzPrincipalLocator {
     type Vtable = IAzPrincipalLocator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3854782589, 44394, 18834, [156, 127, 116, 171, 72, 11, 68, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5c3507d_ad6a_4992_9c7f_74ab480b44cc);
 }
 impl ::core::convert::From<IAzPrincipalLocator> for ::windows::runtime::IUnknown {
     fn from(value: IAzPrincipalLocator) -> Self {
@@ -9756,7 +9756,7 @@ impl IAzRole {
 }
 unsafe impl ::windows::runtime::Interface for IAzRole {
     type Vtable = IAzRole_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2241727885, 25303, 16856, [160, 52, 192, 205, 93, 67, 253, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x859e0d8d_62d7_41d8_a034_c0cd5d43fdfa);
 }
 impl ::core::convert::From<IAzRole> for ::windows::runtime::IUnknown {
     fn from(value: IAzRole) -> Self {
@@ -10076,7 +10076,7 @@ impl IAzRoleAssignment {
 }
 unsafe impl ::windows::runtime::Interface for IAzRoleAssignment {
     type Vtable = IAzRoleAssignment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1432649009, 3418, 20387, [180, 172, 43, 95, 154, 213, 171, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55647d31_0d5a_4fa3_b4ac_2b5f9ad5ab76);
 }
 impl ::core::convert::From<IAzRoleAssignment> for ::windows::runtime::IUnknown {
     fn from(value: IAzRoleAssignment) -> Self {
@@ -10241,7 +10241,7 @@ impl IAzRoleAssignments {
 }
 unsafe impl ::windows::runtime::Interface for IAzRoleAssignments {
     type Vtable = IAzRoleAssignments_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2625681664, 64747, 19827, [160, 244, 200, 59, 11, 191, 36, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c80b900_fceb_4d73_a0f4_c83b0bbf2481);
 }
 impl ::core::convert::From<IAzRoleAssignments> for ::windows::runtime::IUnknown {
     fn from(value: IAzRoleAssignments) -> Self {
@@ -10508,7 +10508,7 @@ impl IAzRoleDefinition {
 }
 unsafe impl ::windows::runtime::Interface for IAzRoleDefinition {
     type Vtable = IAzRoleDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3649031841, 9625, 17649, [159, 195, 88, 233, 251, 224, 148, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd97fcea1_2599_44f1_9fc3_58e9fbe09466);
 }
 impl ::core::convert::From<IAzRoleDefinition> for ::windows::runtime::IUnknown {
     fn from(value: IAzRoleDefinition) -> Self {
@@ -10672,7 +10672,7 @@ impl IAzRoleDefinitions {
 }
 unsafe impl ::windows::runtime::Interface for IAzRoleDefinitions {
     type Vtable = IAzRoleDefinitions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2283742629, 55125, 17744, [149, 122, 213, 3, 163, 179, 64, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x881f25a5_d755_4550_957a_d503a3b34001);
 }
 impl ::core::convert::From<IAzRoleDefinitions> for ::windows::runtime::IUnknown {
     fn from(value: IAzRoleDefinitions) -> Self {
@@ -10761,7 +10761,7 @@ impl IAzRoles {
 }
 unsafe impl ::windows::runtime::Interface for IAzRoles {
     type Vtable = IAzRoles_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2514546969, 5044, 19886, [182, 95, 47, 125, 96, 216, 34, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95e0f119_13b4_4dae_b65f_2f7d60d822e4);
 }
 impl ::core::convert::From<IAzRoles> for ::windows::runtime::IUnknown {
     fn from(value: IAzRoles) -> Self {
@@ -11041,7 +11041,7 @@ impl IAzScope {
 }
 unsafe impl ::windows::runtime::Interface for IAzScope {
     type Vtable = IAzScope_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15017095, 57485, 17684, [182, 46, 135, 125, 86, 69, 245, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00e52487_e08d_4514_b62e_877d5645f5ab);
 }
 impl ::core::convert::From<IAzScope> for ::windows::runtime::IUnknown {
     fn from(value: IAzScope) -> Self {
@@ -11466,7 +11466,7 @@ impl IAzScope2 {
 }
 unsafe impl ::windows::runtime::Interface for IAzScope2 {
     type Vtable = IAzScope2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4003457225, 51699, 16610, [170, 18, 209, 216, 89, 151, 39, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee9fe8c9_c9f3_40e2_aa12_d1d8599727fd);
 }
 impl ::core::convert::From<IAzScope2> for ::windows::runtime::IUnknown {
     fn from(value: IAzScope2) -> Self {
@@ -11658,7 +11658,7 @@ impl IAzScopes {
 }
 unsafe impl ::windows::runtime::Interface for IAzScopes {
     type Vtable = IAzScopes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2028030035, 40798, 16493, [155, 145, 107, 219, 166, 151, 53, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78e14853_9f5e_406d_9b91_6bdba6973510);
 }
 impl ::core::convert::From<IAzScopes> for ::windows::runtime::IUnknown {
     fn from(value: IAzScopes) -> Self {
@@ -11872,7 +11872,7 @@ impl IAzTask {
 }
 unsafe impl ::windows::runtime::Interface for IAzTask {
     type Vtable = IAzTask_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3415532946, 11790, 19052, [163, 54, 184, 154, 109, 193, 227, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb94e592_2e0e_4a6c_a336_b89a6dc1e388);
 }
 impl ::core::convert::From<IAzTask> for ::windows::runtime::IUnknown {
     fn from(value: IAzTask) -> Self {
@@ -12172,7 +12172,7 @@ impl IAzTask2 {
 }
 unsafe impl ::windows::runtime::Interface for IAzTask2 {
     type Vtable = IAzTask2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(61449710, 18632, 18482, [144, 37, 170, 213, 3, 196, 101, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03a9a5ee_48c8_4832_9025_aad503c46526);
 }
 impl ::core::convert::From<IAzTask2> for ::windows::runtime::IUnknown {
     fn from(value: IAzTask2) -> Self {
@@ -12331,7 +12331,7 @@ impl IAzTasks {
 }
 unsafe impl ::windows::runtime::Interface for IAzTasks {
     type Vtable = IAzTasks_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3006844075, 19589, 17288, [140, 10, 197, 133, 146, 186, 211, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb338ccab_4c85_4388_8c0a_c58592bad398);
 }
 impl ::core::convert::From<IAzTasks> for ::windows::runtime::IUnknown {
     fn from(value: IAzTasks) -> Self {

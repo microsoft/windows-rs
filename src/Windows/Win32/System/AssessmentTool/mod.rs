@@ -1,10 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const CAccessiblityWinSAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1847130566, 41963, 18778, [137, 183, 149, 100, 130, 225, 159, 122]);
-pub const CInitiateWinSAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1217606108, 62944, 17704, [159, 218, 69, 51, 27, 244, 165, 113]);
-pub const CProvideWinSATVisuals: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2671213950, 58705, 17656, [159, 148, 157, 179, 146, 176, 59, 123]);
-pub const CQueryAllWinSAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(98536723, 50005, 18420, [161, 30, 133, 27, 51, 140, 239, 184]);
-pub const CQueryOEMWinSATCustomization: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3296346551, 46889, 16975, [154, 249, 92, 179, 147, 79, 45, 250]);
-pub const CQueryWinSAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4089314003, 62070, 18921, [155, 23, 196, 116, 244, 143, 7, 100]);
+pub const CAccessiblityWinSAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e18f9c6_a3eb_495a_89b7_956482e19f7a);
+pub const CInitiateWinSAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x489331dc_f5e0_4528_9fda_45331bf4a571);
+pub const CProvideWinSATVisuals: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f377d7e_e551_44f8_9f94_9db392b03b7b);
+pub const CQueryAllWinSAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05df8d13_c355_47f4_a11e_851b338cefb8);
+pub const CQueryOEMWinSATCustomization: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc47a41b7_b729_424f_9af9_5cb3934f2dfa);
+pub const CQueryWinSAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3bdfad3_f276_49e9_9b17_c474f48f0764);
 #[doc = "*Required features: `Win32_System_AssessmentTool`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -169,7 +169,7 @@ impl IAccessibleWinSAT {
 }
 unsafe impl ::windows::runtime::Interface for IAccessibleWinSAT {
     type Vtable = IAccessibleWinSAT_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(820380042, 38056, 20472, [166, 154, 113, 182, 116, 19, 240, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30e6018a_94a8_4ff8_a69a_71b67413f07b);
 }
 impl ::core::convert::From<IAccessibleWinSAT> for ::windows::runtime::IUnknown {
     fn from(value: IAccessibleWinSAT) -> Self {
@@ -318,7 +318,7 @@ impl IInitiateWinSATAssessment {
 }
 unsafe impl ::windows::runtime::Interface for IInitiateWinSATAssessment {
     type Vtable = IInitiateWinSATAssessment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3649305680, 62911, 18901, [181, 237, 204, 203, 24, 170, 127, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd983fc50_f5bf_49d5_b5ed_cccb18aa7fc1);
 }
 impl ::core::convert::From<IInitiateWinSATAssessment> for ::windows::runtime::IUnknown {
     fn from(value: IInitiateWinSATAssessment) -> Self {
@@ -377,7 +377,7 @@ impl IProvideWinSATAssessmentInfo {
 }
 unsafe impl ::windows::runtime::Interface for IProvideWinSATAssessmentInfo {
     type Vtable = IProvideWinSATAssessmentInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(215073664, 21203, 18040, [172, 111, 233, 41, 228, 128, 190, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cd1c380_52d3_4678_ac6f_e929e480be9e);
 }
 impl ::core::convert::From<IProvideWinSATAssessmentInfo> for ::windows::runtime::IUnknown {
     fn from(value: IProvideWinSATAssessmentInfo) -> Self {
@@ -477,7 +477,7 @@ impl IProvideWinSATResultsInfo {
 }
 unsafe impl ::windows::runtime::Interface for IProvideWinSATResultsInfo {
     type Vtable = IProvideWinSATResultsInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4164111709, 22158, 16501, [135, 95, 157, 243, 65, 80, 102, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8334d5d_568e_4075_875f_9df341506640);
 }
 impl ::core::convert::From<IProvideWinSATResultsInfo> for ::windows::runtime::IUnknown {
     fn from(value: IProvideWinSATResultsInfo) -> Self {
@@ -558,7 +558,7 @@ impl IProvideWinSATVisuals {
 }
 unsafe impl ::windows::runtime::Interface for IProvideWinSATVisuals {
     type Vtable = IProvideWinSATVisuals_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2851384800, 34586, 17059, [184, 19, 48, 120, 210, 81, 98, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9f4ade0_871a_42a3_b813_3078d25162c9);
 }
 impl ::core::convert::From<IProvideWinSATVisuals> for ::windows::runtime::IUnknown {
     fn from(value: IProvideWinSATVisuals) -> Self {
@@ -603,7 +603,7 @@ impl IQueryAllWinSATAssessments {
 }
 unsafe impl ::windows::runtime::Interface for IQueryAllWinSATAssessments {
     type Vtable = IQueryAllWinSATAssessments_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(193588509, 25496, 20458, [135, 252, 86, 125, 141, 25, 23, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b89ed1d_6398_4fea_87fc_567d8d19176f);
 }
 impl ::core::convert::From<IQueryAllWinSATAssessments> for ::windows::runtime::IUnknown {
     fn from(value: IQueryAllWinSATAssessments) -> Self {
@@ -678,7 +678,7 @@ impl IQueryOEMWinSATCustomization {
 }
 unsafe impl ::windows::runtime::Interface for IQueryOEMWinSATCustomization {
     type Vtable = IQueryOEMWinSATCustomization_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3164236447, 44366, 16910, [153, 83, 179, 70, 113, 233, 223, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc9a6a9f_ad4e_420e_9953_b34671e9df22);
 }
 impl ::core::convert::From<IQueryOEMWinSATCustomization> for ::windows::runtime::IUnknown {
     fn from(value: IQueryOEMWinSATCustomization) -> Self {
@@ -727,7 +727,7 @@ impl IQueryRecentWinSATAssessment {
 }
 unsafe impl ::windows::runtime::Interface for IQueryRecentWinSATAssessment {
     type Vtable = IQueryRecentWinSATAssessment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4172111135, 15175, 19420, [147, 117, 124, 107, 29, 164, 236, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8ad5d1f_3b47_4bdc_9375_7c6b1da4eca7);
 }
 impl ::core::convert::From<IQueryRecentWinSATAssessment> for ::windows::runtime::IUnknown {
     fn from(value: IQueryRecentWinSATAssessment) -> Self {
@@ -808,7 +808,7 @@ impl IWinSATInitiateEvents {
 }
 unsafe impl ::windows::runtime::Interface for IWinSATInitiateEvents {
     type Vtable = IWinSATInitiateEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(640293144, 47629, 16853, [146, 194, 250, 180, 99, 62, 231, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x262a1918_ba0d_41d5_92c2_fab4633ee74f);
 }
 impl ::core::convert::From<IWinSATInitiateEvents> for ::windows::runtime::IUnknown {
     fn from(value: IWinSATInitiateEvents) -> Self {

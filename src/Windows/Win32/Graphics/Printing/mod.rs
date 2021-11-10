@@ -932,9 +932,9 @@ pub const BOOKLET_EDGE_RIGHT: u32 = 1u32;
 pub const BOOKLET_PRINT: u32 = 2u32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const BORDER_PRINT: u32 = 0u32;
-pub const BidiRequest: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3105237539, 17913, 18380, [128, 245, 254, 15, 233, 185, 225, 162]);
-pub const BidiRequestContainer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4233857572, 56069, 18945, [131, 136, 34, 237, 246, 194, 187, 186]);
-pub const BidiSpl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(711017024, 42181, 19507, [189, 135, 27, 199, 9, 51, 22, 57]);
+pub const BidiRequest: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9162a23_45f9_47cc_80f5_fe0fe9b9e1a2);
+pub const BidiRequestContainer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc5b8a24_db05_4a01_8388_22edf6c2bbba);
+pub const BidiSpl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a614240_a4c5_4c33_bd87_1bc709331639);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1276,12 +1276,12 @@ pub const CHKBOXS_NO_YES: u32 = 1u32;
 pub const CHKBOXS_OFF_ON: u32 = 2u32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const CHKBOXS_OFF_PDATA: u32 = 5u32;
-pub const CLSID_OEMPTPROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2440181906, 17874, 18658, [158, 201, 86, 35, 121, 218, 249, 146]);
-pub const CLSID_OEMRENDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1835712294, 40760, 4561, [136, 42, 0, 192, 79, 185, 97, 236]);
-pub const CLSID_OEMUI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2882437335, 40774, 4561, [136, 42, 0, 192, 79, 185, 97, 236]);
-pub const CLSID_OEMUIMXDC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1309950720, 23363, 17032, [147, 42, 94, 77, 214, 216, 43, 237]);
-pub const CLSID_PTPROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1185682715, 33936, 17713, [150, 204, 85, 191, 43, 241, 158, 17]);
-pub const CLSID_XPSRASTERIZER_FACTORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1346271679, 7433, 18276, [157, 114, 30, 176, 198, 89, 103, 198]);
+pub const CLSID_OEMPTPROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91723892_45d2_48e2_9ec9_562379daf992);
+pub const CLSID_OEMRENDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d6abf26_9f38_11d1_882a_00c04fb961ec);
+pub const CLSID_OEMUI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xabce80d7_9f46_11d1_882a_00c04fb961ec);
+pub const CLSID_OEMUIMXDC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e144300_5b43_4288_932a_5e4dd6d82bed);
+pub const CLSID_PTPROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46ac151b_8490_4531_96cc_55bf2bf19e11);
+pub const CLSID_XPSRASTERIZER_FACTORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x503e79bf_1d09_4764_9d72_1eb0c65967c6);
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const COLOR_OPTIMIZATION: u32 = 1u32;
 #[derive(:: core :: clone :: Clone)]
@@ -5423,7 +5423,7 @@ pub unsafe fn ExtDeviceMode<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 pub const FG_CANCHANGE: u32 = 128u32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const FILL_WITH_DEFAULTS: u32 = 1u32;
-pub const FMTID_PrinterPropertyBag: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1979297226, 2429, 17859, [166, 228, 186, 178, 158, 39, 111, 62]);
+pub const FMTID_PrinterPropertyBag: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75f9adca_097d_45c3_a6e4_bab29e276f3e);
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const FNT_INFO_CURRENTFONTID: u32 = 10u32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -5790,8 +5790,8 @@ unsafe impl ::windows::runtime::Abi for GLYPHRUN {
 }
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const GPD_OEMCUSTOMDATA: u32 = 1u32;
-pub const GUID_DEVINTERFACE_IPPUSB_PRINT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4076077953, 62573, 20049, [188, 231, 98, 222, 108, 242, 208, 152]);
-pub const GUID_DEVINTERFACE_USBPRINT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(685215661, 23058, 4561, [174, 91, 0, 0, 248, 3, 168, 194]);
+pub const GUID_DEVINTERFACE_IPPUSB_PRINT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2f40381_f46d_4e51_bce7_62de6cf2d098);
+pub const GUID_DEVINTERFACE_USBPRINT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28d78fad_5a12_11d1_ae5b_0000f803a8c2);
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -6652,7 +6652,7 @@ impl IBidiAsyncNotifyChannel {
 }
 unsafe impl ::windows::runtime::Interface for IBidiAsyncNotifyChannel {
     type Vtable = IBidiAsyncNotifyChannel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1395136759, 37403, 20402, [191, 248, 47, 79, 213, 46, 190, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x532818f7_921b_4fb2_bff8_2f4fd52ebebf);
 }
 impl ::core::convert::From<IBidiAsyncNotifyChannel> for ::windows::runtime::IUnknown {
     fn from(value: IBidiAsyncNotifyChannel) -> Self {
@@ -8846,7 +8846,7 @@ impl IPrintAsyncNotify {
 }
 unsafe impl ::windows::runtime::Interface for IPrintAsyncNotify {
     type Vtable = IPrintAsyncNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1395136759, 37403, 20402, [191, 248, 47, 79, 213, 46, 190, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x532818f7_921b_4fb2_bff8_2f4fd52ebebf);
 }
 impl ::core::convert::From<IPrintAsyncNotify> for ::windows::runtime::IUnknown {
     fn from(value: IPrintAsyncNotify) -> Self {
@@ -8893,7 +8893,7 @@ impl IPrintAsyncNotifyCallback {
 }
 unsafe impl ::windows::runtime::Interface for IPrintAsyncNotifyCallback {
     type Vtable = IPrintAsyncNotifyCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2112828609, 40338, 19609, [179, 179, 219, 148, 169, 212, 25, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7def34c1_9d92_4c99_b3b3_db94a9d4191b);
 }
 impl ::core::convert::From<IPrintAsyncNotifyCallback> for ::windows::runtime::IUnknown {
     fn from(value: IPrintAsyncNotifyCallback) -> Self {
@@ -8940,7 +8940,7 @@ impl IPrintAsyncNotifyChannel {
 }
 unsafe impl ::windows::runtime::Interface for IPrintAsyncNotifyChannel {
     type Vtable = IPrintAsyncNotifyChannel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1246769585, 7999, 19888, [164, 98, 69, 48, 237, 139, 4, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a5031b1_1f3f_4db0_a462_4530ed8b0451);
 }
 impl ::core::convert::From<IPrintAsyncNotifyChannel> for ::windows::runtime::IUnknown {
     fn from(value: IPrintAsyncNotifyChannel) -> Self {
@@ -8987,7 +8987,7 @@ impl IPrintAsyncNotifyDataObject {
 }
 unsafe impl ::windows::runtime::Interface for IPrintAsyncNotifyDataObject {
     type Vtable = IPrintAsyncNotifyDataObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2010075454, 23881, 18313, [159, 48, 208, 130, 43, 51, 92, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77cf513e_5d49_4789_9f30_d0822b335c0d);
 }
 impl ::core::convert::From<IPrintAsyncNotifyDataObject> for ::windows::runtime::IUnknown {
     fn from(value: IPrintAsyncNotifyDataObject) -> Self {
@@ -9034,7 +9034,7 @@ impl IPrintAsyncNotifyRegistration {
 }
 unsafe impl ::windows::runtime::Interface for IPrintAsyncNotifyRegistration {
     type Vtable = IPrintAsyncNotifyRegistration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(258942902, 28550, 17809, [146, 3, 100, 195, 191, 173, 237, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f6f27b6_6f86_4591_9203_64c3bfadedfe);
 }
 impl ::core::convert::From<IPrintAsyncNotifyRegistration> for ::windows::runtime::IUnknown {
     fn from(value: IPrintAsyncNotifyRegistration) -> Self {
@@ -9302,7 +9302,7 @@ impl IPrintCoreHelper {
 }
 unsafe impl ::windows::runtime::Interface for IPrintCoreHelper {
     type Vtable = IPrintCoreHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2828977470, 14597, 18886, [156, 26, 192, 168, 129, 23, 253, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa89ec53e_3905_49c6_9c1a_c0a88117fdb6);
 }
 impl ::core::convert::From<IPrintCoreHelper> for ::windows::runtime::IUnknown {
     fn from(value: IPrintCoreHelper) -> Self {
@@ -9416,7 +9416,7 @@ impl IPrintCoreHelperPS {
 }
 unsafe impl ::windows::runtime::Interface for IPrintCoreHelperPS {
     type Vtable = IPrintCoreHelperPS_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3267448687, 38355, 19811, [150, 207, 107, 217, 230, 201, 7, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2c14f6f_95d3_4d63_96cf_6bd9e6c907c2);
 }
 impl ::core::convert::From<IPrintCoreHelperPS> for ::windows::runtime::IUnknown {
     fn from(value: IPrintCoreHelperPS) -> Self {
@@ -9552,7 +9552,7 @@ impl IPrintCoreHelperUni {
 }
 unsafe impl ::windows::runtime::Interface for IPrintCoreHelperUni {
     type Vtable = IPrintCoreHelperUni_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2123256278, 58862, 17446, [129, 123, 149, 139, 148, 68, 235, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e8e51d6_e5ee_4426_817b_958b9444eb79);
 }
 impl ::core::convert::From<IPrintCoreHelperUni> for ::windows::runtime::IUnknown {
     fn from(value: IPrintCoreHelperUni) -> Self {
@@ -9691,7 +9691,7 @@ impl IPrintCoreHelperUni2 {
 }
 unsafe impl ::windows::runtime::Interface for IPrintCoreHelperUni2 {
     type Vtable = IPrintCoreHelperUni2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1821048316, 60112, 19757, [128, 113, 155, 240, 23, 90, 108, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c8afdfc_ead0_4d2d_8071_9bf0175a6c3a);
 }
 impl ::core::convert::From<IPrintCoreHelperUni2> for ::windows::runtime::IUnknown {
     fn from(value: IPrintCoreHelperUni2) -> Self {
@@ -9879,7 +9879,7 @@ impl IPrintCoreUI2 {
 }
 unsafe impl ::windows::runtime::Interface for IPrintCoreUI2 {
     type Vtable = IPrintCoreUI2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(140300234, 15071, 19614, [180, 145, 216, 81, 166, 237, 201, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x085ccfca_3adf_4c9e_b491_d851a6edc997);
 }
 impl ::core::convert::From<IPrintCoreUI2> for ::windows::runtime::IUnknown {
     fn from(value: IPrintCoreUI2) -> Self {
@@ -9996,7 +9996,7 @@ impl IPrintJob {
 }
 unsafe impl ::windows::runtime::Interface for IPrintJob {
     type Vtable = IPrintJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3077692088, 4738, 16823, [133, 140, 242, 6, 228, 210, 5, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb771dab8_1282_41b7_858c_f206e4d20577);
 }
 impl ::core::convert::From<IPrintJob> for ::windows::runtime::IUnknown {
     fn from(value: IPrintJob) -> Self {
@@ -10056,7 +10056,7 @@ impl IPrintJobCollection {
 }
 unsafe impl ::windows::runtime::Interface for IPrintJobCollection {
     type Vtable = IPrintJobCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1924672036, 42392, 20103, [137, 95, 205, 178, 58, 73, 233, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72b82a24_a598_4e87_895f_cdb23a49e9dc);
 }
 impl ::core::convert::From<IPrintJobCollection> for ::windows::runtime::IUnknown {
     fn from(value: IPrintJobCollection) -> Self {
@@ -10137,7 +10137,7 @@ impl IPrintOemCommon {
 }
 unsafe impl ::windows::runtime::Interface for IPrintOemCommon {
     type Vtable = IPrintOemCommon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2135042142, 37333, 4561, [136, 32, 0, 192, 79, 185, 97, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f42285e_91d5_11d1_8820_00c04fb961ec);
 }
 impl ::core::convert::From<IPrintOemCommon> for ::windows::runtime::IUnknown {
     fn from(value: IPrintOemCommon) -> Self {
@@ -10191,7 +10191,7 @@ impl IPrintOemDriverUI {
 }
 unsafe impl ::windows::runtime::Interface for IPrintOemDriverUI {
     type Vtable = IPrintOemDriverUI_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2461031760, 30908, 4561, [148, 128, 0, 160, 201, 6, 64, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92b05d50_78bc_11d1_9480_00a0c90640b8);
 }
 impl ::core::convert::From<IPrintOemDriverUI> for ::windows::runtime::IUnknown {
     fn from(value: IPrintOemDriverUI) -> Self {
@@ -10323,7 +10323,7 @@ impl IPrintOemUI {
 }
 unsafe impl ::windows::runtime::Interface for IPrintOemUI {
     type Vtable = IPrintOemUI_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3332876752, 30540, 4561, [148, 127, 0, 160, 201, 6, 64, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6a7a9d0_774c_11d1_947f_00a0c90640b8);
 }
 impl ::core::convert::From<IPrintOemUI> for ::windows::runtime::IUnknown {
     fn from(value: IPrintOemUI) -> Self {
@@ -10509,7 +10509,7 @@ impl IPrintOemUI2 {
 }
 unsafe impl ::windows::runtime::Interface for IPrintOemUI2 {
     type Vtable = IPrintOemUI2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(690296313, 46411, 18587, [146, 117, 186, 181, 104, 33, 57, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x292515f9_b54b_489b_9275_bab56821395e);
 }
 impl ::core::convert::From<IPrintOemUI2> for ::windows::runtime::IUnknown {
     fn from(value: IPrintOemUI2) -> Self {
@@ -10631,7 +10631,7 @@ impl IPrintOemUIMXDC {
 }
 unsafe impl ::windows::runtime::Interface for IPrintOemUIMXDC {
     type Vtable = IPrintOemUIMXDC_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1934219045, 58049, 19914, [175, 181, 193, 62, 145, 188, 147, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7349d725_e2c1_4dca_afb5_c13e91bc9306);
 }
 impl ::core::convert::From<IPrintOemUIMXDC> for ::windows::runtime::IUnknown {
     fn from(value: IPrintOemUIMXDC) -> Self {
@@ -10919,7 +10919,7 @@ impl IPrintPreviewDxgiPackageTarget {
 }
 unsafe impl ::windows::runtime::Interface for IPrintPreviewDxgiPackageTarget {
     type Vtable = IPrintPreviewDxgiPackageTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(443404461, 7722, 20121, [165, 186, 145, 241, 120, 24, 41, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a6dd0ad_1e2a_4e99_a5ba_91f17818290e);
 }
 impl ::core::convert::From<IPrintPreviewDxgiPackageTarget> for ::windows::runtime::IUnknown {
     fn from(value: IPrintPreviewDxgiPackageTarget) -> Self {
@@ -11079,7 +11079,7 @@ impl IPrintSchemaAsyncOperation {
 }
 unsafe impl ::windows::runtime::Interface for IPrintSchemaAsyncOperation {
     type Vtable = IPrintSchemaAsyncOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(339512779, 54143, 18423, [136, 232, 107, 29, 33, 242, 197, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x143c8dcb_d37f_47f7_88e8_6b1d21f2c5f7);
 }
 impl ::core::convert::From<IPrintSchemaAsyncOperation> for ::windows::runtime::IUnknown {
     fn from(value: IPrintSchemaAsyncOperation) -> Self {
@@ -11154,7 +11154,7 @@ impl IPrintSchemaAsyncOperationEvent {
 }
 unsafe impl ::windows::runtime::Interface for IPrintSchemaAsyncOperationEvent {
     type Vtable = IPrintSchemaAsyncOperationEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(598588182, 307, 18694, [178, 154, 29, 206, 29, 2, 99, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23adbb16_0133_4906_b29a_1dce1d026379);
 }
 impl ::core::convert::From<IPrintSchemaAsyncOperationEvent> for ::windows::runtime::IUnknown {
     fn from(value: IPrintSchemaAsyncOperationEvent) -> Self {
@@ -11310,7 +11310,7 @@ impl IPrintSchemaCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for IPrintSchemaCapabilities {
     type Vtable = IPrintSchemaCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1515681344, 20509, 18727, [188, 208, 94, 245, 122, 126, 209, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a577640_501d_4927_bcd0_5ef57a7ed175);
 }
 impl ::core::convert::From<IPrintSchemaCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: IPrintSchemaCapabilities) -> Self {
@@ -11505,7 +11505,7 @@ impl IPrintSchemaCapabilities2 {
 }
 unsafe impl ::windows::runtime::Interface for IPrintSchemaCapabilities2 {
     type Vtable = IPrintSchemaCapabilities2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3045606900, 39280, 19847, [166, 54, 22, 159, 184, 46, 214, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb58845f4_9970_4d87_a636_169fb82ed642);
 }
 impl ::core::convert::From<IPrintSchemaCapabilities2> for ::windows::runtime::IUnknown {
     fn from(value: IPrintSchemaCapabilities2) -> Self {
@@ -11685,7 +11685,7 @@ impl IPrintSchemaDisplayableElement {
 }
 unsafe impl ::windows::runtime::Interface for IPrintSchemaDisplayableElement {
     type Vtable = IPrintSchemaDisplayableElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2940579657, 54954, 16509, [191, 135, 57, 18, 35, 110, 157, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf45af49_d6aa_407d_bf87_3912236e9d94);
 }
 impl ::core::convert::From<IPrintSchemaDisplayableElement> for ::windows::runtime::IUnknown {
     fn from(value: IPrintSchemaDisplayableElement) -> Self {
@@ -11798,7 +11798,7 @@ impl IPrintSchemaElement {
 }
 unsafe impl ::windows::runtime::Interface for IPrintSchemaElement {
     type Vtable = IPrintSchemaElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1917589062, 58955, 19391, [142, 180, 212, 94, 79, 213, 128, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x724c1646_e64b_4bbf_8eb4_d45e4fd580da);
 }
 impl ::core::convert::From<IPrintSchemaElement> for ::windows::runtime::IUnknown {
     fn from(value: IPrintSchemaElement) -> Self {
@@ -11953,7 +11953,7 @@ impl IPrintSchemaFeature {
 }
 unsafe impl ::windows::runtime::Interface for IPrintSchemaFeature {
     type Vtable = IPrintSchemaFeature_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4011365473, 23906, 17958, [142, 87, 255, 131, 88, 60, 72, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef189461_5d62_4626_8e57_ff83583c4826);
 }
 impl ::core::convert::From<IPrintSchemaFeature> for ::windows::runtime::IUnknown {
     fn from(value: IPrintSchemaFeature) -> Self {
@@ -12153,7 +12153,7 @@ impl IPrintSchemaNUpOption {
 }
 unsafe impl ::windows::runtime::Interface for IPrintSchemaNUpOption {
     type Vtable = IPrintSchemaNUpOption_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(526598898, 55368, 17123, [137, 149, 193, 10, 158, 249, 163, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f6342f2_d848_42e3_8995_c10a9ef9a3ba);
 }
 impl ::core::convert::From<IPrintSchemaNUpOption> for ::windows::runtime::IUnknown {
     fn from(value: IPrintSchemaNUpOption) -> Self {
@@ -12367,7 +12367,7 @@ impl IPrintSchemaOption {
 }
 unsafe impl ::windows::runtime::Interface for IPrintSchemaOption {
     type Vtable = IPrintSchemaOption_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1723543377, 22596, 18839, [141, 112, 75, 124, 194, 33, 207, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66bb2f51_5844_4997_8d70_4b7cc221cf92);
 }
 impl ::core::convert::From<IPrintSchemaOption> for ::windows::runtime::IUnknown {
     fn from(value: IPrintSchemaOption) -> Self {
@@ -12503,7 +12503,7 @@ impl IPrintSchemaOptionCollection {
 }
 unsafe impl ::windows::runtime::Interface for IPrintSchemaOptionCollection {
     type Vtable = IPrintSchemaOptionCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3136073917, 43334, 18289, [188, 48, 232, 178, 79, 141, 69, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbaecb0bd_a946_4771_bc30_e8b24f8d45c1);
 }
 impl ::core::convert::From<IPrintSchemaOptionCollection> for ::windows::runtime::IUnknown {
     fn from(value: IPrintSchemaOptionCollection) -> Self {
@@ -12654,7 +12654,7 @@ impl IPrintSchemaPageImageableSize {
 }
 unsafe impl ::windows::runtime::Interface for IPrintSchemaPageImageableSize {
     type Vtable = IPrintSchemaPageImageableSize_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2089140062, 56444, 20321, [131, 155, 65, 7, 225, 201, 182, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c85bf5e_dc7c_4f61_839b_4107e1c9b68e);
 }
 impl ::core::convert::From<IPrintSchemaPageImageableSize> for ::windows::runtime::IUnknown {
     fn from(value: IPrintSchemaPageImageableSize) -> Self {
@@ -12836,7 +12836,7 @@ impl IPrintSchemaPageMediaSizeOption {
 }
 unsafe impl ::windows::runtime::Interface for IPrintSchemaPageMediaSizeOption {
     type Vtable = IPrintSchemaPageMediaSizeOption_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1752459049, 62611, 18480, [161, 15, 105, 2, 135, 116, 96, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68746729_f493_4830_a10f_69028774605d);
 }
 impl ::core::convert::From<IPrintSchemaPageMediaSizeOption> for ::windows::runtime::IUnknown {
     fn from(value: IPrintSchemaPageMediaSizeOption) -> Self {
@@ -13061,7 +13061,7 @@ impl IPrintSchemaParameterDefinition {
 }
 unsafe impl ::windows::runtime::Interface for IPrintSchemaParameterDefinition {
     type Vtable = IPrintSchemaParameterDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3048073246, 3681, 20449, [129, 198, 195, 51, 228, 255, 224, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5ade81e_0e61_4fe1_81c6_c333e4ffe0f1);
 }
 impl ::core::convert::From<IPrintSchemaParameterDefinition> for ::windows::runtime::IUnknown {
     fn from(value: IPrintSchemaParameterDefinition) -> Self {
@@ -13244,7 +13244,7 @@ impl IPrintSchemaParameterInitializer {
 }
 unsafe impl ::windows::runtime::Interface for IPrintSchemaParameterInitializer {
     type Vtable = IPrintSchemaParameterInitializer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1375891586, 2932, 17992, [149, 100, 130, 140, 198, 203, 101, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52027082_0b74_4648_9564_828cc6cb656c);
 }
 impl ::core::convert::From<IPrintSchemaParameterInitializer> for ::windows::runtime::IUnknown {
     fn from(value: IPrintSchemaParameterInitializer) -> Self {
@@ -13431,7 +13431,7 @@ impl IPrintSchemaTicket {
 }
 unsafe impl ::windows::runtime::Interface for IPrintSchemaTicket {
     type Vtable = IPrintSchemaTicket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3833641057, 18184, 20077, [165, 180, 162, 180, 238, 185, 186, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe480b861_4708_4e6d_a5b4_a2b4eeb9baa4);
 }
 impl ::core::convert::From<IPrintSchemaTicket> for ::windows::runtime::IUnknown {
     fn from(value: IPrintSchemaTicket) -> Self {
@@ -13630,7 +13630,7 @@ impl IPrintSchemaTicket2 {
 }
 unsafe impl ::windows::runtime::Interface for IPrintSchemaTicket2 {
     type Vtable = IPrintSchemaTicket2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(784463940, 30314, 18337, [145, 244, 46, 235, 97, 144, 248, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ec1f844_766a_47a1_91f4_2eeb6190f80c);
 }
 impl ::core::convert::From<IPrintSchemaTicket2> for ::windows::runtime::IUnknown {
     fn from(value: IPrintSchemaTicket2) -> Self {
@@ -13792,7 +13792,7 @@ impl IPrintTicketProvider {
 }
 unsafe impl ::windows::runtime::Interface for IPrintTicketProvider {
     type Vtable = IPrintTicketProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3142653659, 2595, 19514, [166, 182, 137, 229, 85, 141, 251, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb5116db_0a23_4c3a_a6b6_89e5558dfb5d);
 }
 impl ::core::convert::From<IPrintTicketProvider> for ::windows::runtime::IUnknown {
     fn from(value: IPrintTicketProvider) -> Self {
@@ -13891,7 +13891,7 @@ impl IPrintTicketProvider2 {
 }
 unsafe impl ::windows::runtime::Interface for IPrintTicketProvider2 {
     type Vtable = IPrintTicketProvider2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3097954994, 15868, 20460, [160, 116, 81, 27, 19, 198, 81, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8a70ab2_3dfc_4fec_a074_511b13c651cb);
 }
 impl ::core::convert::From<IPrintTicketProvider2> for ::windows::runtime::IUnknown {
     fn from(value: IPrintTicketProvider2) -> Self {
@@ -14154,7 +14154,7 @@ impl IPrinterBidiSetRequestCallback {
 }
 unsafe impl ::windows::runtime::Interface for IPrinterBidiSetRequestCallback {
     type Vtable = IPrinterBidiSetRequestCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3308073693, 62132, 16466, [133, 2, 236, 67, 5, 236, 183, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc52d32dd_f2b4_4052_8502_ec4305ecb71f);
 }
 impl ::core::convert::From<IPrinterBidiSetRequestCallback> for ::windows::runtime::IUnknown {
     fn from(value: IPrinterBidiSetRequestCallback) -> Self {
@@ -14197,7 +14197,7 @@ impl IPrinterExtensionAsyncOperation {
 }
 unsafe impl ::windows::runtime::Interface for IPrinterExtensionAsyncOperation {
     type Vtable = IPrinterExtensionAsyncOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(277703203, 27211, 17746, [148, 72, 104, 180, 39, 24, 106, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x108d6a23_6a4b_4552_9448_68b427186acd);
 }
 impl ::core::convert::From<IPrinterExtensionAsyncOperation> for ::windows::runtime::IUnknown {
     fn from(value: IPrinterExtensionAsyncOperation) -> Self {
@@ -14255,7 +14255,7 @@ impl IPrinterExtensionContext {
 }
 unsafe impl ::windows::runtime::Interface for IPrinterExtensionContext {
     type Vtable = IPrinterExtensionContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(964967410, 50386, 16893, [180, 178, 174, 219, 238, 94, 25, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39843bf2_c4d2_41fd_b4b2_aedbee5e1900);
 }
 impl ::core::convert::From<IPrinterExtensionContext> for ::windows::runtime::IUnknown {
     fn from(value: IPrinterExtensionContext) -> Self {
@@ -14343,7 +14343,7 @@ impl IPrinterExtensionContextCollection {
 }
 unsafe impl ::windows::runtime::Interface for IPrinterExtensionContextCollection {
     type Vtable = IPrinterExtensionContextCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4215761264, 39851, 18529, [129, 30, 62, 152, 176, 197, 173, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb476970_9bab_4861_811e_3e98b0c5addf);
 }
 impl ::core::convert::From<IPrinterExtensionContextCollection> for ::windows::runtime::IUnknown {
     fn from(value: IPrinterExtensionContextCollection) -> Self {
@@ -14423,7 +14423,7 @@ impl IPrinterExtensionEvent {
 }
 unsafe impl ::windows::runtime::Interface for IPrinterExtensionEvent {
     type Vtable = IPrinterExtensionEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230911331, 24309, 17797, [175, 142, 77, 86, 55, 72, 123, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc093cb63_5ef5_4585_af8e_4d5637487b57);
 }
 impl ::core::convert::From<IPrinterExtensionEvent> for ::windows::runtime::IUnknown {
     fn from(value: IPrinterExtensionEvent) -> Self {
@@ -14585,7 +14585,7 @@ impl IPrinterExtensionEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for IPrinterExtensionEventArgs {
     type Vtable = IPrinterExtensionEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(964967412, 50386, 16893, [180, 178, 174, 219, 238, 94, 25, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39843bf4_c4d2_41fd_b4b2_aedbee5e1900);
 }
 impl ::core::convert::From<IPrinterExtensionEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: IPrinterExtensionEventArgs) -> Self {
@@ -14697,7 +14697,7 @@ impl IPrinterExtensionManager {
 }
 unsafe impl ::windows::runtime::Interface for IPrinterExtensionManager {
     type Vtable = IPrinterExtensionManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2479287180, 45057, 17237, [150, 41, 142, 138, 27, 63, 142, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93c6eb8c_b001_4355_9629_8e8a1b3f8e77);
 }
 impl ::core::convert::From<IPrinterExtensionManager> for ::windows::runtime::IUnknown {
     fn from(value: IPrinterExtensionManager) -> Self {
@@ -14745,7 +14745,7 @@ impl IPrinterExtensionRequest {
 }
 unsafe impl ::windows::runtime::Interface for IPrinterExtensionRequest {
     type Vtable = IPrinterExtensionRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(964967411, 50386, 16893, [180, 178, 174, 219, 238, 94, 25, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39843bf3_c4d2_41fd_b4b2_aedbee5e1900);
 }
 impl ::core::convert::From<IPrinterExtensionRequest> for ::windows::runtime::IUnknown {
     fn from(value: IPrinterExtensionRequest) -> Self {
@@ -14872,7 +14872,7 @@ impl IPrinterPropertyBag {
 }
 unsafe impl ::windows::runtime::Interface for IPrinterPropertyBag {
     type Vtable = IPrinterPropertyBag_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4272386916, 57237, 18979, [169, 5, 1, 155, 121, 168, 228, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfea77364_df95_4a23_a905_019b79a8e481);
 }
 impl ::core::convert::From<IPrinterPropertyBag> for ::windows::runtime::IUnknown {
     fn from(value: IPrinterPropertyBag) -> Self {
@@ -14983,7 +14983,7 @@ impl IPrinterQueue {
 }
 unsafe impl ::windows::runtime::Interface for IPrinterQueue {
     type Vtable = IPrinterQueue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(897624104, 2046, 19348, [172, 26, 117, 125, 157, 45, 48, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3580a828_07fe_4b94_ac1a_757d9d2d3056);
 }
 impl ::core::convert::From<IPrinterQueue> for ::windows::runtime::IUnknown {
     fn from(value: IPrinterQueue) -> Self {
@@ -15124,7 +15124,7 @@ impl IPrinterQueue2 {
 }
 unsafe impl ::windows::runtime::Interface for IPrinterQueue2 {
     type Vtable = IPrinterQueue2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2362721512, 51643, 18867, [142, 56, 224, 50, 9, 65, 97, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cd444e8_c9bb_49b3_8e38_e03209416131);
 }
 impl ::core::convert::From<IPrinterQueue2> for ::windows::runtime::IUnknown {
     fn from(value: IPrinterQueue2) -> Self {
@@ -15228,7 +15228,7 @@ impl IPrinterQueueEvent {
 }
 unsafe impl ::windows::runtime::Interface for IPrinterQueueEvent {
     type Vtable = IPrinterQueueEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(558269942, 31608, 18049, [135, 224, 73, 95, 115, 146, 115, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x214685f6_7b78_4681_87e0_495f739273d1);
 }
 impl ::core::convert::From<IPrinterQueueEvent> for ::windows::runtime::IUnknown {
     fn from(value: IPrinterQueueEvent) -> Self {
@@ -15303,7 +15303,7 @@ impl IPrinterQueueView {
 }
 unsafe impl ::windows::runtime::Interface for IPrinterQueueView {
     type Vtable = IPrinterQueueView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1198401897, 15147, 19263, [130, 119, 207, 246, 5, 96, 66, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x476e2969_3b2b_4b3f_8277_cff6056042aa);
 }
 impl ::core::convert::From<IPrinterQueueView> for ::windows::runtime::IUnknown {
     fn from(value: IPrinterQueueView) -> Self {
@@ -15377,7 +15377,7 @@ impl IPrinterQueueViewEvent {
 }
 unsafe impl ::windows::runtime::Interface for IPrinterQueueViewEvent {
     type Vtable = IPrinterQueueViewEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3317040171, 64801, 16458, [160, 239, 226, 251, 181, 43, 144, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5b6042b_fd21_404a_a0ef_e2fbb52b9080);
 }
 impl ::core::convert::From<IPrinterQueueViewEvent> for ::windows::runtime::IUnknown {
     fn from(value: IPrinterQueueViewEvent) -> Self {
@@ -15462,7 +15462,7 @@ impl IPrinterScriptContext {
 }
 unsafe impl ::windows::runtime::Interface for IPrinterScriptContext {
     type Vtable = IPrinterScriptContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(107662282, 34945, 18889, [187, 152, 250, 225, 107, 72, 137, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x066acbca_8881_49c9_bb98_fae16b4889e1);
 }
 impl ::core::convert::From<IPrinterScriptContext> for ::windows::runtime::IUnknown {
     fn from(value: IPrinterScriptContext) -> Self {
@@ -15590,7 +15590,7 @@ impl IPrinterScriptablePropertyBag {
 }
 unsafe impl ::windows::runtime::Interface for IPrinterScriptablePropertyBag {
     type Vtable = IPrinterScriptablePropertyBag_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2445768287, 60759, 18861, [139, 1, 220, 36, 129, 106, 82, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91c7765f_ed57_49ad_8b01_dc24816a5294);
 }
 impl ::core::convert::From<IPrinterScriptablePropertyBag> for ::windows::runtime::IUnknown {
     fn from(value: IPrinterScriptablePropertyBag) -> Self {
@@ -15773,7 +15773,7 @@ impl IPrinterScriptablePropertyBag2 {
 }
 unsafe impl ::windows::runtime::Interface for IPrinterScriptablePropertyBag2 {
     type Vtable = IPrinterScriptablePropertyBag2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(706499524, 34360, 19262, [181, 24, 39, 115, 201, 69, 86, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a1c53c4_8638_4b3e_b518_2773c94556a3);
 }
 impl ::core::convert::From<IPrinterScriptablePropertyBag2> for ::windows::runtime::IUnknown {
     fn from(value: IPrinterScriptablePropertyBag2) -> Self {
@@ -15896,7 +15896,7 @@ impl IPrinterScriptableSequentialStream {
 }
 unsafe impl ::windows::runtime::Interface for IPrinterScriptableSequentialStream {
     type Vtable = IPrinterScriptableSequentialStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(544375690, 12655, 18042, [169, 73, 39, 246, 140, 68, 168, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2072838a_316f_467a_a949_27f68c44a854);
 }
 impl ::core::convert::From<IPrinterScriptableSequentialStream> for ::windows::runtime::IUnknown {
     fn from(value: IPrinterScriptableSequentialStream) -> Self {
@@ -16027,7 +16027,7 @@ impl IPrinterScriptableStream {
 }
 unsafe impl ::windows::runtime::Interface for IPrinterScriptableStream {
     type Vtable = IPrinterScriptableStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2128583314, 18256, 16805, [161, 127, 135, 154, 111, 79, 125, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7edf9a92_4750_41a5_a17f_879a6f4f7dcb);
 }
 impl ::core::convert::From<IPrinterScriptableStream> for ::windows::runtime::IUnknown {
     fn from(value: IPrinterScriptableStream) -> Self {
@@ -16371,7 +16371,7 @@ impl IXpsRasterizationFactory {
 }
 unsafe impl ::windows::runtime::Interface for IXpsRasterizationFactory {
     type Vtable = IXpsRasterizationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3767828618, 9414, 18475, [163, 167, 194, 26, 201, 181, 95, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe094808a_24c6_482b_a3a7_c21ac9b55f17);
 }
 impl ::core::convert::From<IXpsRasterizationFactory> for ::windows::runtime::IUnknown {
     fn from(value: IXpsRasterizationFactory) -> Self {
@@ -16416,7 +16416,7 @@ impl IXpsRasterizationFactory1 {
 }
 unsafe impl ::windows::runtime::Interface for IXpsRasterizationFactory1 {
     type Vtable = IXpsRasterizationFactory1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(762208119, 25620, 18974, [168, 224, 212, 25, 76, 230, 162, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d6e5f77_6414_4a1e_a8e0_d4194ce6a26f);
 }
 impl ::core::convert::From<IXpsRasterizationFactory1> for ::windows::runtime::IUnknown {
     fn from(value: IXpsRasterizationFactory1) -> Self {
@@ -16472,7 +16472,7 @@ impl IXpsRasterizationFactory2 {
 }
 unsafe impl ::windows::runtime::Interface for IXpsRasterizationFactory2 {
     type Vtable = IXpsRasterizationFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2618740286, 4341, 16893, [157, 220, 104, 38, 102, 156, 47, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c16ce3e_10f5_41fd_9ddc_6826669c2ff6);
 }
 impl ::core::convert::From<IXpsRasterizationFactory2> for ::windows::runtime::IUnknown {
     fn from(value: IXpsRasterizationFactory2) -> Self {
@@ -16521,7 +16521,7 @@ impl IXpsRasterizer {
 }
 unsafe impl ::windows::runtime::Interface for IXpsRasterizer {
     type Vtable = IXpsRasterizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1969737672, 49494, 18344, [157, 172, 17, 162, 174, 91, 221, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7567cfc8_c156_47a8_9dac_11a2ae5bdd6b);
 }
 impl ::core::convert::From<IXpsRasterizer> for ::windows::runtime::IUnknown {
     fn from(value: IXpsRasterizer) -> Self {
@@ -16565,7 +16565,7 @@ impl IXpsRasterizerNotificationCallback {
 }
 unsafe impl ::windows::runtime::Interface for IXpsRasterizerNotificationCallback {
     type Vtable = IXpsRasterizerNotificationCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2595814669, 52116, 18882, [156, 176, 151, 236, 29, 84, 105, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ab8fd0d_cb94_49c2_9cb0_97ec1d5469d2);
 }
 impl ::core::convert::From<IXpsRasterizerNotificationCallback> for ::windows::runtime::IUnknown {
     fn from(value: IXpsRasterizerNotificationCallback) -> Self {
@@ -18262,7 +18262,7 @@ impl ::core::convert::From<i32> for NOTIFICATION_CONFIG_FLAGS {
 unsafe impl ::windows::runtime::Abi for NOTIFICATION_CONFIG_FLAGS {
     type Abi = Self;
 }
-pub const NOTIFICATION_RELEASE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3130675239, 42766, 19175, [155, 125, 235, 62, 6, 173, 65, 87]);
+pub const NOTIFICATION_RELEASE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba9a5027_a70e_4ae7_9b7d_eb3e06ad4157);
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const NO_BORDER_PRINT: u32 = 1u32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -19971,9 +19971,9 @@ pub const PRINTER_EVENT_DELETE_CONNECTION_NO_UI: u32 = 10u32;
 pub const PRINTER_EVENT_FLAG_NO_UI: u32 = 1u32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const PRINTER_EVENT_INITIALIZE: u32 = 3u32;
-pub const PRINTER_EXTENSION_DETAILEDREASON_PRINTER_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1566185220, 57297, 16769, [142, 238, 129, 92, 134, 237, 173, 49]);
-pub const PRINTER_EXTENSION_REASON_DRIVER_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(599462696, 25566, 17043, [145, 91, 166, 162, 61, 146, 154, 203]);
-pub const PRINTER_EXTENSION_REASON_PRINT_PREFERENCES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3968804383, 9852, 18079, [181, 214, 57, 51, 2, 60, 41, 204]);
+pub const PRINTER_EXTENSION_DETAILEDREASON_PRINTER_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d5a1704_dfd1_4181_8eee_815c86edad31);
+pub const PRINTER_EXTENSION_REASON_DRIVER_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23bb1328_63de_4293_915b_a6a23d929acb);
+pub const PRINTER_EXTENSION_REASON_PRINT_PREFERENCES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec8f261f_267c_469f_b5d6_3933023c29cc);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -21765,7 +21765,7 @@ impl ::core::cmp::Eq for PRINTPROVIDOR {}
 unsafe impl ::windows::runtime::Abi for PRINTPROVIDOR {
     type Abi = Self;
 }
-pub const PRINT_APP_BIDI_NOTIFY_CHANNEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(716886563, 47508, 19146, [130, 252, 69, 113, 177, 181, 133, 172]);
+pub const PRINT_APP_BIDI_NOTIFY_CHANNEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2abad223_b994_4aca_82fc_4571b1b585ac);
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -21844,7 +21844,7 @@ impl ::core::cmp::Eq for PRINT_FEATURE_OPTION {}
 unsafe impl ::windows::runtime::Abi for PRINT_FEATURE_OPTION {
     type Abi = Self;
 }
-pub const PRINT_PORT_MONITOR_NOTIFY_CHANNEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(635386638, 29865, 18421, [128, 206, 121, 180, 177, 235, 92, 88]);
+pub const PRINT_PORT_MONITOR_NOTIFY_CHANNEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25df3b0e_74a9_47f5_80ce_79b4b1eb5c58);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -22560,7 +22560,7 @@ impl ::core::cmp::Eq for PrintPropertyValue_0_0 {}
 unsafe impl ::windows::runtime::Abi for PrintPropertyValue_0_0 {
     type Abi = Self;
 }
-pub const PrintSchemaAsyncOperation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1135802429, 4338, 18603, [131, 27, 85, 253, 189, 189, 52, 164]);
+pub const PrintSchemaAsyncOperation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43b2f83d_10f2_48ab_831b_55fdbdbd34a4);
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -22606,7 +22606,7 @@ impl ::core::convert::From<i32> for PrintSchemaSelectionType {
 unsafe impl ::windows::runtime::Abi for PrintSchemaSelectionType {
     type Abi = Self;
 }
-pub const PrinterExtensionManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(857432282, 40592, 19920, [156, 132, 234, 196, 230, 89, 182, 31]);
+pub const PrinterExtensionManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x331b60da_9e90_4dd0_9c84_eac4e659b61f);
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -22652,8 +22652,8 @@ pub unsafe fn PrinterProperties<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const PrinterQueue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3948200496, 31116, 19614, [180, 97, 41, 250, 208, 64, 57, 177]);
-pub const PrinterQueueView: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3948200497, 31116, 19614, [180, 97, 41, 250, 208, 64, 57, 177]);
+pub const PrinterQueue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb54c230_798c_4c9e_b461_29fad04039b1);
+pub const PrinterQueueView: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb54c231_798c_4c9e_b461_29fad04039b1);
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

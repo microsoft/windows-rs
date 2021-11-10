@@ -2503,60 +2503,60 @@ unsafe impl ::windows::runtime::Abi for EapUsernamePasswordCredential {
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const FACILITY_EAP_MESSAGE: u32 = 2114u32;
-pub const GUID_EapHost_Cause_CertStoreInaccessible: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 4]);
-pub const GUID_EapHost_Cause_EapNegotiationFailed: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 28]);
-pub const GUID_EapHost_Cause_EapQecInaccessible: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 3, 18]);
-pub const GUID_EapHost_Cause_Generic_AuthFailure: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 1, 4]);
-pub const GUID_EapHost_Cause_IdentityUnknown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 2, 4]);
-pub const GUID_EapHost_Cause_MethodDLLNotFound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 1]);
-pub const GUID_EapHost_Cause_MethodDoesNotSupportOperation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 30]);
-pub const GUID_EapHost_Cause_Method_Config_Does_Not_Support_Sso: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3659054386, 79, 16890, [174, 8, 11, 200, 94, 88, 69, 172]);
-pub const GUID_EapHost_Cause_No_SmartCardReader_Found: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 43]);
-pub const GUID_EapHost_Cause_Server_CertExpired: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 5]);
-pub const GUID_EapHost_Cause_Server_CertInvalid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 6]);
-pub const GUID_EapHost_Cause_Server_CertNotFound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 7]);
-pub const GUID_EapHost_Cause_Server_CertOtherError: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 1, 8]);
-pub const GUID_EapHost_Cause_Server_CertRevoked: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 8]);
-pub const GUID_EapHost_Cause_Server_Root_CertNameRequired: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 18]);
-pub const GUID_EapHost_Cause_Server_Root_CertNotFound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 1, 18]);
-pub const GUID_EapHost_Cause_SimNotValid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 3, 4]);
-pub const GUID_EapHost_Cause_ThirdPartyMethod_Host_Reset: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 2, 18]);
-pub const GUID_EapHost_Cause_User_Account_OtherProblem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 1, 14]);
-pub const GUID_EapHost_Cause_User_CertExpired: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 9]);
-pub const GUID_EapHost_Cause_User_CertInvalid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 10]);
-pub const GUID_EapHost_Cause_User_CertNotFound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 11]);
-pub const GUID_EapHost_Cause_User_CertOtherError: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 12]);
-pub const GUID_EapHost_Cause_User_CertRejected: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 13]);
-pub const GUID_EapHost_Cause_User_CertRevoked: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 14]);
-pub const GUID_EapHost_Cause_User_CredsRejected: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 2, 14]);
-pub const GUID_EapHost_Cause_User_Root_CertExpired: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 15]);
-pub const GUID_EapHost_Cause_User_Root_CertInvalid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 16]);
-pub const GUID_EapHost_Cause_User_Root_CertNotFound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 17]);
-pub const GUID_EapHost_Cause_XmlMalformed: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 29]);
-pub const GUID_EapHost_Default: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0]);
-pub const GUID_EapHost_Help_ObtainingCerts: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4113952419, 7133, 18122, [162, 252, 166, 101, 89, 57, 183, 232]);
-pub const GUID_EapHost_Help_Troubleshooting: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(858815183, 1688, 16826, [176, 20, 234, 10, 46, 184, 208, 168]);
-pub const GUID_EapHost_Repair_ContactAdmin_AuthFailure: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 31]);
-pub const GUID_EapHost_Repair_ContactAdmin_CertNameAbsent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 41]);
-pub const GUID_EapHost_Repair_ContactAdmin_CertStoreInaccessible: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 36]);
-pub const GUID_EapHost_Repair_ContactAdmin_IdentityUnknown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 32]);
-pub const GUID_EapHost_Repair_ContactAdmin_InvalidUserAccount: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 37]);
-pub const GUID_EapHost_Repair_ContactAdmin_InvalidUserCert: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 44]);
-pub const GUID_EapHost_Repair_ContactAdmin_MethodNotFound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 34]);
-pub const GUID_EapHost_Repair_ContactAdmin_NegotiationFailed: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 33]);
-pub const GUID_EapHost_Repair_ContactAdmin_NoSmartCardReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 42]);
-pub const GUID_EapHost_Repair_ContactAdmin_RootCertInvalid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 38]);
-pub const GUID_EapHost_Repair_ContactAdmin_RootCertNotFound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 39]);
-pub const GUID_EapHost_Repair_ContactAdmin_RootExpired: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 40]);
-pub const GUID_EapHost_Repair_ContactSysadmin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 2]);
-pub const GUID_EapHost_Repair_Method_Not_Support_Sso: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 45]);
-pub const GUID_EapHost_Repair_No_ValidSim_Found: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 46]);
-pub const GUID_EapHost_Repair_RestartNap: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 35]);
-pub const GUID_EapHost_Repair_Retry_Authentication: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 1, 27]);
-pub const GUID_EapHost_Repair_Server_ClientSelectServerCert: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 24]);
-pub const GUID_EapHost_Repair_User_AuthFailure: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 25]);
-pub const GUID_EapHost_Repair_User_GetNewCert: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 26]);
-pub const GUID_EapHost_Repair_User_SelectValidCert: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 27]);
+pub const GUID_EapHost_Cause_CertStoreInaccessible: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000004);
+pub const GUID_EapHost_Cause_EapNegotiationFailed: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001c);
+pub const GUID_EapHost_Cause_EapQecInaccessible: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000312);
+pub const GUID_EapHost_Cause_Generic_AuthFailure: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000104);
+pub const GUID_EapHost_Cause_IdentityUnknown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000204);
+pub const GUID_EapHost_Cause_MethodDLLNotFound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000001);
+pub const GUID_EapHost_Cause_MethodDoesNotSupportOperation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001e);
+pub const GUID_EapHost_Cause_Method_Config_Does_Not_Support_Sso: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda18bd32_004f_41fa_ae08_0bc85e5845ac);
+pub const GUID_EapHost_Cause_No_SmartCardReader_Found: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000002b);
+pub const GUID_EapHost_Cause_Server_CertExpired: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000005);
+pub const GUID_EapHost_Cause_Server_CertInvalid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000006);
+pub const GUID_EapHost_Cause_Server_CertNotFound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000007);
+pub const GUID_EapHost_Cause_Server_CertOtherError: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000108);
+pub const GUID_EapHost_Cause_Server_CertRevoked: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000008);
+pub const GUID_EapHost_Cause_Server_Root_CertNameRequired: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000012);
+pub const GUID_EapHost_Cause_Server_Root_CertNotFound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000112);
+pub const GUID_EapHost_Cause_SimNotValid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000304);
+pub const GUID_EapHost_Cause_ThirdPartyMethod_Host_Reset: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000212);
+pub const GUID_EapHost_Cause_User_Account_OtherProblem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000010e);
+pub const GUID_EapHost_Cause_User_CertExpired: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000009);
+pub const GUID_EapHost_Cause_User_CertInvalid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000000a);
+pub const GUID_EapHost_Cause_User_CertNotFound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000000b);
+pub const GUID_EapHost_Cause_User_CertOtherError: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000000c);
+pub const GUID_EapHost_Cause_User_CertRejected: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000000d);
+pub const GUID_EapHost_Cause_User_CertRevoked: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000000e);
+pub const GUID_EapHost_Cause_User_CredsRejected: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000020e);
+pub const GUID_EapHost_Cause_User_Root_CertExpired: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000000f);
+pub const GUID_EapHost_Cause_User_Root_CertInvalid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000010);
+pub const GUID_EapHost_Cause_User_Root_CertNotFound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000011);
+pub const GUID_EapHost_Cause_XmlMalformed: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001d);
+pub const GUID_EapHost_Default: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const GUID_EapHost_Help_ObtainingCerts: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf535eea3_1bdd_46ca_a2fc_a6655939b7e8);
+pub const GUID_EapHost_Help_Troubleshooting: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33307acf_0698_41ba_b014_ea0a2eb8d0a8);
+pub const GUID_EapHost_Repair_ContactAdmin_AuthFailure: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001f);
+pub const GUID_EapHost_Repair_ContactAdmin_CertNameAbsent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000029);
+pub const GUID_EapHost_Repair_ContactAdmin_CertStoreInaccessible: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000024);
+pub const GUID_EapHost_Repair_ContactAdmin_IdentityUnknown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000020);
+pub const GUID_EapHost_Repair_ContactAdmin_InvalidUserAccount: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000025);
+pub const GUID_EapHost_Repair_ContactAdmin_InvalidUserCert: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000002c);
+pub const GUID_EapHost_Repair_ContactAdmin_MethodNotFound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000022);
+pub const GUID_EapHost_Repair_ContactAdmin_NegotiationFailed: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000021);
+pub const GUID_EapHost_Repair_ContactAdmin_NoSmartCardReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000002a);
+pub const GUID_EapHost_Repair_ContactAdmin_RootCertInvalid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000026);
+pub const GUID_EapHost_Repair_ContactAdmin_RootCertNotFound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000027);
+pub const GUID_EapHost_Repair_ContactAdmin_RootExpired: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000028);
+pub const GUID_EapHost_Repair_ContactSysadmin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000002);
+pub const GUID_EapHost_Repair_Method_Not_Support_Sso: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000002d);
+pub const GUID_EapHost_Repair_No_ValidSim_Found: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000002e);
+pub const GUID_EapHost_Repair_RestartNap: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000023);
+pub const GUID_EapHost_Repair_Retry_Authentication: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000011b);
+pub const GUID_EapHost_Repair_Server_ClientSelectServerCert: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000018);
+pub const GUID_EapHost_Repair_User_AuthFailure: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000019);
+pub const GUID_EapHost_Repair_User_GetNewCert: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001a);
+pub const GUID_EapHost_Repair_User_SelectValidCert: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001b);
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -2588,7 +2588,7 @@ impl IAccountingProviderConfig {
 }
 unsafe impl ::windows::runtime::Interface for IAccountingProviderConfig {
     type Vtable = IAccountingProviderConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1721948952, 55046, 4560, [163, 123, 0, 192, 79, 201, 218, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66a2db18_d706_11d0_a37b_00c04fc9da04);
 }
 impl ::core::convert::From<IAccountingProviderConfig> for ::windows::runtime::IUnknown {
     fn from(value: IAccountingProviderConfig) -> Self {
@@ -2655,7 +2655,7 @@ impl IAuthenticationProviderConfig {
 }
 unsafe impl ::windows::runtime::Interface for IAuthenticationProviderConfig {
     type Vtable = IAuthenticationProviderConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1721948951, 55046, 4560, [163, 123, 0, 192, 79, 201, 218, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66a2db17_d706_11d0_a37b_00c04fc9da04);
 }
 impl ::core::convert::From<IAuthenticationProviderConfig> for ::windows::runtime::IUnknown {
     fn from(value: IAuthenticationProviderConfig) -> Self {
@@ -2748,7 +2748,7 @@ impl IEAPProviderConfig {
 }
 unsafe impl ::windows::runtime::Interface for IEAPProviderConfig {
     type Vtable = IEAPProviderConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1721948953, 55046, 4560, [163, 123, 0, 192, 79, 201, 218, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66a2db19_d706_11d0_a37b_00c04fc9da04);
 }
 impl ::core::convert::From<IEAPProviderConfig> for ::windows::runtime::IUnknown {
     fn from(value: IEAPProviderConfig) -> Self {
@@ -2862,7 +2862,7 @@ impl IEAPProviderConfig2 {
 }
 unsafe impl ::windows::runtime::Interface for IEAPProviderConfig2 {
     type Vtable = IEAPProviderConfig2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3580203386, 34244, 17510, [133, 110, 103, 28, 55, 66, 234, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd565917a_85c4_4466_856e_671c3742ea9a);
 }
 impl ::core::convert::From<IEAPProviderConfig2> for ::windows::runtime::IUnknown {
     fn from(value: IEAPProviderConfig2) -> Self {
@@ -3015,7 +3015,7 @@ impl IEAPProviderConfig3 {
 }
 unsafe impl ::windows::runtime::Interface for IEAPProviderConfig3 {
     type Vtable = IEAPProviderConfig3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3079589138, 26811, 20358, [155, 240, 132, 56, 221, 59, 233, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb78ecd12_68bb_4f86_9bf0_8438dd3be982);
 }
 impl ::core::convert::From<IEAPProviderConfig3> for ::windows::runtime::IUnknown {
     fn from(value: IEAPProviderConfig3) -> Self {
@@ -3116,7 +3116,7 @@ impl IRouterProtocolConfig {
 }
 unsafe impl ::windows::runtime::Interface for IRouterProtocolConfig {
     type Vtable = IRouterProtocolConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1721948950, 55046, 4560, [163, 123, 0, 192, 79, 201, 218, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66a2db16_d706_11d0_a37b_00c04fc9da04);
 }
 impl ::core::convert::From<IRouterProtocolConfig> for ::windows::runtime::IUnknown {
     fn from(value: IRouterProtocolConfig) -> Self {

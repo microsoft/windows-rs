@@ -28,7 +28,7 @@ impl IMSMQApplication {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQApplication {
     type Vtable = IMSMQApplication_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183621, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e085_dccd_11d0_aa4b_0060970debae);
 }
 impl ::core::convert::From<IMSMQApplication> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQApplication) -> Self {
@@ -173,7 +173,7 @@ impl IMSMQApplication2 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQApplication2 {
     type Vtable = IMSMQApplication2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(312674560, 29440, 4562, [176, 230, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12a30900_7300_11d2_b0e6_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQApplication2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQApplication2) -> Self {
@@ -400,7 +400,7 @@ impl IMSMQApplication3 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQApplication3 {
     type Vtable = IMSMQApplication3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748767, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b1f_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQApplication3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQApplication3) -> Self {
@@ -552,7 +552,7 @@ impl IMSMQCollection {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQCollection {
     type Vtable = IMSMQCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(25734191, 60595, 16755, [151, 121, 99, 92, 162, 3, 156, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0188ac2f_ecb3_4173_9779_635ca2039c72);
 }
 impl ::core::convert::From<IMSMQCollection> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQCollection) -> Self {
@@ -629,7 +629,7 @@ impl IMSMQCoordinatedTransactionDispenser {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQCoordinatedTransactionDispenser {
     type Vtable = IMSMQCoordinatedTransactionDispenser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183617, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e081_dccd_11d0_aa4b_0060970debae);
 }
 impl ::core::convert::From<IMSMQCoordinatedTransactionDispenser> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQCoordinatedTransactionDispenser) -> Self {
@@ -709,7 +709,7 @@ impl IMSMQCoordinatedTransactionDispenser2 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQCoordinatedTransactionDispenser2 {
     type Vtable = IMSMQCoordinatedTransactionDispenser2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748752, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b10_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQCoordinatedTransactionDispenser2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQCoordinatedTransactionDispenser2) -> Self {
@@ -791,7 +791,7 @@ impl IMSMQCoordinatedTransactionDispenser3 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQCoordinatedTransactionDispenser3 {
     type Vtable = IMSMQCoordinatedTransactionDispenser3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748756, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b14_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQCoordinatedTransactionDispenser3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQCoordinatedTransactionDispenser3) -> Self {
@@ -936,7 +936,7 @@ impl IMSMQDestination {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQDestination {
     type Vtable = IMSMQDestination_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748758, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b16_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQDestination> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQDestination) -> Self {
@@ -1028,7 +1028,7 @@ pub struct IMSMQEvent(pub ::windows::runtime::IUnknown);
 impl IMSMQEvent {}
 unsafe impl ::windows::runtime::Interface for IMSMQEvent {
     type Vtable = IMSMQEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183607, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e077_dccd_11d0_aa4b_0060970debae);
 }
 impl ::core::convert::From<IMSMQEvent> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQEvent) -> Self {
@@ -1134,7 +1134,7 @@ impl IMSMQEvent2 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQEvent2 {
     type Vtable = IMSMQEvent2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748754, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b12_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQEvent2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQEvent2) -> Self {
@@ -1262,7 +1262,7 @@ impl IMSMQEvent3 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQEvent3 {
     type Vtable = IMSMQEvent3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748764, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b1c_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQEvent3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQEvent3) -> Self {
@@ -1420,7 +1420,7 @@ impl IMSMQManagement {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQManagement {
     type Vtable = IMSMQManagement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3193897537, 58505, 18775, [140, 196, 164, 82, 252, 243, 226, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe5f0241_e489_4957_8cc4_a452fcf3e23e);
 }
 impl ::core::convert::From<IMSMQManagement> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQManagement) -> Self {
@@ -1739,7 +1739,7 @@ impl IMSMQMessage {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQMessage {
     type Vtable = IMSMQMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183604, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e074_dccd_11d0_aa4b_0060970debae);
 }
 impl ::core::convert::From<IMSMQMessage> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQMessage) -> Self {
@@ -2241,7 +2241,7 @@ impl IMSMQMessage2 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQMessage2 {
     type Vtable = IMSMQMessage2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3650304992, 42343, 4562, [176, 243, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9933be0_a567_11d2_b0f3_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQMessage2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQMessage2) -> Self {
@@ -2864,7 +2864,7 @@ impl IMSMQMessage3 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQMessage3 {
     type Vtable = IMSMQMessage3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748762, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b1a_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQMessage3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQMessage3) -> Self {
@@ -3511,7 +3511,7 @@ impl IMSMQMessage4 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQMessage4 {
     type Vtable = IMSMQMessage4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748771, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b23_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQMessage4> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQMessage4) -> Self {
@@ -3813,7 +3813,7 @@ impl IMSMQOutgoingQueueManagement {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQOutgoingQueueManagement {
     type Vtable = IMSMQOutgoingQueueManagement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1690597627, 63920, 18069, [138, 127, 67, 154, 201, 67, 38, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64c478fb_f9b0_4695_8a7f_439ac94326d3);
 }
 impl ::core::convert::From<IMSMQOutgoingQueueManagement> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQOutgoingQueueManagement) -> Self {
@@ -3932,7 +3932,7 @@ impl IMSMQPrivateDestination {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQPrivateDestination {
     type Vtable = IMSMQPrivateDestination_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748759, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b17_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQPrivateDestination> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQPrivateDestination) -> Self {
@@ -4017,7 +4017,7 @@ impl IMSMQPrivateEvent {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQPrivateEvent {
     type Vtable = IMSMQPrivateEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3618321217, 51667, 4561, [187, 71, 0, 128, 199, 197, 162, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7ab3341_c9d3_11d1_bb47_0080c7c5a2c0);
 }
 impl ::core::convert::From<IMSMQPrivateEvent> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQPrivateEvent) -> Self {
@@ -4107,7 +4107,7 @@ impl IMSMQQuery {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQQuery {
     type Vtable = IMSMQQuery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183602, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e072_dccd_11d0_aa4b_0060970debae);
 }
 impl ::core::convert::From<IMSMQQuery> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQuery) -> Self {
@@ -4215,7 +4215,7 @@ impl IMSMQQuery2 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQQuery2 {
     type Vtable = IMSMQQuery2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748750, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b0e_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQQuery2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQuery2) -> Self {
@@ -4359,7 +4359,7 @@ impl IMSMQQuery3 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQQuery3 {
     type Vtable = IMSMQQuery3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748761, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b19_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQQuery3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQuery3) -> Self {
@@ -4520,7 +4520,7 @@ impl IMSMQQuery4 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQQuery4 {
     type Vtable = IMSMQQuery4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748772, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b24_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQQuery4> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQuery4) -> Self {
@@ -4690,7 +4690,7 @@ impl IMSMQQueue {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQQueue {
     type Vtable = IMSMQQueue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183606, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e076_dccd_11d0_aa4b_0060970debae);
 }
 impl ::core::convert::From<IMSMQQueue> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueue) -> Self {
@@ -4883,7 +4883,7 @@ impl IMSMQQueue2 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQQueue2 {
     type Vtable = IMSMQQueue2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4010112224, 1752, 4563, [177, 0, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef0574e0_06d8_11d3_b100_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQQueue2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueue2) -> Self {
@@ -5168,7 +5168,7 @@ impl IMSMQQueue3 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQQueue3 {
     type Vtable = IMSMQQueue3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748763, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b1b_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQQueue3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueue3) -> Self {
@@ -5491,7 +5491,7 @@ impl IMSMQQueue4 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQQueue4 {
     type Vtable = IMSMQQueue4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748768, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b20_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQQueue4> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueue4) -> Self {
@@ -5780,7 +5780,7 @@ impl IMSMQQueueInfo {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQQueueInfo {
     type Vtable = IMSMQQueueInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183611, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e07b_dccd_11d0_aa4b_0060970debae);
 }
 impl ::core::convert::From<IMSMQQueueInfo> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueueInfo) -> Self {
@@ -6061,7 +6061,7 @@ impl IMSMQQueueInfo2 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQQueueInfo2 {
     type Vtable = IMSMQQueueInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4246162048, 35279, 4562, [176, 242, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd174a80_89cf_11d2_b0f2_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQQueueInfo2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueueInfo2) -> Self {
@@ -6377,7 +6377,7 @@ impl IMSMQQueueInfo3 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQQueueInfo3 {
     type Vtable = IMSMQQueueInfo3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748765, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b1d_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQQueueInfo3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueueInfo3) -> Self {
@@ -6701,7 +6701,7 @@ impl IMSMQQueueInfo4 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQQueueInfo4 {
     type Vtable = IMSMQQueueInfo4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748769, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b21_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQQueueInfo4> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueueInfo4) -> Self {
@@ -6836,7 +6836,7 @@ impl IMSMQQueueInfos {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQQueueInfos {
     type Vtable = IMSMQQueueInfos_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183613, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e07d_dccd_11d0_aa4b_0060970debae);
 }
 impl ::core::convert::From<IMSMQQueueInfos> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueueInfos) -> Self {
@@ -6921,7 +6921,7 @@ impl IMSMQQueueInfos2 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQQueueInfos2 {
     type Vtable = IMSMQQueueInfos2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748751, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b0f_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQQueueInfos2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueueInfos2) -> Self {
@@ -7008,7 +7008,7 @@ impl IMSMQQueueInfos3 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQQueueInfos3 {
     type Vtable = IMSMQQueueInfos3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748766, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b1e_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQQueueInfos3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueueInfos3) -> Self {
@@ -7095,7 +7095,7 @@ impl IMSMQQueueInfos4 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQQueueInfos4 {
     type Vtable = IMSMQQueueInfos4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748770, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b22_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQQueueInfos4> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueueInfos4) -> Self {
@@ -7264,7 +7264,7 @@ impl IMSMQQueueManagement {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQQueueManagement {
     type Vtable = IMSMQQueueManagement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2143188825, 22368, 17485, [184, 165, 94, 122, 185, 168, 76, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fbe7759_5760_444d_b8a5_5e7ab9a84cce);
 }
 impl ::core::convert::From<IMSMQQueueManagement> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueueManagement) -> Self {
@@ -7385,7 +7385,7 @@ impl IMSMQTransaction {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQTransaction {
     type Vtable = IMSMQTransaction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183615, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e07f_dccd_11d0_aa4b_0060970debae);
 }
 impl ::core::convert::From<IMSMQTransaction> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQTransaction) -> Self {
@@ -7516,7 +7516,7 @@ impl IMSMQTransaction2 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQTransaction2 {
     type Vtable = IMSMQTransaction2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752928176, 28263, 4562, [176, 230, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ce0c5b0_6e67_11d2_b0e6_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQTransaction2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQTransaction2) -> Self {
@@ -7677,7 +7677,7 @@ impl IMSMQTransaction3 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQTransaction3 {
     type Vtable = IMSMQTransaction3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748755, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b13_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQTransaction3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQTransaction3) -> Self {
@@ -7801,7 +7801,7 @@ impl IMSMQTransactionDispenser {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQTransactionDispenser {
     type Vtable = IMSMQTransactionDispenser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183619, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e083_dccd_11d0_aa4b_0060970debae);
 }
 impl ::core::convert::From<IMSMQTransactionDispenser> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQTransactionDispenser) -> Self {
@@ -7881,7 +7881,7 @@ impl IMSMQTransactionDispenser2 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQTransactionDispenser2 {
     type Vtable = IMSMQTransactionDispenser2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748753, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b11_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQTransactionDispenser2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQTransactionDispenser2) -> Self {
@@ -7963,7 +7963,7 @@ impl IMSMQTransactionDispenser3 {
 }
 unsafe impl ::windows::runtime::Interface for IMSMQTransactionDispenser3 {
     type Vtable = IMSMQTransactionDispenser3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748757, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b15_2168_11d3_898c_00e02c074f6b);
 }
 impl ::core::convert::From<IMSMQTransactionDispenser3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQTransactionDispenser3) -> Self {
@@ -8671,21 +8671,21 @@ pub const MQ_LOOKUP_RECEIVE_PREV: u32 = 1073741858u32;
 pub const MQ_MOVE_ACCESS: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_OK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(0i32 as _);
-pub const MSMQApplication: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183622, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
-pub const MSMQCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4146827313, 12044, 17384, [146, 78, 230, 5, 44, 220, 73, 63]);
-pub const MSMQCoordinatedTransactionDispenser: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183618, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
-pub const MSMQDestination: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953748760, 8552, 4563, [137, 140, 0, 224, 44, 7, 79, 107]);
-pub const MSMQEvent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183610, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
-pub const MSMQManagement: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(969840382, 62661, 17540, [161, 67, 76, 45, 93, 50, 66, 41]);
-pub const MSMQMessage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183605, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
-pub const MSMQOutgoingQueueManagement: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(25706524, 9338, 20461, [153, 198, 191, 20, 17, 157, 112, 85]);
-pub const MSMQQuery: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183603, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
-pub const MSMQQueue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183609, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
-pub const MSMQQueueInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183612, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
-pub const MSMQQueueInfos: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183614, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
-pub const MSMQQueueManagement: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(867618942, 62077, 17146, [178, 215, 191, 130, 225, 30, 147, 116]);
-pub const MSMQTransaction: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183616, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
-pub const MSMQTransactionDispenser: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183620, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
+pub const MSMQApplication: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e086_dccd_11d0_aa4b_0060970debae);
+pub const MSMQCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf72b9031_2f0c_43e8_924e_e6052cdc493f);
+pub const MSMQCoordinatedTransactionDispenser: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e082_dccd_11d0_aa4b_0060970debae);
+pub const MSMQDestination: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba96b18_2168_11d3_898c_00e02c074f6b);
+pub const MSMQEvent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e07a_dccd_11d0_aa4b_0060970debae);
+pub const MSMQManagement: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39ce96fe_f4c5_4484_a143_4c2d5d324229);
+pub const MSMQMessage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e075_dccd_11d0_aa4b_0060970debae);
+pub const MSMQOutgoingQueueManagement: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0188401c_247a_4fed_99c6_bf14119d7055);
+pub const MSMQQuery: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e073_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQueue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e079_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQueueInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e07c_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQueueInfos: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e07e_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQueueManagement: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33b6d07e_f27d_42fa_b2d7_bf82e11e9374);
+pub const MSMQTransaction: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e080_dccd_11d0_aa4b_0060970debae);
+pub const MSMQTransactionDispenser: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e084_dccd_11d0_aa4b_0060970debae);
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PREQ: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
@@ -9061,7 +9061,7 @@ pub struct _DMSMQEventEvents(pub ::windows::runtime::IUnknown);
 impl _DMSMQEventEvents {}
 unsafe impl ::windows::runtime::Interface for _DMSMQEventEvents {
     type Vtable = _DMSMQEventEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621183608, 56525, 4560, [170, 75, 0, 96, 151, 13, 235, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d6e078_dccd_11d0_aa4b_0060970debae);
 }
 impl ::core::convert::From<_DMSMQEventEvents> for ::windows::runtime::IUnknown {
     fn from(value: _DMSMQEventEvents) -> Self {

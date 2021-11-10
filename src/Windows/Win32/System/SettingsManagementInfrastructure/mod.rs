@@ -23,7 +23,7 @@ impl IItemEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IItemEnumerator {
     type Vtable = IItemEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2675801015, 8371, 4570, [129, 165, 0, 48, 241, 100, 46, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f7d7bb7_20b3_11da_81a5_0030f1642e3c);
 }
 impl ::core::convert::From<IItemEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IItemEnumerator) -> Self {
@@ -97,7 +97,7 @@ impl ISettingsContext {
 }
 unsafe impl ::windows::runtime::Interface for ISettingsContext {
     type Vtable = ISettingsContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2675801021, 8371, 4570, [129, 165, 0, 48, 241, 100, 46, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f7d7bbd_20b3_11da_81a5_0030f1642e3c);
 }
 impl ::core::convert::From<ISettingsContext> for ::windows::runtime::IUnknown {
     fn from(value: ISettingsContext) -> Self {
@@ -222,7 +222,7 @@ impl ISettingsEngine {
 }
 unsafe impl ::windows::runtime::Interface for ISettingsEngine {
     type Vtable = ISettingsEngine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2675801017, 8371, 4570, [129, 165, 0, 48, 241, 100, 46, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f7d7bb9_20b3_11da_81a5_0030f1642e3c);
 }
 impl ::core::convert::From<ISettingsEngine> for ::windows::runtime::IUnknown {
     fn from(value: ISettingsEngine) -> Self {
@@ -299,7 +299,7 @@ impl ISettingsIdentity {
 }
 unsafe impl ::windows::runtime::Interface for ISettingsIdentity {
     type Vtable = ISettingsIdentity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2675801014, 8371, 4570, [129, 165, 0, 48, 241, 100, 46, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f7d7bb6_20b3_11da_81a5_0030f1642e3c);
 }
 impl ::core::convert::From<ISettingsIdentity> for ::windows::runtime::IUnknown {
     fn from(value: ISettingsIdentity) -> Self {
@@ -461,7 +461,7 @@ impl ISettingsItem {
 }
 unsafe impl ::windows::runtime::Interface for ISettingsItem {
     type Vtable = ISettingsItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2675801019, 8371, 4570, [129, 165, 0, 48, 241, 100, 46, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f7d7bbb_20b3_11da_81a5_0030f1642e3c);
 }
 impl ::core::convert::From<ISettingsItem> for ::windows::runtime::IUnknown {
     fn from(value: ISettingsItem) -> Self {
@@ -574,7 +574,7 @@ impl ISettingsNamespace {
 }
 unsafe impl ::windows::runtime::Interface for ISettingsNamespace {
     type Vtable = ISettingsNamespace_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2675801018, 8371, 4570, [129, 165, 0, 48, 241, 100, 46, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f7d7bba_20b3_11da_81a5_0030f1642e3c);
 }
 impl ::core::convert::From<ISettingsNamespace> for ::windows::runtime::IUnknown {
     fn from(value: ISettingsNamespace) -> Self {
@@ -656,7 +656,7 @@ impl ISettingsResult {
 }
 unsafe impl ::windows::runtime::Interface for ISettingsResult {
     type Vtable = ISettingsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2675801020, 8371, 4570, [129, 165, 0, 48, 241, 100, 46, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f7d7bbc_20b3_11da_81a5_0030f1642e3c);
 }
 impl ::core::convert::From<ISettingsResult> for ::windows::runtime::IUnknown {
     fn from(value: ISettingsResult) -> Self {
@@ -815,7 +815,7 @@ impl ITargetInfo {
 }
 unsafe impl ::windows::runtime::Interface for ITargetInfo {
     type Vtable = ITargetInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2675801016, 8371, 4570, [129, 165, 0, 48, 241, 100, 46, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f7d7bb8_20b3_11da_81a5_0030f1642e3c);
 }
 impl ::core::convert::From<ITargetInfo> for ::windows::runtime::IUnknown {
     fn from(value: ITargetInfo) -> Self {
@@ -886,7 +886,7 @@ pub struct ITargetInfo_abi(
 pub const LIMITED_VALIDATION_MODE: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_SettingsManagementInfrastructure`*"]
 pub const LINK_STORE_TO_ENGINE_INSTANCE: u32 = 1u32;
-pub const SettingsEngine: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2675801013, 8371, 4570, [129, 165, 0, 48, 241, 100, 46, 60]);
+pub const SettingsEngine: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f7d7bb5_20b3_11da_81a5_0030f1642e3c);
 #[doc = "*Required features: `Win32_System_SettingsManagementInfrastructure`*"]
 pub const WCM_E_ABORTOPERATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145255384i32 as _);
 #[doc = "*Required features: `Win32_System_SettingsManagementInfrastructure`*"]

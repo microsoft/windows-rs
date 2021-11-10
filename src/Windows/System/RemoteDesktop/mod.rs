@@ -6,7 +6,7 @@ pub mod Input;
 pub struct IInteractiveSessionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractiveSessionStatics {
     type Vtable = IInteractiveSessionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1619543601, 56634, 17782, [156, 141, 232, 2, 118, 24, 189, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60884631_dd3a_4576_9c8d_e8027618bdce);
 }
 #[repr(C)]
 #[doc(hidden)]

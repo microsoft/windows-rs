@@ -242,7 +242,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppWindow {
 }
 unsafe impl ::windows::runtime::Interface for AppWindow {
     type Vtable = IAppWindow_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1714427046, 46942, 23997, [153, 92, 240, 17, 127, 163, 251, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x663014a6_b75e_5dbd_995c_f0117fa3fb61);
 }
 impl ::windows::runtime::RuntimeName for AppWindow {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindow";
@@ -364,7 +364,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppWindowChangedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for AppWindowChangedEventArgs {
     type Vtable = IAppWindowChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(501347262, 42581, 21933, [178, 182, 235, 36, 15, 136, 3, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1de1f3be_a655_55ad_b2b6_eb240f880356);
 }
 impl ::windows::runtime::RuntimeName for AppWindowChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowChangedEventArgs";
@@ -444,7 +444,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppWindowCloseRequestedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for AppWindowCloseRequestedEventArgs {
     type Vtable = IAppWindowCloseRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3925803482, 59298, 22440, [139, 94, 57, 196, 0, 58, 253, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9ff01da_e7a2_57a8_8b5e_39c4003afdbb);
 }
 impl ::windows::runtime::RuntimeName for AppWindowCloseRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowCloseRequestedEventArgs";
@@ -510,7 +510,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppWindowClosedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for AppWindowClosedEventArgs {
     type Vtable = IAppWindowClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3430807574, 38176, 23046, [130, 30, 69, 106, 216, 179, 88, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc7df816_9520_5a06_821e_456ad8b358aa);
 }
 impl ::windows::runtime::RuntimeName for AppWindowClosedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowClosedEventArgs";
@@ -613,7 +613,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppWindowFrame {
 }
 unsafe impl ::windows::runtime::Interface for AppWindowFrame {
     type Vtable = IAppWindowFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2665620993, 32349, 21167, [132, 107, 1, 220, 108, 41, 101, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ee22601_7e5d_52af_846b_01dc6c296567);
 }
 impl ::windows::runtime::RuntimeName for AppWindowFrame {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowFrame";
@@ -719,7 +719,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppWindowPlacement {
 }
 unsafe impl ::windows::runtime::Interface for AppWindowPlacement {
     type Vtable = IAppWindowPlacement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(64782686, 59305, 22615, [156, 3, 125, 103, 5, 148, 65, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03dc815e_e7a9_5857_9c03_7d670594410e);
 }
 impl ::windows::runtime::RuntimeName for AppWindowPlacement {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPlacement";
@@ -785,7 +785,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppWindowPresentationConfigurati
 }
 unsafe impl ::windows::runtime::Interface for AppWindowPresentationConfiguration {
     type Vtable = IAppWindowPresentationConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3047440099, 57139, 24167, [189, 49, 16, 114, 69, 115, 0, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5a43ee3_df33_5e67_bd31_1072457300df);
 }
 impl ::windows::runtime::RuntimeName for AppWindowPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPresentationConfiguration";
@@ -898,7 +898,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppWindowPresenter {
 }
 unsafe impl ::windows::runtime::Interface for AppWindowPresenter {
     type Vtable = IAppWindowPresenter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1525280115, 57853, 21271, [173, 120, 90, 62, 210, 113, 187, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ae9ed73_e1fd_5317_ad78_5a3ed271bbde);
 }
 impl ::windows::runtime::RuntimeName for AppWindowPresenter {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPresenter";
@@ -1179,7 +1179,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppWindowTitleBar {
 }
 unsafe impl ::windows::runtime::Interface for AppWindowTitleBar {
     type Vtable = IAppWindowTitleBar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1855138948, 63044, 21533, [162, 215, 12, 38, 36, 55, 132, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e932c84_f644_541d_a2d7_0c262437842d);
 }
 impl ::windows::runtime::RuntimeName for AppWindowTitleBar {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowTitleBar";
@@ -1246,7 +1246,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppWindowTitleBarOcclusion {
 }
 unsafe impl ::windows::runtime::Interface for AppWindowTitleBarOcclusion {
     type Vtable = IAppWindowTitleBarOcclusion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4272148477, 11471, 24515, [174, 174, 248, 67, 135, 107, 243, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfea3cffd_2ccf_5fc3_aeae_f843876bf37e);
 }
 impl ::windows::runtime::RuntimeName for AppWindowTitleBarOcclusion {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowTitleBarOcclusion";
@@ -1341,7 +1341,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompactOverlayPresentationConfig
 }
 unsafe impl ::windows::runtime::Interface for CompactOverlayPresentationConfiguration {
     type Vtable = ICompactOverlayPresentationConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2816832783, 22320, 22214, [142, 31, 214, 63, 244, 215, 152, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7e5750f_5730_56c6_8e1f_d63ff4d7980d);
 }
 impl ::windows::runtime::RuntimeName for CompactOverlayPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.CompactOverlayPresentationConfiguration";
@@ -1434,7 +1434,7 @@ unsafe impl ::windows::runtime::RuntimeType for DefaultPresentationConfiguration
 }
 unsafe impl ::windows::runtime::Interface for DefaultPresentationConfiguration {
     type Vtable = IDefaultPresentationConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3636639035, 8552, 22275, [168, 83, 213, 37, 88, 159, 226, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8c2b53b_2168_5703_a853_d525589fe2b9);
 }
 impl ::windows::runtime::RuntimeName for DefaultPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.DefaultPresentationConfiguration";
@@ -1569,7 +1569,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayRegion {
 }
 unsafe impl ::windows::runtime::Interface for DisplayRegion {
     type Vtable = IDisplayRegion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3679503266, 16532, 24391, [140, 177, 234, 1, 221, 175, 170, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb50c3a2_4094_5f47_8cb1_ea01ddafaa94);
 }
 impl ::windows::runtime::RuntimeName for DisplayRegion {
     const NAME: &'static str = "Windows.UI.WindowManagement.DisplayRegion";
@@ -1655,7 +1655,7 @@ unsafe impl ::windows::runtime::RuntimeType for FullScreenPresentationConfigurat
 }
 unsafe impl ::windows::runtime::Interface for FullScreenPresentationConfiguration {
     type Vtable = IFullScreenPresentationConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1137958104, 53928, 20541, [166, 38, 21, 83, 61, 109, 95, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43d3dcd8_d2a8_503d_a626_15533d6d5f62);
 }
 impl ::windows::runtime::RuntimeName for FullScreenPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.FullScreenPresentationConfiguration";
@@ -1727,7 +1727,7 @@ unsafe impl ::core::marker::Sync for FullScreenPresentationConfiguration {}
 pub struct IAppWindow(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindow {
     type Vtable = IAppWindow_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1714427046, 46942, 23997, [153, 92, 240, 17, 127, 163, 251, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x663014a6_b75e_5dbd_995c_f0117fa3fb61);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1787,7 +1787,7 @@ pub struct IAppWindow_abi(
 pub struct IAppWindowChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowChangedEventArgs {
     type Vtable = IAppWindowChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(501347262, 42581, 21933, [178, 182, 235, 36, 15, 136, 3, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1de1f3be_a655_55ad_b2b6_eb240f880356);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1812,7 +1812,7 @@ pub struct IAppWindowChangedEventArgs_abi(
 pub struct IAppWindowCloseRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowCloseRequestedEventArgs {
     type Vtable = IAppWindowCloseRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3925803482, 59298, 22440, [139, 94, 57, 196, 0, 58, 253, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9ff01da_e7a2_57a8_8b5e_39c4003afdbb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1833,7 +1833,7 @@ pub struct IAppWindowCloseRequestedEventArgs_abi(
 pub struct IAppWindowClosedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowClosedEventArgs {
     type Vtable = IAppWindowClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3430807574, 38176, 23046, [130, 30, 69, 106, 216, 179, 88, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc7df816_9520_5a06_821e_456ad8b358aa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1851,7 +1851,7 @@ pub struct IAppWindowClosedEventArgs_abi(
 pub struct IAppWindowFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowFrame {
     type Vtable = IAppWindowFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2665620993, 32349, 21167, [132, 107, 1, 220, 108, 41, 101, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ee22601_7e5d_52af_846b_01dc6c296567);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1870,7 +1870,7 @@ pub struct IAppWindowFrame_abi(
 pub struct IAppWindowFrameStyle(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowFrameStyle {
     type Vtable = IAppWindowFrameStyle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2889951558, 57772, 21040, [148, 74, 198, 8, 115, 220, 244, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac412946_e1ac_5230_944a_c60873dcf4a9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1889,7 +1889,7 @@ pub struct IAppWindowFrameStyle_abi(
 pub struct IAppWindowPlacement(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowPlacement {
     type Vtable = IAppWindowPlacement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(64782686, 59305, 22615, [156, 3, 125, 103, 5, 148, 65, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03dc815e_e7a9_5857_9c03_7d670594410e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1911,7 +1911,7 @@ pub struct IAppWindowPlacement_abi(
 pub struct IAppWindowPresentationConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowPresentationConfiguration {
     type Vtable = IAppWindowPresentationConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3047440099, 57139, 24167, [189, 49, 16, 114, 69, 115, 0, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5a43ee3_df33_5e67_bd31_1072457300df);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1929,7 +1929,7 @@ pub struct IAppWindowPresentationConfiguration_abi(
 pub struct IAppWindowPresentationConfigurationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowPresentationConfigurationFactory {
     type Vtable = IAppWindowPresentationConfigurationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4248176294, 30837, 24040, [132, 255, 99, 81, 238, 19, 221, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd3606a6_7875_5de8_84ff_6351ee13dd0d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1946,7 +1946,7 @@ pub struct IAppWindowPresentationConfigurationFactory_abi(
 pub struct IAppWindowPresenter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowPresenter {
     type Vtable = IAppWindowPresenter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1525280115, 57853, 21271, [173, 120, 90, 62, 210, 113, 187, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ae9ed73_e1fd_5317_ad78_5a3ed271bbde);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1967,7 +1967,7 @@ pub struct IAppWindowPresenter_abi(
 pub struct IAppWindowStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowStatics {
     type Vtable = IAppWindowStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4280237731, 46953, 20719, [152, 115, 16, 140, 208, 232, 151, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff1f3ea3_b769_50ef_9873_108cd0e89746);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1988,7 +1988,7 @@ pub struct IAppWindowStatics_abi(
 pub struct IAppWindowTitleBar(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowTitleBar {
     type Vtable = IAppWindowTitleBar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1855138948, 63044, 21533, [162, 215, 12, 38, 36, 55, 132, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e932c84_f644_541d_a2d7_0c262437842d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2058,7 +2058,7 @@ pub struct IAppWindowTitleBar_abi(
 pub struct IAppWindowTitleBarOcclusion(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowTitleBarOcclusion {
     type Vtable = IAppWindowTitleBarOcclusion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4272148477, 11471, 24515, [174, 174, 248, 67, 135, 107, 243, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfea3cffd_2ccf_5fc3_aeae_f843876bf37e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2077,7 +2077,7 @@ pub struct IAppWindowTitleBarOcclusion_abi(
 pub struct IAppWindowTitleBarVisibility(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowTitleBarVisibility {
     type Vtable = IAppWindowTitleBarVisibility_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2719327459, 28286, 22097, [140, 59, 98, 72, 25, 82, 129, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa215a4e3_6e7e_5651_8c3b_624819528154);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2096,7 +2096,7 @@ pub struct IAppWindowTitleBarVisibility_abi(
 pub struct ICompactOverlayPresentationConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompactOverlayPresentationConfiguration {
     type Vtable = ICompactOverlayPresentationConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2816832783, 22320, 22214, [142, 31, 214, 63, 244, 215, 152, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7e5750f_5730_56c6_8e1f_d63ff4d7980d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2113,7 +2113,7 @@ pub struct ICompactOverlayPresentationConfiguration_abi(
 pub struct IDefaultPresentationConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDefaultPresentationConfiguration {
     type Vtable = IDefaultPresentationConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3636639035, 8552, 22275, [168, 83, 213, 37, 88, 159, 226, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8c2b53b_2168_5703_a853_d525589fe2b9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2130,7 +2130,7 @@ pub struct IDefaultPresentationConfiguration_abi(
 pub struct IDisplayRegion(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayRegion {
     type Vtable = IDisplayRegion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3679503266, 16532, 24391, [140, 177, 234, 1, 221, 175, 170, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb50c3a2_4094_5f47_8cb1_ea01ddafaa94);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2158,7 +2158,7 @@ pub struct IDisplayRegion_abi(
 pub struct IFullScreenPresentationConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFullScreenPresentationConfiguration {
     type Vtable = IFullScreenPresentationConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1137958104, 53928, 20541, [166, 38, 21, 83, 61, 109, 95, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43d3dcd8_d2a8_503d_a626_15533d6d5f62);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2177,7 +2177,7 @@ pub struct IFullScreenPresentationConfiguration_abi(
 pub struct IWindowServicesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowServicesStatics {
     type Vtable = IWindowServicesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3488929049, 20646, 23652, [151, 246, 194, 217, 106, 221, 127, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcff4d519_50a6_5c64_97f6_c2d96add7f42);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2196,7 +2196,7 @@ pub struct IWindowServicesStatics_abi(
 pub struct IWindowingEnvironment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowingEnvironment {
     type Vtable = IWindowingEnvironment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(641950656, 10825, 21527, [179, 174, 72, 167, 28, 99, 163, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x264363c0_2a49_5417_b3ae_48a71c63a3bd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2221,7 +2221,7 @@ pub struct IWindowingEnvironment_abi(
 pub struct IWindowingEnvironmentAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowingEnvironmentAddedEventArgs {
     type Vtable = IWindowingEnvironmentAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4280966015, 61827, 23654, [153, 178, 66, 144, 130, 6, 146, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff2a5b7f_f183_5c66_99b2_429082069299);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2239,7 +2239,7 @@ pub struct IWindowingEnvironmentAddedEventArgs_abi(
 pub struct IWindowingEnvironmentChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowingEnvironmentChangedEventArgs {
     type Vtable = IWindowingEnvironmentChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1096863686, 573, 24218, [180, 49, 53, 14, 103, 220, 151, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4160cfc6_023d_5e9a_b431_350e67dc978a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2256,7 +2256,7 @@ pub struct IWindowingEnvironmentChangedEventArgs_abi(
 pub struct IWindowingEnvironmentRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowingEnvironmentRemovedEventArgs {
     type Vtable = IWindowingEnvironmentRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(777737331, 48895, 24147, [147, 22, 126, 119, 95, 229, 104, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e5b5473_beff_5e53_9316_7e775fe568b3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2274,7 +2274,7 @@ pub struct IWindowingEnvironmentRemovedEventArgs_abi(
 pub struct IWindowingEnvironmentStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowingEnvironmentStatics {
     type Vtable = IWindowingEnvironmentStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2270076855, 50754, 21931, [138, 162, 22, 47, 115, 74, 154, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x874e9fb7_c642_55ab_8aa2_162f734a9a72);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2380,7 +2380,7 @@ unsafe impl ::windows::runtime::RuntimeType for WindowingEnvironment {
 }
 unsafe impl ::windows::runtime::Interface for WindowingEnvironment {
     type Vtable = IWindowingEnvironment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(641950656, 10825, 21527, [179, 174, 72, 167, 28, 99, 163, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x264363c0_2a49_5417_b3ae_48a71c63a3bd);
 }
 impl ::windows::runtime::RuntimeName for WindowingEnvironment {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironment";
@@ -2446,7 +2446,7 @@ unsafe impl ::windows::runtime::RuntimeType for WindowingEnvironmentAddedEventAr
 }
 unsafe impl ::windows::runtime::Interface for WindowingEnvironmentAddedEventArgs {
     type Vtable = IWindowingEnvironmentAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4280966015, 61827, 23654, [153, 178, 66, 144, 130, 6, 146, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff2a5b7f_f183_5c66_99b2_429082069299);
 }
 impl ::windows::runtime::RuntimeName for WindowingEnvironmentAddedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentAddedEventArgs";
@@ -2503,7 +2503,7 @@ unsafe impl ::windows::runtime::RuntimeType for WindowingEnvironmentChangedEvent
 }
 unsafe impl ::windows::runtime::Interface for WindowingEnvironmentChangedEventArgs {
     type Vtable = IWindowingEnvironmentChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1096863686, 573, 24218, [180, 49, 53, 14, 103, 220, 151, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4160cfc6_023d_5e9a_b431_350e67dc978a);
 }
 impl ::windows::runtime::RuntimeName for WindowingEnvironmentChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentChangedEventArgs";
@@ -2592,7 +2592,7 @@ unsafe impl ::windows::runtime::RuntimeType for WindowingEnvironmentRemovedEvent
 }
 unsafe impl ::windows::runtime::Interface for WindowingEnvironmentRemovedEventArgs {
     type Vtable = IWindowingEnvironmentRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(777737331, 48895, 24147, [147, 22, 126, 119, 95, 229, 104, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e5b5473_beff_5e53_9316_7e775fe568b3);
 }
 impl ::windows::runtime::RuntimeName for WindowingEnvironmentRemovedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentRemovedEventArgs";

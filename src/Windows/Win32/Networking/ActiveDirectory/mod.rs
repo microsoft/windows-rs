@@ -1620,7 +1620,7 @@ impl ::core::cmp::Eq for ADS_VLV {}
 unsafe impl ::windows::runtime::Abi for ADS_VLV {
     type Abi = Self;
 }
-pub const ADSystemInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1354117759, 45009, 4562, [156, 185, 0, 0, 248, 122, 54, 158]);
+pub const ADSystemInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50b6327f_afd1_11d2_9cb9_0000f87a369e);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_System_Ole`*"]
 #[cfg(feature = "Win32_System_Ole")]
 #[inline]
@@ -1877,7 +1877,7 @@ pub unsafe fn ADsPropShowErrorDialog<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const ADsSecurityUtility: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4067477066, 65464, 19172, [133, 254, 58, 117, 229, 52, 121, 102]);
+pub const ADsSecurityUtility: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf270c64a_ffb8_4ae4_85fe_3a75e5347966);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1893,8 +1893,8 @@ pub unsafe fn ADsSetLastError<'a, Param1: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const AccessControlEntry: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3076177920, 39901, 4560, [133, 44, 0, 192, 79, 216, 213, 3]);
-pub const AccessControlList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3093209170, 39901, 4560, [133, 44, 0, 192, 79, 216, 213, 3]);
+pub const AccessControlEntry: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb75ac000_9bdd_11d0_852c_00c04fd8d503);
+pub const AccessControlList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb85ea052_9bdd_11d0_852c_00c04fd8d503);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1954,7 +1954,7 @@ pub unsafe fn AllocADsStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const BackLink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4240412783, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
+pub const BackLink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcbf906f_4080_11d1_a3ac_00c04fb950dc);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_Security`, `Win32_System_Com`, `Win32_System_Ole`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
@@ -1977,25 +1977,25 @@ pub unsafe fn BinarySDToSecurityDescriptor<'a, Param2: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const CLSID_CommonQuery: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2210160320, 28458, 4560, [161, 196, 0, 170, 0, 193, 110, 101]);
-pub const CLSID_DsAdminCreateObj: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3808534537, 63745, 4562, [130, 185, 0, 192, 79, 104, 146, 139]);
-pub const CLSID_DsDisplaySpecifier: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(448047296, 27147, 4562, [173, 73, 0, 192, 79, 163, 26, 134]);
-pub const CLSID_DsDomainTreeBrowser: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(379091210, 58036, 4560, [176, 177, 0, 192, 79, 216, 220, 166]);
-pub const CLSID_DsFindAdvanced: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2213429219, 22489, 4560, [185, 50, 0, 160, 36, 171, 45, 187]);
-pub const CLSID_DsFindComputer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(369125120, 34733, 4560, [145, 64, 0, 170, 0, 193, 110, 101]);
-pub const CLSID_DsFindContainer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3249785842, 34922, 4560, [145, 64, 0, 170, 0, 193, 110, 101]);
-pub const CLSID_DsFindDomainController: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1401715582, 53854, 4560, [151, 66, 0, 160, 201, 6, 175, 69]);
-pub const CLSID_DsFindFrsMembers: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2496547608, 46035, 4561, [185, 180, 0, 192, 79, 216, 213, 176]);
-pub const CLSID_DsFindObjects: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2213429217, 22489, 4560, [185, 50, 0, 160, 36, 171, 45, 187]);
-pub const CLSID_DsFindPeople: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2213429218, 22489, 4560, [185, 50, 0, 160, 36, 171, 45, 187]);
-pub const CLSID_DsFindPrinter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3044536432, 32482, 4560, [145, 63, 0, 170, 0, 193, 110, 101]);
-pub const CLSID_DsFindVolume: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3249785841, 34922, 4560, [145, 64, 0, 170, 0, 193, 110, 101]);
-pub const CLSID_DsFindWriteableDomainController: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2092888185, 43652, 17483, [188, 112, 104, 228, 18, 131, 234, 188]);
-pub const CLSID_DsFolderProperties: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2656166096, 28175, 4562, [150, 1, 0, 192, 79, 163, 26, 134]);
-pub const CLSID_DsObjectPicker: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(399953112, 15227, 4562, [185, 224, 0, 192, 79, 216, 219, 247]);
-pub const CLSID_DsPropertyPages: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(222680368, 30283, 4560, [161, 202, 0, 170, 0, 193, 110, 101]);
-pub const CLSID_DsQuery: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2317608542, 12738, 4560, [137, 28, 0, 160, 36, 171, 45, 187]);
-pub const CLSID_MicrosoftDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4262629616, 53181, 4559, [163, 48, 0, 170, 0, 193, 110, 101]);
+pub const CLSID_CommonQuery: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83bc5ec0_6f2a_11d0_a1c4_00aa00c16e65);
+pub const CLSID_DsAdminCreateObj: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe301a009_f901_11d2_82b9_00c04f68928b);
+pub const CLSID_DsDisplaySpecifier: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ab4a8c0_6a0b_11d2_ad49_00c04fa31a86);
+pub const CLSID_DsDomainTreeBrowser: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1698790a_e2b4_11d0_b0b1_00c04fd8dca6);
+pub const CLSID_DsFindAdvanced: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83ee3fe3_57d9_11d0_b932_00a024ab2dbb);
+pub const CLSID_DsFindComputer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16006700_87ad_11d0_9140_00aa00c16e65);
+pub const CLSID_DsFindContainer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1b3cbf2_886a_11d0_9140_00aa00c16e65);
+pub const CLSID_DsFindDomainController: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x538c7b7e_d25e_11d0_9742_00a0c906af45);
+pub const CLSID_DsFindFrsMembers: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94ce4b18_b3d3_11d1_b9b4_00c04fd8d5b0);
+pub const CLSID_DsFindObjects: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83ee3fe1_57d9_11d0_b932_00a024ab2dbb);
+pub const CLSID_DsFindPeople: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83ee3fe2_57d9_11d0_b932_00a024ab2dbb);
+pub const CLSID_DsFindPrinter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb577f070_7ee2_11d0_913f_00aa00c16e65);
+pub const CLSID_DsFindVolume: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1b3cbf1_886a_11d0_9140_00aa00c16e65);
+pub const CLSID_DsFindWriteableDomainController: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7cbef079_aa84_444b_bc70_68e41283eabc);
+pub const CLSID_DsFolderProperties: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e51e0d0_6e0f_11d2_9601_00c04fa31a86);
+pub const CLSID_DsObjectPicker: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17d6ccd8_3b7b_11d2_b9e0_00c04fd8dbf7);
+pub const CLSID_DsPropertyPages: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d45d530_764b_11d0_a1ca_00aa00c16e65);
+pub const CLSID_DsQuery: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a23e65e_31c2_11d0_891c_00a024ab2dbb);
+pub const CLSID_MicrosoftDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe1290f0_cfbd_11cf_a330_00aa00c16e65);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const CQFF_ISOPTIONAL: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -2095,7 +2095,7 @@ pub const CQPM_PERSIST: u32 = 7u32;
 pub const CQPM_RELEASE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const CQPM_SETDEFAULTPARAMETERS: u32 = 9u32;
-pub const CaseIgnoreList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(368609877, 18048, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
+pub const CaseIgnoreList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15f88a55_4680_11d1_a3b4_00c04fb950dc);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DBDTF_RETURNEXTERNAL: u32 = 4u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -2106,8 +2106,8 @@ pub const DBDTF_RETURNINBOUND: u32 = 8u32;
 pub const DBDTF_RETURNINOUTBOUND: u32 = 16u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DBDTF_RETURNMIXEDDOMAINS: u32 = 2u32;
-pub const DNWithBinary: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2124005539, 63797, 4562, [186, 150, 0, 192, 79, 182, 208, 209]);
-pub const DNWithString: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(860379084, 63796, 4562, [186, 150, 0, 192, 79, 182, 208, 209]);
+pub const DNWithBinary: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e99c0a3_f935_11d2_ba96_00c04fb6d0d1);
+pub const DNWithString: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x334857cc_f934_11d2_ba96_00c04fb6d0d1);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -8568,7 +8568,7 @@ pub unsafe fn DsWriteAccountSpnW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const Email: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2408753239, 18318, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
+pub const Email: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f92a857_478e_11d1_a3b4_00c04fb950dc);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const FACILITY_BACKUP: u32 = 2047u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -8587,7 +8587,7 @@ pub const FLAG_SERVER_OPTIONAL_FEATURE: u32 = 8u32;
 pub const FRSCONN_MAX_PRIORITY: u32 = 8u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const FRSCONN_PRIORITY_MASK: u32 = 1879048192u32;
-pub const FaxNumber: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2768642581, 18049, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
+pub const FaxNumber: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5062215_4681_11d1_a3b4_00c04fb950dc);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -8630,7 +8630,7 @@ unsafe impl ::windows::runtime::Handle for GetDcContextHandle {}
 unsafe impl ::windows::runtime::Abi for GetDcContextHandle {
     type Abi = Self;
 }
-pub const Hold: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3014475283, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
+pub const Hold: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3ad3e13_4080_11d1_a3ac_00c04fb950dc);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -8710,7 +8710,7 @@ impl IADs {
 }
 unsafe impl ::windows::runtime::Interface for IADs {
     type Vtable = IADs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4253177552, 64789, 4558, [171, 196, 2, 96, 140, 158, 117, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd8256d0_fd15_11ce_abc4_02608c9e7553);
 }
 impl ::core::convert::From<IADs> for ::windows::runtime::IUnknown {
     fn from(value: IADs) -> Self {
@@ -8878,7 +8878,7 @@ impl IADsADSystemInfo {
 }
 unsafe impl ::windows::runtime::Interface for IADsADSystemInfo {
     type Vtable = IADsADSystemInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1538332969, 45009, 4562, [156, 185, 0, 0, 248, 122, 54, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5bb11929_afd1_11d2_9cb9_0000f87a369e);
 }
 impl ::core::convert::From<IADsADSystemInfo> for ::windows::runtime::IUnknown {
     fn from(value: IADsADSystemInfo) -> Self {
@@ -9040,7 +9040,7 @@ impl IADsAccessControlEntry {
 }
 unsafe impl ::windows::runtime::Interface for IADsAccessControlEntry {
     type Vtable = IADsAccessControlEntry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3035865420, 39901, 4560, [133, 44, 0, 192, 79, 216, 213, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4f3a14c_9bdd_11d0_852c_00c04fd8d503);
 }
 impl ::core::convert::From<IADsAccessControlEntry> for ::windows::runtime::IUnknown {
     fn from(value: IADsAccessControlEntry) -> Self {
@@ -9168,7 +9168,7 @@ impl IADsAccessControlList {
 }
 unsafe impl ::windows::runtime::Interface for IADsAccessControlList {
     type Vtable = IADsAccessControlList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085865420, 39901, 4560, [133, 44, 0, 192, 79, 216, 213, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7ee91cc_9bdd_11d0_852c_00c04fd8d503);
 }
 impl ::core::convert::From<IADsAccessControlList> for ::windows::runtime::IUnknown {
     fn from(value: IADsAccessControlList) -> Self {
@@ -9285,7 +9285,7 @@ impl IADsAcl {
 }
 unsafe impl ::windows::runtime::Interface for IADsAcl {
     type Vtable = IADsAcl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2220020651, 2153, 4561, [163, 119, 0, 192, 79, 185, 80, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8452d3ab_0869_11d1_a377_00c04fb950dc);
 }
 impl ::core::convert::From<IADsAcl> for ::windows::runtime::IUnknown {
     fn from(value: IADsAcl) -> Self {
@@ -9382,7 +9382,7 @@ impl IADsAggregatee {
 }
 unsafe impl ::windows::runtime::Interface for IADsAggregatee {
     type Vtable = IADsAggregatee_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(323407500, 36921, 4560, [133, 40, 0, 192, 79, 216, 213, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1346ce8c_9039_11d0_8528_00c04fd8d503);
 }
 impl ::core::convert::From<IADsAggregatee> for ::windows::runtime::IUnknown {
     fn from(value: IADsAggregatee) -> Self {
@@ -9431,7 +9431,7 @@ impl IADsAggregator {
 }
 unsafe impl ::windows::runtime::Interface for IADsAggregator {
     type Vtable = IADsAggregator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1390108592, 37919, 4560, [133, 41, 0, 192, 79, 216, 213, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52db5fb0_941f_11d0_8529_00c04fd8d503);
 }
 impl ::core::convert::From<IADsAggregator> for ::windows::runtime::IUnknown {
     fn from(value: IADsAggregator) -> Self {
@@ -9490,7 +9490,7 @@ impl IADsBackLink {
 }
 unsafe impl ::windows::runtime::Interface for IADsBackLink {
     type Vtable = IADsBackLink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4245881533, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd1302bd_4080_11d1_a3ac_00c04fb950dc);
 }
 impl ::core::convert::From<IADsBackLink> for ::windows::runtime::IUnknown {
     fn from(value: IADsBackLink) -> Self {
@@ -9576,7 +9576,7 @@ impl IADsCaseIgnoreList {
 }
 unsafe impl ::windows::runtime::Interface for IADsCaseIgnoreList {
     type Vtable = IADsCaseIgnoreList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2070328627, 18048, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b66b533_4680_11d1_a3b4_00c04fb950dc);
 }
 impl ::core::convert::From<IADsCaseIgnoreList> for ::windows::runtime::IUnknown {
     fn from(value: IADsCaseIgnoreList) -> Self {
@@ -9909,7 +9909,7 @@ impl IADsClass {
 }
 unsafe impl ::windows::runtime::Interface for IADsClass {
     type Vtable = IADsClass_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3371777488, 19168, 4559, [158, 115, 0, 170, 0, 74, 86, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8f93dd0_4ae0_11cf_9e73_00aa004a5691);
 }
 impl ::core::convert::From<IADsClass> for ::windows::runtime::IUnknown {
     fn from(value: IADsClass) -> Self {
@@ -10094,7 +10094,7 @@ impl IADsCollection {
 }
 unsafe impl ::windows::runtime::Interface for IADsCollection {
     type Vtable = IADsCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1924744672, 9531, 4559, [169, 136, 0, 170, 0, 107, 193, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72b945e0_253b_11cf_a988_00aa006bc149);
 }
 impl ::core::convert::From<IADsCollection> for ::windows::runtime::IUnknown {
     fn from(value: IADsCollection) -> Self {
@@ -10450,7 +10450,7 @@ impl IADsComputer {
 }
 unsafe impl ::windows::runtime::Interface for IADsComputer {
     type Vtable = IADsComputer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4024683632, 7583, 4559, [177, 243, 2, 96, 140, 158, 117, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefe3cc70_1d9f_11cf_b1f3_02608c9e7553);
 }
 impl ::core::convert::From<IADsComputer> for ::windows::runtime::IUnknown {
     fn from(value: IADsComputer) -> Self {
@@ -10740,7 +10740,7 @@ impl IADsComputerOperations {
 }
 unsafe impl ::windows::runtime::Interface for IADsComputerOperations {
     type Vtable = IADsComputerOperations_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4014569088, 7583, 4559, [177, 243, 2, 96, 140, 158, 117, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef497680_1d9f_11cf_b1f3_02608c9e7553);
 }
 impl ::core::convert::From<IADsComputerOperations> for ::windows::runtime::IUnknown {
     fn from(value: IADsComputerOperations) -> Self {
@@ -10917,7 +10917,7 @@ impl IADsContainer {
 }
 unsafe impl ::windows::runtime::Interface for IADsContainer {
     type Vtable = IADsContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1472464, 64790, 4558, [171, 196, 2, 96, 140, 158, 117, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x001677d0_fd16_11ce_abc4_02608c9e7553);
 }
 impl ::core::convert::From<IADsContainer> for ::windows::runtime::IUnknown {
     fn from(value: IADsContainer) -> Self {
@@ -11028,7 +11028,7 @@ impl IADsDNWithBinary {
 }
 unsafe impl ::windows::runtime::Interface for IADsDNWithBinary {
     type Vtable = IADsDNWithBinary_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2124005538, 63797, 4562, [186, 150, 0, 192, 79, 182, 208, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e99c0a2_f935_11d2_ba96_00c04fb6d0d1);
 }
 impl ::core::convert::From<IADsDNWithBinary> for ::windows::runtime::IUnknown {
     fn from(value: IADsDNWithBinary) -> Self {
@@ -11127,7 +11127,7 @@ impl IADsDNWithString {
 }
 unsafe impl ::windows::runtime::Interface for IADsDNWithString {
     type Vtable = IADsDNWithString_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(923660334, 63796, 4562, [186, 150, 0, 192, 79, 182, 208, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x370df02e_f934_11d2_ba96_00c04fb6d0d1);
 }
 impl ::core::convert::From<IADsDNWithString> for ::windows::runtime::IUnknown {
     fn from(value: IADsDNWithString) -> Self {
@@ -11208,7 +11208,7 @@ impl IADsDeleteOps {
 }
 unsafe impl ::windows::runtime::Interface for IADsDeleteOps {
     type Vtable = IADsDeleteOps_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2998733058, 34936, 4561, [140, 33, 0, 192, 79, 216, 213, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2bd0902_8878_11d1_8c21_00c04fd8d503);
 }
 impl ::core::convert::From<IADsDeleteOps> for ::windows::runtime::IUnknown {
     fn from(value: IADsDeleteOps) -> Self {
@@ -11458,7 +11458,7 @@ impl IADsDomain {
 }
 unsafe impl ::windows::runtime::Interface for IADsDomain {
     type Vtable = IADsDomain_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(14991904, 64790, 4558, [171, 196, 2, 96, 140, 158, 117, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00e4c220_fd16_11ce_abc4_02608c9e7553);
 }
 impl ::core::convert::From<IADsDomain> for ::windows::runtime::IUnknown {
     fn from(value: IADsDomain) -> Self {
@@ -11608,7 +11608,7 @@ impl IADsEmail {
 }
 unsafe impl ::windows::runtime::Interface for IADsEmail {
     type Vtable = IADsEmail_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2544828698, 18318, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97af011a_478e_11d1_a3b4_00c04fb950dc);
 }
 impl ::core::convert::From<IADsEmail> for ::windows::runtime::IUnknown {
     fn from(value: IADsEmail) -> Self {
@@ -11709,7 +11709,7 @@ impl IADsExtension {
 }
 unsafe impl ::windows::runtime::Interface for IADsExtension {
     type Vtable = IADsExtension_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1026905404, 53936, 4561, [177, 123, 0, 0, 248, 117, 147, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d35553c_d2b0_11d1_b17b_0000f87593a0);
 }
 impl ::core::convert::From<IADsExtension> for ::windows::runtime::IUnknown {
     fn from(value: IADsExtension) -> Self {
@@ -11774,7 +11774,7 @@ impl IADsFaxNumber {
 }
 unsafe impl ::windows::runtime::Interface for IADsFaxNumber {
     type Vtable = IADsFaxNumber_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2836455081, 18048, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa910dea9_4680_11d1_a3b4_00c04fb950dc);
 }
 impl ::core::convert::From<IADsFaxNumber> for ::windows::runtime::IUnknown {
     fn from(value: IADsFaxNumber) -> Self {
@@ -12100,7 +12100,7 @@ impl IADsFileService {
 }
 unsafe impl ::windows::runtime::Interface for IADsFileService {
     type Vtable = IADsFileService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2828867840, 12746, 4559, [169, 138, 0, 170, 0, 107, 193, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa89d1900_31ca_11cf_a98a_00aa006bc149);
 }
 impl ::core::convert::From<IADsFileService> for ::windows::runtime::IUnknown {
     fn from(value: IADsFileService) -> Self {
@@ -12420,7 +12420,7 @@ impl IADsFileServiceOperations {
 }
 unsafe impl ::windows::runtime::Interface for IADsFileServiceOperations {
     type Vtable = IADsFileServiceOperations_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2687364368, 12746, 4559, [169, 138, 0, 170, 0, 107, 193, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa02ded10_31ca_11cf_a98a_00aa006bc149);
 }
 impl ::core::convert::From<IADsFileServiceOperations> for ::windows::runtime::IUnknown {
     fn from(value: IADsFileServiceOperations) -> Self {
@@ -12712,7 +12712,7 @@ impl IADsFileShare {
 }
 unsafe impl ::windows::runtime::Interface for IADsFileShare {
     type Vtable = IADsFileShare_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3949841136, 19331, 4559, [169, 149, 0, 170, 0, 107, 193, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb6dcaf0_4b83_11cf_a995_00aa006bc149);
 }
 impl ::core::convert::From<IADsFileShare> for ::windows::runtime::IUnknown {
     fn from(value: IADsFileShare) -> Self {
@@ -12975,7 +12975,7 @@ impl IADsGroup {
 }
 unsafe impl ::windows::runtime::Interface for IADsGroup {
     type Vtable = IADsGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(660826880, 16655, 4559, [177, 255, 2, 96, 140, 158, 117, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27636b00_410f_11cf_b1ff_02608c9e7553);
 }
 impl ::core::convert::From<IADsGroup> for ::windows::runtime::IUnknown {
     fn from(value: IADsGroup) -> Self {
@@ -13119,7 +13119,7 @@ impl IADsHold {
 }
 unsafe impl ::windows::runtime::Interface for IADsHold {
     type Vtable = IADsHold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3018537783, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3eb3b37_4080_11d1_a3ac_00c04fb950dc);
 }
 impl ::core::convert::From<IADsHold> for ::windows::runtime::IUnknown {
     fn from(value: IADsHold) -> Self {
@@ -13212,7 +13212,7 @@ impl IADsLargeInteger {
 }
 unsafe impl ::windows::runtime::Interface for IADsLargeInteger {
     type Vtable = IADsLargeInteger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2422744843, 2361, 4561, [139, 225, 0, 192, 79, 216, 213, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9068270b_0939_11d1_8be1_00c04fd8d503);
 }
 impl ::core::convert::From<IADsLargeInteger> for ::windows::runtime::IUnknown {
     fn from(value: IADsLargeInteger) -> Self {
@@ -13432,7 +13432,7 @@ impl IADsLocality {
 }
 unsafe impl ::windows::runtime::Interface for IADsLocality {
     type Vtable = IADsLocality_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2690515874, 61438, 4559, [138, 188, 0, 192, 79, 216, 213, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa05e03a2_effe_11cf_8abc_00c04fd8d503);
 }
 impl ::core::convert::From<IADsLocality> for ::windows::runtime::IUnknown {
     fn from(value: IADsLocality) -> Self {
@@ -13582,7 +13582,7 @@ impl IADsMembers {
 }
 unsafe impl ::windows::runtime::Interface for IADsMembers {
     type Vtable = IADsMembers_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1159331888, 29420, 4559, [176, 59, 0, 170, 0, 110, 9, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x451a0030_72ec_11cf_b03b_00aa006e0975);
 }
 impl ::core::convert::From<IADsMembers> for ::windows::runtime::IUnknown {
     fn from(value: IADsMembers) -> Self {
@@ -13693,7 +13693,7 @@ impl IADsNameTranslate {
 }
 unsafe impl ::windows::runtime::Interface for IADsNameTranslate {
     type Vtable = IADsNameTranslate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2981261987, 13861, 4561, [163, 164, 0, 192, 79, 185, 80, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1b272a3_3625_11d1_a3a4_00c04fb950dc);
 }
 impl ::core::convert::From<IADsNameTranslate> for ::windows::runtime::IUnknown {
     fn from(value: IADsNameTranslate) -> Self {
@@ -13889,7 +13889,7 @@ impl IADsNamespaces {
 }
 unsafe impl ::windows::runtime::Interface for IADsNamespaces {
     type Vtable = IADsNamespaces_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(683240352, 45872, 4559, [169, 173, 0, 170, 0, 107, 193, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28b96ba0_b330_11cf_a9ad_00aa006bc149);
 }
 impl ::core::convert::From<IADsNamespaces> for ::windows::runtime::IUnknown {
     fn from(value: IADsNamespaces) -> Self {
@@ -14026,7 +14026,7 @@ impl IADsNetAddress {
 }
 unsafe impl ::windows::runtime::Interface for IADsNetAddress {
     type Vtable = IADsNetAddress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2988069033, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb21a50a9_4080_11d1_a3ac_00c04fb950dc);
 }
 impl ::core::convert::From<IADsNetAddress> for ::windows::runtime::IUnknown {
     fn from(value: IADsNetAddress) -> Self {
@@ -14270,7 +14270,7 @@ impl IADsO {
 }
 unsafe impl ::windows::runtime::Interface for IADsO {
     type Vtable = IADsO_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2714578374, 61438, 4559, [138, 188, 0, 192, 79, 216, 213, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1cd2dc6_effe_11cf_8abc_00c04fd8d503);
 }
 impl ::core::convert::From<IADsO> for ::windows::runtime::IUnknown {
     fn from(value: IADsO) -> Self {
@@ -14587,7 +14587,7 @@ impl IADsOU {
 }
 unsafe impl ::windows::runtime::Interface for IADsOU {
     type Vtable = IADsOU_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2734109624, 61438, 4559, [138, 188, 0, 192, 79, 216, 213, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2f733b8_effe_11cf_8abc_00c04fd8d503);
 }
 impl ::core::convert::From<IADsOU> for ::windows::runtime::IUnknown {
     fn from(value: IADsOU) -> Self {
@@ -14739,7 +14739,7 @@ impl IADsObjectOptions {
 }
 unsafe impl ::windows::runtime::Interface for IADsObjectOptions {
     type Vtable = IADsObjectOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1190219738, 9003, 4561, [168, 8, 0, 192, 79, 216, 213, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46f14fda_232b_11d1_a808_00c04fd8d5a8);
 }
 impl ::core::convert::From<IADsObjectOptions> for ::windows::runtime::IUnknown {
     fn from(value: IADsObjectOptions) -> Self {
@@ -14823,7 +14823,7 @@ impl IADsOctetList {
 }
 unsafe impl ::windows::runtime::Interface for IADsOctetList {
     type Vtable = IADsOctetList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2066266127, 18048, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b28b80f_4680_11d1_a3b4_00c04fb950dc);
 }
 impl ::core::convert::From<IADsOctetList> for ::windows::runtime::IUnknown {
     fn from(value: IADsOctetList) -> Self {
@@ -14902,7 +14902,7 @@ impl IADsOpenDSObject {
 }
 unsafe impl ::windows::runtime::Interface for IADsOpenDSObject {
     type Vtable = IADsOpenDSObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3723659550, 3996, 4560, [138, 212, 0, 192, 79, 216, 213, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddf2891e_0f9c_11d0_8ad4_00c04fd8d503);
 }
 impl ::core::convert::From<IADsOpenDSObject> for ::windows::runtime::IUnknown {
     fn from(value: IADsOpenDSObject) -> Self {
@@ -15004,7 +15004,7 @@ impl IADsPath {
 }
 unsafe impl ::windows::runtime::Interface for IADsPath {
     type Vtable = IADsPath_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2995256533, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb287fcd5_4080_11d1_a3ac_00c04fb950dc);
 }
 impl ::core::convert::From<IADsPath> for ::windows::runtime::IUnknown {
     fn from(value: IADsPath) -> Self {
@@ -15139,7 +15139,7 @@ impl IADsPathname {
 }
 unsafe impl ::windows::runtime::Interface for IADsPathname {
     type Vtable = IADsPathname_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3583160020, 62496, 4560, [163, 110, 0, 192, 79, 185, 80, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd592aed4_f420_11d0_a36e_00c04fb950dc);
 }
 impl ::core::convert::From<IADsPathname> for ::windows::runtime::IUnknown {
     fn from(value: IADsPathname) -> Self {
@@ -15236,7 +15236,7 @@ impl IADsPostalAddress {
 }
 unsafe impl ::windows::runtime::Interface for IADsPostalAddress {
     type Vtable = IADsPostalAddress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2061422377, 18048, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7adecf29_4680_11d1_a3b4_00c04fb950dc);
 }
 impl ::core::convert::From<IADsPostalAddress> for ::windows::runtime::IUnknown {
     fn from(value: IADsPostalAddress) -> Self {
@@ -15505,7 +15505,7 @@ impl IADsPrintJob {
 }
 unsafe impl ::windows::runtime::Interface for IADsPrintJob {
     type Vtable = IADsPrintJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(855336832, 7888, 4559, [169, 136, 0, 170, 0, 107, 193, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32fb6780_1ed0_11cf_a988_00aa006bc149);
 }
 impl ::core::convert::From<IADsPrintJob> for ::windows::runtime::IUnknown {
     fn from(value: IADsPrintJob) -> Self {
@@ -15780,7 +15780,7 @@ impl IADsPrintJobOperations {
 }
 unsafe impl ::windows::runtime::Interface for IADsPrintJobOperations {
     type Vtable = IADsPrintJobOperations_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2589121328, 7887, 4559, [169, 136, 0, 170, 0, 107, 193, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a52db30_1ecf_11cf_a988_00aa006bc149);
 }
 impl ::core::convert::From<IADsPrintJobOperations> for ::windows::runtime::IUnknown {
     fn from(value: IADsPrintJobOperations) -> Self {
@@ -16138,7 +16138,7 @@ impl IADsPrintQueue {
 }
 unsafe impl ::windows::runtime::Interface for IADsPrintQueue {
     type Vtable = IADsPrintQueue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2974900432, 4646, 4559, [169, 133, 0, 170, 0, 107, 193, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb15160d0_1226_11cf_a985_00aa006bc149);
 }
 impl ::core::convert::From<IADsPrintQueue> for ::windows::runtime::IUnknown {
     fn from(value: IADsPrintQueue) -> Self {
@@ -16420,7 +16420,7 @@ impl IADsPrintQueueOperations {
 }
 unsafe impl ::windows::runtime::Interface for IADsPrintQueueOperations {
     type Vtable = IADsPrintQueueOperations_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(306963904, 5486, 4559, [169, 134, 0, 170, 0, 107, 193, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x124be5c0_156e_11cf_a986_00aa006bc149);
 }
 impl ::core::convert::From<IADsPrintQueueOperations> for ::windows::runtime::IUnknown {
     fn from(value: IADsPrintQueueOperations) -> Self {
@@ -16695,7 +16695,7 @@ impl IADsProperty {
 }
 unsafe impl ::windows::runtime::Interface for IADsProperty {
     type Vtable = IADsProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3371777491, 19168, 4559, [158, 115, 0, 170, 0, 74, 86, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8f93dd3_4ae0_11cf_9e73_00aa004a5691);
 }
 impl ::core::convert::From<IADsProperty> for ::windows::runtime::IUnknown {
     fn from(value: IADsProperty) -> Self {
@@ -16867,7 +16867,7 @@ impl IADsPropertyEntry {
 }
 unsafe impl ::windows::runtime::Interface for IADsPropertyEntry {
     type Vtable = IADsPropertyEntry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(91827342, 37919, 4560, [133, 41, 0, 192, 79, 216, 213, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05792c8e_941f_11d0_8529_00c04fd8d503);
 }
 impl ::core::convert::From<IADsPropertyEntry> for ::windows::runtime::IUnknown {
     fn from(value: IADsPropertyEntry) -> Self {
@@ -16994,7 +16994,7 @@ impl IADsPropertyList {
 }
 unsafe impl ::windows::runtime::Interface for IADsPropertyList {
     type Vtable = IADsPropertyList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3338011318, 36713, 4560, [133, 40, 0, 192, 79, 216, 213, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6f602b6_8f69_11d0_8528_00c04fd8d503);
 }
 impl ::core::convert::From<IADsPropertyList> for ::windows::runtime::IUnknown {
     fn from(value: IADsPropertyList) -> Self {
@@ -17205,7 +17205,7 @@ impl IADsPropertyValue {
 }
 unsafe impl ::windows::runtime::Interface for IADsPropertyValue {
     type Vtable = IADsPropertyValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2046466768, 43388, 4560, [133, 52, 0, 192, 79, 216, 213, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79fa9ad0_a97c_11d0_8534_00c04fd8d503);
 }
 impl ::core::convert::From<IADsPropertyValue> for ::windows::runtime::IUnknown {
     fn from(value: IADsPropertyValue) -> Self {
@@ -17325,7 +17325,7 @@ impl IADsPropertyValue2 {
 }
 unsafe impl ::windows::runtime::Interface for IADsPropertyValue2 {
     type Vtable = IADsPropertyValue2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(812548892, 23495, 4561, [163, 184, 0, 192, 79, 185, 80, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x306e831c_5bc7_11d1_a3b8_00c04fb950dc);
 }
 impl ::core::convert::From<IADsPropertyValue2> for ::windows::runtime::IUnknown {
     fn from(value: IADsPropertyValue2) -> Self {
@@ -17447,7 +17447,7 @@ impl IADsReplicaPointer {
 }
 unsafe impl ::windows::runtime::Interface for IADsReplicaPointer {
     type Vtable = IADsReplicaPointer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4128225283, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf60fb803_4080_11d1_a3ac_00c04fb950dc);
 }
 impl ::core::convert::From<IADsReplicaPointer> for ::windows::runtime::IUnknown {
     fn from(value: IADsReplicaPointer) -> Self {
@@ -17656,7 +17656,7 @@ impl IADsResource {
 }
 unsafe impl ::windows::runtime::Interface for IADsResource {
     type Vtable = IADsResource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(882924320, 19115, 4559, [174, 44, 0, 170, 0, 110, 191, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34a05b20_4aab_11cf_ae2c_00aa006ebfb9);
 }
 impl ::core::convert::From<IADsResource> for ::windows::runtime::IUnknown {
     fn from(value: IADsResource) -> Self {
@@ -17880,7 +17880,7 @@ impl IADsSecurityDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for IADsSecurityDescriptor {
     type Vtable = IADsSecurityDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3100084170, 39901, 4560, [133, 44, 0, 192, 79, 216, 213, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8c787ca_9bdd_11d0_852c_00c04fd8d503);
 }
 impl ::core::convert::From<IADsSecurityDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: IADsSecurityDescriptor) -> Self {
@@ -18005,7 +18005,7 @@ impl IADsSecurityUtility {
 }
 unsafe impl ::windows::runtime::Interface for IADsSecurityUtility {
     type Vtable = IADsSecurityUtility_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2788315570, 24353, 18251, [171, 82, 74, 142, 250, 209, 8, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa63251b2_5f21_474b_ab52_4a8efad10895);
 }
 impl ::core::convert::From<IADsSecurityUtility> for ::windows::runtime::IUnknown {
     fn from(value: IADsSecurityUtility) -> Self {
@@ -18311,7 +18311,7 @@ impl IADsService {
 }
 unsafe impl ::windows::runtime::Interface for IADsService {
     type Vtable = IADsService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1756325600, 12746, 4559, [169, 138, 0, 170, 0, 107, 193, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68af66e0_31ca_11cf_a98a_00aa006bc149);
 }
 impl ::core::convert::From<IADsService> for ::windows::runtime::IUnknown {
     fn from(value: IADsService) -> Self {
@@ -18595,7 +18595,7 @@ impl IADsServiceOperations {
 }
 unsafe impl ::windows::runtime::Interface for IADsServiceOperations {
     type Vtable = IADsServiceOperations_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1568355312, 12746, 4559, [169, 138, 0, 170, 0, 107, 193, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d7b33f0_31ca_11cf_a98a_00aa006bc149);
 }
 impl ::core::convert::From<IADsServiceOperations> for ::windows::runtime::IUnknown {
     fn from(value: IADsServiceOperations) -> Self {
@@ -18852,7 +18852,7 @@ impl IADsSession {
 }
 unsafe impl ::windows::runtime::Interface for IADsSession {
     type Vtable = IADsSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(965442976, 19115, 4559, [174, 44, 0, 170, 0, 110, 191, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x398b7da0_4aab_11cf_ae2c_00aa006ebfb9);
 }
 impl ::core::convert::From<IADsSession> for ::windows::runtime::IUnknown {
     fn from(value: IADsSession) -> Self {
@@ -19087,7 +19087,7 @@ impl IADsSyntax {
 }
 unsafe impl ::windows::runtime::Interface for IADsSyntax {
     type Vtable = IADsSyntax_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3371777490, 19168, 4559, [158, 115, 0, 170, 0, 74, 86, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8f93dd2_4ae0_11cf_9e73_00aa004a5691);
 }
 impl ::core::convert::From<IADsSyntax> for ::windows::runtime::IUnknown {
     fn from(value: IADsSyntax) -> Self {
@@ -19220,7 +19220,7 @@ impl IADsTimestamp {
 }
 unsafe impl ::windows::runtime::Interface for IADsTimestamp {
     type Vtable = IADsTimestamp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3002444033, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2f5a901_4080_11d1_a3ac_00c04fb950dc);
 }
 impl ::core::convert::From<IADsTimestamp> for ::windows::runtime::IUnknown {
     fn from(value: IADsTimestamp) -> Self {
@@ -19322,7 +19322,7 @@ impl IADsTypedName {
 }
 unsafe impl ::windows::runtime::Interface for IADsTypedName {
     type Vtable = IADsTypedName_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3010569033, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb371a349_4080_11d1_a3ac_00c04fb950dc);
 }
 impl ::core::convert::From<IADsTypedName> for ::windows::runtime::IUnknown {
     fn from(value: IADsTypedName) -> Self {
@@ -19977,7 +19977,7 @@ impl IADsUser {
 }
 unsafe impl ::windows::runtime::Interface for IADsUser {
     type Vtable = IADsUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1043850016, 6114, 4559, [171, 196, 2, 96, 140, 158, 117, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e37e320_17e2_11cf_abc4_02608c9e7553);
 }
 impl ::core::convert::From<IADsUser> for ::windows::runtime::IUnknown {
     fn from(value: IADsUser) -> Self {
@@ -20268,7 +20268,7 @@ impl IADsWinNTSystemInfo {
 }
 unsafe impl ::windows::runtime::Interface for IADsWinNTSystemInfo {
     type Vtable = IADsWinNTSystemInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1819108828, 45009, 4562, [156, 185, 0, 0, 248, 122, 54, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c6d65dc_afd1_11d2_9cb9_0000f87a369e);
 }
 impl ::core::convert::From<IADsWinNTSystemInfo> for ::windows::runtime::IUnknown {
     fn from(value: IADsWinNTSystemInfo) -> Self {
@@ -20350,7 +20350,7 @@ impl ICommonQuery {
 }
 unsafe impl ::windows::runtime::Interface for ICommonQuery {
     type Vtable = ICommonQuery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2874203840, 28445, 4560, [161, 196, 0, 170, 0, 193, 110, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab50dec0_6f1d_11d0_a1c4_00aa00c16e65);
 }
 impl ::core::convert::From<ICommonQuery> for ::windows::runtime::IUnknown {
     fn from(value: ICommonQuery) -> Self {
@@ -20417,7 +20417,7 @@ impl IDirectoryObject {
 }
 unsafe impl ::windows::runtime::Interface for IDirectoryObject {
     type Vtable = IDirectoryObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885555244, 8932, 4560, [132, 254, 0, 192, 79, 216, 213, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe798de2c_22e4_11d0_84fe_00c04fd8d503);
 }
 impl ::core::convert::From<IDirectoryObject> for ::windows::runtime::IUnknown {
     fn from(value: IDirectoryObject) -> Self {
@@ -20504,7 +20504,7 @@ impl IDirectorySchemaMgmt {
 }
 unsafe impl ::windows::runtime::Interface for IDirectorySchemaMgmt {
     type Vtable = IDirectorySchemaMgmt_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1977301916, 42200, 4560, [167, 156, 0, 192, 79, 216, 213, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75db3b9c_a4d8_11d0_a79c_00c04fd8d5a8);
 }
 impl ::core::convert::From<IDirectorySchemaMgmt> for ::windows::runtime::IUnknown {
     fn from(value: IDirectorySchemaMgmt) -> Self {
@@ -20605,7 +20605,7 @@ impl IDirectorySearch {
 }
 unsafe impl ::windows::runtime::Interface for IDirectorySearch {
     type Vtable = IDirectorySearch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(278636780, 37616, 4560, [167, 144, 0, 192, 79, 216, 213, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x109ba8ec_92f0_11d0_a790_00c04fd8d5a8);
 }
 impl ::core::convert::From<IDirectorySearch> for ::windows::runtime::IUnknown {
     fn from(value: IDirectorySearch) -> Self {
@@ -20668,7 +20668,7 @@ impl IDsAdminCreateObj {
 }
 unsafe impl ::windows::runtime::Interface for IDsAdminCreateObj {
     type Vtable = IDsAdminCreateObj_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1398098488, 63746, 4562, [130, 185, 0, 192, 79, 104, 146, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53554a38_f902_11d2_82b9_00c04f68928b);
 }
 impl ::core::convert::From<IDsAdminCreateObj> for ::windows::runtime::IUnknown {
     fn from(value: IDsAdminCreateObj) -> Self {
@@ -20718,7 +20718,7 @@ impl IDsAdminNewObj {
 }
 unsafe impl ::windows::runtime::Interface for IDsAdminNewObj {
     type Vtable = IDsAdminNewObj_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4065801607, 59132, 4562, [130, 175, 0, 192, 79, 104, 146, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2573587_e6fc_11d2_82af_00c04f68928b);
 }
 impl ::core::convert::From<IDsAdminNewObj> for ::windows::runtime::IUnknown {
     fn from(value: IDsAdminNewObj) -> Self {
@@ -20787,7 +20787,7 @@ impl IDsAdminNewObjExt {
 }
 unsafe impl ::windows::runtime::Interface for IDsAdminNewObjExt {
     type Vtable = IDsAdminNewObjExt_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1619585762, 59327, 4562, [130, 175, 0, 192, 79, 104, 146, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6088eae2_e7bf_11d2_82af_00c04f68928b);
 }
 impl ::core::convert::From<IDsAdminNewObjExt> for ::windows::runtime::IUnknown {
     fn from(value: IDsAdminNewObjExt) -> Self {
@@ -20844,7 +20844,7 @@ impl IDsAdminNewObjPrimarySite {
 }
 unsafe impl ::windows::runtime::Interface for IDsAdminNewObjPrimarySite {
     type Vtable = IDsAdminNewObjPrimarySite_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3190507646, 63748, 4562, [130, 185, 0, 192, 79, 104, 146, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe2b487e_f904_11d2_82b9_00c04f68928b);
 }
 impl ::core::convert::From<IDsAdminNewObjPrimarySite> for ::windows::runtime::IUnknown {
     fn from(value: IDsAdminNewObjPrimarySite) -> Self {
@@ -20902,7 +20902,7 @@ impl IDsAdminNotifyHandler {
 }
 unsafe impl ::windows::runtime::Interface for IDsAdminNotifyHandler {
     type Vtable = IDsAdminNotifyHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3835869363, 23064, 4562, [151, 193, 0, 160, 201, 160, 109, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4a2b8b3_5a18_11d2_97c1_00a0c9a06d2d);
 }
 impl ::core::convert::From<IDsAdminNotifyHandler> for ::windows::runtime::IUnknown {
     fn from(value: IDsAdminNotifyHandler) -> Self {
@@ -20969,7 +20969,7 @@ impl IDsBrowseDomainTree {
 }
 unsafe impl ::windows::runtime::Interface for IDsBrowseDomainTree {
     type Vtable = IDsBrowseDomainTree_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2091634462, 30965, 4562, [150, 12, 0, 192, 79, 163, 26, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7cabcf1e_78f5_11d2_960c_00c04fa31a86);
 }
 impl ::core::convert::From<IDsBrowseDomainTree> for ::windows::runtime::IUnknown {
     fn from(value: IDsBrowseDomainTree) -> Self {
@@ -21069,7 +21069,7 @@ impl IDsDisplaySpecifier {
 }
 unsafe impl ::windows::runtime::Interface for IDsDisplaySpecifier {
     type Vtable = IDsDisplaySpecifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(448047296, 27147, 4562, [173, 73, 0, 192, 79, 163, 26, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ab4a8c0_6a0b_11d2_ad49_00c04fa31a86);
 }
 impl ::core::convert::From<IDsDisplaySpecifier> for ::windows::runtime::IUnknown {
     fn from(value: IDsDisplaySpecifier) -> Self {
@@ -21138,7 +21138,7 @@ impl IDsObjectPicker {
 }
 unsafe impl ::windows::runtime::Interface for IDsObjectPicker {
     type Vtable = IDsObjectPicker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(210232910, 15226, 4562, [185, 224, 0, 192, 79, 216, 219, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c87e64e_3b7a_11d2_b9e0_00c04fd8dbf7);
 }
 impl ::core::convert::From<IDsObjectPicker> for ::windows::runtime::IUnknown {
     fn from(value: IDsObjectPicker) -> Self {
@@ -21195,7 +21195,7 @@ impl IDsObjectPickerCredentials {
 }
 unsafe impl ::windows::runtime::Interface for IDsObjectPickerCredentials {
     type Vtable = IDsObjectPickerCredentials_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3805539483, 53313, 17498, [143, 22, 71, 72, 222, 143, 177, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2d3ec9b_d041_445a_8f16_4748de8fb1cf);
 }
 impl ::core::convert::From<IDsObjectPickerCredentials> for ::windows::runtime::IUnknown {
     fn from(value: IDsObjectPickerCredentials) -> Self {
@@ -21297,7 +21297,7 @@ impl IPersistQuery {
 }
 unsafe impl ::windows::runtime::Interface for IPersistQuery {
     type Vtable = IPersistQuery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(439424184, 42542, 4560, [166, 197, 0, 160, 201, 6, 175, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a3114b8_a62e_11d0_a6c5_00a0c906af45);
 }
 impl ::core::convert::From<IPersistQuery> for ::windows::runtime::IUnknown {
     fn from(value: IPersistQuery) -> Self {
@@ -21408,7 +21408,7 @@ impl IPrivateDispatch {
 }
 unsafe impl ::windows::runtime::Interface for IPrivateDispatch {
     type Vtable = IPrivateDispatch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2259372990, 26102, 4561, [140, 19, 0, 192, 79, 216, 213, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86ab4bbe_65f6_11d1_8c13_00c04fd8d503);
 }
 impl ::core::convert::From<IPrivateDispatch> for ::windows::runtime::IUnknown {
     fn from(value: IPrivateDispatch) -> Self {
@@ -21462,7 +21462,7 @@ impl IPrivateUnknown {
 }
 unsafe impl ::windows::runtime::Interface for IPrivateUnknown {
     type Vtable = IPrivateUnknown_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2299685803, 28333, 4561, [140, 24, 0, 192, 79, 216, 213, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89126bab_6ead_11d1_8c18_00c04fd8d503);
 }
 impl ::core::convert::From<IPrivateUnknown> for ::windows::runtime::IUnknown {
     fn from(value: IPrivateUnknown) -> Self {
@@ -21517,7 +21517,7 @@ impl IQueryForm {
 }
 unsafe impl ::windows::runtime::Interface for IQueryForm {
     type Vtable = IQueryForm_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2365386288, 14781, 4560, [184, 209, 0, 160, 36, 171, 45, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cfcee30_39bd_11d0_b8d1_00a024ab2dbb);
 }
 impl ::core::convert::From<IQueryForm> for ::windows::runtime::IUnknown {
     fn from(value: IQueryForm) -> Self {
@@ -21564,7 +21564,7 @@ pub type LPCQPAGEPROC = unsafe extern "system" fn(ppage: *mut ::core::mem::Manua
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDSENUMATTRIBUTES = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pszattributename: super::super::Foundation::PWSTR, pszdisplayname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::runtime::HRESULT;
-pub const LargeInteger: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2457432565, 2361, 4561, [139, 225, 0, 192, 79, 216, 213, 3]);
+pub const LargeInteger: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x927971f5_0939_11d1_8be1_00c04fd8d503);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const NTDSAPI_BIND_ALLOW_DELEGATION: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -21667,8 +21667,8 @@ pub const NTDSSITELINK_OPT_USE_NOTIFY: u32 = 1u32;
 pub const NTDSTRANSPORT_OPT_BRIDGES_REQUIRED: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const NTDSTRANSPORT_OPT_IGNORE_SCHEDULES: u32 = 1u32;
-pub const NameTranslate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(659533343, 13862, 4561, [163, 164, 0, 192, 79, 185, 80, 220]);
-pub const NetAddress: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2964787783, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
+pub const NameTranslate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x274fae1f_3626_11d1_a3a4_00c04fb950dc);
+pub const NetAddress: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0b71247_4080_11d1_a3ac_00c04fb950dc);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::clone::Clone for OPENQUERYWINDOW {
     fn clone(&self) -> Self {
@@ -21763,10 +21763,10 @@ pub const OQWF_SAVEQUERYONOK: u32 = 512u32;
 pub const OQWF_SHOWOPTIONAL: u32 = 128u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const OQWF_SINGLESELECT: u32 = 4u32;
-pub const OctetList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(306266127, 18048, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
-pub const Path: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2991819033, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
-pub const Pathname: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(135073144, 62497, 4560, [163, 110, 0, 192, 79, 185, 80, 220]);
-pub const PostalAddress: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(175484877, 18048, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
+pub const OctetList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1241400f_4680_11d1_a3b4_00c04fb950dc);
+pub const Path: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2538919_4080_11d1_a3ac_00c04fb950dc);
+pub const Pathname: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x080d0d78_f421_11d0_a36e_00c04fb950dc);
+pub const PostalAddress: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a75afcd_4680_11d1_a3b4_00c04fb950dc);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
@@ -21782,8 +21782,8 @@ pub unsafe fn PropVariantToAdsType(pvariant: *mut super::super::System::Com::VAR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const PropertyEntry: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1926491586, 42180, 4560, [133, 51, 0, 192, 79, 216, 213, 3]);
-pub const PropertyValue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2073966768, 43388, 4560, [133, 52, 0, 192, 79, 216, 213, 3]);
+pub const PropertyEntry: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72d3edc2_a4c4_11d0_8533_00c04fd8d503);
+pub const PropertyValue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b9e38b0_a97c_11d0_8534_00c04fd8d503);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const QUERYFORM_CHANGESFORMLIST: u64 = 1u64;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -21817,7 +21817,7 @@ pub unsafe fn ReallocADsStr<'a, Param1: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const ReplicaPointer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4124162783, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
+pub const ReplicaPointer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5d1badf_4080_11d1_a3ac_00c04fb950dc);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -21888,7 +21888,7 @@ pub const STATUS_SEVERITY_INFORMATIONAL: u32 = 1u32;
 pub const STATUS_SEVERITY_SUCCESS: u32 = 0u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const STATUS_SEVERITY_WARNING: u32 = 2u32;
-pub const SecurityDescriptor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3109615420, 39901, 4560, [133, 44, 0, 192, 79, 216, 213, 3]);
+pub const SecurityDescriptor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb958f73c_9bdd_11d0_852c_00c04fd8d503);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_Security`, `Win32_System_Com`, `Win32_System_Ole`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
@@ -21912,8 +21912,8 @@ pub unsafe fn SecurityDescriptorToBinarySD<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const Timestamp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2998850283, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
-pub const TypedName: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3006350283, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
+pub const Timestamp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2bed2eb_4080_11d1_a3ac_00c04fb950dc);
+pub const TypedName: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb33143cb_4080_11d1_a3ac_00c04fb950dc);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const WM_ADSPROP_NOTIFY_APPLY: u32 = 2128u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -21930,7 +21930,7 @@ pub const WM_ADSPROP_NOTIFY_PAGEHWND: u32 = 2126u32;
 pub const WM_ADSPROP_NOTIFY_PAGEINIT: u32 = 2125u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const WM_ADSPROP_NOTIFY_SETFOCUS: u32 = 2129u32;
-pub const WinNTSystemInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1712860868, 45009, 4562, [156, 185, 0, 0, 248, 122, 54, 158]);
+pub const WinNTSystemInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66182ec4_afd1_11d2_9cb9_0000f87a369e);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]

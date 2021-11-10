@@ -97,7 +97,7 @@ unsafe impl ::windows::runtime::RuntimeType for ColorHelper {
 }
 unsafe impl ::windows::runtime::Interface for ColorHelper {
     type Vtable = IColorHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(423427047, 26055, 17728, [173, 8, 98, 131, 186, 118, 135, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x193cfbe7_65c7_4540_ad08_6283ba76879a);
 }
 impl ::windows::runtime::RuntimeName for ColorHelper {
     const NAME: &'static str = "Windows.UI.ColorHelper";
@@ -1146,7 +1146,7 @@ unsafe impl ::windows::runtime::RuntimeType for Colors {
 }
 unsafe impl ::windows::runtime::Interface for Colors {
     type Vtable = IColors_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2609681190, 19622, 19685, [137, 148, 158, 255, 101, 202, 189, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc);
 }
 impl ::windows::runtime::RuntimeName for Colors {
     const NAME: &'static str = "Windows.UI.Colors";
@@ -1198,7 +1198,7 @@ unsafe impl ::core::marker::Sync for Colors {}
 pub struct IColorHelper(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorHelper {
     type Vtable = IColorHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(423427047, 26055, 17728, [173, 8, 98, 131, 186, 118, 135, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x193cfbe7_65c7_4540_ad08_6283ba76879a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1215,7 +1215,7 @@ pub struct IColorHelper_abi(
 pub struct IColorHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorHelperStatics {
     type Vtable = IColorHelperStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2231688170, 64362, 16708, [166, 194, 51, 73, 156, 146, 132, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8504dbea_fb6a_4144_a6c2_33499c9284f5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1233,7 +1233,7 @@ pub struct IColorHelperStatics_abi(
 pub struct IColorHelperStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorHelperStatics2 {
     type Vtable = IColorHelperStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(618245890, 28336, 19348, [133, 92, 252, 240, 129, 141, 154, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24d9af02_6eb0_4b94_855c_fcf0818d9a16);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1251,7 +1251,7 @@ pub struct IColorHelperStatics2_abi(
 pub struct IColors(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColors {
     type Vtable = IColors_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2609681190, 19622, 19685, [137, 148, 158, 255, 101, 202, 189, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1268,7 +1268,7 @@ pub struct IColors_abi(
 pub struct IColorsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorsStatics {
     type Vtable = IColorsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3488951812, 52390, 17940, [161, 126, 117, 73, 16, 200, 74, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcff52e04_cca6_4614_a17e_754910c84a99);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1426,7 +1426,7 @@ pub struct IColorsStatics_abi(
 pub struct IUIContentRoot(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUIContentRoot {
     type Vtable = IUIContentRoot_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(503102150, 45931, 23737, [155, 197, 43, 122, 14, 221, 195, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1444,7 +1444,7 @@ pub struct IUIContentRoot_abi(
 pub struct IUIContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUIContext {
     type Vtable = IUIContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3143432909, 23512, 22992, [165, 158, 28, 23, 164, 214, 210, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb5cfacd_5bd8_59d0_a59e_1c17a4d6d243);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1475,7 +1475,7 @@ unsafe impl ::windows::runtime::RuntimeType for UIContentRoot {
 }
 unsafe impl ::windows::runtime::Interface for UIContentRoot {
     type Vtable = IUIContentRoot_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(503102150, 45931, 23737, [155, 197, 43, 122, 14, 221, 195, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378);
 }
 impl ::windows::runtime::RuntimeName for UIContentRoot {
     const NAME: &'static str = "Windows.UI.UIContentRoot";
@@ -1532,7 +1532,7 @@ unsafe impl ::windows::runtime::RuntimeType for UIContext {
 }
 unsafe impl ::windows::runtime::Interface for UIContext {
     type Vtable = IUIContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3143432909, 23512, 22992, [165, 158, 28, 23, 164, 214, 210, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb5cfacd_5bd8_59d0_a59e_1c17a4d6d243);
 }
 impl ::windows::runtime::RuntimeName for UIContext {
     const NAME: &'static str = "Windows.UI.UIContext";

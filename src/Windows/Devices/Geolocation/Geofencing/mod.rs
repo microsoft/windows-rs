@@ -111,7 +111,7 @@ unsafe impl ::windows::runtime::RuntimeType for Geofence {
 }
 unsafe impl ::windows::runtime::Interface for Geofence {
     type Vtable = IGeofence_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2617837603, 60856, 18400, [130, 69, 91, 246, 29, 50, 31, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c090823_edb8_47e0_8245_5bf61d321f2d);
 }
 impl ::windows::runtime::RuntimeName for Geofence {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.Geofence";
@@ -244,7 +244,7 @@ unsafe impl ::windows::runtime::RuntimeType for GeofenceMonitor {
 }
 unsafe impl ::windows::runtime::Interface for GeofenceMonitor {
     type Vtable = IGeofenceMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1276075896, 7199, 17953, [187, 189, 131, 59, 146, 36, 114, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c0f5f78_1c1f_4621_bbbd_833b92247226);
 }
 impl ::windows::runtime::RuntimeName for GeofenceMonitor {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.GeofenceMonitor";
@@ -434,7 +434,7 @@ unsafe impl ::windows::runtime::RuntimeType for GeofenceStateChangeReport {
 }
 unsafe impl ::windows::runtime::Interface for GeofenceStateChangeReport {
     type Vtable = IGeofenceStateChangeReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2586065944, 9316, 19593, [190, 5, 179, 255, 255, 91, 171, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a243c18_2464_4c89_be05_b3ffff5babc5);
 }
 impl ::windows::runtime::RuntimeName for GeofenceStateChangeReport {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport";
@@ -486,7 +486,7 @@ unsafe impl ::core::marker::Sync for GeofenceStateChangeReport {}
 pub struct IGeofence(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeofence {
     type Vtable = IGeofence_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2617837603, 60856, 18400, [130, 69, 91, 246, 29, 50, 31, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c090823_edb8_47e0_8245_5bf61d321f2d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -513,7 +513,7 @@ pub struct IGeofence_abi(
 pub struct IGeofenceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeofenceFactory {
     type Vtable = IGeofenceFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2216649291, 12895, 19344, [188, 167, 43, 128, 34, 169, 55, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x841f624b_325f_4b90_bca7_2b8022a93796);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -536,7 +536,7 @@ pub struct IGeofenceFactory_abi(
 pub struct IGeofenceMonitor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeofenceMonitor {
     type Vtable = IGeofenceMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1276075896, 7199, 17953, [187, 189, 131, 59, 146, 36, 114, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c0f5f78_1c1f_4621_bbbd_833b92247226);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -567,7 +567,7 @@ pub struct IGeofenceMonitor_abi(
 pub struct IGeofenceMonitorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeofenceMonitorStatics {
     type Vtable = IGeofenceMonitorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(768815055, 32373, 18585, [172, 227, 43, 208, 166, 92, 206, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2dd32fcf_7e75_4899_ace3_2bd0a65cce06);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -585,7 +585,7 @@ pub struct IGeofenceMonitorStatics_abi(
 pub struct IGeofenceStateChangeReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeofenceStateChangeReport {
     type Vtable = IGeofenceStateChangeReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2586065944, 9316, 19593, [190, 5, 179, 255, 255, 91, 171, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a243c18_2464_4c89_be05_b3ffff5babc5);
 }
 #[repr(C)]
 #[doc(hidden)]

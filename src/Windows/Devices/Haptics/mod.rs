@@ -4,7 +4,7 @@
 pub struct IKnownSimpleHapticsControllerWaveformsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownSimpleHapticsControllerWaveformsStatics {
     type Vtable = IKnownSimpleHapticsControllerWaveformsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144311, 19694, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef7_4cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26,7 +26,7 @@ pub struct IKnownSimpleHapticsControllerWaveformsStatics_abi(
 pub struct IKnownSimpleHapticsControllerWaveformsStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownSimpleHapticsControllerWaveformsStatics2 {
     type Vtable = IKnownSimpleHapticsControllerWaveformsStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2815577127, 47005, 20746, [191, 121, 255, 109, 73, 23, 62, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7d24c27_b79d_510a_bf79_ff6d49173e1d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -53,7 +53,7 @@ pub struct IKnownSimpleHapticsControllerWaveformsStatics2_abi(
 pub struct ISimpleHapticsController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISimpleHapticsController {
     type Vtable = ISimpleHapticsController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144313, 19694, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef9_4cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -84,7 +84,7 @@ pub struct ISimpleHapticsController_abi(
 pub struct ISimpleHapticsControllerFeedback(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISimpleHapticsControllerFeedback {
     type Vtable = ISimpleHapticsControllerFeedback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144312, 19694, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef8_4cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -104,7 +104,7 @@ pub struct ISimpleHapticsControllerFeedback_abi(
 pub struct IVibrationDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVibrationDevice {
     type Vtable = IVibrationDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1089608254, 34884, 18431, [179, 18, 6, 24, 90, 56, 68, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40f21a3e_8844_47ff_b312_06185a3844da);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -123,7 +123,7 @@ pub struct IVibrationDevice_abi(
 pub struct IVibrationDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVibrationDeviceStatics {
     type Vtable = IVibrationDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1407380973, 8848, 19145, [142, 179, 26, 132, 18, 46, 183, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53e2eded_2290_4ac9_8eb3_1a84122eb71c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -351,7 +351,7 @@ unsafe impl ::windows::runtime::RuntimeType for SimpleHapticsController {
 }
 unsafe impl ::windows::runtime::Interface for SimpleHapticsController {
     type Vtable = ISimpleHapticsController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144313, 19694, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef9_4cee_11e6_b535_001bdc06ab3b);
 }
 impl ::windows::runtime::RuntimeName for SimpleHapticsController {
     const NAME: &'static str = "Windows.Devices.Haptics.SimpleHapticsController";
@@ -426,7 +426,7 @@ unsafe impl ::windows::runtime::RuntimeType for SimpleHapticsControllerFeedback 
 }
 unsafe impl ::windows::runtime::Interface for SimpleHapticsControllerFeedback {
     type Vtable = ISimpleHapticsControllerFeedback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144312, 19694, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef8_4cee_11e6_b535_001bdc06ab3b);
 }
 impl ::windows::runtime::RuntimeName for SimpleHapticsControllerFeedback {
     const NAME: &'static str = "Windows.Devices.Haptics.SimpleHapticsControllerFeedback";
@@ -567,7 +567,7 @@ unsafe impl ::windows::runtime::RuntimeType for VibrationDevice {
 }
 unsafe impl ::windows::runtime::Interface for VibrationDevice {
     type Vtable = IVibrationDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1089608254, 34884, 18431, [179, 18, 6, 24, 90, 56, 68, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40f21a3e_8844_47ff_b312_06185a3844da);
 }
 impl ::windows::runtime::RuntimeName for VibrationDevice {
     const NAME: &'static str = "Windows.Devices.Haptics.VibrationDevice";

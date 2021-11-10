@@ -4,7 +4,7 @@
 pub struct IRequestingFocusOnKeyboardInputEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRequestingFocusOnKeyboardInputEventArgs {
     type Vtable = IRequestingFocusOnKeyboardInputEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2702794535, 45479, 16802, [135, 157, 106, 104, 104, 126, 89, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1195f27_b1a7_41a2_879d_6a68687e5985);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21,7 +21,7 @@ pub struct IRequestingFocusOnKeyboardInputEventArgs_abi(
 pub struct ISearchSuggestion(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchSuggestion {
     type Vtable = ISearchSuggestion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1532318896, 5415, 17275, [149, 197, 141, 24, 210, 184, 175, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b5554b0_1527_437b_95c5_8d18d2b8af55);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -45,7 +45,7 @@ pub struct ISearchSuggestion_abi(
 pub struct ISearchSuggestionManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchSuggestionManager {
     type Vtable = ISearchSuggestionManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1057771681, 52125, 18811, [181, 0, 60, 4, 172, 149, 154, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f0c50a1_cb9d_497b_b500_3c04ac959ad2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -83,7 +83,7 @@ pub struct ISearchSuggestionManager_abi(
 pub struct ISearchSuggestionsRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchSuggestionsRequestedEventArgs {
     type Vtable = ISearchSuggestionsRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876236773, 40574, 19124, [139, 227, 199, 107, 27, 212, 52, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fd519e5_9e7e_4ab4_8be3_c76b1bd4344a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -109,7 +109,7 @@ unsafe impl ::windows::runtime::RuntimeType for RequestingFocusOnKeyboardInputEv
 }
 unsafe impl ::windows::runtime::Interface for RequestingFocusOnKeyboardInputEventArgs {
     type Vtable = IRequestingFocusOnKeyboardInputEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2702794535, 45479, 16802, [135, 157, 106, 104, 104, 126, 89, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1195f27_b1a7_41a2_879d_6a68687e5985);
 }
 impl ::windows::runtime::RuntimeName for RequestingFocusOnKeyboardInputEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.RequestingFocusOnKeyboardInputEventArgs";
@@ -219,7 +219,7 @@ unsafe impl ::windows::runtime::RuntimeType for SearchSuggestion {
 }
 unsafe impl ::windows::runtime::Interface for SearchSuggestion {
     type Vtable = ISearchSuggestion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1532318896, 5415, 17275, [149, 197, 141, 24, 210, 184, 175, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b5554b0_1527_437b_95c5_8d18d2b8af55);
 }
 impl ::windows::runtime::RuntimeName for SearchSuggestion {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.SearchSuggestion";
@@ -405,7 +405,7 @@ unsafe impl ::windows::runtime::RuntimeType for SearchSuggestionManager {
 }
 unsafe impl ::windows::runtime::Interface for SearchSuggestionManager {
     type Vtable = ISearchSuggestionManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1057771681, 52125, 18811, [181, 0, 60, 4, 172, 149, 154, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f0c50a1_cb9d_497b_b500_3c04ac959ad2);
 }
 impl ::windows::runtime::RuntimeName for SearchSuggestionManager {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.SearchSuggestionManager";
@@ -493,7 +493,7 @@ unsafe impl ::windows::runtime::RuntimeType for SearchSuggestionsRequestedEventA
 }
 unsafe impl ::windows::runtime::Interface for SearchSuggestionsRequestedEventArgs {
     type Vtable = ISearchSuggestionsRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876236773, 40574, 19124, [139, 227, 199, 107, 27, 212, 52, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fd519e5_9e7e_4ab4_8be3_c76b1bd4344a);
 }
 impl ::windows::runtime::RuntimeName for SearchSuggestionsRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs";

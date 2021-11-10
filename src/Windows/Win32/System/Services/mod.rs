@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(762980374, 3166, 17916, [156, 231, 87, 14, 94, 205, 233, 201]);
+pub const CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d7a2816_0c5e_45fc_9ce7_570e5ecde9c9);
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
@@ -344,8 +344,8 @@ pub unsafe fn CreateServiceW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const DOMAIN_JOIN_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(484575930, 38993, 17441, [148, 48, 29, 222, 183, 102, 232, 9]);
-pub const DOMAIN_LEAVE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3719254382, 22722, 18534, [149, 116, 195, 182, 21, 212, 46, 161]);
+pub const DOMAIN_JOIN_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ce20aba_9851_4421_9430_1ddeb766e809);
+pub const DOMAIN_LEAVE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddaf516e_58c2_4866_9574_c3b615d42ea1);
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
@@ -726,8 +726,8 @@ pub unsafe fn EnumServicesStatusW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const FIREWALL_PORT_CLOSE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2705648952, 36370, 19940, [157, 150, 230, 71, 64, 177, 165, 36]);
-pub const FIREWALL_PORT_OPEN_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3075907079, 33825, 20192, [173, 16, 134, 145, 90, 253, 173, 9]);
+pub const FIREWALL_PORT_CLOSE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa144ed38_8e12_4de4_9d96_e64740b1a524);
+pub const FIREWALL_PORT_OPEN_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7569e07_8421_4ee0_ad10_86915afdad09);
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -877,10 +877,10 @@ pub unsafe fn LockServiceDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const MACHINE_POLICY_PRESENT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1704970982, 23515, 19881, [177, 255, 202, 42, 23, 141, 70, 224]);
-pub const NAMED_PIPE_EVENT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(528601393, 16300, 17719, [158, 12, 126, 123, 12, 47, 75, 85]);
-pub const NETWORK_MANAGER_FIRST_IP_ADDRESS_ARRIVAL_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1328018142, 5346, 17163, [165, 73, 124, 212, 140, 188, 130, 69]);
-pub const NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3427509802, 5678, 17992, [132, 122, 182, 189, 249, 147, 227, 53]);
+pub const MACHINE_POLICY_PRESENT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x659fcae6_5bdb_4da9_b1ff_ca2a178d46e0);
+pub const NAMED_PIPE_EVENT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f81d131_3fac_4537_9e0c_7e7b0c2f4b55);
+pub const NETWORK_MANAGER_FIRST_IP_ADDRESS_ARRIVAL_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f27f2de_14e2_430b_a549_7cd48cbc8245);
+pub const NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc4ba62a_162e_4648_847a_b6bdf993e335);
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1312,7 +1312,7 @@ pub unsafe fn QueryServiceStatusEx<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const RPC_INTERFACE_EVENT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3163607399, 38000, 16697, [169, 186, 190, 11, 187, 245, 183, 77]);
+pub const RPC_INTERFACE_EVENT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc90d167_9470_4139_a9ba_be0bbbf5b74d);
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -3234,7 +3234,7 @@ pub unsafe fn StartServiceW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const USER_POLICY_PRESENT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1425753800, 61577, 17996, [177, 253, 89, 209, 182, 44, 59, 80]);
+pub const USER_POLICY_PRESENT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54fb46c8_f089_464c_b1fd_59d1b62c3b50);
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

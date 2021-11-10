@@ -98,7 +98,7 @@ unsafe impl ::windows::runtime::RuntimeType for Compressor {
 }
 unsafe impl ::windows::runtime::Interface for Compressor {
     type Vtable = ICompressor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(180577370, 22444, 20193, [183, 2, 132, 211, 157, 84, 36, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ac3645a_57ac_4ee1_b702_84d39d5424e0);
 }
 impl ::windows::runtime::RuntimeName for Compressor {
     const NAME: &'static str = "Windows.Storage.Compression.Compressor";
@@ -244,7 +244,7 @@ unsafe impl ::windows::runtime::RuntimeType for Decompressor {
 }
 unsafe impl ::windows::runtime::Interface for Decompressor {
     type Vtable = IDecompressor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3095658054, 54922, 19595, [173, 160, 78, 232, 19, 252, 82, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb883fe46_d68a_4c8b_ada0_4ee813fc5283);
 }
 impl ::windows::runtime::RuntimeName for Decompressor {
     const NAME: &'static str = "Windows.Storage.Compression.Decompressor";
@@ -348,7 +348,7 @@ unsafe impl ::core::marker::Sync for Decompressor {}
 pub struct ICompressor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompressor {
     type Vtable = ICompressor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(180577370, 22444, 20193, [183, 2, 132, 211, 157, 84, 36, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ac3645a_57ac_4ee1_b702_84d39d5424e0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -369,7 +369,7 @@ pub struct ICompressor_abi(
 pub struct ICompressorFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompressorFactory {
     type Vtable = ICompressorFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1597871780, 11515, 17452, [168, 186, 215, 209, 27, 3, 157, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f3d96a4_2cfb_442c_a8ba_d7d11b039da0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -390,7 +390,7 @@ pub struct ICompressorFactory_abi(
 pub struct IDecompressor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDecompressor {
     type Vtable = IDecompressor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3095658054, 54922, 19595, [173, 160, 78, 232, 19, 252, 82, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb883fe46_d68a_4c8b_ada0_4ee813fc5283);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -409,7 +409,7 @@ pub struct IDecompressor_abi(
 pub struct IDecompressorFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDecompressorFactory {
     type Vtable = IDecompressorFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1396171346, 7586, 17121, [136, 52, 3, 121, 210, 141, 116, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5337e252_1da2_42e1_8834_0379d28d742f);
 }
 #[repr(C)]
 #[doc(hidden)]

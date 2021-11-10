@@ -18,7 +18,7 @@ unsafe impl ::windows::runtime::RuntimeType for CardAddedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for CardAddedEventArgs {
     type Vtable = ICardAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(414969752, 61835, 19923, [177, 24, 223, 178, 200, 226, 60, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18bbef98_f18b_4dd3_b118_dfb2c8e23cc6);
 }
 impl ::windows::runtime::RuntimeName for CardAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.CardAddedEventArgs";
@@ -84,7 +84,7 @@ unsafe impl ::windows::runtime::RuntimeType for CardRemovedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for CardRemovedEventArgs {
     type Vtable = ICardRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(355670703, 8919, 18757, [175, 201, 3, 180, 111, 66, 166, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15331aaf_22d7_4945_afc9_03b46f42a6cd);
 }
 impl ::windows::runtime::RuntimeName for CardRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.CardRemovedEventArgs";
@@ -136,7 +136,7 @@ unsafe impl ::core::marker::Sync for CardRemovedEventArgs {}
 pub struct ICardAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICardAddedEventArgs {
     type Vtable = ICardAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(414969752, 61835, 19923, [177, 24, 223, 178, 200, 226, 60, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18bbef98_f18b_4dd3_b118_dfb2c8e23cc6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -154,7 +154,7 @@ pub struct ICardAddedEventArgs_abi(
 pub struct ICardRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICardRemovedEventArgs {
     type Vtable = ICardRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(355670703, 8919, 18757, [175, 201, 3, 180, 111, 66, 166, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15331aaf_22d7_4945_afc9_03b46f42a6cd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -172,7 +172,7 @@ pub struct ICardRemovedEventArgs_abi(
 pub struct IKnownSmartCardAppletIds(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownSmartCardAppletIds {
     type Vtable = IKnownSmartCardAppletIds_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2063915224, 38324, 19592, [140, 234, 65, 30, 85, 81, 30, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b04d8d8_95b4_4c88_8cea_411e55511efc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -193,7 +193,7 @@ pub struct IKnownSmartCardAppletIds_abi(
 pub struct ISmartCard(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCard {
     type Vtable = ISmartCard_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(460425329, 25652, 17396, [181, 90, 106, 41, 98, 56, 112, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b718871_6434_43f4_b55a_6a29623870aa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -215,7 +215,7 @@ pub struct ISmartCard_abi(
 pub struct ISmartCardAppletIdGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAppletIdGroup {
     type Vtable = ISmartCardAppletIdGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2108777958, 25188, 22260, [94, 3, 200, 99, 133, 57, 94, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7db165e6_6264_56f4_5e03_c86385395eb1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -242,7 +242,7 @@ pub struct ISmartCardAppletIdGroup_abi(
 pub struct ISmartCardAppletIdGroup2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAppletIdGroup2 {
     type Vtable = ISmartCardAppletIdGroup2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1796143580, 39254, 19042, [141, 78, 211, 122, 104, 235, 195, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b0ef9dc_9956_4a62_8d4e_d37a68ebc3a6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -269,7 +269,7 @@ pub struct ISmartCardAppletIdGroup2_abi(
 pub struct ISmartCardAppletIdGroupFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAppletIdGroupFactory {
     type Vtable = ISmartCardAppletIdGroupFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2433084237, 19045, 20033, [128, 97, 203, 232, 63, 54, 149, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9105eb4d_4a65_4e41_8061_cbe83f3695e5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -288,7 +288,7 @@ pub struct ISmartCardAppletIdGroupFactory_abi(
 pub struct ISmartCardAppletIdGroupRegistration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAppletIdGroupRegistration {
     type Vtable = ISmartCardAppletIdGroupRegistration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3742501073, 12731, 21910, [67, 177, 109, 105, 160, 37, 123, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf1208d1_31bb_5596_43b1_6d69a0257b3a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -312,7 +312,7 @@ pub struct ISmartCardAppletIdGroupRegistration_abi(
 pub struct ISmartCardAppletIdGroupRegistration2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAppletIdGroupRegistration2 {
     type Vtable = ISmartCardAppletIdGroupRegistration2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1599408344, 39079, 20270, [145, 217, 108, 252, 206, 218, 64, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f5508d8_98a7_4f2e_91d9_6cfcceda407f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -332,7 +332,7 @@ pub struct ISmartCardAppletIdGroupRegistration2_abi(
 pub struct ISmartCardAppletIdGroupStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAppletIdGroupStatics {
     type Vtable = ISmartCardAppletIdGroupStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2871564713, 59244, 17871, [191, 29, 144, 234, 166, 32, 89, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab2899a9_e76c_45cf_bf1d_90eaa6205927);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -350,7 +350,7 @@ pub struct ISmartCardAppletIdGroupStatics_abi(
 pub struct ISmartCardAutomaticResponseApdu(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAutomaticResponseApdu {
     type Vtable = ISmartCardAutomaticResponseApdu_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1377119147, 50750, 17713, [168, 87, 215, 86, 217, 155, 152, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52152bab_c63e_4531_a857_d756d99b986a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -385,7 +385,7 @@ pub struct ISmartCardAutomaticResponseApdu_abi(
 pub struct ISmartCardAutomaticResponseApdu2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAutomaticResponseApdu2 {
     type Vtable = ISmartCardAutomaticResponseApdu2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1152301844, 21917, 17713, [78, 81, 137, 219, 111, 168, 165, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44aebb14_559d_4531_4e51_89db6fa8a57a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -410,7 +410,7 @@ pub struct ISmartCardAutomaticResponseApdu2_abi(
 pub struct ISmartCardAutomaticResponseApdu3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAutomaticResponseApdu3 {
     type Vtable = ISmartCardAutomaticResponseApdu3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3208895092, 25974, 17298, [147, 103, 254, 59, 201, 226, 212, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf43da74_6576_4392_9367_fe3bc9e2d496);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -429,7 +429,7 @@ pub struct ISmartCardAutomaticResponseApdu3_abi(
 pub struct ISmartCardAutomaticResponseApduFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAutomaticResponseApduFactory {
     type Vtable = ISmartCardAutomaticResponseApduFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3917390586, 53292, 19541, [176, 42, 140, 255, 127, 169, 240, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe97ea2fa_d02c_4c55_b02a_8cff7fa9f05b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -448,7 +448,7 @@ pub struct ISmartCardAutomaticResponseApduFactory_abi(
 pub struct ISmartCardChallengeContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardChallengeContext {
     type Vtable = ISmartCardChallengeContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(422204185, 51652, 18759, [129, 204, 68, 121, 74, 97, 239, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x192a5319_c9c4_4947_81cc_44794a61ef91);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -475,7 +475,7 @@ pub struct ISmartCardChallengeContext_abi(
 pub struct ISmartCardConnect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardConnect {
     type Vtable = ISmartCardConnect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(803178469, 653, 18718, [160, 88, 51, 130, 195, 152, 111, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2fdf87e5_028d_491e_a058_3382c3986f40);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -494,7 +494,7 @@ pub struct ISmartCardConnect_abi(
 pub struct ISmartCardConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardConnection {
     type Vtable = ISmartCardConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2128320794, 43034, 18364, [166, 73, 21, 107, 230, 183, 242, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7edb991a_a81a_47bc_a649_156be6b7f231);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -513,7 +513,7 @@ pub struct ISmartCardConnection_abi(
 pub struct ISmartCardCryptogramGenerator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGenerator {
     type Vtable = ISmartCardCryptogramGenerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3818870907, 60883, 20041, [181, 148, 15, 245, 228, 208, 199, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe39f587b_edd3_4e49_b594_0ff5e4d0c76f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -555,7 +555,7 @@ pub struct ISmartCardCryptogramGenerator_abi(
 pub struct ISmartCardCryptogramGenerator2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGenerator2 {
     type Vtable = ISmartCardCryptogramGenerator2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1897310772, 23917, 19274, [150, 163, 239, 164, 125, 42, 126, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7116aa34_5d6d_4b4a_96a3_efa47d2a7e25);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -582,7 +582,7 @@ pub struct ISmartCardCryptogramGenerator2_abi(
 pub struct ISmartCardCryptogramGeneratorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGeneratorStatics {
     type Vtable = ISmartCardCryptogramGeneratorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(160643344, 52124, 16405, [150, 125, 82, 52, 243, 176, 41, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09933910_cb9c_4015_967d_5234f3b02900);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -601,7 +601,7 @@ pub struct ISmartCardCryptogramGeneratorStatics_abi(
 pub struct ISmartCardCryptogramGeneratorStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGeneratorStatics2 {
     type Vtable = ISmartCardCryptogramGeneratorStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(163444197, 46269, 20003, [165, 136, 116, 70, 146, 4, 193, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09bdf5e5_b4bd_4e23_a588_74469204c128);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -619,7 +619,7 @@ pub struct ISmartCardCryptogramGeneratorStatics2_abi(
 pub struct ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(664330281, 54919, 19602, [134, 198, 57, 158, 154, 14, 203, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2798e029_d687_4c92_86c6_399e9a0ecb09);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -639,7 +639,7 @@ pub struct ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_abi
 pub struct ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1315605084, 38771, 18116, [163, 47, 177, 229, 67, 21, 158, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e6a8a5c_9773_46c4_a32f_b1e543159e04);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -659,7 +659,7 @@ pub struct ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsRes
 pub struct ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     type Vtable = ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2356996183, 42983, 18589, [185, 214, 54, 128, 97, 81, 80, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c7ce857_a7e7_489d_b9d6_368061515012);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -679,7 +679,7 @@ pub struct ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_a
 pub struct ISmartCardCryptogramMaterialCharacteristics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramMaterialCharacteristics {
     type Vtable = ISmartCardCryptogramMaterialCharacteristics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4238001612, 49623, 16723, [146, 59, 162, 212, 60, 108, 141, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc9ac5cc_c1d7_4153_923b_a2d43c6c8d49);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -707,7 +707,7 @@ pub struct ISmartCardCryptogramMaterialCharacteristics_abi(
 pub struct ISmartCardCryptogramMaterialPackageCharacteristics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramMaterialPackageCharacteristics {
     type Vtable = ISmartCardCryptogramMaterialPackageCharacteristics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4290088479, 1682, 19527, [147, 207, 52, 217, 31, 157, 205, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffb58e1f_0692_4c47_93cf_34d91f9dcd00);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -729,7 +729,7 @@ pub struct ISmartCardCryptogramMaterialPackageCharacteristics_abi(
 pub struct ISmartCardCryptogramMaterialPossessionProof(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramMaterialPossessionProof {
     type Vtable = ISmartCardCryptogramMaterialPossessionProof_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3854150540, 41281, 16693, [154, 221, 176, 210, 227, 170, 31, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5b9ab8c_a141_4135_9add_b0d2e3aa1fc9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -749,7 +749,7 @@ pub struct ISmartCardCryptogramMaterialPossessionProof_abi(
 pub struct ISmartCardCryptogramPlacementStep(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramPlacementStep {
     type Vtable = ISmartCardCryptogramPlacementStep_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2491089899, 33602, 18322, [162, 229, 146, 86, 54, 55, 138, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x947b03eb_8342_4792_a2e5_925636378a53);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -786,7 +786,7 @@ pub struct ISmartCardCryptogramPlacementStep_abi(
 pub struct ISmartCardCryptogramStorageKeyCharacteristics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramStorageKeyCharacteristics {
     type Vtable = ISmartCardCryptogramStorageKeyCharacteristics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2236765294, 17495, 18469, [180, 100, 99, 84, 113, 163, 159, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8552546e_4457_4825_b464_635471a39f5c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -808,7 +808,7 @@ pub struct ISmartCardCryptogramStorageKeyCharacteristics_abi(
 pub struct ISmartCardCryptogramStorageKeyInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramStorageKeyInfo {
     type Vtable = ISmartCardCryptogramStorageKeyInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2008084493, 45207, 20321, [162, 106, 149, 97, 99, 156, 156, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77b0f00d_b097_4f61_a26a_9561639c9c3a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -836,7 +836,7 @@ pub struct ISmartCardCryptogramStorageKeyInfo_abi(
 pub struct ISmartCardCryptogramStorageKeyInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramStorageKeyInfo2 {
     type Vtable = ISmartCardCryptogramStorageKeyInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(278777, 63485, 16765, [137, 225, 251, 176, 56, 42, 220, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x000440f9_f7fd_417d_89e1_fbb0382adc4d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -854,7 +854,7 @@ pub struct ISmartCardCryptogramStorageKeyInfo2_abi(
 pub struct ISmartCardEmulator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulator {
     type Vtable = ISmartCardEmulator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3753445042, 34654, 18405, [128, 119, 232, 191, 241, 177, 198, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdfb906b2_875e_47e5_8077_e8bff1b1c6fb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -872,7 +872,7 @@ pub struct ISmartCardEmulator_abi(
 pub struct ISmartCardEmulator2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulator2 {
     type Vtable = ISmartCardEmulator2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4265590968, 34089, 16666, [128, 123, 72, 237, 194, 160, 171, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe3fc0b8_8529_411a_807b_48edc2a0ab44);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -899,7 +899,7 @@ pub struct ISmartCardEmulator2_abi(
 pub struct ISmartCardEmulatorApduReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorApduReceivedEventArgs {
     type Vtable = ISmartCardEmulatorApduReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3579647350, 27090, 21299, [91, 95, 248, 192, 214, 233, 240, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd55d1576_69d2_5333_5b5f_f8c0d6e9f09f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -922,7 +922,7 @@ pub struct ISmartCardEmulatorApduReceivedEventArgs_abi(
 pub struct ISmartCardEmulatorApduReceivedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorApduReceivedEventArgs2 {
     type Vtable = ISmartCardEmulatorApduReceivedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2348367344, 8929, 16952, [134, 16, 148, 206, 74, 150, 84, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bf93df0_22e1_4238_8610_94ce4a965425);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -942,7 +942,7 @@ pub struct ISmartCardEmulatorApduReceivedEventArgs2_abi(
 pub struct ISmartCardEmulatorApduReceivedEventArgsWithCryptograms(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorApduReceivedEventArgsWithCryptograms {
     type Vtable = ISmartCardEmulatorApduReceivedEventArgsWithCryptograms_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3578837703, 47039, 20009, [146, 148, 12, 74, 195, 201, 65, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd550bac7_b7bf_4e29_9294_0c4ac3c941bd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -963,7 +963,7 @@ pub struct ISmartCardEmulatorApduReceivedEventArgsWithCryptograms_abi(
 pub struct ISmartCardEmulatorConnectionDeactivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorConnectionDeactivatedEventArgs {
     type Vtable = ISmartCardEmulatorConnectionDeactivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(562485459, 50667, 21090, [67, 223, 98, 160, 161, 181, 85, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2186d8d3_c5eb_5262_43df_62a0a1b55557);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -982,7 +982,7 @@ pub struct ISmartCardEmulatorConnectionDeactivatedEventArgs_abi(
 pub struct ISmartCardEmulatorConnectionProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorConnectionProperties {
     type Vtable = ISmartCardEmulatorConnectionProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1311548910, 63849, 20605, [108, 249, 52, 226, 209, 141, 243, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e2ca5ee_f969_507d_6cf9_34e2d18df311);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1001,7 +1001,7 @@ pub struct ISmartCardEmulatorConnectionProperties_abi(
 pub struct ISmartCardEmulatorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorStatics {
     type Vtable = ISmartCardEmulatorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2057043019, 50387, 18767, [184, 162, 98, 21, 216, 30, 133, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a9bfc4b_c4d3_494f_b8a2_6215d81e85b2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1020,7 +1020,7 @@ pub struct ISmartCardEmulatorStatics_abi(
 pub struct ISmartCardEmulatorStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorStatics2 {
     type Vtable = ISmartCardEmulatorStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1773051786, 46965, 18571, [132, 54, 108, 30, 40, 237, 115, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69ae9f8a_b775_488b_8436_6c1e28ed731f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1044,7 +1044,7 @@ pub struct ISmartCardEmulatorStatics2_abi(
 pub struct ISmartCardEmulatorStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorStatics3 {
     type Vtable = ISmartCardEmulatorStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1508512810, 40713, 17397, [133, 101, 207, 168, 20, 142, 76, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59ea142a_9f09_43f5_8565_cfa8148e4cb2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1062,7 +1062,7 @@ pub struct ISmartCardEmulatorStatics3_abi(
 pub struct ISmartCardPinPolicy(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardPinPolicy {
     type Vtable = ISmartCardPinPolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(406643076, 19894, 18497, [172, 158, 42, 193, 243, 155, 115, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x183ce184_4db6_4841_ac9e_2ac1f39b7304);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1091,7 +1091,7 @@ pub struct ISmartCardPinPolicy_abi(
 pub struct ISmartCardPinResetDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardPinResetDeferral {
     type Vtable = ISmartCardPinResetDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(415845036, 30725, 16388, [133, 228, 187, 239, 172, 143, 104, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18c94aac_7805_4004_85e4_bbefac8f6884);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1109,7 +1109,7 @@ pub struct ISmartCardPinResetDeferral_abi(
 pub struct ISmartCardPinResetRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardPinResetRequest {
     type Vtable = ISmartCardPinResetRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(318651469, 24505, 20110, [159, 246, 97, 244, 117, 18, 79, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12fe3c4d_5fb9_4e8e_9ff6_61f475124fef);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1133,7 +1133,7 @@ pub struct ISmartCardPinResetRequest_abi(
 pub struct ISmartCardProvisioning(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardProvisioning {
     type Vtable = ISmartCardProvisioning_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(435088829, 8107, 18300, [183, 18, 26, 44, 90, 241, 253, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19eeedbd_1fab_477c_b712_1a2c5af1fd6e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1161,7 +1161,7 @@ pub struct ISmartCardProvisioning_abi(
 pub struct ISmartCardProvisioning2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardProvisioning2 {
     type Vtable = ISmartCardProvisioning2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(285026539, 16249, 19302, [155, 124, 17, 193, 73, 183, 208, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10fd28eb_3f79_4b66_9b7c_11c149b7d0bc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1180,7 +1180,7 @@ pub struct ISmartCardProvisioning2_abi(
 pub struct ISmartCardProvisioningStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardProvisioningStatics {
     type Vtable = ISmartCardProvisioningStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(327690312, 3347, 20080, [151, 53, 81, 218, 236, 165, 37, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13882848_0d13_4e70_9735_51daeca5254f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1205,7 +1205,7 @@ pub struct ISmartCardProvisioningStatics_abi(
 pub struct ISmartCardProvisioningStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardProvisioningStatics2 {
     type Vtable = ISmartCardProvisioningStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(877119144, 51616, 19414, [181, 13, 37, 31, 78, 141, 58, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3447c6a8_c9a0_4bd6_b50d_251f4e8d3a62);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1226,7 +1226,7 @@ pub struct ISmartCardProvisioningStatics2_abi(
 pub struct ISmartCardReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardReader {
     type Vtable = ISmartCardReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(276083936, 21698, 19952, [129, 122, 20, 193, 67, 120, 240, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1074b4e0_54c2_4df0_817a_14c14378f06c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1258,7 +1258,7 @@ pub struct ISmartCardReader_abi(
 pub struct ISmartCardReaderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardReaderStatics {
     type Vtable = ISmartCardReaderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(272368865, 41418, 18674, [162, 129, 91, 111, 102, 154, 241, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x103c04e1_a1ca_48f2_a281_5b6f669af107);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1279,7 +1279,7 @@ pub struct ISmartCardReaderStatics_abi(
 pub struct ISmartCardTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardTriggerDetails {
     type Vtable = ISmartCardTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1604055326, 14831, 20267, [180, 79, 10, 145, 85, 177, 119, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f9bf11e_39ef_4f2b_b44f_0a9155b177bc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1301,7 +1301,7 @@ pub struct ISmartCardTriggerDetails_abi(
 pub struct ISmartCardTriggerDetails2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardTriggerDetails2 {
     type Vtable = ISmartCardTriggerDetails2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(692438377, 35189, 19025, [158, 26, 95, 138, 118, 238, 81, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2945c569_8975_4a51_9e1a_5f8a76ee51af);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1323,7 +1323,7 @@ pub struct ISmartCardTriggerDetails2_abi(
 pub struct ISmartCardTriggerDetails3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardTriggerDetails3 {
     type Vtable = ISmartCardTriggerDetails3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3017982589, 6342, 19368, [131, 118, 239, 3, 212, 145, 38, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3e2c27d_18c6_4ba8_8376_ef03d4912666);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1409,7 +1409,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCard {
 }
 unsafe impl ::windows::runtime::Interface for SmartCard {
     type Vtable = ISmartCard_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(460425329, 25652, 17396, [181, 90, 106, 41, 98, 56, 112, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b718871_6434_43f4_b55a_6a29623870aa);
 }
 impl ::windows::runtime::RuntimeName for SmartCard {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCard";
@@ -1630,7 +1630,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardAppletIdGroup {
 }
 unsafe impl ::windows::runtime::Interface for SmartCardAppletIdGroup {
     type Vtable = ISmartCardAppletIdGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2108777958, 25188, 22260, [94, 3, 200, 99, 133, 57, 94, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7db165e6_6264_56f4_5e03_c86385395eb1);
 }
 impl ::windows::runtime::RuntimeName for SmartCardAppletIdGroup {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAppletIdGroup";
@@ -1770,7 +1770,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardAppletIdGroupRegistrati
 }
 unsafe impl ::windows::runtime::Interface for SmartCardAppletIdGroupRegistration {
     type Vtable = ISmartCardAppletIdGroupRegistration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3742501073, 12731, 21910, [67, 177, 109, 105, 160, 37, 123, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf1208d1_31bb_5596_43b1_6d69a0257b3a);
 }
 impl ::windows::runtime::RuntimeName for SmartCardAppletIdGroupRegistration {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAppletIdGroupRegistration";
@@ -1956,7 +1956,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardAutomaticResponseApdu {
 }
 unsafe impl ::windows::runtime::Interface for SmartCardAutomaticResponseApdu {
     type Vtable = ISmartCardAutomaticResponseApdu_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1377119147, 50750, 17713, [168, 87, 215, 86, 217, 155, 152, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52152bab_c63e_4531_a857_d756d99b986a);
 }
 impl ::windows::runtime::RuntimeName for SmartCardAutomaticResponseApdu {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAutomaticResponseApdu";
@@ -2091,7 +2091,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardChallengeContext {
 }
 unsafe impl ::windows::runtime::Interface for SmartCardChallengeContext {
     type Vtable = ISmartCardChallengeContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(422204185, 51652, 18759, [129, 204, 68, 121, 74, 97, 239, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x192a5319_c9c4_4947_81cc_44794a61ef91);
 }
 impl ::windows::runtime::RuntimeName for SmartCardChallengeContext {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardChallengeContext";
@@ -2190,7 +2190,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardConnection {
 }
 unsafe impl ::windows::runtime::Interface for SmartCardConnection {
     type Vtable = ISmartCardConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2128320794, 43034, 18364, [166, 73, 21, 107, 230, 183, 242, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7edb991a_a81a_47bc_a649_156be6b7f231);
 }
 impl ::windows::runtime::RuntimeName for SmartCardConnection {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardConnection";
@@ -2492,7 +2492,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptogramGenerator {
 }
 unsafe impl ::windows::runtime::Interface for SmartCardCryptogramGenerator {
     type Vtable = ISmartCardCryptogramGenerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3818870907, 60883, 20041, [181, 148, 15, 245, 228, 208, 199, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe39f587b_edd3_4e49_b594_0ff5e4d0c76f);
 }
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramGenerator {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGenerator";
@@ -2608,7 +2608,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptogramGetAllCryptog
 }
 unsafe impl ::windows::runtime::Interface for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(664330281, 54919, 19602, [134, 198, 57, 158, 154, 14, 203, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2798e029_d687_4c92_86c6_399e9a0ecb09);
 }
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult";
@@ -2690,7 +2690,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptogramGetAllCryptog
 }
 unsafe impl ::windows::runtime::Interface for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1315605084, 38771, 18116, [163, 47, 177, 229, 67, 21, 158, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e6a8a5c_9773_46c4_a32f_b1e543159e04);
 }
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult";
@@ -2772,7 +2772,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptogramGetAllCryptog
 }
 unsafe impl ::windows::runtime::Interface for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     type Vtable = ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2356996183, 42983, 18589, [185, 214, 54, 128, 97, 81, 80, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c7ce857_a7e7_489d_b9d6_368061515012);
 }
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult";
@@ -2904,7 +2904,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptogramMaterialChara
 }
 unsafe impl ::windows::runtime::Interface for SmartCardCryptogramMaterialCharacteristics {
     type Vtable = ISmartCardCryptogramMaterialCharacteristics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4238001612, 49623, 16723, [146, 59, 162, 212, 60, 108, 141, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc9ac5cc_c1d7_4153_923b_a2d43c6c8d49);
 }
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramMaterialCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialCharacteristics";
@@ -3002,7 +3002,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptogramMaterialPacka
 }
 unsafe impl ::windows::runtime::Interface for SmartCardCryptogramMaterialPackageCharacteristics {
     type Vtable = ISmartCardCryptogramMaterialPackageCharacteristics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4290088479, 1682, 19527, [147, 207, 52, 217, 31, 157, 205, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffb58e1f_0692_4c47_93cf_34d91f9dcd00);
 }
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramMaterialPackageCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageCharacteristics";
@@ -3121,7 +3121,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptogramMaterialPosse
 }
 unsafe impl ::windows::runtime::Interface for SmartCardCryptogramMaterialPossessionProof {
     type Vtable = ISmartCardCryptogramMaterialPossessionProof_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3854150540, 41281, 16693, [154, 221, 176, 210, 227, 170, 31, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5b9ab8c_a141_4135_9add_b0d2e3aa1fc9);
 }
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramMaterialPossessionProof {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialPossessionProof";
@@ -3403,7 +3403,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptogramPlacementStep
 }
 unsafe impl ::windows::runtime::Interface for SmartCardCryptogramPlacementStep {
     type Vtable = ISmartCardCryptogramPlacementStep_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2491089899, 33602, 18322, [162, 229, 146, 86, 54, 55, 138, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x947b03eb_8342_4792_a2e5_925636378a53);
 }
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramPlacementStep {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramPlacementStep";
@@ -3574,7 +3574,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptogramStorageKeyCha
 }
 unsafe impl ::windows::runtime::Interface for SmartCardCryptogramStorageKeyCharacteristics {
     type Vtable = ISmartCardCryptogramStorageKeyCharacteristics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2236765294, 17495, 18469, [180, 100, 99, 84, 113, 163, 159, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8552546e_4457_4825_b464_635471a39f5c);
 }
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramStorageKeyCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCharacteristics";
@@ -3700,7 +3700,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptogramStorageKeyInf
 }
 unsafe impl ::windows::runtime::Interface for SmartCardCryptogramStorageKeyInfo {
     type Vtable = ISmartCardCryptogramStorageKeyInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2008084493, 45207, 20321, [162, 106, 149, 97, 99, 156, 156, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77b0f00d_b097_4f61_a26a_9561639c9c3a);
 }
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramStorageKeyInfo {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyInfo";
@@ -3940,7 +3940,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardEmulator {
 }
 unsafe impl ::windows::runtime::Interface for SmartCardEmulator {
     type Vtable = ISmartCardEmulator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3753445042, 34654, 18405, [128, 119, 232, 191, 241, 177, 198, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdfb906b2_875e_47e5_8077_e8bff1b1c6fb);
 }
 impl ::windows::runtime::RuntimeName for SmartCardEmulator {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulator";
@@ -4072,7 +4072,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardEmulatorApduReceivedEve
 }
 unsafe impl ::windows::runtime::Interface for SmartCardEmulatorApduReceivedEventArgs {
     type Vtable = ISmartCardEmulatorApduReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3579647350, 27090, 21299, [91, 95, 248, 192, 214, 233, 240, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd55d1576_69d2_5333_5b5f_f8c0d6e9f09f);
 }
 impl ::windows::runtime::RuntimeName for SmartCardEmulatorApduReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorApduReceivedEventArgs";
@@ -4146,7 +4146,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardEmulatorConnectionDeact
 }
 unsafe impl ::windows::runtime::Interface for SmartCardEmulatorConnectionDeactivatedEventArgs {
     type Vtable = ISmartCardEmulatorConnectionDeactivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(562485459, 50667, 21090, [67, 223, 98, 160, 161, 181, 85, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2186d8d3_c5eb_5262_43df_62a0a1b55557);
 }
 impl ::windows::runtime::RuntimeName for SmartCardEmulatorConnectionDeactivatedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedEventArgs";
@@ -4242,7 +4242,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardEmulatorConnectionPrope
 }
 unsafe impl ::windows::runtime::Interface for SmartCardEmulatorConnectionProperties {
     type Vtable = ISmartCardEmulatorConnectionProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1311548910, 63849, 20605, [108, 249, 52, 226, 209, 141, 243, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e2ca5ee_f969_507d_6cf9_34e2d18df311);
 }
 impl ::windows::runtime::RuntimeName for SmartCardEmulatorConnectionProperties {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorConnectionProperties";
@@ -4479,7 +4479,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardPinPolicy {
 }
 unsafe impl ::windows::runtime::Interface for SmartCardPinPolicy {
     type Vtable = ISmartCardPinPolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(406643076, 19894, 18497, [172, 158, 42, 193, 243, 155, 115, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x183ce184_4db6_4841_ac9e_2ac1f39b7304);
 }
 impl ::windows::runtime::RuntimeName for SmartCardPinPolicy {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinPolicy";
@@ -4542,7 +4542,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardPinResetDeferral {
 }
 unsafe impl ::windows::runtime::Interface for SmartCardPinResetDeferral {
     type Vtable = ISmartCardPinResetDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(415845036, 30725, 16388, [133, 228, 187, 239, 172, 143, 104, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18c94aac_7805_4004_85e4_bbefac8f6884);
 }
 impl ::windows::runtime::RuntimeName for SmartCardPinResetDeferral {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinResetDeferral";
@@ -4613,7 +4613,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardPinResetHandler {
 }
 unsafe impl ::windows::runtime::Interface for SmartCardPinResetHandler {
     type Vtable = SmartCardPinResetHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(328031808, 62396, 19036, [180, 29, 75, 78, 246, 132, 226, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x138d5e40_f3bc_4a5c_b41d_4b4ef684e237);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4709,7 +4709,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardPinResetRequest {
 }
 unsafe impl ::windows::runtime::Interface for SmartCardPinResetRequest {
     type Vtable = ISmartCardPinResetRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(318651469, 24505, 20110, [159, 246, 97, 244, 117, 18, 79, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12fe3c4d_5fb9_4e8e_9ff6_61f475124fef);
 }
 impl ::windows::runtime::RuntimeName for SmartCardPinResetRequest {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinResetRequest";
@@ -4895,7 +4895,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardProvisioning {
 }
 unsafe impl ::windows::runtime::Interface for SmartCardProvisioning {
     type Vtable = ISmartCardProvisioning_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(435088829, 8107, 18300, [183, 18, 26, 44, 90, 241, 253, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19eeedbd_1fab_477c_b712_1a2c5af1fd6e);
 }
 impl ::windows::runtime::RuntimeName for SmartCardProvisioning {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardProvisioning";
@@ -5051,7 +5051,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardReader {
 }
 unsafe impl ::windows::runtime::Interface for SmartCardReader {
     type Vtable = ISmartCardReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(276083936, 21698, 19952, [129, 122, 20, 193, 67, 120, 240, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1074b4e0_54c2_4df0_817a_14c14378f06c);
 }
 impl ::windows::runtime::RuntimeName for SmartCardReader {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardReader";
@@ -5243,7 +5243,7 @@ unsafe impl ::windows::runtime::RuntimeType for SmartCardTriggerDetails {
 }
 unsafe impl ::windows::runtime::Interface for SmartCardTriggerDetails {
     type Vtable = ISmartCardTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1604055326, 14831, 20267, [180, 79, 10, 145, 85, 177, 119, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f9bf11e_39ef_4f2b_b44f_0a9155b177bc);
 }
 impl ::windows::runtime::RuntimeName for SmartCardTriggerDetails {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardTriggerDetails";

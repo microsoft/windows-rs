@@ -886,7 +886,7 @@ pub struct IApoAcousticEchoCancellation(pub ::windows::runtime::IUnknown);
 impl IApoAcousticEchoCancellation {}
 unsafe impl ::windows::runtime::Interface for IApoAcousticEchoCancellation {
     type Vtable = IApoAcousticEchoCancellation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(624449369, 12854, 16641, [169, 67, 37, 105, 61, 251, 93, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25385759_3236_4101_a943_25693dfb5d2d);
 }
 impl ::core::convert::From<IApoAcousticEchoCancellation> for ::windows::runtime::IUnknown {
     fn from(value: IApoAcousticEchoCancellation) -> Self {
@@ -936,7 +936,7 @@ impl IApoAuxiliaryInputConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for IApoAuxiliaryInputConfiguration {
     type Vtable = IApoAuxiliaryInputConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1290472107, 64025, 18669, [168, 87, 135, 119, 26, 225, 183, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ceb0aab_fa19_48ed_a857_87771ae1b768);
 }
 impl ::core::convert::From<IApoAuxiliaryInputConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: IApoAuxiliaryInputConfiguration) -> Self {
@@ -980,7 +980,7 @@ impl IApoAuxiliaryInputRT {
 }
 unsafe impl ::windows::runtime::Interface for IApoAuxiliaryInputRT {
     type Vtable = IApoAuxiliaryInputRT_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4166090908, 49527, 18848, [177, 178, 182, 111, 1, 121, 67, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf851809c_c177_49a0_b1b2_b66f017943ab);
 }
 impl ::core::convert::From<IApoAuxiliaryInputRT> for ::windows::runtime::IUnknown {
     fn from(value: IApoAuxiliaryInputRT) -> Self {
@@ -1022,7 +1022,7 @@ impl IAudioDeviceModulesClient {
 }
 unsafe impl ::windows::runtime::Interface for IAudioDeviceModulesClient {
     type Vtable = IAudioDeviceModulesClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2566094252, 53430, 18933, [137, 106, 170, 77, 22, 154, 76, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98f37dac_d0b6_49f5_896a_aa4d169a4c48);
 }
 impl ::core::convert::From<IAudioDeviceModulesClient> for ::windows::runtime::IUnknown {
     fn from(value: IAudioDeviceModulesClient) -> Self {
@@ -1080,7 +1080,7 @@ impl IAudioMediaType {
 }
 unsafe impl ::windows::runtime::Interface for IAudioMediaType {
     type Vtable = IAudioMediaType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1318682483, 46879, 18328, [135, 59, 237, 125, 252, 241, 91, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e997f73_b71f_4798_873b_ed7dfcf15b4d);
 }
 impl ::core::convert::From<IAudioMediaType> for ::windows::runtime::IUnknown {
     fn from(value: IAudioMediaType) -> Self {
@@ -1155,7 +1155,7 @@ impl IAudioProcessingObject {
 }
 unsafe impl ::windows::runtime::Interface for IAudioProcessingObject {
     type Vtable = IAudioProcessingObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4252969769, 9424, 19292, [177, 119, 89, 44, 57, 249, 202, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd7f2b29_24d0_4b5c_b177_592c39f9ca10);
 }
 impl ::core::convert::From<IAudioProcessingObject> for ::windows::runtime::IUnknown {
     fn from(value: IAudioProcessingObject) -> Self {
@@ -1207,7 +1207,7 @@ impl IAudioProcessingObjectConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for IAudioProcessingObjectConfiguration {
     type Vtable = IAudioProcessingObjectConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(241096709, 43942, 18883, [143, 154, 43, 140, 136, 156, 79, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e5ed805_aba6_49c3_8f9a_2b8c889c4fa8);
 }
 impl ::core::convert::From<IAudioProcessingObjectConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: IAudioProcessingObjectConfiguration) -> Self {
@@ -1251,7 +1251,7 @@ impl IAudioProcessingObjectLoggingService {
 }
 unsafe impl ::windows::runtime::Interface for IAudioProcessingObjectLoggingService {
     type Vtable = IAudioProcessingObjectLoggingService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1770979591, 5957, 18184, [149, 165, 216, 68, 120, 166, 42, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x698f0107_1745_4708_95a5_d84478a62a65);
 }
 impl ::core::convert::From<IAudioProcessingObjectLoggingService> for ::windows::runtime::IUnknown {
     fn from(value: IAudioProcessingObjectLoggingService) -> Self {
@@ -1299,7 +1299,7 @@ impl IAudioProcessingObjectNotifications {
 }
 unsafe impl ::windows::runtime::Interface for IAudioProcessingObjectNotifications {
     type Vtable = IAudioProcessingObjectNotifications_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1454425967, 765, 19233, [165, 46, 159, 130, 25, 252, 134, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56b0c76f_02fd_4b21_a52e_9f8219fc86e4);
 }
 impl ::core::convert::From<IAudioProcessingObjectNotifications> for ::windows::runtime::IUnknown {
     fn from(value: IAudioProcessingObjectNotifications) -> Self {
@@ -1351,7 +1351,7 @@ impl IAudioProcessingObjectRT {
 }
 unsafe impl ::windows::runtime::Interface for IAudioProcessingObjectRT {
     type Vtable = IAudioProcessingObjectRT_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2652727917, 56764, 20117, [164, 199, 173, 100, 186, 55, 132, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e1d6a6d_ddbc_4e95_a4c7_ad64ba37846c);
 }
 impl ::core::convert::From<IAudioProcessingObjectRT> for ::windows::runtime::IUnknown {
     fn from(value: IAudioProcessingObjectRT) -> Self {
@@ -1396,7 +1396,7 @@ impl IAudioProcessingObjectRTQueueService {
 }
 unsafe impl ::windows::runtime::Interface for IAudioProcessingObjectRTQueueService {
     type Vtable = IAudioProcessingObjectRTQueueService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2899729967, 38235, 19287, [185, 191, 172, 41, 123, 183, 82, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xacd65e2f_955b_4b57_b9bf_ac297bb752c9);
 }
 impl ::core::convert::From<IAudioProcessingObjectRTQueueService> for ::windows::runtime::IUnknown {
     fn from(value: IAudioProcessingObjectRTQueueService) -> Self {
@@ -1444,7 +1444,7 @@ impl IAudioProcessingObjectVBR {
 }
 unsafe impl ::windows::runtime::Interface for IAudioProcessingObjectVBR {
     type Vtable = IAudioProcessingObjectVBR_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2074205071, 30893, 18893, [149, 145, 247, 157, 128, 161, 124, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ba1db8f_78ad_49cd_9591_f79d80a17c81);
 }
 impl ::core::convert::From<IAudioProcessingObjectVBR> for ::windows::runtime::IUnknown {
     fn from(value: IAudioProcessingObjectVBR) -> Self {
@@ -1482,7 +1482,7 @@ pub struct IAudioSystemEffects(pub ::windows::runtime::IUnknown);
 impl IAudioSystemEffects {}
 unsafe impl ::windows::runtime::Interface for IAudioSystemEffects {
     type Vtable = IAudioSystemEffects_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1604325159, 44502, 18842, [138, 157, 107, 152, 82, 31, 167, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5fa00f27_add6_499a_8a9d_6b98521fa75b);
 }
 impl ::core::convert::From<IAudioSystemEffects> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSystemEffects) -> Self {
@@ -1524,7 +1524,7 @@ impl IAudioSystemEffects2 {
 }
 unsafe impl ::windows::runtime::Interface for IAudioSystemEffects2 {
     type Vtable = IAudioSystemEffects2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3137247698, 29750, 17614, [158, 14, 77, 137, 175, 191, 255, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbafe99d2_7436_44ce_9e0e_4d89afbfff56);
 }
 impl ::core::convert::From<IAudioSystemEffects2> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSystemEffects2) -> Self {
@@ -1597,7 +1597,7 @@ impl IAudioSystemEffects3 {
 }
 unsafe impl ::windows::runtime::Interface for IAudioSystemEffects3 {
     type Vtable = IAudioSystemEffects3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3314233805, 64618, 16981, [188, 31, 173, 41, 187, 10, 74, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc58b31cd_fc6a_4255_bc1f_ad29bb0a4a17);
 }
 impl ::core::convert::From<IAudioSystemEffects3> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSystemEffects3) -> Self {
@@ -1695,7 +1695,7 @@ impl IAudioSystemEffectsCustomFormats {
 }
 unsafe impl ::windows::runtime::Interface for IAudioSystemEffectsCustomFormats {
     type Vtable = IAudioSystemEffectsCustomFormats_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2971102772, 47999, 20229, [190, 189, 27, 24, 165, 52, 224, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1176e34_bb7f_4f05_bebd_1b18a534e097);
 }
 impl ::core::convert::From<IAudioSystemEffectsCustomFormats> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSystemEffectsCustomFormats) -> Self {
@@ -1731,185 +1731,185 @@ pub struct IAudioSystemEffectsCustomFormats_abi(
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_APO_SWFallback_ProcessingModes: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3550034495, 39362, 17410, [181, 236, 169, 42, 3, 103, 102, 75]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b),
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CompositeFX_EndpointEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CompositeFX_KeywordDetector_EndpointEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 18u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CompositeFX_KeywordDetector_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CompositeFX_KeywordDetector_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CompositeFX_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CompositeFX_Offload_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 20u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CompositeFX_Offload_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 19u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CompositeFX_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_EFX_KeywordDetector_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3550034495, 39362, 17410, [181, 236, 169, 42, 3, 103, 102, 75]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b),
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_EFX_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3550034495, 39362, 17410, [181, 236, 169, 42, 3, 103, 102, 75]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FX_Association: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 0u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FX_EndpointEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FX_FriendlyName: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FX_KeywordDetector_EndpointEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FX_KeywordDetector_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FX_KeywordDetector_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FX_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FX_Offload_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FX_Offload_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FX_PostMixEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FX_PreMixEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 1u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FX_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FX_UserInterfaceClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3494774182, 22859, 20406, [168, 13, 1, 175, 94, 237, 125, 29]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_MFX_KeywordDetector_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3550034495, 39362, 17410, [181, 236, 169, 42, 3, 103, 102, 75]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_MFX_Offload_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3550034495, 39362, 17410, [181, 236, 169, 42, 3, 103, 102, 75]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b),
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_MFX_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3550034495, 39362, 17410, [181, 236, 169, 42, 3, 103, 102, 75]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_SFX_KeywordDetector_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3550034495, 39362, 17410, [181, 236, 169, 42, 3, 103, 102, 75]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_SFX_Offload_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3550034495, 39362, 17410, [181, 236, 169, 42, 3, 103, 102, 75]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b),
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_SFX_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3550034495, 39362, 17410, [181, 236, 169, 42, 3, 103, 102, 75]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b),
     pid: 5u32,
 };
-pub const SID_AudioProcessingObjectLoggingService: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2340423855, 2553, 17774, [161, 115, 189, 181, 132, 153, 188, 231]);
-pub const SID_AudioProcessingObjectRTQueue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1166809631, 26777, 19474, [153, 172, 226, 230, 172, 37, 49, 4]);
+pub const SID_AudioProcessingObjectLoggingService: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b8008af_09f9_456e_a173_bdb58499bce7);
+pub const SID_AudioProcessingObjectRTQueue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x458c1a1f_6899_4c12_99ac_e2e6ac253104);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`*"]

@@ -19,7 +19,7 @@ unsafe impl ::windows::runtime::RuntimeType for CurrentTimeChangeRequestedEventA
 }
 unsafe impl ::windows::runtime::Interface for CurrentTimeChangeRequestedEventArgs {
     type Vtable = ICurrentTimeChangeRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2574324516, 60871, 19445, [145, 246, 60, 134, 39, 219, 89, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99711324_edc7_4bf5_91f6_3c8627db59e5);
 }
 impl ::windows::runtime::RuntimeName for CurrentTimeChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.CurrentTimeChangeRequestedEventArgs";
@@ -69,7 +69,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 pub struct ICurrentTimeChangeRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentTimeChangeRequestedEventArgs {
     type Vtable = ICurrentTimeChangeRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2574324516, 60871, 19445, [145, 246, 60, 134, 39, 219, 89, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99711324_edc7_4bf5_91f6_3c8627db59e5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -88,7 +88,7 @@ pub struct ICurrentTimeChangeRequestedEventArgs_abi(
 pub struct IMuteChangeRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMuteChangeRequestedEventArgs {
     type Vtable = IMuteChangeRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3837064694, 44831, 20254, [180, 55, 125, 163, 36, 0, 225, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4b4f5f6_af1f_4f1e_b437_7da32400e1d4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -106,7 +106,7 @@ pub struct IMuteChangeRequestedEventArgs_abi(
 pub struct IPlayToConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToConnection {
     type Vtable = IPlayToConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(288341960, 62005, 20446, [141, 65, 155, 242, 124, 158, 154, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x112fbfc8_f235_4fde_8d41_9bf27c9e9a40);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -136,7 +136,7 @@ pub struct IPlayToConnection_abi(
 pub struct IPlayToConnectionErrorEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToConnectionErrorEventArgs {
     type Vtable = IPlayToConnectionErrorEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3210653094, 35046, 17503, [157, 64, 217, 185, 248, 147, 152, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf5eada6_88e6_445f_9d40_d9b9f8939896);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -155,7 +155,7 @@ pub struct IPlayToConnectionErrorEventArgs_abi(
 pub struct IPlayToConnectionStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToConnectionStateChangedEventArgs {
     type Vtable = IPlayToConnectionStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1757721871, 3104, 18816, [134, 2, 88, 198, 34, 56, 212, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68c4b50f_0c20_4980_8602_58c62238d423);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -174,7 +174,7 @@ pub struct IPlayToConnectionStateChangedEventArgs_abi(
 pub struct IPlayToConnectionTransferredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToConnectionTransferredEventArgs {
     type Vtable = IPlayToConnectionTransferredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4209187130, 1667, 18393, [141, 240, 24, 203, 180, 137, 132, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfae3193a_0683_47d9_8df0_18cbb48984d8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -193,7 +193,7 @@ pub struct IPlayToConnectionTransferredEventArgs_abi(
 pub struct IPlayToManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToManager {
     type Vtable = IPlayToManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4117373038, 7031, 17135, [143, 13, 185, 73, 248, 217, 178, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf56a206e_1b77_42ef_8f0d_b949f8d9b260);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -220,7 +220,7 @@ pub struct IPlayToManager_abi(
 pub struct IPlayToManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToManagerStatics {
     type Vtable = IPlayToManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1692838023, 14722, 20283, [186, 32, 97, 85, 228, 53, 50, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64e6a887_3982_4f3b_ba20_6155e435325b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -239,7 +239,7 @@ pub struct IPlayToManagerStatics_abi(
 pub struct IPlayToReceiver(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToReceiver {
     type Vtable = IPlayToReceiver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2887110471, 41314, 19110, [175, 27, 58, 163, 95, 59, 144, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac15cf47_a162_4aa6_af1b_3aa35f3b9069);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -320,7 +320,7 @@ pub struct IPlayToReceiver_abi(
 pub struct IPlayToSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToSource {
     type Vtable = IPlayToSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2131986952, 64439, 19209, [131, 86, 170, 95, 78, 51, 92, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f138a08_fbb7_4b09_8356_aa5f4e335c31);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -341,7 +341,7 @@ pub struct IPlayToSource_abi(
 pub struct IPlayToSourceDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToSourceDeferral {
     type Vtable = IPlayToSourceDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1090554141, 10126, 20265, [133, 155, 169, 229, 1, 5, 62, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4100891d_278e_4f29_859b_a9e501053e7d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -359,7 +359,7 @@ pub struct IPlayToSourceDeferral_abi(
 pub struct IPlayToSourceRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToSourceRequest {
     type Vtable = IPlayToSourceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4166534757, 25844, 17568, [172, 13, 70, 141, 43, 143, 218, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8584665_64f4_44a0_ac0d_468d2b8fda83);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -381,7 +381,7 @@ pub struct IPlayToSourceRequest_abi(
 pub struct IPlayToSourceRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToSourceRequestedEventArgs {
     type Vtable = IPlayToSourceRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3318596400, 10719, 20166, [157, 169, 159, 189, 252, 252, 27, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5cdc330_29df_4ec6_9da9_9fbdfcfc1b3e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -399,7 +399,7 @@ pub struct IPlayToSourceRequestedEventArgs_abi(
 pub struct IPlayToSourceSelectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToSourceSelectedEventArgs {
     type Vtable = IPlayToSourceSelectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(211649809, 20994, 19915, [140, 103, 171, 218, 18, 187, 60, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c9d8511_5202_4dcb_8c67_abda12bb3c12);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -422,7 +422,7 @@ pub struct IPlayToSourceSelectedEventArgs_abi(
 pub struct IPlayToSourceWithPreferredSourceUri(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToSourceWithPreferredSourceUri {
     type Vtable = IPlayToSourceWithPreferredSourceUri_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2863813611, 13057, 19908, [175, 186, 178, 242, 237, 150, 53, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaab253eb_3301_4dc4_afba_b2f2ed9635a0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -443,7 +443,7 @@ pub struct IPlayToSourceWithPreferredSourceUri_abi(
 pub struct IPlaybackRateChangeRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaybackRateChangeRequestedEventArgs {
     type Vtable = IPlaybackRateChangeRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(257319342, 11400, 19658, [133, 64, 213, 134, 9, 93, 19, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f5661ae_2c88_4cca_8540_d586095d13a5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -461,7 +461,7 @@ pub struct IPlaybackRateChangeRequestedEventArgs_abi(
 pub struct ISourceChangeRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISourceChangeRequestedEventArgs {
     type Vtable = ISourceChangeRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4215224982, 31398, 19083, [134, 231, 84, 246, 198, 211, 79, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb3f3a96_7aa6_4a8b_86e7_54f6c6d34f64);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -493,7 +493,7 @@ pub struct ISourceChangeRequestedEventArgs_abi(
 pub struct IVolumeChangeRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVolumeChangeRequestedEventArgs {
     type Vtable = IVolumeChangeRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1862430044, 53109, 19499, [145, 62, 109, 124, 108, 50, 145, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f026d5c_cf75_4c2b_913e_6d7c6c329179);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -525,7 +525,7 @@ unsafe impl ::windows::runtime::RuntimeType for MuteChangeRequestedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for MuteChangeRequestedEventArgs {
     type Vtable = IMuteChangeRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3837064694, 44831, 20254, [180, 55, 125, 163, 36, 0, 225, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4b4f5f6_af1f_4f1e_b437_7da32400e1d4);
 }
 impl ::windows::runtime::RuntimeName for MuteChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.MuteChangeRequestedEventArgs";
@@ -641,7 +641,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayToConnection {
 }
 unsafe impl ::windows::runtime::Interface for PlayToConnection {
     type Vtable = IPlayToConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(288341960, 62005, 20446, [141, 65, 155, 242, 124, 158, 154, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x112fbfc8_f235_4fde_8d41_9bf27c9e9a40);
 }
 impl ::windows::runtime::RuntimeName for PlayToConnection {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnection";
@@ -742,7 +742,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayToConnectionErrorEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for PlayToConnectionErrorEventArgs {
     type Vtable = IPlayToConnectionErrorEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3210653094, 35046, 17503, [157, 64, 217, 185, 248, 147, 152, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf5eada6_88e6_445f_9d40_d9b9f8939896);
 }
 impl ::windows::runtime::RuntimeName for PlayToConnectionErrorEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnectionErrorEventArgs";
@@ -841,7 +841,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayToConnectionStateChangedEven
 }
 unsafe impl ::windows::runtime::Interface for PlayToConnectionStateChangedEventArgs {
     type Vtable = IPlayToConnectionStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1757721871, 3104, 18816, [134, 2, 88, 198, 34, 56, 212, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68c4b50f_0c20_4980_8602_58c62238d423);
 }
 impl ::windows::runtime::RuntimeName for PlayToConnectionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnectionStateChangedEventArgs";
@@ -917,7 +917,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayToConnectionTransferredEvent
 }
 unsafe impl ::windows::runtime::Interface for PlayToConnectionTransferredEventArgs {
     type Vtable = IPlayToConnectionTransferredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4209187130, 1667, 18393, [141, 240, 24, 203, 180, 137, 132, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfae3193a_0683_47d9_8df0_18cbb48984d8);
 }
 impl ::windows::runtime::RuntimeName for PlayToConnectionTransferredEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnectionTransferredEventArgs";
@@ -1041,7 +1041,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayToManager {
 }
 unsafe impl ::windows::runtime::Interface for PlayToManager {
     type Vtable = IPlayToManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4117373038, 7031, 17135, [143, 13, 185, 73, 248, 217, 178, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf56a206e_1b77_42ef_8f0d_b949f8d9b260);
 }
 impl ::windows::runtime::RuntimeName for PlayToManager {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToManager";
@@ -1382,7 +1382,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayToReceiver {
 }
 unsafe impl ::windows::runtime::Interface for PlayToReceiver {
     type Vtable = IPlayToReceiver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2887110471, 41314, 19110, [175, 27, 58, 163, 95, 59, 144, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac15cf47_a162_4aa6_af1b_3aa35f3b9069);
 }
 impl ::windows::runtime::RuntimeName for PlayToReceiver {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToReceiver";
@@ -1485,7 +1485,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayToSource {
 }
 unsafe impl ::windows::runtime::Interface for PlayToSource {
     type Vtable = IPlayToSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2131986952, 64439, 19209, [131, 86, 170, 95, 78, 51, 92, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f138a08_fbb7_4b09_8356_aa5f4e335c31);
 }
 impl ::windows::runtime::RuntimeName for PlayToSource {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSource";
@@ -1549,7 +1549,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayToSourceDeferral {
 }
 unsafe impl ::windows::runtime::Interface for PlayToSourceDeferral {
     type Vtable = IPlayToSourceDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1090554141, 10126, 20265, [133, 155, 169, 229, 1, 5, 62, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4100891d_278e_4f29_859b_a9e501053e7d);
 }
 impl ::windows::runtime::RuntimeName for PlayToSourceDeferral {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceDeferral";
@@ -1638,7 +1638,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayToSourceRequest {
 }
 unsafe impl ::windows::runtime::Interface for PlayToSourceRequest {
     type Vtable = IPlayToSourceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4166534757, 25844, 17568, [172, 13, 70, 141, 43, 143, 218, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8584665_64f4_44a0_ac0d_468d2b8fda83);
 }
 impl ::windows::runtime::RuntimeName for PlayToSourceRequest {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceRequest";
@@ -1705,7 +1705,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayToSourceRequestedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for PlayToSourceRequestedEventArgs {
     type Vtable = IPlayToSourceRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3318596400, 10719, 20166, [157, 169, 159, 189, 252, 252, 27, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5cdc330_29df_4ec6_9da9_9fbdfcfc1b3e);
 }
 impl ::windows::runtime::RuntimeName for PlayToSourceRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceRequestedEventArgs";
@@ -1809,7 +1809,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayToSourceSelectedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for PlayToSourceSelectedEventArgs {
     type Vtable = IPlayToSourceSelectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(211649809, 20994, 19915, [140, 103, 171, 218, 18, 187, 60, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c9d8511_5202_4dcb_8c67_abda12bb3c12);
 }
 impl ::windows::runtime::RuntimeName for PlayToSourceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceSelectedEventArgs";
@@ -1875,7 +1875,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlaybackRateChangeRequestedEvent
 }
 unsafe impl ::windows::runtime::Interface for PlaybackRateChangeRequestedEventArgs {
     type Vtable = IPlaybackRateChangeRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(257319342, 11400, 19658, [133, 64, 213, 134, 9, 93, 19, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f5661ae_2c88_4cca_8540_d586095d13a5);
 }
 impl ::windows::runtime::RuntimeName for PlaybackRateChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlaybackRateChangeRequestedEventArgs";
@@ -2016,7 +2016,7 @@ unsafe impl ::windows::runtime::RuntimeType for SourceChangeRequestedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for SourceChangeRequestedEventArgs {
     type Vtable = ISourceChangeRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4215224982, 31398, 19083, [134, 231, 84, 246, 198, 211, 79, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb3f3a96_7aa6_4a8b_86e7_54f6c6d34f64);
 }
 impl ::windows::runtime::RuntimeName for SourceChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.SourceChangeRequestedEventArgs";
@@ -2080,7 +2080,7 @@ unsafe impl ::windows::runtime::RuntimeType for VolumeChangeRequestedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for VolumeChangeRequestedEventArgs {
     type Vtable = IVolumeChangeRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1862430044, 53109, 19499, [145, 62, 109, 124, 108, 50, 145, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f026d5c_cf75_4c2b_913e_6d7c6c329179);
 }
 impl ::windows::runtime::RuntimeName for VolumeChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.VolumeChangeRequestedEventArgs";

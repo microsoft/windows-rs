@@ -111,7 +111,7 @@ unsafe impl ::windows::runtime::RuntimeType for CortanaActionableInsights {
 }
 unsafe impl ::windows::runtime::Interface for CortanaActionableInsights {
     type Vtable = ICortanaActionableInsights_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2501822129, 64643, 22637, [139, 132, 36, 82, 200, 152, 22, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x951ec6b1_fc83_586d_8b84_2452c8981625);
 }
 impl ::windows::runtime::RuntimeName for CortanaActionableInsights {
     const NAME: &'static str = "Windows.Services.Cortana.CortanaActionableInsights";
@@ -208,7 +208,7 @@ unsafe impl ::windows::runtime::RuntimeType for CortanaActionableInsightsOptions
 }
 unsafe impl ::windows::runtime::Interface for CortanaActionableInsightsOptions {
     type Vtable = ICortanaActionableInsightsOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2864888783, 38786, 21536, [184, 30, 122, 229, 106, 243, 24, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaac2bbcf_9782_5420_b81e_7ae56af31815);
 }
 impl ::windows::runtime::RuntimeName for CortanaActionableInsightsOptions {
     const NAME: &'static str = "Windows.Services.Cortana.CortanaActionableInsightsOptions";
@@ -371,7 +371,7 @@ unsafe impl ::windows::runtime::RuntimeType for CortanaPermissionsManager {
 }
 unsafe impl ::windows::runtime::Interface for CortanaPermissionsManager {
     type Vtable = ICortanaPermissionsManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(420688096, 34453, 17290, [149, 69, 61, 164, 232, 34, 221, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x191330e0_8695_438a_9545_3da4e822ddb4);
 }
 impl ::windows::runtime::RuntimeName for CortanaPermissionsManager {
     const NAME: &'static str = "Windows.Services.Cortana.CortanaPermissionsManager";
@@ -473,7 +473,7 @@ unsafe impl ::windows::runtime::RuntimeType for CortanaSettings {
 }
 unsafe impl ::windows::runtime::Interface for CortanaSettings {
     type Vtable = ICortanaSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1423274407, 32866, 16628, [171, 231, 222, 223, 214, 151, 176, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54d571a7_8062_40f4_abe7_dedfd697b019);
 }
 impl ::windows::runtime::RuntimeName for CortanaSettings {
     const NAME: &'static str = "Windows.Services.Cortana.CortanaSettings";
@@ -525,7 +525,7 @@ unsafe impl ::core::marker::Sync for CortanaSettings {}
 pub struct ICortanaActionableInsights(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaActionableInsights {
     type Vtable = ICortanaActionableInsights_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2501822129, 64643, 22637, [139, 132, 36, 82, 200, 152, 22, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x951ec6b1_fc83_586d_8b84_2452c8981625);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -558,7 +558,7 @@ pub struct ICortanaActionableInsights_abi(
 pub struct ICortanaActionableInsightsOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaActionableInsightsOptions {
     type Vtable = ICortanaActionableInsightsOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2864888783, 38786, 21536, [184, 30, 122, 229, 106, 243, 24, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaac2bbcf_9782_5420_b81e_7ae56af31815);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -581,7 +581,7 @@ pub struct ICortanaActionableInsightsOptions_abi(
 pub struct ICortanaActionableInsightsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaActionableInsightsStatics {
     type Vtable = ICortanaActionableInsightsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3051279378, 40239, 23733, [155, 5, 53, 106, 11, 131, 108, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5ded412_9d2f_5cb5_9b05_356a0b836c10);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -601,7 +601,7 @@ pub struct ICortanaActionableInsightsStatics_abi(
 pub struct ICortanaPermissionsManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaPermissionsManager {
     type Vtable = ICortanaPermissionsManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(420688096, 34453, 17290, [149, 69, 61, 164, 232, 34, 221, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x191330e0_8695_438a_9545_3da4e822ddb4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -625,7 +625,7 @@ pub struct ICortanaPermissionsManager_abi(
 pub struct ICortanaPermissionsManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaPermissionsManagerStatics {
     type Vtable = ICortanaPermissionsManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1991370362, 45125, 17428, [157, 109, 42, 211, 165, 254, 58, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76b1e67a_b045_4414_9d6d_2ad3a5fe3a7e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -643,7 +643,7 @@ pub struct ICortanaPermissionsManagerStatics_abi(
 pub struct ICortanaSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaSettings {
     type Vtable = ICortanaSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1423274407, 32866, 16628, [171, 231, 222, 223, 214, 151, 176, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54d571a7_8062_40f4_abe7_dedfd697b019);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -663,7 +663,7 @@ pub struct ICortanaSettings_abi(
 pub struct ICortanaSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaSettingsStatics {
     type Vtable = ICortanaSettingsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2334969214, 11968, 17517, [146, 133, 51, 240, 124, 232, 172, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b2ccd7e_2ec0_446d_9285_33f07ce8ac04);
 }
 #[repr(C)]
 #[doc(hidden)]

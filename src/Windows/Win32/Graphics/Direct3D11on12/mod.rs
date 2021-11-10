@@ -89,7 +89,7 @@ impl ID3D11On12Device {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11On12Device {
     type Vtable = ID3D11On12Device_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2237734515, 28841, 18702, [150, 20, 169, 227, 2, 119, 121, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85611e73_70a9_490e_9614_a9e302777904);
 }
 impl ::core::convert::From<ID3D11On12Device> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11On12Device) -> Self {
@@ -152,7 +152,7 @@ impl ID3D11On12Device1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11On12Device1 {
     type Vtable = ID3D11On12Device1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3182841332, 59951, 19568, [184, 97, 170, 171, 18, 88, 187, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbdb64df4_ea2f_4c70_b861_aaab1258bb5d);
 }
 impl ::core::convert::From<ID3D11On12Device1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11On12Device1) -> Self {
@@ -247,7 +247,7 @@ impl ID3D11On12Device2 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11On12Device2 {
     type Vtable = ID3D11On12Device2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3700486961, 18240, 17402, [134, 110, 103, 241, 44, 181, 130, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc90f331_4740_43fa_866e_67f12cb58223);
 }
 impl ::core::convert::From<ID3D11On12Device2> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11On12Device2) -> Self {

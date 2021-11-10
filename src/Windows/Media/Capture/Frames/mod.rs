@@ -35,7 +35,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioMediaFrame {
 }
 unsafe impl ::windows::runtime::Interface for AudioMediaFrame {
     type Vtable = IAudioMediaFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2745827071, 32801, 17435, [154, 70, 231, 240, 19, 123, 121, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3a9feff_8021_441b_9a46_e7f0137b7981);
 }
 impl ::windows::runtime::RuntimeName for AudioMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.AudioMediaFrame";
@@ -110,7 +110,7 @@ unsafe impl ::windows::runtime::RuntimeType for BufferMediaFrame {
 }
 unsafe impl ::windows::runtime::Interface for BufferMediaFrame {
     type Vtable = IBufferMediaFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3048297415, 39812, 16482, [183, 156, 163, 101, 178, 89, 104, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5b153c7_9b84_4062_b79c_a365b2596854);
 }
 impl ::windows::runtime::RuntimeName for BufferMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.BufferMediaFrame";
@@ -217,7 +217,7 @@ unsafe impl ::windows::runtime::RuntimeType for DepthMediaFrame {
 }
 unsafe impl ::windows::runtime::Interface for DepthMediaFrame {
     type Vtable = IDepthMediaFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1192451663, 34121, 17856, [146, 91, 128, 211, 94, 253, 177, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47135e4f_8549_45c0_925b_80d35efdb10a);
 }
 impl ::windows::runtime::RuntimeName for DepthMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.DepthMediaFrame";
@@ -291,7 +291,7 @@ unsafe impl ::windows::runtime::RuntimeType for DepthMediaFrameFormat {
 }
 unsafe impl ::windows::runtime::Interface for DepthMediaFrameFormat {
     type Vtable = IDepthMediaFrameFormat_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3272789824, 55081, 17726, [135, 128, 46, 4, 241, 64, 210, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc312cf40_d729_453e_8780_2e04f140d28e);
 }
 impl ::windows::runtime::RuntimeName for DepthMediaFrameFormat {
     const NAME: &'static str = "Windows.Media.Capture.Frames.DepthMediaFrameFormat";
@@ -343,7 +343,7 @@ unsafe impl ::core::marker::Sync for DepthMediaFrameFormat {}
 pub struct IAudioMediaFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioMediaFrame {
     type Vtable = IAudioMediaFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2745827071, 32801, 17435, [154, 70, 231, 240, 19, 123, 121, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3a9feff_8021_441b_9a46_e7f0137b7981);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -364,7 +364,7 @@ pub struct IAudioMediaFrame_abi(
 pub struct IBufferMediaFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBufferMediaFrame {
     type Vtable = IBufferMediaFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3048297415, 39812, 16482, [183, 156, 163, 101, 178, 89, 104, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5b153c7_9b84_4062_b79c_a365b2596854);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -384,7 +384,7 @@ pub struct IBufferMediaFrame_abi(
 pub struct IDepthMediaFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDepthMediaFrame {
     type Vtable = IDepthMediaFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1192451663, 34121, 17856, [146, 91, 128, 211, 94, 253, 177, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47135e4f_8549_45c0_925b_80d35efdb10a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -406,7 +406,7 @@ pub struct IDepthMediaFrame_abi(
 pub struct IDepthMediaFrame2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDepthMediaFrame2 {
     type Vtable = IDepthMediaFrame2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1825195837, 50340, 16758, [176, 205, 51, 234, 227, 179, 90, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6cca473d_c4a4_4176_b0cd_33eae3b35aa3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -425,7 +425,7 @@ pub struct IDepthMediaFrame2_abi(
 pub struct IDepthMediaFrameFormat(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDepthMediaFrameFormat {
     type Vtable = IDepthMediaFrameFormat_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3272789824, 55081, 17726, [135, 128, 46, 4, 241, 64, 210, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc312cf40_d729_453e_8780_2e04f140d28e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -444,7 +444,7 @@ pub struct IDepthMediaFrameFormat_abi(
 pub struct IInfraredMediaFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInfraredMediaFrame {
     type Vtable = IInfraredMediaFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1070675203, 75, 20238, [145, 172, 70, 82, 153, 180, 22, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3fd13503_004b_4f0e_91ac_465299b41658);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -464,7 +464,7 @@ pub struct IInfraredMediaFrame_abi(
 pub struct IMediaFrameArrivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameArrivedEventArgs {
     type Vtable = IMediaFrameArrivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(188943069, 42128, 17461, [173, 161, 154, 255, 213, 82, 57, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b430add_a490_4435_ada1_9affd55239f7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -481,7 +481,7 @@ pub struct IMediaFrameArrivedEventArgs_abi(
 pub struct IMediaFrameFormat(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameFormat {
     type Vtable = IMediaFrameFormat_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1905273678, 45689, 19095, [169, 219, 189, 90, 47, 183, 143, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71902b4e_b279_4a97_a9db_bd5a2fb78f39);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -505,7 +505,7 @@ pub struct IMediaFrameFormat_abi(
 pub struct IMediaFrameFormat2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameFormat2 {
     type Vtable = IMediaFrameFormat2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1669686080, 24199, 19472, [134, 209, 109, 240, 151, 166, 198, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63856340_5e87_4c10_86d1_6df097a6c6a8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -524,7 +524,7 @@ pub struct IMediaFrameFormat2_abi(
 pub struct IMediaFrameReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameReader {
     type Vtable = IMediaFrameReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3838395285, 8232, 18669, [144, 176, 209, 193, 177, 98, 226, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4c94395_2028_48ed_90b0_d1c1b162e24c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -550,7 +550,7 @@ pub struct IMediaFrameReader_abi(
 pub struct IMediaFrameReader2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameReader2 {
     type Vtable = IMediaFrameReader2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2266048435, 34097, 16464, [135, 204, 161, 55, 51, 207, 62, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x871127b3_8531_4050_87cc_a13733cf3e9b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -569,7 +569,7 @@ pub struct IMediaFrameReader2_abi(
 pub struct IMediaFrameReference(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameReference {
     type Vtable = IMediaFrameReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4139288129, 61660, 16452, [141, 201, 150, 28, 237, 208, 91, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6b88641_f0dc_4044_8dc9_961cedd05bad);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -598,7 +598,7 @@ pub struct IMediaFrameReference_abi(
 pub struct IMediaFrameReference2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameReference2 {
     type Vtable = IMediaFrameReference2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3720101580, 54706, 18927, [131, 106, 148, 125, 152, 155, 128, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddbc3ecc_d5b2_49ef_836a_947d989b80c1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -616,7 +616,7 @@ pub struct IMediaFrameReference2_abi(
 pub struct IMediaFrameSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSource {
     type Vtable = IMediaFrameSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3598199123, 37083, 18088, [138, 221, 42, 168, 132, 168, 210, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6782953_90db_46a8_8add_2aa884a8d253);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -646,7 +646,7 @@ pub struct IMediaFrameSource_abi(
 pub struct IMediaFrameSourceController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceController {
     type Vtable = IMediaFrameSourceController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1829201461, 12653, 19343, [183, 182, 238, 176, 74, 140, 101, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d076635_316d_4b8f_b7b6_eeb04a8c6525);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -669,7 +669,7 @@ pub struct IMediaFrameSourceController_abi(
 pub struct IMediaFrameSourceController2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceController2 {
     type Vtable = IMediaFrameSourceController2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4022640596, 64754, 18947, [180, 228, 172, 150, 40, 115, 155, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefc49fd4_fcf2_4a03_b4e4_ac9628739bee);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -690,7 +690,7 @@ pub struct IMediaFrameSourceController2_abi(
 pub struct IMediaFrameSourceController3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceController3 {
     type Vtable = IMediaFrameSourceController3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(520943637, 9316, 18001, [177, 232, 74, 130, 219, 219, 84, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f0cf815_2464_4651_b1e8_4a82dbdb54de);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -709,7 +709,7 @@ pub struct IMediaFrameSourceController3_abi(
 pub struct IMediaFrameSourceGetPropertyResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceGetPropertyResult {
     type Vtable = IMediaFrameSourceGetPropertyResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(143005378, 14948, 19413, [189, 43, 231, 200, 152, 210, 243, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x088616c2_3a64_4bd5_bd2b_e7c898d2f37a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -728,7 +728,7 @@ pub struct IMediaFrameSourceGetPropertyResult_abi(
 pub struct IMediaFrameSourceGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceGroup {
     type Vtable = IMediaFrameSourceGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2137021319, 18482, 19295, [174, 61, 65, 47, 170, 179, 125, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f605b87_4832_4b5f_ae3d_412faab37d34);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -749,7 +749,7 @@ pub struct IMediaFrameSourceGroup_abi(
 pub struct IMediaFrameSourceGroupStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceGroupStatics {
     type Vtable = IMediaFrameSourceGroupStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(474529733, 17263, 17672, [148, 207, 213, 216, 183, 50, 100, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c48bfc5_436f_4508_94cf_d5d8b7326445);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -771,7 +771,7 @@ pub struct IMediaFrameSourceGroupStatics_abi(
 pub struct IMediaFrameSourceInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceInfo {
     type Vtable = IMediaFrameSourceInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2277362125, 17921, 16527, [145, 207, 3, 131, 24, 205, 10, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87bdc9cd_4601_408f_91cf_038318cd0af3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -798,7 +798,7 @@ pub struct IMediaFrameSourceInfo_abi(
 pub struct IMediaFrameSourceInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceInfo2 {
     type Vtable = IMediaFrameSourceInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(425359445, 25687, 17094, [167, 105, 25, 182, 91, 211, 46, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x195a7855_6457_42c6_a769_19b65bd32e6e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -818,7 +818,7 @@ pub struct IMediaFrameSourceInfo2_abi(
 pub struct IMediaFrameSourceInfo3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceInfo3 {
     type Vtable = IMediaFrameSourceInfo3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3397536438, 26346, 22661, [162, 182, 38, 192, 238, 236, 60, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca824ab6_66ea_5885_a2b6_26c0eeec3c7b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -837,7 +837,7 @@ pub struct IMediaFrameSourceInfo3_abi(
 pub struct IMultiSourceMediaFrameArrivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMultiSourceMediaFrameArrivedEventArgs {
     type Vtable = IMultiSourceMediaFrameArrivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1662082561, 53073, 18685, [170, 176, 109, 105, 62, 180, 129, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63115e01_cf51_48fd_aab0_6d693eb48127);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -854,7 +854,7 @@ pub struct IMultiSourceMediaFrameArrivedEventArgs_abi(
 pub struct IMultiSourceMediaFrameReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMultiSourceMediaFrameReader {
     type Vtable = IMultiSourceMediaFrameReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2366915586, 63331, 18573, [152, 242, 180, 55, 188, 240, 117, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d144402_f763_488d_98f2_b437bcf075e7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -880,7 +880,7 @@ pub struct IMultiSourceMediaFrameReader_abi(
 pub struct IMultiSourceMediaFrameReader2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMultiSourceMediaFrameReader2 {
     type Vtable = IMultiSourceMediaFrameReader2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4015819453, 64604, 19563, [157, 129, 60, 185, 204, 99, 124, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef5c8abd_fc5c_4c6b_9d81_3cb9cc637c26);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -899,7 +899,7 @@ pub struct IMultiSourceMediaFrameReader2_abi(
 pub struct IMultiSourceMediaFrameReference(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMultiSourceMediaFrameReference {
     type Vtable = IMultiSourceMediaFrameReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(563497754, 32738, 17622, [146, 229, 41, 142, 109, 40, 16, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x21964b1a_7fe2_44d6_92e5_298e6d2810e9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -917,7 +917,7 @@ pub struct IMultiSourceMediaFrameReference_abi(
 pub struct IVideoMediaFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoMediaFrame {
     type Vtable = IVideoMediaFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(14503115, 12989, 20449, [160, 19, 124, 193, 60, 245, 219, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00dd4ccb_32bd_4fe1_a013_7cc13cf5dbcf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -945,7 +945,7 @@ pub struct IVideoMediaFrame_abi(
 pub struct IVideoMediaFrameFormat(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoMediaFrameFormat {
     type Vtable = IVideoMediaFrameFormat_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1174568896, 55067, 17863, [143, 20, 109, 154, 10, 230, 4, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46027fc0_d71b_45c7_8f14_6d9a0ae604e4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -996,7 +996,7 @@ unsafe impl ::windows::runtime::RuntimeType for InfraredMediaFrame {
 }
 unsafe impl ::windows::runtime::Interface for InfraredMediaFrame {
     type Vtable = IInfraredMediaFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1070675203, 75, 20238, [145, 172, 70, 82, 153, 180, 22, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3fd13503_004b_4f0e_91ac_465299b41658);
 }
 impl ::windows::runtime::RuntimeName for InfraredMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.InfraredMediaFrame";
@@ -1053,7 +1053,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaFrameArrivedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for MediaFrameArrivedEventArgs {
     type Vtable = IMediaFrameArrivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(188943069, 42128, 17461, [173, 161, 154, 255, 213, 82, 57, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b430add_a490_4435_ada1_9affd55239f7);
 }
 impl ::windows::runtime::RuntimeName for MediaFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs";
@@ -1162,7 +1162,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaFrameFormat {
 }
 unsafe impl ::windows::runtime::Interface for MediaFrameFormat {
     type Vtable = IMediaFrameFormat_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1905273678, 45689, 19095, [169, 219, 189, 90, 47, 183, 143, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71902b4e_b279_4a97_a9db_bd5a2fb78f39);
 }
 impl ::windows::runtime::RuntimeName for MediaFrameFormat {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameFormat";
@@ -1280,7 +1280,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaFrameReader {
 }
 unsafe impl ::windows::runtime::Interface for MediaFrameReader {
     type Vtable = IMediaFrameReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3838395285, 8232, 18669, [144, 176, 209, 193, 177, 98, 226, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4c94395_2028_48ed_90b0_d1c1b162e24c);
 }
 impl ::windows::runtime::RuntimeName for MediaFrameReader {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameReader";
@@ -1493,7 +1493,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaFrameReference {
 }
 unsafe impl ::windows::runtime::Interface for MediaFrameReference {
     type Vtable = IMediaFrameReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4139288129, 61660, 16452, [141, 201, 150, 28, 237, 208, 91, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6b88641_f0dc_4044_8dc9_961cedd05bad);
 }
 impl ::windows::runtime::RuntimeName for MediaFrameReference {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameReference";
@@ -1643,7 +1643,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaFrameSource {
 }
 unsafe impl ::windows::runtime::Interface for MediaFrameSource {
     type Vtable = IMediaFrameSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3598199123, 37083, 18088, [138, 221, 42, 168, 132, 168, 210, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6782953_90db_46a8_8add_2aa884a8d253);
 }
 impl ::windows::runtime::RuntimeName for MediaFrameSource {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSource";
@@ -1755,7 +1755,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaFrameSourceController {
 }
 unsafe impl ::windows::runtime::Interface for MediaFrameSourceController {
     type Vtable = IMediaFrameSourceController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1829201461, 12653, 19343, [183, 182, 238, 176, 74, 140, 101, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d076635_316d_4b8f_b7b6_eeb04a8c6525);
 }
 impl ::windows::runtime::RuntimeName for MediaFrameSourceController {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceController";
@@ -1829,7 +1829,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaFrameSourceGetPropertyResul
 }
 unsafe impl ::windows::runtime::Interface for MediaFrameSourceGetPropertyResult {
     type Vtable = IMediaFrameSourceGetPropertyResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(143005378, 14948, 19413, [189, 43, 231, 200, 152, 210, 243, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x088616c2_3a64_4bd5_bd2b_e7c898d2f37a);
 }
 impl ::windows::runtime::RuntimeName for MediaFrameSourceGetPropertyResult {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyResult";
@@ -1965,7 +1965,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaFrameSourceGroup {
 }
 unsafe impl ::windows::runtime::Interface for MediaFrameSourceGroup {
     type Vtable = IMediaFrameSourceGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2137021319, 18482, 19295, [174, 61, 65, 47, 170, 179, 125, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f605b87_4832_4b5f_ae3d_412faab37d34);
 }
 impl ::windows::runtime::RuntimeName for MediaFrameSourceGroup {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceGroup";
@@ -2108,7 +2108,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaFrameSourceInfo {
 }
 unsafe impl ::windows::runtime::Interface for MediaFrameSourceInfo {
     type Vtable = IMediaFrameSourceInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2277362125, 17921, 16527, [145, 207, 3, 131, 24, 205, 10, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87bdc9cd_4601_408f_91cf_038318cd0af3);
 }
 impl ::windows::runtime::RuntimeName for MediaFrameSourceInfo {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceInfo";
@@ -2218,7 +2218,7 @@ unsafe impl ::windows::runtime::RuntimeType for MultiSourceMediaFrameArrivedEven
 }
 unsafe impl ::windows::runtime::Interface for MultiSourceMediaFrameArrivedEventArgs {
     type Vtable = IMultiSourceMediaFrameArrivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1662082561, 53073, 18685, [170, 176, 109, 105, 62, 180, 129, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63115e01_cf51_48fd_aab0_6d693eb48127);
 }
 impl ::windows::runtime::RuntimeName for MultiSourceMediaFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MultiSourceMediaFrameArrivedEventArgs";
@@ -2336,7 +2336,7 @@ unsafe impl ::windows::runtime::RuntimeType for MultiSourceMediaFrameReader {
 }
 unsafe impl ::windows::runtime::Interface for MultiSourceMediaFrameReader {
     type Vtable = IMultiSourceMediaFrameReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2366915586, 63331, 18573, [152, 242, 180, 55, 188, 240, 117, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d144402_f763_488d_98f2_b437bcf075e7);
 }
 impl ::windows::runtime::RuntimeName for MultiSourceMediaFrameReader {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MultiSourceMediaFrameReader";
@@ -2459,7 +2459,7 @@ unsafe impl ::windows::runtime::RuntimeType for MultiSourceMediaFrameReference {
 }
 unsafe impl ::windows::runtime::Interface for MultiSourceMediaFrameReference {
     type Vtable = IMultiSourceMediaFrameReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(563497754, 32738, 17622, [146, 229, 41, 142, 109, 40, 16, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x21964b1a_7fe2_44d6_92e5_298e6d2810e9);
 }
 impl ::windows::runtime::RuntimeName for MultiSourceMediaFrameReference {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MultiSourceMediaFrameReference";
@@ -2610,7 +2610,7 @@ unsafe impl ::windows::runtime::RuntimeType for VideoMediaFrame {
 }
 unsafe impl ::windows::runtime::Interface for VideoMediaFrame {
     type Vtable = IVideoMediaFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(14503115, 12989, 20449, [160, 19, 124, 193, 60, 245, 219, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00dd4ccb_32bd_4fe1_a013_7cc13cf5dbcf);
 }
 impl ::windows::runtime::RuntimeName for VideoMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.VideoMediaFrame";
@@ -2700,7 +2700,7 @@ unsafe impl ::windows::runtime::RuntimeType for VideoMediaFrameFormat {
 }
 unsafe impl ::windows::runtime::Interface for VideoMediaFrameFormat {
     type Vtable = IVideoMediaFrameFormat_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1174568896, 55067, 17863, [143, 20, 109, 154, 10, 230, 4, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46027fc0_d71b_45c7_8f14_6d9a0ae604e4);
 }
 impl ::windows::runtime::RuntimeName for VideoMediaFrameFormat {
     const NAME: &'static str = "Windows.Media.Capture.Frames.VideoMediaFrameFormat";

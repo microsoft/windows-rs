@@ -4,7 +4,7 @@
 pub struct ISpatialGraphInteropFrameOfReferencePreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialGraphInteropFrameOfReferencePreview {
     type Vtable = ISpatialGraphInteropFrameOfReferencePreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2821135139, 29535, 22313, [169, 142, 230, 78, 209, 137, 171, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8271b23_735f_5729_a98e_e64ed189abc5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25,7 +25,7 @@ pub struct ISpatialGraphInteropFrameOfReferencePreview_abi(
 pub struct ISpatialGraphInteropPreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialGraphInteropPreviewStatics {
     type Vtable = ISpatialGraphInteropPreviewStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3225576524, 8408, 20176, [174, 247, 104, 5, 184, 229, 63, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc042644c_20d8_4ed0_aef7_6805b8e53f55);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -48,7 +48,7 @@ pub struct ISpatialGraphInteropPreviewStatics_abi(
 pub struct ISpatialGraphInteropPreviewStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialGraphInteropPreviewStatics2 {
     type Vtable = ISpatialGraphInteropPreviewStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(613462367, 27837, 19230, [183, 101, 49, 228, 98, 163, 45, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2490b15f_6cbd_4b1e_b765_31e462a32df2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -101,7 +101,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialGraphInteropFrameOfRefere
 }
 unsafe impl ::windows::runtime::Interface for SpatialGraphInteropFrameOfReferencePreview {
     type Vtable = ISpatialGraphInteropFrameOfReferencePreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2821135139, 29535, 22313, [169, 142, 230, 78, 209, 137, 171, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8271b23_735f_5729_a98e_e64ed189abc5);
 }
 impl ::windows::runtime::RuntimeName for SpatialGraphInteropFrameOfReferencePreview {
     const NAME: &'static str = "Windows.Perception.Spatial.Preview.SpatialGraphInteropFrameOfReferencePreview";

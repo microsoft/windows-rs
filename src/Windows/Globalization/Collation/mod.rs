@@ -26,7 +26,7 @@ unsafe impl ::windows::runtime::RuntimeType for CharacterGrouping {
 }
 unsafe impl ::windows::runtime::Interface for CharacterGrouping {
     type Vtable = ICharacterGrouping_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4209467835, 32861, 19376, [149, 187, 193, 247, 195, 232, 235, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfae761bb_805d_4bb0_95bb_c1f7c3e8eb8e);
 }
 impl ::windows::runtime::RuntimeName for CharacterGrouping {
     const NAME: &'static str = "Windows.Globalization.Collation.CharacterGrouping";
@@ -155,7 +155,7 @@ unsafe impl ::windows::runtime::RuntimeType for CharacterGroupings {
 }
 unsafe impl ::windows::runtime::Interface for CharacterGroupings {
     type Vtable = ICharacterGroupings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3100772981, 54479, 16469, [128, 229, 206, 22, 156, 34, 100, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8d20a75_d4cf_4055_80e5_ce169c226496);
 }
 impl ::windows::runtime::RuntimeName for CharacterGroupings {
     const NAME: &'static str = "Windows.Globalization.Collation.CharacterGroupings";
@@ -275,7 +275,7 @@ impl ::core::iter::IntoIterator for &CharacterGroupings {
 pub struct ICharacterGrouping(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICharacterGrouping {
     type Vtable = ICharacterGrouping_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4209467835, 32861, 19376, [149, 187, 193, 247, 195, 232, 235, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfae761bb_805d_4bb0_95bb_c1f7c3e8eb8e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -294,7 +294,7 @@ pub struct ICharacterGrouping_abi(
 pub struct ICharacterGroupings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICharacterGroupings {
     type Vtable = ICharacterGroupings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3100772981, 54479, 16469, [128, 229, 206, 22, 156, 34, 100, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8d20a75_d4cf_4055_80e5_ce169c226496);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -312,7 +312,7 @@ pub struct ICharacterGroupings_abi(
 pub struct ICharacterGroupingsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICharacterGroupingsFactory {
     type Vtable = ICharacterGroupingsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2582290393, 34925, 17409, [159, 152, 105, 200, 45, 76, 47, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99ea9fd9_886d_4401_9f98_69c82d4c2f78);
 }
 #[repr(C)]
 #[doc(hidden)]

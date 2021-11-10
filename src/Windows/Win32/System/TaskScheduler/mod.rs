@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const CLSID_CTask: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(344708384, 41643, 4558, [177, 31, 0, 170, 0, 83, 5, 3]);
-pub const CLSID_CTaskScheduler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(344708394, 41643, 4558, [177, 31, 0, 170, 0, 83, 5, 3]);
+pub const CLSID_CTask: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x148bd520_a2ab_11ce_b11f_00aa00530503);
+pub const CLSID_CTaskScheduler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x148bd52a_a2ab_11ce_b11f_00aa00530503);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -49,7 +49,7 @@ impl IAction {
 }
 unsafe impl ::windows::runtime::Interface for IAction {
     type Vtable = IAction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3135588759, 18609, 19646, [153, 101, 214, 190, 38, 62, 190, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbae54997_48b1_4cbe_9965_d6be263ebea4);
 }
 impl ::core::convert::From<IAction> for ::windows::runtime::IUnknown {
     fn from(value: IAction) -> Self {
@@ -170,7 +170,7 @@ impl IActionCollection {
 }
 unsafe impl ::windows::runtime::Interface for IActionCollection {
     type Vtable = IActionCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(42077721, 31640, 20178, [178, 232, 253, 204, 206, 255, 97, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02820e19_7b98_4ed2_b2e8_fdccceff619b);
 }
 impl ::core::convert::From<IActionCollection> for ::windows::runtime::IUnknown {
     fn from(value: IActionCollection) -> Self {
@@ -356,7 +356,7 @@ impl IBootTrigger {
 }
 unsafe impl ::windows::runtime::Interface for IBootTrigger {
     type Vtable = IBootTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(714880474, 54103, 16884, [187, 193, 32, 122, 193, 177, 243, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a9c35da_d357_41f4_bbc1_207ac1b1f3cb);
 }
 impl ::core::convert::From<IBootTrigger> for ::windows::runtime::IUnknown {
     fn from(value: IBootTrigger) -> Self {
@@ -535,7 +535,7 @@ impl IComHandlerAction {
 }
 unsafe impl ::windows::runtime::Interface for IComHandlerAction {
     type Vtable = IComHandlerAction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1831850578, 30149, 20326, [144, 186, 42, 125, 140, 195, 3, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d2fd252_75c5_4f66_90ba_2a7d8cc3039f);
 }
 impl ::core::convert::From<IComHandlerAction> for ::windows::runtime::IUnknown {
     fn from(value: IComHandlerAction) -> Self {
@@ -747,7 +747,7 @@ impl IDailyTrigger {
 }
 unsafe impl ::windows::runtime::Interface for IDailyTrigger {
     type Vtable = IDailyTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(309091544, 45704, 16853, [141, 191, 228, 145, 68, 106, 220, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x126c5cd8_b288_41d5_8dbf_e491446adc5c);
 }
 impl ::core::convert::From<IDailyTrigger> for ::windows::runtime::IUnknown {
     fn from(value: IDailyTrigger) -> Self {
@@ -1007,7 +1007,7 @@ impl IEmailAction {
 }
 unsafe impl ::windows::runtime::Interface for IEmailAction {
     type Vtable = IEmailAction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(284568676, 32278, 17172, [160, 194, 12, 54, 131, 249, 157, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10f62c64_7e16_4314_a0c2_0c3683f99d40);
 }
 impl ::core::convert::From<IEmailAction> for ::windows::runtime::IUnknown {
     fn from(value: IEmailAction) -> Self {
@@ -1156,7 +1156,7 @@ impl IEnumWorkItems {
 }
 unsafe impl ::windows::runtime::Interface for IEnumWorkItems {
     type Vtable = IEnumWorkItems_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(344708392, 41643, 4558, [177, 31, 0, 170, 0, 83, 5, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x148bd528_a2ab_11ce_b11f_00aa00530503);
 }
 impl ::core::convert::From<IEnumWorkItems> for ::windows::runtime::IUnknown {
     fn from(value: IEnumWorkItems) -> Self {
@@ -1320,7 +1320,7 @@ impl IEventTrigger {
 }
 unsafe impl ::windows::runtime::Interface for IEventTrigger {
     type Vtable = IEventTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3562733927, 38483, 20207, [185, 79, 7, 50, 202, 122, 242, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd45b0167_9653_4eef_b94f_0732ca7af251);
 }
 impl ::core::convert::From<IEventTrigger> for ::windows::runtime::IUnknown {
     fn from(value: IEventTrigger) -> Self {
@@ -1515,7 +1515,7 @@ impl IExecAction {
 }
 unsafe impl ::windows::runtime::Interface for IExecAction {
     type Vtable = IExecAction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1279091277, 64875, 18851, [185, 183, 9, 203, 60, 211, 240, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c3d624d_fd6b_49a3_b9b7_09cb3cd3f047);
 }
 impl ::core::convert::From<IExecAction> for ::windows::runtime::IUnknown {
     fn from(value: IExecAction) -> Self {
@@ -1704,7 +1704,7 @@ impl IExecAction2 {
 }
 unsafe impl ::windows::runtime::Interface for IExecAction2 {
     type Vtable = IExecAction2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4071105858, 48549, 20075, [145, 67, 226, 191, 79, 137, 135, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2a82542_bda5_4e6b_9143_e2bf4f8987b6);
 }
 impl ::core::convert::From<IExecAction2> for ::windows::runtime::IUnknown {
     fn from(value: IExecAction2) -> Self {
@@ -1867,7 +1867,7 @@ impl IIdleSettings {
 }
 unsafe impl ::windows::runtime::Interface for IIdleSettings {
     type Vtable = IIdleSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2220442721, 83, 17218, [168, 253, 8, 143, 171, 241, 31, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84594461_0053_4342_a8fd_088fabf11f32);
 }
 impl ::core::convert::From<IIdleSettings> for ::windows::runtime::IUnknown {
     fn from(value: IIdleSettings) -> Self {
@@ -2040,7 +2040,7 @@ impl IIdleTrigger {
 }
 unsafe impl ::windows::runtime::Interface for IIdleTrigger {
     type Vtable = IIdleTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3577205424, 40883, 19764, [151, 57, 31, 245, 206, 123, 30, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd537d2b0_9fb3_4d34_9739_1ff5ce7b1ef3);
 }
 impl ::core::convert::From<IIdleTrigger> for ::windows::runtime::IUnknown {
     fn from(value: IIdleTrigger) -> Self {
@@ -2262,7 +2262,7 @@ impl ILogonTrigger {
 }
 unsafe impl ::windows::runtime::Interface for ILogonTrigger {
     type Vtable = ILogonTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1926946360, 64228, 19262, [186, 244, 93, 0, 154, 240, 43, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72dade38_fae4_4b3e_baf4_5d009af02b1c);
 }
 impl ::core::convert::From<ILogonTrigger> for ::windows::runtime::IUnknown {
     fn from(value: ILogonTrigger) -> Self {
@@ -2407,7 +2407,7 @@ impl IMaintenanceSettings {
 }
 unsafe impl ::windows::runtime::Interface for IMaintenanceSettings {
     type Vtable = IMaintenanceSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2785169320, 38482, 19163, [166, 191, 92, 252, 216, 119, 167, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6024fa8_9652_4adb_a6bf_5cfcd877a7ba);
 }
 impl ::core::convert::From<IMaintenanceSettings> for ::windows::runtime::IUnknown {
     fn from(value: IMaintenanceSettings) -> Self {
@@ -2620,7 +2620,7 @@ impl IMonthlyDOWTrigger {
 }
 unsafe impl ::windows::runtime::Interface for IMonthlyDOWTrigger {
     type Vtable = IMonthlyDOWTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2010129827, 37114, 17322, [181, 46, 205, 165, 73, 155, 148, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77d025a3_90fa_43aa_b52e_cda5499b946a);
 }
 impl ::core::convert::From<IMonthlyDOWTrigger> for ::windows::runtime::IUnknown {
     fn from(value: IMonthlyDOWTrigger) -> Self {
@@ -2868,7 +2868,7 @@ impl IMonthlyTrigger {
 }
 unsafe impl ::windows::runtime::Interface for IMonthlyTrigger {
     type Vtable = IMonthlyTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2546228977, 27394, 18970, [156, 14, 30, 191, 186, 21, 0, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97c45ef1_6b02_4a1a_9c0e_1ebfba1500ac);
 }
 impl ::core::convert::From<IMonthlyTrigger> for ::windows::runtime::IUnknown {
     fn from(value: IMonthlyTrigger) -> Self {
@@ -3007,7 +3007,7 @@ impl INetworkSettings {
 }
 unsafe impl ::windows::runtime::Interface for INetworkSettings {
     type Vtable = INetworkSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2675829380, 49931, 16965, [128, 182, 0, 233, 246, 70, 241, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f7dea84_c30b_4245_80b6_00e9f646f1b4);
 }
 impl ::core::convert::From<INetworkSettings> for ::windows::runtime::IUnknown {
     fn from(value: INetworkSettings) -> Self {
@@ -3139,7 +3139,7 @@ impl IPrincipal {
 }
 unsafe impl ::windows::runtime::Interface for IPrincipal {
     type Vtable = IPrincipal_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3649917413, 51636, 18794, [169, 193, 24, 152, 2, 97, 207, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd98d51e5_c9b4_496a_a9c1_18980261cf0f);
 }
 impl ::core::convert::From<IPrincipal> for ::windows::runtime::IUnknown {
     fn from(value: IPrincipal) -> Self {
@@ -3249,7 +3249,7 @@ impl IPrincipal2 {
 }
 unsafe impl ::windows::runtime::Interface for IPrincipal2 {
     type Vtable = IPrincipal2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(612964782, 58181, 19053, [138, 235, 224, 211, 22, 92, 144, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x248919ae_e345_4a6d_8aeb_e0d3165c904e);
 }
 impl ::core::convert::From<IPrincipal2> for ::windows::runtime::IUnknown {
     fn from(value: IPrincipal2) -> Self {
@@ -3330,7 +3330,7 @@ impl IProvideTaskPage {
 }
 unsafe impl ::windows::runtime::Interface for IProvideTaskPage {
     type Vtable = IProvideTaskPage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1082549642, 52155, 4559, [182, 4, 0, 192, 79, 216, 213, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4086658a_cbbb_11cf_b604_00c04fd8d565);
 }
 impl ::core::convert::From<IProvideTaskPage> for ::windows::runtime::IUnknown {
     fn from(value: IProvideTaskPage) -> Self {
@@ -3463,7 +3463,7 @@ impl IRegisteredTask {
 }
 unsafe impl ::windows::runtime::Interface for IRegisteredTask {
     type Vtable = IRegisteredTask_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2626089760, 57059, 19921, [185, 114, 163, 3, 242, 107, 6, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c86f320_dee3_4dd1_b972_a303f26b061e);
 }
 impl ::core::convert::From<IRegisteredTask> for ::windows::runtime::IUnknown {
     fn from(value: IRegisteredTask) -> Self {
@@ -3573,7 +3573,7 @@ impl IRegisteredTaskCollection {
 }
 unsafe impl ::windows::runtime::Interface for IRegisteredTaskCollection {
     type Vtable = IRegisteredTaskCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2254601908, 17063, 16868, [164, 217, 172, 51, 167, 47, 45, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86627eb4_42a7_41e4_a4d9_ac33a72f2d52);
 }
 impl ::core::convert::From<IRegisteredTaskCollection> for ::windows::runtime::IUnknown {
     fn from(value: IRegisteredTaskCollection) -> Self {
@@ -3735,7 +3735,7 @@ impl IRegistrationInfo {
 }
 unsafe impl ::windows::runtime::Interface for IRegistrationInfo {
     type Vtable = IRegistrationInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1097698163, 52033, 20129, [128, 92, 155, 233, 165, 172, 74, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x416d8b73_cb41_4ea1_805c_9be9a5ac4a74);
 }
 impl ::core::convert::From<IRegistrationInfo> for ::windows::runtime::IUnknown {
     fn from(value: IRegistrationInfo) -> Self {
@@ -3942,7 +3942,7 @@ impl IRegistrationTrigger {
 }
 unsafe impl ::windows::runtime::Interface for IRegistrationTrigger {
     type Vtable = IRegistrationTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1284500538, 49688, 19980, [178, 61, 98, 144, 36, 219, 145, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c8fec3a_c218_4e0c_b23d_629024db91a2);
 }
 impl ::core::convert::From<IRegistrationTrigger> for ::windows::runtime::IUnknown {
     fn from(value: IRegistrationTrigger) -> Self {
@@ -4083,7 +4083,7 @@ impl IRepetitionPattern {
 }
 unsafe impl ::windows::runtime::Interface for IRepetitionPattern {
     type Vtable = IRepetitionPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2142874865, 9918, 16398, [133, 181, 41, 75, 156, 117, 223, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fb9acf1_26be_400e_85b5_294b9c75dfd6);
 }
 impl ::core::convert::From<IRepetitionPattern> for ::windows::runtime::IUnknown {
     fn from(value: IRepetitionPattern) -> Self {
@@ -4203,7 +4203,7 @@ impl IRunningTask {
 }
 unsafe impl ::windows::runtime::Interface for IRunningTask {
     type Vtable = IRunningTask_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1698126075, 31642, 20254, [164, 113, 190, 235, 142, 155, 131, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x653758fb_7b9a_4f1e_a471_beeb8e9b834e);
 }
 impl ::core::convert::From<IRunningTask> for ::windows::runtime::IUnknown {
     fn from(value: IRunningTask) -> Self {
@@ -4299,7 +4299,7 @@ impl IRunningTaskCollection {
 }
 unsafe impl ::windows::runtime::Interface for IRunningTaskCollection {
     type Vtable = IRunningTaskCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1785160011, 26664, 20460, [170, 84, 109, 82, 232, 241, 242, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a67614b_6828_4fec_aa54_6d52e8f1f2db);
 }
 impl ::core::convert::From<IRunningTaskCollection> for ::windows::runtime::IUnknown {
     fn from(value: IRunningTaskCollection) -> Self {
@@ -4510,7 +4510,7 @@ impl IScheduledWorkItem {
 }
 unsafe impl ::windows::runtime::Interface for IScheduledWorkItem {
     type Vtable = IScheduledWorkItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2797163248, 42161, 4560, [153, 125, 0, 170, 0, 104, 135, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6b952f0_a4b1_11d0_997d_00aa006887ec);
 }
 impl ::core::convert::From<IScheduledWorkItem> for ::windows::runtime::IUnknown {
     fn from(value: IScheduledWorkItem) -> Self {
@@ -4708,7 +4708,7 @@ impl ISessionStateChangeTrigger {
 }
 unsafe impl ::windows::runtime::Interface for ISessionStateChangeTrigger {
     type Vtable = ISessionStateChangeTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1968023323, 17285, 17525, [157, 217, 89, 130, 148, 250, 54, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x754da71b_4385_4475_9dd9_598294fa3641);
 }
 impl ::core::convert::From<ISessionStateChangeTrigger> for ::windows::runtime::IUnknown {
     fn from(value: ISessionStateChangeTrigger) -> Self {
@@ -4893,7 +4893,7 @@ impl IShowMessageAction {
 }
 unsafe impl ::windows::runtime::Interface for IShowMessageAction {
     type Vtable = IShowMessageAction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1348378216, 44937, 18104, [163, 15, 86, 22, 42, 131, 213, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x505e9e68_af89_46b8_a30f_56162a83d537);
 }
 impl ::core::convert::From<IShowMessageAction> for ::windows::runtime::IUnknown {
     fn from(value: IShowMessageAction) -> Self {
@@ -5193,7 +5193,7 @@ impl ITask {
 }
 unsafe impl ::windows::runtime::Interface for ITask {
     type Vtable = ITask_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(344708388, 41643, 4558, [177, 31, 0, 170, 0, 83, 5, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x148bd524_a2ab_11ce_b11f_00aa00530503);
 }
 impl ::core::convert::From<ITask> for ::windows::runtime::IUnknown {
     fn from(value: ITask) -> Self {
@@ -5373,7 +5373,7 @@ impl ITaskDefinition {
 }
 unsafe impl ::windows::runtime::Interface for ITaskDefinition {
     type Vtable = ITaskDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4122775493, 21357, 20343, [184, 82, 251, 193, 53, 111, 222, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5bc8fc5_536d_4f77_b852_fbc1356fdeb6);
 }
 impl ::core::convert::From<ITaskDefinition> for ::windows::runtime::IUnknown {
     fn from(value: ITaskDefinition) -> Self {
@@ -5550,7 +5550,7 @@ impl ITaskFolder {
 }
 unsafe impl ::windows::runtime::Interface for ITaskFolder {
     type Vtable = ITaskFolder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2365243490, 41088, 19477, [154, 136, 170, 124, 42, 248, 13, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cfac062_a080_4c15_9a88_aa7c2af80dfc);
 }
 impl ::core::convert::From<ITaskFolder> for ::windows::runtime::IUnknown {
     fn from(value: ITaskFolder) -> Self {
@@ -5660,7 +5660,7 @@ impl ITaskFolderCollection {
 }
 unsafe impl ::windows::runtime::Interface for ITaskFolderCollection {
     type Vtable = ITaskFolderCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2031635046, 34404, 16959, [151, 241, 99, 115, 86, 165, 216, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79184a66_8664_423f_97f1_637356a5d812);
 }
 impl ::core::convert::From<ITaskFolderCollection> for ::windows::runtime::IUnknown {
     fn from(value: ITaskFolderCollection) -> Self {
@@ -5750,7 +5750,7 @@ impl ITaskHandler {
 }
 unsafe impl ::windows::runtime::Interface for ITaskHandler {
     type Vtable = ITaskHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2208135010, 20769, 16393, [146, 52, 79, 13, 25, 57, 79, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x839d7762_5121_4009_9234_4f0d19394f04);
 }
 impl ::core::convert::From<ITaskHandler> for ::windows::runtime::IUnknown {
     fn from(value: ITaskHandler) -> Self {
@@ -5801,7 +5801,7 @@ impl ITaskHandlerStatus {
 }
 unsafe impl ::windows::runtime::Interface for ITaskHandlerStatus {
     type Vtable = ITaskHandlerStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3941366415, 10144, 19932, [134, 117, 20, 114, 106, 1, 163, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeaec7a8f_27a0_4ddc_8675_14726a01a38a);
 }
 impl ::core::convert::From<ITaskHandlerStatus> for ::windows::runtime::IUnknown {
     fn from(value: ITaskHandlerStatus) -> Self {
@@ -5869,7 +5869,7 @@ impl ITaskNamedValueCollection {
 }
 unsafe impl ::windows::runtime::Interface for ITaskNamedValueCollection {
     type Vtable = ITaskNamedValueCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3035595371, 25539, 18148, [165, 4, 239, 105, 228, 247, 234, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4ef826b_63c3_46e4_a504_ef69e4f7ea4d);
 }
 impl ::core::convert::From<ITaskNamedValueCollection> for ::windows::runtime::IUnknown {
     fn from(value: ITaskNamedValueCollection) -> Self {
@@ -5964,7 +5964,7 @@ impl ITaskNamedValuePair {
 }
 unsafe impl ::windows::runtime::Interface for ITaskNamedValuePair {
     type Vtable = ITaskNamedValuePair_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(956530792, 11078, 19197, [134, 98, 123, 182, 248, 104, 210, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39038068_2b46_4afd_8662_7bb6f868d221);
 }
 impl ::core::convert::From<ITaskNamedValuePair> for ::windows::runtime::IUnknown {
     fn from(value: ITaskNamedValuePair) -> Self {
@@ -6083,7 +6083,7 @@ impl ITaskScheduler {
 }
 unsafe impl ::windows::runtime::Interface for ITaskScheduler {
     type Vtable = ITaskScheduler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(344708391, 41643, 4558, [177, 31, 0, 170, 0, 83, 5, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x148bd527_a2ab_11ce_b11f_00aa00530503);
 }
 impl ::core::convert::From<ITaskScheduler> for ::windows::runtime::IUnknown {
     fn from(value: ITaskScheduler) -> Self {
@@ -6184,7 +6184,7 @@ impl ITaskService {
 }
 unsafe impl ::windows::runtime::Interface for ITaskService {
     type Vtable = ITaskService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(799777991, 19881, 16403, [150, 151, 32, 204, 63, 212, 15, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2faba4c7_4da9_4013_9697_20cc3fd40f85);
 }
 impl ::core::convert::From<ITaskService> for ::windows::runtime::IUnknown {
     fn from(value: ITaskService) -> Self {
@@ -6436,7 +6436,7 @@ impl ITaskSettings {
 }
 unsafe impl ::windows::runtime::Interface for ITaskSettings {
     type Vtable = ITaskSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2413064477, 11522, 19596, [135, 227, 239, 246, 153, 222, 18, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fd4711d_2d02_4c8c_87e3_eff699de127e);
 }
 impl ::core::convert::From<ITaskSettings> for ::windows::runtime::IUnknown {
     fn from(value: ITaskSettings) -> Self {
@@ -6568,7 +6568,7 @@ impl ITaskSettings2 {
 }
 unsafe impl ::windows::runtime::Interface for ITaskSettings2 {
     type Vtable = ITaskSettings2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(738575344, 28397, 19461, [161, 95, 237, 125, 122, 152, 163, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c05c3f0_6eed_4c05_a15f_ed7d7a98a369);
 }
 impl ::core::convert::From<ITaskSettings2> for ::windows::runtime::IUnknown {
     fn from(value: ITaskSettings2) -> Self {
@@ -6880,7 +6880,7 @@ impl ITaskSettings3 {
 }
 unsafe impl ::windows::runtime::Interface for ITaskSettings3 {
     type Vtable = ITaskSettings3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(182046935, 3199, 20155, [154, 95, 209, 198, 72, 220, 165, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ad9d0d7_0c7f_4ebb_9a5f_d1c648dca528);
 }
 impl ::core::convert::From<ITaskSettings3> for ::windows::runtime::IUnknown {
     fn from(value: ITaskSettings3) -> Self {
@@ -7040,7 +7040,7 @@ impl ITaskTrigger {
 }
 unsafe impl ::windows::runtime::Interface for ITaskTrigger {
     type Vtable = ITaskTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(344708395, 41643, 4558, [177, 31, 0, 170, 0, 83, 5, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x148bd52b_a2ab_11ce_b11f_00aa00530503);
 }
 impl ::core::convert::From<ITaskTrigger> for ::windows::runtime::IUnknown {
     fn from(value: ITaskTrigger) -> Self {
@@ -7098,7 +7098,7 @@ impl ITaskVariables {
 }
 unsafe impl ::windows::runtime::Interface for ITaskVariables {
     type Vtable = ITaskVariables_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1045205841, 55654, 19339, [187, 135, 206, 186, 104, 187, 1, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e4c9351_d966_4b8b_bb87_ceba68bb0107);
 }
 impl ::core::convert::From<ITaskVariables> for ::windows::runtime::IUnknown {
     fn from(value: ITaskVariables) -> Self {
@@ -7244,7 +7244,7 @@ impl ITimeTrigger {
 }
 unsafe impl ::windows::runtime::Interface for ITimeTrigger {
     type Vtable = ITimeTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3025618912, 60327, 17014, [159, 41, 133, 197, 187, 48, 0, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb45747e0_eba7_4276_9f29_85c5bb300006);
 }
 impl ::core::convert::From<ITimeTrigger> for ::windows::runtime::IUnknown {
     fn from(value: ITimeTrigger) -> Self {
@@ -7418,7 +7418,7 @@ impl ITrigger {
 }
 unsafe impl ::windows::runtime::Interface for ITrigger {
     type Vtable = ITrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(160700437, 60041, 19291, [137, 224, 42, 119, 56, 1, 250, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09941815_ea89_4b5b_89e0_2a773801fac3);
 }
 impl ::core::convert::From<ITrigger> for ::windows::runtime::IUnknown {
     fn from(value: ITrigger) -> Self {
@@ -7535,7 +7535,7 @@ impl ITriggerCollection {
 }
 unsafe impl ::windows::runtime::Interface for ITriggerCollection {
     type Vtable = ITriggerCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2246004865, 6948, 20274, [135, 138, 217, 209, 77, 244, 203, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85df5081_1b24_4f32_878a_d9d14df4cb77);
 }
 impl ::core::convert::From<ITriggerCollection> for ::windows::runtime::IUnknown {
     fn from(value: ITriggerCollection) -> Self {
@@ -7729,7 +7729,7 @@ impl IWeeklyTrigger {
 }
 unsafe impl ::windows::runtime::Interface for IWeeklyTrigger {
     type Vtable = IWeeklyTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1345911960, 33535, 17261, [135, 40, 165, 18, 165, 124, 157, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5038fc98_82ff_436d_8728_a512a57c9dc1);
 }
 impl ::core::convert::From<IWeeklyTrigger> for ::windows::runtime::IUnknown {
     fn from(value: IWeeklyTrigger) -> Self {
@@ -8278,9 +8278,9 @@ impl ::core::cmp::Eq for TRIGGER_TYPE_UNION {}
 unsafe impl ::windows::runtime::Abi for TRIGGER_TYPE_UNION {
     type Abi = Self;
 }
-pub const TaskHandlerPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4071005623, 55852, 17234, [144, 102, 134, 254, 230, 218, 202, 201]);
-pub const TaskHandlerStatusPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2668963437, 55226, 18672, [147, 193, 230, 137, 95, 111, 229, 172]);
-pub const TaskScheduler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(260519583, 42213, 19708, [189, 62, 115, 230, 21, 69, 114, 221]);
+pub const TaskHandlerPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2a69db7_da2c_4352_9066_86fee6dacac9);
+pub const TaskHandlerStatusPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f15266d_d7ba_48f0_93c1_e6895f6fe5ac);
+pub const TaskScheduler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f87369f_a4e5_4cfc_bd3e_73e6154572dd);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]

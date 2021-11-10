@@ -26,7 +26,7 @@ impl ::core::cmp::Eq for FindSimilarFileIndexResults {}
 unsafe impl ::windows::runtime::Abi for FindSimilarFileIndexResults {
     type Abi = Self;
 }
-pub const FindSimilarResults: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903443, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+pub const FindSimilarResults: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a93_9dbc_11da_9e3f_0011114ae311);
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -58,7 +58,7 @@ impl IFindSimilarResults {
 }
 unsafe impl ::windows::runtime::Interface for IFindSimilarResults {
     type Vtable = IFindSimilarResults_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903425, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a81_9dbc_11da_9e3f_0011114ae311);
 }
 impl ::core::convert::From<IFindSimilarResults> for ::windows::runtime::IUnknown {
     fn from(value: IFindSimilarResults) -> Self {
@@ -102,7 +102,7 @@ impl IRdcComparator {
 }
 unsafe impl ::windows::runtime::Interface for IRdcComparator {
     type Vtable = IRdcComparator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903415, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a77_9dbc_11da_9e3f_0011114ae311);
 }
 impl ::core::convert::From<IRdcComparator> for ::windows::runtime::IUnknown {
     fn from(value: IRdcComparator) -> Self {
@@ -156,7 +156,7 @@ impl IRdcFileReader {
 }
 unsafe impl ::windows::runtime::Interface for IRdcFileReader {
     type Vtable = IRdcFileReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903412, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a74_9dbc_11da_9e3f_0011114ae311);
 }
 impl ::core::convert::From<IRdcFileReader> for ::windows::runtime::IUnknown {
     fn from(value: IRdcFileReader) -> Self {
@@ -225,7 +225,7 @@ impl IRdcFileWriter {
 }
 unsafe impl ::windows::runtime::Interface for IRdcFileWriter {
     type Vtable = IRdcFileWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903413, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a75_9dbc_11da_9e3f_0011114ae311);
 }
 impl ::core::convert::From<IRdcFileWriter> for ::windows::runtime::IUnknown {
     fn from(value: IRdcFileWriter) -> Self {
@@ -299,7 +299,7 @@ impl IRdcGenerator {
 }
 unsafe impl ::windows::runtime::Interface for IRdcGenerator {
     type Vtable = IRdcGenerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903411, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a73_9dbc_11da_9e3f_0011114ae311);
 }
 impl ::core::convert::From<IRdcGenerator> for ::windows::runtime::IUnknown {
     fn from(value: IRdcGenerator) -> Self {
@@ -357,7 +357,7 @@ impl IRdcGeneratorFilterMaxParameters {
 }
 unsafe impl ::windows::runtime::Interface for IRdcGeneratorFilterMaxParameters {
     type Vtable = IRdcGeneratorFilterMaxParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903410, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a72_9dbc_11da_9e3f_0011114ae311);
 }
 impl ::core::convert::From<IRdcGeneratorFilterMaxParameters> for ::windows::runtime::IUnknown {
     fn from(value: IRdcGeneratorFilterMaxParameters) -> Self {
@@ -416,7 +416,7 @@ impl IRdcGeneratorParameters {
 }
 unsafe impl ::windows::runtime::Interface for IRdcGeneratorParameters {
     type Vtable = IRdcGeneratorParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903409, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a71_9dbc_11da_9e3f_0011114ae311);
 }
 impl ::core::convert::From<IRdcGeneratorParameters> for ::windows::runtime::IUnknown {
     fn from(value: IRdcGeneratorParameters) -> Self {
@@ -491,7 +491,7 @@ impl IRdcLibrary {
 }
 unsafe impl ::windows::runtime::Interface for IRdcLibrary {
     type Vtable = IRdcLibrary_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903416, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a78_9dbc_11da_9e3f_0011114ae311);
 }
 impl ::core::convert::From<IRdcLibrary> for ::windows::runtime::IUnknown {
     fn from(value: IRdcLibrary) -> Self {
@@ -545,7 +545,7 @@ impl IRdcSignatureReader {
 }
 unsafe impl ::windows::runtime::Interface for IRdcSignatureReader {
     type Vtable = IRdcSignatureReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903414, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a76_9dbc_11da_9e3f_0011114ae311);
 }
 impl ::core::convert::From<IRdcSignatureReader> for ::windows::runtime::IUnknown {
     fn from(value: IRdcSignatureReader) -> Self {
@@ -594,7 +594,7 @@ impl IRdcSimilarityGenerator {
 }
 unsafe impl ::windows::runtime::Interface for IRdcSimilarityGenerator {
     type Vtable = IRdcSimilarityGenerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903424, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a80_9dbc_11da_9e3f_0011114ae311);
 }
 impl ::core::convert::From<IRdcSimilarityGenerator> for ::windows::runtime::IUnknown {
     fn from(value: IRdcSimilarityGenerator) -> Self {
@@ -668,7 +668,7 @@ impl ISimilarity {
 }
 unsafe impl ::windows::runtime::Interface for ISimilarity {
     type Vtable = ISimilarity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903427, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a83_9dbc_11da_9e3f_0011114ae311);
 }
 impl ::core::convert::From<ISimilarity> for ::windows::runtime::IUnknown {
     fn from(value: ISimilarity) -> Self {
@@ -751,7 +751,7 @@ impl ISimilarityFileIdTable {
 }
 unsafe impl ::windows::runtime::Interface for ISimilarityFileIdTable {
     type Vtable = ISimilarityFileIdTable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903423, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a7f_9dbc_11da_9e3f_0011114ae311);
 }
 impl ::core::convert::From<ISimilarityFileIdTable> for ::windows::runtime::IUnknown {
     fn from(value: ISimilarityFileIdTable) -> Self {
@@ -802,7 +802,7 @@ impl ISimilarityReportProgress {
 }
 unsafe impl ::windows::runtime::Interface for ISimilarityReportProgress {
     type Vtable = ISimilarityReportProgress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903418, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a7a_9dbc_11da_9e3f_0011114ae311);
 }
 impl ::core::convert::From<ISimilarityReportProgress> for ::windows::runtime::IUnknown {
     fn from(value: ISimilarityReportProgress) -> Self {
@@ -845,7 +845,7 @@ impl ISimilarityTableDumpState {
 }
 unsafe impl ::windows::runtime::Interface for ISimilarityTableDumpState {
     type Vtable = ISimilarityTableDumpState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903419, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a7b_9dbc_11da_9e3f_0011114ae311);
 }
 impl ::core::convert::From<ISimilarityTableDumpState> for ::windows::runtime::IUnknown {
     fn from(value: ISimilarityTableDumpState) -> Self {
@@ -902,7 +902,7 @@ impl ISimilarityTraitsMappedView {
 }
 unsafe impl ::windows::runtime::Interface for ISimilarityTraitsMappedView {
     type Vtable = ISimilarityTraitsMappedView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903420, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a7c_9dbc_11da_9e3f_0011114ae311);
 }
 impl ::core::convert::From<ISimilarityTraitsMappedView> for ::windows::runtime::IUnknown {
     fn from(value: ISimilarityTraitsMappedView) -> Self {
@@ -976,7 +976,7 @@ impl ISimilarityTraitsMapping {
 }
 unsafe impl ::windows::runtime::Interface for ISimilarityTraitsMapping {
     type Vtable = ISimilarityTraitsMapping_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903421, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a7d_9dbc_11da_9e3f_0011114ae311);
 }
 impl ::core::convert::From<ISimilarityTraitsMapping> for ::windows::runtime::IUnknown {
     fn from(value: ISimilarityTraitsMapping) -> Self {
@@ -1055,7 +1055,7 @@ impl ISimilarityTraitsTable {
 }
 unsafe impl ::windows::runtime::Interface for ISimilarityTraitsTable {
     type Vtable = ISimilarityTraitsTable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903422, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a7e_9dbc_11da_9e3f_0011114ae311);
 }
 impl ::core::convert::From<ISimilarityTraitsTable> for ::windows::runtime::IUnknown {
     fn from(value: ISimilarityTraitsTable) -> Self {
@@ -1189,7 +1189,7 @@ impl ::core::cmp::Eq for RdcBufferPointer {}
 unsafe impl ::windows::runtime::Abi for RdcBufferPointer {
     type Abi = Self;
 }
-pub const RdcComparator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903435, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+pub const RdcComparator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a8b_9dbc_11da_9e3f_0011114ae311);
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -1205,11 +1205,11 @@ impl ::core::convert::From<i32> for RdcCreatedTables {
 unsafe impl ::windows::runtime::Abi for RdcCreatedTables {
     type Abi = Self;
 }
-pub const RdcFileReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903433, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
-pub const RdcGenerator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903432, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
-pub const RdcGeneratorFilterMaxParameters: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903431, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
-pub const RdcGeneratorParameters: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903430, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
-pub const RdcLibrary: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903429, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+pub const RdcFileReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a89_9dbc_11da_9e3f_0011114ae311);
+pub const RdcGenerator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a88_9dbc_11da_9e3f_0011114ae311);
+pub const RdcGeneratorFilterMaxParameters: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a87_9dbc_11da_9e3f_0011114ae311);
+pub const RdcGeneratorParameters: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a86_9dbc_11da_9e3f_0011114ae311);
+pub const RdcLibrary: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a85_9dbc_11da_9e3f_0011114ae311);
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -1352,9 +1352,9 @@ impl ::core::cmp::Eq for RdcSignaturePointer {}
 unsafe impl ::windows::runtime::Abi for RdcSignaturePointer {
     type Abi = Self;
 }
-pub const RdcSignatureReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903434, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
-pub const RdcSimilarityGenerator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903442, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
-pub const Similarity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903441, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+pub const RdcSignatureReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a8a_9dbc_11da_9e3f_0011114ae311);
+pub const RdcSimilarityGenerator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a92_9dbc_11da_9e3f_0011114ae311);
+pub const Similarity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a91_9dbc_11da_9e3f_0011114ae311);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
@@ -1438,7 +1438,7 @@ unsafe impl ::windows::runtime::Abi for SimilarityFileId {
 pub const SimilarityFileIdMaxSize: u32 = 32u32;
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 pub const SimilarityFileIdMinSize: u32 = 4u32;
-pub const SimilarityFileIdTable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903440, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+pub const SimilarityFileIdTable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a90_9dbc_11da_9e3f_0011114ae311);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
@@ -1466,8 +1466,8 @@ impl ::core::cmp::Eq for SimilarityMappedViewInfo {}
 unsafe impl ::windows::runtime::Abi for SimilarityMappedViewInfo {
     type Abi = Self;
 }
-pub const SimilarityReportProgress: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903437, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
-pub const SimilarityTableDumpState: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903438, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
-pub const SimilarityTraitsMappedView: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903445, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
-pub const SimilarityTraitsMapping: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903444, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
-pub const SimilarityTraitsTable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903439, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
+pub const SimilarityReportProgress: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a8d_9dbc_11da_9e3f_0011114ae311);
+pub const SimilarityTableDumpState: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a8e_9dbc_11da_9e3f_0011114ae311);
+pub const SimilarityTraitsMappedView: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a95_9dbc_11da_9e3f_0011114ae311);
+pub const SimilarityTraitsMapping: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a94_9dbc_11da_9e3f_0011114ae311);
+pub const SimilarityTraitsTable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96236a8f_9dbc_11da_9e3f_0011114ae311);

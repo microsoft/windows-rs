@@ -630,7 +630,7 @@ impl IFilter {
 }
 unsafe impl ::windows::runtime::Interface for IFilter {
     type Vtable = IFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2310846272, 24857, 4122, [188, 183, 0, 221, 1, 6, 85, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89bcb740_6119_101a_bcb7_00dd010655af);
 }
 impl ::core::convert::From<IFilter> for ::windows::runtime::IUnknown {
     fn from(value: IFilter) -> Self {
@@ -686,7 +686,7 @@ impl IPhraseSink {
 }
 unsafe impl ::windows::runtime::Interface for IPhraseSink {
     type Vtable = IPhraseSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3432017904, 49240, 4122, [181, 84, 8, 0, 43, 51, 176, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc906ff0_c058_101a_b554_08002b33b0e6);
 }
 impl ::core::convert::From<IPhraseSink> for ::windows::runtime::IUnknown {
     fn from(value: IPhraseSink) -> Self {

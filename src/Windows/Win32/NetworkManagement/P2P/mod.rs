@@ -1182,8 +1182,8 @@ pub const FACILITY_DRT: u32 = 98u32;
 pub const NS_PNRPCLOUD: u32 = 39u32;
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const NS_PNRPNAME: u32 = 38u32;
-pub const NS_PROVIDER_PNRPCLOUD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(67013070, 30317, 18806, [185, 193, 187, 155, 196, 44, 123, 77]);
-pub const NS_PROVIDER_PNRPNAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(67013069, 30317, 18806, [185, 193, 187, 155, 196, 44, 123, 77]);
+pub const NS_PROVIDER_PNRPCLOUD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03fe89ce_766d_4976_b9c1_bb9bc42c7b4d);
+pub const NS_PROVIDER_PNRPNAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03fe89cd_766d_4976_b9c1_bb9bc42c7b4d);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1683,7 +1683,7 @@ impl ::core::convert::From<i32> for PEER_COLLAB_EVENT_TYPE {
 unsafe impl ::windows::runtime::Abi for PEER_COLLAB_EVENT_TYPE {
     type Abi = Self;
 }
-pub const PEER_COLLAB_OBJECTID_USER_PICTURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3709203487, 64590, 18722, [176, 53, 76, 6, 167, 84, 208, 29]);
+pub const PEER_COLLAB_OBJECTID_USER_PICTURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd15f41f_fc4e_4922_b035_4c06a754d01d);
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -2786,9 +2786,9 @@ impl ::core::convert::From<i32> for PEER_GROUP_PROPERTY_FLAGS {
 unsafe impl ::windows::runtime::Abi for PEER_GROUP_PROPERTY_FLAGS {
     type Abi = Self;
 }
-pub const PEER_GROUP_ROLE_ADMIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(70807847, 43606, 17674, [140, 229, 79, 86, 92, 103, 144, 244]);
-pub const PEER_GROUP_ROLE_INVITING_MEMBER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1131478409, 56344, 19707, [141, 191, 152, 83, 168, 169, 249, 5]);
-pub const PEER_GROUP_ROLE_MEMBER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4046308551, 2135, 19616, [147, 252, 177, 187, 25, 163, 216, 194]);
+pub const PEER_GROUP_ROLE_ADMIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04387127_aa56_450a_8ce5_4f565c6790f4);
+pub const PEER_GROUP_ROLE_INVITING_MEMBER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4370fd89_dc18_4cfb_8dbf_9853a8a9f905);
+pub const PEER_GROUP_ROLE_MEMBER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf12dc4c7_0857_4ca0_93fc_b1bb19a3d8c2);
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -6517,9 +6517,9 @@ pub unsafe fn PeerPnrpUpdateRegistration(hregistration: *const ::core::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const SVCID_PNRPCLOUD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3257113830, 192, 20415, [186, 214, 24, 19, 147, 133, 164, 154]);
-pub const SVCID_PNRPNAME_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3257113829, 192, 20415, [186, 214, 24, 19, 147, 133, 164, 154]);
-pub const SVCID_PNRPNAME_V2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3257113831, 192, 20415, [186, 214, 24, 19, 147, 133, 164, 154]);
+pub const SVCID_PNRPCLOUD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2239ce6_00c0_4fbf_bad6_18139385a49a);
+pub const SVCID_PNRPNAME_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2239ce5_00c0_4fbf_bad6_18139385a49a);
+pub const SVCID_PNRPNAME_V2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2239ce7_00c0_4fbf_bad6_18139385a49a);
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const WSA_PNRP_CLIENT_INVALID_COMPARTMENT_ID: u32 = 11506u32;
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]

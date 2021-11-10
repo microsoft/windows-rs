@@ -4,7 +4,7 @@
 pub struct ILockApplicationHost(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockApplicationHost {
     type Vtable = ILockApplicationHost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(955134381, 55631, 20092, [129, 250, 79, 68, 54, 80, 98, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38ee31ad_d94f_4e7c_81fa_4f4436506281);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26,7 +26,7 @@ pub struct ILockApplicationHost_abi(
 pub struct ILockApplicationHostStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockApplicationHostStatics {
     type Vtable = ILockApplicationHostStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4103056270, 9175, 20067, [150, 161, 102, 111, 245, 45, 59, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf48fab8e_23d7_4e63_96a1_666ff52d3b2c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -44,7 +44,7 @@ pub struct ILockApplicationHostStatics_abi(
 pub struct ILockScreenBadge(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenBadge {
     type Vtable = ILockScreenBadge_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3914401241, 11263, 19888, [155, 79, 56, 36, 119, 139, 156, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe95105d9_2bff_4db0_9b4f_3824778b9c9a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -69,7 +69,7 @@ pub struct ILockScreenBadge_abi(
 pub struct ILockScreenInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenInfo {
     type Vtable = ILockScreenInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4120553052, 38673, 19913, [166, 48, 149, 182, 203, 140, 218, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf59aa65c_9711_4dc9_a630_95b6cb8cdad0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -110,7 +110,7 @@ pub struct ILockScreenInfo_abi(
 pub struct ILockScreenUnlockingDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenUnlockingDeferral {
     type Vtable = ILockScreenUnlockingDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2122128086, 20995, 17383, [155, 214, 124, 57, 71, 209, 227, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e7d1ad6_5203_43e7_9bd6_7c3947d1e3fe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -128,7 +128,7 @@ pub struct ILockScreenUnlockingDeferral_abi(
 pub struct ILockScreenUnlockingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenUnlockingEventArgs {
     type Vtable = ILockScreenUnlockingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1155973127, 30203, 19131, [159, 139, 130, 71, 72, 144, 12, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44e6c007_75fb_4abb_9f8b_824748900c71);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -185,7 +185,7 @@ unsafe impl ::windows::runtime::RuntimeType for LockApplicationHost {
 }
 unsafe impl ::windows::runtime::Interface for LockApplicationHost {
     type Vtable = ILockApplicationHost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(955134381, 55631, 20092, [129, 250, 79, 68, 54, 80, 98, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38ee31ad_d94f_4e7c_81fa_4f4436506281);
 }
 impl ::windows::runtime::RuntimeName for LockApplicationHost {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockApplicationHost";
@@ -283,7 +283,7 @@ unsafe impl ::windows::runtime::RuntimeType for LockScreenBadge {
 }
 unsafe impl ::windows::runtime::Interface for LockScreenBadge {
     type Vtable = ILockScreenBadge_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3914401241, 11263, 19888, [155, 79, 56, 36, 119, 139, 156, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe95105d9_2bff_4db0_9b4f_3824778b9c9a);
 }
 impl ::windows::runtime::RuntimeName for LockScreenBadge {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenBadge";
@@ -437,7 +437,7 @@ unsafe impl ::windows::runtime::RuntimeType for LockScreenInfo {
 }
 unsafe impl ::windows::runtime::Interface for LockScreenInfo {
     type Vtable = ILockScreenInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4120553052, 38673, 19913, [166, 48, 149, 182, 203, 140, 218, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf59aa65c_9711_4dc9_a630_95b6cb8cdad0);
 }
 impl ::windows::runtime::RuntimeName for LockScreenInfo {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenInfo";
@@ -500,7 +500,7 @@ unsafe impl ::windows::runtime::RuntimeType for LockScreenUnlockingDeferral {
 }
 unsafe impl ::windows::runtime::Interface for LockScreenUnlockingDeferral {
     type Vtable = ILockScreenUnlockingDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2122128086, 20995, 17383, [155, 214, 124, 57, 71, 209, 227, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e7d1ad6_5203_43e7_9bd6_7c3947d1e3fe);
 }
 impl ::windows::runtime::RuntimeName for LockScreenUnlockingDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenUnlockingDeferral";
@@ -575,7 +575,7 @@ unsafe impl ::windows::runtime::RuntimeType for LockScreenUnlockingEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for LockScreenUnlockingEventArgs {
     type Vtable = ILockScreenUnlockingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1155973127, 30203, 19131, [159, 139, 130, 71, 72, 144, 12, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44e6c007_75fb_4abb_9f8b_824748900c71);
 }
 impl ::windows::runtime::RuntimeName for LockScreenUnlockingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenUnlockingEventArgs";

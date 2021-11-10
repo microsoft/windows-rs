@@ -64,7 +64,7 @@ unsafe impl ::windows::runtime::RuntimeType for DataProtectionProvider {
 }
 unsafe impl ::windows::runtime::Interface for DataProtectionProvider {
     type Vtable = IDataProtectionProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(157522248, 60706, 17008, [189, 28, 109, 114, 192, 15, 135, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09639948_ed22_4270_bd1c_6d72c00f8787);
 }
 impl ::windows::runtime::RuntimeName for DataProtectionProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.DataProtection.DataProtectionProvider";
@@ -116,7 +116,7 @@ unsafe impl ::core::marker::Sync for DataProtectionProvider {}
 pub struct IDataProtectionProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataProtectionProvider {
     type Vtable = IDataProtectionProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(157522248, 60706, 17008, [189, 28, 109, 114, 192, 15, 135, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09639948_ed22_4270_bd1c_6d72c00f8787);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -141,7 +141,7 @@ pub struct IDataProtectionProvider_abi(
 pub struct IDataProtectionProviderFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataProtectionProviderFactory {
     type Vtable = IDataProtectionProviderFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2918399404, 18738, 19679, [172, 65, 114, 20, 51, 53, 20, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xadf33dac_4932_4cdf_ac41_7214333514ca);
 }
 #[repr(C)]
 #[doc(hidden)]

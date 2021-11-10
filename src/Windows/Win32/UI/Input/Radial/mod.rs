@@ -13,7 +13,7 @@ impl IRadialControllerConfigurationInterop {
 }
 unsafe impl ::windows::runtime::Interface for IRadialControllerConfigurationInterop {
     type Vtable = IRadialControllerConfigurationInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2021448364, 12678, 18285, [135, 228, 185, 55, 74, 123, 153, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x787cdaac_3186_476d_87e4_b9374a7b9970);
 }
 impl ::core::convert::From<IRadialControllerConfigurationInterop> for ::windows::runtime::IUnknown {
     fn from(value: IRadialControllerConfigurationInterop) -> Self {
@@ -61,7 +61,7 @@ impl IRadialControllerIndependentInputSourceInterop {
 }
 unsafe impl ::windows::runtime::Interface for IRadialControllerIndependentInputSourceInterop {
     type Vtable = IRadialControllerIndependentInputSourceInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144319, 19694, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577eff_4cee_11e6_b535_001bdc06ab3b);
 }
 impl ::core::convert::From<IRadialControllerIndependentInputSourceInterop> for ::windows::runtime::IUnknown {
     fn from(value: IRadialControllerIndependentInputSourceInterop) -> Self {
@@ -109,7 +109,7 @@ impl IRadialControllerInterop {
 }
 unsafe impl ::windows::runtime::Interface for IRadialControllerInterop {
     type Vtable = IRadialControllerInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(453326281, 22445, 17857, [157, 121, 173, 92, 52, 54, 5, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b0535c9_57ad_45c1_9d79_ad5c34360513);
 }
 impl ::core::convert::From<IRadialControllerInterop> for ::windows::runtime::IUnknown {
     fn from(value: IRadialControllerInterop) -> Self {

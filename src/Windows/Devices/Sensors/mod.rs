@@ -172,7 +172,7 @@ unsafe impl ::windows::runtime::RuntimeType for Accelerometer {
 }
 unsafe impl ::windows::runtime::Interface for Accelerometer {
     type Vtable = IAccelerometer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3742909768, 10001, 19879, [128, 152, 75, 130, 32, 93, 60, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf184548_2711_4da7_8098_4b82205d3c7d);
 }
 impl ::windows::runtime::RuntimeName for Accelerometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Accelerometer";
@@ -269,7 +269,7 @@ unsafe impl ::windows::runtime::RuntimeType for AccelerometerDataThreshold {
 }
 unsafe impl ::windows::runtime::Interface for AccelerometerDataThreshold {
     type Vtable = IAccelerometerDataThreshold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4180417384, 25376, 21879, [135, 158, 153, 66, 98, 28, 61, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf92c1b68_6320_5577_879e_9942621c3dd9);
 }
 impl ::windows::runtime::RuntimeName for AccelerometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerDataThreshold";
@@ -378,7 +378,7 @@ unsafe impl ::windows::runtime::RuntimeType for AccelerometerReading {
 }
 unsafe impl ::windows::runtime::Interface for AccelerometerReading {
     type Vtable = IAccelerometerReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3120462539, 54097, 16559, [139, 182, 122, 169, 174, 100, 31, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9fe7acb_d351_40af_8bb6_7aa9ae641fb7);
 }
 impl ::windows::runtime::RuntimeName for AccelerometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerReading";
@@ -444,7 +444,7 @@ unsafe impl ::windows::runtime::RuntimeType for AccelerometerReadingChangedEvent
 }
 unsafe impl ::windows::runtime::Interface for AccelerometerReadingChangedEventArgs {
     type Vtable = IAccelerometerReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(9815643, 46764, 18266, [159, 68, 139, 50, 211, 90, 63, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0095c65b_b6ac_475a_9f44_8b32d35a3f25);
 }
 impl ::windows::runtime::RuntimeName for AccelerometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerReadingChangedEventArgs";
@@ -534,7 +534,7 @@ unsafe impl ::windows::runtime::RuntimeType for AccelerometerShakenEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for AccelerometerShakenEventArgs {
     type Vtable = IAccelerometerShakenEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2516517329, 18984, 20277, [152, 232, 129, 120, 170, 228, 8, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95ff01d1_4a28_4f35_98e8_8178aae4084a);
 }
 impl ::windows::runtime::RuntimeName for AccelerometerShakenEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerShakenEventArgs";
@@ -701,7 +701,7 @@ unsafe impl ::windows::runtime::RuntimeType for ActivitySensor {
 }
 unsafe impl ::windows::runtime::Interface for ActivitySensor {
     type Vtable = IActivitySensor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3447350028, 64351, 18667, [176, 155, 162, 112, 141, 28, 97, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd7a630c_fb5f_48eb_b09b_a2708d1c61ef);
 }
 impl ::windows::runtime::RuntimeName for ActivitySensor {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensor";
@@ -784,7 +784,7 @@ unsafe impl ::windows::runtime::RuntimeType for ActivitySensorReading {
 }
 unsafe impl ::windows::runtime::Interface for ActivitySensorReading {
     type Vtable = IActivitySensorReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2232572566, 5234, 16546, [178, 174, 225, 239, 41, 34, 108, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85125a96_1472_40a2_b2ae_e1ef29226c78);
 }
 impl ::windows::runtime::RuntimeName for ActivitySensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReading";
@@ -850,7 +850,7 @@ unsafe impl ::windows::runtime::RuntimeType for ActivitySensorReadingChangeRepor
 }
 unsafe impl ::windows::runtime::Interface for ActivitySensorReadingChangeReport {
     type Vtable = IActivitySensorReadingChangeReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1329342741, 55611, 18365, [150, 10, 242, 15, 178, 243, 34, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f3c2915_d93b_47bd_960a_f20fb2f322b9);
 }
 impl ::windows::runtime::RuntimeName for ActivitySensorReadingChangeReport {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReadingChangeReport";
@@ -916,7 +916,7 @@ unsafe impl ::windows::runtime::RuntimeType for ActivitySensorReadingChangedEven
 }
 unsafe impl ::windows::runtime::Interface for ActivitySensorReadingChangedEventArgs {
     type Vtable = IActivitySensorReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3728238359, 44726, 20167, [148, 106, 217, 204, 25, 185, 81, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde386717_aeb6_4ec7_946a_d9cc19b951ec);
 }
 impl ::windows::runtime::RuntimeName for ActivitySensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReadingChangedEventArgs";
@@ -1005,7 +1005,7 @@ unsafe impl ::windows::runtime::RuntimeType for ActivitySensorTriggerDetails {
 }
 unsafe impl ::windows::runtime::Interface for ActivitySensorTriggerDetails {
     type Vtable = IActivitySensorTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(748578322, 47562, 18039, [178, 99, 36, 50, 151, 247, 157, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c9e6612_b9ca_4677_b263_243297f79d3a);
 }
 impl ::windows::runtime::RuntimeName for ActivitySensorTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorTriggerDetails";
@@ -1175,7 +1175,7 @@ unsafe impl ::windows::runtime::RuntimeType for Altimeter {
 }
 unsafe impl ::windows::runtime::Interface for Altimeter {
     type Vtable = IAltimeter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1928353789, 36612, 18929, [180, 167, 244, 227, 99, 183, 1, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72f057fd_8f04_49f1_b4a7_f4e363b701a2);
 }
 impl ::windows::runtime::RuntimeName for Altimeter {
     const NAME: &'static str = "Windows.Devices.Sensors.Altimeter";
@@ -1268,7 +1268,7 @@ unsafe impl ::windows::runtime::RuntimeType for AltimeterReading {
 }
 unsafe impl ::windows::runtime::Interface for AltimeterReading {
     type Vtable = IAltimeterReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4226346867, 32606, 18632, [170, 26, 241, 243, 190, 252, 17, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbe8ef73_7f5e_48c8_aa1a_f1f3befc1144);
 }
 impl ::windows::runtime::RuntimeName for AltimeterReading {
     const NAME: &'static str = "Windows.Devices.Sensors.AltimeterReading";
@@ -1334,7 +1334,7 @@ unsafe impl ::windows::runtime::RuntimeType for AltimeterReadingChangedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for AltimeterReadingChangedEventArgs {
     type Vtable = IAltimeterReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1885982839, 17517, 18423, [153, 140, 235, 194, 59, 69, 228, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7069d077_446d_47f7_998c_ebc23b45e4a2);
 }
 impl ::windows::runtime::RuntimeName for AltimeterReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.AltimeterReadingChangedEventArgs";
@@ -1503,7 +1503,7 @@ unsafe impl ::windows::runtime::RuntimeType for Barometer {
 }
 unsafe impl ::windows::runtime::Interface for Barometer {
     type Vtable = IBarometer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2470737320, 30911, 17711, [176, 23, 240, 32, 156, 230, 218, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x934475a8_78bf_452f_b017_f0209ce6dab4);
 }
 impl ::windows::runtime::RuntimeName for Barometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Barometer";
@@ -1574,7 +1574,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarometerDataThreshold {
 }
 unsafe impl ::windows::runtime::Interface for BarometerDataThreshold {
     type Vtable = IBarometerDataThreshold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(124491052, 52066, 23184, [160, 209, 248, 94, 74, 147, 99, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x076b952c_cb62_5a90_a0d1_f85e4a936394);
 }
 impl ::windows::runtime::RuntimeName for BarometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.BarometerDataThreshold";
@@ -1667,7 +1667,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarometerReading {
 }
 unsafe impl ::windows::runtime::Interface for BarometerReading {
     type Vtable = IBarometerReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4122596070, 7670, 18970, [167, 173, 50, 29, 79, 93, 178, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5b9d2e6_1df6_4a1a_a7ad_321d4f5db247);
 }
 impl ::windows::runtime::RuntimeName for BarometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.BarometerReading";
@@ -1733,7 +1733,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarometerReadingChangedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for BarometerReadingChangedEventArgs {
     type Vtable = IBarometerReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1032098911, 891, 16463, [155, 187, 98, 50, 214, 149, 67, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d84945f_037b_404f_9bbb_6232d69543c3);
 }
 impl ::windows::runtime::RuntimeName for BarometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.BarometerReadingChangedEventArgs";
@@ -1917,7 +1917,7 @@ unsafe impl ::windows::runtime::RuntimeType for Compass {
 }
 unsafe impl ::windows::runtime::Interface for Compass {
     type Vtable = ICompass_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691010196, 6981, 16444, [186, 6, 177, 6, 219, 166, 154, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x292ffa94_1b45_403c_ba06_b106dba69a64);
 }
 impl ::windows::runtime::RuntimeName for Compass {
     const NAME: &'static str = "Windows.Devices.Sensors.Compass";
@@ -1988,7 +1988,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompassDataThreshold {
 }
 unsafe impl ::windows::runtime::Interface for CompassDataThreshold {
     type Vtable = ICompassDataThreshold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3512423091, 54173, 24264, [178, 228, 241, 147, 230, 171, 52, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd15b52b3_d39d_5ec8_b2e4_f193e6ab34ed);
 }
 impl ::windows::runtime::RuntimeName for CompassDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.CompassDataThreshold";
@@ -2098,7 +2098,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompassReading {
 }
 unsafe impl ::windows::runtime::Interface for CompassReading {
     type Vtable = ICompassReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2190545192, 20797, 19913, [183, 129, 94, 237, 251, 240, 45, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82911128_513d_4dc9_b781_5eedfbf02d0c);
 }
 impl ::windows::runtime::RuntimeName for CompassReading {
     const NAME: &'static str = "Windows.Devices.Sensors.CompassReading";
@@ -2164,7 +2164,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompassReadingChangedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for CompassReadingChangedEventArgs {
     type Vtable = ICompassReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400537008, 59580, 19582, [176, 9, 78, 65, 223, 19, 112, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f1549b0_e8bc_4c7e_b009_4e41df137072);
 }
 impl ::windows::runtime::RuntimeName for CompassReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.CompassReadingChangedEventArgs";
@@ -2348,7 +2348,7 @@ unsafe impl ::windows::runtime::RuntimeType for Gyrometer {
 }
 unsafe impl ::windows::runtime::Interface for Gyrometer {
     type Vtable = IGyrometer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4256803268, 33969, 19618, [151, 99, 155, 88, 149, 6, 199, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfdb9a9c4_84b1_4ca2_9763_9b589506c70c);
 }
 impl ::windows::runtime::RuntimeName for Gyrometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Gyrometer";
@@ -2445,7 +2445,7 @@ unsafe impl ::windows::runtime::RuntimeType for GyrometerDataThreshold {
 }
 unsafe impl ::windows::runtime::Interface for GyrometerDataThreshold {
     type Vtable = IGyrometerDataThreshold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2252911390, 28242, 21081, [187, 173, 36, 42, 105, 220, 56, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8648b31e_6e52_5259_bbad_242a69dc38c8);
 }
 impl ::windows::runtime::RuntimeName for GyrometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.GyrometerDataThreshold";
@@ -2554,7 +2554,7 @@ unsafe impl ::windows::runtime::RuntimeType for GyrometerReading {
 }
 unsafe impl ::windows::runtime::Interface for GyrometerReading {
     type Vtable = IGyrometerReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3017203292, 7908, 17775, [157, 231, 226, 73, 59, 92, 142, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3d6de5c_1ee4_456f_9de7_e2493b5c8e03);
 }
 impl ::windows::runtime::RuntimeName for GyrometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.GyrometerReading";
@@ -2620,7 +2620,7 @@ unsafe impl ::windows::runtime::RuntimeType for GyrometerReadingChangedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for GyrometerReadingChangedEventArgs {
     type Vtable = IGyrometerReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(266279061, 28574, 17102, [141, 88, 56, 140, 10, 184, 53, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0fdf1895_6f9e_42ce_8d58_388c0ab8356d);
 }
 impl ::windows::runtime::RuntimeName for GyrometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.GyrometerReadingChangedEventArgs";
@@ -2704,7 +2704,7 @@ unsafe impl ::windows::runtime::RuntimeType for HingeAngleReading {
 }
 unsafe impl ::windows::runtime::Interface for HingeAngleReading {
     type Vtable = IHingeAngleReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2748138937, 7153, 20325, [167, 4, 226, 218, 4, 241, 130, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3cd45b9_1bf1_4f65_a704_e2da04f182c0);
 }
 impl ::windows::runtime::RuntimeName for HingeAngleReading {
     const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleReading";
@@ -2850,7 +2850,7 @@ unsafe impl ::windows::runtime::RuntimeType for HingeAngleSensor {
 }
 unsafe impl ::windows::runtime::Interface for HingeAngleSensor {
     type Vtable = IHingeAngleSensor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3922968066, 49119, 17279, [140, 41, 136, 199, 115, 147, 211, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9d3be02_bfdf_437f_8c29_88c77393d309);
 }
 impl ::windows::runtime::RuntimeName for HingeAngleSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleSensor";
@@ -2916,7 +2916,7 @@ unsafe impl ::windows::runtime::RuntimeType for HingeAngleSensorReadingChangedEv
 }
 unsafe impl ::windows::runtime::Interface for HingeAngleSensorReadingChangedEventArgs {
     type Vtable = IHingeAngleSensorReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(618222987, 64208, 17080, [168, 84, 120, 146, 48, 73, 161, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24d9558b_fad0_42b8_a854_78923049a1ba);
 }
 impl ::windows::runtime::RuntimeName for HingeAngleSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleSensorReadingChangedEventArgs";
@@ -2968,7 +2968,7 @@ unsafe impl ::core::marker::Sync for HingeAngleSensorReadingChangedEventArgs {}
 pub struct IAccelerometer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometer {
     type Vtable = IAccelerometer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3742909768, 10001, 19879, [128, 152, 75, 130, 32, 93, 60, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf184548_2711_4da7_8098_4b82205d3c7d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2997,7 +2997,7 @@ pub struct IAccelerometer_abi(
 pub struct IAccelerometer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometer2 {
     type Vtable = IAccelerometer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3908080366, 18788, 16410, [182, 2, 34, 13, 113, 83, 198, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8f092ee_4964_401a_b602_220d7153c60a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3018,7 +3018,7 @@ pub struct IAccelerometer2_abi(
 pub struct IAccelerometer3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometer3 {
     type Vtable = IAccelerometer3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2279604778, 60800, 18923, [191, 138, 164, 234, 49, 229, 205, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87e0022a_ed80_49eb_bf8a_a4ea31e5cd84);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3038,7 +3038,7 @@ pub struct IAccelerometer3_abi(
 pub struct IAccelerometer4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometer4 {
     type Vtable = IAccelerometer4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(490159183, 17107, 17842, [129, 68, 171, 127, 182, 101, 235, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d373c4f_42d3_45b2_8144_ab7fb665eb59);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3056,7 +3056,7 @@ pub struct IAccelerometer4_abi(
 pub struct IAccelerometer5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometer5 {
     type Vtable = IAccelerometer5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2122215457, 57076, 21414, [175, 67, 128, 111, 213, 56, 237, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e7e7021_def4_53a6_af43_806fd538edf6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3074,7 +3074,7 @@ pub struct IAccelerometer5_abi(
 pub struct IAccelerometerDataThreshold(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometerDataThreshold {
     type Vtable = IAccelerometerDataThreshold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4180417384, 25376, 21879, [135, 158, 153, 66, 98, 28, 61, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf92c1b68_6320_5577_879e_9942621c3dd9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3097,7 +3097,7 @@ pub struct IAccelerometerDataThreshold_abi(
 pub struct IAccelerometerDeviceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometerDeviceId {
     type Vtable = IAccelerometerDeviceId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2125227177, 38869, 17517, [171, 90, 145, 125, 249, 185, 106, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7eac64a9_97d5_446d_ab5a_917df9b96a2c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3115,7 +3115,7 @@ pub struct IAccelerometerDeviceId_abi(
 pub struct IAccelerometerReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometerReading {
     type Vtable = IAccelerometerReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3120462539, 54097, 16559, [139, 182, 122, 169, 174, 100, 31, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9fe7acb_d351_40af_8bb6_7aa9ae641fb7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3137,7 +3137,7 @@ pub struct IAccelerometerReading_abi(
 pub struct IAccelerometerReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometerReading2 {
     type Vtable = IAccelerometerReading2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(176573090, 5550, 19008, [190, 85, 219, 88, 215, 222, 115, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a864aa2_15ae_4a40_be55_db58d7de7389);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3158,7 +3158,7 @@ pub struct IAccelerometerReading2_abi(
 pub struct IAccelerometerReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometerReadingChangedEventArgs {
     type Vtable = IAccelerometerReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(9815643, 46764, 18266, [159, 68, 139, 50, 211, 90, 63, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0095c65b_b6ac_475a_9f44_8b32d35a3f25);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3176,7 +3176,7 @@ pub struct IAccelerometerReadingChangedEventArgs_abi(
 pub struct IAccelerometerShakenEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometerShakenEventArgs {
     type Vtable = IAccelerometerShakenEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2516517329, 18984, 20277, [152, 232, 129, 120, 170, 228, 8, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95ff01d1_4a28_4f35_98e8_8178aae4084a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3195,7 +3195,7 @@ pub struct IAccelerometerShakenEventArgs_abi(
 pub struct IAccelerometerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometerStatics {
     type Vtable = IAccelerometerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2783087476, 23175, 18989, [190, 204, 15, 144, 110, 160, 97, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5e28b74_5a87_4a2d_becc_0f906ea061dd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3213,7 +3213,7 @@ pub struct IAccelerometerStatics_abi(
 pub struct IAccelerometerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometerStatics2 {
     type Vtable = IAccelerometerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3301213231, 55403, 18053, [178, 215, 51, 150, 247, 152, 213, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4c4842f_d86b_4685_b2d7_3396f798d57b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3231,7 +3231,7 @@ pub struct IAccelerometerStatics2_abi(
 pub struct IAccelerometerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometerStatics3 {
     type Vtable = IAccelerometerStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2648840399, 17757, 19699, [130, 0, 112, 225, 65, 3, 64, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9de218cf_455d_4cf3_8200_70e1410340f8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3251,7 +3251,7 @@ pub struct IAccelerometerStatics3_abi(
 pub struct IActivitySensor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivitySensor {
     type Vtable = IActivitySensor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3447350028, 64351, 18667, [176, 155, 162, 112, 141, 28, 97, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd7a630c_fb5f_48eb_b09b_a2708d1c61ef);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3281,7 +3281,7 @@ pub struct IActivitySensor_abi(
 pub struct IActivitySensorReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivitySensorReading {
     type Vtable = IActivitySensorReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2232572566, 5234, 16546, [178, 174, 225, 239, 41, 34, 108, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85125a96_1472_40a2_b2ae_e1ef29226c78);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3302,7 +3302,7 @@ pub struct IActivitySensorReading_abi(
 pub struct IActivitySensorReadingChangeReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivitySensorReadingChangeReport {
     type Vtable = IActivitySensorReadingChangeReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1329342741, 55611, 18365, [150, 10, 242, 15, 178, 243, 34, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f3c2915_d93b_47bd_960a_f20fb2f322b9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3320,7 +3320,7 @@ pub struct IActivitySensorReadingChangeReport_abi(
 pub struct IActivitySensorReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivitySensorReadingChangedEventArgs {
     type Vtable = IActivitySensorReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3728238359, 44726, 20167, [148, 106, 217, 204, 25, 185, 81, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde386717_aeb6_4ec7_946a_d9cc19b951ec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3338,7 +3338,7 @@ pub struct IActivitySensorReadingChangedEventArgs_abi(
 pub struct IActivitySensorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivitySensorStatics {
     type Vtable = IActivitySensorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2803764893, 61067, 17873, [178, 91, 8, 204, 13, 249, 42, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa71e0e9d_ee8b_45d1_b25b_08cc0df92ab6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3364,7 +3364,7 @@ pub struct IActivitySensorStatics_abi(
 pub struct IActivitySensorTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivitySensorTriggerDetails {
     type Vtable = IActivitySensorTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(748578322, 47562, 18039, [178, 99, 36, 50, 151, 247, 157, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c9e6612_b9ca_4677_b263_243297f79d3a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3383,7 +3383,7 @@ pub struct IActivitySensorTriggerDetails_abi(
 pub struct IAltimeter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAltimeter {
     type Vtable = IAltimeter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1928353789, 36612, 18929, [180, 167, 244, 227, 99, 183, 1, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72f057fd_8f04_49f1_b4a7_f4e363b701a2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3409,7 +3409,7 @@ pub struct IAltimeter_abi(
 pub struct IAltimeter2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAltimeter2 {
     type Vtable = IAltimeter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3376880633, 10973, 18677, [159, 8, 61, 12, 118, 96, 217, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9471bf9_2add_48f5_9f08_3d0c7660d938);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3429,7 +3429,7 @@ pub struct IAltimeter2_abi(
 pub struct IAltimeterReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAltimeterReading {
     type Vtable = IAltimeterReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4226346867, 32606, 18632, [170, 26, 241, 243, 190, 252, 17, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbe8ef73_7f5e_48c8_aa1a_f1f3befc1144);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3449,7 +3449,7 @@ pub struct IAltimeterReading_abi(
 pub struct IAltimeterReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAltimeterReading2 {
     type Vtable = IAltimeterReading2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1413094361, 27915, 17074, [189, 105, 188, 143, 174, 15, 120, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x543a1bd9_6d0b_42b2_bd69_bc8fae0f782c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3470,7 +3470,7 @@ pub struct IAltimeterReading2_abi(
 pub struct IAltimeterReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAltimeterReadingChangedEventArgs {
     type Vtable = IAltimeterReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1885982839, 17517, 18423, [153, 140, 235, 194, 59, 69, 228, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7069d077_446d_47f7_998c_ebc23b45e4a2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3488,7 +3488,7 @@ pub struct IAltimeterReadingChangedEventArgs_abi(
 pub struct IAltimeterStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAltimeterStatics {
     type Vtable = IAltimeterStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2662651843, 58796, 18382, [142, 239, 211, 113, 129, 104, 192, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9eb4d7c3_e5ac_47ce_8eef_d3718168c01f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3506,7 +3506,7 @@ pub struct IAltimeterStatics_abi(
 pub struct IBarometer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarometer {
     type Vtable = IBarometer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2470737320, 30911, 17711, [176, 23, 240, 32, 156, 230, 218, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x934475a8_78bf_452f_b017_f0209ce6dab4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3532,7 +3532,7 @@ pub struct IBarometer_abi(
 pub struct IBarometer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarometer2 {
     type Vtable = IBarometer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(851231768, 16107, 19716, [149, 116, 118, 51, 168, 120, 31, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32bcc418_3eeb_4d04_9574_7633a8781f9f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3552,7 +3552,7 @@ pub struct IBarometer2_abi(
 pub struct IBarometer3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarometer3 {
     type Vtable = IBarometer3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(238416106, 693, 23044, [176, 61, 130, 32, 132, 134, 58, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e35f0ea_02b5_5a04_b03d_822084863a54);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3570,7 +3570,7 @@ pub struct IBarometer3_abi(
 pub struct IBarometerDataThreshold(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarometerDataThreshold {
     type Vtable = IBarometerDataThreshold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(124491052, 52066, 23184, [160, 209, 248, 94, 74, 147, 99, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x076b952c_cb62_5a90_a0d1_f85e4a936394);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3589,7 +3589,7 @@ pub struct IBarometerDataThreshold_abi(
 pub struct IBarometerReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarometerReading {
     type Vtable = IBarometerReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4122596070, 7670, 18970, [167, 173, 50, 29, 79, 93, 178, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5b9d2e6_1df6_4a1a_a7ad_321d4f5db247);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3609,7 +3609,7 @@ pub struct IBarometerReading_abi(
 pub struct IBarometerReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarometerReading2 {
     type Vtable = IBarometerReading2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2242004203, 37061, 18549, [137, 28, 56, 101, 180, 195, 87, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85a244eb_90c5_4875_891c_3865b4c357e7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3630,7 +3630,7 @@ pub struct IBarometerReading2_abi(
 pub struct IBarometerReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarometerReadingChangedEventArgs {
     type Vtable = IBarometerReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1032098911, 891, 16463, [155, 187, 98, 50, 214, 149, 67, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d84945f_037b_404f_9bbb_6232d69543c3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3648,7 +3648,7 @@ pub struct IBarometerReadingChangedEventArgs_abi(
 pub struct IBarometerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarometerStatics {
     type Vtable = IBarometerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(678110986, 739, 20358, [132, 252, 253, 216, 146, 181, 148, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x286b270a_02e3_4f86_84fc_fdd892b5940f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3666,7 +3666,7 @@ pub struct IBarometerStatics_abi(
 pub struct IBarometerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarometerStatics2 {
     type Vtable = IBarometerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2412163559, 38399, 17580, [135, 142, 214, 92, 131, 8, 195, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fc6b1e7_95ff_44ac_878e_d65c8308c34c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3686,7 +3686,7 @@ pub struct IBarometerStatics2_abi(
 pub struct ICompass(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompass {
     type Vtable = ICompass_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691010196, 6981, 16444, [186, 6, 177, 6, 219, 166, 154, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x292ffa94_1b45_403c_ba06_b106dba69a64);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3711,7 +3711,7 @@ pub struct ICompass_abi(
 pub struct ICompass2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompass2 {
     type Vtable = ICompass2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(921857289, 51159, 17231, [180, 97, 151, 157, 223, 194, 50, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36f26d09_c7d7_434f_b461_979ddfc2322f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3732,7 +3732,7 @@ pub struct ICompass2_abi(
 pub struct ICompass3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompass3 {
     type Vtable = ICompass3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2753855515, 50666, 19781, [160, 236, 75, 121, 31, 4, 26, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa424801b_c5ea_4d45_a0ec_4b791f041a89);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3752,7 +3752,7 @@ pub struct ICompass3_abi(
 pub struct ICompass4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompass4 {
     type Vtable = ICompass4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(689864465, 60466, 24012, [191, 203, 11, 179, 158, 186, 87, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x291e7f11_ec32_5dcc_bfcb_0bb39eba5774);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3770,7 +3770,7 @@ pub struct ICompass4_abi(
 pub struct ICompassDataThreshold(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompassDataThreshold {
     type Vtable = ICompassDataThreshold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3512423091, 54173, 24264, [178, 228, 241, 147, 230, 171, 52, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd15b52b3_d39d_5ec8_b2e4_f193e6ab34ed);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3789,7 +3789,7 @@ pub struct ICompassDataThreshold_abi(
 pub struct ICompassDeviceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompassDeviceId {
     type Vtable = ICompassDeviceId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3514944041, 45189, 19229, [135, 10, 79, 245, 123, 167, 79, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd181ca29_b085_4b1d_870a_4ff57ba74fd4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3807,7 +3807,7 @@ pub struct ICompassDeviceId_abi(
 pub struct ICompassReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompassReading {
     type Vtable = ICompassReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2190545192, 20797, 19913, [183, 129, 94, 237, 251, 240, 45, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82911128_513d_4dc9_b781_5eedfbf02d0c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3829,7 +3829,7 @@ pub struct ICompassReading_abi(
 pub struct ICompassReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompassReading2 {
     type Vtable = ICompassReading2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2973394462, 20923, 18962, [190, 221, 173, 71, 255, 135, 210, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb13a661e_51bb_4a12_bedd_ad47ff87d2e8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3850,7 +3850,7 @@ pub struct ICompassReading2_abi(
 pub struct ICompassReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompassReadingChangedEventArgs {
     type Vtable = ICompassReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400537008, 59580, 19582, [176, 9, 78, 65, 223, 19, 112, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f1549b0_e8bc_4c7e_b009_4e41df137072);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3868,7 +3868,7 @@ pub struct ICompassReadingChangedEventArgs_abi(
 pub struct ICompassReadingHeadingAccuracy(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompassReadingHeadingAccuracy {
     type Vtable = ICompassReadingHeadingAccuracy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881907534, 35089, 16631, [158, 22, 110, 204, 125, 174, 197, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe761354e_8911_40f7_9e16_6ecc7daec5de);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3886,7 +3886,7 @@ pub struct ICompassReadingHeadingAccuracy_abi(
 pub struct ICompassStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompassStatics {
     type Vtable = ICompassStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2596050911, 22252, 19493, [181, 77, 64, 166, 139, 181, 178, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9abc97df_56ec_4c25_b54d_40a68bb5b269);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3904,7 +3904,7 @@ pub struct ICompassStatics_abi(
 pub struct ICompassStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompassStatics2 {
     type Vtable = ICompassStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(181276333, 15274, 18832, [156, 228, 190, 9, 19, 117, 78, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ace0ead_3baa_4990_9ce4_be0913754ed2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3924,7 +3924,7 @@ pub struct ICompassStatics2_abi(
 pub struct IGyrometer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometer {
     type Vtable = IGyrometer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4256803268, 33969, 19618, [151, 99, 155, 88, 149, 6, 199, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfdb9a9c4_84b1_4ca2_9763_9b589506c70c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3949,7 +3949,7 @@ pub struct IGyrometer_abi(
 pub struct IGyrometer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometer2 {
     type Vtable = IGyrometer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1675568195, 36072, 16835, [172, 68, 134, 152, 129, 11, 85, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63df2443_8ce8_41c3_ac44_8698810b557f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3970,7 +3970,7 @@ pub struct IGyrometer2_abi(
 pub struct IGyrometer3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometer3 {
     type Vtable = IGyrometer3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1567590613, 36796, 17540, [145, 75, 82, 138, 223, 217, 71, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d6f88d5_8fbc_4484_914b_528adfd947b1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3990,7 +3990,7 @@ pub struct IGyrometer3_abi(
 pub struct IGyrometer4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometer4 {
     type Vtable = IGyrometer4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(103327244, 19531, 20630, [148, 230, 195, 86, 223, 104, 190, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0628a60c_4c4b_5096_94e6_c356df68bef7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4008,7 +4008,7 @@ pub struct IGyrometer4_abi(
 pub struct IGyrometerDataThreshold(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometerDataThreshold {
     type Vtable = IGyrometerDataThreshold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2252911390, 28242, 21081, [187, 173, 36, 42, 105, 220, 56, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8648b31e_6e52_5259_bbad_242a69dc38c8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4031,7 +4031,7 @@ pub struct IGyrometerDataThreshold_abi(
 pub struct IGyrometerDeviceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometerDeviceId {
     type Vtable = IGyrometerDeviceId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(518383992, 35234, 17013, [158, 149, 113, 38, 244, 112, 135, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ee5e978_89a2_4275_9e95_7126f4708760);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4049,7 +4049,7 @@ pub struct IGyrometerDeviceId_abi(
 pub struct IGyrometerReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometerReading {
     type Vtable = IGyrometerReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3017203292, 7908, 17775, [157, 231, 226, 73, 59, 92, 142, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3d6de5c_1ee4_456f_9de7_e2493b5c8e03);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4071,7 +4071,7 @@ pub struct IGyrometerReading_abi(
 pub struct IGyrometerReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometerReading2 {
     type Vtable = IGyrometerReading2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(380625212, 11145, 17595, [130, 43, 209, 225, 85, 111, 240, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16afe13c_2b89_44bb_822b_d1e1556ff09b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4092,7 +4092,7 @@ pub struct IGyrometerReading2_abi(
 pub struct IGyrometerReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometerReadingChangedEventArgs {
     type Vtable = IGyrometerReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(266279061, 28574, 17102, [141, 88, 56, 140, 10, 184, 53, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0fdf1895_6f9e_42ce_8d58_388c0ab8356d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4110,7 +4110,7 @@ pub struct IGyrometerReadingChangedEventArgs_abi(
 pub struct IGyrometerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometerStatics {
     type Vtable = IGyrometerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2209802185, 58525, 19257, [134, 230, 205, 85, 75, 228, 197, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83b6e7c9_e49d_4b39_86e6_cd554be4c5c1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4128,7 +4128,7 @@ pub struct IGyrometerStatics_abi(
 pub struct IGyrometerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometerStatics2 {
     type Vtable = IGyrometerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4018403233, 55040, 16900, [150, 19, 121, 198, 177, 97, 223, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef83f7a1_d700_4204_9613_79c6b161df4e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4148,7 +4148,7 @@ pub struct IGyrometerStatics2_abi(
 pub struct IHingeAngleReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHingeAngleReading {
     type Vtable = IHingeAngleReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2748138937, 7153, 20325, [167, 4, 226, 218, 4, 241, 130, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3cd45b9_1bf1_4f65_a704_e2da04f182c0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4170,7 +4170,7 @@ pub struct IHingeAngleReading_abi(
 pub struct IHingeAngleSensor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHingeAngleSensor {
     type Vtable = IHingeAngleSensor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3922968066, 49119, 17279, [140, 41, 136, 199, 115, 147, 211, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9d3be02_bfdf_437f_8c29_88c77393d309);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4197,7 +4197,7 @@ pub struct IHingeAngleSensor_abi(
 pub struct IHingeAngleSensorReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHingeAngleSensorReadingChangedEventArgs {
     type Vtable = IHingeAngleSensorReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(618222987, 64208, 17080, [168, 84, 120, 146, 48, 73, 161, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24d9558b_fad0_42b8_a854_78923049a1ba);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4215,7 +4215,7 @@ pub struct IHingeAngleSensorReadingChangedEventArgs_abi(
 pub struct IHingeAngleSensorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHingeAngleSensorStatics {
     type Vtable = IHingeAngleSensorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3082172688, 64433, 16675, [137, 206, 78, 163, 78, 176, 223, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7b63910_fbb1_4123_89ce_4ea34eb0dfca);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4239,7 +4239,7 @@ pub struct IHingeAngleSensorStatics_abi(
 pub struct IInclinometer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometer {
     type Vtable = IInclinometer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(642304623, 8838, 16495, [145, 97, 240, 196, 189, 128, 110, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2648ca6f_2286_406f_9161_f0c4bd806ebf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4264,7 +4264,7 @@ pub struct IInclinometer_abi(
 pub struct IInclinometer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometer2 {
     type Vtable = IInclinometer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(43987859, 10418, 17912, [187, 22, 97, 232, 106, 127, 174, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x029f3393_28b2_45f8_bb16_61e86a7fae6e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4286,7 +4286,7 @@ pub struct IInclinometer2_abi(
 pub struct IInclinometer3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometer3 {
     type Vtable = IInclinometer3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(973688836, 55141, 17284, [163, 215, 2, 131, 243, 171, 230, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a095004_d765_4384_a3d7_0283f3abe6ae);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4306,7 +4306,7 @@ pub struct IInclinometer3_abi(
 pub struct IInclinometer4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometer4 {
     type Vtable = IInclinometer4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1132799512, 36810, 21646, [187, 245, 92, 80, 65, 43, 106, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43852618_8fca_548e_bbf5_5c50412b6aa4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4324,7 +4324,7 @@ pub struct IInclinometer4_abi(
 pub struct IInclinometerDataThreshold(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerDataThreshold {
     type Vtable = IInclinometerDataThreshold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4161423235, 31742, 21598, [187, 96, 160, 235, 196, 123, 210, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf80a4783_7bfe_545e_bb60_a0ebc47bd2fb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4347,7 +4347,7 @@ pub struct IInclinometerDataThreshold_abi(
 pub struct IInclinometerDeviceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerDeviceId {
     type Vtable = IInclinometerDeviceId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(32053634, 16895, 17414, [174, 131, 98, 33, 15, 241, 111, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01e91982_41ff_4406_ae83_62210ff16fe3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4365,7 +4365,7 @@ pub struct IInclinometerDeviceId_abi(
 pub struct IInclinometerReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerReading {
     type Vtable = IInclinometerReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2672095317, 46838, 18815, [177, 39, 26, 119, 94, 80, 20, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f44f055_b6f6_497f_b127_1a775e501458);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4387,7 +4387,7 @@ pub struct IInclinometerReading_abi(
 pub struct IInclinometerReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerReading2 {
     type Vtable = IInclinometerReading2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1326860161, 59659, 18008, [137, 21, 1, 3, 224, 138, 128, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f164781_e90b_4658_8915_0103e08a805a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4408,7 +4408,7 @@ pub struct IInclinometerReading2_abi(
 pub struct IInclinometerReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerReadingChangedEventArgs {
     type Vtable = IInclinometerReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1256791489, 59371, 18744, [133, 17, 174, 13, 107, 68, 4, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ae91dc1_e7eb_4938_8511_ae0d6b440438);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4426,7 +4426,7 @@ pub struct IInclinometerReadingChangedEventArgs_abi(
 pub struct IInclinometerReadingYawAccuracy(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerReadingYawAccuracy {
     type Vtable = IInclinometerReadingYawAccuracy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3025397888, 8163, 18822, [162, 87, 230, 236, 226, 114, 57, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb453e880_1fe3_4986_a257_e6ece2723949);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4444,7 +4444,7 @@ pub struct IInclinometerReadingYawAccuracy_abi(
 pub struct IInclinometerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerStatics {
     type Vtable = IInclinometerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4063151441, 39984, 17722, [139, 73, 60, 62, 235, 51, 203, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf22ec551_9c30_453a_8b49_3c3eeb33cb61);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4462,7 +4462,7 @@ pub struct IInclinometerStatics_abi(
 pub struct IInclinometerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerStatics2 {
     type Vtable = IInclinometerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(71276405, 27166, 18844, [134, 224, 99, 140, 26, 134, 75, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x043f9775_6a1e_499c_86e0_638c1a864b00);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4480,7 +4480,7 @@ pub struct IInclinometerStatics2_abi(
 pub struct IInclinometerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerStatics3 {
     type Vtable = IInclinometerStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3181003392, 47386, 18473, [147, 146, 171, 192, 182, 189, 242, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd9a4280_b91a_4829_9392_abc0b6bdf2b4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4498,7 +4498,7 @@ pub struct IInclinometerStatics3_abi(
 pub struct IInclinometerStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerStatics4 {
     type Vtable = IInclinometerStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3904542457, 28293, 19075, [174, 208, 215, 205, 204, 152, 86, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8ba96f9_6e85_4a83_aed0_d7cdcc9856c8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4518,7 +4518,7 @@ pub struct IInclinometerStatics4_abi(
 pub struct ILightSensor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensor {
     type Vtable = ILightSensor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4165732120, 3156, 18350, [146, 46, 120, 159, 87, 251, 3, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf84c0718_0c54_47ae_922e_789f57fb03a0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4543,7 +4543,7 @@ pub struct ILightSensor_abi(
 pub struct ILightSensor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensor2 {
     type Vtable = ILightSensor2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1214981352, 43340, 16528, [143, 72, 9, 247, 130, 169, 247, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x486b24e8_a94c_4090_8f48_09f782a9f7d5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4563,7 +4563,7 @@ pub struct ILightSensor2_abi(
 pub struct ILightSensor3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensor3 {
     type Vtable = ILightSensor3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1215746303, 40780, 24434, [173, 189, 163, 71, 27, 6, 60, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4876d0ff_9f4c_5f72_adbd_a3471b063c00);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4581,7 +4581,7 @@ pub struct ILightSensor3_abi(
 pub struct ILightSensorDataThreshold(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensorDataThreshold {
     type Vtable = ILightSensorDataThreshold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2975903697, 34703, 21650, [159, 44, 51, 220, 58, 229, 132, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb160afd1_878f_5492_9f2c_33dc3ae584a3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4602,7 +4602,7 @@ pub struct ILightSensorDataThreshold_abi(
 pub struct ILightSensorDeviceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensorDeviceId {
     type Vtable = ILightSensorDeviceId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2146322936, 2811, 20305, [135, 240, 108, 38, 55, 92, 233, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fee49f8_0afb_4f51_87f0_6c26375ce94f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4620,7 +4620,7 @@ pub struct ILightSensorDeviceId_abi(
 pub struct ILightSensorReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensorReading {
     type Vtable = ILightSensorReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4292829952, 8828, 19755, [179, 2, 252, 1, 66, 72, 92, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffdf6300_227c_4d2b_b302_fc0142485c68);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4640,7 +4640,7 @@ pub struct ILightSensorReading_abi(
 pub struct ILightSensorReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensorReading2 {
     type Vtable = ILightSensorReading2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3075547525, 17571, 17609, [129, 144, 158, 246, 222, 10, 138, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7512185_44a3_44c9_8190_9ef6de0a8a74);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4661,7 +4661,7 @@ pub struct ILightSensorReading2_abi(
 pub struct ILightSensorReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensorReadingChangedEventArgs {
     type Vtable = ILightSensorReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2745365711, 9611, 16908, [184, 171, 142, 221, 96, 30, 207, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3a2f4cf_258b_420c_b8ab_8edd601ecf50);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4679,7 +4679,7 @@ pub struct ILightSensorReadingChangedEventArgs_abi(
 pub struct ILightSensorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensorStatics {
     type Vtable = ILightSensorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1172016260, 50088, 18206, [154, 83, 100, 87, 250, 216, 124, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45db8c84_c3a8_471e_9a53_6457fad87c0e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4697,7 +4697,7 @@ pub struct ILightSensorStatics_abi(
 pub struct ILightSensorStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensorStatics2 {
     type Vtable = ILightSensorStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(247506512, 56774, 16555, [172, 227, 236, 51, 89, 212, 44, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ec0a650_ddc6_40ab_ace3_ec3359d42c51);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4717,7 +4717,7 @@ pub struct ILightSensorStatics2_abi(
 pub struct IMagnetometer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometer {
     type Vtable = IMagnetometer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1213162094, 54217, 16657, [179, 246, 44, 241, 250, 164, 24, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x484f626e_d3c9_4111_b3f6_2cf1faa418d5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4742,7 +4742,7 @@ pub struct IMagnetometer_abi(
 pub struct IMagnetometer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometer2 {
     type Vtable = IMagnetometer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3026545797, 9974, 17483, [169, 226, 162, 63, 150, 108, 211, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4656c85_26f6_444b_a9e2_a23f966cd368);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4763,7 +4763,7 @@ pub struct IMagnetometer2_abi(
 pub struct IMagnetometer3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometer3 {
     type Vtable = IMagnetometer3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3197361020, 42533, 18671, [172, 247, 250, 193, 4, 131, 38, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe93db7c_a625_48ef_acf7_fac104832671);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4783,7 +4783,7 @@ pub struct IMagnetometer3_abi(
 pub struct IMagnetometer4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometer4 {
     type Vtable = IMagnetometer4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3752950017, 15887, 20623, [178, 75, 242, 187, 117, 1, 95, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdfb17901_3e0f_508f_b24b_f2bb75015f40);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4801,7 +4801,7 @@ pub struct IMagnetometer4_abi(
 pub struct IMagnetometerDataThreshold(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometerDataThreshold {
     type Vtable = IMagnetometerDataThreshold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3514288897, 36963, 24485, [181, 150, 180, 69, 233, 220, 52, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd177cb01_9063_5fa5_b596_b445e9dc3401);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4824,7 +4824,7 @@ pub struct IMagnetometerDataThreshold_abi(
 pub struct IMagnetometerDeviceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometerDeviceId {
     type Vtable = IMagnetometerDeviceId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1488230594, 32331, 16460, [159, 197, 93, 232, 180, 14, 186, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58b498c2_7e4b_404c_9fc5_5de8b40ebae3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4842,7 +4842,7 @@ pub struct IMagnetometerDeviceId_abi(
 pub struct IMagnetometerReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometerReading {
     type Vtable = IMagnetometerReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(204260365, 60413, 20060, [187, 17, 175, 194, 155, 60, 174, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c2cc40d_ebfd_4e5c_bb11_afc29b3cae61);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4865,7 +4865,7 @@ pub struct IMagnetometerReading_abi(
 pub struct IMagnetometerReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometerReading2 {
     type Vtable = IMagnetometerReading2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3569966177, 25049, 16459, [163, 40, 6, 111, 23, 122, 20, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4c95c61_61d9_404b_a328_066f177a1409);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4886,7 +4886,7 @@ pub struct IMagnetometerReading2_abi(
 pub struct IMagnetometerReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometerReadingChangedEventArgs {
     type Vtable = IMagnetometerReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(401270898, 11961, 20199, [138, 208, 49, 39, 83, 125, 148, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17eae872_2eb9_4ee7_8ad0_3127537d949b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4904,7 +4904,7 @@ pub struct IMagnetometerReadingChangedEventArgs_abi(
 pub struct IMagnetometerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometerStatics {
     type Vtable = IMagnetometerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2235327692, 1688, 19930, [166, 223, 156, 185, 204, 74, 180, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x853c64cc_0698_4dda_a6df_9cb9cc4ab40a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4922,7 +4922,7 @@ pub struct IMagnetometerStatics_abi(
 pub struct IMagnetometerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometerStatics2 {
     type Vtable = IMagnetometerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(738728432, 65478, 20361, [160, 111, 24, 250, 16, 121, 41, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c0819f0_ffc6_4f89_a06f_18fa10792933);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4942,7 +4942,7 @@ pub struct IMagnetometerStatics2_abi(
 pub struct IOrientationSensor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensor {
     type Vtable = IOrientationSensor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1580549685, 53099, 19555, [171, 216, 16, 37, 43, 11, 246, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e354635_cf6b_4c63_abd8_10252b0bf6ec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4967,7 +4967,7 @@ pub struct IOrientationSensor_abi(
 pub struct IOrientationSensor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensor2 {
     type Vtable = IOrientationSensor2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(227691769, 12063, 18889, [128, 66, 74, 24, 19, 214, 119, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d924cf9_2f1f_49c9_8042_4a1813d67760);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4989,7 +4989,7 @@ pub struct IOrientationSensor2_abi(
 pub struct IOrientationSensor3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensor3 {
     type Vtable = IOrientationSensor3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(751720333, 25707, 18629, [183, 238, 68, 253, 196, 198, 170, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cce578d_646b_48c5_b7ee_44fdc4c6aafd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5009,7 +5009,7 @@ pub struct IOrientationSensor3_abi(
 pub struct IOrientationSensorDeviceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensorDeviceId {
     type Vtable = IOrientationSensorDeviceId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1516877384, 19497, 18924, [178, 143, 234, 29, 17, 123, 102, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a69b648_4c29_49ec_b28f_ea1d117b66f0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5027,7 +5027,7 @@ pub struct IOrientationSensorDeviceId_abi(
 pub struct IOrientationSensorReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensorReading {
     type Vtable = IOrientationSensorReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1196870035, 26005, 18583, [188, 198, 213, 55, 238, 117, 117, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4756c993_6595_4897_bcc6_d537ee757564);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5048,7 +5048,7 @@ pub struct IOrientationSensorReading_abi(
 pub struct IOrientationSensorReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensorReading2 {
     type Vtable = IOrientationSensorReading2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(5729887, 18936, 19461, [158, 7, 36, 250, 199, 148, 8, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00576e5f_49f8_4c05_9e07_24fac79408c3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5069,7 +5069,7 @@ pub struct IOrientationSensorReading2_abi(
 pub struct IOrientationSensorReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensorReadingChangedEventArgs {
     type Vtable = IOrientationSensorReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(19665286, 50106, 18108, [174, 101, 122, 152, 153, 108, 191, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x012c1186_c3ba_46bc_ae65_7a98996cbfb8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5087,7 +5087,7 @@ pub struct IOrientationSensorReadingChangedEventArgs_abi(
 pub struct IOrientationSensorReadingYawAccuracy(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensorReadingYawAccuracy {
     type Vtable = IOrientationSensorReadingYawAccuracy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3517749284, 16218, 18850, [188, 123, 17, 128, 188, 56, 205, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1ac9824_3f5a_49a2_bc7b_1180bc38cd2b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5105,7 +5105,7 @@ pub struct IOrientationSensorReadingYawAccuracy_abi(
 pub struct IOrientationSensorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensorStatics {
     type Vtable = IOrientationSensorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(284133138, 64332, 17034, [137, 139, 39, 101, 228, 9, 230, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10ef8712_fb4c_428a_898b_2765e409e669);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5123,7 +5123,7 @@ pub struct IOrientationSensorStatics_abi(
 pub struct IOrientationSensorStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensorStatics2 {
     type Vtable = IOrientationSensorStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1507462411, 54282, 19569, [146, 118, 138, 39, 42, 10, 102, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59da0d0b_d40a_4c71_9276_8a272a0a6619);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5141,7 +5141,7 @@ pub struct IOrientationSensorStatics2_abi(
 pub struct IOrientationSensorStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensorStatics3 {
     type Vtable = IOrientationSensorStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3626821920, 10103, 16639, [159, 89, 214, 84, 176, 133, 241, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd82ce920_2777_40ff_9f59_d654b085f12f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5160,7 +5160,7 @@ pub struct IOrientationSensorStatics3_abi(
 pub struct IOrientationSensorStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensorStatics4 {
     type Vtable = IOrientationSensorStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2793401173, 11397, 19240, [160, 254, 88, 196, 178, 4, 149, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa67feb55_2c85_4b28_a0fe_58c4b20495f5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5181,7 +5181,7 @@ pub struct IOrientationSensorStatics4_abi(
 pub struct IPedometer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPedometer {
     type Vtable = IPedometer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2585657661, 15768, 17912, [137, 32, 142, 78, 202, 202, 95, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a1e013d_3d98_45f8_8920_8e4ecaca5f97);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5207,7 +5207,7 @@ pub struct IPedometer_abi(
 pub struct IPedometer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPedometer2 {
     type Vtable = IPedometer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3852732127, 11137, 19165, [178, 255, 119, 171, 108, 152, 186, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5a406df_2b81_4add_b2ff_77ab6c98ba19);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5226,7 +5226,7 @@ pub struct IPedometer2_abi(
 pub struct IPedometerDataThresholdFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPedometerDataThresholdFactory {
     type Vtable = IPedometerDataThresholdFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3417149264, 31316, 18027, [144, 16, 119, 161, 98, 252, 165, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcbad8f50_7a54_466b_9010_77a162fca5d7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5244,7 +5244,7 @@ pub struct IPedometerDataThresholdFactory_abi(
 pub struct IPedometerReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPedometerReading {
     type Vtable = IPedometerReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(575003892, 43233, 17199, [137, 106, 190, 13, 217, 176, 45, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2245dcf4_a8e1_432f_896a_be0dd9b02d24);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5267,7 +5267,7 @@ pub struct IPedometerReading_abi(
 pub struct IPedometerReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPedometerReadingChangedEventArgs {
     type Vtable = IPedometerReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4166378622, 43964, 17494, [134, 168, 37, 207, 43, 51, 55, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf855e47e_abbc_4456_86a8_25cf2b333742);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5285,7 +5285,7 @@ pub struct IPedometerReadingChangedEventArgs_abi(
 pub struct IPedometerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPedometerStatics {
     type Vtable = IPedometerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2191002159, 16515, 19963, [180, 17, 147, 142, 160, 244, 185, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82980a2f_4083_4dfb_b411_938ea0f4b946);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5311,7 +5311,7 @@ pub struct IPedometerStatics_abi(
 pub struct IPedometerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPedometerStatics2 {
     type Vtable = IPedometerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2046150331, 52750, 16691, [180, 126, 134, 39, 234, 114, 246, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79f5c6bb_ce0e_4133_b47e_8627ea72f677);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5330,7 +5330,7 @@ pub struct IPedometerStatics2_abi(
 pub struct IProximitySensor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProximitySensor {
     type Vtable = IProximitySensor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1421899448, 60667, 18756, [185, 40, 116, 252, 80, 77, 71, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54c076b8_ecfb_4944_b928_74fc504d47ee);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5359,7 +5359,7 @@ pub struct IProximitySensor_abi(
 pub struct IProximitySensorDataThresholdFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProximitySensorDataThresholdFactory {
     type Vtable = IProximitySensorDataThresholdFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421866785, 27943, 19155, [157, 181, 100, 103, 242, 165, 173, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x905ac121_6d27_4ad3_9db5_6467f2a5ad9d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5377,7 +5377,7 @@ pub struct IProximitySensorDataThresholdFactory_abi(
 pub struct IProximitySensorReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProximitySensorReading {
     type Vtable = IProximitySensorReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1898089817, 4909, 19807, [143, 249, 47, 13, 184, 117, 28, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71228d59_132d_4d5f_8ff9_2f0db8751ced);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5399,7 +5399,7 @@ pub struct IProximitySensorReading_abi(
 pub struct IProximitySensorReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProximitySensorReadingChangedEventArgs {
     type Vtable = IProximitySensorReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3485660006, 50152, 16637, [140, 195, 103, 226, 137, 0, 73, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfc2f366_c3e8_40fd_8cc3_67e289004938);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5417,7 +5417,7 @@ pub struct IProximitySensorReadingChangedEventArgs_abi(
 pub struct IProximitySensorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProximitySensorStatics {
     type Vtable = IProximitySensorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(689464905, 25193, 20055, [165, 173, 130, 190, 128, 129, 51, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29186649_6269_4e57_a5ad_82be80813392);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5436,7 +5436,7 @@ pub struct IProximitySensorStatics_abi(
 pub struct IProximitySensorStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProximitySensorStatics2 {
     type Vtable = IProximitySensorStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3421795246, 59850, 16943, [173, 103, 76, 61, 37, 223, 53, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcbf473ae_e9ca_422f_ad67_4c3d25df350c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5456,7 +5456,7 @@ pub struct IProximitySensorStatics2_abi(
 pub struct ISensorDataThreshold(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISensorDataThreshold {
     type Vtable = ISensorDataThreshold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1423633505, 65099, 19975, [178, 96, 58, 76, 223, 190, 57, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54daec61_fe4b_4e07_b260_3a4cdfbe396e);
 }
 impl ISensorDataThreshold {}
 unsafe impl ::windows::runtime::RuntimeType for ISensorDataThreshold {
@@ -5517,7 +5517,7 @@ pub struct ISensorDataThreshold_abi(
 pub struct ISensorDataThresholdTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISensorDataThresholdTriggerDetails {
     type Vtable = ISensorDataThresholdTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2433151415, 59533, 18609, [188, 144, 97, 156, 123, 52, 147, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9106f1b7_e88d_48b1_bc90_619c7b349391);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5536,7 +5536,7 @@ pub struct ISensorDataThresholdTriggerDetails_abi(
 pub struct ISensorQuaternion(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISensorQuaternion {
     type Vtable = ISensorQuaternion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3385182247, 50972, 18151, [157, 163, 54, 161, 147, 178, 50, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9c5c827_c71c_46e7_9da3_36a193b232bc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5557,7 +5557,7 @@ pub struct ISensorQuaternion_abi(
 pub struct ISensorRotationMatrix(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISensorRotationMatrix {
     type Vtable = ISensorRotationMatrix_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(171792999, 8948, 17298, [149, 56, 101, 208, 189, 6, 74, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a3d5a67_22f4_4392_9538_65d0bd064aa6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5583,7 +5583,7 @@ pub struct ISensorRotationMatrix_abi(
 pub struct ISimpleOrientationSensor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISimpleOrientationSensor {
     type Vtable = ISimpleOrientationSensor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1609906262, 8522, 19950, [163, 249, 97, 111, 26, 176, 111, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ff53856_214a_4dee_a3f9_616f1ab06ffd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5605,7 +5605,7 @@ pub struct ISimpleOrientationSensor_abi(
 pub struct ISimpleOrientationSensor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISimpleOrientationSensor2 {
     type Vtable = ISimpleOrientationSensor2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2725750680, 34928, 17726, [139, 214, 184, 245, 216, 215, 148, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa277a798_8870_453e_8bd6_b8f5d8d7941b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5626,7 +5626,7 @@ pub struct ISimpleOrientationSensor2_abi(
 pub struct ISimpleOrientationSensorDeviceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISimpleOrientationSensorDeviceId {
     type Vtable = ISimpleOrientationSensorDeviceId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4223666891, 15222, 16886, [128, 145, 48, 239, 230, 70, 211, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbc00acb_3b76_41f6_8091_30efe646d3cf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5644,7 +5644,7 @@ pub struct ISimpleOrientationSensorDeviceId_abi(
 pub struct ISimpleOrientationSensorOrientationChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISimpleOrientationSensorOrientationChangedEventArgs {
     type Vtable = ISimpleOrientationSensorOrientationChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3168126560, 9172, 19276, [162, 46, 186, 129, 173, 224, 198, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbcd5c660_23d4_4b4c_a22e_ba81ade0c601);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5664,7 +5664,7 @@ pub struct ISimpleOrientationSensorOrientationChangedEventArgs_abi(
 pub struct ISimpleOrientationSensorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISimpleOrientationSensorStatics {
     type Vtable = ISimpleOrientationSensorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1928136303, 28842, 16582, [155, 27, 52, 51, 247, 69, 155, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72ed066f_70aa_40c6_9b1b_3433f7459b4e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5682,7 +5682,7 @@ pub struct ISimpleOrientationSensorStatics_abi(
 pub struct ISimpleOrientationSensorStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISimpleOrientationSensorStatics2 {
     type Vtable = ISimpleOrientationSensorStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2224004223, 45368, 19985, [137, 16, 162, 162, 163, 181, 109, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x848f9c7f_b138_4e11_8910_a2a2a3b56d83);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5864,7 +5864,7 @@ unsafe impl ::windows::runtime::RuntimeType for Inclinometer {
 }
 unsafe impl ::windows::runtime::Interface for Inclinometer {
     type Vtable = IInclinometer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(642304623, 8838, 16495, [145, 97, 240, 196, 189, 128, 110, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2648ca6f_2286_406f_9161_f0c4bd806ebf);
 }
 impl ::windows::runtime::RuntimeName for Inclinometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Inclinometer";
@@ -5961,7 +5961,7 @@ unsafe impl ::windows::runtime::RuntimeType for InclinometerDataThreshold {
 }
 unsafe impl ::windows::runtime::Interface for InclinometerDataThreshold {
     type Vtable = IInclinometerDataThreshold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4161423235, 31742, 21598, [187, 96, 160, 235, 196, 123, 210, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf80a4783_7bfe_545e_bb60_a0ebc47bd2fb);
 }
 impl ::windows::runtime::RuntimeName for InclinometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.InclinometerDataThreshold";
@@ -6078,7 +6078,7 @@ unsafe impl ::windows::runtime::RuntimeType for InclinometerReading {
 }
 unsafe impl ::windows::runtime::Interface for InclinometerReading {
     type Vtable = IInclinometerReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2672095317, 46838, 18815, [177, 39, 26, 119, 94, 80, 20, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f44f055_b6f6_497f_b127_1a775e501458);
 }
 impl ::windows::runtime::RuntimeName for InclinometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.InclinometerReading";
@@ -6144,7 +6144,7 @@ unsafe impl ::windows::runtime::RuntimeType for InclinometerReadingChangedEventA
 }
 unsafe impl ::windows::runtime::Interface for InclinometerReadingChangedEventArgs {
     type Vtable = IInclinometerReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1256791489, 59371, 18744, [133, 17, 174, 13, 107, 68, 4, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ae91dc1_e7eb_4938_8511_ae0d6b440438);
 }
 impl ::windows::runtime::RuntimeName for InclinometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.InclinometerReadingChangedEventArgs";
@@ -6313,7 +6313,7 @@ unsafe impl ::windows::runtime::RuntimeType for LightSensor {
 }
 unsafe impl ::windows::runtime::Interface for LightSensor {
     type Vtable = ILightSensor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4165732120, 3156, 18350, [146, 46, 120, 159, 87, 251, 3, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf84c0718_0c54_47ae_922e_789f57fb03a0);
 }
 impl ::windows::runtime::RuntimeName for LightSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensor";
@@ -6397,7 +6397,7 @@ unsafe impl ::windows::runtime::RuntimeType for LightSensorDataThreshold {
 }
 unsafe impl ::windows::runtime::Interface for LightSensorDataThreshold {
     type Vtable = ILightSensorDataThreshold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2975903697, 34703, 21650, [159, 44, 51, 220, 58, 229, 132, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb160afd1_878f_5492_9f2c_33dc3ae584a3);
 }
 impl ::windows::runtime::RuntimeName for LightSensorDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensorDataThreshold";
@@ -6490,7 +6490,7 @@ unsafe impl ::windows::runtime::RuntimeType for LightSensorReading {
 }
 unsafe impl ::windows::runtime::Interface for LightSensorReading {
     type Vtable = ILightSensorReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4292829952, 8828, 19755, [179, 2, 252, 1, 66, 72, 92, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffdf6300_227c_4d2b_b302_fc0142485c68);
 }
 impl ::windows::runtime::RuntimeName for LightSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensorReading";
@@ -6556,7 +6556,7 @@ unsafe impl ::windows::runtime::RuntimeType for LightSensorReadingChangedEventAr
 }
 unsafe impl ::windows::runtime::Interface for LightSensorReadingChangedEventArgs {
     type Vtable = ILightSensorReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2745365711, 9611, 16908, [184, 171, 142, 221, 96, 30, 207, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3a2f4cf_258b_420c_b8ab_8edd601ecf50);
 }
 impl ::windows::runtime::RuntimeName for LightSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensorReadingChangedEventArgs";
@@ -6740,7 +6740,7 @@ unsafe impl ::windows::runtime::RuntimeType for Magnetometer {
 }
 unsafe impl ::windows::runtime::Interface for Magnetometer {
     type Vtable = IMagnetometer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1213162094, 54217, 16657, [179, 246, 44, 241, 250, 164, 24, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x484f626e_d3c9_4111_b3f6_2cf1faa418d5);
 }
 impl ::windows::runtime::RuntimeName for Magnetometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Magnetometer";
@@ -6861,7 +6861,7 @@ unsafe impl ::windows::runtime::RuntimeType for MagnetometerDataThreshold {
 }
 unsafe impl ::windows::runtime::Interface for MagnetometerDataThreshold {
     type Vtable = IMagnetometerDataThreshold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3514288897, 36963, 24485, [181, 150, 180, 69, 233, 220, 52, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd177cb01_9063_5fa5_b596_b445e9dc3401);
 }
 impl ::windows::runtime::RuntimeName for MagnetometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.MagnetometerDataThreshold";
@@ -6978,7 +6978,7 @@ unsafe impl ::windows::runtime::RuntimeType for MagnetometerReading {
 }
 unsafe impl ::windows::runtime::Interface for MagnetometerReading {
     type Vtable = IMagnetometerReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(204260365, 60413, 20060, [187, 17, 175, 194, 155, 60, 174, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c2cc40d_ebfd_4e5c_bb11_afc29b3cae61);
 }
 impl ::windows::runtime::RuntimeName for MagnetometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.MagnetometerReading";
@@ -7044,7 +7044,7 @@ unsafe impl ::windows::runtime::RuntimeType for MagnetometerReadingChangedEventA
 }
 unsafe impl ::windows::runtime::Interface for MagnetometerReadingChangedEventArgs {
     type Vtable = IMagnetometerReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(401270898, 11961, 20199, [138, 208, 49, 39, 83, 125, 148, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17eae872_2eb9_4ee7_8ad0_3127537d949b);
 }
 impl ::windows::runtime::RuntimeName for MagnetometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.MagnetometerReadingChangedEventArgs";
@@ -7264,7 +7264,7 @@ unsafe impl ::windows::runtime::RuntimeType for OrientationSensor {
 }
 unsafe impl ::windows::runtime::Interface for OrientationSensor {
     type Vtable = IOrientationSensor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1580549685, 53099, 19555, [171, 216, 16, 37, 43, 11, 246, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e354635_cf6b_4c63_abd8_10252b0bf6ec);
 }
 impl ::windows::runtime::RuntimeName for OrientationSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.OrientationSensor";
@@ -7373,7 +7373,7 @@ unsafe impl ::windows::runtime::RuntimeType for OrientationSensorReading {
 }
 unsafe impl ::windows::runtime::Interface for OrientationSensorReading {
     type Vtable = IOrientationSensorReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1196870035, 26005, 18583, [188, 198, 213, 55, 238, 117, 117, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4756c993_6595_4897_bcc6_d537ee757564);
 }
 impl ::windows::runtime::RuntimeName for OrientationSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.OrientationSensorReading";
@@ -7439,7 +7439,7 @@ unsafe impl ::windows::runtime::RuntimeType for OrientationSensorReadingChangedE
 }
 unsafe impl ::windows::runtime::Interface for OrientationSensorReadingChangedEventArgs {
     type Vtable = IOrientationSensorReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(19665286, 50106, 18108, [174, 101, 122, 152, 153, 108, 191, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x012c1186_c3ba_46bc_ae65_7a98996cbfb8);
 }
 impl ::windows::runtime::RuntimeName for OrientationSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.OrientationSensorReadingChangedEventArgs";
@@ -7613,7 +7613,7 @@ unsafe impl ::windows::runtime::RuntimeType for Pedometer {
 }
 unsafe impl ::windows::runtime::Interface for Pedometer {
     type Vtable = IPedometer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2585657661, 15768, 17912, [137, 32, 142, 78, 202, 202, 95, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a1e013d_3d98_45f8_8920_8e4ecaca5f97);
 }
 impl ::windows::runtime::RuntimeName for Pedometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Pedometer";
@@ -7682,7 +7682,7 @@ unsafe impl ::windows::runtime::RuntimeType for PedometerDataThreshold {
 }
 unsafe impl ::windows::runtime::Interface for PedometerDataThreshold {
     type Vtable = ISensorDataThreshold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1423633505, 65099, 19975, [178, 96, 58, 76, 223, 190, 57, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54daec61_fe4b_4e07_b260_3a4cdfbe396e);
 }
 impl ::windows::runtime::RuntimeName for PedometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.PedometerDataThreshold";
@@ -7794,7 +7794,7 @@ unsafe impl ::windows::runtime::RuntimeType for PedometerReading {
 }
 unsafe impl ::windows::runtime::Interface for PedometerReading {
     type Vtable = IPedometerReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(575003892, 43233, 17199, [137, 106, 190, 13, 217, 176, 45, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2245dcf4_a8e1_432f_896a_be0dd9b02d24);
 }
 impl ::windows::runtime::RuntimeName for PedometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.PedometerReading";
@@ -7860,7 +7860,7 @@ unsafe impl ::windows::runtime::RuntimeType for PedometerReadingChangedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for PedometerReadingChangedEventArgs {
     type Vtable = IPedometerReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4166378622, 43964, 17494, [134, 168, 37, 207, 43, 51, 55, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf855e47e_abbc_4456_86a8_25cf2b333742);
 }
 impl ::windows::runtime::RuntimeName for PedometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.PedometerReadingChangedEventArgs";
@@ -8029,7 +8029,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProximitySensor {
 }
 unsafe impl ::windows::runtime::Interface for ProximitySensor {
     type Vtable = IProximitySensor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1421899448, 60667, 18756, [185, 40, 116, 252, 80, 77, 71, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54c076b8_ecfb_4944_b928_74fc504d47ee);
 }
 impl ::windows::runtime::RuntimeName for ProximitySensor {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensor";
@@ -8098,7 +8098,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProximitySensorDataThreshold {
 }
 unsafe impl ::windows::runtime::Interface for ProximitySensorDataThreshold {
     type Vtable = ISensorDataThreshold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1423633505, 65099, 19975, [178, 96, 58, 76, 223, 190, 57, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54daec61_fe4b_4e07_b260_3a4cdfbe396e);
 }
 impl ::windows::runtime::RuntimeName for ProximitySensorDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorDataThreshold";
@@ -8186,7 +8186,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProximitySensorDisplayOnOffContr
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::Interface for ProximitySensorDisplayOnOffController {
     type Vtable = super::super::Foundation::IClosable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(819308585, 32676, 16422, [131, 187, 215, 91, 174, 78, 169, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30d5a829_7fa4_4026_83bb_d75bae4ea99e);
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::runtime::RuntimeName for ProximitySensorDisplayOnOffController {
@@ -8305,7 +8305,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProximitySensorReading {
 }
 unsafe impl ::windows::runtime::Interface for ProximitySensorReading {
     type Vtable = IProximitySensorReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1898089817, 4909, 19807, [143, 249, 47, 13, 184, 117, 28, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71228d59_132d_4d5f_8ff9_2f0db8751ced);
 }
 impl ::windows::runtime::RuntimeName for ProximitySensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorReading";
@@ -8371,7 +8371,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProximitySensorReadingChangedEve
 }
 unsafe impl ::windows::runtime::Interface for ProximitySensorReadingChangedEventArgs {
     type Vtable = IProximitySensorReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3485660006, 50152, 16637, [140, 195, 103, 226, 137, 0, 73, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfc2f366_c3e8_40fd_8cc3_67e289004938);
 }
 impl ::windows::runtime::RuntimeName for ProximitySensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorReadingChangedEventArgs";
@@ -8445,7 +8445,7 @@ unsafe impl ::windows::runtime::RuntimeType for SensorDataThresholdTriggerDetail
 }
 unsafe impl ::windows::runtime::Interface for SensorDataThresholdTriggerDetails {
     type Vtable = ISensorDataThresholdTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2433151415, 59533, 18609, [188, 144, 97, 156, 123, 52, 147, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9106f1b7_e88d_48b1_bc90_619c7b349391);
 }
 impl ::windows::runtime::RuntimeName for SensorDataThresholdTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Sensors.SensorDataThresholdTriggerDetails";
@@ -8557,7 +8557,7 @@ unsafe impl ::windows::runtime::RuntimeType for SensorQuaternion {
 }
 unsafe impl ::windows::runtime::Interface for SensorQuaternion {
     type Vtable = ISensorQuaternion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3385182247, 50972, 18151, [157, 163, 54, 161, 147, 178, 50, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9c5c827_c71c_46e7_9da3_36a193b232bc);
 }
 impl ::windows::runtime::RuntimeName for SensorQuaternion {
     const NAME: &'static str = "Windows.Devices.Sensors.SensorQuaternion";
@@ -8709,7 +8709,7 @@ unsafe impl ::windows::runtime::RuntimeType for SensorRotationMatrix {
 }
 unsafe impl ::windows::runtime::Interface for SensorRotationMatrix {
     type Vtable = ISensorRotationMatrix_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(171792999, 8948, 17298, [149, 56, 101, 208, 189, 6, 74, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a3d5a67_22f4_4392_9538_65d0bd064aa6);
 }
 impl ::windows::runtime::RuntimeName for SensorRotationMatrix {
     const NAME: &'static str = "Windows.Devices.Sensors.SensorRotationMatrix";
@@ -8903,7 +8903,7 @@ unsafe impl ::windows::runtime::RuntimeType for SimpleOrientationSensor {
 }
 unsafe impl ::windows::runtime::Interface for SimpleOrientationSensor {
     type Vtable = ISimpleOrientationSensor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1609906262, 8522, 19950, [163, 249, 97, 111, 26, 176, 111, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ff53856_214a_4dee_a3f9_616f1ab06ffd);
 }
 impl ::windows::runtime::RuntimeName for SimpleOrientationSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.SimpleOrientationSensor";
@@ -8978,7 +8978,7 @@ unsafe impl ::windows::runtime::RuntimeType for SimpleOrientationSensorOrientati
 }
 unsafe impl ::windows::runtime::Interface for SimpleOrientationSensorOrientationChangedEventArgs {
     type Vtable = ISimpleOrientationSensorOrientationChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3168126560, 9172, 19276, [162, 46, 186, 129, 173, 224, 198, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbcd5c660_23d4_4b4c_a22e_ba81ade0c601);
 }
 impl ::windows::runtime::RuntimeName for SimpleOrientationSensorOrientationChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.SimpleOrientationSensorOrientationChangedEventArgs";

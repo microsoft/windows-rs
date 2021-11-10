@@ -132,7 +132,7 @@ unsafe impl ::windows::runtime::RuntimeType for DualSimTile {
 }
 unsafe impl ::windows::runtime::Interface for DualSimTile {
     type Vtable = IDualSimTile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(339390995, 53343, 16449, [161, 140, 62, 63, 203, 117, 180, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x143ab213_d05f_4041_a18c_3e3fcb75b41e);
 }
 impl ::windows::runtime::RuntimeName for DualSimTile {
     const NAME: &'static str = "Windows.Phone.StartScreen.DualSimTile";
@@ -185,7 +185,7 @@ pub struct DualSimTileContract(pub u8);
 pub struct IDualSimTile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDualSimTile {
     type Vtable = IDualSimTile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(339390995, 53343, 16449, [161, 140, 62, 63, 203, 117, 180, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x143ab213_d05f_4041_a18c_3e3fcb75b41e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -211,7 +211,7 @@ pub struct IDualSimTile_abi(
 pub struct IDualSimTileStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDualSimTileStatics {
     type Vtable = IDualSimTileStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1347845278, 50575, 19913, [182, 232, 250, 103, 119, 238, 235, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50567c9e_c58f_4dc9_b6e8_fa6777eeeb37);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -244,7 +244,7 @@ pub struct IDualSimTileStatics_abi(
 pub struct IToastNotificationManagerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationManagerStatics3 {
     type Vtable = IToastNotificationManagerStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(655881547, 20703, 17493, [142, 110, 65, 224, 252, 142, 19, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2717f54b_50df_4455_8e6e_41e0fc8e13ce);
 }
 impl IToastNotificationManagerStatics3 {
     #[cfg(feature = "UI_Notifications")]

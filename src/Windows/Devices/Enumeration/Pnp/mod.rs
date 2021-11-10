@@ -4,7 +4,7 @@
 pub struct IPnpObject(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPnpObject {
     type Vtable = IPnpObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2512806488, 29499, 19087, [147, 163, 219, 7, 138, 200, 112, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95c66258_733b_4a8f_93a3_db078ac870c1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26,7 +26,7 @@ pub struct IPnpObject_abi(
 pub struct IPnpObjectStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPnpObjectStatics {
     type Vtable = IPnpObjectStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3015911997, 53608, 18016, [187, 243, 167, 51, 177, 75, 110, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3c32a3d_d168_4660_bbf3_a733b14b6e01);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -53,7 +53,7 @@ pub struct IPnpObjectStatics_abi(
 pub struct IPnpObjectUpdate(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPnpObjectUpdate {
     type Vtable = IPnpObjectUpdate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1868163090, 30, 18500, [188, 198, 67, 40, 134, 133, 106, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f59e812_001e_4844_bcc6_432886856a17);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -74,7 +74,7 @@ pub struct IPnpObjectUpdate_abi(
 pub struct IPnpObjectWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPnpObjectWatcher {
     type Vtable = IPnpObjectWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2211011752, 18290, 19066, [172, 168, 228, 140, 66, 168, 156, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83c95ca8_4772_4a7a_aca8_e48c42a89c44);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -194,7 +194,7 @@ unsafe impl ::windows::runtime::RuntimeType for PnpObject {
 }
 unsafe impl ::windows::runtime::Interface for PnpObject {
     type Vtable = IPnpObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2512806488, 29499, 19087, [147, 163, 219, 7, 138, 200, 112, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95c66258_733b_4a8f_93a3_db078ac870c1);
 }
 impl ::windows::runtime::RuntimeName for PnpObject {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObject";
@@ -490,7 +490,7 @@ unsafe impl ::windows::runtime::RuntimeType for PnpObjectUpdate {
 }
 unsafe impl ::windows::runtime::Interface for PnpObjectUpdate {
     type Vtable = IPnpObjectUpdate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1868163090, 30, 18500, [188, 198, 67, 40, 134, 133, 106, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f59e812_001e_4844_bcc6_432886856a17);
 }
 impl ::windows::runtime::RuntimeName for PnpObjectUpdate {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObjectUpdate";
@@ -641,7 +641,7 @@ unsafe impl ::windows::runtime::RuntimeType for PnpObjectWatcher {
 }
 unsafe impl ::windows::runtime::Interface for PnpObjectWatcher {
     type Vtable = IPnpObjectWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2211011752, 18290, 19066, [172, 168, 228, 140, 66, 168, 156, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83c95ca8_4772_4a7a_aca8_e48c42a89c44);
 }
 impl ::windows::runtime::RuntimeName for PnpObjectWatcher {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObjectWatcher";

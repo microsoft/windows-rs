@@ -4,7 +4,7 @@
 pub struct IProviderSpiConnectionSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProviderSpiConnectionSettings {
     type Vtable = IProviderSpiConnectionSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4127409488, 42306, 20160, [150, 1, 164, 221, 104, 248, 105, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6034550_a542_4ec0_9601_a4dd68f8697b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -31,7 +31,7 @@ pub struct IProviderSpiConnectionSettings_abi(
 pub struct IProviderSpiConnectionSettingsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProviderSpiConnectionSettingsFactory {
     type Vtable = IProviderSpiConnectionSettingsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1715825498, 3193, 17379, [159, 60, 229, 151, 128, 172, 24, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66456b5a_0c79_43e3_9f3c_e59780ac18fa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -50,7 +50,7 @@ pub struct IProviderSpiConnectionSettingsFactory_abi(
 pub struct ISpiControllerProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpiControllerProvider {
     type Vtable = ISpiControllerProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3244844292, 718, 16934, [163, 133, 79, 17, 251, 4, 180, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1686504_02ce_4226_a385_4f11fb04b41b);
 }
 impl ISpiControllerProvider {
     #[doc = "*Required features: `Devices_Spi_Provider`*"]
@@ -122,7 +122,7 @@ pub struct ISpiControllerProvider_abi(
 pub struct ISpiDeviceProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpiDeviceProvider {
     type Vtable = ISpiDeviceProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(219952195, 12363, 16476, [180, 247, 245, 171, 16, 116, 70, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d1c3443_304b_405c_b4f7_f5ab1074461e);
 }
 impl ISpiDeviceProvider {
     #[cfg(feature = "Foundation")]
@@ -259,7 +259,7 @@ pub struct ISpiDeviceProvider_abi(
 pub struct ISpiProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpiProvider {
     type Vtable = ISpiProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2528403938, 30676, 18638, [170, 160, 117, 113, 90, 131, 98, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96b461e2_77d4_48ce_aaa0_75715a8362cf);
 }
 impl ISpiProvider {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -414,7 +414,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProviderSpiConnectionSettings {
 }
 unsafe impl ::windows::runtime::Interface for ProviderSpiConnectionSettings {
     type Vtable = IProviderSpiConnectionSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4127409488, 42306, 20160, [150, 1, 164, 221, 104, 248, 105, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6034550_a542_4ec0_9601_a4dd68f8697b);
 }
 impl ::windows::runtime::RuntimeName for ProviderSpiConnectionSettings {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings";

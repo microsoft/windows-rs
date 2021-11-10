@@ -4,7 +4,7 @@
 pub struct IXsltProcessor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXsltProcessor {
     type Vtable = IXsltProcessor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2070179903, 21772, 18630, [169, 15, 147, 165, 185, 100, 81, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b64703f_550c_48c6_a90f_93a5b964518f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23,7 +23,7 @@ pub struct IXsltProcessor_abi(
 pub struct IXsltProcessor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXsltProcessor2 {
     type Vtable = IXsltProcessor2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2376358998, 38821, 17611, [168, 190, 39, 216, 98, 128, 199, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8da45c56_97a5_44cb_a8be_27d86280c70a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -42,7 +42,7 @@ pub struct IXsltProcessor2_abi(
 pub struct IXsltProcessorFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXsltProcessorFactory {
     type Vtable = IXsltProcessorFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(658589376, 39505, 18019, [191, 48, 14, 247, 66, 20, 111, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x274146c0_9a51_4663_bf30_0ef742146f20);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -97,7 +97,7 @@ unsafe impl ::windows::runtime::RuntimeType for XsltProcessor {
 }
 unsafe impl ::windows::runtime::Interface for XsltProcessor {
     type Vtable = IXsltProcessor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2070179903, 21772, 18630, [169, 15, 147, 165, 185, 100, 81, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b64703f_550c_48c6_a90f_93a5b964518f);
 }
 impl ::windows::runtime::RuntimeName for XsltProcessor {
     const NAME: &'static str = "Windows.Data.Xml.Xsl.XsltProcessor";

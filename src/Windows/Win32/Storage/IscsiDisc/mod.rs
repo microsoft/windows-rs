@@ -5214,7 +5214,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_SLOT_INFO_V2 {
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH: u32 = 16u32;
-pub const ScsiRawInterfaceGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590601, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
+pub const ScsiRawInterfaceGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f56309_b6bf_11d0_94f2_00a0c91efb8b);
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 #[inline]
 pub unsafe fn SendScsiInquiry(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun: u64, evpdcmddt: u8, pagecode: u8, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32 {
@@ -5461,7 +5461,7 @@ impl ::core::convert::From<i32> for TARGET_INFORMATION_CLASS {
 unsafe impl ::windows::runtime::Abi for TARGET_INFORMATION_CLASS {
     type Abi = Self;
 }
-pub const WmiScsiAddressGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590607, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
+pub const WmiScsiAddressGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f5630f_b6bf_11d0_94f2_00a0c91efb8b);
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _ADAPTER_OBJECT(pub u8);

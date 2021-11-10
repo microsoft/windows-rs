@@ -6,7 +6,7 @@ pub mod UI;
 pub struct ICredentialFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICredentialFactory {
     type Vtable = ICredentialFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1424954273, 48934, 18357, [151, 221, 222, 119, 155, 124, 173, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54ef13a1_bf26_47b5_97dd_de779b7cad58);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24,7 +24,7 @@ pub struct ICredentialFactory_abi(
 pub struct IKeyCredential(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyCredential {
     type Vtable = IKeyCredential_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2508582797, 17787, 18503, [177, 26, 250, 150, 11, 189, 177, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9585ef8d_457b_4847_b11a_fa960bbdb138);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -50,7 +50,7 @@ pub struct IKeyCredential_abi(
 pub struct IKeyCredentialAttestationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyCredentialAttestationResult {
     type Vtable = IKeyCredentialAttestationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2024453025, 41921, 16643, [182, 204, 71, 44, 68, 23, 28, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78aab3a1_a3c1_4103_b6cc_472c44171cbb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -72,7 +72,7 @@ pub struct IKeyCredentialAttestationResult_abi(
 pub struct IKeyCredentialManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyCredentialManagerStatics {
     type Vtable = IKeyCredentialManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1789675147, 3825, 19680, [130, 144, 65, 6, 218, 106, 99, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6aac468b_0ef1_4ce0_8290_4106da6a63b5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -99,7 +99,7 @@ pub struct IKeyCredentialManagerStatics_abi(
 pub struct IKeyCredentialOperationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyCredentialOperationResult {
     type Vtable = IKeyCredentialOperationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4114056897, 21089, 19677, [151, 109, 204, 144, 154, 199, 22, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf53786c1_5261_4cdd_976d_cc909ac71620);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -119,7 +119,7 @@ pub struct IKeyCredentialOperationResult_abi(
 pub struct IKeyCredentialRetrievalResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyCredentialRetrievalResult {
     type Vtable = IKeyCredentialRetrievalResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1489860355, 36231, 16969, [155, 88, 246, 89, 140, 201, 100, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58cd7703_8d87_4249_9b58_f6598cc9644e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -138,7 +138,7 @@ pub struct IKeyCredentialRetrievalResult_abi(
 pub struct IPasswordCredential(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPasswordCredential {
     type Vtable = IPasswordCredential_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1790019977, 50976, 16807, [166, 193, 254, 173, 179, 99, 41, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ab18989_c720_41a7_a6c1_feadb36329a0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -164,7 +164,7 @@ pub struct IPasswordCredential_abi(
 pub struct IPasswordVault(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPasswordVault {
     type Vtable = IPasswordVault_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1643981835, 51412, 18625, [165, 79, 188, 90, 100, 32, 90, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61fd2c0b_c8d4_48c1_a54f_bc5a64205af2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -191,7 +191,7 @@ pub struct IPasswordVault_abi(
 pub struct IWebAccount(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccount {
     type Vtable = IWebAccount_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1766276786, 32817, 18878, [128, 187, 150, 203, 70, 217, 154, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69473eb2_8031_49be_80bb_96cb46d99aba);
 }
 impl IWebAccount {
     #[doc = "*Required features: `Security_Credentials`*"]
@@ -280,7 +280,7 @@ pub struct IWebAccount_abi(
 pub struct IWebAccount2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccount2 {
     type Vtable = IWebAccount2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2069288696, 39179, 20149, [148, 167, 86, 33, 243, 168, 184, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b56d6f8_990b_4eb5_94a7_5621f3a8b824);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -306,7 +306,7 @@ pub struct IWebAccount2_abi(
 pub struct IWebAccountFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountFactory {
     type Vtable = IWebAccountFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2895838009, 7657, 20114, [183, 143, 5, 129, 168, 127, 110, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac9afb39_1de9_4e92_b78f_0581a87f6e5c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -324,7 +324,7 @@ pub struct IWebAccountFactory_abi(
 pub struct IWebAccountProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProvider {
     type Vtable = IWebAccountProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(702335171, 31417, 19068, [163, 54, 185, 66, 249, 219, 247, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29dcc8c3_7ab9_4a7c_a336_b942f9dbf7c7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -345,7 +345,7 @@ pub struct IWebAccountProvider_abi(
 pub struct IWebAccountProvider2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProvider2 {
     type Vtable = IWebAccountProvider2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1241639685, 20034, 16852, [181, 24, 224, 8, 165, 22, 54, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a01eb05_4e42_41d4_b518_e008a5163614);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -364,7 +364,7 @@ pub struct IWebAccountProvider2_abi(
 pub struct IWebAccountProvider3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProvider3 {
     type Vtable = IWebAccountProvider3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3659288971, 38669, 19785, [130, 92, 242, 112, 111, 140, 167, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda1c518b_970d_4d49_825c_f2706f8ca7fe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -383,7 +383,7 @@ pub struct IWebAccountProvider3_abi(
 pub struct IWebAccountProvider4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProvider4 {
     type Vtable = IWebAccountProvider4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1905252571, 59286, 16912, [183, 78, 132, 210, 152, 148, 176, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x718fd8db_e796_4210_b74e_84d29894b080);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -401,7 +401,7 @@ pub struct IWebAccountProvider4_abi(
 pub struct IWebAccountProviderFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderFactory {
     type Vtable = IWebAccountProviderFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(494304753, 57825, 19354, [167, 116, 92, 124, 126, 59, 243, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d767df1_e1e1_4b9a_a774_5c7c7e3bf371);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -470,7 +470,7 @@ unsafe impl ::windows::runtime::RuntimeType for KeyCredential {
 }
 unsafe impl ::windows::runtime::Interface for KeyCredential {
     type Vtable = IKeyCredential_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2508582797, 17787, 18503, [177, 26, 250, 150, 11, 189, 177, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9585ef8d_457b_4847_b11a_fa960bbdb138);
 }
 impl ::windows::runtime::RuntimeName for KeyCredential {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredential";
@@ -554,7 +554,7 @@ unsafe impl ::windows::runtime::RuntimeType for KeyCredentialAttestationResult {
 }
 unsafe impl ::windows::runtime::Interface for KeyCredentialAttestationResult {
     type Vtable = IKeyCredentialAttestationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2024453025, 41921, 16643, [182, 204, 71, 44, 68, 23, 28, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78aab3a1_a3c1_4103_b6cc_472c44171cbb);
 }
 impl ::windows::runtime::RuntimeName for KeyCredentialAttestationResult {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialAttestationResult";
@@ -726,7 +726,7 @@ unsafe impl ::windows::runtime::RuntimeType for KeyCredentialOperationResult {
 }
 unsafe impl ::windows::runtime::Interface for KeyCredentialOperationResult {
     type Vtable = IKeyCredentialOperationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4114056897, 21089, 19677, [151, 109, 204, 144, 154, 199, 22, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf53786c1_5261_4cdd_976d_cc909ac71620);
 }
 impl ::windows::runtime::RuntimeName for KeyCredentialOperationResult {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialOperationResult";
@@ -800,7 +800,7 @@ unsafe impl ::windows::runtime::RuntimeType for KeyCredentialRetrievalResult {
 }
 unsafe impl ::windows::runtime::Interface for KeyCredentialRetrievalResult {
     type Vtable = IKeyCredentialRetrievalResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1489860355, 36231, 16969, [155, 88, 246, 89, 140, 201, 100, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58cd7703_8d87_4249_9b58_f6598cc9644e);
 }
 impl ::windows::runtime::RuntimeName for KeyCredentialRetrievalResult {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialRetrievalResult";
@@ -956,7 +956,7 @@ unsafe impl ::windows::runtime::RuntimeType for PasswordCredential {
 }
 unsafe impl ::windows::runtime::Interface for PasswordCredential {
     type Vtable = IPasswordCredential_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1790019977, 50976, 16807, [166, 193, 254, 173, 179, 99, 41, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ab18989_c720_41a7_a6c1_feadb36329a0);
 }
 impl ::windows::runtime::RuntimeName for PasswordCredential {
     const NAME: &'static str = "Windows.Security.Credentials.PasswordCredential";
@@ -1106,7 +1106,7 @@ unsafe impl ::windows::runtime::RuntimeType for PasswordCredentialPropertyStore 
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::runtime::Interface for PasswordCredentialPropertyStore {
     type Vtable = super::super::Foundation::Collections::IPropertySet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2319707551, 62694, 17441, [172, 249, 29, 171, 41, 134, 130, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::runtime::RuntimeName for PasswordCredentialPropertyStore {
@@ -1345,7 +1345,7 @@ unsafe impl ::windows::runtime::RuntimeType for PasswordVault {
 }
 unsafe impl ::windows::runtime::Interface for PasswordVault {
     type Vtable = IPasswordVault_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1643981835, 51412, 18625, [165, 79, 188, 90, 100, 32, 90, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61fd2c0b_c8d4_48c1_a54f_bc5a64205af2);
 }
 impl ::windows::runtime::RuntimeName for PasswordVault {
     const NAME: &'static str = "Windows.Security.Credentials.PasswordVault";
@@ -1482,7 +1482,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebAccount {
 }
 unsafe impl ::windows::runtime::Interface for WebAccount {
     type Vtable = IWebAccount_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1766276786, 32817, 18878, [128, 187, 150, 203, 70, 217, 154, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69473eb2_8031_49be_80bb_96cb46d99aba);
 }
 impl ::windows::runtime::RuntimeName for WebAccount {
     const NAME: &'static str = "Windows.Security.Credentials.WebAccount";
@@ -1655,7 +1655,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebAccountProvider {
 }
 unsafe impl ::windows::runtime::Interface for WebAccountProvider {
     type Vtable = IWebAccountProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(702335171, 31417, 19068, [163, 54, 185, 66, 249, 219, 247, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29dcc8c3_7ab9_4a7c_a336_b942f9dbf7c7);
 }
 impl ::windows::runtime::RuntimeName for WebAccountProvider {
     const NAME: &'static str = "Windows.Security.Credentials.WebAccountProvider";

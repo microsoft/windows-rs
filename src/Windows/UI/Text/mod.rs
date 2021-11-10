@@ -108,7 +108,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContentLinkInfo {
 }
 unsafe impl ::windows::runtime::Interface for ContentLinkInfo {
     type Vtable = IContentLinkInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(517285157, 7263, 18635, [179, 53, 120, 181, 10, 46, 230, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ed52525_1c5f_48cb_b335_78b50a2ee642);
 }
 impl ::windows::runtime::RuntimeName for ContentLinkInfo {
     const NAME: &'static str = "Windows.UI.Text.ContentLinkInfo";
@@ -383,7 +383,7 @@ unsafe impl ::windows::runtime::RuntimeType for FontWeights {
 }
 unsafe impl ::windows::runtime::Interface for FontWeights {
     type Vtable = IFontWeights_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2021696580, 427, 18839, [133, 23, 223, 130, 42, 12, 69, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7880a444_01ab_4997_8517_df822a0c45f1);
 }
 impl ::windows::runtime::RuntimeName for FontWeights {
     const NAME: &'static str = "Windows.UI.Text.FontWeights";
@@ -482,7 +482,7 @@ impl ::windows::runtime::DefaultType for HorizontalCharacterAlignment {
 pub struct IContentLinkInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentLinkInfo {
     type Vtable = IContentLinkInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(517285157, 7263, 18635, [179, 53, 120, 181, 10, 46, 230, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ed52525_1c5f_48cb_b335_78b50a2ee642);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -511,7 +511,7 @@ pub struct IContentLinkInfo_abi(
 pub struct IFontWeights(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFontWeights {
     type Vtable = IFontWeights_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2021696580, 427, 18839, [133, 23, 223, 130, 42, 12, 69, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7880a444_01ab_4997_8517_df822a0c45f1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -528,7 +528,7 @@ pub struct IFontWeights_abi(
 pub struct IFontWeightsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFontWeightsStatics {
     type Vtable = IFontWeightsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3015014869, 7081, 18667, [157, 173, 192, 149, 232, 194, 59, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3b579d5_1ba9_48eb_9dad_c095e8c23ba3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -556,7 +556,7 @@ pub struct IFontWeightsStatics_abi(
 pub struct IRichEditTextRange(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRichEditTextRange {
     type Vtable = IRichEditTextRange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(927872277, 47754, 19054, [140, 89, 13, 222, 61, 12, 245, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x374e3515_ba8a_4a6e_8c59_0dde3d0cf5cd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -576,7 +576,7 @@ pub struct IRichEditTextRange_abi(
 pub struct ITextCharacterFormat(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextCharacterFormat {
     type Vtable = ITextCharacterFormat_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1524560859, 1531, 17453, [128, 101, 100, 42, 254, 160, 44, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5adef3db_05fb_442d_8065_642afea02ced);
 }
 impl ITextCharacterFormat {
     #[doc = "*Required features: `UI_Text`*"]
@@ -1016,7 +1016,7 @@ pub struct ITextCharacterFormat_abi(
 pub struct ITextConstantsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextConstantsStatics {
     type Vtable = ITextConstantsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2006875187, 6301, 19450, [151, 200, 16, 219, 19, 93, 151, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x779e7c33_189d_4bfa_97c8_10db135d976e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1042,7 +1042,7 @@ pub struct ITextConstantsStatics_abi(
 pub struct ITextDocument(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextDocument {
     type Vtable = ITextDocument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3203288539, 37042, 16524, [162, 246, 10, 10, 195, 30, 51, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbeee4ddb_90b2_408c_a2f6_0a0ac31e33e4);
 }
 impl ITextDocument {
     #[doc = "*Required features: `UI_Text`*"]
@@ -1314,7 +1314,7 @@ pub struct ITextDocument_abi(
 pub struct ITextDocument2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextDocument2 {
     type Vtable = ITextDocument2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4063301906, 35977, 18889, [145, 24, 240, 87, 203, 184, 20, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2311112_8c89_49c9_9118_f057cbb814ee);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1335,7 +1335,7 @@ pub struct ITextDocument2_abi(
 pub struct ITextDocument3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextDocument3 {
     type Vtable = ITextDocument3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1974141857, 42744, 17437, [170, 24, 10, 133, 29, 110, 94, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75ab03a1_a6f8_441d_aa18_0a851d6e5e3c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1353,7 +1353,7 @@ pub struct ITextDocument3_abi(
 pub struct ITextDocument4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextDocument4 {
     type Vtable = ITextDocument4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1637622002, 52027, 17697, [152, 31, 40, 101, 177, 185, 63, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x619c20f2_cb3b_4521_981f_2865b1b93f04);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1374,7 +1374,7 @@ pub struct ITextDocument4_abi(
 pub struct ITextParagraphFormat(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextParagraphFormat {
     type Vtable = ITextParagraphFormat_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(754503590, 18038, 18826, [147, 245, 187, 219, 252, 11, 216, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cf8cfa6_4676_498a_93f5_bbdbfc0bd883);
 }
 impl ITextParagraphFormat {
     #[doc = "*Required features: `UI_Text`*"]
@@ -1797,7 +1797,7 @@ pub struct ITextParagraphFormat_abi(
 pub struct ITextRange(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextRange {
     type Vtable = ITextRange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1537101399, 49266, 17056, [137, 69, 175, 80, 62, 229, 71, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b9e4e57_c072_42a0_8945_af503ee54768);
 }
 impl ITextRange {
     #[doc = "*Required features: `UI_Text`*"]
@@ -2259,7 +2259,7 @@ pub struct ITextRange_abi(
 pub struct ITextSelection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextSelection {
     type Vtable = ITextSelection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2798872356, 62095, 17162, [178, 207, 195, 67, 103, 30, 192, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6d36724_f28f_430a_b2cf_c343671ec0e9);
 }
 impl ITextSelection {
     #[doc = "*Required features: `UI_Text`*"]
@@ -3335,7 +3335,7 @@ unsafe impl ::windows::runtime::RuntimeType for RichEditTextDocument {
 }
 unsafe impl ::windows::runtime::Interface for RichEditTextDocument {
     type Vtable = ITextDocument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3203288539, 37042, 16524, [162, 246, 10, 10, 195, 30, 51, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbeee4ddb_90b2_408c_a2f6_0a0ac31e33e4);
 }
 impl ::windows::runtime::RuntimeName for RichEditTextDocument {
     const NAME: &'static str = "Windows.UI.Text.RichEditTextDocument";
@@ -3767,7 +3767,7 @@ unsafe impl ::windows::runtime::RuntimeType for RichEditTextRange {
 }
 unsafe impl ::windows::runtime::Interface for RichEditTextRange {
     type Vtable = ITextRange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1537101399, 49266, 17056, [137, 69, 175, 80, 62, 229, 71, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b9e4e57_c072_42a0_8945_af503ee54768);
 }
 impl ::windows::runtime::RuntimeName for RichEditTextRange {
     const NAME: &'static str = "Windows.UI.Text.RichEditTextRange";

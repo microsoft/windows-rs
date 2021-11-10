@@ -8,7 +8,7 @@ pub mod Management;
 pub struct IResourceLoader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceLoader {
     type Vtable = IResourceLoader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(139610376, 5871, 17837, [166, 2, 41, 54, 55, 215, 230, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08524908_16ef_45ad_a602_293637d7e61a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26,7 +26,7 @@ pub struct IResourceLoader_abi(
 pub struct IResourceLoader2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceLoader2 {
     type Vtable = IResourceLoader2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(283864774, 33080, 18625, [188, 101, 225, 241, 66, 7, 54, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10eb6ec6_8138_48c1_bc65_e1f14207367c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -45,7 +45,7 @@ pub struct IResourceLoader2_abi(
 pub struct IResourceLoaderFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceLoaderFactory {
     type Vtable = IResourceLoaderFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3275372035, 27100, 17029, [160, 119, 213, 192, 228, 124, 203, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc33a3603_69dc_4285_a077_d5c0e47ccbe8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -63,7 +63,7 @@ pub struct IResourceLoaderFactory_abi(
 pub struct IResourceLoaderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceLoaderStatics {
     type Vtable = IResourceLoaderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3212279009, 6600, 18882, [149, 60, 71, 233, 34, 123, 51, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf777ce1_19c8_49c2_953c_47e9227b334e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -82,7 +82,7 @@ pub struct IResourceLoaderStatics_abi(
 pub struct IResourceLoaderStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceLoaderStatics2 {
     type Vtable = IResourceLoaderStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(213926209, 25702, 18825, [148, 148, 11, 130, 223, 197, 63, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cc04141_6466_4989_9494_0b82dfc53f1f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -103,7 +103,7 @@ pub struct IResourceLoaderStatics2_abi(
 pub struct IResourceLoaderStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceLoaderStatics3 {
     type Vtable = IResourceLoaderStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1684053499, 25772, 18715, [129, 0, 14, 85, 141, 97, 193, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64609dfb_64ac_491b_8100_0e558d61c1d0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -122,7 +122,7 @@ pub struct IResourceLoaderStatics3_abi(
 pub struct IResourceLoaderStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceLoaderStatics4 {
     type Vtable = IResourceLoaderStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2679335986, 27788, 17174, [150, 46, 144, 149, 57, 181, 194, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fb36c32_6c8c_4316_962e_909539b5c259);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -248,7 +248,7 @@ unsafe impl ::windows::runtime::RuntimeType for ResourceLoader {
 }
 unsafe impl ::windows::runtime::Interface for ResourceLoader {
     type Vtable = IResourceLoader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(139610376, 5871, 17837, [166, 2, 41, 54, 55, 215, 230, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08524908_16ef_45ad_a602_293637d7e61a);
 }
 impl ::windows::runtime::RuntimeName for ResourceLoader {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.ResourceLoader";

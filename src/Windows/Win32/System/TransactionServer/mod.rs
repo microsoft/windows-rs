@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const Catalog: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1857169537, 35353, 4560, [129, 182, 0, 160, 201, 35, 28, 41]);
-pub const CatalogCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1857169539, 35353, 4560, [129, 182, 0, 160, 201, 35, 28, 41]);
-pub const CatalogObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1857169538, 35353, 4560, [129, 182, 0, 160, 201, 35, 28, 41]);
-pub const ComponentUtil: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1857169540, 35353, 4560, [129, 182, 0, 160, 201, 35, 28, 41]);
+pub const Catalog: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6eb22881_8a19_11d0_81b6_00a0c9231c29);
+pub const CatalogCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6eb22883_8a19_11d0_81b6_00a0c9231c29);
+pub const CatalogObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6eb22882_8a19_11d0_81b6_00a0c9231c29);
+pub const ComponentUtil: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6eb22884_8a19_11d0_81b6_00a0c9231c29);
 #[doc = "*Required features: `Win32_System_TransactionServer`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -31,7 +31,7 @@ impl ICatalog {
 }
 unsafe impl ::windows::runtime::Interface for ICatalog {
     type Vtable = ICatalog_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1857169520, 35353, 4560, [129, 182, 0, 160, 201, 35, 28, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6eb22870_8a19_11d0_81b6_00a0c9231c29);
 }
 impl ::core::convert::From<ICatalog> for ::windows::runtime::IUnknown {
     fn from(value: ICatalog) -> Self {
@@ -125,7 +125,7 @@ impl IComponentUtil {
 }
 unsafe impl ::windows::runtime::Interface for IComponentUtil {
     type Vtable = IComponentUtil_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1857169523, 35353, 4560, [129, 182, 0, 160, 201, 35, 28, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6eb22873_8a19_11d0_81b6_00a0c9231c29);
 }
 impl ::core::convert::From<IComponentUtil> for ::windows::runtime::IUnknown {
     fn from(value: IComponentUtil) -> Self {
@@ -216,7 +216,7 @@ impl IPackageUtil {
 }
 unsafe impl ::windows::runtime::Interface for IPackageUtil {
     type Vtable = IPackageUtil_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1857169524, 35353, 4560, [129, 182, 0, 160, 201, 35, 28, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6eb22874_8a19_11d0_81b6_00a0c9231c29);
 }
 impl ::core::convert::From<IPackageUtil> for ::windows::runtime::IUnknown {
     fn from(value: IPackageUtil) -> Self {
@@ -300,7 +300,7 @@ impl IRemoteComponentUtil {
 }
 unsafe impl ::windows::runtime::Interface for IRemoteComponentUtil {
     type Vtable = IRemoteComponentUtil_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1857169525, 35353, 4560, [129, 182, 0, 160, 201, 35, 28, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6eb22875_8a19_11d0_81b6_00a0c9231c29);
 }
 impl ::core::convert::From<IRemoteComponentUtil> for ::windows::runtime::IUnknown {
     fn from(value: IRemoteComponentUtil) -> Self {
@@ -382,7 +382,7 @@ impl IRoleAssociationUtil {
 }
 unsafe impl ::windows::runtime::Interface for IRoleAssociationUtil {
     type Vtable = IRoleAssociationUtil_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1857169526, 35353, 4560, [129, 182, 0, 160, 201, 35, 28, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6eb22876_8a19_11d0_81b6_00a0c9231c29);
 }
 impl ::core::convert::From<IRoleAssociationUtil> for ::windows::runtime::IUnknown {
     fn from(value: IRoleAssociationUtil) -> Self {
@@ -446,9 +446,9 @@ pub struct IRoleAssociationUtil_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrrolename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-pub const PackageUtil: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1857169541, 35353, 4560, [129, 182, 0, 160, 201, 35, 28, 41]);
-pub const RemoteComponentUtil: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1857169542, 35353, 4560, [129, 182, 0, 160, 201, 35, 28, 41]);
-pub const RoleAssociationUtil: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1857169543, 35353, 4560, [129, 182, 0, 160, 201, 35, 28, 41]);
+pub const PackageUtil: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6eb22885_8a19_11d0_81b6_00a0c9231c29);
+pub const RemoteComponentUtil: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6eb22886_8a19_11d0_81b6_00a0c9231c29);
+pub const RoleAssociationUtil: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6eb22887_8a19_11d0_81b6_00a0c9231c29);
 #[doc = "*Required features: `Win32_System_TransactionServer`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]

@@ -36,7 +36,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreTextCompositionCompletedEven
 }
 unsafe impl ::windows::runtime::Interface for CoreTextCompositionCompletedEventArgs {
     type Vtable = ICoreTextCompositionCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(523561910, 47007, 16673, [165, 231, 253, 169, 184, 97, 110, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f34ebb6_b79f_4121_a5e7_fda9b8616e30);
 }
 impl ::windows::runtime::RuntimeName for CoreTextCompositionCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionCompletedEventArgs";
@@ -110,7 +110,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreTextCompositionSegment {
 }
 unsafe impl ::windows::runtime::Interface for CoreTextCompositionSegment {
     type Vtable = ICoreTextCompositionSegment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2003594201, 20141, 19879, [143, 71, 58, 136, 181, 35, 204, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x776c6bd9_4ead_4da7_8f47_3a88b523cc34);
 }
 impl ::windows::runtime::RuntimeName for CoreTextCompositionSegment {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionSegment";
@@ -185,7 +185,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreTextCompositionStartedEventA
 }
 unsafe impl ::windows::runtime::Interface for CoreTextCompositionStartedEventArgs {
     type Vtable = ICoreTextCompositionStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(661329577, 25831, 19120, [188, 75, 160, 45, 115, 131, 91, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x276b16a9_64e7_4ab0_bc4b_a02d73835bfb);
 }
 impl ::windows::runtime::RuntimeName for CoreTextCompositionStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionStartedEventArgs";
@@ -470,7 +470,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreTextEditContext {
 }
 unsafe impl ::windows::runtime::Interface for CoreTextEditContext {
     type Vtable = ICoreTextEditContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3211135151, 16449, 18371, [178, 99, 169, 24, 235, 94, 174, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf6608af_4041_47c3_b263_a918eb5eaef2);
 }
 impl ::windows::runtime::RuntimeName for CoreTextEditContext {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextEditContext";
@@ -610,7 +610,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreTextFormatUpdatingEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for CoreTextFormatUpdatingEventArgs {
     type Vtable = ICoreTextFormatUpdatingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1930476851, 46248, 17329, [179, 123, 7, 36, 212, 172, 167, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7310bd33_b4a8_43b1_b37b_0724d4aca7ab);
 }
 impl ::windows::runtime::RuntimeName for CoreTextFormatUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextFormatUpdatingEventArgs";
@@ -854,7 +854,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreTextLayoutBounds {
 }
 unsafe impl ::windows::runtime::Interface for CoreTextLayoutBounds {
     type Vtable = ICoreTextLayoutBounds_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3916614004, 17462, 18711, [128, 208, 165, 37, 228, 202, 103, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe972c974_4436_4917_80d0_a525e4ca6780);
 }
 impl ::windows::runtime::RuntimeName for CoreTextLayoutBounds {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutBounds";
@@ -953,7 +953,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreTextLayoutRequest {
 }
 unsafe impl ::windows::runtime::Interface for CoreTextLayoutRequest {
     type Vtable = ICoreTextLayoutRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(626370764, 20989, 20227, [152, 191, 172, 120, 23, 77, 104, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2555a8cc_51fd_4f03_98bf_ac78174d68e0);
 }
 impl ::windows::runtime::RuntimeName for CoreTextLayoutRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutRequest";
@@ -1019,7 +1019,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreTextLayoutRequestedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for CoreTextLayoutRequestedEventArgs {
     type Vtable = ICoreTextLayoutRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2984012512, 39547, 20126, [165, 102, 74, 107, 95, 138, 214, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1dc6ae0_9a7b_4e9e_a566_4a6b5f8ad676);
 }
 impl ::windows::runtime::RuntimeName for CoreTextLayoutRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutRequestedEventArgs";
@@ -1140,7 +1140,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreTextSelectionRequest {
 }
 unsafe impl ::windows::runtime::Interface for CoreTextSelectionRequest {
     type Vtable = ICoreTextSelectionRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4037477379, 8331, 17153, [136, 60, 116, 202, 116, 133, 253, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0a70403_208b_4301_883c_74ca7485fd8d);
 }
 impl ::windows::runtime::RuntimeName for CoreTextSelectionRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionRequest";
@@ -1206,7 +1206,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreTextSelectionRequestedEventA
 }
 unsafe impl ::windows::runtime::Interface for CoreTextSelectionRequestedEventArgs {
     type Vtable = ICoreTextSelectionRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(331769899, 62996, 16922, [143, 75, 158, 200, 165, 163, 127, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13c6682b_f614_421a_8f4b_9ec8a5a37fcd);
 }
 impl ::windows::runtime::RuntimeName for CoreTextSelectionRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionRequestedEventArgs";
@@ -1302,7 +1302,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreTextSelectionUpdatingEventAr
 }
 unsafe impl ::windows::runtime::Interface for CoreTextSelectionUpdatingEventArgs {
     type Vtable = ICoreTextSelectionUpdatingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3561325471, 65151, 19413, [138, 38, 9, 34, 193, 179, 230, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd445839f_fe7f_4bd5_8a26_0922c1b3e639);
 }
 impl ::windows::runtime::RuntimeName for CoreTextSelectionUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionUpdatingEventArgs";
@@ -1443,7 +1443,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreTextServicesManager {
 }
 unsafe impl ::windows::runtime::Interface for CoreTextServicesManager {
     type Vtable = ICoreTextServicesManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3260054915, 28170, 19082, [189, 248, 25, 72, 135, 72, 84, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2507d83_6e0a_4a8a_bdf8_1948874854ba);
 }
 impl ::windows::runtime::RuntimeName for CoreTextServicesManager {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextServicesManager";
@@ -1539,7 +1539,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreTextTextRequest {
 }
 unsafe impl ::windows::runtime::Interface for CoreTextTextRequest {
     type Vtable = ICoreTextTextRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1356419241, 62750, 19649, [140, 161, 230, 52, 109, 26, 97, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50d950a9_f51e_4cc1_8ca1_e6346d1a61be);
 }
 impl ::windows::runtime::RuntimeName for CoreTextTextRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextRequest";
@@ -1605,7 +1605,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreTextTextRequestedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for CoreTextTextRequestedEventArgs {
     type Vtable = ICoreTextTextRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4036403920, 16838, 19458, [139, 26, 217, 83, 176, 12, 171, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf096a2d0_41c6_4c02_8b1a_d953b00cabb3);
 }
 impl ::windows::runtime::RuntimeName for CoreTextTextRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextRequestedEventArgs";
@@ -1726,7 +1726,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreTextTextUpdatingEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for CoreTextTextUpdatingEventArgs {
     type Vtable = ICoreTextTextUpdatingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4003959181, 52267, 20227, [143, 246, 2, 253, 33, 125, 180, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeea7918d_cc2b_4f03_8ff6_02fd217db450);
 }
 impl ::windows::runtime::RuntimeName for CoreTextTextUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextUpdatingEventArgs";
@@ -1800,7 +1800,7 @@ impl ::windows::runtime::DefaultType for CoreTextTextUpdatingResult {
 pub struct ICoreTextCompositionCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextCompositionCompletedEventArgs {
     type Vtable = ICoreTextCompositionCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(523561910, 47007, 16673, [165, 231, 253, 169, 184, 97, 110, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f34ebb6_b79f_4121_a5e7_fda9b8616e30);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1822,7 +1822,7 @@ pub struct ICoreTextCompositionCompletedEventArgs_abi(
 pub struct ICoreTextCompositionSegment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextCompositionSegment {
     type Vtable = ICoreTextCompositionSegment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2003594201, 20141, 19879, [143, 71, 58, 136, 181, 35, 204, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x776c6bd9_4ead_4da7_8f47_3a88b523cc34);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1841,7 +1841,7 @@ pub struct ICoreTextCompositionSegment_abi(
 pub struct ICoreTextCompositionStartedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextCompositionStartedEventArgs {
     type Vtable = ICoreTextCompositionStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(661329577, 25831, 19120, [188, 75, 160, 45, 115, 131, 91, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x276b16a9_64e7_4ab0_bc4b_a02d73835bfb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1861,7 +1861,7 @@ pub struct ICoreTextCompositionStartedEventArgs_abi(
 pub struct ICoreTextEditContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextEditContext {
     type Vtable = ICoreTextEditContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3211135151, 16449, 18371, [178, 99, 169, 24, 235, 94, 174, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf6608af_4041_47c3_b263_a918eb5eaef2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1927,7 +1927,7 @@ pub struct ICoreTextEditContext_abi(
 pub struct ICoreTextEditContext2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextEditContext2 {
     type Vtable = ICoreTextEditContext2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2978381243, 2107, 18913, [178, 129, 43, 53, 214, 43, 244, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1867dbb_083b_49e1_b281_2b35d62bf466);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1948,7 +1948,7 @@ pub struct ICoreTextEditContext2_abi(
 pub struct ICoreTextFormatUpdatingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextFormatUpdatingEventArgs {
     type Vtable = ICoreTextFormatUpdatingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1930476851, 46248, 17329, [179, 123, 7, 36, 212, 172, 167, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7310bd33_b4a8_43b1_b37b_0724d4aca7ab);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1980,7 +1980,7 @@ pub struct ICoreTextFormatUpdatingEventArgs_abi(
 pub struct ICoreTextLayoutBounds(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextLayoutBounds {
     type Vtable = ICoreTextLayoutBounds_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3916614004, 17462, 18711, [128, 208, 165, 37, 228, 202, 103, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe972c974_4436_4917_80d0_a525e4ca6780);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2005,7 +2005,7 @@ pub struct ICoreTextLayoutBounds_abi(
 pub struct ICoreTextLayoutRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextLayoutRequest {
     type Vtable = ICoreTextLayoutRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(626370764, 20989, 20227, [152, 191, 172, 120, 23, 77, 104, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2555a8cc_51fd_4f03_98bf_ac78174d68e0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2027,7 +2027,7 @@ pub struct ICoreTextLayoutRequest_abi(
 pub struct ICoreTextLayoutRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextLayoutRequest2 {
     type Vtable = ICoreTextLayoutRequest2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1735255588, 52541, 19405, [191, 1, 127, 113, 16, 149, 69, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x676de624_cd3d_4bcd_bf01_7f7110954511);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2045,7 +2045,7 @@ pub struct ICoreTextLayoutRequest2_abi(
 pub struct ICoreTextLayoutRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextLayoutRequestedEventArgs {
     type Vtable = ICoreTextLayoutRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2984012512, 39547, 20126, [165, 102, 74, 107, 95, 138, 214, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1dc6ae0_9a7b_4e9e_a566_4a6b5f8ad676);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2063,7 +2063,7 @@ pub struct ICoreTextLayoutRequestedEventArgs_abi(
 pub struct ICoreTextSelectionRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextSelectionRequest {
     type Vtable = ICoreTextSelectionRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4037477379, 8331, 17153, [136, 60, 116, 202, 116, 133, 253, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0a70403_208b_4301_883c_74ca7485fd8d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2085,7 +2085,7 @@ pub struct ICoreTextSelectionRequest_abi(
 pub struct ICoreTextSelectionRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextSelectionRequestedEventArgs {
     type Vtable = ICoreTextSelectionRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(331769899, 62996, 16922, [143, 75, 158, 200, 165, 163, 127, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13c6682b_f614_421a_8f4b_9ec8a5a37fcd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2103,7 +2103,7 @@ pub struct ICoreTextSelectionRequestedEventArgs_abi(
 pub struct ICoreTextSelectionUpdatingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextSelectionUpdatingEventArgs {
     type Vtable = ICoreTextSelectionUpdatingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3561325471, 65151, 19413, [138, 38, 9, 34, 193, 179, 230, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd445839f_fe7f_4bd5_8a26_0922c1b3e639);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2126,7 +2126,7 @@ pub struct ICoreTextSelectionUpdatingEventArgs_abi(
 pub struct ICoreTextServicesManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextServicesManager {
     type Vtable = ICoreTextServicesManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3260054915, 28170, 19082, [189, 248, 25, 72, 135, 72, 84, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2507d83_6e0a_4a8a_bdf8_1948874854ba);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2150,7 +2150,7 @@ pub struct ICoreTextServicesManager_abi(
 pub struct ICoreTextServicesManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextServicesManagerStatics {
     type Vtable = ICoreTextServicesManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(354460552, 58063, 19813, [174, 185, 179, 45, 134, 254, 57, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1520a388_e2cf_4d65_aeb9_b32d86fe39b9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2168,7 +2168,7 @@ pub struct ICoreTextServicesManagerStatics_abi(
 pub struct ICoreTextServicesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextServicesStatics {
     type Vtable = ICoreTextServicesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2441452102, 60623, 18340, [138, 231, 9, 138, 156, 111, 187, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91859a46_eccf_47a4_8ae7_098a9c6fbb15);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2186,7 +2186,7 @@ pub struct ICoreTextServicesStatics_abi(
 pub struct ICoreTextTextRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextTextRequest {
     type Vtable = ICoreTextTextRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1356419241, 62750, 19649, [140, 161, 230, 52, 109, 26, 97, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50d950a9_f51e_4cc1_8ca1_e6346d1a61be);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2209,7 +2209,7 @@ pub struct ICoreTextTextRequest_abi(
 pub struct ICoreTextTextRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextTextRequestedEventArgs {
     type Vtable = ICoreTextTextRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4036403920, 16838, 19458, [139, 26, 217, 83, 176, 12, 171, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf096a2d0_41c6_4c02_8b1a_d953b00cabb3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2227,7 +2227,7 @@ pub struct ICoreTextTextRequestedEventArgs_abi(
 pub struct ICoreTextTextUpdatingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextTextUpdatingEventArgs {
     type Vtable = ICoreTextTextUpdatingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4003959181, 52267, 20227, [143, 246, 2, 253, 33, 125, 180, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeea7918d_cc2b_4f03_8ff6_02fd217db450);
 }
 #[repr(C)]
 #[doc(hidden)]

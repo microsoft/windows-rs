@@ -1665,8 +1665,8 @@ impl ::core::cmp::Eq for CHANNEL_CAPS {}
 unsafe impl ::windows::runtime::Abi for CHANNEL_CAPS {
     type Abi = Self;
 }
-pub const CLSID_AVIFile: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131072, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
-pub const CLSID_AVISimpleUnMarshal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131081, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+pub const CLSID_AVIFile: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00020000_0000_0000_c000_000000000046);
+pub const CLSID_AVISimpleUnMarshal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00020009_0000_0000_c000_000000000046);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3274,7 +3274,7 @@ impl IAVIEditStream {
 }
 unsafe impl ::windows::runtime::Interface for IAVIEditStream {
     type Vtable = IAVIEditStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131108, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00020024_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<IAVIEditStream> for ::windows::runtime::IUnknown {
     fn from(value: IAVIEditStream) -> Self {
@@ -3346,7 +3346,7 @@ impl IAVIFile {
 }
 unsafe impl ::windows::runtime::Interface for IAVIFile {
     type Vtable = IAVIFile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131104, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00020020_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<IAVIFile> for ::windows::runtime::IUnknown {
     fn from(value: IAVIFile) -> Self {
@@ -3425,7 +3425,7 @@ impl IAVIPersistFile {
 }
 unsafe impl ::windows::runtime::Interface for IAVIPersistFile {
     type Vtable = IAVIPersistFile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131109, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00020025_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<IAVIPersistFile> for ::windows::runtime::IUnknown {
     fn from(value: IAVIPersistFile) -> Self {
@@ -3568,7 +3568,7 @@ impl IAVIStream {
 }
 unsafe impl ::windows::runtime::Interface for IAVIStream {
     type Vtable = IAVIStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131105, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00020021_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<IAVIStream> for ::windows::runtime::IUnknown {
     fn from(value: IAVIStream) -> Self {
@@ -3627,7 +3627,7 @@ impl IAVIStreaming {
 }
 unsafe impl ::windows::runtime::Interface for IAVIStreaming {
     type Vtable = IAVIStreaming_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131106, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00020022_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<IAVIStreaming> for ::windows::runtime::IUnknown {
     fn from(value: IAVIStreaming) -> Self {
@@ -4986,7 +4986,7 @@ impl IGetFrame {
 }
 unsafe impl ::windows::runtime::Interface for IGetFrame {
     type Vtable = IGetFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131107, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00020023_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<IGetFrame> for ::windows::runtime::IUnknown {
     fn from(value: IGetFrame) -> Self {
@@ -5617,7 +5617,7 @@ pub const JPEG_RGB: u32 = 3u32;
 pub const JPEG_Y: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const JPEG_YCbCr: u32 = 2u32;
-pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
+pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000003_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPFNEXTDEVIO = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;

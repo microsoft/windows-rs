@@ -1394,7 +1394,7 @@ pub unsafe fn PurgeComm<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const SID_3GPP_SUPSVCMODEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3620769287, 55143, 17528, [177, 74, 238, 204, 135, 234, 18, 247]);
+pub const SID_3GPP_SUPSVCMODEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7d08e07_d767_4478_b14a_eecc87ea12f7);
 #[doc = "*Required features: `Win32_Devices_Communication`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

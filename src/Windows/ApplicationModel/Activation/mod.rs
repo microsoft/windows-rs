@@ -155,7 +155,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentsProviderAddAppointme
 }
 unsafe impl ::windows::runtime::Interface for AppointmentsProviderAddAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderAddAppointmentActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2726695783, 52965, 20045, [158, 215, 65, 195, 78, 193, 139, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2861367_cee5_4e4d_9ed7_41c34ec18b02);
 }
 impl ::windows::runtime::RuntimeName for AppointmentsProviderAddAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderAddAppointmentActivatedEventArgs";
@@ -349,7 +349,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentsProviderRemoveAppoin
 }
 unsafe impl ::windows::runtime::Interface for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderRemoveAppointmentActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1964980920, 2958, 17692, [159, 21, 150, 110, 105, 155, 172, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x751f3ab8_0b8e_451c_9f15_966e699bac25);
 }
 impl ::windows::runtime::RuntimeName for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderRemoveAppointmentActivatedEventArgs";
@@ -543,7 +543,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentsProviderReplaceAppoi
 }
 unsafe impl ::windows::runtime::Interface for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderReplaceAppointmentActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(357677012, 43393, 16487, [138, 98, 5, 36, 228, 173, 225, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1551b7d4_a981_4067_8a62_0524e4ade121);
 }
 impl ::windows::runtime::RuntimeName for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderReplaceAppointmentActivatedEventArgs";
@@ -753,7 +753,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentsProviderShowAppointm
 }
 unsafe impl ::windows::runtime::Interface for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     type Vtable = IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(962130021, 38977, 19621, [153, 155, 136, 81, 152, 185, 239, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3958f065_9841_4ca5_999b_885198b9ef2a);
 }
 impl ::windows::runtime::RuntimeName for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowAppointmentDetailsActivatedEventArgs";
@@ -956,7 +956,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentsProviderShowTimeFram
 }
 unsafe impl ::windows::runtime::Interface for AppointmentsProviderShowTimeFrameActivatedEventArgs {
     type Vtable = IAppointmentsProviderShowTimeFrameActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2611915686, 3595, 18858, [186, 188, 18, 177, 220, 119, 73, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9baeaba6_0e0b_49aa_babc_12b1dc774986);
 }
 impl ::windows::runtime::RuntimeName for AppointmentsProviderShowTimeFrameActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowTimeFrameActivatedEventArgs";
@@ -1109,7 +1109,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundActivatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for BackgroundActivatedEventArgs {
     type Vtable = IBackgroundActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2870263520, 59232, 17422, [169, 28, 68, 121, 109, 227, 169, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab14bee0_e760_440e_a91c_44796de3a92d);
 }
 impl ::windows::runtime::RuntimeName for BackgroundActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.BackgroundActivatedEventArgs";
@@ -1228,7 +1228,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerPreviewActivatedEv
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerPreviewActivatedEventArgs {
     type Vtable = IBarcodeScannerPreviewActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1735555452, 39359, 17225, [175, 34, 228, 18, 53, 96, 55, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6772797c_99bf_4349_af22_e4123560371c);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerPreviewActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.BarcodeScannerPreviewActivatedEventArgs";
@@ -1392,7 +1392,7 @@ unsafe impl ::windows::runtime::RuntimeType for CachedFileUpdaterActivatedEventA
 }
 unsafe impl ::windows::runtime::Interface for CachedFileUpdaterActivatedEventArgs {
     type Vtable = ICachedFileUpdaterActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3496915399, 14341, 20171, [183, 87, 108, 241, 94, 38, 254, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd06eb1c7_3805_4ecb_b757_6cf15e26fef3);
 }
 impl ::windows::runtime::RuntimeName for CachedFileUpdaterActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CachedFileUpdaterActivatedEventArgs";
@@ -1554,7 +1554,7 @@ unsafe impl ::windows::runtime::RuntimeType for CameraSettingsActivatedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for CameraSettingsActivatedEventArgs {
     type Vtable = ICameraSettingsActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4217873672, 11693, 18698, [145, 112, 220, 160, 54, 235, 17, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb67a508_2dad_490a_9170_dca036eb114b);
 }
 impl ::windows::runtime::RuntimeName for CameraSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CameraSettingsActivatedEventArgs";
@@ -1695,7 +1695,7 @@ unsafe impl ::windows::runtime::RuntimeType for CommandLineActivatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for CommandLineActivatedEventArgs {
     type Vtable = ICommandLineActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1158039340, 106, 18667, [138, 251, 208, 122, 178, 94, 51, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4506472c_006a_48eb_8afb_d07ab25e3366);
 }
 impl ::windows::runtime::RuntimeName for CommandLineActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivatedEventArgs";
@@ -1855,7 +1855,7 @@ unsafe impl ::windows::runtime::RuntimeType for CommandLineActivationOperation {
 }
 unsafe impl ::windows::runtime::Interface for CommandLineActivationOperation {
     type Vtable = ICommandLineActivationOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2571839553, 50590, 20329, [188, 253, 182, 30, 212, 230, 34, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x994b2841_c59e_4f69_bcfd_b61ed4e622eb);
 }
 impl ::windows::runtime::RuntimeName for CommandLineActivationOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivationOperation";
@@ -1973,7 +1973,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContactCallActivatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ContactCallActivatedEventArgs {
     type Vtable = IContactCallActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3269399751, 12523, 16838, [179, 188, 91, 22, 148, 249, 218, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2df14c7_30eb_41c6_b3bc_5b1694f9dab3);
 }
 impl ::windows::runtime::RuntimeName for ContactCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactCallActivatedEventArgs";
@@ -2145,7 +2145,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContactMapActivatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ContactMapActivatedEventArgs {
     type Vtable = IContactMapActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3006003312, 61159, 19154, [170, 241, 168, 126, 255, 207, 0, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb32bf870_eee7_4ad2_aaf1_a87effcf00a4);
 }
 impl ::windows::runtime::RuntimeName for ContactMapActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMapActivatedEventArgs";
@@ -2324,7 +2324,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContactMessageActivatedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for ContactMessageActivatedEventArgs {
     type Vtable = IContactMessageActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3730410930, 3587, 17328, [191, 86, 188, 196, 11, 49, 98, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde598db2_0e03_43b0_bf56_bcc40b3162df);
 }
 impl ::windows::runtime::RuntimeName for ContactMessageActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMessageActivatedEventArgs";
@@ -2497,7 +2497,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContactPanelActivatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ContactPanelActivatedEventArgs {
     type Vtable = IContactPanelActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1388012516, 54228, 19299, [128, 81, 74, 242, 8, 44, 171, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52bb63e4_d3d4_4b63_8051_4af2082cab80);
 }
 impl ::windows::runtime::RuntimeName for ContactPanelActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPanelActivatedEventArgs";
@@ -2652,7 +2652,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContactPickerActivatedEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for ContactPickerActivatedEventArgs {
     type Vtable = IContactPickerActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3461851879, 25673, 17831, [151, 31, 209, 19, 190, 122, 137, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce57aae7_6449_45a7_971f_d113be7a8936);
 }
 impl ::windows::runtime::RuntimeName for ContactPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPickerActivatedEventArgs";
@@ -2809,7 +2809,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContactPostActivatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ContactPostActivatedEventArgs {
     type Vtable = IContactPostActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3009035367, 61927, 18005, [173, 110, 72, 87, 88, 143, 85, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb35a3c67_f1e7_4655_ad6e_4857588f552f);
 }
 impl ::windows::runtime::RuntimeName for ContactPostActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPostActivatedEventArgs";
@@ -2988,7 +2988,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContactVideoCallActivatedEventAr
 }
 unsafe impl ::windows::runtime::Interface for ContactVideoCallActivatedEventArgs {
     type Vtable = IContactVideoCallActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1627889080, 58343, 19279, [133, 141, 92, 99, 169, 110, 246, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61079db8_e3e7_4b4f_858d_5c63a96ef684);
 }
 impl ::windows::runtime::RuntimeName for ContactVideoCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactVideoCallActivatedEventArgs";
@@ -3176,7 +3176,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceActivatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for DeviceActivatedEventArgs {
     type Vtable = IDeviceActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3444619689, 52752, 17618, [130, 52, 195, 85, 160, 115, 239, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd50b9a9_ce10_44d2_8234_c355a073ef33);
 }
 impl ::windows::runtime::RuntimeName for DeviceActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DeviceActivatedEventArgs";
@@ -3384,7 +3384,7 @@ unsafe impl ::windows::runtime::RuntimeType for DevicePairingActivatedEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for DevicePairingActivatedEventArgs {
     type Vtable = IDevicePairingActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953185252, 60614, 16712, [148, 237, 244, 179, 126, 192, 91, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba0d1e4_ecc6_4148_94ed_f4b37ec05b3e);
 }
 impl ::windows::runtime::RuntimeName for DevicePairingActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DevicePairingActivatedEventArgs";
@@ -3580,7 +3580,7 @@ unsafe impl ::windows::runtime::RuntimeType for DialReceiverActivatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for DialReceiverActivatedEventArgs {
     type Vtable = IDialReceiverActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4218912471, 34286, 17774, [164, 77, 133, 215, 48, 231, 10, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb777ed7_85ee_456e_a44d_85d730e70aed);
 }
 impl ::windows::runtime::RuntimeName for DialReceiverActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DialReceiverActivatedEventArgs";
@@ -3852,7 +3852,7 @@ unsafe impl ::windows::runtime::RuntimeType for FileActivatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for FileActivatedEventArgs {
     type Vtable = IFileActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3140156467, 37809, 17133, [139, 38, 35, 109, 217, 199, 132, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb2afc33_93b1_42ed_8b26_236dd9c78496);
 }
 impl ::windows::runtime::RuntimeName for FileActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileActivatedEventArgs";
@@ -4112,7 +4112,7 @@ unsafe impl ::windows::runtime::RuntimeType for FileOpenPickerActivatedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for FileOpenPickerActivatedEventArgs {
     type Vtable = IFileOpenPickerActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921151106, 21797, 19442, [188, 9, 31, 80, 149, 212, 150, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72827082_5525_4bf2_bc09_1f5095d4964d);
 }
 impl ::windows::runtime::RuntimeName for FileOpenPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerActivatedEventArgs";
@@ -4308,7 +4308,7 @@ unsafe impl ::windows::runtime::RuntimeType for FileOpenPickerContinuationEventA
 }
 unsafe impl ::windows::runtime::Interface for FileOpenPickerContinuationEventArgs {
     type Vtable = IFileOpenPickerContinuationEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4042932026, 54504, 19155, [156, 52, 35, 8, 243, 47, 206, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0fa3f3a_d4e8_4ad3_9c34_2308f32fcec9);
 }
 impl ::windows::runtime::RuntimeName for FileOpenPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerContinuationEventArgs";
@@ -4510,7 +4510,7 @@ unsafe impl ::windows::runtime::RuntimeType for FileSavePickerActivatedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for FileSavePickerActivatedEventArgs {
     type Vtable = IFileSavePickerActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2176949489, 29926, 17287, [130, 235, 187, 143, 214, 75, 67, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81c19cf1_74e6_4387_82eb_bb8fd64b4346);
 }
 impl ::windows::runtime::RuntimeName for FileSavePickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerActivatedEventArgs";
@@ -4706,7 +4706,7 @@ unsafe impl ::windows::runtime::RuntimeType for FileSavePickerContinuationEventA
 }
 unsafe impl ::windows::runtime::Interface for FileSavePickerContinuationEventArgs {
     type Vtable = IFileSavePickerContinuationEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(746876897, 15277, 20275, [140, 139, 228, 111, 174, 130, 75, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c846fe1_3bad_4f33_8c8b_e46fae824b4b);
 }
 impl ::windows::runtime::RuntimeName for FileSavePickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerContinuationEventArgs";
@@ -4902,7 +4902,7 @@ unsafe impl ::windows::runtime::RuntimeType for FolderPickerContinuationEventArg
 }
 unsafe impl ::windows::runtime::Interface for FolderPickerContinuationEventArgs {
     type Vtable = IFolderPickerContinuationEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1367876454, 40779, 18831, [190, 176, 66, 104, 79, 110, 28, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51882366_9f4b_498f_beb0_42684f6e1c29);
 }
 impl ::windows::runtime::RuntimeName for FolderPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FolderPickerContinuationEventArgs";
@@ -5041,7 +5041,7 @@ unsafe impl ::core::marker::Sync for FolderPickerContinuationEventArgs {}
 pub struct IActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivatedEventArgs {
     type Vtable = IActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3479508755, 52488, 20440, [182, 151, 162, 129, 182, 84, 78, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf651713_cd08_4fd8_b697_a281b6544e2e);
 }
 impl IActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -5131,7 +5131,7 @@ pub struct IActivatedEventArgs_abi(
 pub struct IActivatedEventArgsWithUser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivatedEventArgsWithUser {
     type Vtable = IActivatedEventArgsWithUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(485530526, 39266, 18742, [128, 255, 175, 200, 232, 174, 92, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cf09b9e_9962_4936_80ff_afc8e8ae5c8c);
 }
 impl IActivatedEventArgsWithUser {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -5251,7 +5251,7 @@ pub struct IActivatedEventArgsWithUser_abi(
 pub struct IApplicationViewActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewActivatedEventArgs {
     type Vtable = IApplicationViewActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2467098443, 47145, 16636, [136, 244, 133, 19, 232, 166, 71, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x930cef4b_b829_40fc_88f4_8513e8a64738);
 }
 impl IApplicationViewActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -5369,7 +5369,7 @@ pub struct IApplicationViewActivatedEventArgs_abi(
 pub struct IAppointmentsProviderActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentsProviderActivatedEventArgs {
     type Vtable = IAppointmentsProviderActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(862241797, 37692, 20093, [160, 52, 80, 15, 184, 220, 217, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3364c405_933c_4e7d_a034_500fb8dcd9f3);
 }
 impl IAppointmentsProviderActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -5487,7 +5487,7 @@ pub struct IAppointmentsProviderActivatedEventArgs_abi(
 pub struct IAppointmentsProviderAddAppointmentActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentsProviderAddAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderAddAppointmentActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2726695783, 52965, 20045, [158, 215, 65, 195, 78, 193, 139, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2861367_cee5_4e4d_9ed7_41c34ec18b02);
 }
 impl IAppointmentsProviderAddAppointmentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
@@ -5637,7 +5637,7 @@ pub struct IAppointmentsProviderAddAppointmentActivatedEventArgs_abi(
 pub struct IAppointmentsProviderRemoveAppointmentActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderRemoveAppointmentActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1964980920, 2958, 17692, [159, 21, 150, 110, 105, 155, 172, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x751f3ab8_0b8e_451c_9f15_966e699bac25);
 }
 impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
@@ -5787,7 +5787,7 @@ pub struct IAppointmentsProviderRemoveAppointmentActivatedEventArgs_abi(
 pub struct IAppointmentsProviderReplaceAppointmentActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderReplaceAppointmentActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(357677012, 43393, 16487, [138, 98, 5, 36, 228, 173, 225, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1551b7d4_a981_4067_8a62_0524e4ade121);
 }
 impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
@@ -5937,7 +5937,7 @@ pub struct IAppointmentsProviderReplaceAppointmentActivatedEventArgs_abi(
 pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     type Vtable = IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(962130021, 38977, 19621, [153, 155, 136, 81, 152, 185, 239, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3958f065_9841_4ca5_999b_885198b9ef2a);
 }
 impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -6105,7 +6105,7 @@ pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_abi(
 pub struct IAppointmentsProviderShowTimeFrameActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
     type Vtable = IAppointmentsProviderShowTimeFrameActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2611915686, 3595, 18858, [186, 188, 18, 177, 220, 119, 73, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9baeaba6_0e0b_49aa_babc_12b1dc774986);
 }
 impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -6266,7 +6266,7 @@ pub struct IAppointmentsProviderShowTimeFrameActivatedEventArgs_abi(
 pub struct IBackgroundActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundActivatedEventArgs {
     type Vtable = IBackgroundActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2870263520, 59232, 17422, [169, 28, 68, 121, 109, 227, 169, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab14bee0_e760_440e_a91c_44796de3a92d);
 }
 impl IBackgroundActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Background")]
@@ -6340,7 +6340,7 @@ pub struct IBackgroundActivatedEventArgs_abi(
 pub struct IBarcodeScannerPreviewActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerPreviewActivatedEventArgs {
     type Vtable = IBarcodeScannerPreviewActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1735555452, 39359, 17225, [175, 34, 228, 18, 53, 96, 55, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6772797c_99bf_4349_af22_e4123560371c);
 }
 impl IBarcodeScannerPreviewActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -6458,7 +6458,7 @@ pub struct IBarcodeScannerPreviewActivatedEventArgs_abi(
 pub struct ICachedFileUpdaterActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICachedFileUpdaterActivatedEventArgs {
     type Vtable = ICachedFileUpdaterActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3496915399, 14341, 20171, [183, 87, 108, 241, 94, 38, 254, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd06eb1c7_3805_4ecb_b757_6cf15e26fef3);
 }
 impl ICachedFileUpdaterActivatedEventArgs {
     #[cfg(feature = "Storage_Provider")]
@@ -6578,7 +6578,7 @@ pub struct ICachedFileUpdaterActivatedEventArgs_abi(
 pub struct ICameraSettingsActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraSettingsActivatedEventArgs {
     type Vtable = ICameraSettingsActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4217873672, 11693, 18698, [145, 112, 220, 160, 54, 235, 17, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb67a508_2dad_490a_9170_dca036eb114b);
 }
 impl ICameraSettingsActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -6705,7 +6705,7 @@ pub struct ICameraSettingsActivatedEventArgs_abi(
 pub struct ICommandLineActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICommandLineActivatedEventArgs {
     type Vtable = ICommandLineActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1158039340, 106, 18667, [138, 251, 208, 122, 178, 94, 51, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4506472c_006a_48eb_8afb_d07ab25e3366);
 }
 impl ICommandLineActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -6822,7 +6822,7 @@ pub struct ICommandLineActivatedEventArgs_abi(
 pub struct ICommandLineActivationOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICommandLineActivationOperation {
     type Vtable = ICommandLineActivationOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2571839553, 50590, 20329, [188, 253, 182, 30, 212, 230, 34, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x994b2841_c59e_4f69_bcfd_b61ed4e622eb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6846,7 +6846,7 @@ pub struct ICommandLineActivationOperation_abi(
 pub struct IContactActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactActivatedEventArgs {
     type Vtable = IContactActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3592921540, 49189, 19521, [157, 239, 241, 234, 250, 208, 117, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd627a1c4_c025_4c41_9def_f1eafad075e7);
 }
 impl IContactActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -6964,7 +6964,7 @@ pub struct IContactActivatedEventArgs_abi(
 pub struct IContactCallActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactCallActivatedEventArgs {
     type Vtable = IContactCallActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3269399751, 12523, 16838, [179, 188, 91, 22, 148, 249, 218, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2df14c7_30eb_41c6_b3bc_5b1694f9dab3);
 }
 impl IContactCallActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -7132,7 +7132,7 @@ pub struct IContactCallActivatedEventArgs_abi(
 pub struct IContactMapActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactMapActivatedEventArgs {
     type Vtable = IContactMapActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3006003312, 61159, 19154, [170, 241, 168, 126, 255, 207, 0, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb32bf870_eee7_4ad2_aaf1_a87effcf00a4);
 }
 impl IContactMapActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Contacts")]
@@ -7293,7 +7293,7 @@ pub struct IContactMapActivatedEventArgs_abi(
 pub struct IContactMessageActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactMessageActivatedEventArgs {
     type Vtable = IContactMessageActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3730410930, 3587, 17328, [191, 86, 188, 196, 11, 49, 98, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde598db2_0e03_43b0_bf56_bcc40b3162df);
 }
 impl IContactMessageActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -7461,7 +7461,7 @@ pub struct IContactMessageActivatedEventArgs_abi(
 pub struct IContactPanelActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactPanelActivatedEventArgs {
     type Vtable = IContactPanelActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1388012516, 54228, 19299, [128, 81, 74, 242, 8, 44, 171, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52bb63e4_d3d4_4b63_8051_4af2082cab80);
 }
 impl IContactPanelActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Contacts")]
@@ -7546,7 +7546,7 @@ pub struct IContactPanelActivatedEventArgs_abi(
 pub struct IContactPickerActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactPickerActivatedEventArgs {
     type Vtable = IContactPickerActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3461851879, 25673, 17831, [151, 31, 209, 19, 190, 122, 137, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce57aae7_6449_45a7_971f_d113be7a8936);
 }
 impl IContactPickerActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Contacts_Provider")]
@@ -7666,7 +7666,7 @@ pub struct IContactPickerActivatedEventArgs_abi(
 pub struct IContactPostActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactPostActivatedEventArgs {
     type Vtable = IContactPostActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3009035367, 61927, 18005, [173, 110, 72, 87, 88, 143, 85, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb35a3c67_f1e7_4655_ad6e_4857588f552f);
 }
 impl IContactPostActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -7834,7 +7834,7 @@ pub struct IContactPostActivatedEventArgs_abi(
 pub struct IContactVideoCallActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactVideoCallActivatedEventArgs {
     type Vtable = IContactVideoCallActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1627889080, 58343, 19279, [133, 141, 92, 99, 169, 110, 246, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61079db8_e3e7_4b4f_858d_5c63a96ef684);
 }
 impl IContactVideoCallActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -8002,7 +8002,7 @@ pub struct IContactVideoCallActivatedEventArgs_abi(
 pub struct IContactsProviderActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactsProviderActivatedEventArgs {
     type Vtable = IContactsProviderActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1166073000, 22352, 18710, [170, 82, 192, 130, 149, 33, 235, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4580dca8_5750_4916_aa52_c0829521eb94);
 }
 impl IContactsProviderActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -8120,7 +8120,7 @@ pub struct IContactsProviderActivatedEventArgs_abi(
 pub struct IContinuationActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContinuationActivatedEventArgs {
     type Vtable = IContinuationActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3850438325, 5471, 19092, [167, 66, 199, 224, 143, 78, 24, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe58106b5_155f_4a94_a742_c7e08f4e188c);
 }
 impl IContinuationActivatedEventArgs {
     #[cfg(feature = "Foundation_Collections")]
@@ -8240,7 +8240,7 @@ pub struct IContinuationActivatedEventArgs_abi(
 pub struct IDeviceActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceActivatedEventArgs {
     type Vtable = IDeviceActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3444619689, 52752, 17618, [130, 52, 195, 85, 160, 115, 239, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd50b9a9_ce10_44d2_8234_c355a073ef33);
 }
 impl IDeviceActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -8367,7 +8367,7 @@ pub struct IDeviceActivatedEventArgs_abi(
 pub struct IDevicePairingActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePairingActivatedEventArgs {
     type Vtable = IDevicePairingActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953185252, 60614, 16712, [148, 237, 244, 179, 126, 192, 91, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba0d1e4_ecc6_4148_94ed_f4b37ec05b3e);
 }
 impl IDevicePairingActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -8487,7 +8487,7 @@ pub struct IDevicePairingActivatedEventArgs_abi(
 pub struct IDialReceiverActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialReceiverActivatedEventArgs {
     type Vtable = IDialReceiverActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4218912471, 34286, 17774, [164, 77, 133, 215, 48, 231, 10, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb777ed7_85ee_456e_a44d_85d730e70aed);
 }
 impl IDialReceiverActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -8643,7 +8643,7 @@ pub struct IDialReceiverActivatedEventArgs_abi(
 pub struct IFileActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileActivatedEventArgs {
     type Vtable = IFileActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3140156467, 37809, 17133, [139, 38, 35, 109, 217, 199, 132, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb2afc33_93b1_42ed_8b26_236dd9c78496);
 }
 impl IFileActivatedEventArgs {
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
@@ -8772,7 +8772,7 @@ pub struct IFileActivatedEventArgs_abi(
 pub struct IFileActivatedEventArgsWithCallerPackageFamilyName(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileActivatedEventArgsWithCallerPackageFamilyName {
     type Vtable = IFileActivatedEventArgsWithCallerPackageFamilyName_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(761327723, 53855, 19749, [134, 83, 225, 197, 225, 16, 131, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d60f06b_d25f_4d25_8653_e1c5e1108309);
 }
 impl IFileActivatedEventArgsWithCallerPackageFamilyName {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -8890,7 +8890,7 @@ pub struct IFileActivatedEventArgsWithCallerPackageFamilyName_abi(
 pub struct IFileActivatedEventArgsWithNeighboringFiles(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileActivatedEventArgsWithNeighboringFiles {
     type Vtable = IFileActivatedEventArgsWithNeighboringFiles_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1127981476, 57826, 18685, [183, 252, 181, 214, 238, 230, 80, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x433ba1a4_e1e2_48fd_b7fc_b5d6eee65033);
 }
 impl IFileActivatedEventArgsWithNeighboringFiles {
     #[cfg(feature = "Storage_Search")]
@@ -9049,7 +9049,7 @@ pub struct IFileActivatedEventArgsWithNeighboringFiles_abi(
 pub struct IFileOpenPickerActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPickerActivatedEventArgs {
     type Vtable = IFileOpenPickerActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921151106, 21797, 19442, [188, 9, 31, 80, 149, 212, 150, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72827082_5525_4bf2_bc09_1f5095d4964d);
 }
 impl IFileOpenPickerActivatedEventArgs {
     #[cfg(feature = "Storage_Pickers_Provider")]
@@ -9169,7 +9169,7 @@ pub struct IFileOpenPickerActivatedEventArgs_abi(
 pub struct IFileOpenPickerActivatedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPickerActivatedEventArgs2 {
     type Vtable = IFileOpenPickerActivatedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1584602982, 36127, 17915, [175, 29, 115, 32, 92, 143, 199, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e731f66_8d1f_45fb_af1d_73205c8fc7a1);
 }
 impl IFileOpenPickerActivatedEventArgs2 {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -9241,7 +9241,7 @@ pub struct IFileOpenPickerActivatedEventArgs2_abi(
 pub struct IFileOpenPickerContinuationEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPickerContinuationEventArgs {
     type Vtable = IFileOpenPickerContinuationEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4042932026, 54504, 19155, [156, 52, 35, 8, 243, 47, 206, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0fa3f3a_d4e8_4ad3_9c34_2308f32fcec9);
 }
 impl IFileOpenPickerContinuationEventArgs {
     #[cfg(feature = "deprecated")]
@@ -9393,7 +9393,7 @@ pub struct IFileOpenPickerContinuationEventArgs_abi(
 pub struct IFileSavePickerActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePickerActivatedEventArgs {
     type Vtable = IFileSavePickerActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2176949489, 29926, 17287, [130, 235, 187, 143, 214, 75, 67, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81c19cf1_74e6_4387_82eb_bb8fd64b4346);
 }
 impl IFileSavePickerActivatedEventArgs {
     #[cfg(feature = "Storage_Pickers_Provider")]
@@ -9513,7 +9513,7 @@ pub struct IFileSavePickerActivatedEventArgs_abi(
 pub struct IFileSavePickerActivatedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePickerActivatedEventArgs2 {
     type Vtable = IFileSavePickerActivatedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1802763795, 11506, 19784, [140, 188, 175, 103, 210, 63, 28, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b73fe13_2cf2_4d48_8cbc_af67d23f1ce7);
 }
 impl IFileSavePickerActivatedEventArgs2 {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -9594,7 +9594,7 @@ pub struct IFileSavePickerActivatedEventArgs2_abi(
 pub struct IFileSavePickerContinuationEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePickerContinuationEventArgs {
     type Vtable = IFileSavePickerContinuationEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(746876897, 15277, 20275, [140, 139, 228, 111, 174, 130, 75, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c846fe1_3bad_4f33_8c8b_e46fae824b4b);
 }
 impl IFileSavePickerContinuationEventArgs {
     #[cfg(feature = "deprecated")]
@@ -9746,7 +9746,7 @@ pub struct IFileSavePickerContinuationEventArgs_abi(
 pub struct IFolderPickerContinuationEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFolderPickerContinuationEventArgs {
     type Vtable = IFolderPickerContinuationEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1367876454, 40779, 18831, [190, 176, 66, 104, 79, 110, 28, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51882366_9f4b_498f_beb0_42684f6e1c29);
 }
 impl IFolderPickerContinuationEventArgs {
     #[cfg(feature = "deprecated")]
@@ -9898,7 +9898,7 @@ pub struct IFolderPickerContinuationEventArgs_abi(
 pub struct ILaunchActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILaunchActivatedEventArgs {
     type Vtable = ILaunchActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4224269862, 41290, 19279, [130, 176, 51, 190, 217, 32, 175, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbc93e26_a14a_4b4f_82b0_33bed920af52);
 }
 impl ILaunchActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -10025,7 +10025,7 @@ pub struct ILaunchActivatedEventArgs_abi(
 pub struct ILaunchActivatedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILaunchActivatedEventArgs2 {
     type Vtable = ILaunchActivatedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(265518780, 40393, 18101, [154, 206, 189, 149, 212, 86, 83, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0fd37ebc_9dc9_46b5_9ace_bd95d4565345);
 }
 impl ILaunchActivatedEventArgs2 {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -10181,7 +10181,7 @@ pub struct ILaunchActivatedEventArgs2_abi(
 pub struct ILockScreenActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenActivatedEventArgs {
     type Vtable = ILockScreenActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1017608550, 24840, 19009, [130, 32, 238, 125, 19, 60, 133, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ca77966_6108_4a41_8220_ee7d133c8532);
 }
 impl ILockScreenActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -10299,7 +10299,7 @@ pub struct ILockScreenActivatedEventArgs_abi(
 pub struct ILockScreenCallActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenCallActivatedEventArgs {
     type Vtable = ILockScreenCallActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(116621246, 46578, 17547, [177, 62, 227, 40, 172, 28, 81, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06f37fbe_b5f2_448b_b13e_e328ac1c516a);
 }
 impl ILockScreenCallActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Calls")]
@@ -10457,7 +10457,7 @@ pub struct ILockScreenCallActivatedEventArgs_abi(
 pub struct IPhoneCallActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallActivatedEventArgs {
     type Vtable = IPhoneCallActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1415664161, 41921, 19693, [182, 47, 140, 96, 82, 54, 25, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54615221_a3c1_4ced_b62f_8c60523619ad);
 }
 impl IPhoneCallActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -10575,7 +10575,7 @@ pub struct IPhoneCallActivatedEventArgs_abi(
 pub struct IPickerReturnedActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPickerReturnedActivatedEventArgs {
     type Vtable = IPickerReturnedActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(906883001, 43475, 18820, [164, 237, 158, 199, 52, 96, 73, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x360defb9_a9d3_4984_a4ed_9ec734604921);
 }
 impl IPickerReturnedActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -10693,7 +10693,7 @@ pub struct IPickerReturnedActivatedEventArgs_abi(
 pub struct IPrelaunchActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrelaunchActivatedEventArgs {
     type Vtable = IPrelaunchActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(205812091, 6647, 18646, [176, 70, 207, 34, 130, 110, 170, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c44717b_19f7_48d6_b046_cf22826eaa74);
 }
 impl IPrelaunchActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -10811,7 +10811,7 @@ pub struct IPrelaunchActivatedEventArgs_abi(
 pub struct IPrint3DWorkflowActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DWorkflowActivatedEventArgs {
     type Vtable = IPrint3DWorkflowActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1062725515, 62124, 17945, [131, 2, 239, 133, 94, 28, 155, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f57e78b_f2ac_4619_8302_ef855e1c9b90);
 }
 impl IPrint3DWorkflowActivatedEventArgs {
     #[cfg(feature = "Devices_Printers_Extensions")]
@@ -10931,7 +10931,7 @@ pub struct IPrint3DWorkflowActivatedEventArgs_abi(
 pub struct IPrintTaskSettingsActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskSettingsActivatedEventArgs {
     type Vtable = IPrintTaskSettingsActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3996164297, 52822, 18533, [186, 142, 137, 84, 172, 39, 17, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee30a0c9_ce56_4865_ba8e_8954ac271107);
 }
 impl IPrintTaskSettingsActivatedEventArgs {
     #[cfg(feature = "Devices_Printers_Extensions")]
@@ -11051,7 +11051,7 @@ pub struct IPrintTaskSettingsActivatedEventArgs_abi(
 pub struct IProtocolActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtocolActivatedEventArgs {
     type Vtable = IProtocolActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1620440285, 47040, 18091, [129, 254, 217, 15, 54, 208, 13, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6095f4dd_b7c0_46ab_81fe_d90f36d00d24);
 }
 impl IProtocolActivatedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -11171,7 +11171,7 @@ pub struct IProtocolActivatedEventArgs_abi(
 pub struct IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
     type Vtable = IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3628731410, 23695, 17292, [131, 203, 194, 143, 204, 11, 47, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd84a0c12_5c8f_438c_83cb_c28fcc0b2fdb);
 }
 impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -11300,7 +11300,7 @@ pub struct IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_abi(
 pub struct IProtocolForResultsActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtocolForResultsActivatedEventArgs {
     type Vtable = IProtocolForResultsActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3880858306, 31463, 17687, [128, 172, 219, 232, 215, 204, 91, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe75132c2_7ae7_4517_80ac_dbe8d7cc5b9c);
 }
 impl IProtocolForResultsActivatedEventArgs {
     #[cfg(feature = "System")]
@@ -11420,7 +11420,7 @@ pub struct IProtocolForResultsActivatedEventArgs_abi(
 pub struct IRestrictedLaunchActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRestrictedLaunchActivatedEventArgs {
     type Vtable = IRestrictedLaunchActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3770133633, 49091, 17220, [165, 218, 25, 253, 90, 39, 186, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0b7ac81_bfc3_4344_a5da_19fd5a27baae);
 }
 impl IRestrictedLaunchActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -11538,7 +11538,7 @@ pub struct IRestrictedLaunchActivatedEventArgs_abi(
 pub struct ISearchActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchActivatedEventArgs {
     type Vtable = ISearchActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2360568145, 22728, 17379, [148, 188, 65, 211, 63, 139, 99, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cb36951_58c8_43e3_94bc_41d33f8b630e);
 }
 impl ISearchActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -11665,7 +11665,7 @@ pub struct ISearchActivatedEventArgs_abi(
 pub struct ISearchActivatedEventArgsWithLinguisticDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchActivatedEventArgsWithLinguisticDetails {
     type Vtable = ISearchActivatedEventArgsWithLinguisticDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3231658970, 2219, 18737, [155, 124, 69, 16, 37, 242, 31, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc09f33da_08ab_4931_9b7c_451025f21f81);
 }
 impl ISearchActivatedEventArgsWithLinguisticDetails {
     #[cfg(feature = "ApplicationModel_Search")]
@@ -11739,7 +11739,7 @@ pub struct ISearchActivatedEventArgsWithLinguisticDetails_abi(
 pub struct IShareTargetActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareTargetActivatedEventArgs {
     type Vtable = IShareTargetActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1272641992, 52658, 19147, [191, 195, 102, 72, 86, 51, 120, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bdaf9c8_cdb2_4acb_bfc3_6648563378ec);
 }
 impl IShareTargetActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
@@ -11858,7 +11858,7 @@ pub struct IShareTargetActivatedEventArgs_abi(
 pub struct ISplashScreen(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISplashScreen {
     type Vtable = ISplashScreen_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3394082652, 54486, 17392, [151, 192, 8, 51, 198, 57, 28, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca4d975c_d4d6_43f0_97c0_0833c6391c24);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11882,7 +11882,7 @@ pub struct ISplashScreen_abi(
 pub struct IStartupTaskActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStartupTaskActivatedEventArgs {
     type Vtable = IStartupTaskActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(61938264, 21110, 19857, [134, 33, 84, 97, 24, 100, 213, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03b11a58_5276_4d91_8621_54611864d5fa);
 }
 impl IStartupTaskActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -11999,7 +11999,7 @@ pub struct IStartupTaskActivatedEventArgs_abi(
 pub struct ITileActivatedInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileActivatedInfo {
     type Vtable = ITileActivatedInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2162467761, 14720, 20247, [183, 56, 137, 25, 78, 11, 143, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80e4a3b1_3980_4f17_b738_89194e0b8f65);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12019,7 +12019,7 @@ pub struct ITileActivatedInfo_abi(
 pub struct IToastNotificationActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationActivatedEventArgs {
     type Vtable = IToastNotificationActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2460512130, 21136, 17181, [190, 133, 196, 170, 238, 184, 104, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92a86f82_5290_431d_be85_c4aaeeb8685f);
 }
 impl IToastNotificationActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -12148,7 +12148,7 @@ pub struct IToastNotificationActivatedEventArgs_abi(
 pub struct IUserDataAccountProviderActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountProviderActivatedEventArgs {
     type Vtable = IUserDataAccountProviderActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(466220835, 36593, 19025, [166, 58, 254, 113, 30, 234, 182, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bc9f723_8ef1_4a51_a63a_fe711eeab607);
 }
 impl IUserDataAccountProviderActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -12268,7 +12268,7 @@ pub struct IUserDataAccountProviderActivatedEventArgs_abi(
 pub struct IViewSwitcherProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IViewSwitcherProvider {
     type Vtable = IViewSwitcherProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(871532710, 23596, 19751, [186, 199, 117, 54, 8, 143, 18, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33f288a6_5c2c_4d27_bac7_7536088f1219);
 }
 impl IViewSwitcherProvider {
     #[cfg(feature = "UI_ViewManagement")]
@@ -12388,7 +12388,7 @@ pub struct IViewSwitcherProvider_abi(
 pub struct IVoiceCommandActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandActivatedEventArgs {
     type Vtable = IVoiceCommandActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2878528765, 36163, 19942, [151, 117, 32, 112, 75, 88, 27, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab92dcfd_8d43_4de6_9775_20704b581b00);
 }
 impl IVoiceCommandActivatedEventArgs {
     #[cfg(feature = "Media_SpeechRecognition")]
@@ -12508,7 +12508,7 @@ pub struct IVoiceCommandActivatedEventArgs_abi(
 pub struct IWalletActionActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletActionActivatedEventArgs {
     type Vtable = IWalletActionActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4244374139, 6682, 19746, [146, 63, 174, 111, 69, 250, 82, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcfc027b_1a1a_4d22_923f_ae6f45fa52d9);
 }
 impl IWalletActionActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -12646,7 +12646,7 @@ pub struct IWalletActionActivatedEventArgs_abi(
 pub struct IWebAccountProviderActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderActivatedEventArgs {
     type Vtable = IWebAccountProviderActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1924601716, 39146, 19663, [151, 82, 70, 217, 5, 16, 4, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72b71774_98ea_4ccf_9752_46d9051004f1);
 }
 impl IWebAccountProviderActivatedEventArgs {
     #[cfg(feature = "Security_Authentication_Web_Provider")]
@@ -12766,7 +12766,7 @@ pub struct IWebAccountProviderActivatedEventArgs_abi(
 pub struct IWebAuthenticationBrokerContinuationEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAuthenticationBrokerContinuationEventArgs {
     type Vtable = IWebAuthenticationBrokerContinuationEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1977459668, 30484, 17725, [183, 255, 185, 94, 58, 23, 9, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75dda3d4_7714_453d_b7ff_b95e3a1709da);
 }
 impl IWebAuthenticationBrokerContinuationEventArgs {
     #[cfg(feature = "Security_Authentication_Web")]
@@ -13004,7 +13004,7 @@ unsafe impl ::windows::runtime::RuntimeType for LaunchActivatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for LaunchActivatedEventArgs {
     type Vtable = ILaunchActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4224269862, 41290, 19279, [130, 176, 51, 190, 217, 32, 175, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbc93e26_a14a_4b4f_82b0_33bed920af52);
 }
 impl ::windows::runtime::RuntimeName for LaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LaunchActivatedEventArgs";
@@ -13255,7 +13255,7 @@ unsafe impl ::windows::runtime::RuntimeType for LockScreenActivatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for LockScreenActivatedEventArgs {
     type Vtable = ILockScreenActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1017608550, 24840, 19009, [130, 32, 238, 125, 19, 60, 133, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ca77966_6108_4a41_8220_ee7d133c8532);
 }
 impl ::windows::runtime::RuntimeName for LockScreenActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenActivatedEventArgs";
@@ -13443,7 +13443,7 @@ unsafe impl ::windows::runtime::RuntimeType for LockScreenCallActivatedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for LockScreenCallActivatedEventArgs {
     type Vtable = ILockScreenCallActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(116621246, 46578, 17547, [177, 62, 227, 40, 172, 28, 81, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06f37fbe_b5f2_448b_b13e_e328ac1c516a);
 }
 impl ::windows::runtime::RuntimeName for LockScreenCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenCallActivatedEventArgs";
@@ -13633,7 +13633,7 @@ unsafe impl ::windows::runtime::RuntimeType for LockScreenComponentActivatedEven
 }
 unsafe impl ::windows::runtime::Interface for LockScreenComponentActivatedEventArgs {
     type Vtable = IActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3479508755, 52488, 20440, [182, 151, 162, 129, 182, 84, 78, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf651713_cd08_4fd8_b697_a281b6544e2e);
 }
 impl ::windows::runtime::RuntimeName for LockScreenComponentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenComponentActivatedEventArgs";
@@ -13752,7 +13752,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneCallActivatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for PhoneCallActivatedEventArgs {
     type Vtable = IPhoneCallActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1415664161, 41921, 19693, [182, 47, 140, 96, 82, 54, 25, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54615221_a3c1_4ced_b62f_8c60523619ad);
 }
 impl ::windows::runtime::RuntimeName for PhoneCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs";
@@ -13906,7 +13906,7 @@ unsafe impl ::windows::runtime::RuntimeType for PickerReturnedActivatedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for PickerReturnedActivatedEventArgs {
     type Vtable = IPickerReturnedActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(906883001, 43475, 18820, [164, 237, 158, 199, 52, 96, 73, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x360defb9_a9d3_4984_a4ed_9ec734604921);
 }
 impl ::windows::runtime::RuntimeName for PickerReturnedActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs";
@@ -14039,7 +14039,7 @@ unsafe impl ::windows::runtime::RuntimeType for Print3DWorkflowActivatedEventArg
 }
 unsafe impl ::windows::runtime::Interface for Print3DWorkflowActivatedEventArgs {
     type Vtable = IPrint3DWorkflowActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1062725515, 62124, 17945, [131, 2, 239, 133, 94, 28, 155, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f57e78b_f2ac_4619_8302_ef855e1c9b90);
 }
 impl ::windows::runtime::RuntimeName for Print3DWorkflowActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.Print3DWorkflowActivatedEventArgs";
@@ -14172,7 +14172,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintTaskSettingsActivatedEventA
 }
 unsafe impl ::windows::runtime::Interface for PrintTaskSettingsActivatedEventArgs {
     type Vtable = IPrintTaskSettingsActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3996164297, 52822, 18533, [186, 142, 137, 84, 172, 39, 17, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee30a0c9_ce56_4865_ba8e_8954ac271107);
 }
 impl ::windows::runtime::RuntimeName for PrintTaskSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PrintTaskSettingsActivatedEventArgs";
@@ -14348,7 +14348,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProtocolActivatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ProtocolActivatedEventArgs {
     type Vtable = IProtocolActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1620440285, 47040, 18091, [129, 254, 217, 15, 54, 208, 13, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6095f4dd_b7c0_46ab_81fe_d90f36d00d24);
 }
 impl ::windows::runtime::RuntimeName for ProtocolActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs";
@@ -14621,7 +14621,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProtocolForResultsActivatedEvent
 }
 unsafe impl ::windows::runtime::Interface for ProtocolForResultsActivatedEventArgs {
     type Vtable = IProtocolForResultsActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3880858306, 31463, 17687, [128, 172, 219, 232, 215, 204, 91, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe75132c2_7ae7_4517_80ac_dbe8d7cc5b9c);
 }
 impl ::windows::runtime::RuntimeName for ProtocolForResultsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ProtocolForResultsActivatedEventArgs";
@@ -14872,7 +14872,7 @@ unsafe impl ::windows::runtime::RuntimeType for RestrictedLaunchActivatedEventAr
 }
 unsafe impl ::windows::runtime::Interface for RestrictedLaunchActivatedEventArgs {
     type Vtable = IRestrictedLaunchActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3770133633, 49091, 17220, [165, 218, 25, 253, 90, 39, 186, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0b7ac81_bfc3_4344_a5da_19fd5a27baae);
 }
 impl ::windows::runtime::RuntimeName for RestrictedLaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.RestrictedLaunchActivatedEventArgs";
@@ -15069,7 +15069,7 @@ unsafe impl ::windows::runtime::RuntimeType for SearchActivatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for SearchActivatedEventArgs {
     type Vtable = ISearchActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2360568145, 22728, 17379, [148, 188, 65, 211, 63, 139, 99, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cb36951_58c8_43e3_94bc_41d33f8b630e);
 }
 impl ::windows::runtime::RuntimeName for SearchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.SearchActivatedEventArgs";
@@ -15299,7 +15299,7 @@ unsafe impl ::windows::runtime::RuntimeType for ShareTargetActivatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ShareTargetActivatedEventArgs {
     type Vtable = IShareTargetActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1272641992, 52658, 19147, [191, 195, 102, 72, 86, 51, 120, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bdaf9c8_cdb2_4acb_bfc3_6648563378ec);
 }
 impl ::windows::runtime::RuntimeName for ShareTargetActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ShareTargetActivatedEventArgs";
@@ -15445,7 +15445,7 @@ unsafe impl ::windows::runtime::RuntimeType for SplashScreen {
 }
 unsafe impl ::windows::runtime::Interface for SplashScreen {
     type Vtable = ISplashScreen_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3394082652, 54486, 17392, [151, 192, 8, 51, 198, 57, 28, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca4d975c_d4d6_43f0_97c0_0833c6391c24);
 }
 impl ::windows::runtime::RuntimeName for SplashScreen {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.SplashScreen";
@@ -15542,7 +15542,7 @@ unsafe impl ::windows::runtime::RuntimeType for StartupTaskActivatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for StartupTaskActivatedEventArgs {
     type Vtable = IStartupTaskActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(61938264, 21110, 19857, [134, 33, 84, 97, 24, 100, 213, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03b11a58_5276_4d91_8621_54611864d5fa);
 }
 impl ::windows::runtime::RuntimeName for StartupTaskActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.StartupTaskActivatedEventArgs";
@@ -15673,7 +15673,7 @@ unsafe impl ::windows::runtime::RuntimeType for TileActivatedInfo {
 }
 unsafe impl ::windows::runtime::Interface for TileActivatedInfo {
     type Vtable = ITileActivatedInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2162467761, 14720, 20247, [183, 56, 137, 25, 78, 11, 143, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80e4a3b1_3980_4f17_b738_89194e0b8f65);
 }
 impl ::windows::runtime::RuntimeName for TileActivatedInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.TileActivatedInfo";
@@ -15789,7 +15789,7 @@ unsafe impl ::windows::runtime::RuntimeType for ToastNotificationActivatedEventA
 }
 unsafe impl ::windows::runtime::Interface for ToastNotificationActivatedEventArgs {
     type Vtable = IToastNotificationActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2460512130, 21136, 17181, [190, 133, 196, 170, 238, 184, 104, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92a86f82_5290_431d_be85_c4aaeeb8685f);
 }
 impl ::windows::runtime::RuntimeName for ToastNotificationActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ToastNotificationActivatedEventArgs";
@@ -15966,7 +15966,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataAccountProviderActivated
 }
 unsafe impl ::windows::runtime::Interface for UserDataAccountProviderActivatedEventArgs {
     type Vtable = IUserDataAccountProviderActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(466220835, 36593, 19025, [166, 58, 254, 113, 30, 234, 182, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bc9f723_8ef1_4a51_a63a_fe711eeab607);
 }
 impl ::windows::runtime::RuntimeName for UserDataAccountProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.UserDataAccountProviderActivatedEventArgs";
@@ -16108,7 +16108,7 @@ unsafe impl ::windows::runtime::RuntimeType for VoiceCommandActivatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for VoiceCommandActivatedEventArgs {
     type Vtable = IVoiceCommandActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2878528765, 36163, 19942, [151, 117, 32, 112, 75, 88, 27, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab92dcfd_8d43_4de6_9775_20704b581b00);
 }
 impl ::windows::runtime::RuntimeName for VoiceCommandActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.VoiceCommandActivatedEventArgs";
@@ -16279,7 +16279,7 @@ unsafe impl ::windows::runtime::RuntimeType for WalletActionActivatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for WalletActionActivatedEventArgs {
     type Vtable = IWalletActionActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4244374139, 6682, 19746, [146, 63, 174, 111, 69, 250, 82, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcfc027b_1a1a_4d22_923f_ae6f45fa52d9);
 }
 impl ::windows::runtime::RuntimeName for WalletActionActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs";
@@ -16421,7 +16421,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebAccountProviderActivatedEvent
 }
 unsafe impl ::windows::runtime::Interface for WebAccountProviderActivatedEventArgs {
     type Vtable = IWebAccountProviderActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1924601716, 39146, 19663, [151, 82, 70, 217, 5, 16, 4, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72b71774_98ea_4ccf_9752_46d9051004f1);
 }
 impl ::windows::runtime::RuntimeName for WebAccountProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WebAccountProviderActivatedEventArgs";
@@ -16585,7 +16585,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebAuthenticationBrokerContinuat
 }
 unsafe impl ::windows::runtime::Interface for WebAuthenticationBrokerContinuationEventArgs {
     type Vtable = IWebAuthenticationBrokerContinuationEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1977459668, 30484, 17725, [183, 255, 185, 94, 58, 23, 9, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75dda3d4_7714_453d_b7ff_b95e3a1709da);
 }
 impl ::windows::runtime::RuntimeName for WebAuthenticationBrokerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WebAuthenticationBrokerContinuationEventArgs";

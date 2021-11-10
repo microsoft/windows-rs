@@ -34,7 +34,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioCaptureEffectsManager {
 }
 unsafe impl ::windows::runtime::Interface for AudioCaptureEffectsManager {
     type Vtable = IAudioCaptureEffectsManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2407907953, 909, 17299, [130, 152, 84, 1, 16, 96, 142, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f85c271_038d_4393_8298_540110608eef);
 }
 impl ::windows::runtime::RuntimeName for AudioCaptureEffectsManager {
     const NAME: &'static str = "Windows.Media.Effects.AudioCaptureEffectsManager";
@@ -100,7 +100,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioEffect {
 }
 unsafe impl ::windows::runtime::Interface for AudioEffect {
     type Vtable = IAudioEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(883620433, 37383, 16469, [190, 147, 110, 87, 52, 168, 106, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34aafa51_9207_4055_be93_6e5734a86ae4);
 }
 impl ::windows::runtime::RuntimeName for AudioEffect {
     const NAME: &'static str = "Windows.Media.Effects.AudioEffect";
@@ -194,7 +194,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioEffectDefinition {
 }
 unsafe impl ::windows::runtime::Interface for AudioEffectDefinition {
     type Vtable = IAudioEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3839359348, 32128, 20339, [144, 137, 227, 28, 157, 185, 194, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4d7f974_7d80_4f73_9089_e31c9db9c294);
 }
 impl ::windows::runtime::RuntimeName for AudioEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.AudioEffectDefinition";
@@ -404,7 +404,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioRenderEffectsManager {
 }
 unsafe impl ::windows::runtime::Interface for AudioRenderEffectsManager {
     type Vtable = IAudioRenderEffectsManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1305053542, 34641, 17074, [191, 203, 57, 202, 120, 100, 189, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4dc98966_8751_42b2_bfcb_39ca7864bd47);
 }
 impl ::windows::runtime::RuntimeName for AudioRenderEffectsManager {
     const NAME: &'static str = "Windows.Media.Effects.AudioRenderEffectsManager";
@@ -496,7 +496,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositeVideoFrameContext {
 }
 unsafe impl ::windows::runtime::Interface for CompositeVideoFrameContext {
     type Vtable = ICompositeVideoFrameContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1815085643, 62740, 17016, [165, 247, 185, 24, 128, 73, 209, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c30024b_f514_4278_a5f7_b9188049d110);
 }
 impl ::windows::runtime::RuntimeName for CompositeVideoFrameContext {
     const NAME: &'static str = "Windows.Media.Effects.CompositeVideoFrameContext";
@@ -548,7 +548,7 @@ unsafe impl ::core::marker::Sync for CompositeVideoFrameContext {}
 pub struct IAudioCaptureEffectsManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioCaptureEffectsManager {
     type Vtable = IAudioCaptureEffectsManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2407907953, 909, 17299, [130, 152, 84, 1, 16, 96, 142, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f85c271_038d_4393_8298_540110608eef);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -571,7 +571,7 @@ pub struct IAudioCaptureEffectsManager_abi(
 pub struct IAudioEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioEffect {
     type Vtable = IAudioEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(883620433, 37383, 16469, [190, 147, 110, 87, 52, 168, 106, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34aafa51_9207_4055_be93_6e5734a86ae4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -590,7 +590,7 @@ pub struct IAudioEffect_abi(
 pub struct IAudioEffectDefinition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioEffectDefinition {
     type Vtable = IAudioEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3839359348, 32128, 20339, [144, 137, 227, 28, 157, 185, 194, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4d7f974_7d80_4f73_9089_e31c9db9c294);
 }
 impl IAudioEffectDefinition {
     #[doc = "*Required features: `Media_Effects`*"]
@@ -672,7 +672,7 @@ pub struct IAudioEffectDefinition_abi(
 pub struct IAudioEffectDefinitionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioEffectDefinitionFactory {
     type Vtable = IAudioEffectDefinitionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2384307782, 59141, 17901, [138, 43, 252, 78, 79, 64, 90, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e1da646_e705_45ed_8a2b_fc4e4f405a97);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -692,7 +692,7 @@ pub struct IAudioEffectDefinitionFactory_abi(
 pub struct IAudioEffectsManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioEffectsManagerStatics {
     type Vtable = IAudioEffectsManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1715497988, 34554, 18380, [163, 21, 244, 137, 216, 195, 254, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66406c04_86fa_47cc_a315_f489d8c3fe10);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -717,7 +717,7 @@ pub struct IAudioEffectsManagerStatics_abi(
 pub struct IAudioRenderEffectsManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioRenderEffectsManager {
     type Vtable = IAudioRenderEffectsManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1305053542, 34641, 17074, [191, 203, 57, 202, 120, 100, 189, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4dc98966_8751_42b2_bfcb_39ca7864bd47);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -740,7 +740,7 @@ pub struct IAudioRenderEffectsManager_abi(
 pub struct IAudioRenderEffectsManager2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioRenderEffectsManager2 {
     type Vtable = IAudioRenderEffectsManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2823081225, 24268, 17587, [187, 78, 29, 176, 114, 135, 19, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa844cd09_5ecc_44b3_bb4e_1db07287139c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -762,7 +762,7 @@ pub struct IAudioRenderEffectsManager2_abi(
 pub struct IBasicAudioEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBasicAudioEffect {
     type Vtable = IBasicAudioEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2349214803, 27584, 18616, [169, 154, 75, 65, 85, 15, 19, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c062c53_6bc0_48b8_a99a_4b41550f1359);
 }
 impl IBasicAudioEffect {
     #[doc = "*Required features: `Media_Effects`*"]
@@ -899,7 +899,7 @@ pub struct IBasicAudioEffect_abi(
 pub struct IBasicVideoEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBasicVideoEffect {
     type Vtable = IBasicVideoEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2187511791, 45920, 16574, [148, 155, 47, 244, 47, 243, 86, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8262c7ef_b360_40be_949b_2ff42ff35693);
 }
 impl IBasicVideoEffect {
     #[doc = "*Required features: `Media_Effects`*"]
@@ -1053,7 +1053,7 @@ pub struct IBasicVideoEffect_abi(
 pub struct ICompositeVideoFrameContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositeVideoFrameContext {
     type Vtable = ICompositeVideoFrameContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1815085643, 62740, 17016, [165, 247, 185, 24, 128, 73, 209, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c30024b_f514_4278_a5f7_b9188049d110);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1076,7 +1076,7 @@ pub struct ICompositeVideoFrameContext_abi(
 pub struct IProcessAudioFrameContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessAudioFrameContext {
     type Vtable = IProcessAudioFrameContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1289300294, 4642, 18983, [165, 134, 251, 62, 32, 39, 50, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4cd92946_1222_4a27_a586_fb3e20273255);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1095,7 +1095,7 @@ pub struct IProcessAudioFrameContext_abi(
 pub struct IProcessVideoFrameContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessVideoFrameContext {
     type Vtable = IProcessVideoFrameContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(661589547, 25697, 16414, [186, 120, 15, 218, 214, 17, 78, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x276f0e2b_6461_401e_ba78_0fdad6114eec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1114,7 +1114,7 @@ pub struct IProcessVideoFrameContext_abi(
 pub struct ISlowMotionEffectDefinition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISlowMotionEffectDefinition {
     type Vtable = ISlowMotionEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(889535696, 5996, 18275, [130, 196, 27, 2, 219, 227, 23, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35053cd0_176c_4763_82c4_1b02dbe31737);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1134,7 +1134,7 @@ pub struct ISlowMotionEffectDefinition_abi(
 pub struct IVideoCompositor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoCompositor {
     type Vtable = IVideoCompositor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2232464446, 16908, 16911, [150, 199, 124, 152, 187, 161, 252, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8510b43e_420c_420f_96c7_7c98bba1fc55);
 }
 impl IVideoCompositor {
     #[doc = "*Required features: `Media_Effects`*"]
@@ -1260,7 +1260,7 @@ pub struct IVideoCompositor_abi(
 pub struct IVideoCompositorDefinition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoCompositorDefinition {
     type Vtable = IVideoCompositorDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2034677968, 8208, 19171, [154, 178, 44, 239, 66, 237, 212, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7946b8d0_2010_4ae3_9ab2_2cef42edd4d2);
 }
 impl IVideoCompositorDefinition {
     #[doc = "*Required features: `Media_Effects`*"]
@@ -1342,7 +1342,7 @@ pub struct IVideoCompositorDefinition_abi(
 pub struct IVideoCompositorDefinitionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoCompositorDefinitionFactory {
     type Vtable = IVideoCompositorDefinitionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1130822928, 26808, 19794, [137, 182, 2, 169, 104, 204, 168, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4366fd10_68b8_4d52_89b6_02a968cca899);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1363,7 +1363,7 @@ pub struct IVideoCompositorDefinitionFactory_abi(
 pub struct IVideoEffectDefinition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoEffectDefinition {
     type Vtable = IVideoEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(972262640, 36111, 20286, [132, 252, 45, 70, 165, 41, 121, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943);
 }
 impl IVideoEffectDefinition {
     #[doc = "*Required features: `Media_Effects`*"]
@@ -1445,7 +1445,7 @@ pub struct IVideoEffectDefinition_abi(
 pub struct IVideoEffectDefinitionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoEffectDefinitionFactory {
     type Vtable = IVideoEffectDefinitionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2168691534, 28211, 17039, [157, 33, 181, 170, 254, 247, 97, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81439b4e_6e33_428f_9d21_b5aafef7617c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1465,7 +1465,7 @@ pub struct IVideoEffectDefinitionFactory_abi(
 pub struct IVideoTransformEffectDefinition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoTransformEffectDefinition {
     type Vtable = IVideoTransformEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2523183978, 7846, 19110, [128, 116, 171, 232, 133, 30, 202, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9664bb6a_1ea6_4aa6_8074_abe8851ecae2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1506,7 +1506,7 @@ pub struct IVideoTransformEffectDefinition_abi(
 pub struct IVideoTransformEffectDefinition2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoTransformEffectDefinition2 {
     type Vtable = IVideoTransformEffectDefinition2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4037544095, 26312, 18068, [159, 217, 17, 54, 171, 247, 68, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0a8089f_66c8_4694_9fd9_1136abf7444a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1524,7 +1524,7 @@ pub struct IVideoTransformEffectDefinition2_abi(
 pub struct IVideoTransformSphericalProjection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoTransformSphericalProjection {
     type Vtable = IVideoTransformSphericalProjection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3477340656, 39922, 19513, [159, 65, 224, 34, 81, 74, 132, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf4401f0_9bf2_4c39_9f41_e022514a8468);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1626,7 +1626,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProcessAudioFrameContext {
 }
 unsafe impl ::windows::runtime::Interface for ProcessAudioFrameContext {
     type Vtable = IProcessAudioFrameContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1289300294, 4642, 18983, [165, 134, 251, 62, 32, 39, 50, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4cd92946_1222_4a27_a586_fb3e20273255);
 }
 impl ::windows::runtime::RuntimeName for ProcessAudioFrameContext {
     const NAME: &'static str = "Windows.Media.Effects.ProcessAudioFrameContext";
@@ -1700,7 +1700,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProcessVideoFrameContext {
 }
 unsafe impl ::windows::runtime::Interface for ProcessVideoFrameContext {
     type Vtable = IProcessVideoFrameContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(661589547, 25697, 16414, [186, 120, 15, 218, 214, 17, 78, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x276f0e2b_6461_401e_ba78_0fdad6114eec);
 }
 impl ::windows::runtime::RuntimeName for ProcessVideoFrameContext {
     const NAME: &'static str = "Windows.Media.Effects.ProcessVideoFrameContext";
@@ -1795,7 +1795,7 @@ unsafe impl ::windows::runtime::RuntimeType for SlowMotionEffectDefinition {
 }
 unsafe impl ::windows::runtime::Interface for SlowMotionEffectDefinition {
     type Vtable = ISlowMotionEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(889535696, 5996, 18275, [130, 196, 27, 2, 219, 227, 23, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35053cd0_176c_4763_82c4_1b02dbe31737);
 }
 impl ::windows::runtime::RuntimeName for SlowMotionEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.SlowMotionEffectDefinition";
@@ -1911,7 +1911,7 @@ unsafe impl ::windows::runtime::RuntimeType for VideoCompositorDefinition {
 }
 unsafe impl ::windows::runtime::Interface for VideoCompositorDefinition {
     type Vtable = IVideoCompositorDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2034677968, 8208, 19171, [154, 178, 44, 239, 66, 237, 212, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7946b8d0_2010_4ae3_9ab2_2cef42edd4d2);
 }
 impl ::windows::runtime::RuntimeName for VideoCompositorDefinition {
     const NAME: &'static str = "Windows.Media.Effects.VideoCompositorDefinition";
@@ -2025,7 +2025,7 @@ unsafe impl ::windows::runtime::RuntimeType for VideoEffectDefinition {
 }
 unsafe impl ::windows::runtime::Interface for VideoEffectDefinition {
     type Vtable = IVideoEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(972262640, 36111, 20286, [132, 252, 45, 70, 165, 41, 121, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943);
 }
 impl ::windows::runtime::RuntimeName for VideoEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.VideoEffectDefinition";
@@ -2225,7 +2225,7 @@ unsafe impl ::windows::runtime::RuntimeType for VideoTransformEffectDefinition {
 }
 unsafe impl ::windows::runtime::Interface for VideoTransformEffectDefinition {
     type Vtable = IVideoEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(972262640, 36111, 20286, [132, 252, 45, 70, 165, 41, 121, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943);
 }
 impl ::windows::runtime::RuntimeName for VideoTransformEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.VideoTransformEffectDefinition";
@@ -2374,7 +2374,7 @@ unsafe impl ::windows::runtime::RuntimeType for VideoTransformSphericalProjectio
 }
 unsafe impl ::windows::runtime::Interface for VideoTransformSphericalProjection {
     type Vtable = IVideoTransformSphericalProjection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3477340656, 39922, 19513, [159, 65, 224, 34, 81, 74, 132, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf4401f0_9bf2_4c39_9f41_e022514a8468);
 }
 impl ::windows::runtime::RuntimeName for VideoTransformSphericalProjection {
     const NAME: &'static str = "Windows.Media.Effects.VideoTransformSphericalProjection";

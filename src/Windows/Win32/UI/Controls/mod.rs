@@ -5401,7 +5401,7 @@ impl IImageList {
 }
 unsafe impl ::windows::runtime::Interface for IImageList {
     type Vtable = IImageList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1189828902, 22574, 16407, [159, 223, 232, 153, 141, 170, 9, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46eb5926_582e_4017_9fdf_e8998daa0950);
 }
 impl ::core::convert::From<IImageList> for ::windows::runtime::IUnknown {
     fn from(value: IImageList) -> Self {
@@ -5668,7 +5668,7 @@ impl IImageList2 {
 }
 unsafe impl ::windows::runtime::Interface for IImageList2 {
     type Vtable = IImageList2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(422288771, 20732, 17787, [144, 160, 43, 130, 168, 181, 218, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x192b9d83_50fc_457b_90a0_2b82a8b5dae1);
 }
 impl ::core::convert::From<IImageList2> for ::windows::runtime::IUnknown {
     fn from(value: IImageList2) -> Self {
@@ -6324,7 +6324,7 @@ pub const I_IMAGECALLBACK: i32 = -1i32;
 pub const I_IMAGENONE: i32 = -2i32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const I_INDENTCALLBACK: i32 = -1i32;
-pub const ImageList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2085055394, 689, 18676, [128, 72, 178, 70, 25, 221, 192, 88]);
+pub const ImageList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c476ba2_02b1_48f4_8048_b24619ddc058);
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Graphics_Gdi`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]

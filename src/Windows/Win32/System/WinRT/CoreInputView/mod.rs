@@ -13,7 +13,7 @@ impl ICoreFrameworkInputViewInterop {
 }
 unsafe impl ::windows::runtime::Interface for ICoreFrameworkInputViewInterop {
     type Vtable = ICoreFrameworkInputViewInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(238920514, 45340, 18507, [156, 28, 190, 13, 97, 194, 246, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e3da342_b11c_484b_9c1c_be0d61c2f6c5);
 }
 impl ::core::convert::From<ICoreFrameworkInputViewInterop> for ::windows::runtime::IUnknown {
     fn from(value: ICoreFrameworkInputViewInterop) -> Self {

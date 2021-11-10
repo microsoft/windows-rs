@@ -217,7 +217,7 @@ unsafe impl ::windows::runtime::RuntimeType for Certificate {
 }
 unsafe impl ::windows::runtime::Interface for Certificate {
     type Vtable = ICertificate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(859796492, 1240, 17331, [178, 120, 140, 95, 204, 155, 229, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x333f740c_04d8_43b3_b278_8c5fcc9be5a0);
 }
 impl ::windows::runtime::RuntimeName for Certificate {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.Certificate";
@@ -300,7 +300,7 @@ unsafe impl ::windows::runtime::RuntimeType for CertificateChain {
 }
 unsafe impl ::windows::runtime::Interface for CertificateChain {
     type Vtable = ICertificateChain_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(549409669, 13969, 17665, [166, 44, 253, 151, 39, 139, 49, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20bf5385_3691_4501_a62c_fd97278b31ee);
 }
 impl ::windows::runtime::RuntimeName for CertificateChain {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateChain";
@@ -507,7 +507,7 @@ unsafe impl ::windows::runtime::RuntimeType for CertificateExtension {
 }
 unsafe impl ::windows::runtime::Interface for CertificateExtension {
     type Vtable = ICertificateExtension_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2228160086, 43494, 17741, [142, 69, 46, 167, 196, 188, 213, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84cf0656_a9e6_454d_8e45_2ea7c4bcd53b);
 }
 impl ::windows::runtime::RuntimeName for CertificateExtension {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateExtension";
@@ -676,7 +676,7 @@ unsafe impl ::windows::runtime::RuntimeType for CertificateKeyUsages {
 }
 unsafe impl ::windows::runtime::Interface for CertificateKeyUsages {
     type Vtable = ICertificateKeyUsages_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1791369327, 57807, 18538, [180, 133, 166, 156, 131, 228, 111, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ac6206f_e1cf_486a_b485_a69c83e46fd1);
 }
 impl ::windows::runtime::RuntimeName for CertificateKeyUsages {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateKeyUsages";
@@ -841,7 +841,7 @@ unsafe impl ::windows::runtime::RuntimeType for CertificateQuery {
 }
 unsafe impl ::windows::runtime::Interface for CertificateQuery {
     type Vtable = ICertificateQuery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1527261745, 42792, 18710, [181, 238, 255, 203, 138, 207, 36, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b082a31_a728_4916_b5ee_ffcb8acf2417);
 }
 impl ::windows::runtime::RuntimeName for CertificateQuery {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateQuery";
@@ -1153,7 +1153,7 @@ unsafe impl ::windows::runtime::RuntimeType for CertificateRequestProperties {
 }
 unsafe impl ::windows::runtime::Interface for CertificateRequestProperties {
     type Vtable = ICertificateRequestProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1216251126, 38114, 19918, [136, 51, 26, 112, 10, 55, 162, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x487e84f6_94e2_4dce_8833_1a700a37a29a);
 }
 impl ::windows::runtime::RuntimeName for CertificateRequestProperties {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateRequestProperties";
@@ -1229,7 +1229,7 @@ unsafe impl ::windows::runtime::RuntimeType for CertificateStore {
 }
 unsafe impl ::windows::runtime::Interface for CertificateStore {
     type Vtable = ICertificateStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2965370656, 13390, 17201, [175, 20, 167, 247, 167, 235, 201, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0bff720_344e_4331_af14_a7f7a7ebc93a);
 }
 impl ::windows::runtime::RuntimeName for CertificateStore {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateStore";
@@ -1438,7 +1438,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChainBuildingParameters {
 }
 unsafe impl ::windows::runtime::Interface for ChainBuildingParameters {
     type Vtable = IChainBuildingParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1110157602, 31885, 18359, [181, 155, 177, 39, 3, 115, 58, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x422ba922_7c8d_47b7_b59b_b12703733ac3);
 }
 impl ::windows::runtime::RuntimeName for ChainBuildingParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.ChainBuildingParameters";
@@ -1531,7 +1531,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChainValidationParameters {
 }
 unsafe impl ::windows::runtime::Interface for ChainValidationParameters {
     type Vtable = IChainValidationParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3295951690, 32432, 19286, [160, 64, 185, 200, 230, 85, 221, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4743b4a_7eb0_4b56_a040_b9c8e655ddf3);
 }
 impl ::windows::runtime::RuntimeName for ChainValidationParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.ChainValidationParameters";
@@ -1685,7 +1685,7 @@ unsafe impl ::windows::runtime::RuntimeType for CmsAttachedSignature {
 }
 unsafe impl ::windows::runtime::Interface for CmsAttachedSignature {
     type Vtable = ICmsAttachedSignature_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1636408733, 14167, 20171, [189, 220, 12, 163, 87, 215, 169, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61899d9d_3757_4ecb_bddc_0ca357d7a936);
 }
 impl ::windows::runtime::RuntimeName for CmsAttachedSignature {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsAttachedSignature";
@@ -1798,7 +1798,7 @@ unsafe impl ::windows::runtime::RuntimeType for CmsDetachedSignature {
 }
 unsafe impl ::windows::runtime::Interface for CmsDetachedSignature {
     type Vtable = ICmsDetachedSignature_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(253686100, 63070, 17718, [131, 57, 89, 68, 8, 29, 178, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f1ef154_f65e_4536_8339_5944081db2ca);
 }
 impl ::windows::runtime::RuntimeName for CmsDetachedSignature {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsDetachedSignature";
@@ -1897,7 +1897,7 @@ unsafe impl ::windows::runtime::RuntimeType for CmsSignerInfo {
 }
 unsafe impl ::windows::runtime::Interface for CmsSignerInfo {
     type Vtable = ICmsSignerInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1355817179, 7471, 19482, [181, 197, 208, 24, 143, 249, 31, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50d020db_1d2f_4c1a_b5c5_d0188ff91f47);
 }
 impl ::windows::runtime::RuntimeName for CmsSignerInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsSignerInfo";
@@ -1981,7 +1981,7 @@ unsafe impl ::windows::runtime::RuntimeType for CmsTimestampInfo {
 }
 unsafe impl ::windows::runtime::Interface for CmsTimestampInfo {
     type Vtable = ICmsTimestampInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(794755314, 11288, 20360, [132, 53, 197, 52, 8, 96, 118, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f5f00f2_2c18_4f88_8435_c534086076f5);
 }
 impl ::windows::runtime::RuntimeName for CmsTimestampInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsTimestampInfo";
@@ -2108,7 +2108,7 @@ impl ::windows::runtime::DefaultType for ExportOption {
 pub struct ICertificate(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificate {
     type Vtable = ICertificate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(859796492, 1240, 17331, [178, 120, 140, 95, 204, 155, 229, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x333f740c_04d8_43b3_b278_8c5fcc9be5a0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2146,7 +2146,7 @@ pub struct ICertificate_abi(
 pub struct ICertificate2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificate2 {
     type Vtable = ICertificate2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(397948748, 35365, 19862, [164, 146, 143, 194, 154, 196, 253, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17b8374c_8a25_4d96_a492_8fc29ac4fda6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2169,7 +2169,7 @@ pub struct ICertificate2_abi(
 pub struct ICertificate3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificate3 {
     type Vtable = ICertificate3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3193022822, 44639, 18002, [172, 231, 198, 215, 231, 114, 76, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe51a966_ae5f_4652_ace7_c6d7e7724cf3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2189,7 +2189,7 @@ pub struct ICertificate3_abi(
 pub struct ICertificateChain(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateChain {
     type Vtable = ICertificateChain_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(549409669, 13969, 17665, [166, 44, 253, 151, 39, 139, 49, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20bf5385_3691_4501_a62c_fd97278b31ee);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2210,7 +2210,7 @@ pub struct ICertificateChain_abi(
 pub struct ICertificateEnrollmentManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateEnrollmentManagerStatics {
     type Vtable = ICertificateEnrollmentManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286350143, 43398, 18683, [159, 215, 154, 236, 6, 147, 91, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8846ef3f_a986_48fb_9fd7_9aec06935bf1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2233,7 +2233,7 @@ pub struct ICertificateEnrollmentManagerStatics_abi(
 pub struct ICertificateEnrollmentManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateEnrollmentManagerStatics2 {
     type Vtable = ICertificateEnrollmentManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3696958515, 25641, 16404, [153, 156, 93, 151, 53, 128, 45, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc5b1c33_6429_4014_999c_5d9735802d1d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2264,7 +2264,7 @@ pub struct ICertificateEnrollmentManagerStatics2_abi(
 pub struct ICertificateEnrollmentManagerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateEnrollmentManagerStatics3 {
     type Vtable = ICertificateEnrollmentManagerStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4260135614, 24956, 16986, [183, 45, 57, 139, 38, 172, 114, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfdec82be_617c_425a_b72d_398b26ac7264);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2283,7 +2283,7 @@ pub struct ICertificateEnrollmentManagerStatics3_abi(
 pub struct ICertificateExtension(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateExtension {
     type Vtable = ICertificateExtension_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2228160086, 43494, 17741, [142, 69, 46, 167, 196, 188, 213, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84cf0656_a9e6_454d_8e45_2ea7c4bcd53b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2307,7 +2307,7 @@ pub struct ICertificateExtension_abi(
 pub struct ICertificateFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateFactory {
     type Vtable = ICertificateFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(397681180, 19375, 17570, [150, 8, 4, 251, 98, 177, 105, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17b4221c_4baf_44a2_9608_04fb62b16942);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2326,7 +2326,7 @@ pub struct ICertificateFactory_abi(
 pub struct ICertificateKeyUsages(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateKeyUsages {
     type Vtable = ICertificateKeyUsages_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1791369327, 57807, 18538, [180, 133, 166, 156, 131, 228, 111, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ac6206f_e1cf_486a_b485_a69c83e46fd1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2359,7 +2359,7 @@ pub struct ICertificateKeyUsages_abi(
 pub struct ICertificateQuery(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateQuery {
     type Vtable = ICertificateQuery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1527261745, 42792, 18710, [181, 238, 255, 203, 138, 207, 36, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b082a31_a728_4916_b5ee_ffcb8acf2417);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2386,7 +2386,7 @@ pub struct ICertificateQuery_abi(
 pub struct ICertificateQuery2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateQuery2 {
     type Vtable = ICertificateQuery2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2472151799, 3033, 20341, [184, 194, 226, 122, 127, 116, 238, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x935a0af7_0bd9_4f75_b8c2_e27a7f74eecd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2409,7 +2409,7 @@ pub struct ICertificateQuery2_abi(
 pub struct ICertificateRequestProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateRequestProperties {
     type Vtable = ICertificateRequestProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1216251126, 38114, 19918, [136, 51, 26, 112, 10, 55, 162, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x487e84f6_94e2_4dce_8833_1a700a37a29a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2444,7 +2444,7 @@ pub struct ICertificateRequestProperties_abi(
 pub struct ICertificateRequestProperties2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateRequestProperties2 {
     type Vtable = ICertificateRequestProperties2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1033947476, 55103, 20467, [160, 166, 6, 119, 192, 173, 160, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3da0c954_d73f_4ff3_a0a6_0677c0ada05b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2467,7 +2467,7 @@ pub struct ICertificateRequestProperties2_abi(
 pub struct ICertificateRequestProperties3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateRequestProperties3 {
     type Vtable = ICertificateRequestProperties3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3867670038, 29517, 18097, [157, 76, 110, 223, 219, 252, 132, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe687f616_734d_46b1_9d4c_6edfdbfc845b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2494,7 +2494,7 @@ pub struct ICertificateRequestProperties3_abi(
 pub struct ICertificateRequestProperties4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateRequestProperties4 {
     type Vtable = ICertificateRequestProperties4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1312987858, 7265, 20458, [184, 254, 19, 95, 177, 156, 220, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e429ad2_1c61_4fea_b8fe_135fb19cdce4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2516,7 +2516,7 @@ pub struct ICertificateRequestProperties4_abi(
 pub struct ICertificateStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateStore {
     type Vtable = ICertificateStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2965370656, 13390, 17201, [175, 20, 167, 247, 167, 235, 201, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0bff720_344e_4331_af14_a7f7a7ebc93a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2535,7 +2535,7 @@ pub struct ICertificateStore_abi(
 pub struct ICertificateStore2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateStore2 {
     type Vtable = ICertificateStore2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3353775690, 16765, 19738, [186, 189, 21, 104, 126, 84, 153, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7e68e4a_417d_4d1a_babd_15687e549974);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2553,7 +2553,7 @@ pub struct ICertificateStore2_abi(
 pub struct ICertificateStoresStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateStoresStatics {
     type Vtable = ICertificateStoresStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4226598713, 50942, 19943, [153, 207, 116, 195, 229, 150, 224, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbecc739_c6fe_4de7_99cf_74c3e596e032);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2577,7 +2577,7 @@ pub struct ICertificateStoresStatics_abi(
 pub struct ICertificateStoresStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateStoresStatics2 {
     type Vtable = ICertificateStoresStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4203744121, 41172, 19340, [188, 85, 192, 163, 126, 177, 65, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa900b79_a0d4_4b8c_bc55_c0a37eb141ed);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2595,7 +2595,7 @@ pub struct ICertificateStoresStatics2_abi(
 pub struct IChainBuildingParameters(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChainBuildingParameters {
     type Vtable = IChainBuildingParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1110157602, 31885, 18359, [181, 155, 177, 39, 3, 115, 58, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x422ba922_7c8d_47b7_b59b_b12703733ac3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2628,7 +2628,7 @@ pub struct IChainBuildingParameters_abi(
 pub struct IChainValidationParameters(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChainValidationParameters {
     type Vtable = IChainValidationParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3295951690, 32432, 19286, [160, 64, 185, 200, 230, 85, 221, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4743b4a_7eb0_4b56_a040_b9c8e655ddf3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2651,7 +2651,7 @@ pub struct IChainValidationParameters_abi(
 pub struct ICmsAttachedSignature(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICmsAttachedSignature {
     type Vtable = ICmsAttachedSignature_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1636408733, 14167, 20171, [189, 220, 12, 163, 87, 215, 169, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61899d9d_3757_4ecb_bddc_0ca357d7a936);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2674,7 +2674,7 @@ pub struct ICmsAttachedSignature_abi(
 pub struct ICmsAttachedSignatureFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICmsAttachedSignatureFactory {
     type Vtable = ICmsAttachedSignatureFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3502832661, 63319, 19556, [163, 98, 82, 204, 28, 119, 207, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0c8fc15_f757_4c64_a362_52cc1c77cffb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2693,7 +2693,7 @@ pub struct ICmsAttachedSignatureFactory_abi(
 pub struct ICmsAttachedSignatureStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICmsAttachedSignatureStatics {
     type Vtable = ICmsAttachedSignatureStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2274925710, 45229, 18829, [167, 245, 120, 181, 155, 206, 75, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87989c8e_b0ad_498d_a7f5_78b59bce4b36);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2712,7 +2712,7 @@ pub struct ICmsAttachedSignatureStatics_abi(
 pub struct ICmsDetachedSignature(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICmsDetachedSignature {
     type Vtable = ICmsDetachedSignature_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(253686100, 63070, 17718, [131, 57, 89, 68, 8, 29, 178, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f1ef154_f65e_4536_8339_5944081db2ca);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2735,7 +2735,7 @@ pub struct ICmsDetachedSignature_abi(
 pub struct ICmsDetachedSignatureFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICmsDetachedSignatureFactory {
     type Vtable = ICmsDetachedSignatureFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3299554563, 44671, 17287, [173, 25, 0, 241, 80, 228, 142, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4ab3503_ae7f_4387_ad19_00f150e48ebb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2754,7 +2754,7 @@ pub struct ICmsDetachedSignatureFactory_abi(
 pub struct ICmsDetachedSignatureStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICmsDetachedSignatureStatics {
     type Vtable = ICmsDetachedSignatureStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1024543997, 49051, 18050, [155, 230, 145, 245, 124, 5, 56, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d114cfd_bf9b_4682_9be6_91f57c053808);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2773,7 +2773,7 @@ pub struct ICmsDetachedSignatureStatics_abi(
 pub struct ICmsSignerInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICmsSignerInfo {
     type Vtable = ICmsSignerInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1355817179, 7471, 19482, [181, 197, 208, 24, 143, 249, 31, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50d020db_1d2f_4c1a_b5c5_d0188ff91f47);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2795,7 +2795,7 @@ pub struct ICmsSignerInfo_abi(
 pub struct ICmsTimestampInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICmsTimestampInfo {
     type Vtable = ICmsTimestampInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(794755314, 11288, 20360, [132, 53, 197, 52, 8, 96, 118, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f5f00f2_2c18_4f88_8435_c534086076f5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2817,7 +2817,7 @@ pub struct ICmsTimestampInfo_abi(
 pub struct IKeyAlgorithmNamesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyAlgorithmNamesStatics {
     type Vtable = IKeyAlgorithmNamesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1200645591, 31431, 17793, [140, 59, 208, 112, 39, 20, 4, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x479065d7_7ac7_4581_8c3b_d07027140448);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2842,7 +2842,7 @@ pub struct IKeyAlgorithmNamesStatics_abi(
 pub struct IKeyAlgorithmNamesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyAlgorithmNamesStatics2 {
     type Vtable = IKeyAlgorithmNamesStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3382400646, 57853, 19018, [137, 61, 162, 111, 51, 221, 139, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc99b5686_e1fd_4a4a_893d_a26f33dd8bb4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2861,7 +2861,7 @@ pub struct IKeyAlgorithmNamesStatics2_abi(
 pub struct IKeyAttestationHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyAttestationHelperStatics {
     type Vtable = IKeyAttestationHelperStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(373875270, 63044, 17190, [136, 190, 58, 241, 2, 211, 14, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1648e246_f644_4326_88be_3af102d30e0c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2881,7 +2881,7 @@ pub struct IKeyAttestationHelperStatics_abi(
 pub struct IKeyAttestationHelperStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyAttestationHelperStatics2 {
     type Vtable = IKeyAttestationHelperStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2623081260, 42694, 19038, [158, 100, 232, 93, 82, 121, 223, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c590b2c_a6c6_4a5e_9e64_e85d5279df97);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2900,7 +2900,7 @@ pub struct IKeyAttestationHelperStatics2_abi(
 pub struct IKeyStorageProviderNamesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyStorageProviderNamesStatics {
     type Vtable = IKeyStorageProviderNamesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2937613024, 21801, 17922, [189, 148, 10, 171, 145, 149, 123, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf186ae0_5529_4602_bd94_0aab91957b5c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2920,7 +2920,7 @@ pub struct IKeyStorageProviderNamesStatics_abi(
 pub struct IKeyStorageProviderNamesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyStorageProviderNamesStatics2 {
     type Vtable = IKeyStorageProviderNamesStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(640513085, 39982, 16844, [136, 18, 196, 217, 113, 221, 124, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x262d743d_9c2e_41cc_8812_c4d971dd7c60);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2938,7 +2938,7 @@ pub struct IKeyStorageProviderNamesStatics2_abi(
 pub struct IPfxImportParameters(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPfxImportParameters {
     type Vtable = IPfxImportParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1745696017, 39432, 18376, [134, 74, 46, 221, 77, 142, 180, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x680d3511_9a08_47c8_864a_2edd4d8eb46c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2969,7 +2969,7 @@ pub struct IPfxImportParameters_abi(
 pub struct IStandardCertificateStoreNamesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStandardCertificateStoreNamesStatics {
     type Vtable = IStandardCertificateStoreNamesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(202722011, 42134, 16888, [143, 229, 158, 150, 243, 110, 251, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c154adb_a496_41f8_8fe5_9e96f36efbf8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2989,7 +2989,7 @@ pub struct IStandardCertificateStoreNamesStatics_abi(
 pub struct ISubjectAlternativeNameInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISubjectAlternativeNameInfo {
     type Vtable = ISubjectAlternativeNameInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1479039473, 22173, 19488, [190, 123, 78, 28, 154, 11, 197, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x582859f1_569d_4c20_be7b_4e1c9a0bc52b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3018,7 +3018,7 @@ pub struct ISubjectAlternativeNameInfo_abi(
 pub struct ISubjectAlternativeNameInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISubjectAlternativeNameInfo2 {
     type Vtable = ISubjectAlternativeNameInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1132099782, 7249, 16874, [179, 74, 61, 101, 67, 152, 163, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x437a78c6_1c51_41ea_b34a_3d654398a370);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3048,7 +3048,7 @@ pub struct ISubjectAlternativeNameInfo2_abi(
 pub struct IUserCertificateEnrollmentManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserCertificateEnrollmentManager {
     type Vtable = IUserCertificateEnrollmentManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2519807768, 8929, 18457, [178, 11, 171, 70, 166, 236, 160, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96313718_22e1_4819_b20b_ab46a6eca06e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3084,7 +3084,7 @@ pub struct IUserCertificateEnrollmentManager_abi(
 pub struct IUserCertificateEnrollmentManager2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserCertificateEnrollmentManager2 {
     type Vtable = IUserCertificateEnrollmentManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(229481649, 26078, 18730, [184, 109, 252, 92, 72, 44, 55, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0dad9cb1_65de_492a_b86d_fc5c482c3747);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3103,7 +3103,7 @@ pub struct IUserCertificateEnrollmentManager2_abi(
 pub struct IUserCertificateStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserCertificateStore {
     type Vtable = IUserCertificateStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3388677507, 30879, 19278, [145, 128, 4, 90, 117, 122, 172, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9fb1d83_789f_4b4e_9180_045a757aac6d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3492,7 +3492,7 @@ unsafe impl ::windows::runtime::RuntimeType for PfxImportParameters {
 }
 unsafe impl ::windows::runtime::Interface for PfxImportParameters {
     type Vtable = IPfxImportParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1745696017, 39432, 18376, [134, 74, 46, 221, 77, 142, 180, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x680d3511_9a08_47c8_864a_2edd4d8eb46c);
 }
 impl ::windows::runtime::RuntimeName for PfxImportParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.PfxImportParameters";
@@ -3730,7 +3730,7 @@ unsafe impl ::windows::runtime::RuntimeType for SubjectAlternativeNameInfo {
 }
 unsafe impl ::windows::runtime::Interface for SubjectAlternativeNameInfo {
     type Vtable = ISubjectAlternativeNameInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1479039473, 22173, 19488, [190, 123, 78, 28, 154, 11, 197, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x582859f1_569d_4c20_be7b_4e1c9a0bc52b);
 }
 impl ::windows::runtime::RuntimeName for SubjectAlternativeNameInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo";
@@ -3842,7 +3842,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserCertificateEnrollmentManager
 }
 unsafe impl ::windows::runtime::Interface for UserCertificateEnrollmentManager {
     type Vtable = IUserCertificateEnrollmentManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2519807768, 8929, 18457, [178, 11, 171, 70, 166, 236, 160, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96313718_22e1_4819_b20b_ab46a6eca06e);
 }
 impl ::windows::runtime::RuntimeName for UserCertificateEnrollmentManager {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.UserCertificateEnrollmentManager";
@@ -3926,7 +3926,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserCertificateStore {
 }
 unsafe impl ::windows::runtime::Interface for UserCertificateStore {
     type Vtable = IUserCertificateStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3388677507, 30879, 19278, [145, 128, 4, 90, 117, 122, 172, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9fb1d83_789f_4b4e_9180_045a757aac6d);
 }
 impl ::windows::runtime::RuntimeName for UserCertificateStore {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.UserCertificateStore";

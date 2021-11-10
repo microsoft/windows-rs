@@ -14,7 +14,7 @@ pub mod Workplace;
 pub struct IMdmAlert(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMdmAlert {
     type Vtable = IMdmAlert_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2969289511, 10433, 19282, [165, 72, 197, 128, 124, 175, 112, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0fbc327_28c1_4b52_a548_c5807caf70b6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -44,7 +44,7 @@ pub struct IMdmAlert_abi(
 pub struct IMdmSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMdmSession {
     type Vtable = IMdmSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4270403916, 36708, 18327, [169, 215, 157, 136, 248, 106, 225, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe89314c_8f64_4797_a9d7_9d88f86ae166);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -73,7 +73,7 @@ pub struct IMdmSession_abi(
 pub struct IMdmSessionManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMdmSessionManagerStatics {
     type Vtable = IMdmSessionManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3477789017, 63301, 19321, [155, 92, 222, 11, 248, 239, 228, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf4ad959_f745_4b79_9b5c_de0bf8efe44b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -194,7 +194,7 @@ unsafe impl ::windows::runtime::RuntimeType for MdmAlert {
 }
 unsafe impl ::windows::runtime::Interface for MdmAlert {
     type Vtable = IMdmAlert_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2969289511, 10433, 19282, [165, 72, 197, 128, 124, 175, 112, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0fbc327_28c1_4b52_a548_c5807caf70b6);
 }
 impl ::windows::runtime::RuntimeName for MdmAlert {
     const NAME: &'static str = "Windows.Management.MdmAlert";
@@ -364,7 +364,7 @@ unsafe impl ::windows::runtime::RuntimeType for MdmSession {
 }
 unsafe impl ::windows::runtime::Interface for MdmSession {
     type Vtable = IMdmSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4270403916, 36708, 18327, [169, 215, 157, 136, 248, 106, 225, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe89314c_8f64_4797_a9d7_9d88f86ae166);
 }
 impl ::windows::runtime::RuntimeName for MdmSession {
     const NAME: &'static str = "Windows.Management.MdmSession";

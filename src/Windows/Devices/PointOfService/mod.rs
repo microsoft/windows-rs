@@ -157,7 +157,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScanner {
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScanner {
     type Vtable = IBarcodeScanner_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3198369286, 45668, 20227, [169, 193, 69, 178, 15, 1, 19, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbea33e06_b264_4f03_a9c1_45b20f01134f);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScanner {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScanner";
@@ -289,7 +289,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerCapabilities {
     type Vtable = IBarcodeScannerCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3322319332, 62152, 17440, [163, 7, 177, 46, 246, 98, 40, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc60691e4_f2c8_4420_a307_b12ef6622857);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerCapabilities";
@@ -355,7 +355,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerDataReceivedEventA
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerDataReceivedEventArgs {
     type Vtable = IBarcodeScannerDataReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1110747106, 60823, 18045, [173, 43, 1, 228, 67, 19, 169, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4234a7e2_ed97_467d_ad2b_01e44313a929);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerDataReceivedEventArgs";
@@ -437,7 +437,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerErrorOccurredEvent
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerErrorOccurredEventArgs {
     type Vtable = IBarcodeScannerErrorOccurredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(751984687, 53050, 16386, [167, 90, 197, 236, 70, 143, 10, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd2602f_cf3a_4002_a75a_c5ec468f0a20);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerErrorOccurredEventArgs";
@@ -504,7 +504,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerImagePreviewReceiv
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerImagePreviewReceivedEventArgs {
     type Vtable = IBarcodeScannerImagePreviewReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4088913541, 28299, 17230, [159, 88, 6, 239, 38, 188, 75, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3b7de85_6e8b_434e_9f58_06ef26bc4baf);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerImagePreviewReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerImagePreviewReceivedEventArgs";
@@ -600,7 +600,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerReport {
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerReport {
     type Vtable = IBarcodeScannerReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1558501552, 42121, 19350, [134, 196, 240, 191, 138, 55, 117, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ce4d8b0_a489_4b96_86c4_f0bf8a37753d);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerReport {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerReport";
@@ -699,7 +699,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerStatusUpdatedEvent
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerStatusUpdatedEventArgs {
     type Vtable = IBarcodeScannerStatusUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(895321478, 40003, 17963, [169, 26, 129, 109, 201, 127, 69, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x355d8586_9c43_462b_a91a_816dc97f452c);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerStatusUpdatedEventArgs";
@@ -1526,7 +1526,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeSymbologyAttributes {
 }
 unsafe impl ::windows::runtime::Interface for BarcodeSymbologyAttributes {
     type Vtable = IBarcodeSymbologyAttributes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1715550840, 43898, 19162, [142, 206, 147, 96, 20, 178, 234, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66413a78_ab7a_4ada_8ece_936014b2ead7);
 }
 impl ::windows::runtime::RuntimeName for BarcodeSymbologyAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeSymbologyAttributes";
@@ -1733,7 +1733,7 @@ unsafe impl ::windows::runtime::RuntimeType for CashDrawer {
 }
 unsafe impl ::windows::runtime::Interface for CashDrawer {
     type Vtable = ICashDrawer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2676553160, 56916, 19182, [168, 144, 146, 11, 203, 254, 48, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f88f5c8_de54_4aee_a890_920bcbfe30fc);
 }
 impl ::windows::runtime::RuntimeName for CashDrawer {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawer";
@@ -1865,7 +1865,7 @@ unsafe impl ::windows::runtime::RuntimeType for CashDrawerCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for CashDrawerCapabilities {
     type Vtable = ICashDrawerCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(197582347, 59623, 19231, [177, 209, 62, 80, 26, 208, 130, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bc6de0b_e8e7_4b1f_b1d1_3e501ad08247);
 }
 impl ::windows::runtime::RuntimeName for CashDrawerCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerCapabilities";
@@ -2005,7 +2005,7 @@ unsafe impl ::windows::runtime::RuntimeType for CashDrawerCloseAlarm {
 }
 unsafe impl ::windows::runtime::Interface for CashDrawerCloseAlarm {
     type Vtable = ICashDrawerCloseAlarm_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1811451079, 28515, 17166, [171, 59, 149, 215, 95, 251, 232, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6bf88cc7_6f63_430e_ab3b_95d75ffbe87f);
 }
 impl ::windows::runtime::RuntimeName for CashDrawerCloseAlarm {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerCloseAlarm";
@@ -2071,7 +2071,7 @@ unsafe impl ::windows::runtime::RuntimeType for CashDrawerClosedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for CashDrawerClosedEventArgs {
     type Vtable = ICashDrawerEventSourceEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1774926785, 5247, 16924, [156, 35, 9, 1, 35, 187, 120, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69cb3bc1_147f_421c_9c23_090123bb786c);
 }
 impl ::windows::runtime::RuntimeName for CashDrawerClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerClosedEventArgs";
@@ -2179,7 +2179,7 @@ unsafe impl ::windows::runtime::RuntimeType for CashDrawerEventSource {
 }
 unsafe impl ::windows::runtime::Interface for CashDrawerEventSource {
     type Vtable = ICashDrawerEventSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3758548076, 62201, 17455, [141, 214, 6, 193, 10, 66, 39, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe006e46c_f2f9_442f_8dd6_06c10a4227ba);
 }
 impl ::windows::runtime::RuntimeName for CashDrawerEventSource {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerEventSource";
@@ -2245,7 +2245,7 @@ unsafe impl ::windows::runtime::RuntimeType for CashDrawerOpenedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for CashDrawerOpenedEventArgs {
     type Vtable = ICashDrawerEventSourceEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1774926785, 5247, 16924, [156, 35, 9, 1, 35, 187, 120, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69cb3bc1_147f_421c_9c23_090123bb786c);
 }
 impl ::windows::runtime::RuntimeName for CashDrawerOpenedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerOpenedEventArgs";
@@ -2339,7 +2339,7 @@ unsafe impl ::windows::runtime::RuntimeType for CashDrawerStatus {
 }
 unsafe impl ::windows::runtime::Interface for CashDrawerStatus {
     type Vtable = ICashDrawerStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1807579327, 56481, 19974, [153, 235, 90, 246, 165, 174, 193, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6bbd78bf_dca1_4e06_99eb_5af6a5aec108);
 }
 impl ::windows::runtime::RuntimeName for CashDrawerStatus {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerStatus";
@@ -2430,7 +2430,7 @@ unsafe impl ::windows::runtime::RuntimeType for CashDrawerStatusUpdatedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for CashDrawerStatusUpdatedEventArgs {
     type Vtable = ICashDrawerStatusUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(816507274, 3440, 17820, [149, 83, 135, 225, 36, 197, 36, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30aae98a_0d70_459c_9553_87e124c52488);
 }
 impl ::windows::runtime::RuntimeName for CashDrawerStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerStatusUpdatedEventArgs";
@@ -2763,7 +2763,7 @@ unsafe impl ::windows::runtime::RuntimeType for ClaimedBarcodeScanner {
 }
 unsafe impl ::windows::runtime::Interface for ClaimedBarcodeScanner {
     type Vtable = IClaimedBarcodeScanner_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1248048284, 36772, 17202, [187, 38, 148, 93, 17, 216, 30, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a63b49c_8fa4_4332_bb26_945d11d81e0f);
 }
 impl ::windows::runtime::RuntimeName for ClaimedBarcodeScanner {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedBarcodeScanner";
@@ -2846,7 +2846,7 @@ unsafe impl ::windows::runtime::RuntimeType for ClaimedBarcodeScannerClosedEvent
 }
 unsafe impl ::windows::runtime::Interface for ClaimedBarcodeScannerClosedEventArgs {
     type Vtable = IClaimedBarcodeScannerClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3481097353, 41516, 19557, [169, 1, 136, 215, 125, 131, 57, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf7d5489_a22c_4c65_a901_88d77d833954);
 }
 impl ::windows::runtime::RuntimeName for ClaimedBarcodeScannerClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedBarcodeScannerClosedEventArgs";
@@ -3026,7 +3026,7 @@ unsafe impl ::windows::runtime::RuntimeType for ClaimedCashDrawer {
 }
 unsafe impl ::windows::runtime::Interface for ClaimedCashDrawer {
     type Vtable = IClaimedCashDrawer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3393165743, 43960, 17089, [138, 132, 92, 102, 81, 47, 90, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca3f99af_abb8_42c1_8a84_5c66512f5a75);
 }
 impl ::windows::runtime::RuntimeName for ClaimedCashDrawer {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedCashDrawer";
@@ -3109,7 +3109,7 @@ unsafe impl ::windows::runtime::RuntimeType for ClaimedCashDrawerClosedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for ClaimedCashDrawerClosedEventArgs {
     type Vtable = IClaimedCashDrawerClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3428269875, 16180, 19548, [186, 174, 222, 173, 241, 108, 215, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc573f33_3f34_4c5c_baae_deadf16cd7fa);
 }
 impl ::windows::runtime::RuntimeName for ClaimedCashDrawerClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedCashDrawerClosedEventArgs";
@@ -3312,7 +3312,7 @@ unsafe impl ::windows::runtime::RuntimeType for ClaimedJournalPrinter {
 }
 unsafe impl ::windows::runtime::Interface for ClaimedJournalPrinter {
     type Vtable = IClaimedJournalPrinter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1743390256, 20861, 18559, [159, 223, 210, 224, 160, 162, 100, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x67ea0630_517d_487f_9fdf_d2e0a0a264a5);
 }
 impl ::windows::runtime::RuntimeName for ClaimedJournalPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedJournalPrinter";
@@ -3671,7 +3671,7 @@ unsafe impl ::windows::runtime::RuntimeType for ClaimedLineDisplay {
 }
 unsafe impl ::windows::runtime::Interface for ClaimedLineDisplay {
     type Vtable = IClaimedLineDisplay_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(302696816, 39541, 19151, [170, 231, 9, 151, 43, 207, 135, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x120ac970_9a75_4acf_aae7_09972bcf8794);
 }
 impl ::windows::runtime::RuntimeName for ClaimedLineDisplay {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedLineDisplay";
@@ -3754,7 +3754,7 @@ unsafe impl ::windows::runtime::RuntimeType for ClaimedLineDisplayClosedEventArg
 }
 unsafe impl ::windows::runtime::Interface for ClaimedLineDisplayClosedEventArgs {
     type Vtable = IClaimedLineDisplayClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4178965348, 54229, 20240, [181, 17, 144, 147, 158, 223, 172, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf915f364_d3d5_4f10_b511_90939edfacd8);
 }
 impl ::windows::runtime::RuntimeName for ClaimedLineDisplayClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedLineDisplayClosedEventArgs";
@@ -4079,7 +4079,7 @@ unsafe impl ::windows::runtime::RuntimeType for ClaimedMagneticStripeReader {
 }
 unsafe impl ::windows::runtime::Interface for ClaimedMagneticStripeReader {
     type Vtable = IClaimedMagneticStripeReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1197254899, 37911, 18620, [185, 215, 65, 99, 167, 132, 76, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x475ca8f3_9417_48bc_b9d7_4163a7844c02);
 }
 impl ::windows::runtime::RuntimeName for ClaimedMagneticStripeReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedMagneticStripeReader";
@@ -4162,7 +4162,7 @@ unsafe impl ::windows::runtime::RuntimeType for ClaimedMagneticStripeReaderClose
 }
 unsafe impl ::windows::runtime::Interface for ClaimedMagneticStripeReaderClosedEventArgs {
     type Vtable = IClaimedMagneticStripeReaderClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(346925370, 44493, 19584, [172, 218, 195, 234, 237, 38, 71, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14ada93a_adcd_4c80_acda_c3eaed2647e1);
 }
 impl ::windows::runtime::RuntimeName for ClaimedMagneticStripeReaderClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedMagneticStripeReaderClosedEventArgs";
@@ -4388,7 +4388,7 @@ unsafe impl ::windows::runtime::RuntimeType for ClaimedPosPrinter {
 }
 unsafe impl ::windows::runtime::Interface for ClaimedPosPrinter {
     type Vtable = IClaimedPosPrinter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1835322892, 57406, 19220, [163, 142, 194, 140, 52, 184, 99, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d64ce0c_e03e_4b14_a38e_c28c34b86353);
 }
 impl ::windows::runtime::RuntimeName for ClaimedPosPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedPosPrinter";
@@ -4471,7 +4471,7 @@ unsafe impl ::windows::runtime::RuntimeType for ClaimedPosPrinterClosedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for ClaimedPosPrinterClosedEventArgs {
     type Vtable = IClaimedPosPrinterClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3803685499, 19776, 18205, [146, 237, 99, 55, 91, 24, 199, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2b7a27b_4d40_471d_92ed_63375b18c788);
 }
 impl ::windows::runtime::RuntimeName for ClaimedPosPrinterClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedPosPrinterClosedEventArgs";
@@ -4716,7 +4716,7 @@ unsafe impl ::windows::runtime::RuntimeType for ClaimedReceiptPrinter {
 }
 unsafe impl ::windows::runtime::Interface for ClaimedReceiptPrinter {
     type Vtable = IClaimedReceiptPrinter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2597485172, 56673, 20194, [152, 55, 91, 93, 114, 213, 56, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ad27a74_dd61_4ee2_9837_5b5d72d538b9);
 }
 impl ::windows::runtime::RuntimeName for ClaimedReceiptPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedReceiptPrinter";
@@ -5032,7 +5032,7 @@ unsafe impl ::windows::runtime::RuntimeType for ClaimedSlipPrinter {
 }
 unsafe impl ::windows::runtime::Interface for ClaimedSlipPrinter {
     type Vtable = IClaimedSlipPrinter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3177050098, 44944, 20106, [183, 123, 227, 174, 156, 166, 58, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd5deff2_af90_4e8a_b77b_e3ae9ca63a7f);
 }
 impl ::windows::runtime::RuntimeName for ClaimedSlipPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedSlipPrinter";
@@ -5106,7 +5106,7 @@ unsafe impl ::core::marker::Sync for ClaimedSlipPrinter {}
 pub struct IBarcodeScanner(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScanner {
     type Vtable = IBarcodeScanner_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3198369286, 45668, 20227, [169, 193, 69, 178, 15, 1, 19, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbea33e06_b264_4f03_a9c1_45b20f01134f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5142,7 +5142,7 @@ pub struct IBarcodeScanner_abi(
 pub struct IBarcodeScanner2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScanner2 {
     type Vtable = IBarcodeScanner2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2300662119, 36078, 17261, [137, 171, 141, 251, 67, 187, 66, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89215167_8cee_436d_89ab_8dfb43bb4286);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5160,7 +5160,7 @@ pub struct IBarcodeScanner2_abi(
 pub struct IBarcodeScannerCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerCapabilities {
     type Vtable = IBarcodeScannerCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3322319332, 62152, 17440, [163, 7, 177, 46, 246, 98, 40, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc60691e4_f2c8_4420_a307_b12ef6622857);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5181,7 +5181,7 @@ pub struct IBarcodeScannerCapabilities_abi(
 pub struct IBarcodeScannerCapabilities1(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerCapabilities1 {
     type Vtable = IBarcodeScannerCapabilities1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2388308969, 3628, 18223, [161, 204, 238, 128, 84, 182, 166, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e5ab3e9_0e2c_472f_a1cc_ee8054b6a684);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5199,7 +5199,7 @@ pub struct IBarcodeScannerCapabilities1_abi(
 pub struct IBarcodeScannerCapabilities2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerCapabilities2 {
     type Vtable = IBarcodeScannerCapabilities2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4061253612, 57761, 20136, [154, 188, 146, 177, 89, 98, 112, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf211cfec_e1a1_4ea8_9abc_92b1596270ab);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5217,7 +5217,7 @@ pub struct IBarcodeScannerCapabilities2_abi(
 pub struct IBarcodeScannerDataReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerDataReceivedEventArgs {
     type Vtable = IBarcodeScannerDataReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1110747106, 60823, 18045, [173, 43, 1, 228, 67, 19, 169, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4234a7e2_ed97_467d_ad2b_01e44313a929);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5235,7 +5235,7 @@ pub struct IBarcodeScannerDataReceivedEventArgs_abi(
 pub struct IBarcodeScannerErrorOccurredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerErrorOccurredEventArgs {
     type Vtable = IBarcodeScannerErrorOccurredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(751984687, 53050, 16386, [167, 90, 197, 236, 70, 143, 10, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd2602f_cf3a_4002_a75a_c5ec468f0a20);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5255,7 +5255,7 @@ pub struct IBarcodeScannerErrorOccurredEventArgs_abi(
 pub struct IBarcodeScannerImagePreviewReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerImagePreviewReceivedEventArgs {
     type Vtable = IBarcodeScannerImagePreviewReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4088913541, 28299, 17230, [159, 88, 6, 239, 38, 188, 75, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3b7de85_6e8b_434e_9f58_06ef26bc4baf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5274,7 +5274,7 @@ pub struct IBarcodeScannerImagePreviewReceivedEventArgs_abi(
 pub struct IBarcodeScannerReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerReport {
     type Vtable = IBarcodeScannerReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1558501552, 42121, 19350, [134, 196, 240, 191, 138, 55, 117, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ce4d8b0_a489_4b96_86c4_f0bf8a37753d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5296,7 +5296,7 @@ pub struct IBarcodeScannerReport_abi(
 pub struct IBarcodeScannerReportFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerReportFactory {
     type Vtable = IBarcodeScannerReportFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2723443494, 8211, 17788, [137, 99, 73, 193, 93, 202, 120, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2547326_2013_457c_8963_49c15dca78ce);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5315,7 +5315,7 @@ pub struct IBarcodeScannerReportFactory_abi(
 pub struct IBarcodeScannerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStatics {
     type Vtable = IBarcodeScannerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1561419631, 55881, 16872, [140, 140, 240, 203, 98, 169, 196, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d115f6f_da49_41e8_8c8c_f0cb62a9c4fc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5337,7 +5337,7 @@ pub struct IBarcodeScannerStatics_abi(
 pub struct IBarcodeScannerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStatics2 {
     type Vtable = IBarcodeScannerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3093636211, 41839, 16391, [177, 208, 39, 158, 190, 146, 166, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8652473_a36f_4007_b1d0_279ebe92a656);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5355,7 +5355,7 @@ pub struct IBarcodeScannerStatics2_abi(
 pub struct IBarcodeScannerStatusUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStatusUpdatedEventArgs {
     type Vtable = IBarcodeScannerStatusUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(895321478, 40003, 17963, [169, 26, 129, 109, 201, 127, 69, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x355d8586_9c43_462b_a91a_816dc97f452c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5374,7 +5374,7 @@ pub struct IBarcodeScannerStatusUpdatedEventArgs_abi(
 pub struct IBarcodeSymbologiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeSymbologiesStatics {
     type Vtable = IBarcodeSymbologiesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3397732795, 1746, 17396, [164, 75, 198, 32, 103, 159, 216, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca8549bb_06d2_43f4_a44b_c620679fd8d0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5485,7 +5485,7 @@ pub struct IBarcodeSymbologiesStatics_abi(
 pub struct IBarcodeSymbologiesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeSymbologiesStatics2 {
     type Vtable = IBarcodeSymbologiesStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2339707124, 39376, 16575, [148, 36, 185, 29, 109, 212, 198, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b7518f4_99d0_40bf_9424_b91d6dd4c6e0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5503,7 +5503,7 @@ pub struct IBarcodeSymbologiesStatics2_abi(
 pub struct IBarcodeSymbologyAttributes(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeSymbologyAttributes {
     type Vtable = IBarcodeSymbologyAttributes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1715550840, 43898, 19162, [142, 206, 147, 96, 20, 178, 234, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66413a78_ab7a_4ada_8ece_936014b2ead7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5533,7 +5533,7 @@ pub struct IBarcodeSymbologyAttributes_abi(
 pub struct ICashDrawer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawer {
     type Vtable = ICashDrawer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2676553160, 56916, 19182, [168, 144, 146, 11, 203, 254, 48, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f88f5c8_de54_4aee_a890_920bcbfe30fc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5565,7 +5565,7 @@ pub struct ICashDrawer_abi(
 pub struct ICashDrawerCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerCapabilities {
     type Vtable = ICashDrawerCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(197582347, 59623, 19231, [177, 209, 62, 80, 26, 208, 130, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bc6de0b_e8e7_4b1f_b1d1_3e501ad08247);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5588,7 +5588,7 @@ pub struct ICashDrawerCapabilities_abi(
 pub struct ICashDrawerCloseAlarm(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerCloseAlarm {
     type Vtable = ICashDrawerCloseAlarm_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1811451079, 28515, 17166, [171, 59, 149, 215, 95, 251, 232, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6bf88cc7_6f63_430e_ab3b_95d75ffbe87f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5625,7 +5625,7 @@ pub struct ICashDrawerCloseAlarm_abi(
 pub struct ICashDrawerEventSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerEventSource {
     type Vtable = ICashDrawerEventSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3758548076, 62201, 17455, [141, 214, 6, 193, 10, 66, 39, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe006e46c_f2f9_442f_8dd6_06c10a4227ba);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5651,7 +5651,7 @@ pub struct ICashDrawerEventSource_abi(
 pub struct ICashDrawerEventSourceEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerEventSourceEventArgs {
     type Vtable = ICashDrawerEventSourceEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1774926785, 5247, 16924, [156, 35, 9, 1, 35, 187, 120, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69cb3bc1_147f_421c_9c23_090123bb786c);
 }
 impl ICashDrawerEventSourceEventArgs {
     #[doc = "*Required features: `Devices_PointOfService`*"]
@@ -5722,7 +5722,7 @@ pub struct ICashDrawerEventSourceEventArgs_abi(
 pub struct ICashDrawerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerStatics {
     type Vtable = ICashDrawerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3751843162, 54327, 20479, [181, 71, 221, 169, 105, 164, 248, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdfa0955a_d437_4fff_b547_dda969a4f883);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5744,7 +5744,7 @@ pub struct ICashDrawerStatics_abi(
 pub struct ICashDrawerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerStatics2 {
     type Vtable = ICashDrawerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1048674593, 35906, 16616, [156, 14, 64, 41, 112, 72, 16, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e818121_8c42_40e8_9c0e_40297048104c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5762,7 +5762,7 @@ pub struct ICashDrawerStatics2_abi(
 pub struct ICashDrawerStatus(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerStatus {
     type Vtable = ICashDrawerStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1807579327, 56481, 19974, [153, 235, 90, 246, 165, 174, 193, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6bbd78bf_dca1_4e06_99eb_5af6a5aec108);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5781,7 +5781,7 @@ pub struct ICashDrawerStatus_abi(
 pub struct ICashDrawerStatusUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerStatusUpdatedEventArgs {
     type Vtable = ICashDrawerStatusUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(816507274, 3440, 17820, [149, 83, 135, 225, 36, 197, 36, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30aae98a_0d70_459c_9553_87e124c52488);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5799,7 +5799,7 @@ pub struct ICashDrawerStatusUpdatedEventArgs_abi(
 pub struct IClaimedBarcodeScanner(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedBarcodeScanner {
     type Vtable = IClaimedBarcodeScanner_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1248048284, 36772, 17202, [187, 38, 148, 93, 17, 216, 30, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a63b49c_8fa4_4332_bb26_945d11d81e0f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5859,7 +5859,7 @@ pub struct IClaimedBarcodeScanner_abi(
 pub struct IClaimedBarcodeScanner1(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedBarcodeScanner1 {
     type Vtable = IClaimedBarcodeScanner1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4128943372, 34129, 17076, [153, 140, 151, 12, 32, 33, 10, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf61aad0c_8551_42b4_998c_970c20210a22);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5880,7 +5880,7 @@ pub struct IClaimedBarcodeScanner1_abi(
 pub struct IClaimedBarcodeScanner2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedBarcodeScanner2 {
     type Vtable = IClaimedBarcodeScanner2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3820330636, 11659, 20336, [138, 243, 52, 72, 190, 221, 95, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3b59e8c_2d8b_4f70_8af3_3448bedd5fe2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5901,7 +5901,7 @@ pub struct IClaimedBarcodeScanner2_abi(
 pub struct IClaimedBarcodeScanner3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedBarcodeScanner3 {
     type Vtable = IClaimedBarcodeScanner3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3872306224, 28974, 17916, [139, 134, 205, 85, 245, 174, 247, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6ceb430_712e_45fc_8b86_cd55f5aef79d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5923,7 +5923,7 @@ pub struct IClaimedBarcodeScanner3_abi(
 pub struct IClaimedBarcodeScanner4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedBarcodeScanner4 {
     type Vtable = IClaimedBarcodeScanner4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1565532055, 14186, 16808, [162, 48, 47, 55, 193, 148, 157, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d501f97_376a_41a8_a230_2f37c1949dde);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5944,7 +5944,7 @@ pub struct IClaimedBarcodeScanner4_abi(
 pub struct IClaimedBarcodeScannerClosedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedBarcodeScannerClosedEventArgs {
     type Vtable = IClaimedBarcodeScannerClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3481097353, 41516, 19557, [169, 1, 136, 215, 125, 131, 57, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf7d5489_a22c_4c65_a901_88d77d833954);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5961,7 +5961,7 @@ pub struct IClaimedBarcodeScannerClosedEventArgs_abi(
 pub struct IClaimedCashDrawer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedCashDrawer {
     type Vtable = IClaimedCashDrawer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3393165743, 43960, 17089, [138, 132, 92, 102, 81, 47, 90, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca3f99af_abb8_42c1_8a84_5c66512f5a75);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5998,7 +5998,7 @@ pub struct IClaimedCashDrawer_abi(
 pub struct IClaimedCashDrawer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedCashDrawer2 {
     type Vtable = IClaimedCashDrawer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2629481890, 56898, 19803, [176, 193, 155, 87, 162, 186, 137, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9cbab5a2_de42_4d5b_b0c1_9b57a2ba89c3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6019,7 +6019,7 @@ pub struct IClaimedCashDrawer2_abi(
 pub struct IClaimedCashDrawerClosedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedCashDrawerClosedEventArgs {
     type Vtable = IClaimedCashDrawerClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3428269875, 16180, 19548, [186, 174, 222, 173, 241, 108, 215, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc573f33_3f34_4c5c_baae_deadf16cd7fa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6036,7 +6036,7 @@ pub struct IClaimedCashDrawerClosedEventArgs_abi(
 pub struct IClaimedJournalPrinter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedJournalPrinter {
     type Vtable = IClaimedJournalPrinter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1743390256, 20861, 18559, [159, 223, 210, 224, 160, 162, 100, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x67ea0630_517d_487f_9fdf_d2e0a0a264a5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6054,7 +6054,7 @@ pub struct IClaimedJournalPrinter_abi(
 pub struct IClaimedLineDisplay(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedLineDisplay {
     type Vtable = IClaimedLineDisplay_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(302696816, 39541, 19151, [170, 231, 9, 151, 43, 207, 135, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x120ac970_9a75_4acf_aae7_09972bcf8794);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6084,7 +6084,7 @@ pub struct IClaimedLineDisplay_abi(
 pub struct IClaimedLineDisplay2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedLineDisplay2 {
     type Vtable = IClaimedLineDisplay2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2736551405, 16885, 20086, [160, 116, 121, 94, 71, 164, 110, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa31c75ed_41f5_4e76_a074_795e47a46e97);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6133,7 +6133,7 @@ pub struct IClaimedLineDisplay2_abi(
 pub struct IClaimedLineDisplay3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedLineDisplay3 {
     type Vtable = IClaimedLineDisplay3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1680788882, 59860, 20172, [175, 117, 50, 156, 39, 76, 209, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x642ecd92_e9d4_4ecc_af75_329c274cd18f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6154,7 +6154,7 @@ pub struct IClaimedLineDisplay3_abi(
 pub struct IClaimedLineDisplayClosedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedLineDisplayClosedEventArgs {
     type Vtable = IClaimedLineDisplayClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4178965348, 54229, 20240, [181, 17, 144, 147, 158, 223, 172, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf915f364_d3d5_4f10_b511_90939edfacd8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6171,7 +6171,7 @@ pub struct IClaimedLineDisplayClosedEventArgs_abi(
 pub struct IClaimedLineDisplayStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedLineDisplayStatics {
     type Vtable = IClaimedLineDisplayStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2026543355, 35691, 18803, [134, 240, 62, 87, 12, 53, 24, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78ca98fb_8b6b_4973_86f0_3e570c351825);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6192,7 +6192,7 @@ pub struct IClaimedLineDisplayStatics_abi(
 pub struct IClaimedMagneticStripeReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedMagneticStripeReader {
     type Vtable = IClaimedMagneticStripeReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1197254899, 37911, 18620, [185, 215, 65, 99, 167, 132, 76, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x475ca8f3_9417_48bc_b9d7_4163a7844c02);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6260,7 +6260,7 @@ pub struct IClaimedMagneticStripeReader_abi(
 pub struct IClaimedMagneticStripeReader2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedMagneticStripeReader2 {
     type Vtable = IClaimedMagneticStripeReader2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(594522079, 58076, 19837, [156, 120, 6, 13, 242, 191, 41, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x236fafdf_e2dc_4d7d_9c78_060df2bf2928);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6281,7 +6281,7 @@ pub struct IClaimedMagneticStripeReader2_abi(
 pub struct IClaimedMagneticStripeReaderClosedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedMagneticStripeReaderClosedEventArgs {
     type Vtable = IClaimedMagneticStripeReaderClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(346925370, 44493, 19584, [172, 218, 195, 234, 237, 38, 71, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14ada93a_adcd_4c80_acda_c3eaed2647e1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6298,7 +6298,7 @@ pub struct IClaimedMagneticStripeReaderClosedEventArgs_abi(
 pub struct IClaimedPosPrinter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedPosPrinter {
     type Vtable = IClaimedPosPrinter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1835322892, 57406, 19220, [163, 142, 194, 140, 52, 184, 99, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d64ce0c_e03e_4b14_a38e_c28c34b86353);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6341,7 +6341,7 @@ pub struct IClaimedPosPrinter_abi(
 pub struct IClaimedPosPrinter2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedPosPrinter2 {
     type Vtable = IClaimedPosPrinter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1542955989, 20888, 17274, [130, 223, 88, 153, 147, 250, 119, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5bf7a3d5_5198_437a_82df_589993fa77e1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6362,7 +6362,7 @@ pub struct IClaimedPosPrinter2_abi(
 pub struct IClaimedPosPrinterClosedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedPosPrinterClosedEventArgs {
     type Vtable = IClaimedPosPrinterClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3803685499, 19776, 18205, [146, 237, 99, 55, 91, 24, 199, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2b7a27b_4d40_471d_92ed_63375b18c788);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6379,7 +6379,7 @@ pub struct IClaimedPosPrinterClosedEventArgs_abi(
 pub struct IClaimedReceiptPrinter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedReceiptPrinter {
     type Vtable = IClaimedReceiptPrinter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2597485172, 56673, 20194, [152, 55, 91, 93, 114, 213, 56, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ad27a74_dd61_4ee2_9837_5b5d72d538b9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6404,7 +6404,7 @@ pub struct IClaimedReceiptPrinter_abi(
 pub struct IClaimedSlipPrinter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedSlipPrinter {
     type Vtable = IClaimedSlipPrinter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3177050098, 44944, 20106, [183, 123, 227, 174, 156, 166, 58, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd5deff2_af90_4e8a_b77b_e3ae9ca63a7f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6439,7 +6439,7 @@ pub struct IClaimedSlipPrinter_abi(
 pub struct ICommonClaimedPosPrinterStation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICommonClaimedPosPrinterStation {
     type Vtable = ICommonClaimedPosPrinterStation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085657768, 65162, 19707, [139, 66, 227, 91, 40, 12, 178, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7eb66a8_fe8a_4cfb_8b42_e35b280cb27c);
 }
 impl ICommonClaimedPosPrinterStation {
     #[doc = "*Required features: `Devices_PointOfService`*"]
@@ -6658,7 +6658,7 @@ pub struct ICommonClaimedPosPrinterStation_abi(
 pub struct ICommonPosPrintStationCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICommonPosPrintStationCapabilities {
     type Vtable = ICommonPosPrintStationCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3730526922, 57390, 16617, [158, 94, 27, 72, 142, 106, 172, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde5b52ca_e02e_40e9_9e5e_1b488e6aacfc);
 }
 impl ICommonPosPrintStationCapabilities {
     #[doc = "*Required features: `Devices_PointOfService`*"]
@@ -6840,7 +6840,7 @@ pub struct ICommonPosPrintStationCapabilities_abi(
 pub struct ICommonReceiptSlipCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICommonReceiptSlipCapabilities {
     type Vtable = ICommonReceiptSlipCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(153643915, 39027, 19717, [191, 190, 71, 39, 166, 3, 143, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09286b8b_9873_4d05_bfbe_4727a6038f69);
 }
 impl ICommonReceiptSlipCapabilities {
     #[doc = "*Required features: `Devices_PointOfService`*"]
@@ -7114,7 +7114,7 @@ pub struct ICommonReceiptSlipCapabilities_abi(
 pub struct IJournalPrintJob(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJournalPrintJob {
     type Vtable = IJournalPrintJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2672765028, 62448, 21968, [140, 57, 116, 204, 145, 120, 62, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f4f2864_f3f0_55d0_8c39_74cc91783eed);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7134,7 +7134,7 @@ pub struct IJournalPrintJob_abi(
 pub struct IJournalPrinterCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJournalPrinterCapabilities {
     type Vtable = IJournalPrinterCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(995937347, 57415, 17507, [187, 88, 23, 181, 186, 29, 128, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b5ccc43_e047_4463_bb58_17b5ba1d8056);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7151,7 +7151,7 @@ pub struct IJournalPrinterCapabilities_abi(
 pub struct IJournalPrinterCapabilities2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJournalPrinterCapabilities2 {
     type Vtable = IJournalPrinterCapabilities2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(61912645, 13240, 21307, [186, 170, 164, 56, 146, 131, 171, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03b0b645_33b8_533b_baaa_a4389283ab0a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7174,7 +7174,7 @@ pub struct IJournalPrinterCapabilities2_abi(
 pub struct ILineDisplay(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplay {
     type Vtable = ILineDisplay_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(620093262, 15513, 17634, [183, 63, 229, 27, 227, 99, 122, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24f5df4e_3c99_44e2_b73f_e51be3637a8c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7200,7 +7200,7 @@ pub struct ILineDisplay_abi(
 pub struct ILineDisplay2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplay2 {
     type Vtable = ILineDisplay2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3264652840, 61252, 16627, [189, 28, 176, 76, 106, 92, 220, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc296a628_ef44_40f3_bd1c_b04c6a5cdc7d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7219,7 +7219,7 @@ pub struct ILineDisplay2_abi(
 pub struct ILineDisplayAttributes(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayAttributes {
     type Vtable = ILineDisplayAttributes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3246254492, 8858, 19476, [166, 241, 180, 228, 177, 254, 173, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc17de99c_229a_4c14_a6f1_b4e4b1fead92);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7254,7 +7254,7 @@ pub struct ILineDisplayAttributes_abi(
 pub struct ILineDisplayCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayCapabilities {
     type Vtable = ILineDisplayCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1511372241, 36293, 19356, [145, 114, 48, 62, 71, 183, 12, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a15b5d1_8dc5_4b9c_9172_303e47b70c55);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7289,7 +7289,7 @@ pub struct ILineDisplayCapabilities_abi(
 pub struct ILineDisplayCursor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayCursor {
     type Vtable = ILineDisplayCursor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3974102085, 30026, 20027, [171, 43, 21, 17, 129, 8, 86, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xecdffc45_754a_4e3b_ab2b_151181085605);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7316,7 +7316,7 @@ pub struct ILineDisplayCursor_abi(
 pub struct ILineDisplayCursorAttributes(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayCursorAttributes {
     type Vtable = ILineDisplayCursorAttributes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1311593726, 20477, 16784, [170, 225, 206, 40, 95, 32, 200, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e2d54fe_4ffd_4190_aae1_ce285f20c896);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7343,7 +7343,7 @@ pub struct ILineDisplayCursorAttributes_abi(
 pub struct ILineDisplayCustomGlyphs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayCustomGlyphs {
     type Vtable = ILineDisplayCustomGlyphs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(576190012, 62051, 17649, [161, 160, 231, 80, 166, 160, 236, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2257f63c_f263_44f1_a1a0_e750a6a0ec54);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7366,7 +7366,7 @@ pub struct ILineDisplayCustomGlyphs_abi(
 pub struct ILineDisplayMarquee(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayMarquee {
     type Vtable = ILineDisplayMarquee_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2748530238, 62570, 19322, [188, 33, 83, 235, 59, 87, 248, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3d33e3e_f46a_4b7a_bc21_53eb3b57f8b4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7397,7 +7397,7 @@ pub struct ILineDisplayMarquee_abi(
 pub struct ILineDisplayStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayStatics {
     type Vtable = ILineDisplayStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(36552886, 4528, 18064, [149, 71, 11, 57, 197, 175, 33, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x022dc0b6_11b0_4690_9547_0b39c5af2114);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7420,7 +7420,7 @@ pub struct ILineDisplayStatics_abi(
 pub struct ILineDisplayStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayStatics2 {
     type Vtable = ILineDisplayStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1611415324, 30635, 18792, [167, 222, 192, 47, 241, 105, 242, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x600c3f1c_77ab_4968_a7de_c02ff169f2cc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7438,7 +7438,7 @@ pub struct ILineDisplayStatics2_abi(
 pub struct ILineDisplayStatisticsCategorySelector(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayStatisticsCategorySelector {
     type Vtable = ILineDisplayStatisticsCategorySelector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3038889067, 37492, 19748, [148, 243, 182, 1, 123, 131, 36, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb521c46b_9274_4d24_94f3_b6017b832444);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7458,7 +7458,7 @@ pub struct ILineDisplayStatisticsCategorySelector_abi(
 pub struct ILineDisplayStatusUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayStatusUpdatedEventArgs {
     type Vtable = ILineDisplayStatusUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3721755674, 34555, 20154, [147, 209, 111, 94, 218, 82, 183, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddd57c1a_86fb_4eba_93d1_6f5eda52b752);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7476,7 +7476,7 @@ pub struct ILineDisplayStatusUpdatedEventArgs_abi(
 pub struct ILineDisplayStoredBitmap(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayStoredBitmap {
     type Vtable = ILineDisplayStoredBitmap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4129378651, 55326, 17338, [191, 27, 188, 250, 60, 120, 91, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf621515b_d81e_43ba_bf1b_bcfa3c785ba0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7496,7 +7496,7 @@ pub struct ILineDisplayStoredBitmap_abi(
 pub struct ILineDisplayWindow(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayWindow {
     type Vtable = ILineDisplayWindow_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3525308148, 9060, 19429, [190, 225, 133, 22, 128, 175, 73, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd21feef4_2364_4be5_bee1_851680af4964);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7531,7 +7531,7 @@ pub struct ILineDisplayWindow_abi(
 pub struct ILineDisplayWindow2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayWindow2 {
     type Vtable = ILineDisplayWindow2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2841436902, 48600, 17253, [142, 17, 222, 148, 222, 141, 255, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa95ce2e6_bdd8_4365_8e11_de94de8dff02);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7564,7 +7564,7 @@ pub struct ILineDisplayWindow2_abi(
 pub struct IMagneticStripeReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReader {
     type Vtable = IMagneticStripeReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(445820949, 18371, 18058, [147, 51, 12, 101, 23, 87, 72, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a92b015_47c3_468a_9333_0c6517574883);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7596,7 +7596,7 @@ pub struct IMagneticStripeReader_abi(
 pub struct IMagneticStripeReaderAamvaCardDataReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderAamvaCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderAamvaCardDataReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(172735825, 49942, 18704, [135, 243, 122, 98, 186, 134, 45, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a4bbd51_c316_4910_87f3_7a62ba862d31);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7632,7 +7632,7 @@ pub struct IMagneticStripeReaderAamvaCardDataReceivedEventArgs_abi(
 pub struct IMagneticStripeReaderBankCardDataReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderBankCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderBankCardDataReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(781551651, 41754, 18275, [136, 44, 35, 114, 94, 57, 176, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e958823_a31a_4763_882c_23725e39b08e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7658,7 +7658,7 @@ pub struct IMagneticStripeReaderBankCardDataReceivedEventArgs_abi(
 pub struct IMagneticStripeReaderCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderCapabilities {
     type Vtable = IMagneticStripeReaderCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1898479772, 50240, 17570, [164, 103, 70, 145, 117, 208, 40, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7128809c_c440_44a2_a467_469175d02896);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7686,7 +7686,7 @@ pub struct IMagneticStripeReaderCapabilities_abi(
 pub struct IMagneticStripeReaderCardTypesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderCardTypesStatics {
     type Vtable = IMagneticStripeReaderCardTypesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1385114717, 10630, 18255, [132, 84, 124, 205, 5, 146, 141, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x528f2c5d_2986_474f_8454_7ccd05928d5f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7707,7 +7707,7 @@ pub struct IMagneticStripeReaderCardTypesStatics_abi(
 pub struct IMagneticStripeReaderEncryptionAlgorithmsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderEncryptionAlgorithmsStatics {
     type Vtable = IMagneticStripeReaderEncryptionAlgorithmsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1404400464, 50139, 18260, [156, 0, 65, 57, 35, 116, 161, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53b57350_c3db_4754_9c00_41392374a109);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7727,7 +7727,7 @@ pub struct IMagneticStripeReaderEncryptionAlgorithmsStatics_abi(
 pub struct IMagneticStripeReaderErrorOccurredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderErrorOccurredEventArgs {
     type Vtable = IMagneticStripeReaderErrorOccurredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(535689565, 11396, 16813, [183, 120, 242, 53, 106, 120, 154, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1fedf95d_2c84_41ad_b778_f2356a789ab1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7750,7 +7750,7 @@ pub struct IMagneticStripeReaderErrorOccurredEventArgs_abi(
 pub struct IMagneticStripeReaderReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderReport {
     type Vtable = IMagneticStripeReaderReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1784373319, 39344, 16776, [190, 241, 237, 223, 121, 247, 143, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a5b6047_99b0_4188_bef1_eddf79f78fe6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7779,7 +7779,7 @@ pub struct IMagneticStripeReaderReport_abi(
 pub struct IMagneticStripeReaderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderStatics {
     type Vtable = IMagneticStripeReaderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3294604106, 61399, 18272, [165, 206, 21, 176, 228, 126, 148, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc45fab4a_efd7_4760_a5ce_15b0e47e94eb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7801,7 +7801,7 @@ pub struct IMagneticStripeReaderStatics_abi(
 pub struct IMagneticStripeReaderStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderStatics2 {
     type Vtable = IMagneticStripeReaderStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2360197986, 54887, 18682, [134, 188, 245, 174, 17, 137, 38, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cadc362_d667_48fa_86bc_f5ae1189262b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7819,7 +7819,7 @@ pub struct IMagneticStripeReaderStatics2_abi(
 pub struct IMagneticStripeReaderStatusUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderStatusUpdatedEventArgs {
     type Vtable = IMagneticStripeReaderStatusUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(164391856, 12898, 16413, [158, 138, 232, 13, 99, 88, 144, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09cc6bb0_3262_401d_9e8a_e80d6358906b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7838,7 +7838,7 @@ pub struct IMagneticStripeReaderStatusUpdatedEventArgs_abi(
 pub struct IMagneticStripeReaderTrackData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderTrackData {
     type Vtable = IMagneticStripeReaderTrackData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(273479281, 19101, 17518, [171, 197, 32, 64, 35, 7, 186, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x104cf671_4a9d_446e_abc5_20402307ba36);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7861,7 +7861,7 @@ pub struct IMagneticStripeReaderTrackData_abi(
 pub struct IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2936689940, 22988, 19040, [153, 232, 153, 165, 61, 172, 229, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf0a5514_59cc_4a60_99e8_99a53dace5aa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7879,7 +7879,7 @@ pub struct IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_abi(
 pub struct IPosPrinter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinter {
     type Vtable = IPosPrinter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(704889102, 39449, 18945, [153, 79, 18, 223, 173, 106, 220, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a03c10e_9a19_4a01_994f_12dfad6adcbf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7913,7 +7913,7 @@ pub struct IPosPrinter_abi(
 pub struct IPosPrinter2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinter2 {
     type Vtable = IPosPrinter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(612660712, 35736, 21783, [142, 72, 118, 14, 134, 246, 137, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x248475e8_8b98_5517_8e48_760e86f68987);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7933,7 +7933,7 @@ pub struct IPosPrinter2_abi(
 pub struct IPosPrinterCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterCapabilities {
     type Vtable = IPosPrinterCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3454621473, 17280, 18821, [173, 197, 57, 219, 48, 205, 147, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcde95721_4380_4985_adc5_39db30cd93bc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7960,7 +7960,7 @@ pub struct IPosPrinterCapabilities_abi(
 pub struct IPosPrinterCharacterSetIdsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterCharacterSetIdsStatics {
     type Vtable = IPosPrinterCharacterSetIdsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1550884607, 28826, 20455, [178, 21, 6, 167, 72, 163, 139, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c709eff_709a_4fe7_b215_06a748a38b39);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7980,7 +7980,7 @@ pub struct IPosPrinterCharacterSetIdsStatics_abi(
 pub struct IPosPrinterFontProperty(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterFontProperty {
     type Vtable = IPosPrinterFontProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2817845562, 63660, 24324, [132, 210, 41, 177, 109, 138, 99, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7f4e93a_f8ac_5f04_84d2_29b16d8a633c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8002,7 +8002,7 @@ pub struct IPosPrinterFontProperty_abi(
 pub struct IPosPrinterJob(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterJob {
     type Vtable = IPosPrinterJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2593390684, 1557, 17809, [165, 143, 48, 248, 126, 223, 226, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a94005c_0615_4591_a58f_30f87edfe2e4);
 }
 impl IPosPrinterJob {
     #[doc = "*Required features: `Devices_PointOfService`*"]
@@ -8093,7 +8093,7 @@ pub struct IPosPrinterJob_abi(
 pub struct IPosPrinterPrintOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterPrintOptions {
     type Vtable = IPosPrinterPrintOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(170792701, 7426, 23128, [157, 89, 191, 205, 231, 111, 222, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a2e16fd_1d02_5a58_9d59_bfcde76fde86);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8136,7 +8136,7 @@ pub struct IPosPrinterPrintOptions_abi(
 pub struct IPosPrinterReleaseDeviceRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterReleaseDeviceRequestedEventArgs {
     type Vtable = IPosPrinterReleaseDeviceRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(734765913, 7407, 16562, [158, 203, 249, 39, 248, 86, 174, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bcba359_1cef_40b2_9ecb_f927f856ae3c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8153,7 +8153,7 @@ pub struct IPosPrinterReleaseDeviceRequestedEventArgs_abi(
 pub struct IPosPrinterStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterStatics {
     type Vtable = IPosPrinterStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2363544810, 4911, 19679, [166, 74, 45, 13, 124, 150, 168, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ce0d4ea_132f_4cdf_a64a_2d0d7c96a85b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8175,7 +8175,7 @@ pub struct IPosPrinterStatics_abi(
 pub struct IPosPrinterStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterStatics2 {
     type Vtable = IPosPrinterStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4006423580, 45264, 17127, [177, 55, 184, 155, 22, 36, 77, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeecd2c1c_b0d0_42e7_b137_b89b16244d41);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8193,7 +8193,7 @@ pub struct IPosPrinterStatics2_abi(
 pub struct IPosPrinterStatus(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterStatus {
     type Vtable = IPosPrinterStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3522217776, 55872, 17192, [191, 118, 81, 86, 250, 51, 183, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1f0c730_da40_4328_bf76_5156fa33b747);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8212,7 +8212,7 @@ pub struct IPosPrinterStatus_abi(
 pub struct IPosPrinterStatusUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterStatusUpdatedEventArgs {
     type Vtable = IPosPrinterStatusUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(786139103, 5030, 17037, [186, 129, 176, 231, 195, 229, 163, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2edb87df_13a6_428d_ba81_b0e7c3e5a3cd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8231,7 +8231,7 @@ pub struct IPosPrinterStatusUpdatedEventArgs_abi(
 pub struct IReceiptOrSlipJob(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReceiptOrSlipJob {
     type Vtable = IReceiptOrSlipJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1394710974, 51395, 19906, [137, 233, 92, 74, 55, 179, 77, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x532199be_c8c3_4dc2_89e9_5c4a37b34ddc);
 }
 impl IReceiptOrSlipJob {
     #[doc = "*Required features: `Devices_PointOfService`*"]
@@ -8447,7 +8447,7 @@ pub struct IReceiptOrSlipJob_abi(
 pub struct IReceiptPrintJob(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReceiptPrintJob {
     type Vtable = IReceiptPrintJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2861958766, 44205, 19321, [157, 15, 192, 207, 192, 141, 199, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa96066e_acad_4b79_9d0f_c0cfc08dc77b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8467,7 +8467,7 @@ pub struct IReceiptPrintJob_abi(
 pub struct IReceiptPrintJob2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReceiptPrintJob2 {
     type Vtable = IReceiptPrintJob2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(213652195, 40489, 20857, [188, 216, 24, 17, 211, 185, 161, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cbc12e3_9e29_5179_bcd8_1811d3b9a10e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8488,7 +8488,7 @@ pub struct IReceiptPrintJob2_abi(
 pub struct IReceiptPrinterCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReceiptPrinterCapabilities {
     type Vtable = IReceiptPrinterCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3102782863, 20904, 17404, [155, 213, 141, 226, 114, 166, 65, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8f0b58f_51a8_43fc_9bd5_8de272a6415b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8508,7 +8508,7 @@ pub struct IReceiptPrinterCapabilities_abi(
 pub struct IReceiptPrinterCapabilities2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReceiptPrinterCapabilities2 {
     type Vtable = IReceiptPrinterCapabilities2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(537069112, 35372, 21932, [154, 123, 117, 118, 216, 134, 158, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20030638_8a2c_55ac_9a7b_7576d8869e99);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8531,7 +8531,7 @@ pub struct IReceiptPrinterCapabilities2_abi(
 pub struct ISlipPrintJob(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISlipPrintJob {
     type Vtable = ISlipPrintJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1569257821, 24881, 23115, [183, 213, 142, 242, 218, 123, 65, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d88f95d_6131_5a4b_b7d5_8ef2da7b4165);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8551,7 +8551,7 @@ pub struct ISlipPrintJob_abi(
 pub struct ISlipPrinterCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISlipPrinterCapabilities {
     type Vtable = ISlipPrinterCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2578539417, 18572, 16727, [138, 194, 159, 87, 247, 8, 211, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99b16399_488c_4157_8ac2_9f57f708d3db);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8570,7 +8570,7 @@ pub struct ISlipPrinterCapabilities_abi(
 pub struct ISlipPrinterCapabilities2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISlipPrinterCapabilities2 {
     type Vtable = ISlipPrinterCapabilities2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1878562417, 11546, 20480, [135, 194, 176, 133, 27, 253, 240, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ff89671_2d1a_5000_87c2_b0851bfdf07e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8593,7 +8593,7 @@ pub struct ISlipPrinterCapabilities2_abi(
 pub struct IUnifiedPosErrorData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnifiedPosErrorData {
     type Vtable = IUnifiedPosErrorData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(731483194, 21852, 18569, [142, 216, 197, 153, 187, 58, 113, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b998c3a_555c_4889_8ed8_c599bb3a712a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8614,7 +8614,7 @@ pub struct IUnifiedPosErrorData_abi(
 pub struct IUnifiedPosErrorDataFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnifiedPosErrorDataFactory {
     type Vtable = IUnifiedPosErrorDataFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1268262225, 8190, 17691, [163, 104, 99, 224, 206, 70, 95, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b982551_1ffe_451b_a368_63e0ce465f5a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8677,7 +8677,7 @@ unsafe impl ::windows::runtime::RuntimeType for JournalPrintJob {
 }
 unsafe impl ::windows::runtime::Interface for JournalPrintJob {
     type Vtable = IPosPrinterJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2593390684, 1557, 17809, [165, 143, 48, 248, 126, 223, 226, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a94005c_0615_4591_a58f_30f87edfe2e4);
 }
 impl ::windows::runtime::RuntimeName for JournalPrintJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.JournalPrintJob";
@@ -8908,7 +8908,7 @@ unsafe impl ::windows::runtime::RuntimeType for JournalPrinterCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for JournalPrinterCapabilities {
     type Vtable = IJournalPrinterCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(995937347, 57415, 17507, [187, 88, 23, 181, 186, 29, 128, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b5ccc43_e047_4463_bb58_17b5ba1d8056);
 }
 impl ::windows::runtime::RuntimeName for JournalPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.JournalPrinterCapabilities";
@@ -9113,7 +9113,7 @@ unsafe impl ::windows::runtime::RuntimeType for LineDisplay {
 }
 unsafe impl ::windows::runtime::Interface for LineDisplay {
     type Vtable = ILineDisplay_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(620093262, 15513, 17634, [183, 63, 229, 27, 227, 99, 122, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24f5df4e_3c99_44e2_b73f_e51be3637a8c);
 }
 impl ::windows::runtime::RuntimeName for LineDisplay {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplay";
@@ -9292,7 +9292,7 @@ unsafe impl ::windows::runtime::RuntimeType for LineDisplayAttributes {
 }
 unsafe impl ::windows::runtime::Interface for LineDisplayAttributes {
     type Vtable = ILineDisplayAttributes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3246254492, 8858, 19476, [166, 241, 180, 228, 177, 254, 173, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc17de99c_229a_4c14_a6f1_b4e4b1fead92);
 }
 impl ::windows::runtime::RuntimeName for LineDisplayAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayAttributes";
@@ -9494,7 +9494,7 @@ unsafe impl ::windows::runtime::RuntimeType for LineDisplayCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for LineDisplayCapabilities {
     type Vtable = ILineDisplayCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1511372241, 36293, 19356, [145, 114, 48, 62, 71, 183, 12, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a15b5d1_8dc5_4b9c_9172_303e47b70c55);
 }
 impl ::windows::runtime::RuntimeName for LineDisplayCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCapabilities";
@@ -9625,7 +9625,7 @@ unsafe impl ::windows::runtime::RuntimeType for LineDisplayCursor {
 }
 unsafe impl ::windows::runtime::Interface for LineDisplayCursor {
     type Vtable = ILineDisplayCursor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3974102085, 30026, 20027, [171, 43, 21, 17, 129, 8, 86, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xecdffc45_754a_4e3b_ab2b_151181085605);
 }
 impl ::windows::runtime::RuntimeName for LineDisplayCursor {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCursor";
@@ -9737,7 +9737,7 @@ unsafe impl ::windows::runtime::RuntimeType for LineDisplayCursorAttributes {
 }
 unsafe impl ::windows::runtime::Interface for LineDisplayCursorAttributes {
     type Vtable = ILineDisplayCursorAttributes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1311593726, 20477, 16784, [170, 225, 206, 40, 95, 32, 200, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e2d54fe_4ffd_4190_aae1_ce285f20c896);
 }
 impl ::windows::runtime::RuntimeName for LineDisplayCursorAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCursorAttributes";
@@ -9848,7 +9848,7 @@ unsafe impl ::windows::runtime::RuntimeType for LineDisplayCustomGlyphs {
 }
 unsafe impl ::windows::runtime::Interface for LineDisplayCustomGlyphs {
     type Vtable = ILineDisplayCustomGlyphs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(576190012, 62051, 17649, [161, 160, 231, 80, 166, 160, 236, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2257f63c_f263_44f1_a1a0_e750a6a0ec54);
 }
 impl ::windows::runtime::RuntimeName for LineDisplayCustomGlyphs {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCustomGlyphs";
@@ -10013,7 +10013,7 @@ unsafe impl ::windows::runtime::RuntimeType for LineDisplayMarquee {
 }
 unsafe impl ::windows::runtime::Interface for LineDisplayMarquee {
     type Vtable = ILineDisplayMarquee_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2748530238, 62570, 19322, [188, 33, 83, 235, 59, 87, 248, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3d33e3e_f46a_4b7a_bc21_53eb3b57f8b4);
 }
 impl ::windows::runtime::RuntimeName for LineDisplayMarquee {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayMarquee";
@@ -10167,7 +10167,7 @@ unsafe impl ::windows::runtime::RuntimeType for LineDisplayStatisticsCategorySel
 }
 unsafe impl ::windows::runtime::Interface for LineDisplayStatisticsCategorySelector {
     type Vtable = ILineDisplayStatisticsCategorySelector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3038889067, 37492, 19748, [148, 243, 182, 1, 123, 131, 36, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb521c46b_9274_4d24_94f3_b6017b832444);
 }
 impl ::windows::runtime::RuntimeName for LineDisplayStatisticsCategorySelector {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayStatisticsCategorySelector";
@@ -10233,7 +10233,7 @@ unsafe impl ::windows::runtime::RuntimeType for LineDisplayStatusUpdatedEventArg
 }
 unsafe impl ::windows::runtime::Interface for LineDisplayStatusUpdatedEventArgs {
     type Vtable = ILineDisplayStatusUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3721755674, 34555, 20154, [147, 209, 111, 94, 218, 82, 183, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddd57c1a_86fb_4eba_93d1_6f5eda52b752);
 }
 impl ::windows::runtime::RuntimeName for LineDisplayStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayStatusUpdatedEventArgs";
@@ -10308,7 +10308,7 @@ unsafe impl ::windows::runtime::RuntimeType for LineDisplayStoredBitmap {
 }
 unsafe impl ::windows::runtime::Interface for LineDisplayStoredBitmap {
     type Vtable = ILineDisplayStoredBitmap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4129378651, 55326, 17338, [191, 27, 188, 250, 60, 120, 91, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf621515b_d81e_43ba_bf1b_bcfa3c785ba0);
 }
 impl ::windows::runtime::RuntimeName for LineDisplayStoredBitmap {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayStoredBitmap";
@@ -10599,7 +10599,7 @@ unsafe impl ::windows::runtime::RuntimeType for LineDisplayWindow {
 }
 unsafe impl ::windows::runtime::Interface for LineDisplayWindow {
     type Vtable = ILineDisplayWindow_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3525308148, 9060, 19429, [190, 225, 133, 22, 128, 175, 73, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd21feef4_2364_4be5_bee1_851680af4964);
 }
 impl ::windows::runtime::RuntimeName for LineDisplayWindow {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayWindow";
@@ -10809,7 +10809,7 @@ unsafe impl ::windows::runtime::RuntimeType for MagneticStripeReader {
 }
 unsafe impl ::windows::runtime::Interface for MagneticStripeReader {
     type Vtable = IMagneticStripeReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(445820949, 18371, 18058, [147, 51, 12, 101, 23, 87, 72, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a92b015_47c3_468a_9333_0c6517574883);
 }
 impl ::windows::runtime::RuntimeName for MagneticStripeReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReader";
@@ -11045,7 +11045,7 @@ unsafe impl ::windows::runtime::RuntimeType for MagneticStripeReaderAamvaCardDat
 }
 unsafe impl ::windows::runtime::Interface for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderAamvaCardDataReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(172735825, 49942, 18704, [135, 243, 122, 98, 186, 134, 45, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a4bbd51_c316_4910_87f3_7a62ba862d31);
 }
 impl ::windows::runtime::RuntimeName for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderAamvaCardDataReceivedEventArgs";
@@ -11220,7 +11220,7 @@ unsafe impl ::windows::runtime::RuntimeType for MagneticStripeReaderBankCardData
 }
 unsafe impl ::windows::runtime::Interface for MagneticStripeReaderBankCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderBankCardDataReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(781551651, 41754, 18275, [136, 44, 35, 114, 94, 57, 176, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e958823_a31a_4763_882c_23725e39b08e);
 }
 impl ::windows::runtime::RuntimeName for MagneticStripeReaderBankCardDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderBankCardDataReceivedEventArgs";
@@ -11366,7 +11366,7 @@ unsafe impl ::windows::runtime::RuntimeType for MagneticStripeReaderCapabilities
 }
 unsafe impl ::windows::runtime::Interface for MagneticStripeReaderCapabilities {
     type Vtable = IMagneticStripeReaderCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1898479772, 50240, 17570, [164, 103, 70, 145, 117, 208, 40, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7128809c_c440_44a2_a467_469175d02896);
 }
 impl ::windows::runtime::RuntimeName for MagneticStripeReaderCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderCapabilities";
@@ -11543,7 +11543,7 @@ unsafe impl ::windows::runtime::RuntimeType for MagneticStripeReaderErrorOccurre
 }
 unsafe impl ::windows::runtime::Interface for MagneticStripeReaderErrorOccurredEventArgs {
     type Vtable = IMagneticStripeReaderErrorOccurredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(535689565, 11396, 16813, [183, 120, 242, 53, 106, 120, 154, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1fedf95d_2c84_41ad_b778_f2356a789ab1);
 }
 impl ::windows::runtime::RuntimeName for MagneticStripeReaderErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderErrorOccurredEventArgs";
@@ -11698,7 +11698,7 @@ unsafe impl ::windows::runtime::RuntimeType for MagneticStripeReaderReport {
 }
 unsafe impl ::windows::runtime::Interface for MagneticStripeReaderReport {
     type Vtable = IMagneticStripeReaderReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1784373319, 39344, 16776, [190, 241, 237, 223, 121, 247, 143, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a5b6047_99b0_4188_bef1_eddf79f78fe6);
 }
 impl ::windows::runtime::RuntimeName for MagneticStripeReaderReport {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderReport";
@@ -11795,7 +11795,7 @@ unsafe impl ::windows::runtime::RuntimeType for MagneticStripeReaderStatusUpdate
 }
 unsafe impl ::windows::runtime::Interface for MagneticStripeReaderStatusUpdatedEventArgs {
     type Vtable = IMagneticStripeReaderStatusUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(164391856, 12898, 16413, [158, 138, 232, 13, 99, 88, 144, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09cc6bb0_3262_401d_9e8a_e80d6358906b);
 }
 impl ::windows::runtime::RuntimeName for MagneticStripeReaderStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderStatusUpdatedEventArgs";
@@ -11880,7 +11880,7 @@ unsafe impl ::windows::runtime::RuntimeType for MagneticStripeReaderTrackData {
 }
 unsafe impl ::windows::runtime::Interface for MagneticStripeReaderTrackData {
     type Vtable = IMagneticStripeReaderTrackData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(273479281, 19101, 17518, [171, 197, 32, 64, 35, 7, 186, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x104cf671_4a9d_446e_abc5_20402307ba36);
 }
 impl ::windows::runtime::RuntimeName for MagneticStripeReaderTrackData {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderTrackData";
@@ -11997,7 +11997,7 @@ unsafe impl ::windows::runtime::RuntimeType for MagneticStripeReaderVendorSpecif
 }
 unsafe impl ::windows::runtime::Interface for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2936689940, 22988, 19040, [153, 232, 153, 165, 61, 172, 229, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf0a5514_59cc_4a60_99e8_99a53dace5aa);
 }
 impl ::windows::runtime::RuntimeName for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs";
@@ -12252,7 +12252,7 @@ unsafe impl ::windows::runtime::RuntimeType for PosPrinter {
 }
 unsafe impl ::windows::runtime::Interface for PosPrinter {
     type Vtable = IPosPrinter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(704889102, 39449, 18945, [153, 79, 18, 223, 173, 106, 220, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a03c10e_9a19_4a01_994f_12dfad6adcbf);
 }
 impl ::windows::runtime::RuntimeName for PosPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinter";
@@ -12462,7 +12462,7 @@ unsafe impl ::windows::runtime::RuntimeType for PosPrinterCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for PosPrinterCapabilities {
     type Vtable = IPosPrinterCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3454621473, 17280, 18821, [173, 197, 57, 219, 48, 205, 147, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcde95721_4380_4985_adc5_39db30cd93bc);
 }
 impl ::windows::runtime::RuntimeName for PosPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterCapabilities";
@@ -12721,7 +12721,7 @@ unsafe impl ::windows::runtime::RuntimeType for PosPrinterFontProperty {
 }
 unsafe impl ::windows::runtime::Interface for PosPrinterFontProperty {
     type Vtable = IPosPrinterFontProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2817845562, 63660, 24324, [132, 210, 41, 177, 109, 138, 99, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7f4e93a_f8ac_5f04_84d2_29b16d8a633c);
 }
 impl ::windows::runtime::RuntimeName for PosPrinterFontProperty {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterFontProperty";
@@ -13102,7 +13102,7 @@ unsafe impl ::windows::runtime::RuntimeType for PosPrinterPrintOptions {
 }
 unsafe impl ::windows::runtime::Interface for PosPrinterPrintOptions {
     type Vtable = IPosPrinterPrintOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(170792701, 7426, 23128, [157, 89, 191, 205, 231, 111, 222, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a2e16fd_1d02_5a58_9d59_bfcde76fde86);
 }
 impl ::windows::runtime::RuntimeName for PosPrinterPrintOptions {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterPrintOptions";
@@ -13182,7 +13182,7 @@ unsafe impl ::windows::runtime::RuntimeType for PosPrinterReleaseDeviceRequested
 }
 unsafe impl ::windows::runtime::Interface for PosPrinterReleaseDeviceRequestedEventArgs {
     type Vtable = IPosPrinterReleaseDeviceRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(734765913, 7407, 16562, [158, 203, 249, 39, 248, 86, 174, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bcba359_1cef_40b2_9ecb_f927f856ae3c);
 }
 impl ::windows::runtime::RuntimeName for PosPrinterReleaseDeviceRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterReleaseDeviceRequestedEventArgs";
@@ -13331,7 +13331,7 @@ unsafe impl ::windows::runtime::RuntimeType for PosPrinterStatus {
 }
 unsafe impl ::windows::runtime::Interface for PosPrinterStatus {
     type Vtable = IPosPrinterStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3522217776, 55872, 17192, [191, 118, 81, 86, 250, 51, 183, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1f0c730_da40_4328_bf76_5156fa33b747);
 }
 impl ::windows::runtime::RuntimeName for PosPrinterStatus {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterStatus";
@@ -13422,7 +13422,7 @@ unsafe impl ::windows::runtime::RuntimeType for PosPrinterStatusUpdatedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for PosPrinterStatusUpdatedEventArgs {
     type Vtable = IPosPrinterStatusUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(786139103, 5030, 17037, [186, 129, 176, 231, 195, 229, 163, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2edb87df_13a6_428d_ba81_b0e7c3e5a3cd);
 }
 impl ::windows::runtime::RuntimeName for PosPrinterStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterStatusUpdatedEventArgs";
@@ -13623,7 +13623,7 @@ unsafe impl ::windows::runtime::RuntimeType for ReceiptPrintJob {
 }
 unsafe impl ::windows::runtime::Interface for ReceiptPrintJob {
     type Vtable = IReceiptPrintJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2861958766, 44205, 19321, [157, 15, 192, 207, 192, 141, 199, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa96066e_acad_4b79_9d0f_c0cfc08dc77b);
 }
 impl ::windows::runtime::RuntimeName for ReceiptPrintJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.ReceiptPrintJob";
@@ -13976,7 +13976,7 @@ unsafe impl ::windows::runtime::RuntimeType for ReceiptPrinterCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for ReceiptPrinterCapabilities {
     type Vtable = IReceiptPrinterCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3102782863, 20904, 17404, [155, 213, 141, 226, 114, 166, 65, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8f0b58f_51a8_43fc_9bd5_8de272a6415b);
 }
 impl ::windows::runtime::RuntimeName for ReceiptPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.ReceiptPrinterCapabilities";
@@ -14234,7 +14234,7 @@ unsafe impl ::windows::runtime::RuntimeType for SlipPrintJob {
 }
 unsafe impl ::windows::runtime::Interface for SlipPrintJob {
     type Vtable = IReceiptOrSlipJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1394710974, 51395, 19906, [137, 233, 92, 74, 55, 179, 77, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x532199be_c8c3_4dc2_89e9_5c4a37b34ddc);
 }
 impl ::windows::runtime::RuntimeName for SlipPrintJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.SlipPrintJob";
@@ -14577,7 +14577,7 @@ unsafe impl ::windows::runtime::RuntimeType for SlipPrinterCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for SlipPrinterCapabilities {
     type Vtable = ISlipPrinterCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2578539417, 18572, 16727, [138, 194, 159, 87, 247, 8, 211, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99b16399_488c_4157_8ac2_9f57f708d3db);
 }
 impl ::windows::runtime::RuntimeName for SlipPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.SlipPrinterCapabilities";
@@ -14722,7 +14722,7 @@ unsafe impl ::windows::runtime::RuntimeType for UnifiedPosErrorData {
 }
 unsafe impl ::windows::runtime::Interface for UnifiedPosErrorData {
     type Vtable = IUnifiedPosErrorData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(731483194, 21852, 18569, [142, 216, 197, 153, 187, 58, 113, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b998c3a_555c_4889_8ed8_c599bb3a712a);
 }
 impl ::windows::runtime::RuntimeName for UnifiedPosErrorData {
     const NAME: &'static str = "Windows.Devices.PointOfService.UnifiedPosErrorData";

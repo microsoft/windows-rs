@@ -174,7 +174,7 @@ unsafe impl ::windows::runtime::RuntimeType for CachedFileUpdaterUI {
 }
 unsafe impl ::windows::runtime::Interface for CachedFileUpdaterUI {
     type Vtable = ICachedFileUpdaterUI_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2658091494, 47858, 19095, [182, 0, 147, 51, 245, 223, 128, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e6f41e6_baf2_4a97_b600_9333f5df80fd);
 }
 impl ::windows::runtime::RuntimeName for CachedFileUpdaterUI {
     const NAME: &'static str = "Windows.Storage.Provider.CachedFileUpdaterUI";
@@ -288,7 +288,7 @@ unsafe impl ::windows::runtime::RuntimeType for FileUpdateRequest {
 }
 unsafe impl ::windows::runtime::Interface for FileUpdateRequest {
     type Vtable = IFileUpdateRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1086858550, 49662, 19859, [167, 146, 30, 115, 107, 199, 8, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40c82536_c1fe_4d93_a792_1e736bc70837);
 }
 impl ::windows::runtime::RuntimeName for FileUpdateRequest {
     const NAME: &'static str = "Windows.Storage.Provider.FileUpdateRequest";
@@ -349,7 +349,7 @@ unsafe impl ::windows::runtime::RuntimeType for FileUpdateRequestDeferral {
 }
 unsafe impl ::windows::runtime::Interface for FileUpdateRequestDeferral {
     type Vtable = IFileUpdateRequestDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4291746603, 35550, 17573, [187, 0, 22, 76, 78, 114, 241, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffcedb2b_8ade_44a5_bb00_164c4e72f13a);
 }
 impl ::windows::runtime::RuntimeName for FileUpdateRequestDeferral {
     const NAME: &'static str = "Windows.Storage.Provider.FileUpdateRequestDeferral";
@@ -413,7 +413,7 @@ unsafe impl ::windows::runtime::RuntimeType for FileUpdateRequestedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for FileUpdateRequestedEventArgs {
     type Vtable = IFileUpdateRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2064290626, 14597, 17293, [170, 239, 120, 174, 38, 95, 141, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b0a9342_3905_438d_aaef_78ae265f8dd2);
 }
 impl ::windows::runtime::RuntimeName for FileUpdateRequestedEventArgs {
     const NAME: &'static str = "Windows.Storage.Provider.FileUpdateRequestedEventArgs";
@@ -489,7 +489,7 @@ impl ::windows::runtime::DefaultType for FileUpdateStatus {
 pub struct ICachedFileUpdaterStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICachedFileUpdaterStatics {
     type Vtable = ICachedFileUpdaterStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2680752416, 31695, 18568, [168, 30, 16, 45, 112, 52, 215, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fc90920_7bcf_4888_a81e_102d7034d7ce);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -507,7 +507,7 @@ pub struct ICachedFileUpdaterStatics_abi(
 pub struct ICachedFileUpdaterUI(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICachedFileUpdaterUI {
     type Vtable = ICachedFileUpdaterUI_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2658091494, 47858, 19095, [182, 0, 147, 51, 245, 223, 128, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e6f41e6_baf2_4a97_b600_9333f5df80fd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -536,7 +536,7 @@ pub struct ICachedFileUpdaterUI_abi(
 pub struct ICachedFileUpdaterUI2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICachedFileUpdaterUI2 {
     type Vtable = ICachedFileUpdaterUI2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2287378972, 34457, 17216, [159, 73, 247, 202, 215, 254, 137, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8856a21c_8699_4340_9f49_f7cad7fe8991);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -555,7 +555,7 @@ pub struct ICachedFileUpdaterUI2_abi(
 pub struct IFileUpdateRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileUpdateRequest {
     type Vtable = IFileUpdateRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1086858550, 49662, 19859, [167, 146, 30, 115, 107, 199, 8, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40c82536_c1fe_4d93_a792_1e736bc70837);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -578,7 +578,7 @@ pub struct IFileUpdateRequest_abi(
 pub struct IFileUpdateRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileUpdateRequest2 {
     type Vtable = IFileUpdateRequest2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2185774664, 48574, 17531, [162, 238, 122, 254, 106, 3, 42, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82484648_bdbe_447b_a2ee_7afe6a032a94);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -597,7 +597,7 @@ pub struct IFileUpdateRequest2_abi(
 pub struct IFileUpdateRequestDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileUpdateRequestDeferral {
     type Vtable = IFileUpdateRequestDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4291746603, 35550, 17573, [187, 0, 22, 76, 78, 114, 241, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffcedb2b_8ade_44a5_bb00_164c4e72f13a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -615,7 +615,7 @@ pub struct IFileUpdateRequestDeferral_abi(
 pub struct IFileUpdateRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileUpdateRequestedEventArgs {
     type Vtable = IFileUpdateRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2064290626, 14597, 17293, [170, 239, 120, 174, 38, 95, 141, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b0a9342_3905_438d_aaef_78ae265f8dd2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -633,7 +633,7 @@ pub struct IFileUpdateRequestedEventArgs_abi(
 pub struct IStorageProviderError(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderError {
     type Vtable = IStorageProviderError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1207072779, 61311, 22800, [191, 131, 51, 29, 137, 37, 102, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47f2780b_ef7f_5910_bf83_331d89256615);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -661,7 +661,7 @@ pub struct IStorageProviderError_abi(
 pub struct IStorageProviderErrorCommand(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderErrorCommand {
     type Vtable = IStorageProviderErrorCommand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3065088749, 47973, 24358, [134, 228, 29, 62, 52, 213, 68, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6b18aed_bb65_5f26_86e4_1d3e34d54477);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -681,7 +681,7 @@ pub struct IStorageProviderErrorCommand_abi(
 pub struct IStorageProviderErrorCommandFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderErrorCommandFactory {
     type Vtable = IStorageProviderErrorCommandFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3972134229, 15028, 21871, [139, 178, 126, 85, 21, 238, 216, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xecc1f555_3ab4_556f_8bb2_7e5515eed8dc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -700,7 +700,7 @@ pub struct IStorageProviderErrorCommandFactory_abi(
 pub struct IStorageProviderErrorFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderErrorFactory {
     type Vtable = IStorageProviderErrorFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547446336, 25003, 20956, [153, 33, 24, 189, 13, 190, 247, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97d6f240_61ab_51dc_9921_18bd0dbef79e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -718,7 +718,7 @@ pub struct IStorageProviderErrorFactory_abi(
 pub struct IStorageProviderFileTypeInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderFileTypeInfo {
     type Vtable = IStorageProviderFileTypeInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(425048513, 388, 23176, [135, 223, 69, 68, 244, 100, 54, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1955b9c1_0184_5a88_87df_4544f464365d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -737,7 +737,7 @@ pub struct IStorageProviderFileTypeInfo_abi(
 pub struct IStorageProviderFileTypeInfoFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderFileTypeInfoFactory {
     type Vtable = IStorageProviderFileTypeInfoFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1067527279, 52454, 23901, [128, 177, 56, 158, 124, 249, 45, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3fa12c6f_cce6_5d5d_80b1_389e7cf92dbf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -755,7 +755,7 @@ pub struct IStorageProviderFileTypeInfoFactory_abi(
 pub struct IStorageProviderGetContentInfoForPathResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderGetContentInfoForPathResult {
     type Vtable = IStorageProviderGetContentInfoForPathResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(627339549, 43657, 19730, [130, 227, 247, 42, 146, 227, 57, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2564711d_aa89_4d12_82e3_f72a92e33966);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -778,7 +778,7 @@ pub struct IStorageProviderGetContentInfoForPathResult_abi(
 pub struct IStorageProviderGetPathForContentUriResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderGetPathForContentUriResult {
     type Vtable = IStorageProviderGetPathForContentUriResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1668356765, 16664, 17830, [172, 182, 34, 196, 157, 1, 159, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63711a9d_4118_45a6_acb6_22c49d019f40);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -800,7 +800,7 @@ pub struct IStorageProviderGetPathForContentUriResult_abi(
 pub struct IStorageProviderHandlerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderHandlerFactory {
     type Vtable = IStorageProviderHandlerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1632951354, 64541, 23214, [158, 35, 232, 101, 154, 34, 197, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6154dc3a_fc1d_5aae_9e23_e8659a22c5f6);
 }
 impl IStorageProviderHandlerFactory {
     #[doc = "*Required features: `Storage_Provider`*"]
@@ -871,7 +871,7 @@ pub struct IStorageProviderHandlerFactory_abi(
 pub struct IStorageProviderItemPropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderItemPropertiesStatics {
     type Vtable = IStorageProviderItemPropertiesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(757865623, 9988, 18217, [143, 169, 126, 107, 142, 21, 140, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d2c1c97_2704_4729_8fa9_7e6b8e158c2f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -890,7 +890,7 @@ pub struct IStorageProviderItemPropertiesStatics_abi(
 pub struct IStorageProviderItemProperty(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderItemProperty {
     type Vtable = IStorageProviderItemProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1198306648, 29451, 16776, [183, 181, 99, 183, 22, 237, 71, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x476cb558_730b_4188_b7b5_63b716ed476d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -913,7 +913,7 @@ pub struct IStorageProviderItemProperty_abi(
 pub struct IStorageProviderItemPropertyDefinition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderItemPropertyDefinition {
     type Vtable = IStorageProviderItemPropertyDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3316876219, 65311, 17048, [131, 30, 255, 28, 8, 8, 150, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5b383bb_ff1f_4298_831e_ff1c08089690);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -935,7 +935,7 @@ pub struct IStorageProviderItemPropertyDefinition_abi(
 pub struct IStorageProviderItemPropertySource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderItemPropertySource {
     type Vtable = IStorageProviderItemPropertySource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2406456382, 63026, 19099, [141, 153, 210, 215, 161, 29, 245, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f6f9c3e_f632_4a9b_8d99_d2d7a11df56a);
 }
 impl IStorageProviderItemPropertySource {
     #[cfg(feature = "Foundation_Collections")]
@@ -1009,7 +1009,7 @@ pub struct IStorageProviderItemPropertySource_abi(
 pub struct IStorageProviderPropertyCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderPropertyCapabilities {
     type Vtable = IStorageProviderPropertyCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1703751438, 25527, 17767, [172, 249, 81, 171, 227, 1, 221, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x658d2f0e_63b7_4567_acf9_51abe301dda5);
 }
 impl IStorageProviderPropertyCapabilities {
     #[doc = "*Required features: `Storage_Provider`*"]
@@ -1080,7 +1080,7 @@ pub struct IStorageProviderPropertyCapabilities_abi(
 pub struct IStorageProviderStatus(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderStatus {
     type Vtable = IStorageProviderStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4285429277, 64395, 22211, [158, 122, 5, 48, 157, 25, 31, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff6e761d_fb8b_56c3_9e7a_05309d191fb4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1101,7 +1101,7 @@ pub struct IStorageProviderStatus_abi(
 pub struct IStorageProviderStatusFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderStatusFactory {
     type Vtable = IStorageProviderStatusFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3595053253, 39802, 24484, [177, 38, 144, 189, 24, 147, 108, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd64828c5_9b7a_5fa4_b126_90bd18936c7f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1122,7 +1122,7 @@ pub struct IStorageProviderStatusFactory_abi(
 pub struct IStorageProviderStatusSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderStatusSource {
     type Vtable = IStorageProviderStatusSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(774990770, 64835, 21301, [179, 196, 169, 98, 238, 49, 209, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e316bb2_fd43_5335_b3c4_a962ee31d17e);
 }
 impl IStorageProviderStatusSource {
     #[doc = "*Required features: `Storage_Provider`*"]
@@ -1212,7 +1212,7 @@ pub struct IStorageProviderStatusSource_abi(
 pub struct IStorageProviderSyncRootInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderSyncRootInfo {
     type Vtable = IStorageProviderSyncRootInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2081621444, 39417, 16812, [137, 4, 171, 5, 93, 101, 73, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c1305c4_99f9_41ac_8904_ab055d654926);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1265,7 +1265,7 @@ pub struct IStorageProviderSyncRootInfo_abi(
 pub struct IStorageProviderSyncRootInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderSyncRootInfo2 {
     type Vtable = IStorageProviderSyncRootInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3478237219, 31985, 20838, [189, 186, 239, 217, 95, 82, 158, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf51b023_7cf1_5166_bdba_efd95f529e31);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1284,7 +1284,7 @@ pub struct IStorageProviderSyncRootInfo2_abi(
 pub struct IStorageProviderSyncRootInfo3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderSyncRootInfo3 {
     type Vtable = IStorageProviderSyncRootInfo3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1350198807, 48886, 22269, [133, 94, 117, 172, 226, 228, 92, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x507a6617_bef6_56fd_855e_75ace2e45cf5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1303,7 +1303,7 @@ pub struct IStorageProviderSyncRootInfo3_abi(
 pub struct IStorageProviderSyncRootManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderSyncRootManagerStatics {
     type Vtable = IStorageProviderSyncRootManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1050278847, 36835, 19264, [171, 199, 246, 252, 61, 116, 201, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e99fbbf_8fe3_4b40_abc7_f6fc3d74c98e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1326,7 +1326,7 @@ pub struct IStorageProviderSyncRootManagerStatics_abi(
 pub struct IStorageProviderSyncRootManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderSyncRootManagerStatics2 {
     type Vtable = IStorageProviderSyncRootManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4021735406, 4980, 21582, [157, 241, 85, 152, 210, 233, 207, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefb6cfee_1374_544e_9df1_5598d2e9cfdd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1345,7 +1345,7 @@ pub struct IStorageProviderSyncRootManagerStatics2_abi(
 pub struct IStorageProviderUriSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderUriSource {
     type Vtable = IStorageProviderUriSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2996307665, 35808, 18786, [139, 182, 13, 76, 46, 20, 212, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb29806d1_8be0_4962_8bb6_0d4c2e14d47a);
 }
 impl IStorageProviderUriSource {
     #[doc = "*Required features: `Storage_Provider`*"]
@@ -1534,7 +1534,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageProviderError {
 }
 unsafe impl ::windows::runtime::Interface for StorageProviderError {
     type Vtable = IStorageProviderError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1207072779, 61311, 22800, [191, 131, 51, 29, 137, 37, 102, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47f2780b_ef7f_5910_bf83_331d89256615);
 }
 impl ::windows::runtime::RuntimeName for StorageProviderError {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderError";
@@ -1621,7 +1621,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageProviderErrorCommand {
 }
 unsafe impl ::windows::runtime::Interface for StorageProviderErrorCommand {
     type Vtable = IStorageProviderErrorCommand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3065088749, 47973, 24358, [134, 228, 29, 62, 52, 213, 68, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6b18aed_bb65_5f26_86e4_1d3e34d54477);
 }
 impl ::windows::runtime::RuntimeName for StorageProviderErrorCommand {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderErrorCommand";
@@ -1706,7 +1706,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageProviderFileTypeInfo {
 }
 unsafe impl ::windows::runtime::Interface for StorageProviderFileTypeInfo {
     type Vtable = IStorageProviderFileTypeInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(425048513, 388, 23176, [135, 223, 69, 68, 244, 100, 54, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1955b9c1_0184_5a88_87df_4544f464365d);
 }
 impl ::windows::runtime::RuntimeName for StorageProviderFileTypeInfo {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderFileTypeInfo";
@@ -1810,7 +1810,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageProviderGetContentInfoFor
 }
 unsafe impl ::windows::runtime::Interface for StorageProviderGetContentInfoForPathResult {
     type Vtable = IStorageProviderGetContentInfoForPathResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(627339549, 43657, 19730, [130, 227, 247, 42, 146, 227, 57, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2564711d_aa89_4d12_82e3_f72a92e33966);
 }
 impl ::windows::runtime::RuntimeName for StorageProviderGetContentInfoForPathResult {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderGetContentInfoForPathResult";
@@ -1901,7 +1901,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageProviderGetPathForContent
 }
 unsafe impl ::windows::runtime::Interface for StorageProviderGetPathForContentUriResult {
     type Vtable = IStorageProviderGetPathForContentUriResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1668356765, 16664, 17830, [172, 182, 34, 196, 157, 1, 159, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63711a9d_4118_45a6_acb6_22c49d019f40);
 }
 impl ::windows::runtime::RuntimeName for StorageProviderGetPathForContentUriResult {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderGetPathForContentUriResult";
@@ -2211,7 +2211,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageProviderItemProperty {
 }
 unsafe impl ::windows::runtime::Interface for StorageProviderItemProperty {
     type Vtable = IStorageProviderItemProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1198306648, 29451, 16776, [183, 181, 99, 183, 22, 237, 71, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x476cb558_730b_4188_b7b5_63b716ed476d);
 }
 impl ::windows::runtime::RuntimeName for StorageProviderItemProperty {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderItemProperty";
@@ -2302,7 +2302,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageProviderItemPropertyDefin
 }
 unsafe impl ::windows::runtime::Interface for StorageProviderItemPropertyDefinition {
     type Vtable = IStorageProviderItemPropertyDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3316876219, 65311, 17048, [131, 30, 255, 28, 8, 8, 150, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5b383bb_ff1f_4298_831e_ff1c08089690);
 }
 impl ::windows::runtime::RuntimeName for StorageProviderItemPropertyDefinition {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderItemPropertyDefinition";
@@ -2474,7 +2474,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageProviderStatus {
 }
 unsafe impl ::windows::runtime::Interface for StorageProviderStatus {
     type Vtable = IStorageProviderStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4285429277, 64395, 22211, [158, 122, 5, 48, 157, 25, 31, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff6e761d_fb8b_56c3_9e7a_05309d191fb4);
 }
 impl ::windows::runtime::RuntimeName for StorageProviderStatus {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderStatus";
@@ -2769,7 +2769,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageProviderSyncRootInfo {
 }
 unsafe impl ::windows::runtime::Interface for StorageProviderSyncRootInfo {
     type Vtable = IStorageProviderSyncRootInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2081621444, 39417, 16812, [137, 4, 171, 5, 93, 101, 73, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c1305c4_99f9_41ac_8904_ab055d654926);
 }
 impl ::windows::runtime::RuntimeName for StorageProviderSyncRootInfo {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderSyncRootInfo";
