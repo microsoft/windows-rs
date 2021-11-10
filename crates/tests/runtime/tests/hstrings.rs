@@ -1,4 +1,3 @@
-
 use std::convert::TryFrom;
 use windows::runtime::*;
 type StringType = HSTRING;
