@@ -235,12 +235,12 @@ mod tests {
     fn test_features() {
         let mut features = BTreeSet::new();
         features.insert("Windows.Foundation");
-        assert_eq!(Gen { root: "Microsoft", relative: "" }.gen_cfg(&features).as_str(), r#"#[cfg(feature = "Windows_Foundation")]"#);
-        assert_eq!(Gen { root: "Microsoft", relative: "Microsoft.UI.Composition.Diagnostics" }.gen_cfg_doc(&features).as_str(), r#"#[doc = "*Required features: `UI_Composition_Diagnostics`, `Windows_Foundation`*"]"#);
+        assert_eq!(Gen { root: "Microsoft", relative: "", ignore_windows_features: false }.gen_cfg(&features).as_str(), r#"#[cfg(feature = "Windows_Foundation")]"#);
+        assert_eq!(Gen { root: "Microsoft", relative: "Microsoft.UI.Composition.Diagnostics", ignore_windows_features: false }.gen_cfg_doc(&features).as_str(), r#"#[doc = "*Required features: `UI_Composition_Diagnostics`, `Windows_Foundation`*"]"#);
 
         let mut features = BTreeSet::new();
         features.insert("Microsoft.Foundation");
-        assert_eq!(Gen { root: "Microsoft", relative: "" }.gen_cfg(&features).as_str(), r#"#[cfg(feature = "Foundation")]"#);
-        assert_eq!(Gen { root: "Microsoft", relative: "Microsoft.UI.Composition.Diagnostics" }.gen_cfg_doc(&features).as_str(), r#"#[doc = "*Required features: `UI_Composition_Diagnostics`, `Foundation`*"]"#);
+        assert_eq!(Gen { root: "Microsoft", relative: "", ignore_windows_features: false}.gen_cfg(&features).as_str(), r#"#[cfg(feature = "Foundation")]"#);
+        assert_eq!(Gen { root: "Microsoft", relative: "Microsoft.UI.Composition.Diagnostics", ignore_windows_features: false}.gen_cfg_doc(&features).as_str(), r#"#[doc = "*Required features: `UI_Composition_Diagnostics`, `Foundation`*"]"#);
     }
 }
