@@ -19,7 +19,8 @@ members = [
     "crates/tests/legacy/*",
     "crates/tests/metadata/*",
     "crates/tests/winrt/*",
-    "crates/tests/win32/*"
+    "crates/tests/win32/*",
+    "crates/tests/runtime",
 ]
 exclude = ["crates/tests/component"]
 
