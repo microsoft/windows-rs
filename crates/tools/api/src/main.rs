@@ -145,7 +145,7 @@ fn gen_tree(output: &std::path::Path, root: &'static str, tree: &reader::TypeTre
     path.push(tree.namespace.replace('.', "/"));
     path.push("mod.rs");
 
-    let tokens = gen::gen_source_file(root, tree);
+    let tokens = gen::gen_source_file(root, tree, false);
 
     let mut child = std::process::Command::new("rustfmt").stdin(std::process::Stdio::piped()).stdout(std::process::Stdio::piped()).spawn().expect("Failed to spawn `rustfmt`");
     let mut stdin = child.stdin.take().expect("Failed to open stdin");

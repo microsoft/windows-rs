@@ -3,15 +3,16 @@ use super::*;
 pub struct Gen {
     pub relative: &'static str,
     pub root: &'static str,
+    pub ignore_windows_features: bool,
 }
 
 impl Gen {
     pub fn absolute() -> Self {
-        Gen { relative: "", root: "" }
+        Gen { relative: "", root: "", ignore_windows_features: false }
     }
 
     pub fn relative(namespace: &'static str) -> Self {
-        Gen { relative: namespace, root: "" }
+        Gen { relative: namespace, root: "", ignore_windows_features: false }
     }
 
     pub fn namespace(&self, namespace: &str) -> TokenStream {
@@ -27,6 +28,17 @@ impl Gen {
         } else {
             if namespace == self.relative {
                 return TokenStream::new();
+            }
+
+            if !self.root.is_empty() && self.root != "Windows" && namespace.starts_with("Windows.") {
+                let mut tokens: TokenStream = "::windows::".into();
+
+                for namespace in namespace.split('.').skip(1) {
+                    tokens.push_str(namespace);
+                    tokens.push_str("::");
+                }
+
+                return tokens;
             }
 
             let mut relative = self.relative.split('.').peekable();
@@ -101,7 +113,11 @@ impl Gen {
                 continue;
             }
 
-            let feature = &feature[self.root.len() + 1..];
+            if self.ignore_windows_features && feature.starts_with("Windows.") {
+                continue;
+            }
+
+            let feature = if feature.starts_with(self.root) && feature[self.root.len()..].starts_with('.') { &feature[self.root.len() + 1..] } else { &feature };
             tokens.push_str(&format!(", `{}`", feature.replace('.', "_")));
         }
 
@@ -160,7 +176,11 @@ impl Gen {
                 continue;
             }
 
-            let feature = &feature[self.root.len() + 1..];
+            if self.ignore_windows_features && feature.starts_with("Windows.") {
+                continue;
+            }
+
+            let feature = if feature.starts_with(self.root) && feature[self.root.len()..].starts_with('.') { &feature[self.root.len() + 1..] } else { &feature };
             tokens.push_str(&format!("feature = \"{}\", ", feature.replace('.', "_")));
             count += 1;
         }
@@ -209,5 +229,36 @@ mod tests {
         assert_eq!(Gen::relative("Windows.Foundation").namespace("Windows.Foundation").as_str(), "");
 
         assert_eq!(Gen::relative("Windows.Foundation.Collections").namespace("Windows.Foundation").as_str(), "super::");
+    }
+
+    #[test]
+    fn test_features() {
+        let mut features = BTreeSet::new();
+        features.insert("Windows.Foundation");
+        assert_eq!(Gen { root: "Microsoft", relative: "", ignore_windows_features: false }.gen_cfg(&features).as_str(), r#"#[cfg(feature = "Windows_Foundation")]"#);
+        assert_eq!(
+            Gen {
+                root: "Microsoft",
+                relative: "Microsoft.UI.Composition.Diagnostics",
+                ignore_windows_features: false
+            }
+            .gen_cfg_doc(&features)
+            .as_str(),
+            r#"#[doc = "*Required features: `UI_Composition_Diagnostics`, `Windows_Foundation`*"]"#
+        );
+
+        let mut features = BTreeSet::new();
+        features.insert("Microsoft.Foundation");
+        assert_eq!(Gen { root: "Microsoft", relative: "", ignore_windows_features: false }.gen_cfg(&features).as_str(), r#"#[cfg(feature = "Foundation")]"#);
+        assert_eq!(
+            Gen {
+                root: "Microsoft",
+                relative: "Microsoft.UI.Composition.Diagnostics",
+                ignore_windows_features: false
+            }
+            .gen_cfg_doc(&features)
+            .as_str(),
+            r#"#[doc = "*Required features: `UI_Composition_Diagnostics`, `Foundation`*"]"#
+        );
     }
 }

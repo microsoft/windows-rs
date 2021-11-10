@@ -1,7 +1,7 @@
 use super::*;
 
-pub fn gen_source_file(root: &'static str, tree: &TypeTree) -> TokenStream {
-    let gen = Gen { relative: tree.namespace, root };
+pub fn gen_source_file(root: &'static str, tree: &TypeTree, ignore_windows_features: bool) -> TokenStream {
+    let gen = Gen { relative: tree.namespace, root, ignore_windows_features };
 
     let types = tree.types.values().map(move |t| gen_type_entry(t, &gen));
 
