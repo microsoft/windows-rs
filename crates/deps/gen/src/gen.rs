@@ -3,15 +3,16 @@ use super::*;
 pub struct Gen {
     pub relative: &'static str,
     pub root: &'static str,
+    pub ignore_windows_features: bool,
 }
 
 impl Gen {
     pub fn absolute() -> Self {
-        Gen { relative: "", root: "" }
+        Gen { relative: "", root: "", ignore_windows_features: false }
     }
 
     pub fn relative(namespace: &'static str) -> Self {
-        Gen { relative: namespace, root: "" }
+        Gen { relative: namespace, root: "", ignore_windows_features: false }
     }
 
     pub fn namespace(&self, namespace: &str) -> TokenStream {
@@ -112,6 +113,10 @@ impl Gen {
                 continue;
             }
 
+            if self.ignore_windows_features && feature.starts_with("Windows.") {
+                continue;
+            }
+
             let feature = if feature.starts_with(self.root) && feature[self.root.len()..].starts_with('.') { &feature[self.root.len() + 1..] } else { &feature };
             tokens.push_str(&format!(", `{}`", feature.replace('.', "_")));
         }
@@ -168,6 +173,10 @@ impl Gen {
             }
 
             if self.relative.len() > feature.len() && self.relative.starts_with(feature) && self.relative[feature.len()..].starts_with('.') {
+                continue;
+            }
+
+            if self.ignore_windows_features && feature.starts_with("Windows.") {
                 continue;
             }
 
