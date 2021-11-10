@@ -171,32 +171,32 @@ impl From<&String> for HSTRING {
 
 impl PartialEq for HSTRING {
     fn eq(&self, other: &Self) -> bool {
-        self.as_wide() == other.as_wide()
+        *self.as_wide() == *other.as_wide()
     }
 }
 
 #[cfg(feature = "std")]
 impl PartialEq<String> for HSTRING {
     fn eq(&self, other: &String) -> bool {
-        self == other.as_str()
+        *self == **other
     }
 }
 
 impl PartialEq<str> for HSTRING {
     fn eq(&self, other: &str) -> bool {
-        self == other
+        self.as_wide().iter().copied().eq(other.encode_utf16())
     }
 }
 
 impl PartialEq<&str> for HSTRING {
     fn eq(&self, other: &&str) -> bool {
-        self.as_wide().iter().copied().eq(other.encode_utf16())
+        *self == **other
     }
 }
 
 impl PartialEq<HSTRING> for &str {
     fn eq(&self, other: &HSTRING) -> bool {
-        other == self
+        *other == *self
     }
 }
 
