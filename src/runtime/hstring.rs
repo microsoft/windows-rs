@@ -182,9 +182,29 @@ impl PartialEq<String> for HSTRING {
     }
 }
 
+#[cfg(feature = "std")]
+impl PartialEq<String> for &HSTRING {
+    fn eq(&self, other: &String) -> bool {
+        **self == **other
+    }
+}
+
+#[cfg(feature = "std")]
+impl PartialEq<&String> for HSTRING {
+    fn eq(&self, other: &&String) -> bool {
+        *self == ***other
+    }
+}
+
 impl PartialEq<str> for HSTRING {
     fn eq(&self, other: &str) -> bool {
         self.as_wide().iter().copied().eq(other.encode_utf16())
+    }
+}
+
+impl PartialEq<str> for &HSTRING {
+    fn eq(&self, other: &str) -> bool {
+        **self == *other
     }
 }
 
@@ -194,9 +214,39 @@ impl PartialEq<&str> for HSTRING {
     }
 }
 
-impl PartialEq<HSTRING> for &str {
+impl PartialEq<HSTRING> for str {
     fn eq(&self, other: &HSTRING) -> bool {
         *other == *self
+    }
+}
+
+impl PartialEq<HSTRING> for &str {
+    fn eq(&self, other: &HSTRING) -> bool {
+        *other == **self
+    }
+}
+
+impl PartialEq<&HSTRING> for str {
+    fn eq(&self, other: &&HSTRING) -> bool {
+        **other == *self
+    }
+}
+
+impl PartialEq<HSTRING> for String {
+    fn eq(&self, other: &HSTRING) -> bool {
+        *other == **self
+    }
+}
+
+impl PartialEq<HSTRING> for &String {
+    fn eq(&self, other: &HSTRING) -> bool {
+        *other == ***self
+    }
+}
+
+impl PartialEq<&HSTRING> for String {
+    fn eq(&self, other: &&HSTRING) -> bool {
+        **other == **self
     }
 }
 
