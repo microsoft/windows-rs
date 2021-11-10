@@ -117,6 +117,7 @@ impl ::windows::runtime::RuntimeName for DeleteSmsMessageOperation {
     const NAME: &'static str = "Windows.Devices.Sms.DeleteSmsMessageOperation";
 }
 #[cfg(feature = "Foundation")]
+#[cfg(feature = "std")]
 impl ::std::future::Future for DeleteSmsMessageOperation {
     type Output = ::windows::runtime::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -325,6 +326,7 @@ impl ::windows::runtime::RuntimeName for DeleteSmsMessagesOperation {
     const NAME: &'static str = "Windows.Devices.Sms.DeleteSmsMessagesOperation";
 }
 #[cfg(feature = "Foundation")]
+#[cfg(feature = "std")]
 impl ::std::future::Future for DeleteSmsMessagesOperation {
     type Output = ::windows::runtime::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -536,6 +538,7 @@ impl ::windows::runtime::RuntimeName for GetSmsDeviceOperation {
     const NAME: &'static str = "Windows.Devices.Sms.GetSmsDeviceOperation";
 }
 #[cfg(feature = "Foundation")]
+#[cfg(feature = "std")]
 impl ::std::future::Future for GetSmsDeviceOperation {
     type Output = ::windows::runtime::Result<SmsDevice>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -747,6 +750,7 @@ impl ::windows::runtime::RuntimeName for GetSmsMessageOperation {
     const NAME: &'static str = "Windows.Devices.Sms.GetSmsMessageOperation";
 }
 #[cfg(feature = "Foundation")]
+#[cfg(feature = "std")]
 impl ::std::future::Future for GetSmsMessageOperation {
     type Output = ::windows::runtime::Result<ISmsMessage>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -973,6 +977,7 @@ impl ::windows::runtime::RuntimeName for GetSmsMessagesOperation {
     const NAME: &'static str = "Windows.Devices.Sms.GetSmsMessagesOperation";
 }
 #[cfg(feature = "Foundation")]
+#[cfg(feature = "std")]
 impl ::std::future::Future for GetSmsMessagesOperation {
     type Output = ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ISmsMessage>>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -2465,6 +2470,7 @@ impl ::windows::runtime::RuntimeName for SendSmsMessageOperation {
     const NAME: &'static str = "Windows.Devices.Sms.SendSmsMessageOperation";
 }
 #[cfg(feature = "Foundation")]
+#[cfg(feature = "std")]
 impl ::std::future::Future for SendSmsMessageOperation {
     type Output = ::windows::runtime::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -3793,7 +3799,7 @@ impl SmsDeviceStatusChangedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, SmsDevice>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
@@ -3846,7 +3852,7 @@ impl<F: FnMut(&::core::option::Option<SmsDevice>) -> ::windows::runtime::Result<
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -4387,7 +4393,7 @@ impl SmsMessageReceivedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, SmsDevice>, Param1: ::windows::runtime::IntoParam<'a, SmsMessageReceivedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -4440,7 +4446,7 @@ impl<F: FnMut(&::core::option::Option<SmsDevice>, &::core::option::Option<SmsMes
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

@@ -1,6 +1,3 @@
-#[macro_use]
-mod macros;
-
 mod abi;
 mod activation_factory;
 mod array;
@@ -94,3 +91,6 @@ extern "C" {
     #[doc(hidden)]
     pub fn memcmp(left: *const core::ffi::c_void, right: *const core::ffi::c_void, len: usize) -> i32;
 }
+
+#[doc(hidden)]
+pub extern crate alloc;

@@ -76,7 +76,7 @@ impl DeviceArrivedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ProximityDevice>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
@@ -129,7 +129,7 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::runtime::R
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -149,7 +149,7 @@ impl DeviceDepartedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ProximityDevice>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
@@ -202,7 +202,7 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::runtime::R
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -508,7 +508,7 @@ impl MessageReceivedHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ProximityDevice>, Param1: ::windows::runtime::IntoParam<'a, ProximityMessage>>(&self, sender: Param0, message: Param1) -> ::windows::runtime::Result<()> {
@@ -561,7 +561,7 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>, &::core::option::Option<
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -581,7 +581,7 @@ impl MessageTransmittedHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ProximityDevice>>(&self, sender: Param0, messageid: i64) -> ::windows::runtime::Result<()> {
@@ -634,7 +634,7 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>, i64) -> ::windows::runti
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

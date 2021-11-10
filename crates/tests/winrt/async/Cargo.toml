@@ -12,3 +12,7 @@ windows = { path = "../../../..", features = ["build"] }
 
 [dev-dependencies]
 futures = "0.3"
+
+[features]
+default = ["std"]
+std = []

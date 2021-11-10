@@ -56,7 +56,7 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
                     invoke,
                 };
                 unsafe {
-                    core::mem::transmute(::std::boxed::Box::new(com))
+                    core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com))
                 }
             }
             #invoke
@@ -125,7 +125,7 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
                 let remaining = (*this).count.release();
 
                 if remaining == 0 {
-                    Box::from_raw(this);
+                    ::windows::runtime::alloc::boxed::Box::from_raw(this);
                 }
 
                 remaining

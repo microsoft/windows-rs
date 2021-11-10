@@ -66,15 +66,15 @@ pub const CLSID_D2D1UnPremultiply: ::windows::runtime::GUID = ::windows::runtime
 pub const CLSID_D2D1Vignette: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3222028478, 24167, 19619, [149, 180, 244, 176, 44, 17, 81, 53]);
 pub const CLSID_D2D1WhiteLevelAdjustment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1151453915, 27869, 18456, [143, 244, 38, 193, 207, 233, 91, 219]);
 pub const CLSID_D2D1YCbCr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2572172481, 26311, 17865, [168, 117, 138, 216, 167, 145, 68, 1]);
-#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+#[cfg(feature = "Foundation_Numerics")]
 #[inline]
-pub unsafe fn D2D1ComputeMaximumScaleFactor(matrix: *const Common::D2D_MATRIX_3X2_F) -> f32 {
+pub unsafe fn D2D1ComputeMaximumScaleFactor(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> f32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D2D1ComputeMaximumScaleFactor(matrix: *const Common::D2D_MATRIX_3X2_F) -> f32;
+            fn D2D1ComputeMaximumScaleFactor(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> f32;
         }
         ::core::mem::transmute(D2D1ComputeMaximumScaleFactor(::core::mem::transmute(matrix)))
     }
@@ -208,60 +208,60 @@ pub unsafe fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
 #[inline]
-pub unsafe fn D2D1InvertMatrix(matrix: *mut Common::D2D_MATRIX_3X2_F) -> super::super::Foundation::BOOL {
+pub unsafe fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D2D1InvertMatrix(matrix: *mut Common::D2D_MATRIX_3X2_F) -> super::super::Foundation::BOOL;
+            fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(D2D1InvertMatrix(::core::mem::transmute(matrix)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
 #[inline]
-pub unsafe fn D2D1IsMatrixInvertible(matrix: *const Common::D2D_MATRIX_3X2_F) -> super::super::Foundation::BOOL {
+pub unsafe fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D2D1IsMatrixInvertible(matrix: *const Common::D2D_MATRIX_3X2_F) -> super::super::Foundation::BOOL;
+            fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(D2D1IsMatrixInvertible(::core::mem::transmute(matrix)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 #[inline]
-pub unsafe fn D2D1MakeRotateMatrix<'a, Param1: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(angle: f32, center: Param1, matrix: *mut Common::D2D_MATRIX_3X2_F) {
+pub unsafe fn D2D1MakeRotateMatrix<'a, Param1: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(angle: f32, center: Param1, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D2D1MakeRotateMatrix(angle: f32, center: Common::D2D_POINT_2F, matrix: *mut Common::D2D_MATRIX_3X2_F);
+            fn D2D1MakeRotateMatrix(angle: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2);
         }
         ::core::mem::transmute(D2D1MakeRotateMatrix(::core::mem::transmute(angle), center.into_param().abi(), ::core::mem::transmute(matrix)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 #[inline]
-pub unsafe fn D2D1MakeSkewMatrix<'a, Param2: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(anglex: f32, angley: f32, center: Param2, matrix: *mut Common::D2D_MATRIX_3X2_F) {
+pub unsafe fn D2D1MakeSkewMatrix<'a, Param2: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(anglex: f32, angley: f32, center: Param2, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D2D1MakeSkewMatrix(anglex: f32, angley: f32, center: Common::D2D_POINT_2F, matrix: *mut Common::D2D_MATRIX_3X2_F);
+            fn D2D1MakeSkewMatrix(anglex: f32, angley: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2);
         }
         ::core::mem::transmute(D2D1MakeSkewMatrix(::core::mem::transmute(anglex), ::core::mem::transmute(angley), center.into_param().abi(), ::core::mem::transmute(matrix)))
     }
@@ -1467,29 +1467,35 @@ impl ::core::ops::Not for D2D1_BRIGHTNESS_PROP {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+#[cfg(feature = "Foundation_Numerics")]
+#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
 pub struct D2D1_BRUSH_PROPERTIES {
     pub opacity: f32,
-    pub transform: Common::D2D_MATRIX_3X2_F,
+    pub transform: super::super::super::Foundation::Numerics::Matrix3x2,
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(feature = "Foundation_Numerics")]
 impl D2D1_BRUSH_PROPERTIES {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(feature = "Foundation_Numerics")]
 impl ::core::default::Default for D2D1_BRUSH_PROPERTIES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::cmp::PartialEq for D2D1_BRUSH_PROPERTIES {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for D2D1_BRUSH_PROPERTIES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("D2D1_BRUSH_PROPERTIES").field("opacity", &self.opacity).field("transform", &self.transform).finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::cmp::PartialEq for D2D1_BRUSH_PROPERTIES {
+    fn eq(&self, other: &Self) -> bool {
+        self.opacity == other.opacity && self.transform == other.transform
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::Eq for D2D1_BRUSH_PROPERTIES {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::runtime::Abi for D2D1_BRUSH_PROPERTIES {
     type Abi = Self;
 }
@@ -3236,65 +3242,85 @@ impl ::core::ops::Not for D2D1_DPICOMPENSATION_PROP {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+#[cfg(feature = "Foundation_Numerics")]
+#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
 pub struct D2D1_DRAWING_STATE_DESCRIPTION {
     pub antialiasMode: D2D1_ANTIALIAS_MODE,
     pub textAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE,
     pub tag1: u64,
     pub tag2: u64,
-    pub transform: Common::D2D_MATRIX_3X2_F,
+    pub transform: super::super::super::Foundation::Numerics::Matrix3x2,
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(feature = "Foundation_Numerics")]
 impl D2D1_DRAWING_STATE_DESCRIPTION {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(feature = "Foundation_Numerics")]
 impl ::core::default::Default for D2D1_DRAWING_STATE_DESCRIPTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::cmp::PartialEq for D2D1_DRAWING_STATE_DESCRIPTION {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for D2D1_DRAWING_STATE_DESCRIPTION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("D2D1_DRAWING_STATE_DESCRIPTION").field("antialiasMode", &self.antialiasMode).field("textAntialiasMode", &self.textAntialiasMode).field("tag1", &self.tag1).field("tag2", &self.tag2).field("transform", &self.transform).finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::cmp::PartialEq for D2D1_DRAWING_STATE_DESCRIPTION {
+    fn eq(&self, other: &Self) -> bool {
+        self.antialiasMode == other.antialiasMode && self.textAntialiasMode == other.textAntialiasMode && self.tag1 == other.tag1 && self.tag2 == other.tag2 && self.transform == other.transform
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::Eq for D2D1_DRAWING_STATE_DESCRIPTION {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::runtime::Abi for D2D1_DRAWING_STATE_DESCRIPTION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+#[cfg(feature = "Foundation_Numerics")]
+#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
 pub struct D2D1_DRAWING_STATE_DESCRIPTION1 {
     pub antialiasMode: D2D1_ANTIALIAS_MODE,
     pub textAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE,
     pub tag1: u64,
     pub tag2: u64,
-    pub transform: Common::D2D_MATRIX_3X2_F,
+    pub transform: super::super::super::Foundation::Numerics::Matrix3x2,
     pub primitiveBlend: D2D1_PRIMITIVE_BLEND,
     pub unitMode: D2D1_UNIT_MODE,
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(feature = "Foundation_Numerics")]
 impl D2D1_DRAWING_STATE_DESCRIPTION1 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(feature = "Foundation_Numerics")]
 impl ::core::default::Default for D2D1_DRAWING_STATE_DESCRIPTION1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::cmp::PartialEq for D2D1_DRAWING_STATE_DESCRIPTION1 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for D2D1_DRAWING_STATE_DESCRIPTION1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("D2D1_DRAWING_STATE_DESCRIPTION1")
+            .field("antialiasMode", &self.antialiasMode)
+            .field("textAntialiasMode", &self.textAntialiasMode)
+            .field("tag1", &self.tag1)
+            .field("tag2", &self.tag2)
+            .field("transform", &self.transform)
+            .field("primitiveBlend", &self.primitiveBlend)
+            .field("unitMode", &self.unitMode)
+            .finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::cmp::PartialEq for D2D1_DRAWING_STATE_DESCRIPTION1 {
+    fn eq(&self, other: &Self) -> bool {
+        self.antialiasMode == other.antialiasMode && self.textAntialiasMode == other.textAntialiasMode && self.tag1 == other.tag1 && self.tag2 == other.tag2 && self.transform == other.transform && self.primitiveBlend == other.primitiveBlend && self.unitMode == other.unitMode
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::Eq for D2D1_DRAWING_STATE_DESCRIPTION1 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::runtime::Abi for D2D1_DRAWING_STATE_DESCRIPTION1 {
     type Abi = Self;
 }
@@ -5012,29 +5038,35 @@ unsafe impl ::windows::runtime::Abi for D2D1_INK_POINT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+#[cfg(feature = "Foundation_Numerics")]
+#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
 pub struct D2D1_INK_STYLE_PROPERTIES {
     pub nibShape: D2D1_INK_NIB_SHAPE,
-    pub nibTransform: Common::D2D_MATRIX_3X2_F,
+    pub nibTransform: super::super::super::Foundation::Numerics::Matrix3x2,
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(feature = "Foundation_Numerics")]
 impl D2D1_INK_STYLE_PROPERTIES {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(feature = "Foundation_Numerics")]
 impl ::core::default::Default for D2D1_INK_STYLE_PROPERTIES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::cmp::PartialEq for D2D1_INK_STYLE_PROPERTIES {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for D2D1_INK_STYLE_PROPERTIES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("D2D1_INK_STYLE_PROPERTIES").field("nibShape", &self.nibShape).field("nibTransform", &self.nibTransform).finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::cmp::PartialEq for D2D1_INK_STYLE_PROPERTIES {
+    fn eq(&self, other: &Self) -> bool {
+        self.nibShape == other.nibShape && self.nibTransform == other.nibTransform
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::Eq for D2D1_INK_STYLE_PROPERTIES {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::runtime::Abi for D2D1_INK_STYLE_PROPERTIES {
     type Abi = Self;
 }
@@ -5256,79 +5288,97 @@ impl ::core::ops::Not for D2D1_LAYER_OPTIONS1 {
         Self(self.0.not())
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::clone::Clone for D2D1_LAYER_PARAMETERS {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D1_LAYER_PARAMETERS {
     pub contentBounds: Common::D2D_RECT_F,
     pub geometricMask: ::core::option::Option<ID2D1Geometry>,
     pub maskAntialiasMode: D2D1_ANTIALIAS_MODE,
-    pub maskTransform: Common::D2D_MATRIX_3X2_F,
+    pub maskTransform: super::super::super::Foundation::Numerics::Matrix3x2,
     pub opacity: f32,
     pub opacityBrush: ::core::option::Option<ID2D1Brush>,
     pub layerOptions: D2D1_LAYER_OPTIONS,
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl D2D1_LAYER_PARAMETERS {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::core::default::Default for D2D1_LAYER_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::cmp::PartialEq for D2D1_LAYER_PARAMETERS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::core::fmt::Debug for D2D1_LAYER_PARAMETERS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("D2D1_LAYER_PARAMETERS")
+            .field("contentBounds", &self.contentBounds)
+            .field("geometricMask", &self.geometricMask)
+            .field("maskAntialiasMode", &self.maskAntialiasMode)
+            .field("maskTransform", &self.maskTransform)
+            .field("opacity", &self.opacity)
+            .field("opacityBrush", &self.opacityBrush)
+            .field("layerOptions", &self.layerOptions)
+            .finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::core::cmp::PartialEq for D2D1_LAYER_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        self.contentBounds == other.contentBounds && self.geometricMask == other.geometricMask && self.maskAntialiasMode == other.maskAntialiasMode && self.maskTransform == other.maskTransform && self.opacity == other.opacity && self.opacityBrush == other.opacityBrush && self.layerOptions == other.layerOptions
+    }
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::core::cmp::Eq for D2D1_LAYER_PARAMETERS {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 unsafe impl ::windows::runtime::Abi for D2D1_LAYER_PARAMETERS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::clone::Clone for D2D1_LAYER_PARAMETERS1 {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+#[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D1_LAYER_PARAMETERS1 {
     pub contentBounds: Common::D2D_RECT_F,
     pub geometricMask: ::core::option::Option<ID2D1Geometry>,
     pub maskAntialiasMode: D2D1_ANTIALIAS_MODE,
-    pub maskTransform: Common::D2D_MATRIX_3X2_F,
+    pub maskTransform: super::super::super::Foundation::Numerics::Matrix3x2,
     pub opacity: f32,
     pub opacityBrush: ::core::option::Option<ID2D1Brush>,
     pub layerOptions: D2D1_LAYER_OPTIONS1,
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl D2D1_LAYER_PARAMETERS1 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::core::default::Default for D2D1_LAYER_PARAMETERS1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::cmp::PartialEq for D2D1_LAYER_PARAMETERS1 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::core::fmt::Debug for D2D1_LAYER_PARAMETERS1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("D2D1_LAYER_PARAMETERS1")
+            .field("contentBounds", &self.contentBounds)
+            .field("geometricMask", &self.geometricMask)
+            .field("maskAntialiasMode", &self.maskAntialiasMode)
+            .field("maskTransform", &self.maskTransform)
+            .field("opacity", &self.opacity)
+            .field("opacityBrush", &self.opacityBrush)
+            .field("layerOptions", &self.layerOptions)
+            .finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::core::cmp::PartialEq for D2D1_LAYER_PARAMETERS1 {
+    fn eq(&self, other: &Self) -> bool {
+        self.contentBounds == other.contentBounds && self.geometricMask == other.geometricMask && self.maskAntialiasMode == other.maskAntialiasMode && self.maskTransform == other.maskTransform && self.opacity == other.opacity && self.opacityBrush == other.opacityBrush && self.layerOptions == other.layerOptions
+    }
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::core::cmp::Eq for D2D1_LAYER_PARAMETERS1 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 unsafe impl ::windows::runtime::Abi for D2D1_LAYER_PARAMETERS1 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -9764,18 +9814,18 @@ impl ID2D1BitmapBrush {
     pub unsafe fn SetOpacity(&self, opacity: f32) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetOpacity(&self) -> f32 {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -9883,11 +9933,11 @@ pub struct ID2D1BitmapBrush_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: *mut ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, opacity: f32),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> f32,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, extendmodex: D2D1_EXTEND_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, extendmodey: D2D1_EXTEND_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE),
@@ -9910,18 +9960,18 @@ impl ID2D1BitmapBrush1 {
     pub unsafe fn SetOpacity(&self, opacity: f32) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetOpacity(&self) -> f32 {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -10057,11 +10107,11 @@ pub struct ID2D1BitmapBrush1_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: *mut ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, opacity: f32),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> f32,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, extendmodex: D2D1_EXTEND_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, extendmodey: D2D1_EXTEND_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE),
@@ -10099,14 +10149,14 @@ impl ID2D1BitmapRenderTarget {
     pub unsafe fn CreateSharedBitmap(&self, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::core::option::Option<ID2D1Bitmap>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(data), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(bitmap)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateBitmapBrush<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1BitmapBrush> {
         let mut result__: <ID2D1BitmapBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1BitmapBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateSolidColorBrush(&self, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1SolidColorBrush> {
         let mut result__: <ID2D1SolidColorBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(color), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1SolidColorBrush>(result__)
@@ -10117,14 +10167,14 @@ impl ID2D1BitmapRenderTarget {
         let mut result__: <ID2D1GradientStopCollection as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(gradientstops), ::core::mem::transmute(gradientstopscount), ::core::mem::transmute(colorinterpolationgamma), ::core::mem::transmute(extendmode), &mut result__).from_abi::<ID2D1GradientStopCollection>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateLinearGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1LinearGradientBrush> {
         let mut result__: <ID2D1LinearGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lineargradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1LinearGradientBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateRadialGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1RadialGradientBrush> {
         let mut result__: <ID2D1RadialGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(radialgradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1RadialGradientBrush>(result__)
@@ -10227,14 +10277,14 @@ impl ID2D1BitmapRenderTarget {
     pub unsafe fn DrawGlyphRun<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1Brush>>(&self, baselineorigin: Param0, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, foregroundbrush: Param2, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -10271,8 +10321,8 @@ impl ID2D1BitmapRenderTarget {
     pub unsafe fn GetTags(&self, tag1: *mut u64, tag2: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(tag1), ::core::mem::transmute(tag2)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS, layer: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi()))
     }
@@ -10435,16 +10485,16 @@ pub struct ID2D1BitmapRenderTarget_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gradientstops: *const D2D1_GRADIENT_STOP, gradientstopscount: u32, colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE, gradientstopcollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desiredsize: *const Common::D2D_SIZE_F, desiredpixelsize: *const Common::D2D_SIZE_U, desiredformat: *const Common::D2D1_PIXEL_FORMAT, options: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS, bitmaprendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, size: *const Common::D2D_SIZE_F, layer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -10477,10 +10527,10 @@ pub struct ID2D1BitmapRenderTarget_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, foregroundbrush: ::windows::runtime::RawPtr, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, antialiasmode: D2D1_ANTIALIAS_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> D2D1_ANTIALIAS_MODE,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE),
@@ -10491,8 +10541,8 @@ pub struct ID2D1BitmapRenderTarget_abi(
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: u64, tag2: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstateblock: ::windows::runtime::RawPtr),
@@ -10824,18 +10874,18 @@ impl ID2D1Brush {
     pub unsafe fn SetOpacity(&self, opacity: f32) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetOpacity(&self) -> f32 {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
 }
@@ -10891,11 +10941,11 @@ pub struct ID2D1Brush_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: *mut ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, opacity: f32),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> f32,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
@@ -11213,9 +11263,9 @@ impl ID2D1CommandSink {
     pub unsafe fn SetTextRenderingParams<'a, Param0: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, textrenderingparams: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), textrenderingparams.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -11288,8 +11338,8 @@ impl ID2D1CommandSink {
     pub unsafe fn PushAxisAlignedClip(&self, cliprect: *const Common::D2D_RECT_F, antialiasmode: D2D1_ANTIALIAS_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(cliprect), ::core::mem::transmute(antialiasmode)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters1: *const D2D1_LAYER_PARAMETERS1, layer: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters1), layer.into_param().abi()).ok()
     }
@@ -11339,8 +11389,8 @@ pub struct ID2D1CommandSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Graphics_DirectWrite")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textrenderingparams: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitiveblend: D2D1_PRIMITIVE_BLEND) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, unitmode: D2D1_UNIT_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F) -> ::windows::runtime::HRESULT,
@@ -11367,8 +11417,8 @@ pub struct ID2D1CommandSink_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cliprect: *const Common::D2D_RECT_F, antialiasmode: D2D1_ANTIALIAS_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters1: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters1: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
@@ -11402,9 +11452,9 @@ impl ID2D1CommandSink1 {
     pub unsafe fn SetTextRenderingParams<'a, Param0: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, textrenderingparams: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), textrenderingparams.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -11477,8 +11527,8 @@ impl ID2D1CommandSink1 {
     pub unsafe fn PushAxisAlignedClip(&self, cliprect: *const Common::D2D_RECT_F, antialiasmode: D2D1_ANTIALIAS_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(cliprect), ::core::mem::transmute(antialiasmode)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters1: *const D2D1_LAYER_PARAMETERS1, layer: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters1), layer.into_param().abi()).ok()
     }
@@ -11552,8 +11602,8 @@ pub struct ID2D1CommandSink1_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Graphics_DirectWrite")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textrenderingparams: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitiveblend: D2D1_PRIMITIVE_BLEND) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, unitmode: D2D1_UNIT_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F) -> ::windows::runtime::HRESULT,
@@ -11580,8 +11630,8 @@ pub struct ID2D1CommandSink1_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cliprect: *const Common::D2D_RECT_F, antialiasmode: D2D1_ANTIALIAS_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters1: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters1: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitiveblend: D2D1_PRIMITIVE_BLEND) -> ::windows::runtime::HRESULT,
@@ -11616,9 +11666,9 @@ impl ID2D1CommandSink2 {
     pub unsafe fn SetTextRenderingParams<'a, Param0: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, textrenderingparams: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), textrenderingparams.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -11691,8 +11741,8 @@ impl ID2D1CommandSink2 {
     pub unsafe fn PushAxisAlignedClip(&self, cliprect: *const Common::D2D_RECT_F, antialiasmode: D2D1_ANTIALIAS_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(cliprect), ::core::mem::transmute(antialiasmode)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters1: *const D2D1_LAYER_PARAMETERS1, layer: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters1), layer.into_param().abi()).ok()
     }
@@ -11799,8 +11849,8 @@ pub struct ID2D1CommandSink2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Graphics_DirectWrite")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textrenderingparams: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitiveblend: D2D1_PRIMITIVE_BLEND) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, unitmode: D2D1_UNIT_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F) -> ::windows::runtime::HRESULT,
@@ -11827,8 +11877,8 @@ pub struct ID2D1CommandSink2_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cliprect: *const Common::D2D_RECT_F, antialiasmode: D2D1_ANTIALIAS_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters1: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters1: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitiveblend: D2D1_PRIMITIVE_BLEND) -> ::windows::runtime::HRESULT,
@@ -11867,9 +11917,9 @@ impl ID2D1CommandSink3 {
     pub unsafe fn SetTextRenderingParams<'a, Param0: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, textrenderingparams: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), textrenderingparams.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -11942,8 +11992,8 @@ impl ID2D1CommandSink3 {
     pub unsafe fn PushAxisAlignedClip(&self, cliprect: *const Common::D2D_RECT_F, antialiasmode: D2D1_ANTIALIAS_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(cliprect), ::core::mem::transmute(antialiasmode)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters1: *const D2D1_LAYER_PARAMETERS1, layer: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters1), layer.into_param().abi()).ok()
     }
@@ -12074,8 +12124,8 @@ pub struct ID2D1CommandSink3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Graphics_DirectWrite")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textrenderingparams: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitiveblend: D2D1_PRIMITIVE_BLEND) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, unitmode: D2D1_UNIT_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F) -> ::windows::runtime::HRESULT,
@@ -12102,8 +12152,8 @@ pub struct ID2D1CommandSink3_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cliprect: *const Common::D2D_RECT_F, antialiasmode: D2D1_ANTIALIAS_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters1: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters1: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitiveblend: D2D1_PRIMITIVE_BLEND) -> ::windows::runtime::HRESULT,
@@ -12143,9 +12193,9 @@ impl ID2D1CommandSink4 {
     pub unsafe fn SetTextRenderingParams<'a, Param0: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, textrenderingparams: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), textrenderingparams.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -12218,8 +12268,8 @@ impl ID2D1CommandSink4 {
     pub unsafe fn PushAxisAlignedClip(&self, cliprect: *const Common::D2D_RECT_F, antialiasmode: D2D1_ANTIALIAS_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(cliprect), ::core::mem::transmute(antialiasmode)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters1: *const D2D1_LAYER_PARAMETERS1, layer: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters1), layer.into_param().abi()).ok()
     }
@@ -12374,8 +12424,8 @@ pub struct ID2D1CommandSink4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Graphics_DirectWrite")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textrenderingparams: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitiveblend: D2D1_PRIMITIVE_BLEND) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, unitmode: D2D1_UNIT_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F) -> ::windows::runtime::HRESULT,
@@ -12402,8 +12452,8 @@ pub struct ID2D1CommandSink4_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cliprect: *const Common::D2D_RECT_F, antialiasmode: D2D1_ANTIALIAS_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters1: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters1: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitiveblend: D2D1_PRIMITIVE_BLEND) -> ::windows::runtime::HRESULT,
@@ -12444,9 +12494,9 @@ impl ID2D1CommandSink5 {
     pub unsafe fn SetTextRenderingParams<'a, Param0: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, textrenderingparams: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), textrenderingparams.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -12519,8 +12569,8 @@ impl ID2D1CommandSink5 {
     pub unsafe fn PushAxisAlignedClip(&self, cliprect: *const Common::D2D_RECT_F, antialiasmode: D2D1_ANTIALIAS_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(cliprect), ::core::mem::transmute(antialiasmode)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters1: *const D2D1_LAYER_PARAMETERS1, layer: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters1), layer.into_param().abi()).ok()
     }
@@ -12700,8 +12750,8 @@ pub struct ID2D1CommandSink5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Graphics_DirectWrite")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textrenderingparams: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitiveblend: D2D1_PRIMITIVE_BLEND) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, unitmode: D2D1_UNIT_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F) -> ::windows::runtime::HRESULT,
@@ -12728,8 +12778,8 @@ pub struct ID2D1CommandSink5_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cliprect: *const Common::D2D_RECT_F, antialiasmode: D2D1_ANTIALIAS_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters1: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters1: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitiveblend: D2D1_PRIMITIVE_BLEND) -> ::windows::runtime::HRESULT,
@@ -13052,14 +13102,14 @@ impl ID2D1DCRenderTarget {
     pub unsafe fn CreateSharedBitmap(&self, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::core::option::Option<ID2D1Bitmap>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(data), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(bitmap)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateBitmapBrush<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1BitmapBrush> {
         let mut result__: <ID2D1BitmapBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1BitmapBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateSolidColorBrush(&self, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1SolidColorBrush> {
         let mut result__: <ID2D1SolidColorBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(color), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1SolidColorBrush>(result__)
@@ -13070,14 +13120,14 @@ impl ID2D1DCRenderTarget {
         let mut result__: <ID2D1GradientStopCollection as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(gradientstops), ::core::mem::transmute(gradientstopscount), ::core::mem::transmute(colorinterpolationgamma), ::core::mem::transmute(extendmode), &mut result__).from_abi::<ID2D1GradientStopCollection>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateLinearGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1LinearGradientBrush> {
         let mut result__: <ID2D1LinearGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lineargradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1LinearGradientBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateRadialGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1RadialGradientBrush> {
         let mut result__: <ID2D1RadialGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(radialgradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1RadialGradientBrush>(result__)
@@ -13180,14 +13230,14 @@ impl ID2D1DCRenderTarget {
     pub unsafe fn DrawGlyphRun<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1Brush>>(&self, baselineorigin: Param0, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, foregroundbrush: Param2, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -13224,8 +13274,8 @@ impl ID2D1DCRenderTarget {
     pub unsafe fn GetTags(&self, tag1: *mut u64, tag2: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(tag1), ::core::mem::transmute(tag2)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS, layer: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi()))
     }
@@ -13388,16 +13438,16 @@ pub struct ID2D1DCRenderTarget_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gradientstops: *const D2D1_GRADIENT_STOP, gradientstopscount: u32, colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE, gradientstopcollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desiredsize: *const Common::D2D_SIZE_F, desiredpixelsize: *const Common::D2D_SIZE_U, desiredformat: *const Common::D2D1_PIXEL_FORMAT, options: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS, bitmaprendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, size: *const Common::D2D_SIZE_F, layer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -13430,10 +13480,10 @@ pub struct ID2D1DCRenderTarget_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, foregroundbrush: ::windows::runtime::RawPtr, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, antialiasmode: D2D1_ANTIALIAS_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> D2D1_ANTIALIAS_MODE,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE),
@@ -13444,8 +13494,8 @@ pub struct ID2D1DCRenderTarget_abi(
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: u64, tag2: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstateblock: ::windows::runtime::RawPtr),
@@ -14835,14 +14885,14 @@ impl ID2D1DeviceContext {
     pub unsafe fn CreateSharedBitmap(&self, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::core::option::Option<ID2D1Bitmap>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(data), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(bitmap)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateBitmapBrush<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1BitmapBrush> {
         let mut result__: <ID2D1BitmapBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1BitmapBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateSolidColorBrush(&self, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1SolidColorBrush> {
         let mut result__: <ID2D1SolidColorBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(color), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1SolidColorBrush>(result__)
@@ -14853,14 +14903,14 @@ impl ID2D1DeviceContext {
         let mut result__: <ID2D1GradientStopCollection as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(gradientstops), ::core::mem::transmute(gradientstopscount), ::core::mem::transmute(colorinterpolationgamma), ::core::mem::transmute(extendmode), &mut result__).from_abi::<ID2D1GradientStopCollection>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateLinearGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1LinearGradientBrush> {
         let mut result__: <ID2D1LinearGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lineargradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1LinearGradientBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateRadialGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1RadialGradientBrush> {
         let mut result__: <ID2D1RadialGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(radialgradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1RadialGradientBrush>(result__)
@@ -14963,14 +15013,14 @@ impl ID2D1DeviceContext {
     pub unsafe fn DrawGlyphRun<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1Brush>>(&self, baselineorigin: Param0, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, foregroundbrush: Param2, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -15007,8 +15057,8 @@ impl ID2D1DeviceContext {
     pub unsafe fn GetTags(&self, tag1: *mut u64, tag2: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(tag1), ::core::mem::transmute(tag2)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS, layer: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi()))
     }
@@ -15145,14 +15195,14 @@ impl ID2D1DeviceContext {
         )
         .from_abi::<ID2D1GradientStopCollection1>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateImageBrush<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Image>>(&self, image: Param0, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1ImageBrush> {
         let mut result__: <ID2D1ImageBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).65)(::core::mem::transmute_copy(self), image.into_param().abi(), ::core::mem::transmute(imagebrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1ImageBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateBitmapBrush2<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1BitmapBrush1> {
         let mut result__: <ID2D1BitmapBrush1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).66)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1BitmapBrush1>(result__)
@@ -15256,8 +15306,8 @@ impl ID2D1DeviceContext {
             ::core::mem::transmute(perspectivetransform),
         ))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer2<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).86)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi()))
     }
@@ -15364,16 +15414,16 @@ pub struct ID2D1DeviceContext_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gradientstops: *const D2D1_GRADIENT_STOP, gradientstopscount: u32, colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE, gradientstopcollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desiredsize: *const Common::D2D_SIZE_F, desiredpixelsize: *const Common::D2D_SIZE_U, desiredformat: *const Common::D2D1_PIXEL_FORMAT, options: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS, bitmaprendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, size: *const Common::D2D_SIZE_F, layer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -15406,10 +15456,10 @@ pub struct ID2D1DeviceContext_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, foregroundbrush: ::windows::runtime::RawPtr, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, antialiasmode: D2D1_ANTIALIAS_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> D2D1_ANTIALIAS_MODE,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE),
@@ -15420,8 +15470,8 @@ pub struct ID2D1DeviceContext_abi(
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: u64, tag2: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstateblock: ::windows::runtime::RawPtr),
@@ -15459,10 +15509,10 @@ pub struct ID2D1DeviceContext_abi(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, straightalphagradientstops: *const D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE, gradientstopcollection1: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, image: ::windows::runtime::RawPtr, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, imagebrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, image: ::windows::runtime::RawPtr, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, imagebrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, commandlist: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, format: super::Dxgi::Common::DXGI_FORMAT) -> super::super::Foundation::BOOL,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
@@ -15493,8 +15543,8 @@ pub struct ID2D1DeviceContext_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr),
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr, input: u32, inputrectangle: *const Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr, rectanglecount: *mut u32) -> ::windows::runtime::HRESULT,
@@ -15531,14 +15581,14 @@ impl ID2D1DeviceContext1 {
     pub unsafe fn CreateSharedBitmap(&self, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::core::option::Option<ID2D1Bitmap>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(data), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(bitmap)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateBitmapBrush<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1BitmapBrush> {
         let mut result__: <ID2D1BitmapBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1BitmapBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateSolidColorBrush(&self, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1SolidColorBrush> {
         let mut result__: <ID2D1SolidColorBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(color), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1SolidColorBrush>(result__)
@@ -15549,14 +15599,14 @@ impl ID2D1DeviceContext1 {
         let mut result__: <ID2D1GradientStopCollection as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(gradientstops), ::core::mem::transmute(gradientstopscount), ::core::mem::transmute(colorinterpolationgamma), ::core::mem::transmute(extendmode), &mut result__).from_abi::<ID2D1GradientStopCollection>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateLinearGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1LinearGradientBrush> {
         let mut result__: <ID2D1LinearGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lineargradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1LinearGradientBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateRadialGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1RadialGradientBrush> {
         let mut result__: <ID2D1RadialGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(radialgradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1RadialGradientBrush>(result__)
@@ -15659,14 +15709,14 @@ impl ID2D1DeviceContext1 {
     pub unsafe fn DrawGlyphRun<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1Brush>>(&self, baselineorigin: Param0, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, foregroundbrush: Param2, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -15703,8 +15753,8 @@ impl ID2D1DeviceContext1 {
     pub unsafe fn GetTags(&self, tag1: *mut u64, tag2: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(tag1), ::core::mem::transmute(tag2)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS, layer: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi()))
     }
@@ -15841,14 +15891,14 @@ impl ID2D1DeviceContext1 {
         )
         .from_abi::<ID2D1GradientStopCollection1>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateImageBrush<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Image>>(&self, image: Param0, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1ImageBrush> {
         let mut result__: <ID2D1ImageBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).65)(::core::mem::transmute_copy(self), image.into_param().abi(), ::core::mem::transmute(imagebrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1ImageBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateBitmapBrush2<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1BitmapBrush1> {
         let mut result__: <ID2D1BitmapBrush1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).66)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1BitmapBrush1>(result__)
@@ -15952,8 +16002,8 @@ impl ID2D1DeviceContext1 {
             ::core::mem::transmute(perspectivetransform),
         ))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer2<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).86)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi()))
     }
@@ -16094,16 +16144,16 @@ pub struct ID2D1DeviceContext1_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gradientstops: *const D2D1_GRADIENT_STOP, gradientstopscount: u32, colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE, gradientstopcollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desiredsize: *const Common::D2D_SIZE_F, desiredpixelsize: *const Common::D2D_SIZE_U, desiredformat: *const Common::D2D1_PIXEL_FORMAT, options: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS, bitmaprendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, size: *const Common::D2D_SIZE_F, layer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -16136,10 +16186,10 @@ pub struct ID2D1DeviceContext1_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, foregroundbrush: ::windows::runtime::RawPtr, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, antialiasmode: D2D1_ANTIALIAS_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> D2D1_ANTIALIAS_MODE,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE),
@@ -16150,8 +16200,8 @@ pub struct ID2D1DeviceContext1_abi(
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: u64, tag2: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstateblock: ::windows::runtime::RawPtr),
@@ -16189,10 +16239,10 @@ pub struct ID2D1DeviceContext1_abi(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, straightalphagradientstops: *const D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE, gradientstopcollection1: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, image: ::windows::runtime::RawPtr, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, imagebrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, image: ::windows::runtime::RawPtr, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, imagebrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, commandlist: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, format: super::Dxgi::Common::DXGI_FORMAT) -> super::super::Foundation::BOOL,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
@@ -16223,8 +16273,8 @@ pub struct ID2D1DeviceContext1_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr),
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr, input: u32, inputrectangle: *const Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr, rectanglecount: *mut u32) -> ::windows::runtime::HRESULT,
@@ -16264,14 +16314,14 @@ impl ID2D1DeviceContext2 {
     pub unsafe fn CreateSharedBitmap(&self, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::core::option::Option<ID2D1Bitmap>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(data), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(bitmap)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateBitmapBrush<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1BitmapBrush> {
         let mut result__: <ID2D1BitmapBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1BitmapBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateSolidColorBrush(&self, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1SolidColorBrush> {
         let mut result__: <ID2D1SolidColorBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(color), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1SolidColorBrush>(result__)
@@ -16282,14 +16332,14 @@ impl ID2D1DeviceContext2 {
         let mut result__: <ID2D1GradientStopCollection as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(gradientstops), ::core::mem::transmute(gradientstopscount), ::core::mem::transmute(colorinterpolationgamma), ::core::mem::transmute(extendmode), &mut result__).from_abi::<ID2D1GradientStopCollection>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateLinearGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1LinearGradientBrush> {
         let mut result__: <ID2D1LinearGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lineargradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1LinearGradientBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateRadialGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1RadialGradientBrush> {
         let mut result__: <ID2D1RadialGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(radialgradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1RadialGradientBrush>(result__)
@@ -16392,14 +16442,14 @@ impl ID2D1DeviceContext2 {
     pub unsafe fn DrawGlyphRun<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1Brush>>(&self, baselineorigin: Param0, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, foregroundbrush: Param2, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -16436,8 +16486,8 @@ impl ID2D1DeviceContext2 {
     pub unsafe fn GetTags(&self, tag1: *mut u64, tag2: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(tag1), ::core::mem::transmute(tag2)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS, layer: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi()))
     }
@@ -16574,14 +16624,14 @@ impl ID2D1DeviceContext2 {
         )
         .from_abi::<ID2D1GradientStopCollection1>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateImageBrush<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Image>>(&self, image: Param0, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1ImageBrush> {
         let mut result__: <ID2D1ImageBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).65)(::core::mem::transmute_copy(self), image.into_param().abi(), ::core::mem::transmute(imagebrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1ImageBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateBitmapBrush2<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1BitmapBrush1> {
         let mut result__: <ID2D1BitmapBrush1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).66)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1BitmapBrush1>(result__)
@@ -16685,8 +16735,8 @@ impl ID2D1DeviceContext2 {
             ::core::mem::transmute(perspectivetransform),
         ))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer2<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).86)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi()))
     }
@@ -16734,8 +16784,8 @@ impl ID2D1DeviceContext2 {
         let mut result__: <ID2D1Ink as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).95)(::core::mem::transmute_copy(self), ::core::mem::transmute(startpoint), &mut result__).from_abi::<ID2D1Ink>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateInkStyle(&self, inkstyleproperties: *const D2D1_INK_STYLE_PROPERTIES) -> ::windows::runtime::Result<ID2D1InkStyle> {
         let mut result__: <ID2D1InkStyle as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).96)(::core::mem::transmute_copy(self), ::core::mem::transmute(inkstyleproperties), &mut result__).from_abi::<ID2D1InkStyle>(result__)
@@ -16905,16 +16955,16 @@ pub struct ID2D1DeviceContext2_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gradientstops: *const D2D1_GRADIENT_STOP, gradientstopscount: u32, colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE, gradientstopcollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desiredsize: *const Common::D2D_SIZE_F, desiredpixelsize: *const Common::D2D_SIZE_U, desiredformat: *const Common::D2D1_PIXEL_FORMAT, options: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS, bitmaprendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, size: *const Common::D2D_SIZE_F, layer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -16947,10 +16997,10 @@ pub struct ID2D1DeviceContext2_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, foregroundbrush: ::windows::runtime::RawPtr, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, antialiasmode: D2D1_ANTIALIAS_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> D2D1_ANTIALIAS_MODE,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE),
@@ -16961,8 +17011,8 @@ pub struct ID2D1DeviceContext2_abi(
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: u64, tag2: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstateblock: ::windows::runtime::RawPtr),
@@ -17000,10 +17050,10 @@ pub struct ID2D1DeviceContext2_abi(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, straightalphagradientstops: *const D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE, gradientstopcollection1: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, image: ::windows::runtime::RawPtr, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, imagebrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, image: ::windows::runtime::RawPtr, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, imagebrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, commandlist: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, format: super::Dxgi::Common::DXGI_FORMAT) -> super::super::Foundation::BOOL,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
@@ -17034,8 +17084,8 @@ pub struct ID2D1DeviceContext2_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr),
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr, input: u32, inputrectangle: *const Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr, rectanglecount: *mut u32) -> ::windows::runtime::HRESULT,
@@ -17049,8 +17099,8 @@ pub struct ID2D1DeviceContext2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, geometry: ::windows::runtime::RawPtr, flatteningtolerance: f32, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, geometryrealization: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, geometryrealization: ::windows::runtime::RawPtr, brush: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startpoint: *const D2D1_INK_POINT, ink: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inkstyleproperties: *const D2D1_INK_STYLE_PROPERTIES, inkstyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inkstyleproperties: *const D2D1_INK_STYLE_PROPERTIES, inkstyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, patches: *const D2D1_GRADIENT_MESH_PATCH, patchescount: u32, gradientmesh: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Imaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wicbitmapsource: ::windows::runtime::RawPtr, loadingoptions: D2D1_IMAGE_SOURCE_LOADING_OPTIONS, alphamode: Common::D2D1_ALPHA_MODE, imagesource: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -17092,14 +17142,14 @@ impl ID2D1DeviceContext3 {
     pub unsafe fn CreateSharedBitmap(&self, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::core::option::Option<ID2D1Bitmap>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(data), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(bitmap)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateBitmapBrush<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1BitmapBrush> {
         let mut result__: <ID2D1BitmapBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1BitmapBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateSolidColorBrush(&self, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1SolidColorBrush> {
         let mut result__: <ID2D1SolidColorBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(color), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1SolidColorBrush>(result__)
@@ -17110,14 +17160,14 @@ impl ID2D1DeviceContext3 {
         let mut result__: <ID2D1GradientStopCollection as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(gradientstops), ::core::mem::transmute(gradientstopscount), ::core::mem::transmute(colorinterpolationgamma), ::core::mem::transmute(extendmode), &mut result__).from_abi::<ID2D1GradientStopCollection>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateLinearGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1LinearGradientBrush> {
         let mut result__: <ID2D1LinearGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lineargradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1LinearGradientBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateRadialGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1RadialGradientBrush> {
         let mut result__: <ID2D1RadialGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(radialgradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1RadialGradientBrush>(result__)
@@ -17220,14 +17270,14 @@ impl ID2D1DeviceContext3 {
     pub unsafe fn DrawGlyphRun<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1Brush>>(&self, baselineorigin: Param0, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, foregroundbrush: Param2, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -17264,8 +17314,8 @@ impl ID2D1DeviceContext3 {
     pub unsafe fn GetTags(&self, tag1: *mut u64, tag2: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(tag1), ::core::mem::transmute(tag2)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS, layer: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi()))
     }
@@ -17402,14 +17452,14 @@ impl ID2D1DeviceContext3 {
         )
         .from_abi::<ID2D1GradientStopCollection1>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateImageBrush<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Image>>(&self, image: Param0, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1ImageBrush> {
         let mut result__: <ID2D1ImageBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).65)(::core::mem::transmute_copy(self), image.into_param().abi(), ::core::mem::transmute(imagebrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1ImageBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateBitmapBrush2<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1BitmapBrush1> {
         let mut result__: <ID2D1BitmapBrush1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).66)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1BitmapBrush1>(result__)
@@ -17513,8 +17563,8 @@ impl ID2D1DeviceContext3 {
             ::core::mem::transmute(perspectivetransform),
         ))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer2<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).86)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi()))
     }
@@ -17562,8 +17612,8 @@ impl ID2D1DeviceContext3 {
         let mut result__: <ID2D1Ink as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).95)(::core::mem::transmute_copy(self), ::core::mem::transmute(startpoint), &mut result__).from_abi::<ID2D1Ink>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateInkStyle(&self, inkstyleproperties: *const D2D1_INK_STYLE_PROPERTIES) -> ::windows::runtime::Result<ID2D1InkStyle> {
         let mut result__: <ID2D1InkStyle as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).96)(::core::mem::transmute_copy(self), ::core::mem::transmute(inkstyleproperties), &mut result__).from_abi::<ID2D1InkStyle>(result__)
@@ -17762,16 +17812,16 @@ pub struct ID2D1DeviceContext3_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gradientstops: *const D2D1_GRADIENT_STOP, gradientstopscount: u32, colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE, gradientstopcollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desiredsize: *const Common::D2D_SIZE_F, desiredpixelsize: *const Common::D2D_SIZE_U, desiredformat: *const Common::D2D1_PIXEL_FORMAT, options: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS, bitmaprendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, size: *const Common::D2D_SIZE_F, layer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -17804,10 +17854,10 @@ pub struct ID2D1DeviceContext3_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, foregroundbrush: ::windows::runtime::RawPtr, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, antialiasmode: D2D1_ANTIALIAS_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> D2D1_ANTIALIAS_MODE,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE),
@@ -17818,8 +17868,8 @@ pub struct ID2D1DeviceContext3_abi(
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: u64, tag2: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstateblock: ::windows::runtime::RawPtr),
@@ -17857,10 +17907,10 @@ pub struct ID2D1DeviceContext3_abi(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, straightalphagradientstops: *const D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE, gradientstopcollection1: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, image: ::windows::runtime::RawPtr, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, imagebrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, image: ::windows::runtime::RawPtr, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, imagebrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, commandlist: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, format: super::Dxgi::Common::DXGI_FORMAT) -> super::super::Foundation::BOOL,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
@@ -17891,8 +17941,8 @@ pub struct ID2D1DeviceContext3_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr),
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr, input: u32, inputrectangle: *const Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr, rectanglecount: *mut u32) -> ::windows::runtime::HRESULT,
@@ -17906,8 +17956,8 @@ pub struct ID2D1DeviceContext3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, geometry: ::windows::runtime::RawPtr, flatteningtolerance: f32, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, geometryrealization: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, geometryrealization: ::windows::runtime::RawPtr, brush: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startpoint: *const D2D1_INK_POINT, ink: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inkstyleproperties: *const D2D1_INK_STYLE_PROPERTIES, inkstyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inkstyleproperties: *const D2D1_INK_STYLE_PROPERTIES, inkstyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, patches: *const D2D1_GRADIENT_MESH_PATCH, patchescount: u32, gradientmesh: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Imaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wicbitmapsource: ::windows::runtime::RawPtr, loadingoptions: D2D1_IMAGE_SOURCE_LOADING_OPTIONS, alphamode: Common::D2D1_ALPHA_MODE, imagesource: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -17951,14 +18001,14 @@ impl ID2D1DeviceContext4 {
     pub unsafe fn CreateSharedBitmap(&self, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::core::option::Option<ID2D1Bitmap>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(data), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(bitmap)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateBitmapBrush<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1BitmapBrush> {
         let mut result__: <ID2D1BitmapBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1BitmapBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateSolidColorBrush(&self, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1SolidColorBrush> {
         let mut result__: <ID2D1SolidColorBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(color), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1SolidColorBrush>(result__)
@@ -17969,14 +18019,14 @@ impl ID2D1DeviceContext4 {
         let mut result__: <ID2D1GradientStopCollection as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(gradientstops), ::core::mem::transmute(gradientstopscount), ::core::mem::transmute(colorinterpolationgamma), ::core::mem::transmute(extendmode), &mut result__).from_abi::<ID2D1GradientStopCollection>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateLinearGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1LinearGradientBrush> {
         let mut result__: <ID2D1LinearGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lineargradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1LinearGradientBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateRadialGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1RadialGradientBrush> {
         let mut result__: <ID2D1RadialGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(radialgradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1RadialGradientBrush>(result__)
@@ -18079,14 +18129,14 @@ impl ID2D1DeviceContext4 {
     pub unsafe fn DrawGlyphRun<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1Brush>>(&self, baselineorigin: Param0, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, foregroundbrush: Param2, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -18123,8 +18173,8 @@ impl ID2D1DeviceContext4 {
     pub unsafe fn GetTags(&self, tag1: *mut u64, tag2: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(tag1), ::core::mem::transmute(tag2)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS, layer: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi()))
     }
@@ -18261,14 +18311,14 @@ impl ID2D1DeviceContext4 {
         )
         .from_abi::<ID2D1GradientStopCollection1>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateImageBrush<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Image>>(&self, image: Param0, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1ImageBrush> {
         let mut result__: <ID2D1ImageBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).65)(::core::mem::transmute_copy(self), image.into_param().abi(), ::core::mem::transmute(imagebrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1ImageBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateBitmapBrush2<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1BitmapBrush1> {
         let mut result__: <ID2D1BitmapBrush1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).66)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1BitmapBrush1>(result__)
@@ -18372,8 +18422,8 @@ impl ID2D1DeviceContext4 {
             ::core::mem::transmute(perspectivetransform),
         ))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer2<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).86)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi()))
     }
@@ -18421,8 +18471,8 @@ impl ID2D1DeviceContext4 {
         let mut result__: <ID2D1Ink as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).95)(::core::mem::transmute_copy(self), ::core::mem::transmute(startpoint), &mut result__).from_abi::<ID2D1Ink>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateInkStyle(&self, inkstyleproperties: *const D2D1_INK_STYLE_PROPERTIES) -> ::windows::runtime::Result<ID2D1InkStyle> {
         let mut result__: <ID2D1InkStyle as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).96)(::core::mem::transmute_copy(self), ::core::mem::transmute(inkstyleproperties), &mut result__).from_abi::<ID2D1InkStyle>(result__)
@@ -18538,8 +18588,8 @@ impl ID2D1DeviceContext4 {
             ::core::mem::transmute(measuringmode),
         ))
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetColorBitmapGlyphImage<'a, Param1: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteFontFace>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
         &self,
         glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS,
@@ -18548,10 +18598,10 @@ impl ID2D1DeviceContext4 {
         fontemsize: f32,
         glyphindex: u16,
         issideways: Param5,
-        worldtransform: *const Common::D2D_MATRIX_3X2_F,
+        worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2,
         dpix: f32,
         dpiy: f32,
-        glyphtransform: *mut Common::D2D_MATRIX_3X2_F,
+        glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2,
         glyphimage: *mut ::core::option::Option<ID2D1Image>,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).113)(
@@ -18570,8 +18620,8 @@ impl ID2D1DeviceContext4 {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetSvgGlyphImage<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param1: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteFontFace>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::runtime::IntoParam<'a, ID2D1Brush>, Param7: ::windows::runtime::IntoParam<'a, ID2D1SvgGlyphStyle>>(
         &self,
         glyphorigin: Param0,
@@ -18579,11 +18629,11 @@ impl ID2D1DeviceContext4 {
         fontemsize: f32,
         glyphindex: u16,
         issideways: Param4,
-        worldtransform: *const Common::D2D_MATRIX_3X2_F,
+        worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2,
         defaultfillbrush: Param6,
         svgglyphstyle: Param7,
         colorpaletteindex: u32,
-        glyphtransform: *mut Common::D2D_MATRIX_3X2_F,
+        glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2,
         glyphimage: *mut ::core::option::Option<ID2D1CommandList>,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).114)(
@@ -18760,16 +18810,16 @@ pub struct ID2D1DeviceContext4_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gradientstops: *const D2D1_GRADIENT_STOP, gradientstopscount: u32, colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE, gradientstopcollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desiredsize: *const Common::D2D_SIZE_F, desiredpixelsize: *const Common::D2D_SIZE_U, desiredformat: *const Common::D2D1_PIXEL_FORMAT, options: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS, bitmaprendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, size: *const Common::D2D_SIZE_F, layer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -18802,10 +18852,10 @@ pub struct ID2D1DeviceContext4_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, foregroundbrush: ::windows::runtime::RawPtr, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, antialiasmode: D2D1_ANTIALIAS_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> D2D1_ANTIALIAS_MODE,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE),
@@ -18816,8 +18866,8 @@ pub struct ID2D1DeviceContext4_abi(
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: u64, tag2: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstateblock: ::windows::runtime::RawPtr),
@@ -18855,10 +18905,10 @@ pub struct ID2D1DeviceContext4_abi(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, straightalphagradientstops: *const D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE, gradientstopcollection1: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, image: ::windows::runtime::RawPtr, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, imagebrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, image: ::windows::runtime::RawPtr, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, imagebrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, commandlist: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, format: super::Dxgi::Common::DXGI_FORMAT) -> super::super::Foundation::BOOL,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
@@ -18889,8 +18939,8 @@ pub struct ID2D1DeviceContext4_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr),
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr, input: u32, inputrectangle: *const Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr, rectanglecount: *mut u32) -> ::windows::runtime::HRESULT,
@@ -18904,8 +18954,8 @@ pub struct ID2D1DeviceContext4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, geometry: ::windows::runtime::RawPtr, flatteningtolerance: f32, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, geometryrealization: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, geometryrealization: ::windows::runtime::RawPtr, brush: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startpoint: *const D2D1_INK_POINT, ink: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inkstyleproperties: *const D2D1_INK_STYLE_PROPERTIES, inkstyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inkstyleproperties: *const D2D1_INK_STYLE_PROPERTIES, inkstyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, patches: *const D2D1_GRADIENT_MESH_PATCH, patchescount: u32, gradientmesh: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Imaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wicbitmapsource: ::windows::runtime::RawPtr, loadingoptions: D2D1_IMAGE_SOURCE_LOADING_OPTIONS, alphamode: Common::D2D1_ALPHA_MODE, imagesource: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -18932,10 +18982,23 @@ pub struct ID2D1DeviceContext4_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, defaultfillbrush: ::windows::runtime::RawPtr, svgglyphstyle: ::windows::runtime::RawPtr, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, glyphorigin: Common::D2D_POINT_2F, fontface: ::windows::runtime::RawPtr, fontemsize: f32, glyphindex: u16, issideways: super::super::Foundation::BOOL, worldtransform: *const Common::D2D_MATRIX_3X2_F, dpix: f32, dpiy: f32, glyphtransform: *mut Common::D2D_MATRIX_3X2_F, glyphimage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS,
+        glyphorigin: Common::D2D_POINT_2F,
+        fontface: ::windows::runtime::RawPtr,
+        fontemsize: f32,
+        glyphindex: u16,
+        issideways: super::super::Foundation::BOOL,
+        worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2,
+        dpix: f32,
+        dpiy: f32,
+        glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2,
+        glyphimage: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         glyphorigin: Common::D2D_POINT_2F,
@@ -18943,14 +19006,14 @@ pub struct ID2D1DeviceContext4_abi(
         fontemsize: f32,
         glyphindex: u16,
         issideways: super::super::Foundation::BOOL,
-        worldtransform: *const Common::D2D_MATRIX_3X2_F,
+        worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2,
         defaultfillbrush: ::windows::runtime::RawPtr,
         svgglyphstyle: ::windows::runtime::RawPtr,
         colorpaletteindex: u32,
-        glyphtransform: *mut Common::D2D_MATRIX_3X2_F,
+        glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2,
         glyphimage: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
@@ -18978,14 +19041,14 @@ impl ID2D1DeviceContext5 {
     pub unsafe fn CreateSharedBitmap(&self, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::core::option::Option<ID2D1Bitmap>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(data), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(bitmap)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateBitmapBrush<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1BitmapBrush> {
         let mut result__: <ID2D1BitmapBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1BitmapBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateSolidColorBrush(&self, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1SolidColorBrush> {
         let mut result__: <ID2D1SolidColorBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(color), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1SolidColorBrush>(result__)
@@ -18996,14 +19059,14 @@ impl ID2D1DeviceContext5 {
         let mut result__: <ID2D1GradientStopCollection as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(gradientstops), ::core::mem::transmute(gradientstopscount), ::core::mem::transmute(colorinterpolationgamma), ::core::mem::transmute(extendmode), &mut result__).from_abi::<ID2D1GradientStopCollection>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateLinearGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1LinearGradientBrush> {
         let mut result__: <ID2D1LinearGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lineargradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1LinearGradientBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateRadialGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1RadialGradientBrush> {
         let mut result__: <ID2D1RadialGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(radialgradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1RadialGradientBrush>(result__)
@@ -19106,14 +19169,14 @@ impl ID2D1DeviceContext5 {
     pub unsafe fn DrawGlyphRun<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1Brush>>(&self, baselineorigin: Param0, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, foregroundbrush: Param2, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -19150,8 +19213,8 @@ impl ID2D1DeviceContext5 {
     pub unsafe fn GetTags(&self, tag1: *mut u64, tag2: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(tag1), ::core::mem::transmute(tag2)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS, layer: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi()))
     }
@@ -19288,14 +19351,14 @@ impl ID2D1DeviceContext5 {
         )
         .from_abi::<ID2D1GradientStopCollection1>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateImageBrush<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Image>>(&self, image: Param0, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1ImageBrush> {
         let mut result__: <ID2D1ImageBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).65)(::core::mem::transmute_copy(self), image.into_param().abi(), ::core::mem::transmute(imagebrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1ImageBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateBitmapBrush2<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1BitmapBrush1> {
         let mut result__: <ID2D1BitmapBrush1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).66)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1BitmapBrush1>(result__)
@@ -19399,8 +19462,8 @@ impl ID2D1DeviceContext5 {
             ::core::mem::transmute(perspectivetransform),
         ))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer2<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).86)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi()))
     }
@@ -19448,8 +19511,8 @@ impl ID2D1DeviceContext5 {
         let mut result__: <ID2D1Ink as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).95)(::core::mem::transmute_copy(self), ::core::mem::transmute(startpoint), &mut result__).from_abi::<ID2D1Ink>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateInkStyle(&self, inkstyleproperties: *const D2D1_INK_STYLE_PROPERTIES) -> ::windows::runtime::Result<ID2D1InkStyle> {
         let mut result__: <ID2D1InkStyle as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).96)(::core::mem::transmute_copy(self), ::core::mem::transmute(inkstyleproperties), &mut result__).from_abi::<ID2D1InkStyle>(result__)
@@ -19565,8 +19628,8 @@ impl ID2D1DeviceContext5 {
             ::core::mem::transmute(measuringmode),
         ))
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetColorBitmapGlyphImage<'a, Param1: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteFontFace>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
         &self,
         glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS,
@@ -19575,10 +19638,10 @@ impl ID2D1DeviceContext5 {
         fontemsize: f32,
         glyphindex: u16,
         issideways: Param5,
-        worldtransform: *const Common::D2D_MATRIX_3X2_F,
+        worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2,
         dpix: f32,
         dpiy: f32,
-        glyphtransform: *mut Common::D2D_MATRIX_3X2_F,
+        glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2,
         glyphimage: *mut ::core::option::Option<ID2D1Image>,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).113)(
@@ -19597,8 +19660,8 @@ impl ID2D1DeviceContext5 {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetSvgGlyphImage<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param1: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteFontFace>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::runtime::IntoParam<'a, ID2D1Brush>, Param7: ::windows::runtime::IntoParam<'a, ID2D1SvgGlyphStyle>>(
         &self,
         glyphorigin: Param0,
@@ -19606,11 +19669,11 @@ impl ID2D1DeviceContext5 {
         fontemsize: f32,
         glyphindex: u16,
         issideways: Param4,
-        worldtransform: *const Common::D2D_MATRIX_3X2_F,
+        worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2,
         defaultfillbrush: Param6,
         svgglyphstyle: Param7,
         colorpaletteindex: u32,
-        glyphtransform: *mut Common::D2D_MATRIX_3X2_F,
+        glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2,
         glyphimage: *mut ::core::option::Option<ID2D1CommandList>,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).114)(
@@ -19829,16 +19892,16 @@ pub struct ID2D1DeviceContext5_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gradientstops: *const D2D1_GRADIENT_STOP, gradientstopscount: u32, colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE, gradientstopcollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desiredsize: *const Common::D2D_SIZE_F, desiredpixelsize: *const Common::D2D_SIZE_U, desiredformat: *const Common::D2D1_PIXEL_FORMAT, options: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS, bitmaprendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, size: *const Common::D2D_SIZE_F, layer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -19871,10 +19934,10 @@ pub struct ID2D1DeviceContext5_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, foregroundbrush: ::windows::runtime::RawPtr, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, antialiasmode: D2D1_ANTIALIAS_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> D2D1_ANTIALIAS_MODE,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE),
@@ -19885,8 +19948,8 @@ pub struct ID2D1DeviceContext5_abi(
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: u64, tag2: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstateblock: ::windows::runtime::RawPtr),
@@ -19924,10 +19987,10 @@ pub struct ID2D1DeviceContext5_abi(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, straightalphagradientstops: *const D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE, gradientstopcollection1: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, image: ::windows::runtime::RawPtr, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, imagebrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, image: ::windows::runtime::RawPtr, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, imagebrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, commandlist: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, format: super::Dxgi::Common::DXGI_FORMAT) -> super::super::Foundation::BOOL,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
@@ -19958,8 +20021,8 @@ pub struct ID2D1DeviceContext5_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr),
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr, input: u32, inputrectangle: *const Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr, rectanglecount: *mut u32) -> ::windows::runtime::HRESULT,
@@ -19973,8 +20036,8 @@ pub struct ID2D1DeviceContext5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, geometry: ::windows::runtime::RawPtr, flatteningtolerance: f32, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, geometryrealization: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, geometryrealization: ::windows::runtime::RawPtr, brush: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startpoint: *const D2D1_INK_POINT, ink: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inkstyleproperties: *const D2D1_INK_STYLE_PROPERTIES, inkstyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inkstyleproperties: *const D2D1_INK_STYLE_PROPERTIES, inkstyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, patches: *const D2D1_GRADIENT_MESH_PATCH, patchescount: u32, gradientmesh: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Imaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wicbitmapsource: ::windows::runtime::RawPtr, loadingoptions: D2D1_IMAGE_SOURCE_LOADING_OPTIONS, alphamode: Common::D2D1_ALPHA_MODE, imagesource: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -20001,10 +20064,23 @@ pub struct ID2D1DeviceContext5_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, defaultfillbrush: ::windows::runtime::RawPtr, svgglyphstyle: ::windows::runtime::RawPtr, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, glyphorigin: Common::D2D_POINT_2F, fontface: ::windows::runtime::RawPtr, fontemsize: f32, glyphindex: u16, issideways: super::super::Foundation::BOOL, worldtransform: *const Common::D2D_MATRIX_3X2_F, dpix: f32, dpiy: f32, glyphtransform: *mut Common::D2D_MATRIX_3X2_F, glyphimage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS,
+        glyphorigin: Common::D2D_POINT_2F,
+        fontface: ::windows::runtime::RawPtr,
+        fontemsize: f32,
+        glyphindex: u16,
+        issideways: super::super::Foundation::BOOL,
+        worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2,
+        dpix: f32,
+        dpiy: f32,
+        glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2,
+        glyphimage: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         glyphorigin: Common::D2D_POINT_2F,
@@ -20012,14 +20088,14 @@ pub struct ID2D1DeviceContext5_abi(
         fontemsize: f32,
         glyphindex: u16,
         issideways: super::super::Foundation::BOOL,
-        worldtransform: *const Common::D2D_MATRIX_3X2_F,
+        worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2,
         defaultfillbrush: ::windows::runtime::RawPtr,
         svgglyphstyle: ::windows::runtime::RawPtr,
         colorpaletteindex: u32,
-        glyphtransform: *mut Common::D2D_MATRIX_3X2_F,
+        glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2,
         glyphimage: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputxmlstream: ::windows::runtime::RawPtr, viewportsize: Common::D2D_SIZE_F, svgdocument: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, svgdocument: ::windows::runtime::RawPtr),
@@ -20054,14 +20130,14 @@ impl ID2D1DeviceContext6 {
     pub unsafe fn CreateSharedBitmap(&self, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::core::option::Option<ID2D1Bitmap>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(data), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(bitmap)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateBitmapBrush<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1BitmapBrush> {
         let mut result__: <ID2D1BitmapBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1BitmapBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateSolidColorBrush(&self, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1SolidColorBrush> {
         let mut result__: <ID2D1SolidColorBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(color), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1SolidColorBrush>(result__)
@@ -20072,14 +20148,14 @@ impl ID2D1DeviceContext6 {
         let mut result__: <ID2D1GradientStopCollection as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(gradientstops), ::core::mem::transmute(gradientstopscount), ::core::mem::transmute(colorinterpolationgamma), ::core::mem::transmute(extendmode), &mut result__).from_abi::<ID2D1GradientStopCollection>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateLinearGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1LinearGradientBrush> {
         let mut result__: <ID2D1LinearGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lineargradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1LinearGradientBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateRadialGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1RadialGradientBrush> {
         let mut result__: <ID2D1RadialGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(radialgradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1RadialGradientBrush>(result__)
@@ -20182,14 +20258,14 @@ impl ID2D1DeviceContext6 {
     pub unsafe fn DrawGlyphRun<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1Brush>>(&self, baselineorigin: Param0, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, foregroundbrush: Param2, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -20226,8 +20302,8 @@ impl ID2D1DeviceContext6 {
     pub unsafe fn GetTags(&self, tag1: *mut u64, tag2: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(tag1), ::core::mem::transmute(tag2)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS, layer: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi()))
     }
@@ -20364,14 +20440,14 @@ impl ID2D1DeviceContext6 {
         )
         .from_abi::<ID2D1GradientStopCollection1>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateImageBrush<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Image>>(&self, image: Param0, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1ImageBrush> {
         let mut result__: <ID2D1ImageBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).65)(::core::mem::transmute_copy(self), image.into_param().abi(), ::core::mem::transmute(imagebrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1ImageBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateBitmapBrush2<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1BitmapBrush1> {
         let mut result__: <ID2D1BitmapBrush1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).66)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1BitmapBrush1>(result__)
@@ -20475,8 +20551,8 @@ impl ID2D1DeviceContext6 {
             ::core::mem::transmute(perspectivetransform),
         ))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer2<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).86)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi()))
     }
@@ -20524,8 +20600,8 @@ impl ID2D1DeviceContext6 {
         let mut result__: <ID2D1Ink as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).95)(::core::mem::transmute_copy(self), ::core::mem::transmute(startpoint), &mut result__).from_abi::<ID2D1Ink>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateInkStyle(&self, inkstyleproperties: *const D2D1_INK_STYLE_PROPERTIES) -> ::windows::runtime::Result<ID2D1InkStyle> {
         let mut result__: <ID2D1InkStyle as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).96)(::core::mem::transmute_copy(self), ::core::mem::transmute(inkstyleproperties), &mut result__).from_abi::<ID2D1InkStyle>(result__)
@@ -20641,8 +20717,8 @@ impl ID2D1DeviceContext6 {
             ::core::mem::transmute(measuringmode),
         ))
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetColorBitmapGlyphImage<'a, Param1: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteFontFace>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
         &self,
         glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS,
@@ -20651,10 +20727,10 @@ impl ID2D1DeviceContext6 {
         fontemsize: f32,
         glyphindex: u16,
         issideways: Param5,
-        worldtransform: *const Common::D2D_MATRIX_3X2_F,
+        worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2,
         dpix: f32,
         dpiy: f32,
-        glyphtransform: *mut Common::D2D_MATRIX_3X2_F,
+        glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2,
         glyphimage: *mut ::core::option::Option<ID2D1Image>,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).113)(
@@ -20673,8 +20749,8 @@ impl ID2D1DeviceContext6 {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetSvgGlyphImage<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param1: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteFontFace>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::runtime::IntoParam<'a, ID2D1Brush>, Param7: ::windows::runtime::IntoParam<'a, ID2D1SvgGlyphStyle>>(
         &self,
         glyphorigin: Param0,
@@ -20682,11 +20758,11 @@ impl ID2D1DeviceContext6 {
         fontemsize: f32,
         glyphindex: u16,
         issideways: Param4,
-        worldtransform: *const Common::D2D_MATRIX_3X2_F,
+        worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2,
         defaultfillbrush: Param6,
         svgglyphstyle: Param7,
         colorpaletteindex: u32,
-        glyphtransform: *mut Common::D2D_MATRIX_3X2_F,
+        glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2,
         glyphimage: *mut ::core::option::Option<ID2D1CommandList>,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).114)(
@@ -20930,16 +21006,16 @@ pub struct ID2D1DeviceContext6_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gradientstops: *const D2D1_GRADIENT_STOP, gradientstopscount: u32, colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE, gradientstopcollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desiredsize: *const Common::D2D_SIZE_F, desiredpixelsize: *const Common::D2D_SIZE_U, desiredformat: *const Common::D2D1_PIXEL_FORMAT, options: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS, bitmaprendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, size: *const Common::D2D_SIZE_F, layer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -20972,10 +21048,10 @@ pub struct ID2D1DeviceContext6_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, foregroundbrush: ::windows::runtime::RawPtr, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, antialiasmode: D2D1_ANTIALIAS_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> D2D1_ANTIALIAS_MODE,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE),
@@ -20986,8 +21062,8 @@ pub struct ID2D1DeviceContext6_abi(
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: u64, tag2: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstateblock: ::windows::runtime::RawPtr),
@@ -21025,10 +21101,10 @@ pub struct ID2D1DeviceContext6_abi(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, straightalphagradientstops: *const D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE, gradientstopcollection1: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, image: ::windows::runtime::RawPtr, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, imagebrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, image: ::windows::runtime::RawPtr, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, imagebrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, commandlist: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, format: super::Dxgi::Common::DXGI_FORMAT) -> super::super::Foundation::BOOL,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
@@ -21059,8 +21135,8 @@ pub struct ID2D1DeviceContext6_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: ::windows::runtime::RawPtr),
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr, input: u32, inputrectangle: *const Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr, rectanglecount: *mut u32) -> ::windows::runtime::HRESULT,
@@ -21074,8 +21150,8 @@ pub struct ID2D1DeviceContext6_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, geometry: ::windows::runtime::RawPtr, flatteningtolerance: f32, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, geometryrealization: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, geometryrealization: ::windows::runtime::RawPtr, brush: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startpoint: *const D2D1_INK_POINT, ink: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inkstyleproperties: *const D2D1_INK_STYLE_PROPERTIES, inkstyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inkstyleproperties: *const D2D1_INK_STYLE_PROPERTIES, inkstyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, patches: *const D2D1_GRADIENT_MESH_PATCH, patchescount: u32, gradientmesh: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Imaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wicbitmapsource: ::windows::runtime::RawPtr, loadingoptions: D2D1_IMAGE_SOURCE_LOADING_OPTIONS, alphamode: Common::D2D1_ALPHA_MODE, imagesource: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -21102,10 +21178,23 @@ pub struct ID2D1DeviceContext6_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, defaultfillbrush: ::windows::runtime::RawPtr, svgglyphstyle: ::windows::runtime::RawPtr, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, glyphorigin: Common::D2D_POINT_2F, fontface: ::windows::runtime::RawPtr, fontemsize: f32, glyphindex: u16, issideways: super::super::Foundation::BOOL, worldtransform: *const Common::D2D_MATRIX_3X2_F, dpix: f32, dpiy: f32, glyphtransform: *mut Common::D2D_MATRIX_3X2_F, glyphimage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS,
+        glyphorigin: Common::D2D_POINT_2F,
+        fontface: ::windows::runtime::RawPtr,
+        fontemsize: f32,
+        glyphindex: u16,
+        issideways: super::super::Foundation::BOOL,
+        worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2,
+        dpix: f32,
+        dpiy: f32,
+        glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2,
+        glyphimage: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         glyphorigin: Common::D2D_POINT_2F,
@@ -21113,14 +21202,14 @@ pub struct ID2D1DeviceContext6_abi(
         fontemsize: f32,
         glyphindex: u16,
         issideways: super::super::Foundation::BOOL,
-        worldtransform: *const Common::D2D_MATRIX_3X2_F,
+        worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2,
         defaultfillbrush: ::windows::runtime::RawPtr,
         svgglyphstyle: ::windows::runtime::RawPtr,
         colorpaletteindex: u32,
-        glyphtransform: *mut Common::D2D_MATRIX_3X2_F,
+        glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2,
         glyphimage: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputxmlstream: ::windows::runtime::RawPtr, viewportsize: Common::D2D_SIZE_F, svgdocument: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, svgdocument: ::windows::runtime::RawPtr),
@@ -21353,13 +21442,13 @@ impl ID2D1DrawingStateBlock {
     pub unsafe fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(factory)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn GetDescription(&self, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(statedescription)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn SetDescription(&self, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(statedescription)))
     }
@@ -21425,10 +21514,10 @@ pub struct ID2D1DrawingStateBlock_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: *mut ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     #[cfg(feature = "Win32_Graphics_DirectWrite")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textrenderingparams: ::windows::runtime::RawPtr),
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
     #[cfg(feature = "Win32_Graphics_DirectWrite")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textrenderingparams: *mut ::windows::runtime::RawPtr),
@@ -21443,13 +21532,13 @@ impl ID2D1DrawingStateBlock1 {
     pub unsafe fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(factory)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn GetDescription(&self, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(statedescription)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn SetDescription(&self, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(statedescription)))
     }
@@ -21463,13 +21552,13 @@ impl ID2D1DrawingStateBlock1 {
     pub unsafe fn GetTextRenderingParams(&self, textrenderingparams: *mut ::core::option::Option<super::DirectWrite::IDWriteRenderingParams>) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(textrenderingparams)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn GetDescription2(&self, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(statedescription)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn SetDescription2(&self, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(statedescription)))
     }
@@ -21545,18 +21634,18 @@ pub struct ID2D1DrawingStateBlock1_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: *mut ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     #[cfg(feature = "Win32_Graphics_DirectWrite")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textrenderingparams: ::windows::runtime::RawPtr),
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
     #[cfg(feature = "Win32_Graphics_DirectWrite")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textrenderingparams: *mut ::windows::runtime::RawPtr),
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION1),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION1),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
@@ -22371,76 +22460,76 @@ impl ID2D1EllipseGeometry {
     pub unsafe fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(factory)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetBounds(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn GetBounds(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
         let mut result__: <Common::D2D_RECT_F as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), &mut result__).from_abi::<Common::D2D_RECT_F>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetWidenedBounds<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn GetWidenedBounds<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
         let mut result__: <Common::D2D_RECT_F as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<Common::D2D_RECT_F>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn StrokeContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, point: Param0, strokewidth: f32, strokestyle: Param2, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn StrokeContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, point: Param0, strokewidth: f32, strokestyle: Param2, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), point.into_param().abi(), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn FillContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(&self, point: Param0, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn FillContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(&self, point: Param0, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), point.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CompareWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, inputgeometry: Param0, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<D2D1_GEOMETRY_RELATION> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn CompareWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, inputgeometry: Param0, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<D2D1_GEOMETRY_RELATION> {
         let mut result__: <D2D1_GEOMETRY_RELATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), inputgeometry.into_param().abi(), ::core::mem::transmute(inputgeometrytransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<D2D1_GEOMETRY_RELATION>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Simplify<'a, Param3: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param3) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Simplify<'a, Param3: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(simplificationoption), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Tessellate<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1TessellationSink>>(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, tessellationsink: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn Tessellate<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1TessellationSink>>(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, tessellationsink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), tessellationsink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CombineWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, inputgeometry: Param0, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn CombineWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, inputgeometry: Param0, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), inputgeometry.into_param().abi(), ::core::mem::transmute(combinemode), ::core::mem::transmute(inputgeometrytransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Outline<'a, Param2: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Outline<'a, Param2: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputeArea(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn ComputeArea(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<f32>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputeLength(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn ComputeLength(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<f32>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputePointAtLength(&self, length: f32, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn ComputePointAtLength(&self, length: f32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(length), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), ::core::mem::transmute(point), ::core::mem::transmute(unittangentvector)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Widen<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Widen<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -22520,32 +22609,32 @@ pub struct ID2D1EllipseGeometry_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: *mut ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, tessellationsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, area: *mut f32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, length: *mut f32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: f32, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, tessellationsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, area: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, length: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: f32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ellipse: *mut D2D1_ELLIPSE),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
@@ -22586,9 +22675,9 @@ impl ID2D1Factory {
         let mut result__: <ID2D1GeometryGroup as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(fillmode), ::core::mem::transmute(geometries), ::core::mem::transmute(geometriescount), &mut result__).from_abi::<ID2D1GeometryGroup>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CreateTransformedGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, sourcegeometry: Param0, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<ID2D1TransformedGeometry> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn CreateTransformedGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, sourcegeometry: Param0, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<ID2D1TransformedGeometry> {
         let mut result__: <ID2D1TransformedGeometry as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), sourcegeometry.into_param().abi(), ::core::mem::transmute(transform), &mut result__).from_abi::<ID2D1TransformedGeometry>(result__)
     }
@@ -22602,8 +22691,8 @@ impl ID2D1Factory {
         let mut result__: <ID2D1StrokeStyle as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), &mut result__).from_abi::<ID2D1StrokeStyle>(result__)
     }
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateDrawingStateBlock<'a, Param1: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: Param1) -> ::windows::runtime::Result<ID2D1DrawingStateBlock> {
         let mut result__: <ID2D1DrawingStateBlock as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), &mut result__).from_abi::<ID2D1DrawingStateBlock>(result__)
@@ -22673,12 +22762,12 @@ pub struct ID2D1Factory_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fillmode: Common::D2D1_FILL_MODE, geometries: *const ::windows::runtime::RawPtr, geometriescount: u32, geometrygroup: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourcegeometry: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F, transformedgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourcegeometry: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2, transformedgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pathgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES, dashes: *const f32, dashescount: u32, strokestyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, target: ::windows::runtime::RawPtr, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, rendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, hwndrendertargetproperties: *const D2D1_HWND_RENDER_TARGET_PROPERTIES, hwndrendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -22725,9 +22814,9 @@ impl ID2D1Factory1 {
         let mut result__: <ID2D1GeometryGroup as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(fillmode), ::core::mem::transmute(geometries), ::core::mem::transmute(geometriescount), &mut result__).from_abi::<ID2D1GeometryGroup>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CreateTransformedGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, sourcegeometry: Param0, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<ID2D1TransformedGeometry> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn CreateTransformedGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, sourcegeometry: Param0, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<ID2D1TransformedGeometry> {
         let mut result__: <ID2D1TransformedGeometry as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), sourcegeometry.into_param().abi(), ::core::mem::transmute(transform), &mut result__).from_abi::<ID2D1TransformedGeometry>(result__)
     }
@@ -22741,8 +22830,8 @@ impl ID2D1Factory1 {
         let mut result__: <ID2D1StrokeStyle as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), &mut result__).from_abi::<ID2D1StrokeStyle>(result__)
     }
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateDrawingStateBlock<'a, Param1: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: Param1) -> ::windows::runtime::Result<ID2D1DrawingStateBlock> {
         let mut result__: <ID2D1DrawingStateBlock as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), &mut result__).from_abi::<ID2D1DrawingStateBlock>(result__)
@@ -22787,8 +22876,8 @@ impl ID2D1Factory1 {
         let mut result__: <ID2D1PathGeometry1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ID2D1PathGeometry1>(result__)
     }
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateDrawingStateBlock2<'a, Param1: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: Param1) -> ::windows::runtime::Result<ID2D1DrawingStateBlock1> {
         let mut result__: <ID2D1DrawingStateBlock1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), &mut result__).from_abi::<ID2D1DrawingStateBlock1>(result__)
@@ -22883,12 +22972,12 @@ pub struct ID2D1Factory1_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fillmode: Common::D2D1_FILL_MODE, geometries: *const ::windows::runtime::RawPtr, geometriescount: u32, geometrygroup: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourcegeometry: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F, transformedgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourcegeometry: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2, transformedgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pathgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES, dashes: *const f32, dashescount: u32, strokestyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, target: ::windows::runtime::RawPtr, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, rendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, hwndrendertargetproperties: *const D2D1_HWND_RENDER_TARGET_PROPERTIES, hwndrendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -22901,8 +22990,8 @@ pub struct ID2D1Factory1_abi(
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32, strokestyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pathgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, metafilestream: ::windows::runtime::RawPtr, metafile: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, classid: *const ::windows::runtime::GUID, propertyxml: ::windows::runtime::RawPtr, bindings: *const ::core::mem::ManuallyDrop<D2D1_PROPERTY_BINDING>, bindingscount: u32, effectfactory: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -22950,9 +23039,9 @@ impl ID2D1Factory2 {
         let mut result__: <ID2D1GeometryGroup as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(fillmode), ::core::mem::transmute(geometries), ::core::mem::transmute(geometriescount), &mut result__).from_abi::<ID2D1GeometryGroup>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CreateTransformedGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, sourcegeometry: Param0, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<ID2D1TransformedGeometry> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn CreateTransformedGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, sourcegeometry: Param0, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<ID2D1TransformedGeometry> {
         let mut result__: <ID2D1TransformedGeometry as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), sourcegeometry.into_param().abi(), ::core::mem::transmute(transform), &mut result__).from_abi::<ID2D1TransformedGeometry>(result__)
     }
@@ -22966,8 +23055,8 @@ impl ID2D1Factory2 {
         let mut result__: <ID2D1StrokeStyle as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), &mut result__).from_abi::<ID2D1StrokeStyle>(result__)
     }
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateDrawingStateBlock<'a, Param1: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: Param1) -> ::windows::runtime::Result<ID2D1DrawingStateBlock> {
         let mut result__: <ID2D1DrawingStateBlock as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), &mut result__).from_abi::<ID2D1DrawingStateBlock>(result__)
@@ -23012,8 +23101,8 @@ impl ID2D1Factory2 {
         let mut result__: <ID2D1PathGeometry1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ID2D1PathGeometry1>(result__)
     }
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateDrawingStateBlock2<'a, Param1: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: Param1) -> ::windows::runtime::Result<ID2D1DrawingStateBlock1> {
         let mut result__: <ID2D1DrawingStateBlock1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), &mut result__).from_abi::<ID2D1DrawingStateBlock1>(result__)
@@ -23134,12 +23223,12 @@ pub struct ID2D1Factory2_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fillmode: Common::D2D1_FILL_MODE, geometries: *const ::windows::runtime::RawPtr, geometriescount: u32, geometrygroup: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourcegeometry: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F, transformedgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourcegeometry: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2, transformedgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pathgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES, dashes: *const f32, dashescount: u32, strokestyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, target: ::windows::runtime::RawPtr, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, rendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, hwndrendertargetproperties: *const D2D1_HWND_RENDER_TARGET_PROPERTIES, hwndrendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -23152,8 +23241,8 @@ pub struct ID2D1Factory2_abi(
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32, strokestyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pathgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, metafilestream: ::windows::runtime::RawPtr, metafile: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, classid: *const ::windows::runtime::GUID, propertyxml: ::windows::runtime::RawPtr, bindings: *const ::core::mem::ManuallyDrop<D2D1_PROPERTY_BINDING>, bindingscount: u32, effectfactory: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -23203,9 +23292,9 @@ impl ID2D1Factory3 {
         let mut result__: <ID2D1GeometryGroup as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(fillmode), ::core::mem::transmute(geometries), ::core::mem::transmute(geometriescount), &mut result__).from_abi::<ID2D1GeometryGroup>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CreateTransformedGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, sourcegeometry: Param0, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<ID2D1TransformedGeometry> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn CreateTransformedGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, sourcegeometry: Param0, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<ID2D1TransformedGeometry> {
         let mut result__: <ID2D1TransformedGeometry as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), sourcegeometry.into_param().abi(), ::core::mem::transmute(transform), &mut result__).from_abi::<ID2D1TransformedGeometry>(result__)
     }
@@ -23219,8 +23308,8 @@ impl ID2D1Factory3 {
         let mut result__: <ID2D1StrokeStyle as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), &mut result__).from_abi::<ID2D1StrokeStyle>(result__)
     }
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateDrawingStateBlock<'a, Param1: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: Param1) -> ::windows::runtime::Result<ID2D1DrawingStateBlock> {
         let mut result__: <ID2D1DrawingStateBlock as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), &mut result__).from_abi::<ID2D1DrawingStateBlock>(result__)
@@ -23265,8 +23354,8 @@ impl ID2D1Factory3 {
         let mut result__: <ID2D1PathGeometry1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ID2D1PathGeometry1>(result__)
     }
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateDrawingStateBlock2<'a, Param1: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: Param1) -> ::windows::runtime::Result<ID2D1DrawingStateBlock1> {
         let mut result__: <ID2D1DrawingStateBlock1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), &mut result__).from_abi::<ID2D1DrawingStateBlock1>(result__)
@@ -23413,12 +23502,12 @@ pub struct ID2D1Factory3_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fillmode: Common::D2D1_FILL_MODE, geometries: *const ::windows::runtime::RawPtr, geometriescount: u32, geometrygroup: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourcegeometry: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F, transformedgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourcegeometry: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2, transformedgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pathgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES, dashes: *const f32, dashescount: u32, strokestyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, target: ::windows::runtime::RawPtr, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, rendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, hwndrendertargetproperties: *const D2D1_HWND_RENDER_TARGET_PROPERTIES, hwndrendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -23431,8 +23520,8 @@ pub struct ID2D1Factory3_abi(
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32, strokestyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pathgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, metafilestream: ::windows::runtime::RawPtr, metafile: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, classid: *const ::windows::runtime::GUID, propertyxml: ::windows::runtime::RawPtr, bindings: *const ::core::mem::ManuallyDrop<D2D1_PROPERTY_BINDING>, bindingscount: u32, effectfactory: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -23484,9 +23573,9 @@ impl ID2D1Factory4 {
         let mut result__: <ID2D1GeometryGroup as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(fillmode), ::core::mem::transmute(geometries), ::core::mem::transmute(geometriescount), &mut result__).from_abi::<ID2D1GeometryGroup>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CreateTransformedGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, sourcegeometry: Param0, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<ID2D1TransformedGeometry> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn CreateTransformedGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, sourcegeometry: Param0, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<ID2D1TransformedGeometry> {
         let mut result__: <ID2D1TransformedGeometry as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), sourcegeometry.into_param().abi(), ::core::mem::transmute(transform), &mut result__).from_abi::<ID2D1TransformedGeometry>(result__)
     }
@@ -23500,8 +23589,8 @@ impl ID2D1Factory4 {
         let mut result__: <ID2D1StrokeStyle as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), &mut result__).from_abi::<ID2D1StrokeStyle>(result__)
     }
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateDrawingStateBlock<'a, Param1: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: Param1) -> ::windows::runtime::Result<ID2D1DrawingStateBlock> {
         let mut result__: <ID2D1DrawingStateBlock as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), &mut result__).from_abi::<ID2D1DrawingStateBlock>(result__)
@@ -23546,8 +23635,8 @@ impl ID2D1Factory4 {
         let mut result__: <ID2D1PathGeometry1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ID2D1PathGeometry1>(result__)
     }
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateDrawingStateBlock2<'a, Param1: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: Param1) -> ::windows::runtime::Result<ID2D1DrawingStateBlock1> {
         let mut result__: <ID2D1DrawingStateBlock1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), &mut result__).from_abi::<ID2D1DrawingStateBlock1>(result__)
@@ -23720,12 +23809,12 @@ pub struct ID2D1Factory4_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fillmode: Common::D2D1_FILL_MODE, geometries: *const ::windows::runtime::RawPtr, geometriescount: u32, geometrygroup: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourcegeometry: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F, transformedgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourcegeometry: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2, transformedgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pathgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES, dashes: *const f32, dashescount: u32, strokestyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, target: ::windows::runtime::RawPtr, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, rendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, hwndrendertargetproperties: *const D2D1_HWND_RENDER_TARGET_PROPERTIES, hwndrendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -23738,8 +23827,8 @@ pub struct ID2D1Factory4_abi(
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32, strokestyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pathgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, metafilestream: ::windows::runtime::RawPtr, metafile: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, classid: *const ::windows::runtime::GUID, propertyxml: ::windows::runtime::RawPtr, bindings: *const ::core::mem::ManuallyDrop<D2D1_PROPERTY_BINDING>, bindingscount: u32, effectfactory: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -23793,9 +23882,9 @@ impl ID2D1Factory5 {
         let mut result__: <ID2D1GeometryGroup as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(fillmode), ::core::mem::transmute(geometries), ::core::mem::transmute(geometriescount), &mut result__).from_abi::<ID2D1GeometryGroup>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CreateTransformedGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, sourcegeometry: Param0, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<ID2D1TransformedGeometry> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn CreateTransformedGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, sourcegeometry: Param0, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<ID2D1TransformedGeometry> {
         let mut result__: <ID2D1TransformedGeometry as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), sourcegeometry.into_param().abi(), ::core::mem::transmute(transform), &mut result__).from_abi::<ID2D1TransformedGeometry>(result__)
     }
@@ -23809,8 +23898,8 @@ impl ID2D1Factory5 {
         let mut result__: <ID2D1StrokeStyle as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), &mut result__).from_abi::<ID2D1StrokeStyle>(result__)
     }
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateDrawingStateBlock<'a, Param1: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: Param1) -> ::windows::runtime::Result<ID2D1DrawingStateBlock> {
         let mut result__: <ID2D1DrawingStateBlock as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), &mut result__).from_abi::<ID2D1DrawingStateBlock>(result__)
@@ -23855,8 +23944,8 @@ impl ID2D1Factory5 {
         let mut result__: <ID2D1PathGeometry1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ID2D1PathGeometry1>(result__)
     }
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateDrawingStateBlock2<'a, Param1: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: Param1) -> ::windows::runtime::Result<ID2D1DrawingStateBlock1> {
         let mut result__: <ID2D1DrawingStateBlock1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), &mut result__).from_abi::<ID2D1DrawingStateBlock1>(result__)
@@ -24055,12 +24144,12 @@ pub struct ID2D1Factory5_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fillmode: Common::D2D1_FILL_MODE, geometries: *const ::windows::runtime::RawPtr, geometriescount: u32, geometrygroup: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourcegeometry: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F, transformedgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourcegeometry: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2, transformedgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pathgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES, dashes: *const f32, dashescount: u32, strokestyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, target: ::windows::runtime::RawPtr, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, rendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, hwndrendertargetproperties: *const D2D1_HWND_RENDER_TARGET_PROPERTIES, hwndrendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -24073,8 +24162,8 @@ pub struct ID2D1Factory5_abi(
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32, strokestyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pathgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, metafilestream: ::windows::runtime::RawPtr, metafile: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, classid: *const ::windows::runtime::GUID, propertyxml: ::windows::runtime::RawPtr, bindings: *const ::core::mem::ManuallyDrop<D2D1_PROPERTY_BINDING>, bindingscount: u32, effectfactory: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -24130,9 +24219,9 @@ impl ID2D1Factory6 {
         let mut result__: <ID2D1GeometryGroup as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(fillmode), ::core::mem::transmute(geometries), ::core::mem::transmute(geometriescount), &mut result__).from_abi::<ID2D1GeometryGroup>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CreateTransformedGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, sourcegeometry: Param0, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<ID2D1TransformedGeometry> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn CreateTransformedGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, sourcegeometry: Param0, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<ID2D1TransformedGeometry> {
         let mut result__: <ID2D1TransformedGeometry as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), sourcegeometry.into_param().abi(), ::core::mem::transmute(transform), &mut result__).from_abi::<ID2D1TransformedGeometry>(result__)
     }
@@ -24146,8 +24235,8 @@ impl ID2D1Factory6 {
         let mut result__: <ID2D1StrokeStyle as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), &mut result__).from_abi::<ID2D1StrokeStyle>(result__)
     }
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateDrawingStateBlock<'a, Param1: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: Param1) -> ::windows::runtime::Result<ID2D1DrawingStateBlock> {
         let mut result__: <ID2D1DrawingStateBlock as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), &mut result__).from_abi::<ID2D1DrawingStateBlock>(result__)
@@ -24192,8 +24281,8 @@ impl ID2D1Factory6 {
         let mut result__: <ID2D1PathGeometry1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ID2D1PathGeometry1>(result__)
     }
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateDrawingStateBlock2<'a, Param1: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: Param1) -> ::windows::runtime::Result<ID2D1DrawingStateBlock1> {
         let mut result__: <ID2D1DrawingStateBlock1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), &mut result__).from_abi::<ID2D1DrawingStateBlock1>(result__)
@@ -24418,12 +24507,12 @@ pub struct ID2D1Factory6_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fillmode: Common::D2D1_FILL_MODE, geometries: *const ::windows::runtime::RawPtr, geometriescount: u32, geometrygroup: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourcegeometry: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F, transformedgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourcegeometry: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2, transformedgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pathgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES, dashes: *const f32, dashescount: u32, strokestyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, target: ::windows::runtime::RawPtr, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, rendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, hwndrendertargetproperties: *const D2D1_HWND_RENDER_TARGET_PROPERTIES, hwndrendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -24436,8 +24525,8 @@ pub struct ID2D1Factory6_abi(
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32, strokestyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pathgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, metafilestream: ::windows::runtime::RawPtr, metafile: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, classid: *const ::windows::runtime::GUID, propertyxml: ::windows::runtime::RawPtr, bindings: *const ::core::mem::ManuallyDrop<D2D1_PROPERTY_BINDING>, bindingscount: u32, effectfactory: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -24495,9 +24584,9 @@ impl ID2D1Factory7 {
         let mut result__: <ID2D1GeometryGroup as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(fillmode), ::core::mem::transmute(geometries), ::core::mem::transmute(geometriescount), &mut result__).from_abi::<ID2D1GeometryGroup>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CreateTransformedGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, sourcegeometry: Param0, transform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<ID2D1TransformedGeometry> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn CreateTransformedGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, sourcegeometry: Param0, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<ID2D1TransformedGeometry> {
         let mut result__: <ID2D1TransformedGeometry as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), sourcegeometry.into_param().abi(), ::core::mem::transmute(transform), &mut result__).from_abi::<ID2D1TransformedGeometry>(result__)
     }
@@ -24511,8 +24600,8 @@ impl ID2D1Factory7 {
         let mut result__: <ID2D1StrokeStyle as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), &mut result__).from_abi::<ID2D1StrokeStyle>(result__)
     }
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateDrawingStateBlock<'a, Param1: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: Param1) -> ::windows::runtime::Result<ID2D1DrawingStateBlock> {
         let mut result__: <ID2D1DrawingStateBlock as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), &mut result__).from_abi::<ID2D1DrawingStateBlock>(result__)
@@ -24557,8 +24646,8 @@ impl ID2D1Factory7 {
         let mut result__: <ID2D1PathGeometry1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ID2D1PathGeometry1>(result__)
     }
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateDrawingStateBlock2<'a, Param1: ::windows::runtime::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: Param1) -> ::windows::runtime::Result<ID2D1DrawingStateBlock1> {
         let mut result__: <ID2D1DrawingStateBlock1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), &mut result__).from_abi::<ID2D1DrawingStateBlock1>(result__)
@@ -24809,12 +24898,12 @@ pub struct ID2D1Factory7_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fillmode: Common::D2D1_FILL_MODE, geometries: *const ::windows::runtime::RawPtr, geometriescount: u32, geometrygroup: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourcegeometry: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F, transformedgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourcegeometry: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2, transformedgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pathgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES, dashes: *const f32, dashescount: u32, strokestyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, target: ::windows::runtime::RawPtr, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, rendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, hwndrendertargetproperties: *const D2D1_HWND_RENDER_TARGET_PROPERTIES, hwndrendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -24827,8 +24916,8 @@ pub struct ID2D1Factory7_abi(
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32, strokestyle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pathgeometry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: ::windows::runtime::RawPtr, drawingstateblock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, metafilestream: ::windows::runtime::RawPtr, metafile: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, classid: *const ::windows::runtime::GUID, propertyxml: ::windows::runtime::RawPtr, bindings: *const ::core::mem::ManuallyDrop<D2D1_PROPERTY_BINDING>, bindingscount: u32, effectfactory: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -25204,76 +25293,76 @@ impl ID2D1Geometry {
     pub unsafe fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(factory)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetBounds(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn GetBounds(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
         let mut result__: <Common::D2D_RECT_F as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), &mut result__).from_abi::<Common::D2D_RECT_F>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetWidenedBounds<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn GetWidenedBounds<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
         let mut result__: <Common::D2D_RECT_F as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<Common::D2D_RECT_F>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn StrokeContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, point: Param0, strokewidth: f32, strokestyle: Param2, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn StrokeContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, point: Param0, strokewidth: f32, strokestyle: Param2, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), point.into_param().abi(), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn FillContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(&self, point: Param0, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn FillContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(&self, point: Param0, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), point.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CompareWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, inputgeometry: Param0, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<D2D1_GEOMETRY_RELATION> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn CompareWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, inputgeometry: Param0, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<D2D1_GEOMETRY_RELATION> {
         let mut result__: <D2D1_GEOMETRY_RELATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), inputgeometry.into_param().abi(), ::core::mem::transmute(inputgeometrytransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<D2D1_GEOMETRY_RELATION>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Simplify<'a, Param3: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param3) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Simplify<'a, Param3: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(simplificationoption), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Tessellate<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1TessellationSink>>(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, tessellationsink: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn Tessellate<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1TessellationSink>>(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, tessellationsink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), tessellationsink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CombineWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, inputgeometry: Param0, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn CombineWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, inputgeometry: Param0, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), inputgeometry.into_param().abi(), ::core::mem::transmute(combinemode), ::core::mem::transmute(inputgeometrytransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Outline<'a, Param2: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Outline<'a, Param2: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputeArea(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn ComputeArea(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<f32>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputeLength(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn ComputeLength(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<f32>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputePointAtLength(&self, length: f32, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn ComputePointAtLength(&self, length: f32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(length), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), ::core::mem::transmute(point), ::core::mem::transmute(unittangentvector)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Widen<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Widen<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
 }
@@ -25328,32 +25417,32 @@ pub struct ID2D1Geometry_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: *mut ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, tessellationsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, area: *mut f32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, length: *mut f32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: f32, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, tessellationsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, area: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, length: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: f32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
@@ -25364,76 +25453,76 @@ impl ID2D1GeometryGroup {
     pub unsafe fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(factory)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetBounds(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn GetBounds(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
         let mut result__: <Common::D2D_RECT_F as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), &mut result__).from_abi::<Common::D2D_RECT_F>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetWidenedBounds<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn GetWidenedBounds<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
         let mut result__: <Common::D2D_RECT_F as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<Common::D2D_RECT_F>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn StrokeContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, point: Param0, strokewidth: f32, strokestyle: Param2, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn StrokeContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, point: Param0, strokewidth: f32, strokestyle: Param2, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), point.into_param().abi(), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn FillContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(&self, point: Param0, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn FillContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(&self, point: Param0, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), point.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CompareWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, inputgeometry: Param0, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<D2D1_GEOMETRY_RELATION> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn CompareWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, inputgeometry: Param0, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<D2D1_GEOMETRY_RELATION> {
         let mut result__: <D2D1_GEOMETRY_RELATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), inputgeometry.into_param().abi(), ::core::mem::transmute(inputgeometrytransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<D2D1_GEOMETRY_RELATION>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Simplify<'a, Param3: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param3) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Simplify<'a, Param3: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(simplificationoption), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Tessellate<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1TessellationSink>>(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, tessellationsink: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn Tessellate<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1TessellationSink>>(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, tessellationsink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), tessellationsink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CombineWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, inputgeometry: Param0, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn CombineWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, inputgeometry: Param0, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), inputgeometry.into_param().abi(), ::core::mem::transmute(combinemode), ::core::mem::transmute(inputgeometrytransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Outline<'a, Param2: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Outline<'a, Param2: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputeArea(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn ComputeArea(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<f32>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputeLength(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn ComputeLength(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<f32>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputePointAtLength(&self, length: f32, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn ComputePointAtLength(&self, length: f32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(length), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), ::core::mem::transmute(point), ::core::mem::transmute(unittangentvector)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Widen<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Widen<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -25521,32 +25610,32 @@ pub struct ID2D1GeometryGroup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: *mut ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, tessellationsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, area: *mut f32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, length: *mut f32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: f32, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, tessellationsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, area: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, length: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: f32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> Common::D2D1_FILL_MODE,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
@@ -26072,14 +26161,14 @@ impl ID2D1HwndRenderTarget {
     pub unsafe fn CreateSharedBitmap(&self, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::core::option::Option<ID2D1Bitmap>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(data), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(bitmap)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateBitmapBrush<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1BitmapBrush> {
         let mut result__: <ID2D1BitmapBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1BitmapBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateSolidColorBrush(&self, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1SolidColorBrush> {
         let mut result__: <ID2D1SolidColorBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(color), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1SolidColorBrush>(result__)
@@ -26090,14 +26179,14 @@ impl ID2D1HwndRenderTarget {
         let mut result__: <ID2D1GradientStopCollection as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(gradientstops), ::core::mem::transmute(gradientstopscount), ::core::mem::transmute(colorinterpolationgamma), ::core::mem::transmute(extendmode), &mut result__).from_abi::<ID2D1GradientStopCollection>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateLinearGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1LinearGradientBrush> {
         let mut result__: <ID2D1LinearGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lineargradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1LinearGradientBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateRadialGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1RadialGradientBrush> {
         let mut result__: <ID2D1RadialGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(radialgradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1RadialGradientBrush>(result__)
@@ -26200,14 +26289,14 @@ impl ID2D1HwndRenderTarget {
     pub unsafe fn DrawGlyphRun<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1Brush>>(&self, baselineorigin: Param0, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, foregroundbrush: Param2, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -26244,8 +26333,8 @@ impl ID2D1HwndRenderTarget {
     pub unsafe fn GetTags(&self, tag1: *mut u64, tag2: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(tag1), ::core::mem::transmute(tag2)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS, layer: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi()))
     }
@@ -26417,16 +26506,16 @@ pub struct ID2D1HwndRenderTarget_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gradientstops: *const D2D1_GRADIENT_STOP, gradientstopscount: u32, colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE, gradientstopcollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desiredsize: *const Common::D2D_SIZE_F, desiredpixelsize: *const Common::D2D_SIZE_U, desiredformat: *const Common::D2D1_PIXEL_FORMAT, options: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS, bitmaprendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, size: *const Common::D2D_SIZE_F, layer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -26459,10 +26548,10 @@ pub struct ID2D1HwndRenderTarget_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, foregroundbrush: ::windows::runtime::RawPtr, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, antialiasmode: D2D1_ANTIALIAS_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> D2D1_ANTIALIAS_MODE,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE),
@@ -26473,8 +26562,8 @@ pub struct ID2D1HwndRenderTarget_abi(
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: u64, tag2: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstateblock: ::windows::runtime::RawPtr),
@@ -26578,18 +26667,18 @@ impl ID2D1ImageBrush {
     pub unsafe fn SetOpacity(&self, opacity: f32) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetOpacity(&self) -> f32 {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -26707,11 +26796,11 @@ pub struct ID2D1ImageBrush_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: *mut ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, opacity: f32),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> f32,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, image: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, extendmodex: D2D1_EXTEND_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, extendmodey: D2D1_EXTEND_MODE),
@@ -26999,14 +27088,14 @@ impl ID2D1Ink {
     pub unsafe fn GetSegments(&self, startsegment: u32, segments: *mut D2D1_INK_BEZIER_SEGMENT, segmentscount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(startsegment), ::core::mem::transmute(segments), ::core::mem::transmute(segmentscount)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn StreamAsGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1InkStyle>, Param3: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, inkstyle: Param0, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param3) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn StreamAsGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1InkStyle>, Param3: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, inkstyle: Param0, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), inkstyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetBounds<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1InkStyle>>(&self, inkstyle: Param0, worldtransform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn GetBounds<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1InkStyle>>(&self, inkstyle: Param0, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
         let mut result__: <Common::D2D_RECT_F as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), inkstyle.into_param().abi(), ::core::mem::transmute(worldtransform), &mut result__).from_abi::<Common::D2D_RECT_F>(result__)
     }
@@ -27070,10 +27159,10 @@ pub struct ID2D1Ink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, segment: *const D2D1_INK_BEZIER_SEGMENT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startsegment: u32, segments: *mut D2D1_INK_BEZIER_SEGMENT, segmentscount: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inkstyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inkstyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inkstyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inkstyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
@@ -27084,14 +27173,14 @@ impl ID2D1InkStyle {
     pub unsafe fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(factory)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetNibTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetNibTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetNibTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetNibTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -27154,10 +27243,10 @@ pub struct ID2D1InkStyle_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: *mut ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nibshape: D2D1_INK_NIB_SHAPE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> D2D1_INK_NIB_SHAPE,
 );
@@ -27245,18 +27334,18 @@ impl ID2D1LinearGradientBrush {
     pub unsafe fn SetOpacity(&self, opacity: f32) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetOpacity(&self) -> f32 {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -27360,11 +27449,11 @@ pub struct ID2D1LinearGradientBrush_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: *mut ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, opacity: f32),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> f32,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startpoint: Common::D2D_POINT_2F),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, endpoint: Common::D2D_POINT_2F),
@@ -27646,76 +27735,76 @@ impl ID2D1PathGeometry {
     pub unsafe fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(factory)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetBounds(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn GetBounds(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
         let mut result__: <Common::D2D_RECT_F as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), &mut result__).from_abi::<Common::D2D_RECT_F>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetWidenedBounds<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn GetWidenedBounds<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
         let mut result__: <Common::D2D_RECT_F as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<Common::D2D_RECT_F>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn StrokeContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, point: Param0, strokewidth: f32, strokestyle: Param2, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn StrokeContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, point: Param0, strokewidth: f32, strokestyle: Param2, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), point.into_param().abi(), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn FillContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(&self, point: Param0, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn FillContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(&self, point: Param0, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), point.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CompareWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, inputgeometry: Param0, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<D2D1_GEOMETRY_RELATION> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn CompareWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, inputgeometry: Param0, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<D2D1_GEOMETRY_RELATION> {
         let mut result__: <D2D1_GEOMETRY_RELATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), inputgeometry.into_param().abi(), ::core::mem::transmute(inputgeometrytransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<D2D1_GEOMETRY_RELATION>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Simplify<'a, Param3: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param3) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Simplify<'a, Param3: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(simplificationoption), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Tessellate<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1TessellationSink>>(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, tessellationsink: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn Tessellate<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1TessellationSink>>(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, tessellationsink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), tessellationsink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CombineWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, inputgeometry: Param0, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn CombineWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, inputgeometry: Param0, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), inputgeometry.into_param().abi(), ::core::mem::transmute(combinemode), ::core::mem::transmute(inputgeometrytransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Outline<'a, Param2: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Outline<'a, Param2: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputeArea(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn ComputeArea(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<f32>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputeLength(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn ComputeLength(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<f32>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputePointAtLength(&self, length: f32, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn ComputePointAtLength(&self, length: f32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(length), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), ::core::mem::transmute(point), ::core::mem::transmute(unittangentvector)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Widen<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Widen<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -27809,32 +27898,32 @@ pub struct ID2D1PathGeometry_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: *mut ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, tessellationsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, area: *mut f32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, length: *mut f32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: f32, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, tessellationsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, area: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, length: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: f32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, geometrysink: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32) -> ::windows::runtime::HRESULT,
@@ -27849,76 +27938,76 @@ impl ID2D1PathGeometry1 {
     pub unsafe fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(factory)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetBounds(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn GetBounds(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
         let mut result__: <Common::D2D_RECT_F as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), &mut result__).from_abi::<Common::D2D_RECT_F>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetWidenedBounds<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn GetWidenedBounds<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
         let mut result__: <Common::D2D_RECT_F as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<Common::D2D_RECT_F>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn StrokeContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, point: Param0, strokewidth: f32, strokestyle: Param2, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn StrokeContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, point: Param0, strokewidth: f32, strokestyle: Param2, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), point.into_param().abi(), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn FillContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(&self, point: Param0, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn FillContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(&self, point: Param0, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), point.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CompareWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, inputgeometry: Param0, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<D2D1_GEOMETRY_RELATION> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn CompareWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, inputgeometry: Param0, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<D2D1_GEOMETRY_RELATION> {
         let mut result__: <D2D1_GEOMETRY_RELATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), inputgeometry.into_param().abi(), ::core::mem::transmute(inputgeometrytransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<D2D1_GEOMETRY_RELATION>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Simplify<'a, Param3: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param3) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Simplify<'a, Param3: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(simplificationoption), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Tessellate<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1TessellationSink>>(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, tessellationsink: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn Tessellate<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1TessellationSink>>(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, tessellationsink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), tessellationsink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CombineWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, inputgeometry: Param0, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn CombineWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, inputgeometry: Param0, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), inputgeometry.into_param().abi(), ::core::mem::transmute(combinemode), ::core::mem::transmute(inputgeometrytransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Outline<'a, Param2: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Outline<'a, Param2: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputeArea(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn ComputeArea(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<f32>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputeLength(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn ComputeLength(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<f32>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputePointAtLength(&self, length: f32, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn ComputePointAtLength(&self, length: f32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(length), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), ::core::mem::transmute(point), ::core::mem::transmute(unittangentvector)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Widen<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Widen<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -27940,9 +28029,9 @@ impl ID2D1PathGeometry1 {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputePointAndSegmentAtLength(&self, length: f32, startsegment: u32, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<D2D1_POINT_DESCRIPTION> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn ComputePointAndSegmentAtLength(&self, length: f32, startsegment: u32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<D2D1_POINT_DESCRIPTION> {
         let mut result__: <D2D1_POINT_DESCRIPTION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(length), ::core::mem::transmute(startsegment), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<D2D1_POINT_DESCRIPTION>(result__)
     }
@@ -28038,38 +28127,38 @@ pub struct ID2D1PathGeometry1_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: *mut ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, tessellationsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, area: *mut f32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, length: *mut f32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: f32, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, tessellationsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, area: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, length: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: f32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, geometrysink: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: f32, startsegment: u32, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, pointdescription: *mut D2D1_POINT_DESCRIPTION) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: f32, startsegment: u32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, pointdescription: *mut D2D1_POINT_DESCRIPTION) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
@@ -28234,18 +28323,18 @@ impl ID2D1RadialGradientBrush {
     pub unsafe fn SetOpacity(&self, opacity: f32) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetOpacity(&self) -> f32 {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -28365,11 +28454,11 @@ pub struct ID2D1RadialGradientBrush_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: *mut ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, opacity: f32),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> f32,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, center: Common::D2D_POINT_2F),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gradientoriginoffset: Common::D2D_POINT_2F),
@@ -28393,76 +28482,76 @@ impl ID2D1RectangleGeometry {
     pub unsafe fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(factory)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetBounds(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn GetBounds(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
         let mut result__: <Common::D2D_RECT_F as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), &mut result__).from_abi::<Common::D2D_RECT_F>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetWidenedBounds<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn GetWidenedBounds<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
         let mut result__: <Common::D2D_RECT_F as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<Common::D2D_RECT_F>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn StrokeContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, point: Param0, strokewidth: f32, strokestyle: Param2, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn StrokeContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, point: Param0, strokewidth: f32, strokestyle: Param2, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), point.into_param().abi(), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn FillContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(&self, point: Param0, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn FillContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(&self, point: Param0, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), point.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CompareWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, inputgeometry: Param0, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<D2D1_GEOMETRY_RELATION> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn CompareWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, inputgeometry: Param0, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<D2D1_GEOMETRY_RELATION> {
         let mut result__: <D2D1_GEOMETRY_RELATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), inputgeometry.into_param().abi(), ::core::mem::transmute(inputgeometrytransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<D2D1_GEOMETRY_RELATION>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Simplify<'a, Param3: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param3) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Simplify<'a, Param3: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(simplificationoption), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Tessellate<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1TessellationSink>>(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, tessellationsink: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn Tessellate<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1TessellationSink>>(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, tessellationsink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), tessellationsink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CombineWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, inputgeometry: Param0, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn CombineWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, inputgeometry: Param0, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), inputgeometry.into_param().abi(), ::core::mem::transmute(combinemode), ::core::mem::transmute(inputgeometrytransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Outline<'a, Param2: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Outline<'a, Param2: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputeArea(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn ComputeArea(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<f32>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputeLength(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn ComputeLength(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<f32>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputePointAtLength(&self, length: f32, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn ComputePointAtLength(&self, length: f32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(length), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), ::core::mem::transmute(point), ::core::mem::transmute(unittangentvector)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Widen<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Widen<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -28542,32 +28631,32 @@ pub struct ID2D1RectangleGeometry_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: *mut ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, tessellationsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, area: *mut f32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, length: *mut f32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: f32, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, tessellationsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, area: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, length: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: f32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rect: *mut Common::D2D_RECT_F),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
@@ -28656,14 +28745,14 @@ impl ID2D1RenderTarget {
     pub unsafe fn CreateSharedBitmap(&self, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::core::option::Option<ID2D1Bitmap>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(data), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(bitmap)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     pub unsafe fn CreateBitmapBrush<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1BitmapBrush> {
         let mut result__: <ID2D1BitmapBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1BitmapBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateSolidColorBrush(&self, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::runtime::Result<ID2D1SolidColorBrush> {
         let mut result__: <ID2D1SolidColorBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(color), ::core::mem::transmute(brushproperties), &mut result__).from_abi::<ID2D1SolidColorBrush>(result__)
@@ -28674,14 +28763,14 @@ impl ID2D1RenderTarget {
         let mut result__: <ID2D1GradientStopCollection as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(gradientstops), ::core::mem::transmute(gradientstopscount), ::core::mem::transmute(colorinterpolationgamma), ::core::mem::transmute(extendmode), &mut result__).from_abi::<ID2D1GradientStopCollection>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateLinearGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1LinearGradientBrush> {
         let mut result__: <ID2D1LinearGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lineargradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1LinearGradientBrush>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn CreateRadialGradientBrush<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection>>(&self, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: Param2) -> ::windows::runtime::Result<ID2D1RadialGradientBrush> {
         let mut result__: <ID2D1RadialGradientBrush as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(radialgradientbrushproperties), ::core::mem::transmute(brushproperties), gradientstopcollection.into_param().abi(), &mut result__).from_abi::<ID2D1RadialGradientBrush>(result__)
@@ -28784,14 +28873,14 @@ impl ID2D1RenderTarget {
     pub unsafe fn DrawGlyphRun<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1Brush>>(&self, baselineorigin: Param0, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, foregroundbrush: Param2, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -28828,8 +28917,8 @@ impl ID2D1RenderTarget {
     pub unsafe fn GetTags(&self, tag1: *mut u64, tag2: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(tag1), ::core::mem::transmute(tag2)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn PushLayer<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS, layer: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi()))
     }
@@ -28967,16 +29056,16 @@ pub struct ID2D1RenderTarget_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gradientstops: *const D2D1_GRADIENT_STOP, gradientstopscount: u32, colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE, gradientstopcollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, lineargradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::windows::runtime::RawPtr, radialgradientbrush: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desiredsize: *const Common::D2D_SIZE_F, desiredpixelsize: *const Common::D2D_SIZE_U, desiredformat: *const Common::D2D1_PIXEL_FORMAT, options: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS, bitmaprendertarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, size: *const Common::D2D_SIZE_F, layer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -29009,10 +29098,10 @@ pub struct ID2D1RenderTarget_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, foregroundbrush: ::windows::runtime::RawPtr, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, antialiasmode: D2D1_ANTIALIAS_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> D2D1_ANTIALIAS_MODE,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE),
@@ -29023,8 +29112,8 @@ pub struct ID2D1RenderTarget_abi(
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: u64, tag2: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: ::windows::runtime::RawPtr),
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag1: *mut u64, tag2: *mut u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingstateblock: ::windows::runtime::RawPtr),
@@ -29141,76 +29230,76 @@ impl ID2D1RoundedRectangleGeometry {
     pub unsafe fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(factory)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetBounds(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn GetBounds(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
         let mut result__: <Common::D2D_RECT_F as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), &mut result__).from_abi::<Common::D2D_RECT_F>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetWidenedBounds<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn GetWidenedBounds<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
         let mut result__: <Common::D2D_RECT_F as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<Common::D2D_RECT_F>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn StrokeContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, point: Param0, strokewidth: f32, strokestyle: Param2, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn StrokeContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, point: Param0, strokewidth: f32, strokestyle: Param2, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), point.into_param().abi(), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn FillContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(&self, point: Param0, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn FillContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(&self, point: Param0, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), point.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CompareWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, inputgeometry: Param0, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<D2D1_GEOMETRY_RELATION> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn CompareWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, inputgeometry: Param0, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<D2D1_GEOMETRY_RELATION> {
         let mut result__: <D2D1_GEOMETRY_RELATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), inputgeometry.into_param().abi(), ::core::mem::transmute(inputgeometrytransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<D2D1_GEOMETRY_RELATION>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Simplify<'a, Param3: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param3) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Simplify<'a, Param3: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(simplificationoption), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Tessellate<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1TessellationSink>>(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, tessellationsink: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn Tessellate<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1TessellationSink>>(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, tessellationsink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), tessellationsink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CombineWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, inputgeometry: Param0, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn CombineWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, inputgeometry: Param0, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), inputgeometry.into_param().abi(), ::core::mem::transmute(combinemode), ::core::mem::transmute(inputgeometrytransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Outline<'a, Param2: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Outline<'a, Param2: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputeArea(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn ComputeArea(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<f32>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputeLength(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn ComputeLength(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<f32>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputePointAtLength(&self, length: f32, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn ComputePointAtLength(&self, length: f32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(length), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), ::core::mem::transmute(point), ::core::mem::transmute(unittangentvector)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Widen<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Widen<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -29290,32 +29379,32 @@ pub struct ID2D1RoundedRectangleGeometry_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: *mut ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, tessellationsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, area: *mut f32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, length: *mut f32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: f32, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, tessellationsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, area: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, length: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: f32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, roundedrect: *mut D2D1_ROUNDED_RECT),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
@@ -29332,18 +29421,18 @@ impl ID2D1SolidColorBrush {
     pub unsafe fn SetOpacity(&self, opacity: f32) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform(&self, transform: *const Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetOpacity(&self) -> f32 {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -29431,11 +29520,11 @@ pub struct ID2D1SolidColorBrush_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: *mut ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, opacity: f32),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> f32,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const Common::D2D1_COLOR_F),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Common::D2D1_COLOR_F),
@@ -29566,9 +29655,9 @@ impl ID2D1SpriteBatch {
     pub unsafe fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(factory)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn AddSprites(&self, spritecount: u32, destinationrectangles: *const Common::D2D_RECT_F, sourcerectangles: *const Common::D2D_RECT_U, colors: *const Common::D2D1_COLOR_F, transforms: *const Common::D2D_MATRIX_3X2_F, destinationrectanglesstride: u32, sourcerectanglesstride: u32, colorsstride: u32, transformsstride: u32) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn AddSprites(&self, spritecount: u32, destinationrectangles: *const Common::D2D_RECT_F, sourcerectangles: *const Common::D2D_RECT_U, colors: *const Common::D2D1_COLOR_F, transforms: *const super::super::super::Foundation::Numerics::Matrix3x2, destinationrectanglesstride: u32, sourcerectanglesstride: u32, colorsstride: u32, transformsstride: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(spritecount),
@@ -29583,9 +29672,9 @@ impl ID2D1SpriteBatch {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetSprites(&self, startindex: u32, spritecount: u32, destinationrectangles: *const Common::D2D_RECT_F, sourcerectangles: *const Common::D2D_RECT_U, colors: *const Common::D2D1_COLOR_F, transforms: *const Common::D2D_MATRIX_3X2_F, destinationrectanglesstride: u32, sourcerectanglesstride: u32, colorsstride: u32, transformsstride: u32) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetSprites(&self, startindex: u32, spritecount: u32, destinationrectangles: *const Common::D2D_RECT_F, sourcerectangles: *const Common::D2D_RECT_U, colors: *const Common::D2D1_COLOR_F, transforms: *const super::super::super::Foundation::Numerics::Matrix3x2, destinationrectanglesstride: u32, sourcerectanglesstride: u32, colorsstride: u32, transformsstride: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(startindex),
@@ -29601,9 +29690,9 @@ impl ID2D1SpriteBatch {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetSprites(&self, startindex: u32, spritecount: u32, destinationrectangles: *mut Common::D2D_RECT_F, sourcerectangles: *mut Common::D2D_RECT_U, colors: *mut Common::D2D1_COLOR_F, transforms: *mut Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn GetSprites(&self, startindex: u32, spritecount: u32, destinationrectangles: *mut Common::D2D_RECT_F, sourcerectangles: *mut Common::D2D_RECT_U, colors: *mut Common::D2D1_COLOR_F, transforms: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(startindex), ::core::mem::transmute(spritecount), ::core::mem::transmute(destinationrectangles), ::core::mem::transmute(sourcerectangles), ::core::mem::transmute(colors), ::core::mem::transmute(transforms)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
@@ -29666,12 +29755,14 @@ pub struct ID2D1SpriteBatch_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: *mut ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, spritecount: u32, destinationrectangles: *const Common::D2D_RECT_F, sourcerectangles: *const Common::D2D_RECT_U, colors: *const Common::D2D1_COLOR_F, transforms: *const Common::D2D_MATRIX_3X2_F, destinationrectanglesstride: u32, sourcerectanglesstride: u32, colorsstride: u32, transformsstride: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startindex: u32, spritecount: u32, destinationrectangles: *const Common::D2D_RECT_F, sourcerectangles: *const Common::D2D_RECT_U, colors: *const Common::D2D1_COLOR_F, transforms: *const Common::D2D_MATRIX_3X2_F, destinationrectanglesstride: u32, sourcerectanglesstride: u32, colorsstride: u32, transformsstride: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startindex: u32, spritecount: u32, destinationrectangles: *mut Common::D2D_RECT_F, sourcerectangles: *mut Common::D2D_RECT_U, colors: *mut Common::D2D1_COLOR_F, transforms: *mut Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, spritecount: u32, destinationrectangles: *const Common::D2D_RECT_F, sourcerectangles: *const Common::D2D_RECT_U, colors: *const Common::D2D1_COLOR_F, transforms: *const super::super::super::Foundation::Numerics::Matrix3x2, destinationrectanglesstride: u32, sourcerectanglesstride: u32, colorsstride: u32, transformsstride: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startindex: u32, spritecount: u32, destinationrectangles: *const Common::D2D_RECT_F, sourcerectangles: *const Common::D2D_RECT_U, colors: *const Common::D2D1_COLOR_F, transforms: *const super::super::super::Foundation::Numerics::Matrix3x2, destinationrectanglesstride: u32, sourcerectanglesstride: u32, colorsstride: u32, transformsstride: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startindex: u32, spritecount: u32, destinationrectangles: *mut Common::D2D_RECT_F, sourcerectangles: *mut Common::D2D_RECT_U, colors: *mut Common::D2D1_COLOR_F, transforms: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
 );
@@ -31246,85 +31337,85 @@ impl ID2D1TransformedGeometry {
     pub unsafe fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(factory)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetBounds(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn GetBounds(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
         let mut result__: <Common::D2D_RECT_F as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), &mut result__).from_abi::<Common::D2D_RECT_F>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetWidenedBounds<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn GetWidenedBounds<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<Common::D2D_RECT_F> {
         let mut result__: <Common::D2D_RECT_F as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<Common::D2D_RECT_F>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn StrokeContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, point: Param0, strokewidth: f32, strokestyle: Param2, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn StrokeContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>, Param2: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>>(&self, point: Param0, strokewidth: f32, strokestyle: Param2, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), point.into_param().abi(), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn FillContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(&self, point: Param0, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn FillContainsPoint<'a, Param0: ::windows::runtime::IntoParam<'a, Common::D2D_POINT_2F>>(&self, point: Param0, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), point.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CompareWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, inputgeometry: Param0, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<D2D1_GEOMETRY_RELATION> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn CompareWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>>(&self, inputgeometry: Param0, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<D2D1_GEOMETRY_RELATION> {
         let mut result__: <D2D1_GEOMETRY_RELATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), inputgeometry.into_param().abi(), ::core::mem::transmute(inputgeometrytransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<D2D1_GEOMETRY_RELATION>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Simplify<'a, Param3: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param3) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Simplify<'a, Param3: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(simplificationoption), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Tessellate<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1TessellationSink>>(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, tessellationsink: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn Tessellate<'a, Param2: ::windows::runtime::IntoParam<'a, ID2D1TessellationSink>>(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, tessellationsink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), tessellationsink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn CombineWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, inputgeometry: Param0, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn CombineWithGeometry<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1Geometry>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, inputgeometry: Param0, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), inputgeometry.into_param().abi(), ::core::mem::transmute(combinemode), ::core::mem::transmute(inputgeometrytransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Outline<'a, Param2: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Outline<'a, Param2: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputeArea(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn ComputeArea(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<f32>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputeLength(&self, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn ComputeLength(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), &mut result__).from_abi::<f32>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn ComputePointAtLength(&self, length: f32, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn ComputePointAtLength(&self, length: f32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(length), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), ::core::mem::transmute(point), ::core::mem::transmute(unittangentvector)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Widen<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn Widen<'a, Param1: ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle>, Param4: ::windows::runtime::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink>>(&self, strokewidth: f32, strokestyle: Param1, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokewidth), strokestyle.into_param().abi(), ::core::mem::transmute(worldtransform), ::core::mem::transmute(flatteningtolerance), geometrysink.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetSourceGeometry(&self, sourcegeometry: *mut ::core::option::Option<ID2D1Geometry>) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(sourcegeometry)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn GetTransform(&self, transform: *mut Common::D2D_MATRIX_3X2_F) {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    pub unsafe fn GetTransform(&self, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)))
     }
 }
@@ -31399,35 +31490,35 @@ pub struct ID2D1TransformedGeometry_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: *mut ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, tessellationsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, area: *mut f32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, length: *mut f32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: f32, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const Common::D2D_MATRIX_3X2_F, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, bounds: *mut Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, point: Common::D2D_POINT_2F, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, tessellationsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputgeometry: ::windows::runtime::RawPtr, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, area: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, length: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: f32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strokewidth: f32, strokestyle: ::windows::runtime::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourcegeometry: *mut ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut Common::D2D_MATRIX_3X2_F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]

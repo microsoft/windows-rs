@@ -12,7 +12,7 @@ impl HostMessageReceivedCallback {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Security_Isolation`, `Foundation_Collections`*"]
@@ -71,7 +71,7 @@ impl<F: FnMut(&::windows::runtime::GUID, &::core::option::Option<super::super::F
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -2772,7 +2772,7 @@ impl MessageReceivedCallback {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Security_Isolation`, `Foundation_Collections`*"]
@@ -2831,7 +2831,7 @@ impl<F: FnMut(&::windows::runtime::GUID, &::core::option::Option<super::super::F
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

@@ -863,7 +863,7 @@ impl CallControlEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Media_Devices`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, CallControl>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
@@ -916,7 +916,7 @@ impl<F: FnMut(&::core::option::Option<CallControl>) -> ::windows::runtime::Resul
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -1554,7 +1554,7 @@ impl DialRequestedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Media_Devices`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, CallControl>, Param1: ::windows::runtime::IntoParam<'a, DialRequestedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -1607,7 +1607,7 @@ impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<Dial
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -4999,7 +4999,7 @@ impl KeypadPressedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Media_Devices`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, CallControl>, Param1: ::windows::runtime::IntoParam<'a, KeypadPressedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -5052,7 +5052,7 @@ impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<Keyp
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -6157,7 +6157,7 @@ impl RedialRequestedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Media_Devices`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, CallControl>, Param1: ::windows::runtime::IntoParam<'a, RedialRequestedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -6210,7 +6210,7 @@ impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<Redi
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

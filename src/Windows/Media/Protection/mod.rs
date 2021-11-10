@@ -86,7 +86,7 @@ impl ComponentLoadFailedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, MediaProtectionManager>, Param1: ::windows::runtime::IntoParam<'a, ComponentLoadFailedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -139,7 +139,7 @@ impl<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -1082,7 +1082,7 @@ impl RebootNeededEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, MediaProtectionManager>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
@@ -1135,7 +1135,7 @@ impl<F: FnMut(&::core::option::Option<MediaProtectionManager>) -> ::windows::run
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -1491,7 +1491,7 @@ impl ServiceRequestedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, MediaProtectionManager>, Param1: ::windows::runtime::IntoParam<'a, ServiceRequestedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -1544,7 +1544,7 @@ impl<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

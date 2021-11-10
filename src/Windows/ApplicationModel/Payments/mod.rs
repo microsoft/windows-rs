@@ -2202,7 +2202,7 @@ impl PaymentRequestChangedHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `ApplicationModel_Payments`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, PaymentRequest>, Param1: ::windows::runtime::IntoParam<'a, PaymentRequestChangedArgs>>(&self, paymentrequest: Param0, args: Param1) -> ::windows::runtime::Result<()> {
@@ -2255,7 +2255,7 @@ impl<F: FnMut(&::core::option::Option<PaymentRequest>, &::core::option::Option<P
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

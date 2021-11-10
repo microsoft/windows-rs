@@ -415,7 +415,7 @@ impl CredentialCommandCredentialDeletedHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, CredentialCommand>>(&self, command: Param0) -> ::windows::runtime::Result<()> {
@@ -468,7 +468,7 @@ impl<F: FnMut(&::core::option::Option<CredentialCommand>) -> ::windows::runtime:
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -1474,7 +1474,7 @@ impl WebAccountCommandInvokedHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, WebAccountCommand>, Param1: ::windows::runtime::IntoParam<'a, WebAccountInvokedArgs>>(&self, command: Param0, args: Param1) -> ::windows::runtime::Result<()> {
@@ -1527,7 +1527,7 @@ impl<F: FnMut(&::core::option::Option<WebAccountCommand>, &::core::option::Optio
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -1700,7 +1700,7 @@ impl WebAccountProviderCommandInvokedHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, WebAccountProviderCommand>>(&self, command: Param0) -> ::windows::runtime::Result<()> {
@@ -1753,7 +1753,7 @@ impl<F: FnMut(&::core::option::Option<WebAccountProviderCommand>) -> ::windows::
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

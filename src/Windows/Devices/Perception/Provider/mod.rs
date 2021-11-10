@@ -1354,7 +1354,7 @@ impl PerceptionStartFaceAuthenticationHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Devices_Perception_Provider`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, PerceptionFaceAuthenticationGroup>>(&self, sender: Param0) -> ::windows::runtime::Result<bool> {
@@ -1410,7 +1410,7 @@ impl<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::w
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -1437,7 +1437,7 @@ impl PerceptionStopFaceAuthenticationHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Devices_Perception_Provider`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, PerceptionFaceAuthenticationGroup>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
@@ -1490,7 +1490,7 @@ impl<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::w
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

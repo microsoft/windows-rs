@@ -1159,7 +1159,7 @@ impl ApplicationDataSetVersionHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Storage`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, SetVersionRequest>>(&self, setversionrequest: Param0) -> ::windows::runtime::Result<()> {
@@ -1212,7 +1212,7 @@ impl<F: FnMut(&::core::option::Option<SetVersionRequest>) -> ::windows::runtime:
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -7601,7 +7601,7 @@ impl StreamedFileDataRequestedHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Storage`, `Storage_Streams`*"]
@@ -7660,7 +7660,7 @@ impl<F: FnMut(&::core::option::Option<StreamedFileDataRequest>) -> ::windows::ru
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

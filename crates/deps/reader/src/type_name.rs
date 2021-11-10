@@ -70,14 +70,14 @@ impl TypeName {
     pub const SysStringLen: Self = Self::from_const("Windows.Win32.Foundation", "SysStringLen");
     pub const SysAllocStringLen: Self = Self::from_const("Windows.Win32.Foundation", "SysAllocStringLen");
     pub const SysFreeString: Self = Self::from_const("Windows.Win32.Foundation", "SysFreeString");
-    pub const D2D_MATRIX_3X2_F: Self = Self::from_const("Windows.Win32.Graphics.Direct2D", "D2D_MATRIX_3X2_F");
+    pub const D2D_MATRIX_3X2_F: Self = Self::from_const("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_3X2_F");
     pub const IUnknown: Self = Self::from_const("Windows.Win32.System.Com", "IUnknown");
     pub const HSTRING: Self = Self::from_const("Windows.Win32.System.WinRT", "HSTRING");
     pub const IInspectable: Self = Self::from_const("Windows.Win32.System.WinRT", "IInspectable");
     pub const LARGE_INTEGER: Self = Self::from_const("Windows.Win32.Foundation", "LARGE_INTEGER");
     pub const ULARGE_INTEGER: Self = Self::from_const("Windows.Win32.Foundation", "ULARGE_INTEGER");
     pub const IRestrictedErrorInfo: Self = Self::from_const("Windows.Win32.System.WinRT", "IRestrictedErrorInfo");
-    pub const IDispatch: Self = Self::from_const("Windows.Win32.System.Ole.Automation", "IDispatch");
+    pub const IDispatch: Self = Self::from_const("Windows.Win32.System.Com", "IDispatch");
 
     const fn from_const(namespace: &'static str, name: &'static str) -> Self {
         Self { namespace, name }
@@ -104,5 +104,27 @@ fn trim_tick(name: &'static str) -> &'static str {
 impl core::fmt::Display for TypeName {
     fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(fmt, "{}.{}", self.namespace, self.name)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::*;
+
+    #[test]
+    fn test() {
+        let reader = TypeReader::get();
+        reader.get_type_entry(TypeName::WIN32_ERROR).unwrap();
+        reader.get_type_entry(TypeName::NTSTATUS).unwrap();
+        reader.get_type_entry(TypeName::BOOL).unwrap();
+        reader.get_type_entry(TypeName::PWSTR).unwrap();
+        reader.get_type_entry(TypeName::PSTR).unwrap();
+        reader.get_type_entry(TypeName::BSTR).unwrap();
+        reader.get_type_entry(TypeName::HANDLE).unwrap();
+        reader.get_type_entry(TypeName::SysStringLen).unwrap();
+        reader.get_type_entry(TypeName::SysAllocStringLen).unwrap();
+        reader.get_type_entry(TypeName::SysFreeString).unwrap();
+        reader.get_type_entry(TypeName::IRestrictedErrorInfo).unwrap();
+        reader.get_type_entry(TypeName::IDispatch).unwrap();
     }
 }

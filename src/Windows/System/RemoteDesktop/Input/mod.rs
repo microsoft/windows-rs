@@ -179,7 +179,7 @@ impl RemoteTextConnectionDataHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
     pub fn Invoke(&self, pdudata: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<bool> {
@@ -235,7 +235,7 @@ impl<F: FnMut(&[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::wind
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
