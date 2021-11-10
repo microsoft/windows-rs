@@ -1,3 +1,9 @@
+# 0.26
+
+- `no_std` support by default (use the `std` feature to enable use of the standard library)
+- Updated Win32 metadata (mostly DirectX namespaces have been reorganized for improved compile time)
+- Other small improvements and fixes
+
 # 0.25
 
 - Multi-architecture support
