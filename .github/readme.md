@@ -14,8 +14,9 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows]
-version = "0.25.0"
+version = "0.26.0"
 features = [
+    "std",
     "Data_Xml_Dom",
     "Win32_Foundation",
     "Win32_Security",
