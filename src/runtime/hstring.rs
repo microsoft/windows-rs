@@ -1,7 +1,5 @@
 use super::*;
 
-use alloc::string::String;
-
 // TODO: move to HSTRING generated code?
 
 /// A WinRT string, sometimes called an [HSTRING](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring),
@@ -48,6 +46,7 @@ impl HSTRING {
     }
 
     /// Get the contents of this `HSTRING` as a String lossily.
+    #[cfg(feature = "std")]
     pub fn to_string_lossy(&self) -> String {
         String::from_utf16_lossy(self.as_wide())
     }
@@ -156,12 +155,14 @@ impl From<&str> for HSTRING {
     }
 }
 
+#[cfg(feature = "std")]
 impl From<String> for HSTRING {
     fn from(value: String) -> Self {
         value.as_str().into()
     }
 }
 
+#[cfg(feature = "std")]
 impl From<&String> for HSTRING {
     fn from(value: &String) -> Self {
         value.as_str().into()
@@ -174,18 +175,21 @@ impl PartialEq for HSTRING {
     }
 }
 
+#[cfg(feature = "std")]
 impl PartialEq<String> for HSTRING {
     fn eq(&self, other: &String) -> bool {
         *self == **other
     }
 }
 
+#[cfg(feature = "std")]
 impl PartialEq<String> for &HSTRING {
     fn eq(&self, other: &String) -> bool {
         **self == **other
     }
 }
 
+#[cfg(feature = "std")]
 impl PartialEq<&String> for HSTRING {
     fn eq(&self, other: &&String) -> bool {
         *self == ***other
@@ -228,24 +232,28 @@ impl PartialEq<&HSTRING> for str {
     }
 }
 
+#[cfg(feature = "std")]
 impl PartialEq<HSTRING> for String {
     fn eq(&self, other: &HSTRING) -> bool {
         *other == **self
     }
 }
 
+#[cfg(feature = "std")]
 impl PartialEq<HSTRING> for &String {
     fn eq(&self, other: &HSTRING) -> bool {
         *other == ***self
     }
 }
 
+#[cfg(feature = "std")]
 impl PartialEq<&HSTRING> for String {
     fn eq(&self, other: &&HSTRING) -> bool {
         **other == **self
     }
 }
 
+#[cfg(feature = "std")]
 impl<'a> core::convert::TryFrom<&'a HSTRING> for String {
     type Error = alloc::string::FromUtf16Error;
 
@@ -254,6 +262,7 @@ impl<'a> core::convert::TryFrom<&'a HSTRING> for String {
     }
 }
 
+#[cfg(feature = "std")]
 impl core::convert::TryFrom<HSTRING> for String {
     type Error = alloc::string::FromUtf16Error;
 
