@@ -1,49 +1,49 @@
-use windows::runtime::*;
 use std::convert::TryFrom;
+use windows::runtime::*;
 type StringType = HSTRING;
 
 #[test]
 fn hstring_works() {
-let empty = StringType::new();
-assert!(empty.is_empty());
-assert!(empty.is_empty());
+    let empty = StringType::new();
+    assert!(empty.is_empty());
+    assert!(empty.is_empty());
 
-let mut hello = StringType::from("Hello");
-assert!(!hello.is_empty());
-assert!(hello.len() == 5);
+    let mut hello = StringType::from("Hello");
+    assert!(!hello.is_empty());
+    assert!(hello.len() == 5);
 
-let rust = hello.to_string();
-assert!(rust == "Hello");
-assert!(rust.len() == 5);
+    let rust = hello.to_string();
+    assert!(rust == "Hello");
+    assert!(rust.len() == 5);
 
-let hello2 = hello.clone();
-hello.clear();
-assert!(hello.is_empty());
-hello.clear();
-assert!(hello.is_empty());
-assert!(!hello2.is_empty());
-assert!(hello2.len() == 5);
+    let hello2 = hello.clone();
+    hello.clear();
+    assert!(hello.is_empty());
+    hello.clear();
+    assert!(hello.is_empty());
+    assert!(!hello2.is_empty());
+    assert!(hello2.len() == 5);
 
-assert!(StringType::from("Hello") == StringType::from("Hello"));
-assert!(StringType::from("Hello") != StringType::from("World"));
+    assert!(StringType::from("Hello") == StringType::from("Hello"));
+    assert!(StringType::from("Hello") != StringType::from("World"));
 
-assert!(StringType::from("Hello") == "Hello");
-assert!(StringType::from("Hello") != "Hello ");
-assert!(StringType::from("Hello") != "Hell");
-assert!(StringType::from("Hello") != "World");
+    assert!(StringType::from("Hello") == "Hello");
+    assert!(StringType::from("Hello") != "Hello ");
+    assert!(StringType::from("Hello") != "Hell");
+    assert!(StringType::from("Hello") != "World");
 
-assert!(StringType::from("Hello").to_string() == String::from("Hello"));
+    assert!(StringType::from("Hello").to_string() == String::from("Hello"));
 }
 
 #[test]
 fn display_format() {
-let value = StringType::from("Hello world");
-assert!(format!("{}", value) == "Hello world");
+    let value = StringType::from("Hello world");
+    assert!(format!("{}", value) == "Hello world");
 }
 
 #[test]
 fn debug_format() {
-let value = StringType::from("Hello world");
+    let value = StringType::from("Hello world");
     assert!(format!("{:?}", value) == "Hello world");
 }
 
@@ -83,7 +83,7 @@ fn hstring_equality_combinations() {
     let h = StringType::from("test");
     let s = String::from("test");
     let ss: &str = "test";
-    
+
     assert_eq!(h, s);
     assert_eq!(&h, s);
     assert_eq!(h, &s);
