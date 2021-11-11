@@ -1,9 +1,3 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
-extern "system" {
-    fn ILearningModelDeviceFactoryNative();
-    fn ILearningModelOperatorProviderNative();
-    fn ILearningModelSessionOptionsNative();
-    fn ITensorNative();
-    fn ITensorStaticsNative();
-}
+extern "system" {}

@@ -90,9 +90,6 @@ extern "system" {
     fn HWND_UserSize64();
     fn HWND_UserUnmarshal();
     fn HWND_UserUnmarshal64();
-    fn IMarshal();
-    fn IMarshal2();
-    fn IMarshalingStream();
     fn LPSAFEARRAY_UserFree();
     fn LPSAFEARRAY_UserFree64();
     fn LPSAFEARRAY_UserMarshal();
@@ -109,7 +106,6 @@ extern "system" {
     fn SNB_UserSize64();
     fn SNB_UserUnmarshal();
     fn SNB_UserUnmarshal64();
-    fn STDMSHLFLAGS();
     fn STGMEDIUM_UserFree();
     fn STGMEDIUM_UserFree64();
     fn STGMEDIUM_UserMarshal();

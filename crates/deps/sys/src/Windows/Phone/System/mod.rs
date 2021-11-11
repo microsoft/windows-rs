@@ -6,8 +6,4 @@ pub mod Profile;
 #[cfg(feature = "Phone_System_UserProfile")]
 pub mod UserProfile;
 #[link(name = "windows")]
-extern "system" {
-    fn ISystemProtectionStatics();
-    fn ISystemProtectionUnlockStatics();
-    fn SystemProtection();
-}
+extern "system" {}

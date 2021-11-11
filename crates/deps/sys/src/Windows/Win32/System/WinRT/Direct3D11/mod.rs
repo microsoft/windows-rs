@@ -3,5 +3,4 @@
 extern "system" {
     fn CreateDirect3D11DeviceFromDXGIDevice();
     fn CreateDirect3D11SurfaceFromDXGISurface();
-    fn IDirect3DDxgiInterfaceAccess();
 }

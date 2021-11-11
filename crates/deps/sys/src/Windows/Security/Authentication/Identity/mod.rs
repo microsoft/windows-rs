@@ -4,10 +4,4 @@ pub mod Core;
 #[cfg(feature = "Security_Authentication_Identity_Provider")]
 pub mod Provider;
 #[link(name = "windows")]
-extern "system" {
-    fn EnterpriseKeyCredentialRegistrationInfo();
-    fn EnterpriseKeyCredentialRegistrationManager();
-    fn IEnterpriseKeyCredentialRegistrationInfo();
-    fn IEnterpriseKeyCredentialRegistrationManager();
-    fn IEnterpriseKeyCredentialRegistrationManagerStatics();
-}
+extern "system" {}

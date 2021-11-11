@@ -3,9 +3,6 @@
 extern "system" {
     fn AddPointerInteractionContext();
     fn BufferPointerPacketsInteractionContext();
-    fn CROSS_SLIDE_FLAGS();
-    fn CROSS_SLIDE_PARAMETER();
-    fn CROSS_SLIDE_THRESHOLD();
     fn CreateInteractionContext();
     fn DestroyInteractionContext();
     fn GetCrossSlideParameterInteractionContext();
@@ -17,26 +14,6 @@ extern "system" {
     fn GetStateInteractionContext();
     fn GetTapParameterInteractionContext();
     fn GetTranslationParameterInteractionContext();
-    fn HINTERACTIONCONTEXT();
-    fn HOLD_PARAMETER();
-    fn INERTIA_PARAMETER();
-    fn INTERACTION_ARGUMENTS_CROSS_SLIDE();
-    fn INTERACTION_ARGUMENTS_MANIPULATION();
-    fn INTERACTION_ARGUMENTS_TAP();
-    fn INTERACTION_CONFIGURATION_FLAGS();
-    fn INTERACTION_CONTEXT_CONFIGURATION();
-    fn INTERACTION_CONTEXT_OUTPUT();
-    fn INTERACTION_CONTEXT_OUTPUT2();
-    fn INTERACTION_CONTEXT_OUTPUT_CALLBACK();
-    fn INTERACTION_CONTEXT_OUTPUT_CALLBACK2();
-    fn INTERACTION_CONTEXT_PROPERTY();
-    fn INTERACTION_FLAGS();
-    fn INTERACTION_ID();
-    fn INTERACTION_STATE();
-    fn MANIPULATION_RAILS_STATE();
-    fn MANIPULATION_TRANSFORM();
-    fn MANIPULATION_VELOCITY();
-    fn MOUSE_WHEEL_PARAMETER();
     fn ProcessBufferedPacketsInteractionContext();
     fn ProcessInertiaInteractionContext();
     fn ProcessPointerFramesInteractionContext();
@@ -54,6 +31,4 @@ extern "system" {
     fn SetTapParameterInteractionContext();
     fn SetTranslationParameterInteractionContext();
     fn StopInteractionContext();
-    fn TAP_PARAMETER();
-    fn TRANSLATION_PARAMETER();
 }

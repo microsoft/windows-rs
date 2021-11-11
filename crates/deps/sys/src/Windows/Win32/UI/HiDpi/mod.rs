@@ -3,16 +3,6 @@
 extern "system" {
     fn AdjustWindowRectExForDpi();
     fn AreDpiAwarenessContextsEqual();
-    fn DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS();
-    fn DIALOG_DPI_CHANGE_BEHAVIORS();
-    fn DPI_AWARENESS();
-    fn DPI_AWARENESS_CONTEXT();
-    fn DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE();
-    fn DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2();
-    fn DPI_AWARENESS_CONTEXT_SYSTEM_AWARE();
-    fn DPI_AWARENESS_CONTEXT_UNAWARE();
-    fn DPI_AWARENESS_CONTEXT_UNAWARE_GDISCALED();
-    fn DPI_HOSTING_BEHAVIOR();
     fn EnableNonClientDpiScaling();
     fn GetAwarenessFromDpiAwarenessContext();
     fn GetDialogControlDpiChangeBehavior();
@@ -31,9 +21,7 @@ extern "system" {
     fn GetWindowDpiHostingBehavior();
     fn IsValidDpiAwarenessContext();
     fn LogicalToPhysicalPointForPerMonitorDPI();
-    fn MONITOR_DPI_TYPE();
     fn OpenThemeDataForDpi();
-    fn PROCESS_DPI_AWARENESS();
     fn PhysicalToLogicalPointForPerMonitorDPI();
     fn SetDialogControlDpiChangeBehavior();
     fn SetDialogDpiChangeBehavior();

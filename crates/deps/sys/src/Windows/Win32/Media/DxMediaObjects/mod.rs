@@ -1,52 +1,15 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    fn DMOCATEGORY_ACOUSTIC_ECHO_CANCEL();
-    fn DMOCATEGORY_AGC();
-    fn DMOCATEGORY_AUDIO_CAPTURE_EFFECT();
-    fn DMOCATEGORY_AUDIO_DECODER();
-    fn DMOCATEGORY_AUDIO_EFFECT();
-    fn DMOCATEGORY_AUDIO_ENCODER();
-    fn DMOCATEGORY_AUDIO_NOISE_SUPPRESS();
-    fn DMOCATEGORY_VIDEO_DECODER();
-    fn DMOCATEGORY_VIDEO_EFFECT();
-    fn DMOCATEGORY_VIDEO_ENCODER();
     fn DMOEnum();
     fn DMOGetName();
     fn DMOGetTypes();
     fn DMORegister();
     fn DMOUnregister();
-    fn DMO_ENUM_FLAGS();
-    fn DMO_E_INVALIDSTREAMINDEX();
-    fn DMO_E_INVALIDTYPE();
-    fn DMO_E_NOTACCEPTING();
-    fn DMO_E_NO_MORE_ITEMS();
-    fn DMO_E_TYPE_NOT_ACCEPTED();
-    fn DMO_E_TYPE_NOT_SET();
-    fn DMO_MEDIA_TYPE();
-    fn DMO_OUTPUT_DATA_BUFFER();
-    fn DMO_PARTIAL_MEDIATYPE();
-    fn DMO_REGISTER_FLAGS();
-    fn IDMOQualityControl();
-    fn IDMOVideoOutputOptimizations();
-    fn IEnumDMO();
-    fn IMediaBuffer();
-    fn IMediaObject();
-    fn IMediaObjectInPlace();
     fn MoCopyMediaType();
     fn MoCreateMediaType();
     fn MoDeleteMediaType();
     fn MoDuplicateMediaType();
     fn MoFreeMediaType();
     fn MoInitMediaType();
-    fn _DMO_INPLACE_PROCESS_FLAGS();
-    fn _DMO_INPUT_DATA_BUFFER_FLAGS();
-    fn _DMO_INPUT_STATUS_FLAGS();
-    fn _DMO_INPUT_STREAM_INFO_FLAGS();
-    fn _DMO_OUTPUT_DATA_BUFFER_FLAGS();
-    fn _DMO_OUTPUT_STREAM_INFO_FLAGS();
-    fn _DMO_PROCESS_OUTPUT_FLAGS();
-    fn _DMO_QUALITY_STATUS_FLAGS();
-    fn _DMO_SET_TYPE_FLAGS();
-    fn _DMO_VIDEO_OUTPUT_STREAM_FLAGS();
 }

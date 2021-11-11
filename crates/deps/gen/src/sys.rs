@@ -1,17 +1,26 @@
 use super::*;
 
 pub fn gen_sys(tree: &TypeTree, gen: &Gen) -> TokenStream {
-    let functions = tree.types.iter().map(|(name, def)| gen_function(name, def));
+    let functions = gen_functions(tree, gen);
 
     quote! {
-        #[link(name = "windows")]
-        extern "system" {
-            #(#functions)*
-        }
+        #functions
     }
 }
 
 fn gen_functions(tree: &TypeTree, gen: &Gen) -> TokenStream {
+    let functions = tree.types.iter().map(|(name, def)| gen_function(name, def));
+
+    if functions.is_empty() {
+        quote! {}
+    } else {
+        quote! {
+            #[link(name = "windows")]
+            extern "system" {
+                #(#functions)*
+            }
+        }
+    }
 }
 
 fn gen_function(name: &str, entry: &TypeEntry) -> TokenStream {

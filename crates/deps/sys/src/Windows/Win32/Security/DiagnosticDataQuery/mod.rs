@@ -1,19 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    fn DIAGNOSTIC_DATA_EVENT_BINARY_STATS();
-    fn DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION();
-    fn DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION();
-    fn DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION();
-    fn DIAGNOSTIC_DATA_EVENT_TAG_STATS();
-    fn DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION();
-    fn DIAGNOSTIC_DATA_GENERAL_STATS();
-    fn DIAGNOSTIC_DATA_RECORD();
-    fn DIAGNOSTIC_DATA_SEARCH_CRITERIA();
-    fn DIAGNOSTIC_REPORT_DATA();
-    fn DIAGNOSTIC_REPORT_PARAMETER();
-    fn DIAGNOSTIC_REPORT_SIGNATURE();
-    fn DdqAccessLevel();
     fn DdqCancelDiagnosticRecordOperation();
     fn DdqCloseSession();
     fn DdqCreateSession();

@@ -2,6 +2,4 @@
 #[cfg(feature = "Gaming_Preview_GamesEnumeration")]
 pub mod GamesEnumeration;
 #[link(name = "windows")]
-extern "system" {
-    fn GamesEnumerationContract();
-}
+extern "system" {}

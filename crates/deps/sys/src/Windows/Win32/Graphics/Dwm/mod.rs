@@ -1,35 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    fn DWMFLIP3DWINDOWPOLICY();
-    fn DWMNCRENDERINGPOLICY();
-    fn DWMTRANSITION_OWNEDWINDOW_TARGET();
-    fn DWMWA_COLOR_DEFAULT();
-    fn DWMWA_COLOR_NONE();
-    fn DWMWINDOWATTRIBUTE();
-    fn DWM_BB_BLURREGION();
-    fn DWM_BB_ENABLE();
-    fn DWM_BB_TRANSITIONONMAXIMIZED();
-    fn DWM_BLURBEHIND();
-    fn DWM_CLOAKED_APP();
-    fn DWM_CLOAKED_INHERITED();
-    fn DWM_CLOAKED_SHELL();
-    fn DWM_EC_DISABLECOMPOSITION();
-    fn DWM_EC_ENABLECOMPOSITION();
-    fn DWM_FRAME_DURATION_DEFAULT();
-    fn DWM_PRESENT_PARAMETERS();
-    fn DWM_SHOWCONTACT();
-    fn DWM_SIT_DISPLAYFRAME();
-    fn DWM_SOURCE_FRAME_SAMPLING();
-    fn DWM_TAB_WINDOW_REQUIREMENTS();
-    fn DWM_THUMBNAIL_PROPERTIES();
-    fn DWM_TIMING_INFO();
-    fn DWM_TNP_OPACITY();
-    fn DWM_TNP_RECTDESTINATION();
-    fn DWM_TNP_RECTSOURCE();
-    fn DWM_TNP_SOURCECLIENTAREAONLY();
-    fn DWM_TNP_VISIBLE();
-    fn DWM_WINDOW_CORNER_PREFERENCE();
     fn DwmAttachMilContent();
     fn DwmDefWindowProc();
     fn DwmDetachMilContent();
@@ -61,10 +32,4 @@ extern "system" {
     fn DwmTransitionOwnedWindow();
     fn DwmUnregisterThumbnail();
     fn DwmUpdateThumbnailProperties();
-    fn GESTURE_TYPE();
-    fn MilMatrix3x2D();
-    fn UNSIGNED_RATIO();
-    fn c_DwmMaxAdapters();
-    fn c_DwmMaxMonitors();
-    fn c_DwmMaxQueuedBuffers();
 }

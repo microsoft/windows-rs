@@ -5,27 +5,9 @@ extern "system" {
     fn CheckGamingPrivilegeSilentlyForUser();
     fn CheckGamingPrivilegeWithUI();
     fn CheckGamingPrivilegeWithUIForUser();
-    fn GAMESTATS_OPEN_RESULT();
-    fn GAMESTATS_OPEN_TYPE();
-    fn GAME_INSTALL_SCOPE();
-    fn GAMING_DEVICE_DEVICE_ID();
-    fn GAMING_DEVICE_MODEL_INFORMATION();
-    fn GAMING_DEVICE_VENDOR_ID();
-    fn GameExplorer();
-    fn GameStatistics();
-    fn GameUICompletionRoutine();
     fn GetExpandedResourceExclusiveCpuCount();
     fn GetGamingDeviceModelInformation();
     fn HasExpandedResources();
-    fn IGameExplorer();
-    fn IGameExplorer2();
-    fn IGameStatistics();
-    fn IGameStatisticsMgr();
-    fn IXblIdpAuthManager();
-    fn IXblIdpAuthTokenResult();
-    fn IXblIdpAuthTokenResult2();
-    fn KnownGamingPrivileges();
-    fn PlayerPickerUICompletionRoutine();
     fn ProcessPendingGameUI();
     fn ReleaseExclusiveCpuSets();
     fn ShowChangeFriendRelationshipUI();
@@ -49,7 +31,4 @@ extern "system" {
     fn ShowUserSettingsUI();
     fn ShowUserSettingsUIForUser();
     fn TryCancelPendingGameUI();
-    fn XBL_IDP_AUTH_TOKEN_STATUS();
-    fn XblIdpAuthManager();
-    fn XblIdpAuthTokenResult();
 }

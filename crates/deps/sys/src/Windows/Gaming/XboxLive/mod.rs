@@ -2,6 +2,4 @@
 #[cfg(feature = "Gaming_XboxLive_Storage")]
 pub mod Storage;
 #[link(name = "windows")]
-extern "system" {
-    fn StorageApiContract();
-}
+extern "system" {}

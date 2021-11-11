@@ -8,10 +8,7 @@ extern "system" {
     fn GetAppContainerFolderPath();
     fn GetAppContainerNamedObjectPath();
     fn GetAppContainerRegistryLocation();
-    fn IIsolatedAppLauncher();
     fn IsProcessInIsolatedContainer();
     fn IsProcessInIsolatedWindowsEnvironment();
     fn IsProcessInWDAGContainer();
-    fn IsolatedAppLauncher();
-    fn IsolatedAppLauncherTelemetryParameters();
 }

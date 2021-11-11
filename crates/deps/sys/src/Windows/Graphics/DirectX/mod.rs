@@ -2,9 +2,4 @@
 #[cfg(feature = "Graphics_DirectX_Direct3D11")]
 pub mod Direct3D11;
 #[link(name = "windows")]
-extern "system" {
-    fn DirectXAlphaMode();
-    fn DirectXColorSpace();
-    fn DirectXPixelFormat();
-    fn DirectXPrimitiveTopology();
-}
+extern "system" {}

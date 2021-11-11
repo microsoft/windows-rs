@@ -1,57 +1,14 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    fn CB_MAX_CABINET_NAME();
-    fn CB_MAX_CAB_PATH();
-    fn CB_MAX_DISK();
-    fn CB_MAX_DISK_NAME();
-    fn CB_MAX_FILENAME();
-    fn CCAB();
-    fn ERF();
     fn FCIAddFile();
     fn FCICreate();
     fn FCIDestroy();
-    fn FCIERROR();
     fn FCIFlushCabinet();
     fn FCIFlushFolder();
-    fn FDICABINETINFO();
-    fn FDICREATE_CPU_TYPE();
     fn FDICopy();
     fn FDICreate();
-    fn FDIDECRYPT();
-    fn FDIDECRYPTTYPE();
     fn FDIDestroy();
-    fn FDIERROR();
     fn FDIIsCabinet();
-    fn FDINOTIFICATION();
-    fn FDINOTIFICATIONTYPE();
-    fn FDISPILLFILE();
     fn FDITruncateCabinet();
-    fn INCLUDED_FCI();
-    fn INCLUDED_FDI();
-    fn INCLUDED_TYPES_FCI_FDI();
-    fn PFNALLOC();
-    fn PFNCLOSE();
-    fn PFNFCIALLOC();
-    fn PFNFCICLOSE();
-    fn PFNFCIDELETE();
-    fn PFNFCIFILEPLACED();
-    fn PFNFCIFREE();
-    fn PFNFCIGETNEXTCABINET();
-    fn PFNFCIGETOPENINFO();
-    fn PFNFCIGETTEMPFILE();
-    fn PFNFCIOPEN();
-    fn PFNFCIREAD();
-    fn PFNFCISEEK();
-    fn PFNFCISTATUS();
-    fn PFNFCIWRITE();
-    fn PFNFDIDECRYPT();
-    fn PFNFDINOTIFY();
-    fn PFNFREE();
-    fn PFNOPEN();
-    fn PFNREAD();
-    fn PFNSEEK();
-    fn PFNWRITE();
-    fn _A_EXEC();
-    fn _A_NAME_IS_UTF();
 }

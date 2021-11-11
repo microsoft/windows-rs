@@ -1,35 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    fn ATTRIBUTE_TYPE();
-    fn DF_IMPERSONATION();
-    fn DF_TRACELESS();
-    fn DIAGNOSIS_STATUS();
-    fn DIAG_SOCKADDR();
-    fn DiagnosticsInfo();
-    fn HELPER_ATTRIBUTE();
-    fn HYPOTHESIS();
-    fn HelperAttributeInfo();
-    fn HypothesisResult();
-    fn INetDiagExtensibleHelper();
-    fn INetDiagHelper();
-    fn INetDiagHelperEx();
-    fn INetDiagHelperInfo();
-    fn INetDiagHelperUtilFactory();
-    fn LIFE_TIME();
-    fn NDF_ADD_CAPTURE_TRACE();
-    fn NDF_APPLY_INCLUSION_LIST_FILTER();
-    fn NDF_ERROR_START();
-    fn NDF_E_BAD_PARAM();
-    fn NDF_E_CANCELLED();
-    fn NDF_E_DISABLED();
-    fn NDF_E_LENGTH_EXCEEDED();
-    fn NDF_E_NOHELPERCLASS();
-    fn NDF_E_PROBLEM_PRESENT();
-    fn NDF_E_UNKNOWN();
-    fn NDF_E_VALIDATION();
-    fn NDF_INBOUND_FLAG_EDGETRAVERSAL();
-    fn NDF_INBOUND_FLAG_HEALTHCHECK();
     fn NdfCancelIncident();
     fn NdfCloseIncident();
     fn NdfCreateConnectivityIncident();
@@ -46,30 +17,4 @@ extern "system" {
     fn NdfExecuteDiagnosis();
     fn NdfGetTraceFile();
     fn NdfRepairIncident();
-    fn OCTET_STRING();
-    fn PROBLEM_TYPE();
-    fn RCF_ISCONFIRMED();
-    fn RCF_ISLEAF();
-    fn RCF_ISTHIRDPARTY();
-    fn REPAIR_RISK();
-    fn REPAIR_SCOPE();
-    fn REPAIR_STATUS();
-    fn RF_CONTACT_ADMIN();
-    fn RF_INFORMATION_ONLY();
-    fn RF_REPRO();
-    fn RF_RESERVED();
-    fn RF_RESERVED_CA();
-    fn RF_RESERVED_LNI();
-    fn RF_SHOW_EVENTS();
-    fn RF_UI_ONLY();
-    fn RF_USER_ACTION();
-    fn RF_USER_CONFIRMATION();
-    fn RF_VALIDATE_HELPTOPIC();
-    fn RF_WORKAROUND();
-    fn RepairInfo();
-    fn RepairInfoEx();
-    fn RootCauseInfo();
-    fn ShellCommandInfo();
-    fn UI_INFO_TYPE();
-    fn UiInfo();
 }

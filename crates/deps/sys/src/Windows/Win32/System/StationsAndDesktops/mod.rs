@@ -1,9 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    fn BROADCAST_SYSTEM_MESSAGE_FLAGS();
-    fn BROADCAST_SYSTEM_MESSAGE_INFO();
-    fn BSMINFO();
     fn BroadcastSystemMessageA();
     fn BroadcastSystemMessageExA();
     fn BroadcastSystemMessageExW();
@@ -16,8 +13,6 @@ extern "system" {
     fn CreateDesktopW();
     fn CreateWindowStationA();
     fn CreateWindowStationW();
-    fn DESKTOPENUMPROCA();
-    fn DESKTOPENUMPROCW();
     fn EnumDesktopWindows();
     fn EnumDesktopsA();
     fn EnumDesktopsW();
@@ -27,8 +22,6 @@ extern "system" {
     fn GetThreadDesktop();
     fn GetUserObjectInformationA();
     fn GetUserObjectInformationW();
-    fn HDESK();
-    fn HWINSTA();
     fn OpenDesktopA();
     fn OpenDesktopW();
     fn OpenInputDesktop();
@@ -39,8 +32,4 @@ extern "system" {
     fn SetUserObjectInformationA();
     fn SetUserObjectInformationW();
     fn SwitchDesktop();
-    fn USEROBJECTFLAGS();
-    fn USER_OBJECT_INFORMATION_INDEX();
-    fn WINSTAENUMPROCA();
-    fn WINSTAENUMPROCW();
 }

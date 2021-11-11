@@ -1,12 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    fn HCN_NOTIFICATIONS();
-    fn HCN_NOTIFICATION_CALLBACK();
-    fn HCN_PORT_ACCESS();
-    fn HCN_PORT_PROTOCOL();
-    fn HCN_PORT_RANGE_ENTRY();
-    fn HCN_PORT_RANGE_RESERVATION();
     fn HcnCloseEndpoint();
     fn HcnCloseGuestNetworkService();
     fn HcnCloseLoadBalancer();

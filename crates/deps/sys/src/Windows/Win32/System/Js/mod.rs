@@ -1,10 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    fn JS_SOURCE_CONTEXT_NONE();
     fn JsAddRef();
-    fn JsBackgroundWorkItemCallback();
-    fn JsBeforeCollectCallback();
     fn JsBoolToBoolean();
     fn JsBooleanToBool();
     fn JsCallFunction();
@@ -15,6 +12,7 @@ extern "system" {
     fn JsConvertValueToObject();
     fn JsConvertValueToString();
     fn JsCreateArray();
+    fn JsCreateContext();
     fn JsCreateContext();
     fn JsCreateError();
     fn JsCreateExternalObject();
@@ -35,8 +33,6 @@ extern "system" {
     fn JsEnableRuntimeExecution();
     fn JsEnumerateHeap();
     fn JsEquals();
-    fn JsErrorCode();
-    fn JsFinalizeCallback();
     fn JsGetAndClearException();
     fn JsGetCurrentContext();
     fn JsGetExtensionAllowed();
@@ -66,9 +62,6 @@ extern "system" {
     fn JsIntToNumber();
     fn JsIsEnumeratingHeap();
     fn JsIsRuntimeExecutionDisabled();
-    fn JsMemoryAllocationCallback();
-    fn JsMemoryEventType();
-    fn JsNativeFunction();
     fn JsNumberToDouble();
     fn JsParseScript();
     fn JsParseSerializedScript();
@@ -77,8 +70,6 @@ extern "system" {
     fn JsRelease();
     fn JsRunScript();
     fn JsRunSerializedScript();
-    fn JsRuntimeAttributes();
-    fn JsRuntimeVersion();
     fn JsSerializeScript();
     fn JsSetCurrentContext();
     fn JsSetException();
@@ -90,12 +81,11 @@ extern "system" {
     fn JsSetRuntimeMemoryAllocationCallback();
     fn JsSetRuntimeMemoryLimit();
     fn JsStartDebugging();
+    fn JsStartDebugging();
     fn JsStartProfiling();
     fn JsStopProfiling();
     fn JsStrictEquals();
     fn JsStringToPointer();
-    fn JsThreadServiceCallback();
     fn JsValueToVariant();
-    fn JsValueType();
     fn JsVariantToValue();
 }

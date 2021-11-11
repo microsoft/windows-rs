@@ -5,7 +5,6 @@ extern "system" {
     fn ApplicationRecoveryInProgress();
     fn GetApplicationRecoveryCallback();
     fn GetApplicationRestartSettings();
-    fn REGISTER_APPLICATION_RESTART_FLAGS();
     fn RegisterApplicationRecoveryCallback();
     fn RegisterApplicationRestart();
     fn UnregisterApplicationRecoveryCallback();

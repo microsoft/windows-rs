@@ -16,11 +16,4 @@ pub mod Printing;
 #[cfg(feature = "Graphics_Printing3D")]
 pub mod Printing3D;
 #[link(name = "windows")]
-extern "system" {
-    fn DisplayAdapterId();
-    fn DisplayId();
-    fn IGeometrySource2D();
-    fn PointInt32();
-    fn RectInt32();
-    fn SizeInt32();
-}
+extern "system" {}

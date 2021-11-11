@@ -8,9 +8,4 @@ pub mod Syndication;
 #[cfg(feature = "Web_UI")]
 pub mod UI;
 #[link(name = "windows")]
-extern "system" {
-    fn IUriToStreamResolver();
-    fn IWebErrorStatics();
-    fn WebError();
-    fn WebErrorStatus();
-}
+extern "system" {}

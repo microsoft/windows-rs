@@ -11,8 +11,5 @@ extern "system" {
     fn GetOverlappedResultEx();
     fn GetQueuedCompletionStatus();
     fn GetQueuedCompletionStatusEx();
-    fn LPOVERLAPPED_COMPLETION_ROUTINE();
-    fn OVERLAPPED();
-    fn OVERLAPPED_ENTRY();
     fn PostQueuedCompletionStatus();
 }

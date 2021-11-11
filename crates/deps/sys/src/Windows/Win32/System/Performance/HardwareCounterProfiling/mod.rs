@@ -3,9 +3,6 @@
 extern "system" {
     fn DisableThreadProfiling();
     fn EnableThreadProfiling();
-    fn HARDWARE_COUNTER_DATA();
-    fn HARDWARE_COUNTER_TYPE();
-    fn PERFORMANCE_DATA();
     fn QueryThreadProfiling();
     fn ReadThreadProfilingData();
 }

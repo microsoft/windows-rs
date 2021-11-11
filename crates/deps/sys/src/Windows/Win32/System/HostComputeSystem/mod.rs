@@ -1,21 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    fn HCS_CREATE_OPTIONS();
-    fn HCS_CREATE_OPTIONS_1();
-    fn HCS_EVENT();
-    fn HCS_EVENT_CALLBACK();
-    fn HCS_EVENT_OPTIONS();
-    fn HCS_EVENT_TYPE();
-    fn HCS_NOTIFICATIONS();
-    fn HCS_NOTIFICATION_CALLBACK();
-    fn HCS_NOTIFICATION_FLAGS();
-    fn HCS_OPERATION();
-    fn HCS_OPERATION_COMPLETION();
-    fn HCS_OPERATION_TYPE();
-    fn HCS_PROCESS();
-    fn HCS_PROCESS_INFORMATION();
-    fn HCS_SYSTEM();
     fn HcsAttachLayerStorageFilter();
     fn HcsCancelOperation();
     fn HcsCloseComputeSystem();

@@ -2,7 +2,6 @@
 #[link(name = "windows")]
 extern "system" {
     fn OOBEComplete();
-    fn OOBE_COMPLETED_CALLBACK();
     fn RegisterWaitUntilOOBECompleted();
     fn UnregisterWaitUntilOOBECompleted();
 }

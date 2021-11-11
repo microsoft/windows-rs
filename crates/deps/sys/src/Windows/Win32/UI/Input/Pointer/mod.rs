@@ -24,17 +24,9 @@ extern "system" {
     fn GetPointerType();
     fn GetRawPointerDeviceData();
     fn GetUnpredictedMessagePos();
-    fn INPUT_INJECTION_VALUE();
-    fn INPUT_TRANSFORM();
     fn InitializeTouchInjection();
     fn InjectSyntheticPointerInput();
     fn InjectTouchInput();
     fn IsMouseInPointerEnabled();
-    fn POINTER_BUTTON_CHANGE_TYPE();
-    fn POINTER_FLAGS();
-    fn POINTER_INFO();
-    fn POINTER_PEN_INFO();
-    fn POINTER_TOUCH_INFO();
     fn SkipPointerFrameMessages();
-    fn TOUCH_FEEDBACK_MODE();
 }

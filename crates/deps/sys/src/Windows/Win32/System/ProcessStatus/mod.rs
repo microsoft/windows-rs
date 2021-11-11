@@ -1,8 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    fn ENUM_PAGE_FILE_INFORMATION();
-    fn ENUM_PROCESS_MODULES_EX_FLAGS();
     fn K32EmptyWorkingSet();
     fn K32EnumDeviceDrivers();
     fn K32EnumPageFilesA();
@@ -30,17 +28,4 @@ extern "system" {
     fn K32InitializeProcessForWsWatch();
     fn K32QueryWorkingSet();
     fn K32QueryWorkingSetEx();
-    fn MODULEINFO();
-    fn PENUM_PAGE_FILE_CALLBACKA();
-    fn PENUM_PAGE_FILE_CALLBACKW();
-    fn PERFORMANCE_INFORMATION();
-    fn PROCESS_MEMORY_COUNTERS();
-    fn PROCESS_MEMORY_COUNTERS_EX();
-    fn PSAPI_VERSION();
-    fn PSAPI_WORKING_SET_BLOCK();
-    fn PSAPI_WORKING_SET_EX_BLOCK();
-    fn PSAPI_WORKING_SET_EX_INFORMATION();
-    fn PSAPI_WORKING_SET_INFORMATION();
-    fn PSAPI_WS_WATCH_INFORMATION();
-    fn PSAPI_WS_WATCH_INFORMATION_EX();
 }

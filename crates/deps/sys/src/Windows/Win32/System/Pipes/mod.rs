@@ -18,11 +18,6 @@ extern "system" {
     fn GetNamedPipeServerProcessId();
     fn GetNamedPipeServerSessionId();
     fn ImpersonateNamedPipeClient();
-    fn NAMED_PIPE_MODE();
-    fn NMPWAIT_NOWAIT();
-    fn NMPWAIT_USE_DEFAULT_WAIT();
-    fn NMPWAIT_WAIT_FOREVER();
-    fn PIPE_UNLIMITED_INSTANCES();
     fn PeekNamedPipe();
     fn SetNamedPipeHandleState();
     fn TransactNamedPipe();
