@@ -7,5 +7,3 @@ pub mod Preview;
 pub mod UI;
 #[cfg(feature = "Gaming_XboxLive")]
 pub mod XboxLive;
-#[link(name = "windows")]
-extern "system" {}

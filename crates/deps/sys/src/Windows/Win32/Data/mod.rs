@@ -5,5 +5,3 @@ pub mod HtmlHelp;
 pub mod RightsManagement;
 #[cfg(feature = "Win32_Data_Xml")]
 pub mod Xml;
-#[link(name = "windows")]
-extern "system" {}

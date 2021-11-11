@@ -9,5 +9,3 @@ pub mod Etw;
 pub mod ProcessSnapshotting;
 #[cfg(feature = "Win32_System_Diagnostics_ToolHelp")]
 pub mod ToolHelp;
-#[link(name = "windows")]
-extern "system" {}

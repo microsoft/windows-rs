@@ -33,5 +33,3 @@ pub mod WindowsAndMessaging;
 pub mod Wpf;
 #[cfg(feature = "Win32_UI_Xaml")]
 pub mod Xaml;
-#[link(name = "windows")]
-extern "system" {}

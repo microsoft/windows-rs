@@ -5,5 +5,3 @@ pub mod Capture;
 pub mod Direct2D;
 #[cfg(feature = "Win32_System_WinRT_Graphics_Imaging")]
 pub mod Imaging;
-#[link(name = "windows")]
-extern "system" {}

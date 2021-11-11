@@ -3,5 +3,3 @@
 pub mod MsXml;
 #[cfg(feature = "Win32_Data_Xml_XmlLite")]
 pub mod XmlLite;
-#[link(name = "windows")]
-extern "system" {}

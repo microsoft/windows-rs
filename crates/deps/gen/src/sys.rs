@@ -9,17 +9,17 @@ pub fn gen_sys(tree: &TypeTree, gen: &Gen) -> TokenStream {
 }
 
 fn gen_functions(tree: &TypeTree, gen: &Gen) -> TokenStream {
-    let functions = tree.types.iter().map(|(name, def)| gen_function(name, def));
+    let mut functions = tree.types.iter().map(|(name, def)| gen_function(name, def)).peekable();
 
-    if functions.is_empty() {
-        quote! {}
-    } else {
+    if functions.peek().is_some() {
         quote! {
             #[link(name = "windows")]
             extern "system" {
                 #(#functions)*
             }
         }
+    } else {
+        quote! {}
     }
 }
 

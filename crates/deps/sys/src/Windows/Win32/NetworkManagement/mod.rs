@@ -47,5 +47,3 @@ pub mod WindowsFilteringPlatform;
 pub mod WindowsFirewall;
 #[cfg(feature = "Win32_NetworkManagement_WindowsNetworkVirtualization")]
 pub mod WindowsNetworkVirtualization;
-#[link(name = "windows")]
-extern "system" {}

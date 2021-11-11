@@ -3,5 +3,3 @@
 pub mod Appx;
 #[cfg(feature = "Win32_Storage_Packaging_Opc")]
 pub mod Opc;
-#[link(name = "windows")]
-extern "system" {}
