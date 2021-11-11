@@ -2258,7 +2258,7 @@ unsafe impl ::windows::runtime::RuntimeType for Ellipse {
 }
 unsafe impl ::windows::runtime::Interface for Ellipse {
     type Vtable = IEllipse_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1893751492, 54157, 19371, [131, 31, 74, 34, 239, 82, 172, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70e05ac4_d38d_4bab_831f_4a22ef52ac86);
 }
 impl ::windows::runtime::RuntimeName for Ellipse {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Ellipse";
@@ -2442,7 +2442,7 @@ unsafe impl ::core::marker::Sync for Ellipse {}
 pub struct IEllipse(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEllipse {
     type Vtable = IEllipse_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1893751492, 54157, 19371, [131, 31, 74, 34, 239, 82, 172, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70e05ac4_d38d_4bab_831f_4a22ef52ac86);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2459,7 +2459,7 @@ pub struct IEllipse_abi(
 pub struct ILine(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILine {
     type Vtable = ILine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1185235773, 20475, 18655, [135, 50, 78, 21, 200, 52, 129, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46a5433d_4ffb_48df_8732_4e15c834816b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2484,7 +2484,7 @@ pub struct ILine_abi(
 pub struct ILineStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineStatics {
     type Vtable = ILineStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(645665341, 28324, 19536, [139, 29, 80, 32, 122, 255, 30, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x267c123d_6ea4_4c50_8b1d_50207aff1e8a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2505,7 +2505,7 @@ pub struct ILineStatics_abi(
 pub struct IPath(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPath {
     type Vtable = IPath_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2022192649, 15703, 20284, [184, 165, 108, 171, 202, 201, 113, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78883609_3d57_4f3c_b8a5_6cabcac9711f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2526,7 +2526,7 @@ pub struct IPath_abi(
 pub struct IPathFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPathFactory {
     type Vtable = IPathFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(591439075, 23174, 20422, [154, 80, 203, 185, 59, 130, 135, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2340a4e3_5a86_4fc6_9a50_cbb93b828766);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2544,7 +2544,7 @@ pub struct IPathFactory_abi(
 pub struct IPathStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPathStatics {
     type Vtable = IPathStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4129809821, 34780, 16706, [129, 241, 151, 252, 127, 248, 100, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf627e59d_87dc_4142_81f1_97fc7ff8641c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2562,7 +2562,7 @@ pub struct IPathStatics_abi(
 pub struct IPolygon(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPolygon {
     type Vtable = IPolygon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3816119321, 11853, 19404, [141, 52, 134, 135, 25, 87, 250, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3755c19_2e4d_4bcc_8d34_86871957fa01);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2587,7 +2587,7 @@ pub struct IPolygon_abi(
 pub struct IPolygonStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPolygonStatics {
     type Vtable = IPolygonStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(908757675, 54371, 17254, [158, 26, 190, 186, 114, 129, 15, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x362a8aab_d463_4366_9e1a_beba72810fb7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2606,7 +2606,7 @@ pub struct IPolygonStatics_abi(
 pub struct IPolyline(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPolyline {
     type Vtable = IPolyline_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2447139576, 17075, 18419, [132, 118, 197, 81, 36, 167, 196, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91dc62f8_42b3_47f3_8476_c55124a7c4c6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2631,7 +2631,7 @@ pub struct IPolyline_abi(
 pub struct IPolylineStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPolylineStatics {
     type Vtable = IPolylineStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3349818577, 41580, 17328, [170, 165, 130, 47, 166, 74, 17, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7aa2cd1_a26c_43b0_aaa5_822fa64a11b9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2650,7 +2650,7 @@ pub struct IPolylineStatics_abi(
 pub struct IRectangle(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRectangle {
     type Vtable = IRectangle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2237383216, 35345, 19992, [161, 54, 75, 194, 28, 120, 39, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x855bc230_8a11_4e18_a136_4bc21c7827b0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2671,7 +2671,7 @@ pub struct IRectangle_abi(
 pub struct IRectangleStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRectangleStatics {
     type Vtable = IRectangleStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2670045779, 47930, 19516, [137, 219, 111, 188, 13, 31, 160, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f25aa53_bb3a_4c3c_89db_6fbc0d1fa0cc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2690,7 +2690,7 @@ pub struct IRectangleStatics_abi(
 pub struct IShape(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShape {
     type Vtable = IShape_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2020551541, 39584, 17741, [174, 6, 162, 70, 110, 55, 200, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x786f2b75_9aa0_454d_ae06_a2466e37c832);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2747,7 +2747,7 @@ pub struct IShape_abi(
 pub struct IShape2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShape2 {
     type Vtable = IShape2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2535755194, 18930, 18852, [165, 221, 22, 77, 248, 36, 219, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97248dba_49f2_49a4_a5dd_164df824db14);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2766,7 +2766,7 @@ pub struct IShape2_abi(
 pub struct IShapeFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShapeFactory {
     type Vtable = IShapeFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1265726995, 63146, 18645, [149, 136, 225, 209, 136, 234, 203, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b717613_f6aa_48d5_9588_e1d188eacbc9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2784,7 +2784,7 @@ pub struct IShapeFactory_abi(
 pub struct IShapeStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShapeStatics {
     type Vtable = IShapeStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(494619733, 40435, 18652, [145, 148, 157, 48, 111, 170, 96, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d7b4c55_9df3_48dc_9194_9d306faa6089);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5150,7 +5150,7 @@ unsafe impl ::windows::runtime::RuntimeType for Line {
 }
 unsafe impl ::windows::runtime::Interface for Line {
     type Vtable = ILine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1185235773, 20475, 18655, [135, 50, 78, 21, 200, 52, 129, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46a5433d_4ffb_48df_8732_4e15c834816b);
 }
 impl ::windows::runtime::RuntimeName for Line {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Line";
@@ -7618,7 +7618,7 @@ unsafe impl ::windows::runtime::RuntimeType for Path {
 }
 unsafe impl ::windows::runtime::Interface for Path {
     type Vtable = IPath_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2022192649, 15703, 20284, [184, 165, 108, 171, 202, 201, 113, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78883609_3d57_4f3c_b8a5_6cabcac9711f);
 }
 impl ::windows::runtime::RuntimeName for Path {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Path";
@@ -10104,7 +10104,7 @@ unsafe impl ::windows::runtime::RuntimeType for Polygon {
 }
 unsafe impl ::windows::runtime::Interface for Polygon {
     type Vtable = IPolygon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3816119321, 11853, 19404, [141, 52, 134, 135, 25, 87, 250, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3755c19_2e4d_4bcc_8d34_86871957fa01);
 }
 impl ::windows::runtime::RuntimeName for Polygon {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Polygon";
@@ -12590,7 +12590,7 @@ unsafe impl ::windows::runtime::RuntimeType for Polyline {
 }
 unsafe impl ::windows::runtime::Interface for Polyline {
     type Vtable = IPolyline_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2447139576, 17075, 18419, [132, 118, 197, 81, 36, 167, 196, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91dc62f8_42b3_47f3_8476_c55124a7c4c6);
 }
 impl ::windows::runtime::RuntimeName for Polyline {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Polyline";
@@ -15072,7 +15072,7 @@ unsafe impl ::windows::runtime::RuntimeType for Rectangle {
 }
 unsafe impl ::windows::runtime::Interface for Rectangle {
     type Vtable = IRectangle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2237383216, 35345, 19992, [161, 54, 75, 194, 28, 120, 39, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x855bc230_8a11_4e18_a136_4bc21c7827b0);
 }
 impl ::windows::runtime::RuntimeName for Rectangle {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Rectangle";
@@ -17584,7 +17584,7 @@ unsafe impl ::windows::runtime::RuntimeType for Shape {
 }
 unsafe impl ::windows::runtime::Interface for Shape {
     type Vtable = IShape_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2020551541, 39584, 17741, [174, 6, 162, 70, 110, 55, 200, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x786f2b75_9aa0_454d_ae06_a2466e37c832);
 }
 impl ::windows::runtime::RuntimeName for Shape {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Shape";

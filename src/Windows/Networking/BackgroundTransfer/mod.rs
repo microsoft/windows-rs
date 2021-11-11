@@ -294,7 +294,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundDownloader {
 }
 unsafe impl ::windows::runtime::Interface for BackgroundDownloader {
     type Vtable = IBackgroundDownloader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3251082035, 26185, 19229, [168, 38, 164, 179, 221, 35, 77, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1c79333_6649_4b1d_a826_a4b3dd234d0b);
 }
 impl ::windows::runtime::RuntimeName for BackgroundDownloader {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundDownloader";
@@ -425,7 +425,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundTransferCompletionGrou
 }
 unsafe impl ::windows::runtime::Interface for BackgroundTransferCompletionGroup {
     type Vtable = IBackgroundTransferCompletionGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(764609061, 39019, 22349, [121, 80, 10, 221, 71, 245, 215, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d930225_986b_574d_7950_0add47f5d706);
 }
 impl ::windows::runtime::RuntimeName for BackgroundTransferCompletionGroup {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroup";
@@ -501,7 +501,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundTransferCompletionGrou
 }
 unsafe impl ::windows::runtime::Interface for BackgroundTransferCompletionGroupTriggerDetails {
     type Vtable = IBackgroundTransferCompletionGroupTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2070667910, 28231, 20790, [127, 203, 250, 67, 137, 244, 111, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b6be286_6e47_5136_7fcb_fa4389f46f5b);
 }
 impl ::windows::runtime::RuntimeName for BackgroundTransferCompletionGroupTriggerDetails {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroupTriggerDetails";
@@ -600,7 +600,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundTransferContentPart {
 }
 unsafe impl ::windows::runtime::Interface for BackgroundTransferContentPart {
     type Vtable = IBackgroundTransferContentPart_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3907081815, 55249, 20184, [131, 142, 103, 74, 194, 23, 172, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8e15657_d7d1_4ed8_838e_674ac217ace6);
 }
 impl ::windows::runtime::RuntimeName for BackgroundTransferContentPart {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart";
@@ -765,7 +765,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundTransferGroup {
 }
 unsafe impl ::windows::runtime::Interface for BackgroundTransferGroup {
     type Vtable = IBackgroundTransferGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3636716516, 25689, 17728, [133, 235, 170, 161, 200, 144, 54, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8c3e3e4_6459_4540_85eb_aaa1c8903677);
 }
 impl ::windows::runtime::RuntimeName for BackgroundTransferGroup {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferGroup";
@@ -872,7 +872,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundTransferRangesDownload
 }
 unsafe impl ::windows::runtime::Interface for BackgroundTransferRangesDownloadedEventArgs {
     type Vtable = IBackgroundTransferRangesDownloadedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1052537939, 48968, 19080, [146, 72, 176, 193, 101, 24, 79, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ebc7453_bf48_4a88_9248_b0c165184f5c);
 }
 impl ::windows::runtime::RuntimeName for BackgroundTransferRangesDownloadedEventArgs {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferRangesDownloadedEventArgs";
@@ -1278,7 +1278,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundUploader {
 }
 unsafe impl ::windows::runtime::Interface for BackgroundUploader {
     type Vtable = IBackgroundUploader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3314928046, 52909, 18011, [136, 1, 197, 90, 201, 10, 1, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc595c9ae_cead_465b_8801_c55ac90a01ce);
 }
 impl ::windows::runtime::RuntimeName for BackgroundUploader {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundUploader";
@@ -1617,7 +1617,7 @@ unsafe impl ::windows::runtime::RuntimeType for DownloadOperation {
 }
 unsafe impl ::windows::runtime::Interface for DownloadOperation {
     type Vtable = IDownloadOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3179801520, 22292, 19977, [186, 104, 190, 247, 57, 3, 176, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd87ebb0_5714_4e09_ba68_bef73903b0d7);
 }
 impl ::windows::runtime::RuntimeName for DownloadOperation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.DownloadOperation";
@@ -1713,7 +1713,7 @@ unsafe impl ::core::marker::Sync for DownloadOperation {}
 pub struct IBackgroundDownloader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundDownloader {
     type Vtable = IBackgroundDownloader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3251082035, 26185, 19229, [168, 38, 164, 179, 221, 35, 77, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1c79333_6649_4b1d_a826_a4b3dd234d0b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1736,7 +1736,7 @@ pub struct IBackgroundDownloader_abi(
 pub struct IBackgroundDownloader2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundDownloader2 {
     type Vtable = IBackgroundDownloader2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2840221767, 13453, 18997, [137, 14, 138, 30, 243, 121, 132, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa94a5847_348d_4a35_890e_8a1ef3798479);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1771,7 +1771,7 @@ pub struct IBackgroundDownloader2_abi(
 pub struct IBackgroundDownloader3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundDownloader3 {
     type Vtable = IBackgroundDownloader3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3508177992, 34536, 18658, [182, 21, 105, 118, 170, 191, 134, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd11a8c48_86e8_48e2_b615_6976aabf861d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1789,7 +1789,7 @@ pub struct IBackgroundDownloader3_abi(
 pub struct IBackgroundDownloaderFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundDownloaderFactory {
     type Vtable = IBackgroundDownloaderFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(646147108, 55454, 18164, [162, 154, 79, 77, 79, 20, 65, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26836c24_d89e_46f4_a29a_4f4d4f144155);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1807,7 +1807,7 @@ pub struct IBackgroundDownloaderFactory_abi(
 pub struct IBackgroundDownloaderStaticMethods(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundDownloaderStaticMethods {
     type Vtable = IBackgroundDownloaderStaticMethods_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1386633781, 50766, 17004, [153, 25, 84, 13, 13, 33, 166, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52a65a35_c64e_426c_9919_540d0d21a650);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1828,7 +1828,7 @@ pub struct IBackgroundDownloaderStaticMethods_abi(
 pub struct IBackgroundDownloaderStaticMethods2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundDownloaderStaticMethods2 {
     type Vtable = IBackgroundDownloaderStaticMethods2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(799675175, 6868, 19621, [178, 205, 8, 219, 240, 116, 106, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2faa1327_1ad4_4ca5_b2cd_08dbf0746afe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1847,7 +1847,7 @@ pub struct IBackgroundDownloaderStaticMethods2_abi(
 pub struct IBackgroundDownloaderUserConsent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundDownloaderUserConsent {
     type Vtable = IBackgroundDownloaderUserConsent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1561651462, 37478, 18440, [189, 113, 89, 37, 242, 163, 19, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d14e906_9266_4808_bd71_5925f2a3130a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1867,7 +1867,7 @@ pub struct IBackgroundDownloaderUserConsent_abi(
 pub struct IBackgroundTransferBase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferBase {
     type Vtable = IBackgroundTransferBase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(714973776, 51049, 17804, [175, 232, 254, 184, 212, 211, 178, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a9da250_c769_458c_afe8_feb8d4d3b2ef);
 }
 impl IBackgroundTransferBase {
     #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
@@ -2020,7 +2020,7 @@ pub struct IBackgroundTransferBase_abi(
 pub struct IBackgroundTransferCompletionGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferCompletionGroup {
     type Vtable = IBackgroundTransferCompletionGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(764609061, 39019, 22349, [121, 80, 10, 221, 71, 245, 215, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d930225_986b_574d_7950_0add47f5d706);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2041,7 +2041,7 @@ pub struct IBackgroundTransferCompletionGroup_abi(
 pub struct IBackgroundTransferCompletionGroupTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferCompletionGroupTriggerDetails {
     type Vtable = IBackgroundTransferCompletionGroupTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2070667910, 28231, 20790, [127, 203, 250, 67, 137, 244, 111, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b6be286_6e47_5136_7fcb_fa4389f46f5b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2062,7 +2062,7 @@ pub struct IBackgroundTransferCompletionGroupTriggerDetails_abi(
 pub struct IBackgroundTransferContentPart(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferContentPart {
     type Vtable = IBackgroundTransferContentPart_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3907081815, 55249, 20184, [131, 142, 103, 74, 194, 23, 172, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8e15657_d7d1_4ed8_838e_674ac217ace6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2084,7 +2084,7 @@ pub struct IBackgroundTransferContentPart_abi(
 pub struct IBackgroundTransferContentPartFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferContentPartFactory {
     type Vtable = IBackgroundTransferContentPartFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2431621289, 31233, 18955, [159, 128, 160, 176, 187, 55, 15, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90ef98a9_7a01_4a0b_9f80_a0b0bb370f8d);
 }
 impl IBackgroundTransferContentPartFactory {
     #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
@@ -2164,7 +2164,7 @@ pub struct IBackgroundTransferContentPartFactory_abi(
 pub struct IBackgroundTransferErrorStaticMethods(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferErrorStaticMethods {
     type Vtable = IBackgroundTransferErrorStaticMethods_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2865969924, 4498, 19444, [139, 104, 57, 197, 173, 210, 68, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaad33b04_1192_4bf4_8b68_39c5add244e2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2183,7 +2183,7 @@ pub struct IBackgroundTransferErrorStaticMethods_abi(
 pub struct IBackgroundTransferGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferGroup {
     type Vtable = IBackgroundTransferGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3636716516, 25689, 17728, [133, 235, 170, 161, 200, 144, 54, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8c3e3e4_6459_4540_85eb_aaa1c8903677);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2203,7 +2203,7 @@ pub struct IBackgroundTransferGroup_abi(
 pub struct IBackgroundTransferGroupStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferGroupStatics {
     type Vtable = IBackgroundTransferGroupStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(49041586, 32024, 18779, [170, 34, 50, 169, 125, 69, 211, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02ec50b2_7d18_495b_aa22_32a97d45d3e2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2222,7 +2222,7 @@ pub struct IBackgroundTransferGroupStatics_abi(
 pub struct IBackgroundTransferOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferOperation {
     type Vtable = IBackgroundTransferOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3738200134, 37066, 17659, [143, 177, 18, 65, 84, 192, 213, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xded06846_90ca_44fb_8fb1_124154c0d539);
 }
 impl IBackgroundTransferOperation {
     #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
@@ -2359,7 +2359,7 @@ pub struct IBackgroundTransferOperation_abi(
 pub struct IBackgroundTransferOperationPriority(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferOperationPriority {
     type Vtable = IBackgroundTransferOperationPriority_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(75842343, 21076, 19258, [145, 94, 10, 164, 146, 117, 192, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04854327_5254_4b3a_915e_0aa49275c0f9);
 }
 impl IBackgroundTransferOperationPriority {
     #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
@@ -2436,7 +2436,7 @@ pub struct IBackgroundTransferOperationPriority_abi(
 pub struct IBackgroundTransferRangesDownloadedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferRangesDownloadedEventArgs {
     type Vtable = IBackgroundTransferRangesDownloadedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1052537939, 48968, 19080, [146, 72, 176, 193, 101, 24, 79, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ebc7453_bf48_4a88_9248_b0c165184f5c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2458,7 +2458,7 @@ pub struct IBackgroundTransferRangesDownloadedEventArgs_abi(
 pub struct IBackgroundUploader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundUploader {
     type Vtable = IBackgroundUploader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3314928046, 52909, 18011, [136, 1, 197, 90, 201, 10, 1, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc595c9ae_cead_465b_8801_c55ac90a01ce);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2485,7 +2485,7 @@ pub struct IBackgroundUploader_abi(
 pub struct IBackgroundUploader2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundUploader2 {
     type Vtable = IBackgroundUploader2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2382762702, 3124, 17507, [128, 127, 25, 138, 27, 139, 212, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e0612ce_0c34_4463_807f_198a1b8bd4ad);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2520,7 +2520,7 @@ pub struct IBackgroundUploader2_abi(
 pub struct IBackgroundUploader3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundUploader3 {
     type Vtable = IBackgroundUploader3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3109983289, 23536, 19258, [140, 71, 44, 97, 153, 168, 84, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb95e9439_5bf0_4b3a_8c47_2c6199a854b9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2538,7 +2538,7 @@ pub struct IBackgroundUploader3_abi(
 pub struct IBackgroundUploaderFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundUploaderFactory {
     type Vtable = IBackgroundUploaderFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1935803335, 4327, 18592, [172, 60, 26, 199, 16, 149, 236, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x736203c7_10e7_48a0_ac3c_1ac71095ec57);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2556,7 +2556,7 @@ pub struct IBackgroundUploaderFactory_abi(
 pub struct IBackgroundUploaderStaticMethods(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundUploaderStaticMethods {
     type Vtable = IBackgroundUploaderStaticMethods_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4068957435, 39685, 18241, [145, 33, 116, 10, 131, 226, 71, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2875cfb_9b05_4741_9121_740a83e247df);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2577,7 +2577,7 @@ pub struct IBackgroundUploaderStaticMethods_abi(
 pub struct IBackgroundUploaderStaticMethods2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundUploaderStaticMethods2 {
     type Vtable = IBackgroundUploaderStaticMethods2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3910773858, 59912, 17136, [162, 172, 7, 228, 103, 84, 144, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe919ac62_ea08_42f0_a2ac_07e467549080);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2596,7 +2596,7 @@ pub struct IBackgroundUploaderStaticMethods2_abi(
 pub struct IBackgroundUploaderUserConsent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundUploaderUserConsent {
     type Vtable = IBackgroundUploaderUserConsent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1001620683, 1888, 17949, [144, 127, 81, 56, 248, 77, 68, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3bb384cb_0760_461d_907f_5138f84d44c1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2615,7 +2615,7 @@ pub struct IBackgroundUploaderUserConsent_abi(
 pub struct IContentPrefetcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentPrefetcher {
     type Vtable = IContentPrefetcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2832660308, 32193, 19673, [136, 16, 42, 106, 169, 65, 126, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8d6f754_7dc1_4cd9_8810_2a6aa9417e11);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2638,7 +2638,7 @@ pub struct IContentPrefetcher_abi(
 pub struct IContentPrefetcherTime(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentPrefetcherTime {
     type Vtable = IContentPrefetcherTime_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3814849800, 4906, 20446, [167, 204, 252, 176, 230, 101, 35, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe361fd08_132a_4fde_a7cc_fcb0e66523af);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2657,7 +2657,7 @@ pub struct IContentPrefetcherTime_abi(
 pub struct IDownloadOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDownloadOperation {
     type Vtable = IDownloadOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3179801520, 22292, 19977, [186, 104, 190, 247, 57, 3, 176, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd87ebb0_5714_4e09_ba68_bef73903b0d7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2683,7 +2683,7 @@ pub struct IDownloadOperation_abi(
 pub struct IDownloadOperation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDownloadOperation2 {
     type Vtable = IDownloadOperation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2748116288, 36764, 17235, [156, 212, 41, 13, 238, 56, 124, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3cced40_8f9c_4353_9cd4_290dee387c38);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2701,7 +2701,7 @@ pub struct IDownloadOperation2_abi(
 pub struct IDownloadOperation3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDownloadOperation3 {
     type Vtable = IDownloadOperation3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1344746780, 32094, 19164, [184, 211, 223, 92, 96, 49, 185, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5027351c_7d5e_4adc_b8d3_df5c6031b9cc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2734,7 +2734,7 @@ pub struct IDownloadOperation3_abi(
 pub struct IDownloadOperation4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDownloadOperation4 {
     type Vtable = IDownloadOperation4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(215658228, 36079, 16458, [150, 109, 240, 88, 64, 11, 237, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cdaaef4_8cef_404a_966d_f058400bed80);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2752,7 +2752,7 @@ pub struct IDownloadOperation4_abi(
 pub struct IDownloadOperation5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDownloadOperation5 {
     type Vtable = IDownloadOperation5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2795087983, 21904, 17978, [184, 214, 30, 73, 26, 39, 96, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa699a86f_5590_463a_b8d6_1e491a2760a5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2771,7 +2771,7 @@ pub struct IDownloadOperation5_abi(
 pub struct IResponseInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResponseInformation {
     type Vtable = IResponseInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4173044242, 63251, 18322, [139, 104, 217, 210, 151, 249, 29, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8bb9a12_f713_4792_8b68_d9d297f91d2e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2794,7 +2794,7 @@ pub struct IResponseInformation_abi(
 pub struct IUnconstrainedTransferRequestResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnconstrainedTransferRequestResult {
     type Vtable = IUnconstrainedTransferRequestResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1277474847, 55620, 16658, [169, 142, 106, 105, 82, 43, 126, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c24b81f_d944_4112_a98e_6a69522b7ebb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2812,7 +2812,7 @@ pub struct IUnconstrainedTransferRequestResult_abi(
 pub struct IUploadOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUploadOperation {
     type Vtable = IUploadOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1045832928, 29577, 17228, [139, 53, 66, 127, 211, 107, 189, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e5624e0_7389_434c_8b35_427fd36bbdae);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2836,7 +2836,7 @@ pub struct IUploadOperation_abi(
 pub struct IUploadOperation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUploadOperation2 {
     type Vtable = IUploadOperation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1432455666, 10100, 19958, [159, 165, 32, 159, 43, 251, 18, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x556189f2_2774_4df6_9fa5_209f2bfb12f7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2854,7 +2854,7 @@ pub struct IUploadOperation2_abi(
 pub struct IUploadOperation3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUploadOperation3 {
     type Vtable = IUploadOperation3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1120480419, 56889, 17734, [188, 98, 55, 116, 180, 41, 77, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42c92ca3_de39_4546_bc62_3774b4294de3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2872,7 +2872,7 @@ pub struct IUploadOperation3_abi(
 pub struct IUploadOperation4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUploadOperation4 {
     type Vtable = IUploadOperation4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357770545, 64197, 16878, [176, 48, 220, 119, 202, 238, 159, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50edef31_fac5_41ee_b030_dc77caee9faa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2931,7 +2931,7 @@ unsafe impl ::windows::runtime::RuntimeType for ResponseInformation {
 }
 unsafe impl ::windows::runtime::Interface for ResponseInformation {
     type Vtable = IResponseInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4173044242, 63251, 18322, [139, 104, 217, 210, 151, 249, 29, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8bb9a12_f713_4792_8b68_d9d297f91d2e);
 }
 impl ::windows::runtime::RuntimeName for ResponseInformation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.ResponseInformation";
@@ -2998,7 +2998,7 @@ unsafe impl ::windows::runtime::RuntimeType for UnconstrainedTransferRequestResu
 }
 unsafe impl ::windows::runtime::Interface for UnconstrainedTransferRequestResult {
     type Vtable = IUnconstrainedTransferRequestResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1277474847, 55620, 16658, [169, 142, 106, 105, 82, 43, 126, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c24b81f_d944_4112_a98e_6a69522b7ebb);
 }
 impl ::windows::runtime::RuntimeName for UnconstrainedTransferRequestResult {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.UnconstrainedTransferRequestResult";
@@ -3191,7 +3191,7 @@ unsafe impl ::windows::runtime::RuntimeType for UploadOperation {
 }
 unsafe impl ::windows::runtime::Interface for UploadOperation {
     type Vtable = IUploadOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1045832928, 29577, 17228, [139, 53, 66, 127, 211, 107, 189, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e5624e0_7389_434c_8b35_427fd36bbdae);
 }
 impl ::windows::runtime::RuntimeName for UploadOperation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.UploadOperation";

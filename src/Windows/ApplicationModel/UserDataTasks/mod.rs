@@ -6,7 +6,7 @@ pub mod DataProvider;
 pub struct IUserDataTask(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTask {
     type Vtable = IUserDataTask_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2087028177, 57556, 20377, [174, 226, 188, 45, 93, 218, 223, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c6585d1_e0d4_4f99_aee2_bc2d5ddadf4c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -58,7 +58,7 @@ pub struct IUserDataTask_abi(
 pub struct IUserDataTaskBatch(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskBatch {
     type Vtable = IUserDataTaskBatch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(942515710, 8373, 17180, [143, 66, 165, 210, 146, 236, 147, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x382da5fe_20b5_431c_8f42_a5d292ec930c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -77,7 +77,7 @@ pub struct IUserDataTaskBatch_abi(
 pub struct IUserDataTaskList(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskList {
     type Vtable = IUserDataTaskList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229008441, 31773, 19953, [190, 211, 49, 75, 124, 191, 94, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49412e39_7c1d_4df1_bed3_314b7cbf5e4e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -119,7 +119,7 @@ pub struct IUserDataTaskList_abi(
 pub struct IUserDataTaskListLimitedWriteOperations(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListLimitedWriteOperations {
     type Vtable = IUserDataTaskListLimitedWriteOperations_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2057463794, 24696, 16771, [145, 158, 79, 41, 241, 156, 250, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7aa267f2_6078_4183_919e_4f29f19cfae9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -144,7 +144,7 @@ pub struct IUserDataTaskListLimitedWriteOperations_abi(
 pub struct IUserDataTaskListSyncManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListSyncManager {
     type Vtable = IUserDataTaskListSyncManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2388204181, 7631, 18079, [147, 236, 186, 72, 187, 85, 60, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e591a95_1dcf_469f_93ec_ba48bb553c6b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -177,7 +177,7 @@ pub struct IUserDataTaskListSyncManager_abi(
 pub struct IUserDataTaskManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskManager {
     type Vtable = IUserDataTaskManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2219952404, 58891, 18601, [146, 17, 127, 184, 165, 108, 184, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8451c914_e60b_48a9_9211_7fb8a56cb84c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -198,7 +198,7 @@ pub struct IUserDataTaskManager_abi(
 pub struct IUserDataTaskManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskManagerStatics {
     type Vtable = IUserDataTaskManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3008707064, 50434, 18428, [168, 30, 16, 8, 131, 113, 157, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb35539f8_c502_47fc_a81e_100883719d55);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -218,7 +218,7 @@ pub struct IUserDataTaskManagerStatics_abi(
 pub struct IUserDataTaskQueryOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskQueryOptions {
     type Vtable = IUserDataTaskQueryOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2510235629, 37018, 19760, [140, 27, 51, 29, 143, 230, 103, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x959f27ed_909a_4d30_8c1b_331d8fe667e2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -239,7 +239,7 @@ pub struct IUserDataTaskQueryOptions_abi(
 pub struct IUserDataTaskReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskReader {
     type Vtable = IUserDataTaskReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(65439921, 19663, 17664, [136, 59, 231, 98, 144, 207, 237, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03e688b1_4ccf_4500_883b_e76290cfed63);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -258,7 +258,7 @@ pub struct IUserDataTaskReader_abi(
 pub struct IUserDataTaskRecurrenceProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskRecurrenceProperties {
     type Vtable = IUserDataTaskRecurrenceProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1944027312, 10182, 16590, [177, 73, 156, 212, 20, 133, 166, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73df80b0_27c6_40ce_b149_9cd41485a69e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -303,7 +303,7 @@ pub struct IUserDataTaskRecurrenceProperties_abi(
 pub struct IUserDataTaskRegenerationProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskRegenerationProperties {
     type Vtable = IUserDataTaskRegenerationProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2460680199, 2318, 18180, [187, 92, 132, 252, 11, 13, 156, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92ab0007_090e_4704_bb5c_84fc0b0d9c31);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -332,7 +332,7 @@ pub struct IUserDataTaskRegenerationProperties_abi(
 pub struct IUserDataTaskStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskStore {
     type Vtable = IUserDataTaskStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4033518768, 61915, 17850, [138, 98, 8, 96, 4, 192, 33, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf06a9cb0_f1db_45ba_8a62_086004c0213d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -558,7 +558,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTask {
 }
 unsafe impl ::windows::runtime::Interface for UserDataTask {
     type Vtable = IUserDataTask_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2087028177, 57556, 20377, [174, 226, 188, 45, 93, 218, 223, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c6585d1_e0d4_4f99_aee2_bc2d5ddadf4c);
 }
 impl ::windows::runtime::RuntimeName for UserDataTask {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTask";
@@ -625,7 +625,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskBatch {
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskBatch {
     type Vtable = IUserDataTaskBatch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(942515710, 8373, 17180, [143, 66, 165, 210, 146, 236, 147, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x382da5fe_20b5_431c_8f42_a5d292ec930c);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskBatch {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskBatch";
@@ -933,7 +933,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskList {
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskList {
     type Vtable = IUserDataTaskList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229008441, 31773, 19953, [190, 211, 49, 75, 124, 191, 94, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49412e39_7c1d_4df1_bed3_314b7cbf5e4e);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskList {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskList";
@@ -1027,7 +1027,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskListLimitedWriteOper
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskListLimitedWriteOperations {
     type Vtable = IUserDataTaskListLimitedWriteOperations_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2057463794, 24696, 16771, [145, 158, 79, 41, 241, 156, 250, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7aa267f2_6078_4183_919e_4f29f19cfae9);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskListLimitedWriteOperations {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskListLimitedWriteOperations";
@@ -1197,7 +1197,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskListSyncManager {
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskListSyncManager {
     type Vtable = IUserDataTaskListSyncManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2388204181, 7631, 18079, [147, 236, 186, 72, 187, 85, 60, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e591a95_1dcf_469f_93ec_ba48bb553c6b);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskListSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncManager";
@@ -1318,7 +1318,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskManager {
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskManager {
     type Vtable = IUserDataTaskManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2219952404, 58891, 18601, [146, 17, 127, 184, 165, 108, 184, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8451c914_e60b_48a9_9211_7fb8a56cb84c);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskManager";
@@ -1455,7 +1455,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskQueryOptions {
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskQueryOptions {
     type Vtable = IUserDataTaskQueryOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2510235629, 37018, 19760, [140, 27, 51, 29, 143, 230, 103, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x959f27ed_909a_4d30_8c1b_331d8fe667e2);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryOptions";
@@ -1543,7 +1543,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskReader {
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskReader {
     type Vtable = IUserDataTaskReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(65439921, 19663, 17664, [136, 59, 231, 98, 144, 207, 237, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03e688b1_4ccf_4500_883b_e76290cfed63);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskReader {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskReader";
@@ -1724,7 +1724,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskRecurrenceProperties
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskRecurrenceProperties {
     type Vtable = IUserDataTaskRecurrenceProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1944027312, 10182, 16590, [177, 73, 156, 212, 20, 133, 166, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73df80b0_27c6_40ce_b149_9cd41485a69e);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskRecurrenceProperties {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceProperties";
@@ -1871,7 +1871,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskRegenerationProperti
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskRegenerationProperties {
     type Vtable = IUserDataTaskRegenerationProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2460680199, 2318, 18180, [187, 92, 132, 252, 11, 13, 156, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92ab0007_090e_4704_bb5c_84fc0b0d9c31);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskRegenerationProperties {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationProperties";
@@ -2011,7 +2011,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataTaskStore {
 }
 unsafe impl ::windows::runtime::Interface for UserDataTaskStore {
     type Vtable = IUserDataTaskStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4033518768, 61915, 17850, [138, 98, 8, 96, 4, 192, 33, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf06a9cb0_f1db_45ba_8a62_086004c0213d);
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskStore {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskStore";

@@ -1136,7 +1136,7 @@ impl ::core::cmp::Eq for BTH_L2CAP_EVENT_INFO {}
 unsafe impl ::windows::runtime::Abi for BTH_L2CAP_EVENT_INFO {
     type Abi = Self;
 }
-pub const BTH_LE_ATT_BLUETOOTH_BASE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 0, 4096, [128, 0, 0, 128, 95, 155, 52, 251]);
+pub const BTH_LE_ATT_BLUETOOTH_BASE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000000_0000_1000_8000_00805f9b34fb);
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BTH_LE_ATT_CID: u32 = 4u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
@@ -2121,7 +2121,7 @@ pub unsafe fn BluetoothUpdateDeviceRecord(pbtdi: *const BLUETOOTH_DEVICE_INFO) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const Bluetooth_Base_UUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 0, 4096, [128, 0, 0, 128, 95, 155, 52, 251]);
+pub const Bluetooth_Base_UUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000000_0000_1000_8000_00805f9b34fb);
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BrowseGroupDescriptorServiceClassID_UUID16: u32 = 4097u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
@@ -2380,17 +2380,17 @@ pub const GNSSProfileID_UUID16: u32 = 4405u32;
 pub const GNSSServerServiceClassID_UUID16: u32 = 4406u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const GNServiceClassID_UUID16: u32 = 4375u32;
-pub const GUID_BLUETOOTHLE_DEVICE_INTERFACE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2015030808, 30515, 19684, [173, 208, 145, 244, 28, 103, 181, 146]);
-pub const GUID_BLUETOOTH_AUTHENTICATION_REQUEST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1573458797, 39276, 18139, [132, 245, 50, 192, 163, 244, 115, 82]);
-pub const GUID_BLUETOOTH_GATT_SERVICE_DEVICE_INTERFACE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1849407097, 17266, 16584, [158, 170, 69, 9, 223, 38, 12, 216]);
-pub const GUID_BLUETOOTH_HCI_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4230217826, 5441, 18878, [180, 99, 132, 196, 220, 215, 191, 127]);
-pub const GUID_BLUETOOTH_HCI_VENDOR_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1416775654, 17851, 19507, [175, 140, 192, 14, 254, 21, 167, 29]);
-pub const GUID_BLUETOOTH_KEYPRESS_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3597197261, 3918, 20220, [191, 224, 57, 46, 238, 197, 16, 156]);
-pub const GUID_BLUETOOTH_L2CAP_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2125348912, 46857, 19112, [172, 85, 233, 83, 130, 156, 157, 170]);
-pub const GUID_BLUETOOTH_RADIO_IN_RANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3929758594, 9966, 17678, [176, 216, 210, 111, 227, 10, 56, 105]);
-pub const GUID_BLUETOOTH_RADIO_OUT_OF_RANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3800590281, 49834, 19693, [185, 105, 69, 112, 134, 96, 55, 196]);
-pub const GUID_BTHPORT_DEVICE_INTERFACE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(139472938, 45892, 20442, [155, 233, 144, 87, 107, 141, 70, 240]);
-pub const GUID_BTH_RFCOMM_SERVICE_DEVICE_INTERFACE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2973957182, 64078, 17931, [138, 188, 7, 43, 98, 139, 60, 112]);
+pub const GUID_BLUETOOTHLE_DEVICE_INTERFACE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x781aee18_7733_4ce4_add0_91f41c67b592);
+pub const GUID_BLUETOOTH_AUTHENTICATION_REQUEST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5dc9136d_996c_46db_84f5_32c0a3f47352);
+pub const GUID_BLUETOOTH_GATT_SERVICE_DEVICE_INTERFACE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e3bb679_4372_40c8_9eaa_4509df260cd8);
+pub const GUID_BLUETOOTH_HCI_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc240062_1541_49be_b463_84c4dcd7bf7f);
+pub const GUID_BLUETOOTH_HCI_VENDOR_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x547247e6_45bb_4c33_af8c_c00efe15a71d);
+pub const GUID_BLUETOOTH_KEYPRESS_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd668dfcd_0f4e_4efc_bfe0_392eeec5109c);
+pub const GUID_BLUETOOTH_L2CAP_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7eae4030_b709_4aa8_ac55_e953829c9daa);
+pub const GUID_BLUETOOTH_RADIO_IN_RANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea3b5b82_26ee_450e_b0d8_d26fe30a3869);
+pub const GUID_BLUETOOTH_RADIO_OUT_OF_RANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe28867c9_c2aa_4ced_b969_4570866037c4);
+pub const GUID_BTHPORT_DEVICE_INTERFACE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0850302a_b344_4fda_9be9_90576b8d46f0);
+pub const GUID_BTH_RFCOMM_SERVICE_DEVICE_INTERFACE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb142fc3e_fa4e_460b_8abc_072b628b3c70);
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const GenericAudioServiceClassID_UUID16: u32 = 4611u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
@@ -3440,7 +3440,7 @@ pub const STRING_DESCRIPTION_OFFSET: u32 = 1u32;
 pub const STRING_NAME_OFFSET: u32 = 0u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const STRING_PROVIDER_NAME_OFFSET: u32 = 2u32;
-pub const SVCID_BTH_PROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(111829984, 32096, 16895, [175, 178, 62, 230, 210, 217, 57, 45]);
+pub const SVCID_BTH_PROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06aa63e0_7d60_41ff_afb2_3ee6d2d9392d);
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const SYNCH_DATA_STORE_CALENDAR: u32 = 3u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]

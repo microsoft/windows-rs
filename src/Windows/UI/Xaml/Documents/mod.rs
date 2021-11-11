@@ -528,7 +528,7 @@ unsafe impl ::windows::runtime::RuntimeType for Block {
 }
 unsafe impl ::windows::runtime::Interface for Block {
     type Vtable = IBlock_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1271791638, 56647, 17232, [140, 176, 225, 113, 96, 10, 200, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bce0016_dd47_4350_8cb0_e171600ac896);
 }
 impl ::windows::runtime::RuntimeName for Block {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Block";
@@ -1293,7 +1293,7 @@ unsafe impl ::windows::runtime::RuntimeType for Bold {
 }
 unsafe impl ::windows::runtime::Interface for Bold {
     type Vtable = IBold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2917611396, 7001, 19876, [187, 35, 15, 32, 232, 133, 180, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xade73784_1b59_4da4_bb23_0f20e885b4bf);
 }
 impl ::windows::runtime::RuntimeName for Bold {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Bold";
@@ -1494,7 +1494,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContactContentLinkProvider {
 }
 unsafe impl ::windows::runtime::Interface for ContactContentLinkProvider {
     type Vtable = IContactContentLinkProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4180660891, 22683, 19133, [157, 55, 53, 161, 70, 143, 2, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf92fd29b_589b_4abd_9d37_35a1468f021e);
 }
 impl ::windows::runtime::RuntimeName for ContactContentLinkProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.ContactContentLinkProvider";
@@ -2368,7 +2368,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContentLink {
 }
 unsafe impl ::windows::runtime::Interface for ContentLink {
     type Vtable = IContentLink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1818280929, 21132, 17144, [146, 190, 52, 184, 198, 139, 227, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c60c3e1_528c_42f8_92be_34b8c68be304);
 }
 impl ::windows::runtime::RuntimeName for ContentLink {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.ContentLink";
@@ -2508,7 +2508,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContentLinkInvokedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ContentLinkInvokedEventArgs {
     type Vtable = IContentLinkInvokedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1416042433, 59615, 17811, [150, 57, 151, 89, 95, 223, 131, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x546717c1_e8df_4593_9639_97595fdf8310);
 }
 impl ::windows::runtime::RuntimeName for ContentLinkInvokedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.ContentLinkInvokedEventArgs";
@@ -2622,7 +2622,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContentLinkProvider {
 }
 unsafe impl ::windows::runtime::Interface for ContentLinkProvider {
     type Vtable = IContentLinkProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1929742333, 49116, 19635, [144, 77, 182, 90, 179, 57, 187, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x730587fd_bfdc_4cb3_904d_b65ab339bbf5);
 }
 impl ::windows::runtime::RuntimeName for ContentLinkProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.ContentLinkProvider";
@@ -2803,7 +2803,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContentLinkProviderCollection {
 }
 unsafe impl ::windows::runtime::Interface for ContentLinkProviderCollection {
     type Vtable = IContentLinkProviderCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4122496268, 43508, 19738, [161, 60, 16, 222, 241, 132, 55, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5b84d0c_a9f4_4d1a_a13c_10def1843734);
 }
 impl ::windows::runtime::RuntimeName for ContentLinkProviderCollection {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.ContentLinkProviderCollection";
@@ -5214,7 +5214,7 @@ unsafe impl ::windows::runtime::RuntimeType for Glyphs {
 }
 unsafe impl ::windows::runtime::Interface for Glyphs {
     type Vtable = IGlyphs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3497609611, 62129, 17025, [153, 162, 228, 208, 89, 50, 178, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd079498b_f2b1_4281_99a2_e4d05932b2b5);
 }
 impl ::windows::runtime::RuntimeName for Glyphs {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Glyphs";
@@ -6174,7 +6174,7 @@ unsafe impl ::windows::runtime::RuntimeType for Hyperlink {
 }
 unsafe impl ::windows::runtime::Interface for Hyperlink {
     type Vtable = IHyperlink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(266483259, 5353, 16722, [158, 88, 90, 234, 91, 33, 240, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0fe2363b_14e9_4152_9e58_5aea5b21f08d);
 }
 impl ::windows::runtime::RuntimeName for Hyperlink {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Hyperlink";
@@ -6320,7 +6320,7 @@ unsafe impl ::windows::runtime::RuntimeType for HyperlinkClickEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for HyperlinkClickEventArgs {
     type Vtable = IHyperlinkClickEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3344273771, 31708, 19431, [179, 115, 146, 64, 165, 3, 216, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc755916b_7bdc_4be7_b373_9240a503d870);
 }
 impl ::windows::runtime::RuntimeName for HyperlinkClickEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.HyperlinkClickEventArgs";
@@ -6392,7 +6392,7 @@ unsafe impl ::core::marker::Sync for HyperlinkClickEventArgs {}
 pub struct IBlock(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBlock {
     type Vtable = IBlock_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1271791638, 56647, 17232, [140, 176, 225, 113, 96, 10, 200, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bce0016_dd47_4350_8cb0_e171600ac896);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6417,7 +6417,7 @@ pub struct IBlock_abi(
 pub struct IBlock2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBlock2 {
     type Vtable = IBlock2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1590148595, 4915, 19090, [131, 24, 108, 174, 220, 18, 239, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ec7bdf3_1333_4a92_8318_6caedc12ef89);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6436,7 +6436,7 @@ pub struct IBlock2_abi(
 pub struct IBlockFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBlockFactory {
     type Vtable = IBlockFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(118555954, 20313, 20283, [156, 229, 37, 120, 76, 67, 5, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x07110532_4f59_4f3b_9ce5_25784c430507);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6454,7 +6454,7 @@ pub struct IBlockFactory_abi(
 pub struct IBlockStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBlockStatics {
     type Vtable = IBlockStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4167732276, 36120, 19539, [174, 189, 145, 230, 16, 165, 224, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf86a8c34_8d18_4c53_aebd_91e610a5e010);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6475,7 +6475,7 @@ pub struct IBlockStatics_abi(
 pub struct IBlockStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBlockStatics2 {
     type Vtable = IBlockStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2936120534, 995, 19694, [155, 2, 43, 252, 48, 139, 39, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf01a4d6_03e3_4cee_9b02_2bfc308b27a9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6493,7 +6493,7 @@ pub struct IBlockStatics2_abi(
 pub struct IBold(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBold {
     type Vtable = IBold_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2917611396, 7001, 19876, [187, 35, 15, 32, 232, 133, 180, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xade73784_1b59_4da4_bb23_0f20e885b4bf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6510,7 +6510,7 @@ pub struct IBold_abi(
 pub struct IContactContentLinkProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactContentLinkProvider {
     type Vtable = IContactContentLinkProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4180660891, 22683, 19133, [157, 55, 53, 161, 70, 143, 2, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf92fd29b_589b_4abd_9d37_35a1468f021e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6527,7 +6527,7 @@ pub struct IContactContentLinkProvider_abi(
 pub struct IContentLink(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentLink {
     type Vtable = IContentLink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1818280929, 21132, 17144, [146, 190, 52, 184, 198, 139, 227, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c60c3e1_528c_42f8_92be_34b8c68be304);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6600,7 +6600,7 @@ pub struct IContentLink_abi(
 pub struct IContentLinkInvokedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentLinkInvokedEventArgs {
     type Vtable = IContentLinkInvokedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1416042433, 59615, 17811, [150, 57, 151, 89, 95, 223, 131, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x546717c1_e8df_4593_9639_97595fdf8310);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6621,7 +6621,7 @@ pub struct IContentLinkInvokedEventArgs_abi(
 pub struct IContentLinkProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentLinkProvider {
     type Vtable = IContentLinkProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1929742333, 49116, 19635, [144, 77, 182, 90, 179, 57, 187, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x730587fd_bfdc_4cb3_904d_b65ab339bbf5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6638,7 +6638,7 @@ pub struct IContentLinkProvider_abi(
 pub struct IContentLinkProviderCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentLinkProviderCollection {
     type Vtable = IContentLinkProviderCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4122496268, 43508, 19738, [161, 60, 16, 222, 241, 132, 55, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5b84d0c_a9f4_4d1a_a13c_10def1843734);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6655,7 +6655,7 @@ pub struct IContentLinkProviderCollection_abi(
 pub struct IContentLinkProviderFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentLinkProviderFactory {
     type Vtable = IContentLinkProviderFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473645883, 61210, 20110, [131, 155, 211, 110, 243, 165, 3, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57d60d3b_ef1a_4e8e_839b_d36ef3a503e0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6673,7 +6673,7 @@ pub struct IContentLinkProviderFactory_abi(
 pub struct IContentLinkStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentLinkStatics {
     type Vtable = IContentLinkStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2739810403, 60182, 18510, [163, 223, 82, 43, 154, 131, 46, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa34e3063_eb16_484e_a3df_522b9a832e6e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6704,7 +6704,7 @@ pub struct IContentLinkStatics_abi(
 pub struct IGlyphs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlyphs {
     type Vtable = IGlyphs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3497609611, 62129, 17025, [153, 162, 228, 208, 89, 50, 178, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd079498b_f2b1_4281_99a2_e4d05932b2b5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6743,7 +6743,7 @@ pub struct IGlyphs_abi(
 pub struct IGlyphs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlyphs2 {
     type Vtable = IGlyphs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2861301340, 14164, 19438, [187, 225, 68, 3, 238, 155, 134, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa8bfe5c_3754_4bee_bbe1_4403ee9b86f0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6764,7 +6764,7 @@ pub struct IGlyphs2_abi(
 pub struct IGlyphsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlyphsStatics {
     type Vtable = IGlyphsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(576517317, 65009, 17389, [149, 143, 65, 78, 134, 241, 3, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x225cf4c5_fdf1_43ed_958f_414e86f103f2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6789,7 +6789,7 @@ pub struct IGlyphsStatics_abi(
 pub struct IGlyphsStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlyphsStatics2 {
     type Vtable = IGlyphsStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(273193639, 5653, 18995, [170, 2, 215, 239, 42, 239, 199, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10489aa7_1615_4a33_aa02_d7ef2aefc739);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6808,7 +6808,7 @@ pub struct IGlyphsStatics2_abi(
 pub struct IHyperlink(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlink {
     type Vtable = IHyperlink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(266483259, 5353, 16722, [158, 88, 90, 234, 91, 33, 240, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0fe2363b_14e9_4152_9e58_5aea5b21f08d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6833,7 +6833,7 @@ pub struct IHyperlink_abi(
 pub struct IHyperlink2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlink2 {
     type Vtable = IHyperlink2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1290394207, 31999, 17041, [183, 143, 223, 236, 114, 73, 5, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ce9da5f_7cff_4291_b78f_dfec72490576);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6852,7 +6852,7 @@ pub struct IHyperlink2_abi(
 pub struct IHyperlink3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlink3 {
     type Vtable = IHyperlink3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3287373785, 58835, 20407, [135, 2, 79, 109, 133, 221, 158, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3f157d9_e5d3_4fb7_8702_4f6d85dd9e0a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6879,7 +6879,7 @@ pub struct IHyperlink3_abi(
 pub struct IHyperlink4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlink4 {
     type Vtable = IHyperlink4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4157614425, 33531, 16394, [164, 7, 90, 78, 230, 119, 152, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7d02959_82fb_400a_a407_5a4ee677988a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6922,7 +6922,7 @@ pub struct IHyperlink4_abi(
 pub struct IHyperlink5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlink5 {
     type Vtable = IHyperlink5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1618859986, 2373, 17192, [145, 238, 148, 204, 236, 46, 166, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x607dd7d2_0945_4328_91ee_94ccec2ea6c3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6943,7 +6943,7 @@ pub struct IHyperlink5_abi(
 pub struct IHyperlinkClickEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlinkClickEventArgs {
     type Vtable = IHyperlinkClickEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3344273771, 31708, 19431, [179, 115, 146, 64, 165, 3, 216, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc755916b_7bdc_4be7_b373_9240a503d870);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6960,7 +6960,7 @@ pub struct IHyperlinkClickEventArgs_abi(
 pub struct IHyperlinkStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlinkStatics {
     type Vtable = IHyperlinkStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(977589204, 64833, 16859, [140, 114, 59, 121, 10, 205, 159, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a44d3d4_fd41_41db_8c72_3b790acd9fd3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6978,7 +6978,7 @@ pub struct IHyperlinkStatics_abi(
 pub struct IHyperlinkStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlinkStatics2 {
     type Vtable = IHyperlinkStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1344854199, 31455, 17390, [164, 174, 156, 146, 95, 117, 87, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5028d8b7_7adf_43ee_a4ae_9c925f755716);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6996,7 +6996,7 @@ pub struct IHyperlinkStatics2_abi(
 pub struct IHyperlinkStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlinkStatics3 {
     type Vtable = IHyperlinkStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1041620640, 8286, 18759, [153, 165, 116, 231, 87, 232, 225, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e15dea0_205e_4947_99a5_74e757e8e1b4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7018,7 +7018,7 @@ pub struct IHyperlinkStatics3_abi(
 pub struct IHyperlinkStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlinkStatics4 {
     type Vtable = IHyperlinkStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(74888056, 36778, 20004, [179, 182, 233, 222, 77, 60, 112, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0476b378_8faa_4e24_b3b6_e9de4d3c708c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7040,7 +7040,7 @@ pub struct IHyperlinkStatics4_abi(
 pub struct IHyperlinkStatics5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlinkStatics5 {
     type Vtable = IHyperlinkStatics5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1496354026, 7753, 18721, [189, 136, 162, 135, 141, 7, 227, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59308cea_1e49_4921_bd88_a2878d07e30e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7059,7 +7059,7 @@ pub struct IHyperlinkStatics5_abi(
 pub struct IInline(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInline {
     type Vtable = IInline_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(210923821, 7113, 18737, [140, 177, 26, 234, 223, 28, 198, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c92712d_1bc9_4931_8cb1_1aeadf1cc685);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7076,7 +7076,7 @@ pub struct IInline_abi(
 pub struct IInlineFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInlineFactory {
     type Vtable = IInlineFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1079553233, 12176, 19343, [153, 221, 66, 24, 239, 95, 3, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4058acd1_2f90_4b8f_99dd_4218ef5f03de);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7094,7 +7094,7 @@ pub struct IInlineFactory_abi(
 pub struct IInlineUIContainer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInlineUIContainer {
     type Vtable = IInlineUIContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(337038977, 10478, 17710, [177, 33, 95, 196, 246, 11, 134, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1416ce81_28ee_452e_b121_5fc4f60b86a6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7113,7 +7113,7 @@ pub struct IInlineUIContainer_abi(
 pub struct IItalic(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IItalic {
     type Vtable = IItalic_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2448712092, 64699, 16727, [128, 44, 118, 246, 59, 95, 182, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91f4619c_fcbb_4157_802c_76f63b5fb657);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7130,7 +7130,7 @@ pub struct IItalic_abi(
 pub struct ILineBreak(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineBreak {
     type Vtable = ILineBreak_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1683327428, 63337, 16877, [137, 91, 138, 27, 47, 179, 21, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x645589c4_f769_41ed_895b_8a1b2fb31562);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7147,7 +7147,7 @@ pub struct ILineBreak_abi(
 pub struct IParagraph(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IParagraph {
     type Vtable = IParagraph_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4164875674, 64097, 19439, [174, 51, 11, 10, 215, 86, 168, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf83ef59a_fa61_4bef_ae33_0b0ad756a84d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7168,7 +7168,7 @@ pub struct IParagraph_abi(
 pub struct IParagraphStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IParagraphStatics {
     type Vtable = IParagraphStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4010313882, 21339, 20044, [141, 132, 40, 59, 51, 233, 138, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef08889a_535b_4e4c_8d84_283b33e98a37);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7186,7 +7186,7 @@ pub struct IParagraphStatics_abi(
 pub struct IPlaceContentLinkProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaceContentLinkProvider {
     type Vtable = IPlaceContentLinkProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(271878732, 9062, 16830, [144, 200, 50, 88, 181, 59, 84, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10348a4c_2366_41be_90c8_3258b53b5483);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7203,7 +7203,7 @@ pub struct IPlaceContentLinkProvider_abi(
 pub struct IRun(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRun {
     type Vtable = IRun_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1498758275, 3604, 18877, [184, 75, 197, 38, 243, 3, 67, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59553c83_0e14_49bd_b84b_c526f3034349);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7224,7 +7224,7 @@ pub struct IRun_abi(
 pub struct IRunStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRunStatics {
     type Vtable = IRunStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3912252655, 26016, 19341, [167, 247, 143, 219, 40, 123, 70, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9303cef_65a0_4b8d_a7f7_8fdb287b46f3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7242,7 +7242,7 @@ pub struct IRunStatics_abi(
 pub struct ISpan(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpan {
     type Vtable = ISpan_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2553926825, 687, 18449, [170, 21, 107, 239, 58, 202, 201, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9839d4a9_02af_4811_aa15_6bef3acac97a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7263,7 +7263,7 @@ pub struct ISpan_abi(
 pub struct ISpanFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpanFactory {
     type Vtable = ISpanFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1536257884, 52525, 16576, [149, 106, 56, 100, 72, 50, 47, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b916f5c_cd2d_40c0_956a_386448322f79);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7281,7 +7281,7 @@ pub struct ISpanFactory_abi(
 pub struct ITextElement(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElement {
     type Vtable = ITextElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3896180834, 55158, 20370, [186, 234, 64, 231, 125, 71, 145, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe83b0062_d776_4f92_baea_40e77d4791d5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7330,7 +7330,7 @@ pub struct ITextElement_abi(
 pub struct ITextElement2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElement2 {
     type Vtable = ITextElement2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2819058344, 63634, 18934, [140, 210, 137, 173, 218, 240, 109, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8076aa8_f892_49f6_8cd2_89addaf06d2d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7349,7 +7349,7 @@ pub struct ITextElement2_abi(
 pub struct ITextElement3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElement3 {
     type Vtable = ITextElement3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3520803855, 7108, 19624, [188, 247, 119, 11, 255, 155, 39, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1db340f_1bc4_4ca8_bcf7_770bff9b27ab);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7372,7 +7372,7 @@ pub struct ITextElement3_abi(
 pub struct ITextElement4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElement4 {
     type Vtable = ITextElement4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2979455522, 51726, 18601, [131, 188, 54, 206, 80, 86, 106, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb196e222_ca0e_48a9_83bc_36ce50566ac7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7417,7 +7417,7 @@ pub struct ITextElement4_abi(
 pub struct ITextElement5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElement5 {
     type Vtable = ITextElement5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3180679923, 21517, 22719, [182, 168, 7, 85, 106, 237, 162, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd9552f3_540d_58bf_b6a8_07556aeda2ea);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7436,7 +7436,7 @@ pub struct ITextElement5_abi(
 pub struct ITextElementFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElementFactory {
     type Vtable = ITextElementFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(889221765, 53063, 19454, [177, 188, 57, 201, 58, 244, 174, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35007285_cf47_4bfe_b1bc_39c93af4ae80);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7453,7 +7453,7 @@ pub struct ITextElementFactory_abi(
 pub struct ITextElementOverrides(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElementOverrides {
     type Vtable = ITextElementOverrides_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(216145639, 20342, 19929, [191, 145, 22, 59, 236, 207, 132, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ce21ee7_4f76_4dd9_bf91_163beccf84bc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7471,7 +7471,7 @@ pub struct ITextElementOverrides_abi(
 pub struct ITextElementStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElementStatics {
     type Vtable = ITextElementStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(170892184, 27651, 17520, [167, 155, 50, 152, 161, 4, 130, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a2f9b98_6c03_4470_a79b_3298a10482ce);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7496,7 +7496,7 @@ pub struct ITextElementStatics_abi(
 pub struct ITextElementStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElementStatics2 {
     type Vtable = ITextElementStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(373462962, 38955, 18913, [140, 3, 202, 67, 188, 77, 91, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x164297b2_982b_49e1_8c03_ca43bc4d5b6d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7514,7 +7514,7 @@ pub struct ITextElementStatics2_abi(
 pub struct ITextElementStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElementStatics3 {
     type Vtable = ITextElementStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3488599983, 4001, 17900, [154, 78, 155, 51, 102, 77, 200, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfefcfaf_0fa1_45ec_9a4e_9b33664dc8b1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7534,7 +7534,7 @@ pub struct ITextElementStatics3_abi(
 pub struct ITextElementStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElementStatics4 {
     type Vtable = ITextElementStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4254032926, 27410, 16597, [182, 239, 209, 189, 18, 172, 144, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd8f641e_6b12_40d5_b6ef_d1bd12ac9066);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7557,7 +7557,7 @@ pub struct ITextElementStatics4_abi(
 pub struct ITextHighlighter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextHighlighter {
     type Vtable = ITextHighlighter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3127686475, 32117, 17717, [179, 13, 168, 26, 0, 182, 55, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba6cb54b_7d75_4535_b30d_a81a00b637a4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7584,7 +7584,7 @@ pub struct ITextHighlighter_abi(
 pub struct ITextHighlighterBase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextHighlighterBase {
     type Vtable = ITextHighlighterBase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3646382106, 24333, 19679, [151, 88, 151, 224, 235, 149, 200, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd957601a_5f0d_4cdf_9758_97e0eb95c8fa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7601,7 +7601,7 @@ pub struct ITextHighlighterBase_abi(
 pub struct ITextHighlighterBaseFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextHighlighterBaseFactory {
     type Vtable = ITextHighlighterBaseFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2509419216, 60124, 19572, [146, 200, 110, 137, 110, 34, 80, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9592b2d0_eadc_4c74_92c8_6e896e22506d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7618,7 +7618,7 @@ pub struct ITextHighlighterBaseFactory_abi(
 pub struct ITextHighlighterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextHighlighterFactory {
     type Vtable = ITextHighlighterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1880249441, 39567, 20384, [178, 53, 143, 250, 165, 7, 190, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70125461_9a8f_4fa0_b235_8ffaa507bef2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7636,7 +7636,7 @@ pub struct ITextHighlighterFactory_abi(
 pub struct ITextHighlighterStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextHighlighterStatics {
     type Vtable = ITextHighlighterStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3014658500, 14974, 18892, [171, 132, 41, 196, 5, 72, 135, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3b009c4_3a7e_49cc_ab84_29c405488765);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7655,7 +7655,7 @@ pub struct ITextHighlighterStatics_abi(
 pub struct ITextPointer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextPointer {
     type Vtable = ITextPointer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2892528289, 27201, 17407, [133, 30, 69, 52, 138, 162, 207, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac687aa1_6a41_43ff_851e_45348aa2cf7b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7679,7 +7679,7 @@ pub struct ITextPointer_abi(
 pub struct ITypography(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITypography {
     type Vtable = ITypography_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2255447509, 60055, 17067, [146, 136, 156, 1, 174, 188, 122, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x866f65d5_ea97_42ab_9288_9c01aebc7a97);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7696,7 +7696,7 @@ pub struct ITypography_abi(
 pub struct ITypographyStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITypographyStatics {
     type Vtable = ITypographyStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1740237960, 27735, 19680, [149, 241, 212, 185, 237, 99, 47, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x67b9ec88_6c57_4ce0_95f1_d4b9ed632fb4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7842,7 +7842,7 @@ pub struct ITypographyStatics_abi(
 pub struct IUnderline(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnderline {
     type Vtable = IUnderline_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2784657922, 25024, 18391, [147, 239, 188, 11, 87, 124, 95, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5fa8202_61c0_47d7_93ef_bc0b577c5f26);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8275,7 +8275,7 @@ unsafe impl ::windows::runtime::RuntimeType for Inline {
 }
 unsafe impl ::windows::runtime::Interface for Inline {
     type Vtable = IInline_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(210923821, 7113, 18737, [140, 177, 26, 234, 223, 28, 198, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c92712d_1bc9_4931_8cb1_1aeadf1cc685);
 }
 impl ::windows::runtime::RuntimeName for Inline {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Inline";
@@ -9038,7 +9038,7 @@ unsafe impl ::windows::runtime::RuntimeType for InlineUIContainer {
 }
 unsafe impl ::windows::runtime::Interface for InlineUIContainer {
     type Vtable = IInlineUIContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(337038977, 10478, 17710, [177, 33, 95, 196, 246, 11, 134, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1416ce81_28ee_452e_b121_5fc4f60b86a6);
 }
 impl ::windows::runtime::RuntimeName for InlineUIContainer {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.InlineUIContainer";
@@ -9588,7 +9588,7 @@ unsafe impl ::windows::runtime::RuntimeType for Italic {
 }
 unsafe impl ::windows::runtime::Interface for Italic {
     type Vtable = IItalic_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2448712092, 64699, 16727, [128, 44, 118, 246, 59, 95, 182, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91f4619c_fcbb_4157_802c_76f63b5fb657);
 }
 impl ::windows::runtime::RuntimeName for Italic {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Italic";
@@ -10143,7 +10143,7 @@ unsafe impl ::windows::runtime::RuntimeType for LineBreak {
 }
 unsafe impl ::windows::runtime::Interface for LineBreak {
     type Vtable = ILineBreak_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1683327428, 63337, 16877, [137, 91, 138, 27, 47, 179, 21, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x645589c4_f769_41ed_895b_8a1b2fb31562);
 }
 impl ::windows::runtime::RuntimeName for LineBreak {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.LineBreak";
@@ -10798,7 +10798,7 @@ unsafe impl ::windows::runtime::RuntimeType for Paragraph {
 }
 unsafe impl ::windows::runtime::Interface for Paragraph {
     type Vtable = IParagraph_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4164875674, 64097, 19439, [174, 51, 11, 10, 215, 86, 168, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf83ef59a_fa61_4bef_ae33_0b0ad756a84d);
 }
 impl ::windows::runtime::RuntimeName for Paragraph {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Paragraph";
@@ -10979,7 +10979,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlaceContentLinkProvider {
 }
 unsafe impl ::windows::runtime::Interface for PlaceContentLinkProvider {
     type Vtable = IPlaceContentLinkProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(271878732, 9062, 16830, [144, 200, 50, 88, 181, 59, 84, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10348a4c_2366_41be_90c8_3258b53b5483);
 }
 impl ::windows::runtime::RuntimeName for PlaceContentLinkProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.PlaceContentLinkProvider";
@@ -11531,7 +11531,7 @@ unsafe impl ::windows::runtime::RuntimeType for Run {
 }
 unsafe impl ::windows::runtime::Interface for Run {
     type Vtable = IRun_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1498758275, 3604, 18877, [184, 75, 197, 38, 243, 3, 67, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59553c83_0e14_49bd_b84b_c526f3034349);
 }
 impl ::windows::runtime::RuntimeName for Run {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Run";
@@ -12085,7 +12085,7 @@ unsafe impl ::windows::runtime::RuntimeType for Span {
 }
 unsafe impl ::windows::runtime::Interface for Span {
     type Vtable = ISpan_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2553926825, 687, 18449, [170, 21, 107, 239, 58, 202, 201, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9839d4a9_02af_4811_aa15_6bef3acac97a);
 }
 impl ::windows::runtime::RuntimeName for Span {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Span";
@@ -12755,7 +12755,7 @@ unsafe impl ::windows::runtime::RuntimeType for TextElement {
 }
 unsafe impl ::windows::runtime::Interface for TextElement {
     type Vtable = ITextElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3896180834, 55158, 20370, [186, 234, 64, 231, 125, 71, 145, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe83b0062_d776_4f92_baea_40e77d4791d5);
 }
 impl ::windows::runtime::RuntimeName for TextElement {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.TextElement";
@@ -12901,7 +12901,7 @@ unsafe impl ::windows::runtime::RuntimeType for TextHighlighter {
 }
 unsafe impl ::windows::runtime::Interface for TextHighlighter {
     type Vtable = ITextHighlighter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3127686475, 32117, 17717, [179, 13, 168, 26, 0, 182, 55, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba6cb54b_7d75_4535_b30d_a81a00b637a4);
 }
 impl ::windows::runtime::RuntimeName for TextHighlighter {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.TextHighlighter";
@@ -13015,7 +13015,7 @@ unsafe impl ::windows::runtime::RuntimeType for TextHighlighterBase {
 }
 unsafe impl ::windows::runtime::Interface for TextHighlighterBase {
     type Vtable = ITextHighlighterBase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3646382106, 24333, 19679, [151, 88, 151, 224, 235, 149, 200, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd957601a_5f0d_4cdf_9758_97e0eb95c8fa);
 }
 impl ::windows::runtime::RuntimeName for TextHighlighterBase {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.TextHighlighterBase";
@@ -13142,7 +13142,7 @@ unsafe impl ::windows::runtime::RuntimeType for TextPointer {
 }
 unsafe impl ::windows::runtime::Interface for TextPointer {
     type Vtable = ITextPointer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2892528289, 27201, 17407, [133, 30, 69, 52, 138, 162, 207, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac687aa1_6a41_43ff_851e_45348aa2cf7b);
 }
 impl ::windows::runtime::RuntimeName for TextPointer {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.TextPointer";
@@ -14011,7 +14011,7 @@ unsafe impl ::windows::runtime::RuntimeType for Typography {
 }
 unsafe impl ::windows::runtime::Interface for Typography {
     type Vtable = ITypography_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2255447509, 60055, 17067, [146, 136, 156, 1, 174, 188, 122, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x866f65d5_ea97_42ab_9288_9c01aebc7a97);
 }
 impl ::windows::runtime::RuntimeName for Typography {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Typography";
@@ -14501,7 +14501,7 @@ unsafe impl ::windows::runtime::RuntimeType for Underline {
 }
 unsafe impl ::windows::runtime::Interface for Underline {
     type Vtable = IUnderline_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2784657922, 25024, 18391, [147, 239, 188, 11, 87, 124, 95, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5fa8202_61c0_47d7_93ef_bc0b577c5f26);
 }
 impl ::windows::runtime::RuntimeName for Underline {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Underline";

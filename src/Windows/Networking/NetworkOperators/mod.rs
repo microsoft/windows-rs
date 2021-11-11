@@ -209,7 +209,7 @@ unsafe impl ::windows::runtime::RuntimeType for ESim {
 }
 unsafe impl ::windows::runtime::Interface for ESim {
     type Vtable = IESim_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1869508134, 61731, 17277, [140, 237, 220, 29, 43, 192, 195, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f6e6e26_f123_437d_8ced_dc1d2bc0c3a9);
 }
 impl ::windows::runtime::RuntimeName for ESim {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESim";
@@ -275,7 +275,7 @@ unsafe impl ::windows::runtime::RuntimeType for ESimAddedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ESimAddedEventArgs {
     type Vtable = IESimAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(951913048, 19802, 19720, [141, 167, 231, 62, 255, 54, 157, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38bd0a58_4d5a_4d08_8da7_e73eff369ddd);
 }
 impl ::windows::runtime::RuntimeName for ESimAddedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimAddedEventArgs";
@@ -372,7 +372,7 @@ unsafe impl ::windows::runtime::RuntimeType for ESimDiscoverEvent {
 }
 unsafe impl ::windows::runtime::Interface for ESimDiscoverEvent {
     type Vtable = IESimDiscoverEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3852125155, 14780, 24431, [147, 33, 13, 74, 24, 45, 38, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe59ac3e3_39bc_5f6f_9321_0d4a182d261b);
 }
 impl ::windows::runtime::RuntimeName for ESimDiscoverEvent {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDiscoverEvent";
@@ -463,7 +463,7 @@ unsafe impl ::windows::runtime::RuntimeType for ESimDiscoverResult {
 }
 unsafe impl ::windows::runtime::Interface for ESimDiscoverResult {
     type Vtable = IESimDiscoverResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1454685022, 43823, 23238, [179, 89, 221, 90, 142, 35, 121, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56b4bb5e_ab2f_5ac6_b359_dd5a8e237926);
 }
 impl ::windows::runtime::RuntimeName for ESimDiscoverResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDiscoverResult";
@@ -560,7 +560,7 @@ unsafe impl ::windows::runtime::RuntimeType for ESimDownloadProfileMetadataResul
 }
 unsafe impl ::windows::runtime::Interface for ESimDownloadProfileMetadataResult {
     type Vtable = IESimDownloadProfileMetadataResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3290647966, 23254, 17005, [141, 0, 68, 52, 244, 73, 175, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4234d9e_5ad6_426d_8d00_4434f449afec);
 }
 impl ::windows::runtime::RuntimeName for ESimDownloadProfileMetadataResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDownloadProfileMetadataResult";
@@ -664,7 +664,7 @@ unsafe impl ::windows::runtime::RuntimeType for ESimOperationResult {
 }
 unsafe impl ::windows::runtime::Interface for ESimOperationResult {
     type Vtable = IESimOperationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2793104305, 12443, 20087, [158, 126, 205, 147, 241, 221, 199, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa67b63b1_309b_4e77_9e7e_cd93f1ddc7b9);
 }
 impl ::windows::runtime::RuntimeName for ESimOperationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimOperationResult";
@@ -779,7 +779,7 @@ unsafe impl ::windows::runtime::RuntimeType for ESimPolicy {
 }
 unsafe impl ::windows::runtime::Interface for ESimPolicy {
     type Vtable = IESimPolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1105312157, 53118, 17173, [136, 43, 111, 30, 116, 176, 211, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41e1b99d_cf7e_4315_882b_6f1e74b0d38f);
 }
 impl ::windows::runtime::RuntimeName for ESimPolicy {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimPolicy";
@@ -929,7 +929,7 @@ unsafe impl ::windows::runtime::RuntimeType for ESimProfile {
 }
 unsafe impl ::windows::runtime::Interface for ESimProfile {
     type Vtable = IESimProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3994974336, 1705, 16423, [180, 248, 221, 178, 61, 120, 16, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee1e7880_06a9_4027_b4f8_ddb23d7810e0);
 }
 impl ::windows::runtime::RuntimeName for ESimProfile {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfile";
@@ -1151,7 +1151,7 @@ unsafe impl ::windows::runtime::RuntimeType for ESimProfileMetadata {
 }
 unsafe impl ::windows::runtime::Interface for ESimProfileMetadata {
     type Vtable = IESimProfileMetadata_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3978658591, 37083, 18829, [167, 180, 235, 206, 128, 125, 60, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed25831f_90db_498d_a7b4_ebce807d3c23);
 }
 impl ::windows::runtime::RuntimeName for ESimProfileMetadata {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfileMetadata";
@@ -1261,7 +1261,7 @@ unsafe impl ::windows::runtime::RuntimeType for ESimProfilePolicy {
 }
 unsafe impl ::windows::runtime::Interface for ESimProfilePolicy {
     type Vtable = IESimProfilePolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3873247005, 40028, 18117, [162, 137, 169, 72, 153, 155, 240, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6dd0f1d_9c5c_46c5_a289_a948999bf062);
 }
 impl ::windows::runtime::RuntimeName for ESimProfilePolicy {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfilePolicy";
@@ -1351,7 +1351,7 @@ unsafe impl ::windows::runtime::RuntimeType for ESimRemovedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ESimRemovedEventArgs {
     type Vtable = IESimRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3737462651, 12249, 20185, [131, 118, 217, 181, 228, 18, 120, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdec5277b_2fd9_4ed9_8376_d9b5e41278a3);
 }
 impl ::windows::runtime::RuntimeName for ESimRemovedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimRemovedEventArgs";
@@ -1425,7 +1425,7 @@ unsafe impl ::windows::runtime::RuntimeType for ESimServiceInfo {
 }
 unsafe impl ::windows::runtime::Interface for ESimServiceInfo {
     type Vtable = IESimServiceInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4050299855, 32601, 19025, [132, 148, 189, 137, 213, 255, 80, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf16aabcf_7f59_4a51_8494_bd89d5ff50ee);
 }
 impl ::windows::runtime::RuntimeName for ESimServiceInfo {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimServiceInfo";
@@ -1515,7 +1515,7 @@ unsafe impl ::windows::runtime::RuntimeType for ESimUpdatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ESimUpdatedEventArgs {
     type Vtable = IESimUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1276271852, 20621, 19336, [131, 203, 104, 190, 248, 22, 141, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c125cec_508d_4b88_83cb_68bef8168d12);
 }
 impl ::windows::runtime::RuntimeName for ESimUpdatedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimUpdatedEventArgs";
@@ -1666,7 +1666,7 @@ unsafe impl ::windows::runtime::RuntimeType for ESimWatcher {
 }
 unsafe impl ::windows::runtime::Interface for ESimWatcher {
     type Vtable = IESimWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3254275307, 41613, 20415, [151, 113, 110, 49, 184, 28, 207, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1f84ceb_a28d_4fbf_9771_6e31b81ccf22);
 }
 impl ::windows::runtime::RuntimeName for ESimWatcher {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimWatcher";
@@ -1852,7 +1852,7 @@ unsafe impl ::windows::runtime::RuntimeType for HotspotAuthenticationContext {
 }
 unsafe impl ::windows::runtime::Interface for HotspotAuthenticationContext {
     type Vtable = IHotspotAuthenticationContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881224081, 4099, 19941, [131, 199, 222, 97, 216, 136, 49, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe756c791_1003_4de5_83c7_de61d88831d0);
 }
 impl ::windows::runtime::RuntimeName for HotspotAuthenticationContext {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotAuthenticationContext";
@@ -1916,7 +1916,7 @@ unsafe impl ::windows::runtime::RuntimeType for HotspotAuthenticationEventDetail
 }
 unsafe impl ::windows::runtime::Interface for HotspotAuthenticationEventDetails {
     type Vtable = IHotspotAuthenticationEventDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881224081, 4097, 19941, [131, 199, 222, 97, 216, 136, 49, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe756c791_1001_4de5_83c7_de61d88831d0);
 }
 impl ::windows::runtime::RuntimeName for HotspotAuthenticationEventDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotAuthenticationEventDetails";
@@ -2033,7 +2033,7 @@ unsafe impl ::windows::runtime::RuntimeType for HotspotCredentialsAuthentication
 }
 unsafe impl ::windows::runtime::Interface for HotspotCredentialsAuthenticationResult {
     type Vtable = IHotspotCredentialsAuthenticationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881224081, 4101, 19941, [131, 199, 222, 97, 216, 136, 49, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe756c791_1005_4de5_83c7_de61d88831d0);
 }
 impl ::windows::runtime::RuntimeName for HotspotCredentialsAuthenticationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotCredentialsAuthenticationResult";
@@ -2083,7 +2083,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 pub struct IESim(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESim {
     type Vtable = IESim_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1869508134, 61731, 17277, [140, 237, 220, 29, 43, 192, 195, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f6e6e26_f123_437d_8ced_dc1d2bc0c3a9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2119,7 +2119,7 @@ pub struct IESim_abi(
 pub struct IESim2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESim2 {
     type Vtable = IESim2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3176124576, 50831, 22251, [185, 155, 143, 52, 184, 16, 2, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd4fd0a0_c68f_56eb_b99b_8f34b8100299);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2142,7 +2142,7 @@ pub struct IESim2_abi(
 pub struct IESimAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimAddedEventArgs {
     type Vtable = IESimAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(951913048, 19802, 19720, [141, 167, 231, 62, 255, 54, 157, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38bd0a58_4d5a_4d08_8da7_e73eff369ddd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2160,7 +2160,7 @@ pub struct IESimAddedEventArgs_abi(
 pub struct IESimDiscoverEvent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimDiscoverEvent {
     type Vtable = IESimDiscoverEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3852125155, 14780, 24431, [147, 33, 13, 74, 24, 45, 38, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe59ac3e3_39bc_5f6f_9321_0d4a182d261b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2179,7 +2179,7 @@ pub struct IESimDiscoverEvent_abi(
 pub struct IESimDiscoverResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimDiscoverResult {
     type Vtable = IESimDiscoverResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1454685022, 43823, 23238, [179, 89, 221, 90, 142, 35, 121, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56b4bb5e_ab2f_5ac6_b359_dd5a8e237926);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2201,7 +2201,7 @@ pub struct IESimDiscoverResult_abi(
 pub struct IESimDownloadProfileMetadataResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimDownloadProfileMetadataResult {
     type Vtable = IESimDownloadProfileMetadataResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3290647966, 23254, 17005, [141, 0, 68, 52, 244, 73, 175, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4234d9e_5ad6_426d_8d00_4434f449afec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2220,7 +2220,7 @@ pub struct IESimDownloadProfileMetadataResult_abi(
 pub struct IESimManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimManagerStatics {
     type Vtable = IESimManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(200944652, 57224, 17969, [191, 4, 193, 46, 40, 27, 57, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bfa2c0c_df88_4631_bf04_c12e281b3962);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2243,7 +2243,7 @@ pub struct IESimManagerStatics_abi(
 pub struct IESimOperationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimOperationResult {
     type Vtable = IESimOperationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2793104305, 12443, 20087, [158, 126, 205, 147, 241, 221, 199, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa67b63b1_309b_4e77_9e7e_cd93f1ddc7b9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2261,7 +2261,7 @@ pub struct IESimOperationResult_abi(
 pub struct IESimPolicy(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimPolicy {
     type Vtable = IESimPolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1105312157, 53118, 17173, [136, 43, 111, 30, 116, 176, 211, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41e1b99d_cf7e_4315_882b_6f1e74b0d38f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2279,7 +2279,7 @@ pub struct IESimPolicy_abi(
 pub struct IESimProfile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimProfile {
     type Vtable = IESimProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3994974336, 1705, 16423, [180, 248, 221, 178, 61, 120, 16, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee1e7880_06a9_4027_b4f8_ddb23d7810e0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2311,7 +2311,7 @@ pub struct IESimProfile_abi(
 pub struct IESimProfileMetadata(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimProfileMetadata {
     type Vtable = IESimProfileMetadata_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3978658591, 37083, 18829, [167, 180, 235, 206, 128, 125, 60, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed25831f_90db_498d_a7b4_ebce807d3c23);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2348,7 +2348,7 @@ pub struct IESimProfileMetadata_abi(
 pub struct IESimProfilePolicy(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimProfilePolicy {
     type Vtable = IESimProfilePolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3873247005, 40028, 18117, [162, 137, 169, 72, 153, 155, 240, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6dd0f1d_9c5c_46c5_a289_a948999bf062);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2368,7 +2368,7 @@ pub struct IESimProfilePolicy_abi(
 pub struct IESimRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimRemovedEventArgs {
     type Vtable = IESimRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3737462651, 12249, 20185, [131, 118, 217, 181, 228, 18, 120, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdec5277b_2fd9_4ed9_8376_d9b5e41278a3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2386,7 +2386,7 @@ pub struct IESimRemovedEventArgs_abi(
 pub struct IESimServiceInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimServiceInfo {
     type Vtable = IESimServiceInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4050299855, 32601, 19025, [132, 148, 189, 137, 213, 255, 80, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf16aabcf_7f59_4a51_8494_bd89d5ff50ee);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2405,7 +2405,7 @@ pub struct IESimServiceInfo_abi(
 pub struct IESimUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimUpdatedEventArgs {
     type Vtable = IESimUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1276271852, 20621, 19336, [131, 203, 104, 190, 248, 22, 141, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c125cec_508d_4b88_83cb_68bef8168d12);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2423,7 +2423,7 @@ pub struct IESimUpdatedEventArgs_abi(
 pub struct IESimWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimWatcher {
     type Vtable = IESimWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3254275307, 41613, 20415, [151, 113, 110, 49, 184, 28, 207, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1f84ceb_a28d_4fbf_9771_6e31b81ccf22);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2463,7 +2463,7 @@ pub struct IESimWatcher_abi(
 pub struct IFdnAccessManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFdnAccessManagerStatics {
     type Vtable = IFdnAccessManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4071244693, 61926, 17177, [170, 62, 71, 124, 166, 75, 43, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2aa4395_f1e6_4319_aa3e_477ca64b2bdf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2482,7 +2482,7 @@ pub struct IFdnAccessManagerStatics_abi(
 pub struct IHotspotAuthenticationContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHotspotAuthenticationContext {
     type Vtable = IHotspotAuthenticationContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881224081, 4099, 19941, [131, 199, 222, 97, 216, 136, 49, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe756c791_1003_4de5_83c7_de61d88831d0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2512,7 +2512,7 @@ pub struct IHotspotAuthenticationContext_abi(
 pub struct IHotspotAuthenticationContext2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHotspotAuthenticationContext2 {
     type Vtable = IHotspotAuthenticationContext2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881224081, 4100, 19941, [131, 199, 222, 97, 216, 136, 49, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe756c791_1004_4de5_83c7_de61d88831d0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2531,7 +2531,7 @@ pub struct IHotspotAuthenticationContext2_abi(
 pub struct IHotspotAuthenticationContextStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHotspotAuthenticationContextStatics {
     type Vtable = IHotspotAuthenticationContextStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881224081, 4098, 19941, [131, 199, 222, 97, 216, 136, 49, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe756c791_1002_4de5_83c7_de61d88831d0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2549,7 +2549,7 @@ pub struct IHotspotAuthenticationContextStatics_abi(
 pub struct IHotspotAuthenticationEventDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHotspotAuthenticationEventDetails {
     type Vtable = IHotspotAuthenticationEventDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881224081, 4097, 19941, [131, 199, 222, 97, 216, 136, 49, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe756c791_1001_4de5_83c7_de61d88831d0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2567,7 +2567,7 @@ pub struct IHotspotAuthenticationEventDetails_abi(
 pub struct IHotspotCredentialsAuthenticationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHotspotCredentialsAuthenticationResult {
     type Vtable = IHotspotCredentialsAuthenticationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881224081, 4101, 19941, [131, 199, 222, 97, 216, 136, 49, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe756c791_1005_4de5_83c7_de61d88831d0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2590,7 +2590,7 @@ pub struct IHotspotCredentialsAuthenticationResult_abi(
 pub struct IKnownCSimFilePathsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownCSimFilePathsStatics {
     type Vtable = IKnownCSimFilePathsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3025710829, 18929, 19490, [176, 115, 150, 213, 17, 191, 156, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb458aeed_49f1_4c22_b073_96d511bf9c35);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2613,7 +2613,7 @@ pub struct IKnownCSimFilePathsStatics_abi(
 pub struct IKnownRuimFilePathsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownRuimFilePathsStatics {
     type Vtable = IKnownRuimFilePathsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(948160697, 65316, 17777, [168, 103, 9, 249, 96, 66, 110, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3883c8b9_ff24_4571_a867_09f960426e14);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2636,7 +2636,7 @@ pub struct IKnownRuimFilePathsStatics_abi(
 pub struct IKnownSimFilePathsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownSimFilePathsStatics {
     type Vtable = IKnownSimFilePathsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2160925283, 14245, 17363, [128, 163, 204, 210, 62, 143, 236, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80cd1a63_37a5_43d3_80a3_ccd23e8fecee);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2661,7 +2661,7 @@ pub struct IKnownSimFilePathsStatics_abi(
 pub struct IKnownUSimFilePathsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownUSimFilePathsStatics {
     type Vtable = IKnownUSimFilePathsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2083841409, 7963, 17396, [149, 48, 139, 9, 45, 50, 215, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c34e581_1f1b_43f4_9530_8b092d32d71f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2688,7 +2688,7 @@ pub struct IKnownUSimFilePathsStatics_abi(
 pub struct IMobileBroadbandAccount(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccount {
     type Vtable = IMobileBroadbandAccount_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(918703309, 52962, 17376, [166, 3, 238, 134, 163, 109, 101, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36c24ccd_cee2_43e0_a603_ee86a36d6570);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2710,7 +2710,7 @@ pub struct IMobileBroadbandAccount_abi(
 pub struct IMobileBroadbandAccount2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccount2 {
     type Vtable = IMobileBroadbandAccount2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(955592476, 4406, 16983, [149, 159, 182, 88, 163, 82, 182, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38f52f1c_1136_4257_959f_b658a352b6d4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2729,7 +2729,7 @@ pub struct IMobileBroadbandAccount2_abi(
 pub struct IMobileBroadbandAccount3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccount3 {
     type Vtable = IMobileBroadbandAccount3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(153755169, 37753, 19355, [173, 49, 213, 254, 226, 247, 72, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x092a1e21_9379_4b9b_ad31_d5fee2f748c6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2748,7 +2748,7 @@ pub struct IMobileBroadbandAccount3_abi(
 pub struct IMobileBroadbandAccountEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccountEventArgs {
     type Vtable = IMobileBroadbandAccountEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(945014912, 30686, 19460, [190, 173, 161, 35, 176, 140, 159, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3853c880_77de_4c04_bead_a123b08c9f59);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2766,7 +2766,7 @@ pub struct IMobileBroadbandAccountEventArgs_abi(
 pub struct IMobileBroadbandAccountStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccountStatics {
     type Vtable = IMobileBroadbandAccountStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860469540, 44993, 20424, [174, 154, 169, 23, 83, 16, 250, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa7f4d24_afc1_4fc8_ae9a_a9175310faad);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2786,7 +2786,7 @@ pub struct IMobileBroadbandAccountStatics_abi(
 pub struct IMobileBroadbandAccountUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccountUpdatedEventArgs {
     type Vtable = IMobileBroadbandAccountUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2076384648, 42685, 18913, [128, 171, 107, 145, 53, 74, 87, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bc31d88_a6bd_49e1_80ab_6b91354a57d4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2806,7 +2806,7 @@ pub struct IMobileBroadbandAccountUpdatedEventArgs_abi(
 pub struct IMobileBroadbandAccountWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccountWatcher {
     type Vtable = IMobileBroadbandAccountWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1811100510, 9141, 17567, [146, 141, 94, 13, 62, 4, 71, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6bf3335e_23b5_449f_928d_5e0d3e04471d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2846,7 +2846,7 @@ pub struct IMobileBroadbandAccountWatcher_abi(
 pub struct IMobileBroadbandAntennaSar(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAntennaSar {
     type Vtable = IMobileBroadbandAntennaSar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3115273086, 52217, 16649, [144, 190, 92, 6, 191, 213, 19, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9af4b7e_cbf9_4109_90be_5c06bfd513b6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2865,7 +2865,7 @@ pub struct IMobileBroadbandAntennaSar_abi(
 pub struct IMobileBroadbandAntennaSarFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAntennaSarFactory {
     type Vtable = IMobileBroadbandAntennaSarFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2837321494, 49229, 18977, [134, 152, 20, 89, 220, 103, 44, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa91e1716_c04d_4a21_8698_1459dc672c6e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2883,7 +2883,7 @@ pub struct IMobileBroadbandAntennaSarFactory_abi(
 pub struct IMobileBroadbandCellCdma(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellCdma {
     type Vtable = IMobileBroadbandCellCdma_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(100774836, 16666, 20270, [130, 135, 118, 245, 101, 12, 96, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0601b3b4_411a_4f2e_8287_76f5650c60cd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2916,7 +2916,7 @@ pub struct IMobileBroadbandCellCdma_abi(
 pub struct IMobileBroadbandCellGsm(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellGsm {
     type Vtable = IMobileBroadbandCellGsm_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3432087302, 32480, 18360, [158, 31, 195, 180, 141, 249, 223, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc917f06_7ee0_47b8_9e1f_c3b48df9df5b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2946,7 +2946,7 @@ pub struct IMobileBroadbandCellGsm_abi(
 pub struct IMobileBroadbandCellLte(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellLte {
     type Vtable = IMobileBroadbandCellLte_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2442643579, 11128, 17773, [139, 83, 170, 162, 93, 10, 247, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9197c87b_2b78_456d_8b53_aaa25d0af741);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2978,7 +2978,7 @@ pub struct IMobileBroadbandCellLte_abi(
 pub struct IMobileBroadbandCellNR(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellNR {
     type Vtable = IMobileBroadbandCellNR_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2705264107, 26364, 19275, [131, 169, 164, 135, 163, 165, 160, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa13f0deb_66fc_4b4b_83a9_a487a3a5a0a6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3012,7 +3012,7 @@ pub struct IMobileBroadbandCellNR_abi(
 pub struct IMobileBroadbandCellTdscdma(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellTdscdma {
     type Vtable = IMobileBroadbandCellTdscdma_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(249173589, 56078, 16770, [140, 218, 204, 65, 154, 123, 222, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0eda1655_db0e_4182_8cda_cc419a7bde08);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3044,7 +3044,7 @@ pub struct IMobileBroadbandCellTdscdma_abi(
 pub struct IMobileBroadbandCellUmts(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellUmts {
     type Vtable = IMobileBroadbandCellUmts_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2008331694, 18888, 20245, [178, 133, 76, 38, 167, 246, 114, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77b4b5ae_49c8_4f15_b285_4c26a7f67215);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3076,7 +3076,7 @@ pub struct IMobileBroadbandCellUmts_abi(
 pub struct IMobileBroadbandCellsInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellsInfo {
     type Vtable = IMobileBroadbandCellsInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2309576234, 58482, 19877, [146, 156, 222, 97, 113, 29, 210, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89a9562a_e472_4da5_929c_de61711dd261);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3113,7 +3113,7 @@ pub struct IMobileBroadbandCellsInfo_abi(
 pub struct IMobileBroadbandCellsInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellsInfo2 {
     type Vtable = IMobileBroadbandCellsInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1713395986, 47263, 19986, [187, 182, 213, 207, 9, 168, 32, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66205912_b89f_4e12_bbb6_d5cf09a820ca);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3134,7 +3134,7 @@ pub struct IMobileBroadbandCellsInfo2_abi(
 pub struct IMobileBroadbandCurrentSlotIndexChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCurrentSlotIndexChangedEventArgs {
     type Vtable = IMobileBroadbandCurrentSlotIndexChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4145590660, 50032, 24532, [166, 112, 24, 70, 203, 155, 206, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf718b184_c370_5fd4_a670_1846cb9bce47);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3152,7 +3152,7 @@ pub struct IMobileBroadbandCurrentSlotIndexChangedEventArgs_abi(
 pub struct IMobileBroadbandDeviceInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceInformation {
     type Vtable = IMobileBroadbandDeviceInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3872424296, 58241, 19566, [155, 232, 254, 21, 105, 105, 164, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6d08168_e381_4c6e_9be8_fe156969a446);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3185,7 +3185,7 @@ pub struct IMobileBroadbandDeviceInformation_abi(
 pub struct IMobileBroadbandDeviceInformation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceInformation2 {
     type Vtable = IMobileBroadbandDeviceInformation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(776370929, 63794, 18231, [167, 34, 3, 186, 114, 55, 12, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e467af1_f932_4737_a722_03ba72370cb8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3205,7 +3205,7 @@ pub struct IMobileBroadbandDeviceInformation2_abi(
 pub struct IMobileBroadbandDeviceInformation3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceInformation3 {
     type Vtable = IMobileBroadbandDeviceInformation3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3767252157, 23856, 19290, [146, 204, 213, 77, 248, 129, 212, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe08bb4bd_5d30_4b5a_92cc_d54df881d49e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3225,7 +3225,7 @@ pub struct IMobileBroadbandDeviceInformation3_abi(
 pub struct IMobileBroadbandDeviceInformation4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceInformation4 {
     type Vtable = IMobileBroadbandDeviceInformation4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(641675602, 31645, 22572, [177, 124, 248, 10, 96, 181, 0, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x263f3152_7b9d_582c_b17c_f80a60b50031);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3243,7 +3243,7 @@ pub struct IMobileBroadbandDeviceInformation4_abi(
 pub struct IMobileBroadbandDeviceService(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceService {
     type Vtable = IMobileBroadbandDeviceService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(582883922, 48512, 16556, [142, 31, 46, 7, 131, 106, 61, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22be1a52_bd80_40ac_8e1f_2e07836a3dbd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3265,7 +3265,7 @@ pub struct IMobileBroadbandDeviceService_abi(
 pub struct IMobileBroadbandDeviceServiceCommandResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceServiceCommandResult {
     type Vtable = IMobileBroadbandDeviceServiceCommandResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2968808123, 38102, 17593, [165, 56, 240, 129, 11, 100, 83, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0f46abb_94d6_44b9_a538_f0810b645389);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3285,7 +3285,7 @@ pub struct IMobileBroadbandDeviceServiceCommandResult_abi(
 pub struct IMobileBroadbandDeviceServiceCommandSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceServiceCommandSession {
     type Vtable = IMobileBroadbandDeviceServiceCommandSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4228483653, 37179, 18708, [182, 195, 174, 99, 4, 89, 62, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc098a45_913b_4914_b6c3_ae6304593e75);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3307,7 +3307,7 @@ pub struct IMobileBroadbandDeviceServiceCommandSession_abi(
 pub struct IMobileBroadbandDeviceServiceDataReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceServiceDataReceivedEventArgs {
     type Vtable = IMobileBroadbandDeviceServiceDataReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3064599518, 4992, 16611, [134, 24, 115, 203, 202, 72, 19, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6aa13de_1380_40e3_8618_73cbca48138c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3326,7 +3326,7 @@ pub struct IMobileBroadbandDeviceServiceDataReceivedEventArgs_abi(
 pub struct IMobileBroadbandDeviceServiceDataSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceServiceDataSession {
     type Vtable = IMobileBroadbandDeviceServiceDataSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3671466803, 35791, 17033, [138, 55, 4, 92, 33, 105, 72, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdad62333_8bcf_4289_8a37_045c2169486a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3350,7 +3350,7 @@ pub struct IMobileBroadbandDeviceServiceDataSession_abi(
 pub struct IMobileBroadbandDeviceServiceInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceServiceInformation {
     type Vtable = IMobileBroadbandDeviceServiceInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1406573403, 50413, 17904, [128, 58, 217, 65, 122, 109, 152, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53d69b5b_c4ed_45f0_803a_d9417a6d9846);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3370,7 +3370,7 @@ pub struct IMobileBroadbandDeviceServiceInformation_abi(
 pub struct IMobileBroadbandDeviceServiceTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceServiceTriggerDetails {
     type Vtable = IMobileBroadbandDeviceServiceTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1241865072, 47534, 17496, [146, 65, 166, 165, 251, 241, 138, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a055b70_b9ae_4458_9241_a6a5fbf18a0c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3391,7 +3391,7 @@ pub struct IMobileBroadbandDeviceServiceTriggerDetails_abi(
 pub struct IMobileBroadbandModem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModem {
     type Vtable = IMobileBroadbandModem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3493161234, 59897, 20327, [160, 61, 67, 24, 154, 49, 107, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0356912_e9f9_4f67_a03d_43189a316bf1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3421,7 +3421,7 @@ pub struct IMobileBroadbandModem_abi(
 pub struct IMobileBroadbandModem2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModem2 {
     type Vtable = IMobileBroadbandModem2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(310782760, 47595, 20194, [187, 227, 113, 31, 83, 238, 163, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12862b28_b9eb_4ee2_bbe3_711f53eea373);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3442,7 +3442,7 @@ pub struct IMobileBroadbandModem2_abi(
 pub struct IMobileBroadbandModem3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModem3 {
     type Vtable = IMobileBroadbandModem3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3925788394, 12084, 17794, [145, 2, 195, 20, 210, 168, 126, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9fec6ea_2f34_4582_9102_c314d2a87eec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3466,7 +3466,7 @@ pub struct IMobileBroadbandModem3_abi(
 pub struct IMobileBroadbandModemConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModemConfiguration {
     type Vtable = IMobileBroadbandModemConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4242552227, 54989, 17184, [185, 130, 190, 157, 62, 199, 137, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfce035a3_d6cd_4320_b982_be9d3ec7890f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3486,7 +3486,7 @@ pub struct IMobileBroadbandModemConfiguration_abi(
 pub struct IMobileBroadbandModemConfiguration2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModemConfiguration2 {
     type Vtable = IMobileBroadbandModemConfiguration2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(839906757, 58464, 17070, [170, 81, 105, 98, 30, 122, 68, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x320ff5c5_e460_42ae_aa51_69621e7a4477);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3504,7 +3504,7 @@ pub struct IMobileBroadbandModemConfiguration2_abi(
 pub struct IMobileBroadbandModemIsolation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModemIsolation {
     type Vtable = IMobileBroadbandModemIsolation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3043069932, 58977, 17200, [155, 180, 52, 128, 33, 46, 195, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5618fec_e661_4330_9bb4_3480212ec354);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3527,7 +3527,7 @@ pub struct IMobileBroadbandModemIsolation_abi(
 pub struct IMobileBroadbandModemIsolationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModemIsolationFactory {
     type Vtable = IMobileBroadbandModemIsolationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(567798872, 49841, 19503, [160, 48, 114, 130, 10, 36, 236, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x21d7ec58_c2b1_4c2f_a030_72820a24ecd9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3545,7 +3545,7 @@ pub struct IMobileBroadbandModemIsolationFactory_abi(
 pub struct IMobileBroadbandModemStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModemStatics {
     type Vtable = IMobileBroadbandModemStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4187936311, 55025, 19064, [140, 188, 100, 33, 166, 80, 99, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf99ed637_d6f1_4a78_8cbc_6421a65063c8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3565,7 +3565,7 @@ pub struct IMobileBroadbandModemStatics_abi(
 pub struct IMobileBroadbandNetwork(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandNetwork {
     type Vtable = IMobileBroadbandNetwork_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3412300428, 777, 19638, [168, 193, 106, 90, 60, 142, 31, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb63928c_0309_4cb6_a8c1_6a5a3c8e1ff6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3593,7 +3593,7 @@ pub struct IMobileBroadbandNetwork_abi(
 pub struct IMobileBroadbandNetwork2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandNetwork2 {
     type Vtable = IMobileBroadbandNetwork2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1515576098, 25335, 19421, [186, 29, 71, 116, 65, 150, 11, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a55db22_62f7_4bdd_ba1d_477441960ba0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3614,7 +3614,7 @@ pub struct IMobileBroadbandNetwork2_abi(
 pub struct IMobileBroadbandNetwork3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandNetwork3 {
     type Vtable = IMobileBroadbandNetwork3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(862390922, 51183, 17484, [171, 108, 223, 126, 247, 163, 144, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33670a8a_c7ef_444c_ab6c_df7ef7a390fe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3633,7 +3633,7 @@ pub struct IMobileBroadbandNetwork3_abi(
 pub struct IMobileBroadbandNetworkRegistrationStateChange(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandNetworkRegistrationStateChange {
     type Vtable = IMobileBroadbandNetworkRegistrationStateChange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3199177953, 38415, 18868, [160, 141, 125, 133, 233, 104, 199, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbeaf94e1_960f_49b4_a08d_7d85e968c7ec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3652,7 +3652,7 @@ pub struct IMobileBroadbandNetworkRegistrationStateChange_abi(
 pub struct IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
     type Vtable = IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2299747583, 10424, 18090, [177, 55, 28, 75, 15, 33, 237, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89135cff_28b8_46aa_b137_1c4b0f21edfe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3671,7 +3671,7 @@ pub struct IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails_abi(
 pub struct IMobileBroadbandPco(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPco {
     type Vtable = IMobileBroadbandPco_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3571776702, 58275, 17349, [168, 123, 108, 134, 210, 41, 215, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4e4fcbe_e3a3_43c5_a87b_6c86d229d7fa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3692,7 +3692,7 @@ pub struct IMobileBroadbandPco_abi(
 pub struct IMobileBroadbandPcoDataChangeTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPcoDataChangeTriggerDetails {
     type Vtable = IMobileBroadbandPcoDataChangeTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(641683732, 25824, 17555, [144, 155, 45, 20, 160, 25, 98, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x263f5114_64e0_4493_909b_2d14a01962b1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3710,7 +3710,7 @@ pub struct IMobileBroadbandPcoDataChangeTriggerDetails_abi(
 pub struct IMobileBroadbandPin(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPin {
     type Vtable = IMobileBroadbandPin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3865171721, 59257, 17855, [130, 129, 117, 50, 61, 249, 227, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe661d709_e779_45bf_8281_75323df9e321);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3744,7 +3744,7 @@ pub struct IMobileBroadbandPin_abi(
 pub struct IMobileBroadbandPinLockStateChange(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPinLockStateChange {
     type Vtable = IMobileBroadbandPinLockStateChange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3189139262, 7940, 20373, [139, 144, 231, 245, 89, 221, 231, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe16673e_1f04_4f95_8b90_e7f559dde7e5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3764,7 +3764,7 @@ pub struct IMobileBroadbandPinLockStateChange_abi(
 pub struct IMobileBroadbandPinLockStateChangeTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPinLockStateChangeTriggerDetails {
     type Vtable = IMobileBroadbandPinLockStateChangeTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3543711889, 16017, 19768, [144, 54, 174, 232, 58, 110, 121, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd338c091_3e91_4d38_9036_aee83a6e79ad);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3783,7 +3783,7 @@ pub struct IMobileBroadbandPinLockStateChangeTriggerDetails_abi(
 pub struct IMobileBroadbandPinManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPinManager {
     type Vtable = IMobileBroadbandPinManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2203483869, 28191, 19355, [164, 19, 43, 31, 80, 204, 54, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83567edd_6e1f_4b9b_a413_2b1f50cc36df);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3803,7 +3803,7 @@ pub struct IMobileBroadbandPinManager_abi(
 pub struct IMobileBroadbandPinOperationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPinOperationResult {
     type Vtable = IMobileBroadbandPinOperationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(299752498, 12775, 18933, [182, 99, 18, 61, 59, 239, 3, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11dddc32_31e7_49f5_b663_123d3bef0362);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3822,7 +3822,7 @@ pub struct IMobileBroadbandPinOperationResult_abi(
 pub struct IMobileBroadbandRadioStateChange(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandRadioStateChange {
     type Vtable = IMobileBroadbandRadioStateChange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2958337377, 38963, 19181, [151, 23, 67, 72, 178, 26, 36, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb054a561_9833_4aed_9717_4348b21a24b3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3841,7 +3841,7 @@ pub struct IMobileBroadbandRadioStateChange_abi(
 pub struct IMobileBroadbandRadioStateChangeTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandRadioStateChangeTriggerDetails {
     type Vtable = IMobileBroadbandRadioStateChangeTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1898977998, 2364, 17094, [176, 219, 173, 31, 117, 166, 84, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71301ace_093c_42c6_b0db_ad1f75a65445);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3860,7 +3860,7 @@ pub struct IMobileBroadbandRadioStateChangeTriggerDetails_abi(
 pub struct IMobileBroadbandSarManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandSarManager {
     type Vtable = IMobileBroadbandSarManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3853674547, 38526, 16585, [164, 133, 25, 192, 221, 32, 158, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5b26833_967e_40c9_a485_19c0dd209e22);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3902,7 +3902,7 @@ pub struct IMobileBroadbandSarManager_abi(
 pub struct IMobileBroadbandSlotInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandSlotInfo {
     type Vtable = IMobileBroadbandSlotInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3174370098, 34862, 21546, [177, 125, 11, 177, 180, 155, 174, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd350b32_882e_542a_b17d_0bb1b49bae9e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3921,7 +3921,7 @@ pub struct IMobileBroadbandSlotInfo_abi(
 pub struct IMobileBroadbandSlotInfoChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandSlotInfoChangedEventArgs {
     type Vtable = IMobileBroadbandSlotInfoChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(827884447, 38156, 21710, [164, 141, 186, 69, 41, 180, 143, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3158839f_950c_54ce_a48d_ba4529b48f0f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3939,7 +3939,7 @@ pub struct IMobileBroadbandSlotInfoChangedEventArgs_abi(
 pub struct IMobileBroadbandSlotManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandSlotManager {
     type Vtable = IMobileBroadbandSlotManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953163478, 8217, 24449, [162, 148, 204, 54, 74, 17, 208, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba07cd6_2019_5f81_a294_cc364a11d0b2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3970,7 +3970,7 @@ pub struct IMobileBroadbandSlotManager_abi(
 pub struct IMobileBroadbandTransmissionStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandTransmissionStateChangedEventArgs {
     type Vtable = IMobileBroadbandTransmissionStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1630419061, 1034, 20377, [164, 249, 97, 215, 195, 45, 161, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x612e3875_040a_4f99_a4f9_61d7c32da129);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3988,7 +3988,7 @@ pub struct IMobileBroadbandTransmissionStateChangedEventArgs_abi(
 pub struct IMobileBroadbandUicc(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandUicc {
     type Vtable = IMobileBroadbandUicc_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3862230673, 21082, 19682, [143, 206, 170, 65, 98, 87, 145, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe634f691_525a_4ce2_8fce_aa4162579154);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4008,7 +4008,7 @@ pub struct IMobileBroadbandUicc_abi(
 pub struct IMobileBroadbandUiccApp(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandUiccApp {
     type Vtable = IMobileBroadbandUiccApp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1293354326, 39073, 17373, [178, 236, 80, 201, 12, 242, 72, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d170556_98a1_43dd_b2ec_50c90cf248df);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4032,7 +4032,7 @@ pub struct IMobileBroadbandUiccApp_abi(
 pub struct IMobileBroadbandUiccAppReadRecordResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandUiccAppReadRecordResult {
     type Vtable = IMobileBroadbandUiccAppReadRecordResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1690915461, 13710, 18373, [130, 73, 105, 95, 56, 59, 43, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64c95285_358e_47c5_8249_695f383b2bdb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4052,7 +4052,7 @@ pub struct IMobileBroadbandUiccAppReadRecordResult_abi(
 pub struct IMobileBroadbandUiccAppRecordDetailsResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandUiccAppRecordDetailsResult {
     type Vtable = IMobileBroadbandUiccAppRecordDetailsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3642320943, 48660, 18740, [152, 29, 47, 87, 185, 237, 131, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd919682f_be14_4934_981d_2f57b9ed83e6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4075,7 +4075,7 @@ pub struct IMobileBroadbandUiccAppRecordDetailsResult_abi(
 pub struct IMobileBroadbandUiccAppsResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandUiccAppsResult {
     type Vtable = IMobileBroadbandUiccAppsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1950953707, 33111, 19009, [132, 148, 107, 245, 76, 155, 29, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x744930eb_8157_4a41_8494_6bf54c9b1d2b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4095,7 +4095,7 @@ pub struct IMobileBroadbandUiccAppsResult_abi(
 pub struct INetworkOperatorDataUsageTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorDataUsageTriggerDetails {
     type Vtable = INetworkOperatorDataUsageTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357058669, 42085, 20203, [147, 23, 40, 161, 103, 99, 12, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50e3126d_a465_4eeb_9317_28a167630cea);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4113,7 +4113,7 @@ pub struct INetworkOperatorDataUsageTriggerDetails_abi(
 pub struct INetworkOperatorNotificationEventDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorNotificationEventDetails {
     type Vtable = INetworkOperatorNotificationEventDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3160975825, 33505, 17544, [159, 44, 18, 118, 194, 70, 143, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc68a9d1_82e1_4488_9f2c_1276c2468fac);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4137,7 +4137,7 @@ pub struct INetworkOperatorNotificationEventDetails_abi(
 pub struct INetworkOperatorTetheringAccessPointConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringAccessPointConfiguration {
     type Vtable = INetworkOperatorTetheringAccessPointConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(197919364, 16686, 16445, [172, 198, 183, 87, 227, 71, 116, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bcc0284_412e_403d_acc6_b757e34774a4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4158,7 +4158,7 @@ pub struct INetworkOperatorTetheringAccessPointConfiguration_abi(
 pub struct INetworkOperatorTetheringAccessPointConfiguration2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringAccessPointConfiguration2 {
     type Vtable = INetworkOperatorTetheringAccessPointConfiguration2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2977993026, 29240, 22944, [146, 139, 116, 171, 70, 253, 100, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1809142_7238_59a0_928b_74ab46fd64b6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4180,7 +4180,7 @@ pub struct INetworkOperatorTetheringAccessPointConfiguration2_abi(
 pub struct INetworkOperatorTetheringClient(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringClient {
     type Vtable = INetworkOperatorTetheringClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1889346892, 22879, 18503, [187, 48, 100, 105, 53, 84, 41, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x709d254c_595f_4847_bb30_646935542918);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4200,7 +4200,7 @@ pub struct INetworkOperatorTetheringClient_abi(
 pub struct INetworkOperatorTetheringClientManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringClientManager {
     type Vtable = INetworkOperatorTetheringClientManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2444312598, 36298, 16933, [187, 237, 238, 248, 184, 215, 24, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91b14016_8dca_4225_bbed_eef8b8d718d7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4219,7 +4219,7 @@ pub struct INetworkOperatorTetheringClientManager_abi(
 pub struct INetworkOperatorTetheringEntitlementCheck(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringEntitlementCheck {
     type Vtable = INetworkOperatorTetheringEntitlementCheck_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(17338733, 40602, 19190, [141, 163, 96, 73, 59, 25, 194, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0108916d_9e9a_4af6_8da3_60493b19c204);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4237,7 +4237,7 @@ pub struct INetworkOperatorTetheringEntitlementCheck_abi(
 pub struct INetworkOperatorTetheringManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringManager {
     type Vtable = INetworkOperatorTetheringManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3562704288, 3718, 19864, [139, 164, 221, 112, 212, 183, 100, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd45a8da0_0e86_4d98_8ba4_dd70d4b764d3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4264,7 +4264,7 @@ pub struct INetworkOperatorTetheringManager_abi(
 pub struct INetworkOperatorTetheringManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringManagerStatics {
     type Vtable = INetworkOperatorTetheringManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1052555980, 63683, 16476, [153, 100, 112, 161, 238, 171, 225, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ebcbacc_f8c3_405c_9964_70a1eeabe194);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4283,7 +4283,7 @@ pub struct INetworkOperatorTetheringManagerStatics_abi(
 pub struct INetworkOperatorTetheringManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringManagerStatics2 {
     type Vtable = INetworkOperatorTetheringManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1529041938, 13808, 18919, [155, 8, 22, 210, 120, 251, 170, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b235412_35f0_49e7_9b08_16d278fbaa42);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4304,7 +4304,7 @@ pub struct INetworkOperatorTetheringManagerStatics2_abi(
 pub struct INetworkOperatorTetheringManagerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringManagerStatics3 {
     type Vtable = INetworkOperatorTetheringManagerStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2413473206, 19193, 20257, [155, 88, 213, 62, 159, 36, 35, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fdaadb6_4af9_4f21_9b58_d53e9f24231e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4323,7 +4323,7 @@ pub struct INetworkOperatorTetheringManagerStatics3_abi(
 pub struct INetworkOperatorTetheringManagerStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringManagerStatics4 {
     type Vtable = INetworkOperatorTetheringManagerStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3015309776, 60415, 18084, [168, 71, 214, 99, 216, 176, 151, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3b9f9d0_ebff_46a4_a847_d663d8b0977e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4347,7 +4347,7 @@ pub struct INetworkOperatorTetheringManagerStatics4_abi(
 pub struct INetworkOperatorTetheringOperationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringOperationResult {
     type Vtable = INetworkOperatorTetheringOperationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3956409249, 442, 18285, [180, 179, 191, 61, 18, 200, 248, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xebd203a1_01ba_476d_b4b3_bf3d12c8f80c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4366,7 +4366,7 @@ pub struct INetworkOperatorTetheringOperationResult_abi(
 pub struct IProvisionFromXmlDocumentResults(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProvisionFromXmlDocumentResults {
     type Vtable = IProvisionFromXmlDocumentResults_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(561447136, 33283, 4575, [173, 185, 244, 206, 70, 45, 145, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x217700e0_8203_11df_adb9_f4ce462d9137);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4385,7 +4385,7 @@ pub struct IProvisionFromXmlDocumentResults_abi(
 pub struct IProvisionedProfile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProvisionedProfile {
     type Vtable = IProvisionedProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(561447136, 33282, 4575, [173, 185, 244, 206, 70, 45, 145, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x217700e0_8202_11df_adb9_f4ce462d9137);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4406,7 +4406,7 @@ pub struct IProvisionedProfile_abi(
 pub struct IProvisioningAgent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProvisioningAgent {
     type Vtable = IProvisioningAgent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(561447136, 33281, 4575, [173, 185, 244, 206, 70, 45, 145, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x217700e0_8201_11df_adb9_f4ce462d9137);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4426,7 +4426,7 @@ pub struct IProvisioningAgent_abi(
 pub struct IProvisioningAgentStaticMethods(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProvisioningAgentStaticMethods {
     type Vtable = IProvisioningAgentStaticMethods_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(561447136, 33025, 4575, [173, 185, 244, 206, 70, 45, 145, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x217700e0_8101_11df_adb9_f4ce462d9137);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4444,7 +4444,7 @@ pub struct IProvisioningAgentStaticMethods_abi(
 pub struct ITetheringEntitlementCheckTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITetheringEntitlementCheckTriggerDetails {
     type Vtable = ITetheringEntitlementCheckTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(63331997, 22822, 16883, [169, 78, 181, 9, 38, 252, 66, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03c65e9d_5926_41f3_a94e_b50926fc421b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4464,7 +4464,7 @@ pub struct ITetheringEntitlementCheckTriggerDetails_abi(
 pub struct IUssdMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUssdMessage {
     type Vtable = IUssdMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(798674818, 8196, 19805, [191, 129, 42, 186, 27, 75, 228, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f9acf82_2004_4d5d_bf81_2aba1b4be4a8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4487,7 +4487,7 @@ pub struct IUssdMessage_abi(
 pub struct IUssdMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUssdMessageFactory {
     type Vtable = IUssdMessageFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(798674818, 4099, 19805, [191, 129, 42, 186, 27, 75, 228, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f9acf82_1003_4d5d_bf81_2aba1b4be4a8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4505,7 +4505,7 @@ pub struct IUssdMessageFactory_abi(
 pub struct IUssdReply(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUssdReply {
     type Vtable = IUssdReply_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(798674818, 8197, 19805, [191, 129, 42, 186, 27, 75, 228, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f9acf82_2005_4d5d_bf81_2aba1b4be4a8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4524,7 +4524,7 @@ pub struct IUssdReply_abi(
 pub struct IUssdSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUssdSession {
     type Vtable = IUssdSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(798674818, 8194, 19805, [191, 129, 42, 186, 27, 75, 228, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f9acf82_2002_4d5d_bf81_2aba1b4be4a8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4544,7 +4544,7 @@ pub struct IUssdSession_abi(
 pub struct IUssdSessionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUssdSessionStatics {
     type Vtable = IUssdSessionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(798674818, 4097, 19805, [191, 129, 42, 186, 27, 75, 228, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f9acf82_1001_4d5d_bf81_2aba1b4be4a8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4813,7 +4813,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandAccount {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandAccount {
     type Vtable = IMobileBroadbandAccount_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(918703309, 52962, 17376, [166, 3, 238, 134, 163, 109, 101, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36c24ccd_cee2_43e0_a603_ee86a36d6570);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandAccount {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccount";
@@ -4877,7 +4877,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandAccountEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandAccountEventArgs {
     type Vtable = IMobileBroadbandAccountEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(945014912, 30686, 19460, [190, 173, 161, 35, 176, 140, 159, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3853c880_77de_4c04_bead_a123b08c9f59);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandAccountEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountEventArgs";
@@ -4957,7 +4957,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandAccountUpdatedEve
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandAccountUpdatedEventArgs {
     type Vtable = IMobileBroadbandAccountUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2076384648, 42685, 18913, [128, 171, 107, 145, 53, 74, 87, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bc31d88_a6bd_49e1_80ab_6b91354a57d4);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandAccountUpdatedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountUpdatedEventArgs";
@@ -5113,7 +5113,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandAccountWatcher {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandAccountWatcher {
     type Vtable = IMobileBroadbandAccountWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1811100510, 9141, 17567, [146, 141, 94, 13, 62, 4, 71, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6bf3335e_23b5_449f_928d_5e0d3e04471d);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandAccountWatcher {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcher";
@@ -5221,7 +5221,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandAntennaSar {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandAntennaSar {
     type Vtable = IMobileBroadbandAntennaSar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3115273086, 52217, 16649, [144, 190, 92, 6, 191, 213, 19, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9af4b7e_cbf9_4109_90be_5c06bfd513b6);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandAntennaSar {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar";
@@ -5351,7 +5351,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandCellCdma {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandCellCdma {
     type Vtable = IMobileBroadbandCellCdma_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(100774836, 16666, 20270, [130, 135, 118, 245, 101, 12, 96, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0601b3b4_411a_4f2e_8287_76f5650c60cd);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandCellCdma {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellCdma";
@@ -5471,7 +5471,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandCellGsm {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandCellGsm {
     type Vtable = IMobileBroadbandCellGsm_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3432087302, 32480, 18360, [158, 31, 195, 180, 141, 249, 223, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc917f06_7ee0_47b8_9e1f_c3b48df9df5b);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandCellGsm {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellGsm";
@@ -5600,7 +5600,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandCellLte {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandCellLte {
     type Vtable = IMobileBroadbandCellLte_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2442643579, 11128, 17773, [139, 83, 170, 162, 93, 10, 247, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9197c87b_2b78_456d_8b53_aaa25d0af741);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandCellLte {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellLte";
@@ -5738,7 +5738,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandCellNR {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandCellNR {
     type Vtable = IMobileBroadbandCellNR_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2705264107, 26364, 19275, [131, 169, 164, 135, 163, 165, 160, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa13f0deb_66fc_4b4b_83a9_a487a3a5a0a6);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandCellNR {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellNR";
@@ -5867,7 +5867,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandCellTdscdma {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandCellTdscdma {
     type Vtable = IMobileBroadbandCellTdscdma_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(249173589, 56078, 16770, [140, 218, 204, 65, 154, 123, 222, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0eda1655_db0e_4182_8cda_cc419a7bde08);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandCellTdscdma {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellTdscdma";
@@ -5996,7 +5996,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandCellUmts {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandCellUmts {
     type Vtable = IMobileBroadbandCellUmts_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2008331694, 18888, 20245, [178, 133, 76, 38, 167, 246, 114, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77b4b5ae_49c8_4f15_b285_4c26a7f67215);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandCellUmts {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellUmts";
@@ -6162,7 +6162,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandCellsInfo {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandCellsInfo {
     type Vtable = IMobileBroadbandCellsInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2309576234, 58482, 19877, [146, 156, 222, 97, 113, 29, 210, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89a9562a_e472_4da5_929c_de61711dd261);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandCellsInfo {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellsInfo";
@@ -6228,7 +6228,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandCurrentSlotIndexC
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandCurrentSlotIndexChangedEventArgs {
     type Vtable = IMobileBroadbandCurrentSlotIndexChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4145590660, 50032, 24532, [166, 112, 24, 70, 203, 155, 206, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf718b184_c370_5fd4_a670_1846cb9bce47);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandCurrentSlotIndexChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCurrentSlotIndexChangedEventArgs";
@@ -6456,7 +6456,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandDeviceInformation
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandDeviceInformation {
     type Vtable = IMobileBroadbandDeviceInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3872424296, 58241, 19566, [155, 232, 254, 21, 105, 105, 164, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6d08168_e381_4c6e_9be8_fe156969a446);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandDeviceInformation {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceInformation";
@@ -6545,7 +6545,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandDeviceService {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandDeviceService {
     type Vtable = IMobileBroadbandDeviceService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(582883922, 48512, 16556, [142, 31, 46, 7, 131, 106, 61, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22be1a52_bd80_40ac_8e1f_2e07836a3dbd);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandDeviceService {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceService";
@@ -6620,7 +6620,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandDeviceServiceComm
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandDeviceServiceCommandResult {
     type Vtable = IMobileBroadbandDeviceServiceCommandResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2968808123, 38102, 17593, [165, 56, 240, 129, 11, 100, 83, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0f46abb_94d6_44b9_a538_f0810b645389);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandDeviceServiceCommandResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandResult";
@@ -6701,7 +6701,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandDeviceServiceComm
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandDeviceServiceCommandSession {
     type Vtable = IMobileBroadbandDeviceServiceCommandSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4228483653, 37179, 18708, [182, 195, 174, 99, 4, 89, 62, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc098a45_913b_4914_b6c3_ae6304593e75);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandDeviceServiceCommandSession {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandSession";
@@ -6768,7 +6768,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandDeviceServiceData
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandDeviceServiceDataReceivedEventArgs {
     type Vtable = IMobileBroadbandDeviceServiceDataReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3064599518, 4992, 16611, [134, 24, 115, 203, 202, 72, 19, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6aa13de_1380_40e3_8618_73cbca48138c);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandDeviceServiceDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataReceivedEventArgs";
@@ -6855,7 +6855,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandDeviceServiceData
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandDeviceServiceDataSession {
     type Vtable = IMobileBroadbandDeviceServiceDataSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3671466803, 35791, 17033, [138, 55, 4, 92, 33, 105, 72, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdad62333_8bcf_4289_8a37_045c2169486a);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandDeviceServiceDataSession {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataSession";
@@ -6937,7 +6937,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandDeviceServiceInfo
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandDeviceServiceInformation {
     type Vtable = IMobileBroadbandDeviceServiceInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1406573403, 50413, 17904, [128, 58, 217, 65, 122, 109, 152, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53d69b5b_c4ed_45f0_803a_d9417a6d9846);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandDeviceServiceInformation {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceInformation";
@@ -7020,7 +7020,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandDeviceServiceTrig
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandDeviceServiceTriggerDetails {
     type Vtable = IMobileBroadbandDeviceServiceTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1241865072, 47534, 17496, [146, 65, 166, 165, 251, 241, 138, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a055b70_b9ae_4458_9241_a6a5fbf18a0c);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandDeviceServiceTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceTriggerDetails";
@@ -7260,7 +7260,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandModem {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandModem {
     type Vtable = IMobileBroadbandModem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3493161234, 59897, 20327, [160, 61, 67, 24, 154, 49, 107, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0356912_e9f9_4f67_a03d_43189a316bf1);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandModem {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModem";
@@ -7350,7 +7350,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandModemConfiguratio
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandModemConfiguration {
     type Vtable = IMobileBroadbandModemConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4242552227, 54989, 17184, [185, 130, 190, 157, 62, 199, 137, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfce035a3_d6cd_4320_b982_be9d3ec7890f);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandModemConfiguration {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModemConfiguration";
@@ -7445,7 +7445,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandModemIsolation {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandModemIsolation {
     type Vtable = IMobileBroadbandModemIsolation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3043069932, 58977, 17200, [155, 180, 52, 128, 33, 46, 195, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5618fec_e661_4330_9bb4_3480212ec354);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandModemIsolation {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModemIsolation";
@@ -7632,7 +7632,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandNetwork {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandNetwork {
     type Vtable = IMobileBroadbandNetwork_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3412300428, 777, 19638, [168, 193, 106, 90, 60, 142, 31, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb63928c_0309_4cb6_a8c1_6a5a3c8e1ff6);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandNetwork {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetwork";
@@ -7704,7 +7704,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandNetworkRegistrati
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandNetworkRegistrationStateChange {
     type Vtable = IMobileBroadbandNetworkRegistrationStateChange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3199177953, 38415, 18868, [160, 141, 125, 133, 233, 104, 199, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbeaf94e1_960f_49b4_a08d_7d85e968c7ec);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandNetworkRegistrationStateChange {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChange";
@@ -7771,7 +7771,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandNetworkRegistrati
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
     type Vtable = IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2299747583, 10424, 18090, [177, 55, 28, 75, 15, 33, 237, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89135cff_28b8_46aa_b137_1c4b0f21edfe);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChangeTriggerDetails";
@@ -7854,7 +7854,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandPco {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandPco {
     type Vtable = IMobileBroadbandPco_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3571776702, 58275, 17349, [168, 123, 108, 134, 210, 41, 215, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4e4fcbe_e3a3_43c5_a87b_6c86d229d7fa);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandPco {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPco";
@@ -7920,7 +7920,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandPcoDataChangeTrig
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandPcoDataChangeTriggerDetails {
     type Vtable = IMobileBroadbandPcoDataChangeTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(641683732, 25824, 17555, [144, 155, 45, 20, 160, 25, 98, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x263f5114_64e0_4493_909b_2d14a01962b1);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandPcoDataChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPcoDataChangeTriggerDetails";
@@ -8079,7 +8079,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandPin {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandPin {
     type Vtable = IMobileBroadbandPin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3865171721, 59257, 17855, [130, 129, 117, 50, 61, 249, 227, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe661d709_e779_45bf_8281_75323df9e321);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandPin {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPin";
@@ -8208,7 +8208,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandPinLockStateChang
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandPinLockStateChange {
     type Vtable = IMobileBroadbandPinLockStateChange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3189139262, 7940, 20373, [139, 144, 231, 245, 89, 221, 231, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe16673e_1f04_4f95_8b90_e7f559dde7e5);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandPinLockStateChange {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChange";
@@ -8275,7 +8275,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandPinLockStateChang
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandPinLockStateChangeTriggerDetails {
     type Vtable = IMobileBroadbandPinLockStateChangeTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3543711889, 16017, 19768, [144, 54, 174, 232, 58, 110, 121, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd338c091_3e91_4d38_9036_aee83a6e79ad);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandPinLockStateChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChangeTriggerDetails";
@@ -8350,7 +8350,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandPinManager {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandPinManager {
     type Vtable = IMobileBroadbandPinManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2203483869, 28191, 19355, [164, 19, 43, 31, 80, 204, 54, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83567edd_6e1f_4b9b_a413_2b1f50cc36df);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandPinManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinManager";
@@ -8424,7 +8424,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandPinOperationResul
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandPinOperationResult {
     type Vtable = IMobileBroadbandPinOperationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(299752498, 12775, 18933, [182, 99, 18, 61, 59, 239, 3, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11dddc32_31e7_49f5_b663_123d3bef0362);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandPinOperationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinOperationResult";
@@ -8551,7 +8551,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandRadioStateChange 
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandRadioStateChange {
     type Vtable = IMobileBroadbandRadioStateChange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2958337377, 38963, 19181, [151, 23, 67, 72, 178, 26, 36, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb054a561_9833_4aed_9717_4348b21a24b3);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandRadioStateChange {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChange";
@@ -8618,7 +8618,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandRadioStateChangeT
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandRadioStateChangeTriggerDetails {
     type Vtable = IMobileBroadbandRadioStateChangeTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1898977998, 2364, 17094, [176, 219, 173, 31, 117, 166, 84, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71301ace_093c_42c6_b0db_ad1f75a65445);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandRadioStateChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChangeTriggerDetails";
@@ -8797,7 +8797,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandSarManager {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandSarManager {
     type Vtable = IMobileBroadbandSarManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3853674547, 38526, 16585, [164, 133, 25, 192, 221, 32, 158, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5b26833_967e_40c9_a485_19c0dd209e22);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandSarManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSarManager";
@@ -8871,7 +8871,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandSlotInfo {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandSlotInfo {
     type Vtable = IMobileBroadbandSlotInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3174370098, 34862, 21546, [177, 125, 11, 177, 180, 155, 174, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd350b32_882e_542a_b17d_0bb1b49bae9e);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandSlotInfo {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotInfo";
@@ -8937,7 +8937,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandSlotInfoChangedEv
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandSlotInfoChangedEventArgs {
     type Vtable = IMobileBroadbandSlotInfoChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(827884447, 38156, 21710, [164, 141, 186, 69, 41, 180, 143, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3158839f_950c_54ce_a48d_ba4529b48f0f);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandSlotInfoChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotInfoChangedEventArgs";
@@ -9059,7 +9059,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandSlotManager {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandSlotManager {
     type Vtable = IMobileBroadbandSlotManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953163478, 8217, 24449, [162, 148, 204, 54, 74, 17, 208, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba07cd6_2019_5f81_a294_cc364a11d0b2);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandSlotManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotManager";
@@ -9155,7 +9155,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandTransmissionState
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandTransmissionStateChangedEventArgs {
     type Vtable = IMobileBroadbandTransmissionStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1630419061, 1034, 20377, [164, 249, 97, 215, 195, 45, 161, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x612e3875_040a_4f99_a4f9_61d7c32da129);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandTransmissionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandTransmissionStateChangedEventArgs";
@@ -9230,7 +9230,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandUicc {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandUicc {
     type Vtable = IMobileBroadbandUicc_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3862230673, 21082, 19682, [143, 206, 170, 65, 98, 87, 145, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe634f691_525a_4ce2_8fce_aa4162579154);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandUicc {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUicc";
@@ -9323,7 +9323,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandUiccApp {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandUiccApp {
     type Vtable = IMobileBroadbandUiccApp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1293354326, 39073, 17373, [178, 236, 80, 201, 12, 242, 72, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d170556_98a1_43dd_b2ec_50c90cf248df);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandUiccApp {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccApp";
@@ -9422,7 +9422,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandUiccAppReadRecord
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandUiccAppReadRecordResult {
     type Vtable = IMobileBroadbandUiccAppReadRecordResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1690915461, 13710, 18373, [130, 73, 105, 95, 56, 59, 43, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64c95285_358e_47c5_8249_695f383b2bdb);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandUiccAppReadRecordResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppReadRecordResult";
@@ -9528,7 +9528,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandUiccAppRecordDeta
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandUiccAppRecordDetailsResult {
     type Vtable = IMobileBroadbandUiccAppRecordDetailsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3642320943, 48660, 18740, [152, 29, 47, 87, 185, 237, 131, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd919682f_be14_4934_981d_2f57b9ed83e6);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandUiccAppRecordDetailsResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppRecordDetailsResult";
@@ -9603,7 +9603,7 @@ unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandUiccAppsResult {
 }
 unsafe impl ::windows::runtime::Interface for MobileBroadbandUiccAppsResult {
     type Vtable = IMobileBroadbandUiccAppsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1950953707, 33111, 19009, [132, 148, 107, 245, 76, 155, 29, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x744930eb_8157_4a41_8494_6bf54c9b1d2b);
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandUiccAppsResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppsResult";
@@ -9718,7 +9718,7 @@ unsafe impl ::windows::runtime::RuntimeType for NetworkOperatorDataUsageTriggerD
 }
 unsafe impl ::windows::runtime::Interface for NetworkOperatorDataUsageTriggerDetails {
     type Vtable = INetworkOperatorDataUsageTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357058669, 42085, 20203, [147, 23, 40, 161, 103, 99, 12, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50e3126d_a465_4eeb_9317_28a167630cea);
 }
 impl ::windows::runtime::RuntimeName for NetworkOperatorDataUsageTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorDataUsageTriggerDetails";
@@ -9863,7 +9863,7 @@ unsafe impl ::windows::runtime::RuntimeType for NetworkOperatorNotificationEvent
 }
 unsafe impl ::windows::runtime::Interface for NetworkOperatorNotificationEventDetails {
     type Vtable = INetworkOperatorNotificationEventDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3160975825, 33505, 17544, [159, 44, 18, 118, 194, 70, 143, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc68a9d1_82e1_4488_9f2c_1276c2468fac);
 }
 impl ::windows::runtime::RuntimeName for NetworkOperatorNotificationEventDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorNotificationEventDetails";
@@ -9984,7 +9984,7 @@ unsafe impl ::windows::runtime::RuntimeType for NetworkOperatorTetheringAccessPo
 }
 unsafe impl ::windows::runtime::Interface for NetworkOperatorTetheringAccessPointConfiguration {
     type Vtable = INetworkOperatorTetheringAccessPointConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(197919364, 16686, 16445, [172, 198, 183, 87, 227, 71, 116, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bcc0284_412e_403d_acc6_b757e34774a4);
 }
 impl ::windows::runtime::RuntimeName for NetworkOperatorTetheringAccessPointConfiguration {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringAccessPointConfiguration";
@@ -10059,7 +10059,7 @@ unsafe impl ::windows::runtime::RuntimeType for NetworkOperatorTetheringClient {
 }
 unsafe impl ::windows::runtime::Interface for NetworkOperatorTetheringClient {
     type Vtable = INetworkOperatorTetheringClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1889346892, 22879, 18503, [187, 48, 100, 105, 53, 84, 41, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x709d254c_595f_4847_bb30_646935542918);
 }
 impl ::windows::runtime::RuntimeName for NetworkOperatorTetheringClient {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringClient";
@@ -10270,7 +10270,7 @@ unsafe impl ::windows::runtime::RuntimeType for NetworkOperatorTetheringManager 
 }
 unsafe impl ::windows::runtime::Interface for NetworkOperatorTetheringManager {
     type Vtable = INetworkOperatorTetheringManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3562704288, 3718, 19864, [139, 164, 221, 112, 212, 183, 100, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd45a8da0_0e86_4d98_8ba4_dd70d4b764d3);
 }
 impl ::windows::runtime::RuntimeName for NetworkOperatorTetheringManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager";
@@ -10342,7 +10342,7 @@ unsafe impl ::windows::runtime::RuntimeType for NetworkOperatorTetheringOperatio
 }
 unsafe impl ::windows::runtime::Interface for NetworkOperatorTetheringOperationResult {
     type Vtable = INetworkOperatorTetheringOperationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3956409249, 442, 18285, [180, 179, 191, 61, 18, 200, 248, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xebd203a1_01ba_476d_b4b3_bf3d12c8f80c);
 }
 impl ::windows::runtime::RuntimeName for NetworkOperatorTetheringOperationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringOperationResult";
@@ -10508,7 +10508,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProvisionFromXmlDocumentResults 
 }
 unsafe impl ::windows::runtime::Interface for ProvisionFromXmlDocumentResults {
     type Vtable = IProvisionFromXmlDocumentResults_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(561447136, 33283, 4575, [173, 185, 244, 206, 70, 45, 145, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x217700e0_8203_11df_adb9_f4ce462d9137);
 }
 impl ::windows::runtime::RuntimeName for ProvisionFromXmlDocumentResults {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisionFromXmlDocumentResults";
@@ -10576,7 +10576,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProvisionedProfile {
 }
 unsafe impl ::windows::runtime::Interface for ProvisionedProfile {
     type Vtable = IProvisionedProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(561447136, 33282, 4575, [173, 185, 244, 206, 70, 45, 145, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x217700e0_8202_11df_adb9_f4ce462d9137);
 }
 impl ::windows::runtime::RuntimeName for ProvisionedProfile {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisionedProfile";
@@ -10667,7 +10667,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProvisioningAgent {
 }
 unsafe impl ::windows::runtime::Interface for ProvisioningAgent {
     type Vtable = IProvisioningAgent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(561447136, 33281, 4575, [173, 185, 244, 206, 70, 45, 145, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x217700e0_8201_11df_adb9_f4ce462d9137);
 }
 impl ::windows::runtime::RuntimeName for ProvisioningAgent {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisioningAgent";
@@ -10769,7 +10769,7 @@ unsafe impl ::windows::runtime::RuntimeType for TetheringEntitlementCheckTrigger
 }
 unsafe impl ::windows::runtime::Interface for TetheringEntitlementCheckTriggerDetails {
     type Vtable = ITetheringEntitlementCheckTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(63331997, 22822, 16883, [169, 78, 181, 9, 38, 252, 66, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03c65e9d_5926_41f3_a94e_b50926fc421b);
 }
 impl ::windows::runtime::RuntimeName for TetheringEntitlementCheckTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.TetheringEntitlementCheckTriggerDetails";
@@ -11031,7 +11031,7 @@ unsafe impl ::windows::runtime::RuntimeType for UssdMessage {
 }
 unsafe impl ::windows::runtime::Interface for UssdMessage {
     type Vtable = IUssdMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(798674818, 8196, 19805, [191, 129, 42, 186, 27, 75, 228, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f9acf82_2004_4d5d_bf81_2aba1b4be4a8);
 }
 impl ::windows::runtime::RuntimeName for UssdMessage {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdMessage";
@@ -11105,7 +11105,7 @@ unsafe impl ::windows::runtime::RuntimeType for UssdReply {
 }
 unsafe impl ::windows::runtime::Interface for UssdReply {
     type Vtable = IUssdReply_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(798674818, 8197, 19805, [191, 129, 42, 186, 27, 75, 228, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f9acf82_2005_4d5d_bf81_2aba1b4be4a8);
 }
 impl ::windows::runtime::RuntimeName for UssdReply {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdReply";
@@ -11219,7 +11219,7 @@ unsafe impl ::windows::runtime::RuntimeType for UssdSession {
 }
 unsafe impl ::windows::runtime::Interface for UssdSession {
     type Vtable = IUssdSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(798674818, 8194, 19805, [191, 129, 42, 186, 27, 75, 228, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f9acf82_2002_4d5d_bf81_2aba1b4be4a8);
 }
 impl ::windows::runtime::RuntimeName for UssdSession {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdSession";

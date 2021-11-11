@@ -39,7 +39,7 @@ impl IHolographicCameraInterop {
 }
 unsafe impl ::windows::runtime::Interface for IHolographicCameraInterop {
     type Vtable = IHolographicCameraInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2093087173, 27906, 16890, [149, 0, 225, 128, 158, 180, 142, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7cc1f9c5_6d02_41fa_9500_e1809eb48eec);
 }
 impl ::core::convert::From<IHolographicCameraInterop> for ::windows::runtime::IUnknown {
     fn from(value: IHolographicCameraInterop) -> Self {
@@ -116,7 +116,7 @@ impl IHolographicCameraRenderingParametersInterop {
 }
 unsafe impl ::windows::runtime::Interface for IHolographicCameraRenderingParametersInterop {
     type Vtable = IHolographicCameraRenderingParametersInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4149962966, 53757, 18183, [170, 253, 250, 111, 76, 14, 59, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf75b68d6_d1fd_4707_aafd_fa6f4c0e3bf4);
 }
 impl ::core::convert::From<IHolographicCameraRenderingParametersInterop> for ::windows::runtime::IUnknown {
     fn from(value: IHolographicCameraRenderingParametersInterop) -> Self {
@@ -192,7 +192,7 @@ impl IHolographicQuadLayerInterop {
 }
 unsafe impl ::windows::runtime::Interface for IHolographicQuadLayerInterop {
     type Vtable = IHolographicQuadLayerInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3483797744, 25502, 19015, [131, 215, 107, 127, 94, 191, 127, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfa688f0_639e_4a47_83d7_6b7f5ebf7fed);
 }
 impl ::core::convert::From<IHolographicQuadLayerInterop> for ::windows::runtime::IUnknown {
     fn from(value: IHolographicQuadLayerInterop) -> Self {
@@ -247,7 +247,7 @@ impl IHolographicQuadLayerUpdateParametersInterop {
 }
 unsafe impl ::windows::runtime::Interface for IHolographicQuadLayerUpdateParametersInterop {
     type Vtable = IHolographicQuadLayerUpdateParametersInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3858057677, 51465, 17487, [136, 9, 124, 193, 138, 156, 137, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5f549cd_c909_444f_8809_7cc18a9c8920);
 }
 impl ::core::convert::From<IHolographicQuadLayerUpdateParametersInterop> for ::windows::runtime::IUnknown {
     fn from(value: IHolographicQuadLayerUpdateParametersInterop) -> Self {

@@ -1163,7 +1163,7 @@ where
 pub struct IPropertySet(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPropertySet {
     type Vtable = IPropertySet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2319707551, 62694, 17441, [172, 249, 29, 171, 41, 134, 130, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
 }
 impl IPropertySet {
     #[doc = "*Required features: `Foundation_Collections`*"]
@@ -1596,7 +1596,7 @@ where
 pub struct IVectorChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVectorChangedEventArgs {
     type Vtable = IVectorChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1465463775, 13566, 17536, [175, 21, 7, 105, 31, 61, 93, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x575933df_34fe_4480_af15_07691f3d5d9b);
 }
 impl IVectorChangedEventArgs {
     #[doc = "*Required features: `Foundation_Collections`*"]
@@ -2015,7 +2015,7 @@ unsafe impl ::windows::runtime::RuntimeType for PropertySet {
 }
 unsafe impl ::windows::runtime::Interface for PropertySet {
     type Vtable = IPropertySet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2319707551, 62694, 17441, [172, 249, 29, 171, 41, 134, 130, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
 }
 impl ::windows::runtime::RuntimeName for PropertySet {
     const NAME: &'static str = "Windows.Foundation.Collections.PropertySet";
@@ -2469,7 +2469,7 @@ unsafe impl ::windows::runtime::RuntimeType for ValueSet {
 }
 unsafe impl ::windows::runtime::Interface for ValueSet {
     type Vtable = IPropertySet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2319707551, 62694, 17441, [172, 249, 29, 171, 41, 134, 130, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
 }
 impl ::windows::runtime::RuntimeName for ValueSet {
     const NAME: &'static str = "Windows.Foundation.Collections.ValueSet";

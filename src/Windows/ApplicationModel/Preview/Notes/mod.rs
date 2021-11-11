@@ -4,7 +4,7 @@
 pub struct INotePlacementChangedPreviewEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotePlacementChangedPreviewEventArgs {
     type Vtable = INotePlacementChangedPreviewEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1226659767, 63360, 20095, [169, 57, 154, 76, 175, 150, 82, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x491d57b7_f780_4e7f_a939_9a4caf965214);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22,7 +22,7 @@ pub struct INotePlacementChangedPreviewEventArgs_abi(
 pub struct INoteVisibilityChangedPreviewEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INoteVisibilityChangedPreviewEventArgs {
     type Vtable = INoteVisibilityChangedPreviewEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(238314654, 14357, 20470, [131, 179, 161, 77, 23, 18, 14, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e34649e_3815_4ff6_83b3_a14d17120e24);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -41,7 +41,7 @@ pub struct INoteVisibilityChangedPreviewEventArgs_abi(
 pub struct INotesWindowManagerPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotesWindowManagerPreview {
     type Vtable = INotesWindowManagerPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3693789758, 18512, 20243, [156, 199, 255, 72, 126, 253, 252, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc2ac23e_4850_4f13_9cc7_ff487efdfcde);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -83,7 +83,7 @@ pub struct INotesWindowManagerPreview_abi(
 pub struct INotesWindowManagerPreview2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotesWindowManagerPreview2 {
     type Vtable = INotesWindowManagerPreview2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3992880714, 8020, 19209, [152, 35, 255, 71, 127, 111, 163, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xedfe864a_1f54_4b09_9823_ff477f6fa3bc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -106,7 +106,7 @@ pub struct INotesWindowManagerPreview2_abi(
 pub struct INotesWindowManagerPreviewShowNoteOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotesWindowManagerPreviewShowNoteOptions {
     type Vtable = INotesWindowManagerPreviewShowNoteOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2288716246, 42670, 16391, [165, 109, 28, 167, 12, 132, 192, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x886b09d6_a6ae_4007_a56d_1ca70c84c0d2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -125,7 +125,7 @@ pub struct INotesWindowManagerPreviewShowNoteOptions_abi(
 pub struct INotesWindowManagerPreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotesWindowManagerPreviewStatics {
     type Vtable = INotesWindowManagerPreviewStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1718144136, 2702, 16679, [163, 142, 153, 84, 69, 134, 138, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6668cc88_0a8e_4127_a38e_995445868a78);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -157,7 +157,7 @@ unsafe impl ::windows::runtime::RuntimeType for NotePlacementChangedPreviewEvent
 }
 unsafe impl ::windows::runtime::Interface for NotePlacementChangedPreviewEventArgs {
     type Vtable = INotePlacementChangedPreviewEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1226659767, 63360, 20095, [169, 57, 154, 76, 175, 150, 82, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x491d57b7_f780_4e7f_a939_9a4caf965214);
 }
 impl ::windows::runtime::RuntimeName for NotePlacementChangedPreviewEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NotePlacementChangedPreviewEventArgs";
@@ -231,7 +231,7 @@ unsafe impl ::windows::runtime::RuntimeType for NoteVisibilityChangedPreviewEven
 }
 unsafe impl ::windows::runtime::Interface for NoteVisibilityChangedPreviewEventArgs {
     type Vtable = INoteVisibilityChangedPreviewEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(238314654, 14357, 20470, [131, 179, 161, 77, 23, 18, 14, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e34649e_3815_4ff6_83b3_a14d17120e24);
 }
 impl ::windows::runtime::RuntimeName for NoteVisibilityChangedPreviewEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NoteVisibilityChangedPreviewEventArgs";
@@ -431,7 +431,7 @@ unsafe impl ::windows::runtime::RuntimeType for NotesWindowManagerPreview {
 }
 unsafe impl ::windows::runtime::Interface for NotesWindowManagerPreview {
     type Vtable = INotesWindowManagerPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3693789758, 18512, 20243, [156, 199, 255, 72, 126, 253, 252, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc2ac23e_4850_4f13_9cc7_ff487efdfcde);
 }
 impl ::windows::runtime::RuntimeName for NotesWindowManagerPreview {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreview";
@@ -509,7 +509,7 @@ unsafe impl ::windows::runtime::RuntimeType for NotesWindowManagerPreviewShowNot
 }
 unsafe impl ::windows::runtime::Interface for NotesWindowManagerPreviewShowNoteOptions {
     type Vtable = INotesWindowManagerPreviewShowNoteOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2288716246, 42670, 16391, [165, 109, 28, 167, 12, 132, 192, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x886b09d6_a6ae_4007_a56d_1ca70c84c0d2);
 }
 impl ::windows::runtime::RuntimeName for NotesWindowManagerPreviewShowNoteOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreviewShowNoteOptions";

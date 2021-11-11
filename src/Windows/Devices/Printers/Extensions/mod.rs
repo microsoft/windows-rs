@@ -7,7 +7,7 @@ pub struct ExtensionsContract(pub u8);
 pub struct IPrint3DWorkflow(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DWorkflow {
     type Vtable = IPrint3DWorkflow_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3312415933, 13929, 19046, [171, 66, 200, 21, 25, 48, 205, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc56f74bd_3669_4a66_ab42_c8151930cd34);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -32,7 +32,7 @@ pub struct IPrint3DWorkflow_abi(
 pub struct IPrint3DWorkflow2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DWorkflow2 {
     type Vtable = IPrint3DWorkflow2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2728838479, 35521, 18712, [151, 65, 227, 79, 48, 4, 35, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2a6c54f_8ac1_4918_9741_e34f3004239e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -53,7 +53,7 @@ pub struct IPrint3DWorkflow2_abi(
 pub struct IPrint3DWorkflowPrintRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DWorkflowPrintRequestedEventArgs {
     type Vtable = IPrint3DWorkflowPrintRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(435734616, 23240, 19285, [138, 95, 230, 21, 103, 218, 251, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19f8c858_5ac8_4b55_8a5f_e61567dafb4d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -74,7 +74,7 @@ pub struct IPrint3DWorkflowPrintRequestedEventArgs_abi(
 pub struct IPrint3DWorkflowPrinterChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DWorkflowPrinterChangedEventArgs {
     type Vtable = IPrint3DWorkflowPrinterChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1159881730, 38396, 18503, [147, 179, 19, 77, 191, 92, 96, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45226402_95fc_4847_93b3_134dbf5c60f7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -92,7 +92,7 @@ pub struct IPrint3DWorkflowPrinterChangedEventArgs_abi(
 pub struct IPrintExtensionContextStatic(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintExtensionContextStatic {
     type Vtable = IPrintExtensionContextStatic_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3876429761, 65401, 19108, [140, 155, 12, 147, 174, 223, 222, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe70d9fc1_ff79_4aa4_8c9b_0c93aedfde8a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -110,7 +110,7 @@ pub struct IPrintExtensionContextStatic_abi(
 pub struct IPrintNotificationEventDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintNotificationEventDetails {
     type Vtable = IPrintNotificationEventDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3759033482, 18472, 19873, [139, 184, 134, 114, 223, 133, 21, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe00e4c8a_4828_4da1_8bb8_8672df8515e7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -130,7 +130,7 @@ pub struct IPrintNotificationEventDetails_abi(
 pub struct IPrintTaskConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskConfiguration {
     type Vtable = IPrintTaskConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3821151313, 15012, 18565, [146, 64, 49, 31, 95, 143, 190, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3c22451_3aa4_4885_9240_311f5f8fbe9d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -152,7 +152,7 @@ pub struct IPrintTaskConfiguration_abi(
 pub struct IPrintTaskConfigurationSaveRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskConfigurationSaveRequest {
     type Vtable = IPrintTaskConfigurationSaveRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4004458443, 25118, 19298, [172, 119, 178, 129, 204, 224, 141, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeeaf2fcb_621e_4b62_ac77_b281cce08d60);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -174,7 +174,7 @@ pub struct IPrintTaskConfigurationSaveRequest_abi(
 pub struct IPrintTaskConfigurationSaveRequestedDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskConfigurationSaveRequestedDeferral {
     type Vtable = IPrintTaskConfigurationSaveRequestedDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3914978664, 63273, 17572, [135, 29, 189, 6, 40, 105, 106, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe959d568_f729_44a4_871d_bd0628696a33);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -192,7 +192,7 @@ pub struct IPrintTaskConfigurationSaveRequestedDeferral_abi(
 pub struct IPrintTaskConfigurationSaveRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskConfigurationSaveRequestedEventArgs {
     type Vtable = IPrintTaskConfigurationSaveRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3765184633, 3425, 18744, [145, 208, 150, 164, 91, 238, 132, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe06c2879_0d61_4938_91d0_96a45bee8479);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -275,7 +275,7 @@ unsafe impl ::windows::runtime::RuntimeType for Print3DWorkflow {
 }
 unsafe impl ::windows::runtime::Interface for Print3DWorkflow {
     type Vtable = IPrint3DWorkflow_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3312415933, 13929, 19046, [171, 66, 200, 21, 25, 48, 205, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc56f74bd_3669_4a66_ab42_c8151930cd34);
 }
 impl ::windows::runtime::RuntimeName for Print3DWorkflow {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.Print3DWorkflow";
@@ -383,7 +383,7 @@ unsafe impl ::windows::runtime::RuntimeType for Print3DWorkflowPrintRequestedEve
 }
 unsafe impl ::windows::runtime::Interface for Print3DWorkflowPrintRequestedEventArgs {
     type Vtable = IPrint3DWorkflowPrintRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(435734616, 23240, 19285, [138, 95, 230, 21, 103, 218, 251, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19f8c858_5ac8_4b55_8a5f_e61567dafb4d);
 }
 impl ::windows::runtime::RuntimeName for Print3DWorkflowPrintRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.Print3DWorkflowPrintRequestedEventArgs";
@@ -449,7 +449,7 @@ unsafe impl ::windows::runtime::RuntimeType for Print3DWorkflowPrinterChangedEve
 }
 unsafe impl ::windows::runtime::Interface for Print3DWorkflowPrinterChangedEventArgs {
     type Vtable = IPrint3DWorkflowPrinterChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1159881730, 38396, 18503, [147, 179, 19, 77, 191, 92, 96, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45226402_95fc_4847_93b3_134dbf5c60f7);
 }
 impl ::windows::runtime::RuntimeName for Print3DWorkflowPrinterChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.Print3DWorkflowPrinterChangedEventArgs";
@@ -571,7 +571,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintNotificationEventDetails {
 }
 unsafe impl ::windows::runtime::Interface for PrintNotificationEventDetails {
     type Vtable = IPrintNotificationEventDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3759033482, 18472, 19873, [139, 184, 134, 114, 223, 133, 21, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe00e4c8a_4828_4da1_8bb8_8672df8515e7);
 }
 impl ::windows::runtime::RuntimeName for PrintNotificationEventDetails {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintNotificationEventDetails";
@@ -652,7 +652,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintTaskConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for PrintTaskConfiguration {
     type Vtable = IPrintTaskConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3821151313, 15012, 18565, [146, 64, 49, 31, 95, 143, 190, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3c22451_3aa4_4885_9240_311f5f8fbe9d);
 }
 impl ::windows::runtime::RuntimeName for PrintTaskConfiguration {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintTaskConfiguration";
@@ -735,7 +735,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintTaskConfigurationSaveReques
 }
 unsafe impl ::windows::runtime::Interface for PrintTaskConfigurationSaveRequest {
     type Vtable = IPrintTaskConfigurationSaveRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4004458443, 25118, 19298, [172, 119, 178, 129, 204, 224, 141, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeeaf2fcb_621e_4b62_ac77_b281cce08d60);
 }
 impl ::windows::runtime::RuntimeName for PrintTaskConfigurationSaveRequest {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequest";
@@ -796,7 +796,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintTaskConfigurationSaveReques
 }
 unsafe impl ::windows::runtime::Interface for PrintTaskConfigurationSaveRequestedDeferral {
     type Vtable = IPrintTaskConfigurationSaveRequestedDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3914978664, 63273, 17572, [135, 29, 189, 6, 40, 105, 106, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe959d568_f729_44a4_871d_bd0628696a33);
 }
 impl ::windows::runtime::RuntimeName for PrintTaskConfigurationSaveRequestedDeferral {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequestedDeferral";
@@ -860,7 +860,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintTaskConfigurationSaveReques
 }
 unsafe impl ::windows::runtime::Interface for PrintTaskConfigurationSaveRequestedEventArgs {
     type Vtable = IPrintTaskConfigurationSaveRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3765184633, 3425, 18744, [145, 208, 150, 164, 91, 238, 132, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe06c2879_0d61_4938_91d0_96a45bee8479);
 }
 impl ::windows::runtime::RuntimeName for PrintTaskConfigurationSaveRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequestedEventArgs";

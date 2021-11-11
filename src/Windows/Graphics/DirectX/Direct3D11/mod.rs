@@ -155,7 +155,7 @@ impl ::windows::runtime::DefaultType for Direct3DUsage {
 pub struct IDirect3DDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3DDevice {
     type Vtable = IDirect3DDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2742428843, 36191, 18000, [157, 62, 158, 174, 61, 155, 198, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa37624ab_8d5f_4650_9d3e_9eae3d9bc670);
 }
 impl IDirect3DDevice {
     #[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
@@ -256,7 +256,7 @@ pub struct IDirect3DDevice_abi(
 pub struct IDirect3DSurface(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3DSurface {
     type Vtable = IDirect3DSurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(200581446, 5057, 18068, [190, 227, 122, 191, 21, 234, 245, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bf4a146_13c1_4694_bee3_7abf15eaf586);
 }
 impl IDirect3DSurface {
     #[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]

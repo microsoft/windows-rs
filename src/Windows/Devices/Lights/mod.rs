@@ -6,7 +6,7 @@ pub mod Effects;
 pub struct ILamp(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILamp {
     type Vtable = ILamp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(75324314, 59973, 19243, [177, 162, 20, 223, 240, 11, 222, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x047d5b9a_ea45_4b2b_b1a2_14dff00bde7b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -37,7 +37,7 @@ pub struct ILamp_abi(
 pub struct ILampArray(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArray {
     type Vtable = ILampArray_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2060359559, 51360, 20117, [161, 224, 213, 134, 118, 83, 134, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ace9787_c8a0_4e95_a1e0_d58676538649);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -92,7 +92,7 @@ pub struct ILampArray_abi(
 pub struct ILampArrayStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayStatics {
     type Vtable = ILampArrayStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2075707789, 24513, 17709, [187, 31, 74, 212, 16, 211, 152, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bb8c98d_5fc1_452d_bb1f_4ad410d398ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -112,7 +112,7 @@ pub struct ILampArrayStatics_abi(
 pub struct ILampAvailabilityChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampAvailabilityChangedEventArgs {
     type Vtable = ILampAvailabilityChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1332624877, 1954, 18845, [146, 96, 103, 227, 4, 83, 43, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f6e3ded_07a2_499d_9260_67e304532ba4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -130,7 +130,7 @@ pub struct ILampAvailabilityChangedEventArgs_abi(
 pub struct ILampInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampInfo {
     type Vtable = ILampInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(817582620, 2767, 18906, [140, 16, 21, 11, 156, 246, 39, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30bb521c_0acf_49da_8c10_150b9cf62713);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -161,7 +161,7 @@ pub struct ILampInfo_abi(
 pub struct ILampStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampStatics {
     type Vtable = ILampStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2820817260, 34949, 16414, [184, 33, 142, 139, 56, 168, 232, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa822416c_8885_401e_b821_8e8b38a8e8ec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -294,7 +294,7 @@ unsafe impl ::windows::runtime::RuntimeType for Lamp {
 }
 unsafe impl ::windows::runtime::Interface for Lamp {
     type Vtable = ILamp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(75324314, 59973, 19243, [177, 162, 20, 223, 240, 11, 222, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x047d5b9a_ea45_4b2b_b1a2_14dff00bde7b);
 }
 impl ::windows::runtime::RuntimeName for Lamp {
     const NAME: &'static str = "Windows.Devices.Lights.Lamp";
@@ -590,7 +590,7 @@ unsafe impl ::windows::runtime::RuntimeType for LampArray {
 }
 unsafe impl ::windows::runtime::Interface for LampArray {
     type Vtable = ILampArray_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2060359559, 51360, 20117, [161, 224, 213, 134, 118, 83, 134, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ace9787_c8a0_4e95_a1e0_d58676538649);
 }
 impl ::windows::runtime::RuntimeName for LampArray {
     const NAME: &'static str = "Windows.Devices.Lights.LampArray";
@@ -687,7 +687,7 @@ unsafe impl ::windows::runtime::RuntimeType for LampAvailabilityChangedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for LampAvailabilityChangedEventArgs {
     type Vtable = ILampAvailabilityChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1332624877, 1954, 18845, [146, 96, 103, 227, 4, 83, 43, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f6e3ded_07a2_499d_9260_67e304532ba4);
 }
 impl ::windows::runtime::RuntimeName for LampAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.LampAvailabilityChangedEventArgs";
@@ -829,7 +829,7 @@ unsafe impl ::windows::runtime::RuntimeType for LampInfo {
 }
 unsafe impl ::windows::runtime::Interface for LampInfo {
     type Vtable = ILampInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(817582620, 2767, 18906, [140, 16, 21, 11, 156, 246, 39, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30bb521c_0acf_49da_8c10_150b9cf62713);
 }
 impl ::windows::runtime::RuntimeName for LampInfo {
     const NAME: &'static str = "Windows.Devices.Lights.LampInfo";

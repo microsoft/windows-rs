@@ -8,7 +8,7 @@ pub mod Surfaces;
 pub struct ISpatialAnchor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchor {
     type Vtable = ISpatialAnchor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(86631886, 7476, 14082, [188, 236, 234, 191, 245, 120, 168, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0529e5ce_1d34_3702_bcec_eabff578a869);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -31,7 +31,7 @@ pub struct ISpatialAnchor_abi(
 pub struct ISpatialAnchor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchor2 {
     type Vtable = ISpatialAnchor2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3977758984, 42645, 19702, [146, 253, 151, 38, 59, 167, 16, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed17c908_a695_4cf6_92fd_97263ba71047);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -49,7 +49,7 @@ pub struct ISpatialAnchor2_abi(
 pub struct ISpatialAnchorExportSufficiency(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorExportSufficiency {
     type Vtable = ISpatialAnchorExportSufficiency_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2009226027, 13321, 16520, [185, 27, 253, 253, 5, 209, 100, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77c25b2b_3409_4088_b91b_fdfd05d1648f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -69,7 +69,7 @@ pub struct ISpatialAnchorExportSufficiency_abi(
 pub struct ISpatialAnchorExporter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorExporter {
     type Vtable = ISpatialAnchorExporter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2586460984, 9467, 17001, [137, 197, 136, 48, 74, 238, 242, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a2a4338_24fb_4269_89c5_88304aeef20f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -90,7 +90,7 @@ pub struct ISpatialAnchorExporter_abi(
 pub struct ISpatialAnchorExporterStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorExporterStatics {
     type Vtable = ISpatialAnchorExporterStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3978627000, 9333, 17308, [133, 255, 127, 237, 52, 31, 220, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed2507b8_2475_439c_85ff_7fed341fdc88);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -110,7 +110,7 @@ pub struct ISpatialAnchorExporterStatics_abi(
 pub struct ISpatialAnchorManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorManagerStatics {
     type Vtable = ISpatialAnchorManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2296581803, 62391, 16907, [176, 134, 138, 128, 192, 125, 145, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88e30eab_f3b7_420b_b086_8a80c07d910d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -129,7 +129,7 @@ pub struct ISpatialAnchorManagerStatics_abi(
 pub struct ISpatialAnchorRawCoordinateSystemAdjustedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     type Vtable = ISpatialAnchorRawCoordinateSystemAdjustedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2716343992, 22215, 12567, [162, 228, 129, 224, 252, 242, 142, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1e81eb8_56c7_3117_a2e4_81e0fcf28e00);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -148,7 +148,7 @@ pub struct ISpatialAnchorRawCoordinateSystemAdjustedEventArgs_abi(
 pub struct ISpatialAnchorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorStatics {
     type Vtable = ISpatialAnchorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2844952130, 372, 12572, [174, 121, 14, 81, 7, 102, 159, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9928642_0174_311c_ae79_0e5107669f16);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -170,7 +170,7 @@ pub struct ISpatialAnchorStatics_abi(
 pub struct ISpatialAnchorStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorStore {
     type Vtable = ISpatialAnchorStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2965124662, 18538, 15536, [158, 111, 18, 69, 22, 92, 77, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0bc3636_486a_3cb0_9e6f_1245165c4db6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -192,7 +192,7 @@ pub struct ISpatialAnchorStore_abi(
 pub struct ISpatialAnchorTransferManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorTransferManagerStatics {
     type Vtable = ISpatialAnchorTransferManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(62650809, 4824, 19406, [136, 53, 197, 223, 58, 192, 173, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03bbf9b9_12d8_4bce_8835_c5df3ac0adab);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -215,7 +215,7 @@ pub struct ISpatialAnchorTransferManagerStatics_abi(
 pub struct ISpatialBoundingVolume(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialBoundingVolume {
     type Vtable = ISpatialBoundingVolume_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4213204442, 26819, 13279, [183, 175, 76, 120, 114, 7, 153, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb2065da_68c3_33df_b7af_4c787207999c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -232,7 +232,7 @@ pub struct ISpatialBoundingVolume_abi(
 pub struct ISpatialBoundingVolumeStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialBoundingVolumeStatics {
     type Vtable = ISpatialBoundingVolumeStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(92836119, 46049, 14040, [176, 23, 86, 97, 129, 165, 177, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05889117_b3e1_36d8_b017_566181a5b196);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -257,7 +257,7 @@ pub struct ISpatialBoundingVolumeStatics_abi(
 pub struct ISpatialCoordinateSystem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialCoordinateSystem {
     type Vtable = ISpatialCoordinateSystem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1777060427, 24739, 13702, [166, 83, 89, 167, 189, 103, 109, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69ebca4b_60a3_3586_a653_59a7bd676d07);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -276,7 +276,7 @@ pub struct ISpatialCoordinateSystem_abi(
 pub struct ISpatialEntity(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntity {
     type Vtable = ISpatialEntity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(376301909, 57835, 17740, [186, 8, 230, 192, 102, 141, 220, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x166de955_e1eb_454c_ba08_e6c0668ddc65);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -297,7 +297,7 @@ pub struct ISpatialEntity_abi(
 pub struct ISpatialEntityAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityAddedEventArgs {
     type Vtable = ISpatialEntityAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2744644763, 5482, 18183, [172, 44, 211, 29, 87, 14, 211, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa397f49b_156a_4707_ac2c_d31d570ed399);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -315,7 +315,7 @@ pub struct ISpatialEntityAddedEventArgs_abi(
 pub struct ISpatialEntityFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityFactory {
     type Vtable = ISpatialEntityFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3790725925, 13471, 16933, [162, 243, 75, 1, 193, 95, 224, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1f1e325_349f_4225_a2f3_4b01c15fe056);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -335,7 +335,7 @@ pub struct ISpatialEntityFactory_abi(
 pub struct ISpatialEntityRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityRemovedEventArgs {
     type Vtable = ISpatialEntityRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2440304640, 21357, 20127, [171, 246, 65, 91, 84, 68, 214, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91741800_536d_4e9f_abf6_415b5444d651);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -353,7 +353,7 @@ pub struct ISpatialEntityRemovedEventArgs_abi(
 pub struct ISpatialEntityStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityStore {
     type Vtable = ISpatialEntityStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(848791738, 58643, 20230, [136, 157, 27, 227, 14, 207, 67, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x329788ba_e513_4f06_889d_1be30ecf43e6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -375,7 +375,7 @@ pub struct ISpatialEntityStore_abi(
 pub struct ISpatialEntityStoreStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityStoreStatics {
     type Vtable = ISpatialEntityStoreStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1800091806, 31824, 20114, [138, 98, 77, 29, 75, 124, 205, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b4b389e_7c50_4e92_8a62_4d1d4b7ccd3e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -395,7 +395,7 @@ pub struct ISpatialEntityStoreStatics_abi(
 pub struct ISpatialEntityUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityUpdatedEventArgs {
     type Vtable = ISpatialEntityUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3848738662, 25211, 17355, [164, 159, 179, 190, 109, 71, 222, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5671766_627b_43cb_a49f_b3be6d47deed);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -413,7 +413,7 @@ pub struct ISpatialEntityUpdatedEventArgs_abi(
 pub struct ISpatialEntityWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityWatcher {
     type Vtable = ISpatialEntityWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3015204768, 27998, 19388, [128, 93, 95, 229, 185, 186, 25, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3b85fa0_6d5e_4bbc_805d_5fe5b9ba1959);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -449,7 +449,7 @@ pub struct ISpatialEntityWatcher_abi(
 pub struct ISpatialLocation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialLocation {
     type Vtable = ISpatialLocation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(495047325, 9377, 14293, [143, 161, 57, 180, 249, 173, 103, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d81d29d_24a1_37d5_8fa1_39b4f9ad67e2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -478,7 +478,7 @@ pub struct ISpatialLocation_abi(
 pub struct ISpatialLocation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialLocation2 {
     type Vtable = ISpatialLocation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(293544982, 14503, 18968, [180, 4, 171, 143, 171, 225, 215, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x117f2416_38a7_4a18_b404_ab8fabe1d78b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -499,7 +499,7 @@ pub struct ISpatialLocation2_abi(
 pub struct ISpatialLocator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialLocator {
     type Vtable = ISpatialLocator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4131883301, 40460, 15286, [153, 126, 182, 78, 204, 162, 76, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6478925_9e0c_3bb6_997e_b64ecca24cf4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -540,7 +540,7 @@ pub struct ISpatialLocator_abi(
 pub struct ISpatialLocatorAttachedFrameOfReference(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialLocatorAttachedFrameOfReference {
     type Vtable = ISpatialLocatorAttachedFrameOfReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3782692598, 8015, 18844, [150, 37, 239, 94, 110, 215, 160, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1774ef6_1f4f_499c_9625_ef5e6ed7a048);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -569,7 +569,7 @@ pub struct ISpatialLocatorAttachedFrameOfReference_abi(
 pub struct ISpatialLocatorPositionalTrackingDeactivatingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialLocatorPositionalTrackingDeactivatingEventArgs {
     type Vtable = ISpatialLocatorPositionalTrackingDeactivatingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3098034275, 58356, 13963, [144, 97, 158, 169, 209, 214, 204, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8a84063_e3f4_368b_9061_9ea9d1d6cc16);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -588,7 +588,7 @@ pub struct ISpatialLocatorPositionalTrackingDeactivatingEventArgs_abi(
 pub struct ISpatialLocatorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialLocatorStatics {
     type Vtable = ISpatialLocatorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3077452608, 42946, 13851, [187, 130, 86, 233, 59, 137, 177, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb76e3340_a7c2_361b_bb82_56e93b89b1bb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -606,7 +606,7 @@ pub struct ISpatialLocatorStatics_abi(
 pub struct ISpatialStageFrameOfReference(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialStageFrameOfReference {
     type Vtable = ISpatialStageFrameOfReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2055877732, 44301, 17808, [171, 134, 51, 6, 43, 103, 73, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a8a3464_ad0d_4590_ab86_33062b674926);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -629,7 +629,7 @@ pub struct ISpatialStageFrameOfReference_abi(
 pub struct ISpatialStageFrameOfReferenceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialStageFrameOfReferenceStatics {
     type Vtable = ISpatialStageFrameOfReferenceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4153236557, 41124, 18844, [141, 145, 168, 201, 101, 212, 6, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf78d5c4d_a0a4_499c_8d91_a8c965d40654);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -653,7 +653,7 @@ pub struct ISpatialStageFrameOfReferenceStatics_abi(
 pub struct ISpatialStationaryFrameOfReference(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialStationaryFrameOfReference {
     type Vtable = ISpatialStationaryFrameOfReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(165399737, 48376, 15999, [190, 126, 126, 220, 203, 177, 120, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09dbccb9_bcf8_3e7f_be7e_7edccbb178a8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -743,7 +743,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialAnchor {
 }
 unsafe impl ::windows::runtime::Interface for SpatialAnchor {
     type Vtable = ISpatialAnchor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(86631886, 7476, 14082, [188, 236, 234, 191, 245, 120, 168, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0529e5ce_1d34_3702_bcec_eabff578a869);
 }
 impl ::windows::runtime::RuntimeName for SpatialAnchor {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchor";
@@ -847,7 +847,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialAnchorExportSufficiency {
 }
 unsafe impl ::windows::runtime::Interface for SpatialAnchorExportSufficiency {
     type Vtable = ISpatialAnchorExportSufficiency_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2009226027, 13321, 16520, [185, 27, 253, 253, 5, 209, 100, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77c25b2b_3409_4088_b91b_fdfd05d1648f);
 }
 impl ::windows::runtime::RuntimeName for SpatialAnchorExportSufficiency {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorExportSufficiency";
@@ -942,7 +942,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialAnchorExporter {
 }
 unsafe impl ::windows::runtime::Interface for SpatialAnchorExporter {
     type Vtable = ISpatialAnchorExporter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2586460984, 9467, 17001, [137, 197, 136, 48, 74, 238, 242, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a2a4338_24fb_4269_89c5_88304aeef20f);
 }
 impl ::windows::runtime::RuntimeName for SpatialAnchorExporter {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorExporter";
@@ -1028,7 +1028,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialAnchorRawCoordinateSystem
 }
 unsafe impl ::windows::runtime::Interface for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     type Vtable = ISpatialAnchorRawCoordinateSystemAdjustedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2716343992, 22215, 12567, [162, 228, 129, 224, 252, 242, 142, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1e81eb8_56c7_3117_a2e4_81e0fcf28e00);
 }
 impl ::windows::runtime::RuntimeName for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorRawCoordinateSystemAdjustedEventArgs";
@@ -1113,7 +1113,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialAnchorStore {
 }
 unsafe impl ::windows::runtime::Interface for SpatialAnchorStore {
     type Vtable = ISpatialAnchorStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2965124662, 18538, 15536, [158, 111, 18, 69, 22, 92, 77, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0bc3636_486a_3cb0_9e6f_1245165c4db6);
 }
 impl ::windows::runtime::RuntimeName for SpatialAnchorStore {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorStore";
@@ -1418,7 +1418,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialBoundingVolume {
 }
 unsafe impl ::windows::runtime::Interface for SpatialBoundingVolume {
     type Vtable = ISpatialBoundingVolume_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4213204442, 26819, 13279, [183, 175, 76, 120, 114, 7, 153, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb2065da_68c3_33df_b7af_4c787207999c);
 }
 impl ::windows::runtime::RuntimeName for SpatialBoundingVolume {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialBoundingVolume";
@@ -1485,7 +1485,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialCoordinateSystem {
 }
 unsafe impl ::windows::runtime::Interface for SpatialCoordinateSystem {
     type Vtable = ISpatialCoordinateSystem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1777060427, 24739, 13702, [166, 83, 89, 167, 189, 103, 109, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69ebca4b_60a3_3586_a653_59a7bd676d07);
 }
 impl ::windows::runtime::RuntimeName for SpatialCoordinateSystem {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialCoordinateSystem";
@@ -1587,7 +1587,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialEntity {
 }
 unsafe impl ::windows::runtime::Interface for SpatialEntity {
     type Vtable = ISpatialEntity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(376301909, 57835, 17740, [186, 8, 230, 192, 102, 141, 220, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x166de955_e1eb_454c_ba08_e6c0668ddc65);
 }
 impl ::windows::runtime::RuntimeName for SpatialEntity {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntity";
@@ -1653,7 +1653,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialEntityAddedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for SpatialEntityAddedEventArgs {
     type Vtable = ISpatialEntityAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2744644763, 5482, 18183, [172, 44, 211, 29, 87, 14, 211, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa397f49b_156a_4707_ac2c_d31d570ed399);
 }
 impl ::windows::runtime::RuntimeName for SpatialEntityAddedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityAddedEventArgs";
@@ -1719,7 +1719,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialEntityRemovedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for SpatialEntityRemovedEventArgs {
     type Vtable = ISpatialEntityRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2440304640, 21357, 20127, [171, 246, 65, 91, 84, 68, 214, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91741800_536d_4e9f_abf6_415b5444d651);
 }
 impl ::windows::runtime::RuntimeName for SpatialEntityRemovedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityRemovedEventArgs";
@@ -1822,7 +1822,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialEntityStore {
 }
 unsafe impl ::windows::runtime::Interface for SpatialEntityStore {
     type Vtable = ISpatialEntityStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(848791738, 58643, 20230, [136, 157, 27, 227, 14, 207, 67, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x329788ba_e513_4f06_889d_1be30ecf43e6);
 }
 impl ::windows::runtime::RuntimeName for SpatialEntityStore {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityStore";
@@ -1888,7 +1888,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialEntityUpdatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for SpatialEntityUpdatedEventArgs {
     type Vtable = ISpatialEntityUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3848738662, 25211, 17355, [164, 159, 179, 190, 109, 71, 222, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5671766_627b_43cb_a49f_b3be6d47deed);
 }
 impl ::windows::runtime::RuntimeName for SpatialEntityUpdatedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityUpdatedEventArgs";
@@ -2024,7 +2024,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialEntityWatcher {
 }
 unsafe impl ::windows::runtime::Interface for SpatialEntityWatcher {
     type Vtable = ISpatialEntityWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3015204768, 27998, 19388, [128, 93, 95, 229, 185, 186, 25, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3b85fa0_6d5e_4bbc_805d_5fe5b9ba1959);
 }
 impl ::windows::runtime::RuntimeName for SpatialEntityWatcher {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityWatcher";
@@ -2207,7 +2207,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialLocation {
 }
 unsafe impl ::windows::runtime::Interface for SpatialLocation {
     type Vtable = ISpatialLocation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(495047325, 9377, 14293, [143, 161, 57, 180, 249, 173, 103, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d81d29d_24a1_37d5_8fa1_39b4f9ad67e2);
 }
 impl ::windows::runtime::RuntimeName for SpatialLocation {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocation";
@@ -2392,7 +2392,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialLocator {
 }
 unsafe impl ::windows::runtime::Interface for SpatialLocator {
     type Vtable = ISpatialLocator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4131883301, 40460, 15286, [153, 126, 182, 78, 204, 162, 76, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6478925_9e0c_3bb6_997e_b64ecca24cf4);
 }
 impl ::windows::runtime::RuntimeName for SpatialLocator {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocator";
@@ -2502,7 +2502,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialLocatorAttachedFrameOfRef
 }
 unsafe impl ::windows::runtime::Interface for SpatialLocatorAttachedFrameOfReference {
     type Vtable = ISpatialLocatorAttachedFrameOfReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3782692598, 8015, 18844, [150, 37, 239, 94, 110, 215, 160, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1774ef6_1f4f_499c_9625_ef5e6ed7a048);
 }
 impl ::windows::runtime::RuntimeName for SpatialLocatorAttachedFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocatorAttachedFrameOfReference";
@@ -2573,7 +2573,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialLocatorPositionalTracking
 }
 unsafe impl ::windows::runtime::Interface for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
     type Vtable = ISpatialLocatorPositionalTrackingDeactivatingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3098034275, 58356, 13963, [144, 97, 158, 169, 209, 214, 204, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8a84063_e3f4_368b_9061_9ea9d1d6cc16);
 }
 impl ::windows::runtime::RuntimeName for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocatorPositionalTrackingDeactivatingEventArgs";
@@ -2814,7 +2814,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialStageFrameOfReference {
 }
 unsafe impl ::windows::runtime::Interface for SpatialStageFrameOfReference {
     type Vtable = ISpatialStageFrameOfReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2055877732, 44301, 17808, [171, 134, 51, 6, 43, 103, 73, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a8a3464_ad0d_4590_ab86_33062b674926);
 }
 impl ::windows::runtime::RuntimeName for SpatialStageFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialStageFrameOfReference";
@@ -2880,7 +2880,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialStationaryFrameOfReferenc
 }
 unsafe impl ::windows::runtime::Interface for SpatialStationaryFrameOfReference {
     type Vtable = ISpatialStationaryFrameOfReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(165399737, 48376, 15999, [190, 126, 126, 220, 203, 177, 120, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09dbccb9_bcf8_3e7f_be7e_7edccbb178a8);
 }
 impl ::windows::runtime::RuntimeName for SpatialStationaryFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialStationaryFrameOfReference";

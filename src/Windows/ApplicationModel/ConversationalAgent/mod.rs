@@ -248,7 +248,7 @@ unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetectionConfigu
 }
 unsafe impl ::windows::runtime::Interface for ActivationSignalDetectionConfiguration {
     type Vtable = IActivationSignalDetectionConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1087946262, 21015, 22556, [154, 178, 206, 155, 47, 46, 142, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40d8be16_5217_581c_9ab2_ce9b2f2e8e00);
 }
 impl ::windows::runtime::RuntimeName for ActivationSignalDetectionConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration";
@@ -348,7 +348,7 @@ unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetectionConfigu
 }
 unsafe impl ::windows::runtime::Interface for ActivationSignalDetectionConfigurationCreationResult {
     type Vtable = IActivationSignalDetectionConfigurationCreationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1284095003, 36114, 24136, [167, 28, 127, 107, 193, 205, 102, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c89bc1b_8d12_5e48_a71c_7f6bc1cd66e0);
 }
 impl ::windows::runtime::RuntimeName for ActivationSignalDetectionConfigurationCreationResult {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationResult";
@@ -732,7 +732,7 @@ unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetector {
 }
 unsafe impl ::windows::runtime::Interface for ActivationSignalDetector {
     type Vtable = IActivationSignalDetector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3049206879, 42192, 23339, [142, 101, 179, 197, 94, 231, 86, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5bf345f_a4d0_5b2b_8e65_b3c55ee756ff);
 }
 impl ::windows::runtime::RuntimeName for ActivationSignalDetector {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector";
@@ -946,7 +946,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentDetectorManag
 }
 unsafe impl ::windows::runtime::Interface for ConversationalAgentDetectorManager {
     type Vtable = IConversationalAgentDetectorManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3734305712, 22906, 24056, [140, 251, 157, 187, 88, 59, 163, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde94fbb0_597a_5df8_8cfb_9dbb583ba3ff);
 }
 impl ::windows::runtime::RuntimeName for ConversationalAgentDetectorManager {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager";
@@ -1359,7 +1359,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSession {
 }
 unsafe impl ::windows::runtime::Interface for ConversationalAgentSession {
     type Vtable = IConversationalAgentSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3668631706, 47034, 22501, [173, 19, 223, 82, 15, 155, 111, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdaaae09a_b7ba_57e5_ad13_df520f9b6fa7);
 }
 impl ::windows::runtime::RuntimeName for ConversationalAgentSession {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSession";
@@ -1442,7 +1442,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSessionInterr
 }
 unsafe impl ::windows::runtime::Interface for ConversationalAgentSessionInterruptedEventArgs {
     type Vtable = IConversationalAgentSessionInterruptedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2540067103, 63037, 23870, [155, 242, 189, 7, 96, 85, 38, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9766591f_f63d_5d3e_9bf2_bd0760552686);
 }
 impl ::windows::runtime::RuntimeName for ConversationalAgentSessionInterruptedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionInterruptedEventArgs";
@@ -1620,7 +1620,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSignal {
 }
 unsafe impl ::windows::runtime::Interface for ConversationalAgentSignal {
     type Vtable = IConversationalAgentSignal_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(552412663, 45344, 20978, [134, 3, 38, 93, 106, 71, 242, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20ed25f7_b120_51f2_8603_265d6a47f232);
 }
 impl ::windows::runtime::RuntimeName for ConversationalAgentSignal {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignal";
@@ -1677,7 +1677,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSignalDetecte
 }
 unsafe impl ::windows::runtime::Interface for ConversationalAgentSignalDetectedEventArgs {
     type Vtable = IConversationalAgentSignalDetectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1297607567, 63626, 22939, [145, 211, 214, 4, 135, 103, 8, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d57eb8f_f88a_599b_91d3_d604876708bc);
 }
 impl ::windows::runtime::RuntimeName for ConversationalAgentSignalDetectedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignalDetectedEventArgs";
@@ -1793,7 +1793,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSystemStateCh
 }
 unsafe impl ::windows::runtime::Interface for ConversationalAgentSystemStateChangedEventArgs {
     type Vtable = IConversationalAgentSystemStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(472673854, 10117, 22951, [142, 113, 56, 173, 238, 247, 153, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c2c6e3e_2785_59a7_8e71_38adeef79928);
 }
 impl ::windows::runtime::RuntimeName for ConversationalAgentSystemStateChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangedEventArgs";
@@ -1908,7 +1908,7 @@ unsafe impl ::windows::runtime::RuntimeType for DetectionConfigurationAvailabili
 }
 unsafe impl ::windows::runtime::Interface for DetectionConfigurationAvailabilityChangedEventArgs {
     type Vtable = IDetectionConfigurationAvailabilityChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1361693179, 19432, 24340, [175, 43, 136, 214, 43, 27, 68, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5129c9fb_4be8_5f14_af2b_88d62b1b4462);
 }
 impl ::windows::runtime::RuntimeName for DetectionConfigurationAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangedEventArgs";
@@ -2007,7 +2007,7 @@ unsafe impl ::windows::runtime::RuntimeType for DetectionConfigurationAvailabili
 }
 unsafe impl ::windows::runtime::Interface for DetectionConfigurationAvailabilityInfo {
     type Vtable = IDetectionConfigurationAvailabilityInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3048210096, 16624, 21400, [184, 56, 145, 151, 156, 44, 98, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5affeb0_40f0_5398_b838_91979c2c6208);
 }
 impl ::windows::runtime::RuntimeName for DetectionConfigurationAvailabilityInfo {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityInfo";
@@ -2089,7 +2089,7 @@ impl ::windows::runtime::DefaultType for DetectionConfigurationTrainingStatus {
 pub struct IActivationSignalDetectionConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetectionConfiguration {
     type Vtable = IActivationSignalDetectionConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1087946262, 21015, 22556, [154, 178, 206, 155, 47, 46, 142, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40d8be16_5217_581c_9ab2_ce9b2f2e8e00);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2142,7 +2142,7 @@ pub struct IActivationSignalDetectionConfiguration_abi(
 pub struct IActivationSignalDetectionConfiguration2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetectionConfiguration2 {
     type Vtable = IActivationSignalDetectionConfiguration2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1910091810, 22060, 22478, [167, 139, 139, 79, 240, 20, 91, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71d9b022_562c_57ce_a78b_8b4ff0145bab);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2167,7 +2167,7 @@ pub struct IActivationSignalDetectionConfiguration2_abi(
 pub struct IActivationSignalDetectionConfigurationCreationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetectionConfigurationCreationResult {
     type Vtable = IActivationSignalDetectionConfigurationCreationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1284095003, 36114, 24136, [167, 28, 127, 107, 193, 205, 102, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c89bc1b_8d12_5e48_a71c_7f6bc1cd66e0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2186,7 +2186,7 @@ pub struct IActivationSignalDetectionConfigurationCreationResult_abi(
 pub struct IActivationSignalDetector(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetector {
     type Vtable = IActivationSignalDetector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3049206879, 42192, 23339, [142, 101, 179, 197, 94, 231, 86, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5bf345f_a4d0_5b2b_8e65_b3c55ee756ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2229,7 +2229,7 @@ pub struct IActivationSignalDetector_abi(
 pub struct IActivationSignalDetector2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetector2 {
     type Vtable = IActivationSignalDetector2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3353495818, 47781, 22994, [133, 209, 186, 66, 247, 207, 120, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7e2490a_baa5_59d2_85d1_ba42f7cf78c9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2257,7 +2257,7 @@ pub struct IActivationSignalDetector2_abi(
 pub struct IConversationalAgentDetectorManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentDetectorManager {
     type Vtable = IConversationalAgentDetectorManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3734305712, 22906, 24056, [140, 251, 157, 187, 88, 59, 163, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde94fbb0_597a_5df8_8cfb_9dbb583ba3ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2282,7 +2282,7 @@ pub struct IConversationalAgentDetectorManager_abi(
 pub struct IConversationalAgentDetectorManager2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentDetectorManager2 {
     type Vtable = IConversationalAgentDetectorManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2220953393, 55283, 21246, [147, 17, 201, 235, 78, 62, 179, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84610f31_d7f3_52fe_9311_c9eb4e3eb30a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2302,7 +2302,7 @@ pub struct IConversationalAgentDetectorManager2_abi(
 pub struct IConversationalAgentDetectorManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentDetectorManagerStatics {
     type Vtable = IConversationalAgentDetectorManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(917033603, 64014, 22163, [132, 137, 15, 178, 240, 171, 64, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36a8d283_fa0e_5693_8489_0fb2f0ab40d3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2320,7 +2320,7 @@ pub struct IConversationalAgentDetectorManagerStatics_abi(
 pub struct IConversationalAgentSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSession {
     type Vtable = IConversationalAgentSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3668631706, 47034, 22501, [173, 19, 223, 82, 15, 155, 111, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdaaae09a_b7ba_57e5_ad13_df520f9b6fa7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2389,7 +2389,7 @@ pub struct IConversationalAgentSession_abi(
 pub struct IConversationalAgentSession2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSession2 {
     type Vtable = IConversationalAgentSession2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2812935161, 44152, 22527, [149, 150, 172, 199, 161, 201, 166, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7a9fbf9_ac78_57ff_9596_acc7a1c9a607);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2416,7 +2416,7 @@ pub struct IConversationalAgentSession2_abi(
 pub struct IConversationalAgentSessionInterruptedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSessionInterruptedEventArgs {
     type Vtable = IConversationalAgentSessionInterruptedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2540067103, 63037, 23870, [155, 242, 189, 7, 96, 85, 38, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9766591f_f63d_5d3e_9bf2_bd0760552686);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2433,7 +2433,7 @@ pub struct IConversationalAgentSessionInterruptedEventArgs_abi(
 pub struct IConversationalAgentSessionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSessionStatics {
     type Vtable = IConversationalAgentSessionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2684687982, 59732, 22382, [190, 4, 17, 184, 237, 16, 243, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa005166e_e954_576e_be04_11b8ed10f37b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2453,7 +2453,7 @@ pub struct IConversationalAgentSessionStatics_abi(
 pub struct IConversationalAgentSignal(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSignal {
     type Vtable = IConversationalAgentSignal_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(552412663, 45344, 20978, [134, 3, 38, 93, 106, 71, 242, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20ed25f7_b120_51f2_8603_265d6a47f232);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2486,7 +2486,7 @@ pub struct IConversationalAgentSignal_abi(
 pub struct IConversationalAgentSignal2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSignal2 {
     type Vtable = IConversationalAgentSignal2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3503061929, 39547, 23604, [136, 14, 182, 20, 108, 144, 78, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0cc7ba9_9a7b_5c34_880e_b6146c904ecb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2505,7 +2505,7 @@ pub struct IConversationalAgentSignal2_abi(
 pub struct IConversationalAgentSignalDetectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSignalDetectedEventArgs {
     type Vtable = IConversationalAgentSignalDetectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1297607567, 63626, 22939, [145, 211, 214, 4, 135, 103, 8, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d57eb8f_f88a_599b_91d3_d604876708bc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2522,7 +2522,7 @@ pub struct IConversationalAgentSignalDetectedEventArgs_abi(
 pub struct IConversationalAgentSystemStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSystemStateChangedEventArgs {
     type Vtable = IConversationalAgentSystemStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(472673854, 10117, 22951, [142, 113, 56, 173, 238, 247, 153, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c2c6e3e_2785_59a7_8e71_38adeef79928);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2540,7 +2540,7 @@ pub struct IConversationalAgentSystemStateChangedEventArgs_abi(
 pub struct IDetectionConfigurationAvailabilityChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDetectionConfigurationAvailabilityChangedEventArgs {
     type Vtable = IDetectionConfigurationAvailabilityChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1361693179, 19432, 24340, [175, 43, 136, 214, 43, 27, 68, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5129c9fb_4be8_5f14_af2b_88d62b1b4462);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2558,7 +2558,7 @@ pub struct IDetectionConfigurationAvailabilityChangedEventArgs_abi(
 pub struct IDetectionConfigurationAvailabilityInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDetectionConfigurationAvailabilityInfo {
     type Vtable = IDetectionConfigurationAvailabilityInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3048210096, 16624, 21400, [184, 56, 145, 151, 156, 44, 98, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5affeb0_40f0_5398_b838_91979c2c6208);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2579,7 +2579,7 @@ pub struct IDetectionConfigurationAvailabilityInfo_abi(
 pub struct IDetectionConfigurationAvailabilityInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDetectionConfigurationAvailabilityInfo2 {
     type Vtable = IDetectionConfigurationAvailabilityInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(820012083, 14515, 23627, [132, 195, 98, 182, 230, 133, 178, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30e06433_38b3_5c4b_84c3_62b6e685b2ff);
 }
 #[repr(C)]
 #[doc(hidden)]

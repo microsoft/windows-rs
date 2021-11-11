@@ -60,7 +60,7 @@ impl IDDEInitializer {
 }
 unsafe impl ::windows::runtime::Interface for IDDEInitializer {
     type Vtable = IDDEInitializer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(819761951, 13308, 20477, [161, 104, 148, 34, 88, 207, 60, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30dc931f_33fc_4ffd_a168_942258cf3ca4);
 }
 impl ::core::convert::From<IDDEInitializer> for ::windows::runtime::IUnknown {
     fn from(value: IDDEInitializer) -> Self {

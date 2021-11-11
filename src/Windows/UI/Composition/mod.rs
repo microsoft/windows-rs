@@ -176,7 +176,7 @@ unsafe impl ::windows::runtime::RuntimeType for AmbientLight {
 }
 unsafe impl ::windows::runtime::Interface for AmbientLight {
     type Vtable = IAmbientLight_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2759930017, 47044, 18167, [185, 191, 218, 244, 58, 68, 230, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa48130a1_b7c4_46f7_b9bf_daf43a44e6ee);
 }
 impl ::windows::runtime::RuntimeName for AmbientLight {
     const NAME: &'static str = "Windows.UI.Composition.AmbientLight";
@@ -488,7 +488,7 @@ unsafe impl ::windows::runtime::RuntimeType for AnimationController {
 }
 unsafe impl ::windows::runtime::Interface for AnimationController {
     type Vtable = IAnimationController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3375689682, 1826, 20319, [164, 226, 149, 16, 243, 212, 59, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc934efd2_0722_4f5f_a4e2_9510f3d43bf7);
 }
 impl ::windows::runtime::RuntimeName for AnimationController {
     const NAME: &'static str = "Windows.UI.Composition.AnimationController";
@@ -856,7 +856,7 @@ unsafe impl ::windows::runtime::RuntimeType for AnimationPropertyInfo {
 }
 unsafe impl ::windows::runtime::Interface for AnimationPropertyInfo {
     type Vtable = IAnimationPropertyInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4101074693, 60791, 20028, [179, 40, 92, 57, 133, 179, 115, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf4716f05_ed77_4e3c_b328_5c3985b3738f);
 }
 impl ::windows::runtime::RuntimeName for AnimationPropertyInfo {
     const NAME: &'static str = "Windows.UI.Composition.AnimationPropertyInfo";
@@ -1120,7 +1120,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackEasingFunction {
 }
 unsafe impl ::windows::runtime::Interface for BackEasingFunction {
     type Vtable = IBackEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3092647332, 24124, 21597, [178, 99, 121, 135, 162, 189, 39, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8560da4_5e3c_545d_b263_7987a2bd27cb);
 }
 impl ::windows::runtime::RuntimeName for BackEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.BackEasingFunction";
@@ -1576,7 +1576,7 @@ unsafe impl ::windows::runtime::RuntimeType for BooleanKeyFrameAnimation {
 }
 unsafe impl ::windows::runtime::Interface for BooleanKeyFrameAnimation {
     type Vtable = IBooleanKeyFrameAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2514631176, 53748, 18802, [151, 112, 62, 254, 104, 216, 46, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95e23a08_d1f4_4972_9770_3efe68d82e14);
 }
 impl ::windows::runtime::RuntimeName for BooleanKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BooleanKeyFrameAnimation";
@@ -1887,7 +1887,7 @@ unsafe impl ::windows::runtime::RuntimeType for BounceEasingFunction {
 }
 unsafe impl ::windows::runtime::Interface for BounceEasingFunction {
     type Vtable = IBounceEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3892163659, 43733, 20852, [148, 33, 238, 248, 183, 90, 106, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7fdb44b_aad5_5174_9421_eef8b75a6a43);
 }
 impl ::windows::runtime::RuntimeName for BounceEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.BounceEasingFunction";
@@ -2335,7 +2335,7 @@ unsafe impl ::windows::runtime::RuntimeType for BounceScalarNaturalMotionAnimati
 }
 unsafe impl ::windows::runtime::Interface for BounceScalarNaturalMotionAnimation {
     type Vtable = IBounceScalarNaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3131248076, 42547, 17944, [155, 6, 127, 124, 114, 200, 124, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbaa30dcc_a633_4618_9b06_7f7c72c87cff);
 }
 impl ::windows::runtime::RuntimeName for BounceScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BounceScalarNaturalMotionAnimation";
@@ -2847,7 +2847,7 @@ unsafe impl ::windows::runtime::RuntimeType for BounceVector2NaturalMotionAnimat
 }
 unsafe impl ::windows::runtime::Interface for BounceVector2NaturalMotionAnimation {
     type Vtable = IBounceVector2NaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3660857750, 8532, 19260, [136, 170, 71, 54, 18, 4, 236, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda344196_2154_4b3c_88aa_47361204eccd);
 }
 impl ::windows::runtime::RuntimeName for BounceVector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BounceVector2NaturalMotionAnimation";
@@ -3359,7 +3359,7 @@ unsafe impl ::windows::runtime::RuntimeType for BounceVector3NaturalMotionAnimat
 }
 unsafe impl ::windows::runtime::Interface for BounceVector3NaturalMotionAnimation {
     type Vtable = IBounceVector3NaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1205517361, 4307, 17688, [134, 241, 9, 202, 247, 66, 209, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47dabc31_10d3_4518_86f1_09caf742d113);
 }
 impl ::windows::runtime::RuntimeName for BounceVector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BounceVector3NaturalMotionAnimation";
@@ -3674,7 +3674,7 @@ unsafe impl ::windows::runtime::RuntimeType for CircleEasingFunction {
 }
 unsafe impl ::windows::runtime::Interface for CircleEasingFunction {
     type Vtable = ICircleEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(503783978, 28546, 23080, [135, 72, 46, 146, 252, 70, 238, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e07222a_6f82_5a28_8748_2e92fc46ee2b);
 }
 impl ::windows::runtime::RuntimeName for CircleEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.CircleEasingFunction";
@@ -4148,7 +4148,7 @@ unsafe impl ::windows::runtime::RuntimeType for ColorKeyFrameAnimation {
 }
 unsafe impl ::windows::runtime::Interface for ColorKeyFrameAnimation {
     type Vtable = IColorKeyFrameAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2477635049, 36357, 17811, [132, 163, 220, 161, 82, 120, 30, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93adb5e9_8e05_4593_84a3_dca152781e56);
 }
 impl ::windows::runtime::RuntimeName for ColorKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ColorKeyFrameAnimation";
@@ -4528,7 +4528,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionAnimation {
 }
 unsafe impl ::windows::runtime::Interface for CompositionAnimation {
     type Vtable = ICompositionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1179405356, 7338, 16481, [155, 64, 225, 63, 222, 21, 3, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x464c4c2c_1caa_4061_9b40_e13fde1503ca);
 }
 impl ::windows::runtime::RuntimeName for CompositionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.CompositionAnimation";
@@ -4807,7 +4807,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionAnimationGroup {
 }
 unsafe impl ::windows::runtime::Interface for CompositionAnimationGroup {
     type Vtable = ICompositionAnimationGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1585236236, 52500, 19975, [138, 85, 199, 37, 39, 170, 189, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e7cc90c_cd14_4e07_8a55_c72527aabdac);
 }
 impl ::windows::runtime::RuntimeName for CompositionAnimationGroup {
     const NAME: &'static str = "Windows.UI.Composition.CompositionAnimationGroup";
@@ -5096,7 +5096,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionBackdropBrush {
 }
 unsafe impl ::windows::runtime::Interface for CompositionBackdropBrush {
     type Vtable = ICompositionBackdropBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3316428376, 14488, 18846, [141, 127, 34, 78, 145, 40, 106, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5acae58_3898_499e_8d7f_224e91286a5d);
 }
 impl ::windows::runtime::RuntimeName for CompositionBackdropBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionBackdropBrush";
@@ -5364,7 +5364,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionBatchCompletedEventAr
 }
 unsafe impl ::windows::runtime::Interface for CompositionBatchCompletedEventArgs {
     type Vtable = ICompositionBatchCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(218159824, 37988, 17674, [165, 98, 46, 38, 152, 176, 168, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d00dad0_9464_450a_a562_2e2698b0a812);
 }
 impl ::windows::runtime::RuntimeName for CompositionBatchCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Composition.CompositionBatchCompletedEventArgs";
@@ -5695,7 +5695,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionBrush {
 }
 unsafe impl ::windows::runtime::Interface for CompositionBrush {
     type Vtable = ICompositionBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2869786120, 12480, 16617, [181, 104, 182, 10, 107, 209, 251, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab0d7608_30c0_40e9_b568_b60a6bd1fb46);
 }
 impl ::windows::runtime::RuntimeName for CompositionBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionBrush";
@@ -5863,7 +5863,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for CompositionCapabilities {
     type Vtable = ICompositionCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2186491198, 46359, 18620, [177, 232, 75, 53, 97, 162, 225, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8253353e_b517_48bc_b1e8_4b3561a2e181);
 }
 impl ::windows::runtime::RuntimeName for CompositionCapabilities {
     const NAME: &'static str = "Windows.UI.Composition.CompositionCapabilities";
@@ -6121,7 +6121,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionClip {
 }
 unsafe impl ::windows::runtime::Interface for CompositionClip {
     type Vtable = ICompositionClip_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(483207762, 53191, 19150, [153, 131, 20, 107, 184, 235, 106, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ccd2a52_cfc7_4ace_9983_146bb8eb6a3c);
 }
 impl ::windows::runtime::RuntimeName for CompositionClip {
     const NAME: &'static str = "Windows.UI.Composition.CompositionClip";
@@ -6359,7 +6359,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionColorBrush {
 }
 unsafe impl ::windows::runtime::Interface for CompositionColorBrush {
     type Vtable = ICompositionColorBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(723930206, 48949, 18481, [134, 66, 207, 112, 194, 15, 255, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b264c5e_bf35_4831_8642_cf70c20fff2f);
 }
 impl ::windows::runtime::RuntimeName for CompositionColorBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionColorBrush";
@@ -6630,7 +6630,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionColorGradientStop {
 }
 unsafe impl ::windows::runtime::Interface for CompositionColorGradientStop {
     type Vtable = ICompositionColorGradientStop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1862322834, 51201, 20033, [154, 143, 165, 62, 32, 245, 119, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f00ca92_c801_4e41_9a8f_a53e20f57778);
 }
 impl ::windows::runtime::RuntimeName for CompositionColorGradientStop {
     const NAME: &'static str = "Windows.UI.Composition.CompositionColorGradientStop";
@@ -6852,7 +6852,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionColorGradientStopColl
 }
 unsafe impl ::windows::runtime::Interface for CompositionColorGradientStopCollection {
     type Vtable = ICompositionColorGradientStopCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2669486316, 31492, 19229, [144, 188, 159, 163, 44, 12, 253, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f1d20ec_7b04_4b1d_90bc_9fa32c0cfd26);
 }
 impl ::windows::runtime::RuntimeName for CompositionColorGradientStopCollection {
     const NAME: &'static str = "Windows.UI.Composition.CompositionColorGradientStopCollection";
@@ -7133,7 +7133,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionCommitBatch {
 }
 unsafe impl ::windows::runtime::Interface for CompositionCommitBatch {
     type Vtable = ICompositionCommitBatch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(218159824, 51719, 17408, [140, 142, 203, 93, 176, 133, 89, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d00dad0_ca07_4400_8c8e_cb5db08559cc);
 }
 impl ::windows::runtime::RuntimeName for CompositionCommitBatch {
     const NAME: &'static str = "Windows.UI.Composition.CompositionCommitBatch";
@@ -7477,7 +7477,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionContainerShape {
 }
 unsafe impl ::windows::runtime::Interface for CompositionContainerShape {
     type Vtable = ICompositionContainerShape_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1331594651, 11867, 17576, [152, 44, 170, 15, 105, 193, 96, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f5e859b_2e5b_44a8_982c_aa0f69c16059);
 }
 impl ::windows::runtime::RuntimeName for CompositionContainerShape {
     const NAME: &'static str = "Windows.UI.Composition.CompositionContainerShape";
@@ -7788,7 +7788,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionDrawingSurface {
 }
 unsafe impl ::windows::runtime::Interface for CompositionDrawingSurface {
     type Vtable = ICompositionDrawingSurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2707866368, 64208, 19729, [158, 103, 228, 51, 22, 47, 244, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa166c300_fad0_4d11_9e67_e433162ff49e);
 }
 impl ::windows::runtime::RuntimeName for CompositionDrawingSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionDrawingSurface";
@@ -8139,7 +8139,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionEasingFunction {
 }
 unsafe impl ::windows::runtime::Interface for CompositionEasingFunction {
     type Vtable = ICompositionEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1363534678, 49017, 20136, [140, 194, 107, 91, 71, 46, 108, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5145e356_bf79_4ea8_8cc2_6b5b472e6c9a);
 }
 impl ::windows::runtime::RuntimeName for CompositionEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEasingFunction";
@@ -8400,7 +8400,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionEffectBrush {
 }
 unsafe impl ::windows::runtime::Interface for CompositionEffectBrush {
     type Vtable = ICompositionEffectBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3212802398, 33740, 17599, [164, 71, 62, 60, 7, 23, 137, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf7f795e_83cc_44bf_a447_3e3c071789ec);
 }
 impl ::windows::runtime::RuntimeName for CompositionEffectBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEffectBrush";
@@ -8669,7 +8669,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionEffectFactory {
 }
 unsafe impl ::windows::runtime::Interface for CompositionEffectFactory {
     type Vtable = ICompositionEffectFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3193316527, 47742, 17680, [152, 80, 65, 192, 180, 255, 116, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe5624af_ba7e_4510_9850_41c0b4ff74df);
 }
 impl ::windows::runtime::RuntimeName for CompositionEffectFactory {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEffectFactory";
@@ -8838,7 +8838,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionEffectSourceParameter
 }
 unsafe impl ::windows::runtime::Interface for CompositionEffectSourceParameter {
     type Vtable = ICompositionEffectSourceParameter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2240459066, 12946, 20046, [179, 187, 43, 108, 101, 68, 166, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x858ab13a_3292_4e4e_b3bb_2b6c6544a6ee);
 }
 impl ::windows::runtime::RuntimeName for CompositionEffectSourceParameter {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEffectSourceParameter";
@@ -9090,7 +9090,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionEllipseGeometry {
 }
 unsafe impl ::windows::runtime::Interface for CompositionEllipseGeometry {
     type Vtable = ICompositionEllipseGeometry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1208088708, 63149, 19347, [175, 169, 137, 123, 100, 229, 123, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4801f884_f6ad_4b93_afa9_897b64e57b1f);
 }
 impl ::windows::runtime::RuntimeName for CompositionEllipseGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEllipseGeometry";
@@ -9462,7 +9462,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionGeometricClip {
 }
 unsafe impl ::windows::runtime::Interface for CompositionGeometricClip {
     type Vtable = ICompositionGeometricClip_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3359683969, 33225, 17476, [162, 193, 204, 174, 206, 58, 80, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc840b581_81c9_4444_a2c1_ccaece3a50e5);
 }
 impl ::windows::runtime::RuntimeName for CompositionGeometricClip {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGeometricClip";
@@ -9746,7 +9746,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionGeometry {
 }
 unsafe impl ::windows::runtime::Interface for CompositionGeometry {
     type Vtable = ICompositionGeometry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3917816188, 27159, 16903, [171, 216, 95, 211, 221, 97, 42, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe985217c_6a17_4207_abd8_5fd3dd612a9d);
 }
 impl ::windows::runtime::RuntimeName for CompositionGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGeometry";
@@ -10142,7 +10142,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionGradientBrush {
 }
 unsafe impl ::windows::runtime::Interface for CompositionGradientBrush {
     type Vtable = ICompositionGradientBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(496437728, 65478, 19470, [169, 171, 52, 20, 77, 76, 144, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d9709e0_ffc6_4c0e_a9ab_34144d4c9098);
 }
 impl ::windows::runtime::RuntimeName for CompositionGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGradientBrush";
@@ -10475,7 +10475,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionGraphicsDevice {
 }
 unsafe impl ::windows::runtime::Interface for CompositionGraphicsDevice {
     type Vtable = ICompositionGraphicsDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4213360353, 32930, 18023, [153, 54, 219, 234, 246, 238, 254, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb22c6e1_80a2_4667_9936_dbeaf6eefe95);
 }
 impl ::windows::runtime::RuntimeName for CompositionGraphicsDevice {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGraphicsDevice";
@@ -10729,7 +10729,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionLight {
 }
 unsafe impl ::windows::runtime::Interface for CompositionLight {
     type Vtable = ICompositionLight_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1101453250, 11869, 19393, [176, 158, 143, 10, 3, 227, 216, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41a6d7c2_2e5d_4bc1_b09e_8f0a03e3d8d3);
 }
 impl ::windows::runtime::RuntimeName for CompositionLight {
     const NAME: &'static str = "Windows.UI.Composition.CompositionLight";
@@ -11023,7 +11023,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionLineGeometry {
 }
 unsafe impl ::windows::runtime::Interface for CompositionLineGeometry {
     type Vtable = ICompositionLineGeometry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3715503524, 3226, 19303, [141, 206, 68, 10, 91, 249, 205, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd7615a4_0c9a_4b67_8dce_440a5bf9cdec);
 }
 impl ::windows::runtime::RuntimeName for CompositionLineGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionLineGeometry";
@@ -11446,7 +11446,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionLinearGradientBrush {
 }
 unsafe impl ::windows::runtime::Interface for CompositionLinearGradientBrush {
     type Vtable = ICompositionLinearGradientBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2554053913, 43483, 16700, [162, 216, 42, 144, 86, 252, 82, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x983bc519_a9db_413c_a2d8_2a9056fc525e);
 }
 impl ::windows::runtime::RuntimeName for CompositionLinearGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionLinearGradientBrush";
@@ -11759,7 +11759,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionMaskBrush {
 }
 unsafe impl ::windows::runtime::Interface for CompositionMaskBrush {
     type Vtable = ICompositionMaskBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1378676894, 48747, 20289, [190, 73, 249, 34, 109, 71, 27, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x522cf09e_be6b_4f41_be49_f9226d471b4a);
 }
 impl ::windows::runtime::RuntimeName for CompositionMaskBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionMaskBrush";
@@ -12047,7 +12047,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionMipmapSurface {
 }
 unsafe impl ::windows::runtime::Interface for CompositionMipmapSurface {
     type Vtable = ICompositionMipmapSurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1214474076, 53066, 19228, [158, 206, 197, 236, 12, 43, 47, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4863675c_cf4a_4b1c_9ece_c5ec0c2b2fe6);
 }
 impl ::windows::runtime::RuntimeName for CompositionMipmapSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionMipmapSurface";
@@ -12444,7 +12444,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionNineGridBrush {
 }
 unsafe impl ::windows::runtime::Interface for CompositionNineGridBrush {
     type Vtable = ICompositionNineGridBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4065416420, 48268, 19431, [184, 15, 134, 133, 184, 60, 1, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf25154e4_bc8c_4be7_b80f_8685b83c0186);
 }
 impl ::windows::runtime::RuntimeName for CompositionNineGridBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionNineGridBrush";
@@ -12701,7 +12701,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionObject {
 }
 unsafe impl ::windows::runtime::Interface for CompositionObject {
     type Vtable = ICompositionObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3165957445, 30217, 17744, [147, 79, 22, 0, 42, 104, 253, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbcb4ad45_7609_4550_934f_16002a68fded);
 }
 impl ::windows::runtime::RuntimeName for CompositionObject {
     const NAME: &'static str = "Windows.UI.Composition.CompositionObject";
@@ -12819,7 +12819,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionPath {
 }
 unsafe impl ::windows::runtime::Interface for CompositionPath {
     type Vtable = ICompositionPath_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1725570399, 11792, 20258, [138, 6, 10, 129, 81, 145, 158, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66da1d5f_2e10_4f22_8a06_0a8151919e60);
 }
 impl ::windows::runtime::RuntimeName for CompositionPath {
     const NAME: &'static str = "Windows.UI.Composition.CompositionPath";
@@ -13054,7 +13054,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionPathGeometry {
 }
 unsafe impl ::windows::runtime::Interface for CompositionPathGeometry {
     type Vtable = ICompositionPathGeometry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(191512958, 11383, 19491, [175, 94, 99, 4, 193, 71, 187, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b6a417e_2c77_4c23_af5e_6304c147bb61);
 }
 impl ::windows::runtime::RuntimeName for CompositionPathGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionPathGeometry";
@@ -13367,7 +13367,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionProjectedShadow {
 }
 unsafe impl ::windows::runtime::Interface for CompositionProjectedShadow {
     type Vtable = ICompositionProjectedShadow_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(677088882, 17192, 21055, [188, 242, 85, 87, 197, 44, 59, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x285b8e72_4328_523f_bcf2_5557c52c3b25);
 }
 impl ::windows::runtime::RuntimeName for CompositionProjectedShadow {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadow";
@@ -13618,7 +13618,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionProjectedShadowCaster
 }
 unsafe impl ::windows::runtime::Interface for CompositionProjectedShadowCaster {
     type Vtable = ICompositionProjectedShadowCaster_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2983711782, 7734, 23138, [190, 86, 161, 97, 18, 253, 209, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1d7d426_1e36_5a62_be56_a16112fdd148);
 }
 impl ::windows::runtime::RuntimeName for CompositionProjectedShadowCaster {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowCaster";
@@ -13901,7 +13901,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionProjectedShadowCaster
 }
 unsafe impl ::windows::runtime::Interface for CompositionProjectedShadowCasterCollection {
     type Vtable = ICompositionProjectedShadowCasterCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3528612876, 57471, 22691, [172, 145, 55, 247, 62, 233, 23, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2525c0c_e07f_58a3_ac91_37f73ee91740);
 }
 impl ::windows::runtime::RuntimeName for CompositionProjectedShadowCasterCollection {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowCasterCollection";
@@ -14181,7 +14181,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionProjectedShadowReceiv
 }
 unsafe impl ::windows::runtime::Interface for CompositionProjectedShadowReceiver {
     type Vtable = ICompositionProjectedShadowReceiver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(326604890, 27209, 21354, [155, 228, 169, 106, 142, 82, 152, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1377985a_6a49_536a_9be4_a96a8e5298a9);
 }
 impl ::windows::runtime::RuntimeName for CompositionProjectedShadowReceiver {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowReceiver";
@@ -14438,7 +14438,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionProjectedShadowReceiv
 }
 unsafe impl ::windows::runtime::Interface for CompositionProjectedShadowReceiverUnorderedCollection {
     type Vtable = ICompositionProjectedShadowReceiverUnorderedCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(45343671, 10194, 22943, [172, 75, 171, 120, 124, 221, 230, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02b3e3b7_27d2_599f_ac4b_ab787cdde6fd);
 }
 impl ::windows::runtime::RuntimeName for CompositionProjectedShadowReceiverUnorderedCollection {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowReceiverUnorderedCollection";
@@ -14834,7 +14834,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionPropertySet {
 }
 unsafe impl ::windows::runtime::Interface for CompositionPropertySet {
     type Vtable = ICompositionPropertySet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3386298882, 24423, 17491, [145, 23, 158, 173, 212, 48, 211, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9d6d202_5f67_4453_9117_9eadd430d3c2);
 }
 impl ::windows::runtime::RuntimeName for CompositionPropertySet {
     const NAME: &'static str = "Windows.UI.Composition.CompositionPropertySet";
@@ -15252,7 +15252,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionRadialGradientBrush {
 }
 unsafe impl ::windows::runtime::Interface for CompositionRadialGradientBrush {
     type Vtable = ICompositionRadialGradientBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1027297477, 58362, 19682, [185, 252, 62, 225, 37, 97, 120, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d3b50c5_e3fa_4ce2_b9fc_3ee12561788f);
 }
 impl ::windows::runtime::RuntimeName for CompositionRadialGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionRadialGradientBrush";
@@ -15586,7 +15586,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionRectangleGeometry {
 }
 unsafe impl ::windows::runtime::Interface for CompositionRectangleGeometry {
     type Vtable = ICompositionRectangleGeometry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(215290920, 21334, 16966, [174, 207, 122, 11, 118, 151, 84, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cd51428_5356_4246_aecf_7a0b76975400);
 }
 impl ::windows::runtime::RuntimeName for CompositionRectangleGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionRectangleGeometry";
@@ -15915,7 +15915,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionRoundedRectangleGeome
 }
 unsafe impl ::windows::runtime::Interface for CompositionRoundedRectangleGeometry {
     type Vtable = ICompositionRoundedRectangleGeometry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2272315426, 7504, 19339, [176, 19, 124, 154, 14, 70, 147, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8770c822_1d50_4b8b_b013_7c9a0e46935f);
 }
 impl ::windows::runtime::RuntimeName for CompositionRoundedRectangleGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionRoundedRectangleGeometry";
@@ -16206,7 +16206,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionScopedBatch {
 }
 unsafe impl ::windows::runtime::Interface for CompositionScopedBatch {
     type Vtable = ICompositionScopedBatch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(218159824, 64263, 18173, [140, 114, 98, 128, 209, 163, 209, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d00dad0_fb07_46fd_8c72_6280d1a3d1dd);
 }
 impl ::windows::runtime::RuntimeName for CompositionScopedBatch {
     const NAME: &'static str = "Windows.UI.Composition.CompositionScopedBatch";
@@ -16431,7 +16431,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionShadow {
 }
 unsafe impl ::windows::runtime::Interface for CompositionShadow {
     type Vtable = ICompositionShadow_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(849236706, 17205, 18892, [177, 74, 55, 120, 45, 16, 240, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x329e52e2_4335_49cc_b14a_37782d10f0c4);
 }
 impl ::windows::runtime::RuntimeName for CompositionShadow {
     const NAME: &'static str = "Windows.UI.Composition.CompositionShadow";
@@ -16742,7 +16742,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionShape {
 }
 unsafe impl ::windows::runtime::Interface for CompositionShape {
     type Vtable = ICompositionShape_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3028083447, 39560, 17092, [158, 135, 46, 80, 12, 168, 104, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb47ce2f7_9a88_42c4_9e87_2e500ca8688c);
 }
 impl ::windows::runtime::RuntimeName for CompositionShape {
     const NAME: &'static str = "Windows.UI.Composition.CompositionShape";
@@ -17615,7 +17615,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionSpriteShape {
 }
 unsafe impl ::windows::runtime::Interface for CompositionSpriteShape {
     type Vtable = ICompositionSpriteShape_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1075536315, 7, 17251, [177, 243, 107, 204, 0, 63, 184, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x401b61bb_0007_4363_b1f3_6bcc003fb83e);
 }
 impl ::windows::runtime::RuntimeName for CompositionSpriteShape {
     const NAME: &'static str = "Windows.UI.Composition.CompositionSpriteShape";
@@ -18521,7 +18521,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionSurfaceBrush {
 }
 unsafe impl ::windows::runtime::Interface for CompositionSurfaceBrush {
     type Vtable = ICompositionSurfaceBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2902551929, 7756, 19469, [156, 41, 131, 51, 140, 135, 193, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad016d79_1e4c_4c0d_9c29_83338c87c162);
 }
 impl ::windows::runtime::RuntimeName for CompositionSurfaceBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionSurfaceBrush";
@@ -18779,7 +18779,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionTarget {
 }
 unsafe impl ::windows::runtime::Interface for CompositionTarget {
     type Vtable = ICompositionTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2713626810, 55078, 18019, [129, 41, 107, 94, 121, 39, 255, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1bea8ba_d726_4663_8129_6b5e7927ffa6);
 }
 impl ::windows::runtime::RuntimeName for CompositionTarget {
     const NAME: &'static str = "Windows.UI.Composition.CompositionTarget";
@@ -19004,7 +19004,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionTransform {
 }
 unsafe impl ::windows::runtime::Interface for CompositionTransform {
     type Vtable = ICompositionTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2094351657, 64493, 16658, [171, 197, 24, 89, 6, 221, 146, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7cd54529_fbed_4112_abc5_185906dd927c);
 }
 impl ::windows::runtime::RuntimeName for CompositionTransform {
     const NAME: &'static str = "Windows.UI.Composition.CompositionTransform";
@@ -19298,7 +19298,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionViewBox {
 }
 unsafe impl ::windows::runtime::Interface for CompositionViewBox {
     type Vtable = ICompositionViewBox_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3024142087, 1679, 17719, [132, 198, 78, 203, 224, 25, 225, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb440bf07_068f_4537_84c6_4ecbe019e1f4);
 }
 impl ::windows::runtime::RuntimeName for CompositionViewBox {
     const NAME: &'static str = "Windows.UI.Composition.CompositionViewBox";
@@ -19595,7 +19595,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionVirtualDrawingSurface
 }
 unsafe impl ::windows::runtime::Interface for CompositionVirtualDrawingSurface {
     type Vtable = ICompositionVirtualDrawingSurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2848163035, 34624, 20372, [139, 157, 182, 133, 33, 231, 134, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9c384db_8740_4f94_8b9d_b68521e7863d);
 }
 impl ::windows::runtime::RuntimeName for CompositionVirtualDrawingSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionVirtualDrawingSurface";
@@ -19905,7 +19905,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionVisualSurface {
 }
 unsafe impl ::windows::runtime::Interface for CompositionVisualSurface {
     type Vtable = ICompositionVisualSurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2988759043, 20334, 19007, [140, 174, 61, 193, 205, 167, 79, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb224d803_4f6e_4a3f_8cae_3dc1cda74fc6);
 }
 impl ::windows::runtime::RuntimeName for CompositionVisualSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionVisualSurface";
@@ -20734,7 +20734,7 @@ unsafe impl ::windows::runtime::RuntimeType for Compositor {
 }
 unsafe impl ::windows::runtime::Interface for Compositor {
     type Vtable = ICompositor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3020147280, 32652, 20099, [152, 95, 204, 69, 6, 0, 54, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb403ca50_7f8c_4e83_985f_cc45060036d8);
 }
 impl ::windows::runtime::RuntimeName for Compositor {
     const NAME: &'static str = "Windows.UI.Composition.Compositor";
@@ -21226,7 +21226,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContainerVisual {
 }
 unsafe impl ::windows::runtime::Interface for ContainerVisual {
     type Vtable = IContainerVisual_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(49724532, 60704, 18291, [175, 230, 212, 155, 74, 147, 219, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02f6bc74_ed20_4773_afe6_d49b4a93db32);
 }
 impl ::windows::runtime::RuntimeName for ContainerVisual {
     const NAME: &'static str = "Windows.UI.Composition.ContainerVisual";
@@ -21489,7 +21489,7 @@ unsafe impl ::windows::runtime::RuntimeType for CubicBezierEasingFunction {
 }
 unsafe impl ::windows::runtime::Interface for CubicBezierEasingFunction {
     type Vtable = ICubicBezierEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(842335846, 49640, 17657, [150, 184, 201, 138, 207, 10, 230, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32350666_c1e8_44f9_96b8_c98acf0ae698);
 }
 impl ::windows::runtime::RuntimeName for CubicBezierEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.CubicBezierEasingFunction";
@@ -22081,7 +22081,7 @@ unsafe impl ::windows::runtime::RuntimeType for DelegatedInkTrailVisual {
 }
 unsafe impl ::windows::runtime::Interface for DelegatedInkTrailVisual {
     type Vtable = IDelegatedInkTrailVisual_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2238603441, 57771, 23331, [142, 61, 213, 19, 242, 33, 201, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x856e60b1_e1ab_5b23_8e3d_d513f221c998);
 }
 impl ::windows::runtime::RuntimeName for DelegatedInkTrailVisual {
     const NAME: &'static str = "Windows.UI.Composition.DelegatedInkTrailVisual";
@@ -22409,7 +22409,7 @@ unsafe impl ::windows::runtime::RuntimeType for DistantLight {
 }
 unsafe impl ::windows::runtime::Interface for DistantLight {
     type Vtable = IDistantLight_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(831322876, 23779, 19285, [171, 93, 7, 160, 3, 83, 172, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x318cfafc_5ce3_4b55_ab5d_07a00353ac99);
 }
 impl ::windows::runtime::RuntimeName for DistantLight {
     const NAME: &'static str = "Windows.UI.Composition.DistantLight";
@@ -22734,7 +22734,7 @@ unsafe impl ::windows::runtime::RuntimeType for DropShadow {
 }
 unsafe impl ::windows::runtime::Interface for DropShadow {
     type Vtable = IDropShadow_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3415702535, 41300, 18513, [133, 231, 168, 146, 76, 132, 250, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb977c07_a154_4851_85e7_a8924c84fad8);
 }
 impl ::windows::runtime::RuntimeName for DropShadow {
     const NAME: &'static str = "Windows.UI.Composition.DropShadow";
@@ -23003,7 +23003,7 @@ unsafe impl ::windows::runtime::RuntimeType for ElasticEasingFunction {
 }
 unsafe impl ::windows::runtime::Interface for ElasticEasingFunction {
     type Vtable = IElasticEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1725850245, 1358, 21908, [132, 117, 194, 44, 181, 31, 27, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66de6285_054e_5594_8475_c22cb51f1bd5);
 }
 impl ::windows::runtime::RuntimeName for ElasticEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.ElasticEasingFunction";
@@ -23264,7 +23264,7 @@ unsafe impl ::windows::runtime::RuntimeType for ExponentialEasingFunction {
 }
 unsafe impl ::windows::runtime::Interface for ExponentialEasingFunction {
     type Vtable = IExponentialEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1870469713, 39122, 22072, [163, 74, 0, 72, 101, 84, 199, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f7d1a51_98d2_5638_a34a_00486554c750);
 }
 impl ::windows::runtime::RuntimeName for ExponentialEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.ExponentialEasingFunction";
@@ -23615,7 +23615,7 @@ unsafe impl ::windows::runtime::RuntimeType for ExpressionAnimation {
 }
 unsafe impl ::windows::runtime::Interface for ExpressionAnimation {
     type Vtable = IExpressionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1791775793, 32061, 19443, [171, 182, 244, 75, 220, 72, 136, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6acc5431_7d3d_4bf3_abb6_f44bdc4888c1);
 }
 impl ::windows::runtime::RuntimeName for ExpressionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ExpressionAnimation";
@@ -23777,7 +23777,7 @@ unsafe impl ::core::marker::Sync for ExpressionAnimation {}
 pub struct IAmbientLight(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAmbientLight {
     type Vtable = IAmbientLight_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2759930017, 47044, 18167, [185, 191, 218, 244, 58, 68, 230, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa48130a1_b7c4_46f7_b9bf_daf43a44e6ee);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23796,7 +23796,7 @@ pub struct IAmbientLight_abi(
 pub struct IAmbientLight2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAmbientLight2 {
     type Vtable = IAmbientLight2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(996452031, 24471, 19604, [134, 229, 4, 45, 211, 134, 178, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b64a6bf_5f97_4c94_86e5_042dd386b27d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23815,7 +23815,7 @@ pub struct IAmbientLight2_abi(
 pub struct IAnimationController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnimationController {
     type Vtable = IAnimationController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3375689682, 1826, 20319, [164, 226, 149, 16, 243, 212, 59, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc934efd2_0722_4f5f_a4e2_9510f3d43bf7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23840,7 +23840,7 @@ pub struct IAnimationController_abi(
 pub struct IAnimationControllerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnimationControllerStatics {
     type Vtable = IAnimationControllerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3876676831, 25883, 18432, [185, 229, 106, 59, 207, 237, 51, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe71164df_651b_4800_b9e5_6a3bcfed3365);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23860,7 +23860,7 @@ pub struct IAnimationControllerStatics_abi(
 pub struct IAnimationObject(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnimationObject {
     type Vtable = IAnimationObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3876855306, 1208, 20421, [164, 220, 25, 83, 146, 229, 120, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7141e0a_04b8_4fc5_a4dc_195392e57807);
 }
 impl IAnimationObject {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -23928,7 +23928,7 @@ pub struct IAnimationObject_abi(
 pub struct IAnimationPropertyInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnimationPropertyInfo {
     type Vtable = IAnimationPropertyInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4101074693, 60791, 20028, [179, 40, 92, 57, 133, 179, 115, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf4716f05_ed77_4e3c_b328_5c3985b3738f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23947,7 +23947,7 @@ pub struct IAnimationPropertyInfo_abi(
 pub struct IAnimationPropertyInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnimationPropertyInfo2 {
     type Vtable = IAnimationPropertyInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1494687924, 29810, 21016, [139, 57, 223, 254, 97, 90, 230, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x591720b4_7472_5218_8b39_dffe615ae6da);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23966,7 +23966,7 @@ pub struct IAnimationPropertyInfo2_abi(
 pub struct IBackEasingFunction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackEasingFunction {
     type Vtable = IBackEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3092647332, 24124, 21597, [178, 99, 121, 135, 162, 189, 39, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8560da4_5e3c_545d_b263_7987a2bd27cb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23985,7 +23985,7 @@ pub struct IBackEasingFunction_abi(
 pub struct IBooleanKeyFrameAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBooleanKeyFrameAnimation {
     type Vtable = IBooleanKeyFrameAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2514631176, 53748, 18802, [151, 112, 62, 254, 104, 216, 46, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95e23a08_d1f4_4972_9770_3efe68d82e14);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24003,7 +24003,7 @@ pub struct IBooleanKeyFrameAnimation_abi(
 pub struct IBounceEasingFunction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBounceEasingFunction {
     type Vtable = IBounceEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3892163659, 43733, 20852, [148, 33, 238, 248, 183, 90, 106, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7fdb44b_aad5_5174_9421_eef8b75a6a43);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24023,7 +24023,7 @@ pub struct IBounceEasingFunction_abi(
 pub struct IBounceScalarNaturalMotionAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBounceScalarNaturalMotionAnimation {
     type Vtable = IBounceScalarNaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3131248076, 42547, 17944, [155, 6, 127, 124, 114, 200, 124, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbaa30dcc_a633_4618_9b06_7f7c72c87cff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24044,7 +24044,7 @@ pub struct IBounceScalarNaturalMotionAnimation_abi(
 pub struct IBounceVector2NaturalMotionAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBounceVector2NaturalMotionAnimation {
     type Vtable = IBounceVector2NaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3660857750, 8532, 19260, [136, 170, 71, 54, 18, 4, 236, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda344196_2154_4b3c_88aa_47361204eccd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24065,7 +24065,7 @@ pub struct IBounceVector2NaturalMotionAnimation_abi(
 pub struct IBounceVector3NaturalMotionAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBounceVector3NaturalMotionAnimation {
     type Vtable = IBounceVector3NaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1205517361, 4307, 17688, [134, 241, 9, 202, 247, 66, 209, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47dabc31_10d3_4518_86f1_09caf742d113);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24086,7 +24086,7 @@ pub struct IBounceVector3NaturalMotionAnimation_abi(
 pub struct ICircleEasingFunction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICircleEasingFunction {
     type Vtable = ICircleEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(503783978, 28546, 23080, [135, 72, 46, 146, 252, 70, 238, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e07222a_6f82_5a28_8748_2e92fc46ee2b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24104,7 +24104,7 @@ pub struct ICircleEasingFunction_abi(
 pub struct IColorKeyFrameAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorKeyFrameAnimation {
     type Vtable = IColorKeyFrameAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2477635049, 36357, 17811, [132, 163, 220, 161, 82, 120, 30, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93adb5e9_8e05_4593_84a3_dca152781e56);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24125,7 +24125,7 @@ pub struct IColorKeyFrameAnimation_abi(
 pub struct ICompositionAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionAnimation {
     type Vtable = ICompositionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1179405356, 7338, 16481, [155, 64, 225, 63, 222, 21, 3, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x464c4c2c_1caa_4061_9b40_e13fde1503ca);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24159,7 +24159,7 @@ pub struct ICompositionAnimation_abi(
 pub struct ICompositionAnimation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionAnimation2 {
     type Vtable = ICompositionAnimation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(916152382, 43023, 18760, [147, 227, 237, 35, 251, 56, 198, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x369b603e_a80f_4948_93e3_ed23fb38c6cb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24179,7 +24179,7 @@ pub struct ICompositionAnimation2_abi(
 pub struct ICompositionAnimation3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionAnimation3 {
     type Vtable = ICompositionAnimation3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3575513869, 32164, 19415, [188, 45, 244, 81, 117, 41, 244, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd51e030d_7da4_4bd7_bc2d_f4517529f43a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24198,7 +24198,7 @@ pub struct ICompositionAnimation3_abi(
 pub struct ICompositionAnimation4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionAnimation4 {
     type Vtable = ICompositionAnimation4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1996568510, 30396, 20003, [191, 237, 254, 156, 194, 15, 110, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x770137be_76bc_4e23_bfed_fe9cc20f6ec9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24217,7 +24217,7 @@ pub struct ICompositionAnimation4_abi(
 pub struct ICompositionAnimationBase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionAnimationBase {
     type Vtable = ICompositionAnimationBase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(472656281, 59416, 18643, [166, 221, 215, 140, 130, 248, 172, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c2c2999_e818_48d3_a6dd_d78c82f8ace9);
 }
 impl ICompositionAnimationBase {}
 unsafe impl ::windows::runtime::RuntimeType for ICompositionAnimationBase {
@@ -24278,7 +24278,7 @@ pub struct ICompositionAnimationBase_abi(
 pub struct ICompositionAnimationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionAnimationFactory {
     type Vtable = ICompositionAnimationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(284607739, 28241, 19493, [187, 211, 88, 106, 155, 236, 62, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10f6c4fb_6e51_4c25_bbd3_586a9bec3ef4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24295,7 +24295,7 @@ pub struct ICompositionAnimationFactory_abi(
 pub struct ICompositionAnimationGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionAnimationGroup {
     type Vtable = ICompositionAnimationGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1585236236, 52500, 19975, [138, 85, 199, 37, 39, 170, 189, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e7cc90c_cd14_4e07_8a55_c72527aabdac);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24316,7 +24316,7 @@ pub struct ICompositionAnimationGroup_abi(
 pub struct ICompositionBackdropBrush(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionBackdropBrush {
     type Vtable = ICompositionBackdropBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3316428376, 14488, 18846, [141, 127, 34, 78, 145, 40, 106, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5acae58_3898_499e_8d7f_224e91286a5d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24333,7 +24333,7 @@ pub struct ICompositionBackdropBrush_abi(
 pub struct ICompositionBatchCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionBatchCompletedEventArgs {
     type Vtable = ICompositionBatchCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(218159824, 37988, 17674, [165, 98, 46, 38, 152, 176, 168, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d00dad0_9464_450a_a562_2e2698b0a812);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24350,7 +24350,7 @@ pub struct ICompositionBatchCompletedEventArgs_abi(
 pub struct ICompositionBrush(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionBrush {
     type Vtable = ICompositionBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2869786120, 12480, 16617, [181, 104, 182, 10, 107, 209, 251, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab0d7608_30c0_40e9_b568_b60a6bd1fb46);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24367,7 +24367,7 @@ pub struct ICompositionBrush_abi(
 pub struct ICompositionBrushFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionBrushFactory {
     type Vtable = ICompositionBrushFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3662936908, 18000, 18372, [173, 118, 118, 83, 121, 96, 126, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda53fb4c_4650_47c4_ad76_765379607ed6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24384,7 +24384,7 @@ pub struct ICompositionBrushFactory_abi(
 pub struct ICompositionCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionCapabilities {
     type Vtable = ICompositionCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2186491198, 46359, 18620, [177, 232, 75, 53, 97, 162, 225, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8253353e_b517_48bc_b1e8_4b3561a2e181);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24407,7 +24407,7 @@ pub struct ICompositionCapabilities_abi(
 pub struct ICompositionCapabilitiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionCapabilitiesStatics {
     type Vtable = ICompositionCapabilitiesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4156008558, 25622, 18917, [141, 223, 175, 233, 73, 226, 5, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7b7a86e_6416_49e5_8ddf_afe949e20562);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24425,7 +24425,7 @@ pub struct ICompositionCapabilitiesStatics_abi(
 pub struct ICompositionClip(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionClip {
     type Vtable = ICompositionClip_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(483207762, 53191, 19150, [153, 131, 20, 107, 184, 235, 106, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ccd2a52_cfc7_4ace_9983_146bb8eb6a3c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24442,7 +24442,7 @@ pub struct ICompositionClip_abi(
 pub struct ICompositionClip2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionClip2 {
     type Vtable = ICompositionClip2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1486086249, 13590, 16609, [137, 224, 91, 169, 36, 146, 114, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5893e069_3516_40e1_89e0_5ba924927235);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24483,7 +24483,7 @@ pub struct ICompositionClip2_abi(
 pub struct ICompositionClipFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionClipFactory {
     type Vtable = ICompositionClipFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3108523183, 8391, 19181, [172, 74, 156, 120, 186, 19, 2, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9484caf_20c7_4aed_ac4a_9c78ba1302cf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24500,7 +24500,7 @@ pub struct ICompositionClipFactory_abi(
 pub struct ICompositionColorBrush(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionColorBrush {
     type Vtable = ICompositionColorBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(723930206, 48949, 18481, [134, 66, 207, 112, 194, 15, 255, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b264c5e_bf35_4831_8642_cf70c20fff2f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24519,7 +24519,7 @@ pub struct ICompositionColorBrush_abi(
 pub struct ICompositionColorGradientStop(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionColorGradientStop {
     type Vtable = ICompositionColorGradientStop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1862322834, 51201, 20033, [154, 143, 165, 62, 32, 245, 119, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f00ca92_c801_4e41_9a8f_a53e20f57778);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24540,7 +24540,7 @@ pub struct ICompositionColorGradientStop_abi(
 pub struct ICompositionColorGradientStopCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionColorGradientStopCollection {
     type Vtable = ICompositionColorGradientStopCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2669486316, 31492, 19229, [144, 188, 159, 163, 44, 12, 253, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f1d20ec_7b04_4b1d_90bc_9fa32c0cfd26);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24557,7 +24557,7 @@ pub struct ICompositionColorGradientStopCollection_abi(
 pub struct ICompositionCommitBatch(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionCommitBatch {
     type Vtable = ICompositionCommitBatch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(218159824, 51719, 17408, [140, 142, 203, 93, 176, 133, 89, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d00dad0_ca07_4400_8c8e_cb5db08559cc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24580,7 +24580,7 @@ pub struct ICompositionCommitBatch_abi(
 pub struct ICompositionContainerShape(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionContainerShape {
     type Vtable = ICompositionContainerShape_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1331594651, 11867, 17576, [152, 44, 170, 15, 105, 193, 96, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f5e859b_2e5b_44a8_982c_aa0f69c16059);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24599,7 +24599,7 @@ pub struct ICompositionContainerShape_abi(
 pub struct ICompositionDrawingSurface(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionDrawingSurface {
     type Vtable = ICompositionDrawingSurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2707866368, 64208, 19729, [158, 103, 228, 51, 22, 47, 244, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa166c300_fad0_4d11_9e67_e433162ff49e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24622,7 +24622,7 @@ pub struct ICompositionDrawingSurface_abi(
 pub struct ICompositionDrawingSurface2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionDrawingSurface2 {
     type Vtable = ICompositionDrawingSurface2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4207995019, 58196, 17640, [142, 61, 196, 136, 13, 90, 33, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfad0e88b_e354_44e8_8e3d_c4880d5a213f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24651,7 +24651,7 @@ pub struct ICompositionDrawingSurface2_abi(
 pub struct ICompositionDrawingSurfaceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionDrawingSurfaceFactory {
     type Vtable = ICompositionDrawingSurfaceFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2492968970, 12589, 18105, [157, 179, 65, 47, 215, 148, 100, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9497b00a_312d_46b9_9db3_412fd79464c8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24668,7 +24668,7 @@ pub struct ICompositionDrawingSurfaceFactory_abi(
 pub struct ICompositionEasingFunction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionEasingFunction {
     type Vtable = ICompositionEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1363534678, 49017, 20136, [140, 194, 107, 91, 71, 46, 108, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5145e356_bf79_4ea8_8cc2_6b5b472e6c9a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24685,7 +24685,7 @@ pub struct ICompositionEasingFunction_abi(
 pub struct ICompositionEasingFunctionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionEasingFunctionFactory {
     type Vtable = ICompositionEasingFunctionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1619265396, 15776, 18761, [130, 0, 114, 6, 192, 1, 144, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60840774_3da0_4949_8200_7206c00190a0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24702,7 +24702,7 @@ pub struct ICompositionEasingFunctionFactory_abi(
 pub struct ICompositionEasingFunctionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionEasingFunctionStatics {
     type Vtable = ICompositionEasingFunctionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(396846774, 10550, 21482, [181, 175, 198, 66, 244, 166, 16, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17a766b6_2936_53ea_b5af_c642f4a61083);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24731,7 +24731,7 @@ pub struct ICompositionEasingFunctionStatics_abi(
 pub struct ICompositionEffectBrush(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionEffectBrush {
     type Vtable = ICompositionEffectBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3212802398, 33740, 17599, [164, 71, 62, 60, 7, 23, 137, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf7f795e_83cc_44bf_a447_3e3c071789ec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24750,7 +24750,7 @@ pub struct ICompositionEffectBrush_abi(
 pub struct ICompositionEffectFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionEffectFactory {
     type Vtable = ICompositionEffectFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3193316527, 47742, 17680, [152, 80, 65, 192, 180, 255, 116, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe5624af_ba7e_4510_9850_41c0b4ff74df);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24770,7 +24770,7 @@ pub struct ICompositionEffectFactory_abi(
 pub struct ICompositionEffectSourceParameter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionEffectSourceParameter {
     type Vtable = ICompositionEffectSourceParameter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2240459066, 12946, 20046, [179, 187, 43, 108, 101, 68, 166, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x858ab13a_3292_4e4e_b3bb_2b6c6544a6ee);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24788,7 +24788,7 @@ pub struct ICompositionEffectSourceParameter_abi(
 pub struct ICompositionEffectSourceParameterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionEffectSourceParameterFactory {
     type Vtable = ICompositionEffectSourceParameterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3017405046, 43939, 18212, [172, 243, 208, 57, 116, 100, 219, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3d9f276_aba3_4724_acf3_d0397464db1c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24806,7 +24806,7 @@ pub struct ICompositionEffectSourceParameterFactory_abi(
 pub struct ICompositionEllipseGeometry(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionEllipseGeometry {
     type Vtable = ICompositionEllipseGeometry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1208088708, 63149, 19347, [175, 169, 137, 123, 100, 229, 123, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4801f884_f6ad_4b93_afa9_897b64e57b1f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24831,7 +24831,7 @@ pub struct ICompositionEllipseGeometry_abi(
 pub struct ICompositionGeometricClip(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGeometricClip {
     type Vtable = ICompositionGeometricClip_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3359683969, 33225, 17476, [162, 193, 204, 174, 206, 58, 80, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc840b581_81c9_4444_a2c1_ccaece3a50e5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24852,7 +24852,7 @@ pub struct ICompositionGeometricClip_abi(
 pub struct ICompositionGeometry(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGeometry {
     type Vtable = ICompositionGeometry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3917816188, 27159, 16903, [171, 216, 95, 211, 221, 97, 42, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe985217c_6a17_4207_abd8_5fd3dd612a9d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24875,7 +24875,7 @@ pub struct ICompositionGeometry_abi(
 pub struct ICompositionGeometryFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGeometryFactory {
     type Vtable = ICompositionGeometryFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3221143521, 35877, 18443, [159, 86, 254, 214, 178, 136, 5, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbffebfe1_8c25_480b_9f56_fed6b288055d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24892,7 +24892,7 @@ pub struct ICompositionGeometryFactory_abi(
 pub struct ICompositionGradientBrush(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGradientBrush {
     type Vtable = ICompositionGradientBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(496437728, 65478, 19470, [169, 171, 52, 20, 77, 76, 144, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d9709e0_ffc6_4c0e_a9ab_34144d4c9098);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24938,7 +24938,7 @@ pub struct ICompositionGradientBrush_abi(
 pub struct ICompositionGradientBrush2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGradientBrush2 {
     type Vtable = ICompositionGradientBrush2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2308822433, 46279, 19251, [161, 182, 38, 74, 221, 194, 109, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x899dd5a1_b4c7_4b33_a1b6_264addc26d10);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24957,7 +24957,7 @@ pub struct ICompositionGradientBrush2_abi(
 pub struct ICompositionGradientBrushFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGradientBrushFactory {
     type Vtable = ICompositionGradientBrushFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1456956887, 61833, 18633, [156, 141, 148, 218, 241, 190, 192, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56d765d7_f189_48c9_9c8d_94daf1bec010);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24974,7 +24974,7 @@ pub struct ICompositionGradientBrushFactory_abi(
 pub struct ICompositionGraphicsDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGraphicsDevice {
     type Vtable = ICompositionGraphicsDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4213360353, 32930, 18023, [153, 54, 219, 234, 246, 238, 254, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb22c6e1_80a2_4667_9936_dbeaf6eefe95);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24997,7 +24997,7 @@ pub struct ICompositionGraphicsDevice_abi(
 pub struct ICompositionGraphicsDevice2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGraphicsDevice2 {
     type Vtable = ICompositionGraphicsDevice2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(263765494, 49392, 19404, [159, 184, 8, 73, 130, 73, 13, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0fb8bdf6_c0f0_4bcc_9fb8_084982490d7d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25018,7 +25018,7 @@ pub struct ICompositionGraphicsDevice2_abi(
 pub struct ICompositionGraphicsDevice3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGraphicsDevice3 {
     type Vtable = ICompositionGraphicsDevice3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(938898708, 54255, 18897, [182, 157, 13, 142, 171, 235, 54, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x37f67514_d3ef_49d1_b69d_0d8eabeb3626);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25038,7 +25038,7 @@ pub struct ICompositionGraphicsDevice3_abi(
 pub struct ICompositionGraphicsDevice4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGraphicsDevice4 {
     type Vtable = ICompositionGraphicsDevice4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1517535225, 43391, 19701, [186, 70, 152, 239, 53, 142, 113, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a73bff9_a97f_4cf5_ba46_98ef358e71b1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25057,7 +25057,7 @@ pub struct ICompositionGraphicsDevice4_abi(
 pub struct ICompositionLight(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionLight {
     type Vtable = ICompositionLight_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1101453250, 11869, 19393, [176, 158, 143, 10, 3, 227, 216, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41a6d7c2_2e5d_4bc1_b09e_8f0a03e3d8d3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25075,7 +25075,7 @@ pub struct ICompositionLight_abi(
 pub struct ICompositionLight2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionLight2 {
     type Vtable = ICompositionLight2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2814171762, 62301, 16989, [155, 152, 35, 244, 32, 95, 102, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7bcda72_f35d_425d_9b98_23f4205f6669);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25093,7 +25093,7 @@ pub struct ICompositionLight2_abi(
 pub struct ICompositionLight3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionLight3 {
     type Vtable = ICompositionLight3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1259012324, 57095, 18777, [183, 164, 79, 126, 66, 51, 248, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b0b00e4_df07_4959_b7a4_4f7e4233f838);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25112,7 +25112,7 @@ pub struct ICompositionLight3_abi(
 pub struct ICompositionLightFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionLightFactory {
     type Vtable = ICompositionLightFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(110949126, 55868, 19268, [131, 138, 94, 3, 213, 26, 206, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x069cf306_da3c_4b44_838a_5e03d51ace55);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25129,7 +25129,7 @@ pub struct ICompositionLightFactory_abi(
 pub struct ICompositionLineGeometry(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionLineGeometry {
     type Vtable = ICompositionLineGeometry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3715503524, 3226, 19303, [141, 206, 68, 10, 91, 249, 205, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd7615a4_0c9a_4b67_8dce_440a5bf9cdec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25154,7 +25154,7 @@ pub struct ICompositionLineGeometry_abi(
 pub struct ICompositionLinearGradientBrush(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionLinearGradientBrush {
     type Vtable = ICompositionLinearGradientBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2554053913, 43483, 16700, [162, 216, 42, 144, 86, 252, 82, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x983bc519_a9db_413c_a2d8_2a9056fc525e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25179,7 +25179,7 @@ pub struct ICompositionLinearGradientBrush_abi(
 pub struct ICompositionMaskBrush(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionMaskBrush {
     type Vtable = ICompositionMaskBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1378676894, 48747, 20289, [190, 73, 249, 34, 109, 71, 27, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x522cf09e_be6b_4f41_be49_f9226d471b4a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25200,7 +25200,7 @@ pub struct ICompositionMaskBrush_abi(
 pub struct ICompositionMipmapSurface(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionMipmapSurface {
     type Vtable = ICompositionMipmapSurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1214474076, 53066, 19228, [158, 206, 197, 236, 12, 43, 47, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4863675c_cf4a_4b1c_9ece_c5ec0c2b2fe6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25225,7 +25225,7 @@ pub struct ICompositionMipmapSurface_abi(
 pub struct ICompositionNineGridBrush(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionNineGridBrush {
     type Vtable = ICompositionNineGridBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4065416420, 48268, 19431, [184, 15, 134, 133, 184, 60, 1, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf25154e4_bc8c_4be7_b80f_8685b83c0186);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25266,7 +25266,7 @@ pub struct ICompositionNineGridBrush_abi(
 pub struct ICompositionObject(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionObject {
     type Vtable = ICompositionObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3165957445, 30217, 17744, [147, 79, 22, 0, 42, 104, 253, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbcb4ad45_7609_4550_934f_16002a68fded);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25289,7 +25289,7 @@ pub struct ICompositionObject_abi(
 pub struct ICompositionObject2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionObject2 {
     type Vtable = ICompositionObject2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4018622113, 23807, 19304, [158, 48, 161, 81, 157, 8, 186, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef874ea1_5cff_4b68_9e30_a1519d08ba03);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25312,7 +25312,7 @@ pub struct ICompositionObject2_abi(
 pub struct ICompositionObject3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionObject3 {
     type Vtable = ICompositionObject3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1271036197, 56013, 19698, [152, 177, 152, 107, 118, 231, 235, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bc27925_dacd_4cf2_98b1_986b76e7ebe6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25331,7 +25331,7 @@ pub struct ICompositionObject3_abi(
 pub struct ICompositionObject4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionObject4 {
     type Vtable = ICompositionObject4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(196311116, 13419, 19068, [150, 107, 115, 16, 150, 101, 83, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bb3784c_346b_4a7c_966b_7310966553d5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25349,7 +25349,7 @@ pub struct ICompositionObject4_abi(
 pub struct ICompositionObjectFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionObjectFactory {
     type Vtable = ICompositionObjectFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1361075294, 21898, 20266, [141, 57, 55, 191, 225, 226, 13, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51205c5e_558a_4f2a_8d39_37bfe1e20ddd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25366,7 +25366,7 @@ pub struct ICompositionObjectFactory_abi(
 pub struct ICompositionObjectStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionObjectStatics {
     type Vtable = ICompositionObjectStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3253536047, 7074, 17594, [169, 4, 106, 136, 42, 10, 90, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1ed052f_1ba2_44ba_a904_6a882a0a5adb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25385,7 +25385,7 @@ pub struct ICompositionObjectStatics_abi(
 pub struct ICompositionPath(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionPath {
     type Vtable = ICompositionPath_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1725570399, 11792, 20258, [138, 6, 10, 129, 81, 145, 158, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66da1d5f_2e10_4f22_8a06_0a8151919e60);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25402,7 +25402,7 @@ pub struct ICompositionPath_abi(
 pub struct ICompositionPathFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionPathFactory {
     type Vtable = ICompositionPathFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2619247722, 3891, 18257, [148, 55, 235, 63, 185, 211, 171, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c1e8c6a_0f33_4751_9437_eb3fb9d3ab07);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25421,7 +25421,7 @@ pub struct ICompositionPathFactory_abi(
 pub struct ICompositionPathGeometry(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionPathGeometry {
     type Vtable = ICompositionPathGeometry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(191512958, 11383, 19491, [175, 94, 99, 4, 193, 71, 187, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b6a417e_2c77_4c23_af5e_6304c147bb61);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25440,7 +25440,7 @@ pub struct ICompositionPathGeometry_abi(
 pub struct ICompositionProjectedShadow(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionProjectedShadow {
     type Vtable = ICompositionProjectedShadow_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(677088882, 17192, 21055, [188, 242, 85, 87, 197, 44, 59, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x285b8e72_4328_523f_bcf2_5557c52c3b25);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25467,7 +25467,7 @@ pub struct ICompositionProjectedShadow_abi(
 pub struct ICompositionProjectedShadowCaster(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionProjectedShadowCaster {
     type Vtable = ICompositionProjectedShadowCaster_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2983711782, 7734, 23138, [190, 86, 161, 97, 18, 253, 209, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1d7d426_1e36_5a62_be56_a16112fdd148);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25488,7 +25488,7 @@ pub struct ICompositionProjectedShadowCaster_abi(
 pub struct ICompositionProjectedShadowCasterCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionProjectedShadowCasterCollection {
     type Vtable = ICompositionProjectedShadowCasterCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3528612876, 57471, 22691, [172, 145, 55, 247, 62, 233, 23, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2525c0c_e07f_58a3_ac91_37f73ee91740);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25512,7 +25512,7 @@ pub struct ICompositionProjectedShadowCasterCollection_abi(
 pub struct ICompositionProjectedShadowCasterCollectionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionProjectedShadowCasterCollectionStatics {
     type Vtable = ICompositionProjectedShadowCasterCollectionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1459335478, 59727, 21145, [171, 91, 110, 21, 227, 139, 216, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56fbb136_e94f_5299_ab5b_6e15e38bd899);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25530,7 +25530,7 @@ pub struct ICompositionProjectedShadowCasterCollectionStatics_abi(
 pub struct ICompositionProjectedShadowReceiver(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionProjectedShadowReceiver {
     type Vtable = ICompositionProjectedShadowReceiver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(326604890, 27209, 21354, [155, 228, 169, 106, 142, 82, 152, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1377985a_6a49_536a_9be4_a96a8e5298a9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25549,7 +25549,7 @@ pub struct ICompositionProjectedShadowReceiver_abi(
 pub struct ICompositionProjectedShadowReceiverUnorderedCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionProjectedShadowReceiverUnorderedCollection {
     type Vtable = ICompositionProjectedShadowReceiverUnorderedCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(45343671, 10194, 22943, [172, 75, 171, 120, 124, 221, 230, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02b3e3b7_27d2_599f_ac4b_ab787cdde6fd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25570,7 +25570,7 @@ pub struct ICompositionProjectedShadowReceiverUnorderedCollection_abi(
 pub struct ICompositionPropertySet(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionPropertySet {
     type Vtable = ICompositionPropertySet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3386298882, 24423, 17491, [145, 23, 158, 173, 212, 48, 211, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9d6d202_5f67_4453_9117_9eadd430d3c2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25615,7 +25615,7 @@ pub struct ICompositionPropertySet_abi(
 pub struct ICompositionPropertySet2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionPropertySet2 {
     type Vtable = ICompositionPropertySet2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3732960030, 41489, 17493, [136, 128, 125, 15, 63, 106, 68, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde80731e_a211_4455_8880_7d0f3f6a44fd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25634,7 +25634,7 @@ pub struct ICompositionPropertySet2_abi(
 pub struct ICompositionRadialGradientBrush(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionRadialGradientBrush {
     type Vtable = ICompositionRadialGradientBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1027297477, 58362, 19682, [185, 252, 62, 225, 37, 97, 120, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d3b50c5_e3fa_4ce2_b9fc_3ee12561788f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25663,7 +25663,7 @@ pub struct ICompositionRadialGradientBrush_abi(
 pub struct ICompositionRectangleGeometry(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionRectangleGeometry {
     type Vtable = ICompositionRectangleGeometry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(215290920, 21334, 16966, [174, 207, 122, 11, 118, 151, 84, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cd51428_5356_4246_aecf_7a0b76975400);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25688,7 +25688,7 @@ pub struct ICompositionRectangleGeometry_abi(
 pub struct ICompositionRoundedRectangleGeometry(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionRoundedRectangleGeometry {
     type Vtable = ICompositionRoundedRectangleGeometry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2272315426, 7504, 19339, [176, 19, 124, 154, 14, 70, 147, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8770c822_1d50_4b8b_b013_7c9a0e46935f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25717,7 +25717,7 @@ pub struct ICompositionRoundedRectangleGeometry_abi(
 pub struct ICompositionScopedBatch(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionScopedBatch {
     type Vtable = ICompositionScopedBatch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(218159824, 64263, 18173, [140, 114, 98, 128, 209, 163, 209, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d00dad0_fb07_46fd_8c72_6280d1a3d1dd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25743,7 +25743,7 @@ pub struct ICompositionScopedBatch_abi(
 pub struct ICompositionShadow(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionShadow {
     type Vtable = ICompositionShadow_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(849236706, 17205, 18892, [177, 74, 55, 120, 45, 16, 240, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x329e52e2_4335_49cc_b14a_37782d10f0c4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25760,7 +25760,7 @@ pub struct ICompositionShadow_abi(
 pub struct ICompositionShadowFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionShadowFactory {
     type Vtable = ICompositionShadowFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(572475695, 56506, 19345, [153, 158, 29, 194, 23, 160, 21, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x221f492f_dcba_4b91_999e_1dc217a01530);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25777,7 +25777,7 @@ pub struct ICompositionShadowFactory_abi(
 pub struct ICompositionShape(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionShape {
     type Vtable = ICompositionShape_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3028083447, 39560, 17092, [158, 135, 46, 80, 12, 168, 104, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb47ce2f7_9a88_42c4_9e87_2e500ca8688c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25814,7 +25814,7 @@ pub struct ICompositionShape_abi(
 pub struct ICompositionShapeFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionShapeFactory {
     type Vtable = ICompositionShapeFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(503068368, 45146, 17647, [130, 176, 18, 17, 139, 205, 76, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1dfc36d0_b05a_44ef_82b0_12118bcd4cd0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25831,7 +25831,7 @@ pub struct ICompositionShapeFactory_abi(
 pub struct ICompositionSpriteShape(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionSpriteShape {
     type Vtable = ICompositionSpriteShape_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1075536315, 7, 17251, [177, 243, 107, 204, 0, 63, 184, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x401b61bb_0007_4363_b1f3_6bcc003fb83e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25873,7 +25873,7 @@ pub struct ICompositionSpriteShape_abi(
 pub struct ICompositionSupportsSystemBackdrop(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionSupportsSystemBackdrop {
     type Vtable = ICompositionSupportsSystemBackdrop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(964538340, 46786, 23481, [149, 29, 245, 112, 125, 232, 183, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x397dafe4_b6c2_5bb9_951d_f5707de8b7bc);
 }
 impl ICompositionSupportsSystemBackdrop {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -25951,7 +25951,7 @@ pub struct ICompositionSupportsSystemBackdrop_abi(
 pub struct ICompositionSurface(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionSurface {
     type Vtable = ICompositionSurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(354898957, 17095, 18342, [164, 8, 102, 143, 121, 169, 13, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1527540d_42c7_47a6_a408_668f79a90dfb);
 }
 impl ICompositionSurface {}
 unsafe impl ::windows::runtime::RuntimeType for ICompositionSurface {
@@ -26012,7 +26012,7 @@ pub struct ICompositionSurface_abi(
 pub struct ICompositionSurfaceBrush(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionSurfaceBrush {
     type Vtable = ICompositionSurfaceBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2902551929, 7756, 19469, [156, 41, 131, 51, 140, 135, 193, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad016d79_1e4c_4c0d_9c29_83338c87c162);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26039,7 +26039,7 @@ pub struct ICompositionSurfaceBrush_abi(
 pub struct ICompositionSurfaceBrush2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionSurfaceBrush2 {
     type Vtable = ICompositionSurfaceBrush2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3530650837, 25845, 18066, [157, 199, 113, 182, 29, 126, 88, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd27174d5_64f5_4692_9dc7_71b61d7e5880);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26080,7 +26080,7 @@ pub struct ICompositionSurfaceBrush2_abi(
 pub struct ICompositionSurfaceBrush3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionSurfaceBrush3 {
     type Vtable = ICompositionSurfaceBrush3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1426829961, 8160, 17125, [129, 149, 30, 239, 168, 127, 240, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x550bb289_1fe0_42e5_8195_1eefa87ff08e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26100,7 +26100,7 @@ pub struct ICompositionSurfaceBrush3_abi(
 pub struct ICompositionSurfaceFacade(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionSurfaceFacade {
     type Vtable = ICompositionSurfaceFacade_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3759547080, 9010, 21959, [136, 104, 167, 49, 44, 92, 34, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe01622c8_2332_55c7_8868_a7312c5c229d);
 }
 impl ICompositionSurfaceFacade {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -26171,7 +26171,7 @@ pub struct ICompositionSurfaceFacade_abi(
 pub struct ICompositionTarget(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionTarget {
     type Vtable = ICompositionTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2713626810, 55078, 18019, [129, 41, 107, 94, 121, 39, 255, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1bea8ba_d726_4663_8129_6b5e7927ffa6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26190,7 +26190,7 @@ pub struct ICompositionTarget_abi(
 pub struct ICompositionTargetFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionTargetFactory {
     type Vtable = ICompositionTargetFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2479725867, 34070, 19220, [168, 206, 244, 158, 33, 25, 236, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93cd9d2b_8516_4b14_a8ce_f49e2119ec42);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26207,7 +26207,7 @@ pub struct ICompositionTargetFactory_abi(
 pub struct ICompositionTransform(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionTransform {
     type Vtable = ICompositionTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2094351657, 64493, 16658, [171, 197, 24, 89, 6, 221, 146, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7cd54529_fbed_4112_abc5_185906dd927c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26224,7 +26224,7 @@ pub struct ICompositionTransform_abi(
 pub struct ICompositionTransformFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionTransformFactory {
     type Vtable = ICompositionTransformFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2863581734, 49481, 20858, [143, 114, 107, 255, 122, 101, 206, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaaaeca26_c149_517a_8f72_6bff7a65ce08);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26241,7 +26241,7 @@ pub struct ICompositionTransformFactory_abi(
 pub struct ICompositionViewBox(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionViewBox {
     type Vtable = ICompositionViewBox_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3024142087, 1679, 17719, [132, 198, 78, 203, 224, 25, 225, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb440bf07_068f_4537_84c6_4ecbe019e1f4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26272,7 +26272,7 @@ pub struct ICompositionViewBox_abi(
 pub struct ICompositionVirtualDrawingSurface(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionVirtualDrawingSurface {
     type Vtable = ICompositionVirtualDrawingSurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2848163035, 34624, 20372, [139, 157, 182, 133, 33, 231, 134, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9c384db_8740_4f94_8b9d_b68521e7863d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26291,7 +26291,7 @@ pub struct ICompositionVirtualDrawingSurface_abi(
 pub struct ICompositionVirtualDrawingSurfaceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionVirtualDrawingSurfaceFactory {
     type Vtable = ICompositionVirtualDrawingSurfaceFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1734742124, 54635, 19017, [177, 223, 80, 118, 160, 98, 7, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6766106c_d56b_4a49_b1df_5076a0620768);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26308,7 +26308,7 @@ pub struct ICompositionVirtualDrawingSurfaceFactory_abi(
 pub struct ICompositionVisualSurface(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionVisualSurface {
     type Vtable = ICompositionVisualSurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2988759043, 20334, 19007, [140, 174, 61, 193, 205, 167, 79, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb224d803_4f6e_4a3f_8cae_3dc1cda74fc6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26335,7 +26335,7 @@ pub struct ICompositionVisualSurface_abi(
 pub struct ICompositor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositor {
     type Vtable = ICompositor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3020147280, 32652, 20099, [152, 95, 204, 69, 6, 0, 54, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb403ca50_7f8c_4e83_985f_cc45060036d8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26379,7 +26379,7 @@ pub struct ICompositor_abi(
 pub struct ICompositor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositor2 {
     type Vtable = ICompositor2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1934655964, 24100, 17882, [163, 143, 227, 44, 195, 73, 169, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x735081dc_5e24_45da_a38f_e32cc349a9a0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26409,7 +26409,7 @@ pub struct ICompositor2_abi(
 pub struct ICompositor3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositor3 {
     type Vtable = ICompositor3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3386740464, 28337, 20028, [166, 88, 103, 93, 156, 100, 212, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9dd8ef0_6eb1_4e3c_a658_675d9c64d4ab);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26427,7 +26427,7 @@ pub struct ICompositor3_abi(
 pub struct ICompositor4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositor4 {
     type Vtable = ICompositor4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2923947914, 30992, 17445, [164, 130, 160, 91, 117, 138, 220, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae47e78a_7910_4425_a482_a05b758adce9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26450,7 +26450,7 @@ pub struct ICompositor4_abi(
 pub struct ICompositor5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositor5 {
     type Vtable = ICompositor5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1223307693, 32717, 16502, [167, 156, 144, 204, 75, 133, 44, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48ea31ad_7fcd_4076_a79c_90cc4b852c9b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26488,7 +26488,7 @@ pub struct ICompositor5_abi(
 pub struct ICompositor6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositor6 {
     type Vtable = ICompositor6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2050536125, 52936, 20203, [131, 15, 216, 208, 122, 237, 235, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a38b2bd_cec8_4eeb_830f_d8d07aedebc3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26510,7 +26510,7 @@ pub struct ICompositor6_abi(
 pub struct ICompositor7(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositor7 {
     type Vtable = ICompositor7_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3544727469, 39442, 21434, [191, 200, 136, 183, 255, 121, 119, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3483fad_9a12_53ba_bfc8_88b7ff7977c6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26534,7 +26534,7 @@ pub struct ICompositor7_abi(
 pub struct ICompositorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositorStatics {
     type Vtable = ICompositorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(135117118, 4638, 19863, [139, 116, 29, 252, 249, 25, 135, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x080db93e_121e_4d97_8b74_1dfcf91987ea);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26553,7 +26553,7 @@ pub struct ICompositorStatics_abi(
 pub struct ICompositorWithBlurredWallpaperBackdropBrush(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositorWithBlurredWallpaperBackdropBrush {
     type Vtable = ICompositorWithBlurredWallpaperBackdropBrush_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(227520912, 61730, 23437, [159, 221, 84, 59, 13, 142, 183, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d8fb190_f122_5b8d_9fdd_543b0d8eb7f3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26571,7 +26571,7 @@ pub struct ICompositorWithBlurredWallpaperBackdropBrush_abi(
 pub struct ICompositorWithProjectedShadow(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositorWithProjectedShadow {
     type Vtable = ICompositorWithProjectedShadow_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2732995342, 35424, 23096, [187, 133, 180, 78, 169, 1, 103, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2e6330e_8a60_5a38_bb85_b44ea901677c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26591,7 +26591,7 @@ pub struct ICompositorWithProjectedShadow_abi(
 pub struct ICompositorWithRadialGradient(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositorWithRadialGradient {
     type Vtable = ICompositorWithRadialGradient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2562310567, 36465, 19283, [180, 168, 105, 186, 93, 25, 220, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98b9c1a7_8e71_4b53_b4a8_69ba5d19dc5b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26609,7 +26609,7 @@ pub struct ICompositorWithRadialGradient_abi(
 pub struct ICompositorWithVisualSurface(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositorWithVisualSurface {
     type Vtable = ICompositorWithVisualSurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3483461003, 291, 17745, [136, 145, 137, 189, 204, 64, 50, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfa1658b_0123_4551_8891_89bdcc40322b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26627,7 +26627,7 @@ pub struct ICompositorWithVisualSurface_abi(
 pub struct IContainerVisual(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContainerVisual {
     type Vtable = IContainerVisual_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(49724532, 60704, 18291, [175, 230, 212, 155, 74, 147, 219, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02f6bc74_ed20_4773_afe6_d49b4a93db32);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26645,7 +26645,7 @@ pub struct IContainerVisual_abi(
 pub struct IContainerVisualFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContainerVisualFactory {
     type Vtable = IContainerVisualFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(56862299, 51162, 19866, [149, 244, 105, 181, 200, 223, 103, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0363a65b_c7da_4d9a_95f4_69b5c8df670b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26662,7 +26662,7 @@ pub struct IContainerVisualFactory_abi(
 pub struct ICubicBezierEasingFunction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICubicBezierEasingFunction {
     type Vtable = ICubicBezierEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(842335846, 49640, 17657, [150, 184, 201, 138, 207, 10, 230, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32350666_c1e8_44f9_96b8_c98acf0ae698);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26683,7 +26683,7 @@ pub struct ICubicBezierEasingFunction_abi(
 pub struct IDelegatedInkTrailVisual(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDelegatedInkTrailVisual {
     type Vtable = IDelegatedInkTrailVisual_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2238603441, 57771, 23331, [142, 61, 213, 19, 242, 33, 201, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x856e60b1_e1ab_5b23_8e3d_d513f221c998);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26706,7 +26706,7 @@ pub struct IDelegatedInkTrailVisual_abi(
 pub struct IDelegatedInkTrailVisualStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDelegatedInkTrailVisualStatics {
     type Vtable = IDelegatedInkTrailVisualStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(229600213, 17094, 21852, [146, 103, 224, 172, 102, 58, 248, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0daf6bd5_42c6_555c_9267_e0ac663af836);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26725,7 +26725,7 @@ pub struct IDelegatedInkTrailVisualStatics_abi(
 pub struct IDistantLight(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDistantLight {
     type Vtable = IDistantLight_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(831322876, 23779, 19285, [171, 93, 7, 160, 3, 83, 172, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x318cfafc_5ce3_4b55_ab5d_07a00353ac99);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26750,7 +26750,7 @@ pub struct IDistantLight_abi(
 pub struct IDistantLight2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDistantLight2 {
     type Vtable = IDistantLight2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3687688732, 10571, 18647, [182, 14, 118, 223, 100, 170, 57, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbcdaa1c_294b_48d7_b60e_76df64aa392b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26769,7 +26769,7 @@ pub struct IDistantLight2_abi(
 pub struct IDropShadow(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDropShadow {
     type Vtable = IDropShadow_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3415702535, 41300, 18513, [133, 231, 168, 146, 76, 132, 250, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb977c07_a154_4851_85e7_a8924c84fad8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26798,7 +26798,7 @@ pub struct IDropShadow_abi(
 pub struct IDropShadow2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDropShadow2 {
     type Vtable = IDropShadow2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1816271036, 5561, 19501, [141, 74, 7, 103, 223, 17, 151, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c4218bc_15b9_4c2d_8d4a_0767df11977a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26817,7 +26817,7 @@ pub struct IDropShadow2_abi(
 pub struct IElasticEasingFunction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElasticEasingFunction {
     type Vtable = IElasticEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1725850245, 1358, 21908, [132, 117, 194, 44, 181, 31, 27, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66de6285_054e_5594_8475_c22cb51f1bd5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26837,7 +26837,7 @@ pub struct IElasticEasingFunction_abi(
 pub struct IExponentialEasingFunction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExponentialEasingFunction {
     type Vtable = IExponentialEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1870469713, 39122, 22072, [163, 74, 0, 72, 101, 84, 199, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f7d1a51_98d2_5638_a34a_00486554c750);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26856,7 +26856,7 @@ pub struct IExponentialEasingFunction_abi(
 pub struct IExpressionAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExpressionAnimation {
     type Vtable = IExpressionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1791775793, 32061, 19443, [171, 182, 244, 75, 220, 72, 136, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6acc5431_7d3d_4bf3_abb6_f44bdc4888c1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26875,7 +26875,7 @@ pub struct IExpressionAnimation_abi(
 pub struct IImplicitAnimationCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImplicitAnimationCollection {
     type Vtable = IImplicitAnimationCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(93889535, 2706, 19613, [164, 39, 178, 85, 25, 37, 13, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0598a3ff_0a92_4c9d_a427_b25519250dbf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26892,7 +26892,7 @@ pub struct IImplicitAnimationCollection_abi(
 pub struct IInsetClip(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInsetClip {
     type Vtable = IInsetClip_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(510912071, 33991, 18298, [180, 116, 88, 128, 224, 68, 46, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e73e647_84c7_477a_b474_5880e0442e15);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26917,7 +26917,7 @@ pub struct IInsetClip_abi(
 pub struct IKeyFrameAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyFrameAnimation {
     type Vtable = IKeyFrameAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(309231394, 15081, 17728, [154, 138, 222, 174, 138, 74, 74, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x126e7f22_3ae9_4540_9a8a_deae8a4a4a84);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26951,7 +26951,7 @@ pub struct IKeyFrameAnimation_abi(
 pub struct IKeyFrameAnimation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyFrameAnimation2 {
     type Vtable = IKeyFrameAnimation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4105472187, 10560, 20160, [164, 26, 235, 109, 128, 26, 47, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf4b488bb_2940_4ec0_a41a_eb6d801a2f18);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26970,7 +26970,7 @@ pub struct IKeyFrameAnimation2_abi(
 pub struct IKeyFrameAnimation3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyFrameAnimation3 {
     type Vtable = IKeyFrameAnimation3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2220617908, 55518, 17967, [135, 83, 200, 13, 67, 198, 255, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x845bf0b4_d8de_462f_8753_c80d43c6ff5a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26989,7 +26989,7 @@ pub struct IKeyFrameAnimation3_abi(
 pub struct IKeyFrameAnimationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyFrameAnimationFactory {
     type Vtable = IKeyFrameAnimationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3204973560, 28970, 20417, [140, 135, 151, 8, 89, 237, 141, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf0803f8_712a_4fc1_8c87_970859ed8d2e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27006,7 +27006,7 @@ pub struct IKeyFrameAnimationFactory_abi(
 pub struct ILayerVisual(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILayerVisual {
     type Vtable = ILayerVisual_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2944678277, 1092, 18567, [142, 131, 180, 11, 37, 63, 130, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf843985_0444_4887_8e83_b40b253f822c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27025,7 +27025,7 @@ pub struct ILayerVisual_abi(
 pub struct ILayerVisual2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILayerVisual2 {
     type Vtable = ILayerVisual2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2566500075, 28451, 18929, [144, 177, 31, 89, 161, 79, 188, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98f9aeeb_6f23_49f1_90b1_1f59a14fbce3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27044,7 +27044,7 @@ pub struct ILayerVisual2_abi(
 pub struct ILinearEasingFunction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILinearEasingFunction {
     type Vtable = ILinearEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2483066714, 51110, 18099, [172, 247, 26, 38, 138, 10, 17, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9400975a_c7a6_46b3_acf7_1a268a0a117d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27061,7 +27061,7 @@ pub struct ILinearEasingFunction_abi(
 pub struct INaturalMotionAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INaturalMotionAnimation {
     type Vtable = INaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1133371693, 30363, 18465, [169, 73, 40, 74, 101, 71, 232, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x438de12d_769b_4821_a949_284a6547e873);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27086,7 +27086,7 @@ pub struct INaturalMotionAnimation_abi(
 pub struct INaturalMotionAnimationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INaturalMotionAnimationFactory {
     type Vtable = INaturalMotionAnimationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4114270982, 53098, 17287, [163, 254, 82, 33, 243, 231, 224, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf53acb06_cf6a_4387_a3fe_5221f3e7e0e0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27103,7 +27103,7 @@ pub struct INaturalMotionAnimationFactory_abi(
 pub struct IPathKeyFrameAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPathKeyFrameAnimation {
     type Vtable = IPathKeyFrameAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2634881225, 5494, 19263, [190, 96, 29, 80, 49, 245, 231, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d0d18c9_1576_4b3f_be60_1d5031f5e71b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27122,7 +27122,7 @@ pub struct IPathKeyFrameAnimation_abi(
 pub struct IPointLight(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointLight {
     type Vtable = IPointLight_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2978301363, 3162, 19120, [190, 220, 79, 53, 70, 148, 130, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb18545b3_0c5a_4ab0_bedc_4f3546948272);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27153,7 +27153,7 @@ pub struct IPointLight_abi(
 pub struct IPointLight2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointLight2 {
     type Vtable = IPointLight2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4025061164, 1656, 20329, [177, 100, 168, 16, 217, 149, 188, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefe98f2c_0678_4f69_b164_a810d995bcb7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27172,7 +27172,7 @@ pub struct IPointLight2_abi(
 pub struct IPointLight3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointLight3 {
     type Vtable = IPointLight3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1275757415, 54505, 18058, [135, 174, 123, 164, 58, 178, 148, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c0a8367_d4e9_468a_87ae_7ba43ab29485);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27193,7 +27193,7 @@ pub struct IPointLight3_abi(
 pub struct IPowerEasingFunction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPowerEasingFunction {
     type Vtable = IPowerEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3288290262, 5003, 22549, [137, 26, 183, 246, 21, 204, 197, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3ff53d6_138b_5815_891a_b7f615ccc563);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27212,7 +27212,7 @@ pub struct IPowerEasingFunction_abi(
 pub struct IQuaternionKeyFrameAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IQuaternionKeyFrameAnimation {
     type Vtable = IQuaternionKeyFrameAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1078876213, 60662, 16960, [133, 32, 103, 18, 121, 207, 54, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x404e5835_ecf6_4240_8520_671279cf36bc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27233,7 +27233,7 @@ pub struct IQuaternionKeyFrameAnimation_abi(
 pub struct IRectangleClip(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRectangleClip {
     type Vtable = IRectangleClip_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3018282142, 180, 23379, [139, 232, 53, 63, 108, 67, 49, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3e7549e_00b4_5b53_8be8_353f6c433101);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27274,7 +27274,7 @@ pub struct IRectangleClip_abi(
 pub struct IRedirectVisual(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRedirectVisual {
     type Vtable = IRedirectVisual_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2361844544, 35701, 21538, [176, 111, 9, 255, 233, 248, 97, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cc6e340_8b75_5422_b06f_09ffe9f8617e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27293,7 +27293,7 @@ pub struct IRedirectVisual_abi(
 pub struct IRenderingDeviceReplacedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRenderingDeviceReplacedEventArgs {
     type Vtable = IRenderingDeviceReplacedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(976333949, 10431, 20090, [133, 36, 113, 103, 157, 72, 15, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a31ac7d_28bf_4e7a_8524_71679d480f38);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27311,7 +27311,7 @@ pub struct IRenderingDeviceReplacedEventArgs_abi(
 pub struct IScalarKeyFrameAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScalarKeyFrameAnimation {
     type Vtable = IScalarKeyFrameAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2921893801, 9516, 19349, [167, 37, 191, 133, 227, 128, 0, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae288fa9_252c_4b95_a725_bf85e38000a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27330,7 +27330,7 @@ pub struct IScalarKeyFrameAnimation_abi(
 pub struct IScalarNaturalMotionAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScalarNaturalMotionAnimation {
     type Vtable = IScalarNaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2494121345, 49042, 18779, [181, 189, 210, 198, 89, 67, 7, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94a94581_bf92_495b_b5bd_d2c659430737);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27357,7 +27357,7 @@ pub struct IScalarNaturalMotionAnimation_abi(
 pub struct IScalarNaturalMotionAnimationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScalarNaturalMotionAnimationFactory {
     type Vtable = IScalarNaturalMotionAnimationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2203755772, 26396, 16861, [175, 72, 174, 141, 239, 139, 21, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x835aa4fc_671c_41dd_af48_ae8def8b1529);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27374,7 +27374,7 @@ pub struct IScalarNaturalMotionAnimationFactory_abi(
 pub struct IShapeVisual(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShapeVisual {
     type Vtable = IShapeVisual_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4072477635, 47742, 19215, [145, 38, 255, 183, 83, 107, 129, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2bd13c3_ba7e_4b0f_9126_ffb7536b8176);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27395,7 +27395,7 @@ pub struct IShapeVisual_abi(
 pub struct ISineEasingFunction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISineEasingFunction {
     type Vtable = ISineEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4055177407, 38243, 21620, [189, 19, 68, 178, 223, 75, 29, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1b518bf_9563_5474_bd13_44b2df4b1d58);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27413,7 +27413,7 @@ pub struct ISineEasingFunction_abi(
 pub struct ISpotLight(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpotLight {
     type Vtable = ISpotLight_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1520427635, 17569, 20373, [164, 34, 143, 165, 17, 107, 219, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a9fe273_44a1_4f95_a422_8fa5116bdb44);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27458,7 +27458,7 @@ pub struct ISpotLight_abi(
 pub struct ISpotLight2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpotLight2 {
     type Vtable = ISpotLight2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1693344094, 1670, 19946, [169, 232, 188, 58, 140, 112, 20, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64ee615e_0686_4dea_a9e8_bc3a8c701459);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27479,7 +27479,7 @@ pub struct ISpotLight2_abi(
 pub struct ISpotLight3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpotLight3 {
     type Vtable = ISpotLight3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3838852842, 4895, 18446, [133, 158, 184, 39, 5, 183, 67, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4d03eea_131f_480e_859e_b82705b74360);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27500,7 +27500,7 @@ pub struct ISpotLight3_abi(
 pub struct ISpringScalarNaturalMotionAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpringScalarNaturalMotionAnimation {
     type Vtable = ISpringScalarNaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(91400543, 14329, 20414, [184, 123, 92, 208, 58, 137, 80, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0572a95f_37f9_4fbe_b87b_5cd03a89501c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27523,7 +27523,7 @@ pub struct ISpringScalarNaturalMotionAnimation_abi(
 pub struct ISpringVector2NaturalMotionAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpringVector2NaturalMotionAnimation {
     type Vtable = ISpringVector2NaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(603231413, 61043, 20239, [164, 35, 64, 43, 148, 109, 244, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23f494b5_ee73_4f0f_a423_402b946df4b3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27546,7 +27546,7 @@ pub struct ISpringVector2NaturalMotionAnimation_abi(
 pub struct ISpringVector3NaturalMotionAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpringVector3NaturalMotionAnimation {
     type Vtable = ISpringVector3NaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1820805599, 54651, 18324, [142, 45, 206, 203, 17, 225, 148, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c8749df_d57b_4794_8e2d_cecb11e194e5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27569,7 +27569,7 @@ pub struct ISpringVector3NaturalMotionAnimation_abi(
 pub struct ISpriteVisual(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpriteVisual {
     type Vtable = ISpriteVisual_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(148919681, 6865, 20375, [151, 87, 64, 45, 118, 228, 35, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08e05581_1ad1_4f97_9757_402d76e4233b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27588,7 +27588,7 @@ pub struct ISpriteVisual_abi(
 pub struct ISpriteVisual2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpriteVisual2 {
     type Vtable = ISpriteVisual2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1485608548, 39290, 18512, [145, 254, 83, 203, 88, 248, 28, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x588c9664_997a_4850_91fe_53cb58f81ce9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27607,7 +27607,7 @@ pub struct ISpriteVisual2_abi(
 pub struct IStepEasingFunction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStepEasingFunction {
     type Vtable = IStepEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3502942027, 22028, 18955, [165, 246, 32, 108, 168, 195, 236, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0caa74b_560c_4a0b_a5f6_206ca8c3ecd6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27634,7 +27634,7 @@ pub struct IStepEasingFunction_abi(
 pub struct IVector2KeyFrameAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVector2KeyFrameAnimation {
     type Vtable = IVector2KeyFrameAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3745596693, 20009, 20241, [181, 94, 191, 42, 110, 179, 98, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf414515_4e29_4f11_b55e_bf2a6eb36294);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27655,7 +27655,7 @@ pub struct IVector2KeyFrameAnimation_abi(
 pub struct IVector2NaturalMotionAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVector2NaturalMotionAnimation {
     type Vtable = IVector2NaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(255724413, 58642, 18333, [160, 12, 119, 201, 58, 48, 163, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f3e0b7d_e512_479d_a00c_77c93a30a395);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27684,7 +27684,7 @@ pub struct IVector2NaturalMotionAnimation_abi(
 pub struct IVector2NaturalMotionAnimationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVector2NaturalMotionAnimationFactory {
     type Vtable = IVector2NaturalMotionAnimationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2356477793, 1889, 18594, [189, 219, 106, 252, 197, 43, 137, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c74ff61_0761_48a2_bddb_6afcc52b89d8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27701,7 +27701,7 @@ pub struct IVector2NaturalMotionAnimationFactory_abi(
 pub struct IVector3KeyFrameAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVector3KeyFrameAnimation {
     type Vtable = IVector3KeyFrameAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3355680170, 41601, 17346, [167, 61, 182, 142, 60, 83, 60, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8039daa_a281_43c2_a73d_b68e3c533c40);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27722,7 +27722,7 @@ pub struct IVector3KeyFrameAnimation_abi(
 pub struct IVector3NaturalMotionAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVector3NaturalMotionAnimation {
     type Vtable = IVector3NaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2618754092, 58058, 17837, [150, 158, 78, 120, 183, 185, 173, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c17042c_e2ca_45ad_969e_4e78b7b9ad41);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27751,7 +27751,7 @@ pub struct IVector3NaturalMotionAnimation_abi(
 pub struct IVector3NaturalMotionAnimationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVector3NaturalMotionAnimationFactory {
     type Vtable = IVector3NaturalMotionAnimationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(564665647, 2176, 17787, [172, 135, 182, 9, 1, 140, 135, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x21a81d2f_0880_457b_ac87_b609018c876d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27768,7 +27768,7 @@ pub struct IVector3NaturalMotionAnimationFactory_abi(
 pub struct IVector4KeyFrameAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVector4KeyFrameAnimation {
     type Vtable = IVector4KeyFrameAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(609719387, 44509, 17285, [150, 6, 182, 163, 213, 228, 225, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2457945b_addd_4385_9606_b6a3d5e4e1b9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27789,7 +27789,7 @@ pub struct IVector4KeyFrameAnimation_abi(
 pub struct IVisual(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisual {
     type Vtable = IVisual_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(293478445, 43097, 19593, [135, 59, 194, 170, 86, 103, 136, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x117e202d_a859_4c89_873b_c2aa566788e3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27855,7 +27855,7 @@ pub struct IVisual_abi(
 pub struct IVisual2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisual2 {
     type Vtable = IVisual2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(810726929, 22211, 19518, [139, 243, 246, 225, 173, 71, 63, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3052b611_56c3_4c3e_8bf3_f6e1ad473f06);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27882,7 +27882,7 @@ pub struct IVisual2_abi(
 pub struct IVisual3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisual3 {
     type Vtable = IVisual3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(817780749, 62646, 19127, [128, 221, 55, 56, 203, 172, 159, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30be580d_f4b6_4ab7_80dd_3738cbac9f2c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27901,7 +27901,7 @@ pub struct IVisual3_abi(
 pub struct IVisual4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisual4 {
     type Vtable = IVisual4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2490810129, 57931, 23545, [158, 190, 98, 116, 16, 155, 39, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9476bf11_e24b_5bf9_9ebe_6274109b2711);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27920,7 +27920,7 @@ pub struct IVisual4_abi(
 pub struct IVisualCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualCollection {
     type Vtable = IVisualCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2339656965, 64830, 19096, [132, 168, 233, 73, 70, 140, 107, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b745505_fd3e_4a98_84a8_e949468c6bcb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27945,7 +27945,7 @@ pub struct IVisualCollection_abi(
 pub struct IVisualElement(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualElement {
     type Vtable = IVisualElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(31868434, 7554, 17140, [142, 63, 167, 34, 222, 211, 63, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01e64612_1d82_42f4_8e3f_a722ded33fc7);
 }
 impl IVisualElement {}
 unsafe impl ::windows::runtime::RuntimeType for IVisualElement {
@@ -28007,7 +28007,7 @@ pub struct IVisualElement_abi(
 pub struct IVisualElement2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualElement2 {
     type Vtable = IVisualElement2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2570774688, 24663, 24128, [145, 140, 224, 110, 11, 126, 124, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x993ae8a0_6057_5e40_918c_e06e0b7e7c64);
 }
 impl IVisualElement2 {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -28078,7 +28078,7 @@ pub struct IVisualElement2_abi(
 pub struct IVisualFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualFactory {
     type Vtable = IVisualFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2903505214, 46338, 20149, [135, 180, 154, 56, 167, 29, 1, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad0ff93e_b502_4eb5_87b4_9a38a71d0137);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28095,7 +28095,7 @@ pub struct IVisualFactory_abi(
 pub struct IVisualUnorderedCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualUnorderedCollection {
     type Vtable = IVisualUnorderedCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(865053296, 21704, 16551, [128, 41, 201, 206, 235, 10, 162, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x338faa70_54c8_40a7_8029_c9ceeb0aa250);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28287,7 +28287,7 @@ unsafe impl ::windows::runtime::RuntimeType for ImplicitAnimationCollection {
 }
 unsafe impl ::windows::runtime::Interface for ImplicitAnimationCollection {
     type Vtable = IImplicitAnimationCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(93889535, 2706, 19613, [164, 39, 178, 85, 25, 37, 13, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0598a3ff_0a92_4c9d_a427_b25519250dbf);
 }
 impl ::windows::runtime::RuntimeName for ImplicitAnimationCollection {
     const NAME: &'static str = "Windows.UI.Composition.ImplicitAnimationCollection";
@@ -29155,7 +29155,7 @@ unsafe impl ::windows::runtime::RuntimeType for InsetClip {
 }
 unsafe impl ::windows::runtime::Interface for InsetClip {
     type Vtable = IInsetClip_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(510912071, 33991, 18298, [180, 116, 88, 128, 224, 68, 46, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e73e647_84c7_477a_b474_5880e0442e15);
 }
 impl ::windows::runtime::RuntimeName for InsetClip {
     const NAME: &'static str = "Windows.UI.Composition.InsetClip";
@@ -29606,7 +29606,7 @@ unsafe impl ::windows::runtime::RuntimeType for KeyFrameAnimation {
 }
 unsafe impl ::windows::runtime::Interface for KeyFrameAnimation {
     type Vtable = IKeyFrameAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(309231394, 15081, 17728, [154, 138, 222, 174, 138, 74, 74, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x126e7f22_3ae9_4540_9a8a_deae8a4a4a84);
 }
 impl ::windows::runtime::RuntimeName for KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.KeyFrameAnimation";
@@ -30208,7 +30208,7 @@ unsafe impl ::windows::runtime::RuntimeType for LayerVisual {
 }
 unsafe impl ::windows::runtime::Interface for LayerVisual {
     type Vtable = ILayerVisual_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2944678277, 1092, 18567, [142, 131, 180, 11, 37, 63, 130, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf843985_0444_4887_8e83_b40b253f822c);
 }
 impl ::windows::runtime::RuntimeName for LayerVisual {
     const NAME: &'static str = "Windows.UI.Composition.LayerVisual";
@@ -30473,7 +30473,7 @@ unsafe impl ::windows::runtime::RuntimeType for LinearEasingFunction {
 }
 unsafe impl ::windows::runtime::Interface for LinearEasingFunction {
     type Vtable = ILinearEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2483066714, 51110, 18099, [172, 247, 26, 38, 138, 10, 17, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9400975a_c7a6_46b3_acf7_1a268a0a117d);
 }
 impl ::windows::runtime::RuntimeName for LinearEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.LinearEasingFunction";
@@ -30852,7 +30852,7 @@ unsafe impl ::windows::runtime::RuntimeType for NaturalMotionAnimation {
 }
 unsafe impl ::windows::runtime::Interface for NaturalMotionAnimation {
     type Vtable = INaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1133371693, 30363, 18465, [169, 73, 40, 74, 101, 71, 232, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x438de12d_769b_4821_a949_284a6547e873);
 }
 impl ::windows::runtime::RuntimeName for NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.NaturalMotionAnimation";
@@ -31335,7 +31335,7 @@ unsafe impl ::windows::runtime::RuntimeType for PathKeyFrameAnimation {
 }
 unsafe impl ::windows::runtime::Interface for PathKeyFrameAnimation {
     type Vtable = IPathKeyFrameAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2634881225, 5494, 19263, [190, 96, 29, 80, 49, 245, 231, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d0d18c9_1576_4b3f_be60_1d5031f5e71b);
 }
 impl ::windows::runtime::RuntimeName for PathKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.PathKeyFrameAnimation";
@@ -31770,7 +31770,7 @@ unsafe impl ::windows::runtime::RuntimeType for PointLight {
 }
 unsafe impl ::windows::runtime::Interface for PointLight {
     type Vtable = IPointLight_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2978301363, 3162, 19120, [190, 220, 79, 53, 70, 148, 130, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb18545b3_0c5a_4ab0_bedc_4f3546948272);
 }
 impl ::windows::runtime::RuntimeName for PointLight {
     const NAME: &'static str = "Windows.UI.Composition.PointLight";
@@ -32031,7 +32031,7 @@ unsafe impl ::windows::runtime::RuntimeType for PowerEasingFunction {
 }
 unsafe impl ::windows::runtime::Interface for PowerEasingFunction {
     type Vtable = IPowerEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3288290262, 5003, 22549, [137, 26, 183, 246, 21, 204, 197, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3ff53d6_138b_5815_891a_b7f615ccc563);
 }
 impl ::windows::runtime::RuntimeName for PowerEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.PowerEasingFunction";
@@ -32494,7 +32494,7 @@ unsafe impl ::windows::runtime::RuntimeType for QuaternionKeyFrameAnimation {
 }
 unsafe impl ::windows::runtime::Interface for QuaternionKeyFrameAnimation {
     type Vtable = IQuaternionKeyFrameAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1078876213, 60662, 16960, [133, 32, 103, 18, 121, 207, 54, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x404e5835_ecf6_4240_8520_671279cf36bc);
 }
 impl ::windows::runtime::RuntimeName for QuaternionKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.QuaternionKeyFrameAnimation";
@@ -32994,7 +32994,7 @@ unsafe impl ::windows::runtime::RuntimeType for RectangleClip {
 }
 unsafe impl ::windows::runtime::Interface for RectangleClip {
     type Vtable = IRectangleClip_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3018282142, 180, 23379, [139, 232, 53, 63, 108, 67, 49, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3e7549e_00b4_5b53_8be8_353f6c433101);
 }
 impl ::windows::runtime::RuntimeName for RectangleClip {
     const NAME: &'static str = "Windows.UI.Composition.RectangleClip";
@@ -33561,7 +33561,7 @@ unsafe impl ::windows::runtime::RuntimeType for RedirectVisual {
 }
 unsafe impl ::windows::runtime::Interface for RedirectVisual {
     type Vtable = IRedirectVisual_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2361844544, 35701, 21538, [176, 111, 9, 255, 233, 248, 97, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cc6e340_8b75_5422_b06f_09ffe9f8617e);
 }
 impl ::windows::runtime::RuntimeName for RedirectVisual {
     const NAME: &'static str = "Windows.UI.Composition.RedirectVisual";
@@ -33834,7 +33834,7 @@ unsafe impl ::windows::runtime::RuntimeType for RenderingDeviceReplacedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for RenderingDeviceReplacedEventArgs {
     type Vtable = IRenderingDeviceReplacedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(976333949, 10431, 20090, [133, 36, 113, 103, 157, 72, 15, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a31ac7d_28bf_4e7a_8524_71679d480f38);
 }
 impl ::windows::runtime::RuntimeName for RenderingDeviceReplacedEventArgs {
     const NAME: &'static str = "Windows.UI.Composition.RenderingDeviceReplacedEventArgs";
@@ -34275,7 +34275,7 @@ unsafe impl ::windows::runtime::RuntimeType for ScalarKeyFrameAnimation {
 }
 unsafe impl ::windows::runtime::Interface for ScalarKeyFrameAnimation {
     type Vtable = IScalarKeyFrameAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2921893801, 9516, 19349, [167, 37, 191, 133, 227, 128, 0, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae288fa9_252c_4b95_a725_bf85e38000a1);
 }
 impl ::windows::runtime::RuntimeName for ScalarKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ScalarKeyFrameAnimation";
@@ -34739,7 +34739,7 @@ unsafe impl ::windows::runtime::RuntimeType for ScalarNaturalMotionAnimation {
 }
 unsafe impl ::windows::runtime::Interface for ScalarNaturalMotionAnimation {
     type Vtable = IScalarNaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2494121345, 49042, 18779, [181, 189, 210, 198, 89, 67, 7, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94a94581_bf92_495b_b5bd_d2c659430737);
 }
 impl ::windows::runtime::RuntimeName for ScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ScalarNaturalMotionAnimation";
@@ -35357,7 +35357,7 @@ unsafe impl ::windows::runtime::RuntimeType for ShapeVisual {
 }
 unsafe impl ::windows::runtime::Interface for ShapeVisual {
     type Vtable = IShapeVisual_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4072477635, 47742, 19215, [145, 38, 255, 183, 83, 107, 129, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2bd13c3_ba7e_4b0f_9126_ffb7536b8176);
 }
 impl ::windows::runtime::RuntimeName for ShapeVisual {
     const NAME: &'static str = "Windows.UI.Composition.ShapeVisual";
@@ -35630,7 +35630,7 @@ unsafe impl ::windows::runtime::RuntimeType for SineEasingFunction {
 }
 unsafe impl ::windows::runtime::Interface for SineEasingFunction {
     type Vtable = ISineEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4055177407, 38243, 21620, [189, 19, 68, 178, 223, 75, 29, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1b518bf_9563_5474_bd13_44b2df4b1d58);
 }
 impl ::windows::runtime::RuntimeName for SineEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.SineEasingFunction";
@@ -36116,7 +36116,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpotLight {
 }
 unsafe impl ::windows::runtime::Interface for SpotLight {
     type Vtable = ISpotLight_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1520427635, 17569, 20373, [164, 34, 143, 165, 17, 107, 219, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a9fe273_44a1_4f95_a422_8fa5116bdb44);
 }
 impl ::windows::runtime::RuntimeName for SpotLight {
     const NAME: &'static str = "Windows.UI.Composition.SpotLight";
@@ -36566,7 +36566,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpringScalarNaturalMotionAnimati
 }
 unsafe impl ::windows::runtime::Interface for SpringScalarNaturalMotionAnimation {
     type Vtable = ISpringScalarNaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(91400543, 14329, 20414, [184, 123, 92, 208, 58, 137, 80, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0572a95f_37f9_4fbe_b87b_5cd03a89501c);
 }
 impl ::windows::runtime::RuntimeName for SpringScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.SpringScalarNaturalMotionAnimation";
@@ -37080,7 +37080,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpringVector2NaturalMotionAnimat
 }
 unsafe impl ::windows::runtime::Interface for SpringVector2NaturalMotionAnimation {
     type Vtable = ISpringVector2NaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(603231413, 61043, 20239, [164, 35, 64, 43, 148, 109, 244, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23f494b5_ee73_4f0f_a423_402b946df4b3);
 }
 impl ::windows::runtime::RuntimeName for SpringVector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.SpringVector2NaturalMotionAnimation";
@@ -37594,7 +37594,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpringVector3NaturalMotionAnimat
 }
 unsafe impl ::windows::runtime::Interface for SpringVector3NaturalMotionAnimation {
     type Vtable = ISpringVector3NaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1820805599, 54651, 18324, [142, 45, 206, 203, 17, 225, 148, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c8749df_d57b_4794_8e2d_cecb11e194e5);
 }
 impl ::windows::runtime::RuntimeName for SpringVector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.SpringVector3NaturalMotionAnimation";
@@ -38236,7 +38236,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpriteVisual {
 }
 unsafe impl ::windows::runtime::Interface for SpriteVisual {
     type Vtable = ISpriteVisual_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(148919681, 6865, 20375, [151, 87, 64, 45, 118, 228, 35, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08e05581_1ad1_4f97_9757_402d76e4233b);
 }
 impl ::windows::runtime::RuntimeName for SpriteVisual {
     const NAME: &'static str = "Windows.UI.Composition.SpriteVisual";
@@ -38566,7 +38566,7 @@ unsafe impl ::windows::runtime::RuntimeType for StepEasingFunction {
 }
 unsafe impl ::windows::runtime::Interface for StepEasingFunction {
     type Vtable = IStepEasingFunction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3502942027, 22028, 18955, [165, 246, 32, 108, 168, 195, 236, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0caa74b_560c_4a0b_a5f6_206ca8c3ecd6);
 }
 impl ::windows::runtime::RuntimeName for StepEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.StepEasingFunction";
@@ -39029,7 +39029,7 @@ unsafe impl ::windows::runtime::RuntimeType for Vector2KeyFrameAnimation {
 }
 unsafe impl ::windows::runtime::Interface for Vector2KeyFrameAnimation {
     type Vtable = IVector2KeyFrameAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3745596693, 20009, 20241, [181, 94, 191, 42, 110, 179, 98, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf414515_4e29_4f11_b55e_bf2a6eb36294);
 }
 impl ::windows::runtime::RuntimeName for Vector2KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector2KeyFrameAnimation";
@@ -39495,7 +39495,7 @@ unsafe impl ::windows::runtime::RuntimeType for Vector2NaturalMotionAnimation {
 }
 unsafe impl ::windows::runtime::Interface for Vector2NaturalMotionAnimation {
     type Vtable = IVector2NaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(255724413, 58642, 18333, [160, 12, 119, 201, 58, 48, 163, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f3e0b7d_e512_479d_a00c_77c93a30a395);
 }
 impl ::windows::runtime::RuntimeName for Vector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector2NaturalMotionAnimation";
@@ -40000,7 +40000,7 @@ unsafe impl ::windows::runtime::RuntimeType for Vector3KeyFrameAnimation {
 }
 unsafe impl ::windows::runtime::Interface for Vector3KeyFrameAnimation {
     type Vtable = IVector3KeyFrameAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3355680170, 41601, 17346, [167, 61, 182, 142, 60, 83, 60, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8039daa_a281_43c2_a73d_b68e3c533c40);
 }
 impl ::windows::runtime::RuntimeName for Vector3KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector3KeyFrameAnimation";
@@ -40466,7 +40466,7 @@ unsafe impl ::windows::runtime::RuntimeType for Vector3NaturalMotionAnimation {
 }
 unsafe impl ::windows::runtime::Interface for Vector3NaturalMotionAnimation {
     type Vtable = IVector3NaturalMotionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2618754092, 58058, 17837, [150, 158, 78, 120, 183, 185, 173, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c17042c_e2ca_45ad_969e_4e78b7b9ad41);
 }
 impl ::windows::runtime::RuntimeName for Vector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector3NaturalMotionAnimation";
@@ -40971,7 +40971,7 @@ unsafe impl ::windows::runtime::RuntimeType for Vector4KeyFrameAnimation {
 }
 unsafe impl ::windows::runtime::Interface for Vector4KeyFrameAnimation {
     type Vtable = IVector4KeyFrameAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(609719387, 44509, 17285, [150, 6, 182, 163, 213, 228, 225, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2457945b_addd_4385_9606_b6a3d5e4e1b9);
 }
 impl ::windows::runtime::RuntimeName for Vector4KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector4KeyFrameAnimation";
@@ -41559,7 +41559,7 @@ unsafe impl ::windows::runtime::RuntimeType for Visual {
 }
 unsafe impl ::windows::runtime::Interface for Visual {
     type Vtable = IVisual_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(293478445, 43097, 19593, [135, 59, 194, 170, 86, 103, 136, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x117e202d_a859_4c89_873b_c2aa566788e3);
 }
 impl ::windows::runtime::RuntimeName for Visual {
     const NAME: &'static str = "Windows.UI.Composition.Visual";
@@ -41831,7 +41831,7 @@ unsafe impl ::windows::runtime::RuntimeType for VisualCollection {
 }
 unsafe impl ::windows::runtime::Interface for VisualCollection {
     type Vtable = IVisualCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2339656965, 64830, 19096, [132, 168, 233, 73, 70, 140, 107, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b745505_fd3e_4a98_84a8_e949468c6bcb);
 }
 impl ::windows::runtime::RuntimeName for VisualCollection {
     const NAME: &'static str = "Windows.UI.Composition.VisualCollection";
@@ -42130,7 +42130,7 @@ unsafe impl ::windows::runtime::RuntimeType for VisualUnorderedCollection {
 }
 unsafe impl ::windows::runtime::Interface for VisualUnorderedCollection {
     type Vtable = IVisualUnorderedCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(865053296, 21704, 16551, [128, 41, 201, 206, 235, 10, 162, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x338faa70_54c8_40a7_8029_c9ceeb0aa250);
 }
 impl ::windows::runtime::RuntimeName for VisualUnorderedCollection {
     const NAME: &'static str = "Windows.UI.Composition.VisualUnorderedCollection";

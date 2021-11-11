@@ -4,7 +4,7 @@
 pub struct ILanguageFont(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageFont {
     type Vtable = ILanguageFont_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2972605498, 46957, 17819, [190, 235, 144, 17, 81, 205, 119, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb12e5c3a_b76d_459b_beeb_901151cd77d1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29,7 +29,7 @@ pub struct ILanguageFont_abi(
 pub struct ILanguageFontGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageFontGroup {
     type Vtable = ILanguageFontGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4080697283, 14940, 19178, [185, 255, 179, 159, 178, 66, 247, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf33a7fc3_3a5c_4aea_b9ff_b39fb242f7f6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -57,7 +57,7 @@ pub struct ILanguageFontGroup_abi(
 pub struct ILanguageFontGroupFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageFontGroupFactory {
     type Vtable = ILanguageFontGroupFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4239305831, 20087, 18887, [184, 86, 221, 233, 52, 252, 115, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcaeac67_4e77_49c7_b856_dde934fc735b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -124,7 +124,7 @@ unsafe impl ::windows::runtime::RuntimeType for LanguageFont {
 }
 unsafe impl ::windows::runtime::Interface for LanguageFont {
     type Vtable = ILanguageFont_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2972605498, 46957, 17819, [190, 235, 144, 17, 81, 205, 119, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb12e5c3a_b76d_459b_beeb_901151cd77d1);
 }
 impl ::windows::runtime::RuntimeName for LanguageFont {
     const NAME: &'static str = "Windows.Globalization.Fonts.LanguageFont";
@@ -281,7 +281,7 @@ unsafe impl ::windows::runtime::RuntimeType for LanguageFontGroup {
 }
 unsafe impl ::windows::runtime::Interface for LanguageFontGroup {
     type Vtable = ILanguageFontGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4080697283, 14940, 19178, [185, 255, 179, 159, 178, 66, 247, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf33a7fc3_3a5c_4aea_b9ff_b39fb242f7f6);
 }
 impl ::windows::runtime::RuntimeName for LanguageFontGroup {
     const NAME: &'static str = "Windows.Globalization.Fonts.LanguageFontGroup";

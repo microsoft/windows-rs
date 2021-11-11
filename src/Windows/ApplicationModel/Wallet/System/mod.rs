@@ -4,7 +4,7 @@
 pub struct IWalletItemSystemStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemSystemStore {
     type Vtable = IWalletItemSystemStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1378757631, 38562, 18967, [141, 25, 254, 29, 159, 131, 117, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x522e2bff_96a2_4a17_8d19_fe1d9f837561);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30,7 +30,7 @@ pub struct IWalletItemSystemStore_abi(
 pub struct IWalletItemSystemStore2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemSystemStore2 {
     type Vtable = IWalletItemSystemStore2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4186782286, 48640, 20445, [151, 52, 108, 17, 60, 26, 193, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf98d3a4e_be00_4fdd_9734_6c113c1ac1cb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -51,7 +51,7 @@ pub struct IWalletItemSystemStore2_abi(
 pub struct IWalletManagerSystemStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletManagerSystemStatics {
     type Vtable = IWalletManagerSystemStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3202935689, 9780, 19354, [139, 35, 238, 137, 3, 201, 31, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbee8eb89_2634_4b9a_8b23_ee8903c91fe0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -158,7 +158,7 @@ unsafe impl ::windows::runtime::RuntimeType for WalletItemSystemStore {
 }
 unsafe impl ::windows::runtime::Interface for WalletItemSystemStore {
     type Vtable = IWalletItemSystemStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1378757631, 38562, 18967, [141, 25, 254, 29, 159, 131, 117, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x522e2bff_96a2_4a17_8d19_fe1d9f837561);
 }
 impl ::windows::runtime::RuntimeName for WalletItemSystemStore {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.System.WalletItemSystemStore";

@@ -27,8 +27,8 @@ impl ::core::cmp::Eq for CLASSIC_EVENT_ID {}
 unsafe impl ::windows::runtime::Abi for CLASSIC_EVENT_ID {
     type Abi = Self;
 }
-pub const CLSID_TraceRelogger: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2067822893, 1535, 17604, [144, 88, 244, 64, 199, 31, 23, 212]);
-pub const CTraceRelogger: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2067822893, 1535, 17604, [144, 88, 244, 64, 199, 31, 23, 212]);
+pub const CLSID_TraceRelogger: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
+pub const CTraceRelogger: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
 pub unsafe fn CloseTrace(tracehandle: u64) -> u32 {
@@ -120,7 +120,7 @@ impl ::core::convert::From<i32> for DECODING_SOURCE {
 unsafe impl ::windows::runtime::Abi for DECODING_SOURCE {
     type Abi = Self;
 }
-pub const DefaultTraceSecurityGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(135381423, 31239, 18950, [130, 237, 134, 148, 85, 205, 247, 19]);
+pub const DefaultTraceSecurityGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0811c1af_7a07_4a06_82ed_869455cdf713);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -3399,8 +3399,8 @@ pub unsafe fn EventSetInformation(reghandle: u64, informationclass: EVENT_INFO_C
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const EventTraceConfigGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(25508453, 16783, 20278, [174, 252, 220, 15, 29, 47, 210, 53]);
-pub const EventTraceGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1761466624, 19006, 4561, [132, 244, 0, 0, 248, 4, 100, 227]);
+pub const EventTraceConfigGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01853a65_418f_4f36_aefc_dc0f1d2fd235);
+pub const EventTraceGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68fdd900_4a3e_11d1_84f4_0000f80464e3);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
 pub unsafe fn EventUnregister(reghandle: u64) -> u32 {
@@ -3611,7 +3611,7 @@ impl ITraceEvent {
 }
 unsafe impl ::windows::runtime::Interface for ITraceEvent {
     type Vtable = ITraceEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2362015552, 36904, 20467, [155, 98, 125, 31, 121, 202, 123, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cc97f40_9028_4ff3_9b62_7d1f79ca7bcb);
 }
 impl ::core::convert::From<ITraceEvent> for ::windows::runtime::IUnknown {
     fn from(value: ITraceEvent) -> Self {
@@ -3672,7 +3672,7 @@ impl ITraceEventCallback {
 }
 unsafe impl ::windows::runtime::Interface for ITraceEventCallback {
     type Vtable = ITraceEventCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1053971713, 22847, 17385, [143, 56, 58, 180, 111, 90, 74, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ed25501_593f_43e9_8f38_3ab46f5a4a52);
 }
 impl ::core::convert::From<ITraceEventCallback> for ::windows::runtime::IUnknown {
     fn from(value: ITraceEventCallback) -> Self {
@@ -3755,7 +3755,7 @@ impl ITraceRelogger {
 }
 unsafe impl ::windows::runtime::Interface for ITraceRelogger {
     type Vtable = ITraceRelogger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4149521731, 15308, 17030, [128, 9, 156, 93, 162, 20, 232, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf754ad43_3bcc_4286_8009_9c5da214e84e);
 }
 impl ::core::convert::From<ITraceRelogger> for ::windows::runtime::IUnknown {
     fn from(value: ITraceRelogger) -> Self {
@@ -4229,7 +4229,7 @@ impl ::core::cmp::Eq for PROVIDER_FILTER_INFO {}
 unsafe impl ::windows::runtime::Abi for PROVIDER_FILTER_INFO {
     type Abi = Self;
 }
-pub const PrivateLoggerNotificationGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(899001180, 1066, 19598, [185, 66, 45, 5, 155, 254, 177, 177]);
+pub const PrivateLoggerNotificationGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3595ab5c_042a_4c8e_b942_2d059bfeb1b1);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -4645,24 +4645,24 @@ pub unsafe fn StopTraceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const SystemAlpcProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4240030383, 58665, 18816, [146, 233, 206, 209, 166, 170, 223, 223]);
-pub const SystemConfigProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4277381302, 12685, 19303, [169, 106, 59, 15, 107, 143, 24, 254]);
-pub const SystemCpuProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3334809183, 60136, 18000, [170, 228, 157, 72, 96, 61, 133, 16]);
-pub const SystemHypervisorProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3136948010, 37258, 19437, [182, 34, 188, 21, 32, 151, 9, 143]);
-pub const SystemInterruptProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3569085975, 46405, 18568, [133, 139, 116, 65, 105, 1, 91, 37]);
-pub const SystemIoFilterProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4224750435, 40482, 18017, [184, 191, 231, 163, 75, 83, 91, 140]);
-pub const SystemIoProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029456867, 3868, 16898, [184, 23, 23, 76, 0, 112, 220, 121]);
-pub const SystemLockProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1914560467, 56012, 19998, [178, 106, 162, 203, 49, 212, 112, 90]);
-pub const SystemMemoryProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2190838953, 46797, 18424, [163, 168, 3, 174, 133, 164, 188, 36]);
-pub const SystemObjectProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4273828960, 15645, 18411, [175, 73, 201, 238, 177, 225, 70, 242]);
-pub const SystemPowerProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3241445450, 13013, 17544, [128, 229, 20, 237, 122, 187, 130, 105]);
-pub const SystemProcessProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(354375132, 18045, 18207, [131, 181, 95, 136, 157, 70, 255, 102]);
-pub const SystemProfileProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3219850020, 7406, 18799, [164, 9, 42, 194, 180, 138, 99, 34]);
-pub const SystemRegistryProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(370502617, 64180, 19706, [162, 50, 137, 209, 9, 144, 88, 227]);
-pub const SystemSchedulerProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1503275638, 19857, 18704, [154, 199, 125, 51, 242, 233, 122, 108]);
-pub const SystemSyscallProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1128433399, 28443, 17851, [179, 126, 149, 246, 35, 4, 108, 124]);
-pub const SystemTimerProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1325798760, 57877, 18847, [171, 46, 237, 160, 174, 137, 10, 91]);
-pub const SystemTraceControlGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2659273389, 12804, 4562, [154, 130, 0, 96, 8, 168, 105, 57]);
+pub const SystemAlpcProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcb9baaf_e529_4980_92e9_ced1a6aadfdf);
+pub const SystemConfigProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfef3a8b6_318d_4b67_a96a_3b0f6b8f18fe);
+pub const SystemCpuProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6c5265f_eae8_4650_aae4_9d48603d8510);
+pub const SystemHypervisorProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbafa072a_918a_4bed_b622_bc152097098f);
+pub const SystemInterruptProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4bbee17_b545_4888_858b_744169015b25);
+pub const SystemIoFilterProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbd09363_9e22_4661_b8bf_e7a34b535b8c);
+pub const SystemIoProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d5c43e3_0f1c_4202_b817_174c0070dc79);
+pub const SystemLockProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x721ddfd3_dacc_4e1e_b26a_a2cb31d4705a);
+pub const SystemMemoryProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82958ca9_b6cd_47f8_a3a8_03ae85a4bc24);
+pub const SystemObjectProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfebd7460_3d1d_47eb_af49_c9eeb1e146f2);
+pub const SystemPowerProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc134884a_32d5_4488_80e5_14ed7abb8269);
+pub const SystemProcessProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x151f55dc_467d_471f_83b5_5f889d46ff66);
+pub const SystemProfileProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfeb0324_1cee_496f_a409_2ac2b48a6322);
+pub const SystemRegistryProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16156bd9_fab4_4cfa_a232_89d1099058e3);
+pub const SystemSchedulerProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x599a2a76_4d91_4910_9ac7_7d33f2e97a6c);
+pub const SystemSyscallProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x434286f7_6f1b_45bb_b37e_95f623046c7c);
+pub const SystemTimerProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f061568_e215_499f_ab2e_eda0ae890a5b);
+pub const SystemTraceControlGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e814aad_3204_11d2_9a82_006008a86939);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]

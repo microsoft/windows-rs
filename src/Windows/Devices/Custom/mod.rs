@@ -65,7 +65,7 @@ unsafe impl ::windows::runtime::RuntimeType for CustomDevice {
 }
 unsafe impl ::windows::runtime::Interface for CustomDevice {
     type Vtable = ICustomDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3710919967, 50315, 17341, [188, 177, 222, 200, 143, 21, 20, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd30251f_c48b_43bd_bcb1_dec88f15143e);
 }
 impl ::windows::runtime::RuntimeName for CustomDevice {
     const NAME: &'static str = "Windows.Devices.Custom.CustomDevice";
@@ -165,7 +165,7 @@ impl ::windows::runtime::DefaultType for DeviceSharingMode {
 pub struct ICustomDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomDevice {
     type Vtable = ICustomDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3710919967, 50315, 17341, [188, 177, 222, 200, 143, 21, 20, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd30251f_c48b_43bd_bcb1_dec88f15143e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -190,7 +190,7 @@ pub struct ICustomDevice_abi(
 pub struct ICustomDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomDeviceStatics {
     type Vtable = ICustomDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3357672210, 61260, 18097, [165, 142, 238, 179, 8, 220, 137, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8220312_ef4c_46b1_a58e_eeb308dc8917);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -211,7 +211,7 @@ pub struct ICustomDeviceStatics_abi(
 pub struct IIOControlCode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIOControlCode {
     type Vtable = IIOControlCode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(244668903, 24776, 17269, [167, 97, 127, 136, 8, 6, 108, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e9559e7_60c8_4375_a761_7f8808066c60);
 }
 impl IIOControlCode {
     #[doc = "*Required features: `Devices_Custom`*"]
@@ -318,7 +318,7 @@ pub struct IIOControlCode_abi(
 pub struct IIOControlCodeFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIOControlCodeFactory {
     type Vtable = IIOControlCodeFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2238348528, 19473, 17582, [175, 198, 184, 212, 162, 18, 120, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x856a7cf0_4c11_44ae_afc6_b8d4a212788f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -336,7 +336,7 @@ pub struct IIOControlCodeFactory_abi(
 pub struct IKnownDeviceTypesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownDeviceTypesStatics {
     type Vtable = IKnownDeviceTypesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3998513602, 21576, 17882, [173, 27, 36, 148, 140, 35, 144, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee5479c2_5448_45da_ad1b_24948c239094);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -459,7 +459,7 @@ unsafe impl ::windows::runtime::RuntimeType for IOControlCode {
 }
 unsafe impl ::windows::runtime::Interface for IOControlCode {
     type Vtable = IIOControlCode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(244668903, 24776, 17269, [167, 97, 127, 136, 8, 6, 108, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e9559e7_60c8_4375_a761_7f8808066c60);
 }
 impl ::windows::runtime::RuntimeName for IOControlCode {
     const NAME: &'static str = "Windows.Devices.Custom.IOControlCode";

@@ -9,7 +9,7 @@ unsafe impl ::windows::runtime::RuntimeType for CurrentSessionChangedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for CurrentSessionChangedEventArgs {
     type Vtable = ICurrentSessionChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1768540985, 3066, 24544, [141, 115, 9, 204, 94, 84, 8, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6969cb39_0bfa_5fe0_8d73_09cc5e5408e1);
 }
 impl ::windows::runtime::RuntimeName for CurrentSessionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.CurrentSessionChangedEventArgs";
@@ -280,7 +280,7 @@ unsafe impl ::windows::runtime::RuntimeType for GlobalSystemMediaTransportContro
 }
 unsafe impl ::windows::runtime::Interface for GlobalSystemMediaTransportControlsSession {
     type Vtable = IGlobalSystemMediaTransportControlsSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1900595253, 39700, 23266, [171, 133, 220, 155, 28, 20, 225, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7148c835_9b14_5ae2_ab85_dc9b1c14e1a8);
 }
 impl ::windows::runtime::RuntimeName for GlobalSystemMediaTransportControlsSession {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSession";
@@ -397,7 +397,7 @@ unsafe impl ::windows::runtime::RuntimeType for GlobalSystemMediaTransportContro
 }
 unsafe impl ::windows::runtime::Interface for GlobalSystemMediaTransportControlsSessionManager {
     type Vtable = IGlobalSystemMediaTransportControlsSessionManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3402534572, 59502, 20554, [171, 49, 95, 248, 255, 27, 206, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcace8eac_e86e_504a_ab31_5ff8ff1bce49);
 }
 impl ::windows::runtime::RuntimeName for GlobalSystemMediaTransportControlsSessionManager {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionManager";
@@ -538,7 +538,7 @@ unsafe impl ::windows::runtime::RuntimeType for GlobalSystemMediaTransportContro
 }
 unsafe impl ::windows::runtime::Interface for GlobalSystemMediaTransportControlsSessionMediaProperties {
     type Vtable = IGlobalSystemMediaTransportControlsSessionMediaProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1753574646, 44468, 21682, [172, 22, 5, 131, 121, 7, 172, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68856cf6_adb4_54b2_ac16_05837907acb6);
 }
 impl ::windows::runtime::RuntimeName for GlobalSystemMediaTransportControlsSessionMediaProperties {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionMediaProperties";
@@ -716,7 +716,7 @@ unsafe impl ::windows::runtime::RuntimeType for GlobalSystemMediaTransportContro
 }
 unsafe impl ::windows::runtime::Interface for GlobalSystemMediaTransportControlsSessionPlaybackControls {
     type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackControls_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1694606310, 48250, 20538, [187, 27, 104, 241, 88, 243, 251, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6501a3e6_bc7a_503a_bb1b_68f158f3fb03);
 }
 impl ::windows::runtime::RuntimeName for GlobalSystemMediaTransportControlsSessionPlaybackControls {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackControls";
@@ -826,7 +826,7 @@ unsafe impl ::windows::runtime::RuntimeType for GlobalSystemMediaTransportContro
 }
 unsafe impl ::windows::runtime::Interface for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
     type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2494871247, 59578, 20909, [135, 167, 193, 10, 222, 16, 97, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94b4b6cf_e8ba_51ad_87a7_c10ade106127);
 }
 impl ::windows::runtime::RuntimeName for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackInfo";
@@ -964,7 +964,7 @@ unsafe impl ::windows::runtime::RuntimeType for GlobalSystemMediaTransportContro
 }
 unsafe impl ::windows::runtime::Interface for GlobalSystemMediaTransportControlsSessionTimelineProperties {
     type Vtable = IGlobalSystemMediaTransportControlsSessionTimelineProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3991093558, 28453, 22669, [142, 207, 234, 91, 103, 53, 170, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xede34136_6f25_588d_8ecf_ea5b6735aaa5);
 }
 impl ::windows::runtime::RuntimeName for GlobalSystemMediaTransportControlsSessionTimelineProperties {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionTimelineProperties";
@@ -1016,7 +1016,7 @@ unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionTi
 pub struct ICurrentSessionChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentSessionChangedEventArgs {
     type Vtable = ICurrentSessionChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1768540985, 3066, 24544, [141, 115, 9, 204, 94, 84, 8, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6969cb39_0bfa_5fe0_8d73_09cc5e5408e1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1033,7 +1033,7 @@ pub struct ICurrentSessionChangedEventArgs_abi(
 pub struct IGlobalSystemMediaTransportControlsSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalSystemMediaTransportControlsSession {
     type Vtable = IGlobalSystemMediaTransportControlsSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1900595253, 39700, 23266, [171, 133, 220, 155, 28, 20, 225, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7148c835_9b14_5ae2_ab85_dc9b1c14e1a8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1097,7 +1097,7 @@ pub struct IGlobalSystemMediaTransportControlsSession_abi(
 pub struct IGlobalSystemMediaTransportControlsSessionManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalSystemMediaTransportControlsSessionManager {
     type Vtable = IGlobalSystemMediaTransportControlsSessionManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3402534572, 59502, 20554, [171, 49, 95, 248, 255, 27, 206, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcace8eac_e86e_504a_ab31_5ff8ff1bce49);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1125,7 +1125,7 @@ pub struct IGlobalSystemMediaTransportControlsSessionManager_abi(
 pub struct IGlobalSystemMediaTransportControlsSessionManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalSystemMediaTransportControlsSessionManagerStatics {
     type Vtable = IGlobalSystemMediaTransportControlsSessionManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(542164206, 4512, 22494, [174, 215, 201, 124, 112, 51, 130, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2050c4ee_11a0_57de_aed7_c97c70338245);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1144,7 +1144,7 @@ pub struct IGlobalSystemMediaTransportControlsSessionManagerStatics_abi(
 pub struct IGlobalSystemMediaTransportControlsSessionMediaProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalSystemMediaTransportControlsSessionMediaProperties {
     type Vtable = IGlobalSystemMediaTransportControlsSessionMediaProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1753574646, 44468, 21682, [172, 22, 5, 131, 121, 7, 172, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68856cf6_adb4_54b2_ac16_05837907acb6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1174,7 +1174,7 @@ pub struct IGlobalSystemMediaTransportControlsSessionMediaProperties_abi(
 pub struct IGlobalSystemMediaTransportControlsSessionPlaybackControls(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalSystemMediaTransportControlsSessionPlaybackControls {
     type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackControls_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1694606310, 48250, 20538, [187, 27, 104, 241, 88, 243, 251, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6501a3e6_bc7a_503a_bb1b_68f158f3fb03);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1206,7 +1206,7 @@ pub struct IGlobalSystemMediaTransportControlsSessionPlaybackControls_abi(
 pub struct IGlobalSystemMediaTransportControlsSessionPlaybackInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalSystemMediaTransportControlsSessionPlaybackInfo {
     type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2494871247, 59578, 20909, [135, 167, 193, 10, 222, 16, 97, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94b4b6cf_e8ba_51ad_87a7_c10ade106127);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1233,7 +1233,7 @@ pub struct IGlobalSystemMediaTransportControlsSessionPlaybackInfo_abi(
 pub struct IGlobalSystemMediaTransportControlsSessionTimelineProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalSystemMediaTransportControlsSessionTimelineProperties {
     type Vtable = IGlobalSystemMediaTransportControlsSessionTimelineProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3991093558, 28453, 22669, [142, 207, 234, 91, 103, 53, 170, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xede34136_6f25_588d_8ecf_ea5b6735aaa5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1262,7 +1262,7 @@ pub struct IGlobalSystemMediaTransportControlsSessionTimelineProperties_abi(
 pub struct IMediaPropertiesChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPropertiesChangedEventArgs {
     type Vtable = IMediaPropertiesChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2100773323, 44528, 23791, [145, 186, 207, 171, 205, 215, 118, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d3741cb_adf0_5cef_91ba_cfabcdd77678);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1279,7 +1279,7 @@ pub struct IMediaPropertiesChangedEventArgs_abi(
 pub struct IPlaybackInfoChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaybackInfoChangedEventArgs {
     type Vtable = IPlaybackInfoChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2020038338, 48141, 20645, [136, 7, 5, 66, 145, 254, 241, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x786756c2_bc0d_50a5_8807_054291fef139);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1296,7 +1296,7 @@ pub struct IPlaybackInfoChangedEventArgs_abi(
 pub struct ISessionsChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISessionsChangedEventArgs {
     type Vtable = ISessionsChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3153120562, 17092, 23128, [179, 23, 243, 75, 191, 189, 38, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbbf0cd32_42c4_5a58_b317_f34bbfbd26e0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1313,7 +1313,7 @@ pub struct ISessionsChangedEventArgs_abi(
 pub struct ITimelinePropertiesChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimelinePropertiesChangedEventArgs {
     type Vtable = ITimelinePropertiesChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(688077359, 51491, 23159, [188, 175, 5, 95, 244, 21, 173, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29033a2f_c923_5a77_bcaf_055ff415ad32);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1335,7 +1335,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPropertiesChangedEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for MediaPropertiesChangedEventArgs {
     type Vtable = IMediaPropertiesChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2100773323, 44528, 23791, [145, 186, 207, 171, 205, 215, 118, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d3741cb_adf0_5cef_91ba_cfabcdd77678);
 }
 impl ::windows::runtime::RuntimeName for MediaPropertiesChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.MediaPropertiesChangedEventArgs";
@@ -1392,7 +1392,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlaybackInfoChangedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for PlaybackInfoChangedEventArgs {
     type Vtable = IPlaybackInfoChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2020038338, 48141, 20645, [136, 7, 5, 66, 145, 254, 241, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x786756c2_bc0d_50a5_8807_054291fef139);
 }
 impl ::windows::runtime::RuntimeName for PlaybackInfoChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.PlaybackInfoChangedEventArgs";
@@ -1449,7 +1449,7 @@ unsafe impl ::windows::runtime::RuntimeType for SessionsChangedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for SessionsChangedEventArgs {
     type Vtable = ISessionsChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3153120562, 17092, 23128, [179, 23, 243, 75, 191, 189, 38, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbbf0cd32_42c4_5a58_b317_f34bbfbd26e0);
 }
 impl ::windows::runtime::RuntimeName for SessionsChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.SessionsChangedEventArgs";
@@ -1506,7 +1506,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimelinePropertiesChangedEventAr
 }
 unsafe impl ::windows::runtime::Interface for TimelinePropertiesChangedEventArgs {
     type Vtable = ITimelinePropertiesChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(688077359, 51491, 23159, [188, 175, 5, 95, 244, 21, 173, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29033a2f_c923_5a77_bcaf_055ff415ad32);
 }
 impl ::windows::runtime::RuntimeName for TimelinePropertiesChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.TimelinePropertiesChangedEventArgs";

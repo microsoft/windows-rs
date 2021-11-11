@@ -4,7 +4,7 @@
 pub struct ISoundLevelBrokerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISoundLevelBrokerStatics {
     type Vtable = ISoundLevelBrokerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1784887649, 56301, 17996, [160, 154, 51, 65, 47, 92, 170, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a633961_dbed_464c_a09a_33412f5caa3f);
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -35,7 +35,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceServicingDetails {
 }
 unsafe impl ::windows::runtime::Interface for DeviceServicingDetails {
     type Vtable = IDeviceServicingDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1252781609, 9028, 19140, [133, 39, 74, 142, 246, 144, 86, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4aabee29_2344_4ac4_8527_4a8ef6905645);
 }
 impl ::windows::runtime::RuntimeName for DeviceServicingDetails {
     const NAME: &'static str = "Windows.Devices.Background.DeviceServicingDetails";
@@ -109,7 +109,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceUseDetails {
 }
 unsafe impl ::windows::runtime::Interface for DeviceUseDetails {
     type Vtable = IDeviceUseDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2102808897, 21886, 16724, [185, 148, 228, 247, 161, 31, 179, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d565141_557e_4154_b994_e4f7a11fb323);
 }
 impl ::windows::runtime::RuntimeName for DeviceUseDetails {
     const NAME: &'static str = "Windows.Devices.Background.DeviceUseDetails";
@@ -161,7 +161,7 @@ unsafe impl ::core::marker::Sync for DeviceUseDetails {}
 pub struct IDeviceServicingDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceServicingDetails {
     type Vtable = IDeviceServicingDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1252781609, 9028, 19140, [133, 39, 74, 142, 246, 144, 86, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4aabee29_2344_4ac4_8527_4a8ef6905645);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -182,7 +182,7 @@ pub struct IDeviceServicingDetails_abi(
 pub struct IDeviceUseDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceUseDetails {
     type Vtable = IDeviceUseDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2102808897, 21886, 16724, [185, 148, 228, 247, 161, 31, 179, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d565141_557e_4154_b994_e4f7a11fb323);
 }
 #[repr(C)]
 #[doc(hidden)]

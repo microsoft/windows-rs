@@ -4,7 +4,7 @@
 pub struct IPushNotificationChannel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannel {
     type Vtable = IPushNotificationChannel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(724045870, 61195, 20281, [155, 138, 163, 193, 148, 222, 112, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b28102e_ef0b_4f39_9b8a_a3c194de7081);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29,7 +29,7 @@ pub struct IPushNotificationChannel_abi(
 pub struct IPushNotificationChannelManagerForUser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelManagerForUser {
     type Vtable = IPushNotificationChannelManagerForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2764330756, 4482, 17095, [136, 144, 245, 99, 196, 137, 13, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4c45704_1182_42c7_8890_f563c4890dc4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -54,7 +54,7 @@ pub struct IPushNotificationChannelManagerForUser_abi(
 pub struct IPushNotificationChannelManagerForUser2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelManagerForUser2 {
     type Vtable = IPushNotificationChannelManagerForUser2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3280668266, 31937, 19884, [135, 253, 190, 110, 146, 4, 20, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc38b066a_7cc1_4dac_87fd_be6e920414a4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -75,7 +75,7 @@ pub struct IPushNotificationChannelManagerForUser2_abi(
 pub struct IPushNotificationChannelManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelManagerStatics {
     type Vtable = IPushNotificationChannelManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2343541605, 30625, 17800, [189, 25, 134, 21, 41, 169, 220, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8baf9b65_77a1_4588_bd19_861529a9dcf0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -98,7 +98,7 @@ pub struct IPushNotificationChannelManagerStatics_abi(
 pub struct IPushNotificationChannelManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelManagerStatics2 {
     type Vtable = IPushNotificationChannelManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3024397917, 42985, 19240, [149, 14, 243, 117, 169, 7, 249, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb444a65d_a7e9_4b28_950e_f375a907f9df);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -117,7 +117,7 @@ pub struct IPushNotificationChannelManagerStatics2_abi(
 pub struct IPushNotificationChannelManagerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelManagerStatics3 {
     type Vtable = IPushNotificationChannelManagerStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1191313150, 3806, 19007, [174, 120, 191, 164, 113, 73, 105, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4701fefe_0ede_4a3f_ae78_bfa471496925);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -135,7 +135,7 @@ pub struct IPushNotificationChannelManagerStatics3_abi(
 pub struct IPushNotificationChannelManagerStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelManagerStatics4 {
     type Vtable = IPushNotificationChannelManagerStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3159625467, 30752, 23131, [156, 1, 180, 117, 127, 119, 64, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc540efb_7820_5a5b_9c01_b4757f774025);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -156,7 +156,7 @@ pub struct IPushNotificationChannelManagerStatics4_abi(
 pub struct IPushNotificationChannelsRevokedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelsRevokedEventArgs {
     type Vtable = IPushNotificationChannelsRevokedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(551658060, 6708, 23531, [170, 226, 64, 194, 50, 200, 193, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20e1a24c_1a34_5beb_aae2_40c232c8c140);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -173,7 +173,7 @@ pub struct IPushNotificationChannelsRevokedEventArgs_abi(
 pub struct IPushNotificationReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationReceivedEventArgs {
     type Vtable = IPushNotificationReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3506855436, 14029, 18508, [185, 53, 10, 153, 183, 83, 207, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1065e0c_36cd_484c_b935_0a99b753cf00);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -200,7 +200,7 @@ pub struct IPushNotificationReceivedEventArgs_abi(
 pub struct IRawNotification(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRawNotification {
     type Vtable = IRawNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(438465153, 15225, 17068, [153, 99, 34, 171, 0, 212, 240, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a227281_3b79_42ac_9963_22ab00d4f0b7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -218,7 +218,7 @@ pub struct IRawNotification_abi(
 pub struct IRawNotification2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRawNotification2 {
     type Vtable = IRawNotification2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3872444185, 3183, 19677, [148, 36, 238, 197, 190, 1, 77, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6d0cf19_0c6f_4cdd_9424_eec5be014d26);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -238,7 +238,7 @@ pub struct IRawNotification2_abi(
 pub struct IRawNotification3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRawNotification3 {
     type Vtable = IRawNotification3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1651736030, 35443, 16972, [171, 68, 86, 53, 244, 10, 150, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62737dde_8a73_424c_ab44_5635f40a96e5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -300,7 +300,7 @@ unsafe impl ::windows::runtime::RuntimeType for PushNotificationChannel {
 }
 unsafe impl ::windows::runtime::Interface for PushNotificationChannel {
     type Vtable = IPushNotificationChannel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(724045870, 61195, 20281, [155, 138, 163, 193, 148, 222, 112, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b28102e_ef0b_4f39_9b8a_a3c194de7081);
 }
 impl ::windows::runtime::RuntimeName for PushNotificationChannel {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannel";
@@ -487,7 +487,7 @@ unsafe impl ::windows::runtime::RuntimeType for PushNotificationChannelManagerFo
 }
 unsafe impl ::windows::runtime::Interface for PushNotificationChannelManagerForUser {
     type Vtable = IPushNotificationChannelManagerForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2764330756, 4482, 17095, [136, 144, 245, 99, 196, 137, 13, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4c45704_1182_42c7_8890_f563c4890dc4);
 }
 impl ::windows::runtime::RuntimeName for PushNotificationChannelManagerForUser {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannelManagerForUser";
@@ -544,7 +544,7 @@ unsafe impl ::windows::runtime::RuntimeType for PushNotificationChannelsRevokedE
 }
 unsafe impl ::windows::runtime::Interface for PushNotificationChannelsRevokedEventArgs {
     type Vtable = IPushNotificationChannelsRevokedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(551658060, 6708, 23531, [170, 226, 64, 194, 50, 200, 193, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20e1a24c_1a34_5beb_aae2_40c232c8c140);
 }
 impl ::windows::runtime::RuntimeName for PushNotificationChannelsRevokedEventArgs {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannelsRevokedEventArgs";
@@ -658,7 +658,7 @@ unsafe impl ::windows::runtime::RuntimeType for PushNotificationReceivedEventArg
 }
 unsafe impl ::windows::runtime::Interface for PushNotificationReceivedEventArgs {
     type Vtable = IPushNotificationReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3506855436, 14029, 18508, [185, 53, 10, 153, 183, 83, 207, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1065e0c_36cd_484c_b935_0a99b753cf00);
 }
 impl ::windows::runtime::RuntimeName for PushNotificationReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationReceivedEventArgs";
@@ -775,7 +775,7 @@ unsafe impl ::windows::runtime::RuntimeType for RawNotification {
 }
 unsafe impl ::windows::runtime::Interface for RawNotification {
     type Vtable = IRawNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(438465153, 15225, 17068, [153, 99, 34, 171, 0, 212, 240, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a227281_3b79_42ac_9963_22ab00d4f0b7);
 }
 impl ::windows::runtime::RuntimeName for RawNotification {
     const NAME: &'static str = "Windows.Networking.PushNotifications.RawNotification";

@@ -78,7 +78,7 @@ unsafe impl ::windows::runtime::RuntimeType for AdvertisingManagerForUser {
 }
 unsafe impl ::windows::runtime::Interface for AdvertisingManagerForUser {
     type Vtable = IAdvertisingManagerForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2458645456, 53116, 19120, [167, 220, 109, 197, 188, 212, 66, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x928bf3d0_cf7c_4ab0_a7dc_6dc5bcd44252);
 }
 impl ::windows::runtime::RuntimeName for AdvertisingManagerForUser {
     const NAME: &'static str = "Windows.System.UserProfile.AdvertisingManagerForUser";
@@ -178,7 +178,7 @@ unsafe impl ::windows::runtime::RuntimeType for AssignedAccessSettings {
 }
 unsafe impl ::windows::runtime::Interface for AssignedAccessSettings {
     type Vtable = IAssignedAccessSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(465927964, 59761, 22359, [184, 224, 81, 47, 139, 140, 70, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bc57f1c_e971_5757_b8e0_512f8b8c46d2);
 }
 impl ::windows::runtime::RuntimeName for AssignedAccessSettings {
     const NAME: &'static str = "Windows.System.UserProfile.AssignedAccessSettings";
@@ -270,7 +270,7 @@ unsafe impl ::windows::runtime::RuntimeType for DiagnosticsSettings {
 }
 unsafe impl ::windows::runtime::Interface for DiagnosticsSettings {
     type Vtable = IDiagnosticsSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3857312973, 10001, 17632, [151, 60, 73, 29, 120, 4, 141, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5e9eccd_2711_44e0_973c_491d78048d24);
 }
 impl ::windows::runtime::RuntimeName for DiagnosticsSettings {
     const NAME: &'static str = "Windows.System.UserProfile.DiagnosticsSettings";
@@ -381,7 +381,7 @@ unsafe impl ::windows::runtime::RuntimeType for FirstSignInSettings {
 }
 unsafe impl ::windows::runtime::Interface for FirstSignInSettings {
     type Vtable = IFirstSignInSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1049907539, 14942, 17710, [166, 1, 245, 186, 173, 42, 72, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e945153_3a5e_452e_a601_f5baad2a4870);
 }
 impl ::windows::runtime::RuntimeName for FirstSignInSettings {
     const NAME: &'static str = "Windows.System.UserProfile.FirstSignInSettings";
@@ -656,7 +656,7 @@ unsafe impl ::windows::runtime::RuntimeType for GlobalizationPreferencesForUser 
 }
 unsafe impl ::windows::runtime::Interface for GlobalizationPreferencesForUser {
     type Vtable = IGlobalizationPreferencesForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(353306517, 20334, 16570, [160, 16, 226, 125, 129, 189, 167, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x150f0795_4f6e_40ba_a010_e27d81bda7f5);
 }
 impl ::windows::runtime::RuntimeName for GlobalizationPreferencesForUser {
     const NAME: &'static str = "Windows.System.UserProfile.GlobalizationPreferencesForUser";
@@ -708,7 +708,7 @@ unsafe impl ::core::marker::Sync for GlobalizationPreferencesForUser {}
 pub struct IAdvertisingManagerForUser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvertisingManagerForUser {
     type Vtable = IAdvertisingManagerForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2458645456, 53116, 19120, [167, 220, 109, 197, 188, 212, 66, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x928bf3d0_cf7c_4ab0_a7dc_6dc5bcd44252);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -727,7 +727,7 @@ pub struct IAdvertisingManagerForUser_abi(
 pub struct IAdvertisingManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvertisingManagerStatics {
     type Vtable = IAdvertisingManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2916304524, 41587, 18635, [179, 70, 53, 68, 82, 45, 85, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xadd3468c_a273_48cb_b346_3544522d5581);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -745,7 +745,7 @@ pub struct IAdvertisingManagerStatics_abi(
 pub struct IAdvertisingManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvertisingManagerStatics2 {
     type Vtable = IAdvertisingManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3708372911, 6765, 18096, [149, 188, 243, 249, 214, 190, 185, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd0947af_1a6d_46b0_95bc_f3f9d6beb9fb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -763,7 +763,7 @@ pub struct IAdvertisingManagerStatics2_abi(
 pub struct IAssignedAccessSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAssignedAccessSettings {
     type Vtable = IAssignedAccessSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(465927964, 59761, 22359, [184, 224, 81, 47, 139, 140, 70, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bc57f1c_e971_5757_b8e0_512f8b8c46d2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -783,7 +783,7 @@ pub struct IAssignedAccessSettings_abi(
 pub struct IAssignedAccessSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAssignedAccessSettingsStatics {
     type Vtable = IAssignedAccessSettingsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(883432717, 35369, 24307, [167, 190, 97, 142, 106, 195, 189, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34a81d0d_8a29_5ef3_a7be_618e6ac3bd01);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -802,7 +802,7 @@ pub struct IAssignedAccessSettingsStatics_abi(
 pub struct IDiagnosticsSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDiagnosticsSettings {
     type Vtable = IDiagnosticsSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3857312973, 10001, 17632, [151, 60, 73, 29, 120, 4, 141, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5e9eccd_2711_44e0_973c_491d78048d24);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -821,7 +821,7 @@ pub struct IDiagnosticsSettings_abi(
 pub struct IDiagnosticsSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDiagnosticsSettingsStatics {
     type Vtable = IDiagnosticsSettingsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1926424591, 21392, 18323, [153, 11, 60, 204, 125, 106, 201, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72d2e80f_5390_4793_990b_3ccc7d6ac9c8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -840,7 +840,7 @@ pub struct IDiagnosticsSettingsStatics_abi(
 pub struct IFirstSignInSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFirstSignInSettings {
     type Vtable = IFirstSignInSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1049907539, 14942, 17710, [166, 1, 245, 186, 173, 42, 72, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e945153_3a5e_452e_a601_f5baad2a4870);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -857,7 +857,7 @@ pub struct IFirstSignInSettings_abi(
 pub struct IFirstSignInSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFirstSignInSettingsStatics {
     type Vtable = IFirstSignInSettingsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(484544271, 7233, 20128, [183, 162, 111, 12, 28, 126, 132, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ce18f0f_1c41_4ea0_b7a2_6f0c1c7e8438);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -875,7 +875,7 @@ pub struct IFirstSignInSettingsStatics_abi(
 pub struct IGlobalizationPreferencesForUser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalizationPreferencesForUser {
     type Vtable = IGlobalizationPreferencesForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(353306517, 20334, 16570, [160, 16, 226, 125, 129, 189, 167, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x150f0795_4f6e_40ba_a010_e27d81bda7f5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -904,7 +904,7 @@ pub struct IGlobalizationPreferencesForUser_abi(
 pub struct IGlobalizationPreferencesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalizationPreferencesStatics {
     type Vtable = IGlobalizationPreferencesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(29311782, 60727, 20118, [176, 233, 193, 52, 13, 30, 161, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01bf4326_ed37_4e96_b0e9_c1340d1ea158);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -932,7 +932,7 @@ pub struct IGlobalizationPreferencesStatics_abi(
 pub struct IGlobalizationPreferencesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalizationPreferencesStatics2 {
     type Vtable = IGlobalizationPreferencesStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4241393137, 17152, 19664, [156, 172, 26, 142, 123, 126, 24, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcce85f1_4300_4cd0_9cac_1a8e7b7e18f4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -952,7 +952,7 @@ pub struct IGlobalizationPreferencesStatics2_abi(
 pub struct IGlobalizationPreferencesStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalizationPreferencesStatics3 {
     type Vtable = IGlobalizationPreferencesStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(503682867, 13813, 16600, [185, 232, 174, 243, 239, 133, 111, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e059733_35f5_40d8_b9e8_aef3ef856fce);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -970,7 +970,7 @@ pub struct IGlobalizationPreferencesStatics3_abi(
 pub struct ILockScreenImageFeedStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenImageFeedStatics {
     type Vtable = ILockScreenImageFeedStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(739079158, 937, 16806, [155, 1, 73, 82, 81, 255, 81, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c0d73f6_03a9_41a6_9b01_495251ff51d5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -990,7 +990,7 @@ pub struct ILockScreenImageFeedStatics_abi(
 pub struct ILockScreenStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenStatics {
     type Vtable = ILockScreenStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1055511469, 46599, 16558, [180, 38, 118, 49, 217, 130, 18, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ee9d3ad_b607_40ae_b426_7631d9821269);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1015,7 +1015,7 @@ pub struct ILockScreenStatics_abi(
 pub struct IUserInformationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserInformationStatics {
     type Vtable = IUserInformationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2012457232, 18682, 18588, [147, 78, 42, 232, 91, 168, 247, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77f3a910_48fa_489c_934e_2ae85ba8f772);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1060,7 +1060,7 @@ pub struct IUserInformationStatics_abi(
 pub struct IUserProfilePersonalizationSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserProfilePersonalizationSettings {
     type Vtable = IUserProfilePersonalizationSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2364398260, 31128, 18133, [141, 211, 24, 79, 28, 95, 154, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ceddab4_7998_46d5_8dd3_184f1c5f9ab9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1081,7 +1081,7 @@ pub struct IUserProfilePersonalizationSettings_abi(
 pub struct IUserProfilePersonalizationSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserProfilePersonalizationSettingsStatics {
     type Vtable = IUserProfilePersonalizationSettingsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2444015681, 20535, 17739, [152, 131, 187, 119, 45, 8, 221, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91acb841_5037_454b_9883_bb772d08dd16);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1400,7 +1400,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserProfilePersonalizationSettin
 }
 unsafe impl ::windows::runtime::Interface for UserProfilePersonalizationSettings {
     type Vtable = IUserProfilePersonalizationSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2364398260, 31128, 18133, [141, 211, 24, 79, 28, 95, 154, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ceddab4_7998_46d5_8dd3_184f1c5f9ab9);
 }
 impl ::windows::runtime::RuntimeName for UserProfilePersonalizationSettings {
     const NAME: &'static str = "Windows.System.UserProfile.UserProfilePersonalizationSettings";

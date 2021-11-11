@@ -94,7 +94,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppCapability {
 }
 unsafe impl ::windows::runtime::Interface for AppCapability {
     type Vtable = IAppCapability_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1279908117, 35370, 17045, [148, 55, 45, 247, 195, 150, 175, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c49d915_8a2a_4295_9437_2df7c396aff4);
 }
 impl ::windows::runtime::RuntimeName for AppCapability {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.AppCapability";
@@ -151,7 +151,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppCapabilityAccessChangedEventA
 }
 unsafe impl ::windows::runtime::Interface for AppCapabilityAccessChangedEventArgs {
     type Vtable = IAppCapabilityAccessChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(173509909, 48599, 17790, [140, 202, 111, 83, 189, 46, 89, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a578d15_bdd7_457e_8cca_6f53bd2e5944);
 }
 impl ::windows::runtime::RuntimeName for AppCapabilityAccessChangedEventArgs {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessChangedEventArgs";
@@ -228,7 +228,7 @@ impl ::windows::runtime::DefaultType for AppCapabilityAccessStatus {
 pub struct IAppCapability(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCapability {
     type Vtable = IAppCapability_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1279908117, 35370, 17045, [148, 55, 45, 247, 195, 150, 175, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c49d915_8a2a_4295_9437_2df7c396aff4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -255,7 +255,7 @@ pub struct IAppCapability_abi(
 pub struct IAppCapabilityAccessChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCapabilityAccessChangedEventArgs {
     type Vtable = IAppCapabilityAccessChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(173509909, 48599, 17790, [140, 202, 111, 83, 189, 46, 89, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a578d15_bdd7_457e_8cca_6f53bd2e5944);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -272,7 +272,7 @@ pub struct IAppCapabilityAccessChangedEventArgs_abi(
 pub struct IAppCapabilityStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCapabilityStatics {
     type Vtable = IAppCapabilityStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2083864106, 18158, 17637, [175, 61, 106, 211, 252, 73, 189, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c353e2a_46ee_44e5_af3d_6ad3fc49bd22);
 }
 #[repr(C)]
 #[doc(hidden)]

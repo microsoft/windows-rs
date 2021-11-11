@@ -105,7 +105,7 @@ unsafe impl ::windows::runtime::RuntimeType for DevicePortalConnection {
 }
 unsafe impl ::windows::runtime::Interface for DevicePortalConnection {
     type Vtable = IDevicePortalConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(256147281, 4504, 19873, [141, 84, 189, 239, 57, 62, 9, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f447f51_1198_4da1_8d54_bdef393e09b6);
 }
 impl ::windows::runtime::RuntimeName for DevicePortalConnection {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnection";
@@ -171,7 +171,7 @@ unsafe impl ::windows::runtime::RuntimeType for DevicePortalConnectionClosedEven
 }
 unsafe impl ::windows::runtime::Interface for DevicePortalConnectionClosedEventArgs {
     type Vtable = IDevicePortalConnectionClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4244049464, 28722, 17036, [159, 80, 148, 92, 21, 169, 240, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcf70e38_7032_428c_9f50_945c15a9f0cb);
 }
 impl ::windows::runtime::RuntimeName for DevicePortalConnectionClosedEventArgs {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedEventArgs";
@@ -299,7 +299,7 @@ unsafe impl ::windows::runtime::RuntimeType for DevicePortalConnectionRequestRec
 }
 unsafe impl ::windows::runtime::Interface for DevicePortalConnectionRequestReceivedEventArgs {
     type Vtable = IDevicePortalConnectionRequestReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1692065861, 28634, 17497, [158, 189, 236, 206, 34, 227, 133, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64dae045_6fda_4459_9ebd_ecce22e38559);
 }
 impl ::windows::runtime::RuntimeName for DevicePortalConnectionRequestReceivedEventArgs {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionRequestReceivedEventArgs";
@@ -351,7 +351,7 @@ unsafe impl ::core::marker::Sync for DevicePortalConnectionRequestReceivedEventA
 pub struct IDevicePortalConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePortalConnection {
     type Vtable = IDevicePortalConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(256147281, 4504, 19873, [141, 84, 189, 239, 57, 62, 9, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f447f51_1198_4da1_8d54_bdef393e09b6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -376,7 +376,7 @@ pub struct IDevicePortalConnection_abi(
 pub struct IDevicePortalConnectionClosedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePortalConnectionClosedEventArgs {
     type Vtable = IDevicePortalConnectionClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4244049464, 28722, 17036, [159, 80, 148, 92, 21, 169, 240, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcf70e38_7032_428c_9f50_945c15a9f0cb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -394,7 +394,7 @@ pub struct IDevicePortalConnectionClosedEventArgs_abi(
 pub struct IDevicePortalConnectionRequestReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePortalConnectionRequestReceivedEventArgs {
     type Vtable = IDevicePortalConnectionRequestReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1692065861, 28634, 17497, [158, 189, 236, 206, 34, 227, 133, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64dae045_6fda_4459_9ebd_ecce22e38559);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -415,7 +415,7 @@ pub struct IDevicePortalConnectionRequestReceivedEventArgs_abi(
 pub struct IDevicePortalConnectionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePortalConnectionStatics {
     type Vtable = IDevicePortalConnectionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1270755815, 59833, 17989, [143, 237, 165, 62, 234, 14, 219, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bbe31e7_e9b9_4645_8fed_a53eea0edbd6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -434,7 +434,7 @@ pub struct IDevicePortalConnectionStatics_abi(
 pub struct IDevicePortalWebSocketConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePortalWebSocketConnection {
     type Vtable = IDevicePortalWebSocketConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1734703392, 54874, 17136, [174, 244, 120, 120, 8, 9, 139, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x67657920_d65a_42f0_aef4_787808098b7b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -462,7 +462,7 @@ pub struct IDevicePortalWebSocketConnection_abi(
 pub struct IDevicePortalWebSocketConnectionRequestReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePortalWebSocketConnectionRequestReceivedEventArgs {
     type Vtable = IDevicePortalWebSocketConnectionRequestReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2046675642, 5980, 18233, [159, 116, 221, 167, 151, 195, 91, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79fdcaba_175c_4739_9f74_dda797c35b3f);
 }
 #[repr(C)]
 #[doc(hidden)]

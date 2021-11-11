@@ -28,7 +28,7 @@ unsafe impl ::windows::runtime::RuntimeType for HostMessageReceivedCallback {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::runtime::Interface for HostMessageReceivedCallback {
     type Vtable = HostMessageReceivedCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4210192378, 36065, 19649, [178, 120, 50, 45, 49, 165, 228, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfaf26ffa_8ce1_4cc1_b278_322d31a5e4a3);
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(C)]
@@ -89,7 +89,7 @@ impl<F: FnMut(&::windows::runtime::GUID, &::core::option::Option<super::super::F
 pub struct IIsolatedWindowsEnvironment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironment {
     type Vtable = IIsolatedWindowsEnvironment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1104299415, 49960, 17511, [179, 127, 77, 252, 111, 96, 182, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41d24597_c328_4467_b37f_4dfc6f60b6bc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -126,7 +126,7 @@ pub struct IIsolatedWindowsEnvironment_abi(
 pub struct IIsolatedWindowsEnvironment2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironment2 {
     type Vtable = IIsolatedWindowsEnvironment2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(758538041, 35005, 19124, [147, 207, 126, 43, 206, 243, 55, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d365f39_88bd_4ab4_93cf_7e2bcef337c0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -147,7 +147,7 @@ pub struct IIsolatedWindowsEnvironment2_abi(
 pub struct IIsolatedWindowsEnvironment3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironment3 {
     type Vtable = IIsolatedWindowsEnvironment3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3414149074, 53358, 19494, [138, 218, 218, 205, 170, 173, 3, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb7fc7d2_d06e_4c26_8ada_dacdaaad03f5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -169,7 +169,7 @@ pub struct IIsolatedWindowsEnvironment3_abi(
 pub struct IIsolatedWindowsEnvironmentCreateResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentCreateResult {
     type Vtable = IIsolatedWindowsEnvironmentCreateResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4019871320, 56535, 17858, [156, 133, 171, 100, 42, 113, 94, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef9a5e58_dcd7_45c2_9c85_ab642a715e8e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -189,7 +189,7 @@ pub struct IIsolatedWindowsEnvironmentCreateResult_abi(
 pub struct IIsolatedWindowsEnvironmentFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentFactory {
     type Vtable = IIsolatedWindowsEnvironmentFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(449483751, 59396, 17741, [132, 102, 249, 137, 124, 32, 176, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1aca93e7_e804_454d_8466_f9897c20b0f6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -213,7 +213,7 @@ pub struct IIsolatedWindowsEnvironmentFactory_abi(
 pub struct IIsolatedWindowsEnvironmentFile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentFile {
     type Vtable = IIsolatedWindowsEnvironmentFile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1297801711, 671, 16641, [140, 53, 254, 145, 191, 156, 213, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d5ae1ef_029f_4101_8c35_fe91bf9cd5f0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -233,7 +233,7 @@ pub struct IIsolatedWindowsEnvironmentFile_abi(
 pub struct IIsolatedWindowsEnvironmentFile2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentFile2 {
     type Vtable = IIsolatedWindowsEnvironmentFile2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1324060140, 44381, 19210, [183, 84, 243, 108, 61, 70, 214, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4eeb8dec_ad5d_4b0a_b754_f36c3d46d684);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -252,7 +252,7 @@ pub struct IIsolatedWindowsEnvironmentFile2_abi(
 pub struct IIsolatedWindowsEnvironmentHostStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentHostStatics {
     type Vtable = IIsolatedWindowsEnvironmentHostStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(739123911, 1440, 20858, [184, 28, 110, 232, 121, 12, 56, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c0e22c7_05a0_517a_b81c_6ee8790c381f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -272,7 +272,7 @@ pub struct IIsolatedWindowsEnvironmentHostStatics_abi(
 pub struct IIsolatedWindowsEnvironmentLaunchFileResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentLaunchFileResult {
     type Vtable = IIsolatedWindowsEnvironmentLaunchFileResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1750942070, 63200, 17769, [177, 170, 33, 92, 15, 245, 178, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x685d4176_f6e0_4569_b1aa_215c0ff5b257);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -292,7 +292,7 @@ pub struct IIsolatedWindowsEnvironmentLaunchFileResult_abi(
 pub struct IIsolatedWindowsEnvironmentOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentOptions {
     type Vtable = IIsolatedWindowsEnvironmentOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3072170231, 25072, 16392, [178, 7, 11, 249, 235, 45, 118, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb71d98f7_61f0_4008_b207_0bf9eb2d76f2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -326,7 +326,7 @@ pub struct IIsolatedWindowsEnvironmentOptions_abi(
 pub struct IIsolatedWindowsEnvironmentOptions2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentOptions2 {
     type Vtable = IIsolatedWindowsEnvironmentOptions2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(282577969, 35727, 19357, [178, 44, 97, 113, 3, 181, 91, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10d7cc31_8b8f_4b9d_b22c_617103b55b08);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -345,7 +345,7 @@ pub struct IIsolatedWindowsEnvironmentOptions2_abi(
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentOwnerRegistrationData {
     type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4169722914, 59599, 22208, [177, 223, 144, 175, 74, 216, 14, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf888ec22_e8cf_56c0_b1df_90af4ad80e84);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -370,7 +370,7 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationData_abi(
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentOwnerRegistrationResult {
     type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1839961169, 24937, 21983, [143, 81, 121, 14, 153, 215, 39, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6dab9451_6169_55df_8f51_790e99d7277d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -389,7 +389,7 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationResult_abi(
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentOwnerRegistrationStatics {
     type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(278206292, 8267, 24265, [157, 227, 223, 121, 45, 7, 74, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10951754_204b_5ec9_9de3_df792d074a61);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -408,7 +408,7 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics_abi(
 pub struct IIsolatedWindowsEnvironmentPostMessageResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentPostMessageResult {
     type Vtable = IIsolatedWindowsEnvironmentPostMessageResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(234498298, 12016, 19855, [179, 65, 49, 113, 178, 223, 147, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0dfa28fa_2ef0_4d8f_b341_3171b2df93b1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -427,7 +427,7 @@ pub struct IIsolatedWindowsEnvironmentPostMessageResult_abi(
 pub struct IIsolatedWindowsEnvironmentProcess(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentProcess {
     type Vtable = IIsolatedWindowsEnvironmentProcess_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2824389615, 33138, 20240, [175, 147, 203, 230, 10, 248, 141, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa858c3ef_8172_4f10_af93_cbe60af88d09);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -450,7 +450,7 @@ pub struct IIsolatedWindowsEnvironmentProcess_abi(
 pub struct IIsolatedWindowsEnvironmentShareFileRequestOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentShareFileRequestOptions {
     type Vtable = IIsolatedWindowsEnvironmentShareFileRequestOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3373862616, 4048, 18758, [187, 136, 17, 122, 96, 115, 123, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9190ed8_0fd0_4946_bb88_117a60737b61);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -469,7 +469,7 @@ pub struct IIsolatedWindowsEnvironmentShareFileRequestOptions_abi(
 pub struct IIsolatedWindowsEnvironmentShareFileResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentShareFileResult {
     type Vtable = IIsolatedWindowsEnvironmentShareFileResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2932329127, 39622, 19445, [139, 145, 92, 26, 223, 13, 125, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaec7caa7_9ac6_4bf5_8b91_5c1adf0d7d00);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -489,7 +489,7 @@ pub struct IIsolatedWindowsEnvironmentShareFileResult_abi(
 pub struct IIsolatedWindowsEnvironmentShareFolderRequestOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentShareFolderRequestOptions {
     type Vtable = IIsolatedWindowsEnvironmentShareFolderRequestOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3288722301, 28755, 20330, [155, 135, 116, 104, 70, 237, 25, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc405eb7d_7053_4f6a_9b87_746846ed19b2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -508,7 +508,7 @@ pub struct IIsolatedWindowsEnvironmentShareFolderRequestOptions_abi(
 pub struct IIsolatedWindowsEnvironmentShareFolderResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentShareFolderResult {
     type Vtable = IIsolatedWindowsEnvironmentShareFolderResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1433118510, 51869, 16913, [177, 67, 28, 237, 200, 110, 178, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x556ba72e_ca9d_4211_b143_1cedc86eb2fe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -527,7 +527,7 @@ pub struct IIsolatedWindowsEnvironmentShareFolderResult_abi(
 pub struct IIsolatedWindowsEnvironmentStartProcessResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentStartProcessResult {
     type Vtable = IIsolatedWindowsEnvironmentStartProcessResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409749551, 22490, 19381, [156, 6, 250, 7, 45, 32, 50, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fa1dc2f_57da_4bb5_9c06_fa072d2032e2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -547,7 +547,7 @@ pub struct IIsolatedWindowsEnvironmentStartProcessResult_abi(
 pub struct IIsolatedWindowsEnvironmentTelemetryParameters(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentTelemetryParameters {
     type Vtable = IIsolatedWindowsEnvironmentTelemetryParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3957013675, 31290, 17700, [160, 244, 249, 110, 40, 77, 51, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xebdb3cab_7a3a_4524_a0f4_f96e284d33cd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -566,7 +566,7 @@ pub struct IIsolatedWindowsEnvironmentTelemetryParameters_abi(
 pub struct IIsolatedWindowsEnvironmentUserInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentUserInfo {
     type Vtable = IIsolatedWindowsEnvironmentUserInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2325509550, 27066, 16385, [150, 252, 25, 160, 39, 3, 179, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a9c75ae_69ba_4001_96fc_19a02703b340);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -587,7 +587,7 @@ pub struct IIsolatedWindowsEnvironmentUserInfo_abi(
 pub struct IIsolatedWindowsHostMessengerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsHostMessengerStatics {
     type Vtable = IIsolatedWindowsHostMessengerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(115623099, 21440, 18569, [143, 163, 83, 89, 46, 55, 207, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06e444bb_53c0_4889_8fa3_53592e37cf21);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -607,7 +607,7 @@ pub struct IIsolatedWindowsHostMessengerStatics_abi(
 pub struct IIsolatedWindowsHostMessengerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsHostMessengerStatics2 {
     type Vtable = IIsolatedWindowsHostMessengerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1441767100, 1092, 17069, [131, 45, 27, 137, 192, 137, 209, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55ef9ebc_0444_42ad_832d_1b89c089d1ca);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -825,7 +825,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironment {
 }
 unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironment {
     type Vtable = IIsolatedWindowsEnvironment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1104299415, 49960, 17511, [179, 127, 77, 252, 111, 96, 182, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41d24597_c328_4467_b37f_4dfc6f60b6bc);
 }
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironment {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironment";
@@ -1120,7 +1120,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentCreate
 }
 unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentCreateResult {
     type Vtable = IIsolatedWindowsEnvironmentCreateResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4019871320, 56535, 17858, [156, 133, 171, 100, 42, 113, 94, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef9a5e58_dcd7_45c2_9c85_ab642a715e8e);
 }
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentCreateResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateResult";
@@ -1238,7 +1238,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentFile {
 }
 unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentFile {
     type Vtable = IIsolatedWindowsEnvironmentFile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1297801711, 671, 16641, [140, 53, 254, 145, 191, 156, 213, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d5ae1ef_029f_4101_8c35_fe91bf9cd5f0);
 }
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentFile {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentFile";
@@ -1371,7 +1371,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentLaunch
 }
 unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentLaunchFileResult {
     type Vtable = IIsolatedWindowsEnvironmentLaunchFileResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1750942070, 63200, 17769, [177, 170, 33, 92, 15, 245, 178, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x685d4176_f6e0_4569_b1aa_215c0ff5b257);
 }
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentLaunchFileResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileResult";
@@ -1587,7 +1587,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentOption
 }
 unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentOptions {
     type Vtable = IIsolatedWindowsEnvironmentOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3072170231, 25072, 16392, [178, 7, 11, 249, 235, 45, 118, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb71d98f7_61f0_4008_b207_0bf9eb2d76f2);
 }
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions";
@@ -1710,7 +1710,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentOwnerR
 }
 unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentOwnerRegistrationData {
     type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4169722914, 59599, 22208, [177, 223, 144, 175, 74, 216, 14, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf888ec22_e8cf_56c0_b1df_90af4ad80e84);
 }
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationData {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationData";
@@ -1784,7 +1784,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentOwnerR
 }
 unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentOwnerRegistrationResult {
     type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1839961169, 24937, 21983, [143, 81, 121, 14, 153, 215, 39, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6dab9451_6169_55df_8f51_790e99d7277d);
 }
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationResult";
@@ -1883,7 +1883,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentPostMe
 }
 unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentPostMessageResult {
     type Vtable = IIsolatedWindowsEnvironmentPostMessageResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(234498298, 12016, 19855, [179, 65, 49, 113, 178, 223, 147, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0dfa28fa_2ef0_4d8f_b341_3171b2df93b1);
 }
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentPostMessageResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult";
@@ -1999,7 +1999,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentProces
 }
 unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentProcess {
     type Vtable = IIsolatedWindowsEnvironmentProcess_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2824389615, 33138, 20240, [175, 147, 203, 230, 10, 248, 141, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa858c3ef_8172_4f10_af93_cbe60af88d09);
 }
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentProcess {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentProcess";
@@ -2123,7 +2123,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentShareF
 }
 unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentShareFileRequestOptions {
     type Vtable = IIsolatedWindowsEnvironmentShareFileRequestOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3373862616, 4048, 18758, [187, 136, 17, 122, 96, 115, 123, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9190ed8_0fd0_4946_bb88_117a60737b61);
 }
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentShareFileRequestOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions";
@@ -2205,7 +2205,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentShareF
 }
 unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentShareFileResult {
     type Vtable = IIsolatedWindowsEnvironmentShareFileResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2932329127, 39622, 19445, [139, 145, 92, 26, 223, 13, 125, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaec7caa7_9ac6_4bf5_8b91_5c1adf0d7d00);
 }
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentShareFileResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult";
@@ -2309,7 +2309,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentShareF
 }
 unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentShareFolderRequestOptions {
     type Vtable = IIsolatedWindowsEnvironmentShareFolderRequestOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3288722301, 28755, 20330, [155, 135, 116, 104, 70, 237, 25, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc405eb7d_7053_4f6a_9b87_746846ed19b2);
 }
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentShareFolderRequestOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderRequestOptions";
@@ -2383,7 +2383,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentShareF
 }
 unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentShareFolderResult {
     type Vtable = IIsolatedWindowsEnvironmentShareFolderResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1433118510, 51869, 16913, [177, 67, 28, 237, 200, 110, 178, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x556ba72e_ca9d_4211_b143_1cedc86eb2fe);
 }
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentShareFolderResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderResult";
@@ -2490,7 +2490,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentStartP
 }
 unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentStartProcessResult {
     type Vtable = IIsolatedWindowsEnvironmentStartProcessResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409749551, 22490, 19381, [156, 6, 250, 7, 45, 32, 50, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fa1dc2f_57da_4bb5_9c06_fa072d2032e2);
 }
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentStartProcessResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessResult";
@@ -2593,7 +2593,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentTeleme
 }
 unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentTelemetryParameters {
     type Vtable = IIsolatedWindowsEnvironmentTelemetryParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3957013675, 31290, 17700, [160, 244, 249, 110, 40, 77, 51, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xebdb3cab_7a3a_4524_a0f4_f96e284d33cd);
 }
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentTelemetryParameters {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentTelemetryParameters";
@@ -2676,7 +2676,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentUserIn
 }
 unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentUserInfo {
     type Vtable = IIsolatedWindowsEnvironmentUserInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2325509550, 27066, 16385, [150, 252, 25, 160, 39, 3, 179, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a9c75ae_69ba_4001_96fc_19a02703b340);
 }
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentUserInfo {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo";
@@ -2788,7 +2788,7 @@ unsafe impl ::windows::runtime::RuntimeType for MessageReceivedCallback {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::runtime::Interface for MessageReceivedCallback {
     type Vtable = MessageReceivedCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4122265855, 7581, 18837, [159, 234, 77, 21, 37, 124, 7, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5b4c8ff_1d9d_4995_9fea_4d15257c0757);
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(C)]

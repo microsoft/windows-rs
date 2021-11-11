@@ -39,7 +39,7 @@ impl IVssAdmin {
 }
 unsafe impl ::windows::runtime::Interface for IVssAdmin {
     type Vtable = IVssAdmin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2012043670, 12131, 4563, [138, 57, 0, 192, 79, 114, 216, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77ed5996_2f63_11d3_8a39_00c04f72d8e3);
 }
 impl ::core::convert::From<IVssAdmin> for ::windows::runtime::IUnknown {
     fn from(value: IVssAdmin) -> Self {
@@ -111,7 +111,7 @@ impl IVssAdminEx {
 }
 unsafe impl ::windows::runtime::Interface for IVssAdminEx {
     type Vtable = IVssAdminEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2019076600, 45562, 16806, [150, 79, 185, 179, 107, 140, 216, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7858a9f8_b1fa_41a6_964f_b9b36b8cd8d8);
 }
 impl ::core::convert::From<IVssAdminEx> for ::windows::runtime::IUnknown {
     fn from(value: IVssAdminEx) -> Self {
@@ -187,7 +187,7 @@ impl IVssAsync {
 }
 unsafe impl ::windows::runtime::Interface for IVssAsync {
     type Vtable = IVssAsync_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1350318004, 53083, 20117, [176, 175, 20, 235, 151, 103, 70, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x507c37b4_cf5b_4e95_b0af_14eb9767467e);
 }
 impl ::core::convert::From<IVssAsync> for ::windows::runtime::IUnknown {
     fn from(value: IVssAsync) -> Self {
@@ -422,7 +422,7 @@ impl IVssComponent {
 }
 unsafe impl ::windows::runtime::Interface for IVssComponent {
     type Vtable = IVssComponent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3536268438, 49441, 17688, [182, 39, 229, 169, 61, 1, 14, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2c72c96_c121_4518_b627_e5a93d010ead);
 }
 impl ::core::convert::From<IVssComponent> for ::windows::runtime::IUnknown {
     fn from(value: IVssComponent) -> Self {
@@ -764,7 +764,7 @@ impl IVssComponentEx {
 }
 unsafe impl ::windows::runtime::Interface for IVssComponentEx {
     type Vtable = IVssComponentEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(359435102, 61745, 19415, [156, 151, 209, 146, 59, 231, 225, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x156c8b5e_f131_4bd7_9c97_d1923be7e1fa);
 }
 impl ::core::convert::From<IVssComponentEx> for ::windows::runtime::IUnknown {
     fn from(value: IVssComponentEx) -> Self {
@@ -1149,7 +1149,7 @@ impl IVssComponentEx2 {
 }
 unsafe impl ::windows::runtime::Interface for IVssComponentEx2 {
     type Vtable = IVssComponentEx2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(995877106, 1961, 20043, [189, 211, 207, 220, 142, 44, 13, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b5be0f2_07a9_4e4b_bdd3_cfdc8e2c0d2d);
 }
 impl ::core::convert::From<IVssComponentEx2> for ::windows::runtime::IUnknown {
     fn from(value: IVssComponentEx2) -> Self {
@@ -1393,7 +1393,7 @@ impl IVssCreateExpressWriterMetadata {
 }
 unsafe impl ::windows::runtime::Interface for IVssCreateExpressWriterMetadata {
     type Vtable = IVssCreateExpressWriterMetadata_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2625056375, 45678, 17023, [146, 221, 201, 150, 244, 30, 165, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c772e77_b26e_427f_92dd_c996f41ea5e3);
 }
 impl ::core::convert::From<IVssCreateExpressWriterMetadata> for ::windows::runtime::IUnknown {
     fn from(value: IVssCreateExpressWriterMetadata) -> Self {
@@ -1634,7 +1634,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt {
 }
 unsafe impl ::windows::runtime::Interface for IVssDifferentialSoftwareSnapshotMgmt {
     type Vtable = IVssDifferentialSoftwareSnapshotMgmt_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(558501672, 46903, 16422, [184, 71, 79, 158, 55, 215, 149, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x214a0f28_b737_4026_b847_4f9e37d79529);
 }
 impl ::core::convert::From<IVssDifferentialSoftwareSnapshotMgmt> for ::windows::runtime::IUnknown {
     fn from(value: IVssDifferentialSoftwareSnapshotMgmt) -> Self {
@@ -1723,7 +1723,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt2 {
 }
 unsafe impl ::windows::runtime::Interface for IVssDifferentialSoftwareSnapshotMgmt2 {
     type Vtable = IVssDifferentialSoftwareSnapshotMgmt2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2493346643, 26463, 17013, [137, 105, 240, 68, 198, 39, 120, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x949d7353_675f_4275_8969_f044c6277815);
 }
 impl ::core::convert::From<IVssDifferentialSoftwareSnapshotMgmt2> for ::windows::runtime::IUnknown {
     fn from(value: IVssDifferentialSoftwareSnapshotMgmt2) -> Self {
@@ -1859,7 +1859,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt3 {
 }
 unsafe impl ::windows::runtime::Interface for IVssDifferentialSoftwareSnapshotMgmt3 {
     type Vtable = IVssDifferentialSoftwareSnapshotMgmt3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(943685233, 42181, 16415, [178, 127, 248, 38, 40, 159, 132, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x383f7e71_a4c5_401f_b27f_f826289f8458);
 }
 impl ::core::convert::From<IVssDifferentialSoftwareSnapshotMgmt3> for ::windows::runtime::IUnknown {
     fn from(value: IVssDifferentialSoftwareSnapshotMgmt3) -> Self {
@@ -1969,7 +1969,7 @@ impl IVssEnumMgmtObject {
 }
 unsafe impl ::windows::runtime::Interface for IVssEnumMgmtObject {
     type Vtable = IVssEnumMgmtObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(26562155, 37460, 20078, [128, 140, 201, 224, 93, 0, 118, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01954e6b_9254_4e6e_808c_c9e05d007696);
 }
 impl ::core::convert::From<IVssEnumMgmtObject> for ::windows::runtime::IUnknown {
     fn from(value: IVssEnumMgmtObject) -> Self {
@@ -2026,7 +2026,7 @@ impl IVssEnumObject {
 }
 unsafe impl ::windows::runtime::Interface for IVssEnumObject {
     type Vtable = IVssEnumObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2921099536, 12128, 4563, [138, 57, 0, 192, 79, 114, 216, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae1c7110_2f60_11d3_8a39_00c04f72d8e3);
 }
 impl ::core::convert::From<IVssEnumObject> for ::windows::runtime::IUnknown {
     fn from(value: IVssEnumObject) -> Self {
@@ -2089,7 +2089,7 @@ impl IVssExpressWriter {
 }
 unsafe impl ::windows::runtime::Interface for IVssExpressWriter {
     type Vtable = IVssExpressWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3812294620, 22983, 18353, [151, 213, 66, 102, 89, 143, 98, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe33affdc_59c7_47b1_97d5_4266598f6235);
 }
 impl ::core::convert::From<IVssExpressWriter> for ::windows::runtime::IUnknown {
     fn from(value: IVssExpressWriter) -> Self {
@@ -2171,7 +2171,7 @@ impl IVssFileShareSnapshotProvider {
 }
 unsafe impl ::windows::runtime::Interface for IVssFileShareSnapshotProvider {
     type Vtable = IVssFileShareSnapshotProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3361955936, 31790, 4575, [140, 74, 8, 0, 32, 12, 154, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8636060_7c2e_11df_8c4a_0800200c9a66);
 }
 impl ::core::convert::From<IVssFileShareSnapshotProvider> for ::windows::runtime::IUnknown {
     fn from(value: IVssFileShareSnapshotProvider) -> Self {
@@ -2250,7 +2250,7 @@ impl IVssHardwareSnapshotProvider {
 }
 unsafe impl ::windows::runtime::Interface for IVssHardwareSnapshotProvider {
     type Vtable = IVssHardwareSnapshotProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2509480279, 17641, 17220, [187, 235, 68, 251, 249, 176, 107, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9593a157_44e9_4344_bbeb_44fbf9b06b10);
 }
 impl ::core::convert::From<IVssHardwareSnapshotProvider> for ::windows::runtime::IUnknown {
     fn from(value: IVssHardwareSnapshotProvider) -> Self {
@@ -2350,7 +2350,7 @@ impl IVssHardwareSnapshotProviderEx {
 }
 unsafe impl ::windows::runtime::Interface for IVssHardwareSnapshotProviderEx {
     type Vtable = IVssHardwareSnapshotProviderEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2136713509, 52657, 19729, [167, 31, 51, 158, 183, 231, 9, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f5ba925_cdb1_4d11_a71f_339eb7e709fd);
 }
 impl ::core::convert::From<IVssHardwareSnapshotProviderEx> for ::windows::runtime::IUnknown {
     fn from(value: IVssHardwareSnapshotProviderEx) -> Self {
@@ -2454,7 +2454,7 @@ impl IVssProviderCreateSnapshotSet {
 }
 unsafe impl ::windows::runtime::Interface for IVssProviderCreateSnapshotSet {
     type Vtable = IVssProviderCreateSnapshotSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1602834011, 7737, 18296, [142, 35, 154, 186, 217, 240, 224, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f894e5b_1e39_4778_8e23_9abad9f0e08c);
 }
 impl ::core::convert::From<IVssProviderCreateSnapshotSet> for ::windows::runtime::IUnknown {
     fn from(value: IVssProviderCreateSnapshotSet) -> Self {
@@ -2507,7 +2507,7 @@ impl IVssProviderNotifications {
 }
 unsafe impl ::windows::runtime::Interface for IVssProviderNotifications {
     type Vtable = IVssProviderNotifications_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3848376351, 933, 19198, [134, 208, 114, 186, 238, 206, 112, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe561901f_03a5_4afe_86d0_72baeece7004);
 }
 impl ::core::convert::From<IVssProviderNotifications> for ::windows::runtime::IUnknown {
     fn from(value: IVssProviderNotifications) -> Self {
@@ -2562,7 +2562,7 @@ impl IVssSnapshotMgmt {
 }
 unsafe impl ::windows::runtime::Interface for IVssSnapshotMgmt {
     type Vtable = IVssSnapshotMgmt_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4202559305, 26343, 18822, [162, 127, 226, 240, 74, 229, 55, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa7df749_66e7_4986_a27f_e2f04ae53772);
 }
 impl ::core::convert::From<IVssSnapshotMgmt> for ::windows::runtime::IUnknown {
     fn from(value: IVssSnapshotMgmt) -> Self {
@@ -2607,7 +2607,7 @@ impl IVssSnapshotMgmt2 {
 }
 unsafe impl ::windows::runtime::Interface for IVssSnapshotMgmt2 {
     type Vtable = IVssSnapshotMgmt2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(258075705, 65154, 17906, [163, 240, 118, 139, 93, 66, 113, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f61ec39_fe82_45f2_a3f0_768b5d427102);
 }
 impl ::core::convert::From<IVssSnapshotMgmt2> for ::windows::runtime::IUnknown {
     fn from(value: IVssSnapshotMgmt2) -> Self {
@@ -2693,7 +2693,7 @@ impl IVssSoftwareSnapshotProvider {
 }
 unsafe impl ::windows::runtime::Interface for IVssSoftwareSnapshotProvider {
     type Vtable = IVssSoftwareSnapshotProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1620972094, 11354, 17619, [143, 1, 11, 29, 154, 71, 209, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x609e123e_2c5a_44d3_8f01_0b1d9a47d1ff);
 }
 impl ::core::convert::From<IVssSoftwareSnapshotProvider> for ::windows::runtime::IUnknown {
     fn from(value: IVssSoftwareSnapshotProvider) -> Self {
@@ -3106,7 +3106,7 @@ pub struct IVssWriterImpl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, idsession: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> bool,
 );
-pub const VSSCoordinator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3849956191, 7364, 17588, [190, 217, 222, 9, 145, 255, 6, 35]);
+pub const VSSCoordinator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe579ab5f_1cc4_44b4_bed9_de0991ff0623);
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -4185,4 +4185,4 @@ impl ::core::convert::From<i32> for VSS_WRITER_STATE {
 unsafe impl ::windows::runtime::Abi for VSS_WRITER_STATE {
     type Abi = Self;
 }
-pub const VssSnapshotMgmt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(190458962, 16057, 18186, [150, 226, 108, 109, 69, 112, 228, 15]);
+pub const VssSnapshotMgmt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b5a2c52_3eb9_470a_96e2_6c6d4570e40f);

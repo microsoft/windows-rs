@@ -398,7 +398,7 @@ unsafe impl ::windows::runtime::RuntimeType for FileOpenPicker {
 }
 unsafe impl ::windows::runtime::Interface for FileOpenPicker {
     type Vtable = IFileOpenPicker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(749217674, 4805, 19551, [137, 119, 148, 84, 119, 147, 194, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ca8278a_12c5_4c5f_8977_94547793c241);
 }
 impl ::windows::runtime::RuntimeName for FileOpenPicker {
     const NAME: &'static str = "Windows.Storage.Pickers.FileOpenPicker";
@@ -999,7 +999,7 @@ unsafe impl ::windows::runtime::RuntimeType for FileSavePicker {
 }
 unsafe impl ::windows::runtime::Interface for FileSavePicker {
     type Vtable = IFileSavePicker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(847708107, 24959, 19653, [175, 106, 179, 253, 242, 154, 209, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3286ffcb_617f_4cc5_af6a_b3fdf29ad145);
 }
 impl ::windows::runtime::RuntimeName for FileSavePicker {
     const NAME: &'static str = "Windows.Storage.Pickers.FileSavePicker";
@@ -1170,7 +1170,7 @@ unsafe impl ::windows::runtime::RuntimeType for FolderPicker {
 }
 unsafe impl ::windows::runtime::Interface for FolderPicker {
     type Vtable = IFolderPicker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(139425689, 62459, 16394, [153, 177, 123, 74, 119, 47, 214, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x084f7799_f3fb_400a_99b1_7b4a772fd60d);
 }
 impl ::windows::runtime::RuntimeName for FolderPicker {
     const NAME: &'static str = "Windows.Storage.Pickers.FolderPicker";
@@ -1222,7 +1222,7 @@ unsafe impl ::core::marker::Sync for FolderPicker {}
 pub struct IFileOpenPicker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPicker {
     type Vtable = IFileOpenPicker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(749217674, 4805, 19551, [137, 119, 148, 84, 119, 147, 194, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ca8278a_12c5_4c5f_8977_94547793c241);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1253,7 +1253,7 @@ pub struct IFileOpenPicker_abi(
 pub struct IFileOpenPicker2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPicker2 {
     type Vtable = IFileOpenPicker2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2364239058, 46150, 18167, [178, 101, 144, 248, 229, 90, 214, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ceb6cd2_b446_46f7_b265_90f8e55ad650);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1274,7 +1274,7 @@ pub struct IFileOpenPicker2_abi(
 pub struct IFileOpenPicker3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPicker3 {
     type Vtable = IFileOpenPicker3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3651519923, 50652, 23448, [189, 128, 168, 208, 202, 5, 132, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9a5c5b3_c5dc_5b98_bd80_a8d0ca0584d8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1293,7 +1293,7 @@ pub struct IFileOpenPicker3_abi(
 pub struct IFileOpenPickerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPickerStatics {
     type Vtable = IFileOpenPickerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1747015483, 12034, 18483, [150, 212, 171, 191, 173, 114, 182, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6821573b_2f02_4833_96d4_abbfad72b67b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1312,7 +1312,7 @@ pub struct IFileOpenPickerStatics_abi(
 pub struct IFileOpenPickerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPickerStatics2 {
     type Vtable = IFileOpenPickerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3901846549, 60893, 23704, [182, 243, 54, 111, 223, 202, 211, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8917415_eddd_5c98_b6f3_366fdfcad392);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1331,7 +1331,7 @@ pub struct IFileOpenPickerStatics2_abi(
 pub struct IFileOpenPickerWithOperationId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPickerWithOperationId {
     type Vtable = IFileOpenPickerWithOperationId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1062712681, 9506, 19621, [170, 115, 161, 85, 9, 241, 252, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f57b569_2522_4ca5_aa73_a15509f1fcbf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1350,7 +1350,7 @@ pub struct IFileOpenPickerWithOperationId_abi(
 pub struct IFileSavePicker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePicker {
     type Vtable = IFileSavePicker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(847708107, 24959, 19653, [175, 106, 179, 253, 242, 154, 209, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3286ffcb_617f_4cc5_af6a_b3fdf29ad145);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1383,7 +1383,7 @@ pub struct IFileSavePicker_abi(
 pub struct IFileSavePicker2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePicker2 {
     type Vtable = IFileSavePicker2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(247665570, 53835, 17562, [129, 151, 232, 145, 4, 253, 66, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ec313a2_d24b_449a_8197_e89104fd42cc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1403,7 +1403,7 @@ pub struct IFileSavePicker2_abi(
 pub struct IFileSavePicker3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePicker3 {
     type Vtable = IFileSavePicker3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1770712169, 47676, 20049, [189, 144, 74, 188, 187, 244, 207, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x698aec69_ba3c_4e51_bd90_4abcbbf4cfaf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1422,7 +1422,7 @@ pub struct IFileSavePicker3_abi(
 pub struct IFileSavePicker4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePicker4 {
     type Vtable = IFileSavePicker4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3889707610, 56826, 24032, [139, 112, 200, 66, 194, 25, 136, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7d83a5a_ddfa_5de0_8b70_c842c21988ec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1441,7 +1441,7 @@ pub struct IFileSavePicker4_abi(
 pub struct IFileSavePickerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePickerStatics {
     type Vtable = IFileSavePickerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(686018462, 38428, 24108, [174, 215, 230, 71, 55, 244, 206, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28e3cf9e_961c_5e2c_aed7_e64737f4ce37);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1460,7 +1460,7 @@ pub struct IFileSavePickerStatics_abi(
 pub struct IFolderPicker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFolderPicker {
     type Vtable = IFolderPicker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(139425689, 62459, 16394, [153, 177, 123, 74, 119, 47, 214, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x084f7799_f3fb_400a_99b1_7b4a772fd60d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1489,7 +1489,7 @@ pub struct IFolderPicker_abi(
 pub struct IFolderPicker2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFolderPicker2 {
     type Vtable = IFolderPicker2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2394143383, 56453, 17942, [190, 148, 150, 96, 136, 31, 47, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8eb3ba97_dc85_4616_be94_9660881f2f5d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1509,7 +1509,7 @@ pub struct IFolderPicker2_abi(
 pub struct IFolderPicker3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFolderPicker3 {
     type Vtable = IFolderPicker3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1731927593, 54054, 21440, [189, 36, 162, 92, 113, 76, 238, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x673b1e29_d326_53c0_bd24_a25c714cee36);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1528,7 +1528,7 @@ pub struct IFolderPicker3_abi(
 pub struct IFolderPickerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFolderPickerStatics {
     type Vtable = IFolderPickerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2615363392, 31905, 22850, [163, 200, 70, 242, 85, 30, 207, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9be34740_7ca1_5942_a3c8_46f2551ecff3);
 }
 #[repr(C)]
 #[doc(hidden)]

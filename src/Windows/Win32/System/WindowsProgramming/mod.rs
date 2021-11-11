@@ -417,7 +417,7 @@ impl ::core::cmp::Eq for CABINFOW {}
 unsafe impl ::windows::runtime::Abi for CABINFOW {
     type Abi = Self;
 }
-pub const CATID_DeleteBrowsingHistory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(835385060, 54954, 16528, [160, 80, 165, 172, 137, 114, 233, 239]);
+pub const CATID_DeleteBrowsingHistory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31caf6e4_d6aa_4090_a050_a5ac8972e9ef);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const CBR_110: u32 = 110u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
@@ -632,7 +632,7 @@ impl ::core::cmp::Eq for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {}
 unsafe impl ::windows::runtime::Abi for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
     type Abi = Self;
 }
-pub const CameraUIControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(383099582, 45509, 18355, [142, 174, 204, 188, 244, 82, 199, 232]);
+pub const CameraUIControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16d5a2be_b1c5_47b3_8eae_ccbcf452c7e8);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -1609,7 +1609,7 @@ pub const DTR_CONTROL_DISABLE: u32 = 0u32;
 pub const DTR_CONTROL_ENABLE: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const DTR_CONTROL_HANDSHAKE: u32 = 2u32;
-pub const DefaultBrowserSyncSettings: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(986199075, 12562, 19110, [155, 91, 31, 235, 35, 208, 197, 249]);
+pub const DefaultBrowserSyncSettings: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ac83423_3112_4aa6_9b5b_1feb23d0c5f9);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1718,8 +1718,8 @@ pub const ER_ICMP: u32 = 896u32;
 pub const EVENPARITY: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const EVENTLOG_FULL_INFO: u32 = 0u32;
-pub const EditionUpgradeBroker: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3290892327, 20281, 17887, [146, 136, 18, 255, 107, 133, 169, 33]);
-pub const EditionUpgradeHelper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(24604147, 47535, 20048, [155, 28, 86, 233, 49, 22, 215, 4]);
+pub const EditionUpgradeBroker: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4270827_4f39_45df_9288_12ff6b85a921);
+pub const EditionUpgradeHelper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01776df3_b9af_4e50_9b1c_56e93116d704);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -3043,7 +3043,7 @@ impl ICameraUIControl {
 }
 unsafe impl ::windows::runtime::Interface for ICameraUIControl {
     type Vtable = ICameraUIControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3094559455, 15720, 19343, [187, 8, 226, 138, 11, 237, 3, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8733adf_3d68_4b8f_bb08_e28a0bed0376);
 }
 impl ::core::convert::From<ICameraUIControl> for ::windows::runtime::IUnknown {
     fn from(value: ICameraUIControl) -> Self {
@@ -3115,7 +3115,7 @@ impl ICameraUIControlEventCallback {
 }
 unsafe impl ::windows::runtime::Interface for ICameraUIControlEventCallback {
     type Vtable = ICameraUIControlEventCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(469371948, 64461, 18294, [189, 164, 136, 191, 151, 78, 116, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bfa0c2c_fbcd_4776_bda4_88bf974e74f4);
 }
 impl ::core::convert::From<ICameraUIControlEventCallback> for ::windows::runtime::IUnknown {
     fn from(value: ICameraUIControlEventCallback) -> Self {
@@ -3171,7 +3171,7 @@ impl IClipServiceNotificationHelper {
 }
 unsafe impl ::windows::runtime::Interface for IClipServiceNotificationHelper {
     type Vtable = IClipServiceNotificationHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3281602800, 24898, 17661, [152, 202, 225, 104, 26, 141, 104, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc39948f0_6142_44fd_98ca_e1681a8d68b5);
 }
 impl ::core::convert::From<IClipServiceNotificationHelper> for ::windows::runtime::IUnknown {
     fn from(value: IClipServiceNotificationHelper) -> Self {
@@ -3215,7 +3215,7 @@ impl IContainerActivationHelper {
 }
 unsafe impl ::windows::runtime::Interface for IContainerActivationHelper {
     type Vtable = IContainerActivationHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3039099199, 32981, 20167, [174, 158, 214, 110, 147, 173, 225, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb524f93f_80d5_4ec7_ae9e_d66e93ade1fa);
 }
 impl ::core::convert::From<IContainerActivationHelper> for ::windows::runtime::IUnknown {
     fn from(value: IContainerActivationHelper) -> Self {
@@ -3258,7 +3258,7 @@ impl IDefaultBrowserSyncSettings {
 }
 unsafe impl ::windows::runtime::Interface for IDefaultBrowserSyncSettings {
     type Vtable = IDefaultBrowserSyncSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2049440429, 23270, 16981, [144, 48, 197, 48, 147, 98, 146, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a27faad_5ae6_4255_9030_c530936292e3);
 }
 impl ::core::convert::From<IDefaultBrowserSyncSettings> for ::windows::runtime::IUnknown {
     fn from(value: IDefaultBrowserSyncSettings) -> Self {
@@ -3301,7 +3301,7 @@ impl IDeleteBrowsingHistory {
 }
 unsafe impl ::windows::runtime::Interface for IDeleteBrowsingHistory {
     type Vtable = IDeleteBrowsingHistory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3476614475, 11239, 17505, [139, 94, 154, 70, 109, 200, 42, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf38ed4b_2be7_4461_8b5e_9a466dc82ae3);
 }
 impl ::core::convert::From<IDeleteBrowsingHistory> for ::windows::runtime::IUnknown {
     fn from(value: IDeleteBrowsingHistory) -> Self {
@@ -3398,7 +3398,7 @@ impl IEditionUpgradeBroker {
 }
 unsafe impl ::windows::runtime::Interface for IEditionUpgradeBroker {
     type Vtable = IEditionUpgradeBroker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4279880655, 37973, 18743, [184, 114, 107, 121, 41, 164, 96, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff19cbcf_9455_4937_b872_6b7929a460af);
 }
 impl ::core::convert::From<IEditionUpgradeBroker> for ::windows::runtime::IUnknown {
     fn from(value: IEditionUpgradeBroker) -> Self {
@@ -3467,7 +3467,7 @@ impl IEditionUpgradeHelper {
 }
 unsafe impl ::windows::runtime::Interface for IEditionUpgradeHelper {
     type Vtable = IEditionUpgradeHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3555320642, 24043, 17334, [132, 158, 105, 19, 184, 93, 80, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3e9e342_5deb_43b6_849e_6913b85d503a);
 }
 impl ::core::convert::From<IEditionUpgradeHelper> for ::windows::runtime::IUnknown {
     fn from(value: IEditionUpgradeHelper) -> Self {
@@ -4080,7 +4080,7 @@ impl IWindowsLockModeHelper {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsLockModeHelper {
     type Vtable = IWindowsLockModeHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4081242526, 52258, 17992, [187, 93, 3, 204, 247, 91, 71, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf342d19e_cc22_4648_bb5d_03ccf75b47c5);
 }
 impl ::core::convert::From<IWindowsLockModeHelper> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsLockModeHelper) -> Self {

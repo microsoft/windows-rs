@@ -11,7 +11,7 @@ pub const CGD_DEFAULT: u32 = 0u32;
 pub const CGD_STRING_PROPERTY: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 pub const CGD_UNKNOWN_PROPERTY: u32 = 0u32;
-pub const CLSID_ContactAggregationManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2529734037, 49561, 17630, [179, 78, 172, 51, 196, 66, 223, 57]);
+pub const CLSID_ContactAggregationManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96c8ad95_c199_44de_b34e_ac33c442df39);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Contacts`*"]
@@ -68,8 +68,8 @@ impl ::core::convert::From<i32> for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {
 unsafe impl ::windows::runtime::Abi for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {
     type Abi = Self;
 }
-pub const Contact: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1639352328, 36590, 20433, [172, 184, 61, 128, 76, 141, 176, 86]);
-pub const ContactManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1902495915, 44936, 17085, [134, 253, 83, 16, 180, 40, 90, 2]);
+pub const Contact: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61b68808_8eee_4fd1_acb8_3d804c8db056);
+pub const ContactManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7165c8ab_af88_42bd_86fd_5310b4285a02);
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -92,7 +92,7 @@ impl IContact {
 }
 unsafe impl ::windows::runtime::Interface for IContact {
     type Vtable = IContact_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4181833329, 48551, 20343, [136, 74, 244, 100, 98, 242, 38, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf941b671_bda7_4f77_884a_f46462f226a7);
 }
 impl ::core::convert::From<IContact> for ::windows::runtime::IUnknown {
     fn from(value: IContact) -> Self {
@@ -179,7 +179,7 @@ impl IContactAggregationAggregate {
 }
 unsafe impl ::windows::runtime::Interface for IContactAggregationAggregate {
     type Vtable = IContactAggregationAggregate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2127677460, 52528, 17352, [155, 141, 46, 72, 158, 83, 213, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ed1c814_cd30_43c8_9b8d_2e489e53d54b);
 }
 impl ::core::convert::From<IContactAggregationAggregate> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationAggregate) -> Self {
@@ -250,7 +250,7 @@ impl IContactAggregationAggregateCollection {
 }
 unsafe impl ::windows::runtime::Interface for IContactAggregationAggregateCollection {
     type Vtable = IContactAggregationAggregateCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(593097638, 14952, 16559, [152, 219, 15, 158, 177, 67, 195, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2359f3a6_3a68_40af_98db_0f9eb143c3bb);
 }
 impl ::core::convert::From<IContactAggregationAggregateCollection> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationAggregateCollection) -> Self {
@@ -382,7 +382,7 @@ impl IContactAggregationContact {
 }
 unsafe impl ::windows::runtime::Interface for IContactAggregationContact {
     type Vtable = IContactAggregationContact_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(514993798, 19590, 16880, [159, 159, 194, 81, 233, 253, 166, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1eb22e86_4c86_41f0_9f9f_c251e9fda6c3);
 }
 impl ::core::convert::From<IContactAggregationContact> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationContact) -> Self {
@@ -473,7 +473,7 @@ impl IContactAggregationContactCollection {
 }
 unsafe impl ::windows::runtime::Interface for IContactAggregationContactCollection {
     type Vtable = IContactAggregationContactCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2188273402, 33246, 17354, [166, 251, 140, 120, 92, 217, 150, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x826e66fa_81de_43ca_a6fb_8c785cd996c6);
 }
 impl ::core::convert::From<IContactAggregationContactCollection> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationContactCollection) -> Self {
@@ -566,7 +566,7 @@ impl IContactAggregationGroup {
 }
 unsafe impl ::windows::runtime::Interface for IContactAggregationGroup {
     type Vtable = IContactAggregationGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3376174175, 4740, 18843, [150, 175, 7, 55, 42, 244, 115, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc93c545f_1284_499b_96af_07372af473e0);
 }
 impl ::core::convert::From<IContactAggregationGroup> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationGroup) -> Self {
@@ -638,7 +638,7 @@ impl IContactAggregationGroupCollection {
 }
 unsafe impl ::windows::runtime::Interface for IContactAggregationGroupCollection {
     type Vtable = IContactAggregationGroupCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(547461788, 54003, 19331, [145, 67, 190, 255, 210, 204, 34, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20a19a9c_d2f3_4b83_9143_beffd2cc226d);
 }
 impl ::core::convert::From<IContactAggregationGroupCollection> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationGroupCollection) -> Self {
@@ -766,7 +766,7 @@ impl IContactAggregationLink {
 }
 unsafe impl ::windows::runtime::Interface for IContactAggregationLink {
     type Vtable = IContactAggregationLink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3061920547, 41347, 18004, [134, 39, 121, 179, 13, 227, 160, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6813323_a183_4654_8627_79b30de3a0ec);
 }
 impl ::core::convert::From<IContactAggregationLink> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationLink) -> Self {
@@ -852,7 +852,7 @@ impl IContactAggregationLinkCollection {
 }
 unsafe impl ::windows::runtime::Interface for IContactAggregationLinkCollection {
     type Vtable = IContactAggregationLinkCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4173074067, 64341, 20264, [185, 250, 177, 194, 116, 21, 50, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8bc0e93_fb55_4f28_b9fa_b1c274153292);
 }
 impl ::core::convert::From<IContactAggregationLinkCollection> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationLinkCollection) -> Self {
@@ -972,7 +972,7 @@ impl IContactAggregationManager {
 }
 unsafe impl ::windows::runtime::Interface for IContactAggregationManager {
     type Vtable = IContactAggregationManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(495344009, 19231, 19296, [143, 52, 194, 173, 70, 139, 43, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d865989_4b1f_4b60_8f34_c2ad468b2b50);
 }
 impl ::core::convert::From<IContactAggregationManager> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationManager) -> Self {
@@ -1146,7 +1146,7 @@ impl IContactAggregationServerPerson {
 }
 unsafe impl ::windows::runtime::Interface for IContactAggregationServerPerson {
     type Vtable = IContactAggregationServerPerson_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2145140043, 7042, 17204, [133, 197, 37, 24, 78, 229, 165, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fdc3d4b_1b82_4334_85c5_25184ee5a5f2);
 }
 impl ::core::convert::From<IContactAggregationServerPerson> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationServerPerson) -> Self {
@@ -1252,7 +1252,7 @@ impl IContactAggregationServerPersonCollection {
 }
 unsafe impl ::windows::runtime::Interface for IContactAggregationServerPersonCollection {
     type Vtable = IContactAggregationServerPersonCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1332939338, 26116, 18358, [169, 135, 102, 158, 207, 30, 87, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f730a4a_6604_47b6_a987_669ecf1e5751);
 }
 impl ::core::convert::From<IContactAggregationServerPersonCollection> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationServerPersonCollection) -> Self {
@@ -1311,7 +1311,7 @@ impl IContactCollection {
 }
 unsafe impl ::windows::runtime::Interface for IContactCollection {
     type Vtable = IContactCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3064963896, 55161, 4569, [139, 222, 246, 107, 173, 30, 63, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6afa338_d779_11d9_8bde_f66bad1e3f3a);
 }
 impl ::core::convert::From<IContactCollection> for ::windows::runtime::IUnknown {
     fn from(value: IContactCollection) -> Self {
@@ -1381,7 +1381,7 @@ impl IContactManager {
 }
 unsafe impl ::windows::runtime::Interface for IContactManager {
     type Vtable = IContactManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2908044696, 57009, 18250, [142, 23, 252, 12, 32, 117, 183, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad553d98_deb1_474a_8e17_fc0c2075b738);
 }
 impl ::core::convert::From<IContactManager> for ::windows::runtime::IUnknown {
     fn from(value: IContactManager) -> Self {
@@ -1492,7 +1492,7 @@ impl IContactProperties {
 }
 unsafe impl ::windows::runtime::Interface for IContactProperties {
     type Vtable = IContactProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1893541853, 23741, 18152, [190, 240, 35, 182, 179, 70, 40, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70dd27dd_5cbd_46e8_bef0_23b6b346288f);
 }
 impl ::core::convert::From<IContactProperties> for ::windows::runtime::IUnknown {
     fn from(value: IContactProperties) -> Self {
@@ -1586,7 +1586,7 @@ impl IContactPropertyCollection {
 }
 unsafe impl ::windows::runtime::Interface for IContactPropertyCollection {
     type Vtable = IContactPropertyCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4292062712, 64100, 17192, [177, 182, 46, 13, 181, 9, 203, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffd3adf8_fa64_4328_b1b6_2e0db509cb3c);
 }
 impl ::core::convert::From<IContactPropertyCollection> for ::windows::runtime::IUnknown {
     fn from(value: IContactPropertyCollection) -> Self {

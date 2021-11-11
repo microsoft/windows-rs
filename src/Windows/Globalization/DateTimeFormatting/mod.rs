@@ -270,7 +270,7 @@ unsafe impl ::windows::runtime::RuntimeType for DateTimeFormatter {
 }
 unsafe impl ::windows::runtime::Interface for DateTimeFormatter {
     type Vtable = IDateTimeFormatter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2515454480, 29664, 20043, [161, 131, 61, 106, 208, 186, 53, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95eeca10_73e0_4e4b_a183_3d6ad0ba35ec);
 }
 impl ::windows::runtime::RuntimeName for DateTimeFormatter {
     const NAME: &'static str = "Windows.Globalization.DateTimeFormatting.DateTimeFormatter";
@@ -390,7 +390,7 @@ impl ::windows::runtime::DefaultType for HourFormat {
 pub struct IDateTimeFormatter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDateTimeFormatter {
     type Vtable = IDateTimeFormatter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2515454480, 29664, 20043, [161, 131, 61, 106, 208, 186, 53, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95eeca10_73e0_4e4b_a183_3d6ad0ba35ec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -428,7 +428,7 @@ pub struct IDateTimeFormatter_abi(
 pub struct IDateTimeFormatter2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDateTimeFormatter2 {
     type Vtable = IDateTimeFormatter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(667490950, 48554, 20432, [158, 54, 103, 29, 90, 165, 238, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27c91a86_bdaa_4fd0_9e36_671d5aa5ee03);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -447,7 +447,7 @@ pub struct IDateTimeFormatter2_abi(
 pub struct IDateTimeFormatterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDateTimeFormatterFactory {
     type Vtable = IDateTimeFormatterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3968698963, 6702, 16685, [136, 21, 59, 116, 95, 177, 162, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec8d8a53_1a2e_412d_8815_3b745fb1a2a0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -490,7 +490,7 @@ pub struct IDateTimeFormatterFactory_abi(
 pub struct IDateTimeFormatterStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDateTimeFormatterStatics {
     type Vtable = IDateTimeFormatterStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3217942464, 57164, 18990, [144, 18, 244, 125, 175, 63, 18, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfcde7c0_df4c_4a2e_9012_f47daf3f1212);
 }
 #[repr(C)]
 #[doc(hidden)]

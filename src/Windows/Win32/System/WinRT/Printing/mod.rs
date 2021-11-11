@@ -19,7 +19,7 @@ impl IPrintManagerInterop {
 }
 unsafe impl ::windows::runtime::Interface for IPrintManagerInterop {
     type Vtable = IPrintManagerInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3309525570, 36163, 20091, [166, 138, 239, 49, 30, 57, 32, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5435a42_8d43_4e7b_a68a_ef311e392087);
 }
 impl ::core::convert::From<IPrintManagerInterop> for ::windows::runtime::IUnknown {
     fn from(value: IPrintManagerInterop) -> Self {
@@ -81,7 +81,7 @@ impl IPrintWorkflowConfigurationNative {
 }
 unsafe impl ::windows::runtime::Interface for IPrintWorkflowConfigurationNative {
     type Vtable = IPrintWorkflowConfigurationNative_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3226910218, 40674, 17674, [152, 35, 150, 79, 0, 6, 242, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc056be0a_9ee2_450a_9823_964f0006f2bb);
 }
 impl ::core::convert::From<IPrintWorkflowConfigurationNative> for ::windows::runtime::IUnknown {
     fn from(value: IPrintWorkflowConfigurationNative) -> Self {
@@ -134,7 +134,7 @@ impl IPrintWorkflowObjectModelSourceFileContentNative {
 }
 unsafe impl ::windows::runtime::Interface for IPrintWorkflowObjectModelSourceFileContentNative {
     type Vtable = IPrintWorkflowObjectModelSourceFileContentNative_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1758061687, 39230, 16466, [138, 198, 69, 78, 255, 88, 219, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68c9e477_993e_4052_8ac6_454eff58db9d);
 }
 impl ::core::convert::From<IPrintWorkflowObjectModelSourceFileContentNative> for ::windows::runtime::IUnknown {
     fn from(value: IPrintWorkflowObjectModelSourceFileContentNative) -> Self {
@@ -180,7 +180,7 @@ impl IPrintWorkflowXpsObjectModelTargetPackageNative {
 }
 unsafe impl ::windows::runtime::Interface for IPrintWorkflowXpsObjectModelTargetPackageNative {
     type Vtable = IPrintWorkflowXpsObjectModelTargetPackageNative_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2107030644, 39764, 19617, [173, 58, 151, 156, 61, 68, 221, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d96bc74_9b54_4ca1_ad3a_979c3d44ddac);
 }
 impl ::core::convert::From<IPrintWorkflowXpsObjectModelTargetPackageNative> for ::windows::runtime::IUnknown {
     fn from(value: IPrintWorkflowXpsObjectModelTargetPackageNative) -> Self {
@@ -243,7 +243,7 @@ impl IPrintWorkflowXpsReceiver {
 }
 unsafe impl ::windows::runtime::Interface for IPrintWorkflowXpsReceiver {
     type Vtable = IPrintWorkflowXpsReceiver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(67728244, 30648, 18422, [129, 103, 170, 226, 157, 76, 248, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04097374_77b8_47f6_8167_aae29d4cf84b);
 }
 impl ::core::convert::From<IPrintWorkflowXpsReceiver> for ::windows::runtime::IUnknown {
     fn from(value: IPrintWorkflowXpsReceiver) -> Self {
@@ -317,7 +317,7 @@ impl IPrintWorkflowXpsReceiver2 {
 }
 unsafe impl ::windows::runtime::Interface for IPrintWorkflowXpsReceiver2 {
     type Vtable = IPrintWorkflowXpsReceiver2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(37473292, 57259, 19041, [176, 116, 73, 12, 105, 149, 88, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x023bcc0c_dfab_4a61_b074_490c6995580d);
 }
 impl ::core::convert::From<IPrintWorkflowXpsReceiver2> for ::windows::runtime::IUnknown {
     fn from(value: IPrintWorkflowXpsReceiver2) -> Self {
@@ -396,7 +396,7 @@ impl IPrinting3DManagerInterop {
 }
 unsafe impl ::windows::runtime::Interface for IPrinting3DManagerInterop {
     type Vtable = IPrinting3DManagerInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2627932176, 5252, 17799, [178, 107, 221, 223, 159, 156, 174, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ca31010_1484_4587_b26b_dddf9f9caecd);
 }
 impl ::core::convert::From<IPrinting3DManagerInterop> for ::windows::runtime::IUnknown {
     fn from(value: IPrinting3DManagerInterop) -> Self {

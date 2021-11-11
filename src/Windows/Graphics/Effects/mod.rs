@@ -5,7 +5,7 @@
 pub struct IGraphicsEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsEffect {
     type Vtable = IGraphicsEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3411132622, 36838, 17974, [178, 2, 134, 31, 170, 7, 216, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb51c0ce_8fe6_4636_b202_861faa07d8f3);
 }
 impl IGraphicsEffect {
     #[doc = "*Required features: `Graphics_Effects`*"]
@@ -105,7 +105,7 @@ pub struct IGraphicsEffect_abi(
 pub struct IGraphicsEffectSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsEffectSource {
     type Vtable = IGraphicsEffectSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(764386780, 17209, 20153, [146, 22, 249, 222, 183, 86, 88, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d8f9ddc_4339_4eb9_9216_f9deb75658a2);
 }
 impl IGraphicsEffectSource {}
 unsafe impl ::windows::runtime::RuntimeType for IGraphicsEffectSource {

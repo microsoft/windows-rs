@@ -4,7 +4,7 @@
 pub struct IMiracastReceiver(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiver {
     type Vtable = IMiracastReceiver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2050052696, 58436, 20916, [175, 247, 184, 141, 170, 18, 41, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a315258_e444_51b4_aff7_b88daa1229e0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -41,7 +41,7 @@ pub struct IMiracastReceiver_abi(
 pub struct IMiracastReceiverApplySettingsResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverApplySettingsResult {
     type Vtable = IMiracastReceiverApplySettingsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3500827250, 2509, 22753, [164, 242, 93, 81, 67, 211, 18, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0aa6272_09cd_58e1_a4f2_5d5143d312f9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -60,7 +60,7 @@ pub struct IMiracastReceiverApplySettingsResult_abi(
 pub struct IMiracastReceiverConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverConnection {
     type Vtable = IMiracastReceiverConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1883975478, 53989, 21791, [168, 84, 248, 34, 183, 145, 125, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x704b2f36_d2e5_551f_a854_f822b7917d28);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -89,7 +89,7 @@ pub struct IMiracastReceiverConnection_abi(
 pub struct IMiracastReceiverConnectionCreatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverConnectionCreatedEventArgs {
     type Vtable = IMiracastReceiverConnectionCreatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2106456633, 12410, 23567, [148, 189, 208, 198, 157, 22, 153, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d8dfa39_307a_5c0f_94bd_d0c69d169982);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -110,7 +110,7 @@ pub struct IMiracastReceiverConnectionCreatedEventArgs_abi(
 pub struct IMiracastReceiverCursorImageChannel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverCursorImageChannel {
     type Vtable = IMiracastReceiverCursorImageChannel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3651941165, 29242, 23197, [185, 10, 129, 21, 62, 250, 42, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9ac332d_723a_5a9d_b90a_81153efa2a0f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -142,7 +142,7 @@ pub struct IMiracastReceiverCursorImageChannel_abi(
 pub struct IMiracastReceiverCursorImageChannelSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverCursorImageChannelSettings {
     type Vtable = IMiracastReceiverCursorImageChannelSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3436965375, 48384, 23452, [142, 76, 0, 202, 207, 134, 182, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xccdbedff_bd00_5b9c_8e4c_00cacf86b634);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -165,7 +165,7 @@ pub struct IMiracastReceiverCursorImageChannelSettings_abi(
 pub struct IMiracastReceiverDisconnectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverDisconnectedEventArgs {
     type Vtable = IMiracastReceiverDisconnectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3651231326, 24558, 22502, [180, 176, 4, 114, 125, 185, 50, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9a15e5e_5fee_57e6_b4b0_04727db93229);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -183,7 +183,7 @@ pub struct IMiracastReceiverDisconnectedEventArgs_abi(
 pub struct IMiracastReceiverGameControllerDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverGameControllerDevice {
     type Vtable = IMiracastReceiverGameControllerDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(762409448, 48852, 20760, [160, 88, 226, 71, 126, 181, 136, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d7171e8_bed4_5118_a058_e2477eb5888d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -210,7 +210,7 @@ pub struct IMiracastReceiverGameControllerDevice_abi(
 pub struct IMiracastReceiverInputDevices(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverInputDevices {
     type Vtable = IMiracastReceiverInputDevices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3660954370, 10410, 24296, [150, 245, 164, 41, 1, 198, 111, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda35bb02_28aa_5ee8_96f5_a42901c66f00);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -229,7 +229,7 @@ pub struct IMiracastReceiverInputDevices_abi(
 pub struct IMiracastReceiverKeyboardDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverKeyboardDevice {
     type Vtable = IMiracastReceiverKeyboardDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3199627890, 1728, 21759, [172, 150, 33, 116, 100, 255, 37, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbeb67272_06c0_54ff_ac96_217464ff2501);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -254,7 +254,7 @@ pub struct IMiracastReceiverKeyboardDevice_abi(
 pub struct IMiracastReceiverMediaSourceCreatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverMediaSourceCreatedEventArgs {
     type Vtable = IMiracastReceiverMediaSourceCreatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(399462814, 4678, 21277, [148, 90, 107, 21, 142, 57, 195, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17cf519e_1246_531d_945a_6b158e39c3aa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -277,7 +277,7 @@ pub struct IMiracastReceiverMediaSourceCreatedEventArgs_abi(
 pub struct IMiracastReceiverSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverSession {
     type Vtable = IMiracastReceiverSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(489409972, 61323, 21001, [191, 201, 195, 33, 22, 80, 72, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d2bcdb4_ef8b_5209_bfc9_c32116504803);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -313,7 +313,7 @@ pub struct IMiracastReceiverSession_abi(
 pub struct IMiracastReceiverSessionStartResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverSessionStartResult {
     type Vtable = IMiracastReceiverSessionStartResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3083170798, 16586, 20991, [149, 242, 201, 222, 52, 242, 233, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7c573ee_40ca_51ff_95f2_c9de34f2e90e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -332,7 +332,7 @@ pub struct IMiracastReceiverSessionStartResult_abi(
 pub struct IMiracastReceiverSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverSettings {
     type Vtable = IMiracastReceiverSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473064740, 50522, 24510, [148, 100, 235, 5, 48, 119, 5, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57cd2f24_c55a_5fbe_9464_eb05307705dd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -359,7 +359,7 @@ pub struct IMiracastReceiverSettings_abi(
 pub struct IMiracastReceiverStatus(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverStatus {
     type Vtable = IMiracastReceiverStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3263845777, 9131, 20894, [173, 9, 144, 191, 246, 220, 200, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc28a5591_23ab_519e_ad09_90bff6dcc87e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -382,7 +382,7 @@ pub struct IMiracastReceiverStatus_abi(
 pub struct IMiracastReceiverStreamControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverStreamControl {
     type Vtable = IMiracastReceiverStreamControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(954871179, 10089, 23255, [138, 138, 37, 75, 157, 247, 186, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38ea2d8b_2769_5ad7_8a8a_254b9df7ba82);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -407,7 +407,7 @@ pub struct IMiracastReceiverStreamControl_abi(
 pub struct IMiracastReceiverVideoStreamSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverVideoStreamSettings {
     type Vtable = IMiracastReceiverVideoStreamSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(379280923, 5277, 21200, [177, 38, 111, 137, 116, 78, 79, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x169b5e1b_149d_52d0_b126_6f89744e4f50);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -430,7 +430,7 @@ pub struct IMiracastReceiverVideoStreamSettings_abi(
 pub struct IMiracastTransmitter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastTransmitter {
     type Vtable = IMiracastTransmitter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(875395581, 11876, 21768, [138, 48, 131, 61, 30, 172, 112, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x342d79fd_2e64_5508_8a30_833d1eac70d0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -571,7 +571,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiver {
 }
 unsafe impl ::windows::runtime::Interface for MiracastReceiver {
     type Vtable = IMiracastReceiver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2050052696, 58436, 20916, [175, 247, 184, 141, 170, 18, 41, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a315258_e444_51b4_aff7_b88daa1229e0);
 }
 impl ::windows::runtime::RuntimeName for MiracastReceiver {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiver";
@@ -645,7 +645,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverApplySettingsRes
 }
 unsafe impl ::windows::runtime::Interface for MiracastReceiverApplySettingsResult {
     type Vtable = IMiracastReceiverApplySettingsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3500827250, 2509, 22753, [164, 242, 93, 81, 67, 211, 18, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0aa6272_09cd_58e1_a4f2_5d5143d312f9);
 }
 impl ::windows::runtime::RuntimeName for MiracastReceiverApplySettingsResult {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverApplySettingsResult";
@@ -831,7 +831,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverConnection {
 }
 unsafe impl ::windows::runtime::Interface for MiracastReceiverConnection {
     type Vtable = IMiracastReceiverConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1883975478, 53989, 21791, [168, 84, 248, 34, 183, 145, 125, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x704b2f36_d2e5_551f_a854_f822b7917d28);
 }
 impl ::windows::runtime::RuntimeName for MiracastReceiverConnection {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverConnection";
@@ -940,7 +940,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverConnectionCreate
 }
 unsafe impl ::windows::runtime::Interface for MiracastReceiverConnectionCreatedEventArgs {
     type Vtable = IMiracastReceiverConnectionCreatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2106456633, 12410, 23567, [148, 189, 208, 198, 157, 22, 153, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d8dfa39_307a_5c0f_94bd_d0c69d169982);
 }
 impl ::windows::runtime::RuntimeName for MiracastReceiverConnectionCreatedEventArgs {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverConnectionCreatedEventArgs";
@@ -1063,7 +1063,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverCursorImageChann
 }
 unsafe impl ::windows::runtime::Interface for MiracastReceiverCursorImageChannel {
     type Vtable = IMiracastReceiverCursorImageChannel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3651941165, 29242, 23197, [185, 10, 129, 21, 62, 250, 42, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9ac332d_723a_5a9d_b90a_81153efa2a0f);
 }
 impl ::windows::runtime::RuntimeName for MiracastReceiverCursorImageChannel {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverCursorImageChannel";
@@ -1149,7 +1149,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverCursorImageChann
 }
 unsafe impl ::windows::runtime::Interface for MiracastReceiverCursorImageChannelSettings {
     type Vtable = IMiracastReceiverCursorImageChannelSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3436965375, 48384, 23452, [142, 76, 0, 202, 207, 134, 182, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xccdbedff_bd00_5b9c_8e4c_00cacf86b634);
 }
 impl ::windows::runtime::RuntimeName for MiracastReceiverCursorImageChannelSettings {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverCursorImageChannelSettings";
@@ -1243,7 +1243,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverDisconnectedEven
 }
 unsafe impl ::windows::runtime::Interface for MiracastReceiverDisconnectedEventArgs {
     type Vtable = IMiracastReceiverDisconnectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3651231326, 24558, 22502, [180, 176, 4, 114, 125, 185, 50, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9a15e5e_5fee_57e6_b4b0_04727db93229);
 }
 impl ::windows::runtime::RuntimeName for MiracastReceiverDisconnectedEventArgs {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverDisconnectedEventArgs";
@@ -1358,7 +1358,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverGameControllerDe
 }
 unsafe impl ::windows::runtime::Interface for MiracastReceiverGameControllerDevice {
     type Vtable = IMiracastReceiverGameControllerDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(762409448, 48852, 20760, [160, 88, 226, 71, 126, 181, 136, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d7171e8_bed4_5118_a058_e2477eb5888d);
 }
 impl ::windows::runtime::RuntimeName for MiracastReceiverGameControllerDevice {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverGameControllerDevice";
@@ -1454,7 +1454,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverInputDevices {
 }
 unsafe impl ::windows::runtime::Interface for MiracastReceiverInputDevices {
     type Vtable = IMiracastReceiverInputDevices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3660954370, 10410, 24296, [150, 245, 164, 41, 1, 198, 111, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda35bb02_28aa_5ee8_96f5_a42901c66f00);
 }
 impl ::windows::runtime::RuntimeName for MiracastReceiverInputDevices {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverInputDevices";
@@ -1556,7 +1556,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverKeyboardDevice {
 }
 unsafe impl ::windows::runtime::Interface for MiracastReceiverKeyboardDevice {
     type Vtable = IMiracastReceiverKeyboardDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3199627890, 1728, 21759, [172, 150, 33, 116, 100, 255, 37, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbeb67272_06c0_54ff_ac96_217464ff2501);
 }
 impl ::windows::runtime::RuntimeName for MiracastReceiverKeyboardDevice {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverKeyboardDevice";
@@ -1674,7 +1674,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverMediaSourceCreat
 }
 unsafe impl ::windows::runtime::Interface for MiracastReceiverMediaSourceCreatedEventArgs {
     type Vtable = IMiracastReceiverMediaSourceCreatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(399462814, 4678, 21277, [148, 90, 107, 21, 142, 57, 195, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17cf519e_1246_531d_945a_6b158e39c3aa);
 }
 impl ::windows::runtime::RuntimeName for MiracastReceiverMediaSourceCreatedEventArgs {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverMediaSourceCreatedEventArgs";
@@ -1826,7 +1826,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverSession {
 }
 unsafe impl ::windows::runtime::Interface for MiracastReceiverSession {
     type Vtable = IMiracastReceiverSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(489409972, 61323, 21001, [191, 201, 195, 33, 22, 80, 72, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d2bcdb4_ef8b_5209_bfc9_c32116504803);
 }
 impl ::windows::runtime::RuntimeName for MiracastReceiverSession {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverSession";
@@ -1926,7 +1926,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverSessionStartResu
 }
 unsafe impl ::windows::runtime::Interface for MiracastReceiverSessionStartResult {
     type Vtable = IMiracastReceiverSessionStartResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3083170798, 16586, 20991, [149, 242, 201, 222, 52, 242, 233, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7c573ee_40ca_51ff_95f2_c9de34f2e90e);
 }
 impl ::windows::runtime::RuntimeName for MiracastReceiverSessionStartResult {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverSessionStartResult";
@@ -2073,7 +2073,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverSettings {
 }
 unsafe impl ::windows::runtime::Interface for MiracastReceiverSettings {
     type Vtable = IMiracastReceiverSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473064740, 50522, 24510, [148, 100, 235, 5, 48, 119, 5, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57cd2f24_c55a_5fbe_9464_eb05307705dd);
 }
 impl ::windows::runtime::RuntimeName for MiracastReceiverSettings {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverSettings";
@@ -2172,7 +2172,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverStatus {
 }
 unsafe impl ::windows::runtime::Interface for MiracastReceiverStatus {
     type Vtable = IMiracastReceiverStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3263845777, 9131, 20894, [173, 9, 144, 191, 246, 220, 200, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc28a5591_23ab_519e_ad09_90bff6dcc87e);
 }
 impl ::windows::runtime::RuntimeName for MiracastReceiverStatus {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverStatus";
@@ -2274,7 +2274,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverStreamControl {
 }
 unsafe impl ::windows::runtime::Interface for MiracastReceiverStreamControl {
     type Vtable = IMiracastReceiverStreamControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(954871179, 10089, 23255, [138, 138, 37, 75, 157, 247, 186, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38ea2d8b_2769_5ad7_8a8a_254b9df7ba82);
 }
 impl ::windows::runtime::RuntimeName for MiracastReceiverStreamControl {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverStreamControl";
@@ -2360,7 +2360,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverVideoStreamSetti
 }
 unsafe impl ::windows::runtime::Interface for MiracastReceiverVideoStreamSettings {
     type Vtable = IMiracastReceiverVideoStreamSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(379280923, 5277, 21200, [177, 38, 111, 137, 116, 78, 79, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x169b5e1b_149d_52d0_b126_6f89744e4f50);
 }
 impl ::windows::runtime::RuntimeName for MiracastReceiverVideoStreamSettings {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverVideoStreamSettings";
@@ -2494,7 +2494,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastTransmitter {
 }
 unsafe impl ::windows::runtime::Interface for MiracastTransmitter {
     type Vtable = IMiracastTransmitter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(875395581, 11876, 21768, [138, 48, 131, 61, 30, 172, 112, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x342d79fd_2e64_5508_8a30_833d1eac70d0);
 }
 impl ::windows::runtime::RuntimeName for MiracastTransmitter {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastTransmitter";

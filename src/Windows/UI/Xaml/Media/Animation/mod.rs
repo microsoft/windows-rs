@@ -73,7 +73,7 @@ unsafe impl ::windows::runtime::RuntimeType for AddDeleteThemeTransition {
 }
 unsafe impl ::windows::runtime::Interface for AddDeleteThemeTransition {
     type Vtable = IAddDeleteThemeTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2917958958, 17444, 19883, [153, 193, 58, 4, 227, 106, 60, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xadec852e_4424_4dab_99c1_3a04e36a3c48);
 }
 impl ::windows::runtime::RuntimeName for AddDeleteThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.AddDeleteThemeTransition";
@@ -279,7 +279,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackEase {
 }
 unsafe impl ::windows::runtime::Interface for BackEase {
     type Vtable = IBackEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3833042663, 63493, 19087, [129, 201, 56, 230, 71, 44, 170, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe47796e7_f805_4a8f_81c9_38e6472caa94);
 }
 impl ::windows::runtime::RuntimeName for BackEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.BackEase";
@@ -388,7 +388,7 @@ unsafe impl ::windows::runtime::RuntimeType for BasicConnectedAnimationConfigura
 }
 unsafe impl ::windows::runtime::Interface for BasicConnectedAnimationConfiguration {
     type Vtable = IBasicConnectedAnimationConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3866491317, 42198, 21331, [131, 230, 200, 158, 124, 248, 212, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe675f9b5_a4d6_5353_83e6_c89e7cf8d456);
 }
 impl ::windows::runtime::RuntimeName for BasicConnectedAnimationConfiguration {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.BasicConnectedAnimationConfiguration";
@@ -553,7 +553,7 @@ unsafe impl ::windows::runtime::RuntimeType for BeginStoryboard {
 }
 unsafe impl ::windows::runtime::Interface for BeginStoryboard {
     type Vtable = IBeginStoryboard_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1679335373, 18924, 20050, [166, 246, 85, 50, 76, 146, 16, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64189fcd_49ec_4e52_a6f6_55324c921053);
 }
 impl ::windows::runtime::RuntimeName for BeginStoryboard {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.BeginStoryboard";
@@ -779,7 +779,7 @@ unsafe impl ::windows::runtime::RuntimeType for BounceEase {
 }
 unsafe impl ::windows::runtime::Interface for BounceEase {
     type Vtable = IBounceEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(737232462, 64625, 18413, [133, 161, 59, 169, 87, 119, 24, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bf1464e_fc71_47ed_85a1_3ba9577718b4);
 }
 impl ::windows::runtime::RuntimeName for BounceEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.BounceEase";
@@ -961,7 +961,7 @@ unsafe impl ::windows::runtime::RuntimeType for CircleEase {
 }
 unsafe impl ::windows::runtime::Interface for CircleEase {
     type Vtable = ICircleEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1403239858, 37239, 20078, [160, 67, 80, 130, 216, 137, 171, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53a3bdb2_9177_4e6e_a043_5082d889ab1f);
 }
 impl ::windows::runtime::RuntimeName for CircleEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.CircleEase";
@@ -1354,7 +1354,7 @@ unsafe impl ::windows::runtime::RuntimeType for ColorAnimation {
 }
 unsafe impl ::windows::runtime::Interface for ColorAnimation {
     type Vtable = IColorAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3098446357, 3939, 18068, [148, 103, 189, 175, 172, 18, 83, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8ae8a15_0f63_4694_9467_bdafac1253ea);
 }
 impl ::windows::runtime::RuntimeName for ColorAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ColorAnimation";
@@ -1647,7 +1647,7 @@ unsafe impl ::windows::runtime::RuntimeType for ColorAnimationUsingKeyFrames {
 }
 unsafe impl ::windows::runtime::Interface for ColorAnimationUsingKeyFrames {
     type Vtable = IColorAnimationUsingKeyFrames_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4123534912, 5059, 17066, [154, 226, 126, 107, 81, 201, 47, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5c82640_13c3_42aa_9ae2_7e6b51c92f95);
 }
 impl ::windows::runtime::RuntimeName for ColorAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames";
@@ -1847,7 +1847,7 @@ unsafe impl ::windows::runtime::RuntimeType for ColorKeyFrame {
 }
 unsafe impl ::windows::runtime::Interface for ColorKeyFrame {
     type Vtable = IColorKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3038610137, 2320, 17801, [162, 132, 176, 201, 32, 88, 88, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb51d82d9_0910_4589_a284_b0c9205858e9);
 }
 impl ::windows::runtime::RuntimeName for ColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ColorKeyFrame";
@@ -2272,7 +2272,7 @@ unsafe impl ::windows::runtime::RuntimeType for CommonNavigationTransitionInfo {
 }
 unsafe impl ::windows::runtime::Interface for CommonNavigationTransitionInfo {
     type Vtable = ICommonNavigationTransitionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1345607314, 42325, 17956, [163, 97, 10, 145, 193, 112, 100, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50345692_a555_4624_a361_0a91c1706473);
 }
 impl ::windows::runtime::RuntimeName for CommonNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo";
@@ -2439,7 +2439,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConnectedAnimation {
 }
 unsafe impl ::windows::runtime::Interface for ConnectedAnimation {
     type Vtable = IConnectedAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(890790540, 62343, 19493, [172, 152, 68, 232, 108, 60, 173, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3518628c_f387_4c25_ac98_44e86c3cadf0);
 }
 impl ::windows::runtime::RuntimeName for ConnectedAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ConnectedAnimation";
@@ -2520,7 +2520,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConnectedAnimationConfiguration 
 }
 unsafe impl ::windows::runtime::Interface for ConnectedAnimationConfiguration {
     type Vtable = IConnectedAnimationConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2198190, 52620, 22097, [146, 160, 193, 219, 149, 192, 57, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00218aae_cd8c_5651_92a0_c1db95c03998);
 }
 impl ::windows::runtime::RuntimeName for ConnectedAnimationConfiguration {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ConnectedAnimationConfiguration";
@@ -2635,7 +2635,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConnectedAnimationService {
 }
 unsafe impl ::windows::runtime::Interface for ConnectedAnimationService {
     type Vtable = IConnectedAnimationService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(476607945, 6587, 19783, [185, 170, 102, 200, 2, 220, 185, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c6875c9_19bb_4d47_b9aa_66c802dcb9ff);
 }
 impl ::windows::runtime::RuntimeName for ConnectedAnimationService {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ConnectedAnimationService";
@@ -2800,7 +2800,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContentThemeTransition {
 }
 unsafe impl ::windows::runtime::Interface for ContentThemeTransition {
     type Vtable = IContentThemeTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4134520259, 22805, 17277, [142, 59, 173, 248, 231, 240, 171, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf66fc5c3_5915_437d_8e3b_adf8e7f0ab57);
 }
 impl ::windows::runtime::RuntimeName for ContentThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ContentThemeTransition";
@@ -3041,7 +3041,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContinuumNavigationTransitionInf
 }
 unsafe impl ::windows::runtime::Interface for ContinuumNavigationTransitionInfo {
     type Vtable = IContinuumNavigationTransitionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1273093037, 35750, 16388, [132, 56, 138, 144, 23, 151, 133, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4be1dbad_8ba6_4004_8438_8a9017978543);
 }
 impl ::windows::runtime::RuntimeName for ContinuumNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo";
@@ -3223,7 +3223,7 @@ unsafe impl ::windows::runtime::RuntimeType for CubicEase {
 }
 unsafe impl ::windows::runtime::Interface for CubicEase {
     type Vtable = ICubicEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(462748790, 56023, 17236, [177, 162, 121, 105, 251, 246, 167, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b94fc76_dad7_4354_b1a2_7969fbf6a70d);
 }
 impl ::windows::runtime::RuntimeName for CubicEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.CubicEase";
@@ -3332,7 +3332,7 @@ unsafe impl ::windows::runtime::RuntimeType for DirectConnectedAnimationConfigur
 }
 unsafe impl ::windows::runtime::Interface for DirectConnectedAnimationConfiguration {
     type Vtable = IDirectConnectedAnimationConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3999101807, 22328, 23942, [183, 112, 21, 25, 72, 207, 54, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee5d736f_5738_5d86_b770_151948cf365e);
 }
 impl ::windows::runtime::RuntimeName for DirectConnectedAnimationConfiguration {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DirectConnectedAnimationConfiguration";
@@ -3501,7 +3501,7 @@ unsafe impl ::windows::runtime::RuntimeType for DiscreteColorKeyFrame {
 }
 unsafe impl ::windows::runtime::Interface for DiscreteColorKeyFrame {
     type Vtable = IDiscreteColorKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(587991284, 57442, 19633, [142, 42, 20, 9, 61, 115, 237, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x230c08f4_e062_4cb1_8e2a_14093d73ed8c);
 }
 impl ::windows::runtime::RuntimeName for DiscreteColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DiscreteColorKeyFrame";
@@ -3690,7 +3690,7 @@ unsafe impl ::windows::runtime::RuntimeType for DiscreteDoubleKeyFrame {
 }
 unsafe impl ::windows::runtime::Interface for DiscreteDoubleKeyFrame {
     type Vtable = IDiscreteDoubleKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4126482234, 44305, 18894, [142, 28, 8, 253, 241, 68, 116, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5f51f3a_ad11_49ce_8e1c_08fdf1447446);
 }
 impl ::windows::runtime::RuntimeName for DiscreteDoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DiscreteDoubleKeyFrame";
@@ -3879,7 +3879,7 @@ unsafe impl ::windows::runtime::RuntimeType for DiscreteObjectKeyFrame {
 }
 unsafe impl ::windows::runtime::Interface for DiscreteObjectKeyFrame {
     type Vtable = IDiscreteObjectKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3353140873, 61741, 19100, [129, 153, 231, 169, 236, 227, 164, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7dcde89_f12d_4a9c_8199_e7a9ece3a473);
 }
 impl ::windows::runtime::RuntimeName for DiscreteObjectKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame";
@@ -4070,7 +4070,7 @@ unsafe impl ::windows::runtime::RuntimeType for DiscretePointKeyFrame {
 }
 unsafe impl ::windows::runtime::Interface for DiscretePointKeyFrame {
     type Vtable = IDiscretePointKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3769173773, 19522, 19088, [152, 58, 117, 245, 168, 58, 47, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0a9070d_4c42_4a90_983a_75f5a83a2fbe);
 }
 impl ::windows::runtime::RuntimeName for DiscretePointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DiscretePointKeyFrame";
@@ -4440,7 +4440,7 @@ unsafe impl ::windows::runtime::RuntimeType for DoubleAnimation {
 }
 unsafe impl ::windows::runtime::Interface for DoubleAnimation {
     type Vtable = IDoubleAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2124365145, 3847, 19401, [151, 125, 3, 118, 63, 248, 21, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e9f3d59_0f07_4bc9_977d_03763ff8154f);
 }
 impl ::windows::runtime::RuntimeName for DoubleAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DoubleAnimation";
@@ -4733,7 +4733,7 @@ unsafe impl ::windows::runtime::RuntimeType for DoubleAnimationUsingKeyFrames {
 }
 unsafe impl ::windows::runtime::Interface for DoubleAnimationUsingKeyFrames {
     type Vtable = IDoubleAnimationUsingKeyFrames_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1341022863, 49134, 20341, [131, 194, 169, 59, 57, 72, 132, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4fee628f_bfee_4f75_83c2_a93b39488473);
 }
 impl ::windows::runtime::RuntimeName for DoubleAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames";
@@ -4933,7 +4933,7 @@ unsafe impl ::windows::runtime::RuntimeType for DoubleKeyFrame {
 }
 unsafe impl ::windows::runtime::Interface for DoubleKeyFrame {
     type Vtable = IDoubleKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1732531965, 59422, 20302, [180, 173, 10, 207, 237, 158, 205, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x674456fd_e81e_4f4e_b4ad_0acfed9ecd68);
 }
 impl ::windows::runtime::RuntimeName for DoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DoubleKeyFrame";
@@ -5439,7 +5439,7 @@ unsafe impl ::windows::runtime::RuntimeType for DragItemThemeAnimation {
 }
 unsafe impl ::windows::runtime::Interface for DragItemThemeAnimation {
     type Vtable = IDragItemThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(209542581, 32470, 18761, [180, 230, 167, 140, 159, 79, 151, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c7d5db5_7ed6_4949_b4e6_a78c9f4f978d);
 }
 impl ::windows::runtime::RuntimeName for DragItemThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DragItemThemeAnimation";
@@ -5765,7 +5765,7 @@ unsafe impl ::windows::runtime::RuntimeType for DragOverThemeAnimation {
 }
 unsafe impl ::windows::runtime::Interface for DragOverThemeAnimation {
     type Vtable = IDragOverThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1928815351, 32337, 19051, [185, 55, 220, 75, 76, 28, 84, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72f762f7_7e51_4a6b_b937_dc4b4c1c5458);
 }
 impl ::windows::runtime::RuntimeName for DragOverThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DragOverThemeAnimation";
@@ -5926,7 +5926,7 @@ unsafe impl ::windows::runtime::RuntimeType for DrillInNavigationTransitionInfo 
 }
 unsafe impl ::windows::runtime::Interface for DrillInNavigationTransitionInfo {
     type Vtable = IDrillInNavigationTransitionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(998645786, 17875, 17979, [147, 158, 200, 89, 95, 67, 155, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b86201a_45d3_463b_939e_c8595f439bcc);
 }
 impl ::windows::runtime::RuntimeName for DrillInNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DrillInNavigationTransitionInfo";
@@ -6270,7 +6270,7 @@ unsafe impl ::windows::runtime::RuntimeType for DrillInThemeAnimation {
 }
 unsafe impl ::windows::runtime::Interface for DrillInThemeAnimation {
     type Vtable = IDrillInThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2962274340, 61906, 16824, [135, 186, 120, 3, 65, 38, 89, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb090b824_f1d2_41b8_87ba_78034126594c);
 }
 impl ::windows::runtime::RuntimeName for DrillInThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DrillInThemeAnimation";
@@ -6614,7 +6614,7 @@ unsafe impl ::windows::runtime::RuntimeType for DrillOutThemeAnimation {
 }
 unsafe impl ::windows::runtime::Interface for DrillOutThemeAnimation {
     type Vtable = IDrillOutThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3633368287, 1747, 20350, [142, 74, 79, 183, 110, 37, 97, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd890ccdf_06d3_4f7e_8e4a_4fb76e256139);
 }
 impl ::windows::runtime::RuntimeName for DrillOutThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DrillOutThemeAnimation";
@@ -6898,7 +6898,7 @@ unsafe impl ::windows::runtime::RuntimeType for DropTargetItemThemeAnimation {
 }
 unsafe impl ::windows::runtime::Interface for DropTargetItemThemeAnimation {
     type Vtable = IDropTargetItemThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(411158888, 6180, 17963, [135, 232, 195, 87, 33, 43, 151, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1881c968_1824_462b_87e8_c357212b977b);
 }
 impl ::windows::runtime::RuntimeName for DropTargetItemThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation";
@@ -7111,7 +7111,7 @@ unsafe impl ::windows::runtime::RuntimeType for EasingColorKeyFrame {
 }
 unsafe impl ::windows::runtime::Interface for EasingColorKeyFrame {
     type Vtable = IEasingColorKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3342063152, 62649, 18740, [155, 221, 39, 172, 94, 209, 207, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc733d630_f4b9_4934_9bdd_27ac5ed1cfd8);
 }
 impl ::windows::runtime::RuntimeName for EasingColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EasingColorKeyFrame";
@@ -7324,7 +7324,7 @@ unsafe impl ::windows::runtime::RuntimeType for EasingDoubleKeyFrame {
 }
 unsafe impl ::windows::runtime::Interface for EasingDoubleKeyFrame {
     type Vtable = IEasingDoubleKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2522536845, 39508, 16648, [180, 255, 181, 165, 33, 44, 179, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x965adb8d_9a54_4108_b4ff_b5a5212cb338);
 }
 impl ::windows::runtime::RuntimeName for EasingDoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EasingDoubleKeyFrame";
@@ -7510,7 +7510,7 @@ unsafe impl ::windows::runtime::RuntimeType for EasingFunctionBase {
 }
 unsafe impl ::windows::runtime::Interface for EasingFunctionBase {
     type Vtable = IEasingFunctionBase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3238541375, 11266, 16721, [142, 205, 104, 221, 170, 63, 13, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc108383f_2c02_4151_8ecd_68ddaa3f0d9b);
 }
 impl ::windows::runtime::RuntimeName for EasingFunctionBase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EasingFunctionBase";
@@ -7728,7 +7728,7 @@ unsafe impl ::windows::runtime::RuntimeType for EasingPointKeyFrame {
 }
 unsafe impl ::windows::runtime::Interface for EasingPointKeyFrame {
     type Vtable = IEasingPointKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3016299392, 26728, 16933, [167, 11, 57, 129, 204, 11, 41, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3c91380_6868_4225_a70b_3981cc0b2947);
 }
 impl ::windows::runtime::RuntimeName for EasingPointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EasingPointKeyFrame";
@@ -7915,7 +7915,7 @@ unsafe impl ::windows::runtime::RuntimeType for EdgeUIThemeTransition {
 }
 unsafe impl ::windows::runtime::Interface for EdgeUIThemeTransition {
     type Vtable = IEdgeUIThemeTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1552335259, 18903, 6636, [207, 25, 131, 167, 60, 109, 231, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c86c19b_49d7_19ec_cf19_83a73c6de75e);
 }
 impl ::windows::runtime::RuntimeName for EdgeUIThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition";
@@ -8141,7 +8141,7 @@ unsafe impl ::windows::runtime::RuntimeType for ElasticEase {
 }
 unsafe impl ::windows::runtime::Interface for ElasticEase {
     type Vtable = IElasticEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4015760780, 45238, 19052, [156, 168, 251, 66, 51, 241, 36, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef5ba58c_b0b6_4a6c_9ca8_fb4233f12459);
 }
 impl ::windows::runtime::RuntimeName for ElasticEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ElasticEase";
@@ -8324,7 +8324,7 @@ unsafe impl ::windows::runtime::RuntimeType for EntranceNavigationTransitionInfo
 }
 unsafe impl ::windows::runtime::Interface for EntranceNavigationTransitionInfo {
     type Vtable = IEntranceNavigationTransitionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1913267563, 7306, 16878, [130, 236, 138, 135, 192, 207, 71, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x720a256b_1c8a_41ee_82ec_8a87c0cf47da);
 }
 impl ::windows::runtime::RuntimeName for EntranceNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo";
@@ -8549,7 +8549,7 @@ unsafe impl ::windows::runtime::RuntimeType for EntranceThemeTransition {
 }
 unsafe impl ::windows::runtime::Interface for EntranceThemeTransition {
     type Vtable = IEntranceThemeTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(124357641, 43235, 16794, [160, 29, 116, 16, 160, 174, 142, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x07698c09_a8e3_419a_a01d_7410a0ae8ec8);
 }
 impl ::windows::runtime::RuntimeName for EntranceThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EntranceThemeTransition";
@@ -8755,7 +8755,7 @@ unsafe impl ::windows::runtime::RuntimeType for ExponentialEase {
 }
 unsafe impl ::windows::runtime::Interface for ExponentialEase {
     type Vtable = IExponentialEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2092557341, 61627, 19402, [157, 165, 155, 163, 161, 23, 52, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7cb9e41d_f0bb_4bca_9da5_9ba3a11734c4);
 }
 impl ::windows::runtime::RuntimeName for ExponentialEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ExponentialEase";
@@ -9039,7 +9039,7 @@ unsafe impl ::windows::runtime::RuntimeType for FadeInThemeAnimation {
 }
 unsafe impl ::windows::runtime::Interface for FadeInThemeAnimation {
     type Vtable = IFadeInThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1833683189, 43288, 17527, [128, 120, 85, 76, 104, 129, 42, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d4bc8f5_a918_4477_8078_554c68812ab8);
 }
 impl ::windows::runtime::RuntimeName for FadeInThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation";
@@ -9323,7 +9323,7 @@ unsafe impl ::windows::runtime::RuntimeType for FadeOutThemeAnimation {
 }
 unsafe impl ::windows::runtime::Interface for FadeOutThemeAnimation {
     type Vtable = IFadeOutThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2301062057, 65492, 17846, [155, 154, 206, 212, 137, 81, 231, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89276ba9_ffd4_45b6_9b9a_ced48951e712);
 }
 impl ::windows::runtime::RuntimeName for FadeOutThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation";
@@ -9467,7 +9467,7 @@ unsafe impl ::windows::runtime::RuntimeType for GravityConnectedAnimationConfigu
 }
 unsafe impl ::windows::runtime::Interface for GravityConnectedAnimationConfiguration {
     type Vtable = IGravityConnectedAnimationConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3344016567, 1113, 20802, [184, 145, 174, 170, 193, 212, 24, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc751a4b7_0459_5142_b891_aeaac1d41822);
 }
 impl ::windows::runtime::RuntimeName for GravityConnectedAnimationConfiguration {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.GravityConnectedAnimationConfiguration";
@@ -9539,7 +9539,7 @@ unsafe impl ::core::marker::Sync for GravityConnectedAnimationConfiguration {}
 pub struct IAddDeleteThemeTransition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAddDeleteThemeTransition {
     type Vtable = IAddDeleteThemeTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2917958958, 17444, 19883, [153, 193, 58, 4, 227, 106, 60, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xadec852e_4424_4dab_99c1_3a04e36a3c48);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9556,7 +9556,7 @@ pub struct IAddDeleteThemeTransition_abi(
 pub struct IBackEase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackEase {
     type Vtable = IBackEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3833042663, 63493, 19087, [129, 201, 56, 230, 71, 44, 170, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe47796e7_f805_4a8f_81c9_38e6472caa94);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9575,7 +9575,7 @@ pub struct IBackEase_abi(
 pub struct IBackEaseStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackEaseStatics {
     type Vtable = IBackEaseStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1014014719, 41120, 18310, [146, 108, 34, 50, 31, 143, 37, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c70a2ff_a0a0_4786_926c_22321f8f25b7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9593,7 +9593,7 @@ pub struct IBackEaseStatics_abi(
 pub struct IBasicConnectedAnimationConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBasicConnectedAnimationConfiguration {
     type Vtable = IBasicConnectedAnimationConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3866491317, 42198, 21331, [131, 230, 200, 158, 124, 248, 212, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe675f9b5_a4d6_5353_83e6_c89e7cf8d456);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9610,7 +9610,7 @@ pub struct IBasicConnectedAnimationConfiguration_abi(
 pub struct IBasicConnectedAnimationConfigurationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBasicConnectedAnimationConfigurationFactory {
     type Vtable = IBasicConnectedAnimationConfigurationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2514912330, 17271, 20540, [190, 226, 17, 223, 205, 85, 112, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95e6844a_4377_503c_bee2_11dfcd5570e6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9628,7 +9628,7 @@ pub struct IBasicConnectedAnimationConfigurationFactory_abi(
 pub struct IBeginStoryboard(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBeginStoryboard {
     type Vtable = IBeginStoryboard_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1679335373, 18924, 20050, [166, 246, 85, 50, 76, 146, 16, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64189fcd_49ec_4e52_a6f6_55324c921053);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9647,7 +9647,7 @@ pub struct IBeginStoryboard_abi(
 pub struct IBeginStoryboardStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBeginStoryboardStatics {
     type Vtable = IBeginStoryboardStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(315617676, 43665, 19530, [184, 47, 223, 52, 252, 87, 249, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12cff18c_aa91_4c4a_b82f_df34fc57f94b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9665,7 +9665,7 @@ pub struct IBeginStoryboardStatics_abi(
 pub struct IBounceEase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBounceEase {
     type Vtable = IBounceEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(737232462, 64625, 18413, [133, 161, 59, 169, 87, 119, 24, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bf1464e_fc71_47ed_85a1_3ba9577718b4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9686,7 +9686,7 @@ pub struct IBounceEase_abi(
 pub struct IBounceEaseStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBounceEaseStatics {
     type Vtable = IBounceEaseStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3228573090, 20339, 16841, [178, 203, 46, 163, 16, 81, 7, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0701da2_4f73_41c9_b2cb_2ea3105107ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9705,7 +9705,7 @@ pub struct IBounceEaseStatics_abi(
 pub struct ICircleEase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICircleEase {
     type Vtable = ICircleEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1403239858, 37239, 20078, [160, 67, 80, 130, 216, 137, 171, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53a3bdb2_9177_4e6e_a043_5082d889ab1f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9722,7 +9722,7 @@ pub struct ICircleEase_abi(
 pub struct IColorAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorAnimation {
     type Vtable = IColorAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3098446357, 3939, 18068, [148, 103, 189, 175, 172, 18, 83, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8ae8a15_0f63_4694_9467_bdafac1253ea);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9755,7 +9755,7 @@ pub struct IColorAnimation_abi(
 pub struct IColorAnimationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorAnimationStatics {
     type Vtable = IColorAnimationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1441461986, 34787, 20296, [149, 143, 133, 91, 47, 158, 169, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55eaf6e2_87e3_4f48_958f_855b2f9ea9ec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9777,7 +9777,7 @@ pub struct IColorAnimationStatics_abi(
 pub struct IColorAnimationUsingKeyFrames(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorAnimationUsingKeyFrames {
     type Vtable = IColorAnimationUsingKeyFrames_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4123534912, 5059, 17066, [154, 226, 126, 107, 81, 201, 47, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5c82640_13c3_42aa_9ae2_7e6b51c92f95);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9798,7 +9798,7 @@ pub struct IColorAnimationUsingKeyFrames_abi(
 pub struct IColorAnimationUsingKeyFramesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorAnimationUsingKeyFramesStatics {
     type Vtable = IColorAnimationUsingKeyFramesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3027385564, 38633, 18681, [141, 146, 155, 100, 139, 47, 28, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4723cdc_96e9_48f9_8d92_9b648b2f1cc6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9816,7 +9816,7 @@ pub struct IColorAnimationUsingKeyFramesStatics_abi(
 pub struct IColorKeyFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorKeyFrame {
     type Vtable = IColorKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3038610137, 2320, 17801, [162, 132, 176, 201, 32, 88, 88, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb51d82d9_0910_4589_a284_b0c9205858e9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9839,7 +9839,7 @@ pub struct IColorKeyFrame_abi(
 pub struct IColorKeyFrameFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorKeyFrameFactory {
     type Vtable = IColorKeyFrameFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1989925002, 40187, 19069, [150, 196, 161, 231, 222, 111, 219, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x769bd88a_9cfb_4a7d_96c4_a1e7de6fdb4b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9857,7 +9857,7 @@ pub struct IColorKeyFrameFactory_abi(
 pub struct IColorKeyFrameStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorKeyFrameStatics {
     type Vtable = IColorKeyFrameStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3225661081, 8460, 17167, [157, 165, 223, 16, 130, 105, 32, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc043ae99_210c_430f_9da5_df1082692055);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9876,7 +9876,7 @@ pub struct IColorKeyFrameStatics_abi(
 pub struct ICommonNavigationTransitionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICommonNavigationTransitionInfo {
     type Vtable = ICommonNavigationTransitionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1345607314, 42325, 17956, [163, 97, 10, 145, 193, 112, 100, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50345692_a555_4624_a361_0a91c1706473);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9895,7 +9895,7 @@ pub struct ICommonNavigationTransitionInfo_abi(
 pub struct ICommonNavigationTransitionInfoStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICommonNavigationTransitionInfoStatics {
     type Vtable = ICommonNavigationTransitionInfoStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(507444787, 20670, 17475, [136, 60, 229, 98, 114, 1, 194, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e3efe33_50be_4443_883c_e5627201c2e5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9916,7 +9916,7 @@ pub struct ICommonNavigationTransitionInfoStatics_abi(
 pub struct IConnectedAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectedAnimation {
     type Vtable = IConnectedAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(890790540, 62343, 19493, [172, 152, 68, 232, 108, 60, 173, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3518628c_f387_4c25_ac98_44e86c3cadf0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9939,7 +9939,7 @@ pub struct IConnectedAnimation_abi(
 pub struct IConnectedAnimation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectedAnimation2 {
     type Vtable = IConnectedAnimation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1563397724, 22603, 19933, [182, 104, 151, 56, 145, 67, 20, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d2f8e5c_584b_4ddd_b668_973891431459);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9962,7 +9962,7 @@ pub struct IConnectedAnimation2_abi(
 pub struct IConnectedAnimation3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectedAnimation3 {
     type Vtable = IConnectedAnimation3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1848656070, 1072, 22976, [168, 12, 204, 238, 210, 231, 120, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e3040c6_0430_59c0_a80c_cceed2e778dd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9981,7 +9981,7 @@ pub struct IConnectedAnimation3_abi(
 pub struct IConnectedAnimationConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectedAnimationConfiguration {
     type Vtable = IConnectedAnimationConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2198190, 52620, 22097, [146, 160, 193, 219, 149, 192, 57, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00218aae_cd8c_5651_92a0_c1db95c03998);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9998,7 +9998,7 @@ pub struct IConnectedAnimationConfiguration_abi(
 pub struct IConnectedAnimationConfigurationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectedAnimationConfigurationFactory {
     type Vtable = IConnectedAnimationConfigurationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(821672011, 56702, 22846, [191, 117, 233, 89, 220, 14, 197, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30f9b84b_dd7e_593e_bf75_e959dc0ec52a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10015,7 +10015,7 @@ pub struct IConnectedAnimationConfigurationFactory_abi(
 pub struct IConnectedAnimationService(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectedAnimationService {
     type Vtable = IConnectedAnimationService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(476607945, 6587, 19783, [185, 170, 102, 200, 2, 220, 185, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c6875c9_19bb_4d47_b9aa_66c802dcb9ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10042,7 +10042,7 @@ pub struct IConnectedAnimationService_abi(
 pub struct IConnectedAnimationServiceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectedAnimationServiceStatics {
     type Vtable = IConnectedAnimationServiceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3339161253, 54920, 16616, [143, 144, 150, 166, 39, 146, 115, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7078ea5_d688_40e8_8f90_96a6279273d2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10060,7 +10060,7 @@ pub struct IConnectedAnimationServiceStatics_abi(
 pub struct IContentThemeTransition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentThemeTransition {
     type Vtable = IContentThemeTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4134520259, 22805, 17277, [142, 59, 173, 248, 231, 240, 171, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf66fc5c3_5915_437d_8e3b_adf8e7f0ab57);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10081,7 +10081,7 @@ pub struct IContentThemeTransition_abi(
 pub struct IContentThemeTransitionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentThemeTransitionStatics {
     type Vtable = IContentThemeTransitionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(244245381, 39490, 17497, [175, 169, 51, 125, 196, 30, 21, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e8ee385_9a42_4459_afa9_337dc41e1587);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10100,7 +10100,7 @@ pub struct IContentThemeTransitionStatics_abi(
 pub struct IContinuumNavigationTransitionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContinuumNavigationTransitionInfo {
     type Vtable = IContinuumNavigationTransitionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1273093037, 35750, 16388, [132, 56, 138, 144, 23, 151, 133, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4be1dbad_8ba6_4004_8438_8a9017978543);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10119,7 +10119,7 @@ pub struct IContinuumNavigationTransitionInfo_abi(
 pub struct IContinuumNavigationTransitionInfoStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContinuumNavigationTransitionInfoStatics {
     type Vtable = IContinuumNavigationTransitionInfoStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1042668883, 45455, 19441, [179, 188, 146, 245, 22, 242, 153, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e25dd53_b18f_4bf1_b3bc_92f516f29903);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10148,7 +10148,7 @@ pub struct IContinuumNavigationTransitionInfoStatics_abi(
 pub struct ICubicEase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICubicEase {
     type Vtable = ICubicEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(462748790, 56023, 17236, [177, 162, 121, 105, 251, 246, 167, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b94fc76_dad7_4354_b1a2_7969fbf6a70d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10165,7 +10165,7 @@ pub struct ICubicEase_abi(
 pub struct IDirectConnectedAnimationConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirectConnectedAnimationConfiguration {
     type Vtable = IDirectConnectedAnimationConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3999101807, 22328, 23942, [183, 112, 21, 25, 72, 207, 54, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee5d736f_5738_5d86_b770_151948cf365e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10182,7 +10182,7 @@ pub struct IDirectConnectedAnimationConfiguration_abi(
 pub struct IDirectConnectedAnimationConfigurationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirectConnectedAnimationConfigurationFactory {
     type Vtable = IDirectConnectedAnimationConfigurationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(93479913, 53939, 23159, [156, 244, 226, 109, 139, 84, 38, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x059263e9_d2b3_5a77_9cf4_e26d8b542608);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10200,7 +10200,7 @@ pub struct IDirectConnectedAnimationConfigurationFactory_abi(
 pub struct IDiscreteColorKeyFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDiscreteColorKeyFrame {
     type Vtable = IDiscreteColorKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(587991284, 57442, 19633, [142, 42, 20, 9, 61, 115, 237, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x230c08f4_e062_4cb1_8e2a_14093d73ed8c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10217,7 +10217,7 @@ pub struct IDiscreteColorKeyFrame_abi(
 pub struct IDiscreteDoubleKeyFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDiscreteDoubleKeyFrame {
     type Vtable = IDiscreteDoubleKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4126482234, 44305, 18894, [142, 28, 8, 253, 241, 68, 116, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5f51f3a_ad11_49ce_8e1c_08fdf1447446);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10234,7 +10234,7 @@ pub struct IDiscreteDoubleKeyFrame_abi(
 pub struct IDiscreteObjectKeyFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDiscreteObjectKeyFrame {
     type Vtable = IDiscreteObjectKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3353140873, 61741, 19100, [129, 153, 231, 169, 236, 227, 164, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7dcde89_f12d_4a9c_8199_e7a9ece3a473);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10251,7 +10251,7 @@ pub struct IDiscreteObjectKeyFrame_abi(
 pub struct IDiscretePointKeyFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDiscretePointKeyFrame {
     type Vtable = IDiscretePointKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3769173773, 19522, 19088, [152, 58, 117, 245, 168, 58, 47, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0a9070d_4c42_4a90_983a_75f5a83a2fbe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10268,7 +10268,7 @@ pub struct IDiscretePointKeyFrame_abi(
 pub struct IDoubleAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDoubleAnimation {
     type Vtable = IDoubleAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2124365145, 3847, 19401, [151, 125, 3, 118, 63, 248, 21, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e9f3d59_0f07_4bc9_977d_03763ff8154f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10301,7 +10301,7 @@ pub struct IDoubleAnimation_abi(
 pub struct IDoubleAnimationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDoubleAnimationStatics {
     type Vtable = IDoubleAnimationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3799683933, 61713, 17335, [184, 36, 131, 43, 88, 215, 120, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe27a935d_f111_43b7_b824_832b58d7786b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10323,7 +10323,7 @@ pub struct IDoubleAnimationStatics_abi(
 pub struct IDoubleAnimationUsingKeyFrames(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDoubleAnimationUsingKeyFrames {
     type Vtable = IDoubleAnimationUsingKeyFrames_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1341022863, 49134, 20341, [131, 194, 169, 59, 57, 72, 132, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4fee628f_bfee_4f75_83c2_a93b39488473);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10344,7 +10344,7 @@ pub struct IDoubleAnimationUsingKeyFrames_abi(
 pub struct IDoubleAnimationUsingKeyFramesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDoubleAnimationUsingKeyFramesStatics {
     type Vtable = IDoubleAnimationUsingKeyFramesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(278655734, 50703, 18858, [171, 246, 246, 150, 212, 146, 17, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x109bf2f6_c60f_49aa_abf6_f696d492116b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10362,7 +10362,7 @@ pub struct IDoubleAnimationUsingKeyFramesStatics_abi(
 pub struct IDoubleKeyFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDoubleKeyFrame {
     type Vtable = IDoubleKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1732531965, 59422, 20302, [180, 173, 10, 207, 237, 158, 205, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x674456fd_e81e_4f4e_b4ad_0acfed9ecd68);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10385,7 +10385,7 @@ pub struct IDoubleKeyFrame_abi(
 pub struct IDoubleKeyFrameFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDoubleKeyFrameFactory {
     type Vtable = IDoubleKeyFrameFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2895634115, 30008, 16569, [177, 82, 105, 111, 127, 191, 71, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac97dec3_7538_40b9_b152_696f7fbf4722);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10403,7 +10403,7 @@ pub struct IDoubleKeyFrameFactory_abi(
 pub struct IDoubleKeyFrameStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDoubleKeyFrameStatics {
     type Vtable = IDoubleKeyFrameStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(843465136, 32055, 17018, [173, 235, 67, 243, 139, 182, 26, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x324641b0_7d37_427a_adeb_43f38bb61a4d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10422,7 +10422,7 @@ pub struct IDoubleKeyFrameStatics_abi(
 pub struct IDragItemThemeAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDragItemThemeAnimation {
     type Vtable = IDragItemThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(209542581, 32470, 18761, [180, 230, 167, 140, 159, 79, 151, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c7d5db5_7ed6_4949_b4e6_a78c9f4f978d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10441,7 +10441,7 @@ pub struct IDragItemThemeAnimation_abi(
 pub struct IDragItemThemeAnimationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDragItemThemeAnimationStatics {
     type Vtable = IDragItemThemeAnimationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1645787637, 314, 20401, [134, 252, 146, 188, 78, 141, 2, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6218b9f5_013a_4fb1_86fc_92bc4e8d0241);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10459,7 +10459,7 @@ pub struct IDragItemThemeAnimationStatics_abi(
 pub struct IDragOverThemeAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDragOverThemeAnimation {
     type Vtable = IDragOverThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1928815351, 32337, 19051, [185, 55, 220, 75, 76, 28, 84, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72f762f7_7e51_4a6b_b937_dc4b4c1c5458);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10484,7 +10484,7 @@ pub struct IDragOverThemeAnimation_abi(
 pub struct IDragOverThemeAnimationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDragOverThemeAnimationStatics {
     type Vtable = IDragOverThemeAnimationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(342883927, 15517, 16857, [165, 255, 141, 114, 57, 81, 104, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x146ffe57_3c9d_41d9_a5ff_8d7239516810);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10504,7 +10504,7 @@ pub struct IDragOverThemeAnimationStatics_abi(
 pub struct IDrillInNavigationTransitionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDrillInNavigationTransitionInfo {
     type Vtable = IDrillInNavigationTransitionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(998645786, 17875, 17979, [147, 158, 200, 89, 95, 67, 155, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b86201a_45d3_463b_939e_c8595f439bcc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10521,7 +10521,7 @@ pub struct IDrillInNavigationTransitionInfo_abi(
 pub struct IDrillInThemeAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDrillInThemeAnimation {
     type Vtable = IDrillInThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2962274340, 61906, 16824, [135, 186, 120, 3, 65, 38, 89, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb090b824_f1d2_41b8_87ba_78034126594c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10546,7 +10546,7 @@ pub struct IDrillInThemeAnimation_abi(
 pub struct IDrillInThemeAnimationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDrillInThemeAnimationStatics {
     type Vtable = IDrillInThemeAnimationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3323978888, 41338, 19217, [181, 59, 164, 241, 160, 125, 75, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc61fe488_a17a_4b11_b53b_a4f1a07d4ba9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10567,7 +10567,7 @@ pub struct IDrillInThemeAnimationStatics_abi(
 pub struct IDrillOutThemeAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDrillOutThemeAnimation {
     type Vtable = IDrillOutThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3633368287, 1747, 20350, [142, 74, 79, 183, 110, 37, 97, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd890ccdf_06d3_4f7e_8e4a_4fb76e256139);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10592,7 +10592,7 @@ pub struct IDrillOutThemeAnimation_abi(
 pub struct IDrillOutThemeAnimationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDrillOutThemeAnimationStatics {
     type Vtable = IDrillOutThemeAnimationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3199589275, 9751, 18568, [128, 221, 114, 250, 123, 182, 250, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbeb5db9b_2617_4888_80dd_72fa7bb6fac3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10613,7 +10613,7 @@ pub struct IDrillOutThemeAnimationStatics_abi(
 pub struct IDropTargetItemThemeAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDropTargetItemThemeAnimation {
     type Vtable = IDropTargetItemThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(411158888, 6180, 17963, [135, 232, 195, 87, 33, 43, 151, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1881c968_1824_462b_87e8_c357212b977b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10632,7 +10632,7 @@ pub struct IDropTargetItemThemeAnimation_abi(
 pub struct IDropTargetItemThemeAnimationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDropTargetItemThemeAnimationStatics {
     type Vtable = IDropTargetItemThemeAnimationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2927686790, 11862, 17683, [191, 24, 215, 116, 112, 22, 74, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae80f486_2e56_4513_bf18_d77470164ae5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10650,7 +10650,7 @@ pub struct IDropTargetItemThemeAnimationStatics_abi(
 pub struct IEasingColorKeyFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasingColorKeyFrame {
     type Vtable = IEasingColorKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3342063152, 62649, 18740, [155, 221, 39, 172, 94, 209, 207, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc733d630_f4b9_4934_9bdd_27ac5ed1cfd8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10669,7 +10669,7 @@ pub struct IEasingColorKeyFrame_abi(
 pub struct IEasingColorKeyFrameStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasingColorKeyFrameStatics {
     type Vtable = IEasingColorKeyFrameStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1865955324, 36413, 17698, [155, 15, 0, 61, 184, 96, 152, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f3837fc_8e3d_4522_9b0f_003db8609851);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10687,7 +10687,7 @@ pub struct IEasingColorKeyFrameStatics_abi(
 pub struct IEasingDoubleKeyFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasingDoubleKeyFrame {
     type Vtable = IEasingDoubleKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2522536845, 39508, 16648, [180, 255, 181, 165, 33, 44, 179, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x965adb8d_9a54_4108_b4ff_b5a5212cb338);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10706,7 +10706,7 @@ pub struct IEasingDoubleKeyFrame_abi(
 pub struct IEasingDoubleKeyFrameStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasingDoubleKeyFrameStatics {
     type Vtable = IEasingDoubleKeyFrameStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3369326661, 56238, 20059, [139, 132, 217, 83, 115, 152, 229, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8d3d845_dbae_4e5b_8b84_d9537398e5b1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10724,7 +10724,7 @@ pub struct IEasingDoubleKeyFrameStatics_abi(
 pub struct IEasingFunctionBase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasingFunctionBase {
     type Vtable = IEasingFunctionBase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3238541375, 11266, 16721, [142, 205, 104, 221, 170, 63, 13, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc108383f_2c02_4151_8ecd_68ddaa3f0d9b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10744,7 +10744,7 @@ pub struct IEasingFunctionBase_abi(
 pub struct IEasingFunctionBaseFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasingFunctionBaseFactory {
     type Vtable = IEasingFunctionBaseFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(405864042, 61467, 17376, [182, 31, 180, 82, 161, 198, 111, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1830fe6a_f01b_43e0_b61f_b452a1c66fd2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10761,7 +10761,7 @@ pub struct IEasingFunctionBaseFactory_abi(
 pub struct IEasingFunctionBaseStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasingFunctionBaseStatics {
     type Vtable = IEasingFunctionBaseStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(709898666, 11344, 18973, [187, 4, 215, 94, 7, 183, 21, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a5031aa_2c50_4a1d_bb04_d75e07b71548);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10779,7 +10779,7 @@ pub struct IEasingFunctionBaseStatics_abi(
 pub struct IEasingPointKeyFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasingPointKeyFrame {
     type Vtable = IEasingPointKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3016299392, 26728, 16933, [167, 11, 57, 129, 204, 11, 41, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3c91380_6868_4225_a70b_3981cc0b2947);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10798,7 +10798,7 @@ pub struct IEasingPointKeyFrame_abi(
 pub struct IEasingPointKeyFrameStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasingPointKeyFrameStatics {
     type Vtable = IEasingPointKeyFrameStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3794649028, 2060, 16428, [166, 181, 244, 141, 10, 152, 17, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe22dbfc4_080c_402c_a6b5_f48d0a98116b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10816,7 +10816,7 @@ pub struct IEasingPointKeyFrameStatics_abi(
 pub struct IEdgeUIThemeTransition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEdgeUIThemeTransition {
     type Vtable = IEdgeUIThemeTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1552335259, 18903, 6636, [207, 25, 131, 167, 60, 109, 231, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c86c19b_49d7_19ec_cf19_83a73c6de75e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10837,7 +10837,7 @@ pub struct IEdgeUIThemeTransition_abi(
 pub struct IEdgeUIThemeTransitionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEdgeUIThemeTransitionStatics {
     type Vtable = IEdgeUIThemeTransitionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(379760955, 18181, 12331, [39, 198, 42, 172, 146, 246, 69, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16a2b13b_4705_302b_27c6_2aac92f645ac);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10855,7 +10855,7 @@ pub struct IEdgeUIThemeTransitionStatics_abi(
 pub struct IElasticEase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElasticEase {
     type Vtable = IElasticEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4015760780, 45238, 19052, [156, 168, 251, 66, 51, 241, 36, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef5ba58c_b0b6_4a6c_9ca8_fb4233f12459);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10876,7 +10876,7 @@ pub struct IElasticEase_abi(
 pub struct IElasticEaseStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElasticEaseStatics {
     type Vtable = IElasticEaseStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2851432172, 65180, 19243, [142, 82, 187, 120, 93, 86, 33, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9f566ec_fe9c_4b2b_8e52_bb785d562185);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10895,7 +10895,7 @@ pub struct IElasticEaseStatics_abi(
 pub struct IEntranceNavigationTransitionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEntranceNavigationTransitionInfo {
     type Vtable = IEntranceNavigationTransitionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1913267563, 7306, 16878, [130, 236, 138, 135, 192, 207, 71, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x720a256b_1c8a_41ee_82ec_8a87c0cf47da);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10912,7 +10912,7 @@ pub struct IEntranceNavigationTransitionInfo_abi(
 pub struct IEntranceNavigationTransitionInfoStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEntranceNavigationTransitionInfoStatics {
     type Vtable = IEntranceNavigationTransitionInfoStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4182295162, 16585, 18079, [143, 51, 191, 69, 200, 129, 31, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf948c27a_40c9_469f_8f33_bf45c8811f21);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10932,7 +10932,7 @@ pub struct IEntranceNavigationTransitionInfoStatics_abi(
 pub struct IEntranceThemeTransition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEntranceThemeTransition {
     type Vtable = IEntranceThemeTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(124357641, 43235, 16794, [160, 29, 116, 16, 160, 174, 142, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x07698c09_a8e3_419a_a01d_7410a0ae8ec8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10955,7 +10955,7 @@ pub struct IEntranceThemeTransition_abi(
 pub struct IEntranceThemeTransitionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEntranceThemeTransitionStatics {
     type Vtable = IEntranceThemeTransitionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(936117623, 65432, 19181, [184, 110, 94, 194, 55, 2, 248, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x37cc0577_ff98_4aed_b86e_5ec23702f877);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10975,7 +10975,7 @@ pub struct IEntranceThemeTransitionStatics_abi(
 pub struct IExponentialEase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExponentialEase {
     type Vtable = IExponentialEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2092557341, 61627, 19402, [157, 165, 155, 163, 161, 23, 52, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7cb9e41d_f0bb_4bca_9da5_9ba3a11734c4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10994,7 +10994,7 @@ pub struct IExponentialEase_abi(
 pub struct IExponentialEaseStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExponentialEaseStatics {
     type Vtable = IExponentialEaseStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4085180387, 42849, 17234, [154, 214, 112, 121, 69, 103, 88, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf37ee7e3_a761_4352_9ad6_70794567581a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11012,7 +11012,7 @@ pub struct IExponentialEaseStatics_abi(
 pub struct IFadeInThemeAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFadeInThemeAnimation {
     type Vtable = IFadeInThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1833683189, 43288, 17527, [128, 120, 85, 76, 104, 129, 42, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d4bc8f5_a918_4477_8078_554c68812ab8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11031,7 +11031,7 @@ pub struct IFadeInThemeAnimation_abi(
 pub struct IFadeInThemeAnimationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFadeInThemeAnimationStatics {
     type Vtable = IFadeInThemeAnimationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2130778081, 48809, 18723, [178, 58, 13, 223, 77, 123, 135, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f0117e1_bea9_4923_b23a_0ddf4d7b8737);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11049,7 +11049,7 @@ pub struct IFadeInThemeAnimationStatics_abi(
 pub struct IFadeOutThemeAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFadeOutThemeAnimation {
     type Vtable = IFadeOutThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2301062057, 65492, 17846, [155, 154, 206, 212, 137, 81, 231, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89276ba9_ffd4_45b6_9b9a_ced48951e712);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11068,7 +11068,7 @@ pub struct IFadeOutThemeAnimation_abi(
 pub struct IFadeOutThemeAnimationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFadeOutThemeAnimationStatics {
     type Vtable = IFadeOutThemeAnimationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4262963226, 16744, 20328, [162, 140, 229, 221, 152, 207, 104, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe17a81a_4168_4f68_a28c_e5dd98cf680f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11086,7 +11086,7 @@ pub struct IFadeOutThemeAnimationStatics_abi(
 pub struct IGravityConnectedAnimationConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGravityConnectedAnimationConfiguration {
     type Vtable = IGravityConnectedAnimationConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3344016567, 1113, 20802, [184, 145, 174, 170, 193, 212, 24, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc751a4b7_0459_5142_b891_aeaac1d41822);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11103,7 +11103,7 @@ pub struct IGravityConnectedAnimationConfiguration_abi(
 pub struct IGravityConnectedAnimationConfiguration2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGravityConnectedAnimationConfiguration2 {
     type Vtable = IGravityConnectedAnimationConfiguration2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1647524573, 44756, 24557, [149, 255, 209, 40, 172, 206, 139, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62333add_aed4_5fed_95ff_d128acce8be4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11122,7 +11122,7 @@ pub struct IGravityConnectedAnimationConfiguration2_abi(
 pub struct IGravityConnectedAnimationConfigurationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGravityConnectedAnimationConfigurationFactory {
     type Vtable = IGravityConnectedAnimationConfigurationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3894592543, 13910, 20624, [146, 245, 194, 23, 234, 172, 182, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe822c41f_3656_5090_92f5_c217eaacb682);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11140,7 +11140,7 @@ pub struct IGravityConnectedAnimationConfigurationFactory_abi(
 pub struct IKeySpline(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeySpline {
     type Vtable = IKeySpline_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2007065531, 54730, 18994, [186, 11, 125, 255, 152, 142, 88, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77a163bb_d5ca_4a32_ba0b_7dff988e58a0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11165,7 +11165,7 @@ pub struct IKeySpline_abi(
 pub struct IKeyTimeHelper(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyTimeHelper {
     type Vtable = IKeyTimeHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(910419072, 18467, 18026, [171, 229, 94, 121, 200, 237, 119, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3643e480_4823_466a_abe5_5e79c8ed77ed);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11182,7 +11182,7 @@ pub struct IKeyTimeHelper_abi(
 pub struct IKeyTimeHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyTimeHelperStatics {
     type Vtable = IKeyTimeHelperStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2141348140, 8873, 17897, [154, 247, 199, 65, 110, 255, 247, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fa2612c_22a9_45e9_9af7_c7416efff7a5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11201,7 +11201,7 @@ pub struct IKeyTimeHelperStatics_abi(
 pub struct ILinearColorKeyFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILinearColorKeyFrame {
     type Vtable = ILinearColorKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1727903471, 44161, 17937, [177, 210, 97, 245, 69, 152, 63, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66fdb6ef_ac81_4611_b1d2_61f545983f03);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11218,7 +11218,7 @@ pub struct ILinearColorKeyFrame_abi(
 pub struct ILinearDoubleKeyFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILinearDoubleKeyFrame {
     type Vtable = ILinearDoubleKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2399007333, 39547, 17181, [143, 12, 20, 197, 107, 94, 164, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8efdf265_9a7b_431d_8f0c_14c56b5ea4d9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11235,7 +11235,7 @@ pub struct ILinearDoubleKeyFrame_abi(
 pub struct ILinearPointKeyFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILinearPointKeyFrame {
     type Vtable = ILinearPointKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3888756975, 44836, 18926, [132, 241, 168, 102, 0, 164, 227, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7c9b8ef_af24_49ee_84f1_a86600a4e319);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11252,7 +11252,7 @@ pub struct ILinearPointKeyFrame_abi(
 pub struct INavigationThemeTransition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INavigationThemeTransition {
     type Vtable = INavigationThemeTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2285077644, 20151, 16882, [135, 153, 158, 239, 10, 33, 59, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8833848c_4eb7_41f2_8799_9eef0a213b73);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11271,7 +11271,7 @@ pub struct INavigationThemeTransition_abi(
 pub struct INavigationThemeTransitionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INavigationThemeTransitionStatics {
     type Vtable = INavigationThemeTransitionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3928950496, 24160, 20366, [188, 175, 67, 20, 135, 162, 148, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea2f06e0_5e60_4f8e_bcaf_431487a294ab);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11289,7 +11289,7 @@ pub struct INavigationThemeTransitionStatics_abi(
 pub struct INavigationTransitionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INavigationTransitionInfo {
     type Vtable = INavigationTransitionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2846904465, 44618, 17266, [134, 37, 33, 183, 168, 185, 140, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9b05091_ae4a_4372_8625_21b7a8b98ca4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11306,7 +11306,7 @@ pub struct INavigationTransitionInfo_abi(
 pub struct INavigationTransitionInfoFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INavigationTransitionInfoFactory {
     type Vtable = INavigationTransitionInfoFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3992254677, 44899, 20395, [157, 74, 135, 146, 127, 130, 221, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xedf4f8d5_af63_4fab_9d4a_87927f82dd6b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11324,7 +11324,7 @@ pub struct INavigationTransitionInfoFactory_abi(
 pub struct INavigationTransitionInfoOverrides(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INavigationTransitionInfoOverrides {
     type Vtable = INavigationTransitionInfoOverrides_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3645996650, 43472, 19447, [157, 176, 70, 51, 166, 157, 175, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9517e6a_a9d0_4bf7_9db0_4633a69daff2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11343,7 +11343,7 @@ pub struct INavigationTransitionInfoOverrides_abi(
 pub struct IObjectAnimationUsingKeyFrames(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IObjectAnimationUsingKeyFrames {
     type Vtable = IObjectAnimationUsingKeyFrames_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(860499346, 46922, 19556, [185, 166, 88, 188, 250, 49, 79, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x334a2d92_b74a_4c64_b9a6_58bcfa314f22);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11364,7 +11364,7 @@ pub struct IObjectAnimationUsingKeyFrames_abi(
 pub struct IObjectAnimationUsingKeyFramesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IObjectAnimationUsingKeyFramesStatics {
     type Vtable = IObjectAnimationUsingKeyFramesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3950207362, 27377, 18851, [151, 182, 120, 62, 217, 116, 0, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb736182_6af1_49a3_97b6_783ed97400fe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11382,7 +11382,7 @@ pub struct IObjectAnimationUsingKeyFramesStatics_abi(
 pub struct IObjectKeyFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IObjectKeyFrame {
     type Vtable = IObjectKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2555553873, 34195, 18670, [166, 164, 213, 212, 114, 15, 2, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9852a851_8593_48ee_a6a4_d5d4720f029a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11405,7 +11405,7 @@ pub struct IObjectKeyFrame_abi(
 pub struct IObjectKeyFrameFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IObjectKeyFrameFactory {
     type Vtable = IObjectKeyFrameFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(371594302, 15981, 17624, [155, 154, 4, 174, 167, 15, 132, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1626143e_3e6d_44d8_9b9a_04aea70f8492);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11423,7 +11423,7 @@ pub struct IObjectKeyFrameFactory_abi(
 pub struct IObjectKeyFrameStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IObjectKeyFrameStatics {
     type Vtable = IObjectKeyFrameStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752265984, 21273, 17030, [142, 237, 78, 117, 94, 160, 207, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd6ab00_5319_4286_8eed_4e755ea0cf9c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11442,7 +11442,7 @@ pub struct IObjectKeyFrameStatics_abi(
 pub struct IPaneThemeTransition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaneThemeTransition {
     type Vtable = IPaneThemeTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1191766926, 19452, 60998, [212, 249, 112, 141, 239, 63, 187, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4708eb8e_4bfc_ee46_d4f9_708def3fbb2b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11463,7 +11463,7 @@ pub struct IPaneThemeTransition_abi(
 pub struct IPaneThemeTransitionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaneThemeTransitionStatics {
     type Vtable = IPaneThemeTransitionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(829110319, 19428, 6039, [180, 92, 205, 144, 11, 190, 12, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x316b382f_4be4_1797_b45c_cd900bbe0caa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11481,7 +11481,7 @@ pub struct IPaneThemeTransitionStatics_abi(
 pub struct IPointAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointAnimation {
     type Vtable = IPointAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(821052178, 30502, 20360, [184, 226, 47, 165, 69, 24, 150, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30f04312_7726_4f88_b8e2_2fa54518963b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11514,7 +11514,7 @@ pub struct IPointAnimation_abi(
 pub struct IPointAnimationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointAnimationStatics {
     type Vtable = IPointAnimationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(798602070, 59191, 16523, [160, 253, 50, 120, 38, 211, 34, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f99b356_e737_408b_a0fd_327826d32255);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11536,7 +11536,7 @@ pub struct IPointAnimationStatics_abi(
 pub struct IPointAnimationUsingKeyFrames(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointAnimationUsingKeyFrames {
     type Vtable = IPointAnimationUsingKeyFrames_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2610188146, 17514, 16848, [161, 41, 65, 166, 32, 244, 89, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b944f72_446a_41d0_a129_41a620f4595d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11557,7 +11557,7 @@ pub struct IPointAnimationUsingKeyFrames_abi(
 pub struct IPointAnimationUsingKeyFramesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointAnimationUsingKeyFramesStatics {
     type Vtable = IPointAnimationUsingKeyFramesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1598377095, 9104, 18154, [186, 167, 118, 47, 75, 195, 13, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f454c87_2390_46ea_baa7_762f4bc30d04);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11575,7 +11575,7 @@ pub struct IPointAnimationUsingKeyFramesStatics_abi(
 pub struct IPointKeyFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointKeyFrame {
     type Vtable = IPointKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4241001729, 32642, 19886, [128, 38, 123, 126, 8, 104, 120, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcc88d01_7f82_4dae_8026_7b7e086878b3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11600,7 +11600,7 @@ pub struct IPointKeyFrame_abi(
 pub struct IPointKeyFrameFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointKeyFrameFactory {
     type Vtable = IPointKeyFrameFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3407956959, 17002, 17298, [131, 85, 194, 174, 82, 133, 38, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb214bdf_426a_4392_8355_c2ae52852623);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11618,7 +11618,7 @@ pub struct IPointKeyFrameFactory_abi(
 pub struct IPointKeyFrameStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointKeyFrameStatics {
     type Vtable = IPointKeyFrameStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2513378087, 31077, 19436, [185, 251, 251, 233, 75, 101, 81, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95cf1b27_7965_4bec_b9fb_fbe94b65518e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11637,7 +11637,7 @@ pub struct IPointKeyFrameStatics_abi(
 pub struct IPointerDownThemeAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerDownThemeAnimation {
     type Vtable = IPointerDownThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3046011214, 50333, 18312, [162, 51, 10, 232, 93, 153, 221, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb58e714e_c49d_4788_a233_0ae85d99dd5a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11656,7 +11656,7 @@ pub struct IPointerDownThemeAnimation_abi(
 pub struct IPointerDownThemeAnimationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerDownThemeAnimationStatics {
     type Vtable = IPointerDownThemeAnimationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1671940987, 27974, 17556, [185, 74, 231, 47, 59, 73, 42, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63a7cb7b_6d46_4494_b94a_e72f3b492a61);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11674,7 +11674,7 @@ pub struct IPointerDownThemeAnimationStatics_abi(
 pub struct IPointerUpThemeAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerUpThemeAnimation {
     type Vtable = IPointerUpThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3924414589, 25408, 18472, [173, 18, 105, 6, 148, 185, 145, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9e9d07d_6340_4828_ad12_690694b9910b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11693,7 +11693,7 @@ pub struct IPointerUpThemeAnimation_abi(
 pub struct IPointerUpThemeAnimationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerUpThemeAnimationStatics {
     type Vtable = IPointerUpThemeAnimationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2086768540, 31122, 16697, [139, 252, 8, 131, 185, 114, 122, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c618f9c_7992_4139_8bfc_0883b9727a7e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11711,7 +11711,7 @@ pub struct IPointerUpThemeAnimationStatics_abi(
 pub struct IPopInThemeAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPopInThemeAnimation {
     type Vtable = IPopInThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(426326209, 7175, 19496, [136, 71, 249, 240, 85, 179, 40, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x196938c1_1c07_4c28_8847_f9f055b32855);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11734,7 +11734,7 @@ pub struct IPopInThemeAnimation_abi(
 pub struct IPopInThemeAnimationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPopInThemeAnimationStatics {
     type Vtable = IPopInThemeAnimationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020935123, 8586, 18177, [151, 127, 241, 191, 174, 139, 166, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefaa99d3_218a_4701_977f_f1bfae8ba649);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11754,7 +11754,7 @@ pub struct IPopInThemeAnimationStatics_abi(
 pub struct IPopOutThemeAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPopOutThemeAnimation {
     type Vtable = IPopOutThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1200008009, 3656, 20097, [162, 229, 204, 90, 161, 158, 72, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4786ab49_0e48_4e81_a2e5_cc5aa19e48d3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11773,7 +11773,7 @@ pub struct IPopOutThemeAnimation_abi(
 pub struct IPopOutThemeAnimationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPopOutThemeAnimationStatics {
     type Vtable = IPopOutThemeAnimationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(491334665, 961, 17552, [153, 220, 144, 159, 234, 179, 87, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d492c09_03c1_4490_99dc_909feab357fb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11791,7 +11791,7 @@ pub struct IPopOutThemeAnimationStatics_abi(
 pub struct IPopupThemeTransition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPopupThemeTransition {
     type Vtable = IPopupThemeTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1199846738, 17027, 21598, [199, 145, 38, 141, 202, 34, 206, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47843552_4283_545e_c791_268dca22ce4b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11812,7 +11812,7 @@ pub struct IPopupThemeTransition_abi(
 pub struct IPopupThemeTransitionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPopupThemeTransitionStatics {
     type Vtable = IPopupThemeTransitionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3852559374, 18701, 5381, [159, 107, 143, 175, 192, 68, 222, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5a1640e_490d_1505_9f6b_8fafc044dec5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11831,7 +11831,7 @@ pub struct IPopupThemeTransitionStatics_abi(
 pub struct IPowerEase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPowerEase {
     type Vtable = IPowerEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1774716281, 61151, 16475, [134, 128, 217, 96, 104, 128, 201, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69c80579_eedf_405b_8680_d9606880c937);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11850,7 +11850,7 @@ pub struct IPowerEase_abi(
 pub struct IPowerEaseStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPowerEaseStatics {
     type Vtable = IPowerEaseStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2778026243, 37282, 17932, [156, 65, 210, 143, 106, 147, 155, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5955103_91a2_460c_9c41_d28f6a939bda);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11868,7 +11868,7 @@ pub struct IPowerEaseStatics_abi(
 pub struct IQuadraticEase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IQuadraticEase {
     type Vtable = IQuadraticEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3780185745, 61293, 17648, [128, 61, 104, 209, 109, 224, 221, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1510e91_ef6d_44f0_803d_68d16de0ddfc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11885,7 +11885,7 @@ pub struct IQuadraticEase_abi(
 pub struct IQuarticEase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IQuarticEase {
     type Vtable = IQuarticEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3899230228, 65090, 18949, [181, 184, 8, 31, 65, 21, 120, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8698814_fe42_4a05_b5b8_081f41157815);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11902,7 +11902,7 @@ pub struct IQuarticEase_abi(
 pub struct IQuinticEase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IQuinticEase {
     type Vtable = IQuinticEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2465102139, 15433, 16648, [170, 17, 171, 120, 102, 3, 218, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92ee793b_3c49_4108_aa11_ab786603da21);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11919,7 +11919,7 @@ pub struct IQuinticEase_abi(
 pub struct IReorderThemeTransition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReorderThemeTransition {
     type Vtable = IReorderThemeTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4060503148, 53330, 19153, [131, 98, 183, 27, 54, 223, 116, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2065c6c_d052_4ad1_8362_b71b36df7497);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11936,7 +11936,7 @@ pub struct IReorderThemeTransition_abi(
 pub struct IRepeatBehaviorHelper(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRepeatBehaviorHelper {
     type Vtable = IRepeatBehaviorHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1751362418, 18839, 18425, [135, 173, 55, 239, 183, 89, 147, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6863ab72_4997_47f9_87ad_37efb75993ea);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11953,7 +11953,7 @@ pub struct IRepeatBehaviorHelper_abi(
 pub struct IRepeatBehaviorHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRepeatBehaviorHelperStatics {
     type Vtable = IRepeatBehaviorHelperStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2054770739, 31219, 19929, [178, 103, 156, 245, 15, 181, 31, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a795033_79f3_4dd9_b267_9cf50fb51f84);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11982,7 +11982,7 @@ pub struct IRepeatBehaviorHelperStatics_abi(
 pub struct IRepositionThemeAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRepositionThemeAnimation {
     type Vtable = IRepositionThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3973719272, 35141, 18761, [161, 191, 98, 16, 153, 101, 167, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xecda24e8_8945_4949_a1bf_62109965a7e9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12005,7 +12005,7 @@ pub struct IRepositionThemeAnimation_abi(
 pub struct IRepositionThemeAnimationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRepositionThemeAnimationStatics {
     type Vtable = IRepositionThemeAnimationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1301459377, 34315, 19449, [165, 157, 30, 177, 204, 190, 143, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d92b1b1_860b_4bf9_a59d_1eb1ccbe8fe0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12025,7 +12025,7 @@ pub struct IRepositionThemeAnimationStatics_abi(
 pub struct IRepositionThemeTransition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRepositionThemeTransition {
     type Vtable = IRepositionThemeTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2285017986, 39155, 17754, [172, 83, 46, 112, 131, 182, 226, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88329b82_98f3_455a_ac53_2e7083b6e22c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12042,7 +12042,7 @@ pub struct IRepositionThemeTransition_abi(
 pub struct IRepositionThemeTransition2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRepositionThemeTransition2 {
     type Vtable = IRepositionThemeTransition2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3468683364, 56298, 17412, [142, 110, 222, 85, 173, 167, 82, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcebfe864_dbea_4404_8e6e_de55ada75239);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12061,7 +12061,7 @@ pub struct IRepositionThemeTransition2_abi(
 pub struct IRepositionThemeTransitionStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRepositionThemeTransitionStatics2 {
     type Vtable = IRepositionThemeTransitionStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2453727536, 2585, 18059, [140, 42, 104, 250, 180, 80, 0, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9240e930_0a19_468b_8c2a_68fab4500027);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12079,7 +12079,7 @@ pub struct IRepositionThemeTransitionStatics2_abi(
 pub struct ISineEase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISineEase {
     type Vtable = ISineEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2839030114, 8971, 18906, [158, 13, 102, 73, 135, 137, 35, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9382962_230b_49da_9e0d_664987892343);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12096,7 +12096,7 @@ pub struct ISineEase_abi(
 pub struct ISlideNavigationTransitionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISlideNavigationTransitionInfo {
     type Vtable = ISlideNavigationTransitionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3601636727, 11779, 16479, [128, 237, 230, 43, 238, 243, 102, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6ac9d77_2e03_405f_80ed_e62beef3668f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12113,7 +12113,7 @@ pub struct ISlideNavigationTransitionInfo_abi(
 pub struct ISlideNavigationTransitionInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISlideNavigationTransitionInfo2 {
     type Vtable = ISlideNavigationTransitionInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2430785984, 23681, 20481, [128, 19, 79, 191, 234, 75, 241, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90e2d9c0_5c81_5001_8013_4fbfea4bf139);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12132,7 +12132,7 @@ pub struct ISlideNavigationTransitionInfo2_abi(
 pub struct ISlideNavigationTransitionInfoStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISlideNavigationTransitionInfoStatics2 {
     type Vtable = ISlideNavigationTransitionInfoStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2324044714, 38938, 23246, [159, 133, 203, 127, 222, 100, 138, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a861baa_981a_5ace_9f85_cb7fde648a67);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12150,7 +12150,7 @@ pub struct ISlideNavigationTransitionInfoStatics2_abi(
 pub struct ISplineColorKeyFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISplineColorKeyFrame {
     type Vtable = ISplineColorKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(441080129, 8160, 18234, [142, 254, 67, 22, 216, 200, 98, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a4a5941_1fe0_473a_8efe_4316d8c86229);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12169,7 +12169,7 @@ pub struct ISplineColorKeyFrame_abi(
 pub struct ISplineColorKeyFrameStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISplineColorKeyFrameStatics {
     type Vtable = ISplineColorKeyFrameStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1641142679, 34185, 20271, [143, 187, 125, 3, 237, 201, 141, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61d1d997_8589_4f2f_8fbb_7d03edc98dd3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12187,7 +12187,7 @@ pub struct ISplineColorKeyFrameStatics_abi(
 pub struct ISplineDoubleKeyFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISplineDoubleKeyFrame {
     type Vtable = ISplineDoubleKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(14101816, 27435, 18499, [131, 142, 200, 177, 21, 238, 200, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00d72d38_6b2b_4843_838e_c8b115eec801);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12206,7 +12206,7 @@ pub struct ISplineDoubleKeyFrame_abi(
 pub struct ISplineDoubleKeyFrameStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISplineDoubleKeyFrameStatics {
     type Vtable = ISplineDoubleKeyFrameStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(101355516, 38751, 20046, [158, 199, 19, 197, 174, 224, 32, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x060a8ffc_975f_4e4e_9ec7_13c5aee02062);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12224,7 +12224,7 @@ pub struct ISplineDoubleKeyFrameStatics_abi(
 pub struct ISplinePointKeyFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISplinePointKeyFrame {
     type Vtable = ISplinePointKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(253358854, 28726, 18767, [188, 60, 120, 13, 240, 204, 82, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f19f306_7036_494f_bc3c_780df0cc524a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12243,7 +12243,7 @@ pub struct ISplinePointKeyFrame_abi(
 pub struct ISplinePointKeyFrameStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISplinePointKeyFrameStatics {
     type Vtable = ISplinePointKeyFrameStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3917099714, 2682, 18278, [149, 203, 13, 105, 38, 17, 203, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe97a32c2_0a7a_4766_95cb_0d692611cb4c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12261,7 +12261,7 @@ pub struct ISplinePointKeyFrameStatics_abi(
 pub struct ISplitCloseThemeAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISplitCloseThemeAnimation {
     type Vtable = ISplitCloseThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1333368088, 65337, 20112, [187, 116, 42, 189, 86, 2, 116, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f799518_ff39_4e90_bb74_2abd56027402);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12302,7 +12302,7 @@ pub struct ISplitCloseThemeAnimation_abi(
 pub struct ISplitCloseThemeAnimationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISplitCloseThemeAnimationStatics {
     type Vtable = ISplitCloseThemeAnimationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2057915881, 52379, 20112, [161, 26, 0, 80, 162, 33, 106, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7aa94de9_cc9b_4e90_a11a_0050a2216a9e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12330,7 +12330,7 @@ pub struct ISplitCloseThemeAnimationStatics_abi(
 pub struct ISplitOpenThemeAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISplitOpenThemeAnimation {
     type Vtable = ISplitOpenThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2019547050, 21590, 17977, [143, 210, 38, 186, 230, 165, 255, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x785fd7aa_5456_4639_8fd2_26bae6a5ffe4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12371,7 +12371,7 @@ pub struct ISplitOpenThemeAnimation_abi(
 pub struct ISplitOpenThemeAnimationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISplitOpenThemeAnimationStatics {
     type Vtable = ISplitOpenThemeAnimationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2370632329, 14993, 17805, [176, 251, 76, 173, 98, 92, 191, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d4cfa89_3a91_458d_b0fb_4cad625cbf8d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12399,7 +12399,7 @@ pub struct ISplitOpenThemeAnimationStatics_abi(
 pub struct IStoryboard(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoryboard {
     type Vtable = IStoryboard_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3562806894, 13716, 17934, [152, 26, 50, 39, 27, 211, 170, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd45c1e6e_3594_460e_981a_32271bd3aa06);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12430,7 +12430,7 @@ pub struct IStoryboard_abi(
 pub struct IStoryboardStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoryboardStatics {
     type Vtable = IStoryboardStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3626960856, 29653, 17273, [189, 72, 126, 5, 24, 74, 139, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd82f07d8_73d5_4379_bd48_7e05184a8bad);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12454,7 +12454,7 @@ pub struct IStoryboardStatics_abi(
 pub struct ISuppressNavigationTransitionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISuppressNavigationTransitionInfo {
     type Vtable = ISuppressNavigationTransitionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(609057548, 45495, 18545, [157, 62, 213, 98, 3, 163, 165, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x244d7b0c_b1b7_4871_9d3e_d56203a3a5b4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12471,7 +12471,7 @@ pub struct ISuppressNavigationTransitionInfo_abi(
 pub struct ISwipeBackThemeAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISwipeBackThemeAnimation {
     type Vtable = ISwipeBackThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2743747092, 3018, 19757, [149, 247, 206, 186, 87, 251, 175, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa38a4214_0bca_4d2d_95f7_ceba57fbaf60);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12494,7 +12494,7 @@ pub struct ISwipeBackThemeAnimation_abi(
 pub struct ISwipeBackThemeAnimationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISwipeBackThemeAnimationStatics {
     type Vtable = ISwipeBackThemeAnimationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1765749183, 19878, 18058, [140, 224, 153, 108, 154, 173, 66, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x693f31bf_4da6_468a_8ce0_996c9aad42e0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12514,7 +12514,7 @@ pub struct ISwipeBackThemeAnimationStatics_abi(
 pub struct ISwipeHintThemeAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISwipeHintThemeAnimation {
     type Vtable = ISwipeHintThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3452987328, 22542, 20032, [190, 152, 242, 2, 211, 216, 67, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcdd067c0_580e_4e40_be98_f202d3d84365);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12537,7 +12537,7 @@ pub struct ISwipeHintThemeAnimation_abi(
 pub struct ISwipeHintThemeAnimationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISwipeHintThemeAnimationStatics {
     type Vtable = ISwipeHintThemeAnimationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(601234007, 37141, 19811, [176, 74, 184, 159, 28, 116, 77, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23d61a57_9115_4d63_b04a_b89f1c744dc0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12557,7 +12557,7 @@ pub struct ISwipeHintThemeAnimationStatics_abi(
 pub struct ITimeline(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimeline {
     type Vtable = ITimeline_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(197420508, 48717, 19725, [149, 73, 34, 8, 183, 21, 244, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bc465dc_be4d_4d0d_9549_2208b715f40d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12596,7 +12596,7 @@ pub struct ITimeline_abi(
 pub struct ITimelineFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimelineFactory {
     type Vtable = ITimelineFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(492223239, 48548, 18315, [138, 218, 235, 4, 213, 128, 205, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d56bb07_bda4_478b_8ada_eb04d580cd5e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12614,7 +12614,7 @@ pub struct ITimelineFactory_abi(
 pub struct ITimelineStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimelineStatics {
     type Vtable = ITimelineStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2835541326, 61200, 19823, [154, 64, 147, 203, 136, 149, 244, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa902ed4e_ef10_4d6f_9a40_93cb8895f4e5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12639,7 +12639,7 @@ pub struct ITimelineStatics_abi(
 pub struct ITransition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransition {
     type Vtable = ITransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1013415036, 464, 19918, [179, 51, 151, 111, 147, 49, 43, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c677c7c_01d0_4dce_b333_976f93312b08);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12656,7 +12656,7 @@ pub struct ITransition_abi(
 pub struct ITransitionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransitionFactory {
     type Vtable = ITransitionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3701125839, 15305, 17578, [179, 252, 136, 58, 131, 35, 58, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc9ab2cf_3bc9_44aa_b3fc_883a83233a2c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12772,7 +12772,7 @@ unsafe impl ::windows::runtime::RuntimeType for KeySpline {
 }
 unsafe impl ::windows::runtime::Interface for KeySpline {
     type Vtable = IKeySpline_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2007065531, 54730, 18994, [186, 11, 125, 255, 152, 142, 88, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77a163bb_d5ca_4a32_ba0b_7dff988e58a0);
 }
 impl ::windows::runtime::RuntimeName for KeySpline {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.KeySpline";
@@ -12903,7 +12903,7 @@ unsafe impl ::windows::runtime::RuntimeType for KeyTimeHelper {
 }
 unsafe impl ::windows::runtime::Interface for KeyTimeHelper {
     type Vtable = IKeyTimeHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(910419072, 18467, 18026, [171, 229, 94, 121, 200, 237, 119, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3643e480_4823_466a_abe5_5e79c8ed77ed);
 }
 impl ::windows::runtime::RuntimeName for KeyTimeHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.KeyTimeHelper";
@@ -13052,7 +13052,7 @@ unsafe impl ::windows::runtime::RuntimeType for LinearColorKeyFrame {
 }
 unsafe impl ::windows::runtime::Interface for LinearColorKeyFrame {
     type Vtable = ILinearColorKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1727903471, 44161, 17937, [177, 210, 97, 245, 69, 152, 63, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66fdb6ef_ac81_4611_b1d2_61f545983f03);
 }
 impl ::windows::runtime::RuntimeName for LinearColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.LinearColorKeyFrame";
@@ -13241,7 +13241,7 @@ unsafe impl ::windows::runtime::RuntimeType for LinearDoubleKeyFrame {
 }
 unsafe impl ::windows::runtime::Interface for LinearDoubleKeyFrame {
     type Vtable = ILinearDoubleKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2399007333, 39547, 17181, [143, 12, 20, 197, 107, 94, 164, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8efdf265_9a7b_431d_8f0c_14c56b5ea4d9);
 }
 impl ::windows::runtime::RuntimeName for LinearDoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.LinearDoubleKeyFrame";
@@ -13432,7 +13432,7 @@ unsafe impl ::windows::runtime::RuntimeType for LinearPointKeyFrame {
 }
 unsafe impl ::windows::runtime::Interface for LinearPointKeyFrame {
     type Vtable = ILinearPointKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3888756975, 44836, 18926, [132, 241, 168, 102, 0, 164, 227, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7c9b8ef_af24_49ee_84f1_a86600a4e319);
 }
 impl ::windows::runtime::RuntimeName for LinearPointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.LinearPointKeyFrame";
@@ -13617,7 +13617,7 @@ unsafe impl ::windows::runtime::RuntimeType for NavigationThemeTransition {
 }
 unsafe impl ::windows::runtime::Interface for NavigationThemeTransition {
     type Vtable = INavigationThemeTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2285077644, 20151, 16882, [135, 153, 158, 239, 10, 33, 59, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8833848c_4eb7_41f2_8799_9eef0a213b73);
 }
 impl ::windows::runtime::RuntimeName for NavigationThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.NavigationThemeTransition";
@@ -13771,7 +13771,7 @@ unsafe impl ::windows::runtime::RuntimeType for NavigationTransitionInfo {
 }
 unsafe impl ::windows::runtime::Interface for NavigationTransitionInfo {
     type Vtable = INavigationTransitionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2846904465, 44618, 17266, [134, 37, 33, 183, 168, 185, 140, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9b05091_ae4a_4372_8625_21b7a8b98ca4);
 }
 impl ::windows::runtime::RuntimeName for NavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo";
@@ -14044,7 +14044,7 @@ unsafe impl ::windows::runtime::RuntimeType for ObjectAnimationUsingKeyFrames {
 }
 unsafe impl ::windows::runtime::Interface for ObjectAnimationUsingKeyFrames {
     type Vtable = IObjectAnimationUsingKeyFrames_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(860499346, 46922, 19556, [185, 166, 88, 188, 250, 49, 79, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x334a2d92_b74a_4c64_b9a6_58bcfa314f22);
 }
 impl ::windows::runtime::RuntimeName for ObjectAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames";
@@ -14244,7 +14244,7 @@ unsafe impl ::windows::runtime::RuntimeType for ObjectKeyFrame {
 }
 unsafe impl ::windows::runtime::Interface for ObjectKeyFrame {
     type Vtable = IObjectKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2555553873, 34195, 18670, [166, 164, 213, 212, 114, 15, 2, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9852a851_8593_48ee_a6a4_d5d4720f029a);
 }
 impl ::windows::runtime::RuntimeName for ObjectKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ObjectKeyFrame";
@@ -14653,7 +14653,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaneThemeTransition {
 }
 unsafe impl ::windows::runtime::Interface for PaneThemeTransition {
     type Vtable = IPaneThemeTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1191766926, 19452, 60998, [212, 249, 112, 141, 239, 63, 187, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4708eb8e_4bfc_ee46_d4f9_708def3fbb2b);
 }
 impl ::windows::runtime::RuntimeName for PaneThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PaneThemeTransition";
@@ -15023,7 +15023,7 @@ unsafe impl ::windows::runtime::RuntimeType for PointAnimation {
 }
 unsafe impl ::windows::runtime::Interface for PointAnimation {
     type Vtable = IPointAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(821052178, 30502, 20360, [184, 226, 47, 165, 69, 24, 150, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30f04312_7726_4f88_b8e2_2fa54518963b);
 }
 impl ::windows::runtime::RuntimeName for PointAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PointAnimation";
@@ -15316,7 +15316,7 @@ unsafe impl ::windows::runtime::RuntimeType for PointAnimationUsingKeyFrames {
 }
 unsafe impl ::windows::runtime::Interface for PointAnimationUsingKeyFrames {
     type Vtable = IPointAnimationUsingKeyFrames_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2610188146, 17514, 16848, [161, 41, 65, 166, 32, 244, 89, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b944f72_446a_41d0_a129_41a620f4595d);
 }
 impl ::windows::runtime::RuntimeName for PointAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames";
@@ -15518,7 +15518,7 @@ unsafe impl ::windows::runtime::RuntimeType for PointKeyFrame {
 }
 unsafe impl ::windows::runtime::Interface for PointKeyFrame {
     type Vtable = IPointKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4241001729, 32642, 19886, [128, 38, 123, 126, 8, 104, 120, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcc88d01_7f82_4dae_8026_7b7e086878b3);
 }
 impl ::windows::runtime::RuntimeName for PointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PointKeyFrame";
@@ -16024,7 +16024,7 @@ unsafe impl ::windows::runtime::RuntimeType for PointerDownThemeAnimation {
 }
 unsafe impl ::windows::runtime::Interface for PointerDownThemeAnimation {
     type Vtable = IPointerDownThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3046011214, 50333, 18312, [162, 51, 10, 232, 93, 153, 221, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb58e714e_c49d_4788_a233_0ae85d99dd5a);
 }
 impl ::windows::runtime::RuntimeName for PointerDownThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation";
@@ -16308,7 +16308,7 @@ unsafe impl ::windows::runtime::RuntimeType for PointerUpThemeAnimation {
 }
 unsafe impl ::windows::runtime::Interface for PointerUpThemeAnimation {
     type Vtable = IPointerUpThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3924414589, 25408, 18472, [173, 18, 105, 6, 148, 185, 145, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9e9d07d_6340_4828_ad12_690694b9910b);
 }
 impl ::windows::runtime::RuntimeName for PointerUpThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation";
@@ -16632,7 +16632,7 @@ unsafe impl ::windows::runtime::RuntimeType for PopInThemeAnimation {
 }
 unsafe impl ::windows::runtime::Interface for PopInThemeAnimation {
     type Vtable = IPopInThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(426326209, 7175, 19496, [136, 71, 249, 240, 85, 179, 40, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x196938c1_1c07_4c28_8847_f9f055b32855);
 }
 impl ::windows::runtime::RuntimeName for PopInThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PopInThemeAnimation";
@@ -16916,7 +16916,7 @@ unsafe impl ::windows::runtime::RuntimeType for PopOutThemeAnimation {
 }
 unsafe impl ::windows::runtime::Interface for PopOutThemeAnimation {
     type Vtable = IPopOutThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1200008009, 3656, 20097, [162, 229, 204, 90, 161, 158, 72, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4786ab49_0e48_4e81_a2e5_cc5aa19e48d3);
 }
 impl ::windows::runtime::RuntimeName for PopOutThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation";
@@ -17121,7 +17121,7 @@ unsafe impl ::windows::runtime::RuntimeType for PopupThemeTransition {
 }
 unsafe impl ::windows::runtime::Interface for PopupThemeTransition {
     type Vtable = IPopupThemeTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1199846738, 17027, 21598, [199, 145, 38, 141, 202, 34, 206, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47843552_4283_545e_c791_268dca22ce4b);
 }
 impl ::windows::runtime::RuntimeName for PopupThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PopupThemeTransition";
@@ -17327,7 +17327,7 @@ unsafe impl ::windows::runtime::RuntimeType for PowerEase {
 }
 unsafe impl ::windows::runtime::Interface for PowerEase {
     type Vtable = IPowerEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1774716281, 61151, 16475, [134, 128, 217, 96, 104, 128, 201, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69c80579_eedf_405b_8680_d9606880c937);
 }
 impl ::windows::runtime::RuntimeName for PowerEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PowerEase";
@@ -17509,7 +17509,7 @@ unsafe impl ::windows::runtime::RuntimeType for QuadraticEase {
 }
 unsafe impl ::windows::runtime::Interface for QuadraticEase {
     type Vtable = IQuadraticEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3780185745, 61293, 17648, [128, 61, 104, 209, 109, 224, 221, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1510e91_ef6d_44f0_803d_68d16de0ddfc);
 }
 impl ::windows::runtime::RuntimeName for QuadraticEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.QuadraticEase";
@@ -17691,7 +17691,7 @@ unsafe impl ::windows::runtime::RuntimeType for QuarticEase {
 }
 unsafe impl ::windows::runtime::Interface for QuarticEase {
     type Vtable = IQuarticEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3899230228, 65090, 18949, [181, 184, 8, 31, 65, 21, 120, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8698814_fe42_4a05_b5b8_081f41157815);
 }
 impl ::windows::runtime::RuntimeName for QuarticEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.QuarticEase";
@@ -17873,7 +17873,7 @@ unsafe impl ::windows::runtime::RuntimeType for QuinticEase {
 }
 unsafe impl ::windows::runtime::Interface for QuinticEase {
     type Vtable = IQuinticEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2465102139, 15433, 16648, [170, 17, 171, 120, 102, 3, 218, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92ee793b_3c49_4108_aa11_ab786603da21);
 }
 impl ::windows::runtime::RuntimeName for QuinticEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.QuinticEase";
@@ -18034,7 +18034,7 @@ unsafe impl ::windows::runtime::RuntimeType for ReorderThemeTransition {
 }
 unsafe impl ::windows::runtime::Interface for ReorderThemeTransition {
     type Vtable = IReorderThemeTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4060503148, 53330, 19153, [131, 98, 183, 27, 54, 223, 116, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2065c6c_d052_4ad1_8362_b71b36df7497);
 }
 impl ::windows::runtime::RuntimeName for ReorderThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ReorderThemeTransition";
@@ -18227,7 +18227,7 @@ unsafe impl ::windows::runtime::RuntimeType for RepeatBehaviorHelper {
 }
 unsafe impl ::windows::runtime::Interface for RepeatBehaviorHelper {
     type Vtable = IRepeatBehaviorHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1751362418, 18839, 18425, [135, 173, 55, 239, 183, 89, 147, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6863ab72_4997_47f9_87ad_37efb75993ea);
 }
 impl ::windows::runtime::RuntimeName for RepeatBehaviorHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper";
@@ -18534,7 +18534,7 @@ unsafe impl ::windows::runtime::RuntimeType for RepositionThemeAnimation {
 }
 unsafe impl ::windows::runtime::Interface for RepositionThemeAnimation {
     type Vtable = IRepositionThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3973719272, 35141, 18761, [161, 191, 98, 16, 153, 101, 167, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xecda24e8_8945_4949_a1bf_62109965a7e9);
 }
 impl ::windows::runtime::RuntimeName for RepositionThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation";
@@ -18719,7 +18719,7 @@ unsafe impl ::windows::runtime::RuntimeType for RepositionThemeTransition {
 }
 unsafe impl ::windows::runtime::Interface for RepositionThemeTransition {
     type Vtable = IRepositionThemeTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2285017986, 39155, 17754, [172, 83, 46, 112, 131, 182, 226, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88329b82_98f3_455a_ac53_2e7083b6e22c);
 }
 impl ::windows::runtime::RuntimeName for RepositionThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.RepositionThemeTransition";
@@ -18901,7 +18901,7 @@ unsafe impl ::windows::runtime::RuntimeType for SineEase {
 }
 unsafe impl ::windows::runtime::Interface for SineEase {
     type Vtable = ISineEase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2839030114, 8971, 18906, [158, 13, 102, 73, 135, 137, 35, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9382962_230b_49da_9e0d_664987892343);
 }
 impl ::windows::runtime::RuntimeName for SineEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SineEase";
@@ -19109,7 +19109,7 @@ unsafe impl ::windows::runtime::RuntimeType for SlideNavigationTransitionInfo {
 }
 unsafe impl ::windows::runtime::Interface for SlideNavigationTransitionInfo {
     type Vtable = ISlideNavigationTransitionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3601636727, 11779, 16479, [128, 237, 230, 43, 238, 243, 102, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6ac9d77_2e03_405f_80ed_e62beef3668f);
 }
 impl ::windows::runtime::RuntimeName for SlideNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo";
@@ -19322,7 +19322,7 @@ unsafe impl ::windows::runtime::RuntimeType for SplineColorKeyFrame {
 }
 unsafe impl ::windows::runtime::Interface for SplineColorKeyFrame {
     type Vtable = ISplineColorKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(441080129, 8160, 18234, [142, 254, 67, 22, 216, 200, 98, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a4a5941_1fe0_473a_8efe_4316d8c86229);
 }
 impl ::windows::runtime::RuntimeName for SplineColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SplineColorKeyFrame";
@@ -19535,7 +19535,7 @@ unsafe impl ::windows::runtime::RuntimeType for SplineDoubleKeyFrame {
 }
 unsafe impl ::windows::runtime::Interface for SplineDoubleKeyFrame {
     type Vtable = ISplineDoubleKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(14101816, 27435, 18499, [131, 142, 200, 177, 21, 238, 200, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00d72d38_6b2b_4843_838e_c8b115eec801);
 }
 impl ::windows::runtime::RuntimeName for SplineDoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame";
@@ -19750,7 +19750,7 @@ unsafe impl ::windows::runtime::RuntimeType for SplinePointKeyFrame {
 }
 unsafe impl ::windows::runtime::Interface for SplinePointKeyFrame {
     type Vtable = ISplinePointKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(253358854, 28726, 18767, [188, 60, 120, 13, 240, 204, 82, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f19f306_7036_494f_bc3c_780df0cc524a);
 }
 impl ::windows::runtime::RuntimeName for SplinePointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SplinePointKeyFrame";
@@ -20236,7 +20236,7 @@ unsafe impl ::windows::runtime::RuntimeType for SplitCloseThemeAnimation {
 }
 unsafe impl ::windows::runtime::Interface for SplitCloseThemeAnimation {
     type Vtable = ISplitCloseThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1333368088, 65337, 20112, [187, 116, 42, 189, 86, 2, 116, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f799518_ff39_4e90_bb74_2abd56027402);
 }
 impl ::windows::runtime::RuntimeName for SplitCloseThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SplitCloseThemeAnimation";
@@ -20722,7 +20722,7 @@ unsafe impl ::windows::runtime::RuntimeType for SplitOpenThemeAnimation {
 }
 unsafe impl ::windows::runtime::Interface for SplitOpenThemeAnimation {
     type Vtable = ISplitOpenThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2019547050, 21590, 17977, [143, 210, 38, 186, 230, 165, 255, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x785fd7aa_5456_4639_8fd2_26bae6a5ffe4);
 }
 impl ::windows::runtime::RuntimeName for SplitOpenThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SplitOpenThemeAnimation";
@@ -21089,7 +21089,7 @@ unsafe impl ::windows::runtime::RuntimeType for Storyboard {
 }
 unsafe impl ::windows::runtime::Interface for Storyboard {
     type Vtable = IStoryboard_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3562806894, 13716, 17934, [152, 26, 50, 39, 27, 211, 170, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd45c1e6e_3594_460e_981a_32271bd3aa06);
 }
 impl ::windows::runtime::RuntimeName for Storyboard {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.Storyboard";
@@ -21250,7 +21250,7 @@ unsafe impl ::windows::runtime::RuntimeType for SuppressNavigationTransitionInfo
 }
 unsafe impl ::windows::runtime::Interface for SuppressNavigationTransitionInfo {
     type Vtable = ISuppressNavigationTransitionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(609057548, 45495, 18545, [157, 62, 213, 98, 3, 163, 165, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x244d7b0c_b1b7_4871_9d3e_d56203a3a5b4);
 }
 impl ::windows::runtime::RuntimeName for SuppressNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo";
@@ -21574,7 +21574,7 @@ unsafe impl ::windows::runtime::RuntimeType for SwipeBackThemeAnimation {
 }
 unsafe impl ::windows::runtime::Interface for SwipeBackThemeAnimation {
     type Vtable = ISwipeBackThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2743747092, 3018, 19757, [149, 247, 206, 186, 87, 251, 175, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa38a4214_0bca_4d2d_95f7_ceba57fbaf60);
 }
 impl ::windows::runtime::RuntimeName for SwipeBackThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SwipeBackThemeAnimation";
@@ -21898,7 +21898,7 @@ unsafe impl ::windows::runtime::RuntimeType for SwipeHintThemeAnimation {
 }
 unsafe impl ::windows::runtime::Interface for SwipeHintThemeAnimation {
     type Vtable = ISwipeHintThemeAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3452987328, 22542, 20032, [190, 152, 242, 2, 211, 216, 67, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcdd067c0_580e_4e40_be98_f202d3d84365);
 }
 impl ::windows::runtime::RuntimeName for SwipeHintThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SwipeHintThemeAnimation";
@@ -22208,7 +22208,7 @@ unsafe impl ::windows::runtime::RuntimeType for Timeline {
 }
 unsafe impl ::windows::runtime::Interface for Timeline {
     type Vtable = ITimeline_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(197420508, 48717, 19725, [149, 73, 34, 8, 183, 21, 244, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bc465dc_be4d_4d0d_9549_2208b715f40d);
 }
 impl ::windows::runtime::RuntimeName for Timeline {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.Timeline";
@@ -22584,7 +22584,7 @@ unsafe impl ::windows::runtime::RuntimeType for Transition {
 }
 unsafe impl ::windows::runtime::Interface for Transition {
     type Vtable = ITransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1013415036, 464, 19918, [179, 51, 151, 111, 147, 49, 43, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c677c7c_01d0_4dce_b333_976f93312b08);
 }
 impl ::windows::runtime::RuntimeName for Transition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.Transition";

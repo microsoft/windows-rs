@@ -4,7 +4,7 @@
 pub struct IKnownPerceptionFrameKindStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownPerceptionFrameKindStatics {
     type Vtable = IKnownPerceptionFrameKindStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(988172758, 38505, 16646, [159, 174, 72, 53, 193, 185, 97, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ae651d6_9669_4106_9fae_4835c1b96104);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24,7 +24,7 @@ pub struct IKnownPerceptionFrameKindStatics_abi(
 pub struct IPerceptionControlGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionControlGroup {
     type Vtable = IPerceptionControlGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(388778114, 12249, 19534, [186, 52, 253, 242, 10, 115, 221, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x172c4882_2fd9_4c4e_ba34_fdf20a73dde5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -43,7 +43,7 @@ pub struct IPerceptionControlGroup_abi(
 pub struct IPerceptionControlGroupFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionControlGroupFactory {
     type Vtable = IPerceptionControlGroupFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(790295264, 47857, 17723, [190, 212, 205, 157, 70, 25, 21, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f1af2e0_baf1_453b_bed4_cd9d4619154c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -62,7 +62,7 @@ pub struct IPerceptionControlGroupFactory_abi(
 pub struct IPerceptionCorrelation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionCorrelation {
     type Vtable = IPerceptionCorrelation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3021150850, 57333, 16455, [138, 25, 59, 77, 128, 95, 113, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4131a82_dff5_4047_8a19_3b4d805f7176);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -84,7 +84,7 @@ pub struct IPerceptionCorrelation_abi(
 pub struct IPerceptionCorrelationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionCorrelationFactory {
     type Vtable = IPerceptionCorrelationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3567698981, 10372, 19087, [129, 52, 40, 53, 215, 40, 108, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4a6c425_2884_4a8f_8134_2835d7286cbf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -103,7 +103,7 @@ pub struct IPerceptionCorrelationFactory_abi(
 pub struct IPerceptionCorrelationGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionCorrelationGroup {
     type Vtable = IPerceptionCorrelationGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1965689094, 13991, 18363, [155, 121, 86, 204, 107, 116, 103, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x752a0906_36a7_47bb_9b79_56cc6b746770);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -122,7 +122,7 @@ pub struct IPerceptionCorrelationGroup_abi(
 pub struct IPerceptionCorrelationGroupFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionCorrelationGroupFactory {
     type Vtable = IPerceptionCorrelationGroupFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2113806472, 25567, 18669, [131, 177, 74, 184, 41, 19, 41, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7dfe2088_63df_48ed_83b1_4ab829132995);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -141,7 +141,7 @@ pub struct IPerceptionCorrelationGroupFactory_abi(
 pub struct IPerceptionFaceAuthenticationGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFaceAuthenticationGroup {
     type Vtable = IPerceptionFaceAuthenticationGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3892418580, 19089, 16816, [131, 166, 136, 26, 23, 117, 53, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8019814_4a91_41b0_83a6_881a1775353e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -160,7 +160,7 @@ pub struct IPerceptionFaceAuthenticationGroup_abi(
 pub struct IPerceptionFaceAuthenticationGroupFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFaceAuthenticationGroupFactory {
     type Vtable = IPerceptionFaceAuthenticationGroupFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3867805140, 46604, 16628, [188, 185, 242, 77, 70, 70, 115, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe68a05d4_b60c_40f4_bcb9_f24d46467320);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -179,7 +179,7 @@ pub struct IPerceptionFaceAuthenticationGroupFactory_abi(
 pub struct IPerceptionFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFrame {
     type Vtable = IPerceptionFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2097051685, 21691, 19869, [190, 197, 142, 246, 97, 81, 210, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7cfe7825_54bb_4d9d_bec5_8ef66151d2ac);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -205,7 +205,7 @@ pub struct IPerceptionFrame_abi(
 pub struct IPerceptionFrameProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFrameProvider {
     type Vtable = IPerceptionFrameProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2035251897, 45949, 15155, [161, 13, 48, 98, 100, 25, 206, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x794f7ab9_b37d_3b33_a10d_30626419ce65);
 }
 impl IPerceptionFrameProvider {
     #[cfg(feature = "deprecated")]
@@ -352,7 +352,7 @@ pub struct IPerceptionFrameProvider_abi(
 pub struct IPerceptionFrameProviderInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFrameProviderInfo {
     type Vtable = IPerceptionFrameProviderInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3433650664, 31102, 20099, [155, 135, 3, 106, 116, 20, 47, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcca959e8_797e_4e83_9b87_036a74142fc4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -380,7 +380,7 @@ pub struct IPerceptionFrameProviderInfo_abi(
 pub struct IPerceptionFrameProviderManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFrameProviderManager {
     type Vtable = IPerceptionFrameProviderManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2841234951, 60115, 13279, [142, 193, 185, 36, 171, 224, 25, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa959ce07_ead3_33df_8ec1_b924abe019c4);
 }
 impl IPerceptionFrameProviderManager {
     #[cfg(feature = "deprecated")]
@@ -484,7 +484,7 @@ pub struct IPerceptionFrameProviderManager_abi(
 pub struct IPerceptionFrameProviderManagerServiceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFrameProviderManagerServiceStatics {
     type Vtable = IPerceptionFrameProviderManagerServiceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2927855334, 51929, 17241, [143, 150, 142, 174, 81, 129, 5, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae8386e6_cad9_4359_8f96_8eae51810526);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -511,7 +511,7 @@ pub struct IPerceptionFrameProviderManagerServiceStatics_abi(
 pub struct IPerceptionPropertyChangeRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionPropertyChangeRequest {
     type Vtable = IPerceptionPropertyChangeRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1012591441, 13579, 19960, [148, 20, 89, 224, 152, 21, 81, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c5aeb51_350b_4df8_9414_59e09815510b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -534,7 +534,7 @@ pub struct IPerceptionPropertyChangeRequest_abi(
 pub struct IPerceptionVideoFrameAllocator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionVideoFrameAllocator {
     type Vtable = IPerceptionVideoFrameAllocator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1278781402, 64984, 20180, [160, 57, 42, 111, 155, 35, 80, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c38a7da_fdd8_4ed4_a039_2a6f9b235038);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -554,7 +554,7 @@ pub struct IPerceptionVideoFrameAllocator_abi(
 pub struct IPerceptionVideoFrameAllocatorFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionVideoFrameAllocatorFactory {
     type Vtable = IPerceptionVideoFrameAllocatorFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(442020065, 59674, 18462, [184, 118, 168, 158, 43, 188, 107, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a58b0e1_e91a_481e_b876_a89e2bbc6b33);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -637,7 +637,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionControlGroup {
 }
 unsafe impl ::windows::runtime::Interface for PerceptionControlGroup {
     type Vtable = IPerceptionControlGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(388778114, 12249, 19534, [186, 52, 253, 242, 10, 115, 221, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x172c4882_2fd9_4c4e_ba34_fdf20a73dde5);
 }
 impl ::windows::runtime::RuntimeName for PerceptionControlGroup {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionControlGroup";
@@ -737,7 +737,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionCorrelation {
 }
 unsafe impl ::windows::runtime::Interface for PerceptionCorrelation {
     type Vtable = IPerceptionCorrelation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3021150850, 57333, 16455, [138, 25, 59, 77, 128, 95, 113, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4131a82_dff5_4047_8a19_3b4d805f7176);
 }
 impl ::windows::runtime::RuntimeName for PerceptionCorrelation {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionCorrelation";
@@ -818,7 +818,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionCorrelationGroup {
 }
 unsafe impl ::windows::runtime::Interface for PerceptionCorrelationGroup {
     type Vtable = IPerceptionCorrelationGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1965689094, 13991, 18363, [155, 121, 86, 204, 107, 116, 103, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x752a0906_36a7_47bb_9b79_56cc6b746770);
 }
 impl ::windows::runtime::RuntimeName for PerceptionCorrelationGroup {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionCorrelationGroup";
@@ -899,7 +899,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionFaceAuthenticationGrou
 }
 unsafe impl ::windows::runtime::Interface for PerceptionFaceAuthenticationGroup {
     type Vtable = IPerceptionFaceAuthenticationGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3892418580, 19089, 16816, [131, 166, 136, 26, 23, 117, 53, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8019814_4a91_41b0_83a6_881a1775353e);
 }
 impl ::windows::runtime::RuntimeName for PerceptionFaceAuthenticationGroup {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionFaceAuthenticationGroup";
@@ -994,7 +994,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionFrame {
 }
 unsafe impl ::windows::runtime::Interface for PerceptionFrame {
     type Vtable = IPerceptionFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2097051685, 21691, 19869, [190, 197, 142, 246, 97, 81, 210, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7cfe7825_54bb_4d9d_bec5_8ef66151d2ac);
 }
 impl ::windows::runtime::RuntimeName for PerceptionFrame {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionFrame";
@@ -1134,7 +1134,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionFrameProviderInfo {
 }
 unsafe impl ::windows::runtime::Interface for PerceptionFrameProviderInfo {
     type Vtable = IPerceptionFrameProviderInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3433650664, 31102, 20099, [155, 135, 3, 106, 116, 20, 47, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcca959e8_797e_4e83_9b87_036a74142fc4);
 }
 impl ::windows::runtime::RuntimeName for PerceptionFrameProviderInfo {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionFrameProviderInfo";
@@ -1296,7 +1296,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionPropertyChangeRequest 
 }
 unsafe impl ::windows::runtime::Interface for PerceptionPropertyChangeRequest {
     type Vtable = IPerceptionPropertyChangeRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1012591441, 13579, 19960, [148, 20, 89, 224, 152, 21, 81, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c5aeb51_350b_4df8_9414_59e09815510b);
 }
 impl ::windows::runtime::RuntimeName for PerceptionPropertyChangeRequest {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionPropertyChangeRequest";
@@ -1370,7 +1370,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionStartFaceAuthenticatio
 }
 unsafe impl ::windows::runtime::Interface for PerceptionStartFaceAuthenticationHandler {
     type Vtable = PerceptionStartFaceAuthenticationHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1954639146, 8336, 18032, [140, 72, 239, 57, 231, 255, 124, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74816d2a_2090_4670_8c48_ef39e7ff7c26);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1450,7 +1450,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionStopFaceAuthentication
 }
 unsafe impl ::windows::runtime::Interface for PerceptionStopFaceAuthenticationHandler {
     type Vtable = PerceptionStopFaceAuthenticationHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(947840682, 35277, 18462, [170, 222, 221, 146, 247, 11, 42, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x387ee6aa_89cd_481e_aade_dd92f70b2ad7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1548,7 +1548,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionVideoFrameAllocator {
 }
 unsafe impl ::windows::runtime::Interface for PerceptionVideoFrameAllocator {
     type Vtable = IPerceptionVideoFrameAllocator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1278781402, 64984, 20180, [160, 57, 42, 111, 155, 35, 80, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c38a7da_fdd8_4ed4_a039_2a6f9b235038);
 }
 impl ::windows::runtime::RuntimeName for PerceptionVideoFrameAllocator {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionVideoFrameAllocator";

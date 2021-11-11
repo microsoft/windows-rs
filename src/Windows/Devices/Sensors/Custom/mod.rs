@@ -102,7 +102,7 @@ unsafe impl ::windows::runtime::RuntimeType for CustomSensor {
 }
 unsafe impl ::windows::runtime::Interface for CustomSensor {
     type Vtable = ICustomSensor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2704734637, 16436, 19277, [153, 221, 83, 26, 172, 100, 156, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa136f9ad_4034_4b4d_99dd_531aac649c09);
 }
 impl ::windows::runtime::RuntimeName for CustomSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.CustomSensor";
@@ -187,7 +187,7 @@ unsafe impl ::windows::runtime::RuntimeType for CustomSensorReading {
 }
 unsafe impl ::windows::runtime::Interface for CustomSensorReading {
     type Vtable = ICustomSensorReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1677741901, 17514, 17254, [168, 122, 95, 150, 50, 104, 236, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64004f4d_446a_4366_a87a_5f963268ec53);
 }
 impl ::windows::runtime::RuntimeName for CustomSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.CustomSensorReading";
@@ -253,7 +253,7 @@ unsafe impl ::windows::runtime::RuntimeType for CustomSensorReadingChangedEventA
 }
 unsafe impl ::windows::runtime::Interface for CustomSensorReadingChangedEventArgs {
     type Vtable = ICustomSensorReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1797267491, 53245, 19649, [143, 240, 226, 24, 35, 215, 111, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b202023_cffd_4cc1_8ff0_e21823d76fcc);
 }
 impl ::windows::runtime::RuntimeName for CustomSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.CustomSensorReadingChangedEventArgs";
@@ -305,7 +305,7 @@ unsafe impl ::core::marker::Sync for CustomSensorReadingChangedEventArgs {}
 pub struct ICustomSensor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSensor {
     type Vtable = ICustomSensor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2704734637, 16436, 19277, [153, 221, 83, 26, 172, 100, 156, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa136f9ad_4034_4b4d_99dd_531aac649c09);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -331,7 +331,7 @@ pub struct ICustomSensor_abi(
 pub struct ICustomSensor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSensor2 {
     type Vtable = ICustomSensor2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(551235857, 60504, 19871, [191, 189, 231, 120, 37, 8, 133, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20db3111_ec58_4d9f_bfbd_e77825088510);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -351,7 +351,7 @@ pub struct ICustomSensor2_abi(
 pub struct ICustomSensorReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSensorReading {
     type Vtable = ICustomSensorReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1677741901, 17514, 17254, [168, 122, 95, 150, 50, 104, 236, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64004f4d_446a_4366_a87a_5f963268ec53);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -372,7 +372,7 @@ pub struct ICustomSensorReading_abi(
 pub struct ICustomSensorReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSensorReading2 {
     type Vtable = ICustomSensorReading2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(574396650, 49011, 18834, [154, 72, 211, 200, 151, 89, 76, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x223c98ea_bf73_4992_9a48_d3c897594ccb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -391,7 +391,7 @@ pub struct ICustomSensorReading2_abi(
 pub struct ICustomSensorReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSensorReadingChangedEventArgs {
     type Vtable = ICustomSensorReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1797267491, 53245, 19649, [143, 240, 226, 24, 35, 215, 111, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b202023_cffd_4cc1_8ff0_e21823d76fcc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -409,7 +409,7 @@ pub struct ICustomSensorReadingChangedEventArgs_abi(
 pub struct ICustomSensorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSensorStatics {
     type Vtable = ICustomSensorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2569032399, 62498, 19581, [131, 107, 231, 220, 116, 167, 18, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x992052cf_f422_4c7d_836b_e7dc74a7124b);
 }
 #[repr(C)]
 #[doc(hidden)]

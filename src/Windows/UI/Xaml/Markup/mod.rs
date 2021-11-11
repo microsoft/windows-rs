@@ -5,7 +5,7 @@
 pub struct IComponentConnector(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IComponentConnector {
     type Vtable = IComponentConnector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4135127431, 59109, 18418, [146, 198, 236, 204, 228, 186, 21, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6790987_e6e5_47f2_92c6_eccce4ba159a);
 }
 impl IComponentConnector {
     #[doc = "*Required features: `UI_Xaml_Markup`*"]
@@ -74,7 +74,7 @@ pub struct IComponentConnector_abi(
 pub struct IComponentConnector2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IComponentConnector2 {
     type Vtable = IComponentConnector2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3700373131, 60620, 18830, [177, 57, 145, 20, 34, 84, 215, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc8f368b_eccc_498e_b139_91142254d7ae);
 }
 impl IComponentConnector2 {
     #[doc = "*Required features: `UI_Xaml_Markup`*"]
@@ -146,7 +146,7 @@ pub struct IComponentConnector2_abi(
 pub struct IDataTemplateComponent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataTemplateComponent {
     type Vtable = IDataTemplateComponent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(138583496, 35504, 18247, [170, 154, 254, 173, 252, 141, 168, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08429dc8_8ab0_4747_aa9a_feadfc8da8e1);
 }
 impl IDataTemplateComponent {
     #[doc = "*Required features: `UI_Xaml_Markup`*"]
@@ -220,7 +220,7 @@ pub struct IDataTemplateComponent_abi(
 pub struct IMarkupExtension(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMarkupExtension {
     type Vtable = IMarkupExtension_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(518209901, 22059, 18542, [158, 229, 15, 12, 188, 200, 4, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ee3416d_562b_486e_9ee5_0f0cbcc8048c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -237,7 +237,7 @@ pub struct IMarkupExtension_abi(
 pub struct IMarkupExtensionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMarkupExtensionFactory {
     type Vtable = IMarkupExtensionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1697815557, 64346, 17767, [157, 85, 92, 223, 186, 218, 39, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65329c05_fb5a_4567_9d55_5cdfbada2739);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -255,7 +255,7 @@ pub struct IMarkupExtensionFactory_abi(
 pub struct IMarkupExtensionOverrides(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMarkupExtensionOverrides {
     type Vtable = IMarkupExtensionOverrides_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(959936959, 47552, 20475, [165, 127, 88, 231, 53, 110, 66, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x393779bf_b9c0_4ffb_a57f_58e7356e425f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -273,7 +273,7 @@ pub struct IMarkupExtensionOverrides_abi(
 pub struct IXamlBinaryWriter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlBinaryWriter {
     type Vtable = IXamlBinaryWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2191338195, 25098, 18166, [132, 93, 67, 106, 5, 146, 113, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x829d2ad3_620a_46f6_845d_436a05927100);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -290,7 +290,7 @@ pub struct IXamlBinaryWriter_abi(
 pub struct IXamlBinaryWriterStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlBinaryWriterStatics {
     type Vtable = IXamlBinaryWriterStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(227463290, 39810, 19112, [182, 139, 2, 111, 45, 225, 204, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d8ed07a_9b82_4aa8_b68b_026f2de1cc86);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -310,7 +310,7 @@ pub struct IXamlBinaryWriterStatics_abi(
 pub struct IXamlBindScopeDiagnostics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlBindScopeDiagnostics {
     type Vtable = IXamlBindScopeDiagnostics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4066681501, 48621, 17322, [165, 176, 38, 172, 33, 168, 30, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf264a29d_bded_43aa_a5b0_26ac21a81eb8);
 }
 impl IXamlBindScopeDiagnostics {
     #[doc = "*Required features: `UI_Xaml_Markup`*"]
@@ -378,7 +378,7 @@ pub struct IXamlBindScopeDiagnostics_abi(
 pub struct IXamlBindingHelper(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlBindingHelper {
     type Vtable = IXamlBindingHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4205247238, 35513, 20215, [138, 231, 251, 211, 11, 191, 208, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfaa6fb06_8ab9_4ef7_8ae7_fbd30bbfd06d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -395,7 +395,7 @@ pub struct IXamlBindingHelper_abi(
 pub struct IXamlBindingHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlBindingHelperStatics {
     type Vtable = IXamlBindingHelperStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4133288817, 51212, 20474, [134, 238, 85, 135, 84, 238, 51, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf65cfb71_c80c_4ffa_86ee_558754ee336d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -442,7 +442,7 @@ pub struct IXamlBindingHelperStatics_abi(
 pub struct IXamlMarkupHelper(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlMarkupHelper {
     type Vtable = IXamlMarkupHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3504760636, 21314, 17647, [133, 167, 237, 50, 122, 115, 157, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0e6673c_5342_44ef_85a7_ed327a739d9a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -459,7 +459,7 @@ pub struct IXamlMarkupHelper_abi(
 pub struct IXamlMarkupHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlMarkupHelperStatics {
     type Vtable = IXamlMarkupHelperStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3384555301, 62287, 17500, [129, 162, 107, 114, 165, 232, 240, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9bc3725_f34f_445c_81a2_6b72a5e8f072);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -478,7 +478,7 @@ pub struct IXamlMarkupHelperStatics_abi(
 pub struct IXamlMember(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlMember {
     type Vtable = IXamlMember_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3309434252, 17321, 16918, [183, 24, 224, 177, 27, 20, 233, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc541f58c_43a9_4216_b718_e0b11b14e93e);
 }
 impl IXamlMember {
     #[doc = "*Required features: `UI_Xaml_Markup`*"]
@@ -610,7 +610,7 @@ pub struct IXamlMember_abi(
 pub struct IXamlMetadataProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlMetadataProvider {
     type Vtable = IXamlMetadataProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3010878825, 26789, 19250, [136, 97, 253, 185, 12, 31, 88, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3765d69_68a5_4b32_8861_fdb90c1f5836);
 }
 impl IXamlMetadataProvider {
     #[cfg(feature = "UI_Xaml_Interop")]
@@ -701,7 +701,7 @@ pub struct IXamlMetadataProvider_abi(
 pub struct IXamlReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlReader {
     type Vtable = IXamlReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(607603953, 52459, 18623, [165, 20, 65, 176, 24, 111, 132, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24374cf1_cceb_48bf_a514_41b0186f84c2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -718,7 +718,7 @@ pub struct IXamlReader_abi(
 pub struct IXamlReaderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlReaderStatics {
     type Vtable = IXamlReaderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2559690429, 21327, 18773, [184, 90, 138, 141, 192, 220, 166, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9891c6bd_534f_4955_b85a_8a8dc0dca602);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -738,7 +738,7 @@ pub struct IXamlReaderStatics_abi(
 pub struct IXamlType(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlType {
     type Vtable = IXamlType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2032200369, 41701, 18330, [189, 80, 108, 239, 60, 11, 73, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7920eab1_a2e5_479a_bd50_6cef3c0b4970);
 }
 impl IXamlType {
     #[doc = "*Required features: `UI_Xaml_Markup`*"]
@@ -956,7 +956,7 @@ pub struct IXamlType_abi(
 pub struct IXamlType2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlType2 {
     type Vtable = IXamlType2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2668391995, 17211, 22189, [143, 105, 120, 164, 221, 62, 100, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f0c6e3b_433b_56ad_8f69_78a4dd3e64f9);
 }
 impl IXamlType2 {
     #[doc = "*Required features: `UI_Xaml_Markup`*"]
@@ -1202,7 +1202,7 @@ unsafe impl ::windows::runtime::RuntimeType for MarkupExtension {
 }
 unsafe impl ::windows::runtime::Interface for MarkupExtension {
     type Vtable = IMarkupExtension_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(518209901, 22059, 18542, [158, 229, 15, 12, 188, 200, 4, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ee3416d_562b_486e_9ee5_0f0cbcc8048c);
 }
 impl ::windows::runtime::RuntimeName for MarkupExtension {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.MarkupExtension";
@@ -1276,7 +1276,7 @@ unsafe impl ::windows::runtime::RuntimeType for XamlBinaryWriter {
 }
 unsafe impl ::windows::runtime::Interface for XamlBinaryWriter {
     type Vtable = IXamlBinaryWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2191338195, 25098, 18166, [132, 93, 67, 106, 5, 146, 113, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x829d2ad3_620a_46f6_845d_436a05927100);
 }
 impl ::windows::runtime::RuntimeName for XamlBinaryWriter {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.XamlBinaryWriter";
@@ -1480,7 +1480,7 @@ unsafe impl ::windows::runtime::RuntimeType for XamlBindingHelper {
 }
 unsafe impl ::windows::runtime::Interface for XamlBindingHelper {
     type Vtable = IXamlBindingHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4205247238, 35513, 20215, [138, 231, 251, 211, 11, 191, 208, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfaa6fb06_8ab9_4ef7_8ae7_fbd30bbfd06d);
 }
 impl ::windows::runtime::RuntimeName for XamlBindingHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.XamlBindingHelper";
@@ -1546,7 +1546,7 @@ unsafe impl ::windows::runtime::RuntimeType for XamlMarkupHelper {
 }
 unsafe impl ::windows::runtime::Interface for XamlMarkupHelper {
     type Vtable = IXamlMarkupHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3504760636, 21314, 17647, [133, 167, 237, 50, 122, 115, 157, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0e6673c_5342_44ef_85a7_ed327a739d9a);
 }
 impl ::windows::runtime::RuntimeName for XamlMarkupHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.XamlMarkupHelper";
@@ -1622,7 +1622,7 @@ unsafe impl ::windows::runtime::RuntimeType for XamlReader {
 }
 unsafe impl ::windows::runtime::Interface for XamlReader {
     type Vtable = IXamlReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(607603953, 52459, 18623, [165, 20, 65, 176, 24, 111, 132, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24374cf1_cceb_48bf_a514_41b0186f84c2);
 }
 impl ::windows::runtime::RuntimeName for XamlReader {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.XamlReader";

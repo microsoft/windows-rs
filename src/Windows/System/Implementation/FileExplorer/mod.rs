@@ -4,7 +4,7 @@
 pub struct ISysStorageProviderEventReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISysStorageProviderEventReceivedEventArgs {
     type Vtable = ISysStorageProviderEventReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3778204089, 31645, 22560, [151, 40, 66, 98, 181, 40, 145, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe132d1b9_7b9d_5820_9728_4262b5289142);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22,7 +22,7 @@ pub struct ISysStorageProviderEventReceivedEventArgs_abi(
 pub struct ISysStorageProviderEventReceivedEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISysStorageProviderEventReceivedEventArgsFactory {
     type Vtable = ISysStorageProviderEventReceivedEventArgsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3726276622, 59765, 24424, [188, 198, 251, 70, 40, 28, 106, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde1a780e_e975_5f68_bcc6_fb46281c6a61);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -41,7 +41,7 @@ pub struct ISysStorageProviderEventReceivedEventArgsFactory_abi(
 pub struct ISysStorageProviderEventSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISysStorageProviderEventSource {
     type Vtable = ISysStorageProviderEventSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(523682934, 38214, 21354, [131, 129, 47, 154, 44, 8, 206, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f36c476_9546_536a_8381_2f9a2c08cedd);
 }
 impl ISysStorageProviderEventSource {
     #[cfg(feature = "Foundation")]
@@ -123,7 +123,7 @@ pub struct ISysStorageProviderEventSource_abi(
 pub struct ISysStorageProviderHandlerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISysStorageProviderHandlerFactory {
     type Vtable = ISysStorageProviderHandlerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4000941105, 33299, 24201, [166, 35, 20, 216, 199, 43, 138, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee798431_8213_5e89_a623_14d8c72b8a61);
 }
 impl ISysStorageProviderHandlerFactory {
     #[doc = "*Required features: `System_Implementation_FileExplorer`*"]
@@ -204,7 +204,7 @@ pub struct ISysStorageProviderHandlerFactory_abi(
 pub struct ISysStorageProviderHttpRequestProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISysStorageProviderHttpRequestProvider {
     type Vtable = ISysStorageProviderHttpRequestProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3413110710, 59242, 23589, [163, 62, 62, 120, 166, 224, 224, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb6fefb6_e76a_5c25_a33e_3e78a6e0e0ce);
 }
 impl ISysStorageProviderHttpRequestProvider {
     #[cfg(all(feature = "Foundation", feature = "Web_Http"))]
@@ -302,7 +302,7 @@ unsafe impl ::windows::runtime::RuntimeType for SysStorageProviderEventReceivedE
 }
 unsafe impl ::windows::runtime::Interface for SysStorageProviderEventReceivedEventArgs {
     type Vtable = ISysStorageProviderEventReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3778204089, 31645, 22560, [151, 40, 66, 98, 181, 40, 145, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe132d1b9_7b9d_5820_9728_4262b5289142);
 }
 impl ::windows::runtime::RuntimeName for SysStorageProviderEventReceivedEventArgs {
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.SysStorageProviderEventReceivedEventArgs";

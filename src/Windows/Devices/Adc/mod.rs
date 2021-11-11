@@ -42,7 +42,7 @@ unsafe impl ::windows::runtime::RuntimeType for AdcChannel {
 }
 unsafe impl ::windows::runtime::Interface for AdcChannel {
     type Vtable = IAdcChannel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(67892244, 9608, 19030, [171, 239, 115, 162, 96, 172, 198, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x040bf414_2588_4a56_abef_73a260acc60a);
 }
 impl ::windows::runtime::RuntimeName for AdcChannel {
     const NAME: &'static str = "Windows.Devices.Adc.AdcChannel";
@@ -233,7 +233,7 @@ unsafe impl ::windows::runtime::RuntimeType for AdcController {
 }
 unsafe impl ::windows::runtime::Interface for AdcController {
     type Vtable = IAdcController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(712434864, 43158, 16921, [134, 182, 234, 140, 220, 233, 143, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a76e4b0_a896_4219_86b6_ea8cdce98f56);
 }
 impl ::windows::runtime::RuntimeName for AdcController {
     const NAME: &'static str = "Windows.Devices.Adc.AdcController";
@@ -285,7 +285,7 @@ unsafe impl ::core::marker::Sync for AdcController {}
 pub struct IAdcChannel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdcChannel {
     type Vtable = IAdcChannel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(67892244, 9608, 19030, [171, 239, 115, 162, 96, 172, 198, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x040bf414_2588_4a56_abef_73a260acc60a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -305,7 +305,7 @@ pub struct IAdcChannel_abi(
 pub struct IAdcController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdcController {
     type Vtable = IAdcController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(712434864, 43158, 16921, [134, 182, 234, 140, 220, 233, 143, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a76e4b0_a896_4219_86b6_ea8cdce98f56);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -330,7 +330,7 @@ pub struct IAdcController_abi(
 pub struct IAdcControllerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdcControllerStatics {
     type Vtable = IAdcControllerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3437858316, 504, 18577, [188, 59, 190, 83, 239, 39, 156, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcce98e0c_01f8_4891_bc3b_be53ef279ca4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -349,7 +349,7 @@ pub struct IAdcControllerStatics_abi(
 pub struct IAdcControllerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdcControllerStatics2 {
     type Vtable = IAdcControllerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2730048285, 38779, 20314, [165, 254, 166, 171, 175, 254, 100, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2b93b1d_977b_4f5a_a5fe_a6abaffe6484);
 }
 #[repr(C)]
 #[doc(hidden)]

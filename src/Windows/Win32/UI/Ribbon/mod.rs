@@ -20,7 +20,7 @@ impl IUIApplication {
 }
 unsafe impl ::windows::runtime::Interface for IUIApplication {
     type Vtable = IUIApplication_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3559428156, 29338, 18717, [145, 13, 104, 42, 8, 255, 37, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd428903c_729a_491d_910d_682a08ff2522);
 }
 impl ::core::convert::From<IUIApplication> for ::windows::runtime::IUnknown {
     fn from(value: IUIApplication) -> Self {
@@ -90,7 +90,7 @@ impl IUICollection {
 }
 unsafe impl ::windows::runtime::Interface for IUICollection {
     type Vtable = IUICollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3746514367, 28573, 19927, [157, 104, 216, 249, 205, 24, 196, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf4f45bf_6f9d_4dd7_9d68_d8f9cd18c4db);
 }
 impl ::core::convert::From<IUICollection> for ::windows::runtime::IUnknown {
     fn from(value: IUICollection) -> Self {
@@ -138,7 +138,7 @@ impl IUICollectionChangedEvent {
 }
 unsafe impl ::windows::runtime::Interface for IUICollectionChangedEvent {
     type Vtable = IUICollectionChangedEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1694674577, 41293, 17589, [187, 208, 98, 170, 204, 88, 29, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6502ae91_a14d_44b5_bbd0_62aacc581d52);
 }
 impl ::core::convert::From<IUICollectionChangedEvent> for ::windows::runtime::IUnknown {
     fn from(value: IUICollectionChangedEvent) -> Self {
@@ -187,7 +187,7 @@ impl IUICommandHandler {
 }
 unsafe impl ::windows::runtime::Interface for IUICommandHandler {
     type Vtable = IUICommandHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1974340141, 56323, 19615, [136, 131, 6, 150, 96, 208, 190, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75ae0a2d_dc03_4c9f_8883_069660d0beb6);
 }
 impl ::core::convert::From<IUICommandHandler> for ::windows::runtime::IUnknown {
     fn from(value: IUICommandHandler) -> Self {
@@ -234,7 +234,7 @@ impl IUIContextualUI {
 }
 unsafe impl ::windows::runtime::Interface for IUIContextualUI {
     type Vtable = IUIContextualUI_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4003536695, 31814, 17276, [142, 85, 181, 33, 34, 178, 146, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeea11f37_7c46_437c_8e55_b52122b29293);
 }
 impl ::core::convert::From<IUIContextualUI> for ::windows::runtime::IUnknown {
     fn from(value: IUIContextualUI) -> Self {
@@ -277,7 +277,7 @@ impl IUIEventLogger {
 }
 unsafe impl ::windows::runtime::Interface for IUIEventLogger {
     type Vtable = IUIEventLogger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3963490356, 56308, 16801, [149, 213, 3, 224, 241, 2, 110, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec3e1034_dbf4_41a1_95d5_03e0f1026e05);
 }
 impl ::core::convert::From<IUIEventLogger> for ::windows::runtime::IUnknown {
     fn from(value: IUIEventLogger) -> Self {
@@ -320,7 +320,7 @@ impl IUIEventingManager {
 }
 unsafe impl ::windows::runtime::Interface for IUIEventingManager {
     type Vtable = IUIEventingManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1004989055, 39579, 16792, [147, 104, 155, 15, 146, 59, 213, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3be6ea7f_9a9b_4198_9368_9b0f923bd534);
 }
 impl ::core::convert::From<IUIEventingManager> for ::windows::runtime::IUnknown {
     fn from(value: IUIEventingManager) -> Self {
@@ -400,7 +400,7 @@ impl IUIFramework {
 }
 unsafe impl ::windows::runtime::Interface for IUIFramework {
     type Vtable = IUIFramework_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4109383773, 26738, 17320, [173, 9, 76, 51, 156, 179, 245, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf4f0385d_6872_43a8_ad09_4c339cb3f5c5);
 }
 impl ::core::convert::From<IUIFramework> for ::windows::runtime::IUnknown {
     fn from(value: IUIFramework) -> Self {
@@ -457,7 +457,7 @@ impl IUIImage {
 }
 unsafe impl ::windows::runtime::Interface for IUIImage {
     type Vtable = IUIImage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(600361016, 19942, 17259, [171, 1, 85, 84, 187, 124, 48, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23c8c838_4de6_436b_ab01_5554bb7c30dd);
 }
 impl ::core::convert::From<IUIImage> for ::windows::runtime::IUnknown {
     fn from(value: IUIImage) -> Self {
@@ -502,7 +502,7 @@ impl IUIImageFromBitmap {
 }
 unsafe impl ::windows::runtime::Interface for IUIImageFromBitmap {
     type Vtable = IUIImageFromBitmap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(413902835, 19484, 19362, [191, 108, 245, 195, 50, 111, 168, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18aba7f3_4c1c_4ba2_bf6c_f5c3326fa816);
 }
 impl ::core::convert::From<IUIImageFromBitmap> for ::windows::runtime::IUnknown {
     fn from(value: IUIImageFromBitmap) -> Self {
@@ -556,7 +556,7 @@ impl IUIRibbon {
 }
 unsafe impl ::windows::runtime::Interface for IUIRibbon {
     type Vtable = IUIRibbon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2151252651, 14090, 20350, [169, 231, 135, 132, 3, 106, 110, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x803982ab_370a_4f7e_a9e7_8784036a6e26);
 }
 impl ::core::convert::From<IUIRibbon> for ::windows::runtime::IUnknown {
     fn from(value: IUIRibbon) -> Self {
@@ -604,7 +604,7 @@ impl IUISimplePropertySet {
 }
 unsafe impl ::windows::runtime::Interface for IUISimplePropertySet {
     type Vtable = IUISimplePropertySet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3255155528, 23324, 16921, [161, 6, 21, 189, 10, 95, 36, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc205bb48_5b1c_4219_a106_15bd0a5f24e2);
 }
 impl ::core::convert::From<IUISimplePropertySet> for ::windows::runtime::IUnknown {
     fn from(value: IUISimplePropertySet) -> Self {
@@ -635,9 +635,9 @@ pub struct IUISimplePropertySet_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, value: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
 );
-pub const LIBID_UIRibbon: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2486121922, 59451, 17903, [176, 133, 172, 41, 93, 214, 61, 91]);
-pub const UIRibbonFramework: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2456242682, 9749, 18823, [136, 69, 195, 62, 101, 242, 185, 87]);
-pub const UIRibbonImageFromBitmapFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(259273910, 22966, 16976, [153, 158, 209, 104, 214, 174, 66, 147]);
+pub const LIBID_UIRibbon: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x942f35c2_e83b_45ef_b085_ac295dd63d5b);
+pub const UIRibbonFramework: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x926749fa_2615_4987_8845_c33e65f2b957);
+pub const UIRibbonImageFromBitmapFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f7434b6_59b6_4250_999e_d168d6ae4293);
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 pub const UI_ALL_COMMANDS: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]

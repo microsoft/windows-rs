@@ -25,7 +25,7 @@ pub struct DeploymentPreviewContract(pub u8);
 pub struct IClassicAppManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClassicAppManagerStatics {
     type Vtable = IClassicAppManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3808089704, 34860, 20275, [176, 53, 13, 247, 185, 13, 103, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2fad668_882c_4f33_b035_0df7b90d67e6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -43,7 +43,7 @@ pub struct IClassicAppManagerStatics_abi(
 pub struct IInstalledClassicAppInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInstalledClassicAppInfo {
     type Vtable = IInstalledClassicAppInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(175979939, 26064, 16518, [128, 214, 6, 16, 215, 96, 32, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a7d3da3_65d0_4086_80d6_0610d760207d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -84,7 +84,7 @@ unsafe impl ::windows::runtime::RuntimeType for InstalledClassicAppInfo {
 }
 unsafe impl ::windows::runtime::Interface for InstalledClassicAppInfo {
     type Vtable = IInstalledClassicAppInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(175979939, 26064, 16518, [128, 214, 6, 16, 215, 96, 32, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a7d3da3_65d0_4086_80d6_0610d760207d);
 }
 impl ::windows::runtime::RuntimeName for InstalledClassicAppInfo {
     const NAME: &'static str = "Windows.Management.Deployment.Preview.InstalledClassicAppInfo";

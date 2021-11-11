@@ -4,7 +4,7 @@
 pub struct IWebUICommandBar(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBar {
     type Vtable = IWebUICommandBar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2767978518, 56293, 16813, [141, 123, 20, 105, 139, 214, 145, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4fc0016_dbe5_41ad_8d7b_14698bd6911d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -51,7 +51,7 @@ pub struct IWebUICommandBar_abi(
 pub struct IWebUICommandBarBitmapIcon(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarBitmapIcon {
     type Vtable = IWebUICommandBarBitmapIcon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2240761669, 2264, 19014, [129, 236, 0, 1, 91, 11, 28, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x858f4f45_08d8_4a46_81ec_00015b0b1c6c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -72,7 +72,7 @@ pub struct IWebUICommandBarBitmapIcon_abi(
 pub struct IWebUICommandBarBitmapIconFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarBitmapIconFactory {
     type Vtable = IWebUICommandBarBitmapIconFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4093106058, 30323, 17482, [190, 98, 172, 18, 211, 28, 34, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3f7d78a_7673_444a_be62_ac12d31c2231);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -91,7 +91,7 @@ pub struct IWebUICommandBarBitmapIconFactory_abi(
 pub struct IWebUICommandBarConfirmationButton(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarConfirmationButton {
     type Vtable = IWebUICommandBarConfirmationButton_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2263319114, 58325, 20150, [178, 255, 143, 1, 138, 23, 33, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86e7824a_e3d5_4eb6_b2ff_8f018a172105);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -115,7 +115,7 @@ pub struct IWebUICommandBarConfirmationButton_abi(
 pub struct IWebUICommandBarElement(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarElement {
     type Vtable = IWebUICommandBarElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3372654274, 10314, 17971, [138, 173, 99, 122, 39, 226, 130, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9069ec2_284a_4633_8aad_637a27e282c3);
 }
 impl IWebUICommandBarElement {}
 unsafe impl ::windows::runtime::RuntimeType for IWebUICommandBarElement {
@@ -177,7 +177,7 @@ pub struct IWebUICommandBarElement_abi(
 pub struct IWebUICommandBarIcon(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarIcon {
     type Vtable = IWebUICommandBarIcon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3582420317, 8212, 17086, [150, 154, 125, 20, 202, 108, 138, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd587655d_2014_42be_969a_7d14ca6c8a49);
 }
 impl IWebUICommandBarIcon {}
 unsafe impl ::windows::runtime::RuntimeType for IWebUICommandBarIcon {
@@ -238,7 +238,7 @@ pub struct IWebUICommandBarIcon_abi(
 pub struct IWebUICommandBarIconButton(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarIconButton {
     type Vtable = IWebUICommandBarIconButton_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400962874, 14972, 18498, [160, 207, 175, 246, 234, 48, 133, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f1bc93a_3a7c_4842_a0cf_aff6ea308586);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -269,7 +269,7 @@ pub struct IWebUICommandBarIconButton_abi(
 pub struct IWebUICommandBarItemInvokedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarItemInvokedEventArgs {
     type Vtable = IWebUICommandBarItemInvokedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(810474461, 59201, 16879, [189, 196, 164, 92, 234, 42, 79, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x304edbdd_e741_41ef_bdc4_a45cea2a4f70);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -287,7 +287,7 @@ pub struct IWebUICommandBarItemInvokedEventArgs_abi(
 pub struct IWebUICommandBarSizeChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarSizeChangedEventArgs {
     type Vtable = IWebUICommandBarSizeChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4226933494, 12329, 18201, [131, 120, 146, 248, 43, 135, 175, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbf1e2f6_3029_4719_8378_92f82b87af1e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -306,7 +306,7 @@ pub struct IWebUICommandBarSizeChangedEventArgs_abi(
 pub struct IWebUICommandBarStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarStatics {
     type Vtable = IWebUICommandBarStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(340381113, 42246, 17854, [143, 66, 178, 131, 126, 47, 224, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1449cdb9_a506_45be_8f42_b2837e2fe0c9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -324,7 +324,7 @@ pub struct IWebUICommandBarStatics_abi(
 pub struct IWebUICommandBarSymbolIcon(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarSymbolIcon {
     type Vtable = IWebUICommandBarSymbolIcon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3566425207, 64806, 18157, [134, 88, 26, 63, 68, 0, 231, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4935477_fd26_46ed_8658_1a3f4400e7b3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -343,7 +343,7 @@ pub struct IWebUICommandBarSymbolIcon_abi(
 pub struct IWebUICommandBarSymbolIconFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarSymbolIconFactory {
     type Vtable = IWebUICommandBarSymbolIconFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1371413023, 14128, 17054, [182, 34, 20, 226, 183, 191, 106, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51be1a1f_3730_429e_b622_14e2b7bf6a07);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -380,7 +380,7 @@ unsafe impl ::windows::runtime::RuntimeType for MenuClosedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for MenuClosedEventHandler {
     type Vtable = MenuClosedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1129547720, 19920, 19538, [148, 137, 211, 144, 206, 119, 33, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x435387c8_4dd0_4c52_9489_d390ce7721d2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -453,7 +453,7 @@ unsafe impl ::windows::runtime::RuntimeType for MenuOpenedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for MenuOpenedEventHandler {
     type Vtable = MenuOpenedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(417073875, 26511, 19481, [137, 99, 204, 28, 73, 165, 239, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18dc0ad3_678f_4c19_8963_cc1c49a5ef9e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -526,7 +526,7 @@ unsafe impl ::windows::runtime::RuntimeType for SizeChangedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for SizeChangedEventHandler {
     type Vtable = SizeChangedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3567058492, 56622, 19496, [182, 39, 48, 58, 127, 145, 26, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd49cfe3c_dd2e_4c28_b627_303a7f911af5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -747,7 +747,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUICommandBar {
 }
 unsafe impl ::windows::runtime::Interface for WebUICommandBar {
     type Vtable = IWebUICommandBar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2767978518, 56293, 16813, [141, 123, 20, 105, 139, 214, 145, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4fc0016_dbe5_41ad_8d7b_14698bd6911d);
 }
 impl ::windows::runtime::RuntimeName for WebUICommandBar {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBar";
@@ -839,7 +839,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUICommandBarBitmapIcon {
 }
 unsafe impl ::windows::runtime::Interface for WebUICommandBarBitmapIcon {
     type Vtable = IWebUICommandBarBitmapIcon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2240761669, 2264, 19014, [129, 236, 0, 1, 91, 11, 28, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x858f4f45_08d8_4a46_81ec_00015b0b1c6c);
 }
 impl ::windows::runtime::RuntimeName for WebUICommandBarBitmapIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarBitmapIcon";
@@ -977,7 +977,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUICommandBarConfirmationButto
 }
 unsafe impl ::windows::runtime::Interface for WebUICommandBarConfirmationButton {
     type Vtable = IWebUICommandBarConfirmationButton_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2263319114, 58325, 20150, [178, 255, 143, 1, 138, 23, 33, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86e7824a_e3d5_4eb6_b2ff_8f018a172105);
 }
 impl ::windows::runtime::RuntimeName for WebUICommandBarConfirmationButton {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarConfirmationButton";
@@ -1147,7 +1147,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUICommandBarIconButton {
 }
 unsafe impl ::windows::runtime::Interface for WebUICommandBarIconButton {
     type Vtable = IWebUICommandBarIconButton_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400962874, 14972, 18498, [160, 207, 175, 246, 234, 48, 133, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f1bc93a_3a7c_4842_a0cf_aff6ea308586);
 }
 impl ::windows::runtime::RuntimeName for WebUICommandBarIconButton {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarIconButton";
@@ -1235,7 +1235,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUICommandBarItemInvokedEventA
 }
 unsafe impl ::windows::runtime::Interface for WebUICommandBarItemInvokedEventArgs {
     type Vtable = IWebUICommandBarItemInvokedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(810474461, 59201, 16879, [189, 196, 164, 92, 234, 42, 79, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x304edbdd_e741_41ef_bdc4_a45cea2a4f70);
 }
 impl ::windows::runtime::RuntimeName for WebUICommandBarItemInvokedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarItemInvokedEventArgs";
@@ -1302,7 +1302,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUICommandBarSizeChangedEventA
 }
 unsafe impl ::windows::runtime::Interface for WebUICommandBarSizeChangedEventArgs {
     type Vtable = IWebUICommandBarSizeChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4226933494, 12329, 18201, [131, 120, 146, 248, 43, 135, 175, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbf1e2f6_3029_4719_8378_92f82b87af1e);
 }
 impl ::windows::runtime::RuntimeName for WebUICommandBarSizeChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarSizeChangedEventArgs";
@@ -1391,7 +1391,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUICommandBarSymbolIcon {
 }
 unsafe impl ::windows::runtime::Interface for WebUICommandBarSymbolIcon {
     type Vtable = IWebUICommandBarSymbolIcon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3566425207, 64806, 18157, [134, 88, 26, 63, 68, 0, 231, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4935477_fd26_46ed_8658_1a3f4400e7b3);
 }
 impl ::windows::runtime::RuntimeName for WebUICommandBarSymbolIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarSymbolIcon";

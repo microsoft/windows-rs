@@ -4,7 +4,7 @@
 pub struct IPreallocatedWorkItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPreallocatedWorkItem {
     type Vtable = IPreallocatedWorkItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3067783676, 48219, 16410, [168, 178, 110, 117, 77, 20, 218, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6daa9fc_bc5b_401a_a8b2_6e754d14daa6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23,7 +23,7 @@ pub struct IPreallocatedWorkItem_abi(
 pub struct IPreallocatedWorkItemFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPreallocatedWorkItemFactory {
     type Vtable = IPreallocatedWorkItemFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3822267205, 57322, 18075, [130, 197, 246, 227, 206, 253, 234, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3d32b45_dfea_469b_82c5_f6e3cefdeafb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -46,7 +46,7 @@ pub struct IPreallocatedWorkItemFactory_abi(
 pub struct ISignalNotifier(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISignalNotifier {
     type Vtable = ISignalNotifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(338189830, 25511, 18195, [182, 217, 98, 246, 75, 86, 251, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14285e06_63a7_4713_b6d9_62f64b56fb8b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -65,7 +65,7 @@ pub struct ISignalNotifier_abi(
 pub struct ISignalNotifierStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISignalNotifierStatics {
     type Vtable = ISignalNotifierStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(474891622, 33792, 18131, [161, 21, 125, 12, 13, 252, 159, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c4e4566_8400_46d3_a115_7d0c0dfc9f62);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -131,7 +131,7 @@ unsafe impl ::windows::runtime::RuntimeType for PreallocatedWorkItem {
 }
 unsafe impl ::windows::runtime::Interface for PreallocatedWorkItem {
     type Vtable = IPreallocatedWorkItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3067783676, 48219, 16410, [168, 178, 110, 117, 77, 20, 218, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6daa9fc_bc5b_401a_a8b2_6e754d14daa6);
 }
 impl ::windows::runtime::RuntimeName for PreallocatedWorkItem {
     const NAME: &'static str = "Windows.System.Threading.Core.PreallocatedWorkItem";
@@ -202,7 +202,7 @@ unsafe impl ::windows::runtime::RuntimeType for SignalHandler {
 }
 unsafe impl ::windows::runtime::Interface for SignalHandler {
     type Vtable = SignalHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2453422126, 18209, 17422, [157, 218, 85, 182, 242, 224, 119, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x923c402e_4721_440e_9dda_55b6f2e07710);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -306,7 +306,7 @@ unsafe impl ::windows::runtime::RuntimeType for SignalNotifier {
 }
 unsafe impl ::windows::runtime::Interface for SignalNotifier {
     type Vtable = ISignalNotifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(338189830, 25511, 18195, [182, 217, 98, 246, 75, 86, 251, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14285e06_63a7_4713_b6d9_62f64b56fb8b);
 }
 impl ::windows::runtime::RuntimeName for SignalNotifier {
     const NAME: &'static str = "Windows.System.Threading.Core.SignalNotifier";

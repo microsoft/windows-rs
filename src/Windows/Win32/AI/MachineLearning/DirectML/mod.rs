@@ -6298,7 +6298,7 @@ impl IDMLBindingTable {
 }
 unsafe impl ::windows::runtime::Interface for IDMLBindingTable {
     type Vtable = IDMLBindingTable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(700876764, 56948, 20027, [171, 0, 17, 104, 242, 252, 60, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29c687dc_de74_4e3b_ab00_1168f2fc3cfc);
 }
 impl ::core::convert::From<IDMLBindingTable> for ::windows::runtime::IUnknown {
     fn from(value: IDMLBindingTable) -> Self {
@@ -6414,7 +6414,7 @@ impl IDMLCommandRecorder {
 }
 unsafe impl ::windows::runtime::Interface for IDMLCommandRecorder {
     type Vtable = IDMLCommandRecorder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3867507318, 11838, 20445, [191, 244, 93, 43, 161, 15, 180, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6857a76_2e3e_4fdd_bff4_5d2ba10fb453);
 }
 impl ::core::convert::From<IDMLCommandRecorder> for ::windows::runtime::IUnknown {
     fn from(value: IDMLCommandRecorder) -> Self {
@@ -6527,7 +6527,7 @@ impl IDMLCompiledOperator {
 }
 unsafe impl ::windows::runtime::Interface for IDMLCompiledOperator {
     type Vtable = IDMLCompiledOperator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1796597098, 48988, 18690, [146, 216, 218, 58, 101, 10, 254, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b15e56a_bf5c_4902_92d8_da3a650afea4);
 }
 impl ::core::convert::From<IDMLCompiledOperator> for ::windows::runtime::IUnknown {
     fn from(value: IDMLCompiledOperator) -> Self {
@@ -6656,7 +6656,7 @@ impl IDMLDebugDevice {
 }
 unsafe impl ::windows::runtime::Interface for IDMLDebugDevice {
     type Vtable = IDMLDebugDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2104441545, 14666, 19139, [146, 167, 57, 12, 197, 122, 130, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d6f3ac9_394a_4ac3_92a7_390cc57a8217);
 }
 impl ::core::convert::From<IDMLDebugDevice> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDebugDevice) -> Self {
@@ -6757,7 +6757,7 @@ impl IDMLDevice {
 }
 unsafe impl ::windows::runtime::Interface for IDMLDevice {
     type Vtable = IDMLDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1841128503, 38653, 16959, [169, 140, 174, 94, 124, 42, 87, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6dbd6437_96fd_423f_a98c_ae5e7c2a573f);
 }
 impl ::core::convert::From<IDMLDevice> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDevice) -> Self {
@@ -6896,7 +6896,7 @@ impl IDMLDevice1 {
 }
 unsafe impl ::windows::runtime::Interface for IDMLDevice1 {
     type Vtable = IDMLDevice1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2693287834, 53950, 17237, [170, 93, 89, 1, 40, 26, 209, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0884f9a_d2be_4355_aa5d_5901281ad1d2);
 }
 impl ::core::convert::From<IDMLDevice1> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDevice1) -> Self {
@@ -7012,7 +7012,7 @@ impl IDMLDeviceChild {
 }
 unsafe impl ::windows::runtime::Interface for IDMLDeviceChild {
     type Vtable = IDMLDeviceChild_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(669528386, 33125, 18915, [151, 78, 47, 214, 110, 76, 182, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27e83142_8165_49e3_974e_2fd66e4cb69d);
 }
 impl ::core::convert::From<IDMLDeviceChild> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDeviceChild) -> Self {
@@ -7103,7 +7103,7 @@ impl IDMLDispatchable {
 }
 unsafe impl ::windows::runtime::Interface for IDMLDispatchable {
     type Vtable = IDMLDispatchable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703054760, 4153, 17438, [159, 28, 177, 117, 156, 47, 60, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcb821a8_1039_441e_9f1c_b1759c2f3cec);
 }
 impl ::core::convert::From<IDMLDispatchable> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDispatchable) -> Self {
@@ -7224,7 +7224,7 @@ impl IDMLObject {
 }
 unsafe impl ::windows::runtime::Interface for IDMLObject {
     type Vtable = IDMLObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3357948588, 40460, 18989, [155, 142, 0, 117, 33, 163, 49, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8263aac_9e0c_4a2d_9b8e_007521a3317c);
 }
 impl ::core::convert::From<IDMLObject> for ::windows::runtime::IUnknown {
     fn from(value: IDMLObject) -> Self {
@@ -7288,7 +7288,7 @@ impl IDMLOperator {
 }
 unsafe impl ::windows::runtime::Interface for IDMLOperator {
     type Vtable = IDMLOperator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(650817146, 12417, 17971, [149, 129, 34, 111, 190, 87, 105, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26caae7a_3081_4633_9581_226fbe57695d);
 }
 impl ::core::convert::From<IDMLOperator> for ::windows::runtime::IUnknown {
     fn from(value: IDMLOperator) -> Self {
@@ -7403,7 +7403,7 @@ impl IDMLOperatorInitializer {
 }
 unsafe impl ::windows::runtime::Interface for IDMLOperatorInitializer {
     type Vtable = IDMLOperatorInitializer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1115427091, 17244, 18076, [134, 118, 77, 93, 208, 114, 248, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x427c1113_435c_469c_8676_4d5dd072f813);
 }
 impl ::core::convert::From<IDMLOperatorInitializer> for ::windows::runtime::IUnknown {
     fn from(value: IDMLOperatorInitializer) -> Self {
@@ -7550,7 +7550,7 @@ impl IDMLPageable {
 }
 unsafe impl ::windows::runtime::Interface for IDMLPageable {
     type Vtable = IDMLPageable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2980775973, 17730, 19019, [134, 23, 109, 222, 110, 143, 98, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1ab0825_4542_4a4b_8617_6dde6e8f6201);
 }
 impl ::core::convert::From<IDMLPageable> for ::windows::runtime::IUnknown {
     fn from(value: IDMLPageable) -> Self {

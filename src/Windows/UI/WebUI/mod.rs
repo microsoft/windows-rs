@@ -17,7 +17,7 @@ unsafe impl ::windows::runtime::RuntimeType for ActivatedDeferral {
 }
 unsafe impl ::windows::runtime::Interface for ActivatedDeferral {
     type Vtable = IActivatedDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3283949944, 42033, 18904, [167, 106, 57, 90, 78, 3, 220, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3bd1978_a431_49d8_a76a_395a4e03dcf3);
 }
 impl ::windows::runtime::RuntimeName for ActivatedDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.ActivatedDeferral";
@@ -91,7 +91,7 @@ unsafe impl ::windows::runtime::RuntimeType for ActivatedEventHandler {
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for ActivatedEventHandler {
     type Vtable = ActivatedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1358030640, 50641, 19307, [154, 219, 138, 17, 117, 107, 226, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50f1e730_c5d1_4b6b_9adb_8a11756be29c);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
@@ -166,7 +166,7 @@ unsafe impl ::windows::runtime::RuntimeType for ActivatedOperation {
 }
 unsafe impl ::windows::runtime::Interface for ActivatedOperation {
     type Vtable = IActivatedOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3063985340, 50890, 17149, [152, 24, 113, 144, 78, 69, 254, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6a0b4bc_c6ca_42fd_9818_71904e45fed7);
 }
 impl ::windows::runtime::RuntimeName for ActivatedOperation {
     const NAME: &'static str = "Windows.UI.WebUI.ActivatedOperation";
@@ -235,7 +235,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for BackgroundActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2870263520, 59232, 17422, [169, 28, 68, 121, 109, 227, 169, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab14bee0_e760_440e_a91c_44796de3a92d);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for BackgroundActivatedEventArgs {
@@ -346,7 +346,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundActivatedEventHandler 
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for BackgroundActivatedEventHandler {
     type Vtable = BackgroundActivatedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3987840955, 1889, 18380, [154, 119, 36, 215, 7, 41, 101, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xedb19fbb_0761_47cc_9a77_24d7072965ca);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
@@ -426,7 +426,7 @@ unsafe impl ::windows::runtime::RuntimeType for EnteredBackgroundEventArgs {
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::runtime::Interface for EnteredBackgroundEventArgs {
     type Vtable = super::super::ApplicationModel::IEnteredBackgroundEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4146257090, 38951, 16445, [170, 237, 236, 202, 154, 193, 115, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf722dcc2_9827_403d_aaed_ecca9ac17398);
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::windows::runtime::RuntimeName for EnteredBackgroundEventArgs {
@@ -537,7 +537,7 @@ unsafe impl ::windows::runtime::RuntimeType for EnteredBackgroundEventHandler {
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::runtime::Interface for EnteredBackgroundEventHandler {
     type Vtable = EnteredBackgroundEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(722051443, 46734, 19951, [136, 193, 141, 232, 78, 90, 171, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b09a173_b68e_4def_88c1_8de84e5aab2f);
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
@@ -730,7 +730,7 @@ unsafe impl ::windows::runtime::RuntimeType for HtmlPrintDocumentSource {
 }
 unsafe impl ::windows::runtime::Interface for HtmlPrintDocumentSource {
     type Vtable = IHtmlPrintDocumentSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3467003546, 3589, 18042, [171, 201, 54, 236, 29, 76, 220, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcea6469a_0e05_467a_abc9_36ec1d4cdcb6);
 }
 impl ::windows::runtime::RuntimeName for HtmlPrintDocumentSource {
     const NAME: &'static str = "Windows.UI.WebUI.HtmlPrintDocumentSource";
@@ -834,7 +834,7 @@ unsafe impl ::core::marker::Sync for HtmlPrintDocumentSource {}
 pub struct IActivatedDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivatedDeferral {
     type Vtable = IActivatedDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3283949944, 42033, 18904, [167, 106, 57, 90, 78, 3, 220, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3bd1978_a431_49d8_a76a_395a4e03dcf3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -853,7 +853,7 @@ pub struct IActivatedDeferral_abi(
 pub struct IActivatedEventArgsDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivatedEventArgsDeferral {
     type Vtable = IActivatedEventArgsDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3396165492, 25538, 17574, [185, 123, 217, 160, 60, 32, 188, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca6d5f74_63c2_44a6_b97b_d9a03c20bc9b);
 }
 impl IActivatedEventArgsDeferral {
     #[doc = "*Required features: `UI_WebUI`*"]
@@ -924,7 +924,7 @@ pub struct IActivatedEventArgsDeferral_abi(
 pub struct IActivatedOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivatedOperation {
     type Vtable = IActivatedOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3063985340, 50890, 17149, [152, 24, 113, 144, 78, 69, 254, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6a0b4bc_c6ca_42fd_9818_71904e45fed7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -942,7 +942,7 @@ pub struct IActivatedOperation_abi(
 pub struct IHtmlPrintDocumentSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHtmlPrintDocumentSource {
     type Vtable = IHtmlPrintDocumentSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3467003546, 3589, 18042, [171, 201, 54, 236, 29, 76, 220, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcea6469a_0e05_467a_abc9_36ec1d4cdcb6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -977,7 +977,7 @@ pub struct IHtmlPrintDocumentSource_abi(
 pub struct INewWebUIViewCreatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INewWebUIViewCreatedEventArgs {
     type Vtable = INewWebUIViewCreatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3907105302, 48683, 19614, [133, 231, 8, 49, 67, 236, 75, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8e1b216_be2b_4c9e_85e7_083143ec4be7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1000,7 +1000,7 @@ pub struct INewWebUIViewCreatedEventArgs_abi(
 pub struct IWebUIActivationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIActivationStatics {
     type Vtable = IWebUIActivationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(890996413, 17331, 18475, [133, 219, 53, 216, 123, 81, 122, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x351b86bd_43b3_482b_85db_35d87b517ad9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1033,7 +1033,7 @@ pub struct IWebUIActivationStatics_abi(
 pub struct IWebUIActivationStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIActivationStatics2 {
     type Vtable = IWebUIActivationStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3370682006, 19832, 19108, [143, 6, 42, 158, 173, 198, 196, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8e88696_4d78_4aa4_8f06_2a9eadc6c40a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1059,7 +1059,7 @@ pub struct IWebUIActivationStatics2_abi(
 pub struct IWebUIActivationStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIActivationStatics3 {
     type Vtable = IWebUIActivationStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2443949702, 6901, 17477, [180, 159, 148, 89, 244, 15, 200, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91abb686_1af5_4445_b49f_9459f40fc8de);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1080,7 +1080,7 @@ pub struct IWebUIActivationStatics3_abi(
 pub struct IWebUIActivationStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIActivationStatics4 {
     type Vtable = IWebUIActivationStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1580799017, 6207, 18317, [138, 37, 103, 248, 13, 3, 147, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e391429_183f_478d_8a25_67f80d03935b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1106,7 +1106,7 @@ pub struct IWebUIActivationStatics4_abi(
 pub struct IWebUIBackgroundTaskInstance(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIBackgroundTaskInstance {
     type Vtable = IWebUIBackgroundTaskInstance_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(603008037, 58103, 18241, [188, 156, 57, 69, 149, 222, 36, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23f12c25_e2f7_4741_bc9c_394595de24dc);
 }
 impl IWebUIBackgroundTaskInstance {
     #[doc = "*Required features: `UI_WebUI`*"]
@@ -1183,7 +1183,7 @@ pub struct IWebUIBackgroundTaskInstance_abi(
 pub struct IWebUIBackgroundTaskInstanceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIBackgroundTaskInstanceStatics {
     type Vtable = IWebUIBackgroundTaskInstanceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2625262225, 6574, 19619, [185, 75, 254, 78, 199, 68, 167, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c7a5291_19ae_4ca3_b94b_fe4ec744a740);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1201,7 +1201,7 @@ pub struct IWebUIBackgroundTaskInstanceStatics_abi(
 pub struct IWebUINavigatedDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUINavigatedDeferral {
     type Vtable = IWebUINavigatedDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3624149069, 33567, 18146, [180, 50, 58, 252, 226, 17, 249, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd804204d_831f_46e2_b432_3afce211f962);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1220,7 +1220,7 @@ pub struct IWebUINavigatedDeferral_abi(
 pub struct IWebUINavigatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUINavigatedEventArgs {
     type Vtable = IWebUINavigatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2807579064, 9369, 16432, [166, 157, 21, 210, 217, 207, 229, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa75841b8_2499_4030_a69d_15d2d9cfe524);
 }
 impl IWebUINavigatedEventArgs {
     #[doc = "*Required features: `UI_WebUI`*"]
@@ -1291,7 +1291,7 @@ pub struct IWebUINavigatedEventArgs_abi(
 pub struct IWebUINavigatedOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUINavigatedOperation {
     type Vtable = IWebUINavigatedOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2056675080, 33154, 19081, [171, 103, 132, 146, 232, 117, 13, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a965f08_8182_4a89_ab67_8492e8750d4b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1309,7 +1309,7 @@ pub struct IWebUINavigatedOperation_abi(
 pub struct IWebUIView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIView {
     type Vtable = IWebUIView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1736701519, 21210, 20439, [190, 105, 142, 246, 40, 75, 66, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6783f64f_52da_4fd7_be69_8ef6284b423c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1337,7 +1337,7 @@ pub struct IWebUIView_abi(
 pub struct IWebUIViewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIViewStatics {
     type Vtable = IWebUIViewStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3046237800, 36441, 17657, [136, 3, 27, 36, 201, 20, 157, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb591e668_8e59_44f9_8803_1b24c9149d30);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1377,7 +1377,7 @@ unsafe impl ::windows::runtime::RuntimeType for LeavingBackgroundEventArgs {
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::runtime::Interface for LeavingBackgroundEventArgs {
     type Vtable = super::super::ApplicationModel::ILeavingBackgroundEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(969338010, 44654, 18169, [160, 122, 207, 194, 63, 136, 115, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39c6ec9a_ae6e_46f9_a07a_cfc23f88733e);
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::windows::runtime::RuntimeName for LeavingBackgroundEventArgs {
@@ -1488,7 +1488,7 @@ unsafe impl ::windows::runtime::RuntimeType for LeavingBackgroundEventHandler {
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::runtime::Interface for LeavingBackgroundEventHandler {
     type Vtable = LeavingBackgroundEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(11848921, 31388, 19307, [154, 196, 19, 71, 79, 38, 139, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00b4ccd9_7a9c_4b6b_9ac4_13474f268bc4);
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
@@ -1568,7 +1568,7 @@ unsafe impl ::windows::runtime::RuntimeType for NavigatedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for NavigatedEventHandler {
     type Vtable = NavigatedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2062839782, 16586, 20041, [167, 214, 219, 219, 51, 12, 209, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7af46fe6_40ca_4e49_a7d6_dbdb330cd1a3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1666,7 +1666,7 @@ unsafe impl ::windows::runtime::RuntimeType for NewWebUIViewCreatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for NewWebUIViewCreatedEventArgs {
     type Vtable = INewWebUIViewCreatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3907105302, 48683, 19614, [133, 231, 8, 49, 67, 236, 75, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8e1b216_be2b_4c9e_85e7_083143ec4be7);
 }
 impl ::windows::runtime::RuntimeName for NewWebUIViewCreatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.NewWebUIViewCreatedEventArgs";
@@ -1759,7 +1759,7 @@ unsafe impl ::windows::runtime::RuntimeType for ResumingEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for ResumingEventHandler {
     type Vtable = ResumingEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(643406761, 41517, 18438, [167, 40, 172, 173, 193, 208, 117, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26599ba9_a22d_4806_a728_acadc1d075fa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1829,7 +1829,7 @@ unsafe impl ::windows::runtime::RuntimeType for SuspendingDeferral {
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::runtime::Interface for SuspendingDeferral {
     type Vtable = super::super::ApplicationModel::ISuspendingDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1494484233, 35785, 20148, [182, 54, 218, 189, 196, 244, 111, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59140509_8bc9_4eb4_b636_dabdc4f46f66);
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::windows::runtime::RuntimeName for SuspendingDeferral {
@@ -1931,7 +1931,7 @@ unsafe impl ::windows::runtime::RuntimeType for SuspendingEventArgs {
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::runtime::Interface for SuspendingEventArgs {
     type Vtable = super::super::ApplicationModel::ISuspendingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2516982789, 11706, 19720, [176, 189, 43, 48, 161, 49, 198, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96061c05_2dba_4d08_b0bd_2b30a131c6aa);
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::windows::runtime::RuntimeName for SuspendingEventArgs {
@@ -2038,7 +2038,7 @@ unsafe impl ::windows::runtime::RuntimeType for SuspendingEventHandler {
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::runtime::Interface for SuspendingEventHandler {
     type Vtable = SuspendingEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1352417948, 30946, 18563, [171, 200, 137, 96, 220, 222, 27, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x509c429c_78e2_4883_abc8_8960dcde1b5c);
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
@@ -2127,7 +2127,7 @@ unsafe impl ::windows::runtime::RuntimeType for SuspendingOperation {
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::runtime::Interface for SuspendingOperation {
     type Vtable = super::super::ApplicationModel::ISuspendingOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2644822593, 8417, 20123, [159, 101, 169, 244, 53, 52, 12, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9da4ca41_20e1_4e9b_9f65_a9f435340c3a);
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::windows::runtime::RuntimeName for SuspendingOperation {
@@ -2429,7 +2429,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIAppointmentsProviderAddAppo
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2726695783, 52965, 20045, [158, 215, 65, 195, 78, 193, 139, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2861367_cee5_4e4d_9ed7_41c34ec18b02);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
@@ -2688,7 +2688,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIAppointmentsProviderRemoveA
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1964980920, 2958, 17692, [159, 21, 150, 110, 105, 155, 172, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x751f3ab8_0b8e_451c_9f15_966e699bac25);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
@@ -2947,7 +2947,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIAppointmentsProviderReplace
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(357677012, 43393, 16487, [138, 98, 5, 36, 228, 173, 225, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1551b7d4_a981_4067_8a62_0524e4ade121);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
@@ -3224,7 +3224,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIAppointmentsProviderShowApp
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(962130021, 38977, 19621, [153, 155, 136, 81, 152, 185, 239, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3958f065_9841_4ca5_999b_885198b9ef2a);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
@@ -3492,7 +3492,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIAppointmentsProviderShowTim
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2611915686, 3595, 18858, [186, 188, 18, 177, 220, 119, 73, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9baeaba6_0e0b_49aa_babc_12b1dc774986);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
@@ -3791,7 +3791,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIBackgroundTaskInstanceRunti
 }
 unsafe impl ::windows::runtime::Interface for WebUIBackgroundTaskInstanceRuntimeClass {
     type Vtable = IWebUIBackgroundTaskInstance_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(603008037, 58103, 18241, [188, 156, 57, 69, 149, 222, 36, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23f12c25_e2f7_4741_bc9c_394595de24dc);
 }
 impl ::windows::runtime::RuntimeName for WebUIBackgroundTaskInstanceRuntimeClass {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIBackgroundTaskInstanceRuntimeClass";
@@ -3950,7 +3950,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIBarcodeScannerPreviewActiva
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIBarcodeScannerPreviewActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1735555452, 39359, 17225, [175, 34, 228, 18, 53, 96, 55, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6772797c_99bf_4349_af22_e4123560371c);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIBarcodeScannerPreviewActivatedEventArgs {
@@ -4178,7 +4178,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUICachedFileUpdaterActivatedE
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUICachedFileUpdaterActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3496915399, 14341, 20171, [183, 87, 108, 241, 94, 38, 254, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd06eb1c7_3805_4ecb_b757_6cf15e26fef3);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUICachedFileUpdaterActivatedEventArgs {
@@ -4402,7 +4402,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUICameraSettingsActivatedEven
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUICameraSettingsActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4217873672, 11693, 18698, [145, 112, 220, 160, 54, 235, 17, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb67a508_2dad_490a_9170_dca036eb114b);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUICameraSettingsActivatedEventArgs {
@@ -4600,7 +4600,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUICommandLineActivatedEventAr
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUICommandLineActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1158039340, 106, 18667, [138, 251, 208, 122, 178, 94, 51, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4506472c_006a_48eb_8afb_d07ab25e3366);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUICommandLineActivatedEventArgs {
@@ -4846,7 +4846,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIContactCallActivatedEventAr
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIContactCallActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3269399751, 12523, 16838, [179, 188, 91, 22, 148, 249, 218, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2df14c7_30eb_41c6_b3bc_5b1694f9dab3);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIContactCallActivatedEventArgs {
@@ -5079,7 +5079,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIContactMapActivatedEventArg
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIContactMapActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3006003312, 61159, 19154, [170, 241, 168, 126, 255, 207, 0, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb32bf870_eee7_4ad2_aaf1_a87effcf00a4);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIContactMapActivatedEventArgs {
@@ -5321,7 +5321,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIContactMessageActivatedEven
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIContactMessageActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3730410930, 3587, 17328, [191, 86, 188, 196, 11, 49, 98, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde598db2_0e03_43b0_bf56_bcc40b3162df);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIContactMessageActivatedEventArgs {
@@ -5554,7 +5554,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIContactPanelActivatedEventA
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIContactPanelActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1388012516, 54228, 19299, [128, 81, 74, 242, 8, 44, 171, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52bb63e4_d3d4_4b63_8051_4af2082cab80);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIContactPanelActivatedEventArgs {
@@ -5773,7 +5773,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIContactPickerActivatedEvent
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIContactPickerActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3461851879, 25673, 17831, [151, 31, 209, 19, 190, 122, 137, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce57aae7_6449_45a7_971f_d113be7a8936);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIContactPickerActivatedEventArgs {
@@ -5989,7 +5989,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIContactPostActivatedEventAr
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIContactPostActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3009035367, 61927, 18005, [173, 110, 72, 87, 88, 143, 85, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb35a3c67_f1e7_4655_ad6e_4857588f552f);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIContactPostActivatedEventArgs {
@@ -6231,7 +6231,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIContactVideoCallActivatedEv
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIContactVideoCallActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1627889080, 58343, 19279, [133, 141, 92, 99, 169, 110, 246, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61079db8_e3e7_4b4f_858d_5c63a96ef684);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIContactVideoCallActivatedEventArgs {
@@ -6473,7 +6473,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIDeviceActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIDeviceActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3444619689, 52752, 17618, [130, 52, 195, 85, 160, 115, 239, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd50b9a9_ce10_44d2_8234_c355a073ef33);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIDeviceActivatedEventArgs {
@@ -6723,7 +6723,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIDevicePairingActivatedEvent
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIDevicePairingActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953185252, 60614, 16712, [148, 237, 244, 179, 126, 192, 91, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeba0d1e4_ecc6_4148_94ed_f4b37ec05b3e);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIDevicePairingActivatedEventArgs {
@@ -6974,7 +6974,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIDialReceiverActivatedEventA
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIDialReceiverActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4218912471, 34286, 17774, [164, 77, 133, 215, 48, 231, 10, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb777ed7_85ee_456e_a44d_85d730e70aed);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIDialReceiverActivatedEventArgs {
@@ -7277,7 +7277,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIFileActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIFileActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IFileActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3140156467, 37809, 17133, [139, 38, 35, 109, 217, 199, 132, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb2afc33_93b1_42ed_8b26_236dd9c78496);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIFileActivatedEventArgs {
@@ -7562,7 +7562,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIFileOpenPickerActivatedEven
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIFileOpenPickerActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921151106, 21797, 19442, [188, 9, 31, 80, 149, 212, 150, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72827082_5525_4bf2_bc09_1f5095d4964d);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIFileOpenPickerActivatedEventArgs {
@@ -7822,7 +7822,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIFileOpenPickerContinuationE
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIFileOpenPickerContinuationEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4042932026, 54504, 19155, [156, 52, 35, 8, 243, 47, 206, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0fa3f3a_d4e8_4ad3_9c34_2308f32fcec9);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIFileOpenPickerContinuationEventArgs {
@@ -8090,7 +8090,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIFileSavePickerActivatedEven
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIFileSavePickerActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2176949489, 29926, 17287, [130, 235, 187, 143, 214, 75, 67, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81c19cf1_74e6_4387_82eb_bb8fd64b4346);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIFileSavePickerActivatedEventArgs {
@@ -8350,7 +8350,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIFileSavePickerContinuationE
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIFileSavePickerContinuationEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(746876897, 15277, 20275, [140, 139, 228, 111, 174, 130, 75, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c846fe1_3bad_4f33_8c8b_e46fae824b4b);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIFileSavePickerContinuationEventArgs {
@@ -8610,7 +8610,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIFolderPickerContinuationEve
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIFolderPickerContinuationEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1367876454, 40779, 18831, [190, 176, 66, 104, 79, 110, 28, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51882366_9f4b_498f_beb0_42684f6e1c29);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIFolderPickerContinuationEventArgs {
@@ -8896,7 +8896,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUILaunchActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUILaunchActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4224269862, 41290, 19279, [130, 176, 51, 190, 217, 32, 175, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbc93e26_a14a_4b4f_82b0_33bed920af52);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUILaunchActivatedEventArgs {
@@ -9207,7 +9207,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUILockScreenActivatedEventArg
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUILockScreenActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1017608550, 24840, 19009, [130, 32, 238, 125, 19, 60, 133, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ca77966_6108_4a41_8220_ee7d133c8532);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUILockScreenActivatedEventArgs {
@@ -9475,7 +9475,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUILockScreenCallActivatedEven
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUILockScreenCallActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(116621246, 46578, 17547, [177, 62, 227, 40, 172, 28, 81, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06f37fbe_b5f2_448b_b13e_e328ac1c516a);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUILockScreenCallActivatedEventArgs {
@@ -9707,7 +9707,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUILockScreenComponentActivate
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUILockScreenComponentActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3479508755, 52488, 20440, [182, 151, 162, 129, 182, 84, 78, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf651713_cd08_4fd8_b697_a281b6544e2e);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUILockScreenComponentActivatedEventArgs {
@@ -9827,7 +9827,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUINavigatedDeferral {
 }
 unsafe impl ::windows::runtime::Interface for WebUINavigatedDeferral {
     type Vtable = IWebUINavigatedDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3624149069, 33567, 18146, [180, 50, 58, 252, 226, 17, 249, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd804204d_831f_46e2_b432_3afce211f962);
 }
 impl ::windows::runtime::RuntimeName for WebUINavigatedDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.WebUINavigatedDeferral";
@@ -9891,7 +9891,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUINavigatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for WebUINavigatedEventArgs {
     type Vtable = IWebUINavigatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2807579064, 9369, 16432, [166, 157, 21, 210, 217, 207, 229, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa75841b8_2499_4030_a69d_15d2d9cfe524);
 }
 impl ::windows::runtime::RuntimeName for WebUINavigatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUINavigatedEventArgs";
@@ -9975,7 +9975,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUINavigatedOperation {
 }
 unsafe impl ::windows::runtime::Interface for WebUINavigatedOperation {
     type Vtable = IWebUINavigatedOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2056675080, 33154, 19081, [171, 103, 132, 146, 232, 117, 13, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a965f08_8182_4a89_ab67_8492e8750d4b);
 }
 impl ::windows::runtime::RuntimeName for WebUINavigatedOperation {
     const NAME: &'static str = "Windows.UI.WebUI.WebUINavigatedOperation";
@@ -10088,7 +10088,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIPhoneCallActivatedEventArgs
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIPhoneCallActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1415664161, 41921, 19693, [182, 47, 140, 96, 82, 54, 25, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54615221_a3c1_4ced_b62f_8c60523619ad);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIPhoneCallActivatedEventArgs {
@@ -10307,7 +10307,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIPrint3DWorkflowActivatedEve
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIPrint3DWorkflowActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1062725515, 62124, 17945, [131, 2, 239, 133, 94, 28, 155, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f57e78b_f2ac_4619_8302_ef855e1c9b90);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIPrint3DWorkflowActivatedEventArgs {
@@ -10496,7 +10496,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIPrintTaskSettingsActivatedE
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIPrintTaskSettingsActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3996164297, 52822, 18533, [186, 142, 137, 84, 172, 39, 17, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee30a0c9_ce56_4865_ba8e_8954ac271107);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIPrintTaskSettingsActivatedEventArgs {
@@ -10676,7 +10676,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIPrintWorkflowForegroundTask
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3479508755, 52488, 20440, [182, 151, 162, 129, 182, 84, 78, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf651713_cd08_4fd8_b697_a281b6544e2e);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
@@ -10875,7 +10875,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIProtocolActivatedEventArgs 
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIProtocolActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1620440285, 47040, 18091, [129, 254, 217, 15, 54, 208, 13, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6095f4dd_b7c0_46ab_81fe_d90f36d00d24);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIProtocolActivatedEventArgs {
@@ -11187,7 +11187,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIProtocolForResultsActivated
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIProtocolForResultsActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3880858306, 31463, 17687, [128, 172, 219, 232, 215, 204, 91, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe75132c2_7ae7_4517_80ac_dbe8d7cc5b9c);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIProtocolForResultsActivatedEventArgs {
@@ -11489,7 +11489,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIRestrictedLaunchActivatedEv
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIRestrictedLaunchActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3770133633, 49091, 17220, [165, 218, 25, 253, 90, 39, 186, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0b7ac81_bfc3_4344_a5da_19fd5a27baae);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIRestrictedLaunchActivatedEventArgs {
@@ -11731,7 +11731,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUISearchActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUISearchActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::ISearchActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2360568145, 22728, 17379, [148, 188, 65, 211, 63, 139, 99, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cb36951_58c8_43e3_94bc_41d33f8b630e);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUISearchActivatedEventArgs {
@@ -11981,7 +11981,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIShareTargetActivatedEventAr
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIShareTargetActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1272641992, 52658, 19147, [191, 195, 102, 72, 86, 51, 120, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bdaf9c8_cdb2_4acb_bfc3_6648563378ec);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIShareTargetActivatedEventArgs {
@@ -12205,7 +12205,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIStartupTaskActivatedEventAr
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIStartupTaskActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(61938264, 21110, 19857, [134, 33, 84, 97, 24, 100, 213, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03b11a58_5276_4d91_8621_54611864d5fa);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIStartupTaskActivatedEventArgs {
@@ -12442,7 +12442,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIToastNotificationActivatedE
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIToastNotificationActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2460512130, 21136, 17181, [190, 133, 196, 170, 238, 184, 104, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92a86f82_5290_431d_be85_c4aaeeb8685f);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIToastNotificationActivatedEventArgs {
@@ -12657,7 +12657,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIUserDataAccountProviderActi
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIUserDataAccountProviderActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(466220835, 36593, 19025, [166, 58, 254, 113, 30, 234, 182, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bc9f723_8ef1_4a51_a63a_fe711eeab607);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIUserDataAccountProviderActivatedEventArgs {
@@ -13304,7 +13304,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIView {
 }
 unsafe impl ::windows::runtime::Interface for WebUIView {
     type Vtable = IWebUIView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1736701519, 21210, 20439, [190, 105, 142, 246, 40, 75, 66, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6783f64f_52da_4fd7_be69_8ef6284b423c);
 }
 impl ::windows::runtime::RuntimeName for WebUIView {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIView";
@@ -13469,7 +13469,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIVoiceCommandActivatedEventA
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIVoiceCommandActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2878528765, 36163, 19942, [151, 117, 32, 112, 75, 88, 27, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab92dcfd_8d43_4de6_9775_20704b581b00);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIVoiceCommandActivatedEventArgs {
@@ -13702,7 +13702,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIWalletActionActivatedEventA
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIWalletActionActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4244374139, 6682, 19746, [146, 63, 174, 111, 69, 250, 82, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcfc027b_1a1a_4d22_923f_ae6f45fa52d9);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIWalletActionActivatedEventArgs {
@@ -13900,7 +13900,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIWebAccountProviderActivated
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIWebAccountProviderActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1924601716, 39146, 19663, [151, 82, 70, 217, 5, 16, 4, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72b71774_98ea_4ccf_9752_46d9051004f1);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIWebAccountProviderActivatedEventArgs {
@@ -14124,7 +14124,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebUIWebAuthenticationBrokerCont
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::runtime::Interface for WebUIWebAuthenticationBrokerContinuationEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1977459668, 30484, 17725, [183, 255, 185, 94, 58, 23, 9, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75dda3d4_7714_453d_b7ff_b95e3a1709da);
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::runtime::RuntimeName for WebUIWebAuthenticationBrokerContinuationEventArgs {

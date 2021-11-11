@@ -4,7 +4,7 @@
 pub struct IImageScanner(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScanner {
     type Vtable = IImageScanner_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1403555704, 21144, 18592, [141, 163, 128, 135, 81, 150, 101, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53a88f78_5298_48a0_8da3_8087519665e0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -32,7 +32,7 @@ pub struct IImageScanner_abi(
 pub struct IImageScannerFeederConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerFeederConfiguration {
     type Vtable = IImageScannerFeederConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1958587630, 64151, 19479, [130, 128, 64, 227, 156, 109, 204, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74bdacee_fa97_4c17_8280_40e39c6dcc67);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -73,7 +73,7 @@ pub struct IImageScannerFeederConfiguration_abi(
 pub struct IImageScannerFormatConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerFormatConfiguration {
     type Vtable = IImageScannerFormatConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2921815313, 56031, 16400, [191, 16, 204, 165, 200, 61, 203, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae275d11_dadf_4010_bf10_cca5c83dcbb0);
 }
 impl IImageScannerFormatConfiguration {
     #[doc = "*Required features: `Devices_Scanners`*"]
@@ -168,7 +168,7 @@ pub struct IImageScannerFormatConfiguration_abi(
 pub struct IImageScannerPreviewResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerPreviewResult {
     type Vtable = IImageScannerPreviewResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(146275982, 34961, 17437, [190, 156, 23, 111, 161, 9, 200, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08b7fe8e_8891_441d_be9c_176fa109c8bb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -187,7 +187,7 @@ pub struct IImageScannerPreviewResult_abi(
 pub struct IImageScannerScanResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerScanResult {
     type Vtable = IImageScannerScanResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3373671629, 36919, 20040, [132, 193, 172, 9, 117, 7, 107, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc91624cd_9037_4e48_84c1_ac0975076bc5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -207,7 +207,7 @@ pub struct IImageScannerScanResult_abi(
 pub struct IImageScannerSourceConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerSourceConfiguration {
     type Vtable = IImageScannerSourceConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3216310357, 2884, 19586, [158, 137, 32, 95, 156, 35, 78, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfb50055_0b44_4c82_9e89_205f9c234e59);
 }
 impl IImageScannerSourceConfiguration {
     #[cfg(feature = "Foundation")]
@@ -571,7 +571,7 @@ pub struct IImageScannerSourceConfiguration_abi(
 pub struct IImageScannerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerStatics {
     type Vtable = IImageScannerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3159877390, 55300, 17527, [159, 181, 185, 17, 181, 71, 56, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc57e70e_d804_4477_9fb5_b911b5473897);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -690,7 +690,7 @@ unsafe impl ::windows::runtime::RuntimeType for ImageScanner {
 }
 unsafe impl ::windows::runtime::Interface for ImageScanner {
     type Vtable = IImageScanner_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1403555704, 21144, 18592, [141, 163, 128, 135, 81, 150, 101, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53a88f78_5298_48a0_8da3_8087519665e0);
 }
 impl ::windows::runtime::RuntimeName for ImageScanner {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScanner";
@@ -777,7 +777,7 @@ unsafe impl ::windows::runtime::RuntimeType for ImageScannerAutoConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for ImageScannerAutoConfiguration {
     type Vtable = IImageScannerFormatConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2921815313, 56031, 16400, [191, 16, 204, 165, 200, 61, 203, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae275d11_dadf_4010_bf10_cca5c83dcbb0);
 }
 impl ::windows::runtime::RuntimeName for ImageScannerAutoConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerAutoConfiguration";
@@ -1273,7 +1273,7 @@ unsafe impl ::windows::runtime::RuntimeType for ImageScannerFeederConfiguration 
 }
 unsafe impl ::windows::runtime::Interface for ImageScannerFeederConfiguration {
     type Vtable = IImageScannerFormatConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2921815313, 56031, 16400, [191, 16, 204, 165, 200, 61, 203, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae275d11_dadf_4010_bf10_cca5c83dcbb0);
 }
 impl ::windows::runtime::RuntimeName for ImageScannerFeederConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerFeederConfiguration";
@@ -1620,7 +1620,7 @@ unsafe impl ::windows::runtime::RuntimeType for ImageScannerFlatbedConfiguration
 }
 unsafe impl ::windows::runtime::Interface for ImageScannerFlatbedConfiguration {
     type Vtable = IImageScannerFormatConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2921815313, 56031, 16400, [191, 16, 204, 165, 200, 61, 203, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae275d11_dadf_4010_bf10_cca5c83dcbb0);
 }
 impl ::windows::runtime::RuntimeName for ImageScannerFlatbedConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerFlatbedConfiguration";
@@ -1763,7 +1763,7 @@ unsafe impl ::windows::runtime::RuntimeType for ImageScannerPreviewResult {
 }
 unsafe impl ::windows::runtime::Interface for ImageScannerPreviewResult {
     type Vtable = IImageScannerPreviewResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(146275982, 34961, 17437, [190, 156, 23, 111, 161, 9, 200, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08b7fe8e_8891_441d_be9c_176fa109c8bb);
 }
 impl ::windows::runtime::RuntimeName for ImageScannerPreviewResult {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerPreviewResult";
@@ -1863,7 +1863,7 @@ unsafe impl ::windows::runtime::RuntimeType for ImageScannerScanResult {
 }
 unsafe impl ::windows::runtime::Interface for ImageScannerScanResult {
     type Vtable = IImageScannerScanResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3373671629, 36919, 20040, [132, 193, 172, 9, 117, 7, 107, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc91624cd_9037_4e48_84c1_ac0975076bc5);
 }
 impl ::windows::runtime::RuntimeName for ImageScannerScanResult {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerScanResult";

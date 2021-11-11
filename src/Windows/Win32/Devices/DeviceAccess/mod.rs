@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const CLSID_DeviceIoControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(315876210, 34635, 17789, [159, 223, 115, 151, 119, 120, 104, 108]);
+pub const CLSID_DeviceIoControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12d3e372_874b_457d_9fdf_73977778686c);
 #[doc = "*Required features: `Win32_Devices_DeviceAccess`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -129,7 +129,7 @@ impl ICreateDeviceAccessAsync {
 }
 unsafe impl ::windows::runtime::Interface for ICreateDeviceAccessAsync {
     type Vtable = ICreateDeviceAccessAsync_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(880042639, 26685, 17106, [171, 203, 219, 1, 140, 101, 3, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3474628f_683d_42d2_abcb_db018c6503bc);
 }
 impl ::core::convert::From<ICreateDeviceAccessAsync> for ::windows::runtime::IUnknown {
     fn from(value: ICreateDeviceAccessAsync) -> Self {
@@ -192,7 +192,7 @@ impl IDeviceIoControl {
 }
 unsafe impl ::windows::runtime::Interface for IDeviceIoControl {
     type Vtable = IDeviceIoControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2666520929, 9131, 20248, [155, 73, 153, 27, 88, 106, 233, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9eefe161_23ab_4f18_9b49_991b586ae970);
 }
 impl ::core::convert::From<IDeviceIoControl> for ::windows::runtime::IUnknown {
     fn from(value: IDeviceIoControl) -> Self {
@@ -236,7 +236,7 @@ impl IDeviceRequestCompletionCallback {
 }
 unsafe impl ::windows::runtime::Interface for IDeviceRequestCompletionCallback {
     type Vtable = IDeviceRequestCompletionCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2577116452, 39629, 17851, [134, 105, 42, 47, 192, 40, 139, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x999bad24_9acd_45bb_8669_2a2fc0288b04);
 }
 impl ::core::convert::From<IDeviceRequestCompletionCallback> for ::windows::runtime::IUnknown {
     fn from(value: IDeviceRequestCompletionCallback) -> Self {

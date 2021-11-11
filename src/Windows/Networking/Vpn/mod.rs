@@ -4,7 +4,7 @@
 pub struct IVpnAppId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnAppId {
     type Vtable = IVpnAppId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2064033333, 23640, 16857, [148, 167, 191, 188, 241, 216, 202, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b06a635_5c58_41d9_94a7_bfbcf1d8ca54);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25,7 +25,7 @@ pub struct IVpnAppId_abi(
 pub struct IVpnAppIdFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnAppIdFactory {
     type Vtable = IVpnAppIdFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1185807658, 2731, 20443, [130, 29, 211, 221, 201, 25, 120, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46adfd2a_0aab_4fdb_821d_d3ddc919788b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -43,7 +43,7 @@ pub struct IVpnAppIdFactory_abi(
 pub struct IVpnChannel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannel {
     type Vtable = IVpnChannel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1254591751, 53672, 17155, [160, 145, 200, 210, 224, 145, 91, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ac78d07_d1a8_4303_a091_c8d2e0915bc3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -94,7 +94,7 @@ pub struct IVpnChannel_abi(
 pub struct IVpnChannel2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannel2 {
     type Vtable = IVpnChannel2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(576049509, 39227, 17961, [173, 96, 241, 195, 243, 83, 127, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2255d165_993b_4629_ad60_f1c3f3537f50);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -146,7 +146,7 @@ pub struct IVpnChannel2_abi(
 pub struct IVpnChannel4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannel4 {
     type Vtable = IVpnChannel4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3609620190, 10551, 16797, [149, 112, 72, 106, 235, 184, 24, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7266ede_2937_419d_9570_486aebb81803);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -172,7 +172,7 @@ pub struct IVpnChannel4_abi(
 pub struct IVpnChannel5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannel5 {
     type Vtable = IVpnChannel5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3732539794, 33668, 20412, [136, 44, 31, 210, 49, 36, 205, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde7a0992_8384_4fbc_882c_1fd23124cd3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -193,7 +193,7 @@ pub struct IVpnChannel5_abi(
 pub struct IVpnChannel6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannel6 {
     type Vtable = IVpnChannel6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1434728086, 48483, 18885, [171, 202, 93, 167, 120, 133, 85, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55843696_bd63_49c5_abca_5da77885551a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -212,7 +212,7 @@ pub struct IVpnChannel6_abi(
 pub struct IVpnChannelActivityEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannelActivityEventArgs {
     type Vtable = IVpnChannelActivityEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741799154, 45020, 18293, [133, 93, 212, 172, 10, 53, 252, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa36c88f2_afdc_4775_855d_d4ac0a35fc55);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -230,7 +230,7 @@ pub struct IVpnChannelActivityEventArgs_abi(
 pub struct IVpnChannelActivityStateChangedArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannelActivityStateChangedArgs {
     type Vtable = IVpnChannelActivityStateChangedArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1031079269, 64960, 19390, [162, 59, 69, 255, 252, 109, 151, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d750565_fdc0_4bbe_a23b_45fffc6d97a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -248,7 +248,7 @@ pub struct IVpnChannelActivityStateChangedArgs_abi(
 pub struct IVpnChannelConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannelConfiguration {
     type Vtable = IVpnChannelConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(237886626, 8210, 20452, [177, 121, 140, 101, 44, 109, 16, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e2ddca2_2012_4fe4_b179_8c652c6d107e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -269,7 +269,7 @@ pub struct IVpnChannelConfiguration_abi(
 pub struct IVpnChannelConfiguration2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannelConfiguration2 {
     type Vtable = IVpnChannelConfiguration2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4077606732, 30756, 18204, [161, 24, 99, 219, 201, 58, 228, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf30b574c_7824_471c_a118_63dbc93ae4c7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -289,7 +289,7 @@ pub struct IVpnChannelConfiguration2_abi(
 pub struct IVpnChannelStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannelStatics {
     type Vtable = IVpnChannelStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2297103917, 59416, 20477, [152, 166, 54, 62, 55, 54, 201, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88eb062d_e818_4ffd_98a6_363e3736c95d);
 }
 impl IVpnChannelStatics {
     #[doc = "*Required features: `Networking_Vpn`*"]
@@ -358,7 +358,7 @@ pub struct IVpnChannelStatics_abi(
 pub struct IVpnCredential(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCredential {
     type Vtable = IVpnCredential_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085404915, 42093, 16459, [135, 41, 24, 50, 82, 40, 83, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7e78af3_a46d_404b_8729_1832522853ac);
 }
 impl IVpnCredential {
     #[cfg(feature = "Security_Credentials")]
@@ -462,7 +462,7 @@ pub struct IVpnCredential_abi(
 pub struct IVpnCustomCheckBox(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomCheckBox {
     type Vtable = IVpnCustomCheckBox_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1132955475, 965, 20065, [147, 215, 169, 87, 113, 76, 66, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43878753_03c5_4e61_93d7_a957714c4282);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -482,7 +482,7 @@ pub struct IVpnCustomCheckBox_abi(
 pub struct IVpnCustomComboBox(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomComboBox {
     type Vtable = IVpnCustomComboBox_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2586056078, 56225, 19567, [130, 112, 220, 243, 201, 118, 28, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a24158e_dba1_4c6f_8270_dcf3c9761c4c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -504,7 +504,7 @@ pub struct IVpnCustomComboBox_abi(
 pub struct IVpnCustomEditBox(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomEditBox {
     type Vtable = IVpnCustomEditBox_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(805493152, 53183, 19467, [143, 60, 102, 245, 3, 194, 11, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3002d9a0_cfbf_4c0b_8f3c_66f503c20b39);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -526,7 +526,7 @@ pub struct IVpnCustomEditBox_abi(
 pub struct IVpnCustomErrorBox(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomErrorBox {
     type Vtable = IVpnCustomErrorBox_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2663706546, 51522, 17071, [178, 35, 88, 139, 72, 50, 135, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ec4efb2_c942_42af_b223_588b48328721);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -544,7 +544,7 @@ pub struct IVpnCustomErrorBox_abi(
 pub struct IVpnCustomPrompt(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomPrompt {
     type Vtable = IVpnCustomPrompt_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2603531899, 34773, 17212, [180, 246, 238, 230, 170, 104, 162, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b2ebe7b_87d5_433c_b4f6_eee6aa68a244);
 }
 impl IVpnCustomPrompt {
     #[doc = "*Required features: `Networking_Vpn`*"]
@@ -651,7 +651,7 @@ pub struct IVpnCustomPrompt_abi(
 pub struct IVpnCustomPromptBooleanInput(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomPromptBooleanInput {
     type Vtable = IVpnCustomPromptBooleanInput_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3301549726, 65351, 17703, [159, 39, 164, 146, 146, 1, 153, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4c9a69e_ff47_4527_9f27_a49292019979);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -672,7 +672,7 @@ pub struct IVpnCustomPromptBooleanInput_abi(
 pub struct IVpnCustomPromptElement(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomPromptElement {
     type Vtable = IVpnCustomPromptElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1941788216, 28420, 16461, [147, 221, 80, 164, 73, 36, 163, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73bd5638_6f04_404d_93dd_50a44924a38b);
 }
 impl IVpnCustomPromptElement {
     #[doc = "*Required features: `Networking_Vpn`*"]
@@ -779,7 +779,7 @@ pub struct IVpnCustomPromptElement_abi(
 pub struct IVpnCustomPromptOptionSelector(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomPromptOptionSelector {
     type Vtable = IVpnCustomPromptOptionSelector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(999240921, 36545, 20117, [154, 78, 123, 166, 77, 56, 243, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b8f34d9_8ec1_4e95_9a4e_7ba64d38f330);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -799,7 +799,7 @@ pub struct IVpnCustomPromptOptionSelector_abi(
 pub struct IVpnCustomPromptText(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomPromptText {
     type Vtable = IVpnCustomPromptText_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1003011566, 14914, 18851, [171, 221, 7, 178, 237, 234, 117, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3bc8bdee_3a42_49a3_abdd_07b2edea752d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -818,7 +818,7 @@ pub struct IVpnCustomPromptText_abi(
 pub struct IVpnCustomPromptTextInput(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomPromptTextInput {
     type Vtable = IVpnCustomPromptTextInput_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3386547317, 37180, 18389, [136, 186, 72, 252, 72, 147, 2, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9da9c75_913c_47d5_88ba_48fc48930235);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -840,7 +840,7 @@ pub struct IVpnCustomPromptTextInput_abi(
 pub struct IVpnCustomTextBox(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomTextBox {
     type Vtable = IVpnCustomTextBox_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3668231114, 36643, 19766, [145, 241, 118, 217, 55, 130, 121, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdaa4c3ca_8f23_4d36_91f1_76d937827942);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -859,7 +859,7 @@ pub struct IVpnCustomTextBox_abi(
 pub struct IVpnDomainNameAssignment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnDomainNameAssignment {
     type Vtable = IVpnDomainNameAssignment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1094037825, 52443, 18869, [148, 1, 3, 154, 138, 231, 103, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4135b141_ccdb_49b5_9401_039a8ae767e9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -882,7 +882,7 @@ pub struct IVpnDomainNameAssignment_abi(
 pub struct IVpnDomainNameInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnDomainNameInfo {
     type Vtable = IVpnDomainNameInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2905520175, 60046, 20346, [132, 62, 26, 135, 227, 46, 27, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad2eb82f_ea8e_4f7a_843e_1a87e32e1b9a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -907,7 +907,7 @@ pub struct IVpnDomainNameInfo_abi(
 pub struct IVpnDomainNameInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnDomainNameInfo2 {
     type Vtable = IVpnDomainNameInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2877755729, 27731, 18472, [152, 131, 216, 134, 222, 16, 68, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab871151_6c53_4828_9883_d886de104407);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -927,7 +927,7 @@ pub struct IVpnDomainNameInfo2_abi(
 pub struct IVpnDomainNameInfoFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnDomainNameInfoFactory {
     type Vtable = IVpnDomainNameInfoFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(621263733, 655, 18056, [141, 58, 196, 83, 29, 243, 125, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2507bb75_028f_4688_8d3a_c4531df37da8);
 }
 impl IVpnDomainNameInfoFactory {
     #[cfg(feature = "Foundation_Collections")]
@@ -1000,7 +1000,7 @@ pub struct IVpnDomainNameInfoFactory_abi(
 pub struct IVpnForegroundActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnForegroundActivatedEventArgs {
     type Vtable = IVpnForegroundActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2243192240, 51931, 19824, [172, 146, 84, 58, 36, 220, 158, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85b465b0_cadb_4d70_ac92_543a24dc9ebc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1021,7 +1021,7 @@ pub struct IVpnForegroundActivatedEventArgs_abi(
 pub struct IVpnForegroundActivationOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnForegroundActivationOperation {
     type Vtable = IVpnForegroundActivationOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2650869079, 61818, 19413, [155, 109, 249, 132, 241, 41, 125, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e010d57_f17a_4bd5_9b6d_f984f1297d3c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1040,7 +1040,7 @@ pub struct IVpnForegroundActivationOperation_abi(
 pub struct IVpnInterfaceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnInterfaceId {
     type Vtable = IVpnInterfaceId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2653805730, 5906, 19684, [177, 121, 140, 101, 44, 109, 16, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e2ddca2_1712_4ce4_b179_8c652c6d1011);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1059,7 +1059,7 @@ pub struct IVpnInterfaceId_abi(
 pub struct IVpnInterfaceIdFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnInterfaceIdFactory {
     type Vtable = IVpnInterfaceIdFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2653805730, 5906, 19684, [177, 121, 140, 101, 44, 109, 16, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e2ddca2_1712_4ce4_b179_8c652c6d1000);
 }
 impl IVpnInterfaceIdFactory {
     #[doc = "*Required features: `Networking_Vpn`*"]
@@ -1130,7 +1130,7 @@ pub struct IVpnInterfaceIdFactory_abi(
 pub struct IVpnManagementAgent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnManagementAgent {
     type Vtable = IVpnManagementAgent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(423007949, 42436, 19134, [133, 43, 120, 91, 228, 203, 62, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x193696cd_a5c4_4abe_852b_785be4cb3e34);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1165,7 +1165,7 @@ pub struct IVpnManagementAgent_abi(
 pub struct IVpnNamespaceAssignment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnNamespaceAssignment {
     type Vtable = IVpnNamespaceAssignment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3623344920, 12413, 19470, [189, 98, 143, 162, 112, 187, 173, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7f7db18_307d_4c0e_bd62_8fa270bbadd6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1190,7 +1190,7 @@ pub struct IVpnNamespaceAssignment_abi(
 pub struct IVpnNamespaceInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnNamespaceInfo {
     type Vtable = IVpnNamespaceInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(820902723, 17487, 17605, [129, 103, 163, 90, 145, 241, 175, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30edfb43_444f_44c5_8167_a35a91f1af94);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1218,7 +1218,7 @@ pub struct IVpnNamespaceInfo_abi(
 pub struct IVpnNamespaceInfoFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnNamespaceInfoFactory {
     type Vtable = IVpnNamespaceInfoFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3409876250, 45262, 17451, [172, 187, 95, 153, 178, 2, 195, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb3e951a_b0ce_442b_acbb_5f99b202c31c);
 }
 impl IVpnNamespaceInfoFactory {
     #[cfg(feature = "Foundation_Collections")]
@@ -1291,7 +1291,7 @@ pub struct IVpnNamespaceInfoFactory_abi(
 pub struct IVpnNativeProfile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnNativeProfile {
     type Vtable = IVpnNativeProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2762924702, 25623, 17203, [152, 66, 240, 166, 109, 182, 152, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4aee29e_6417_4333_9842_f0a66db69802);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1320,7 +1320,7 @@ pub struct IVpnNativeProfile_abi(
 pub struct IVpnNativeProfile2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnNativeProfile2 {
     type Vtable = IVpnNativeProfile2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(267134055, 52661, 19143, [181, 163, 10, 251, 94, 196, 118, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0fec2467_cdb5_4ac7_b5a3_0afb5ec47682);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1340,7 +1340,7 @@ pub struct IVpnNativeProfile2_abi(
 pub struct IVpnPacketBuffer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPacketBuffer {
     type Vtable = IVpnPacketBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3271070204, 19804, 19043, [183, 13, 78, 48, 126, 172, 206, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2f891fc_4d5c_4a63_b70d_4e307eacce55);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1363,7 +1363,7 @@ pub struct IVpnPacketBuffer_abi(
 pub struct IVpnPacketBuffer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPacketBuffer2 {
     type Vtable = IVpnPacketBuffer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1717473776, 34821, 19445, [166, 25, 46, 132, 136, 46, 107, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x665e91f0_8805_4bf5_a619_2e84882e6b4f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1381,7 +1381,7 @@ pub struct IVpnPacketBuffer2_abi(
 pub struct IVpnPacketBuffer3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPacketBuffer3 {
     type Vtable = IVpnPacketBuffer3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3797288751, 4219, 19520, [177, 39, 91, 197, 62, 10, 217, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe256072f_107b_4c40_b127_5bc53e0ad960);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1401,7 +1401,7 @@ pub struct IVpnPacketBuffer3_abi(
 pub struct IVpnPacketBufferFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPacketBufferFactory {
     type Vtable = IVpnPacketBufferFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2653805730, 5906, 19684, [177, 121, 140, 101, 44, 109, 153, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e2ddca2_1712_4ce4_b179_8c652c6d9999);
 }
 impl IVpnPacketBufferFactory {
     #[doc = "*Required features: `Networking_Vpn`*"]
@@ -1472,7 +1472,7 @@ pub struct IVpnPacketBufferFactory_abi(
 pub struct IVpnPacketBufferList(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPacketBufferList {
     type Vtable = IVpnPacketBufferList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3271070204, 19804, 19043, [183, 13, 78, 48, 126, 172, 206, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2f891fc_4d5c_4a63_b70d_4e307eacce77);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1497,7 +1497,7 @@ pub struct IVpnPacketBufferList_abi(
 pub struct IVpnPacketBufferList2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPacketBufferList2 {
     type Vtable = IVpnPacketBufferList2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1048236005, 59934, 18474, [141, 152, 192, 101, 245, 125, 137, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e7acfe5_ea1e_482a_8d98_c065f57d89ea);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1518,7 +1518,7 @@ pub struct IVpnPacketBufferList2_abi(
 pub struct IVpnPickedCredential(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPickedCredential {
     type Vtable = IVpnPickedCredential_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2591636167, 34900, 20050, [173, 151, 36, 221, 154, 132, 43, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a793ac7_8854_4e52_ad97_24dd9a842bce);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1541,7 +1541,7 @@ pub struct IVpnPickedCredential_abi(
 pub struct IVpnPlugIn(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPlugIn {
     type Vtable = IVpnPlugIn_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3468135687, 53416, 18179, [160, 145, 200, 194, 192, 145, 91, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xceb78d07_d0a8_4703_a091_c8c2c0915bc4);
 }
 impl IVpnPlugIn {
     #[doc = "*Required features: `Networking_Vpn`*"]
@@ -1633,7 +1633,7 @@ pub struct IVpnPlugIn_abi(
 pub struct IVpnPlugInProfile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPlugInProfile {
     type Vtable = IVpnPlugInProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(249499044, 20224, 17801, [141, 123, 75, 249, 136, 246, 84, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0edf0da4_4f00_4589_8d7b_4bf988f6542c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1656,7 +1656,7 @@ pub struct IVpnPlugInProfile_abi(
 pub struct IVpnPlugInProfile2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPlugInProfile2 {
     type Vtable = IVpnPlugInProfile2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1629243538, 53140, 19158, [186, 153, 0, 244, 255, 52, 86, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x611c4892_cf94_4ad6_ba99_00f4ff34565e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1677,7 +1677,7 @@ pub struct IVpnPlugInProfile2_abi(
 pub struct IVpnProfile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnProfile {
     type Vtable = IVpnProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2020980561, 45271, 17371, [138, 147, 211, 254, 36, 121, 229, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7875b751_b0d7_43db_8a93_d3fe2479e56a);
 }
 impl IVpnProfile {
     #[doc = "*Required features: `Networking_Vpn`*"]
@@ -1828,7 +1828,7 @@ pub struct IVpnProfile_abi(
 pub struct IVpnRoute(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnRoute {
     type Vtable = IVpnRoute_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3044219779, 2409, 18073, [147, 142, 119, 118, 219, 41, 207, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5731b83_0969_4699_938e_7776db29cfb3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1849,7 +1849,7 @@ pub struct IVpnRoute_abi(
 pub struct IVpnRouteAssignment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnRouteAssignment {
     type Vtable = IVpnRouteAssignment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3680820770, 52793, 19062, [149, 80, 246, 16, 57, 248, 14, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb64de22_ce39_4a76_9550_f61039f80e48);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1885,7 +1885,7 @@ pub struct IVpnRouteAssignment_abi(
 pub struct IVpnRouteFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnRouteFactory {
     type Vtable = IVpnRouteFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3186275839, 17871, 19353, [131, 251, 219, 59, 194, 103, 43, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbdeab5ff_45cf_4b99_83fb_db3bc2672b02);
 }
 impl IVpnRouteFactory {
     #[doc = "*Required features: `Networking_Vpn`*"]
@@ -1956,7 +1956,7 @@ pub struct IVpnRouteFactory_abi(
 pub struct IVpnSystemHealth(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnSystemHealth {
     type Vtable = IVpnSystemHealth_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2577987759, 49390, 20085, [129, 122, 242, 49, 174, 229, 18, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99a8f8af_c0ee_4e75_817a_f231aee5123d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1975,7 +1975,7 @@ pub struct IVpnSystemHealth_abi(
 pub struct IVpnTrafficFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnTrafficFilter {
     type Vtable = IVpnTrafficFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(795417440, 27807, 18421, [172, 54, 187, 27, 4, 46, 44, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f691b60_6c9f_47f5_ac36_bb1b042e2c50);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2008,7 +2008,7 @@ pub struct IVpnTrafficFilter_abi(
 pub struct IVpnTrafficFilterAssignment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnTrafficFilterAssignment {
     type Vtable = IVpnTrafficFilterAssignment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1456264284, 58980, 18206, [137, 205, 96, 22, 3, 185, 224, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56ccd45c_e664_471e_89cd_601603b9e0f3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2031,7 +2031,7 @@ pub struct IVpnTrafficFilterAssignment_abi(
 pub struct IVpnTrafficFilterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnTrafficFilterFactory {
     type Vtable = IVpnTrafficFilterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1208828373, 32665, 18252, [134, 238, 150, 223, 22, 131, 24, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x480d41d5_7f99_474c_86ee_96df168318f1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2092,7 +2092,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnAppId {
 }
 unsafe impl ::windows::runtime::Interface for VpnAppId {
     type Vtable = IVpnAppId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2064033333, 23640, 16857, [148, 167, 191, 188, 241, 216, 202, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b06a635_5c58_41d9_94a7_bfbcf1d8ca54);
 }
 impl ::windows::runtime::RuntimeName for VpnAppId {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnAppId";
@@ -2619,7 +2619,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnChannel {
 }
 unsafe impl ::windows::runtime::Interface for VpnChannel {
     type Vtable = IVpnChannel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1254591751, 53672, 17155, [160, 145, 200, 210, 224, 145, 91, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ac78d07_d1a8_4303_a091_c8d2e0915bc3);
 }
 impl ::windows::runtime::RuntimeName for VpnChannel {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannel";
@@ -2685,7 +2685,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnChannelActivityEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for VpnChannelActivityEventArgs {
     type Vtable = IVpnChannelActivityEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741799154, 45020, 18293, [133, 93, 212, 172, 10, 53, 252, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa36c88f2_afdc_4775_855d_d4ac0a35fc55);
 }
 impl ::windows::runtime::RuntimeName for VpnChannelActivityEventArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelActivityEventArgs";
@@ -2773,7 +2773,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnChannelActivityStateChangedAr
 }
 unsafe impl ::windows::runtime::Interface for VpnChannelActivityStateChangedArgs {
     type Vtable = IVpnChannelActivityStateChangedArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1031079269, 64960, 19390, [162, 59, 69, 255, 252, 109, 151, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d750565_fdc0_4bbe_a23b_45fffc6d97a1);
 }
 impl ::windows::runtime::RuntimeName for VpnChannelActivityStateChangedArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelActivityStateChangedArgs";
@@ -2865,7 +2865,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnChannelConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for VpnChannelConfiguration {
     type Vtable = IVpnChannelConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(237886626, 8210, 20452, [177, 121, 140, 101, 44, 109, 16, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e2ddca2_2012_4fe4_b179_8c652c6d107e);
 }
 impl ::windows::runtime::RuntimeName for VpnChannelConfiguration {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelConfiguration";
@@ -3009,7 +3009,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnCredential {
 }
 unsafe impl ::windows::runtime::Interface for VpnCredential {
     type Vtable = IVpnCredential_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085404915, 42093, 16459, [135, 41, 24, 50, 82, 40, 83, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7e78af3_a46d_404b_8729_1832522853ac);
 }
 impl ::windows::runtime::RuntimeName for VpnCredential {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCredential";
@@ -3181,7 +3181,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnCustomCheckBox {
 }
 unsafe impl ::windows::runtime::Interface for VpnCustomCheckBox {
     type Vtable = IVpnCustomCheckBox_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1132955475, 965, 20065, [147, 215, 169, 87, 113, 76, 66, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43878753_03c5_4e61_93d7_a957714c4282);
 }
 impl ::windows::runtime::RuntimeName for VpnCustomCheckBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomCheckBox";
@@ -3330,7 +3330,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnCustomComboBox {
 }
 unsafe impl ::windows::runtime::Interface for VpnCustomComboBox {
     type Vtable = IVpnCustomComboBox_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2586056078, 56225, 19567, [130, 112, 220, 243, 201, 118, 28, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a24158e_dba1_4c6f_8270_dcf3c9761c4c);
 }
 impl ::windows::runtime::RuntimeName for VpnCustomComboBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomComboBox";
@@ -3490,7 +3490,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnCustomEditBox {
 }
 unsafe impl ::windows::runtime::Interface for VpnCustomEditBox {
     type Vtable = IVpnCustomEditBox_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(805493152, 53183, 19467, [143, 60, 102, 245, 3, 194, 11, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3002d9a0_cfbf_4c0b_8f3c_66f503c20b39);
 }
 impl ::windows::runtime::RuntimeName for VpnCustomEditBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomEditBox";
@@ -3616,7 +3616,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnCustomErrorBox {
 }
 unsafe impl ::windows::runtime::Interface for VpnCustomErrorBox {
     type Vtable = IVpnCustomErrorBox_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2663706546, 51522, 17071, [178, 35, 88, 139, 72, 50, 135, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ec4efb2_c942_42af_b223_588b48328721);
 }
 impl ::windows::runtime::RuntimeName for VpnCustomErrorBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomErrorBox";
@@ -3763,7 +3763,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnCustomPromptBooleanInput {
 }
 unsafe impl ::windows::runtime::Interface for VpnCustomPromptBooleanInput {
     type Vtable = IVpnCustomPromptBooleanInput_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3301549726, 65351, 17703, [159, 39, 164, 146, 146, 1, 153, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4c9a69e_ff47_4527_9f27_a49292019979);
 }
 impl ::windows::runtime::RuntimeName for VpnCustomPromptBooleanInput {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptBooleanInput";
@@ -3906,7 +3906,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnCustomPromptOptionSelector {
 }
 unsafe impl ::windows::runtime::Interface for VpnCustomPromptOptionSelector {
     type Vtable = IVpnCustomPromptOptionSelector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(999240921, 36545, 20117, [154, 78, 123, 166, 77, 56, 243, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b8f34d9_8ec1_4e95_9a4e_7ba64d38f330);
 }
 impl ::windows::runtime::RuntimeName for VpnCustomPromptOptionSelector {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptOptionSelector";
@@ -4045,7 +4045,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnCustomPromptText {
 }
 unsafe impl ::windows::runtime::Interface for VpnCustomPromptText {
     type Vtable = IVpnCustomPromptText_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1003011566, 14914, 18851, [171, 221, 7, 178, 237, 234, 117, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3bc8bdee_3a42_49a3_abdd_07b2edea752d);
 }
 impl ::windows::runtime::RuntimeName for VpnCustomPromptText {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptText";
@@ -4205,7 +4205,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnCustomPromptTextInput {
 }
 unsafe impl ::windows::runtime::Interface for VpnCustomPromptTextInput {
     type Vtable = IVpnCustomPromptTextInput_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3386547317, 37180, 18389, [136, 186, 72, 252, 72, 147, 2, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9da9c75_913c_47d5_88ba_48fc48930235);
 }
 impl ::windows::runtime::RuntimeName for VpnCustomPromptTextInput {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptTextInput";
@@ -4344,7 +4344,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnCustomTextBox {
 }
 unsafe impl ::windows::runtime::Interface for VpnCustomTextBox {
     type Vtable = IVpnCustomTextBox_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3668231114, 36643, 19766, [145, 241, 118, 217, 55, 130, 121, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdaa4c3ca_8f23_4d36_91f1_76d937827942);
 }
 impl ::windows::runtime::RuntimeName for VpnCustomTextBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomTextBox";
@@ -4477,7 +4477,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnDomainNameAssignment {
 }
 unsafe impl ::windows::runtime::Interface for VpnDomainNameAssignment {
     type Vtable = IVpnDomainNameAssignment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1094037825, 52443, 18869, [148, 1, 3, 154, 138, 231, 103, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4135b141_ccdb_49b5_9401_039a8ae767e9);
 }
 impl ::windows::runtime::RuntimeName for VpnDomainNameAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnDomainNameAssignment";
@@ -4600,7 +4600,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnDomainNameInfo {
 }
 unsafe impl ::windows::runtime::Interface for VpnDomainNameInfo {
     type Vtable = IVpnDomainNameInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2905520175, 60046, 20346, [132, 62, 26, 135, 227, 46, 27, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad2eb82f_ea8e_4f7a_843e_1a87e32e1b9a);
 }
 impl ::windows::runtime::RuntimeName for VpnDomainNameInfo {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnDomainNameInfo";
@@ -4742,7 +4742,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnForegroundActivatedEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for VpnForegroundActivatedEventArgs {
     type Vtable = IVpnForegroundActivatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2243192240, 51931, 19824, [172, 146, 84, 58, 36, 220, 158, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85b465b0_cadb_4d70_ac92_543a24dc9ebc);
 }
 impl ::windows::runtime::RuntimeName for VpnForegroundActivatedEventArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnForegroundActivatedEventArgs";
@@ -4858,7 +4858,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnForegroundActivationOperation
 }
 unsafe impl ::windows::runtime::Interface for VpnForegroundActivationOperation {
     type Vtable = IVpnForegroundActivationOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2650869079, 61818, 19413, [155, 109, 249, 132, 241, 41, 125, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e010d57_f17a_4bd5_9b6d_f984f1297d3c);
 }
 impl ::windows::runtime::RuntimeName for VpnForegroundActivationOperation {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnForegroundActivationOperation";
@@ -4959,7 +4959,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnInterfaceId {
 }
 unsafe impl ::windows::runtime::Interface for VpnInterfaceId {
     type Vtable = IVpnInterfaceId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2653805730, 5906, 19684, [177, 121, 140, 101, 44, 109, 16, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e2ddca2_1712_4ce4_b179_8c652c6d1011);
 }
 impl ::windows::runtime::RuntimeName for VpnInterfaceId {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnInterfaceId";
@@ -5105,7 +5105,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnManagementAgent {
 }
 unsafe impl ::windows::runtime::Interface for VpnManagementAgent {
     type Vtable = IVpnManagementAgent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(423007949, 42436, 19134, [133, 43, 120, 91, 228, 203, 62, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x193696cd_a5c4_4abe_852b_785be4cb3e34);
 }
 impl ::windows::runtime::RuntimeName for VpnManagementAgent {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnManagementAgent";
@@ -5263,7 +5263,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnNamespaceAssignment {
 }
 unsafe impl ::windows::runtime::Interface for VpnNamespaceAssignment {
     type Vtable = IVpnNamespaceAssignment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3623344920, 12413, 19470, [189, 98, 143, 162, 112, 187, 173, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7f7db18_307d_4c0e_bd62_8fa270bbadd6);
 }
 impl ::windows::runtime::RuntimeName for VpnNamespaceAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnNamespaceAssignment";
@@ -5376,7 +5376,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnNamespaceInfo {
 }
 unsafe impl ::windows::runtime::Interface for VpnNamespaceInfo {
     type Vtable = IVpnNamespaceInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(820902723, 17487, 17605, [129, 103, 163, 90, 145, 241, 175, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30edfb43_444f_44c5_8167_a35a91f1af94);
 }
 impl ::windows::runtime::RuntimeName for VpnNamespaceInfo {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnNamespaceInfo";
@@ -5611,7 +5611,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnNativeProfile {
 }
 unsafe impl ::windows::runtime::Interface for VpnNativeProfile {
     type Vtable = IVpnNativeProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2762924702, 25623, 17203, [152, 66, 240, 166, 109, 182, 152, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4aee29e_6417_4333_9842_f0a66db69802);
 }
 impl ::windows::runtime::RuntimeName for VpnNativeProfile {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnNativeProfile";
@@ -5781,7 +5781,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnPacketBuffer {
 }
 unsafe impl ::windows::runtime::Interface for VpnPacketBuffer {
     type Vtable = IVpnPacketBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3271070204, 19804, 19043, [183, 13, 78, 48, 126, 172, 206, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2f891fc_4d5c_4a63_b70d_4e307eacce55);
 }
 impl ::windows::runtime::RuntimeName for VpnPacketBuffer {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPacketBuffer";
@@ -5900,7 +5900,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnPacketBufferList {
 }
 unsafe impl ::windows::runtime::Interface for VpnPacketBufferList {
     type Vtable = IVpnPacketBufferList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3271070204, 19804, 19043, [183, 13, 78, 48, 126, 172, 206, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2f891fc_4d5c_4a63_b70d_4e307eacce77);
 }
 impl ::windows::runtime::RuntimeName for VpnPacketBufferList {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPacketBufferList";
@@ -6048,7 +6048,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnPickedCredential {
 }
 unsafe impl ::windows::runtime::Interface for VpnPickedCredential {
     type Vtable = IVpnPickedCredential_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2591636167, 34900, 20050, [173, 151, 36, 221, 154, 132, 43, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a793ac7_8854_4e52_ad97_24dd9a842bce);
 }
 impl ::windows::runtime::RuntimeName for VpnPickedCredential {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPickedCredential";
@@ -6244,7 +6244,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnPlugInProfile {
 }
 unsafe impl ::windows::runtime::Interface for VpnPlugInProfile {
     type Vtable = IVpnPlugInProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(249499044, 20224, 17801, [141, 123, 75, 249, 136, 246, 84, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0edf0da4_4f00_4589_8d7b_4bf988f6542c);
 }
 impl ::windows::runtime::RuntimeName for VpnPlugInProfile {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPlugInProfile";
@@ -6361,7 +6361,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnRoute {
 }
 unsafe impl ::windows::runtime::Interface for VpnRoute {
     type Vtable = IVpnRoute_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3044219779, 2409, 18073, [147, 142, 119, 118, 219, 41, 207, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5731b83_0969_4699_938e_7776db29cfb3);
 }
 impl ::windows::runtime::RuntimeName for VpnRoute {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnRoute";
@@ -6499,7 +6499,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnRouteAssignment {
 }
 unsafe impl ::windows::runtime::Interface for VpnRouteAssignment {
     type Vtable = IVpnRouteAssignment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3680820770, 52793, 19062, [149, 80, 246, 16, 57, 248, 14, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb64de22_ce39_4a76_9550_f61039f80e48);
 }
 impl ::windows::runtime::RuntimeName for VpnRouteAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnRouteAssignment";
@@ -6588,7 +6588,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnSystemHealth {
 }
 unsafe impl ::windows::runtime::Interface for VpnSystemHealth {
     type Vtable = IVpnSystemHealth_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2577987759, 49390, 20085, [129, 122, 242, 49, 174, 229, 18, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99a8f8af_c0ee_4e75_817a_f231aee5123d);
 }
 impl ::windows::runtime::RuntimeName for VpnSystemHealth {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnSystemHealth";
@@ -6741,7 +6741,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnTrafficFilter {
 }
 unsafe impl ::windows::runtime::Interface for VpnTrafficFilter {
     type Vtable = IVpnTrafficFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(795417440, 27807, 18421, [172, 54, 187, 27, 4, 46, 44, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f691b60_6c9f_47f5_ac36_bb1b042e2c50);
 }
 impl ::windows::runtime::RuntimeName for VpnTrafficFilter {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnTrafficFilter";
@@ -6841,7 +6841,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnTrafficFilterAssignment {
 }
 unsafe impl ::windows::runtime::Interface for VpnTrafficFilterAssignment {
     type Vtable = IVpnTrafficFilterAssignment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1456264284, 58980, 18206, [137, 205, 96, 22, 3, 185, 224, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56ccd45c_e664_471e_89cd_601603b9e0f3);
 }
 impl ::windows::runtime::RuntimeName for VpnTrafficFilterAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnTrafficFilterAssignment";

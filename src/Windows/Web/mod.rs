@@ -13,7 +13,7 @@ pub mod UI;
 pub struct IUriToStreamResolver(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUriToStreamResolver {
     type Vtable = IUriToStreamResolver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2964039786, 39659, 19770, [149, 144, 0, 62, 60, 167, 226, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0aba86a_9aeb_4d3a_9590_003e3ca7e290);
 }
 impl IUriToStreamResolver {
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -86,7 +86,7 @@ pub struct IUriToStreamResolver_abi(
 pub struct IWebErrorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebErrorStatics {
     type Vtable = IWebErrorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4267796326, 48935, 16484, [135, 183, 101, 99, 187, 17, 206, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe616766_bf27_4064_87b7_6563bb11ce2e);
 }
 #[repr(C)]
 #[doc(hidden)]

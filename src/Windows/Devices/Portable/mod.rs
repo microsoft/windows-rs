@@ -4,7 +4,7 @@
 pub struct IServiceDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IServiceDeviceStatics {
     type Vtable = IServiceDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2827097313, 22983, 18976, [171, 166, 159, 103, 7, 147, 114, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa88214e1_59c7_4a20_aba6_9f6707937230);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23,7 +23,7 @@ pub struct IServiceDeviceStatics_abi(
 pub struct IStorageDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageDeviceStatics {
     type Vtable = IStorageDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1590576366, 6947, 19922, [134, 82, 188, 22, 79, 0, 49, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ece44ee_1b23_4dd2_8652_bc164f003128);
 }
 #[repr(C)]
 #[doc(hidden)]

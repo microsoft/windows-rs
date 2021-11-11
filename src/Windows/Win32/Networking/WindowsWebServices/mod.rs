@@ -18,7 +18,7 @@ impl IContentPrefetcherTaskTrigger {
 }
 unsafe impl ::windows::runtime::Interface for IContentPrefetcherTaskTrigger {
     type Vtable = IContentPrefetcherTaskTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(456499530, 24724, 18329, [166, 14, 228, 116, 225, 93, 77, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b35a14a_6094_4799_a60e_e474e15d4dc9);
 }
 impl ::core::convert::From<IContentPrefetcherTaskTrigger> for ::windows::runtime::IUnknown {
     fn from(value: IContentPrefetcherTaskTrigger) -> Self {

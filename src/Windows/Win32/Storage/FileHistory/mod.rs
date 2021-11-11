@@ -216,8 +216,8 @@ impl ::core::convert::From<i32> for FhBackupStopReason {
 unsafe impl ::windows::runtime::Abi for FhBackupStopReason {
     type Abi = Self;
 }
-pub const FhConfigMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3980639036, 2537, 18826, [157, 246, 33, 119, 36, 76, 109, 180]);
-pub const FhReassociation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1299353141, 5882, 17184, [158, 139, 191, 215, 16, 10, 136, 70]);
+pub const FhConfigMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed43bb3c_09e9_498a_9df6_2177244c6db4);
+pub const FhReassociation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d728e35_16fa_4320_9e8b_bfd7100a8846);
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_System_WindowsProgramming`*"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
@@ -400,7 +400,7 @@ impl IFhConfigMgr {
 }
 unsafe impl ::windows::runtime::Interface for IFhConfigMgr {
     type Vtable = IFhConfigMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1784670811, 49039, 20197, [184, 195, 68, 216, 160, 215, 51, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a5fea5b_bf8f_4ee5_b8c3_44d8a0d7331c);
 }
 impl ::core::convert::From<IFhConfigMgr> for ::windows::runtime::IUnknown {
     fn from(value: IFhConfigMgr) -> Self {
@@ -483,7 +483,7 @@ impl IFhReassociation {
 }
 unsafe impl ::windows::runtime::Interface for IFhReassociation {
     type Vtable = IFhReassociation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1698996874, 63117, 18348, [145, 239, 22, 178, 179, 106, 163, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee);
 }
 impl ::core::convert::From<IFhReassociation> for ::windows::runtime::IUnknown {
     fn from(value: IFhReassociation) -> Self {
@@ -539,7 +539,7 @@ impl IFhScopeIterator {
 }
 unsafe impl ::windows::runtime::Interface for IFhScopeIterator {
     type Vtable = IFhScopeIterator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(832023502, 21290, 17606, [134, 21, 243, 102, 101, 102, 167, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3197abce_532a_44c6_8615_f3666566a720);
 }
 impl ::core::convert::From<IFhScopeIterator> for ::windows::runtime::IUnknown {
     fn from(value: IFhScopeIterator) -> Self {
@@ -590,7 +590,7 @@ impl IFhTarget {
 }
 unsafe impl ::windows::runtime::Interface for IFhTarget {
     type Vtable = IFhTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3631834621, 11181, 18007, [189, 59, 149, 103, 235, 48, 12, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd87965fd_2bad_4657_bd3b_9567eb300ced);
 }
 impl ::core::convert::From<IFhTarget> for ::windows::runtime::IUnknown {
     fn from(value: IFhTarget) -> Self {

@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const GUID_DEVINTERFACE_PWM_CONTROLLER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1619151692, 61137, 19612, [180, 156, 27, 150, 20, 97, 168, 25]);
+pub const GUID_DEVINTERFACE_PWM_CONTROLLER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60824b4c_eed1_4c9c_b49c_1b961461a819);
 #[doc = "*Required features: `Win32_Devices_Pwm`*"]
 pub const IOCTL_PWM_CONTROLLER_GET_ACTUAL_PERIOD: u32 = 262148u32;
 #[doc = "*Required features: `Win32_Devices_Pwm`*"]

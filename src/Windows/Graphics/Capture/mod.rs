@@ -42,7 +42,7 @@ unsafe impl ::windows::runtime::RuntimeType for Direct3D11CaptureFrame {
 }
 unsafe impl ::windows::runtime::Interface for Direct3D11CaptureFrame {
     type Vtable = IDirect3D11CaptureFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4199597603, 14554, 19250, [172, 243, 250, 151, 52, 173, 128, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa50c623_38da_4b32_acf3_fa9734ad800e);
 }
 impl ::windows::runtime::RuntimeName for Direct3D11CaptureFrame {
     const NAME: &'static str = "Windows.Graphics.Capture.Direct3D11CaptureFrame";
@@ -202,7 +202,7 @@ unsafe impl ::windows::runtime::RuntimeType for Direct3D11CaptureFramePool {
 }
 unsafe impl ::windows::runtime::Interface for Direct3D11CaptureFramePool {
     type Vtable = IDirect3D11CaptureFramePool_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(619408674, 6517, 16942, [130, 231, 120, 13, 189, 141, 223, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24eb6d22_1975_422e_82e7_780dbd8ddf24);
 }
 impl ::windows::runtime::RuntimeName for Direct3D11CaptureFramePool {
     const NAME: &'static str = "Windows.Graphics.Capture.Direct3D11CaptureFramePool";
@@ -389,7 +389,7 @@ unsafe impl ::windows::runtime::RuntimeType for GraphicsCaptureItem {
 }
 unsafe impl ::windows::runtime::Interface for GraphicsCaptureItem {
     type Vtable = IGraphicsCaptureItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2042886491, 12791, 20162, [164, 100, 99, 46, 245, 211, 7, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79c3f95b_31f7_4ec2_a464_632ef5d30760);
 }
 impl ::windows::runtime::RuntimeName for GraphicsCaptureItem {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCaptureItem";
@@ -463,7 +463,7 @@ unsafe impl ::windows::runtime::RuntimeType for GraphicsCapturePicker {
 }
 unsafe impl ::windows::runtime::Interface for GraphicsCapturePicker {
     type Vtable = IGraphicsCapturePicker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1511461299, 44409, 19274, [147, 54, 19, 24, 253, 222, 53, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a1711b3_ad79_4b4a_9336_1318fdde3539);
 }
 impl ::windows::runtime::RuntimeName for GraphicsCapturePicker {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCapturePicker";
@@ -569,7 +569,7 @@ unsafe impl ::windows::runtime::RuntimeType for GraphicsCaptureSession {
 }
 unsafe impl ::windows::runtime::Interface for GraphicsCaptureSession {
     type Vtable = IGraphicsCaptureSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2169389737, 63247, 19159, [147, 155, 253, 220, 198, 235, 136, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x814e42a9_f70f_4ad7_939b_fddcc6eb880d);
 }
 impl ::windows::runtime::RuntimeName for GraphicsCaptureSession {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCaptureSession";
@@ -647,7 +647,7 @@ unsafe impl ::core::marker::Sync for GraphicsCaptureSession {}
 pub struct IDirect3D11CaptureFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3D11CaptureFrame {
     type Vtable = IDirect3D11CaptureFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4199597603, 14554, 19250, [172, 243, 250, 151, 52, 173, 128, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa50c623_38da_4b32_acf3_fa9734ad800e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -669,7 +669,7 @@ pub struct IDirect3D11CaptureFrame_abi(
 pub struct IDirect3D11CaptureFramePool(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3D11CaptureFramePool {
     type Vtable = IDirect3D11CaptureFramePool_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(619408674, 6517, 16942, [130, 231, 120, 13, 189, 141, 223, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24eb6d22_1975_422e_82e7_780dbd8ddf24);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -696,7 +696,7 @@ pub struct IDirect3D11CaptureFramePool_abi(
 pub struct IDirect3D11CaptureFramePoolStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3D11CaptureFramePoolStatics {
     type Vtable = IDirect3D11CaptureFramePoolStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2005140842, 26538, 19795, [174, 84, 16, 136, 213, 168, 202, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7784056a_67aa_4d53_ae54_1088d5a8ca21);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -715,7 +715,7 @@ pub struct IDirect3D11CaptureFramePoolStatics_abi(
 pub struct IDirect3D11CaptureFramePoolStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3D11CaptureFramePoolStatics2 {
     type Vtable = IDirect3D11CaptureFramePoolStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1486557247, 27580, 24053, [169, 145, 2, 226, 139, 59, 102, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x589b103f_6bbc_5df5_a991_02e28b3b66d5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -734,7 +734,7 @@ pub struct IDirect3D11CaptureFramePoolStatics2_abi(
 pub struct IGraphicsCaptureAccessStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureAccessStatics {
     type Vtable = IGraphicsCaptureAccessStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1950274416, 1772, 20544, [165, 138, 144, 31, 15, 117, 112, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x743ed370_06ec_5040_a58a_901f0f757095);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -753,7 +753,7 @@ pub struct IGraphicsCaptureAccessStatics_abi(
 pub struct IGraphicsCaptureItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureItem {
     type Vtable = IGraphicsCaptureItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2042886491, 12791, 20162, [164, 100, 99, 46, 245, 211, 7, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79c3f95b_31f7_4ec2_a464_632ef5d30760);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -776,7 +776,7 @@ pub struct IGraphicsCaptureItem_abi(
 pub struct IGraphicsCaptureItemStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureItemStatics {
     type Vtable = IGraphicsCaptureItemStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2826878629, 17788, 22408, [171, 71, 12, 241, 211, 99, 126, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa87ebea5_457c_5788_ab47_0cf1d3637e74);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -795,7 +795,7 @@ pub struct IGraphicsCaptureItemStatics_abi(
 pub struct IGraphicsCaptureItemStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureItemStatics2 {
     type Vtable = IGraphicsCaptureItemStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(999468233, 58756, 22626, [191, 92, 156, 49, 108, 109, 45, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b92acc9_e584_5862_bf5c_9c316c6d2dbb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -815,7 +815,7 @@ pub struct IGraphicsCaptureItemStatics2_abi(
 pub struct IGraphicsCapturePicker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCapturePicker {
     type Vtable = IGraphicsCapturePicker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1511461299, 44409, 19274, [147, 54, 19, 24, 253, 222, 53, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a1711b3_ad79_4b4a_9336_1318fdde3539);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -834,7 +834,7 @@ pub struct IGraphicsCapturePicker_abi(
 pub struct IGraphicsCaptureSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureSession {
     type Vtable = IGraphicsCaptureSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2169389737, 63247, 19159, [147, 155, 253, 220, 198, 235, 136, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x814e42a9_f70f_4ad7_939b_fddcc6eb880d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -852,7 +852,7 @@ pub struct IGraphicsCaptureSession_abi(
 pub struct IGraphicsCaptureSession2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureSession2 {
     type Vtable = IGraphicsCaptureSession2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(741977664, 32046, 20548, [128, 78, 139, 103, 153, 212, 207, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c39ae40_7d2e_5044_804e_8b6799d4cf9e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -871,7 +871,7 @@ pub struct IGraphicsCaptureSession2_abi(
 pub struct IGraphicsCaptureSession3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureSession3 {
     type Vtable = IGraphicsCaptureSession3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4073576806, 8878, 24225, [149, 150, 58, 40, 147, 68, 195, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2cdd966_22ae_5ea1_9596_3a289344c3be);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -890,7 +890,7 @@ pub struct IGraphicsCaptureSession3_abi(
 pub struct IGraphicsCaptureSessionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureSessionStatics {
     type Vtable = IGraphicsCaptureSessionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(572826944, 22900, 18858, [178, 50, 8, 130, 83, 111, 76, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2224a540_5974_49aa_b232_0882536f4cb5);
 }
 #[repr(C)]
 #[doc(hidden)]

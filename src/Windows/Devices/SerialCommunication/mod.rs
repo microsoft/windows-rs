@@ -18,7 +18,7 @@ unsafe impl ::windows::runtime::RuntimeType for ErrorReceivedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ErrorReceivedEventArgs {
     type Vtable = IErrorReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4240883545, 4739, 19850, [191, 223, 86, 107, 51, 221, 178, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcc6bf59_1283_4d8a_bfdf_566b33ddb28f);
 }
 impl ::windows::runtime::RuntimeName for ErrorReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.ErrorReceivedEventArgs";
@@ -70,7 +70,7 @@ unsafe impl ::core::marker::Sync for ErrorReceivedEventArgs {}
 pub struct IErrorReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IErrorReceivedEventArgs {
     type Vtable = IErrorReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4240883545, 4739, 19850, [191, 223, 86, 107, 51, 221, 178, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcc6bf59_1283_4d8a_bfdf_566b33ddb28f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -88,7 +88,7 @@ pub struct IErrorReceivedEventArgs_abi(
 pub struct IPinChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPinChangedEventArgs {
     type Vtable = IPinChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2730433968, 64668, 17927, [147, 208, 250, 94, 131, 67, 238, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2bf1db0_fc9c_4607_93d0_fa5e8343ee22);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -106,7 +106,7 @@ pub struct IPinChangedEventArgs_abi(
 pub struct ISerialDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISerialDevice {
     type Vtable = ISerialDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3783773382, 8720, 16719, [182, 90, 245, 85, 58, 3, 55, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe187ccc6_2210_414f_b65a_f5553a03372a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -166,7 +166,7 @@ pub struct ISerialDevice_abi(
 pub struct ISerialDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISerialDeviceStatics {
     type Vtable = ISerialDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(93080176, 2102, 18835, [174, 26, 182, 26, 227, 190, 5, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x058c4a70_0836_4993_ae1a_b61ae3be056b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -202,7 +202,7 @@ unsafe impl ::windows::runtime::RuntimeType for PinChangedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for PinChangedEventArgs {
     type Vtable = IPinChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2730433968, 64668, 17927, [147, 208, 250, 94, 131, 67, 238, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2bf1db0_fc9c_4607_93d0_fa5e8343ee22);
 }
 impl ::windows::runtime::RuntimeName for PinChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.PinChangedEventArgs";
@@ -537,7 +537,7 @@ unsafe impl ::windows::runtime::RuntimeType for SerialDevice {
 }
 unsafe impl ::windows::runtime::Interface for SerialDevice {
     type Vtable = ISerialDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3783773382, 8720, 16719, [182, 90, 245, 85, 58, 3, 55, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe187ccc6_2210_414f_b65a_f5553a03372a);
 }
 impl ::windows::runtime::RuntimeName for SerialDevice {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.SerialDevice";

@@ -17,7 +17,7 @@ impl IPdfRendererNative {
 }
 unsafe impl ::windows::runtime::Interface for IPdfRendererNative {
     type Vtable = IPdfRendererNative_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2107493777, 53879, 18759, [133, 39, 7, 160, 218, 237, 169, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d9dcd91_d277_4947_8527_07a0daeda94a);
 }
 impl ::core::convert::From<IPdfRendererNative> for ::windows::runtime::IUnknown {
     fn from(value: IPdfRendererNative) -> Self {

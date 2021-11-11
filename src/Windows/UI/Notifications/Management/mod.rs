@@ -4,7 +4,7 @@
 pub struct IUserNotificationListener(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserNotificationListener {
     type Vtable = IUserNotificationListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1649753665, 35334, 19695, [130, 21, 96, 51, 165, 190, 75, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62553e41_8a06_4cef_8215_6033a5be4b03);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -33,7 +33,7 @@ pub struct IUserNotificationListener_abi(
 pub struct IUserNotificationListenerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserNotificationListenerStatics {
     type Vtable = IUserNotificationListenerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4284556239, 17286, 19107, [183, 61, 184, 4, 229, 182, 59, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff6123cf_4386_4aa3_b73d_b804e5b63b23);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -127,7 +127,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserNotificationListener {
 }
 unsafe impl ::windows::runtime::Interface for UserNotificationListener {
     type Vtable = IUserNotificationListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1649753665, 35334, 19695, [130, 21, 96, 51, 165, 190, 75, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62553e41_8a06_4cef_8215_6033a5be4b03);
 }
 impl ::windows::runtime::RuntimeName for UserNotificationListener {
     const NAME: &'static str = "Windows.UI.Notifications.Management.UserNotificationListener";

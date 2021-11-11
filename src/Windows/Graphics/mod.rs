@@ -86,7 +86,7 @@ impl ::windows::runtime::DefaultType for DisplayId {
 pub struct IGeometrySource2D(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeometrySource2D {
     type Vtable = IGeometrySource2D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3405740290, 26380, 16769, [166, 36, 218, 151, 114, 3, 184, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcaff7902_670c_4181_a624_da977203b845);
 }
 impl IGeometrySource2D {}
 unsafe impl ::windows::runtime::RuntimeType for IGeometrySource2D {

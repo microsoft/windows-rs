@@ -1,273 +1,273 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Graphics_Imaging_D2D")]
 pub mod D2D;
-pub const CATID_WICBitmapDecoders: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2128177207, 38640, 18450, [178, 17, 241, 60, 36, 17, 126, 211]);
-pub const CATID_WICBitmapEncoders: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2893378198, 13602, 19985, [152, 98, 193, 123, 229, 161, 118, 126]);
-pub const CATID_WICFormatConverters: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2016799464, 48916, 18897, [147, 206, 83, 58, 64, 123, 34, 72]);
-pub const CATID_WICMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(95392984, 29044, 19666, [190, 74, 65, 36, 184, 14, 228, 184]);
-pub const CATID_WICMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2883828132, 9597, 19351, [189, 26, 41, 74, 244, 150, 34, 46]);
-pub const CATID_WICPixelFormats: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(726066959, 52647, 18238, [137, 246, 220, 150, 48, 162, 57, 11]);
-pub const CLSID_WIC8BIMIPTCDigestMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(41967390, 54698, 16731, [130, 197, 97, 192, 51, 169, 136, 166]);
-pub const CLSID_WIC8BIMIPTCDigestMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(766895659, 3431, 18783, [143, 157, 194, 240, 24, 134, 71, 172]);
-pub const CLSID_WIC8BIMIPTCMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1074828, 2049, 19878, [164, 164, 130, 101, 34, 182, 210, 143]);
-pub const CLSID_WIC8BIMIPTCMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1081894, 60993, 17570, [158, 156, 75, 228, 213, 177, 210, 205]);
-pub const CLSID_WIC8BIMResolutionInfoMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1476727674, 58184, 20348, [179, 204, 109, 185, 150, 90, 5, 153]);
-pub const CLSID_WIC8BIMResolutionInfoMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1341324814, 59210, 19313, [152, 196, 171, 125, 193, 103, 7, 186]);
-pub const CLSID_WICAPEMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(392673594, 45089, 17642, [146, 15, 134, 60, 17, 244, 247, 104]);
-pub const CLSID_WICAPEMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3178160074, 10384, 18479, [178, 51, 141, 115, 57, 161, 207, 141]);
-pub const CLSID_WICAdngDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2552075281, 37022, 17063, [143, 93, 167, 71, 255, 5, 46, 219]);
-pub const CLSID_WICApp0MetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1127369523, 42895, 18447, [145, 17, 150, 56, 170, 204, 200, 50]);
-pub const CLSID_WICApp0MetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4089852834, 18120, 18830, [143, 187, 204, 111, 114, 27, 188, 222]);
-pub const CLSID_WICApp13MetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860399696, 34380, 17924, [188, 4, 139, 11, 118, 230, 55, 246]);
-pub const CLSID_WICApp13MetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2065279257, 43478, 18917, [189, 69, 2, 195, 78, 78, 76, 213]);
-pub const CLSID_WICApp1MetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3722654995, 30542, 19405, [174, 121, 2, 244, 173, 254, 98, 252]);
-pub const CLSID_WICApp1MetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3996541033, 6194, 16911, [179, 129, 4, 121, 173, 6, 111, 25]);
-pub const CLSID_WICBmpDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1799757922, 31935, 16397, [159, 219, 129, 61, 209, 15, 39, 120]);
-pub const CLSID_WICBmpEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1774095284, 54893, 18376, [134, 90, 237, 21, 137, 67, 55, 130]);
-pub const CLSID_WICDdsDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421385631, 41793, 17053, [158, 144, 238, 67, 124, 248, 12, 115]);
-pub const CLSID_WICDdsEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2786975380, 26318, 19137, [136, 27, 113, 104, 5, 136, 137, 94]);
-pub const CLSID_WICDdsMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(661424330, 30003, 19078, [182, 118, 102, 179, 96, 128, 212, 132]);
-pub const CLSID_WICDdsMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4251487165, 12781, 19895, [167, 35, 147, 73, 39, 211, 131, 103]);
-pub const CLSID_WICDefaultFormatConverter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(440340956, 46356, 19223, [140, 95, 33, 84, 81, 56, 82, 241]);
-pub const CLSID_WICExifMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3644864608, 10623, 19017, [191, 155, 119, 137, 129, 80, 164, 66]);
-pub const CLSID_WICExifMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3382791386, 49977, 17931, [144, 120, 212, 222, 188, 250, 190, 145]);
-pub const CLSID_WICFormatConverterHighColor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2893403220, 40759, 18680, [185, 114, 78, 25, 188, 133, 96, 17]);
-pub const CLSID_WICFormatConverterNChannel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3246173106, 54435, 18391, [165, 87, 51, 155, 46, 251, 212, 241]);
-pub const CLSID_WICFormatConverterWMPhoto: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2629113643, 54784, 18106, [171, 119, 119, 187, 126, 58, 0, 217]);
-pub const CLSID_WICGCEMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3106813021, 62765, 16883, [181, 98, 8, 27, 199, 114, 227, 185]);
-pub const CLSID_WICGCEMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2945834102, 5810, 18420, [179, 234, 60, 49, 121, 102, 147, 231]);
-pub const CLSID_WICGifCommentMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(844463419, 27100, 20373, [131, 110, 245, 151, 43, 47, 97, 89]);
-pub const CLSID_WICGifCommentMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2686949372, 50350, 16780, [175, 149, 230, 55, 199, 234, 210, 161]);
-pub const CLSID_WICGifDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(941480508, 40169, 18484, [162, 62, 31, 152, 248, 252, 82, 190]);
-pub const CLSID_WICGifEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(290411928, 2850, 16544, [134, 161, 200, 62, 164, 149, 173, 189]);
-pub const CLSID_WICGpsMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(915896587, 8763, 18510, [153, 37, 196, 134, 146, 24, 241, 122]);
-pub const CLSID_WICGpsMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3414954980, 25269, 19606, [164, 139, 107, 166, 172, 227, 156, 118]);
-pub const CLSID_WICHeifDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3919882250, 17662, 19940, [137, 113, 113, 80, 177, 10, 81, 153]);
-pub const CLSID_WICHeifEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(230608577, 40627, 18528, [156, 111, 221, 190, 134, 99, 69, 117]);
-pub const CLSID_WICHeifHDRMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(607706685, 38105, 19432, [132, 168, 77, 233, 90, 87, 94, 117]);
-pub const CLSID_WICHeifMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2900229183, 34284, 16828, [189, 239, 27, 194, 98, 228, 219, 5]);
-pub const CLSID_WICHeifMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(988044921, 16572, 17409, [172, 229, 221, 60, 177, 110, 106, 254]);
-pub const CLSID_WICIMDMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1950851687, 21, 17096, [168, 241, 251, 59, 148, 198, 131, 97]);
-pub const CLSID_WICIMDMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2357790495, 17710, 20117, [150, 130, 157, 16, 36, 98, 113, 114]);
-pub const CLSID_WICIPTCMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(50407769, 62710, 17623, [157, 9, 218, 160, 135, 169, 219, 87]);
-pub const CLSID_WICIPTCMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(306819596, 24016, 17662, [176, 179, 143, 146, 200, 230, 208, 128]);
-pub const CLSID_WICIRBMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3571241943, 46274, 18393, [166, 191, 184, 155, 163, 150, 164, 163]);
-pub const CLSID_WICIRBMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1549539637, 565, 17460, [128, 188, 37, 27, 193, 236, 57, 198]);
-pub const CLSID_WICIcoDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3323722975, 11791, 19117, [168, 215, 224, 107, 175, 235, 205, 254]);
-pub const CLSID_WICIfdMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2408662614, 40202, 20146, [144, 25, 11, 249, 109, 138, 158, 230]);
-pub const CLSID_WICIfdMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2985032744, 51645, 18338, [141, 51, 185, 72, 118, 151, 119, 167]);
-pub const CLSID_WICImagingCategories: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4209234816, 65188, 17955, [140, 117, 198, 182, 17, 16, 182, 129]);
-pub const CLSID_WICImagingFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3402297954, 37744, 17941, [161, 59, 159, 85, 57, 218, 76, 10]);
-pub const CLSID_WICImagingFactory1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3402297954, 37744, 17941, [161, 59, 159, 85, 57, 218, 76, 10]);
-pub const CLSID_WICImagingFactory2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(830277352, 24356, 17213, [189, 247, 121, 206, 104, 216, 171, 194]);
-pub const CLSID_WICInteropMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3049830552, 116, 17823, [183, 0, 134, 13, 70, 81, 234, 20]);
-pub const CLSID_WICInteropMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(305055301, 52606, 17624, [177, 134, 44, 140, 32, 195, 181, 15]);
-pub const CLSID_WICJpegChrominanceMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1353814091, 62095, 17780, [147, 244, 11, 173, 232, 44, 105, 233]);
-pub const CLSID_WICJpegChrominanceMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1073047280, 28267, 18900, [150, 230, 183, 136, 134, 105, 44, 98]);
-pub const CLSID_WICJpegCommentMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2674275452, 24772, 19533, [171, 88, 210, 53, 134, 133, 246, 7]);
-pub const CLSID_WICJpegCommentMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3849528175, 21937, 20186, [129, 234, 159, 101, 219, 2, 144, 211]);
-pub const CLSID_WICJpegDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2488706176, 59531, 17386, [158, 115, 11, 45, 155, 113, 177, 202]);
-pub const CLSID_WICJpegEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(439678401, 19034, 18140, [182, 68, 31, 69, 103, 231, 166, 118]);
-pub const CLSID_WICJpegLuminanceMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(896479112, 1446, 18216, [185, 164, 27, 251, 206, 4, 216, 56]);
-pub const CLSID_WICJpegLuminanceMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(492321468, 35342, 18007, [153, 130, 163, 128, 202, 88, 251, 75]);
-pub const CLSID_WICJpegQualcommPhoneEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1760386146, 62772, 18809, [178, 179, 104, 106, 18, 178, 179, 76]);
-pub const CLSID_WICLSDMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1090979731, 23012, 18330, [161, 247, 149, 74, 220, 46, 245, 252]);
-pub const CLSID_WICLSDMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1941977063, 58841, 18772, [135, 106, 109, 168, 29, 110, 87, 104]);
-pub const CLSID_WICPlanarFormatConverter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(406926008, 13048, 18308, [145, 49, 221, 114, 36, 178, 52, 56]);
-pub const CLSID_WICPngBkgdMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(216507558, 1000, 19040, [157, 21, 40, 46, 243, 46, 231, 218]);
-pub const CLSID_WICPngBkgdMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1759769341, 12718, 17473, [187, 106, 253, 112, 71, 82, 95, 144]);
-pub const CLSID_WICPngChrmMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4178272054, 13947, 16426, [157, 209, 188, 15, 213, 157, 143, 98]);
-pub const CLSID_WICPngChrmMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3795641323, 22024, 20099, [188, 239, 39, 177, 152, 126, 81, 215]);
-pub const CLSID_WICPngDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(949920123, 20600, 19678, [182, 239, 37, 193, 81, 117, 199, 81]);
-pub const CLSID_WICPngDecoder1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(949920123, 20600, 19678, [182, 239, 37, 193, 81, 117, 199, 81]);
-pub const CLSID_WICPngDecoder2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3759707227, 43654, 16392, [155, 212, 103, 119, 161, 228, 12, 17]);
-pub const CLSID_WICPngEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(664050025, 34666, 16855, [148, 71, 86, 143, 106, 53, 164, 220]);
-pub const CLSID_WICPngGamaMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(915589689, 57474, 17232, [158, 31, 55, 4, 203, 8, 60, 213]);
-pub const CLSID_WICPngGamaMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4278414611, 23883, 18141, [177, 15, 16, 102, 147, 217, 254, 79]);
-pub const CLSID_WICPngHistMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2272922551, 41747, 17553, [135, 181, 46, 109, 5, 148, 245, 32]);
-pub const CLSID_WICPngHistMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2315511625, 26414, 17518, [191, 31, 44, 17, 210, 51, 182, 255]);
-pub const CLSID_WICPngIccpMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4124304955, 51983, 17960, [164, 120, 109, 130, 68, 190, 54, 177]);
-pub const CLSID_WICPngIccpMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(375856735, 3302, 19652, [151, 104, 232, 159, 229, 1, 138, 222]);
-pub const CLSID_WICPngItxtMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2864689914, 15902, 19087, [137, 119, 85, 86, 251, 148, 234, 35]);
-pub const CLSID_WICPngItxtMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(830969625, 59217, 19960, [152, 29, 104, 223, 246, 119, 4, 237]);
-pub const CLSID_WICPngSrgbMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4215289356, 21630, 18774, [163, 185, 212, 65, 136, 89, 186, 102]);
-pub const CLSID_WICPngSrgbMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2800629190, 34796, 18399, [159, 34, 29, 90, 173, 132, 12, 130]);
-pub const CLSID_WICPngTextMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1264168908, 47299, 16522, [182, 112, 137, 229, 250, 182, 253, 167]);
-pub const CLSID_WICPngTextMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3052122041, 9534, 19058, [167, 68, 7, 98, 210, 104, 86, 131]);
-pub const CLSID_WICPngTimeMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3645824770, 61413, 20237, [133, 200, 245, 166, 139, 48, 0, 177]);
-pub const CLSID_WICPngTimeMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(448234496, 46499, 19857, [138, 206, 51, 252, 209, 73, 155, 230]);
-pub const CLSID_WICRAWDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1100240642, 33538, 17574, [148, 69, 172, 152, 232, 175, 160, 134]);
-pub const CLSID_WICSubIfdMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1356082953, 60625, 19265, [182, 93, 218, 31, 218, 167, 86, 99]);
-pub const CLSID_WICSubIfdMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2329826182, 36507, 20300, [172, 242, 240, 0, 135, 6, 178, 56]);
-pub const CLSID_WICThumbnailMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4211157337, 62710, 17623, [157, 9, 218, 160, 135, 169, 219, 87]);
-pub const CLSID_WICThumbnailMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3494490636, 24016, 17662, [176, 179, 143, 146, 200, 230, 208, 128]);
-pub const CLSID_WICTiffDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3041822169, 65059, 18847, [139, 136, 106, 206, 167, 19, 117, 43]);
-pub const CLSID_WICTiffEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(20037136, 8193, 19551, [169, 176, 204, 136, 250, 182, 76, 232]);
-pub const CLSID_WICUnknownMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1771521474, 20582, 19330, [168, 227, 212, 4, 120, 219, 236, 140]);
-pub const CLSID_WICUnknownMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2694630022, 10170, 20281, [144, 83, 18, 31, 164, 220, 8, 252]);
-pub const CLSID_WICWebpAnimMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(124754193, 41800, 18012, [168, 7, 162, 82, 243, 242, 211, 222]);
-pub const CLSID_WICWebpAnmfMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2241923843, 51702, 17311, [190, 94, 192, 251, 239, 103, 128, 124]);
-pub const CLSID_WICWebpDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1989404806, 20937, 16496, [132, 25, 159, 112, 115, 142, 200, 250]);
-pub const CLSID_WICWmpDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2725047350, 9036, 18768, [174, 22, 227, 74, 172, 231, 29, 13]);
-pub const CLSID_WICWmpEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2890720203, 57793, 17613, [130, 21, 90, 22, 101, 80, 158, 194]);
-pub const CLSID_WICXMPAltMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2861882562, 47280, 18584, [184, 53, 0, 10, 171, 215, 67, 147]);
-pub const CLSID_WICXMPAltMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(124529260, 63375, 19526, [167, 35, 53, 131, 231, 8, 118, 234]);
-pub const CLSID_WICXMPBagMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3890715184, 20268, 20395, [141, 0, 57, 79, 45, 107, 190, 190]);
-pub const CLSID_WICXMPBagMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3984731276, 54974, 17153, [166, 49, 14, 20, 22, 186, 210, 143]);
-pub const CLSID_WICXMPMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1924539615, 44561, 18760, [166, 92, 53, 30, 176, 130, 148, 25]);
-pub const CLSID_WICXMPMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(392552782, 7124, 17966, [182, 177, 89, 11, 241, 38, 42, 198]);
-pub const CLSID_WICXMPSeqMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2131945299, 64625, 17367, [165, 29, 146, 243, 89, 119, 171, 181]);
-pub const CLSID_WICXMPSeqMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1835586014, 54322, 19215, [146, 58, 9, 17, 131, 169, 189, 167]);
-pub const CLSID_WICXMPStructMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(28904858, 33289, 18423, [156, 82, 225, 36, 75, 245, 12, 237]);
-pub const CLSID_WICXMPStructMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(583147411, 32219, 16668, [155, 23, 197, 183, 189, 6, 74, 188]);
+pub const CATID_WICBitmapDecoders: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ed96837_96f0_4812_b211_f13c24117ed3);
+pub const CATID_WICBitmapEncoders: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac757296_3522_4e11_9862_c17be5a1767e);
+pub const CATID_WICFormatConverters: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7835eae8_bf14_49d1_93ce_533a407b2248);
+pub const CATID_WICMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05af94d8_7174_4cd2_be4a_4124b80ee4b8);
+pub const CATID_WICMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xabe3b9a4_257d_4b97_bd1a_294af496222e);
+pub const CATID_WICPixelFormats: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b46e70f_cda7_473e_89f6_dc9630a2390b);
+pub const CLSID_WIC8BIMIPTCDigestMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02805f1e_d5aa_415b_82c5_61c033a988a6);
+pub const CLSID_WIC8BIMIPTCDigestMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2db5e62b_0d67_495f_8f9d_c2f0188647ac);
+pub const CLSID_WIC8BIMIPTCMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0010668c_0801_4da6_a4a4_826522b6d28f);
+pub const CLSID_WIC8BIMIPTCMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00108226_ee41_44a2_9e9c_4be4d5b1d2cd);
+pub const CLSID_WIC8BIMResolutionInfoMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5805137a_e348_4f7c_b3cc_6db9965a0599);
+pub const CLSID_WIC8BIMResolutionInfoMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ff2fe0e_e74a_4b71_98c4_ab7dc16707ba);
+pub const CLSID_WICAPEMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1767b93a_b021_44ea_920f_863c11f4f768);
+pub const CLSID_WICAPEMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd6edfca_2890_482f_b233_8d7339a1cf8d);
+pub const CLSID_WICAdngDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x981d9411_909e_42a7_8f5d_a747ff052edb);
+pub const CLSID_WICApp0MetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43324b33_a78f_480f_9111_9638aaccc832);
+pub const CLSID_WICApp0MetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3c633a2_46c8_498e_8fbb_cc6f721bbcde);
+pub const CLSID_WICApp13MetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa7e3c50_864c_4604_bc04_8b0b76e637f6);
+pub const CLSID_WICApp13MetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b19a919_a9d6_49e5_bd45_02c34e4e4cd5);
+pub const CLSID_WICApp1MetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdde33513_774e_4bcd_ae79_02f4adfe62fc);
+pub const CLSID_WICApp1MetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee366069_1832_420f_b381_0479ad066f19);
+pub const CLSID_WICBmpDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b462062_7cbf_400d_9fdb_813dd10f2778);
+pub const CLSID_WICBmpEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69be8bb4_d66d_47c8_865a_ed1589433782);
+pub const CLSID_WICDdsDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9053699f_a341_429d_9e90_ee437cf80c73);
+pub const CLSID_WICDdsEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa61dde94_66ce_4ac1_881b_71680588895e);
+pub const CLSID_WICDdsMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x276c88ca_7533_4a86_b676_66b36080d484);
+pub const CLSID_WICDdsMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd688bbd_31ed_4db7_a723_934927d38367);
+pub const CLSID_WICDefaultFormatConverter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a3f11dc_b514_4b17_8c5f_2154513852f1);
+pub const CLSID_WICExifMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9403860_297f_4a49_bf9b_77898150a442);
+pub const CLSID_WICExifMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9a14cda_c339_460b_9078_d4debcfabe91);
+pub const CLSID_WICFormatConverterHighColor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac75d454_9f37_48f8_b972_4e19bc856011);
+pub const CLSID_WICFormatConverterNChannel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc17cabb2_d4a3_47d7_a557_339b2efbd4f1);
+pub const CLSID_WICFormatConverterWMPhoto: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9cb5172b_d600_46ba_ab77_77bb7e3a00d9);
+pub const CLSID_WICGCEMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb92e345d_f52d_41f3_b562_081bc772e3b9);
+pub const CLSID_WICGCEMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf95dc76_16b2_47f4_b3ea_3c31796693e7);
+pub const CLSID_WICGifCommentMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32557d3b_69dc_4f95_836e_f5972b2f6159);
+pub const CLSID_WICGifCommentMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa02797fc_c4ae_418c_af95_e637c7ead2a1);
+pub const CLSID_WICGifDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x381dda3c_9ce9_4834_a23e_1f98f8fc52be);
+pub const CLSID_WICGifEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x114f5598_0b22_40a0_86a1_c83ea495adbd);
+pub const CLSID_WICGpsMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3697790b_223b_484e_9925_c4869218f17a);
+pub const CLSID_WICGpsMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb8c13e4_62b5_4c96_a48b_6ba6ace39c76);
+pub const CLSID_WICHeifDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9a4a80a_44fe_4de4_8971_7150b10a5199);
+pub const CLSID_WICHeifEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0dbecec1_9eb3_4860_9c6f_ddbe86634575);
+pub const CLSID_WICHeifHDRMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2438de3d_94d9_4be8_84a8_4de95a575e75);
+pub const CLSID_WICHeifMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xacddfc3f_85ec_41bc_bdef_1bc262e4db05);
+pub const CLSID_WICHeifMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ae45e79_40bc_4401_ace5_dd3cb16e6afe);
+pub const CLSID_WICIMDMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7447a267_0015_42c8_a8f1_fb3b94c68361);
+pub const CLSID_WICIMDMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c89071f_452e_4e95_9682_9d1024627172);
+pub const CLSID_WICIPTCMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03012959_f4f6_44d7_9d09_daa087a9db57);
+pub const CLSID_WICIPTCMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1249b20c_5dd0_44fe_b0b3_8f92c8e6d080);
+pub const CLSID_WICIRBMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4dcd3d7_b4c2_47d9_a6bf_b89ba396a4a3);
+pub const CLSID_WICIRBMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c5c1935_0235_4434_80bc_251bc1ec39c6);
+pub const CLSID_WICIcoDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc61bfcdf_2e0f_4aad_a8d7_e06bafebcdfe);
+pub const CLSID_WICIfdMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f914656_9d0a_4eb2_9019_0bf96d8a9ee6);
+pub const CLSID_WICIfdMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1ebfc28_c9bd_47a2_8d33_b948769777a7);
+pub const CLSID_WICImagingCategories: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfae3d380_fea4_4623_8c75_c6b61110b681);
+pub const CLSID_WICImagingFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcacaf262_9370_4615_a13b_9f5539da4c0a);
+pub const CLSID_WICImagingFactory1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcacaf262_9370_4615_a13b_9f5539da4c0a);
+pub const CLSID_WICImagingFactory2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x317d06e8_5f24_433d_bdf7_79ce68d8abc2);
+pub const CLSID_WICInteropMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5c8b898_0074_459f_b700_860d4651ea14);
+pub const CLSID_WICInteropMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x122ec645_cd7e_44d8_b186_2c8c20c3b50f);
+pub const CLSID_WICJpegChrominanceMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50b1904b_f28f_4574_93f4_0bade82c69e9);
+pub const CLSID_WICJpegChrominanceMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ff566f0_6e6b_49d4_96e6_b78886692c62);
+pub const CLSID_WICJpegCommentMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f66347c_60c4_4c4d_ab58_d2358685f607);
+pub const CLSID_WICJpegCommentMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe573236f_55b1_4eda_81ea_9f65db0290d3);
+pub const CLSID_WICJpegDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9456a480_e88b_43ea_9e73_0b2d9b71b1ca);
+pub const CLSID_WICJpegEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a34f5c1_4a5a_46dc_b644_1f4567e7a676);
+pub const CLSID_WICJpegLuminanceMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x356f2f88_05a6_4728_b9a4_1bfbce04d838);
+pub const CLSID_WICJpegLuminanceMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d583abc_8a0e_4657_9982_a380ca58fb4b);
+pub const CLSID_WICJpegQualcommPhoneEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68ed5c62_f534_4979_b2b3_686a12b2b34c);
+pub const CLSID_WICLSDMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41070793_59e4_479a_a1f7_954adc2ef5fc);
+pub const CLSID_WICLSDMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73c037e7_e5d9_4954_876a_6da81d6e5768);
+pub const CLSID_WICPlanarFormatConverter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x184132b8_32f8_4784_9131_dd7224b23438);
+pub const CLSID_WICPngBkgdMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ce7a4a6_03e8_4a60_9d15_282ef32ee7da);
+pub const CLSID_WICPngBkgdMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68e3f2fd_31ae_4441_bb6a_fd7047525f90);
+pub const CLSID_WICPngChrmMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf90b5f36_367b_402a_9dd1_bc0fd59d8f62);
+pub const CLSID_WICPngChrmMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe23ce3eb_5608_4e83_bcef_27b1987e51d7);
+pub const CLSID_WICPngDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x389ea17b_5078_4cde_b6ef_25c15175c751);
+pub const CLSID_WICPngDecoder1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x389ea17b_5078_4cde_b6ef_25c15175c751);
+pub const CLSID_WICPngDecoder2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe018945b_aa86_4008_9bd4_6777a1e40c11);
+pub const CLSID_WICPngEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27949969_876a_41d7_9447_568f6a35a4dc);
+pub const CLSID_WICPngGamaMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3692ca39_e082_4350_9e1f_3704cb083cd5);
+pub const CLSID_WICPngGamaMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff036d13_5d4b_46dd_b10f_106693d9fe4f);
+pub const CLSID_WICPngHistMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x877a0bb7_a313_4491_87b5_2e6d0594f520);
+pub const CLSID_WICPngHistMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a03e749_672e_446e_bf1f_2c11d233b6ff);
+pub const CLSID_WICPngIccpMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5d3e63b_cb0f_4628_a478_6d8244be36b1);
+pub const CLSID_WICPngIccpMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16671e5f_0ce6_4cc4_9768_e89fe5018ade);
+pub const CLSID_WICPngItxtMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaabfb2fa_3e1e_4a8f_8977_5556fb94ea23);
+pub const CLSID_WICPngItxtMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31879719_e751_4df8_981d_68dff67704ed);
+pub const CLSID_WICPngSrgbMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb40360c_547e_4956_a3b9_d4418859ba66);
+pub const CLSID_WICPngSrgbMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6ee35c6_87ec_47df_9f22_1d5aad840c82);
+pub const CLSID_WICPngTextMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b59afcc_b8c3_408a_b670_89e5fab6fda7);
+pub const CLSID_WICPngTextMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5ebafb9_253e_4a72_a744_0762d2685683);
+pub const CLSID_WICPngTimeMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd94edf02_efe5_4f0d_85c8_f5a68b3000b1);
+pub const CLSID_WICPngTimeMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ab78400_b5a3_4d91_8ace_33fcd1499be6);
+pub const CLSID_WICRAWDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41945702_8302_44a6_9445_ac98e8afa086);
+pub const CLSID_WICSubIfdMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50d42f09_ecd1_4b41_b65d_da1fdaa75663);
+pub const CLSID_WICSubIfdMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ade5386_8e9b_4f4c_acf2_f0008706b238);
+pub const CLSID_WICThumbnailMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb012959_f4f6_44d7_9d09_daa087a9db57);
+pub const CLSID_WICThumbnailMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd049b20c_5dd0_44fe_b0b3_8f92c8e6d080);
+pub const CLSID_WICTiffDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb54e85d9_fe23_499f_8b88_6acea713752b);
+pub const CLSID_WICTiffEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0131be10_2001_4c5f_a9b0_cc88fab64ce8);
+pub const CLSID_WICUnknownMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x699745c2_5066_4b82_a8e3_d40478dbec8c);
+pub const CLSID_WICUnknownMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa09cca86_27ba_4f39_9053_121fa4dc08fc);
+pub const CLSID_WICWebpAnimMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x076f9911_a348_465c_a807_a252f3f2d3de);
+pub const CLSID_WICWebpAnmfMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85a10b03_c9f6_439f_be5e_c0fbef67807c);
+pub const CLSID_WICWebpDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7693e886_51c9_4070_8419_9f70738ec8fa);
+pub const CLSID_WICWmpDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa26cec36_234c_4950_ae16_e34aace71d0d);
+pub const CLSID_WICWmpEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac4ce3cb_e1c1_44cd_8215_5a1665509ec2);
+pub const CLSID_WICXMPAltMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa94dcc2_b8b0_4898_b835_000aabd74393);
+pub const CLSID_WICXMPAltMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x076c2a6c_f78f_4c46_a723_3583e70876ea);
+pub const CLSID_WICXMPBagMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7e79a30_4f2c_4fab_8d00_394f2d6bbebe);
+pub const CLSID_WICXMPBagMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed822c8c_d6be_4301_a631_0e1416bad28f);
+pub const CLSID_WICXMPMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72b624df_ae11_4948_a65c_351eb0829419);
+pub const CLSID_WICXMPMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1765e14e_1bd4_462e_b6b1_590bf1262ac6);
+pub const CLSID_WICXMPSeqMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f12e753_fc71_43d7_a51d_92f35977abb5);
+pub const CLSID_WICXMPSeqMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d68d1de_d432_4b0f_923a_091183a9bda7);
+pub const CLSID_WICXMPStructMetadataReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01b90d9a_8209_47f7_9c52_e1244bf50ced);
+pub const CLSID_WICXMPStructMetadataWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22c21f93_7ddb_411c_9b17_c5b7bd064abc);
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const FACILITY_WINCODEC_ERR: u32 = 2200u32;
-pub const GUID_ContainerFormatAdng: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4093603085, 14528, 16836, [177, 254, 31, 56, 36, 241, 123, 132]);
-pub const GUID_ContainerFormatBmp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(183621758, 64766, 16776, [189, 235, 167, 144, 100, 113, 203, 227]);
-pub const GUID_ContainerFormatDds: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2573716373, 11909, 19144, [140, 162, 131, 215, 204, 212, 37, 201]);
-pub const GUID_ContainerFormatGif: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(529159681, 32077, 19645, [156, 130, 27, 200, 212, 238, 185, 165]);
-pub const GUID_ContainerFormatHeif: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3789956385, 26503, 16475, [163, 57, 80, 7, 21, 181, 118, 63]);
-pub const GUID_ContainerFormatIco: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2745721028, 13199, 19479, [145, 154, 251, 164, 181, 98, 143, 33]);
-pub const GUID_ContainerFormatJpeg: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(434415018, 22114, 20421, [160, 192, 23, 88, 2, 142, 16, 87]);
-pub const GUID_ContainerFormatPng: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461175540, 28991, 18236, [187, 205, 97, 55, 66, 95, 174, 175]);
-pub const GUID_ContainerFormatRaw: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4271492704, 61852, 17212, [163, 174, 0, 172, 239, 169, 202, 33]);
-pub const GUID_ContainerFormatTiff: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(373017648, 58089, 20235, [150, 29, 163, 233, 253, 183, 136, 163]);
-pub const GUID_ContainerFormatWebp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3767840994, 26610, 17843, [176, 234, 17, 83, 55, 202, 124, 243]);
-pub const GUID_ContainerFormatWmp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1470332074, 13946, 17728, [145, 107, 241, 131, 197, 9, 58, 75]);
-pub const GUID_MetadataFormat8BIMIPTC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1070732, 2130, 20074, [177, 145, 92, 51, 172, 91, 4, 48]);
-pub const GUID_MetadataFormat8BIMIPTCDigest: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(480453253, 40141, 18310, [139, 216, 121, 83, 157, 182, 160, 6]);
-pub const GUID_MetadataFormat8BIMResolutionInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1939812445, 33243, 17355, [172, 94, 85, 1, 62, 249, 240, 3]);
-pub const GUID_MetadataFormatAPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(772029890, 51559, 19973, [135, 94, 97, 139, 246, 126, 133, 195]);
-pub const GUID_MetadataFormatApp0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2030071848, 9869, 17878, [163, 194, 53, 78, 106, 80, 75, 201]);
-pub const GUID_MetadataFormatApp1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2413027267, 63825, 18731, [129, 127, 105, 194, 230, 217, 165, 176]);
-pub const GUID_MetadataFormatApp13: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(845502114, 62722, 17236, [156, 192, 142, 63, 72, 234, 246, 181]);
-pub const GUID_MetadataFormatChunkbKGD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3779933553, 27463, 19946, [182, 10, 135, 206, 10, 120, 223, 183]);
-pub const GUID_MetadataFormatChunkcHRM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2645779803, 10306, 17587, [128, 103, 18, 233, 179, 117, 85, 106]);
-pub const GUID_MetadataFormatChunkgAMA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4027135397, 7517, 19665, [129, 178, 147, 36, 215, 236, 167, 129]);
-pub const GUID_MetadataFormatChunkhIST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3315237594, 56180, 18596, [189, 106, 182, 156, 73, 49, 239, 149]);
-pub const GUID_MetadataFormatChunkiCCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3947055531, 46725, 17679, [145, 181, 232, 2, 232, 146, 83, 108]);
-pub const GUID_MetadataFormatChunkiTXt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3267282729, 2920, 19319, [170, 14, 98, 149, 166, 172, 24, 20]);
-pub const GUID_MetadataFormatChunksRGB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3239443766, 52335, 20031, [131, 99, 82, 75, 135, 198, 176, 217]);
-pub const GUID_MetadataFormatChunktEXt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1452116278, 49321, 18723, [144, 93, 223, 43, 56, 35, 143, 188]);
-pub const GUID_MetadataFormatChunktIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1795206701, 57931, 17930, [152, 182, 135, 139, 208, 48, 114, 253]);
-pub const GUID_MetadataFormatDds: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1241925123, 35891, 20064, [156, 41, 19, 98, 49, 112, 45, 8]);
-pub const GUID_MetadataFormatExif: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(473714589, 47178, 18045, [148, 147, 54, 207, 189, 89, 234, 87]);
-pub const GUID_MetadataFormatGCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(707119832, 57067, 19561, [167, 136, 14, 194, 38, 109, 202, 253]);
-pub const GUID_MetadataFormatGifComment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3300319456, 53172, 19155, [171, 51, 154, 173, 35, 85, 163, 74]);
-pub const GUID_MetadataFormatGps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1899277194, 37713, 17581, [175, 98, 68, 141, 182, 181, 2, 236]);
-pub const GUID_MetadataFormatHeif: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2172580833, 4744, 17908, [168, 82, 38, 13, 158, 124, 206, 131]);
-pub const GUID_MetadataFormatHeifHDR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1451986314, 7781, 17292, [137, 104, 214, 14, 16, 18, 190, 185]);
-pub const GUID_MetadataFormatIMD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3173757062, 19794, 18653, [150, 119, 219, 72, 62, 133, 174, 143]);
-pub const GUID_MetadataFormatIPTC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1336609044, 57641, 16519, [161, 209, 188, 129, 45, 69, 167, 181]);
-pub const GUID_MetadataFormatIRB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(370150758, 34160, 19385, [185, 45, 253, 164, 178, 62, 206, 103]);
-pub const GUID_MetadataFormatIfd: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1400084166, 11658, 19382, [155, 248, 47, 10, 142, 42, 58, 223]);
-pub const GUID_MetadataFormatInterop: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3983044494, 26655, 19595, [189, 65, 168, 173, 219, 246, 179, 252]);
-pub const GUID_MetadataFormatJpegChrominance: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4147973583, 52934, 20357, [155, 14, 28, 57, 86, 177, 190, 247]);
-pub const GUID_MetadataFormatJpegComment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(571367219, 45011, 18254, [157, 49, 125, 79, 231, 48, 245, 87]);
-pub const GUID_MetadataFormatJpegLuminance: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2257616903, 60924, 18528, [141, 75, 78, 230, 232, 62, 96, 88]);
-pub const GUID_MetadataFormatLSD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3797287710, 25241, 18729, [185, 141, 90, 200, 132, 175, 186, 146]);
-pub const GUID_MetadataFormatSubIfd: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1487069480, 11705, 20055, [187, 20, 81, 119, 137, 30, 211, 49]);
-pub const GUID_MetadataFormatThumbnail: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(608030441, 34563, 16622, [142, 240, 34, 166, 0, 184, 5, 140]);
-pub const GUID_MetadataFormatUnknown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2757646639, 36984, 19068, [173, 181, 78, 220, 79, 214, 27, 31]);
-pub const GUID_MetadataFormatWebpANIM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1841626534, 30950, 16642, [174, 53, 188, 250, 30, 220, 199, 139]);
-pub const GUID_MetadataFormatWebpANMF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1136723438, 47419, 19131, [176, 3, 160, 140, 13, 135, 4, 113]);
-pub const GUID_MetadataFormatXMP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3143289912, 61974, 19692, [166, 197, 95, 110, 115, 151, 99, 169]);
-pub const GUID_MetadataFormatXMPAlt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2064164469, 37290, 18459, [167, 152, 77, 169, 73, 8, 97, 59]);
-pub const GUID_MetadataFormatXMPBag: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2201799263, 56503, 17686, [128, 111, 101, 150, 171, 38, 220, 228]);
-pub const GUID_MetadataFormatXMPSeq: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1676205826, 60268, 17772, [162, 36, 178, 94, 121, 79, 214, 72]);
-pub const GUID_MetadataFormatXMPStruct: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(574110961, 60695, 20014, [175, 23, 216, 91, 143, 107, 48, 208]);
-pub const GUID_VendorMicrosoft: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4041689546, 60911, 17801, [167, 58, 238, 14, 98, 106, 42, 43]);
-pub const GUID_VendorMicrosoftBuiltIn: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(628764925, 1718, 17963, [174, 164, 99, 247, 11, 134, 229, 51]);
-pub const GUID_WICPixelFormat112bpp6ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 55]);
-pub const GUID_WICPixelFormat112bpp7Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 42]);
-pub const GUID_WICPixelFormat128bpp7ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 56]);
-pub const GUID_WICPixelFormat128bpp8Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 43]);
-pub const GUID_WICPixelFormat128bppPRGBAFloat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 26]);
-pub const GUID_WICPixelFormat128bppRGBAFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 30]);
-pub const GUID_WICPixelFormat128bppRGBAFloat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 25]);
-pub const GUID_WICPixelFormat128bppRGBFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 65]);
-pub const GUID_WICPixelFormat128bppRGBFloat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 27]);
-pub const GUID_WICPixelFormat144bpp8ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 57]);
-pub const GUID_WICPixelFormat16bppBGR555: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 9]);
-pub const GUID_WICPixelFormat16bppBGR565: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 10]);
-pub const GUID_WICPixelFormat16bppBGRA5551: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(99384363, 61926, 18785, [173, 70, 225, 204, 129, 10, 135, 210]);
-pub const GUID_WICPixelFormat16bppCbCr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4288002670, 4576, 16995, [187, 69, 1, 114, 31, 52, 96, 164]);
-pub const GUID_WICPixelFormat16bppCbQuantizedDctCoefficients: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3536125793, 22181, 18882, [139, 92, 76, 25, 37, 150, 72, 55]);
-pub const GUID_WICPixelFormat16bppCrQuantizedDctCoefficients: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(803427568, 5760, 17112, [146, 49, 231, 60, 5, 101, 191, 193]);
-pub const GUID_WICPixelFormat16bppGray: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 11]);
-pub const GUID_WICPixelFormat16bppGrayFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 19]);
-pub const GUID_WICPixelFormat16bppGrayHalf: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 62]);
-pub const GUID_WICPixelFormat16bppYQuantizedDctCoefficients: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2740319283, 18664, 19010, [132, 216, 226, 170, 38, 202, 128, 164]);
-pub const GUID_WICPixelFormat1bppIndexed: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 1]);
-pub const GUID_WICPixelFormat24bpp3Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 32]);
-pub const GUID_WICPixelFormat24bppBGR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 12]);
-pub const GUID_WICPixelFormat24bppRGB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 13]);
-pub const GUID_WICPixelFormat2bppGray: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 6]);
-pub const GUID_WICPixelFormat2bppIndexed: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 2]);
-pub const GUID_WICPixelFormat32bpp3ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 46]);
-pub const GUID_WICPixelFormat32bpp4Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 33]);
-pub const GUID_WICPixelFormat32bppBGR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 14]);
-pub const GUID_WICPixelFormat32bppBGR101010: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 20]);
-pub const GUID_WICPixelFormat32bppBGRA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 15]);
-pub const GUID_WICPixelFormat32bppCMYK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 28]);
-pub const GUID_WICPixelFormat32bppGrayFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 63]);
-pub const GUID_WICPixelFormat32bppGrayFloat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 17]);
-pub const GUID_WICPixelFormat32bppPBGRA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 16]);
-pub const GUID_WICPixelFormat32bppPRGBA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1019520592, 42279, 19767, [169, 22, 49, 66, 199, 235, 237, 186]);
-pub const GUID_WICPixelFormat32bppR10G10B10A2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1615731637, 35388, 19301, [177, 28, 188, 11, 141, 215, 91, 127]);
-pub const GUID_WICPixelFormat32bppR10G10B10A2HDR10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2619432029, 6860, 20238, [164, 188, 112, 251, 58, 232, 253, 40]);
-pub const GUID_WICPixelFormat32bppRGB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3649858453, 16126, 18390, [187, 37, 235, 23, 72, 171, 12, 241]);
-pub const GUID_WICPixelFormat32bppRGBA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4123503917, 27277, 17373, [167, 168, 162, 153, 53, 38, 26, 233]);
-pub const GUID_WICPixelFormat32bppRGBA1010102: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(623086962, 64761, 17698, [181, 20, 85, 120, 229, 173, 85, 224]);
-pub const GUID_WICPixelFormat32bppRGBA1010102XR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(14576538, 49409, 17227, [181, 2, 208, 22, 94, 225, 18, 44]);
-pub const GUID_WICPixelFormat32bppRGBE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 61]);
-pub const GUID_WICPixelFormat40bpp4ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 47]);
-pub const GUID_WICPixelFormat40bpp5Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 34]);
-pub const GUID_WICPixelFormat40bppCMYKAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 44]);
-pub const GUID_WICPixelFormat48bpp3Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 38]);
-pub const GUID_WICPixelFormat48bpp5ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 48]);
-pub const GUID_WICPixelFormat48bpp6Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 35]);
-pub const GUID_WICPixelFormat48bppBGR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3859129220, 46184, 18126, [187, 46, 54, 241, 128, 230, 67, 19]);
-pub const GUID_WICPixelFormat48bppBGRFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1237980174, 51894, 18747, [157, 223, 96, 24, 124, 55, 83, 42]);
-pub const GUID_WICPixelFormat48bppRGB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 21]);
-pub const GUID_WICPixelFormat48bppRGBFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 18]);
-pub const GUID_WICPixelFormat48bppRGBHalf: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 59]);
-pub const GUID_WICPixelFormat4bppGray: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 7]);
-pub const GUID_WICPixelFormat4bppIndexed: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 3]);
-pub const GUID_WICPixelFormat56bpp6ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 49]);
-pub const GUID_WICPixelFormat56bpp7Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 36]);
-pub const GUID_WICPixelFormat64bpp3ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 52]);
-pub const GUID_WICPixelFormat64bpp4Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 39]);
-pub const GUID_WICPixelFormat64bpp7ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 50]);
-pub const GUID_WICPixelFormat64bpp8Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 37]);
-pub const GUID_WICPixelFormat64bppBGRA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(358809468, 54098, 18169, [151, 158, 66, 151, 107, 121, 34, 70]);
-pub const GUID_WICPixelFormat64bppBGRAFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(896394044, 21714, 18979, [187, 4, 155, 123, 249, 177, 212, 45]);
-pub const GUID_WICPixelFormat64bppCMYK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 31]);
-pub const GUID_WICPixelFormat64bppPBGRA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2354155150, 42220, 18059, [174, 112, 201, 163, 90, 156, 85, 48]);
-pub const GUID_WICPixelFormat64bppPRGBA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 23]);
-pub const GUID_WICPixelFormat64bppPRGBAHalf: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1487742658, 50723, 19869, [179, 32, 56, 126, 73, 248, 196, 66]);
-pub const GUID_WICPixelFormat64bppRGB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2702713105, 6253, 19778, [188, 106, 156, 131, 3, 168, 223, 249]);
-pub const GUID_WICPixelFormat64bppRGBA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 22]);
-pub const GUID_WICPixelFormat64bppRGBAFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 29]);
-pub const GUID_WICPixelFormat64bppRGBAHalf: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 58]);
-pub const GUID_WICPixelFormat64bppRGBFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 64]);
-pub const GUID_WICPixelFormat64bppRGBHalf: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 66]);
-pub const GUID_WICPixelFormat72bpp8ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 51]);
-pub const GUID_WICPixelFormat80bpp4ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 53]);
-pub const GUID_WICPixelFormat80bpp5Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 40]);
-pub const GUID_WICPixelFormat80bppCMYKAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 45]);
-pub const GUID_WICPixelFormat8bppAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3872194838, 61114, 16737, [170, 133, 39, 221, 159, 179, 168, 149]);
-pub const GUID_WICPixelFormat8bppCb: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(322564644, 27646, 19518, [147, 2, 228, 243, 166, 208, 202, 42]);
-pub const GUID_WICPixelFormat8bppCr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3088339027, 8470, 18928, [136, 53, 237, 132, 75, 32, 92, 81]);
-pub const GUID_WICPixelFormat8bppGray: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 8]);
-pub const GUID_WICPixelFormat8bppIndexed: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 4]);
-pub const GUID_WICPixelFormat8bppY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2444548948, 11769, 17136, [180, 73, 41, 9, 187, 61, 248, 142]);
-pub const GUID_WICPixelFormat96bpp5ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 54]);
-pub const GUID_WICPixelFormat96bpp6Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 41]);
-pub const GUID_WICPixelFormat96bppRGBFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 24]);
-pub const GUID_WICPixelFormat96bppRGBFloat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3825129359, 59611, 19151, [132, 193, 233, 127, 97, 54, 179, 39]);
-pub const GUID_WICPixelFormatBlackWhite: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 5]);
-pub const GUID_WICPixelFormatDontCare: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 0]);
+pub const GUID_ContainerFormatAdng: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3ff6d0d_38c0_41c4_b1fe_1f3824f17b84);
+pub const GUID_ContainerFormatBmp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0af1d87e_fcfe_4188_bdeb_a7906471cbe3);
+pub const GUID_ContainerFormatDds: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9967cb95_2e85_4ac8_8ca2_83d7ccd425c9);
+pub const GUID_ContainerFormatGif: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f8a5601_7d4d_4cbd_9c82_1bc8d4eeb9a5);
+pub const GUID_ContainerFormatHeif: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1e62521_6787_405b_a339_500715b5763f);
+pub const GUID_ContainerFormatIco: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3a860c4_338f_4c17_919a_fba4b5628f21);
+pub const GUID_ContainerFormatJpeg: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19e4a5aa_5662_4fc5_a0c0_1758028e1057);
+pub const GUID_ContainerFormatPng: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b7cfaf4_713f_473c_bbcd_6137425faeaf);
+pub const GUID_ContainerFormatRaw: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe99ce60_f19c_433c_a3ae_00acefa9ca21);
+pub const GUID_ContainerFormatTiff: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x163bcc30_e2e9_4f0b_961d_a3e9fdb788a3);
+pub const GUID_ContainerFormatWebp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe094b0e2_67f2_45b3_b0ea_115337ca7cf3);
+pub const GUID_ContainerFormatWmp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57a37caa_367a_4540_916b_f183c5093a4b);
+pub const GUID_MetadataFormat8BIMIPTC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0010568c_0852_4e6a_b191_5c33ac5b0430);
+pub const GUID_MetadataFormat8BIMIPTCDigest: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ca32285_9ccd_4786_8bd8_79539db6a006);
+pub const GUID_MetadataFormat8BIMResolutionInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x739f305d_81db_43cb_ac5e_55013ef9f003);
+pub const GUID_MetadataFormatAPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e043dc2_c967_4e05_875e_618bf67e85c3);
+pub const GUID_MetadataFormatApp0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79007028_268d_45d6_a3c2_354e6a504bc9);
+pub const GUID_MetadataFormatApp1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fd3dfc3_f951_492b_817f_69c2e6d9a5b0);
+pub const GUID_MetadataFormatApp13: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x326556a2_f502_4354_9cc0_8e3f48eaf6b5);
+pub const GUID_MetadataFormatChunkbKGD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe14d3571_6b47_4dea_b60a_87ce0a78dfb7);
+pub const GUID_MetadataFormatChunkcHRM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9db3655b_2842_44b3_8067_12e9b375556a);
+pub const GUID_MetadataFormatChunkgAMA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf00935a5_1d5d_4cd1_81b2_9324d7eca781);
+pub const GUID_MetadataFormatChunkhIST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc59a82da_db74_48a4_bd6a_b69c4931ef95);
+pub const GUID_MetadataFormatChunkiCCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb4349ab_b685_450f_91b5_e802e892536c);
+pub const GUID_MetadataFormatChunkiTXt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2bec729_0b68_4b77_aa0e_6295a6ac1814);
+pub const GUID_MetadataFormatChunksRGB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc115fd36_cc6f_4e3f_8363_524b87c6b0d9);
+pub const GUID_MetadataFormatChunktEXt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x568d8936_c0a9_4923_905d_df2b38238fbc);
+pub const GUID_MetadataFormatChunktIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b00ae2d_e24b_460a_98b6_878bd03072fd);
+pub const GUID_MetadataFormatDds: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a064603_8c33_4e60_9c29_136231702d08);
+pub const GUID_MetadataFormatExif: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c3c4f9d_b84a_467d_9493_36cfbd59ea57);
+pub const GUID_MetadataFormatGCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a25cad8_deeb_4c69_a788_0ec2266dcafd);
+pub const GUID_MetadataFormatGifComment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4b6e0e0_cfb4_4ad3_ab33_9aad2355a34a);
+pub const GUID_MetadataFormatGps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7134ab8a_9351_44ad_af62_448db6b502ec);
+pub const GUID_MetadataFormatHeif: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x817ef3e1_1288_45f4_a852_260d9e7cce83);
+pub const GUID_MetadataFormatHeifHDR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x568b8d8a_1e65_438c_8968_d60e1012beb9);
+pub const GUID_MetadataFormatIMD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd2bb086_4d52_48dd_9677_db483e85ae8f);
+pub const GUID_MetadataFormatIPTC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4fab0914_e129_4087_a1d1_bc812d45a7b5);
+pub const GUID_MetadataFormatIRB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16100d66_8570_4bb9_b92d_fda4b23ece67);
+pub const GUID_MetadataFormatIfd: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x537396c6_2d8a_4bb6_9bf8_2f0a8e2a3adf);
+pub const GUID_MetadataFormatInterop: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed686f8e_681f_4c8b_bd41_a8addbf6b3fc);
+pub const GUID_MetadataFormatJpegChrominance: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf73d0dcf_cec6_4f85_9b0e_1c3956b1bef7);
+pub const GUID_MetadataFormatJpegComment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x220e5f33_afd3_474e_9d31_7d4fe730f557);
+pub const GUID_MetadataFormatJpegLuminance: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86908007_edfc_4860_8d4b_4ee6e83e6058);
+pub const GUID_MetadataFormatLSD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe256031e_6299_4929_b98d_5ac884afba92);
+pub const GUID_MetadataFormatSubIfd: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58a2e128_2db9_4e57_bb14_5177891ed331);
+pub const GUID_MetadataFormatThumbnail: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x243dcee9_8703_40ee_8ef0_22a600b8058c);
+pub const GUID_MetadataFormatUnknown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa45e592f_9078_4a7c_adb5_4edc4fd61b1f);
+pub const GUID_MetadataFormatWebpANIM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6dc4fda6_78e6_4102_ae35_bcfa1edcc78b);
+pub const GUID_MetadataFormatWebpANMF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43c105ee_b93b_4abb_b003_a08c0d870471);
+pub const GUID_MetadataFormatXMP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb5acc38_f216_4cec_a6c5_5f6e739763a9);
+pub const GUID_MetadataFormatXMPAlt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b08a675_91aa_481b_a798_4da94908613b);
+pub const GUID_MetadataFormatXMPBag: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x833cca5f_dcb7_4516_806f_6596ab26dce4);
+pub const GUID_MetadataFormatXMPSeq: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63e8df02_eb6c_456c_a224_b25e794fd648);
+pub const GUID_MetadataFormatXMPStruct: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22383cf1_ed17_4e2e_af17_d85b8f6b30d0);
+pub const GUID_VendorMicrosoft: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0e749ca_edef_4589_a73a_ee0e626a2a2b);
+pub const GUID_VendorMicrosoftBuiltIn: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x257a30fd_06b6_462b_aea4_63f70b86e533);
+pub const GUID_WICPixelFormat112bpp6ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc937);
+pub const GUID_WICPixelFormat112bpp7Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc92a);
+pub const GUID_WICPixelFormat128bpp7ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc938);
+pub const GUID_WICPixelFormat128bpp8Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc92b);
+pub const GUID_WICPixelFormat128bppPRGBAFloat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc91a);
+pub const GUID_WICPixelFormat128bppRGBAFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc91e);
+pub const GUID_WICPixelFormat128bppRGBAFloat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc919);
+pub const GUID_WICPixelFormat128bppRGBFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc941);
+pub const GUID_WICPixelFormat128bppRGBFloat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc91b);
+pub const GUID_WICPixelFormat144bpp8ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc939);
+pub const GUID_WICPixelFormat16bppBGR555: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc909);
+pub const GUID_WICPixelFormat16bppBGR565: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc90a);
+pub const GUID_WICPixelFormat16bppBGRA5551: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05ec7c2b_f1e6_4961_ad46_e1cc810a87d2);
+pub const GUID_WICPixelFormat16bppCbCr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff95ba6e_11e0_4263_bb45_01721f3460a4);
+pub const GUID_WICPixelFormat16bppCbQuantizedDctCoefficients: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2c4ff61_56a5_49c2_8b5c_4c1925964837);
+pub const GUID_WICPixelFormat16bppCrQuantizedDctCoefficients: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2fe354f0_1680_42d8_9231_e73c0565bfc1);
+pub const GUID_WICPixelFormat16bppGray: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc90b);
+pub const GUID_WICPixelFormat16bppGrayFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc913);
+pub const GUID_WICPixelFormat16bppGrayHalf: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc93e);
+pub const GUID_WICPixelFormat16bppYQuantizedDctCoefficients: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa355f433_48e8_4a42_84d8_e2aa26ca80a4);
+pub const GUID_WICPixelFormat1bppIndexed: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc901);
+pub const GUID_WICPixelFormat24bpp3Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc920);
+pub const GUID_WICPixelFormat24bppBGR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc90c);
+pub const GUID_WICPixelFormat24bppRGB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc90d);
+pub const GUID_WICPixelFormat2bppGray: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc906);
+pub const GUID_WICPixelFormat2bppIndexed: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc902);
+pub const GUID_WICPixelFormat32bpp3ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc92e);
+pub const GUID_WICPixelFormat32bpp4Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc921);
+pub const GUID_WICPixelFormat32bppBGR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc90e);
+pub const GUID_WICPixelFormat32bppBGR101010: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc914);
+pub const GUID_WICPixelFormat32bppBGRA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc90f);
+pub const GUID_WICPixelFormat32bppCMYK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc91c);
+pub const GUID_WICPixelFormat32bppGrayFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc93f);
+pub const GUID_WICPixelFormat32bppGrayFloat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc911);
+pub const GUID_WICPixelFormat32bppPBGRA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc910);
+pub const GUID_WICPixelFormat32bppPRGBA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cc4a650_a527_4d37_a916_3142c7ebedba);
+pub const GUID_WICPixelFormat32bppR10G10B10A2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x604e1bb5_8a3c_4b65_b11c_bc0b8dd75b7f);
+pub const GUID_WICPixelFormat32bppR10G10B10A2HDR10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c215c5d_1acc_4f0e_a4bc_70fb3ae8fd28);
+pub const GUID_WICPixelFormat32bppRGB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd98c6b95_3efe_47d6_bb25_eb1748ab0cf1);
+pub const GUID_WICPixelFormat32bppRGBA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5c7ad2d_6a8d_43dd_a7a8_a29935261ae9);
+pub const GUID_WICPixelFormat32bppRGBA1010102: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25238d72_fcf9_4522_b514_5578e5ad55e0);
+pub const GUID_WICPixelFormat32bppRGBA1010102XR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00de6b9a_c101_434b_b502_d0165ee1122c);
+pub const GUID_WICPixelFormat32bppRGBE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc93d);
+pub const GUID_WICPixelFormat40bpp4ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc92f);
+pub const GUID_WICPixelFormat40bpp5Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc922);
+pub const GUID_WICPixelFormat40bppCMYKAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc92c);
+pub const GUID_WICPixelFormat48bpp3Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc926);
+pub const GUID_WICPixelFormat48bpp5ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc930);
+pub const GUID_WICPixelFormat48bpp6Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc923);
+pub const GUID_WICPixelFormat48bppBGR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe605a384_b468_46ce_bb2e_36f180e64313);
+pub const GUID_WICPixelFormat48bppBGRFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49ca140e_cab6_493b_9ddf_60187c37532a);
+pub const GUID_WICPixelFormat48bppRGB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc915);
+pub const GUID_WICPixelFormat48bppRGBFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc912);
+pub const GUID_WICPixelFormat48bppRGBHalf: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc93b);
+pub const GUID_WICPixelFormat4bppGray: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc907);
+pub const GUID_WICPixelFormat4bppIndexed: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc903);
+pub const GUID_WICPixelFormat56bpp6ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc931);
+pub const GUID_WICPixelFormat56bpp7Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc924);
+pub const GUID_WICPixelFormat64bpp3ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc934);
+pub const GUID_WICPixelFormat64bpp4Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc927);
+pub const GUID_WICPixelFormat64bpp7ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc932);
+pub const GUID_WICPixelFormat64bpp8Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc925);
+pub const GUID_WICPixelFormat64bppBGRA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1562ff7c_d352_46f9_979e_42976b792246);
+pub const GUID_WICPixelFormat64bppBGRAFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x356de33c_54d2_4a23_bb04_9b7bf9b1d42d);
+pub const GUID_WICPixelFormat64bppCMYK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc91f);
+pub const GUID_WICPixelFormat64bppPBGRA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c518e8e_a4ec_468b_ae70_c9a35a9c5530);
+pub const GUID_WICPixelFormat64bppPRGBA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc917);
+pub const GUID_WICPixelFormat64bppPRGBAHalf: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58ad26c2_c623_4d9d_b320_387e49f8c442);
+pub const GUID_WICPixelFormat64bppRGB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1182111_186d_4d42_bc6a_9c8303a8dff9);
+pub const GUID_WICPixelFormat64bppRGBA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc916);
+pub const GUID_WICPixelFormat64bppRGBAFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc91d);
+pub const GUID_WICPixelFormat64bppRGBAHalf: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc93a);
+pub const GUID_WICPixelFormat64bppRGBFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc940);
+pub const GUID_WICPixelFormat64bppRGBHalf: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc942);
+pub const GUID_WICPixelFormat72bpp8ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc933);
+pub const GUID_WICPixelFormat80bpp4ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc935);
+pub const GUID_WICPixelFormat80bpp5Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc928);
+pub const GUID_WICPixelFormat80bppCMYKAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc92d);
+pub const GUID_WICPixelFormat8bppAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6cd0116_eeba_4161_aa85_27dd9fb3a895);
+pub const GUID_WICPixelFormat8bppCb: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1339f224_6bfe_4c3e_9302_e4f3a6d0ca2a);
+pub const GUID_WICPixelFormat8bppCr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8145053_2116_49f0_8835_ed844b205c51);
+pub const GUID_WICPixelFormat8bppGray: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc908);
+pub const GUID_WICPixelFormat8bppIndexed: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc904);
+pub const GUID_WICPixelFormat8bppY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91b4db54_2df9_42f0_b449_2909bb3df88e);
+pub const GUID_WICPixelFormat96bpp5ChannelsAlpha: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc936);
+pub const GUID_WICPixelFormat96bpp6Channels: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc929);
+pub const GUID_WICPixelFormat96bppRGBFixedPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc918);
+pub const GUID_WICPixelFormat96bppRGBFloat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3fed78f_e8db_4acf_84c1_e97f6136b327);
+pub const GUID_WICPixelFormatBlackWhite: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc905);
+pub const GUID_WICPixelFormatDontCare: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc900);
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -310,7 +310,7 @@ impl IWICBitmap {
 }
 unsafe impl ::windows::runtime::Interface for IWICBitmap {
     type Vtable = IWICBitmap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(289, 43250, 18551, [186, 10, 253, 43, 102, 69, 251, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000121_a8f2_4877_ba0a_fd2b6645fb94);
 }
 impl ::core::convert::From<IWICBitmap> for ::windows::runtime::IUnknown {
     fn from(value: IWICBitmap) -> Self {
@@ -400,7 +400,7 @@ impl IWICBitmapClipper {
 }
 unsafe impl ::windows::runtime::Interface for IWICBitmapClipper {
     type Vtable = IWICBitmapClipper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3841707779, 8765, 20097, [147, 51, 214, 53, 85, 109, 209, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4fbcf03_223d_4e81_9333_d635556dd1b5);
 }
 impl ::core::convert::From<IWICBitmapClipper> for ::windows::runtime::IUnknown {
     fn from(value: IWICBitmapClipper) -> Self {
@@ -567,7 +567,7 @@ impl IWICBitmapCodecInfo {
 }
 unsafe impl ::windows::runtime::Interface for IWICBitmapCodecInfo {
     type Vtable = IWICBitmapCodecInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3900327108, 46958, 19527, [139, 9, 41, 142, 177, 42, 39, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe87a44c4_b76e_4c47_8b09_298eb12a2714);
 }
 impl ::core::convert::From<IWICBitmapCodecInfo> for ::windows::runtime::IUnknown {
     fn from(value: IWICBitmapCodecInfo) -> Self {
@@ -662,7 +662,7 @@ impl IWICBitmapCodecProgressNotification {
 }
 unsafe impl ::windows::runtime::Interface for IWICBitmapCodecProgressNotification {
     type Vtable = IWICBitmapCodecProgressNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1690370638, 50127, 17506, [128, 120, 136, 194, 177, 28, 70, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64c1024e_c3cf_4462_8078_88c2b11c46d9);
 }
 impl ::core::convert::From<IWICBitmapCodecProgressNotification> for ::windows::runtime::IUnknown {
     fn from(value: IWICBitmapCodecProgressNotification) -> Self {
@@ -754,7 +754,7 @@ impl IWICBitmapDecoder {
 }
 unsafe impl ::windows::runtime::Interface for IWICBitmapDecoder {
     type Vtable = IWICBitmapDecoder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2665343463, 36334, 18410, [153, 223, 230, 250, 242, 237, 68, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9edde9e7_8dee_47ea_99df_e6faf2ed44bf);
 }
 impl ::core::convert::From<IWICBitmapDecoder> for ::windows::runtime::IUnknown {
     fn from(value: IWICBitmapDecoder) -> Self {
@@ -924,7 +924,7 @@ impl IWICBitmapDecoderInfo {
 }
 unsafe impl ::windows::runtime::Interface for IWICBitmapDecoderInfo {
     type Vtable = IWICBitmapDecoderInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3637313663, 53391, 16785, [155, 252, 35, 110, 167, 240, 228, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8cd007f_d08f_4191_9bfc_236ea7f0e4b5);
 }
 impl ::core::convert::From<IWICBitmapDecoderInfo> for ::windows::runtime::IUnknown {
     fn from(value: IWICBitmapDecoderInfo) -> Self {
@@ -1085,7 +1085,7 @@ impl IWICBitmapEncoder {
 }
 unsafe impl ::windows::runtime::Interface for IWICBitmapEncoder {
     type Vtable = IWICBitmapEncoder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(259, 43250, 18551, [186, 10, 253, 43, 102, 69, 251, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000103_a8f2_4877_ba0a_fd2b6645fb94);
 }
 impl ::core::convert::From<IWICBitmapEncoder> for ::windows::runtime::IUnknown {
     fn from(value: IWICBitmapEncoder) -> Self {
@@ -1243,7 +1243,7 @@ impl IWICBitmapEncoderInfo {
 }
 unsafe impl ::windows::runtime::Interface for IWICBitmapEncoderInfo {
     type Vtable = IWICBitmapEncoderInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2496247022, 41119, 20370, [138, 30, 74, 155, 206, 126, 118, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94c9b4ee_a09f_4f92_8a1e_4a9bce7e76fb);
 }
 impl ::core::convert::From<IWICBitmapEncoderInfo> for ::windows::runtime::IUnknown {
     fn from(value: IWICBitmapEncoderInfo) -> Self {
@@ -1380,7 +1380,7 @@ impl IWICBitmapFlipRotator {
 }
 unsafe impl ::windows::runtime::Interface for IWICBitmapFlipRotator {
     type Vtable = IWICBitmapFlipRotator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1342800719, 11626, 16846, [158, 27, 23, 197, 175, 247, 167, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5009834f_2d6a_41ce_9e1b_17c5aff7a782);
 }
 impl ::core::convert::From<IWICBitmapFlipRotator> for ::windows::runtime::IUnknown {
     fn from(value: IWICBitmapFlipRotator) -> Self {
@@ -1478,7 +1478,7 @@ impl IWICBitmapFrameDecode {
 }
 unsafe impl ::windows::runtime::Interface for IWICBitmapFrameDecode {
     type Vtable = IWICBitmapFrameDecode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(991330587, 27203, 20169, [168, 19, 61, 147, 12, 19, 185, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b16811b_6a43_4ec9_a813_3d930c13b940);
 }
 impl ::core::convert::From<IWICBitmapFrameDecode> for ::windows::runtime::IUnknown {
     fn from(value: IWICBitmapFrameDecode) -> Self {
@@ -1589,7 +1589,7 @@ impl IWICBitmapFrameEncode {
 }
 unsafe impl ::windows::runtime::Interface for IWICBitmapFrameEncode {
     type Vtable = IWICBitmapFrameEncode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(261, 43250, 18551, [186, 10, 253, 43, 102, 69, 251, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000105_a8f2_4877_ba0a_fd2b6645fb94);
 }
 impl ::core::convert::From<IWICBitmapFrameEncode> for ::windows::runtime::IUnknown {
     fn from(value: IWICBitmapFrameEncode) -> Self {
@@ -1656,7 +1656,7 @@ impl IWICBitmapLock {
 }
 unsafe impl ::windows::runtime::Interface for IWICBitmapLock {
     type Vtable = IWICBitmapLock_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(291, 43250, 18551, [186, 10, 253, 43, 102, 69, 251, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000123_a8f2_4877_ba0a_fd2b6645fb94);
 }
 impl ::core::convert::From<IWICBitmapLock> for ::windows::runtime::IUnknown {
     fn from(value: IWICBitmapLock) -> Self {
@@ -1722,7 +1722,7 @@ impl IWICBitmapScaler {
 }
 unsafe impl ::windows::runtime::Interface for IWICBitmapScaler {
     type Vtable = IWICBitmapScaler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(770, 43250, 18551, [186, 10, 253, 43, 102, 69, 251, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000302_a8f2_4877_ba0a_fd2b6645fb94);
 }
 impl ::core::convert::From<IWICBitmapScaler> for ::windows::runtime::IUnknown {
     fn from(value: IWICBitmapScaler) -> Self {
@@ -1806,7 +1806,7 @@ impl IWICBitmapSource {
 }
 unsafe impl ::windows::runtime::Interface for IWICBitmapSource {
     type Vtable = IWICBitmapSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(288, 43250, 18551, [186, 10, 253, 43, 102, 69, 251, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000120_a8f2_4877_ba0a_fd2b6645fb94);
 }
 impl ::core::convert::From<IWICBitmapSource> for ::windows::runtime::IUnknown {
     fn from(value: IWICBitmapSource) -> Self {
@@ -1877,7 +1877,7 @@ impl IWICBitmapSourceTransform {
 }
 unsafe impl ::windows::runtime::Interface for IWICBitmapSourceTransform {
     type Vtable = IWICBitmapSourceTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(991330587, 27203, 20169, [183, 19, 61, 90, 12, 19, 185, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b16811b_6a43_4ec9_b713_3d5a0c13b940);
 }
 impl ::core::convert::From<IWICBitmapSourceTransform> for ::windows::runtime::IUnknown {
     fn from(value: IWICBitmapSourceTransform) -> Self {
@@ -1946,7 +1946,7 @@ impl IWICColorContext {
 }
 unsafe impl ::windows::runtime::Interface for IWICColorContext {
     type Vtable = IWICColorContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1013004802, 13490, 17642, [154, 124, 69, 174, 169, 198, 253, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c613a02_34b2_44ea_9a7c_45aea9c6fd6d);
 }
 impl ::core::convert::From<IWICColorContext> for ::windows::runtime::IUnknown {
     fn from(value: IWICColorContext) -> Self {
@@ -2015,7 +2015,7 @@ impl IWICColorTransform {
 }
 unsafe impl ::windows::runtime::Interface for IWICColorTransform {
     type Vtable = IWICColorTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3060728655, 53474, 16555, [180, 54, 109, 227, 158, 50, 26, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb66f034f_d0e2_40ab_b436_6de39e321a94);
 }
 impl ::core::convert::From<IWICColorTransform> for ::windows::runtime::IUnknown {
     fn from(value: IWICColorTransform) -> Self {
@@ -2246,7 +2246,7 @@ impl IWICComponentFactory {
 }
 unsafe impl ::windows::runtime::Interface for IWICComponentFactory {
     type Vtable = IWICComponentFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1093471290, 38480, 17658, [175, 91, 221, 42, 6, 200, 232, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x412d0c3a_9650_44fa_af5b_dd2a06c8e8fb);
 }
 impl ::core::convert::From<IWICComponentFactory> for ::windows::runtime::IUnknown {
     fn from(value: IWICComponentFactory) -> Self {
@@ -2383,7 +2383,7 @@ impl IWICComponentInfo {
 }
 unsafe impl ::windows::runtime::Interface for IWICComponentInfo {
     type Vtable = IWICComponentInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(599539466, 27019, 17239, [136, 107, 242, 77, 80, 103, 19, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23bc3f0a_698b_4357_886b_f24d50671334);
 }
 impl ::core::convert::From<IWICComponentInfo> for ::windows::runtime::IUnknown {
     fn from(value: IWICComponentInfo) -> Self {
@@ -2443,7 +2443,7 @@ impl IWICDdsDecoder {
 }
 unsafe impl ::windows::runtime::Interface for IWICDdsDecoder {
     type Vtable = IWICDdsDecoder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1084020023, 34098, 16587, [151, 116, 226, 254, 178, 223, 78, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x409cd537_8532_40cb_9774_e2feb2df4e9c);
 }
 impl ::core::convert::From<IWICDdsDecoder> for ::windows::runtime::IUnknown {
     fn from(value: IWICDdsDecoder) -> Self {
@@ -2498,7 +2498,7 @@ impl IWICDdsEncoder {
 }
 unsafe impl ::windows::runtime::Interface for IWICDdsEncoder {
     type Vtable = IWICDdsEncoder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1554832204, 16510, 16819, [185, 54, 208, 240, 16, 205, 103, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5cacdb4c_407e_41b3_b936_d0f010cd6732);
 }
 impl ::core::convert::From<IWICDdsEncoder> for ::windows::runtime::IUnknown {
     fn from(value: IWICDdsEncoder) -> Self {
@@ -2554,7 +2554,7 @@ impl IWICDdsFrameDecode {
 }
 unsafe impl ::windows::runtime::Interface for IWICDdsFrameDecode {
     type Vtable = IWICDdsFrameDecode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1028394081, 6308, 16868, [189, 128, 72, 26, 79, 201, 244, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d4c0c61_18a4_41e4_bd80_481a4fc9f464);
 }
 impl ::core::convert::From<IWICDdsFrameDecode> for ::windows::runtime::IUnknown {
     fn from(value: IWICDdsFrameDecode) -> Self {
@@ -2771,7 +2771,7 @@ impl IWICDevelopRaw {
 }
 unsafe impl ::windows::runtime::Interface for IWICDevelopRaw {
     type Vtable = IWICDevelopRaw_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4226571844, 63422, 19301, [183, 248, 192, 200, 31, 239, 2, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbec5e44_f7be_4b65_b7f8_c0c81fef026d);
 }
 impl ::core::convert::From<IWICDevelopRaw> for ::windows::runtime::IUnknown {
     fn from(value: IWICDevelopRaw) -> Self {
@@ -2893,7 +2893,7 @@ impl IWICDevelopRawNotificationCallback {
 }
 unsafe impl ::windows::runtime::Interface for IWICDevelopRawNotificationCallback {
     type Vtable = IWICDevelopRawNotificationCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2512869998, 16012, 20162, [133, 168, 174, 188, 197, 81, 229, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95c75a6e_3e8c_4ec2_85a8_aebcc551e59b);
 }
 impl ::core::convert::From<IWICDevelopRawNotificationCallback> for ::windows::runtime::IUnknown {
     fn from(value: IWICDevelopRawNotificationCallback) -> Self {
@@ -2949,7 +2949,7 @@ impl IWICEnumMetadataItem {
 }
 unsafe impl ::windows::runtime::Interface for IWICEnumMetadataItem {
     type Vtable = IWICEnumMetadataItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3693851757, 16135, 18462, [134, 37, 34, 12, 74, 237, 187, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc2bb46d_3f07_481e_8625_220c4aedbb33);
 }
 impl ::core::convert::From<IWICEnumMetadataItem> for ::windows::runtime::IUnknown {
     fn from(value: IWICEnumMetadataItem) -> Self {
@@ -3001,7 +3001,7 @@ impl IWICFastMetadataEncoder {
 }
 unsafe impl ::windows::runtime::Interface for IWICFastMetadataEncoder {
     type Vtable = IWICFastMetadataEncoder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3092130825, 30921, 19140, [139, 211, 82, 74, 225, 102, 58, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb84e2c09_78c9_4ac4_8bd3_524ae1663a2f);
 }
 impl ::core::convert::From<IWICFastMetadataEncoder> for ::windows::runtime::IUnknown {
     fn from(value: IWICFastMetadataEncoder) -> Self {
@@ -3071,7 +3071,7 @@ impl IWICFormatConverter {
 }
 unsafe impl ::windows::runtime::Interface for IWICFormatConverter {
     type Vtable = IWICFormatConverter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(769, 43250, 18551, [186, 10, 253, 43, 102, 69, 251, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000301_a8f2_4877_ba0a_fd2b6645fb94);
 }
 impl ::core::convert::From<IWICFormatConverter> for ::windows::runtime::IUnknown {
     fn from(value: IWICFormatConverter) -> Self {
@@ -3185,7 +3185,7 @@ impl IWICFormatConverterInfo {
 }
 unsafe impl ::windows::runtime::Interface for IWICFormatConverterInfo {
     type Vtable = IWICFormatConverterInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2671049573, 5108, 20245, [188, 87, 55, 38, 181, 229, 61, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f34fb65_13f4_4f15_bc57_3726b5e53d9f);
 }
 impl ::core::convert::From<IWICFormatConverterInfo> for ::windows::runtime::IUnknown {
     fn from(value: IWICFormatConverterInfo) -> Self {
@@ -3386,7 +3386,7 @@ impl IWICImagingFactory {
 }
 unsafe impl ::windows::runtime::Interface for IWICImagingFactory {
     type Vtable = IWICImagingFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3965634729, 50069, 17172, [156, 119, 84, 215, 169, 53, 255, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec5ec8a9_c395_4314_9c77_54d7a935ff70);
 }
 impl ::core::convert::From<IWICImagingFactory> for ::windows::runtime::IUnknown {
     fn from(value: IWICImagingFactory) -> Self {
@@ -3503,7 +3503,7 @@ impl IWICJpegFrameDecode {
 }
 unsafe impl ::windows::runtime::Interface for IWICJpegFrameDecode {
     type Vtable = IWICJpegFrameDecode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2302277230, 50282, 19489, [169, 209, 152, 179, 39, 206, 22, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8939f66e_c46a_4c21_a9d1_98b327ce1679);
 }
 impl ::core::convert::From<IWICJpegFrameDecode> for ::windows::runtime::IUnknown {
     fn from(value: IWICJpegFrameDecode) -> Self {
@@ -3576,7 +3576,7 @@ impl IWICJpegFrameEncode {
 }
 unsafe impl ::windows::runtime::Interface for IWICJpegFrameEncode {
     type Vtable = IWICJpegFrameEncode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(789340191, 53958, 18060, [171, 250, 73, 73, 93, 152, 62, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f0c601f_d2c6_468c_abfa_49495d983ed1);
 }
 impl ::core::convert::From<IWICJpegFrameEncode> for ::windows::runtime::IUnknown {
     fn from(value: IWICJpegFrameEncode) -> Self {
@@ -3641,7 +3641,7 @@ impl IWICMetadataBlockReader {
 }
 unsafe impl ::windows::runtime::Interface for IWICMetadataBlockReader {
     type Vtable = IWICMetadataBlockReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4272564877, 46067, 17380, [178, 92, 209, 222, 153, 10, 26, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfeaa2a8d_b3f3_43e4_b25c_d1de990a1ae1);
 }
 impl ::core::convert::From<IWICMetadataBlockReader> for ::windows::runtime::IUnknown {
     fn from(value: IWICMetadataBlockReader) -> Self {
@@ -3725,7 +3725,7 @@ impl IWICMetadataBlockWriter {
 }
 unsafe impl ::windows::runtime::Interface for IWICMetadataBlockWriter {
     type Vtable = IWICMetadataBlockWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(150705782, 46148, 16872, [141, 190, 106, 83, 165, 66, 191, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08fb9676_b444_41e8_8dbe_6a53a542bff1);
 }
 impl ::core::convert::From<IWICMetadataBlockWriter> for ::windows::runtime::IUnknown {
     fn from(value: IWICMetadataBlockWriter) -> Self {
@@ -3869,7 +3869,7 @@ impl IWICMetadataHandlerInfo {
 }
 unsafe impl ::windows::runtime::Interface for IWICMetadataHandlerInfo {
     type Vtable = IWICMetadataHandlerInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2880002239, 50802, 17617, [141, 97, 206, 109, 242, 230, 130, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaba958bf_c672_44d1_8d61_ce6df2e682c2);
 }
 impl ::core::convert::From<IWICMetadataHandlerInfo> for ::windows::runtime::IUnknown {
     fn from(value: IWICMetadataHandlerInfo) -> Self {
@@ -3971,7 +3971,7 @@ impl IWICMetadataQueryReader {
 }
 unsafe impl ::windows::runtime::Interface for IWICMetadataQueryReader {
     type Vtable = IWICMetadataQueryReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(815306344, 57801, 17815, [179, 149, 69, 142, 237, 184, 8, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30989668_e1c9_4597_b395_458eedb808df);
 }
 impl ::core::convert::From<IWICMetadataQueryReader> for ::windows::runtime::IUnknown {
     fn from(value: IWICMetadataQueryReader) -> Self {
@@ -4046,7 +4046,7 @@ impl IWICMetadataQueryWriter {
 }
 unsafe impl ::windows::runtime::Interface for IWICMetadataQueryWriter {
     type Vtable = IWICMetadataQueryWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2803988762, 3567, 19718, [189, 145, 33, 24, 191, 29, 177, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa721791a_0def_4d06_bd91_2118bf1db10b);
 }
 impl ::core::convert::From<IWICMetadataQueryWriter> for ::windows::runtime::IUnknown {
     fn from(value: IWICMetadataQueryWriter) -> Self {
@@ -4144,7 +4144,7 @@ impl IWICMetadataReader {
 }
 unsafe impl ::windows::runtime::Interface for IWICMetadataReader {
     type Vtable = IWICMetadataReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2449800857, 55548, 20437, [160, 1, 149, 54, 176, 103, 168, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9204fe99_d8fc_4fd5_a001_9536b067a899);
 }
 impl ::core::convert::From<IWICMetadataReader> for ::windows::runtime::IUnknown {
     fn from(value: IWICMetadataReader) -> Self {
@@ -4283,7 +4283,7 @@ impl IWICMetadataReaderInfo {
 }
 unsafe impl ::windows::runtime::Interface for IWICMetadataReaderInfo {
     type Vtable = IWICMetadataReaderInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4005502811, 1985, 17479, [163, 171, 34, 172, 175, 120, 168, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeebf1f5b_07c1_4447_a3ab_22acaf78a804);
 }
 impl ::core::convert::From<IWICMetadataReaderInfo> for ::windows::runtime::IUnknown {
     fn from(value: IWICMetadataReaderInfo) -> Self {
@@ -4437,7 +4437,7 @@ impl IWICMetadataWriter {
 }
 unsafe impl ::windows::runtime::Interface for IWICMetadataWriter {
     type Vtable = IWICMetadataWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4152585750, 15328, 18187, [134, 187, 22, 13, 10, 236, 215, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7836e16_3be0_470b_86bb_160d0aecd7de);
 }
 impl ::core::convert::From<IWICMetadataWriter> for ::windows::runtime::IUnknown {
     fn from(value: IWICMetadataWriter) -> Self {
@@ -4599,7 +4599,7 @@ impl IWICMetadataWriterInfo {
 }
 unsafe impl ::windows::runtime::Interface for IWICMetadataWriterInfo {
     type Vtable = IWICMetadataWriterInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2989375418, 14629, 17187, [181, 193, 158, 191, 196, 48, 242, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb22e3fba_3925_4323_b5c1_9ebfc430f236);
 }
 impl ::core::convert::From<IWICMetadataWriterInfo> for ::windows::runtime::IUnknown {
     fn from(value: IWICMetadataWriterInfo) -> Self {
@@ -4752,7 +4752,7 @@ impl IWICPalette {
 }
 unsafe impl ::windows::runtime::Interface for IWICPalette {
     type Vtable = IWICPalette_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(64, 43250, 18551, [186, 10, 253, 43, 102, 69, 251, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000040_a8f2_4877_ba0a_fd2b6645fb94);
 }
 impl ::core::convert::From<IWICPalette> for ::windows::runtime::IUnknown {
     fn from(value: IWICPalette) -> Self {
@@ -4838,7 +4838,7 @@ impl IWICPersistStream {
 }
 unsafe impl ::windows::runtime::Interface for IWICPersistStream {
     type Vtable = IWICPersistStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(6770752, 26888, 17912, [134, 163, 73, 199, 223, 214, 217, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00675040_6908_45f8_86a3_49c7dfd6d9ad);
 }
 impl ::core::convert::From<IWICPersistStream> for ::windows::runtime::IUnknown {
     fn from(value: IWICPersistStream) -> Self {
@@ -4998,7 +4998,7 @@ impl IWICPixelFormatInfo {
 }
 unsafe impl ::windows::runtime::Interface for IWICPixelFormatInfo {
     type Vtable = IWICPixelFormatInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3907888641, 15688, 17178, [171, 68, 105, 5, 155, 232, 139, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8eda601_3d48_431a_ab44_69059be88bbe);
 }
 impl ::core::convert::From<IWICPixelFormatInfo> for ::windows::runtime::IUnknown {
     fn from(value: IWICPixelFormatInfo) -> Self {
@@ -5147,7 +5147,7 @@ impl IWICPixelFormatInfo2 {
 }
 unsafe impl ::windows::runtime::Interface for IWICPixelFormatInfo2 {
     type Vtable = IWICPixelFormatInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2849715106, 44895, 17351, [182, 121, 116, 245, 152, 75, 90, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9db33a2_af5f_43c7_b679_74f5984b5aa4);
 }
 impl ::core::convert::From<IWICPixelFormatInfo2> for ::windows::runtime::IUnknown {
     fn from(value: IWICPixelFormatInfo2) -> Self {
@@ -5252,7 +5252,7 @@ impl IWICPlanarBitmapFrameEncode {
 }
 unsafe impl ::windows::runtime::Interface for IWICPlanarBitmapFrameEncode {
     type Vtable = IWICPlanarBitmapFrameEncode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4180195256, 8737, 16577, [183, 46, 126, 130, 241, 151, 77, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf928b7b8_2221_40c1_b72e_7e82f1974d1a);
 }
 impl ::core::convert::From<IWICPlanarBitmapFrameEncode> for ::windows::runtime::IUnknown {
     fn from(value: IWICPlanarBitmapFrameEncode) -> Self {
@@ -5311,7 +5311,7 @@ impl IWICPlanarBitmapSourceTransform {
 }
 unsafe impl ::windows::runtime::Interface for IWICPlanarBitmapSourceTransform {
     type Vtable = IWICPlanarBitmapSourceTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(989830350, 48789, 17155, [185, 39, 231, 209, 111, 244, 166, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3aff9cce_be95_4303_b927_e7d16ff4a613);
 }
 impl ::core::convert::From<IWICPlanarBitmapSourceTransform> for ::windows::runtime::IUnknown {
     fn from(value: IWICPlanarBitmapSourceTransform) -> Self {
@@ -5382,7 +5382,7 @@ impl IWICPlanarFormatConverter {
 }
 unsafe impl ::windows::runtime::Interface for IWICPlanarFormatConverter {
     type Vtable = IWICPlanarFormatConverter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3200182731, 33712, 19916, [129, 50, 176, 170, 165, 94, 172, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbebee9cb_83b0_4dcc_8132_b0aaa55eac96);
 }
 impl ::core::convert::From<IWICPlanarFormatConverter> for ::windows::runtime::IUnknown {
     fn from(value: IWICPlanarFormatConverter) -> Self {
@@ -5451,7 +5451,7 @@ impl IWICProgressCallback {
 }
 unsafe impl ::windows::runtime::Interface for IWICProgressCallback {
     type Vtable = IWICProgressCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1198979533, 38167, 17914, [191, 36, 232, 156, 94, 197, 198, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4776f9cd_9517_45fa_bf24_e89c5ec5c60c);
 }
 impl ::core::convert::From<IWICProgressCallback> for ::windows::runtime::IUnknown {
     fn from(value: IWICProgressCallback) -> Self {
@@ -5503,7 +5503,7 @@ impl IWICProgressiveLevelControl {
 }
 unsafe impl ::windows::runtime::Interface for IWICProgressiveLevelControl {
     type Vtable = IWICProgressiveLevelControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3668715887, 31397, 19903, [141, 21, 34, 92, 89, 118, 248, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdaac296f_7aa5_4dbf_8d15_225c5976f891);
 }
 impl ::core::convert::From<IWICProgressiveLevelControl> for ::windows::runtime::IUnknown {
     fn from(value: IWICProgressiveLevelControl) -> Self {
@@ -5613,7 +5613,7 @@ impl IWICStream {
 }
 unsafe impl ::windows::runtime::Interface for IWICStream {
     type Vtable = IWICStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(325056608, 8887, 19935, [176, 246, 33, 143, 79, 41, 154, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x135ff860_22b7_4ddf_b0f6_218f4f299a43);
 }
 impl ::core::convert::From<IWICStream> for ::windows::runtime::IUnknown {
     fn from(value: IWICStream) -> Self {
@@ -5740,7 +5740,7 @@ impl IWICStreamProvider {
 }
 unsafe impl ::windows::runtime::Interface for IWICStreamProvider {
     type Vtable = IWICStreamProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1150588092, 46184, 18727, [150, 215, 186, 144, 211, 26, 181, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x449494bc_b468_4927_96d7_ba90d31ab505);
 }
 impl ::core::convert::From<IWICStreamProvider> for ::windows::runtime::IUnknown {
     fn from(value: IWICStreamProvider) -> Self {

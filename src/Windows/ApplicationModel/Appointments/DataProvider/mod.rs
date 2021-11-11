@@ -77,7 +77,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentCalendarCancelMeeting
 }
 unsafe impl ::windows::runtime::Interface for AppointmentCalendarCancelMeetingRequest {
     type Vtable = IAppointmentCalendarCancelMeetingRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229328269, 25652, 16599, [173, 70, 98, 151, 65, 147, 20, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49460f8d_6434_40d7_ad46_6297419314d1);
 }
 impl ::windows::runtime::RuntimeName for AppointmentCalendarCancelMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequest";
@@ -152,7 +152,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentCalendarCancelMeeting
 }
 unsafe impl ::windows::runtime::Interface for AppointmentCalendarCancelMeetingRequestEventArgs {
     type Vtable = IAppointmentCalendarCancelMeetingRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(444186134, 32560, 20021, [190, 239, 157, 44, 123, 109, 202, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a79be16_7f30_4e35_beef_9d2c7b6dcae1);
 }
 impl ::windows::runtime::RuntimeName for AppointmentCalendarCancelMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequestEventArgs";
@@ -261,7 +261,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentCalendarCreateOrUpdat
 }
 unsafe impl ::windows::runtime::Interface for AppointmentCalendarCreateOrUpdateAppointmentRequest {
     type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(778236594, 51862, 18604, [145, 36, 64, 107, 25, 254, 250, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e62f2b2_ca96_48ac_9124_406b19fefa70);
 }
 impl ::windows::runtime::RuntimeName for AppointmentCalendarCreateOrUpdateAppointmentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequest";
@@ -336,7 +336,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentCalendarCreateOrUpdat
 }
 unsafe impl ::windows::runtime::Interface for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3482185000, 46, 19447, [142, 157, 94, 32, 212, 154, 163, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf8ded28_002e_4bf7_8e9d_5e20d49aa3ba);
 }
 impl ::windows::runtime::RuntimeName for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs";
@@ -470,7 +470,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentCalendarForwardMeetin
 }
 unsafe impl ::windows::runtime::Interface for AppointmentCalendarForwardMeetingRequest {
     type Vtable = IAppointmentCalendarForwardMeetingRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2196106838, 9910, 16979, [138, 143, 108, 245, 242, 255, 120, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82e5ee56_26b6_4253_8a8f_6cf5f2ff7884);
 }
 impl ::windows::runtime::RuntimeName for AppointmentCalendarForwardMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequest";
@@ -545,7 +545,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentCalendarForwardMeetin
 }
 unsafe impl ::windows::runtime::Interface for AppointmentCalendarForwardMeetingRequestEventArgs {
     type Vtable = IAppointmentCalendarForwardMeetingRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(822678810, 9122, 17149, [156, 130, 201, 166, 13, 89, 248, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3109151a_23a2_42fd_9c82_c9a60d59f8a8);
 }
 impl ::windows::runtime::RuntimeName for AppointmentCalendarForwardMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequestEventArgs";
@@ -680,7 +680,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentCalendarProposeNewTim
 }
 unsafe impl ::windows::runtime::Interface for AppointmentCalendarProposeNewTimeForMeetingRequest {
     type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3457967093, 60918, 17347, [130, 183, 190, 107, 54, 140, 105, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce1c63f5_edf6_43c3_82b7_be6b368c6900);
 }
 impl ::windows::runtime::RuntimeName for AppointmentCalendarProposeNewTimeForMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequest";
@@ -755,7 +755,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentCalendarProposeNewTim
 }
 unsafe impl ::windows::runtime::Interface for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3537336280, 65233, 17024, [163, 186, 46, 31, 71, 96, 154, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2d777d8_fed1_4280_a3ba_2e1f47609aa2);
 }
 impl ::windows::runtime::RuntimeName for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs";
@@ -839,7 +839,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentCalendarSyncManagerSy
 }
 unsafe impl ::windows::runtime::Interface for AppointmentCalendarSyncManagerSyncRequest {
     type Vtable = IAppointmentCalendarSyncManagerSyncRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(313210923, 29027, 19030, [154, 78, 114, 35, 168, 74, 223, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12ab382b_7163_4a56_9a4e_7223a84adf46);
 }
 impl ::windows::runtime::RuntimeName for AppointmentCalendarSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequest";
@@ -914,7 +914,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentCalendarSyncManagerSy
 }
 unsafe impl ::windows::runtime::Interface for AppointmentCalendarSyncManagerSyncRequestEventArgs {
     type Vtable = IAppointmentCalendarSyncManagerSyncRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3390555895, 644, 20189, [135, 186, 77, 143, 105, 220, 245, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca17c6f7_0284_4edd_87ba_4d8f69dcf5c0);
 }
 impl ::windows::runtime::RuntimeName for AppointmentCalendarSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequestEventArgs";
@@ -1047,7 +1047,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentCalendarUpdateMeeting
 }
 unsafe impl ::windows::runtime::Interface for AppointmentCalendarUpdateMeetingResponseRequest {
     type Vtable = IAppointmentCalendarUpdateMeetingResponseRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741854348, 49821, 19348, [176, 134, 126, 159, 247, 189, 132, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa36d608c_c29d_4b94_b086_7e9ff7bd84a0);
 }
 impl ::windows::runtime::RuntimeName for AppointmentCalendarUpdateMeetingResponseRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequest";
@@ -1122,7 +1122,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentCalendarUpdateMeeting
 }
 unsafe impl ::windows::runtime::Interface for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     type Vtable = IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2289408131, 38847, 18333, [174, 213, 11, 232, 206, 86, 125, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88759883_97bf_479d_aed5_0be8ce567d1e);
 }
 impl ::windows::runtime::RuntimeName for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequestEventArgs";
@@ -1275,7 +1275,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentDataProviderConnectio
 }
 unsafe impl ::windows::runtime::Interface for AppointmentDataProviderConnection {
     type Vtable = IAppointmentDataProviderConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4091387267, 12884, 18015, [171, 219, 146, 128, 70, 85, 44, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3dd9d83_3254_465f_abdb_928046552cf4);
 }
 impl ::windows::runtime::RuntimeName for AppointmentDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderConnection";
@@ -1341,7 +1341,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppointmentDataProviderTriggerDe
 }
 unsafe impl ::windows::runtime::Interface for AppointmentDataProviderTriggerDetails {
     type Vtable = IAppointmentDataProviderTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3005758465, 32274, 20062, [177, 239, 116, 251, 104, 172, 111, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3283c01_7e12_4e5e_b1ef_74fb68ac6f2a);
 }
 impl ::windows::runtime::RuntimeName for AppointmentDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderTriggerDetails";
@@ -1393,7 +1393,7 @@ unsafe impl ::core::marker::Sync for AppointmentDataProviderTriggerDetails {}
 pub struct IAppointmentCalendarCancelMeetingRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarCancelMeetingRequest {
     type Vtable = IAppointmentCalendarCancelMeetingRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229328269, 25652, 16599, [173, 70, 98, 151, 65, 147, 20, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49460f8d_6434_40d7_ad46_6297419314d1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1421,7 +1421,7 @@ pub struct IAppointmentCalendarCancelMeetingRequest_abi(
 pub struct IAppointmentCalendarCancelMeetingRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarCancelMeetingRequestEventArgs {
     type Vtable = IAppointmentCalendarCancelMeetingRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(444186134, 32560, 20021, [190, 239, 157, 44, 123, 109, 202, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a79be16_7f30_4e35_beef_9d2c7b6dcae1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1441,7 +1441,7 @@ pub struct IAppointmentCalendarCancelMeetingRequestEventArgs_abi(
 pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarCreateOrUpdateAppointmentRequest {
     type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(778236594, 51862, 18604, [145, 36, 64, 107, 25, 254, 250, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e62f2b2_ca96_48ac_9124_406b19fefa70);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1467,7 +1467,7 @@ pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequest_abi(
 pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3482185000, 46, 19447, [142, 157, 94, 32, 212, 154, 163, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf8ded28_002e_4bf7_8e9d_5e20d49aa3ba);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1487,7 +1487,7 @@ pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_abi(
 pub struct IAppointmentCalendarForwardMeetingRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarForwardMeetingRequest {
     type Vtable = IAppointmentCalendarForwardMeetingRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2196106838, 9910, 16979, [138, 143, 108, 245, 242, 255, 120, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82e5ee56_26b6_4253_8a8f_6cf5f2ff7884);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1517,7 +1517,7 @@ pub struct IAppointmentCalendarForwardMeetingRequest_abi(
 pub struct IAppointmentCalendarForwardMeetingRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarForwardMeetingRequestEventArgs {
     type Vtable = IAppointmentCalendarForwardMeetingRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(822678810, 9122, 17149, [156, 130, 201, 166, 13, 89, 248, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3109151a_23a2_42fd_9c82_c9a60d59f8a8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1537,7 +1537,7 @@ pub struct IAppointmentCalendarForwardMeetingRequestEventArgs_abi(
 pub struct IAppointmentCalendarProposeNewTimeForMeetingRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarProposeNewTimeForMeetingRequest {
     type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3457967093, 60918, 17347, [130, 183, 190, 107, 54, 140, 105, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce1c63f5_edf6_43c3_82b7_be6b368c6900);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1568,7 +1568,7 @@ pub struct IAppointmentCalendarProposeNewTimeForMeetingRequest_abi(
 pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3537336280, 65233, 17024, [163, 186, 46, 31, 71, 96, 154, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2d777d8_fed1_4280_a3ba_2e1f47609aa2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1588,7 +1588,7 @@ pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_abi(
 pub struct IAppointmentCalendarSyncManagerSyncRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarSyncManagerSyncRequest {
     type Vtable = IAppointmentCalendarSyncManagerSyncRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(313210923, 29027, 19030, [154, 78, 114, 35, 168, 74, 223, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12ab382b_7163_4a56_9a4e_7223a84adf46);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1610,7 +1610,7 @@ pub struct IAppointmentCalendarSyncManagerSyncRequest_abi(
 pub struct IAppointmentCalendarSyncManagerSyncRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarSyncManagerSyncRequestEventArgs {
     type Vtable = IAppointmentCalendarSyncManagerSyncRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3390555895, 644, 20189, [135, 186, 77, 143, 105, 220, 245, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca17c6f7_0284_4edd_87ba_4d8f69dcf5c0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1630,7 +1630,7 @@ pub struct IAppointmentCalendarSyncManagerSyncRequestEventArgs_abi(
 pub struct IAppointmentCalendarUpdateMeetingResponseRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarUpdateMeetingResponseRequest {
     type Vtable = IAppointmentCalendarUpdateMeetingResponseRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741854348, 49821, 19348, [176, 134, 126, 159, 247, 189, 132, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa36d608c_c29d_4b94_b086_7e9ff7bd84a0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1659,7 +1659,7 @@ pub struct IAppointmentCalendarUpdateMeetingResponseRequest_abi(
 pub struct IAppointmentCalendarUpdateMeetingResponseRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     type Vtable = IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2289408131, 38847, 18333, [174, 213, 11, 232, 206, 86, 125, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88759883_97bf_479d_aed5_0be8ce567d1e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1679,7 +1679,7 @@ pub struct IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_abi(
 pub struct IAppointmentDataProviderConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentDataProviderConnection {
     type Vtable = IAppointmentDataProviderConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4091387267, 12884, 18015, [171, 219, 146, 128, 70, 85, 44, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3dd9d83_3254_465f_abdb_928046552cf4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1721,7 +1721,7 @@ pub struct IAppointmentDataProviderConnection_abi(
 pub struct IAppointmentDataProviderTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentDataProviderTriggerDetails {
     type Vtable = IAppointmentDataProviderTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3005758465, 32274, 20062, [177, 239, 116, 251, 104, 172, 111, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3283c01_7e12_4e5e_b1ef_74fb68ac6f2a);
 }
 #[repr(C)]
 #[doc(hidden)]

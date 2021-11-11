@@ -6,7 +6,7 @@ pub mod Provider;
 pub struct ISocialFeedChildItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialFeedChildItem {
     type Vtable = ISocialFeedChildItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(191535194, 54685, 16574, [152, 12, 72, 138, 42, 179, 10, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b6a985a_d59d_40be_980c_488a2ab30a83);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -38,7 +38,7 @@ pub struct ISocialFeedChildItem_abi(
 pub struct ISocialFeedContent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialFeedContent {
     type Vtable = ISocialFeedContent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2721375273, 15929, 18765, [163, 124, 244, 98, 162, 73, 69, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa234e429_3e39_494d_a37c_f462a2494514);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -63,7 +63,7 @@ pub struct ISocialFeedContent_abi(
 pub struct ISocialFeedItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialFeedItem {
     type Vtable = ISocialFeedItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1326682795, 8050, 19763, [182, 149, 222, 62, 29, 182, 3, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f1392ab_1f72_4d33_b695_de3e1db60317);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -105,7 +105,7 @@ pub struct ISocialFeedItem_abi(
 pub struct ISocialFeedSharedItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialFeedSharedItem {
     type Vtable = ISocialFeedSharedItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2080087616, 42666, 17831, [159, 246, 84, 196, 33, 5, 221, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bfb9e40_a6aa_45a7_9ff6_54c42105dd1f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -137,7 +137,7 @@ pub struct ISocialFeedSharedItem_abi(
 pub struct ISocialItemThumbnail(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialItemThumbnail {
     type Vtable = ISocialItemThumbnail_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1556054810, 16136, 18815, [145, 127, 87, 224, 157, 132, 177, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5cbf831a_3f08_497f_917f_57e09d84b141);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -168,7 +168,7 @@ pub struct ISocialItemThumbnail_abi(
 pub struct ISocialUserInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialUserInfo {
     type Vtable = ISocialUserInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2656967633, 37072, 19997, [149, 84, 132, 77, 70, 96, 127, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e5e1bd1_90d0_4e1d_9554_844d46607f61);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -294,7 +294,7 @@ unsafe impl ::windows::runtime::RuntimeType for SocialFeedChildItem {
 }
 unsafe impl ::windows::runtime::Interface for SocialFeedChildItem {
     type Vtable = ISocialFeedChildItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(191535194, 54685, 16574, [152, 12, 72, 138, 42, 179, 10, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b6a985a_d59d_40be_980c_488a2ab30a83);
 }
 impl ::windows::runtime::RuntimeName for SocialFeedChildItem {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.SocialFeedChildItem";
@@ -399,7 +399,7 @@ unsafe impl ::windows::runtime::RuntimeType for SocialFeedContent {
 }
 unsafe impl ::windows::runtime::Interface for SocialFeedContent {
     type Vtable = ISocialFeedContent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2721375273, 15929, 18765, [163, 124, 244, 98, 162, 73, 69, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa234e429_3e39_494d_a37c_f462a2494514);
 }
 impl ::windows::runtime::RuntimeName for SocialFeedContent {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.SocialFeedContent";
@@ -625,7 +625,7 @@ unsafe impl ::windows::runtime::RuntimeType for SocialFeedItem {
 }
 unsafe impl ::windows::runtime::Interface for SocialFeedItem {
     type Vtable = ISocialFeedItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1326682795, 8050, 19763, [182, 149, 222, 62, 29, 182, 3, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f1392ab_1f72_4d33_b695_de3e1db60317);
 }
 impl ::windows::runtime::RuntimeName for SocialFeedItem {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.SocialFeedItem";
@@ -810,7 +810,7 @@ unsafe impl ::windows::runtime::RuntimeType for SocialFeedSharedItem {
 }
 unsafe impl ::windows::runtime::Interface for SocialFeedSharedItem {
     type Vtable = ISocialFeedSharedItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2080087616, 42666, 17831, [159, 246, 84, 196, 33, 5, 221, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bfb9e40_a6aa_45a7_9ff6_54c42105dd1f);
 }
 impl ::windows::runtime::RuntimeName for SocialFeedSharedItem {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.SocialFeedSharedItem";
@@ -984,7 +984,7 @@ unsafe impl ::windows::runtime::RuntimeType for SocialItemThumbnail {
 }
 unsafe impl ::windows::runtime::Interface for SocialItemThumbnail {
     type Vtable = ISocialItemThumbnail_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1556054810, 16136, 18815, [145, 127, 87, 224, 157, 132, 177, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5cbf831a_3f08_497f_917f_57e09d84b141);
 }
 impl ::windows::runtime::RuntimeName for SocialItemThumbnail {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.SocialItemThumbnail";
@@ -1104,7 +1104,7 @@ unsafe impl ::windows::runtime::RuntimeType for SocialUserInfo {
 }
 unsafe impl ::windows::runtime::Interface for SocialUserInfo {
     type Vtable = ISocialUserInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2656967633, 37072, 19997, [149, 84, 132, 77, 70, 96, 127, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e5e1bd1_90d0_4e1d_9554_844d46607f61);
 }
 impl ::windows::runtime::RuntimeName for SocialUserInfo {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.SocialUserInfo";

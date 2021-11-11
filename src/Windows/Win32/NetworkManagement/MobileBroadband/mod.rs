@@ -6,7 +6,7 @@ pub struct IDummyMBNUCMExt(pub ::windows::runtime::IUnknown);
 impl IDummyMBNUCMExt {}
 unsafe impl ::windows::runtime::Interface for IDummyMBNUCMExt {
     type Vtable = IDummyMBNUCMExt_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 65535, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_ffff_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IDummyMBNUCMExt> for ::windows::runtime::IUnknown {
     fn from(value: IDummyMBNUCMExt) -> Self {
@@ -113,7 +113,7 @@ impl IMbnConnection {
 }
 unsafe impl ::windows::runtime::Interface for IMbnConnection {
     type Vtable = IMbnConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8205, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_200d_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnConnection> for ::windows::runtime::IUnknown {
     fn from(value: IMbnConnection) -> Self {
@@ -173,7 +173,7 @@ impl IMbnConnectionContext {
 }
 unsafe impl ::windows::runtime::Interface for IMbnConnectionContext {
     type Vtable = IMbnConnectionContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8203, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_200b_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnConnectionContext> for ::windows::runtime::IUnknown {
     fn from(value: IMbnConnectionContext) -> Self {
@@ -222,7 +222,7 @@ impl IMbnConnectionContextEvents {
 }
 unsafe impl ::windows::runtime::Interface for IMbnConnectionContextEvents {
     type Vtable = IMbnConnectionContextEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8204, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_200c_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnConnectionContextEvents> for ::windows::runtime::IUnknown {
     fn from(value: IMbnConnectionContextEvents) -> Self {
@@ -277,7 +277,7 @@ impl IMbnConnectionEvents {
 }
 unsafe impl ::windows::runtime::Interface for IMbnConnectionEvents {
     type Vtable = IMbnConnectionEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8206, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_200e_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnConnectionEvents> for ::windows::runtime::IUnknown {
     fn from(value: IMbnConnectionEvents) -> Self {
@@ -330,7 +330,7 @@ impl IMbnConnectionManager {
 }
 unsafe impl ::windows::runtime::Interface for IMbnConnectionManager {
     type Vtable = IMbnConnectionManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8221, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_201d_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnConnectionManager> for ::windows::runtime::IUnknown {
     fn from(value: IMbnConnectionManager) -> Self {
@@ -379,7 +379,7 @@ impl IMbnConnectionManagerEvents {
 }
 unsafe impl ::windows::runtime::Interface for IMbnConnectionManagerEvents {
     type Vtable = IMbnConnectionManagerEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8222, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_201e_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnConnectionManagerEvents> for ::windows::runtime::IUnknown {
     fn from(value: IMbnConnectionManagerEvents) -> Self {
@@ -433,7 +433,7 @@ impl IMbnConnectionProfile {
 }
 unsafe impl ::windows::runtime::Interface for IMbnConnectionProfile {
     type Vtable = IMbnConnectionProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8208, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2010_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnConnectionProfile> for ::windows::runtime::IUnknown {
     fn from(value: IMbnConnectionProfile) -> Self {
@@ -479,7 +479,7 @@ impl IMbnConnectionProfileEvents {
 }
 unsafe impl ::windows::runtime::Interface for IMbnConnectionProfileEvents {
     type Vtable = IMbnConnectionProfileEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8209, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2011_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnConnectionProfileEvents> for ::windows::runtime::IUnknown {
     fn from(value: IMbnConnectionProfileEvents) -> Self {
@@ -534,7 +534,7 @@ impl IMbnConnectionProfileManager {
 }
 unsafe impl ::windows::runtime::Interface for IMbnConnectionProfileManager {
     type Vtable = IMbnConnectionProfileManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8207, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_200f_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnConnectionProfileManager> for ::windows::runtime::IUnknown {
     fn from(value: IMbnConnectionProfileManager) -> Self {
@@ -585,7 +585,7 @@ impl IMbnConnectionProfileManagerEvents {
 }
 unsafe impl ::windows::runtime::Interface for IMbnConnectionProfileManagerEvents {
     type Vtable = IMbnConnectionProfileManagerEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8223, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_201f_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnConnectionProfileManagerEvents> for ::windows::runtime::IUnknown {
     fn from(value: IMbnConnectionProfileManagerEvents) -> Self {
@@ -691,7 +691,7 @@ impl IMbnDeviceService {
 }
 unsafe impl ::windows::runtime::Interface for IMbnDeviceService {
     type Vtable = IMbnDeviceService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3015416433, 56432, 19433, [164, 218, 120, 134, 174, 139, 25, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3bb9a71_dc70_4be9_a4da_7886ae8b191b);
 }
 impl ::core::convert::From<IMbnDeviceService> for ::windows::runtime::IUnknown {
     fn from(value: IMbnDeviceService) -> Self {
@@ -752,7 +752,7 @@ impl IMbnDeviceServiceStateEvents {
 }
 unsafe impl ::windows::runtime::Interface for IMbnDeviceServiceStateEvents {
     type Vtable = IMbnDeviceServiceStateEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1564471702, 35310, 18904, [139, 96, 51, 255, 221, 255, 197, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d3ff196_89ee_49d8_8b60_33ffddffc58d);
 }
 impl ::core::convert::From<IMbnDeviceServiceStateEvents> for ::windows::runtime::IUnknown {
     fn from(value: IMbnDeviceServiceStateEvents) -> Self {
@@ -813,7 +813,7 @@ impl IMbnDeviceServicesContext {
 }
 unsafe impl ::windows::runtime::Interface for IMbnDeviceServicesContext {
     type Vtable = IMbnDeviceServicesContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4233806663, 5522, 16488, [128, 187, 106, 87, 88, 1, 80, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc5ac347_1592_4068_80bb_6a57580150d8);
 }
 impl ::core::convert::From<IMbnDeviceServicesContext> for ::windows::runtime::IUnknown {
     fn from(value: IMbnDeviceServicesContext) -> Self {
@@ -906,7 +906,7 @@ impl IMbnDeviceServicesEvents {
 }
 unsafe impl ::windows::runtime::Interface for IMbnDeviceServicesEvents {
     type Vtable = IMbnDeviceServicesEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(177212441, 26660, 20119, [183, 110, 207, 35, 157, 12, 166, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a900c19_6824_4e97_b76e_cf239d0ca642);
 }
 impl ::core::convert::From<IMbnDeviceServicesEvents> for ::windows::runtime::IUnknown {
     fn from(value: IMbnDeviceServicesEvents) -> Self {
@@ -966,7 +966,7 @@ impl IMbnDeviceServicesManager {
 }
 unsafe impl ::windows::runtime::Interface for IMbnDeviceServicesManager {
     type Vtable = IMbnDeviceServicesManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(547512920, 26641, 17528, [172, 29, 19, 50, 78, 69, 228, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20a26258_6811_4478_ac1d_13324e45e41c);
 }
 impl ::core::convert::From<IMbnDeviceServicesManager> for ::windows::runtime::IUnknown {
     fn from(value: IMbnDeviceServicesManager) -> Self {
@@ -1065,7 +1065,7 @@ impl IMbnInterface {
 }
 unsafe impl ::windows::runtime::Interface for IMbnInterface {
     type Vtable = IMbnInterface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8193, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2001_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnInterface> for ::windows::runtime::IUnknown {
     fn from(value: IMbnInterface) -> Self {
@@ -1151,7 +1151,7 @@ impl IMbnInterfaceEvents {
 }
 unsafe impl ::windows::runtime::Interface for IMbnInterfaceEvents {
     type Vtable = IMbnInterfaceEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8194, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2002_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnInterfaceEvents> for ::windows::runtime::IUnknown {
     fn from(value: IMbnInterfaceEvents) -> Self {
@@ -1208,7 +1208,7 @@ impl IMbnInterfaceManager {
 }
 unsafe impl ::windows::runtime::Interface for IMbnInterfaceManager {
     type Vtable = IMbnInterfaceManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8219, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_201b_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnInterfaceManager> for ::windows::runtime::IUnknown {
     fn from(value: IMbnInterfaceManager) -> Self {
@@ -1257,7 +1257,7 @@ impl IMbnInterfaceManagerEvents {
 }
 unsafe impl ::windows::runtime::Interface for IMbnInterfaceManagerEvents {
     type Vtable = IMbnInterfaceManagerEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8220, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_201c_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnInterfaceManagerEvents> for ::windows::runtime::IUnknown {
     fn from(value: IMbnInterfaceManagerEvents) -> Self {
@@ -1329,7 +1329,7 @@ impl IMbnMultiCarrier {
 }
 unsafe impl ::windows::runtime::Interface for IMbnMultiCarrier {
     type Vtable = IMbnMultiCarrier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8224, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2020_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnMultiCarrier> for ::windows::runtime::IUnknown {
     fn from(value: IMbnMultiCarrier) -> Self {
@@ -1396,7 +1396,7 @@ impl IMbnMultiCarrierEvents {
 }
 unsafe impl ::windows::runtime::Interface for IMbnMultiCarrierEvents {
     type Vtable = IMbnMultiCarrierEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3705526966, 8225, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcdddab6_2021_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnMultiCarrierEvents> for ::windows::runtime::IUnknown {
     fn from(value: IMbnMultiCarrierEvents) -> Self {
@@ -1498,7 +1498,7 @@ impl IMbnPin {
 }
 unsafe impl ::windows::runtime::Interface for IMbnPin {
     type Vtable = IMbnPin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8199, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2007_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnPin> for ::windows::runtime::IUnknown {
     fn from(value: IMbnPin) -> Self {
@@ -1571,7 +1571,7 @@ impl IMbnPinEvents {
 }
 unsafe impl ::windows::runtime::Interface for IMbnPinEvents {
     type Vtable = IMbnPinEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8200, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2008_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnPinEvents> for ::windows::runtime::IUnknown {
     fn from(value: IMbnPinEvents) -> Self {
@@ -1629,7 +1629,7 @@ impl IMbnPinManager {
 }
 unsafe impl ::windows::runtime::Interface for IMbnPinManager {
     type Vtable = IMbnPinManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8197, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2005_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnPinManager> for ::windows::runtime::IUnknown {
     fn from(value: IMbnPinManager) -> Self {
@@ -1678,7 +1678,7 @@ impl IMbnPinManagerEvents {
 }
 unsafe impl ::windows::runtime::Interface for IMbnPinManagerEvents {
     type Vtable = IMbnPinManagerEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8198, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2006_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnPinManagerEvents> for ::windows::runtime::IUnknown {
     fn from(value: IMbnPinManagerEvents) -> Self {
@@ -1732,7 +1732,7 @@ impl IMbnRadio {
 }
 unsafe impl ::windows::runtime::Interface for IMbnRadio {
     type Vtable = IMbnRadio_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3704408758, 8223, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdccccab6_201f_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnRadio> for ::windows::runtime::IUnknown {
     fn from(value: IMbnRadio) -> Self {
@@ -1780,7 +1780,7 @@ impl IMbnRadioEvents {
 }
 unsafe impl ::windows::runtime::Interface for IMbnRadioEvents {
     type Vtable = IMbnRadioEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3705526966, 8223, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcdddab6_201f_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnRadioEvents> for ::windows::runtime::IUnknown {
     fn from(value: IMbnRadioEvents) -> Self {
@@ -1873,7 +1873,7 @@ impl IMbnRegistration {
 }
 unsafe impl ::windows::runtime::Interface for IMbnRegistration {
     type Vtable = IMbnRegistration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8201, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2009_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnRegistration> for ::windows::runtime::IUnknown {
     fn from(value: IMbnRegistration) -> Self {
@@ -1940,7 +1940,7 @@ impl IMbnRegistrationEvents {
 }
 unsafe impl ::windows::runtime::Interface for IMbnRegistrationEvents {
     type Vtable = IMbnRegistrationEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8202, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_200a_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnRegistrationEvents> for ::windows::runtime::IUnknown {
     fn from(value: IMbnRegistrationEvents) -> Self {
@@ -1987,7 +1987,7 @@ impl IMbnServiceActivation {
 }
 unsafe impl ::windows::runtime::Interface for IMbnServiceActivation {
     type Vtable = IMbnServiceActivation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8215, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2017_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnServiceActivation> for ::windows::runtime::IUnknown {
     fn from(value: IMbnServiceActivation) -> Self {
@@ -2031,7 +2031,7 @@ impl IMbnServiceActivationEvents {
 }
 unsafe impl ::windows::runtime::Interface for IMbnServiceActivationEvents {
     type Vtable = IMbnServiceActivationEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8216, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2018_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnServiceActivationEvents> for ::windows::runtime::IUnknown {
     fn from(value: IMbnServiceActivationEvents) -> Self {
@@ -2080,7 +2080,7 @@ impl IMbnSignal {
 }
 unsafe impl ::windows::runtime::Interface for IMbnSignal {
     type Vtable = IMbnSignal_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8195, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2003_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnSignal> for ::windows::runtime::IUnknown {
     fn from(value: IMbnSignal) -> Self {
@@ -2123,7 +2123,7 @@ impl IMbnSignalEvents {
 }
 unsafe impl ::windows::runtime::Interface for IMbnSignalEvents {
     type Vtable = IMbnSignalEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8196, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2004_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnSignalEvents> for ::windows::runtime::IUnknown {
     fn from(value: IMbnSignalEvents) -> Self {
@@ -2204,7 +2204,7 @@ impl IMbnSms {
 }
 unsafe impl ::windows::runtime::Interface for IMbnSms {
     type Vtable = IMbnSms_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8213, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2015_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnSms> for ::windows::runtime::IUnknown {
     fn from(value: IMbnSms) -> Self {
@@ -2282,7 +2282,7 @@ impl IMbnSmsConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for IMbnSmsConfiguration {
     type Vtable = IMbnSmsConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8210, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2012_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnSmsConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: IMbnSmsConfiguration) -> Self {
@@ -2357,7 +2357,7 @@ impl IMbnSmsEvents {
 }
 unsafe impl ::windows::runtime::Interface for IMbnSmsEvents {
     type Vtable = IMbnSmsEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8214, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2016_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnSmsEvents> for ::windows::runtime::IUnknown {
     fn from(value: IMbnSmsEvents) -> Self {
@@ -2425,7 +2425,7 @@ impl IMbnSmsReadMsgPdu {
 }
 unsafe impl ::windows::runtime::Interface for IMbnSmsReadMsgPdu {
     type Vtable = IMbnSmsReadMsgPdu_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8211, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2013_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnSmsReadMsgPdu> for ::windows::runtime::IUnknown {
     fn from(value: IMbnSmsReadMsgPdu) -> Self {
@@ -2511,7 +2511,7 @@ impl IMbnSmsReadMsgTextCdma {
 }
 unsafe impl ::windows::runtime::Interface for IMbnSmsReadMsgTextCdma {
     type Vtable = IMbnSmsReadMsgTextCdma_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8212, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2014_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnSmsReadMsgTextCdma> for ::windows::runtime::IUnknown {
     fn from(value: IMbnSmsReadMsgTextCdma) -> Self {
@@ -2577,7 +2577,7 @@ impl IMbnSubscriberInformation {
 }
 unsafe impl ::windows::runtime::Interface for IMbnSubscriberInformation {
     type Vtable = IMbnSubscriberInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1168034883, 48373, 4572, [168, 168, 0, 19, 33, 241, 64, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x459ecc43_bcf5_11dc_a8a8_001321f1405f);
 }
 impl ::core::convert::From<IMbnSubscriberInformation> for ::windows::runtime::IUnknown {
     fn from(value: IMbnSubscriberInformation) -> Self {
@@ -2630,7 +2630,7 @@ impl IMbnVendorSpecificEvents {
 }
 unsafe impl ::windows::runtime::Interface for IMbnVendorSpecificEvents {
     type Vtable = IMbnVendorSpecificEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8218, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_201a_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnVendorSpecificEvents> for ::windows::runtime::IUnknown {
     fn from(value: IMbnVendorSpecificEvents) -> Self {
@@ -2677,7 +2677,7 @@ impl IMbnVendorSpecificOperation {
 }
 unsafe impl ::windows::runtime::Interface for IMbnVendorSpecificOperation {
     type Vtable = IMbnVendorSpecificOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8217, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcbbbab6_2019_4bbb_aaee_338e368af6fa);
 }
 impl ::core::convert::From<IMbnVendorSpecificOperation> for ::windows::runtime::IUnknown {
     fn from(value: IMbnVendorSpecificOperation) -> Self {
@@ -3610,10 +3610,10 @@ impl ::core::convert::From<i32> for MBN_VOICE_CLASS {
 unsafe impl ::windows::runtime::Abi for MBN_VOICE_CLASS {
     type Abi = Self;
 }
-pub const MbnConnectionManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3187597404, 17432, 4573, [144, 237, 0, 28, 37, 124, 207, 241]);
-pub const MbnConnectionProfileManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3187597402, 17432, 4573, [144, 237, 0, 28, 37, 124, 207, 241]);
-pub const MbnDeviceServicesManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(577362595, 10911, 16741, [165, 1, 206, 0, 166, 247, 167, 91]);
-pub const MbnInterfaceManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3187597403, 17432, 4573, [144, 237, 0, 28, 37, 124, 207, 241]);
+pub const MbnConnectionManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbdfee05c_4418_11dd_90ed_001c257ccff1);
+pub const MbnConnectionProfileManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbdfee05a_4418_11dd_90ed_001c257ccff1);
+pub const MbnDeviceServicesManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2269daa3_2a9f_4165_a501_ce00a6f7a75b);
+pub const MbnInterfaceManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbdfee05b_4418_11dd_90ed_001c257ccff1);
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]

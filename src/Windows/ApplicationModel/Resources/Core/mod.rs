@@ -4,7 +4,7 @@
 pub struct INamedResource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INamedResource {
     type Vtable = INamedResource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(479773209, 2835, 16960, [137, 165, 212, 149, 220, 24, 154, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c98c219_0b13_4240_89a5_d495dc189a00);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -31,7 +31,7 @@ pub struct INamedResource_abi(
 pub struct IResourceCandidate(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceCandidate {
     type Vtable = IResourceCandidate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2941388761, 50227, 18276, [179, 253, 143, 166, 191, 188, 186, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf5207d9_c433_4764_b3fd_8fa6bfbcbadc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -57,7 +57,7 @@ pub struct IResourceCandidate_abi(
 pub struct IResourceCandidate2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceCandidate2 {
     type Vtable = IResourceCandidate2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1776661608, 63228, 16403, [170, 162, 213, 63, 23, 87, 211, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69e5b468_f6fc_4013_aaa2_d53f1757d3b5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -76,7 +76,7 @@ pub struct IResourceCandidate2_abi(
 pub struct IResourceCandidate3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceCandidate3 {
     type Vtable = IResourceCandidate3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(145659896, 20858, 18036, [149, 140, 74, 60, 124, 210, 204, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08ae97f8_517a_4674_958c_4a3c7cd2cc6b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -94,7 +94,7 @@ pub struct IResourceCandidate3_abi(
 pub struct IResourceContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceContext {
     type Vtable = IResourceContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(799158091, 28798, 19239, [173, 13, 208, 216, 205, 70, 143, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2fa22f4b_707e_4b27_ad0d_d0d8cd468fd2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -123,7 +123,7 @@ pub struct IResourceContext_abi(
 pub struct IResourceContextStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceContextStatics {
     type Vtable = IResourceContextStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2562628972, 25400, 19249, [153, 223, 178, 180, 66, 241, 113, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98be9d6c_6338_4b31_99df_b2b442f17149);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -142,7 +142,7 @@ pub struct IResourceContextStatics_abi(
 pub struct IResourceContextStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceContextStatics2 {
     type Vtable = IResourceContextStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1106727663, 4783, 16825, [171, 54, 177, 235, 75, 81, 36, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41f752ef_12af_41b9_ab36_b1eb4b512460);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -165,7 +165,7 @@ pub struct IResourceContextStatics2_abi(
 pub struct IResourceContextStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceContextStatics3 {
     type Vtable = IResourceContextStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(550455596, 44815, 17675, [157, 166, 16, 109, 208, 194, 154, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20cf492c_af0f_450b_9da6_106dd0c29a39);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -183,7 +183,7 @@ pub struct IResourceContextStatics3_abi(
 pub struct IResourceContextStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceContextStatics4 {
     type Vtable = IResourceContextStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(585866445, 64305, 19450, [184, 107, 223, 157, 157, 123, 220, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22eb9ccd_fb31_4bfa_b86b_df9d9d7bdc39);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -202,7 +202,7 @@ pub struct IResourceContextStatics4_abi(
 pub struct IResourceManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceManager {
     type Vtable = IResourceManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4148484475, 39304, 17659, [171, 214, 83, 120, 132, 76, 250, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf744d97b_9988_44fb_abd6_5378844cfa8b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -227,7 +227,7 @@ pub struct IResourceManager_abi(
 pub struct IResourceManager2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceManager2 {
     type Vtable = IResourceManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2640772716, 42199, 19491, [158, 133, 103, 95, 48, 76, 37, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d66fe6c_a4d7_4c23_9e85_675f304c252d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -248,7 +248,7 @@ pub struct IResourceManager2_abi(
 pub struct IResourceManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceManagerStatics {
     type Vtable = IResourceManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(482409980, 27118, 20035, [153, 1, 71, 241, 38, 135, 186, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cc0fdfc_69ee_4e43_9901_47f12687baf7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -267,7 +267,7 @@ pub struct IResourceManagerStatics_abi(
 pub struct IResourceMap(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceMap {
     type Vtable = IResourceMap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1915242532, 56204, 17144, [176, 140, 83, 255, 53, 125, 173, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72284824_db8c_42f8_b08c_53ff357dad82);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -289,7 +289,7 @@ pub struct IResourceMap_abi(
 pub struct IResourceQualifier(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceQualifier {
     type Vtable = IResourceQualifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2019403186, 19197, 17270, [168, 136, 197, 249, 166, 183, 160, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x785da5b2_4afd_4376_a888_c5f9a6b7a05c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -369,7 +369,7 @@ unsafe impl ::windows::runtime::RuntimeType for NamedResource {
 }
 unsafe impl ::windows::runtime::Interface for NamedResource {
     type Vtable = INamedResource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(479773209, 2835, 16960, [137, 165, 212, 149, 220, 24, 154, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c98c219_0b13_4240_89a5_d495dc189a00);
 }
 impl ::windows::runtime::RuntimeName for NamedResource {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.NamedResource";
@@ -502,7 +502,7 @@ unsafe impl ::windows::runtime::RuntimeType for ResourceCandidate {
 }
 unsafe impl ::windows::runtime::Interface for ResourceCandidate {
     type Vtable = IResourceCandidate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2941388761, 50227, 18276, [179, 253, 143, 166, 191, 188, 186, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf5207d9_c433_4764_b3fd_8fa6bfbcbadc);
 }
 impl ::windows::runtime::RuntimeName for ResourceCandidate {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceCandidate";
@@ -886,7 +886,7 @@ unsafe impl ::windows::runtime::RuntimeType for ResourceContext {
 }
 unsafe impl ::windows::runtime::Interface for ResourceContext {
     type Vtable = IResourceContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(799158091, 28798, 19239, [173, 13, 208, 216, 205, 70, 143, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2fa22f4b_707e_4b27_ad0d_d0d8cd468fd2);
 }
 impl ::windows::runtime::RuntimeName for ResourceContext {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceContext";
@@ -1237,7 +1237,7 @@ unsafe impl ::windows::runtime::RuntimeType for ResourceManager {
 }
 unsafe impl ::windows::runtime::Interface for ResourceManager {
     type Vtable = IResourceManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4148484475, 39304, 17659, [171, 214, 83, 120, 132, 76, 250, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf744d97b_9988_44fb_abd6_5378844cfa8b);
 }
 impl ::windows::runtime::RuntimeName for ResourceManager {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceManager";
@@ -1370,7 +1370,7 @@ unsafe impl ::windows::runtime::RuntimeType for ResourceMap {
 }
 unsafe impl ::windows::runtime::Interface for ResourceMap {
     type Vtable = IResourceMap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1915242532, 56204, 17144, [176, 140, 83, 255, 53, 125, 173, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72284824_db8c_42f8_b08c_53ff357dad82);
 }
 impl ::windows::runtime::RuntimeName for ResourceMap {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceMap";
@@ -1983,7 +1983,7 @@ unsafe impl ::windows::runtime::RuntimeType for ResourceQualifier {
 }
 unsafe impl ::windows::runtime::Interface for ResourceQualifier {
     type Vtable = IResourceQualifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2019403186, 19197, 17270, [168, 136, 197, 249, 166, 183, 160, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x785da5b2_4afd_4376_a888_c5f9a6b7a05c);
 }
 impl ::windows::runtime::RuntimeName for ResourceQualifier {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceQualifier";

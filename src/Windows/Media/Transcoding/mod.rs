@@ -4,7 +4,7 @@
 pub struct IMediaTranscoder(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaTranscoder {
     type Vtable = IMediaTranscoder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(420256210, 41130, 19764, [134, 188, 238, 209, 177, 44, 47, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x190c99d2_a0aa_4d34_86bc_eed1b12c2f5b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -44,7 +44,7 @@ pub struct IMediaTranscoder_abi(
 pub struct IMediaTranscoder2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaTranscoder2 {
     type Vtable = IMediaTranscoder2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1079188852, 13792, 20228, [133, 116, 202, 139, 196, 229, 160, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40531d74_35e0_4f04_8574_ca8bc4e5a082);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -65,7 +65,7 @@ pub struct IMediaTranscoder2_abi(
 pub struct IPrepareTranscodeResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrepareTranscodeResult {
     type Vtable = IPrepareTranscodeResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(99769806, 39247, 18996, [157, 104, 151, 204, 206, 23, 48, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05f25dce_994f_4a34_9d68_97ccce1730d6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -222,7 +222,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaTranscoder {
 }
 unsafe impl ::windows::runtime::Interface for MediaTranscoder {
     type Vtable = IMediaTranscoder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(420256210, 41130, 19764, [134, 188, 238, 209, 177, 44, 47, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x190c99d2_a0aa_4d34_86bc_eed1b12c2f5b);
 }
 impl ::windows::runtime::RuntimeName for MediaTranscoder {
     const NAME: &'static str = "Windows.Media.Transcoding.MediaTranscoder";
@@ -327,7 +327,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrepareTranscodeResult {
 }
 unsafe impl ::windows::runtime::Interface for PrepareTranscodeResult {
     type Vtable = IPrepareTranscodeResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(99769806, 39247, 18996, [157, 104, 151, 204, 206, 23, 48, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05f25dce_994f_4a34_9d68_97ccce1730d6);
 }
 impl ::windows::runtime::RuntimeName for PrepareTranscodeResult {
     const NAME: &'static str = "Windows.Media.Transcoding.PrepareTranscodeResult";

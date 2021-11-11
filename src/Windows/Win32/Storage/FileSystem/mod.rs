@@ -918,7 +918,7 @@ impl ::core::cmp::Eq for CLFS_STREAM_ID_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for CLFS_STREAM_ID_INFORMATION {
     type Abi = Self;
 }
-pub const CLSID_DiskQuotaControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039002481, 60553, 4559, [156, 0, 0, 170, 0, 161, 79, 86]);
+pub const CLSID_DiskQuotaControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7988b571_ec89_11cf_9c00_00aa00a14f56);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -7870,7 +7870,7 @@ impl IDiskQuotaControl {
 }
 unsafe impl ::windows::runtime::Interface for IDiskQuotaControl {
     type Vtable = IDiskQuotaControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039002482, 60553, 4559, [156, 0, 0, 170, 0, 161, 79, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7988b572_ec89_11cf_9c00_00aa00a14f56);
 }
 impl ::core::convert::From<IDiskQuotaControl> for ::windows::runtime::IUnknown {
     fn from(value: IDiskQuotaControl) -> Self {
@@ -7968,7 +7968,7 @@ impl IDiskQuotaEvents {
 }
 unsafe impl ::windows::runtime::Interface for IDiskQuotaEvents {
     type Vtable = IDiskQuotaEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039002489, 60553, 4559, [156, 0, 0, 170, 0, 161, 79, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7988b579_ec89_11cf_9c00_00aa00a14f56);
 }
 impl ::core::convert::From<IDiskQuotaEvents> for ::windows::runtime::IUnknown {
     fn from(value: IDiskQuotaEvents) -> Self {
@@ -8072,7 +8072,7 @@ impl IDiskQuotaUser {
 }
 unsafe impl ::windows::runtime::Interface for IDiskQuotaUser {
     type Vtable = IDiskQuotaUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039002484, 60553, 4559, [156, 0, 0, 170, 0, 161, 79, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7988b574_ec89_11cf_9c00_00aa00a14f56);
 }
 impl ::core::convert::From<IDiskQuotaUser> for ::windows::runtime::IUnknown {
     fn from(value: IDiskQuotaUser) -> Self {
@@ -8146,7 +8146,7 @@ impl IDiskQuotaUserBatch {
 }
 unsafe impl ::windows::runtime::Interface for IDiskQuotaUserBatch {
     type Vtable = IDiskQuotaUserBatch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039002486, 60553, 4559, [156, 0, 0, 170, 0, 161, 79, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7988b576_ec89_11cf_9c00_00aa00a14f56);
 }
 impl ::core::convert::From<IDiskQuotaUserBatch> for ::windows::runtime::IUnknown {
     fn from(value: IDiskQuotaUserBatch) -> Self {
@@ -8204,7 +8204,7 @@ impl IEnumDiskQuotaUsers {
 }
 unsafe impl ::windows::runtime::Interface for IEnumDiskQuotaUsers {
     type Vtable = IEnumDiskQuotaUsers_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039002487, 60553, 4559, [156, 0, 0, 170, 0, 161, 79, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7988b577_ec89_11cf_9c00_00aa00a14f56);
 }
 impl ::core::convert::From<IEnumDiskQuotaUsers> for ::windows::runtime::IUnknown {
     fn from(value: IEnumDiskQuotaUsers) -> Self {
@@ -13153,30 +13153,30 @@ pub unsafe fn OpenTransactionManagerById(transactionmanagerid: *const ::windows:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const PARTITION_BASIC_DATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3956318370, 47589, 17459, [135, 192, 104, 182, 183, 38, 153, 199]);
-pub const PARTITION_BSP_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1464029011, 19961, 17849, [142, 158, 35, 112, 240, 6, 69, 124]);
-pub const PARTITION_CLUSTER_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3684162473, 2112, 19374, [151, 240, 255, 185, 163, 39, 199, 225]);
-pub const PARTITION_DPP_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1464029011, 38091, 17392, [165, 51, 215, 60, 16, 207, 165, 125]);
-pub const PARTITION_ENTRY_UNUSED_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0]);
-pub const PARTITION_LDM_DATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2946195616, 5169, 20322, [188, 104, 51, 17, 113, 74, 105, 173]);
-pub const PARTITION_LDM_METADATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1476970666, 32399, 17120, [133, 210, 225, 233, 4, 52, 207, 179]);
-pub const PARTITION_LEGACY_BL_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1112318178, 31922, 20409, [129, 67, 197, 42, 153, 57, 139, 198]);
-pub const PARTITION_LEGACY_BL_GUID_BACKUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1112292972, 55199, 18891, [147, 93, 54, 215, 20, 103, 162, 136]);
-pub const PARTITION_MAIN_OS_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1464029011, 36677, 16478, [138, 35, 24, 109, 138, 67, 48, 211]);
-pub const PARTITION_MSFT_RECOVERY_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3734289316, 1745, 19776, [161, 106, 191, 213, 1, 121, 214, 172]);
-pub const PARTITION_MSFT_RESERVED_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3821658902, 2908, 19896, [129, 125, 249, 45, 240, 2, 21, 174]);
-pub const PARTITION_MSFT_SNAPSHOT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3403541489, 17408, 19944, [177, 3, 18, 17, 125, 207, 60, 207]);
-pub const PARTITION_OS_DATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1464029011, 9202, 17621, [168, 48, 103, 187, 218, 166, 9, 249]);
-pub const PARTITION_PATCH_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2305271430, 38570, 27304, [149, 137, 168, 66, 86, 84, 16, 144]);
-pub const PARTITION_PRE_INSTALLED_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1464029011, 32736, 16790, [155, 66, 66, 123, 81, 100, 52, 132]);
-pub const PARTITION_SERVICING_FILES_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1464029011, 17198, 16404, [174, 76, 141, 234, 169, 192, 0, 106]);
-pub const PARTITION_SERVICING_METADATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1464029011, 50833, 18949, [187, 78, 112, 61, 175, 210, 41, 206]);
-pub const PARTITION_SERVICING_RESERVE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1464029011, 19329, 17931, [163, 25, 255, 182, 254, 19, 109, 20]);
-pub const PARTITION_SERVICING_STAGING_ROOT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1464029011, 59469, 20100, [170, 243, 236, 187, 189, 4, 185, 223]);
-pub const PARTITION_SPACES_DATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3886931124, 56372, 17721, [154, 118, 235, 189, 7, 190, 111, 126]);
-pub const PARTITION_SPACES_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881611151, 63104, 19694, [175, 163, 176, 1, 229, 110, 252, 45]);
-pub const PARTITION_SYSTEM_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3240784680, 63519, 4562, [186, 75, 0, 160, 201, 62, 201, 59]);
-pub const PARTITION_WINDOWS_SYSTEM_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1464029011, 58339, 17969, [165, 197, 38, 210, 36, 56, 115, 170]);
+pub const PARTITION_BASIC_DATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xebd0a0a2_b9e5_4433_87c0_68b6b72699c7);
+pub const PARTITION_BSP_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_4df9_45b9_8e9e_2370f006457c);
+pub const PARTITION_CLUSTER_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb97dba9_0840_4bae_97f0_ffb9a327c7e1);
+pub const PARTITION_DPP_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_94cb_43f0_a533_d73c10cfa57d);
+pub const PARTITION_ENTRY_UNUSED_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const PARTITION_LDM_DATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf9b60a0_1431_4f62_bc68_3311714a69ad);
+pub const PARTITION_LDM_METADATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5808c8aa_7e8f_42e0_85d2_e1e90434cfb3);
+pub const PARTITION_LEGACY_BL_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x424ca0e2_7cb2_4fb9_8143_c52a99398bc6);
+pub const PARTITION_LEGACY_BL_GUID_BACKUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x424c3e6c_d79f_49cb_935d_36d71467a288);
+pub const PARTITION_MAIN_OS_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_8f45_405e_8a23_186d8a4330d3);
+pub const PARTITION_MSFT_RECOVERY_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde94bba4_06d1_4d40_a16a_bfd50179d6ac);
+pub const PARTITION_MSFT_RESERVED_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3c9e316_0b5c_4db8_817d_f92df00215ae);
+pub const PARTITION_MSFT_SNAPSHOT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcaddebf1_4400_4de8_b103_12117dcf3ccf);
+pub const PARTITION_OS_DATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_23f2_44d5_a830_67bbdaa609f9);
+pub const PARTITION_PATCH_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8967a686_96aa_6aa8_9589_a84256541090);
+pub const PARTITION_PRE_INSTALLED_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_7fe0_4196_9b42_427b51643484);
+pub const PARTITION_SERVICING_FILES_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_432e_4014_ae4c_8deaa9c0006a);
+pub const PARTITION_SERVICING_METADATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_c691_4a05_bb4e_703dafd229ce);
+pub const PARTITION_SERVICING_RESERVE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_4b81_460b_a319_ffb6fe136d14);
+pub const PARTITION_SERVICING_STAGING_ROOT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_e84d_4e84_aaf3_ecbbbd04b9df);
+pub const PARTITION_SPACES_DATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7addcb4_dc34_4539_9a76_ebbd07be6f7e);
+pub const PARTITION_SPACES_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe75caf8f_f680_4cee_afa3_b001e56efc2d);
+pub const PARTITION_SYSTEM_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc12a7328_f81f_11d2_ba4b_00a0c93ec93b);
+pub const PARTITION_WINDOWS_SYSTEM_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_e3e3_4631_a5c5_26d2243873aa);
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub type PCLFS_COMPLETION_ROUTINE = unsafe extern "system" fn(pvoverlapped: *mut ::core::ffi::c_void, ulreserved: u32);
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]

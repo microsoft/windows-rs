@@ -1,14 +1,14 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const CLSID_DirectSound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1205131590, 25320, 4559, [147, 188, 68, 69, 83, 84, 0, 0]);
-pub const CLSID_DirectSound8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(956419135, 33973, 20388, [186, 53, 170, 129, 114, 184, 160, 155]);
-pub const CLSID_DirectSoundCapture: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2954954624, 35277, 4560, [175, 8, 0, 160, 201, 37, 205, 22]);
-pub const CLSID_DirectSoundCapture8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3837570067, 32665, 18696, [154, 142, 116, 227, 191, 36, 182, 225]);
-pub const CLSID_DirectSoundFullDuplex: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4272173068, 31065, 16711, [178, 106, 35, 119, 185, 231, 169, 29]);
+pub const CLSID_DirectSound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47d4d946_62e8_11cf_93bc_444553540000);
+pub const CLSID_DirectSound8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3901cc3f_84b5_4fa4_ba35_aa8172b8a09b);
+pub const CLSID_DirectSoundCapture: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0210780_89cd_11d0_af08_00a0c925cd16);
+pub const CLSID_DirectSoundCapture8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4bcac13_7f99_4908_9a8e_74e3bf24b6e1);
+pub const CLSID_DirectSoundFullDuplex: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfea4300c_7959_4147_b26a_2377b9e7a91d);
 #[doc = "*Required features: `Win32_Media_Audio_DirectSound`*"]
 pub const DIRECTSOUND_VERSION: u32 = 1792u32;
-pub const DS3DALG_HRTF_FULL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259052864, 7195, 4562, [148, 245, 0, 192, 79, 194, 138, 202]);
-pub const DS3DALG_HRTF_LIGHT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259052866, 7195, 4562, [148, 245, 0, 192, 79, 194, 138, 202]);
-pub const DS3DALG_NO_VIRTUALIZATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259052863, 7195, 4562, [148, 245, 0, 192, 79, 194, 138, 202]);
+pub const DS3DALG_HRTF_FULL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2413340_1c1b_11d2_94f5_00c04fc28aca);
+pub const DS3DALG_HRTF_LIGHT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2413342_1c1b_11d2_94f5_00c04fc28aca);
+pub const DS3DALG_NO_VIRTUALIZATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc241333f_1c1b_11d2_94f5_00c04fc28aca);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -744,10 +744,10 @@ pub const DSCFX_AEC_STATUS_HISTORY_UNINITIALIZED: u32 = 0u32;
 pub const DSCFX_LOCHARDWARE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectSound`*"]
 pub const DSCFX_LOCSOFTWARE: u32 = 2u32;
-pub const DSDEVID_DefaultCapture: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3740270593, 40045, 18413, [170, 241, 77, 218, 143, 43, 92, 3]);
-pub const DSDEVID_DefaultPlayback: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3740270592, 40045, 18413, [170, 241, 77, 218, 143, 43, 92, 3]);
-pub const DSDEVID_DefaultVoiceCapture: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3740270595, 40045, 18413, [170, 241, 77, 218, 143, 43, 92, 3]);
-pub const DSDEVID_DefaultVoicePlayback: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3740270594, 40045, 18413, [170, 241, 77, 218, 143, 43, 92, 3]);
+pub const DSDEVID_DefaultCapture: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdef00001_9c6d_47ed_aaf1_4dda8f2b5c03);
+pub const DSDEVID_DefaultPlayback: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdef00000_9c6d_47ed_aaf1_4dda8f2b5c03);
+pub const DSDEVID_DefaultVoiceCapture: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdef00003_9c6d_47ed_aaf1_4dda8f2b5c03);
+pub const DSDEVID_DefaultVoicePlayback: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdef00002_9c6d_47ed_aaf1_4dda8f2b5c03);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Audio_DirectSound`*"]
@@ -1634,22 +1634,22 @@ pub unsafe fn DirectSoundFullDuplexCreate<'a, Param4: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const GUID_All_Objects: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2853260773, 49762, 16745, [161, 200, 35, 214, 152, 204, 115, 181]);
-pub const GUID_DSCFX_CLASS_AEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3214294400, 50521, 4560, [138, 43, 0, 160, 201, 37, 90, 193]);
-pub const GUID_DSCFX_CLASS_NS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3766456383, 25341, 20064, [140, 221, 222, 167, 35, 102, 101, 181]);
-pub const GUID_DSCFX_MS_AEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3454777625, 14234, 18570, [135, 101, 245, 60, 253, 54, 222, 64]);
-pub const GUID_DSCFX_MS_NS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(298174267, 26345, 19361, [160, 186, 232, 20, 198, 238, 217, 45]);
-pub const GUID_DSCFX_SYSTEM_AEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(472040813, 39033, 20315, [163, 137, 39, 153, 109, 220, 40, 16]);
-pub const GUID_DSCFX_SYSTEM_NS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1521518638, 29300, 17686, [135, 125, 78, 238, 153, 186, 79, 208]);
-pub const GUID_DSFX_STANDARD_CHORUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4024853148, 33271, 17025, [189, 145, 201, 214, 4, 169, 90, 246]);
-pub const GUID_DSFX_STANDARD_COMPRESSOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4009828217, 16384, 16493, [135, 175, 191, 251, 63, 195, 157, 87]);
-pub const GUID_DSFX_STANDARD_DISTORTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4010888336, 52509, 18510, [150, 229, 9, 207, 175, 145, 42, 33]);
-pub const GUID_DSFX_STANDARD_ECHO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4013855532, 54283, 20305, [140, 207, 63, 152, 241, 178, 157, 93]);
-pub const GUID_DSFX_STANDARD_FLANGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4023008658, 57304, 18034, [166, 3, 116, 32, 137, 75, 173, 152]);
-pub const GUID_DSFX_STANDARD_GARGLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3674046992, 22289, 19345, [159, 227, 247, 91, 122, 226, 121, 191]);
-pub const GUID_DSFX_STANDARD_I3DL2REVERB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4019740273, 54727, 17108, [186, 77, 45, 7, 62, 46, 150, 244]);
-pub const GUID_DSFX_STANDARD_PARAMEQ: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(302837129, 15348, 16755, [161, 50, 60, 180, 6, 207, 50, 49]);
-pub const GUID_DSFX_WAVES_REVERB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2281439848, 39509, 17248, [149, 170, 0, 74, 29, 157, 226, 108]);
+pub const GUID_All_Objects: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa114de5_c262_4169_a1c8_23d698cc73b5);
+pub const GUID_DSCFX_CLASS_AEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
+pub const GUID_DSCFX_CLASS_NS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe07f903f_62fd_4e60_8cdd_dea7236665b5);
+pub const GUID_DSCFX_MS_AEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcdebb919_379a_488a_8765_f53cfd36de40);
+pub const GUID_DSCFX_MS_NS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11c5c73b_66e9_4ba1_a0ba_e814c6eed92d);
+pub const GUID_DSCFX_SYSTEM_AEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c22c56d_9879_4f5b_a389_27996ddc2810);
+pub const GUID_DSCFX_SYSTEM_NS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ab0882e_7274_4516_877d_4eee99ba4fd0);
+pub const GUID_DSFX_STANDARD_CHORUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefe6629c_81f7_4281_bd91_c9d604a95af6);
+pub const GUID_DSFX_STANDARD_COMPRESSOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef011f79_4000_406d_87af_bffb3fc39d57);
+pub const GUID_DSFX_STANDARD_DISTORTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef114c90_cd1d_484e_96e5_09cfaf912a21);
+pub const GUID_DSFX_STANDARD_ECHO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef3e932c_d40b_4f51_8ccf_3f98f1b29d5d);
+pub const GUID_DSFX_STANDARD_FLANGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefca3d92_dfd8_4672_a603_7420894bad98);
+pub const GUID_DSFX_STANDARD_GARGLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdafd8210_5711_4b91_9fe3_f75b7ae279bf);
+pub const GUID_DSFX_STANDARD_I3DL2REVERB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef985e71_d5c7_42d4_ba4d_2d073e2e96f4);
+pub const GUID_DSFX_STANDARD_PARAMEQ: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x120ced89_3bf4_4173_a132_3cb406cf3231);
+pub const GUID_DSFX_WAVES_REVERB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87fc0268_9a55_4360_95aa_004a1d9de26c);
 #[doc = "*Required features: `Win32_Media_Audio_DirectSound`*"]
 #[inline]
 pub unsafe fn GetDeviceID(pguidsrc: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -1709,7 +1709,7 @@ impl IDirectSound {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSound {
     type Vtable = IDirectSound_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(664468099, 18817, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x279afa83_4981_11ce_a521_0020af0be560);
 }
 impl ::core::convert::From<IDirectSound> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSound) -> Self {
@@ -1840,7 +1840,7 @@ impl IDirectSound3DBuffer {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSound3DBuffer {
     type Vtable = IDirectSound3DBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(664468102, 18817, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x279afa86_4981_11ce_a521_0020af0be560);
 }
 impl ::core::convert::From<IDirectSound3DBuffer> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSound3DBuffer) -> Self {
@@ -1971,7 +1971,7 @@ impl IDirectSound3DListener {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSound3DListener {
     type Vtable = IDirectSound3DListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(664468100, 18817, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x279afa84_4981_11ce_a521_0020af0be560);
 }
 impl ::core::convert::From<IDirectSound3DListener> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSound3DListener) -> Self {
@@ -2069,7 +2069,7 @@ impl IDirectSound8 {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSound8 {
     type Vtable = IDirectSound8_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3305799315, 62357, 18484, [158, 246, 127, 169, 157, 229, 9, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc50a7e93_f395_4834_9ef6_7fa99de50966);
 }
 impl ::core::convert::From<IDirectSound8> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSound8) -> Self {
@@ -2213,7 +2213,7 @@ impl IDirectSoundBuffer {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundBuffer {
     type Vtable = IDirectSoundBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(664468101, 18817, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x279afa85_4981_11ce_a521_0020af0be560);
 }
 impl ::core::convert::From<IDirectSoundBuffer> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundBuffer) -> Self {
@@ -2357,7 +2357,7 @@ impl IDirectSoundBuffer8 {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundBuffer8 {
     type Vtable = IDirectSoundBuffer8_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1747297353, 29988, 19842, [146, 15, 80, 227, 106, 179, 171, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6825a449_7524_4d82_920f_50e36ab3ab1e);
 }
 impl ::core::convert::From<IDirectSoundBuffer8> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundBuffer8) -> Self {
@@ -2448,7 +2448,7 @@ impl IDirectSoundCapture {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundCapture {
     type Vtable = IDirectSoundCapture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2954954625, 35277, 4560, [175, 8, 0, 160, 201, 37, 205, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0210781_89cd_11d0_af08_00a0c925cd16);
 }
 impl ::core::convert::From<IDirectSoundCapture> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundCapture) -> Self {
@@ -2526,7 +2526,7 @@ impl IDirectSoundCaptureBuffer {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundCaptureBuffer {
     type Vtable = IDirectSoundCaptureBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2954954626, 35277, 4560, [175, 8, 0, 160, 201, 37, 205, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0210782_89cd_11d0_af08_00a0c925cd16);
 }
 impl ::core::convert::From<IDirectSoundCaptureBuffer> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundCaptureBuffer) -> Self {
@@ -2618,7 +2618,7 @@ impl IDirectSoundCaptureBuffer8 {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundCaptureBuffer8 {
     type Vtable = IDirectSoundCaptureBuffer8_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(10030580, 3515, 18546, [131, 62, 109, 48, 62, 128, 174, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00990df4_0dbb_4872_833e_6d303e80aeb6);
 }
 impl ::core::convert::From<IDirectSoundCaptureBuffer8> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundCaptureBuffer8) -> Self {
@@ -2706,7 +2706,7 @@ impl IDirectSoundCaptureFXAec {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundCaptureFXAec {
     type Vtable = IDirectSoundCaptureFXAec_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2910065725, 36925, 19127, [128, 102, 40, 211, 99, 3, 109, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad74143d_903d_4ab7_8066_28d363036d65);
 }
 impl ::core::convert::From<IDirectSoundCaptureFXAec> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundCaptureFXAec) -> Self {
@@ -2764,7 +2764,7 @@ impl IDirectSoundCaptureFXNoiseSuppress {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundCaptureFXNoiseSuppress {
     type Vtable = IDirectSoundCaptureFXNoiseSuppress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3979419201, 64430, 16757, [150, 37, 205, 8, 84, 246, 147, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed311e41_fbae_4175_9625_cd0854f693ca);
 }
 impl ::core::convert::From<IDirectSoundCaptureFXNoiseSuppress> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundCaptureFXNoiseSuppress) -> Self {
@@ -2815,7 +2815,7 @@ impl IDirectSoundFXChorus {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFXChorus {
     type Vtable = IDirectSoundFXChorus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2282242787, 5215, 17382, [169, 52, 167, 24, 6, 229, 5, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x880842e3_145f_43e6_a934_a71806e50547);
 }
 impl ::core::convert::From<IDirectSoundFXChorus> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFXChorus) -> Self {
@@ -2863,7 +2863,7 @@ impl IDirectSoundFXCompressor {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFXCompressor {
     type Vtable = IDirectSoundFXCompressor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1270681940, 25334, 20012, [161, 92, 211, 182, 196, 23, 247, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bbd1154_62f6_4e2c_a15c_d3b6c417f7a0);
 }
 impl ::core::convert::From<IDirectSoundFXCompressor> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFXCompressor) -> Self {
@@ -2911,7 +2911,7 @@ impl IDirectSoundFXDistortion {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFXDistortion {
     type Vtable = IDirectSoundFXDistortion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2395947814, 17759, 19851, [189, 169, 141, 93, 62, 158, 62, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ecf4326_455f_4d8b_bda9_8d5d3e9e3e0b);
 }
 impl ::core::convert::From<IDirectSoundFXDistortion> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFXDistortion) -> Self {
@@ -2959,7 +2959,7 @@ impl IDirectSoundFXEcho {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFXEcho {
     type Vtable = IDirectSoundFXEcho_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2345832159, 20699, 20114, [162, 189, 68, 84, 136, 209, 237, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bd28edf_50db_4e92_a2bd_445488d1ed42);
 }
 impl ::core::convert::From<IDirectSoundFXEcho> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFXEcho) -> Self {
@@ -3007,7 +3007,7 @@ impl IDirectSoundFXFlanger {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFXFlanger {
     type Vtable = IDirectSoundFXFlanger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2420021368, 11410, 16498, [155, 44, 234, 104, 245, 57, 103, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x903e9878_2c92_4072_9b2c_ea68f5396783);
 }
 impl ::core::convert::From<IDirectSoundFXFlanger> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFXFlanger) -> Self {
@@ -3055,7 +3055,7 @@ impl IDirectSoundFXGargle {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFXGargle {
     type Vtable = IDirectSoundFXGargle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3591828306, 54818, 4558, [170, 197, 0, 32, 175, 11, 153, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd616f352_d622_11ce_aac5_0020af0b99a3);
 }
 impl ::core::convert::From<IDirectSoundFXGargle> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFXGargle) -> Self {
@@ -3121,7 +3121,7 @@ impl IDirectSoundFXI3DL2Reverb {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFXI3DL2Reverb {
     type Vtable = IDirectSoundFXI3DL2Reverb_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1259760234, 3430, 17395, [128, 227, 238, 98, 128, 222, 225, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b166a6a_0d66_43f3_80e3_ee6280dee1a4);
 }
 impl ::core::convert::From<IDirectSoundFXI3DL2Reverb> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFXI3DL2Reverb) -> Self {
@@ -3173,7 +3173,7 @@ impl IDirectSoundFXParamEq {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFXParamEq {
     type Vtable = IDirectSoundFXParamEq_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3225201150, 65168, 16900, [128, 120, 130, 51, 76, 209, 119, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc03ca9fe_fe90_4204_8078_82334cd177da);
 }
 impl ::core::convert::From<IDirectSoundFXParamEq> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFXParamEq) -> Self {
@@ -3221,7 +3221,7 @@ impl IDirectSoundFXWavesReverb {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFXWavesReverb {
     type Vtable = IDirectSoundFXWavesReverb_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1183157306, 3526, 17891, [183, 96, 212, 238, 241, 108, 179, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46858c3a_0dc6_45e3_b760_d4eef16cb325);
 }
 impl ::core::convert::From<IDirectSoundFXWavesReverb> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFXWavesReverb) -> Self {
@@ -3286,7 +3286,7 @@ impl IDirectSoundFullDuplex {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFullDuplex {
     type Vtable = IDirectSoundFullDuplex_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3989523578, 55979, 16918, [164, 46, 108, 80, 89, 109, 220, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xedcb4c7a_daab_4216_a42e_6c50596ddc1d);
 }
 impl ::core::convert::From<IDirectSoundFullDuplex> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFullDuplex) -> Self {
@@ -3330,7 +3330,7 @@ impl IDirectSoundNotify {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundNotify {
     type Vtable = IDirectSoundNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2954954627, 35277, 4560, [175, 8, 0, 160, 201, 37, 205, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0210783_89cd_11d0_af08_00a0c925cd16);
 }
 impl ::core::convert::From<IDirectSoundNotify> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundNotify) -> Self {

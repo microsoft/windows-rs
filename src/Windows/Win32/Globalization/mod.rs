@@ -280,9 +280,9 @@ impl ::core::cmp::Eq for CHARSETINFO {}
 unsafe impl ::windows::runtime::Abi for CHARSETINFO {
     type Abi = Self;
 }
-pub const CMLangConvertCharset: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3597496217, 52650, 4560, [184, 34, 0, 192, 79, 201, 179, 31]);
-pub const CMLangString: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3226297807, 46861, 4560, [177, 136, 0, 170, 0, 56, 201, 105]);
-pub const CMultiLanguage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(660349922, 14151, 4560, [159, 234, 0, 170, 0, 63, 134, 70]);
+pub const CMLangConvertCharset: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd66d6f99_cdaa_11d0_b822_00c04fc9b31f);
+pub const CMLangString: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc04d65cf_b70d_11d0_b188_00aa0038c969);
+pub const CMultiLanguage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x275c23e2_3747_11d0_9fea_00aa003f8646);
 #[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CODEPAGE_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL;
@@ -941,15 +941,15 @@ impl ::core::cmp::Eq for DetectEncodingInfo {}
 unsafe impl ::windows::runtime::Abi for DetectEncodingInfo {
     type Abi = Self;
 }
-pub const ELS_GUID_LANGUAGE_DETECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3481141425, 37019, 19861, [168, 244, 97, 31, 124, 55, 119, 2]);
-pub const ELS_GUID_SCRIPT_DETECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(761574457, 27823, 20331, [182, 136, 229, 208, 244, 250, 167, 215]);
-pub const ELS_GUID_TRANSLITERATION_BENGALI_TO_LATIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4108310565, 37284, 18591, [133, 94, 154, 217, 190, 229, 87, 39]);
-pub const ELS_GUID_TRANSLITERATION_CYRILLIC_TO_LATIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1037118104, 23293, 18691, [161, 63, 225, 126, 108, 11, 254, 1]);
-pub const ELS_GUID_TRANSLITERATION_DEVANAGARI_TO_LATIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3299138814, 9825, 19714, [152, 53, 244, 129, 135, 16, 152, 3]);
-pub const ELS_GUID_TRANSLITERATION_HANGUL_DECOMPOSITION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1268950817, 58429, 16823, [179, 48, 83, 106, 225, 228, 136, 99]);
-pub const ELS_GUID_TRANSLITERATION_HANS_TO_HANT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1017957832, 21904, 17116, [154, 123, 181, 166, 181, 179, 182, 59]);
-pub const ELS_GUID_TRANSLITERATION_HANT_TO_HANS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2745709371, 62716, 17142, [160, 196, 4, 98, 254, 115, 23, 203]);
-pub const ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3636036529, 63679, 18987, [188, 213, 91, 94, 162, 6, 19, 225]);
+pub const ELS_GUID_LANGUAGE_DETECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf7e00b1_909b_4d95_a8f4_611f7c377702);
+pub const ELS_GUID_SCRIPT_DETECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d64b439_6caf_4f6b_b688_e5d0f4faa7d7);
+pub const ELS_GUID_TRANSLITERATION_BENGALI_TO_LATIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf4dfd825_91a4_489f_855e_9ad9bee55727);
+pub const ELS_GUID_TRANSLITERATION_CYRILLIC_TO_LATIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3dd12a98_5afd_4903_a13f_e17e6c0bfe01);
+pub const ELS_GUID_TRANSLITERATION_DEVANAGARI_TO_LATIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4a4dcfe_2661_4d02_9835_f48187109803);
+pub const ELS_GUID_TRANSLITERATION_HANGUL_DECOMPOSITION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ba2a721_e43d_41b7_b330_536ae1e48863);
+pub const ELS_GUID_TRANSLITERATION_HANS_TO_HANT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3caccdc8_5590_42dc_9a7b_b5a6b5b3b63b);
+pub const ELS_GUID_TRANSLITERATION_HANT_TO_HANS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3a8333b_f4fc_42f6_a0c4_0462fe7317cb);
+pub const ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8b983b1_f8bf_4a2b_bcd5_5b5ea20613e1);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2721,7 +2721,7 @@ impl IComprehensiveSpellCheckProvider {
 }
 unsafe impl ::windows::runtime::Interface for IComprehensiveSpellCheckProvider {
     type Vtable = IComprehensiveSpellCheckProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(207157470, 36500, 18334, [151, 23, 112, 196, 44, 74, 210, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c58f8de_8e94_479e_9717_70c42c4ad2c3);
 }
 impl ::core::convert::From<IComprehensiveSpellCheckProvider> for ::windows::runtime::IUnknown {
     fn from(value: IComprehensiveSpellCheckProvider) -> Self {
@@ -2785,7 +2785,7 @@ impl IEnumCodePage {
 }
 unsafe impl ::windows::runtime::Interface for IEnumCodePage {
     type Vtable = IEnumCodePage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(660349923, 14151, 4560, [159, 234, 0, 170, 0, 63, 134, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x275c23e3_3747_11d0_9fea_00aa003f8646);
 }
 impl ::core::convert::From<IEnumCodePage> for ::windows::runtime::IUnknown {
     fn from(value: IEnumCodePage) -> Self {
@@ -2843,7 +2843,7 @@ impl IEnumRfc1766 {
 }
 unsafe impl ::windows::runtime::Interface for IEnumRfc1766 {
     type Vtable = IEnumRfc1766_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1036229917, 49200, 4560, [184, 27, 0, 192, 79, 201, 179, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3dc39d1d_c030_11d0_b81b_00c04fc9b31f);
 }
 impl ::core::convert::From<IEnumRfc1766> for ::windows::runtime::IUnknown {
     fn from(value: IEnumRfc1766) -> Self {
@@ -2901,7 +2901,7 @@ impl IEnumScript {
 }
 unsafe impl ::windows::runtime::Interface for IEnumScript {
     type Vtable = IEnumScript_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2925466672, 14475, 4562, [131, 128, 0, 192, 79, 143, 93, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae5f1430_388b_11d2_8380_00c04f8f5da1);
 }
 impl ::core::convert::From<IEnumScript> for ::windows::runtime::IUnknown {
     fn from(value: IEnumScript) -> Self {
@@ -2947,7 +2947,7 @@ impl IEnumSpellingError {
 }
 unsafe impl ::windows::runtime::Interface for IEnumSpellingError {
     type Vtable = IEnumSpellingError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2151562196, 10280, 17424, [130, 144, 65, 141, 29, 115, 199, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x803e3bd4_2828_4410_8290_418d1d73c762);
 }
 impl ::core::convert::From<IEnumSpellingError> for ::windows::runtime::IUnknown {
     fn from(value: IEnumSpellingError) -> Self {
@@ -3029,7 +3029,7 @@ impl IMLangCodePages {
 }
 unsafe impl ::windows::runtime::Interface for IMLangCodePages {
     type Vtable = IMLangCodePages_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(899626051, 48458, 4560, [177, 136, 0, 170, 0, 56, 201, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x359f3443_bd4a_11d0_b188_00aa0038c969);
 }
 impl ::core::convert::From<IMLangCodePages> for ::windows::runtime::IUnknown {
     fn from(value: IMLangCodePages) -> Self {
@@ -3104,7 +3104,7 @@ impl IMLangConvertCharset {
 }
 unsafe impl ::windows::runtime::Interface for IMLangConvertCharset {
     type Vtable = IMLangConvertCharset_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3597496216, 52650, 4560, [184, 34, 0, 192, 79, 201, 179, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd66d6f98_cdaa_11d0_b822_00c04fc9b31f);
 }
 impl ::core::convert::From<IMLangConvertCharset> for ::windows::runtime::IUnknown {
     fn from(value: IMLangConvertCharset) -> Self {
@@ -3191,7 +3191,7 @@ impl IMLangFontLink {
 }
 unsafe impl ::windows::runtime::Interface for IMLangFontLink {
     type Vtable = IMLangFontLink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(899626049, 48458, 4560, [177, 136, 0, 170, 0, 56, 201, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x359f3441_bd4a_11d0_b188_00aa0038c969);
 }
 impl ::core::convert::From<IMLangFontLink> for ::windows::runtime::IUnknown {
     fn from(value: IMLangFontLink) -> Self {
@@ -3316,7 +3316,7 @@ impl IMLangFontLink2 {
 }
 unsafe impl ::windows::runtime::Interface for IMLangFontLink2 {
     type Vtable = IMLangFontLink2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3704602978, 11064, 4562, [183, 236, 0, 192, 79, 143, 93, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdccfc162_2b38_11d2_b7ec_00c04f8f5d9a);
 }
 impl ::core::convert::From<IMLangFontLink2> for ::windows::runtime::IUnknown {
     fn from(value: IMLangFontLink2) -> Self {
@@ -3403,7 +3403,7 @@ impl IMLangLineBreakConsole {
 }
 unsafe impl ::windows::runtime::Interface for IMLangLineBreakConsole {
     type Vtable = IMLangLineBreakConsole_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4122881761, 49111, 4560, [177, 136, 0, 170, 0, 56, 201, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5be2ee1_bfd7_11d0_b188_00aa0038c969);
 }
 impl ::core::convert::From<IMLangLineBreakConsole> for ::windows::runtime::IUnknown {
     fn from(value: IMLangLineBreakConsole) -> Self {
@@ -3474,7 +3474,7 @@ impl IMLangString {
 }
 unsafe impl ::windows::runtime::Interface for IMLangString {
     type Vtable = IMLangString_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3226297806, 46861, 4560, [177, 136, 0, 170, 0, 56, 201, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc04d65ce_b70d_11d0_b188_00aa0038c969);
 }
 impl ::core::convert::From<IMLangString> for ::windows::runtime::IUnknown {
     fn from(value: IMLangString) -> Self {
@@ -3604,7 +3604,7 @@ impl IMLangStringAStr {
 }
 unsafe impl ::windows::runtime::Interface for IMLangStringAStr {
     type Vtable = IMLangStringAStr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3226297810, 46861, 4560, [177, 136, 0, 170, 0, 56, 201, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc04d65d2_b70d_11d0_b188_00aa0038c969);
 }
 impl ::core::convert::From<IMLangStringAStr> for ::windows::runtime::IUnknown {
     fn from(value: IMLangStringAStr) -> Self {
@@ -3701,7 +3701,7 @@ impl IMLangStringBufA {
 }
 unsafe impl ::windows::runtime::Interface for IMLangStringBufA {
     type Vtable = IMLangStringBufA_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3528117539, 47730, 4560, [177, 136, 0, 170, 0, 56, 201, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd24acd23_ba72_11d0_b188_00aa0038c969);
 }
 impl ::core::convert::From<IMLangStringBufA> for ::windows::runtime::IUnknown {
     fn from(value: IMLangStringBufA) -> Self {
@@ -3767,7 +3767,7 @@ impl IMLangStringBufW {
 }
 unsafe impl ::windows::runtime::Interface for IMLangStringBufW {
     type Vtable = IMLangStringBufW_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3528117537, 47730, 4560, [177, 136, 0, 170, 0, 56, 201, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd24acd21_ba72_11d0_b188_00aa0038c969);
 }
 impl ::core::convert::From<IMLangStringBufW> for ::windows::runtime::IUnknown {
     fn from(value: IMLangStringBufW) -> Self {
@@ -3875,7 +3875,7 @@ impl IMLangStringWStr {
 }
 unsafe impl ::windows::runtime::Interface for IMLangStringWStr {
     type Vtable = IMLangStringWStr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3226297808, 46861, 4560, [177, 136, 0, 170, 0, 56, 201, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc04d65d0_b70d_11d0_b188_00aa0038c969);
 }
 impl ::core::convert::From<IMLangStringWStr> for ::windows::runtime::IUnknown {
     fn from(value: IMLangStringWStr) -> Self {
@@ -4023,7 +4023,7 @@ impl IMultiLanguage {
 }
 unsafe impl ::windows::runtime::Interface for IMultiLanguage {
     type Vtable = IMultiLanguage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(660349921, 14151, 4560, [159, 234, 0, 170, 0, 63, 134, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x275c23e1_3747_11d0_9fea_00aa003f8646);
 }
 impl ::core::convert::From<IMultiLanguage> for ::windows::runtime::IUnknown {
     fn from(value: IMultiLanguage) -> Self {
@@ -4212,7 +4212,7 @@ impl IMultiLanguage2 {
 }
 unsafe impl ::windows::runtime::Interface for IMultiLanguage2 {
     type Vtable = IMultiLanguage2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3704602980, 11064, 4562, [183, 236, 0, 192, 79, 143, 93, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdccfc164_2b38_11d2_b7ec_00c04f8f5d9a);
 }
 impl ::core::convert::From<IMultiLanguage2> for ::windows::runtime::IUnknown {
     fn from(value: IMultiLanguage2) -> Self {
@@ -4452,7 +4452,7 @@ impl IMultiLanguage3 {
 }
 unsafe impl ::windows::runtime::Interface for IMultiLanguage3 {
     type Vtable = IMultiLanguage3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1314416811, 45399, 17955, [154, 204, 106, 29, 156, 174, 190, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e5868ab_b157_4623_9acc_6a1d9caebe04);
 }
 impl ::core::convert::From<IMultiLanguage3> for ::windows::runtime::IUnknown {
     fn from(value: IMultiLanguage3) -> Self {
@@ -4577,7 +4577,7 @@ impl IOptionDescription {
 }
 unsafe impl ::windows::runtime::Interface for IOptionDescription {
     type Vtable = IOptionDescription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1127112581, 13775, 17926, [168, 1, 111, 112, 39, 126, 29, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x432e5f85_35cf_4606_a801_6f70277e1d7a);
 }
 impl ::core::convert::From<IOptionDescription> for ::windows::runtime::IUnknown {
     fn from(value: IOptionDescription) -> Self {
@@ -4777,7 +4777,7 @@ impl ISpellCheckProvider {
 }
 unsafe impl ::windows::runtime::Interface for ISpellCheckProvider {
     type Vtable = ISpellCheckProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1944680160, 36564, 20145, [128, 215, 27, 224, 161, 107, 12, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73e976e0_8ed4_4eb1_80d7_1be0a16b0c38);
 }
 impl ::core::convert::From<ISpellCheckProvider> for ::windows::runtime::IUnknown {
     fn from(value: ISpellCheckProvider) -> Self {
@@ -4852,7 +4852,7 @@ impl ISpellCheckProviderFactory {
 }
 unsafe impl ::windows::runtime::Interface for ISpellCheckProviderFactory {
     type Vtable = ISpellCheckProviderFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2674335249, 30678, 19602, [174, 251, 97, 82, 21, 227, 164, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f671e11_77d6_4c92_aefb_615215e3a4be);
 }
 impl ::core::convert::From<ISpellCheckProviderFactory> for ::windows::runtime::IUnknown {
     fn from(value: ISpellCheckProviderFactory) -> Self {
@@ -4973,7 +4973,7 @@ impl ISpellChecker {
 }
 unsafe impl ::windows::runtime::Interface for ISpellChecker {
     type Vtable = ISpellChecker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3070036849, 58044, 18003, [141, 5, 241, 151, 228, 18, 119, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6fd0b71_e2bc_4653_8d05_f197e412770b);
 }
 impl ::core::convert::From<ISpellChecker> for ::windows::runtime::IUnknown {
     fn from(value: ISpellChecker) -> Self {
@@ -5119,7 +5119,7 @@ impl ISpellChecker2 {
 }
 unsafe impl ::windows::runtime::Interface for ISpellChecker2 {
     type Vtable = ISpellChecker2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3891076209, 34807, 17272, [168, 64, 201, 32, 13, 172, 238, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7ed1c71_87f7_4378_a840_c9200dacee47);
 }
 impl ::core::convert::From<ISpellChecker2> for ::windows::runtime::IUnknown {
     fn from(value: ISpellChecker2) -> Self {
@@ -5208,7 +5208,7 @@ impl ISpellCheckerChangedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for ISpellCheckerChangedEventHandler {
     type Vtable = ISpellCheckerChangedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(193177008, 31023, 20139, [151, 153, 172, 245, 44, 94, 208, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b83a5b0_792f_4eab_9799_acf52c5ed08a);
 }
 impl ::core::convert::From<ISpellCheckerChangedEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: ISpellCheckerChangedEventHandler) -> Self {
@@ -5264,7 +5264,7 @@ impl ISpellCheckerFactory {
 }
 unsafe impl ::windows::runtime::Interface for ISpellCheckerFactory {
     type Vtable = ISpellCheckerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2382465693, 9237, 18039, [191, 8, 121, 78, 166, 31, 148, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e018a9d_2415_4677_bf08_794ea61f94bb);
 }
 impl ::core::convert::From<ISpellCheckerFactory> for ::windows::runtime::IUnknown {
     fn from(value: ISpellCheckerFactory) -> Self {
@@ -5328,7 +5328,7 @@ impl ISpellingError {
 }
 unsafe impl ::windows::runtime::Interface for ISpellingError {
     type Vtable = ISpellingError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3083349345, 64488, 19271, [155, 39, 108, 13, 46, 13, 224, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7c82d61_fbe8_4b47_9b27_6c0d2e0de0a3);
 }
 impl ::core::convert::From<ISpellingError> for ::windows::runtime::IUnknown {
     fn from(value: ISpellingError) -> Self {
@@ -5380,7 +5380,7 @@ impl IUserDictionariesRegistrar {
 }
 unsafe impl ::windows::runtime::Interface for IUserDictionariesRegistrar {
     type Vtable = IUserDictionariesRegistrar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2853661573, 3602, 18500, [142, 26, 238, 241, 218, 119, 245, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa176b85_0e12_4844_8e1a_eef1da77f586);
 }
 impl ::core::convert::From<IUserDictionariesRegistrar> for ::windows::runtime::IUnknown {
     fn from(value: IUserDictionariesRegistrar) -> Self {
@@ -8661,7 +8661,7 @@ pub unsafe fn SetUserGeoName<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const SpellCheckerFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2058577491, 6038, 18507, [189, 250, 231, 79, 29, 183, 193, 220]);
+pub const SpellCheckerFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ab36653_1796_484b_bdfa_e74f1db7c1dc);
 #[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMEFMT_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL;

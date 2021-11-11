@@ -745,74 +745,74 @@ pub unsafe fn AuditSetSystemPolicy(pauditpolicy: *const AUDIT_POLICY_INFORMATION
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const Audit_AccountLogon: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1771542608, 31098, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_AccountLogon_CredentialValidation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864447, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_AccountLogon_KerbCredentialValidation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864450, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_AccountLogon_Kerberos: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864448, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_AccountLogon_Others: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864449, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_AccountManagement: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1771542606, 31098, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_AccountManagement_ApplicationGroup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864441, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_AccountManagement_ComputerAccount: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864438, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_AccountManagement_DistributionGroup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864440, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_AccountManagement_Others: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864442, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_AccountManagement_SecurityGroup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864439, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_AccountManagement_UserAccount: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864437, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_DSAccess_DSAccess: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864443, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_DetailedTracking: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1771542604, 31098, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_DetailedTracking_DpapiActivity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864429, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_DetailedTracking_PnpActivity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864456, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_DetailedTracking_ProcessCreation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864427, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_DetailedTracking_ProcessTermination: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864428, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_DetailedTracking_RpcCall: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864430, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_DetailedTracking_TokenRightAdjusted: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864458, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_DirectoryServiceAccess: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1771542607, 31098, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_DsAccess_AdAuditChanges: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864444, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_Ds_DetailedReplication: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864446, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_Ds_Replication: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864445, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_Logon: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1771542601, 31098, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_Logon_AccountLockout: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864407, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_Logon_Claims: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864455, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_Logon_Groups: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864457, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_Logon_IPSecMainMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864408, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_Logon_IPSecQuickMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864409, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_Logon_IPSecUserMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864410, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_Logon_Logoff: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864406, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_Logon_Logon: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864405, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_Logon_NPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864451, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_Logon_Others: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864412, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_Logon_SpecialLogon: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864411, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_ObjectAccess: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1771542602, 31098, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_ObjectAccess_ApplicationGenerated: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864418, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_ObjectAccess_CbacStaging: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864454, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_ObjectAccess_CertificationServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864417, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_ObjectAccess_DetailedFileShare: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864452, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_ObjectAccess_FileSystem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864413, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_ObjectAccess_FirewallConnection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864422, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_ObjectAccess_FirewallPacketDrops: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864421, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_ObjectAccess_Handle: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864419, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_ObjectAccess_Kernel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864415, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_ObjectAccess_Other: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864423, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_ObjectAccess_Registry: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864414, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_ObjectAccess_RemovableStorage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864453, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_ObjectAccess_Sam: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864416, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_ObjectAccess_Share: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864420, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_PolicyChange: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1771542605, 31098, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_PolicyChange_AuditPolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864431, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_PolicyChange_AuthenticationPolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864432, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_PolicyChange_AuthorizationPolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864433, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_PolicyChange_MpsscvRulePolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864434, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_PolicyChange_Others: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864436, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_PolicyChange_WfpIPSecPolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864435, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_PrivilegeUse: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1771542603, 31098, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_PrivilegeUse_NonSensitive: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864425, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_PrivilegeUse_Others: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864426, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_PrivilegeUse_Sensitive: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864424, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_System: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1771542600, 31098, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_System_IPSecDriverEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864403, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_System_Integrity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864402, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_System_Others: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864404, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_System_SecurityStateChange: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864400, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
-pub const Audit_System_SecuritySubsystemExtension: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214864401, 27054, 4569, [190, 211, 80, 80, 84, 80, 48, 48]);
+pub const Audit_AccountLogon: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69979850_797a_11d9_bed3_505054503030);
+pub const Audit_AccountLogon_CredentialValidation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce923f_69ae_11d9_bed3_505054503030);
+pub const Audit_AccountLogon_KerbCredentialValidation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9242_69ae_11d9_bed3_505054503030);
+pub const Audit_AccountLogon_Kerberos: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9240_69ae_11d9_bed3_505054503030);
+pub const Audit_AccountLogon_Others: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9241_69ae_11d9_bed3_505054503030);
+pub const Audit_AccountManagement: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6997984e_797a_11d9_bed3_505054503030);
+pub const Audit_AccountManagement_ApplicationGroup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9239_69ae_11d9_bed3_505054503030);
+pub const Audit_AccountManagement_ComputerAccount: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9236_69ae_11d9_bed3_505054503030);
+pub const Audit_AccountManagement_DistributionGroup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9238_69ae_11d9_bed3_505054503030);
+pub const Audit_AccountManagement_Others: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce923a_69ae_11d9_bed3_505054503030);
+pub const Audit_AccountManagement_SecurityGroup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9237_69ae_11d9_bed3_505054503030);
+pub const Audit_AccountManagement_UserAccount: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9235_69ae_11d9_bed3_505054503030);
+pub const Audit_DSAccess_DSAccess: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce923b_69ae_11d9_bed3_505054503030);
+pub const Audit_DetailedTracking: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6997984c_797a_11d9_bed3_505054503030);
+pub const Audit_DetailedTracking_DpapiActivity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce922d_69ae_11d9_bed3_505054503030);
+pub const Audit_DetailedTracking_PnpActivity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9248_69ae_11d9_bed3_505054503030);
+pub const Audit_DetailedTracking_ProcessCreation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce922b_69ae_11d9_bed3_505054503030);
+pub const Audit_DetailedTracking_ProcessTermination: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce922c_69ae_11d9_bed3_505054503030);
+pub const Audit_DetailedTracking_RpcCall: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce922e_69ae_11d9_bed3_505054503030);
+pub const Audit_DetailedTracking_TokenRightAdjusted: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce924a_69ae_11d9_bed3_505054503030);
+pub const Audit_DirectoryServiceAccess: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6997984f_797a_11d9_bed3_505054503030);
+pub const Audit_DsAccess_AdAuditChanges: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce923c_69ae_11d9_bed3_505054503030);
+pub const Audit_Ds_DetailedReplication: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce923e_69ae_11d9_bed3_505054503030);
+pub const Audit_Ds_Replication: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce923d_69ae_11d9_bed3_505054503030);
+pub const Audit_Logon: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69979849_797a_11d9_bed3_505054503030);
+pub const Audit_Logon_AccountLockout: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9217_69ae_11d9_bed3_505054503030);
+pub const Audit_Logon_Claims: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9247_69ae_11d9_bed3_505054503030);
+pub const Audit_Logon_Groups: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9249_69ae_11d9_bed3_505054503030);
+pub const Audit_Logon_IPSecMainMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9218_69ae_11d9_bed3_505054503030);
+pub const Audit_Logon_IPSecQuickMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9219_69ae_11d9_bed3_505054503030);
+pub const Audit_Logon_IPSecUserMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce921a_69ae_11d9_bed3_505054503030);
+pub const Audit_Logon_Logoff: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9216_69ae_11d9_bed3_505054503030);
+pub const Audit_Logon_Logon: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9215_69ae_11d9_bed3_505054503030);
+pub const Audit_Logon_NPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9243_69ae_11d9_bed3_505054503030);
+pub const Audit_Logon_Others: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce921c_69ae_11d9_bed3_505054503030);
+pub const Audit_Logon_SpecialLogon: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce921b_69ae_11d9_bed3_505054503030);
+pub const Audit_ObjectAccess: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6997984a_797a_11d9_bed3_505054503030);
+pub const Audit_ObjectAccess_ApplicationGenerated: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9222_69ae_11d9_bed3_505054503030);
+pub const Audit_ObjectAccess_CbacStaging: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9246_69ae_11d9_bed3_505054503030);
+pub const Audit_ObjectAccess_CertificationServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9221_69ae_11d9_bed3_505054503030);
+pub const Audit_ObjectAccess_DetailedFileShare: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9244_69ae_11d9_bed3_505054503030);
+pub const Audit_ObjectAccess_FileSystem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce921d_69ae_11d9_bed3_505054503030);
+pub const Audit_ObjectAccess_FirewallConnection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9226_69ae_11d9_bed3_505054503030);
+pub const Audit_ObjectAccess_FirewallPacketDrops: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9225_69ae_11d9_bed3_505054503030);
+pub const Audit_ObjectAccess_Handle: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9223_69ae_11d9_bed3_505054503030);
+pub const Audit_ObjectAccess_Kernel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce921f_69ae_11d9_bed3_505054503030);
+pub const Audit_ObjectAccess_Other: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9227_69ae_11d9_bed3_505054503030);
+pub const Audit_ObjectAccess_Registry: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce921e_69ae_11d9_bed3_505054503030);
+pub const Audit_ObjectAccess_RemovableStorage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9245_69ae_11d9_bed3_505054503030);
+pub const Audit_ObjectAccess_Sam: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9220_69ae_11d9_bed3_505054503030);
+pub const Audit_ObjectAccess_Share: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9224_69ae_11d9_bed3_505054503030);
+pub const Audit_PolicyChange: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6997984d_797a_11d9_bed3_505054503030);
+pub const Audit_PolicyChange_AuditPolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce922f_69ae_11d9_bed3_505054503030);
+pub const Audit_PolicyChange_AuthenticationPolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9230_69ae_11d9_bed3_505054503030);
+pub const Audit_PolicyChange_AuthorizationPolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9231_69ae_11d9_bed3_505054503030);
+pub const Audit_PolicyChange_MpsscvRulePolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9232_69ae_11d9_bed3_505054503030);
+pub const Audit_PolicyChange_Others: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9234_69ae_11d9_bed3_505054503030);
+pub const Audit_PolicyChange_WfpIPSecPolicy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9233_69ae_11d9_bed3_505054503030);
+pub const Audit_PrivilegeUse: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6997984b_797a_11d9_bed3_505054503030);
+pub const Audit_PrivilegeUse_NonSensitive: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9229_69ae_11d9_bed3_505054503030);
+pub const Audit_PrivilegeUse_Others: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce922a_69ae_11d9_bed3_505054503030);
+pub const Audit_PrivilegeUse_Sensitive: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9228_69ae_11d9_bed3_505054503030);
+pub const Audit_System: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69979848_797a_11d9_bed3_505054503030);
+pub const Audit_System_IPSecDriverEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9213_69ae_11d9_bed3_505054503030);
+pub const Audit_System_Integrity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9212_69ae_11d9_bed3_505054503030);
+pub const Audit_System_Others: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9214_69ae_11d9_bed3_505054503030);
+pub const Audit_System_SecurityStateChange: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9210_69ae_11d9_bed3_505054503030);
+pub const Audit_System_SecuritySubsystemExtension: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cce9211_69ae_11d9_bed3_505054503030);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1530,7 +1530,7 @@ impl ICcgDomainAuthCredentials {
 }
 unsafe impl ::windows::runtime::Interface for ICcgDomainAuthCredentials {
     type Vtable = ICcgDomainAuthCredentials_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1858970904, 8208, 17463, [139, 195, 70, 231, 82, 183, 177, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ecda518_2010_4437_8bc3_46e752b7b172);
 }
 impl ::core::convert::From<ICcgDomainAuthCredentials> for ::windows::runtime::IUnknown {
     fn from(value: ICcgDomainAuthCredentials) -> Self {
@@ -20615,7 +20615,7 @@ pub unsafe fn VerifySignature(phcontext: *const super::super::Credentials::SecHa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const WINDOWS_SLID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1439246132, 54914, 19825, [152, 62, 214, 236, 63, 22, 5, 159]);
+pub const WINDOWS_SLID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55c92734_d682_4d71_983e_d6ec3f16059f);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]

@@ -220,7 +220,7 @@ unsafe impl ::windows::runtime::RuntimeType for Binding {
 }
 unsafe impl ::windows::runtime::Interface for Binding {
     type Vtable = IBinding_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1064963179, 53263, 18224, [140, 29, 72, 225, 108, 70, 249, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f7a0c6b_d00f_4730_8c1d_48e16c46f9ca);
 }
 impl ::windows::runtime::RuntimeName for Binding {
     const NAME: &'static str = "Windows.UI.Xaml.Data.Binding";
@@ -385,7 +385,7 @@ unsafe impl ::windows::runtime::RuntimeType for BindingBase {
 }
 unsafe impl ::windows::runtime::Interface for BindingBase {
     type Vtable = IBindingBase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(361341611, 15637, 18876, [164, 71, 138, 84, 72, 229, 136, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1589a2ab_3d15_49bc_a447_8a5448e58870);
 }
 impl ::windows::runtime::RuntimeName for BindingBase {
     const NAME: &'static str = "Windows.UI.Xaml.Data.BindingBase";
@@ -484,7 +484,7 @@ unsafe impl ::windows::runtime::RuntimeType for BindingExpression {
 }
 unsafe impl ::windows::runtime::Interface for BindingExpression {
     type Vtable = IBindingExpression_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1365907877, 49917, 19102, [159, 211, 154, 164, 47, 153, 90, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x516a19a5_c2fd_4a9e_9fd3_9aa42f995a3c);
 }
 impl ::windows::runtime::RuntimeName for BindingExpression {
     const NAME: &'static str = "Windows.UI.Xaml.Data.BindingExpression";
@@ -561,7 +561,7 @@ unsafe impl ::windows::runtime::RuntimeType for BindingExpressionBase {
 }
 unsafe impl ::windows::runtime::Interface for BindingExpressionBase {
     type Vtable = IBindingExpressionBase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4260180308, 59732, 20327, [143, 182, 110, 215, 155, 58, 28, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfded3154_e954_4f67_8fb6_6ed79b3a1cb3);
 }
 impl ::windows::runtime::RuntimeName for BindingExpressionBase {
     const NAME: &'static str = "Windows.UI.Xaml.Data.BindingExpressionBase";
@@ -650,7 +650,7 @@ unsafe impl ::windows::runtime::RuntimeType for BindingOperations {
 }
 unsafe impl ::windows::runtime::Interface for BindingOperations {
     type Vtable = IBindingOperations_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1879037752, 38969, 16796, [161, 122, 75, 54, 4, 225, 82, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fffd738_9839_419c_a17a_4b3604e1524e);
 }
 impl ::windows::runtime::RuntimeName for BindingOperations {
     const NAME: &'static str = "Windows.UI.Xaml.Data.BindingOperations";
@@ -850,7 +850,7 @@ unsafe impl ::windows::runtime::RuntimeType for CollectionViewSource {
 }
 unsafe impl ::windows::runtime::Interface for CollectionViewSource {
     type Vtable = ICollectionViewSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2791969094, 54011, 20141, [190, 159, 53, 120, 164, 102, 220, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa66a1146_d2fb_4ead_be9f_3578a466dcfe);
 }
 impl ::windows::runtime::RuntimeName for CollectionViewSource {
     const NAME: &'static str = "Windows.UI.Xaml.Data.CollectionViewSource";
@@ -967,7 +967,7 @@ unsafe impl ::windows::runtime::RuntimeType for CurrentChangingEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for CurrentChangingEventArgs {
     type Vtable = ICurrentChangingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4186512937, 20940, 18397, [165, 185, 53, 220, 73, 20, 175, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9891e29_51cc_47dd_a5b9_35dc4914af69);
 }
 impl ::windows::runtime::RuntimeName for CurrentChangingEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Data.CurrentChangingEventArgs";
@@ -1038,7 +1038,7 @@ unsafe impl ::windows::runtime::RuntimeType for CurrentChangingEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for CurrentChangingEventHandler {
     type Vtable = CurrentChangingEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4085812664, 5023, 19918, [141, 201, 247, 241, 68, 77, 17, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3888db8_139f_4dce_8dc9_f7f1444d1185);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1096,7 +1096,7 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
 pub struct IBinding(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBinding {
     type Vtable = IBinding_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1064963179, 53263, 18224, [140, 29, 72, 225, 108, 70, 249, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f7a0c6b_d00f_4730_8c1d_48e16c46f9ca);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1129,7 +1129,7 @@ pub struct IBinding_abi(
 pub struct IBinding2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBinding2 {
     type Vtable = IBinding2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(888762315, 1030, 18611, [158, 130, 243, 51, 236, 76, 105, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34f96fcb_0406_48b3_9e82_f333ec4c6910);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1152,7 +1152,7 @@ pub struct IBinding2_abi(
 pub struct IBindingBase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindingBase {
     type Vtable = IBindingBase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(361341611, 15637, 18876, [164, 71, 138, 84, 72, 229, 136, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1589a2ab_3d15_49bc_a447_8a5448e58870);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1169,7 +1169,7 @@ pub struct IBindingBase_abi(
 pub struct IBindingBaseFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindingBaseFactory {
     type Vtable = IBindingBaseFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(584776762, 30465, 18022, [161, 186, 152, 89, 189, 207, 236, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22dafc3a_7701_4666_a1ba_9859bdcfec34);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1187,7 +1187,7 @@ pub struct IBindingBaseFactory_abi(
 pub struct IBindingExpression(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindingExpression {
     type Vtable = IBindingExpression_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1365907877, 49917, 19102, [159, 211, 154, 164, 47, 153, 90, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x516a19a5_c2fd_4a9e_9fd3_9aa42f995a3c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1207,7 +1207,7 @@ pub struct IBindingExpression_abi(
 pub struct IBindingExpressionBase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindingExpressionBase {
     type Vtable = IBindingExpressionBase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4260180308, 59732, 20327, [143, 182, 110, 215, 155, 58, 28, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfded3154_e954_4f67_8fb6_6ed79b3a1cb3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1224,7 +1224,7 @@ pub struct IBindingExpressionBase_abi(
 pub struct IBindingExpressionBaseFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindingExpressionBaseFactory {
     type Vtable = IBindingExpressionBaseFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3933279911, 49881, 17269, [180, 113, 102, 185, 196, 140, 121, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea7116a7_c2d9_4375_b471_66b9c48c7930);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1241,7 +1241,7 @@ pub struct IBindingExpressionBaseFactory_abi(
 pub struct IBindingExpressionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindingExpressionFactory {
     type Vtable = IBindingExpressionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(481647833, 56178, 16563, [162, 181, 36, 238, 110, 165, 195, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cb55cd9_db72_40b3_a2b5_24ee6ea5c328);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1258,7 +1258,7 @@ pub struct IBindingExpressionFactory_abi(
 pub struct IBindingFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindingFactory {
     type Vtable = IBindingFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4282563336, 50078, 20350, [132, 52, 161, 86, 144, 131, 136, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff42bb08_c39e_4f7e_8434_a1569083883c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1276,7 +1276,7 @@ pub struct IBindingFactory_abi(
 pub struct IBindingOperations(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindingOperations {
     type Vtable = IBindingOperations_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1879037752, 38969, 16796, [161, 122, 75, 54, 4, 225, 82, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fffd738_9839_419c_a17a_4b3604e1524e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1293,7 +1293,7 @@ pub struct IBindingOperations_abi(
 pub struct IBindingOperationsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindingOperationsStatics {
     type Vtable = IBindingOperationsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3780505459, 38304, 19115, [140, 125, 42, 71, 218, 7, 60, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe155ef73_95a0_4aab_8c7d_2a47da073c79);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1312,7 +1312,7 @@ pub struct IBindingOperationsStatics_abi(
 pub struct ICollectionView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICollectionView {
     type Vtable = ICollectionView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2347286500, 56303, 17631, [129, 38, 163, 26, 137, 18, 29, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8be8bfe4_dbef_44df_8126_a31a89121ddc);
 }
 impl ICollectionView {
     #[doc = "*Required features: `UI_Xaml_Data`*"]
@@ -1739,7 +1739,7 @@ pub struct ICollectionView_abi(
 pub struct ICollectionViewFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICollectionViewFactory {
     type Vtable = ICollectionViewFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(886352628, 36466, 18768, [145, 146, 236, 208, 125, 57, 157, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34d4aaf4_8e72_4950_9192_ecd07d399d0a);
 }
 impl ICollectionViewFactory {
     #[doc = "*Required features: `UI_Xaml_Data`*"]
@@ -1811,7 +1811,7 @@ pub struct ICollectionViewFactory_abi(
 pub struct ICollectionViewGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICollectionViewGroup {
     type Vtable = ICollectionViewGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2114042328, 55221, 18614, [179, 28, 91, 181, 189, 245, 240, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e01b9d8_d7b5_48b6_b31c_5bb5bdf5f09b);
 }
 impl ICollectionViewGroup {
     #[doc = "*Required features: `UI_Xaml_Data`*"]
@@ -1893,7 +1893,7 @@ pub struct ICollectionViewGroup_abi(
 pub struct ICollectionViewSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICollectionViewSource {
     type Vtable = ICollectionViewSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2791969094, 54011, 20141, [190, 159, 53, 120, 164, 102, 220, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa66a1146_d2fb_4ead_be9f_3578a466dcfe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1917,7 +1917,7 @@ pub struct ICollectionViewSource_abi(
 pub struct ICollectionViewSourceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICollectionViewSourceStatics {
     type Vtable = ICollectionViewSourceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(389678864, 18095, 19468, [129, 139, 33, 182, 239, 129, 191, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x173a0710_46af_4c0c_818b_21b6ef81bf65);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1938,7 +1938,7 @@ pub struct ICollectionViewSourceStatics_abi(
 pub struct ICurrentChangingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentChangingEventArgs {
     type Vtable = ICurrentChangingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4186512937, 20940, 18397, [165, 185, 53, 220, 73, 20, 175, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9891e29_51cc_47dd_a5b9_35dc4914af69);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1958,7 +1958,7 @@ pub struct ICurrentChangingEventArgs_abi(
 pub struct ICurrentChangingEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentChangingEventArgsFactory {
     type Vtable = ICurrentChangingEventArgsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(356237038, 25331, 18639, [129, 131, 139, 226, 109, 227, 166, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x153bbeee_62f3_48cf_8183_8be26de3a66e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1978,7 +1978,7 @@ pub struct ICurrentChangingEventArgsFactory_abi(
 pub struct ICustomProperty(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomProperty {
     type Vtable = ICustomProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(819630784, 9192, 17056, [174, 124, 115, 74, 14, 93, 39, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30da92c0_23e8_42a0_ae7c_734a0e5d2782);
 }
 impl ICustomProperty {
     #[cfg(feature = "UI_Xaml_Interop")]
@@ -2109,7 +2109,7 @@ pub struct ICustomProperty_abi(
 pub struct ICustomPropertyProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomPropertyProvider {
     type Vtable = ICustomPropertyProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2089965397, 15944, 17076, [134, 119, 118, 55, 34, 103, 3, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c925755_3e48_42b4_8677_76372267033f);
 }
 impl ICustomPropertyProvider {
     #[doc = "*Required features: `UI_Xaml_Data`*"]
@@ -2211,7 +2211,7 @@ pub struct ICustomPropertyProvider_abi(
 pub struct IItemIndexRange(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IItemIndexRange {
     type Vtable = IItemIndexRange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2209887422, 1411, 18982, [155, 100, 139, 244, 162, 246, 87, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83b834be_0583_4a26_9b64_8bf4a2f65704);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2231,7 +2231,7 @@ pub struct IItemIndexRange_abi(
 pub struct IItemIndexRangeFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IItemIndexRangeFactory {
     type Vtable = IItemIndexRangeFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2263008320, 11898, 19581, [166, 100, 232, 171, 240, 123, 252, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86e2c440_2e7a_4c7d_a664_e8abf07bfc7e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2250,7 +2250,7 @@ pub struct IItemIndexRangeFactory_abi(
 pub struct IItemsRangeInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IItemsRangeInfo {
     type Vtable = IItemsRangeInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4032779877, 29181, 17826, [190, 19, 160, 129, 210, 148, 166, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf05f5665_71fd_45a2_be13_a081d294a68d);
 }
 impl IItemsRangeInfo {
     #[cfg(feature = "Foundation_Collections")]
@@ -2353,7 +2353,7 @@ pub struct IItemsRangeInfo_abi(
 pub struct INotifyPropertyChanged(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotifyPropertyChanged {
     type Vtable = INotifyPropertyChanged_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3480606364, 62196, 18539, [179, 2, 187, 76, 9, 186, 235, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf75d69c_f2f4_486b_b302_bb4c09baebfa);
 }
 impl INotifyPropertyChanged {
     #[cfg(feature = "Foundation")]
@@ -2434,7 +2434,7 @@ pub struct INotifyPropertyChanged_abi(
 pub struct IPropertyChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPropertyChangedEventArgs {
     type Vtable = IPropertyChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1328785824, 23796, 18340, [177, 111, 215, 250, 175, 23, 69, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f33a9a0_5cf4_47a4_b16f_d7faaf17457e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2452,7 +2452,7 @@ pub struct IPropertyChangedEventArgs_abi(
 pub struct IPropertyChangedEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPropertyChangedEventArgsFactory {
     type Vtable = IPropertyChangedEventArgsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1842125827, 57543, 20206, [142, 169, 55, 227, 64, 110, 235, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6dcc9c03_e0c7_4eee_8ea9_37e3406eeb1c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2470,7 +2470,7 @@ pub struct IPropertyChangedEventArgsFactory_abi(
 pub struct IRelativeSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRelativeSource {
     type Vtable = IRelativeSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(597151364, 10274, 18490, [180, 153, 208, 240, 49, 224, 108, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2397ce84_2822_483a_b499_d0f031e06c6b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2489,7 +2489,7 @@ pub struct IRelativeSource_abi(
 pub struct IRelativeSourceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRelativeSourceFactory {
     type Vtable = IRelativeSourceFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4018377421, 17518, 20371, [170, 203, 155, 18, 85, 87, 116, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef8392cd_446e_4f93_aacb_9b1255577460);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2508,7 +2508,7 @@ pub struct IRelativeSourceFactory_abi(
 pub struct ISelectionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISelectionInfo {
     type Vtable = ISelectionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(772983430, 57837, 16965, [190, 73, 32, 126, 66, 174, 197, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e12ca86_e1ed_4245_be49_207e42aec524);
 }
 impl ISelectionInfo {
     #[doc = "*Required features: `UI_Xaml_Data`*"]
@@ -2603,7 +2603,7 @@ pub struct ISelectionInfo_abi(
 pub struct ISupportIncrementalLoading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISupportIncrementalLoading {
     type Vtable = ISupportIncrementalLoading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2136926610, 30356, 20076, [165, 27, 227, 75, 244, 61, 231, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f5ee992_7694_4e6c_a51b_e34bf43de743);
 }
 impl ISupportIncrementalLoading {
     #[cfg(feature = "Foundation")]
@@ -2686,7 +2686,7 @@ pub struct ISupportIncrementalLoading_abi(
 pub struct IValueConverter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IValueConverter {
     type Vtable = IValueConverter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3874684656, 1810, 18559, [179, 19, 243, 0, 184, 215, 154, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6f2fef0_0712_487f_b313_f300b8d79aa1);
 }
 impl IValueConverter {
     #[cfg(feature = "UI_Xaml_Interop")]
@@ -2811,7 +2811,7 @@ unsafe impl ::windows::runtime::RuntimeType for ItemIndexRange {
 }
 unsafe impl ::windows::runtime::Interface for ItemIndexRange {
     type Vtable = IItemIndexRange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2209887422, 1411, 18982, [155, 100, 139, 244, 162, 246, 87, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83b834be_0583_4a26_9b64_8bf4a2f65704);
 }
 impl ::windows::runtime::RuntimeName for ItemIndexRange {
     const NAME: &'static str = "Windows.UI.Xaml.Data.ItemIndexRange";
@@ -2920,7 +2920,7 @@ unsafe impl ::windows::runtime::RuntimeType for PropertyChangedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for PropertyChangedEventArgs {
     type Vtable = IPropertyChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1328785824, 23796, 18340, [177, 111, 215, 250, 175, 23, 69, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f33a9a0_5cf4_47a4_b16f_d7faaf17457e);
 }
 impl ::windows::runtime::RuntimeName for PropertyChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Data.PropertyChangedEventArgs";
@@ -2991,7 +2991,7 @@ unsafe impl ::windows::runtime::RuntimeType for PropertyChangedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for PropertyChangedEventHandler {
     type Vtable = PropertyChangedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1358011414, 2594, 19854, [160, 137, 30, 169, 149, 22, 87, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50f19c16_0a22_4d8e_a089_1ea9951657d2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3135,7 +3135,7 @@ unsafe impl ::windows::runtime::RuntimeType for RelativeSource {
 }
 unsafe impl ::windows::runtime::Interface for RelativeSource {
     type Vtable = IRelativeSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(597151364, 10274, 18490, [180, 153, 208, 240, 49, 224, 108, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2397ce84_2822_483a_b499_d0f031e06c6b);
 }
 impl ::windows::runtime::RuntimeName for RelativeSource {
     const NAME: &'static str = "Windows.UI.Xaml.Data.RelativeSource";

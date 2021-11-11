@@ -1,11 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const CLSID_AutoScrollBehavior: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(638741073, 15472, 19610, [174, 194, 148, 136, 73, 238, 176, 147]);
-pub const CLSID_DeferContactService: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3619060980, 33979, 17230, [134, 174, 101, 146, 187, 201, 171, 217]);
-pub const CLSID_DragDropConfigurationBehavior: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(162536254, 47724, 17741, [130, 232, 149, 227, 82, 50, 159, 35]);
-pub const CLSID_HorizontalIndicatorContent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3889270005, 16071, 17621, [167, 107, 55, 112, 243, 207, 144, 61]);
-pub const CLSID_VerticalIndicatorContent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2701877015, 45024, 19106, [145, 233, 62, 112, 1, 210, 230, 180]);
-pub const CLSID_VirtualViewportContent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(839295386, 34544, 19636, [167, 243, 22, 227, 183, 226, 216, 82]);
-pub const DCompManipulationCompositor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2044634663, 41098, 17324, [142, 245, 105, 0, 185, 41, 145, 38]);
+pub const CLSID_AutoScrollBehavior: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26126a51_3c70_4c9a_aec2_948849eeb093);
+pub const CLSID_DeferContactService: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7b67cf4_84bb_434e_86ae_6592bbc9abd9);
+pub const CLSID_DragDropConfigurationBehavior: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09b01b3e_ba6c_454d_82e8_95e352329f23);
+pub const CLSID_HorizontalIndicatorContent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7d18cf5_3ec7_44d5_a76b_3770f3cf903d);
+pub const CLSID_VerticalIndicatorContent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa10b5f17_afe0_4aa2_91e9_3e7001d2e6b4);
+pub const CLSID_VirtualViewportContent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3206a19a_86f0_4cb4_a7f3_16e3b7e2d852);
+pub const DCompManipulationCompositor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79dea627_a08a_43ac_8ef5_6900b9299126);
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -267,11 +267,11 @@ impl ::core::convert::From<i32> for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
 unsafe impl ::windows::runtime::Abi for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
     type Abi = Self;
 }
-pub const DirectManipulationManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1424101814, 13904, 20341, [131, 52, 250, 53, 149, 152, 225, 197]);
-pub const DirectManipulationPrimaryContent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3399493217, 54686, 16839, [131, 147, 59, 163, 186, 203, 107, 87]);
-pub const DirectManipulationSharedManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2574856838, 30668, 19287, [150, 219, 59, 53, 79, 111, 159, 181]);
-pub const DirectManipulationUpdateManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2680274901, 6197, 17434, [179, 177, 182, 204, 116, 183, 39, 208]);
-pub const DirectManipulationViewport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(887230902, 13904, 20341, [131, 52, 250, 53, 149, 152, 225, 197]);
+pub const DirectManipulationManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54e211b6_3650_4f75_8334_fa359598e1c5);
+pub const DirectManipulationPrimaryContent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcaa02661_d59e_41c7_8393_3ba3bacb6b57);
+pub const DirectManipulationSharedManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99793286_77cc_4b57_96db_3b354f6f9fb5);
+pub const DirectManipulationUpdateManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fc1bfd5_1835_441a_b3b1_b6cc74b727d0);
+pub const DirectManipulationViewport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34e211b6_3650_4f75_8334_fa359598e1c5);
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -284,7 +284,7 @@ impl IDirectManipulationAutoScrollBehavior {
 }
 unsafe impl ::windows::runtime::Interface for IDirectManipulationAutoScrollBehavior {
     type Vtable = IDirectManipulationAutoScrollBehavior_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1834570964, 8195, 17238, [155, 49, 208, 81, 201, 255, 10, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d5954d4_2003_4356_9b31_d051c9ff0af7);
 }
 impl ::core::convert::From<IDirectManipulationAutoScrollBehavior> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationAutoScrollBehavior) -> Self {
@@ -338,7 +338,7 @@ impl IDirectManipulationCompositor {
 }
 unsafe impl ::windows::runtime::Interface for IDirectManipulationCompositor {
     type Vtable = IDirectManipulationCompositor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1400506405, 903, 20218, [182, 47, 113, 235, 31, 8, 90, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x537a0825_0387_4efa_b62f_71eb1f085a7e);
 }
 impl ::core::convert::From<IDirectManipulationCompositor> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationCompositor) -> Self {
@@ -399,7 +399,7 @@ impl IDirectManipulationCompositor2 {
 }
 unsafe impl ::windows::runtime::Interface for IDirectManipulationCompositor2 {
     type Vtable = IDirectManipulationCompositor2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3549198370, 61899, 17355, [180, 185, 172, 12, 118, 122, 65, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd38c7822_f1cb_43cb_b4b9_ac0c767a412e);
 }
 impl ::core::convert::From<IDirectManipulationCompositor2> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationCompositor2) -> Self {
@@ -497,7 +497,7 @@ impl IDirectManipulationContent {
 }
 unsafe impl ::windows::runtime::Interface for IDirectManipulationContent {
     type Vtable = IDirectManipulationContent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3097060043, 15753, 17451, [187, 88, 80, 152, 250, 15, 159, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb89962cb_3d89_442b_bb58_5098fa0f9f16);
 }
 impl ::core::convert::From<IDirectManipulationContent> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationContent) -> Self {
@@ -556,7 +556,7 @@ impl IDirectManipulationDeferContactService {
 }
 unsafe impl ::windows::runtime::Interface for IDirectManipulationDeferContactService {
     type Vtable = IDirectManipulationDeferContactService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1697471601, 65120, 19096, [190, 112, 229, 242, 18, 145, 231, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x652d5c71_fe60_4a98_be70_e5f21291e7f1);
 }
 impl ::core::convert::From<IDirectManipulationDeferContactService> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationDeferContactService) -> Self {
@@ -605,7 +605,7 @@ impl IDirectManipulationDragDropBehavior {
 }
 unsafe impl ::windows::runtime::Interface for IDirectManipulationDragDropBehavior {
     type Vtable = IDirectManipulationDragDropBehavior_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2169199349, 49864, 17008, [169, 183, 161, 152, 206, 141, 2, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x814b5af5_c2c8_4270_a9b7_a198ce8d02fa);
 }
 impl ::core::convert::From<IDirectManipulationDragDropBehavior> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationDragDropBehavior) -> Self {
@@ -648,7 +648,7 @@ impl IDirectManipulationDragDropEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for IDirectManipulationDragDropEventHandler {
     type Vtable = IDirectManipulationDragDropEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(530651920, 28699, 16814, [181, 242, 73, 227, 107, 213, 149, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1fa11b10_701b_41ae_b5f2_49e36bd595aa);
 }
 impl ::core::convert::From<IDirectManipulationDragDropEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationDragDropEventHandler) -> Self {
@@ -690,7 +690,7 @@ impl IDirectManipulationFrameInfoProvider {
 }
 unsafe impl ::windows::runtime::Interface for IDirectManipulationFrameInfoProvider {
     type Vtable = IDirectManipulationFrameInfoProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4218789306, 28492, 19457, [135, 78, 25, 200, 160, 89, 7, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb759dba_6f4c_4c01_874e_19c8a05907f9);
 }
 impl ::core::convert::From<IDirectManipulationFrameInfoProvider> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationFrameInfoProvider) -> Self {
@@ -732,7 +732,7 @@ impl IDirectManipulationInteractionEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for IDirectManipulationInteractionEventHandler {
     type Vtable = IDirectManipulationInteractionEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3829351864, 17076, 16446, [177, 242, 39, 59, 143, 81, 8, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe43f45b8_42b4_403e_b1f2_273b8f510830);
 }
 impl ::core::convert::From<IDirectManipulationInteractionEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationInteractionEventHandler) -> Self {
@@ -807,7 +807,7 @@ impl IDirectManipulationManager {
 }
 unsafe impl ::windows::runtime::Interface for IDirectManipulationManager {
     type Vtable = IDirectManipulationManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4227191732, 28871, 16739, [147, 34, 90, 111, 102, 13, 111, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbf5d3b4_70c7_4163_9322_5a6f660d6fbc);
 }
 impl ::core::convert::From<IDirectManipulationManager> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationManager) -> Self {
@@ -898,7 +898,7 @@ impl IDirectManipulationManager2 {
 }
 unsafe impl ::windows::runtime::Interface for IDirectManipulationManager2 {
     type Vtable = IDirectManipulationManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4195354089, 15638, 18508, [191, 201, 98, 182, 30, 86, 236, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa1005e9_3d16_484c_bfc9_62b61e56ec4e);
 }
 impl ::core::convert::From<IDirectManipulationManager2> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationManager2) -> Self {
@@ -1015,7 +1015,7 @@ impl IDirectManipulationManager3 {
 }
 unsafe impl ::windows::runtime::Interface for IDirectManipulationManager3 {
     type Vtable = IDirectManipulationManager3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(750170941, 65512, 18572, [183, 80, 251, 223, 232, 141, 202, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cb6b33d_ffe8_488c_b750_fbdfe88dca8c);
 }
 impl ::core::convert::From<IDirectManipulationManager3> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationManager3) -> Self {
@@ -1142,7 +1142,7 @@ impl IDirectManipulationPrimaryContent {
 }
 unsafe impl ::windows::runtime::Interface for IDirectManipulationPrimaryContent {
     type Vtable = IDirectManipulationPrimaryContent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3240645092, 5784, 17957, [185, 177, 124, 163, 236, 24, 99, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc12851e4_1698_4625_b9b1_7ca3ec18630b);
 }
 impl ::core::convert::From<IDirectManipulationPrimaryContent> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationPrimaryContent) -> Self {
@@ -1192,7 +1192,7 @@ impl IDirectManipulationUpdateHandler {
 }
 unsafe impl ::windows::runtime::Interface for IDirectManipulationUpdateHandler {
     type Vtable = IDirectManipulationUpdateHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2030789431, 25848, 20469, [162, 105, 179, 43, 194, 175, 39, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x790b6337_64f8_4ff5_a269_b32bc2af27a7);
 }
 impl ::core::convert::From<IDirectManipulationUpdateHandler> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationUpdateHandler) -> Self {
@@ -1244,7 +1244,7 @@ impl IDirectManipulationUpdateManager {
 }
 unsafe impl ::windows::runtime::Interface for IDirectManipulationUpdateManager {
     type Vtable = IDirectManipulationUpdateManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2964218621, 48692, 18151, [156, 170, 211, 97, 250, 203, 185, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0ae62fd_be34_46e7_9caa_d361facbb9cc);
 }
 impl ::core::convert::From<IDirectManipulationUpdateManager> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationUpdateManager) -> Self {
@@ -1405,7 +1405,7 @@ impl IDirectManipulationViewport {
 }
 unsafe impl ::windows::runtime::Interface for IDirectManipulationViewport {
     type Vtable = IDirectManipulationViewport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(683170365, 24736, 18621, [155, 161, 92, 232, 217, 234, 58, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28b85a3d_60a0_48bd_9ba1_5ce8d9ea3a6d);
 }
 impl ::core::convert::From<IDirectManipulationViewport> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationViewport) -> Self {
@@ -1607,7 +1607,7 @@ impl IDirectManipulationViewport2 {
 }
 unsafe impl ::windows::runtime::Interface for IDirectManipulationViewport2 {
     type Vtable = IDirectManipulationViewport2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2453457580, 25057, 17285, [183, 38, 1, 122, 241, 137, 136, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x923ccaac_61e1_4385_b726_017af189882a);
 }
 impl ::core::convert::From<IDirectManipulationViewport2> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationViewport2) -> Self {
@@ -1711,7 +1711,7 @@ impl IDirectManipulationViewportEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for IDirectManipulationViewportEventHandler {
     type Vtable = IDirectManipulationViewportEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2501976538, 54943, 17913, [176, 249, 242, 57, 68, 50, 26, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x952121da_d69f_45f9_b0f9_f23944321a6d);
 }
 impl ::core::convert::From<IDirectManipulationViewportEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationViewportEventHandler) -> Self {

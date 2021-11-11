@@ -6,7 +6,7 @@ pub mod Extensions;
 pub struct IIppAttributeError(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppAttributeError {
     type Vtable = IIppAttributeError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1963978145, 40687, 23609, [147, 228, 70, 20, 155, 188, 239, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x750feda1_9eef_5c39_93e4_46149bbcef27);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27,7 +27,7 @@ pub struct IIppAttributeError_abi(
 pub struct IIppAttributeValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppAttributeValue {
     type Vtable = IIppAttributeValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2571141101, 58043, 22947, [152, 139, 40, 169, 116, 5, 42, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99407fed_e2bb_59a3_988b_28a974052a26);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -81,7 +81,7 @@ pub struct IIppAttributeValue_abi(
 pub struct IIppAttributeValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppAttributeValueStatics {
     type Vtable = IIppAttributeValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(282343746, 56724, 22936, [178, 53, 175, 175, 182, 250, 121, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10d43942_dd94_5998_b235_afafb6fa7935);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -159,7 +159,7 @@ pub struct IIppAttributeValueStatics_abi(
 pub struct IIppIntegerRange(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppIntegerRange {
     type Vtable = IIppIntegerRange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2458940230, 50154, 24278, [189, 177, 55, 82, 198, 44, 111, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92907346_c3ea_5ed6_bdb1_3752c62c6f7f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -178,7 +178,7 @@ pub struct IIppIntegerRange_abi(
 pub struct IIppIntegerRangeFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppIntegerRangeFactory {
     type Vtable = IIppIntegerRangeFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1976888494, 63614, 21677, [181, 208, 70, 82, 4, 219, 117, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75d4ecae_f87e_54ad_b5d0_465204db7553);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -196,7 +196,7 @@ pub struct IIppIntegerRangeFactory_abi(
 pub struct IIppPrintDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppPrintDevice {
     type Vtable = IIppPrintDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3611864150, 30451, 24006, [175, 212, 194, 168, 104, 107, 147, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd748ac56_76f3_5dc6_afd4_c2a8686b9359);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -224,7 +224,7 @@ pub struct IIppPrintDevice_abi(
 pub struct IIppResolution(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppResolution {
     type Vtable = IIppResolution_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3410575238, 27635, 22261, [134, 206, 38, 61, 8, 174, 173, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb493f86_6bf3_56f5_86ce_263d08aead63);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -244,7 +244,7 @@ pub struct IIppResolution_abi(
 pub struct IIppResolutionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppResolutionFactory {
     type Vtable = IIppResolutionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3833709230, 9498, 21286, [177, 115, 149, 84, 62, 217, 154, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe481c2ae_251a_5326_b173_95543ed99a35);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -262,7 +262,7 @@ pub struct IIppResolutionFactory_abi(
 pub struct IIppSetAttributesResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppSetAttributesResult {
     type Vtable = IIppSetAttributesResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2099019605, 43677, 22691, [144, 233, 23, 189, 197, 40, 31, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d1c7f55_aa9d_58a3_90e9_17bdc5281f07);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -282,7 +282,7 @@ pub struct IIppSetAttributesResult_abi(
 pub struct IIppTextWithLanguage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppTextWithLanguage {
     type Vtable = IIppTextWithLanguage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(845432742, 20809, 22838, [144, 232, 12, 115, 96, 54, 191, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x326447a6_5149_5936_90e8_0c736036bf77);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -301,7 +301,7 @@ pub struct IIppTextWithLanguage_abi(
 pub struct IIppTextWithLanguageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppTextWithLanguageFactory {
     type Vtable = IIppTextWithLanguageFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3393855117, 10600, 22389, [153, 124, 138, 70, 241, 165, 116, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca4a1e8d_2968_5775_997c_8a46f1a574ed);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -319,7 +319,7 @@ pub struct IIppTextWithLanguageFactory_abi(
 pub struct IPrint3DDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DDevice {
     type Vtable = IPrint3DDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(68959513, 38675, 17058, [152, 19, 125, 195, 51, 116, 40, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x041c3d19_9713_42a2_9813_7dc3337428d3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -337,7 +337,7 @@ pub struct IPrint3DDevice_abi(
 pub struct IPrint3DDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DDeviceStatics {
     type Vtable = IPrint3DDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4259537418, 26573, 16823, [163, 68, 81, 80, 161, 253, 117, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfde3620a_67cd_41b7_a344_5150a1fd75b5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -357,7 +357,7 @@ pub struct IPrint3DDeviceStatics_abi(
 pub struct IPrintSchema(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintSchema {
     type Vtable = IPrintSchema_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3266937622, 9912, 19451, [129, 56, 159, 150, 44, 34, 163, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2b98316_26b8_4bfb_8138_9f962c22a35b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -411,7 +411,7 @@ unsafe impl ::windows::runtime::RuntimeType for IppAttributeError {
 }
 unsafe impl ::windows::runtime::Interface for IppAttributeError {
     type Vtable = IIppAttributeError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1963978145, 40687, 23609, [147, 228, 70, 20, 155, 188, 239, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x750feda1_9eef_5c39_93e4_46149bbcef27);
 }
 impl ::windows::runtime::RuntimeName for IppAttributeError {
     const NAME: &'static str = "Windows.Devices.Printers.IppAttributeError";
@@ -963,7 +963,7 @@ unsafe impl ::windows::runtime::RuntimeType for IppAttributeValue {
 }
 unsafe impl ::windows::runtime::Interface for IppAttributeValue {
     type Vtable = IIppAttributeValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2571141101, 58043, 22947, [152, 139, 40, 169, 116, 5, 42, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99407fed_e2bb_59a3_988b_28a974052a26);
 }
 impl ::windows::runtime::RuntimeName for IppAttributeValue {
     const NAME: &'static str = "Windows.Devices.Printers.IppAttributeValue";
@@ -1089,7 +1089,7 @@ unsafe impl ::windows::runtime::RuntimeType for IppIntegerRange {
 }
 unsafe impl ::windows::runtime::Interface for IppIntegerRange {
     type Vtable = IIppIntegerRange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2458940230, 50154, 24278, [189, 177, 55, 82, 198, 44, 111, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92907346_c3ea_5ed6_bdb1_3752c62c6f7f);
 }
 impl ::windows::runtime::RuntimeName for IppIntegerRange {
     const NAME: &'static str = "Windows.Devices.Printers.IppIntegerRange";
@@ -1200,7 +1200,7 @@ unsafe impl ::windows::runtime::RuntimeType for IppPrintDevice {
 }
 unsafe impl ::windows::runtime::Interface for IppPrintDevice {
     type Vtable = IIppPrintDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3611864150, 30451, 24006, [175, 212, 194, 168, 104, 107, 147, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd748ac56_76f3_5dc6_afd4_c2a8686b9359);
 }
 impl ::windows::runtime::RuntimeName for IppPrintDevice {
     const NAME: &'static str = "Windows.Devices.Printers.IppPrintDevice";
@@ -1293,7 +1293,7 @@ unsafe impl ::windows::runtime::RuntimeType for IppResolution {
 }
 unsafe impl ::windows::runtime::Interface for IppResolution {
     type Vtable = IIppResolution_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3410575238, 27635, 22261, [134, 206, 38, 61, 8, 174, 173, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb493f86_6bf3_56f5_86ce_263d08aead63);
 }
 impl ::windows::runtime::RuntimeName for IppResolution {
     const NAME: &'static str = "Windows.Devices.Printers.IppResolution";
@@ -1390,7 +1390,7 @@ unsafe impl ::windows::runtime::RuntimeType for IppSetAttributesResult {
 }
 unsafe impl ::windows::runtime::Interface for IppSetAttributesResult {
     type Vtable = IIppSetAttributesResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2099019605, 43677, 22691, [144, 233, 23, 189, 197, 40, 31, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d1c7f55_aa9d_58a3_90e9_17bdc5281f07);
 }
 impl ::windows::runtime::RuntimeName for IppSetAttributesResult {
     const NAME: &'static str = "Windows.Devices.Printers.IppSetAttributesResult";
@@ -1475,7 +1475,7 @@ unsafe impl ::windows::runtime::RuntimeType for IppTextWithLanguage {
 }
 unsafe impl ::windows::runtime::Interface for IppTextWithLanguage {
     type Vtable = IIppTextWithLanguage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(845432742, 20809, 22838, [144, 232, 12, 115, 96, 54, 191, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x326447a6_5149_5936_90e8_0c736036bf77);
 }
 impl ::windows::runtime::RuntimeName for IppTextWithLanguage {
     const NAME: &'static str = "Windows.Devices.Printers.IppTextWithLanguage";
@@ -1560,7 +1560,7 @@ unsafe impl ::windows::runtime::RuntimeType for Print3DDevice {
 }
 unsafe impl ::windows::runtime::Interface for Print3DDevice {
     type Vtable = IPrint3DDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(68959513, 38675, 17058, [152, 19, 125, 195, 51, 116, 40, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x041c3d19_9713_42a2_9813_7dc3337428d3);
 }
 impl ::windows::runtime::RuntimeName for Print3DDevice {
     const NAME: &'static str = "Windows.Devices.Printers.Print3DDevice";
@@ -1645,7 +1645,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintSchema {
 }
 unsafe impl ::windows::runtime::Interface for PrintSchema {
     type Vtable = IPrintSchema_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3266937622, 9912, 19451, [129, 56, 159, 150, 44, 34, 163, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2b98316_26b8_4bfb_8138_9f962c22a35b);
 }
 impl ::windows::runtime::RuntimeName for PrintSchema {
     const NAME: &'static str = "Windows.Devices.Printers.PrintSchema";

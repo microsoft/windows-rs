@@ -4,7 +4,7 @@
 pub struct IInkAnalysisInkBullet(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisInkBullet {
     type Vtable = IInkAnalysisInkBullet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3993277288, 24848, 16694, [149, 249, 238, 128, 159, 194, 0, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee049368_6110_4136_95f9_ee809fc20030);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22,7 +22,7 @@ pub struct IInkAnalysisInkBullet_abi(
 pub struct IInkAnalysisInkDrawing(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisInkDrawing {
     type Vtable = IInkAnalysisInkDrawing_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1787161887, 8164, 19989, [137, 140, 142, 17, 35, 119, 224, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a85ed1f_1fe4_4e15_898c_8e112377e021);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -44,7 +44,7 @@ pub struct IInkAnalysisInkDrawing_abi(
 pub struct IInkAnalysisInkWord(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisInkWord {
     type Vtable = IInkAnalysisInkWord_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1272064173, 33711, 16436, [143, 59, 248, 104, 125, 255, 244, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bd228ad_83af_4034_8f3b_f8687dfff436);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -64,7 +64,7 @@ pub struct IInkAnalysisInkWord_abi(
 pub struct IInkAnalysisLine(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisLine {
     type Vtable = IInkAnalysisLine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2691499149, 11149, 18260, [173, 90, 208, 135, 17, 147, 169, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa06d048d_2b8d_4754_ad5a_d0871193a956);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -83,7 +83,7 @@ pub struct IInkAnalysisLine_abi(
 pub struct IInkAnalysisListItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisListItem {
     type Vtable = IInkAnalysisListItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3034825279, 50371, 19514, [161, 166, 157, 133, 84, 126, 229, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4e3c23f_c4c3_4c3a_a1a6_9d85547ee586);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -102,7 +102,7 @@ pub struct IInkAnalysisListItem_abi(
 pub struct IInkAnalysisNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisNode {
     type Vtable = IInkAnalysisNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(813899525, 24420, 18988, [186, 55, 79, 72, 135, 135, 149, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30831f05_5f64_4a2c_ba37_4f4887879574);
 }
 impl IInkAnalysisNode {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
@@ -235,7 +235,7 @@ pub struct IInkAnalysisNode_abi(
 pub struct IInkAnalysisParagraph(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisParagraph {
     type Vtable = IInkAnalysisParagraph_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3651994716, 3281, 19924, [166, 139, 235, 31, 18, 179, 215, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9ad045c_0cd1_4dd4_a68b_eb1f12b3d727);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -253,7 +253,7 @@ pub struct IInkAnalysisParagraph_abi(
 pub struct IInkAnalysisResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisResult {
     type Vtable = IInkAnalysisResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2303244921, 41539, 19107, [162, 148, 31, 152, 189, 15, 245, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8948ba79_a243_4aa3_a294_1f98bd0ff580);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -271,7 +271,7 @@ pub struct IInkAnalysisResult_abi(
 pub struct IInkAnalysisRoot(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisRoot {
     type Vtable = IInkAnalysisRoot_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1068934084, 12254, 16481, [133, 2, 169, 15, 50, 84, 91, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3fb6a3c4_2fde_4061_8502_a90f32545b84);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -291,7 +291,7 @@ pub struct IInkAnalysisRoot_abi(
 pub struct IInkAnalysisWritingRegion(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisWritingRegion {
     type Vtable = IInkAnalysisWritingRegion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3714933297, 48406, 18019, [181, 174, 148, 29, 48, 67, 239, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd6d6231_bd16_4663_b5ae_941d3043ef5b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -309,7 +309,7 @@ pub struct IInkAnalysisWritingRegion_abi(
 pub struct IInkAnalyzer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalyzer {
     type Vtable = IInkAnalyzer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4046163861, 2150, 19909, [140, 119, 248, 134, 20, 223, 227, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf12b8f95_0866_4dc5_8c77_f88614dfe38c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -340,7 +340,7 @@ pub struct IInkAnalyzer_abi(
 pub struct IInkAnalyzerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalyzerFactory {
     type Vtable = IInkAnalyzerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(689145478, 6499, 18904, [149, 137, 225, 67, 132, 199, 105, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29138686_1963_49d8_9589_e14384c769e3);
 }
 impl IInkAnalyzerFactory {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
@@ -520,7 +520,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkAnalysisInkBullet {
 }
 unsafe impl ::windows::runtime::Interface for InkAnalysisInkBullet {
     type Vtable = IInkAnalysisInkBullet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3993277288, 24848, 16694, [149, 249, 238, 128, 159, 194, 0, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee049368_6110_4136_95f9_ee809fc20030);
 }
 impl ::windows::runtime::RuntimeName for InkAnalysisInkBullet {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisInkBullet";
@@ -686,7 +686,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkAnalysisInkDrawing {
 }
 unsafe impl ::windows::runtime::Interface for InkAnalysisInkDrawing {
     type Vtable = IInkAnalysisInkDrawing_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1787161887, 8164, 19989, [137, 140, 142, 17, 35, 119, 224, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a85ed1f_1fe4_4e15_898c_8e112377e021);
 }
 impl ::windows::runtime::RuntimeName for InkAnalysisInkDrawing {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisInkDrawing";
@@ -843,7 +843,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkAnalysisInkWord {
 }
 unsafe impl ::windows::runtime::Interface for InkAnalysisInkWord {
     type Vtable = IInkAnalysisInkWord_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1272064173, 33711, 16436, [143, 59, 248, 104, 125, 255, 244, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bd228ad_83af_4034_8f3b_f8687dfff436);
 }
 impl ::windows::runtime::RuntimeName for InkAnalysisInkWord {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisInkWord";
@@ -999,7 +999,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkAnalysisLine {
 }
 unsafe impl ::windows::runtime::Interface for InkAnalysisLine {
     type Vtable = IInkAnalysisLine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2691499149, 11149, 18260, [173, 90, 208, 135, 17, 147, 169, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa06d048d_2b8d_4754_ad5a_d0871193a956);
 }
 impl ::windows::runtime::RuntimeName for InkAnalysisLine {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisLine";
@@ -1147,7 +1147,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkAnalysisListItem {
 }
 unsafe impl ::windows::runtime::Interface for InkAnalysisListItem {
     type Vtable = IInkAnalysisListItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3034825279, 50371, 19514, [161, 166, 157, 133, 84, 126, 229, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4e3c23f_c4c3_4c3a_a1a6_9d85547ee586);
 }
 impl ::windows::runtime::RuntimeName for InkAnalysisListItem {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisListItem";
@@ -1287,7 +1287,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkAnalysisNode {
 }
 unsafe impl ::windows::runtime::Interface for InkAnalysisNode {
     type Vtable = IInkAnalysisNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(813899525, 24420, 18988, [186, 55, 79, 72, 135, 135, 149, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30831f05_5f64_4a2c_ba37_4f4887879574);
 }
 impl ::windows::runtime::RuntimeName for InkAnalysisNode {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisNode";
@@ -1462,7 +1462,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkAnalysisParagraph {
 }
 unsafe impl ::windows::runtime::Interface for InkAnalysisParagraph {
     type Vtable = IInkAnalysisParagraph_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3651994716, 3281, 19924, [166, 139, 235, 31, 18, 179, 215, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9ad045c_0cd1_4dd4_a68b_eb1f12b3d727);
 }
 impl ::windows::runtime::RuntimeName for InkAnalysisParagraph {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisParagraph";
@@ -1550,7 +1550,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkAnalysisResult {
 }
 unsafe impl ::windows::runtime::Interface for InkAnalysisResult {
     type Vtable = IInkAnalysisResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2303244921, 41539, 19107, [162, 148, 31, 152, 189, 15, 245, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8948ba79_a243_4aa3_a294_1f98bd0ff580);
 }
 impl ::windows::runtime::RuntimeName for InkAnalysisResult {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisResult";
@@ -1685,7 +1685,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkAnalysisRoot {
 }
 unsafe impl ::windows::runtime::Interface for InkAnalysisRoot {
     type Vtable = IInkAnalysisRoot_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1068934084, 12254, 16481, [133, 2, 169, 15, 50, 84, 91, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3fb6a3c4_2fde_4061_8502_a90f32545b84);
 }
 impl ::windows::runtime::RuntimeName for InkAnalysisRoot {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisRoot";
@@ -1878,7 +1878,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkAnalysisWritingRegion {
 }
 unsafe impl ::windows::runtime::Interface for InkAnalysisWritingRegion {
     type Vtable = IInkAnalysisWritingRegion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3714933297, 48406, 18019, [181, 174, 148, 29, 48, 67, 239, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd6d6231_bd16_4663_b5ae_941d3043ef5b);
 }
 impl ::windows::runtime::RuntimeName for InkAnalysisWritingRegion {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisWritingRegion";
@@ -2027,7 +2027,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkAnalyzer {
 }
 unsafe impl ::windows::runtime::Interface for InkAnalyzer {
     type Vtable = IInkAnalyzer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4046163861, 2150, 19909, [140, 119, 248, 134, 20, 223, 227, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf12b8f95_0866_4dc5_8c77_f88614dfe38c);
 }
 impl ::windows::runtime::RuntimeName for InkAnalyzer {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalyzer";

@@ -4,7 +4,7 @@
 pub struct IPhotoImportDeleteImportedItemsFromSourceResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportDeleteImportedItemsFromSourceResult {
     type Vtable = IPhotoImportDeleteImportedItemsFromSourceResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4108391160, 33853, 17034, [161, 166, 129, 81, 2, 146, 176, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf4e112f8_843d_428a_a1a6_81510292b0ae);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -35,7 +35,7 @@ pub struct IPhotoImportDeleteImportedItemsFromSourceResult_abi(
 pub struct IPhotoImportFindItemsResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportFindItemsResult {
     type Vtable = IPhotoImportFindItemsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(957736519, 27768, 18731, [132, 78, 143, 229, 232, 246, 191, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3915e647_6c78_492b_844e_8fe5e8f6bfb9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -92,7 +92,7 @@ pub struct IPhotoImportFindItemsResult_abi(
 pub struct IPhotoImportFindItemsResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportFindItemsResult2 {
     type Vtable = IPhotoImportFindItemsResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4225591867, 60665, 16490, [129, 94, 80, 21, 98, 91, 10, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbdd6a3b_ecf9_406a_815e_5015625b0a88);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -111,7 +111,7 @@ pub struct IPhotoImportFindItemsResult2_abi(
 pub struct IPhotoImportImportItemsResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportImportItemsResult {
     type Vtable = IPhotoImportImportItemsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3839161464, 54297, 17475, [168, 78, 240, 106, 133, 12, 11, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4d4f478_d419_4443_a84e_f06a850c0b00);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -144,7 +144,7 @@ pub struct IPhotoImportImportItemsResult_abi(
 pub struct IPhotoImportItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportItem {
     type Vtable = IPhotoImportItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2849013366, 39932, 17336, [179, 86, 99, 59, 106, 152, 140, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9d07e76_9bfc_43b8_b356_633b6a988c9e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -180,7 +180,7 @@ pub struct IPhotoImportItem_abi(
 pub struct IPhotoImportItem2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportItem2 {
     type Vtable = IPhotoImportItem2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4043650309, 62779, 18083, [158, 48, 54, 16, 121, 26, 145, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1053505_f53b_46a3_9e30_3610791a9110);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -198,7 +198,7 @@ pub struct IPhotoImportItem2_abi(
 pub struct IPhotoImportItemImportedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportItemImportedEventArgs {
     type Vtable = IPhotoImportItemImportedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1120612317, 32104, 18357, [188, 124, 206, 183, 62, 12, 119, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42cb2fdd_7d68_47b5_bc7c_ceb73e0c77dc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -216,7 +216,7 @@ pub struct IPhotoImportItemImportedEventArgs_abi(
 pub struct IPhotoImportManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportManagerStatics {
     type Vtable = IPhotoImportManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(661753917, 41030, 20230, [155, 156, 191, 214, 98, 232, 50, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2771903d_a046_4f06_9b9c_bfd662e83287);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -239,7 +239,7 @@ pub struct IPhotoImportManagerStatics_abi(
 pub struct IPhotoImportOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportOperation {
     type Vtable = IPhotoImportOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3656882148, 41114, 20196, [164, 177, 32, 148, 2, 119, 165, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9f797e4_a09a_4ee4_a4b1_20940277a5be);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -264,7 +264,7 @@ pub struct IPhotoImportOperation_abi(
 pub struct IPhotoImportSelectionChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportSelectionChangedEventArgs {
     type Vtable = IPhotoImportSelectionChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(273028994, 64157, 19504, [139, 201, 77, 100, 145, 21, 114, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10461782_fa9d_4c30_8bc9_4d64911572d5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -282,7 +282,7 @@ pub struct IPhotoImportSelectionChangedEventArgs_abi(
 pub struct IPhotoImportSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportSession {
     type Vtable = IPhotoImportSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2858652014, 60635, 20222, [148, 198, 95, 92, 175, 227, 76, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa63916e_ecdb_4efe_94c6_5f5cafe34cfb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -313,7 +313,7 @@ pub struct IPhotoImportSession_abi(
 pub struct IPhotoImportSession2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportSession2 {
     type Vtable = IPhotoImportSession2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(710043408, 16070, 18077, [163, 117, 43, 159, 71, 133, 57, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a526710_3ec6_469d_a375_2b9f4785391e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -334,7 +334,7 @@ pub struct IPhotoImportSession2_abi(
 pub struct IPhotoImportSidecar(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportSidecar {
     type Vtable = IPhotoImportSidecar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1188550487, 63490, 17607, [156, 152, 122, 113, 244, 188, 20, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46d7d757_f802_44c7_9c98_7a71f4bc1486);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -355,7 +355,7 @@ pub struct IPhotoImportSidecar_abi(
 pub struct IPhotoImportSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportSource {
     type Vtable = IPhotoImportSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(529441630, 5211, 19670, [135, 241, 84, 150, 90, 152, 47, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f8ea35e_145b_4cd6_87f1_54965a982fef);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -394,7 +394,7 @@ pub struct IPhotoImportSource_abi(
 pub struct IPhotoImportSourceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportSourceStatics {
     type Vtable = IPhotoImportSourceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(86566278, 13016, 18044, [140, 238, 35, 161, 178, 244, 62, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0528e586_32d8_467c_8cee_23a1b2f43e85);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -415,7 +415,7 @@ pub struct IPhotoImportSourceStatics_abi(
 pub struct IPhotoImportStorageMedium(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportStorageMedium {
     type Vtable = IPhotoImportStorageMedium_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4072255635, 64645, 18559, [135, 194, 88, 214, 117, 208, 91, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2b9b093_fc85_487f_87c2_58d675d05b07);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -440,7 +440,7 @@ pub struct IPhotoImportStorageMedium_abi(
 pub struct IPhotoImportVideoSegment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportVideoSegment {
     type Vtable = IPhotoImportVideoSegment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1648099977, 12826, 16856, [145, 102, 140, 98, 163, 51, 39, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x623c0289_321a_41d8_9166_8c62a333276c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -669,7 +669,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoImportDeleteImportedItemsFr
 }
 unsafe impl ::windows::runtime::Interface for PhotoImportDeleteImportedItemsFromSourceResult {
     type Vtable = IPhotoImportDeleteImportedItemsFromSourceResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4108391160, 33853, 17034, [161, 166, 129, 81, 2, 146, 176, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf4e112f8_843d_428a_a1a6_81510292b0ae);
 }
 impl ::windows::runtime::RuntimeName for PhotoImportDeleteImportedItemsFromSourceResult {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportDeleteImportedItemsFromSourceResult";
@@ -989,7 +989,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoImportFindItemsResult {
 }
 unsafe impl ::windows::runtime::Interface for PhotoImportFindItemsResult {
     type Vtable = IPhotoImportFindItemsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(957736519, 27768, 18731, [132, 78, 143, 229, 232, 246, 191, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3915e647_6c78_492b_844e_8fe5e8f6bfb9);
 }
 impl ::windows::runtime::RuntimeName for PhotoImportFindItemsResult {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportFindItemsResult";
@@ -1161,7 +1161,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoImportImportItemsResult {
 }
 unsafe impl ::windows::runtime::Interface for PhotoImportImportItemsResult {
     type Vtable = IPhotoImportImportItemsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3839161464, 54297, 17475, [168, 78, 240, 106, 133, 12, 11, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4d4f478_d419_4443_a84e_f06a850c0b00);
 }
 impl ::windows::runtime::RuntimeName for PhotoImportImportItemsResult {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportImportItemsResult";
@@ -1358,7 +1358,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoImportItem {
 }
 unsafe impl ::windows::runtime::Interface for PhotoImportItem {
     type Vtable = IPhotoImportItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2849013366, 39932, 17336, [179, 86, 99, 59, 106, 152, 140, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9d07e76_9bfc_43b8_b356_633b6a988c9e);
 }
 impl ::windows::runtime::RuntimeName for PhotoImportItem {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportItem";
@@ -1424,7 +1424,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoImportItemImportedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for PhotoImportItemImportedEventArgs {
     type Vtable = IPhotoImportItemImportedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1120612317, 32104, 18357, [188, 124, 206, 183, 62, 12, 119, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42cb2fdd_7d68_47b5_bc7c_ceb73e0c77dc);
 }
 impl ::windows::runtime::RuntimeName for PhotoImportItemImportedEventArgs {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportItemImportedEventArgs";
@@ -1583,7 +1583,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoImportOperation {
 }
 unsafe impl ::windows::runtime::Interface for PhotoImportOperation {
     type Vtable = IPhotoImportOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3656882148, 41114, 20196, [164, 177, 32, 148, 2, 119, 165, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9f797e4_a09a_4ee4_a4b1_20940277a5be);
 }
 impl ::windows::runtime::RuntimeName for PhotoImportOperation {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportOperation";
@@ -1708,7 +1708,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoImportSelectionChangedEvent
 }
 unsafe impl ::windows::runtime::Interface for PhotoImportSelectionChangedEventArgs {
     type Vtable = IPhotoImportSelectionChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(273028994, 64157, 19504, [139, 201, 77, 100, 145, 21, 114, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10461782_fa9d_4c30_8bc9_4d64911572d5);
 }
 impl ::windows::runtime::RuntimeName for PhotoImportSelectionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSelectionChangedEventArgs";
@@ -1877,7 +1877,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoImportSession {
 }
 unsafe impl ::windows::runtime::Interface for PhotoImportSession {
     type Vtable = IPhotoImportSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2858652014, 60635, 20222, [148, 198, 95, 92, 175, 227, 76, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa63916e_ecdb_4efe_94c6_5f5cafe34cfb);
 }
 impl ::windows::runtime::RuntimeName for PhotoImportSession {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSession";
@@ -1986,7 +1986,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoImportSidecar {
 }
 unsafe impl ::windows::runtime::Interface for PhotoImportSidecar {
     type Vtable = IPhotoImportSidecar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1188550487, 63490, 17607, [156, 152, 122, 113, 244, 188, 20, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46d7d757_f802_44c7_9c98_7a71f4bc1486);
 }
 impl ::windows::runtime::RuntimeName for PhotoImportSidecar {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSidecar";
@@ -2205,7 +2205,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoImportSource {
 }
 unsafe impl ::windows::runtime::Interface for PhotoImportSource {
     type Vtable = IPhotoImportSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(529441630, 5211, 19670, [135, 241, 84, 150, 90, 152, 47, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f8ea35e_145b_4cd6_87f1_54965a982fef);
 }
 impl ::windows::runtime::RuntimeName for PhotoImportSource {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSource";
@@ -2375,7 +2375,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoImportStorageMedium {
 }
 unsafe impl ::windows::runtime::Interface for PhotoImportStorageMedium {
     type Vtable = IPhotoImportStorageMedium_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4072255635, 64645, 18559, [135, 194, 88, 214, 117, 208, 91, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2b9b093_fc85_487f_87c2_58d675d05b07);
 }
 impl ::windows::runtime::RuntimeName for PhotoImportStorageMedium {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportStorageMedium";
@@ -2545,7 +2545,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoImportVideoSegment {
 }
 unsafe impl ::windows::runtime::Interface for PhotoImportVideoSegment {
     type Vtable = IPhotoImportVideoSegment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1648099977, 12826, 16856, [145, 102, 140, 98, 163, 51, 39, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x623c0289_321a_41d8_9166_8c62a333276c);
 }
 impl ::windows::runtime::RuntimeName for PhotoImportVideoSegment {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportVideoSegment";

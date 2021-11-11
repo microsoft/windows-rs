@@ -516,7 +516,7 @@ impl IDCompositionAffineTransform2DEffect {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionAffineTransform2DEffect {
     type Vtable = IDCompositionAffineTransform2DEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(192199144, 52694, 18735, [187, 188, 94, 211, 33, 87, 2, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b74b9e8_cdd6_492f_bbbc_5ed32157026d);
 }
 impl ::core::convert::From<IDCompositionAffineTransform2DEffect> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionAffineTransform2DEffect) -> Self {
@@ -627,7 +627,7 @@ impl IDCompositionAnimation {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionAnimation {
     type Vtable = IDCompositionAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3422392793, 20914, 17892, [179, 222, 209, 156, 207, 184, 99, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcbfd91d9_51b2_45e4_b3de_d19ccfb863c5);
 }
 impl ::core::convert::From<IDCompositionAnimation> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionAnimation) -> Self {
@@ -716,7 +716,7 @@ impl IDCompositionArithmeticCompositeEffect {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionArithmeticCompositeEffect {
     type Vtable = IDCompositionArithmeticCompositeEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(996663208, 58333, 20065, [182, 64, 70, 194, 243, 215, 57, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b67dfa8_e3dd_4e61_b640_46c2f3d739dc);
 }
 impl ::core::convert::From<IDCompositionArithmeticCompositeEffect> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionArithmeticCompositeEffect) -> Self {
@@ -815,7 +815,7 @@ impl IDCompositionBlendEffect {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionBlendEffect {
     type Vtable = IDCompositionBlendEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(871160842, 22410, 18961, [156, 20, 12, 185, 5, 23, 249, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33ecdc0a_578a_4a11_9c14_0cb90517f9c5);
 }
 impl ::core::convert::From<IDCompositionBlendEffect> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionBlendEffect) -> Self {
@@ -941,7 +941,7 @@ impl IDCompositionBrightnessEffect {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionBrightnessEffect {
     type Vtable = IDCompositionBrightnessEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1613187438, 52026, 18859, [147, 79, 215, 152, 218, 79, 125, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6027496e_cb3a_49ab_934f_d798da4f7da6);
 }
 impl ::core::convert::From<IDCompositionBrightnessEffect> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionBrightnessEffect) -> Self {
@@ -1030,7 +1030,7 @@ pub struct IDCompositionClip(pub ::windows::runtime::IUnknown);
 impl IDCompositionClip {}
 unsafe impl ::windows::runtime::Interface for IDCompositionClip {
     type Vtable = IDCompositionClip_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1689007875, 40255, 17900, [161, 9, 124, 172, 14, 122, 19, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64ac3703_9d3f_45ec_a109_7cac0e7a13a7);
 }
 impl ::core::convert::From<IDCompositionClip> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionClip) -> Self {
@@ -1094,7 +1094,7 @@ impl IDCompositionColorMatrixEffect {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionColorMatrixEffect {
     type Vtable = IDCompositionColorMatrixEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3239512610, 15586, 18790, [144, 212, 85, 64, 139, 252, 132, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1170a22_3ce2_4966_90d4_55408bfc84c4);
 }
 impl ::core::convert::From<IDCompositionColorMatrixEffect> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionColorMatrixEffect) -> Self {
@@ -1189,7 +1189,7 @@ impl IDCompositionCompositeEffect {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionCompositeEffect {
     type Vtable = IDCompositionCompositeEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1466308288, 41521, 18765, [163, 141, 0, 253, 94, 196, 219, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x576616c0_a231_494d_a38d_00fd5ec4db46);
 }
 impl ::core::convert::From<IDCompositionCompositeEffect> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionCompositeEffect) -> Self {
@@ -1288,7 +1288,7 @@ impl IDCompositionDelegatedInkTrail {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionDelegatedInkTrail {
     type Vtable = IDCompositionDelegatedInkTrail_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259272859, 21629, 16471, [140, 245, 129, 68, 237, 225, 194, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2448e9b_547d_4057_8cf5_8144ede1c2da);
 }
 impl ::core::convert::From<IDCompositionDelegatedInkTrail> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionDelegatedInkTrail) -> Self {
@@ -1454,7 +1454,7 @@ impl IDCompositionDesktopDevice {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionDesktopDevice {
     type Vtable = IDCompositionDesktopDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1598436350, 7688, 19640, [140, 117, 206, 36, 51, 63, 86, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f4633fe_1e08_4cb8_8c75_ce24333f5602);
 }
 impl ::core::convert::From<IDCompositionDesktopDevice> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionDesktopDevice) -> Self {
@@ -1666,7 +1666,7 @@ impl IDCompositionDevice {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionDevice {
     type Vtable = IDCompositionDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3279857978, 59306, 17677, [177, 111, 151, 70, 203, 4, 7, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc37ea93a_e7aa_450d_b16f_9746cb0407f3);
 }
 impl ::core::convert::From<IDCompositionDevice> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionDevice) -> Self {
@@ -1840,7 +1840,7 @@ impl IDCompositionDevice2 {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionDevice2 {
     type Vtable = IDCompositionDevice2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1979074189, 7054, 17532, [155, 198, 117, 254, 168, 11, 91, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75f6468d_1b8e_447c_9bc6_75fea80b5b25);
 }
 impl ::core::convert::From<IDCompositionDevice2> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionDevice2) -> Self {
@@ -2072,7 +2072,7 @@ impl IDCompositionDevice3 {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionDevice3 {
     type Vtable = IDCompositionDevice3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(159894278, 63766, 18623, [141, 53, 206, 118, 65, 120, 27, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0987cb06_f916_48bf_8d35_ce7641781bd9);
 }
 impl ::core::convert::From<IDCompositionDevice3> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionDevice3) -> Self {
@@ -2174,7 +2174,7 @@ impl IDCompositionDeviceDebug {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionDeviceDebug {
     type Vtable = IDCompositionDeviceDebug_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2711864906, 8783, 19073, [151, 115, 79, 3, 168, 157, 60, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1a3c64a_224f_4a81_9773_4f03a89d3c6c);
 }
 impl ::core::convert::From<IDCompositionDeviceDebug> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionDeviceDebug) -> Self {
@@ -2212,7 +2212,7 @@ pub struct IDCompositionEffect(pub ::windows::runtime::IUnknown);
 impl IDCompositionEffect {}
 unsafe impl ::windows::runtime::Interface for IDCompositionEffect {
     type Vtable = IDCompositionEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3967922319, 49099, 20109, [177, 147, 169, 21, 88, 121, 153, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec81b08f_bfcb_4e8d_b193_a915587999e8);
 }
 impl ::core::convert::From<IDCompositionEffect> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionEffect) -> Self {
@@ -2261,7 +2261,7 @@ impl IDCompositionEffectGroup {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionEffectGroup {
     type Vtable = IDCompositionEffectGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2811402868, 59058, 19414, [139, 149, 64, 64, 17, 156, 163, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7929a74_e6b2_4bd6_8b95_4040119ca34d);
 }
 impl ::core::convert::From<IDCompositionEffectGroup> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionEffectGroup) -> Self {
@@ -2325,7 +2325,7 @@ impl IDCompositionFilterEffect {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionFilterEffect {
     type Vtable = IDCompositionFilterEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(818160085, 36018, 20127, [177, 51, 55, 190, 39, 13, 74, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30c421d5_8cb2_4e9f_b133_37be270d4ac2);
 }
 impl ::core::convert::From<IDCompositionFilterEffect> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionFilterEffect) -> Self {
@@ -2400,7 +2400,7 @@ impl IDCompositionGaussianBlurEffect {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionGaussianBlurEffect {
     type Vtable = IDCompositionGaussianBlurEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1171574967, 7124, 17742, [136, 148, 43, 250, 104, 68, 48, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45d4d0b7_1bd4_454e_8894_2bfa68443033);
 }
 impl ::core::convert::From<IDCompositionGaussianBlurEffect> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionGaussianBlurEffect) -> Self {
@@ -2494,7 +2494,7 @@ impl IDCompositionHueRotationEffect {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionHueRotationEffect {
     type Vtable = IDCompositionHueRotationEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1840904480, 1904, 18305, [176, 198, 56, 25, 18, 249, 209, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6db9f920_0770_4781_b0c6_381912f9d167);
 }
 impl ::core::convert::From<IDCompositionHueRotationEffect> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionHueRotationEffect) -> Self {
@@ -2584,7 +2584,7 @@ impl IDCompositionInkTrailDevice {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionInkTrailDevice {
     type Vtable = IDCompositionInkTrailDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3742137580, 52715, 19786, [185, 28, 114, 27, 242, 47, 78, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf0c7cec_cdeb_4d4a_b91c_721bf22f4e6c);
 }
 impl ::core::convert::From<IDCompositionInkTrailDevice> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionInkTrailDevice) -> Self {
@@ -2716,7 +2716,7 @@ impl IDCompositionLinearTransferEffect {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionLinearTransferEffect {
     type Vtable = IDCompositionLinearTransferEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1124462171, 50336, 19592, [147, 133, 103, 18, 78, 1, 118, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4305ee5b_c4a0_4c88_9385_67124e017683);
 }
 impl ::core::convert::From<IDCompositionLinearTransferEffect> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionLinearTransferEffect) -> Self {
@@ -2833,7 +2833,7 @@ impl IDCompositionMatrixTransform {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionMatrixTransform {
     type Vtable = IDCompositionMatrixTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(382598919, 50435, 16796, [131, 242, 9, 101, 199, 175, 31, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16cdff07_c503_419c_83f2_0965c7af1fa6);
 }
 impl ::core::convert::From<IDCompositionMatrixTransform> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionMatrixTransform) -> Self {
@@ -2947,7 +2947,7 @@ impl IDCompositionMatrixTransform3D {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionMatrixTransform3D {
     type Vtable = IDCompositionMatrixTransform3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1261659120, 25659, 16823, [182, 224, 204, 242, 45, 52, 70, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b3363f0_643b_41b7_b6e0_ccf22d34467c);
 }
 impl ::core::convert::From<IDCompositionMatrixTransform3D> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionMatrixTransform3D) -> Self {
@@ -3124,7 +3124,7 @@ impl IDCompositionRectangleClip {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionRectangleClip {
     type Vtable = IDCompositionRectangleClip_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2554506621, 55759, 18696, [174, 215, 72, 181, 29, 165, 231, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9842ad7d_d9cf_4908_aed7_48b51da5e7c2);
 }
 impl ::core::convert::From<IDCompositionRectangleClip> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionRectangleClip) -> Self {
@@ -3229,7 +3229,7 @@ impl IDCompositionRotateTransform {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionRotateTransform {
     type Vtable = IDCompositionRotateTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1679743036, 44694, 18117, [144, 220, 50, 119, 76, 197, 198, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x641ed83c_ae96_46c5_90dc_32774cc5c6d5);
 }
 impl ::core::convert::From<IDCompositionRotateTransform> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionRotateTransform) -> Self {
@@ -3388,7 +3388,7 @@ impl IDCompositionRotateTransform3D {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionRotateTransform3D {
     type Vtable = IDCompositionRotateTransform3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3639980607, 54313, 19089, [181, 90, 210, 244, 95, 215, 91, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8f5b23f_d429_4a91_b55a_d2f45fd75b18);
 }
 impl ::core::convert::From<IDCompositionRotateTransform3D> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionRotateTransform3D) -> Self {
@@ -3491,7 +3491,7 @@ impl IDCompositionSaturationEffect {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionSaturationEffect {
     type Vtable = IDCompositionSaturationEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2693655514, 12888, 20388, [159, 22, 145, 116, 211, 254, 147, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa08debda_3258_4fa4_9f16_9174d3fe93b1);
 }
 impl ::core::convert::From<IDCompositionSaturationEffect> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionSaturationEffect) -> Self {
@@ -3603,7 +3603,7 @@ impl IDCompositionScaleTransform {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionScaleTransform {
     type Vtable = IDCompositionScaleTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1912465684, 16623, 17903, [189, 81, 104, 176, 55, 195, 57, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71fde914_40ef_45ef_bd51_68b037c339f9);
 }
 impl ::core::convert::From<IDCompositionScaleTransform> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionScaleTransform) -> Self {
@@ -3756,7 +3756,7 @@ impl IDCompositionScaleTransform3D {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionScaleTransform3D {
     type Vtable = IDCompositionScaleTransform3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(715038381, 13899, 19221, [167, 196, 161, 153, 127, 120, 179, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a9e9ead_364b_4b15_a7c4_a1997f78b389);
 }
 impl ::core::convert::From<IDCompositionScaleTransform3D> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionScaleTransform3D) -> Self {
@@ -3894,7 +3894,7 @@ impl IDCompositionShadowEffect {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionShadowEffect {
     type Vtable = IDCompositionShadowEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1255246528, 53202, 19503, [187, 98, 150, 229, 79, 219, 104, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ad18ac0_cfd2_4c2f_bb62_96e54fdb6879);
 }
 impl ::core::convert::From<IDCompositionShadowEffect> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionShadowEffect) -> Self {
@@ -4016,7 +4016,7 @@ impl IDCompositionSkewTransform {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionSkewTransform {
     type Vtable = IDCompositionSkewTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3850020661, 56539, 19570, [156, 97, 5, 145, 245, 136, 137, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe57aa735_dcdb_4c72_9c61_0591f58889ee);
 }
 impl ::core::convert::From<IDCompositionSkewTransform> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionSkewTransform) -> Self {
@@ -4143,7 +4143,7 @@ impl IDCompositionSurface {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionSurface {
     type Vtable = IDCompositionSurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3146402131, 11417, 20314, [150, 245, 72, 25, 2, 127, 163, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb8a4953_2c99_4f5a_96f5_4819027fa3ac);
 }
 impl ::core::convert::From<IDCompositionSurface> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionSurface) -> Self {
@@ -4199,7 +4199,7 @@ impl IDCompositionSurfaceFactory {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionSurfaceFactory {
     type Vtable = IDCompositionSurfaceFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3811884050, 14647, 19970, [133, 235, 252, 244, 235, 48, 210, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe334bc12_3937_4e02_85eb_fcf4eb30d2c8);
 }
 impl ::core::convert::From<IDCompositionSurfaceFactory> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionSurfaceFactory) -> Self {
@@ -4317,7 +4317,7 @@ impl IDCompositionTableTransferEffect {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionTableTransferEffect {
     type Vtable = IDCompositionTableTransferEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608759522, 27077, 20148, [165, 245, 167, 3, 63, 81, 50, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e82e2_69c5_4eb4_a5f5_a7033f5132cd);
 }
 impl ::core::convert::From<IDCompositionTableTransferEffect> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionTableTransferEffect) -> Self {
@@ -4421,7 +4421,7 @@ impl IDCompositionTarget {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionTarget {
     type Vtable = IDCompositionTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3939356748, 4478, 19991, [136, 244, 209, 177, 43, 14, 61, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeacdd04c_117e_4e17_88f4_d1b12b0e3d89);
 }
 impl ::core::convert::From<IDCompositionTarget> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionTarget) -> Self {
@@ -4458,7 +4458,7 @@ pub struct IDCompositionTransform(pub ::windows::runtime::IUnknown);
 impl IDCompositionTransform {}
 unsafe impl ::windows::runtime::Interface for IDCompositionTransform {
     type Vtable = IDCompositionTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4250270375, 14304, 19488, [149, 210, 155, 228, 91, 195, 63, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd55faa7_37e0_4c20_95d2_9be45bc33f55);
 }
 impl ::core::convert::From<IDCompositionTransform> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionTransform) -> Self {
@@ -4534,7 +4534,7 @@ pub struct IDCompositionTransform3D(pub ::windows::runtime::IUnknown);
 impl IDCompositionTransform3D {}
 unsafe impl ::windows::runtime::Interface for IDCompositionTransform3D {
     type Vtable = IDCompositionTransform3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1897420578, 9323, 16882, [170, 209, 4, 67, 247, 244, 191, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71185722_246b_41f2_aad1_0443f7f4bfc2);
 }
 impl ::core::convert::From<IDCompositionTransform3D> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionTransform3D) -> Self {
@@ -4607,7 +4607,7 @@ impl IDCompositionTranslateTransform {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionTranslateTransform {
     type Vtable = IDCompositionTranslateTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(108597538, 50928, 16765, [131, 35, 38, 158, 152, 127, 89, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06791122_c6f0_417d_8323_269e987f5954);
 }
 impl ::core::convert::From<IDCompositionTranslateTransform> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionTranslateTransform) -> Self {
@@ -4732,7 +4732,7 @@ impl IDCompositionTranslateTransform3D {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionTranslateTransform3D {
     type Vtable = IDCompositionTranslateTransform3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2439212363, 39841, 17714, [170, 247, 227, 52, 73, 148, 215, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91636d4b_9ba1_4532_aaf7_e3344994d788);
 }
 impl ::core::convert::From<IDCompositionTranslateTransform3D> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionTranslateTransform3D) -> Self {
@@ -4852,7 +4852,7 @@ impl IDCompositionTurbulenceEffect {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionTurbulenceEffect {
     type Vtable = IDCompositionTurbulenceEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2795854810, 49308, 18931, [145, 147, 164, 25, 34, 200, 151, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6a55bda_c09c_49f3_9193_a41922c89715);
 }
 impl ::core::convert::From<IDCompositionTurbulenceEffect> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionTurbulenceEffect) -> Self {
@@ -4973,7 +4973,7 @@ impl IDCompositionVirtualSurface {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionVirtualSurface {
     type Vtable = IDCompositionVirtualSurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2923895889, 24403, 18980, [141, 62, 208, 195, 156, 48, 179, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae471c51_5f53_4a24_8d3e_d0c39c30b3f0);
 }
 impl ::core::convert::From<IDCompositionVirtualSurface> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionVirtualSurface) -> Self {
@@ -5111,7 +5111,7 @@ impl IDCompositionVisual {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionVisual {
     type Vtable = IDCompositionVisual_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1301480861, 2427, 18001, [154, 96, 240, 242, 81, 22, 226, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d93059d_097b_4651_9a60_f0f25116e2f3);
 }
 impl ::core::convert::From<IDCompositionVisual> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionVisual) -> Self {
@@ -5247,7 +5247,7 @@ impl IDCompositionVisual2 {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionVisual2 {
     type Vtable = IDCompositionVisual2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3906868793, 17201, 19238, [188, 95, 106, 50, 29, 52, 122, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8de1639_4331_4b26_bc5f_6a321d347a85);
 }
 impl ::core::convert::From<IDCompositionVisual2> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionVisual2) -> Self {
@@ -5456,7 +5456,7 @@ impl IDCompositionVisual3 {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionVisual3 {
     type Vtable = IDCompositionVisual3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(662041698, 46785, 16405, [176, 190, 179, 231, 214, 164, 151, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2775f462_b6c1_4015_b0be_b3e7d6a4976d);
 }
 impl ::core::convert::From<IDCompositionVisual3> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionVisual3) -> Self {
@@ -5686,7 +5686,7 @@ impl IDCompositionVisualDebug {
 }
 unsafe impl ::windows::runtime::Interface for IDCompositionVisualDebug {
     type Vtable = IDCompositionVisualDebug_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4275222536, 24244, 17312, [174, 163, 53, 246, 82, 128, 249, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfed2b808_5eb4_43a0_aea3_35f65280f91b);
 }
 impl ::core::convert::From<IDCompositionVisualDebug> for ::windows::runtime::IUnknown {
     fn from(value: IDCompositionVisualDebug) -> Self {

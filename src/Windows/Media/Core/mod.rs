@@ -165,7 +165,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioStreamDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for AudioStreamDescriptor {
     type Vtable = IAudioStreamDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(506893028, 16423, 18503, [167, 11, 223, 29, 154, 42, 123, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e3692e4_4027_4847_a70b_df1d9a2a7b04);
 }
 impl ::windows::runtime::RuntimeName for AudioStreamDescriptor {
     const NAME: &'static str = "Windows.Media.Core.AudioStreamDescriptor";
@@ -353,7 +353,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioTrack {
 }
 unsafe impl ::windows::runtime::Interface for AudioTrack {
     type Vtable = IMediaTrack_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(65141500, 51505, 18714, [180, 107, 193, 14, 232, 194, 86, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03e1fafc_c931_491a_b46b_c10ee8c256b7);
 }
 impl ::windows::runtime::RuntimeName for AudioTrack {
     const NAME: &'static str = "Windows.Media.Core.AudioTrack";
@@ -439,7 +439,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioTrackOpenFailedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for AudioTrackOpenFailedEventArgs {
     type Vtable = IAudioTrackOpenFailedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4007508409, 47996, 16658, [191, 118, 147, 132, 103, 111, 130, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeeddb9b9_bb7c_4112_bf76_9384676f824b);
 }
 impl ::windows::runtime::RuntimeName for AudioTrackOpenFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.AudioTrackOpenFailedEventArgs";
@@ -529,7 +529,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioTrackSupportInfo {
 }
 unsafe impl ::windows::runtime::Interface for AudioTrackSupportInfo {
     type Vtable = IAudioTrackSupportInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395046903, 52281, 17574, [185, 81, 74, 86, 83, 240, 115, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x178beff7_cc39_44a6_b951_4a5653f073fa);
 }
 impl ::windows::runtime::RuntimeName for AudioTrackSupportInfo {
     const NAME: &'static str = "Windows.Media.Core.AudioTrackSupportInfo";
@@ -650,7 +650,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChapterCue {
 }
 unsafe impl ::windows::runtime::Interface for ChapterCue {
     type Vtable = IChapterCue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1923710977, 54154, 19466, [143, 166, 117, 205, 218, 244, 102, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72a98001_d38a_4c0a_8fa6_75cddaf4664c);
 }
 impl ::windows::runtime::RuntimeName for ChapterCue {
     const NAME: &'static str = "Windows.Media.Core.ChapterCue";
@@ -793,7 +793,7 @@ unsafe impl ::windows::runtime::RuntimeType for CodecInfo {
 }
 unsafe impl ::windows::runtime::Interface for CodecInfo {
     type Vtable = ICodecInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1374199685, 60055, 18844, [134, 172, 76, 229, 231, 63, 58, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51e89f85_ea97_499c_86ac_4ce5e73f3a42);
 }
 impl ::windows::runtime::RuntimeName for CodecInfo {
     const NAME: &'static str = "Windows.Media.Core.CodecInfo";
@@ -889,7 +889,7 @@ unsafe impl ::windows::runtime::RuntimeType for CodecQuery {
 }
 unsafe impl ::windows::runtime::Interface for CodecQuery {
     type Vtable = ICodecQuery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(573216058, 44897, 19972, [128, 138, 164, 99, 78, 47, 58, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x222a953a_af61_4e04_808a_a4634e2f3ac4);
 }
 impl ::windows::runtime::RuntimeName for CodecQuery {
     const NAME: &'static str = "Windows.Media.Core.CodecQuery";
@@ -1389,7 +1389,7 @@ unsafe impl ::windows::runtime::RuntimeType for DataCue {
 }
 unsafe impl ::windows::runtime::Interface for DataCue {
     type Vtable = IDataCue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2088724333, 8124, 20013, [154, 135, 238, 56, 189, 29, 198, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c7f676d_1fbc_4e2d_9a87_ee38bd1dc637);
 }
 impl ::windows::runtime::RuntimeName for DataCue {
     const NAME: &'static str = "Windows.Media.Core.DataCue";
@@ -1477,7 +1477,7 @@ unsafe impl ::windows::runtime::RuntimeType for FaceDetectedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for FaceDetectedEventArgs {
     type Vtable = IFaceDetectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(428966950, 50779, 18106, [133, 248, 19, 136, 5, 118, 201, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19918426_c65b_46ba_85f8_13880576c90a);
 }
 impl ::windows::runtime::RuntimeName for FaceDetectedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.FaceDetectedEventArgs";
@@ -1584,7 +1584,7 @@ unsafe impl ::windows::runtime::RuntimeType for FaceDetectionEffect {
 }
 unsafe impl ::windows::runtime::Interface for FaceDetectionEffect {
     type Vtable = IFaceDetectionEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2920672210, 1346, 17065, [188, 144, 242, 131, 162, 159, 70, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae15ebd2_0542_42a9_bc90_f283a29f46c1);
 }
 impl ::windows::runtime::RuntimeName for FaceDetectionEffect {
     const NAME: &'static str = "Windows.Media.Core.FaceDetectionEffect";
@@ -1719,7 +1719,7 @@ unsafe impl ::windows::runtime::RuntimeType for FaceDetectionEffectDefinition {
 #[cfg(feature = "Media_Effects")]
 unsafe impl ::windows::runtime::Interface for FaceDetectionEffectDefinition {
     type Vtable = super::Effects::IVideoEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(972262640, 36111, 20286, [132, 252, 45, 70, 165, 41, 121, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943);
 }
 #[cfg(feature = "Media_Effects")]
 impl ::windows::runtime::RuntimeName for FaceDetectionEffectDefinition {
@@ -1910,7 +1910,7 @@ unsafe impl ::windows::runtime::RuntimeType for FaceDetectionEffectFrame {
 }
 unsafe impl ::windows::runtime::Interface for FaceDetectionEffectFrame {
     type Vtable = IFaceDetectionEffectFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2326825363, 24008, 17531, [162, 71, 82, 112, 189, 128, 46, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ab08993_5dc8_447b_a247_5270bd802ece);
 }
 impl ::windows::runtime::RuntimeName for FaceDetectionEffectFrame {
     const NAME: &'static str = "Windows.Media.Core.FaceDetectionEffectFrame";
@@ -2052,7 +2052,7 @@ unsafe impl ::windows::runtime::RuntimeType for HighDynamicRangeControl {
 }
 unsafe impl ::windows::runtime::Interface for HighDynamicRangeControl {
     type Vtable = IHighDynamicRangeControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1441900462, 55639, 19913, [157, 28, 133, 83, 168, 42, 125, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55f1a7ae_d957_4dc9_9d1c_8553a82a7d99);
 }
 impl ::windows::runtime::RuntimeName for HighDynamicRangeControl {
     const NAME: &'static str = "Windows.Media.Core.HighDynamicRangeControl";
@@ -2127,7 +2127,7 @@ unsafe impl ::windows::runtime::RuntimeType for HighDynamicRangeOutput {
 }
 unsafe impl ::windows::runtime::Interface for HighDynamicRangeOutput {
     type Vtable = IHighDynamicRangeOutput_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(257392747, 9531, 16665, [187, 64, 58, 144, 229, 19, 132, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f57806b_253b_4119_bb40_3a90e51384f7);
 }
 impl ::windows::runtime::RuntimeName for HighDynamicRangeOutput {
     const NAME: &'static str = "Windows.Media.Core.HighDynamicRangeOutput";
@@ -2179,7 +2179,7 @@ unsafe impl ::core::marker::Sync for HighDynamicRangeOutput {}
 pub struct IAudioStreamDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioStreamDescriptor {
     type Vtable = IAudioStreamDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(506893028, 16423, 18503, [167, 11, 223, 29, 154, 42, 123, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e3692e4_4027_4847_a70b_df1d9a2a7b04);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2198,7 +2198,7 @@ pub struct IAudioStreamDescriptor_abi(
 pub struct IAudioStreamDescriptor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioStreamDescriptor2 {
     type Vtable = IAudioStreamDescriptor2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(778629622, 42056, 18811, [136, 64, 133, 8, 38, 101, 172, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e68f1f6_a448_497b_8840_85082665acf9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2223,7 +2223,7 @@ pub struct IAudioStreamDescriptor2_abi(
 pub struct IAudioStreamDescriptor3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioStreamDescriptor3 {
     type Vtable = IAudioStreamDescriptor3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1294077345, 36483, 17647, [137, 115, 47, 99, 233, 147, 243, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d220da1_8e83_44ef_8973_2f63e993f36b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2241,7 +2241,7 @@ pub struct IAudioStreamDescriptor3_abi(
 pub struct IAudioStreamDescriptorFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioStreamDescriptorFactory {
     type Vtable = IAudioStreamDescriptorFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1250348702, 19633, 17280, [142, 12, 131, 80, 75, 127, 91, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a86ce9e_4cb1_4380_8e0c_83504b7f5bf3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2260,7 +2260,7 @@ pub struct IAudioStreamDescriptorFactory_abi(
 pub struct IAudioTrack(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioTrack {
     type Vtable = IAudioTrack_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4063981175, 16119, 16606, [185, 67, 6, 139, 19, 33, 112, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf23b6e77_3ef7_40de_b943_068b1321701d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2287,7 +2287,7 @@ pub struct IAudioTrack_abi(
 pub struct IAudioTrackOpenFailedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioTrackOpenFailedEventArgs {
     type Vtable = IAudioTrackOpenFailedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4007508409, 47996, 16658, [191, 118, 147, 132, 103, 111, 130, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeeddb9b9_bb7c_4112_bf76_9384676f824b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2305,7 +2305,7 @@ pub struct IAudioTrackOpenFailedEventArgs_abi(
 pub struct IAudioTrackSupportInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioTrackSupportInfo {
     type Vtable = IAudioTrackSupportInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395046903, 52281, 17574, [185, 81, 74, 86, 83, 240, 115, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x178beff7_cc39_44a6_b951_4a5653f073fa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2326,7 +2326,7 @@ pub struct IAudioTrackSupportInfo_abi(
 pub struct IChapterCue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChapterCue {
     type Vtable = IChapterCue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1923710977, 54154, 19466, [143, 166, 117, 205, 218, 244, 102, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72a98001_d38a_4c0a_8fa6_75cddaf4664c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2345,7 +2345,7 @@ pub struct IChapterCue_abi(
 pub struct ICodecInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICodecInfo {
     type Vtable = ICodecInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1374199685, 60055, 18844, [134, 172, 76, 229, 231, 63, 58, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51e89f85_ea97_499c_86ac_4ce5e73f3a42);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2368,7 +2368,7 @@ pub struct ICodecInfo_abi(
 pub struct ICodecQuery(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICodecQuery {
     type Vtable = ICodecQuery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(573216058, 44897, 19972, [128, 138, 164, 99, 78, 47, 58, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x222a953a_af61_4e04_808a_a4634e2f3ac4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2387,7 +2387,7 @@ pub struct ICodecQuery_abi(
 pub struct ICodecSubtypesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICodecSubtypesStatics {
     type Vtable = ICodecSubtypesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2792015090, 34955, 16932, [140, 246, 42, 141, 78, 176, 35, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa66ac4f2_888b_4224_8cf6_2a8d4eb02382);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2455,7 +2455,7 @@ pub struct ICodecSubtypesStatics_abi(
 pub struct IDataCue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataCue {
     type Vtable = IDataCue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2088724333, 8124, 20013, [154, 135, 238, 56, 189, 29, 198, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c7f676d_1fbc_4e2d_9a87_ee38bd1dc637);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2476,7 +2476,7 @@ pub struct IDataCue_abi(
 pub struct IDataCue2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataCue2 {
     type Vtable = IDataCue2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3159759637, 38386, 18920, [150, 241, 141, 213, 218, 198, 141, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc561b15_95f2_49e8_96f1_8dd5dac68d93);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2495,7 +2495,7 @@ pub struct IDataCue2_abi(
 pub struct IFaceDetectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceDetectedEventArgs {
     type Vtable = IFaceDetectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(428966950, 50779, 18106, [133, 248, 19, 136, 5, 118, 201, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19918426_c65b_46ba_85f8_13880576c90a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2513,7 +2513,7 @@ pub struct IFaceDetectedEventArgs_abi(
 pub struct IFaceDetectionEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceDetectionEffect {
     type Vtable = IFaceDetectionEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2920672210, 1346, 17065, [188, 144, 242, 131, 162, 159, 70, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae15ebd2_0542_42a9_bc90_f283a29f46c1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2540,7 +2540,7 @@ pub struct IFaceDetectionEffect_abi(
 pub struct IFaceDetectionEffectDefinition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceDetectionEffectDefinition {
     type Vtable = IFaceDetectionEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1138532481, 47176, 20275, [183, 2, 31, 210, 98, 79, 176, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43dca081_b848_4f33_b702_1fd2624fb016);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2561,7 +2561,7 @@ pub struct IFaceDetectionEffectDefinition_abi(
 pub struct IFaceDetectionEffectFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceDetectionEffectFrame {
     type Vtable = IFaceDetectionEffectFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2326825363, 24008, 17531, [162, 71, 82, 112, 189, 128, 46, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ab08993_5dc8_447b_a247_5270bd802ece);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2580,7 +2580,7 @@ pub struct IFaceDetectionEffectFrame_abi(
 pub struct IHighDynamicRangeControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHighDynamicRangeControl {
     type Vtable = IHighDynamicRangeControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1441900462, 55639, 19913, [157, 28, 133, 83, 168, 42, 125, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55f1a7ae_d957_4dc9_9d1c_8553a82a7d99);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2599,7 +2599,7 @@ pub struct IHighDynamicRangeControl_abi(
 pub struct IHighDynamicRangeOutput(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHighDynamicRangeOutput {
     type Vtable = IHighDynamicRangeOutput_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(257392747, 9531, 16665, [187, 64, 58, 144, 229, 19, 132, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f57806b_253b_4119_bb40_3a90e51384f7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2619,7 +2619,7 @@ pub struct IHighDynamicRangeOutput_abi(
 pub struct IImageCue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageCue {
     type Vtable = IImageCue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1384284802, 13947, 17419, [145, 22, 60, 132, 87, 13, 210, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52828282_367b_440b_9116_3c84570dd270);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2644,7 +2644,7 @@ pub struct IImageCue_abi(
 pub struct IInitializeMediaStreamSourceRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInitializeMediaStreamSourceRequestedEventArgs {
     type Vtable = IInitializeMediaStreamSourceRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(633095649, 39688, 19502, [168, 85, 69, 66, 241, 167, 93, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25bc45e1_9b08_4c2e_a855_4542f1a75deb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2666,7 +2666,7 @@ pub struct IInitializeMediaStreamSourceRequestedEventArgs_abi(
 pub struct ILowLightFusionResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLightFusionResult {
     type Vtable = ILowLightFusionResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2028846645, 10144, 17120, [156, 211, 115, 141, 32, 137, 222, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78edbe35_27a0_42e0_9cd3_738d2089de9c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2685,7 +2685,7 @@ pub struct ILowLightFusionResult_abi(
 pub struct ILowLightFusionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLightFusionStatics {
     type Vtable = ILowLightFusionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1392836973, 49822, 16610, [135, 169, 158, 31, 210, 241, 146, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5305016d_c29e_40e2_87a9_9e1fd2f192f5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2707,7 +2707,7 @@ pub struct ILowLightFusionStatics_abi(
 pub struct IMediaBinder(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaBinder {
     type Vtable = IMediaBinder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(729694378, 56839, 16975, [131, 241, 241, 222, 70, 196, 250, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b7e40aa_de07_424f_83f1_f1de46c4fa2e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2731,7 +2731,7 @@ pub struct IMediaBinder_abi(
 pub struct IMediaBindingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaBindingEventArgs {
     type Vtable = IMediaBindingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3055333978, 7021, 17968, [168, 109, 47, 8, 55, 247, 18, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb61cb25a_1b6d_4630_a86d_2f0837f712e5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2761,7 +2761,7 @@ pub struct IMediaBindingEventArgs_abi(
 pub struct IMediaBindingEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaBindingEventArgs2 {
     type Vtable = IMediaBindingEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(73714923, 47962, 18479, [184, 186, 240, 40, 76, 105, 101, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0464cceb_bb5a_482f_b8ba_f0284c696567);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2782,7 +2782,7 @@ pub struct IMediaBindingEventArgs2_abi(
 pub struct IMediaBindingEventArgs3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaBindingEventArgs3 {
     type Vtable = IMediaBindingEventArgs3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4176168798, 6590, 17660, [165, 237, 122, 186, 49, 80, 55, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8eb475e_19be_44fc_a5ed_7aba315037f9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2802,7 +2802,7 @@ pub struct IMediaBindingEventArgs3_abi(
 pub struct IMediaCue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCue {
     type Vtable = IMediaCue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3352387165, 23004, 17183, [160, 238, 39, 116, 67, 35, 179, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7d15e5d_59dc_431f_a0ee_27744323b36d);
 }
 impl IMediaCue {
     #[cfg(feature = "Foundation")]
@@ -2917,7 +2917,7 @@ pub struct IMediaCue_abi(
 pub struct IMediaCueEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCueEventArgs {
     type Vtable = IMediaCueEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3509536759, 24484, 20072, [159, 229, 50, 22, 13, 206, 229, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd12f47f7_5fa4_4e68_9fe5_32160dcee57e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2936,7 +2936,7 @@ pub struct IMediaCueEventArgs_abi(
 pub struct IMediaSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSource {
     type Vtable = IMediaSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3888100761, 41117, 19489, [188, 223, 32, 175, 79, 134, 179, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7bfb599_a09d_4c21_bcdf_20af4f86b3d9);
 }
 impl IMediaSource {}
 unsafe impl ::windows::runtime::RuntimeType for IMediaSource {
@@ -2997,7 +2997,7 @@ pub struct IMediaSource_abi(
 pub struct IMediaSource2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSource2 {
     type Vtable = IMediaSource2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(783683656, 25951, 19511, [184, 19, 180, 228, 93, 250, 10, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2eb61048_655f_4c37_b813_b4e45dfa0abe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3027,7 +3027,7 @@ pub struct IMediaSource2_abi(
 pub struct IMediaSource3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSource3 {
     type Vtable = IMediaSource3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3047099803, 19310, 16877, [187, 180, 124, 117, 9, 169, 148, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb59f0d9b_4b6e_41ed_bbb4_7c7509a994ad);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3050,7 +3050,7 @@ pub struct IMediaSource3_abi(
 pub struct IMediaSource4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSource4 {
     type Vtable = IMediaSource4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3182406999, 36607, 19555, [133, 166, 132, 222, 10, 227, 228, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbdafad57_8eff_4c63_85a6_84de0ae3e4f2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3075,7 +3075,7 @@ pub struct IMediaSource4_abi(
 pub struct IMediaSource5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSource5 {
     type Vtable = IMediaSource5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(857350830, 60718, 18978, [148, 200, 183, 67, 169, 43, 48, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x331a22ae_ed2e_4a22_94c8_b743a92b3022);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3094,7 +3094,7 @@ pub struct IMediaSource5_abi(
 pub struct IMediaSourceAppServiceConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceAppServiceConnection {
     type Vtable = IMediaSourceAppServiceConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1642195607, 6422, 18448, [183, 244, 182, 66, 190, 130, 149, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61e1ea97_1916_4810_b7f4_b642be829596);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3116,7 +3116,7 @@ pub struct IMediaSourceAppServiceConnection_abi(
 pub struct IMediaSourceAppServiceConnectionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceAppServiceConnectionFactory {
     type Vtable = IMediaSourceAppServiceConnectionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1706627819, 32953, 17657, [156, 30, 225, 32, 246, 217, 40, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65b912eb_80b9_44f9_9c1e_e120f6d92838);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3135,7 +3135,7 @@ pub struct IMediaSourceAppServiceConnectionFactory_abi(
 pub struct IMediaSourceError(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceError {
     type Vtable = IMediaSourceError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1544194405, 14277, 20125, [141, 33, 28, 222, 233, 12, 236, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c0a8965_37c5_4e9d_8d21_1cdee90cecc6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3153,7 +3153,7 @@ pub struct IMediaSourceError_abi(
 pub struct IMediaSourceOpenOperationCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceOpenOperationCompletedEventArgs {
     type Vtable = IMediaSourceOpenOperationCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4234685675, 57985, 18300, [168, 224, 26, 205, 101, 65, 20, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc682ceb_e281_477c_a8e0_1acd654114c8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3171,7 +3171,7 @@ pub struct IMediaSourceOpenOperationCompletedEventArgs_abi(
 pub struct IMediaSourceStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceStateChangedEventArgs {
     type Vtable = IMediaSourceStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(170962818, 36977, 19372, [188, 57, 202, 42, 147, 183, 23, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a30af82_9071_4bac_bc39_ca2a93b717a9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3190,7 +3190,7 @@ pub struct IMediaSourceStateChangedEventArgs_abi(
 pub struct IMediaSourceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceStatics {
     type Vtable = IMediaSourceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4152192932, 18002, 16654, [177, 216, 233, 165, 226, 69, 164, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf77d6fa4_4652_410e_b1d8_e9a5e245a45c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3220,7 +3220,7 @@ pub struct IMediaSourceStatics_abi(
 pub struct IMediaSourceStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceStatics2 {
     type Vtable = IMediaSourceStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4007748004, 32531, 18582, [184, 203, 223, 13, 229, 188, 185, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeee161a4_7f13_4896_b8cb_df0de5bcb9f1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3238,7 +3238,7 @@ pub struct IMediaSourceStatics2_abi(
 pub struct IMediaSourceStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceStatics3 {
     type Vtable = IMediaSourceStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1161441494, 11242, 16674, [159, 115, 234, 206, 4, 82, 110, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x453a30d6_2bea_4122_9f73_eace04526e35);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3257,7 +3257,7 @@ pub struct IMediaSourceStatics3_abi(
 pub struct IMediaSourceStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceStatics4 {
     type Vtable = IMediaSourceStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(672873468, 58634, 17448, [165, 0, 156, 78, 217, 24, 211, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x281b3bfc_e50a_4428_a500_9c4ed918d3f0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3277,7 +3277,7 @@ pub struct IMediaSourceStatics4_abi(
 pub struct IMediaStreamDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamDescriptor {
     type Vtable = IMediaStreamDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2163306094, 37623, 17694, [151, 210, 175, 216, 7, 66, 218, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80f16e6e_92f7_451e_97d2_afd80742da70);
 }
 impl IMediaStreamDescriptor {
     #[doc = "*Required features: `Media_Core`*"]
@@ -3379,7 +3379,7 @@ pub struct IMediaStreamDescriptor_abi(
 pub struct IMediaStreamDescriptor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamDescriptor2 {
     type Vtable = IMediaStreamDescriptor2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1349714191, 59570, 16497, [176, 11, 235, 243, 55, 167, 107, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5073010f_e8b2_4071_b00b_ebf337a76b58);
 }
 impl IMediaStreamDescriptor2 {
     #[doc = "*Required features: `Media_Core`*"]
@@ -3512,7 +3512,7 @@ pub struct IMediaStreamDescriptor2_abi(
 pub struct IMediaStreamSample(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSample {
     type Vtable = IMediaStreamSample_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1552791079, 19328, 17249, [152, 55, 108, 183, 72, 26, 217, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c8db627_4b80_4361_9837_6cb7481ad9d6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3552,7 +3552,7 @@ pub struct IMediaStreamSample_abi(
 pub struct IMediaStreamSample2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSample2 {
     type Vtable = IMediaStreamSample2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1158121105, 64744, 18246, [161, 200, 16, 194, 93, 61, 124, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45078691_fce8_4746_a1c8_10c25d3d7cd3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3571,7 +3571,7 @@ pub struct IMediaStreamSample2_abi(
 pub struct IMediaStreamSampleProtectionProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSampleProtectionProperties {
     type Vtable = IMediaStreamSampleProtectionProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1320714898, 60639, 18750, [132, 29, 221, 74, 221, 124, 172, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4eb88292_ecdf_493e_841d_dd4add7caca2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3594,7 +3594,7 @@ pub struct IMediaStreamSampleProtectionProperties_abi(
 pub struct IMediaStreamSampleStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSampleStatics {
     type Vtable = IMediaStreamSampleStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3755942287, 42703, 17785, [190, 65, 115, 221, 148, 26, 217, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdfdf218f_a6cf_4579_be41_73dd941ad972);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3615,7 +3615,7 @@ pub struct IMediaStreamSampleStatics_abi(
 pub struct IMediaStreamSampleStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSampleStatics2 {
     type Vtable = IMediaStreamSampleStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2667484449, 27974, 18764, [162, 248, 214, 98, 146, 46, 45, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9efe9521_6d46_494c_a2f8_d662922e2dd7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3634,7 +3634,7 @@ pub struct IMediaStreamSampleStatics2_abi(
 pub struct IMediaStreamSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSource {
     type Vtable = IMediaStreamSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(923981123, 17899, 16696, [170, 98, 192, 30, 38, 243, 132, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3712d543_45eb_4138_aa62_c01e26f3843f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3698,7 +3698,7 @@ pub struct IMediaStreamSource_abi(
 pub struct IMediaStreamSource2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSource2 {
     type Vtable = IMediaStreamSource2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3965046957, 11882, 20340, [173, 187, 181, 98, 209, 83, 56, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec55d0ad_2e6a_4f74_adbb_b562d1533849);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3719,7 +3719,7 @@ pub struct IMediaStreamSource2_abi(
 pub struct IMediaStreamSource3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSource3 {
     type Vtable = IMediaStreamSource3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1781147462, 15837, 19935, [161, 33, 148, 4, 94, 207, 148, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a2a2746_3ddd_4ddf_a121_94045ecf9440);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3740,7 +3740,7 @@ pub struct IMediaStreamSource3_abi(
 pub struct IMediaStreamSource4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSource4 {
     type Vtable = IMediaStreamSource4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(487390379, 33549, 16764, [163, 169, 36, 84, 253, 100, 21, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d0cfcab_830d_417c_a3a9_2454fd6415c7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3759,7 +3759,7 @@ pub struct IMediaStreamSource4_abi(
 pub struct IMediaStreamSourceClosedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceClosedEventArgs {
     type Vtable = IMediaStreamSourceClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3448536754, 18454, 20004, [136, 240, 73, 30, 247, 56, 100, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd8c7eb2_4816_4e24_88f0_491ef7386406);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3777,7 +3777,7 @@ pub struct IMediaStreamSourceClosedEventArgs_abi(
 pub struct IMediaStreamSourceClosedRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceClosedRequest {
     type Vtable = IMediaStreamSourceClosedRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2424045801, 6307, 18769, [136, 122, 44, 30, 235, 213, 198, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x907c00e9_18a3_4951_887a_2c1eebd5c69e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3795,7 +3795,7 @@ pub struct IMediaStreamSourceClosedRequest_abi(
 pub struct IMediaStreamSourceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceFactory {
     type Vtable = IMediaStreamSourceFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4017610969, 53592, 19322, [134, 63, 32, 51, 66, 251, 253, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef77e0d9_d158_4b7a_863f_203342fbfd41);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3814,7 +3814,7 @@ pub struct IMediaStreamSourceFactory_abi(
 pub struct IMediaStreamSourceSampleRenderedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceSampleRenderedEventArgs {
     type Vtable = IMediaStreamSourceSampleRenderedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2640935685, 54514, 19578, [157, 254, 141, 108, 208, 179, 238, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d697b05_d4f2_4c7a_9dfe_8d6cd0b3ee84);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3833,7 +3833,7 @@ pub struct IMediaStreamSourceSampleRenderedEventArgs_abi(
 pub struct IMediaStreamSourceSampleRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceSampleRequest {
     type Vtable = IMediaStreamSourceSampleRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1303593385, 13569, 19867, [131, 249, 143, 35, 92, 130, 37, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4db341a9_3501_4d9b_83f9_8f235c822532);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3855,7 +3855,7 @@ pub struct IMediaStreamSourceSampleRequest_abi(
 pub struct IMediaStreamSourceSampleRequestDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceSampleRequestDeferral {
     type Vtable = IMediaStreamSourceSampleRequestDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2023083010, 63874, 17352, [157, 22, 198, 45, 153, 147, 25, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7895cc02_f982_43c8_9d16_c62d999319be);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3873,7 +3873,7 @@ pub struct IMediaStreamSourceSampleRequestDeferral_abi(
 pub struct IMediaStreamSourceSampleRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceSampleRequestedEventArgs {
     type Vtable = IMediaStreamSourceSampleRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(284801950, 29125, 18735, [132, 127, 13, 161, 243, 94, 129, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10f9bb9e_71c5_492f_847f_0da1f35e81f8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3891,7 +3891,7 @@ pub struct IMediaStreamSourceSampleRequestedEventArgs_abi(
 pub struct IMediaStreamSourceStartingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceStartingEventArgs {
     type Vtable = IMediaStreamSourceStartingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4094978290, 49780, 18752, [165, 187, 40, 165, 114, 69, 47, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf41468f2_c274_4940_a5bb_28a572452fa7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3909,7 +3909,7 @@ pub struct IMediaStreamSourceStartingEventArgs_abi(
 pub struct IMediaStreamSourceStartingRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceStartingRequest {
     type Vtable = IMediaStreamSourceStartingRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(714118116, 13764, 19227, [167, 145, 13, 153, 219, 86, 221, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a9093e4_35c4_4b1b_a791_0d99db56dd1d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3931,7 +3931,7 @@ pub struct IMediaStreamSourceStartingRequest_abi(
 pub struct IMediaStreamSourceStartingRequestDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceStartingRequestDeferral {
     type Vtable = IMediaStreamSourceStartingRequestDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1058231973, 25408, 19908, [153, 16, 6, 142, 217, 245, 152, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f1356a5_6340_4dc4_9910_068ed9f598f8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3949,7 +3949,7 @@ pub struct IMediaStreamSourceStartingRequestDeferral_abi(
 pub struct IMediaStreamSourceSwitchStreamsRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceSwitchStreamsRequest {
     type Vtable = IMediaStreamSourceSwitchStreamsRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1102610574, 14505, 20163, [155, 160, 182, 155, 133, 80, 30, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41b8808e_38a9_4ec3_9ba0_b69b85501e90);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3969,7 +3969,7 @@ pub struct IMediaStreamSourceSwitchStreamsRequest_abi(
 pub struct IMediaStreamSourceSwitchStreamsRequestDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceSwitchStreamsRequestDeferral {
     type Vtable = IMediaStreamSourceSwitchStreamsRequestDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3202603061, 42245, 20378, [185, 67, 43, 140, 177, 180, 187, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbee3d835_a505_4f9a_b943_2b8cb1b4bbd9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3987,7 +3987,7 @@ pub struct IMediaStreamSourceSwitchStreamsRequestDeferral_abi(
 pub struct IMediaStreamSourceSwitchStreamsRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceSwitchStreamsRequestedEventArgs {
     type Vtable = IMediaStreamSourceSwitchStreamsRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1109404530, 28321, 18039, [152, 30, 53, 10, 13, 164, 18, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42202b72_6ea1_4677_981e_350a0da412aa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4006,7 +4006,7 @@ pub struct IMediaStreamSourceSwitchStreamsRequestedEventArgs_abi(
 pub struct IMediaTrack(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaTrack {
     type Vtable = IMediaTrack_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(65141500, 51505, 18714, [180, 107, 193, 14, 232, 194, 86, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03e1fafc_c931_491a_b46b_c10ee8c256b7);
 }
 impl IMediaTrack {
     #[doc = "*Required features: `Media_Core`*"]
@@ -4110,7 +4110,7 @@ pub struct IMediaTrack_abi(
 pub struct IMseSourceBuffer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMseSourceBuffer {
     type Vtable = IMseSourceBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(203072483, 57229, 16505, [163, 254, 104, 73, 24, 75, 78, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c1aa3e3_df8d_4079_a3fe_6849184b4e2f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4173,7 +4173,7 @@ pub struct IMseSourceBuffer_abi(
 pub struct IMseSourceBufferList(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMseSourceBufferList {
     type Vtable = IMseSourceBufferList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2516248807, 43239, 20159, [137, 39, 20, 94, 148, 11, 165, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95fae8e7_a8e7_4ebf_8927_145e940ba511);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4200,7 +4200,7 @@ pub struct IMseSourceBufferList_abi(
 pub struct IMseStreamSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMseStreamSource {
     type Vtable = IMseStreamSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2964593037, 756, 18723, [136, 221, 129, 188, 63, 54, 15, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0b4198d_02f4_4923_88dd_81bc3f360ffa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4239,7 +4239,7 @@ pub struct IMseStreamSource_abi(
 pub struct IMseStreamSource2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMseStreamSource2 {
     type Vtable = IMseStreamSource2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1727364407, 63975, 16778, [156, 222, 160, 32, 233, 86, 85, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66f57d37_f9e7_418a_9cde_a020e956552b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4260,7 +4260,7 @@ pub struct IMseStreamSource2_abi(
 pub struct IMseStreamSourceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMseStreamSourceStatics {
     type Vtable = IMseStreamSourceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180460957, 54640, 17358, [186, 33, 11, 255, 95, 63, 189, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x465c679d_d570_43ce_ba21_0bff5f3fbd0a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4278,7 +4278,7 @@ pub struct IMseStreamSourceStatics_abi(
 pub struct ISceneAnalysisEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneAnalysisEffect {
     type Vtable = ISceneAnalysisEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3226182425, 51777, 18451, [191, 253, 123, 8, 176, 237, 37, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc04ba319_ca41_4813_bffd_7b08b0ed2557);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4304,7 +4304,7 @@ pub struct ISceneAnalysisEffect_abi(
 pub struct ISceneAnalysisEffectFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneAnalysisEffectFrame {
     type Vtable = ISceneAnalysisEffectFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3635482188, 32729, 17121, [133, 235, 101, 114, 194, 151, 201, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8b10e4c_7fd9_42e1_85eb_6572c297c987);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4324,7 +4324,7 @@ pub struct ISceneAnalysisEffectFrame_abi(
 pub struct ISceneAnalysisEffectFrame2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneAnalysisEffectFrame2 {
     type Vtable = ISceneAnalysisEffectFrame2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(760097214, 1567, 18350, [153, 21, 2, 82, 75, 95, 154, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d4e29be_061f_47ae_9915_02524b5f9a5f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4342,7 +4342,7 @@ pub struct ISceneAnalysisEffectFrame2_abi(
 pub struct ISceneAnalyzedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneAnalyzedEventArgs {
     type Vtable = ISceneAnalyzedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(342594952, 10321, 17892, [173, 85, 68, 207, 141, 248, 219, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x146b9588_2851_45e4_ad55_44cf8df8db4d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4361,7 +4361,7 @@ pub struct ISceneAnalyzedEventArgs_abi(
 pub struct ISingleSelectMediaTrackList(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISingleSelectMediaTrackList {
     type Vtable = ISingleSelectMediaTrackList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1998614303, 49999, 18767, [128, 119, 43, 173, 159, 244, 236, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77206f1f_c34f_494f_8077_2bad9ff4ecf1);
 }
 impl ISingleSelectMediaTrackList {
     #[cfg(feature = "Foundation")]
@@ -4457,7 +4457,7 @@ pub struct ISingleSelectMediaTrackList_abi(
 pub struct ISpeechCue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechCue {
     type Vtable = ISpeechCue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2934068444, 5925, 19373, [128, 67, 169, 132, 153, 176, 23, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaee254dc_1725_4bad_8043_a98499b017a2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4484,7 +4484,7 @@ pub struct ISpeechCue_abi(
 pub struct ITimedMetadataStreamDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataStreamDescriptor {
     type Vtable = ITimedMetadataStreamDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(322123455, 10602, 17982, [159, 249, 1, 205, 37, 105, 20, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x133336bf_296a_463e_9ff9_01cd25691408);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4504,7 +4504,7 @@ pub struct ITimedMetadataStreamDescriptor_abi(
 pub struct ITimedMetadataStreamDescriptorFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataStreamDescriptorFactory {
     type Vtable = ITimedMetadataStreamDescriptorFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3223838256, 29538, 20473, [152, 177, 45, 253, 11, 141, 28, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc027de30_7362_4ff9_98b1_2dfd0b8d1cae);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4523,7 +4523,7 @@ pub struct ITimedMetadataStreamDescriptorFactory_abi(
 pub struct ITimedMetadataTrack(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataTrack {
     type Vtable = ITimedMetadataTrack_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2657807774, 63098, 18857, [179, 48, 207, 3, 176, 233, 207, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e6aed9e_f67a_49a9_b330_cf03b0e9cf07);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4560,7 +4560,7 @@ pub struct ITimedMetadataTrack_abi(
 pub struct ITimedMetadataTrack2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataTrack2 {
     type Vtable = ITimedMetadataTrack2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(565491272, 40861, 16570, [168, 243, 26, 146, 117, 58, 239, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x21b4b648_9f9d_40ba_a8f3_1a92753aef0b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4580,7 +4580,7 @@ pub struct ITimedMetadataTrack2_abi(
 pub struct ITimedMetadataTrackError(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataTrackError {
     type Vtable = ITimedMetadataTrackError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3010885909, 16660, 18457, [185, 217, 221, 118, 8, 158, 114, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3767915_4114_4819_b9d9_dd76089e72f8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4599,7 +4599,7 @@ pub struct ITimedMetadataTrackError_abi(
 pub struct ITimedMetadataTrackFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataTrackFactory {
     type Vtable = ITimedMetadataTrackFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2379576849, 38835, 19999, [133, 44, 15, 72, 44, 129, 173, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8dd57611_97b3_4e1f_852c_0f482c81ad26);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4617,7 +4617,7 @@ pub struct ITimedMetadataTrackFactory_abi(
 pub struct ITimedMetadataTrackFailedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataTrackFailedEventArgs {
     type Vtable = ITimedMetadataTrackFailedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2776615377, 26505, 19789, [176, 127, 132, 180, 243, 26, 203, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa57fc9d1_6789_4d4d_b07f_84b4f31acb70);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4636,7 +4636,7 @@ pub struct ITimedMetadataTrackFailedEventArgs_abi(
 pub struct ITimedMetadataTrackProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataTrackProvider {
     type Vtable = ITimedMetadataTrackProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(998187044, 63310, 19166, [147, 197, 33, 157, 160, 91, 104, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b7f2024_f74e_4ade_93c5_219da05b6856);
 }
 impl ITimedMetadataTrackProvider {
     #[cfg(feature = "Foundation_Collections")]
@@ -4709,7 +4709,7 @@ pub struct ITimedMetadataTrackProvider_abi(
 pub struct ITimedTextBouten(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextBouten {
     type Vtable = ITimedTextBouten_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3641059203, 21911, 20626, [130, 12, 143, 115, 142, 15, 119, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9062783_5597_5092_820c_8f738e0f774a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4734,7 +4734,7 @@ pub struct ITimedTextBouten_abi(
 pub struct ITimedTextCue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextCue {
     type Vtable = ITimedTextCue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1372036689, 15238, 18765, [179, 89, 187, 46, 167, 172, 169, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51c79e51_3b86_494d_b359_bb2ea7aca9a9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4757,7 +4757,7 @@ pub struct ITimedTextCue_abi(
 pub struct ITimedTextLine(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextLine {
     type Vtable = ITimedTextLine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2542632162, 29448, 19558, [190, 80, 101, 119, 114, 137, 245, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x978d7ce2_7308_4c66_be50_65777289f5df);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4778,7 +4778,7 @@ pub struct ITimedTextLine_abi(
 pub struct ITimedTextRegion(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextRegion {
     type Vtable = ITimedTextRegion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(516982815, 35334, 16930, [159, 89, 178, 27, 244, 1, 36, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ed0881f_8a06_4222_9f59_b21bf40124b4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4821,7 +4821,7 @@ pub struct ITimedTextRegion_abi(
 pub struct ITimedTextRuby(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextRuby {
     type Vtable = ITimedTextRuby_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(271801385, 23356, 22163, [153, 89, 208, 90, 11, 210, 70, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10335c29_5b3c_5693_9959_d05a0bd24628);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4846,7 +4846,7 @@ pub struct ITimedTextRuby_abi(
 pub struct ITimedTextSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextSource {
     type Vtable = ITimedTextSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3303906214, 4127, 16461, [169, 73, 130, 243, 63, 205, 147, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4ed9ba6_101f_404d_a949_82f33fcd93b7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4867,7 +4867,7 @@ pub struct ITimedTextSource_abi(
 pub struct ITimedTextSourceResolveResultEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextSourceResolveResultEventArgs {
     type Vtable = ITimedTextSourceResolveResultEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1217428636, 56536, 19507, [154, 211, 108, 220, 231, 177, 197, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48907c9c_dcd8_4c33_9ad3_6cdce7b1c566);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4887,7 +4887,7 @@ pub struct ITimedTextSourceResolveResultEventArgs_abi(
 pub struct ITimedTextSourceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextSourceStatics {
     type Vtable = ITimedTextSourceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2117146707, 39610, 19140, [187, 152, 47, 177, 118, 195, 191, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e311853_9aba_4ac4_bb98_2fb176c3bfdd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4912,7 +4912,7 @@ pub struct ITimedTextSourceStatics_abi(
 pub struct ITimedTextSourceStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextSourceStatics2 {
     type Vtable = ITimedTextSourceStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3060495874, 37438, 17402, [150, 51, 88, 112, 117, 129, 45, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb66b7602_923e_43fa_9633_587075812db5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4937,7 +4937,7 @@ pub struct ITimedTextSourceStatics2_abi(
 pub struct ITimedTextStyle(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextStyle {
     type Vtable = ITimedTextStyle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(464664653, 43045, 16578, [167, 245, 40, 30, 174, 223, 59, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bb2384d_a825_40c2_a7f5_281eaedf3b55);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4984,7 +4984,7 @@ pub struct ITimedTextStyle_abi(
 pub struct ITimedTextStyle2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextStyle2 {
     type Vtable = ITimedTextStyle2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1700743469, 24849, 18311, [137, 204, 104, 111, 236, 229, 126, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x655f492d_6111_4787_89cc_686fece57e14);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5009,7 +5009,7 @@ pub struct ITimedTextStyle2_abi(
 pub struct ITimedTextStyle3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextStyle3 {
     type Vtable = ITimedTextStyle3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4161009979, 16025, 22878, [187, 183, 120, 162, 250, 19, 194, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf803f93b_3e99_595e_bbb7_78a2fa13c270);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5032,7 +5032,7 @@ pub struct ITimedTextStyle3_abi(
 pub struct ITimedTextSubformat(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextSubformat {
     type Vtable = ITimedTextSubformat_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3608367151, 12897, 18210, [160, 194, 185, 55, 178, 57, 15, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd713502f_3261_4722_a0c2_b937b2390f14);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5055,7 +5055,7 @@ pub struct ITimedTextSubformat_abi(
 pub struct IVideoStabilizationEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoStabilizationEffect {
     type Vtable = IVideoStabilizationEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(134784592, 38552, 20055, [135, 123, 189, 124, 178, 238, 15, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0808a650_9698_4e57_877b_bd7cb2ee0f8a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5080,7 +5080,7 @@ pub struct IVideoStabilizationEffect_abi(
 pub struct IVideoStabilizationEffectEnabledChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoStabilizationEffectEnabledChangedEventArgs {
     type Vtable = IVideoStabilizationEffectEnabledChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(410976040, 26555, 18195, [185, 0, 65, 104, 218, 22, 69, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x187eff28_67bb_4713_b900_4168da164529);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5098,7 +5098,7 @@ pub struct IVideoStabilizationEffectEnabledChangedEventArgs_abi(
 pub struct IVideoStreamDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoStreamDescriptor {
     type Vtable = IVideoStreamDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(317590869, 39979, 17472, [128, 87, 44, 122, 144, 240, 203, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12ee0d55_9c2b_4440_8057_2c7a90f0cbec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5117,7 +5117,7 @@ pub struct IVideoStreamDescriptor_abi(
 pub struct IVideoStreamDescriptor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoStreamDescriptor2 {
     type Vtable = IVideoStreamDescriptor2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2335206928, 17726, 16520, [131, 45, 195, 111, 164, 249, 74, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b306e10_453e_4088_832d_c36fa4f94af3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5135,7 +5135,7 @@ pub struct IVideoStreamDescriptor2_abi(
 pub struct IVideoStreamDescriptorFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoStreamDescriptorFactory {
     type Vtable = IVideoStreamDescriptorFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229911761, 47989, 17362, [158, 94, 123, 121, 163, 175, 206, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x494ef6d1_bb75_43d2_9e5e_7b79a3afced4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5154,7 +5154,7 @@ pub struct IVideoStreamDescriptorFactory_abi(
 pub struct IVideoTrack(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoTrack {
     type Vtable = IVideoTrack_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2582886387, 58008, 17302, [187, 106, 165, 27, 230, 162, 162, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99f3b7f3_e298_4396_bb6a_a51be6a2a20a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5181,7 +5181,7 @@ pub struct IVideoTrack_abi(
 pub struct IVideoTrackOpenFailedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoTrackOpenFailedEventArgs {
     type Vtable = IVideoTrackOpenFailedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1987699249, 1273, 19586, [164, 238, 134, 2, 200, 187, 71, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7679e231_04f9_4c82_a4ee_8602c8bb4754);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5199,7 +5199,7 @@ pub struct IVideoTrackOpenFailedEventArgs_abi(
 pub struct IVideoTrackSupportInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoTrackSupportInfo {
     type Vtable = IVideoTrackSupportInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1270166688, 64607, 17677, [143, 240, 119, 141, 89, 4, 134, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bb534a0_fc5f_450d_8ff0_778d590486de);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5315,7 +5315,7 @@ unsafe impl ::windows::runtime::RuntimeType for ImageCue {
 }
 unsafe impl ::windows::runtime::Interface for ImageCue {
     type Vtable = IImageCue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1384284802, 13947, 17419, [145, 22, 60, 132, 87, 13, 210, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52828282_367b_440b_9116_3c84570dd270);
 }
 impl ::windows::runtime::RuntimeName for ImageCue {
     const NAME: &'static str = "Windows.Media.Core.ImageCue";
@@ -5421,7 +5421,7 @@ unsafe impl ::windows::runtime::RuntimeType for InitializeMediaStreamSourceReque
 }
 unsafe impl ::windows::runtime::Interface for InitializeMediaStreamSourceRequestedEventArgs {
     type Vtable = IInitializeMediaStreamSourceRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(633095649, 39688, 19502, [168, 85, 69, 66, 241, 167, 93, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25bc45e1_9b08_4c2e_a855_4542f1a75deb);
 }
 impl ::windows::runtime::RuntimeName for InitializeMediaStreamSourceRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.InitializeMediaStreamSourceRequestedEventArgs";
@@ -5528,7 +5528,7 @@ unsafe impl ::windows::runtime::RuntimeType for LowLightFusionResult {
 }
 unsafe impl ::windows::runtime::Interface for LowLightFusionResult {
     type Vtable = ILowLightFusionResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2028846645, 10144, 17120, [156, 211, 115, 141, 32, 137, 222, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78edbe35_27a0_42e0_9cd3_738d2089de9c);
 }
 impl ::windows::runtime::RuntimeName for LowLightFusionResult {
     const NAME: &'static str = "Windows.Media.Core.LowLightFusionResult";
@@ -5655,7 +5655,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaBinder {
 }
 unsafe impl ::windows::runtime::Interface for MediaBinder {
     type Vtable = IMediaBinder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(729694378, 56839, 16975, [131, 241, 241, 222, 70, 196, 250, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b7e40aa_de07_424f_83f1_f1de46c4fa2e);
 }
 impl ::windows::runtime::RuntimeName for MediaBinder {
     const NAME: &'static str = "Windows.Media.Core.MediaBinder";
@@ -5781,7 +5781,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaBindingEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for MediaBindingEventArgs {
     type Vtable = IMediaBindingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3055333978, 7021, 17968, [168, 109, 47, 8, 55, 247, 18, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb61cb25a_1b6d_4630_a86d_2f0837f712e5);
 }
 impl ::windows::runtime::RuntimeName for MediaBindingEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaBindingEventArgs";
@@ -5847,7 +5847,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaCueEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for MediaCueEventArgs {
     type Vtable = IMediaCueEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3509536759, 24484, 20072, [159, 229, 50, 22, 13, 206, 229, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd12f47f7_5fa4_4e68_9fe5_32160dcee57e);
 }
 impl ::windows::runtime::RuntimeName for MediaCueEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaCueEventArgs";
@@ -6174,7 +6174,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaSource {
 }
 unsafe impl ::windows::runtime::Interface for MediaSource {
     type Vtable = IMediaSource2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(783683656, 25951, 19511, [184, 19, 180, 228, 93, 250, 10, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2eb61048_655f_4c37_b813_b4e45dfa0abe);
 }
 impl ::windows::runtime::RuntimeName for MediaSource {
     const NAME: &'static str = "Windows.Media.Core.MediaSource";
@@ -6316,7 +6316,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaSourceAppServiceConnection 
 }
 unsafe impl ::windows::runtime::Interface for MediaSourceAppServiceConnection {
     type Vtable = IMediaSourceAppServiceConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1642195607, 6422, 18448, [183, 244, 182, 66, 190, 130, 149, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61e1ea97_1916_4810_b7f4_b642be829596);
 }
 impl ::windows::runtime::RuntimeName for MediaSourceAppServiceConnection {
     const NAME: &'static str = "Windows.Media.Core.MediaSourceAppServiceConnection";
@@ -6380,7 +6380,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaSourceError {
 }
 unsafe impl ::windows::runtime::Interface for MediaSourceError {
     type Vtable = IMediaSourceError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1544194405, 14277, 20125, [141, 33, 28, 222, 233, 12, 236, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c0a8965_37c5_4e9d_8d21_1cdee90cecc6);
 }
 impl ::windows::runtime::RuntimeName for MediaSourceError {
     const NAME: &'static str = "Windows.Media.Core.MediaSourceError";
@@ -6446,7 +6446,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaSourceOpenOperationComplete
 }
 unsafe impl ::windows::runtime::Interface for MediaSourceOpenOperationCompletedEventArgs {
     type Vtable = IMediaSourceOpenOperationCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4234685675, 57985, 18300, [168, 224, 26, 205, 101, 65, 20, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc682ceb_e281_477c_a8e0_1acd654114c8);
 }
 impl ::windows::runtime::RuntimeName for MediaSourceOpenOperationCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaSourceOpenOperationCompletedEventArgs";
@@ -6545,7 +6545,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaSourceStateChangedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for MediaSourceStateChangedEventArgs {
     type Vtable = IMediaSourceStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(170962818, 36977, 19372, [188, 57, 202, 42, 147, 183, 23, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a30af82_9071_4bac_bc39_ca2a93b717a9);
 }
 impl ::windows::runtime::RuntimeName for MediaSourceStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaSourceStateChangedEventArgs";
@@ -6772,7 +6772,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaStreamSample {
 }
 unsafe impl ::windows::runtime::Interface for MediaStreamSample {
     type Vtable = IMediaStreamSample_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1552791079, 19328, 17249, [152, 55, 108, 183, 72, 26, 217, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c8db627_4b80_4361_9837_6cb7481ad9d6);
 }
 impl ::windows::runtime::RuntimeName for MediaStreamSample {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSample";
@@ -7065,7 +7065,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaStreamSampleProtectionPrope
 }
 unsafe impl ::windows::runtime::Interface for MediaStreamSampleProtectionProperties {
     type Vtable = IMediaStreamSampleProtectionProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1320714898, 60639, 18750, [132, 29, 221, 74, 221, 124, 172, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4eb88292_ecdf_493e_841d_dd4add7caca2);
 }
 impl ::windows::runtime::RuntimeName for MediaStreamSampleProtectionProperties {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSampleProtectionProperties";
@@ -7371,7 +7371,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaStreamSource {
 }
 unsafe impl ::windows::runtime::Interface for MediaStreamSource {
     type Vtable = IMediaStreamSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(923981123, 17899, 16696, [170, 98, 192, 30, 38, 243, 132, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3712d543_45eb_4138_aa62_c01e26f3843f);
 }
 impl ::windows::runtime::RuntimeName for MediaStreamSource {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSource";
@@ -7459,7 +7459,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaStreamSourceClosedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for MediaStreamSourceClosedEventArgs {
     type Vtable = IMediaStreamSourceClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3448536754, 18454, 20004, [136, 240, 73, 30, 247, 56, 100, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd8c7eb2_4816_4e24_88f0_491ef7386406);
 }
 impl ::windows::runtime::RuntimeName for MediaStreamSourceClosedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceClosedEventArgs";
@@ -7552,7 +7552,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaStreamSourceClosedRequest {
 }
 unsafe impl ::windows::runtime::Interface for MediaStreamSourceClosedRequest {
     type Vtable = IMediaStreamSourceClosedRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2424045801, 6307, 18769, [136, 122, 44, 30, 235, 213, 198, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x907c00e9_18a3_4951_887a_2c1eebd5c69e);
 }
 impl ::windows::runtime::RuntimeName for MediaStreamSourceClosedRequest {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceClosedRequest";
@@ -7647,7 +7647,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaStreamSourceSampleRenderedE
 }
 unsafe impl ::windows::runtime::Interface for MediaStreamSourceSampleRenderedEventArgs {
     type Vtable = IMediaStreamSourceSampleRenderedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2640935685, 54514, 19578, [157, 254, 141, 108, 208, 179, 238, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d697b05_d4f2_4c7a_9dfe_8d6cd0b3ee84);
 }
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSampleRenderedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSampleRenderedEventArgs";
@@ -7739,7 +7739,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaStreamSourceSampleRequest {
 }
 unsafe impl ::windows::runtime::Interface for MediaStreamSourceSampleRequest {
     type Vtable = IMediaStreamSourceSampleRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1303593385, 13569, 19867, [131, 249, 143, 35, 92, 130, 37, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4db341a9_3501_4d9b_83f9_8f235c822532);
 }
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSampleRequest {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSampleRequest";
@@ -7802,7 +7802,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaStreamSourceSampleRequestDe
 }
 unsafe impl ::windows::runtime::Interface for MediaStreamSourceSampleRequestDeferral {
     type Vtable = IMediaStreamSourceSampleRequestDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2023083010, 63874, 17352, [157, 22, 198, 45, 153, 147, 25, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7895cc02_f982_43c8_9d16_c62d999319be);
 }
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSampleRequestDeferral {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSampleRequestDeferral";
@@ -7868,7 +7868,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaStreamSourceSampleRequested
 }
 unsafe impl ::windows::runtime::Interface for MediaStreamSourceSampleRequestedEventArgs {
     type Vtable = IMediaStreamSourceSampleRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(284801950, 29125, 18735, [132, 127, 13, 161, 243, 94, 129, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10f9bb9e_71c5_492f_847f_0da1f35e81f8);
 }
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSampleRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSampleRequestedEventArgs";
@@ -7934,7 +7934,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaStreamSourceStartingEventAr
 }
 unsafe impl ::windows::runtime::Interface for MediaStreamSourceStartingEventArgs {
     type Vtable = IMediaStreamSourceStartingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4094978290, 49780, 18752, [165, 187, 40, 165, 114, 69, 47, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf41468f2_c274_4940_a5bb_28a572452fa7);
 }
 impl ::windows::runtime::RuntimeName for MediaStreamSourceStartingEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceStartingEventArgs";
@@ -8015,7 +8015,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaStreamSourceStartingRequest
 }
 unsafe impl ::windows::runtime::Interface for MediaStreamSourceStartingRequest {
     type Vtable = IMediaStreamSourceStartingRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(714118116, 13764, 19227, [167, 145, 13, 153, 219, 86, 221, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a9093e4_35c4_4b1b_a791_0d99db56dd1d);
 }
 impl ::windows::runtime::RuntimeName for MediaStreamSourceStartingRequest {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceStartingRequest";
@@ -8078,7 +8078,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaStreamSourceStartingRequest
 }
 unsafe impl ::windows::runtime::Interface for MediaStreamSourceStartingRequestDeferral {
     type Vtable = IMediaStreamSourceStartingRequestDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1058231973, 25408, 19908, [153, 16, 6, 142, 217, 245, 152, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f1356a5_6340_4dc4_9910_068ed9f598f8);
 }
 impl ::windows::runtime::RuntimeName for MediaStreamSourceStartingRequestDeferral {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceStartingRequestDeferral";
@@ -8160,7 +8160,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaStreamSourceSwitchStreamsRe
 }
 unsafe impl ::windows::runtime::Interface for MediaStreamSourceSwitchStreamsRequest {
     type Vtable = IMediaStreamSourceSwitchStreamsRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1102610574, 14505, 20163, [155, 160, 182, 155, 133, 80, 30, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41b8808e_38a9_4ec3_9ba0_b69b85501e90);
 }
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSwitchStreamsRequest {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSwitchStreamsRequest";
@@ -8223,7 +8223,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaStreamSourceSwitchStreamsRe
 }
 unsafe impl ::windows::runtime::Interface for MediaStreamSourceSwitchStreamsRequestDeferral {
     type Vtable = IMediaStreamSourceSwitchStreamsRequestDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3202603061, 42245, 20378, [185, 67, 43, 140, 177, 180, 187, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbee3d835_a505_4f9a_b943_2b8cb1b4bbd9);
 }
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSwitchStreamsRequestDeferral {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSwitchStreamsRequestDeferral";
@@ -8289,7 +8289,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaStreamSourceSwitchStreamsRe
 }
 unsafe impl ::windows::runtime::Interface for MediaStreamSourceSwitchStreamsRequestedEventArgs {
     type Vtable = IMediaStreamSourceSwitchStreamsRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1109404530, 28321, 18039, [152, 30, 53, 10, 13, 164, 18, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42202b72_6ea1_4677_981e_350a0da412aa);
 }
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSwitchStreamsRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSwitchStreamsRequestedEventArgs";
@@ -8618,7 +8618,7 @@ unsafe impl ::windows::runtime::RuntimeType for MseSourceBuffer {
 }
 unsafe impl ::windows::runtime::Interface for MseSourceBuffer {
     type Vtable = IMseSourceBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(203072483, 57229, 16505, [163, 254, 104, 73, 24, 75, 78, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c1aa3e3_df8d_4079_a3fe_6849184b4e2f);
 }
 impl ::windows::runtime::RuntimeName for MseSourceBuffer {
     const NAME: &'static str = "Windows.Media.Core.MseSourceBuffer";
@@ -8715,7 +8715,7 @@ unsafe impl ::windows::runtime::RuntimeType for MseSourceBufferList {
 }
 unsafe impl ::windows::runtime::Interface for MseSourceBufferList {
     type Vtable = IMseSourceBufferList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2516248807, 43239, 20159, [137, 39, 20, 94, 148, 11, 165, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95fae8e7_a8e7_4ebf_8927_145e940ba511);
 }
 impl ::windows::runtime::RuntimeName for MseSourceBufferList {
     const NAME: &'static str = "Windows.Media.Core.MseSourceBufferList";
@@ -8908,7 +8908,7 @@ unsafe impl ::windows::runtime::RuntimeType for MseStreamSource {
 }
 unsafe impl ::windows::runtime::Interface for MseStreamSource {
     type Vtable = IMseStreamSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2964593037, 756, 18723, [136, 221, 129, 188, 63, 54, 15, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0b4198d_02f4_4923_88dd_81bc3f360ffa);
 }
 impl ::windows::runtime::RuntimeName for MseStreamSource {
     const NAME: &'static str = "Windows.Media.Core.MseStreamSource";
@@ -9074,7 +9074,7 @@ unsafe impl ::windows::runtime::RuntimeType for SceneAnalysisEffect {
 }
 unsafe impl ::windows::runtime::Interface for SceneAnalysisEffect {
     type Vtable = ISceneAnalysisEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3226182425, 51777, 18451, [191, 253, 123, 8, 176, 237, 37, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc04ba319_ca41_4813_bffd_7b08b0ed2557);
 }
 impl ::windows::runtime::RuntimeName for SceneAnalysisEffect {
     const NAME: &'static str = "Windows.Media.Core.SceneAnalysisEffect";
@@ -9183,7 +9183,7 @@ unsafe impl ::windows::runtime::RuntimeType for SceneAnalysisEffectDefinition {
 #[cfg(feature = "Media_Effects")]
 unsafe impl ::windows::runtime::Interface for SceneAnalysisEffectDefinition {
     type Vtable = super::Effects::IVideoEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(972262640, 36111, 20286, [132, 252, 45, 70, 165, 41, 121, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943);
 }
 #[cfg(feature = "Media_Effects")]
 impl ::windows::runtime::RuntimeName for SceneAnalysisEffectDefinition {
@@ -9390,7 +9390,7 @@ unsafe impl ::windows::runtime::RuntimeType for SceneAnalysisEffectFrame {
 }
 unsafe impl ::windows::runtime::Interface for SceneAnalysisEffectFrame {
     type Vtable = ISceneAnalysisEffectFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3635482188, 32729, 17121, [133, 235, 101, 114, 194, 151, 201, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8b10e4c_7fd9_42e1_85eb_6572c297c987);
 }
 impl ::windows::runtime::RuntimeName for SceneAnalysisEffectFrame {
     const NAME: &'static str = "Windows.Media.Core.SceneAnalysisEffectFrame";
@@ -9527,7 +9527,7 @@ unsafe impl ::windows::runtime::RuntimeType for SceneAnalyzedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for SceneAnalyzedEventArgs {
     type Vtable = ISceneAnalyzedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(342594952, 10321, 17892, [173, 85, 68, 207, 141, 248, 219, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x146b9588_2851_45e4_ad55_44cf8df8db4d);
 }
 impl ::windows::runtime::RuntimeName for SceneAnalyzedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.SceneAnalyzedEventArgs";
@@ -9678,7 +9678,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechCue {
 }
 unsafe impl ::windows::runtime::Interface for SpeechCue {
     type Vtable = ISpeechCue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2934068444, 5925, 19373, [128, 67, 169, 132, 153, 176, 23, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaee254dc_1725_4bad_8043_a98499b017a2);
 }
 impl ::windows::runtime::RuntimeName for SpeechCue {
     const NAME: &'static str = "Windows.Media.Core.SpeechCue";
@@ -9862,7 +9862,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimedMetadataStreamDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for TimedMetadataStreamDescriptor {
     type Vtable = IMediaStreamDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2163306094, 37623, 17694, [151, 210, 175, 216, 7, 66, 218, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80f16e6e_92f7_451e_97d2_afd80742da70);
 }
 impl ::windows::runtime::RuntimeName for TimedMetadataStreamDescriptor {
     const NAME: &'static str = "Windows.Media.Core.TimedMetadataStreamDescriptor";
@@ -10116,7 +10116,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimedMetadataTrack {
 }
 unsafe impl ::windows::runtime::Interface for TimedMetadataTrack {
     type Vtable = ITimedMetadataTrack_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2657807774, 63098, 18857, [179, 48, 207, 3, 176, 233, 207, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e6aed9e_f67a_49a9_b330_cf03b0e9cf07);
 }
 impl ::windows::runtime::RuntimeName for TimedMetadataTrack {
     const NAME: &'static str = "Windows.Media.Core.TimedMetadataTrack";
@@ -10212,7 +10212,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimedMetadataTrackError {
 }
 unsafe impl ::windows::runtime::Interface for TimedMetadataTrackError {
     type Vtable = ITimedMetadataTrackError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3010885909, 16660, 18457, [185, 217, 221, 118, 8, 158, 114, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3767915_4114_4819_b9d9_dd76089e72f8);
 }
 impl ::windows::runtime::RuntimeName for TimedMetadataTrackError {
     const NAME: &'static str = "Windows.Media.Core.TimedMetadataTrackError";
@@ -10302,7 +10302,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimedMetadataTrackFailedEventArg
 }
 unsafe impl ::windows::runtime::Interface for TimedMetadataTrackFailedEventArgs {
     type Vtable = ITimedMetadataTrackFailedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2776615377, 26505, 19789, [176, 127, 132, 180, 243, 26, 203, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa57fc9d1_6789_4d4d_b07f_84b4f31acb70);
 }
 impl ::windows::runtime::RuntimeName for TimedMetadataTrackFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.TimedMetadataTrackFailedEventArgs";
@@ -10401,7 +10401,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimedTextBouten {
 }
 unsafe impl ::windows::runtime::Interface for TimedTextBouten {
     type Vtable = ITimedTextBouten_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3641059203, 21911, 20626, [130, 12, 143, 115, 142, 15, 119, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9062783_5597_5092_820c_8f738e0f774a);
 }
 impl ::windows::runtime::RuntimeName for TimedTextBouten {
     const NAME: &'static str = "Windows.Media.Core.TimedTextBouten";
@@ -10595,7 +10595,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimedTextCue {
 }
 unsafe impl ::windows::runtime::Interface for TimedTextCue {
     type Vtable = ITimedTextCue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1372036689, 15238, 18765, [179, 89, 187, 46, 167, 172, 169, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51c79e51_3b86_494d_b359_bb2ea7aca9a9);
 }
 impl ::windows::runtime::RuntimeName for TimedTextCue {
     const NAME: &'static str = "Windows.Media.Core.TimedTextCue";
@@ -10805,7 +10805,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimedTextLine {
 }
 unsafe impl ::windows::runtime::Interface for TimedTextLine {
     type Vtable = ITimedTextLine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2542632162, 29448, 19558, [190, 80, 101, 119, 114, 137, 245, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x978d7ce2_7308_4c66_be50_65777289f5df);
 }
 impl ::windows::runtime::RuntimeName for TimedTextLine {
     const NAME: &'static str = "Windows.Media.Core.TimedTextLine";
@@ -11121,7 +11121,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimedTextRegion {
 }
 unsafe impl ::windows::runtime::Interface for TimedTextRegion {
     type Vtable = ITimedTextRegion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(516982815, 35334, 16930, [159, 89, 178, 27, 244, 1, 36, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ed0881f_8a06_4222_9f59_b21bf40124b4);
 }
 impl ::windows::runtime::RuntimeName for TimedTextRegion {
     const NAME: &'static str = "Windows.Media.Core.TimedTextRegion";
@@ -11231,7 +11231,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimedTextRuby {
 }
 unsafe impl ::windows::runtime::Interface for TimedTextRuby {
     type Vtable = ITimedTextRuby_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(271801385, 23356, 22163, [153, 89, 208, 90, 11, 210, 70, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10335c29_5b3c_5693_9959_d05a0bd24628);
 }
 impl ::windows::runtime::RuntimeName for TimedTextRuby {
     const NAME: &'static str = "Windows.Media.Core.TimedTextRuby";
@@ -11506,7 +11506,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimedTextSource {
 }
 unsafe impl ::windows::runtime::Interface for TimedTextSource {
     type Vtable = ITimedTextSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3303906214, 4127, 16461, [169, 73, 130, 243, 63, 205, 147, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4ed9ba6_101f_404d_a949_82f33fcd93b7);
 }
 impl ::windows::runtime::RuntimeName for TimedTextSource {
     const NAME: &'static str = "Windows.Media.Core.TimedTextSource";
@@ -11581,7 +11581,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimedTextSourceResolveResultEven
 }
 unsafe impl ::windows::runtime::Interface for TimedTextSourceResolveResultEventArgs {
     type Vtable = ITimedTextSourceResolveResultEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1217428636, 56536, 19507, [154, 211, 108, 220, 231, 177, 197, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48907c9c_dcd8_4c33_9ad3_6cdce7b1c566);
 }
 impl ::windows::runtime::RuntimeName for TimedTextSourceResolveResultEventArgs {
     const NAME: &'static str = "Windows.Media.Core.TimedTextSourceResolveResultEventArgs";
@@ -11902,7 +11902,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimedTextStyle {
 }
 unsafe impl ::windows::runtime::Interface for TimedTextStyle {
     type Vtable = ITimedTextStyle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(464664653, 43045, 16578, [167, 245, 40, 30, 174, 223, 59, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bb2384d_a825_40c2_a7f5_281eaedf3b55);
 }
 impl ::windows::runtime::RuntimeName for TimedTextStyle {
     const NAME: &'static str = "Windows.Media.Core.TimedTextStyle";
@@ -12006,7 +12006,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimedTextSubformat {
 }
 unsafe impl ::windows::runtime::Interface for TimedTextSubformat {
     type Vtable = ITimedTextSubformat_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3608367151, 12897, 18210, [160, 194, 185, 55, 178, 57, 15, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd713502f_3261_4722_a0c2_b937b2390f14);
 }
 impl ::windows::runtime::RuntimeName for TimedTextSubformat {
     const NAME: &'static str = "Windows.Media.Core.TimedTextSubformat";
@@ -12200,7 +12200,7 @@ unsafe impl ::windows::runtime::RuntimeType for VideoStabilizationEffect {
 }
 unsafe impl ::windows::runtime::Interface for VideoStabilizationEffect {
     type Vtable = IVideoStabilizationEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(134784592, 38552, 20055, [135, 123, 189, 124, 178, 238, 15, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0808a650_9698_4e57_877b_bd7cb2ee0f8a);
 }
 impl ::windows::runtime::RuntimeName for VideoStabilizationEffect {
     const NAME: &'static str = "Windows.Media.Core.VideoStabilizationEffect";
@@ -12309,7 +12309,7 @@ unsafe impl ::windows::runtime::RuntimeType for VideoStabilizationEffectDefiniti
 #[cfg(feature = "Media_Effects")]
 unsafe impl ::windows::runtime::Interface for VideoStabilizationEffectDefinition {
     type Vtable = super::Effects::IVideoEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(972262640, 36111, 20286, [132, 252, 45, 70, 165, 41, 121, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943);
 }
 #[cfg(feature = "Media_Effects")]
 impl ::windows::runtime::RuntimeName for VideoStabilizationEffectDefinition {
@@ -12410,7 +12410,7 @@ unsafe impl ::windows::runtime::RuntimeType for VideoStabilizationEffectEnabledC
 }
 unsafe impl ::windows::runtime::Interface for VideoStabilizationEffectEnabledChangedEventArgs {
     type Vtable = IVideoStabilizationEffectEnabledChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(410976040, 26555, 18195, [185, 0, 65, 104, 218, 22, 69, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x187eff28_67bb_4713_b900_4168da164529);
 }
 impl ::windows::runtime::RuntimeName for VideoStabilizationEffectEnabledChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.VideoStabilizationEffectEnabledChangedEventArgs";
@@ -12567,7 +12567,7 @@ unsafe impl ::windows::runtime::RuntimeType for VideoStreamDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for VideoStreamDescriptor {
     type Vtable = IVideoStreamDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(317590869, 39979, 17472, [128, 87, 44, 122, 144, 240, 203, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12ee0d55_9c2b_4440_8057_2c7a90f0cbec);
 }
 impl ::windows::runtime::RuntimeName for VideoStreamDescriptor {
     const NAME: &'static str = "Windows.Media.Core.VideoStreamDescriptor";
@@ -12755,7 +12755,7 @@ unsafe impl ::windows::runtime::RuntimeType for VideoTrack {
 }
 unsafe impl ::windows::runtime::Interface for VideoTrack {
     type Vtable = IMediaTrack_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(65141500, 51505, 18714, [180, 107, 193, 14, 232, 194, 86, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03e1fafc_c931_491a_b46b_c10ee8c256b7);
 }
 impl ::windows::runtime::RuntimeName for VideoTrack {
     const NAME: &'static str = "Windows.Media.Core.VideoTrack";
@@ -12841,7 +12841,7 @@ unsafe impl ::windows::runtime::RuntimeType for VideoTrackOpenFailedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for VideoTrackOpenFailedEventArgs {
     type Vtable = IVideoTrackOpenFailedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1987699249, 1273, 19586, [164, 238, 134, 2, 200, 187, 71, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7679e231_04f9_4c82_a4ee_8602c8bb4754);
 }
 impl ::windows::runtime::RuntimeName for VideoTrackOpenFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.VideoTrackOpenFailedEventArgs";
@@ -12915,7 +12915,7 @@ unsafe impl ::windows::runtime::RuntimeType for VideoTrackSupportInfo {
 }
 unsafe impl ::windows::runtime::Interface for VideoTrackSupportInfo {
     type Vtable = IVideoTrackSupportInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1270166688, 64607, 17677, [143, 240, 119, 141, 89, 4, 134, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bb534a0_fc5f_450d_8ff0_778d590486de);
 }
 impl ::windows::runtime::RuntimeName for VideoTrackSupportInfo {
     const NAME: &'static str = "Windows.Media.Core.VideoTrackSupportInfo";

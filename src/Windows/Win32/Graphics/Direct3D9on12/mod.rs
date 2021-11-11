@@ -82,7 +82,7 @@ impl IDirect3DDevice9On12 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DDevice9On12 {
     type Vtable = IDirect3DDevice9On12_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3892159028, 46473, 16457, [148, 13, 136, 120, 151, 117, 49, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7fda234_b589_4049_940d_8878977531c8);
 }
 impl ::core::convert::From<IDirect3DDevice9On12> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DDevice9On12) -> Self {

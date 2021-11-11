@@ -978,7 +978,7 @@ impl IEnumSpObjectTokens {
 }
 unsafe impl ::windows::runtime::Interface for IEnumSpObjectTokens {
     type Vtable = IEnumSpObjectTokens_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(112611230, 32730, 4562, [180, 242, 0, 192, 79, 121, 115, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06b64f9e_7fda_11d2_b4f2_00c04f797396);
 }
 impl ::core::convert::From<IEnumSpObjectTokens> for ::windows::runtime::IUnknown {
     fn from(value: IEnumSpObjectTokens) -> Self {
@@ -1125,7 +1125,7 @@ impl ISpAudio {
 }
 unsafe impl ::windows::runtime::Interface for ISpAudio {
     type Vtable = ISpAudio_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3227285135, 64232, 20162, [142, 7, 51, 131, 33, 193, 36, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc05c768f_fae8_4ec2_8e07_338321c12452);
 }
 impl ::core::convert::From<ISpAudio> for ::windows::runtime::IUnknown {
     fn from(value: ISpAudio) -> Self {
@@ -1294,7 +1294,7 @@ impl ISpContainerLexicon {
 }
 unsafe impl ::windows::runtime::Interface for ISpContainerLexicon {
     type Vtable = ISpContainerLexicon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2238011183, 49300, 16844, [181, 110, 16, 189, 156, 63, 240, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8565572f_c094_41cc_b56e_10bd9c3ff044);
 }
 impl ::core::convert::From<ISpContainerLexicon> for ::windows::runtime::IUnknown {
     fn from(value: ISpContainerLexicon) -> Self {
@@ -1428,7 +1428,7 @@ impl ISpDataKey {
 }
 unsafe impl ::windows::runtime::Interface for ISpDataKey {
     type Vtable = ISpDataKey_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(335897985, 57708, 4562, [187, 144, 0, 192, 79, 142, 230, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14056581_e16c_11d2_bb90_00c04f8ee6c0);
 }
 impl ::core::convert::From<ISpDataKey> for ::windows::runtime::IUnknown {
     fn from(value: ISpDataKey) -> Self {
@@ -1498,7 +1498,7 @@ impl ISpDisplayAlternates {
 }
 unsafe impl ::windows::runtime::Interface for ISpDisplayAlternates {
     type Vtable = ISpDisplayAlternates_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3369584610, 3550, 17591, [175, 227, 176, 201, 145, 251, 235, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8d7c7e2_0dde_44b7_afe3_b0c991fbeb5e);
 }
 impl ::core::convert::From<ISpDisplayAlternates> for ::windows::runtime::IUnknown {
     fn from(value: ISpDisplayAlternates) -> Self {
@@ -1548,7 +1548,7 @@ impl ISpEnginePronunciation {
 }
 unsafe impl ::windows::runtime::Interface for ISpEnginePronunciation {
     type Vtable = ISpEnginePronunciation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3277901387, 30417, 16916, [173, 104, 82, 101, 125, 80, 131, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc360ce4b_76d1_4214_ad68_52657d5083da);
 }
 impl ::core::convert::From<ISpEnginePronunciation> for ::windows::runtime::IUnknown {
     fn from(value: ISpEnginePronunciation) -> Self {
@@ -1598,7 +1598,7 @@ impl ISpEventSink {
 }
 unsafe impl ::windows::runtime::Interface for ISpEventSink {
     type Vtable = ISpEventSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3195706569, 24478, 4562, [150, 15, 0, 192, 79, 142, 230, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe7a9cc9_5f9e_11d2_960f_00c04f8ee628);
 }
 impl ::core::convert::From<ISpEventSink> for ::windows::runtime::IUnknown {
     fn from(value: ISpEventSink) -> Self {
@@ -1683,7 +1683,7 @@ impl ISpEventSource {
 }
 unsafe impl ::windows::runtime::Interface for ISpEventSource {
     type Vtable = ISpEventSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3195706574, 24478, 4562, [150, 15, 0, 192, 79, 142, 230, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe7a9cce_5f9e_11d2_960f_00c04f8ee628);
 }
 impl ::core::convert::From<ISpEventSource> for ::windows::runtime::IUnknown {
     fn from(value: ISpEventSource) -> Self {
@@ -1805,7 +1805,7 @@ impl ISpEventSource2 {
 }
 unsafe impl ::windows::runtime::Interface for ISpEventSource2 {
     type Vtable = ISpEventSource2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(594781237, 27211, 17054, [166, 172, 212, 35, 26, 97, 151, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2373a435_6a4b_429e_a6ac_d4231a61975b);
 }
 impl ::core::convert::From<ISpEventSource2> for ::windows::runtime::IUnknown {
     fn from(value: ISpEventSource2) -> Self {
@@ -1935,7 +1935,7 @@ impl ISpGrammarBuilder {
 }
 unsafe impl ::windows::runtime::Interface for ISpGrammarBuilder {
     type Vtable = ISpGrammarBuilder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2167898767, 22810, 19010, [190, 88, 73, 234, 126, 186, 172, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8137828f_591a_4a42_be58_49ea7ebaac68);
 }
 impl ::core::convert::From<ISpGrammarBuilder> for ::windows::runtime::IUnknown {
     fn from(value: ISpGrammarBuilder) -> Self {
@@ -1993,7 +1993,7 @@ impl ISpGrammarBuilder2 {
 }
 unsafe impl ::windows::runtime::Interface for ISpGrammarBuilder2 {
     type Vtable = ISpGrammarBuilder2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2326855718, 8396, 19232, [140, 34, 164, 156, 155, 167, 143, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ab10026_20cc_4b20_8c22_a49c9ba78f60);
 }
 impl ::core::convert::From<ISpGrammarBuilder2> for ::windows::runtime::IUnknown {
     fn from(value: ISpGrammarBuilder2) -> Self {
@@ -2062,7 +2062,7 @@ impl ISpLexicon {
 }
 unsafe impl ::windows::runtime::Interface for ISpLexicon {
     type Vtable = ISpLexicon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3661735874, 21379, 19890, [145, 107, 108, 23, 25, 227, 219, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda41a7c2_5383_4db2_916b_6c1719e3db58);
 }
 impl ::core::convert::From<ISpLexicon> for ::windows::runtime::IUnknown {
     fn from(value: ISpLexicon) -> Self {
@@ -2234,7 +2234,7 @@ impl ISpMMSysAudio {
 }
 unsafe impl ::windows::runtime::Interface for ISpMMSysAudio {
     type Vtable = ISpMMSysAudio_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(360738670, 7536, 19272, [152, 230, 59, 26, 0, 117, 9, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15806f6e_1d70_4b48_98e6_3b1a007509ab);
 }
 impl ::core::convert::From<ISpMMSysAudio> for ::windows::runtime::IUnknown {
     fn from(value: ISpMMSysAudio) -> Self {
@@ -2443,7 +2443,7 @@ impl ISpNotifySink {
 }
 unsafe impl ::windows::runtime::Interface for ISpNotifySink {
     type Vtable = ISpNotifySink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(630621404, 14275, 4562, [150, 3, 0, 192, 79, 142, 230, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x259684dc_37c3_11d2_9603_00c04f8ee628);
 }
 impl ::core::convert::From<ISpNotifySink> for ::windows::runtime::IUnknown {
     fn from(value: ISpNotifySink) -> Self {
@@ -2513,7 +2513,7 @@ impl ISpNotifySource {
 }
 unsafe impl ::windows::runtime::Interface for ISpNotifySource {
     type Vtable = ISpNotifySource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1593789167, 33927, 4562, [150, 28, 0, 192, 79, 142, 230, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5eff4aef_8487_11d2_961c_00c04f8ee628);
 }
 impl ::core::convert::From<ISpNotifySource> for ::windows::runtime::IUnknown {
     fn from(value: ISpNotifySource) -> Self {
@@ -2594,7 +2594,7 @@ impl ISpNotifyTranslator {
 }
 unsafe impl ::windows::runtime::Interface for ISpNotifyTranslator {
     type Vtable = ISpNotifyTranslator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2896258580, 23869, 4562, [150, 14, 0, 192, 79, 142, 230, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaca16614_5d3d_11d2_960e_00c04f8ee628);
 }
 impl ::core::convert::From<ISpNotifyTranslator> for ::windows::runtime::IUnknown {
     fn from(value: ISpNotifyTranslator) -> Self {
@@ -2786,7 +2786,7 @@ impl ISpObjectToken {
 }
 unsafe impl ::windows::runtime::Interface for ISpObjectToken {
     type Vtable = ISpObjectToken_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(335897993, 57708, 4562, [187, 144, 0, 192, 79, 142, 230, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14056589_e16c_11d2_bb90_00c04f8ee6c0);
 }
 impl ::core::convert::From<ISpObjectToken> for ::windows::runtime::IUnknown {
     fn from(value: ISpObjectToken) -> Self {
@@ -2982,7 +2982,7 @@ impl ISpObjectTokenCategory {
 }
 unsafe impl ::windows::runtime::Interface for ISpObjectTokenCategory {
     type Vtable = ISpObjectTokenCategory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(758986821, 14767, 18512, [187, 249, 64, 180, 151, 128, 1, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d3d3845_39af_4850_bbf9_40b49780011d);
 }
 impl ::core::convert::From<ISpObjectTokenCategory> for ::windows::runtime::IUnknown {
     fn from(value: ISpObjectTokenCategory) -> Self {
@@ -3202,7 +3202,7 @@ impl ISpObjectTokenInit {
 }
 unsafe impl ::windows::runtime::Interface for ISpObjectTokenInit {
     type Vtable = ISpObjectTokenInit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3098194127, 13423, 18904, [148, 153, 200, 176, 63, 22, 29, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8aab0cf_346f_49d8_9499_c8b03f161d51);
 }
 impl ::core::convert::From<ISpObjectTokenInit> for ::windows::runtime::IUnknown {
     fn from(value: ISpObjectTokenInit) -> Self {
@@ -3331,7 +3331,7 @@ impl ISpObjectWithToken {
 }
 unsafe impl ::windows::runtime::Interface for ISpObjectWithToken {
     type Vtable = ISpObjectWithToken_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1532337984, 59730, 4562, [187, 145, 0, 192, 79, 142, 230, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b559f40_e952_11d2_bb91_00c04f8ee6c0);
 }
 impl ::core::convert::From<ISpObjectWithToken> for ::windows::runtime::IUnknown {
     fn from(value: ISpObjectWithToken) -> Self {
@@ -3390,7 +3390,7 @@ impl ISpPhoneConverter {
 }
 unsafe impl ::windows::runtime::Interface for ISpPhoneConverter {
     type Vtable = ISpPhoneConverter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2219165057, 3244, 19000, [171, 254, 155, 44, 226, 130, 100, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8445c581_0cac_4a38_abfe_9b2ce2826455);
 }
 impl ::core::convert::From<ISpPhoneConverter> for ::windows::runtime::IUnknown {
     fn from(value: ISpPhoneConverter) -> Self {
@@ -3476,7 +3476,7 @@ impl ISpPhoneticAlphabetConverter {
 }
 unsafe impl ::windows::runtime::Interface for ISpPhoneticAlphabetConverter {
     type Vtable = ISpPhoneticAlphabetConverter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(322624724, 6580, 16416, [159, 220, 132, 46, 120, 37, 59, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x133adcd4_19b4_4020_9fdc_842e78253b17);
 }
 impl ::core::convert::From<ISpPhoneticAlphabetConverter> for ::windows::runtime::IUnknown {
     fn from(value: ISpPhoneticAlphabetConverter) -> Self {
@@ -3530,7 +3530,7 @@ impl ISpPhoneticAlphabetSelection {
 }
 unsafe impl ::windows::runtime::Interface for ISpPhoneticAlphabetSelection {
     type Vtable = ISpPhoneticAlphabetSelection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2993970941, 17102, 18634, [129, 241, 169, 110, 2, 83, 138, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2745efd_42ce_48ca_81f1_a96e02538a90);
 }
 impl ::core::convert::From<ISpPhoneticAlphabetSelection> for ::windows::runtime::IUnknown {
     fn from(value: ISpPhoneticAlphabetSelection) -> Self {
@@ -3591,7 +3591,7 @@ impl ISpPhrase {
 }
 unsafe impl ::windows::runtime::Interface for ISpPhrase {
     type Vtable = ISpPhrase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(442237780, 46625, 19290, [135, 145, 211, 6, 237, 55, 158, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a5c0354_b621_4b5a_8791_d306ed379e53);
 }
 impl ::core::convert::From<ISpPhrase> for ::windows::runtime::IUnknown {
     fn from(value: ISpPhrase) -> Self {
@@ -3669,7 +3669,7 @@ impl ISpPhrase2 {
 }
 unsafe impl ::windows::runtime::Interface for ISpPhrase2 {
     type Vtable = ISpPhrase2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4066695762, 58455, 18070, [184, 86, 167, 55, 183, 23, 175, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf264da52_e457_4696_b856_a737b717af79);
 }
 impl ::core::convert::From<ISpPhrase2> for ::windows::runtime::IUnknown {
     fn from(value: ISpPhrase2) -> Self {
@@ -3765,7 +3765,7 @@ impl ISpPhraseAlt {
 }
 unsafe impl ::windows::runtime::Interface for ISpPhraseAlt {
     type Vtable = ISpPhraseAlt_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2412690584, 20041, 16487, [156, 108, 216, 106, 14, 9, 46, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fcebc98_4e49_4067_9c6c_d86a0e092e3d);
 }
 impl ::core::convert::From<ISpPhraseAlt> for ::windows::runtime::IUnknown {
     fn from(value: ISpPhraseAlt) -> Self {
@@ -3851,7 +3851,7 @@ impl ISpProperties {
 }
 unsafe impl ::windows::runtime::Interface for ISpProperties {
     type Vtable = ISpProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1531951473, 45333, 19937, [173, 151, 228, 130, 227, 191, 110, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b4fb971_b115_4de1_ad97_e482e3bf6ee4);
 }
 impl ::core::convert::From<ISpProperties> for ::windows::runtime::IUnknown {
     fn from(value: ISpProperties) -> Self {
@@ -4022,7 +4022,7 @@ impl ISpRecoContext {
 }
 unsafe impl ::windows::runtime::Interface for ISpRecoContext {
     type Vtable = ISpRecoContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4148209199, 31765, 18590, [130, 52, 148, 10, 51, 217, 39, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf740a62f_7c15_489e_8234_940a33d9272d);
 }
 impl ::core::convert::From<ISpRecoContext> for ::windows::runtime::IUnknown {
     fn from(value: ISpRecoContext) -> Self {
@@ -4150,7 +4150,7 @@ impl ISpRecoContext2 {
 }
 unsafe impl ::windows::runtime::Interface for ISpRecoContext2 {
     type Vtable = ISpRecoContext2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3199021340, 21247, 17279, [148, 100, 107, 33, 5, 76, 167, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbead311c_52ff_437f_9464_6b21054ca73d);
 }
 impl ::core::convert::From<ISpRecoContext2> for ::windows::runtime::IUnknown {
     fn from(value: ISpRecoContext2) -> Self {
@@ -4310,7 +4310,7 @@ impl ISpRecoGrammar {
 }
 unsafe impl ::windows::runtime::Interface for ISpRecoGrammar {
     type Vtable = ISpRecoGrammar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(561503017, 32581, 18384, [133, 84, 6, 126, 145, 200, 5, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2177db29_7f45_47d0_8554_067e91c80502);
 }
 impl ::core::convert::From<ISpRecoGrammar> for ::windows::runtime::IUnknown {
     fn from(value: ISpRecoGrammar) -> Self {
@@ -4444,7 +4444,7 @@ impl ISpRecoGrammar2 {
 }
 unsafe impl ::windows::runtime::Interface for ISpRecoGrammar2 {
     type Vtable = ISpRecoGrammar2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1261943966, 40662, 17571, [147, 211, 24, 240, 34, 183, 158, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b37bc9e_9ed6_44a3_93d3_18f022b79ec3);
 }
 impl ::core::convert::From<ISpRecoGrammar2> for ::windows::runtime::IUnknown {
     fn from(value: ISpRecoGrammar2) -> Self {
@@ -4547,7 +4547,7 @@ impl ISpRecoResult {
 }
 unsafe impl ::windows::runtime::Interface for ISpRecoResult {
     type Vtable = ISpRecoResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(548426686, 57909, 17357, [154, 42, 141, 23, 164, 139, 120, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20b053be_e235_43cd_9a2a_8d17a48b7842);
 }
 impl ::core::convert::From<ISpRecoResult> for ::windows::runtime::IUnknown {
     fn from(value: ISpRecoResult) -> Self {
@@ -4686,7 +4686,7 @@ impl ISpRecoResult2 {
 }
 unsafe impl ::windows::runtime::Interface for ISpRecoResult2 {
     type Vtable = ISpRecoResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(667600580, 35058, 16882, [136, 23, 12, 149, 229, 159, 30, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27cac6c4_88f2_41f2_8817_0c95e59f1e6e);
 }
 impl ::core::convert::From<ISpRecoResult2> for ::windows::runtime::IUnknown {
     fn from(value: ISpRecoResult2) -> Self {
@@ -4877,7 +4877,7 @@ impl ISpRecognizer {
 }
 unsafe impl ::windows::runtime::Interface for ISpRecognizer {
     type Vtable = ISpRecognizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3266703937, 55968, 17671, [158, 22, 90, 30, 170, 43, 122, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2b5f241_daa0_4507_9e16_5a1eaa2b7a5c);
 }
 impl ::core::convert::From<ISpRecognizer> for ::windows::runtime::IUnknown {
     fn from(value: ISpRecognizer) -> Self {
@@ -4975,7 +4975,7 @@ impl ISpRecognizer2 {
 }
 unsafe impl ::windows::runtime::Interface for ISpRecognizer2 {
     type Vtable = ISpRecognizer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2412173684, 51230, 16536, [147, 197, 1, 71, 246, 30, 212, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fc6d974_c81e_4098_93c5_0147f61ed4d3);
 }
 impl ::core::convert::From<ISpRecognizer2> for ::windows::runtime::IUnknown {
     fn from(value: ISpRecognizer2) -> Self {
@@ -5086,7 +5086,7 @@ impl ISpRegDataKey {
 }
 unsafe impl ::windows::runtime::Interface for ISpRegDataKey {
     type Vtable = ISpRegDataKey_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2460380715, 51248, 16713, [131, 223, 111, 194, 186, 30, 122, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92a66e2b_c830_4149_83df_6fc2ba1e7a5b);
 }
 impl ::core::convert::From<ISpRegDataKey> for ::windows::runtime::IUnknown {
     fn from(value: ISpRegDataKey) -> Self {
@@ -5182,7 +5182,7 @@ impl ISpResourceManager {
 }
 unsafe impl ::windows::runtime::Interface for ISpResourceManager {
     type Vtable = ISpResourceManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2469940760, 20500, 17365, [173, 187, 167, 142, 5, 89, 38, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93384e18_5014_43d5_adbb_a78e055926bd);
 }
 impl ::core::convert::From<ISpResourceManager> for ::windows::runtime::IUnknown {
     fn from(value: ISpResourceManager) -> Self {
@@ -5255,7 +5255,7 @@ impl ISpSerializeState {
 }
 unsafe impl ::windows::runtime::Interface for ISpSerializeState {
     type Vtable = ISpSerializeState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(565510560, 3783, 18121, [146, 195, 162, 188, 120, 76, 84, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x21b501a0_0ec7_46c9_92c3_a2bc784c54b9);
 }
 impl ::core::convert::From<ISpSerializeState> for ::windows::runtime::IUnknown {
     fn from(value: ISpSerializeState) -> Self {
@@ -5334,7 +5334,7 @@ impl ISpShortcut {
 }
 unsafe impl ::windows::runtime::Interface for ISpShortcut {
     type Vtable = ISpShortcut_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1039565282, 59990, 4569, [139, 222, 246, 107, 173, 30, 63, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3df681e2_ea56_11d9_8bde_f66bad1e3f3a);
 }
 impl ::core::convert::From<ISpShortcut> for ::windows::runtime::IUnknown {
     fn from(value: ISpShortcut) -> Self {
@@ -5463,7 +5463,7 @@ impl ISpStream {
 }
 unsafe impl ::windows::runtime::Interface for ISpStream {
     type Vtable = ISpStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(316918953, 29976, 17605, [165, 231, 186, 90, 121, 203, 146, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12e3cca9_7518_44c5_a5e7_ba5a79cb929e);
 }
 impl ::core::convert::From<ISpStream> for ::windows::runtime::IUnknown {
     fn from(value: ISpStream) -> Self {
@@ -5649,7 +5649,7 @@ impl ISpStreamFormat {
 }
 unsafe impl ::windows::runtime::Interface for ISpStreamFormat {
     type Vtable = ISpStreamFormat_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3201642686, 9734, 20301, [161, 192, 84, 197, 205, 165, 86, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbed530be_2606_4f4d_a1c0_54c5cda5566f);
 }
 impl ::core::convert::From<ISpStreamFormat> for ::windows::runtime::IUnknown {
     fn from(value: ISpStreamFormat) -> Self {
@@ -5837,7 +5837,7 @@ impl ISpStreamFormatConverter {
 }
 unsafe impl ::windows::runtime::Interface for ISpStreamFormatConverter {
     type Vtable = ISpStreamFormatConverter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1737134892, 60017, 17478, [155, 65, 120, 253, 166, 40, 10, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x678a932c_ea71_4446_9b41_78fda6280a29);
 }
 impl ::core::convert::From<ISpStreamFormatConverter> for ::windows::runtime::IUnknown {
     fn from(value: ISpStreamFormatConverter) -> Self {
@@ -5978,7 +5978,7 @@ impl ISpTranscript {
 }
 unsafe impl ::windows::runtime::Interface for ISpTranscript {
     type Vtable = ISpTranscript_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(284572622, 8218, 4563, [172, 112, 0, 192, 79, 142, 230, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10f63bce_201a_11d3_ac70_00c04f8ee6c0);
 }
 impl ::core::convert::From<ISpTranscript> for ::windows::runtime::IUnknown {
     fn from(value: ISpTranscript) -> Self {
@@ -6177,7 +6177,7 @@ impl ISpVoice {
 }
 unsafe impl ::windows::runtime::Interface for ISpVoice {
     type Vtable = ISpVoice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1816452980, 29369, 18834, [161, 236, 239, 153, 110, 4, 34, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c44df74_72b9_4992_a1ec_ef996e0422d4);
 }
 impl ::core::convert::From<ISpVoice> for ::windows::runtime::IUnknown {
     fn from(value: ISpVoice) -> Self {
@@ -6364,7 +6364,7 @@ impl ISpXMLRecoResult {
 }
 unsafe impl ::windows::runtime::Interface for ISpXMLRecoResult {
     type Vtable = ISpXMLRecoResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2922985003, 17832, 16500, [155, 158, 204, 244, 154, 162, 208, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae39362b_45a8_4074_9b9e_ccf49aa2d0b6);
 }
 impl ::core::convert::From<ISpXMLRecoResult> for ::windows::runtime::IUnknown {
     fn from(value: ISpXMLRecoResult) -> Self {
@@ -6560,7 +6560,7 @@ impl ISpeechAudio {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechAudio {
     type Vtable = ISpeechAudio_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3489194357, 414, 4563, [160, 142, 0, 192, 79, 142, 249, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcff8e175_019e_11d3_a08e_00c04f8ef9b5);
 }
 impl ::core::convert::From<ISpeechAudio> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechAudio) -> Self {
@@ -6693,7 +6693,7 @@ impl ISpeechAudioBufferInfo {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechAudioBufferInfo {
     type Vtable = ISpeechAudioBufferInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(296813528, 4418, 20191, [160, 147, 130, 251, 57, 21, 248, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11b103d8_1142_4edf_a093_82fb3915f8cc);
 }
 impl ::core::convert::From<ISpeechAudioBufferInfo> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechAudioBufferInfo) -> Self {
@@ -6797,7 +6797,7 @@ impl ISpeechAudioFormat {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechAudioFormat {
     type Vtable = ISpeechAudioFormat_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3874080144, 15896, 16611, [130, 153, 6, 31, 152, 189, 231, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6e9c590_3e18_40e3_8299_061f98bde7c7);
 }
 impl ::core::convert::From<ISpeechAudioFormat> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechAudioFormat) -> Self {
@@ -6901,7 +6901,7 @@ impl ISpeechAudioStatus {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechAudioStatus {
     type Vtable = ISpeechAudioStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3324877969, 29784, 18422, [134, 45, 30, 248, 111, 176, 178, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc62d9c91_7458_47f6_862d_1ef86fb0b278);
 }
 impl ::core::convert::From<ISpeechAudioStatus> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechAudioStatus) -> Self {
@@ -7003,7 +7003,7 @@ impl ISpeechBaseStream {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechBaseStream {
     type Vtable = ISpeechBaseStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1682977647, 32073, 19693, [128, 151, 73, 214, 222, 227, 114, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6450336f_7d49_4ced_8097_49d6dee37294);
 }
 impl ::core::convert::From<ISpeechBaseStream> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechBaseStream) -> Self {
@@ -7147,7 +7147,7 @@ impl ISpeechCustomStream {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechCustomStream {
     type Vtable = ISpeechCustomStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(446603087, 4175, 19896, [161, 21, 239, 215, 253, 12, 151, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a9e9f4f_104f_4db8_a115_efd7fd0c97ae);
 }
 impl ::core::convert::From<ISpeechCustomStream> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechCustomStream) -> Self {
@@ -7313,7 +7313,7 @@ impl ISpeechDataKey {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechDataKey {
     type Vtable = ISpeechDataKey_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3457663131, 20218, 17621, [164, 201, 89, 217, 88, 90, 176, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce17c09b_4efa_44d5_a4c9_59d9585ab0cd);
 }
 impl ::core::convert::From<ISpeechDataKey> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechDataKey) -> Self {
@@ -7473,7 +7473,7 @@ impl ISpeechFileStream {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechFileStream {
     type Vtable = ISpeechFileStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2942824741, 43833, 20115, [180, 162, 204, 46, 102, 225, 130, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf67f125_ab39_4e93_b4a2_cc2e66e182a7);
 }
 impl ::core::convert::From<ISpeechFileStream> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechFileStream) -> Self {
@@ -7608,7 +7608,7 @@ impl ISpeechGrammarRule {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechGrammarRule {
     type Vtable = ISpeechGrammarRule_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2951158223, 24017, 17650, [153, 156, 122, 57, 159, 28, 252, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xafe719cf_5dd1_44f2_999c_7a399f1cfccc);
 }
 impl ::core::convert::From<ISpeechGrammarRule> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechGrammarRule) -> Self {
@@ -7721,7 +7721,7 @@ impl ISpeechGrammarRuleState {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechGrammarRuleState {
     type Vtable = ISpeechGrammarRuleState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3559419692, 61031, 17838, [185, 40, 40, 214, 149, 54, 46, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4286f2c_ee67_45ae_b928_28d695362eda);
 }
 impl ::core::convert::From<ISpeechGrammarRuleState> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechGrammarRuleState) -> Self {
@@ -7843,7 +7843,7 @@ impl ISpeechGrammarRuleStateTransition {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechGrammarRuleStateTransition {
     type Vtable = ISpeechGrammarRuleStateTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3405585841, 16849, 18950, [152, 99, 226, 232, 29, 161, 122, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcafd1db1_41d1_4a06_9863_e2e81da17a9a);
 }
 impl ::core::convert::From<ISpeechGrammarRuleStateTransition> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechGrammarRuleStateTransition) -> Self {
@@ -7939,7 +7939,7 @@ impl ISpeechGrammarRuleStateTransitions {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechGrammarRuleStateTransitions {
     type Vtable = ISpeechGrammarRuleStateTransitions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3938248279, 30140, 17570, [170, 127, 197, 100, 118, 116, 41, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeabce657_75bc_44a2_aa7f_c56476742963);
 }
 impl ::core::convert::From<ISpeechGrammarRuleStateTransitions> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechGrammarRuleStateTransitions) -> Self {
@@ -8052,7 +8052,7 @@ impl ISpeechGrammarRules {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechGrammarRules {
     type Vtable = ISpeechGrammarRules_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1878670148, 64557, 16593, [138, 252, 50, 145, 28, 127, 26, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ffa3b44_fc2d_40d1_8afc_32911c7f1ad1);
 }
 impl ::core::convert::From<ISpeechGrammarRules> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechGrammarRules) -> Self {
@@ -8171,7 +8171,7 @@ impl ISpeechLexicon {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechLexicon {
     type Vtable = ISpeechLexicon_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1034379898, 51118, 19235, [135, 8, 99, 140, 80, 54, 44, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3da7627a_c7ae_4b23_8708_638c50362c25);
 }
 impl ::core::convert::From<ISpeechLexicon> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechLexicon) -> Self {
@@ -8280,7 +8280,7 @@ impl ISpeechLexiconPronunciation {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechLexiconPronunciation {
     type Vtable = ISpeechLexiconPronunciation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2502241373, 40515, 20298, [152, 153, 72, 238, 115, 53, 47, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95252c5d_9e43_4f4a_9899_48ee73352f9f);
 }
 impl ::core::convert::From<ISpeechLexiconPronunciation> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechLexiconPronunciation) -> Self {
@@ -8371,7 +8371,7 @@ impl ISpeechLexiconPronunciations {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechLexiconPronunciations {
     type Vtable = ISpeechLexiconPronunciations_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921159464, 22146, 18180, [160, 212, 62, 43, 182, 242, 234, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72829128_5682_4704_a0d4_3e2bb6f2ead3);
 }
 impl ::core::convert::From<ISpeechLexiconPronunciations> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechLexiconPronunciations) -> Self {
@@ -8464,7 +8464,7 @@ impl ISpeechLexiconWord {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechLexiconWord {
     type Vtable = ISpeechLexiconWord_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1314624316, 51646, 18669, [136, 66, 30, 229, 27, 177, 212, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e5b933c_c9be_48ed_8842_1ee51bb1d4ff);
 }
 impl ::core::convert::From<ISpeechLexiconWord> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechLexiconWord) -> Self {
@@ -8553,7 +8553,7 @@ impl ISpeechLexiconWords {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechLexiconWords {
     type Vtable = ISpeechLexiconWords_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2367264866, 16734, 18389, [172, 79, 250, 166, 8, 180, 36, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d199862_415e_47d5_ac4f_faa608b424e6);
 }
 impl ::core::convert::From<ISpeechLexiconWords> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechLexiconWords) -> Self {
@@ -8748,7 +8748,7 @@ impl ISpeechMMSysAudio {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechMMSysAudio {
     type Vtable = ISpeechMMSysAudio_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1014411117, 8151, 18481, [129, 209, 59, 113, 213, 161, 60, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c76af6d_1fd7_4831_81d1_3b71d5a13c44);
 }
 impl ::core::convert::From<ISpeechMMSysAudio> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechMMSysAudio) -> Self {
@@ -8948,7 +8948,7 @@ impl ISpeechMemoryStream {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechMemoryStream {
     type Vtable = ISpeechMemoryStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4004596584, 32907, 19134, [165, 234, 181, 29, 167, 88, 128, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeeb14b68_808b_4abe_a5ea_b51da7588008);
 }
 impl ::core::convert::From<ISpeechMemoryStream> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechMemoryStream) -> Self {
@@ -9120,7 +9120,7 @@ impl ISpeechObjectToken {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechObjectToken {
     type Vtable = ISpeechObjectToken_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3343530716, 46887, 17664, [168, 74, 181, 38, 114, 28, 139, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc74a3adc_b727_4500_a84a_b526721c8b8c);
 }
 impl ::core::convert::From<ISpeechObjectToken> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechObjectToken) -> Self {
@@ -9245,7 +9245,7 @@ impl ISpeechObjectTokenCategory {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechObjectTokenCategory {
     type Vtable = ISpeechObjectTokenCategory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3397299280, 11521, 16709, [134, 212, 90, 231, 215, 15, 68, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca7eac50_2d01_4145_86d4_5ae7d70f4469);
 }
 impl ::core::convert::From<ISpeechObjectTokenCategory> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechObjectTokenCategory) -> Self {
@@ -9340,7 +9340,7 @@ impl ISpeechObjectTokens {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechObjectTokens {
     type Vtable = ISpeechObjectTokens_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2458236790, 11899, 19392, [181, 62, 88, 14, 182, 250, 150, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9285b776_2e7b_4bc0_b53e_580eb6fa967f);
 }
 impl ::core::convert::From<ISpeechObjectTokens> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechObjectTokens) -> Self {
@@ -9433,7 +9433,7 @@ impl ISpeechPhoneConverter {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechPhoneConverter {
     type Vtable = ISpeechPhoneConverter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3286561619, 17215, 17366, [137, 161, 106, 98, 167, 5, 76, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3e4f353_433f_43d6_89a1_6a62a7054c3d);
 }
 impl ::core::convert::From<ISpeechPhoneConverter> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechPhoneConverter) -> Self {
@@ -9532,7 +9532,7 @@ impl ISpeechPhraseAlternate {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechPhraseAlternate {
     type Vtable = ISpeechPhraseAlternate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(663112234, 11167, 19640, [146, 211, 13, 39, 34, 253, 30, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27864a2a_2b9f_4cb8_92d3_0d2722fd1e73);
 }
 impl ::core::convert::From<ISpeechPhraseAlternate> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechPhraseAlternate) -> Self {
@@ -9621,7 +9621,7 @@ impl ISpeechPhraseAlternates {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechPhraseAlternates {
     type Vtable = ISpeechPhraseAlternates_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2990061269, 62070, 19517, [166, 193, 41, 116, 128, 28, 60, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb238b6d5_f276_4c3d_a6c1_2974801c3cc2);
 }
 impl ::core::convert::From<ISpeechPhraseAlternates> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechPhraseAlternates) -> Self {
@@ -9761,7 +9761,7 @@ impl ISpeechPhraseElement {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechPhraseElement {
     type Vtable = ISpeechPhraseElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3860295574, 58227, 18433, [178, 35, 59, 98, 192, 104, 192, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6176f96_e373_4801_b223_3b62c068c0b4);
 }
 impl ::core::convert::From<ISpeechPhraseElement> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechPhraseElement) -> Self {
@@ -9861,7 +9861,7 @@ impl ISpeechPhraseElements {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechPhraseElements {
     type Vtable = ISpeechPhraseElements_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(103199528, 13432, 18045, [160, 179, 208, 133, 59, 147, 221, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0626b328_3478_467d_a0b3_d0853b93dda3);
 }
 impl ::core::convert::From<ISpeechPhraseElements> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechPhraseElements) -> Self {
@@ -10020,7 +10020,7 @@ impl ISpeechPhraseInfo {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechPhraseInfo {
     type Vtable = ISpeechPhraseInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517981647, 20071, 18018, [139, 240, 217, 63, 31, 205, 97, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x961559cf_4e67_4662_8bf0_d93f1fcd61b3);
 }
 impl ::core::convert::From<ISpeechPhraseInfo> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechPhraseInfo) -> Self {
@@ -10118,7 +10118,7 @@ impl ISpeechPhraseInfoBuilder {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechPhraseInfoBuilder {
     type Vtable = ISpeechPhraseInfoBuilder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(991238198, 57146, 19978, [132, 108, 210, 173, 201, 51, 67, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b151836_df3a_4e0a_846c_d2adc9334333);
 }
 impl ::core::convert::From<ISpeechPhraseInfoBuilder> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechPhraseInfoBuilder) -> Self {
@@ -10204,7 +10204,7 @@ impl ISpeechPhraseProperties {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechPhraseProperties {
     type Vtable = ISpeechPhraseProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(135686983, 4142, 19235, [165, 153, 189, 185, 141, 191, 209, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08166b47_102e_4b23_a599_bdb98dbfd1f4);
 }
 impl ::core::convert::From<ISpeechPhraseProperties> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechPhraseProperties) -> Self {
@@ -10323,7 +10323,7 @@ impl ISpeechPhraseProperty {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechPhraseProperty {
     type Vtable = ISpeechPhraseProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3461758280, 38430, 18226, [162, 225, 55, 138, 66, 180, 48, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce563d48_961e_4732_a2e1_378a42b430be);
 }
 impl ::core::convert::From<ISpeechPhraseProperty> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechPhraseProperty) -> Self {
@@ -10424,7 +10424,7 @@ impl ISpeechPhraseReplacement {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechPhraseReplacement {
     type Vtable = ISpeechPhraseReplacement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(680567824, 21415, 20405, [148, 236, 6, 212, 153, 142, 61, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2890a410_53a7_4fb5_94ec_06d4998e3d02);
 }
 impl ::core::convert::From<ISpeechPhraseReplacement> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechPhraseReplacement) -> Self {
@@ -10513,7 +10513,7 @@ impl ISpeechPhraseReplacements {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechPhraseReplacements {
     type Vtable = ISpeechPhraseReplacements_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(951871023, 8791, 17701, [149, 158, 32, 105, 210, 89, 108, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38bc662f_2257_4525_959e_2069d2596c05);
 }
 impl ::core::convert::From<ISpeechPhraseReplacements> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechPhraseReplacements) -> Self {
@@ -10626,7 +10626,7 @@ impl ISpeechPhraseRule {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechPhraseRule {
     type Vtable = ISpeechPhraseRule_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2814370066, 42144, 18649, [182, 2, 195, 19, 132, 63, 105, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7bfe112_a4a0_48d9_b602_c313843f6964);
 }
 impl ::core::convert::From<ISpeechPhraseRule> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechPhraseRule) -> Self {
@@ -10719,7 +10719,7 @@ impl ISpeechPhraseRules {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechPhraseRules {
     type Vtable = ISpeechPhraseRules_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2420626835, 477, 19314, [129, 163, 228, 160, 202, 105, 244, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9047d593_01dd_4b72_81a3_e4a0ca69f407);
 }
 impl ::core::convert::From<ISpeechPhraseRules> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechPhraseRules) -> Self {
@@ -10909,7 +10909,7 @@ impl ISpeechRecoContext {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechRecoContext {
     type Vtable = ISpeechRecoContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1477092509, 32286, 18441, [184, 226, 87, 218, 128, 97, 4, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x580aa49d_7e1e_4809_b8e2_57da806104b8);
 }
 impl ::core::convert::From<ISpeechRecoContext> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechRecoContext) -> Self {
@@ -11099,7 +11099,7 @@ impl ISpeechRecoGrammar {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechRecoGrammar {
     type Vtable = ISpeechRecoGrammar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3067541407, 8536, 20048, [181, 188, 154, 156, 205, 133, 42, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6d6f79f_2158_4e50_b5bc_9a9ccd852a09);
 }
 impl ::core::convert::From<ISpeechRecoGrammar> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechRecoGrammar) -> Self {
@@ -11246,7 +11246,7 @@ impl ISpeechRecoResult {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechRecoResult {
     type Vtable = ISpeechRecoResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3978852815, 52953, 20198, [165, 52, 222, 1, 145, 213, 70, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed2879cf_ced9_4ee6_a534_de0191d5468d);
 }
 impl ::core::convert::From<ISpeechRecoResult> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechRecoResult) -> Self {
@@ -11412,7 +11412,7 @@ impl ISpeechRecoResult2 {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechRecoResult2 {
     type Vtable = ISpeechRecoResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2383029357, 54216, 17886, [134, 87, 4, 41, 12, 69, 140, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e0a246d_d3c8_45de_8657_04290c458c3c);
 }
 impl ::core::convert::From<ISpeechRecoResult2> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechRecoResult2) -> Self {
@@ -11579,7 +11579,7 @@ impl ISpeechRecoResultDispatch {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechRecoResultDispatch {
     type Vtable = ISpeechRecoResultDispatch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1835068260, 44269, 16550, [187, 243, 78, 85, 127, 113, 222, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d60eb64_aced_40a6_bbf3_4e557f71dee2);
 }
 impl ::core::convert::From<ISpeechRecoResultDispatch> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechRecoResultDispatch) -> Self {
@@ -11688,7 +11688,7 @@ impl ISpeechRecoResultTimes {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechRecoResultTimes {
     type Vtable = ISpeechRecoResultTimes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1655945467, 63207, 16830, [189, 203, 5, 107, 28, 41, 239, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62b3b8fb_f6e7_41be_bdcb_056b1c29efc0);
 }
 impl ::core::convert::From<ISpeechRecoResultTimes> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechRecoResultTimes) -> Self {
@@ -11894,7 +11894,7 @@ impl ISpeechRecognizer {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechRecognizer {
     type Vtable = ISpeechRecognizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(761207820, 48501, 19208, [148, 120, 59, 17, 254, 162, 88, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d5f1c0c_bd75_4b08_9478_3b11fea2586c);
 }
 impl ::core::convert::From<ISpeechRecognizer> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechRecognizer) -> Self {
@@ -12032,7 +12032,7 @@ impl ISpeechRecognizerStatus {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechRecognizerStatus {
     type Vtable = ISpeechRecognizerStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3220825985, 21484, 18510, [187, 138, 14, 27, 85, 81, 227, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbff9e781_53ec_484e_bb8a_0e1b5551e35c);
 }
 impl ::core::convert::From<ISpeechRecognizerStatus> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechRecognizerStatus) -> Self {
@@ -12125,7 +12125,7 @@ impl ISpeechResourceLoader {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechResourceLoader {
     type Vtable = ISpeechResourceLoader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3115079555, 64720, 19233, [177, 25, 180, 248, 218, 143, 210, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9ac5783_fcd0_4b21_b119_b4f8da8fd2c3);
 }
 impl ::core::convert::From<ISpeechResourceLoader> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechResourceLoader) -> Self {
@@ -12236,7 +12236,7 @@ impl ISpeechTextSelectionInformation {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechTextSelectionInformation {
     type Vtable = ISpeechTextSelectionInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1000111738, 28398, 19949, [144, 146, 17, 101, 114, 121, 173, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b9c7e7a_6eee_4ded_9092_11657279adbe);
 }
 impl ::core::convert::From<ISpeechTextSelectionInformation> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechTextSelectionInformation) -> Self {
@@ -12466,7 +12466,7 @@ impl ISpeechVoice {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechVoice {
     type Vtable = ISpeechVoice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(647173848, 22461, 4562, [158, 238, 0, 192, 79, 121, 115, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x269316d8_57bd_11d2_9eee_00c04f797396);
 }
 impl ::core::convert::From<ISpeechVoice> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechVoice) -> Self {
@@ -12634,7 +12634,7 @@ impl ISpeechVoiceStatus {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechVoiceStatus {
     type Vtable = ISpeechVoiceStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2347006727, 22518, 4562, [158, 238, 0, 192, 79, 121, 115, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8be47b07_57f6_11d2_9eee_00c04f797396);
 }
 impl ::core::convert::From<ISpeechVoiceStatus> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechVoiceStatus) -> Self {
@@ -12781,7 +12781,7 @@ impl ISpeechWaveFormatEx {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechWaveFormatEx {
     type Vtable = ISpeechWaveFormatEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2048848085, 5505, 18241, [136, 228, 32, 154, 73, 241, 26, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a1ef0d5_1581_4741_88e4_209a49f11a10);
 }
 impl ::core::convert::From<ISpeechWaveFormatEx> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechWaveFormatEx) -> Self {
@@ -12958,7 +12958,7 @@ impl ISpeechXMLRecoResult {
 }
 unsafe impl ::windows::runtime::Interface for ISpeechXMLRecoResult {
     type Vtable = ISpeechXMLRecoResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2867614895, 36741, 18724, [148, 77, 183, 157, 57, 215, 46, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaaec54af_8f85_4924_944d_b79d39d72e19);
 }
 impl ::core::convert::From<ISpeechXMLRecoResult> for ::windows::runtime::IUnknown {
     fn from(value: ISpeechXMLRecoResult) -> Self {
@@ -15406,34 +15406,34 @@ pub const SP_NORMAL_CONFIDENCE: u32 = 0u32;
 pub const SP_STREAMPOS_ASAP: u32 = 0u32;
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const SP_STREAMPOS_REALTIME: i32 = -1i32;
-pub const SpAudioFormat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2667145328, 57696, 18322, [130, 13, 72, 207, 6, 73, 228, 236]);
-pub const SpCompressedLexicon: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2425370390, 12098, 4563, [156, 38, 0, 192, 79, 142, 248, 124]);
-pub const SpCustomStream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2378101055, 6472, 19112, [140, 240, 4, 142, 235, 237, 149, 216]);
-pub const SpFileStream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2490897075, 10977, 17988, [186, 134, 158, 144, 222, 215, 236, 145]);
-pub const SpInProcRecoContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1940744258, 44256, 17896, [164, 221, 135, 149, 136, 26, 44, 42]);
-pub const SpInprocRecognizer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1102617451, 37785, 4562, [150, 35, 0, 192, 79, 142, 230, 40]);
-pub const SpLexicon: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(106292118, 9680, 4563, [156, 38, 0, 192, 79, 142, 248, 124]);
-pub const SpMMAudioEnum: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2870513824, 59679, 4562, [187, 145, 0, 192, 79, 142, 230, 192]);
-pub const SpMMAudioIn: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3476893264, 21490, 4562, [150, 12, 0, 192, 79, 142, 230, 40]);
-pub const SpMMAudioOut: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2831581419, 15666, 4562, [158, 231, 0, 192, 79, 121, 115, 150]);
-pub const SpMemoryStream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1605889917, 57332, 18058, [182, 183, 47, 203, 209, 136, 249, 148]);
-pub const SpNotifyTranslator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3803075442, 23872, 4562, [150, 14, 0, 192, 79, 142, 230, 40]);
-pub const SpNullPhoneConverter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1163863273, 29590, 18966, [151, 21, 124, 15, 219, 227, 239, 227]);
-pub const SpObjectToken: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4014020434, 14134, 19636, [156, 140, 142, 244, 204, 181, 142, 254]);
-pub const SpObjectTokenCategory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2836404351, 3194, 17836, [146, 204, 89, 237, 175, 183, 123, 83]);
-pub const SpPhoneConverter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2441475907, 4419, 19496, [134, 181, 191, 241, 79, 32, 229, 200]);
-pub const SpPhoneticAlphabetConverter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1329676582, 57315, 17961, [153, 238, 121, 121, 120, 49, 126, 173]);
-pub const SpPhraseInfoBuilder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3258958477, 50527, 18208, [139, 50, 145, 247, 60, 43, 213, 209]);
-pub const SpResourceManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2524222323, 13201, 4562, [158, 227, 0, 192, 79, 121, 115, 150]);
-pub const SpSharedRecoContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1193304580, 24266, 4562, [150, 15, 0, 192, 79, 142, 230, 40]);
-pub const SpSharedRecognizer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1005471888, 20457, 18999, [140, 30, 94, 126, 18, 121, 28, 31]);
-pub const SpShortcut: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(225586970, 40911, 20066, [150, 216, 109, 248, 240, 26, 38, 170]);
-pub const SpStream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1901960281, 17474, 4562, [150, 5, 0, 192, 79, 142, 230, 40]);
-pub const SpStreamFormatConverter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1880331322, 58092, 4562, [160, 134, 0, 192, 79, 142, 249, 181]);
-pub const SpTextSelectionInformation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(261227274, 52221, 19128, [161, 100, 255, 89, 133, 84, 127, 246]);
-pub const SpUnCompressedLexicon: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3387128853, 57234, 18215, [133, 214, 114, 229, 238, 182, 153, 90]);
-pub const SpVoice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2524222327, 13201, 4562, [158, 227, 0, 192, 79, 121, 115, 150]);
-pub const SpWaveFormatEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3348780876, 25534, 17593, [128, 31, 40, 63, 135, 248, 152, 190]);
+pub const SpAudioFormat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ef96870_e160_4792_820d_48cf0649e4ec);
+pub const SpCompressedLexicon: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90903716_2f42_11d3_9c26_00c04f8ef87c);
+pub const SpCustomStream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8dbef13f_1948_4aa8_8cf0_048eebed95d8);
+pub const SpFileStream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x947812b3_2ae1_4644_ba86_9e90ded7ec91);
+pub const SpInProcRecoContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73ad6842_ace0_45e8_a4dd_8795881a2c2a);
+pub const SpInprocRecognizer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41b89b6b_9399_11d2_9623_00c04f8ee628);
+pub const SpLexicon: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0655e396_25d0_11d3_9c26_00c04f8ef87c);
+pub const SpMMAudioEnum: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab1890a0_e91f_11d2_bb91_00c04f8ee6c0);
+pub const SpMMAudioIn: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf3d2e50_53f2_11d2_960c_00c04f8ee628);
+pub const SpMMAudioOut: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8c680eb_3d32_11d2_9ee7_00c04f797396);
+pub const SpMemoryStream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5fb7ef7d_dff4_468a_b6b7_2fcbd188f994);
+pub const SpNotifyTranslator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2ae5372_5d40_11d2_960e_00c04f8ee628);
+pub const SpNullPhoneConverter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x455f24e9_7396_4a16_9715_7c0fdbe3efe3);
+pub const SpObjectToken: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef411752_3736_4cb4_9c8c_8ef4ccb58efe);
+pub const SpObjectTokenCategory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa910187f_0c7a_45ac_92cc_59edafb77b53);
+pub const SpPhoneConverter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9185f743_1143_4c28_86b5_bff14f20e5c8);
+pub const SpPhoneticAlphabetConverter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f414126_dfe3_4629_99ee_797978317ead);
+pub const SpPhraseInfoBuilder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc23fc28d_c55f_4720_8b32_91f73c2bd5d1);
+pub const SpResourceManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96749373_3391_11d2_9ee3_00c04f797396);
+pub const SpSharedRecoContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47206204_5eca_11d2_960f_00c04f8ee628);
+pub const SpSharedRecognizer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3bee4890_4fe9_4a37_8c1e_5e7e12791c1f);
+pub const SpShortcut: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d722f1a_9fcf_4e62_96d8_6df8f01a26aa);
+pub const SpStream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x715d9c59_4442_11d2_9605_00c04f8ee628);
+pub const SpStreamFormatConverter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7013943a_e2ec_11d2_a086_00c04f8ef9b5);
+pub const SpTextSelectionInformation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f92030a_cbfd_4ab8_a164_ff5985547ff6);
+pub const SpUnCompressedLexicon: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9e37c15_df92_4727_85d6_72e5eeb6995a);
+pub const SpVoice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96749377_3391_11d2_9ee3_00c04f797396);
+pub const SpWaveFormatEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc79a574c_63be_44b9_801f_283f87f898be);
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const SpeechAllElements: i32 = -1i32;
 #[doc = "*Required features: `Win32_Media_Speech`*"]
@@ -16202,7 +16202,7 @@ pub struct _ISpeechRecoContextEvents(pub ::windows::runtime::IUnknown);
 impl _ISpeechRecoContextEvents {}
 unsafe impl ::windows::runtime::Interface for _ISpeechRecoContextEvents {
     type Vtable = _ISpeechRecoContextEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2073021250, 3741, 20224, [160, 72, 123, 4, 214, 23, 157, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b8fcb42_0e9d_4f00_a048_7b04d6179d3d);
 }
 impl ::core::convert::From<_ISpeechRecoContextEvents> for ::windows::runtime::IUnknown {
     fn from(value: _ISpeechRecoContextEvents) -> Self {
@@ -16270,7 +16270,7 @@ pub struct _ISpeechVoiceEvents(pub ::windows::runtime::IUnknown);
 impl _ISpeechVoiceEvents {}
 unsafe impl ::windows::runtime::Interface for _ISpeechVoiceEvents {
     type Vtable = _ISpeechVoiceEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2742201553, 15343, 19389, [143, 251, 203, 62, 43, 65, 106, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa372acd1_3bef_4bbd_8ffb_cb3e2b416af8);
 }
 impl ::core::convert::From<_ISpeechVoiceEvents> for ::windows::runtime::IUnknown {
     fn from(value: _ISpeechVoiceEvents) -> Self {

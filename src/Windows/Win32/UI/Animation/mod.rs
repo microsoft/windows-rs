@@ -39,7 +39,7 @@ impl IUIAnimationInterpolator {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationInterpolator {
     type Vtable = IUIAnimationInterpolator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2014694330, 56823, 18316, [164, 108, 123, 108, 115, 139, 121, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7815cbba_ddf7_478c_a46c_7b6c738b7978);
 }
 impl ::core::convert::From<IUIAnimationInterpolator> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationInterpolator) -> Self {
@@ -121,7 +121,7 @@ impl IUIAnimationInterpolator2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationInterpolator2 {
     type Vtable = IUIAnimationInterpolator2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3933646840, 59938, 18979, [160, 239, 166, 169, 102, 112, 53, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea76aff8_ea22_4a23_a0ef_a6a966703518);
 }
 impl ::core::convert::From<IUIAnimationInterpolator2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationInterpolator2) -> Self {
@@ -171,7 +171,7 @@ impl IUIAnimationLoopIterationChangeHandler2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationLoopIterationChangeHandler2 {
     type Vtable = IUIAnimationLoopIterationChangeHandler2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(758846884, 18274, 18347, [160, 48, 178, 50, 33, 223, 58, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d3b15a4_4762_47ab_a030_b23221df3ae0);
 }
 impl ::core::convert::From<IUIAnimationLoopIterationChangeHandler2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationLoopIterationChangeHandler2) -> Self {
@@ -291,7 +291,7 @@ impl IUIAnimationManager {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationManager {
     type Vtable = IUIAnimationManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2439612780, 44173, 20093, [148, 229, 103, 250, 77, 194, 242, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9169896c_ac8d_4e7d_94e5_67fa4dc2f2e8);
 }
 impl ::core::convert::From<IUIAnimationManager> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationManager) -> Self {
@@ -440,7 +440,7 @@ impl IUIAnimationManager2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationManager2 {
     type Vtable = IUIAnimationManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3635869652, 16649, 19775, [172, 238, 135, 153, 38, 150, 140, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8b6f7d4_4109_4d3f_acee_879926968cb1);
 }
 impl ::core::convert::From<IUIAnimationManager2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationManager2) -> Self {
@@ -503,7 +503,7 @@ impl IUIAnimationManagerEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationManagerEventHandler {
     type Vtable = IUIAnimationManagerEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2016616941, 30883, 17254, [181, 116, 106, 246, 7, 166, 71, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x783321ed_78a3_4366_b574_6af607a64788);
 }
 impl ::core::convert::From<IUIAnimationManagerEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationManagerEventHandler) -> Self {
@@ -545,7 +545,7 @@ impl IUIAnimationManagerEventHandler2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationManagerEventHandler2 {
     type Vtable = IUIAnimationManagerEventHandler2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4141884090, 49139, 17132, [144, 51, 224, 115, 243, 62, 131, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6e022ba_bff3_42ec_9033_e073f33e83c3);
 }
 impl ::core::convert::From<IUIAnimationManagerEventHandler2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationManagerEventHandler2) -> Self {
@@ -591,7 +591,7 @@ impl IUIAnimationPrimitiveInterpolation {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationPrimitiveInterpolation {
     type Vtable = IUIAnimationPrimitiveInterpolation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3132231011, 17249, 17882, [162, 79, 171, 133, 8, 132, 107, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbab20d63_4361_45da_a24f_ab8508846b5b);
 }
 impl ::core::convert::From<IUIAnimationPrimitiveInterpolation> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationPrimitiveInterpolation) -> Self {
@@ -634,7 +634,7 @@ impl IUIAnimationPriorityComparison {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationPriorityComparison {
     type Vtable = IUIAnimationPriorityComparison_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2214239092, 24454, 17944, [188, 106, 162, 250, 193, 155, 63, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83fa9b74_5f86_4618_bc6a_a2fac19b3f44);
 }
 impl ::core::convert::From<IUIAnimationPriorityComparison> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationPriorityComparison) -> Self {
@@ -676,7 +676,7 @@ impl IUIAnimationPriorityComparison2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationPriorityComparison2 {
     type Vtable = IUIAnimationPriorityComparison2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1533901367, 17953, 18044, [139, 5, 112, 19, 29, 230, 45, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b6d7a37_4621_467c_8b05_70131de62ddb);
 }
 impl ::core::convert::From<IUIAnimationPriorityComparison2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationPriorityComparison2) -> Self {
@@ -787,7 +787,7 @@ impl IUIAnimationStoryboard {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationStoryboard {
     type Vtable = IUIAnimationStoryboard_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2835288719, 39929, 19185, [158, 103, 229, 228, 16, 222, 251, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8ff128f_9bf9_4af1_9e67_e5e410defb84);
 }
 impl ::core::convert::From<IUIAnimationStoryboard> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationStoryboard) -> Self {
@@ -929,7 +929,7 @@ impl IUIAnimationStoryboard2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationStoryboard2 {
     type Vtable = IUIAnimationStoryboard2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2921897170, 4820, 18757, [148, 25, 158, 65, 190, 3, 77, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae289cd2_12d4_4945_9419_9e41be034df2);
 }
 impl ::core::convert::From<IUIAnimationStoryboard2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationStoryboard2) -> Self {
@@ -994,7 +994,7 @@ impl IUIAnimationStoryboardEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationStoryboardEventHandler {
     type Vtable = IUIAnimationStoryboardEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029476360, 60540, 17252, [159, 138, 154, 243, 197, 140, 186, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d5c9008_ec7c_4364_9f8a_9af3c58cbae6);
 }
 impl ::core::convert::From<IUIAnimationStoryboardEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationStoryboardEventHandler) -> Self {
@@ -1041,7 +1041,7 @@ impl IUIAnimationStoryboardEventHandler2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationStoryboardEventHandler2 {
     type Vtable = IUIAnimationStoryboardEventHandler2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3133535578, 47740, 16716, [181, 153, 251, 248, 80, 245, 83, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbac5f55a_ba7c_414c_b599_fbf850f553c6);
 }
 impl ::core::convert::From<IUIAnimationStoryboardEventHandler2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationStoryboardEventHandler2) -> Self {
@@ -1109,7 +1109,7 @@ impl IUIAnimationTimer {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationTimer {
     type Vtable = IUIAnimationTimer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1796143825, 41043, 16854, [144, 133, 51, 166, 137, 20, 70, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b0efad1_a053_41d6_9085_33a689144665);
 }
 impl ::core::convert::From<IUIAnimationTimer> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationTimer) -> Self {
@@ -1157,7 +1157,7 @@ impl IUIAnimationTimerClientEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationTimerClientEventHandler {
     type Vtable = IUIAnimationTimerClientEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3202043318, 38138, 19451, [164, 127, 239, 45, 158, 64, 140, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbedb4db6_94fa_4bfb_a47f_ef2d9e408c25);
 }
 impl ::core::convert::From<IUIAnimationTimerClientEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationTimerClientEventHandler) -> Self {
@@ -1207,7 +1207,7 @@ impl IUIAnimationTimerEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationTimerEventHandler {
     type Vtable = IUIAnimationTimerEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(659193322, 55153, 16533, [171, 189, 141, 247, 171, 210, 60, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x274a7dea_d771_4095_abbd_8df7abd23ce3);
 }
 impl ::core::convert::From<IUIAnimationTimerEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationTimerEventHandler) -> Self {
@@ -1260,7 +1260,7 @@ impl IUIAnimationTimerUpdateHandler {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationTimerUpdateHandler {
     type Vtable = IUIAnimationTimerUpdateHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(425003447, 23902, 20030, [178, 120, 238, 55, 89, 179, 103, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x195509b7_5d5e_4e3e_b278_ee3759b367ad);
 }
 impl ::core::convert::From<IUIAnimationTimerUpdateHandler> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationTimerUpdateHandler) -> Self {
@@ -1317,7 +1317,7 @@ impl IUIAnimationTransition {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationTransition {
     type Vtable = IUIAnimationTransition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3698123346, 63281, 16847, [182, 16, 97, 75, 108, 160, 73, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc6ce252_f731_41cf_b610_614b6ca049ad);
 }
 impl ::core::convert::From<IUIAnimationTransition> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationTransition) -> Self {
@@ -1388,7 +1388,7 @@ impl IUIAnimationTransition2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationTransition2 {
     type Vtable = IUIAnimationTransition2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1660916003, 43098, 20123, [162, 24, 67, 90, 147, 226, 104, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62ff9123_a85a_4e9b_a218_435a93e268fd);
 }
 impl ::core::convert::From<IUIAnimationTransition2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationTransition2) -> Self {
@@ -1437,7 +1437,7 @@ impl IUIAnimationTransitionFactory {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationTransitionFactory {
     type Vtable = IUIAnimationTransitionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4242087427, 15931, 17837, [187, 177, 109, 252, 129, 83, 116, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcd91e03_3e3b_45ad_bbb1_6dfc8153743d);
 }
 impl ::core::convert::From<IUIAnimationTransitionFactory> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationTransitionFactory) -> Self {
@@ -1480,7 +1480,7 @@ impl IUIAnimationTransitionFactory2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationTransitionFactory2 {
     type Vtable = IUIAnimationTransitionFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2474461462, 49574, 17109, [136, 216, 48, 52, 77, 110, 254, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x937d4916_c1a6_42d5_88d8_30344d6efe31);
 }
 impl ::core::convert::From<IUIAnimationTransitionFactory2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationTransitionFactory2) -> Self {
@@ -1578,7 +1578,7 @@ impl IUIAnimationTransitionLibrary {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationTransitionLibrary {
     type Vtable = IUIAnimationTransitionLibrary_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3394901169, 53839, 18616, [143, 228, 199, 129, 105, 186, 149, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca5a14b1_d24f_48b8_8fe4_c78169ba954e);
 }
 impl ::core::convert::From<IUIAnimationTransitionLibrary> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationTransitionLibrary) -> Self {
@@ -1722,7 +1722,7 @@ impl IUIAnimationTransitionLibrary2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationTransitionLibrary2 {
     type Vtable = IUIAnimationTransitionLibrary2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(63942227, 38272, 20195, [179, 99, 46, 206, 81, 180, 175, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03cfae53_9580_4ee3_b363_2ece51b4af6a);
 }
 impl ::core::convert::From<IUIAnimationTransitionLibrary2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationTransitionLibrary2) -> Self {
@@ -1841,7 +1841,7 @@ impl IUIAnimationVariable {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationVariable {
     type Vtable = IUIAnimationVariable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2364453205, 10313, 19685, [148, 72, 145, 255, 112, 225, 228, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ceeb155_2849_4ce5_9448_91ff70e1e4d9);
 }
 impl ::core::convert::From<IUIAnimationVariable> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationVariable) -> Self {
@@ -2008,7 +2008,7 @@ impl IUIAnimationVariable2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationVariable2 {
     type Vtable = IUIAnimationVariable2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1226093316, 38571, 17625, [158, 119, 213, 16, 155, 126, 116, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4914b304_96ab_44d9_9e77_d5109b7e7466);
 }
 impl ::core::convert::From<IUIAnimationVariable2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationVariable2) -> Self {
@@ -2079,7 +2079,7 @@ impl IUIAnimationVariableChangeHandler {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationVariableChangeHandler {
     type Vtable = IUIAnimationVariableChangeHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1666758586, 34770, 17109, [191, 113, 130, 233, 25, 221, 88, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6358b7ba_87d2_42d5_bf71_82e919dd5862);
 }
 impl ::core::convert::From<IUIAnimationVariableChangeHandler> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationVariableChangeHandler) -> Self {
@@ -2121,7 +2121,7 @@ impl IUIAnimationVariableChangeHandler2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationVariableChangeHandler2 {
     type Vtable = IUIAnimationVariableChangeHandler2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1672267986, 28334, 19376, [184, 121, 88, 109, 216, 207, 190, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63acc8d2_6eae_4bb0_b879_586dd8cfbe42);
 }
 impl ::core::convert::From<IUIAnimationVariableChangeHandler2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationVariableChangeHandler2) -> Self {
@@ -2163,7 +2163,7 @@ impl IUIAnimationVariableCurveChangeHandler2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationVariableCurveChangeHandler2 {
     type Vtable = IUIAnimationVariableCurveChangeHandler2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921605265, 325, 19489, [145, 146, 90, 171, 64, 237, 223, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72895e91_0145_4c21_9192_5aab40eddf80);
 }
 impl ::core::convert::From<IUIAnimationVariableCurveChangeHandler2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationVariableCurveChangeHandler2) -> Self {
@@ -2205,7 +2205,7 @@ impl IUIAnimationVariableIntegerChangeHandler {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationVariableIntegerChangeHandler {
     type Vtable = IUIAnimationVariableIntegerChangeHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3141408080, 13678, 17584, [153, 218, 133, 172, 96, 23, 134, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb3e1550_356e_44b0_99da_85ac6017865e);
 }
 impl ::core::convert::From<IUIAnimationVariableIntegerChangeHandler> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationVariableIntegerChangeHandler) -> Self {
@@ -2247,7 +2247,7 @@ impl IUIAnimationVariableIntegerChangeHandler2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAnimationVariableIntegerChangeHandler2 {
     type Vtable = IUIAnimationVariableIntegerChangeHandler2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2191224049, 20282, 17426, [174, 9, 178, 67, 235, 76, 107, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x829b6cf1_4f3a_4412_ae09_b243eb4c6b58);
 }
 impl ::core::convert::From<IUIAnimationVariableIntegerChangeHandler2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAnimationVariableIntegerChangeHandler2) -> Self {
@@ -2277,13 +2277,13 @@ pub struct IUIAnimationVariableIntegerChangeHandler2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, storyboard: ::windows::runtime::RawPtr, variable: ::windows::runtime::RawPtr, newvalue: *const i32, previousvalue: *const i32, cdimension: u32) -> ::windows::runtime::HRESULT,
 );
-pub const UIAnimationManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1277150778, 26972, 18408, [163, 57, 26, 25, 75, 227, 208, 184]);
-pub const UIAnimationManager2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3529345090, 34948, 19018, [179, 33, 9, 19, 20, 55, 155, 221]);
-pub const UIAnimationTimer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3217902092, 1718, 17284, [183, 104, 13, 170, 121, 44, 56, 14]);
-pub const UIAnimationTransitionFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2325421277, 64727, 16796, [139, 68, 66, 253, 23, 219, 24, 135]);
-pub const UIAnimationTransitionFactory2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2217750423, 32635, 16448, [177, 144, 114, 172, 157, 24, 228, 32]);
-pub const UIAnimationTransitionLibrary: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(493036205, 43653, 20213, [168, 40, 134, 215, 16, 103, 209, 69]);
-pub const UIAnimationTransitionLibrary2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2167379018, 50632, 19673, [176, 166, 179, 218, 128, 47, 34, 141]);
+pub const UIAnimationManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c1fc63a_695c_47e8_a339_1a194be3d0b8);
+pub const UIAnimationManager2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd25d8842_8884_4a4a_b321_091314379bdd);
+pub const UIAnimationTimer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfcd4a0c_06b6_4384_b768_0daa792c380e);
+pub const UIAnimationTransitionFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a9b1cdd_fcd7_419c_8b44_42fd17db1887);
+pub const UIAnimationTransitionFactory2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84302f97_7f7b_4040_b190_72ac9d18e420);
+pub const UIAnimationTransitionLibrary: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d6322ad_aa85_4ef5_a828_86d71067d145);
+pub const UIAnimationTransitionLibrary2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x812f944a_c5c8_4cd9_b0a6_b3da802f228d);
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]

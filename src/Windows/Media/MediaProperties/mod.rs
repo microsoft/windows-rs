@@ -182,7 +182,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioEncodingProperties {
 }
 unsafe impl ::windows::runtime::Interface for AudioEncodingProperties {
     type Vtable = IAudioEncodingProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1656519190, 92, 19259, [138, 11, 10, 9, 14, 150, 135, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62bc7a16_005c_4b3b_8a0b_0a090e9687f3);
 }
 impl ::windows::runtime::RuntimeName for AudioEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.AudioEncodingProperties";
@@ -331,7 +331,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContainerEncodingProperties {
 }
 unsafe impl ::windows::runtime::Interface for ContainerEncodingProperties {
     type Vtable = IContainerEncodingProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1504455255, 45866, 18334, [138, 97, 75, 127, 46, 158, 126, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59ac2a57_b32a_479e_8a61_4b7f2e9e7ea0);
 }
 impl ::windows::runtime::RuntimeName for ContainerEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.ContainerEncodingProperties";
@@ -486,7 +486,7 @@ impl ::windows::runtime::RuntimeName for H264ProfileIds {
 pub struct IAudioEncodingProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioEncodingProperties {
     type Vtable = IAudioEncodingProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1656519190, 92, 19259, [138, 11, 10, 9, 14, 150, 135, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62bc7a16_005c_4b3b_8a0b_0a090e9687f3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -511,7 +511,7 @@ pub struct IAudioEncodingProperties_abi(
 pub struct IAudioEncodingProperties2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioEncodingProperties2 {
     type Vtable = IAudioEncodingProperties2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3294450906, 32957, 19491, [128, 213, 114, 212, 161, 129, 232, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc45d54da_80bd_4c23_80d5_72d4a181e894);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -529,7 +529,7 @@ pub struct IAudioEncodingProperties2_abi(
 pub struct IAudioEncodingProperties3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioEncodingProperties3 {
     type Vtable = IAudioEncodingProperties3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2271216449, 29836, 20365, [176, 253, 16, 202, 240, 143, 240, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87600341_748c_4f8d_b0fd_10caf08ff087);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -547,7 +547,7 @@ pub struct IAudioEncodingProperties3_abi(
 pub struct IAudioEncodingPropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioEncodingPropertiesStatics {
     type Vtable = IAudioEncodingPropertiesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(212677420, 60393, 17703, [179, 109, 228, 42, 19, 207, 56, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cad332c_ebe9_4527_b36d_e42a13cf38db);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -569,7 +569,7 @@ pub struct IAudioEncodingPropertiesStatics_abi(
 pub struct IAudioEncodingPropertiesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioEncodingPropertiesStatics2 {
     type Vtable = IAudioEncodingPropertiesStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1955148143, 30624, 17213, [142, 213, 64, 64, 40, 14, 134, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7489316f_77a0_433d_8ed5_4040280e8665);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -588,7 +588,7 @@ pub struct IAudioEncodingPropertiesStatics2_abi(
 pub struct IAudioEncodingPropertiesWithFormatUserData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioEncodingPropertiesWithFormatUserData {
     type Vtable = IAudioEncodingPropertiesWithFormatUserData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2565934457, 5098, 18943, [190, 112, 38, 115, 219, 105, 112, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98f10d79_13ea_49ff_be70_2673db69702c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -607,7 +607,7 @@ pub struct IAudioEncodingPropertiesWithFormatUserData_abi(
 pub struct IContainerEncodingProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContainerEncodingProperties {
     type Vtable = IContainerEncodingProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1504455255, 45866, 18334, [138, 97, 75, 127, 46, 158, 126, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59ac2a57_b32a_479e_8a61_4b7f2e9e7ea0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -624,7 +624,7 @@ pub struct IContainerEncodingProperties_abi(
 pub struct IContainerEncodingProperties2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContainerEncodingProperties2 {
     type Vtable = IContainerEncodingProperties2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2993864745, 44582, 18457, [186, 173, 173, 122, 73, 176, 168, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb272c029_ae26_4819_baad_ad7a49b0a876);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -642,7 +642,7 @@ pub struct IContainerEncodingProperties2_abi(
 pub struct IH264ProfileIdsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IH264ProfileIdsStatics {
     type Vtable = IH264ProfileIdsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(946162855, 33898, 20375, [162, 229, 195, 161, 91, 191, 112, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38654ca7_846a_4f97_a2e5_c3a15bbf70fd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -669,7 +669,7 @@ pub struct IH264ProfileIdsStatics_abi(
 pub struct IImageEncodingProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageEncodingProperties {
     type Vtable = IImageEncodingProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2019710517, 62257, 16777, [177, 195, 180, 141, 90, 224, 52, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78625635_f331_4189_b1c3_b48d5ae034f1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -690,7 +690,7 @@ pub struct IImageEncodingProperties_abi(
 pub struct IImageEncodingProperties2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageEncodingProperties2 {
     type Vtable = IImageEncodingProperties2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3360989919, 51491, 18075, [172, 142, 106, 159, 60, 28, 217, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc854a2df_c923_469b_ac8e_6a9f3c1cd9e3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -708,7 +708,7 @@ pub struct IImageEncodingProperties2_abi(
 pub struct IImageEncodingPropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageEncodingPropertiesStatics {
     type Vtable = IImageEncodingPropertiesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(628910300, 35737, 17310, [170, 89, 145, 58, 54, 22, 18, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x257c68dc_8b99_439e_aa59_913a36161297);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -728,7 +728,7 @@ pub struct IImageEncodingPropertiesStatics_abi(
 pub struct IImageEncodingPropertiesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageEncodingPropertiesStatics2 {
     type Vtable = IImageEncodingPropertiesStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4139932457, 14372, 18096, [149, 110, 80, 19, 41, 225, 190, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6c25b29_3824_46b0_956e_501329e1be3c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -747,7 +747,7 @@ pub struct IImageEncodingPropertiesStatics2_abi(
 pub struct IImageEncodingPropertiesStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageEncodingPropertiesStatics3 {
     type Vtable = IImageEncodingPropertiesStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1223983437, 41727, 18652, [142, 160, 233, 6, 128, 102, 54, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48f4814d_a2ff_48dc_8ea0_e90680663656);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -765,7 +765,7 @@ pub struct IImageEncodingPropertiesStatics3_abi(
 pub struct IMediaEncodingProfile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingProfile {
     type Vtable = IMediaEncodingProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3889952168, 7609, 18307, [135, 107, 61, 254, 18, 172, 253, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7dbf5a8_1db9_4783_876b_3dfe12acfdb3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -788,7 +788,7 @@ pub struct IMediaEncodingProfile_abi(
 pub struct IMediaEncodingProfile2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingProfile2 {
     type Vtable = IMediaEncodingProfile2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(882589194, 16437, 18574, [152, 119, 133, 99, 40, 101, 237, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x349b3e0a_4035_488e_9877_85632865ed10);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -813,7 +813,7 @@ pub struct IMediaEncodingProfile2_abi(
 pub struct IMediaEncodingProfile3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingProfile3 {
     type Vtable = IMediaEncodingProfile3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3127819912, 30064, 20073, [172, 207, 86, 17, 173, 1, 95, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba6ebe88_7570_4e69_accf_5611ad015f88);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -834,7 +834,7 @@ pub struct IMediaEncodingProfile3_abi(
 pub struct IMediaEncodingProfileStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingProfileStatics {
     type Vtable = IMediaEncodingProfileStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(427767084, 11998, 19013, [168, 150, 129, 122, 72, 84, 248, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x197f352c_2ede_4a45_a896_817a4854f8fe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -860,7 +860,7 @@ pub struct IMediaEncodingProfileStatics_abi(
 pub struct IMediaEncodingProfileStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingProfileStatics2 {
     type Vtable = IMediaEncodingProfileStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3465406287, 27380, 17032, [143, 226, 121, 173, 241, 247, 154, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce8de74f_6af4_4288_8fe2_79adf1f79a43);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -879,7 +879,7 @@ pub struct IMediaEncodingProfileStatics2_abi(
 pub struct IMediaEncodingProfileStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingProfileStatics3 {
     type Vtable = IMediaEncodingProfileStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2430256554, 53110, 17044, [169, 237, 26, 20, 32, 245, 31, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90dac5aa_cf76_4294_a9ed_1a1420f51f6b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -900,7 +900,7 @@ pub struct IMediaEncodingProfileStatics3_abi(
 pub struct IMediaEncodingProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingProperties {
     type Vtable = IMediaEncodingProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3019909878, 44244, 20058, [162, 75, 93, 116, 152, 168, 184, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4002af6_acd4_4e5a_a24b_5d7498a8b8c4);
 }
 impl IMediaEncodingProperties {
     #[cfg(feature = "Foundation_Collections")]
@@ -997,7 +997,7 @@ pub struct IMediaEncodingProperties_abi(
 pub struct IMediaEncodingSubtypesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingSubtypesStatics {
     type Vtable = IMediaEncodingSubtypesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(934696974, 41329, 17508, [186, 90, 83, 24, 158, 72, 193, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x37b6580e_a171_4464_ba5a_53189e48c1c8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1054,7 +1054,7 @@ pub struct IMediaEncodingSubtypesStatics_abi(
 pub struct IMediaEncodingSubtypesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingSubtypesStatics2 {
     type Vtable = IMediaEncodingSubtypesStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1266471485, 17151, 19763, [133, 49, 6, 38, 190, 228, 181, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b7cd23d_42ff_4d33_8531_0626bee4b52d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1075,7 +1075,7 @@ pub struct IMediaEncodingSubtypesStatics2_abi(
 pub struct IMediaEncodingSubtypesStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingSubtypesStatics3 {
     type Vtable = IMediaEncodingSubtypesStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3122926820, 34877, 17998, [164, 79, 9, 125, 160, 142, 247, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba2414e4_883d_464e_a44f_097da08ef7ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1094,7 +1094,7 @@ pub struct IMediaEncodingSubtypesStatics3_abi(
 pub struct IMediaEncodingSubtypesStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingSubtypesStatics4 {
     type Vtable = IMediaEncodingSubtypesStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3723289994, 14665, 17988, [138, 44, 89, 239, 2, 198, 66, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddece58a_3949_4644_8a2c_59ef02c642fa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1112,7 +1112,7 @@ pub struct IMediaEncodingSubtypesStatics4_abi(
 pub struct IMediaEncodingSubtypesStatics5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingSubtypesStatics5 {
     type Vtable = IMediaEncodingSubtypesStatics5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1523884039, 65486, 18272, [152, 40, 93, 12, 153, 99, 126, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ad4a007_ffce_4760_9828_5d0c99637e6a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1130,7 +1130,7 @@ pub struct IMediaEncodingSubtypesStatics5_abi(
 pub struct IMediaEncodingSubtypesStatics6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingSubtypesStatics6 {
     type Vtable = IMediaEncodingSubtypesStatics6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2703567219, 43396, 22802, [147, 187, 84, 231, 229, 105, 224, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1252973_a984_5912_93bb_54e7e569e053);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1151,7 +1151,7 @@ pub struct IMediaEncodingSubtypesStatics6_abi(
 pub struct IMediaRatio(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaRatio {
     type Vtable = IMediaRatio_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3536912101, 35113, 16413, [172, 120, 125, 53, 126, 55, 129, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2d0fee5_8929_401d_ac78_7d357e378163);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1172,7 +1172,7 @@ pub struct IMediaRatio_abi(
 pub struct IMpeg2ProfileIdsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMpeg2ProfileIdsStatics {
     type Vtable = IMpeg2ProfileIdsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2757885829, 58746, 16680, [155, 33, 213, 51, 27, 4, 35, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa461ff85_e57a_4128_9b21_d5331b04235c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1194,7 +1194,7 @@ pub struct IMpeg2ProfileIdsStatics_abi(
 pub struct ITimedMetadataEncodingProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataEncodingProperties {
     type Vtable = ITimedMetadataEncodingProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1372401875, 54928, 19706, [151, 244, 74, 57, 142, 157, 180, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51cd30d3_d690_4cfa_97f4_4a398e9db420);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1214,7 +1214,7 @@ pub struct ITimedMetadataEncodingProperties_abi(
 pub struct ITimedMetadataEncodingPropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataEncodingPropertiesStatics {
     type Vtable = ITimedMetadataEncodingPropertiesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1714010983, 28245, 22083, [137, 160, 122, 126, 141, 133, 181, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6629bb67_6e55_5643_89a0_7a7e8d85b52c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1235,7 +1235,7 @@ pub struct ITimedMetadataEncodingPropertiesStatics_abi(
 pub struct IVideoEncodingProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoEncodingProperties {
     type Vtable = IVideoEncodingProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1995336858, 14274, 20266, [136, 10, 18, 130, 187, 180, 55, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76ee6c9a_37c2_4f2a_880a_1282bbb4373d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1260,7 +1260,7 @@ pub struct IVideoEncodingProperties_abi(
 pub struct IVideoEncodingProperties2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoEncodingProperties2 {
     type Vtable = IVideoEncodingProperties2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4148404719, 54373, 17040, [169, 75, 239, 15, 21, 40, 248, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf743a1ef_d465_4290_a94b_ef0f1528f8e3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1281,7 +1281,7 @@ pub struct IVideoEncodingProperties2_abi(
 pub struct IVideoEncodingProperties3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoEncodingProperties3 {
     type Vtable = IVideoEncodingProperties3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(946589124, 34618, 18335, [179, 235, 86, 193, 252, 190, 198, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x386bcdc4_873a_479f_b3eb_56c1fcbec6d7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1299,7 +1299,7 @@ pub struct IVideoEncodingProperties3_abi(
 pub struct IVideoEncodingProperties4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoEncodingProperties4 {
     type Vtable = IVideoEncodingProperties4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1917775892, 49420, 16626, [157, 114, 62, 225, 59, 69, 250, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x724ef014_c10c_40f2_9d72_3ee13b45fa8e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1317,7 +1317,7 @@ pub struct IVideoEncodingProperties4_abi(
 pub struct IVideoEncodingProperties5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoEncodingProperties5 {
     type Vtable = IVideoEncodingProperties5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1230571535, 10031, 20174, [164, 223, 192, 204, 219, 51, 216, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4959080f_272f_4ece_a4df_c0ccdb33d840);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1335,7 +1335,7 @@ pub struct IVideoEncodingProperties5_abi(
 pub struct IVideoEncodingPropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoEncodingPropertiesStatics {
     type Vtable = IVideoEncodingPropertiesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1021398340, 7621, 17371, [159, 56, 235, 235, 249, 1, 82, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ce14d44_1dc5_43db_9f38_ebebf90152cb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1355,7 +1355,7 @@ pub struct IVideoEncodingPropertiesStatics_abi(
 pub struct IVideoEncodingPropertiesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoEncodingPropertiesStatics2 {
     type Vtable = IVideoEncodingPropertiesStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3474898269, 18942, 19712, [181, 154, 207, 164, 223, 197, 25, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf1ebd5d_49fe_4d00_b59a_cfa4dfc51944);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1504,7 +1504,7 @@ unsafe impl ::windows::runtime::RuntimeType for ImageEncodingProperties {
 }
 unsafe impl ::windows::runtime::Interface for ImageEncodingProperties {
     type Vtable = IImageEncodingProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2019710517, 62257, 16777, [177, 195, 180, 141, 90, 224, 52, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78625635_f331_4189_b1c3_b48d5ae034f1);
 }
 impl ::windows::runtime::RuntimeName for ImageEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.ImageEncodingProperties";
@@ -1773,7 +1773,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaEncodingProfile {
 }
 unsafe impl ::windows::runtime::Interface for MediaEncodingProfile {
     type Vtable = IMediaEncodingProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3889952168, 7609, 18307, [135, 107, 61, 254, 18, 172, 253, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7dbf5a8_1db9_4783_876b_3dfe12acfdb3);
 }
 impl ::windows::runtime::RuntimeName for MediaEncodingProfile {
     const NAME: &'static str = "Windows.Media.MediaProperties.MediaEncodingProfile";
@@ -2538,7 +2538,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaRatio {
 }
 unsafe impl ::windows::runtime::Interface for MediaRatio {
     type Vtable = IMediaRatio_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3536912101, 35113, 16413, [172, 120, 125, 53, 126, 55, 129, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2d0fee5_8929_401d_ac78_7d357e378163);
 }
 impl ::windows::runtime::RuntimeName for MediaRatio {
     const NAME: &'static str = "Windows.Media.MediaProperties.MediaRatio";
@@ -2821,7 +2821,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimedMetadataEncodingProperties 
 }
 unsafe impl ::windows::runtime::Interface for TimedMetadataEncodingProperties {
     type Vtable = IMediaEncodingProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3019909878, 44244, 20058, [162, 75, 93, 116, 152, 168, 184, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4002af6_acd4_4e5a_a24b_5d7498a8b8c4);
 }
 impl ::windows::runtime::RuntimeName for TimedMetadataEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.TimedMetadataEncodingProperties";
@@ -3074,7 +3074,7 @@ unsafe impl ::windows::runtime::RuntimeType for VideoEncodingProperties {
 }
 unsafe impl ::windows::runtime::Interface for VideoEncodingProperties {
     type Vtable = IVideoEncodingProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1995336858, 14274, 20266, [136, 10, 18, 130, 187, 180, 55, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76ee6c9a_37c2_4f2a_880a_1282bbb4373d);
 }
 impl ::windows::runtime::RuntimeName for VideoEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.VideoEncodingProperties";

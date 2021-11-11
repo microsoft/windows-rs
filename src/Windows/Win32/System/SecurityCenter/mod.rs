@@ -12,7 +12,7 @@ impl IWSCDefaultProduct {
 }
 unsafe impl ::windows::runtime::Interface for IWSCDefaultProduct {
     type Vtable = IWSCDefaultProduct_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(74897052, 61978, 4581, [156, 233, 94, 85, 23, 80, 124, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0476d69c_f21a_11e5_9ce9_5e5517507c66);
 }
 impl ::core::convert::From<IWSCDefaultProduct> for ::windows::runtime::IUnknown {
     fn from(value: IWSCDefaultProduct) -> Self {
@@ -96,7 +96,7 @@ impl IWSCProductList {
 }
 unsafe impl ::windows::runtime::Interface for IWSCProductList {
     type Vtable = IWSCProductList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1915368332, 28302, 20082, [172, 39, 20, 23, 251, 12, 129, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x722a338c_6e8e_4e72_ac27_1417fb0c81c2);
 }
 impl ::core::convert::From<IWSCProductList> for ::windows::runtime::IUnknown {
     fn from(value: IWSCProductList) -> Self {
@@ -207,7 +207,7 @@ impl IWscProduct {
 }
 unsafe impl ::windows::runtime::Interface for IWscProduct {
     type Vtable = IWscProduct_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2352489262, 14917, 18983, [146, 176, 26, 22, 169, 117, 246, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c38232e_3a45_4a27_92b0_1a16a975f669);
 }
 impl ::core::convert::From<IWscProduct> for ::windows::runtime::IUnknown {
     fn from(value: IWscProduct) -> Self {
@@ -389,7 +389,7 @@ impl IWscProduct2 {
 }
 unsafe impl ::windows::runtime::Interface for IWscProduct2 {
     type Vtable = IWscProduct2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4170631764, 65033, 17411, [134, 212, 35, 203, 72, 141, 129, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf896ca54_fe09_4403_86d4_23cb488d81d8);
 }
 impl ::core::convert::From<IWscProduct2> for ::windows::runtime::IUnknown {
     fn from(value: IWscProduct2) -> Self {
@@ -602,7 +602,7 @@ impl IWscProduct3 {
 }
 unsafe impl ::windows::runtime::Interface for IWscProduct3 {
     type Vtable = IWscProduct3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1431528740, 53713, 18214, [140, 124, 4, 153, 106, 25, 4, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55536524_d1d1_4726_8c7c_04996a1904e7);
 }
 impl ::core::convert::From<IWscProduct3> for ::windows::runtime::IUnknown {
     fn from(value: IWscProduct3) -> Self {
@@ -736,8 +736,8 @@ impl ::core::convert::From<i32> for SECURITY_PRODUCT_TYPE {
 unsafe impl ::windows::runtime::Abi for SECURITY_PRODUCT_TYPE {
     type Abi = Self;
 }
-pub const WSCDefaultProduct: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(696361838, 61997, 4581, [156, 233, 94, 85, 23, 80, 124, 102]);
-pub const WSCProductList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(386346875, 39614, 19060, [162, 97, 30, 183, 107, 85, 16, 122]);
+pub const WSCDefaultProduct: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2981a36e_f22d_11e5_9ce9_5e5517507c66);
+pub const WSCProductList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17072f7b_9abe_4a74_a261_1eb76b55107a);
 #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]

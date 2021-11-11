@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const AdSyncTask: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(719734609, 46888, 19819, [151, 160, 178, 218, 46, 125, 42, 59]);
+pub const AdSyncTask: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ae64751_b728_4d6b_97a0_b2da2e7d2a3b);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -69,7 +69,7 @@ pub struct DIFsrmClassificationEvents(pub ::windows::runtime::IUnknown);
 impl DIFsrmClassificationEvents {}
 unsafe impl ::windows::runtime::Interface for DIFsrmClassificationEvents {
     type Vtable = DIFsrmClassificationEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(647245232, 55999, 16856, [187, 221, 177, 41, 169, 247, 4, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26942db0_dabf_41d8_bbdd_b129a9f70424);
 }
 impl ::core::convert::From<DIFsrmClassificationEvents> for ::windows::runtime::IUnknown {
     fn from(value: DIFsrmClassificationEvents) -> Self {
@@ -416,7 +416,7 @@ pub const FSRM_S_CLASSIFICATION_SCAN_FAILURES: ::windows::runtime::HRESULT = ::w
 pub const FSRM_S_PARTIAL_BATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(283396i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_S_PARTIAL_CLASSIFICATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(283397i32 as _);
-pub const FsrmAccessDeniedRemediationClient: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(269176776, 29889, 18191, [177, 183, 221, 123, 107, 174, 121, 189]);
+pub const FsrmAccessDeniedRemediationClient: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x100b4fc8_74c1_470f_b1b7_dd7b6bae79bd);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -470,7 +470,7 @@ impl ::core::convert::From<i32> for FsrmClassificationLoggingFlags {
 unsafe impl ::windows::runtime::Abi for FsrmClassificationLoggingFlags {
     type Abi = Self;
 }
-pub const FsrmClassificationManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2975600199, 50065, 17849, [149, 200, 235, 89, 108, 133, 63, 58]);
+pub const FsrmClassificationManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb15c0e47_c391_45b9_95c8_eb596c853f3a);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -552,7 +552,7 @@ impl ::core::convert::From<i32> for FsrmExecutionOption {
 unsafe impl ::windows::runtime::Abi for FsrmExecutionOption {
     type Abi = Self;
 }
-pub const FsrmExportImport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(344120375, 64233, 18311, [144, 37, 140, 228, 224, 36, 171, 86]);
+pub const FsrmExportImport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1482dc37_fae9_4787_9025_8ce4e024ab56);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -567,8 +567,8 @@ impl ::core::convert::From<i32> for FsrmFileConditionType {
 unsafe impl ::windows::runtime::Abi for FsrmFileConditionType {
     type Abi = Self;
 }
-pub const FsrmFileGroupManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400412662, 25967, 17558, [146, 38, 19, 174, 203, 215, 113, 143]);
-pub const FsrmFileManagementJobManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3944282546, 19514, 17185, [178, 3, 32, 81, 32, 207, 246, 20]);
+pub const FsrmFileGroupManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f1363f6_656f_4496_9226_13aecbd7718f);
+pub const FsrmFileManagementJobManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb18f9b2_4c3a_4321_b203_205120cff614);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -614,8 +614,8 @@ impl ::core::convert::From<i32> for FsrmFileScreenFlags {
 unsafe impl ::windows::runtime::Abi for FsrmFileScreenFlags {
     type Abi = Self;
 }
-pub const FsrmFileScreenManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2509508995, 56147, 19551, [179, 123, 125, 9, 33, 207, 157, 199]);
-pub const FsrmFileScreenTemplateManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(607195615, 58484, 18090, [160, 84, 234, 163, 62, 220, 41, 42]);
+pub const FsrmFileScreenManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95941183_db53_4c5f_b37b_7d0921cf9dc7);
+pub const FsrmFileScreenTemplateManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x243111df_e474_46aa_a054_eaa33edc292a);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -693,8 +693,8 @@ pub const FsrmMaxThresholdValue: u32 = 250u32;
 pub const FsrmMinQuotaLimit: u32 = 1024u32;
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FsrmMinThresholdValue: u32 = 1u32;
-pub const FsrmPathMapper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4089332413, 35522, 16542, [187, 216, 250, 249, 182, 180, 31, 235]);
-pub const FsrmPipelineModuleConnector: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3345232757, 7861, 17630, [160, 98, 98, 53, 71, 217, 51, 188]);
+pub const FsrmPathMapper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3be42bd_8ac2_409e_bbd8_faf9b6b41feb);
+pub const FsrmPipelineModuleConnector: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7643375_1eb5_44de_a062_623547d933bc);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -879,8 +879,8 @@ impl ::core::convert::From<i32> for FsrmQuotaFlags {
 unsafe impl ::windows::runtime::Abi for FsrmQuotaFlags {
     type Abi = Self;
 }
-pub const FsrmQuotaManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2430380927, 13436, 19452, [181, 67, 84, 3, 38, 48, 95, 190]);
-pub const FsrmQuotaTemplateManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547242051, 9500, 17207, [129, 231, 179, 46, 143, 78, 230, 94]);
+pub const FsrmQuotaManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90dcab7f_347c_4bfc_b543_540326305fbe);
+pub const FsrmQuotaTemplateManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97d3d443_251c_4337_81e7_b32e8f4ee65e);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -959,7 +959,7 @@ impl ::core::convert::From<i32> for FsrmReportLimit {
 unsafe impl ::windows::runtime::Abi for FsrmReportLimit {
     type Abi = Self;
 }
-pub const FsrmReportManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(5828407, 43622, 19528, [189, 91, 47, 206, 67, 42, 176, 200]);
+pub const FsrmReportManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0058ef37_aa66_4c48_bd5b_2fce432ab0c8);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -976,7 +976,7 @@ impl ::core::convert::From<i32> for FsrmReportRunningStatus {
 unsafe impl ::windows::runtime::Abi for FsrmReportRunningStatus {
     type Abi = Self;
 }
-pub const FsrmReportScheduler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3928355256, 7053, 17040, [142, 232, 225, 124, 18, 194, 254, 32]);
+pub const FsrmReportScheduler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea25f1b8_1b8d_4290_8ee8_e17c12c2fe20);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -1034,7 +1034,7 @@ impl ::core::convert::From<i32> for FsrmRuleType {
 unsafe impl ::windows::runtime::Abi for FsrmRuleType {
     type Abi = Self;
 }
-pub const FsrmSetting: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4116109064, 27981, 17812, [156, 97, 125, 187, 13, 174, 42, 70]);
+pub const FsrmSetting: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf556d708_6d4d_4594_9c61_7dbb0dae2a46);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -1097,7 +1097,7 @@ impl IFsrmAccessDeniedRemediationClient {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmAccessDeniedRemediationClient {
     type Vtable = IFsrmAccessDeniedRemediationClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1073750804, 22795, 17829, [142, 27, 140, 5, 218, 82, 126, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40002314_590b_45a5_8e1b_8c05da527e52);
 }
 impl ::core::convert::From<IFsrmAccessDeniedRemediationClient> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmAccessDeniedRemediationClient) -> Self {
@@ -1191,7 +1191,7 @@ impl IFsrmAction {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmAction {
     type Vtable = IFsrmAction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1825980554, 44640, 17979, [158, 241, 225, 23, 83, 77, 105, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6cd6408a_ae60_463b_9ef1_e117534d69dc);
 }
 impl ::core::convert::From<IFsrmAction> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmAction) -> Self {
@@ -1389,7 +1389,7 @@ impl IFsrmActionCommand {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmActionCommand {
     type Vtable = IFsrmActionCommand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(311654281, 57927, 18711, [156, 32, 243, 238, 156, 126, 231, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12937789_e247_4917_9c20_f3ee9c7ee783);
 }
 impl ::core::convert::From<IFsrmActionCommand> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmActionCommand) -> Self {
@@ -1635,7 +1635,7 @@ impl IFsrmActionEmail {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmActionEmail {
     type Vtable = IFsrmActionEmail_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3594933885, 9902, 19626, [159, 132, 78, 10, 173, 32, 127, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd646567d_26ae_4caa_9f84_4e0aad207fca);
 }
 impl ::core::convert::From<IFsrmActionEmail> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmActionEmail) -> Self {
@@ -1898,7 +1898,7 @@ impl IFsrmActionEmail2 {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmActionEmail2 {
     type Vtable = IFsrmActionEmail2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2188800047, 9522, 18489, [137, 191, 72, 114, 96, 154, 46, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8276702f_2532_4839_89bf_4872609a2ea4);
 }
 impl ::core::convert::From<IFsrmActionEmail2> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmActionEmail2) -> Self {
@@ -2117,7 +2117,7 @@ impl IFsrmActionEventLog {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmActionEventLog {
     type Vtable = IFsrmActionEventLog_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1284478659, 23956, 20279, [164, 244, 245, 106, 180, 99, 84, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c8f96c3_5d94_4f37_a4f4_f56ab463546f);
 }
 impl ::core::convert::From<IFsrmActionEventLog> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmActionEventLog) -> Self {
@@ -2294,7 +2294,7 @@ impl IFsrmActionReport {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmActionReport {
     type Vtable = IFsrmActionReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(767452100, 45888, 18592, [165, 176, 21, 142, 7, 252, 86, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2dbe63c4_b340_48a0_a5b0_158e07fc567e);
 }
 impl ::core::convert::From<IFsrmActionReport> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmActionReport) -> Self {
@@ -2550,7 +2550,7 @@ impl IFsrmAutoApplyQuota {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmAutoApplyQuota {
     type Vtable = IFsrmAutoApplyQuota_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4163786537, 27322, 18240, [191, 199, 199, 245, 143, 117, 251, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf82e5729_6aba_4740_bfc7_c7f58f75fb7b);
 }
 impl ::core::convert::From<IFsrmAutoApplyQuota> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmAutoApplyQuota) -> Self {
@@ -2856,7 +2856,7 @@ impl IFsrmClassificationManager {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmClassificationManager {
     type Vtable = IFsrmClassificationManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3537668570, 61073, 18592, [133, 216, 204, 114, 165, 111, 125, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2dc89da_ee91_48a0_85d8_cc72a56f7d04);
 }
 impl ::core::convert::From<IFsrmClassificationManager> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmClassificationManager) -> Self {
@@ -3144,7 +3144,7 @@ impl IFsrmClassificationManager2 {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmClassificationManager2 {
     type Vtable = IFsrmClassificationManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(311753, 4734, 18277, [186, 7, 106, 49, 71, 188, 161, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0004c1c9_127e_4765_ba07_6a3147bca112);
 }
 impl ::core::convert::From<IFsrmClassificationManager2> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmClassificationManager2) -> Self {
@@ -3427,7 +3427,7 @@ impl IFsrmClassificationRule {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmClassificationRule {
     type Vtable = IFsrmClassificationRule_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2948616898, 21269, 17835, [132, 27, 198, 219, 14, 18, 1, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xafc052c2_5315_45ab_841b_c6db0e120148);
 }
 impl ::core::convert::From<IFsrmClassificationRule> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmClassificationRule) -> Self {
@@ -3759,7 +3759,7 @@ impl IFsrmClassifierModuleDefinition {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmClassifierModuleDefinition {
     type Vtable = IFsrmClassifierModuleDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3140938278, 25368, 19340, [133, 146, 247, 45, 214, 2, 231, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb36ea26_6318_4b8c_8592_f72dd602e7a5);
 }
 impl ::core::convert::From<IFsrmClassifierModuleDefinition> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmClassifierModuleDefinition) -> Self {
@@ -3986,7 +3986,7 @@ impl IFsrmClassifierModuleImplementation {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmClassifierModuleImplementation {
     type Vtable = IFsrmClassifierModuleImplementation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1284935622, 28379, 16465, [156, 24, 115, 183, 41, 26, 225, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c968fc6_6edb_4051_9c18_73b7291ae106);
 }
 impl ::core::convert::From<IFsrmClassifierModuleImplementation> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmClassifierModuleImplementation) -> Self {
@@ -4123,7 +4123,7 @@ impl IFsrmCollection {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmCollection {
     type Vtable = IFsrmCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4151295803, 36317, 19266, [176, 90, 203, 28, 63, 241, 254, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf76fbf3b_8ddd_4b42_b05a_cb1c3ff1fee8);
 }
 impl ::core::convert::From<IFsrmCollection> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmCollection) -> Self {
@@ -4292,7 +4292,7 @@ impl IFsrmCommittableCollection {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmCommittableCollection {
     type Vtable = IFsrmCommittableCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2531177397, 35729, 18986, [157, 147, 128, 163, 93, 138, 168, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96deb3b5_8b91_4a2a_9d93_80a35d8aa847);
 }
 impl ::core::convert::From<IFsrmCommittableCollection> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmCommittableCollection) -> Self {
@@ -4426,7 +4426,7 @@ impl IFsrmDerivedObjectsResult {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmDerivedObjectsResult {
     type Vtable = IFsrmDerivedObjectsResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(959588909, 14574, 19725, [128, 149, 66, 26, 128, 132, 154, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39322a2d_38ee_4d0d_8095_421a80849a82);
 }
 impl ::core::convert::From<IFsrmDerivedObjectsResult> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmDerivedObjectsResult) -> Self {
@@ -4530,7 +4530,7 @@ impl IFsrmExportImport {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmExportImport {
     type Vtable = IFsrmExportImport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4023061169, 5828, 19065, [129, 44, 114, 86, 20, 195, 48, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefcb0ab1_16c4_4a79_812c_725614c3306b);
 }
 impl ::core::convert::From<IFsrmExportImport> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmExportImport) -> Self {
@@ -4620,7 +4620,7 @@ impl IFsrmFileCondition {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmFileCondition {
     type Vtable = IFsrmFileCondition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1885884412, 26906, 18970, [185, 34, 151, 117, 46, 19, 140, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70684ffc_691a_4a1a_b922_97752e138cc1);
 }
 impl ::core::convert::From<IFsrmFileCondition> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmFileCondition) -> Self {
@@ -4781,7 +4781,7 @@ impl IFsrmFileConditionProperty {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmFileConditionProperty {
     type Vtable = IFsrmFileConditionProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2173855605, 47489, 17529, [152, 143, 218, 23, 29, 98, 115, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81926775_b981_4479_988f_da171d627360);
 }
 impl ::core::convert::From<IFsrmFileConditionProperty> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmFileConditionProperty) -> Self {
@@ -4971,7 +4971,7 @@ impl IFsrmFileGroup {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmFileGroup {
     type Vtable = IFsrmFileGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2379237641, 3636, 19797, [175, 170, 137, 225, 241, 161, 187, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8dd04909_0e34_4d55_afaa_89e1f1a1bbb9);
 }
 impl ::core::convert::From<IFsrmFileGroup> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmFileGroup) -> Self {
@@ -5169,7 +5169,7 @@ impl IFsrmFileGroupImported {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmFileGroupImported {
     type Vtable = IFsrmFileGroupImported_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2908090635, 24337, 19431, [148, 239, 217, 238, 46, 71, 13, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad55f10b_5f11_4be7_94ef_d9ee2e470ded);
 }
 impl ::core::convert::From<IFsrmFileGroupImported> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmFileGroupImported) -> Self {
@@ -5323,7 +5323,7 @@ impl IFsrmFileGroupManager {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmFileGroupManager {
     type Vtable = IFsrmFileGroupManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1114011605, 396, 18524, [138, 81, 32, 184, 109, 0, 189, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x426677d5_018c_485c_8a51_20b86d00bdc4);
 }
 impl ::core::convert::From<IFsrmFileGroupManager> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmFileGroupManager) -> Self {
@@ -5700,7 +5700,7 @@ impl IFsrmFileManagementJob {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmFileManagementJob {
     type Vtable = IFsrmFileManagementJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(124807294, 40758, 19823, [135, 120, 89, 157, 24, 132, 97, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0770687e_9f36_4d6f_8778_599d188461c9);
 }
 impl ::core::convert::From<IFsrmFileManagementJob> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmFileManagementJob) -> Self {
@@ -5893,7 +5893,7 @@ impl IFsrmFileManagementJobManager {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmFileManagementJobManager {
     type Vtable = IFsrmFileManagementJobManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3996262091, 55646, 18665, [144, 124, 199, 104, 90, 1, 50, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee321ecb_d95e_48e9_907c_c7685a013235);
 }
 impl ::core::convert::From<IFsrmFileManagementJobManager> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmFileManagementJobManager) -> Self {
@@ -6088,7 +6088,7 @@ impl IFsrmFileScreen {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmFileScreen {
     type Vtable = IFsrmFileScreen_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1600333267, 52872, 18227, [132, 193, 45, 106, 239, 197, 234, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f6325d3_ce88_4733_84c1_2d6aefc5ea07);
 }
 impl ::core::convert::From<IFsrmFileScreen> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmFileScreen) -> Self {
@@ -6305,7 +6305,7 @@ impl IFsrmFileScreenBase {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmFileScreenBase {
     type Vtable = IFsrmFileScreenBase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4083383936, 23330, 18987, [166, 55, 187, 182, 66, 180, 28, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3637e80_5b22_4a2b_a637_bbb642b41cfc);
 }
 impl ::core::convert::From<IFsrmFileScreenBase> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmFileScreenBase) -> Self {
@@ -6478,7 +6478,7 @@ impl IFsrmFileScreenException {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmFileScreenException {
     type Vtable = IFsrmFileScreenException_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3202862594, 57207, 17685, [147, 137, 120, 240, 28, 90, 252, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbee7ce02_df77_4515_9389_78f01c5afc1a);
 }
 impl ::core::convert::From<IFsrmFileScreenException> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmFileScreenException) -> Self {
@@ -6631,7 +6631,7 @@ impl IFsrmFileScreenManager {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmFileScreenManager {
     type Vtable = IFsrmFileScreenManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4283408462, 23188, 19418, [163, 160, 213, 180, 211, 197, 46, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff4fa04e_5a94_4bda_a3a0_d5b4d3c52eba);
 }
 impl ::core::convert::From<IFsrmFileScreenManager> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmFileScreenManager) -> Self {
@@ -6822,7 +6822,7 @@ impl IFsrmFileScreenTemplate {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmFileScreenTemplate {
     type Vtable = IFsrmFileScreenTemplate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(542895096, 56723, 17706, [149, 166, 50, 181, 102, 179, 88, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x205bebf8_dd93_452a_95a6_32b566b35828);
 }
 impl ::core::convert::From<IFsrmFileScreenTemplate> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmFileScreenTemplate) -> Self {
@@ -7065,7 +7065,7 @@ impl IFsrmFileScreenTemplateImported {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmFileScreenTemplateImported {
     type Vtable = IFsrmFileScreenTemplateImported_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3774939993, 15965, 20173, [159, 228, 239, 72, 98, 47, 223, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1010359_3e5d_4ecd_9fe4_ef48622fdf30);
 }
 impl ::core::convert::From<IFsrmFileScreenTemplateImported> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmFileScreenTemplateImported) -> Self {
@@ -7244,7 +7244,7 @@ impl IFsrmFileScreenTemplateManager {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmFileScreenTemplateManager {
     type Vtable = IFsrmFileScreenTemplateManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3487788218, 6473, 20084, [161, 79, 241, 213, 128, 206, 175, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfe36cba_1949_4e74_a14f_f1d580ceaf13);
 }
 impl ::core::convert::From<IFsrmFileScreenTemplateManager> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmFileScreenTemplateManager) -> Self {
@@ -7407,7 +7407,7 @@ impl IFsrmMutableCollection {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmMutableCollection {
     type Vtable = IFsrmMutableCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(464918456, 14470, 18908, [175, 130, 166, 201, 15, 163, 93, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bb617b8_3886_49dc_af82_a6c90fa35dda);
 }
 impl ::core::convert::From<IFsrmMutableCollection> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmMutableCollection) -> Self {
@@ -7534,7 +7534,7 @@ impl IFsrmObject {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmObject {
     type Vtable = IFsrmObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(582807443, 19007, 16771, [137, 249, 47, 139, 138, 98, 138, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22bcef93_4a3f_4183_89f9_2f8b8a628aee);
 }
 impl ::core::convert::From<IFsrmObject> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmObject) -> Self {
@@ -7616,7 +7616,7 @@ impl IFsrmPathMapper {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmPathMapper {
     type Vtable = IFsrmPathMapper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1867366399, 26912, 18465, [166, 195, 183, 233, 76, 31, 214, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f4dbfff_6920_4821_a6c3_b7e94c1fd60c);
 }
 impl ::core::convert::From<IFsrmPathMapper> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmPathMapper) -> Self {
@@ -7713,7 +7713,7 @@ impl IFsrmPipelineModuleConnector {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmPipelineModuleConnector {
     type Vtable = IFsrmPipelineModuleConnector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3244299507, 39585, 18099, [176, 167, 171, 20, 110, 178, 5, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc16014f3_9aa1_46b3_b0a7_ab146eb205f2);
 }
 impl ::core::convert::From<IFsrmPipelineModuleConnector> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmPipelineModuleConnector) -> Self {
@@ -7943,7 +7943,7 @@ impl IFsrmPipelineModuleDefinition {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmPipelineModuleDefinition {
     type Vtable = IFsrmPipelineModuleDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1364988535, 11393, 17422, [143, 207, 54, 121, 33, 237, 79, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x515c1277_2c81_440e_8fcf_367921ed4f59);
 }
 impl ::core::convert::From<IFsrmPipelineModuleDefinition> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmPipelineModuleDefinition) -> Self {
@@ -8079,7 +8079,7 @@ impl IFsrmPipelineModuleImplementation {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmPipelineModuleImplementation {
     type Vtable = IFsrmPipelineModuleImplementation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3079698694, 11010, 19637, [132, 169, 253, 245, 70, 19, 214, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7907906_2b02_4cb5_84a9_fdf54613d6cd);
 }
 impl ::core::convert::From<IFsrmPipelineModuleImplementation> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmPipelineModuleImplementation) -> Self {
@@ -8173,7 +8173,7 @@ impl IFsrmProperty {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmProperty {
     type Vtable = IFsrmProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1249115876, 16642, 20428, [159, 251, 56, 97, 79, 158, 231, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a73fee4_4102_4fcc_9ffb_38614f9ee768);
 }
 impl ::core::convert::From<IFsrmProperty> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmProperty) -> Self {
@@ -8370,7 +8370,7 @@ impl IFsrmPropertyBag {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmPropertyBag {
     type Vtable = IFsrmPropertyBag_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2001045969, 54016, 20346, [154, 36, 247, 183, 102, 128, 2, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x774589d1_d300_4f7a_9a24_f7b766800250);
 }
 impl ::core::convert::From<IFsrmPropertyBag> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmPropertyBag) -> Self {
@@ -8642,7 +8642,7 @@ impl IFsrmPropertyBag2 {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmPropertyBag2 {
     type Vtable = IFsrmPropertyBag2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(239517117, 9218, 20461, [156, 48, 146, 102, 230, 235, 44, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e46bdbd_2402_4fed_9c30_9266e6eb2cc9);
 }
 impl ::core::convert::From<IFsrmPropertyBag2> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmPropertyBag2) -> Self {
@@ -8808,7 +8808,7 @@ impl IFsrmPropertyCondition {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmPropertyCondition {
     type Vtable = IFsrmPropertyCondition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(845870703, 10944, 20328, [191, 140, 71, 89, 240, 84, 250, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x326af66f_2ac0_4f68_bf8c_4759f054fa29);
 }
 impl ::core::convert::From<IFsrmPropertyCondition> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmPropertyCondition) -> Self {
@@ -8997,7 +8997,7 @@ impl IFsrmPropertyDefinition {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmPropertyDefinition {
     type Vtable = IFsrmPropertyDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3990885647, 59811, 16796, [135, 124, 1, 254, 93, 36, 197, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xede0150f_e9a3_419c_877c_01fe5d24c5d3);
 }
 impl ::core::convert::From<IFsrmPropertyDefinition> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmPropertyDefinition) -> Self {
@@ -9246,7 +9246,7 @@ impl IFsrmPropertyDefinition2 {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmPropertyDefinition2 {
     type Vtable = IFsrmPropertyDefinition2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1199055186, 53612, 16937, [180, 225, 13, 223, 227, 8, 185, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47782152_d16c_4229_b4e1_0ddfe308b9f6);
 }
 impl ::core::convert::From<IFsrmPropertyDefinition2> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmPropertyDefinition2) -> Self {
@@ -9411,7 +9411,7 @@ impl IFsrmPropertyDefinitionValue {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmPropertyDefinitionValue {
     type Vtable = IFsrmPropertyDefinitionValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3913732424, 48487, 16760, [142, 34, 28, 68, 146, 94, 215, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe946d148_bd67_4178_8e22_1c44925ed710);
 }
 impl ::core::convert::From<IFsrmPropertyDefinitionValue> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmPropertyDefinitionValue) -> Self {
@@ -9651,7 +9651,7 @@ impl IFsrmQuota {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmQuota {
     type Vtable = IFsrmQuota_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(931099549, 38471, 19342, [151, 210, 95, 252, 230, 215, 89, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x377f739d_9647_4b8e_97d2_5ffce6d759cd);
 }
 impl ::core::convert::From<IFsrmQuota> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmQuota) -> Self {
@@ -9922,7 +9922,7 @@ impl IFsrmQuotaBase {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmQuotaBase {
     type Vtable = IFsrmQuotaBase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(359180181, 14628, 16664, [183, 75, 104, 216, 240, 250, 93, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1568a795_3924_4118_b74b_68d8f0fa5daf);
 }
 impl ::core::convert::From<IFsrmQuotaBase> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmQuotaBase) -> Self {
@@ -10101,7 +10101,7 @@ impl IFsrmQuotaManager {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmQuotaManager {
     type Vtable = IFsrmQuotaManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2343996541, 6616, 20475, [128, 158, 190, 79, 193, 115, 64, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bb68c7d_19d8_4ffb_809e_be4fc1734014);
 }
 impl ::core::convert::From<IFsrmQuotaManager> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmQuotaManager) -> Self {
@@ -10301,7 +10301,7 @@ impl IFsrmQuotaManagerEx {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmQuotaManagerEx {
     type Vtable = IFsrmQuotaManagerEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1212599041, 54320, 18767, [171, 180, 177, 5, 73, 153, 251, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4846cb01_d430_494f_abb4_b1054999fb09);
 }
 impl ::core::convert::From<IFsrmQuotaManagerEx> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmQuotaManagerEx) -> Self {
@@ -10553,7 +10553,7 @@ impl IFsrmQuotaObject {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmQuotaObject {
     type Vtable = IFsrmQuotaObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1121727761, 25045, 18606, [182, 220, 89, 252, 0, 192, 168, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42dc3511_61d5_48ae_b6dc_59fc00c0a8d6);
 }
 impl ::core::convert::From<IFsrmQuotaObject> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmQuotaObject) -> Self {
@@ -10818,7 +10818,7 @@ impl IFsrmQuotaTemplate {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmQuotaTemplate {
     type Vtable = IFsrmQuotaTemplate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2733615921, 10590, 18107, [185, 118, 232, 109, 88, 181, 46, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2efab31_295e_46bb_b976_e86d58b52e8b);
 }
 impl ::core::convert::From<IFsrmQuotaTemplate> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmQuotaTemplate) -> Self {
@@ -11088,7 +11088,7 @@ impl IFsrmQuotaTemplateImported {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmQuotaTemplateImported {
     type Vtable = IFsrmQuotaTemplateImported_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2586571027, 41769, 17612, [128, 154, 92, 0, 252, 232, 218, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a2bf113_a329_44cc_809a_5c00fce8da40);
 }
 impl ::core::convert::From<IFsrmQuotaTemplateImported> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmQuotaTemplateImported) -> Self {
@@ -11274,7 +11274,7 @@ impl IFsrmQuotaTemplateManager {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmQuotaTemplateManager {
     type Vtable = IFsrmQuotaTemplateManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1098099777, 5933, 19794, [150, 60, 253, 199, 228, 21, 247, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4173ac41_172d_4d52_963c_fdc7e415f717);
 }
 impl ::core::convert::From<IFsrmQuotaTemplateManager> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmQuotaTemplateManager) -> Self {
@@ -11399,7 +11399,7 @@ impl IFsrmReport {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmReport {
     type Vtable = IFsrmReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3637281241, 18104, 20388, [191, 165, 74, 169, 222, 201, 182, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8cc81d9_46b8_4fa4_bfa5_4aa9dec9b638);
 }
 impl ::core::convert::From<IFsrmReport> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmReport) -> Self {
@@ -11629,7 +11629,7 @@ impl IFsrmReportJob {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmReportJob {
     type Vtable = IFsrmReportJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(954757760, 29020, 19581, [162, 128, 234, 22, 81, 161, 159, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38e87280_715c_4c7d_a280_ea1651a19fef);
 }
 impl ::core::convert::From<IFsrmReportJob> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmReportJob) -> Self {
@@ -11806,7 +11806,7 @@ impl IFsrmReportManager {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmReportManager {
     type Vtable = IFsrmReportManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(666409470, 28666, 17537, [161, 132, 211, 218, 173, 232, 160, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27b899fe_6ffa_4481_a184_d3daade8a02b);
 }
 impl ::core::convert::From<IFsrmReportManager> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmReportManager) -> Self {
@@ -11912,7 +11912,7 @@ impl IFsrmReportScheduler {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmReportScheduler {
     type Vtable = IFsrmReportScheduler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1752812281, 26135, 17540, [135, 25, 113, 195, 216, 100, 95, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6879caf9_6617_4484_8719_71c3d8645f94);
 }
 impl ::core::convert::From<IFsrmReportScheduler> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmReportScheduler) -> Self {
@@ -12109,7 +12109,7 @@ impl IFsrmRule {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmRule {
     type Vtable = IFsrmRule_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3406690656, 5877, 17557, [144, 121, 63, 147, 96, 216, 49, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb0df960_16f5_4495_9079_3f9360d831df);
 }
 impl ::core::convert::From<IFsrmRule> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmRule) -> Self {
@@ -12291,7 +12291,7 @@ impl IFsrmSetting {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmSetting {
     type Vtable = IFsrmSetting_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4094809341, 5310, 16992, [140, 64, 3, 183, 201, 94, 96, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf411d4fd_14be_4260_8c40_03b7c95e608a);
 }
 impl ::core::convert::From<IFsrmSetting> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmSetting) -> Self {
@@ -12561,7 +12561,7 @@ impl IFsrmStorageModuleDefinition {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmStorageModuleDefinition {
     type Vtable = IFsrmStorageModuleDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(363336528, 18813, 19130, [128, 233, 212, 219, 204, 85, 33, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15a81350_497d_4aba_80e9_d4dbcc5521fe);
 }
 impl ::core::convert::From<IFsrmStorageModuleDefinition> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmStorageModuleDefinition) -> Self {
@@ -12767,7 +12767,7 @@ impl IFsrmStorageModuleImplementation {
 }
 unsafe impl ::windows::runtime::Interface for IFsrmStorageModuleImplementation {
     type Vtable = IFsrmStorageModuleImplementation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(183804122, 35162, 20048, [135, 18, 169, 103, 36, 188, 236, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0af4a0da_895a_4e50_8712_a96724bcec64);
 }
 impl ::core::convert::From<IFsrmStorageModuleImplementation> for ::windows::runtime::IUnknown {
     fn from(value: IFsrmStorageModuleImplementation) -> Self {

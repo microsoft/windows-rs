@@ -4,7 +4,7 @@
 pub struct ISpeechContinuousRecognitionCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechContinuousRecognitionCompletedEventArgs {
     type Vtable = ISpeechContinuousRecognitionCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3822086587, 58124, 24088, [66, 75, 127, 190, 129, 248, 251, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3d069bb_e30c_5e18_424b_7fbe81f8fbd0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22,7 +22,7 @@ pub struct ISpeechContinuousRecognitionCompletedEventArgs_abi(
 pub struct ISpeechContinuousRecognitionResultGeneratedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechContinuousRecognitionResultGeneratedEventArgs {
     type Vtable = ISpeechContinuousRecognitionResultGeneratedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(420027934, 28286, 23110, [64, 251, 118, 89, 79, 120, 101, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19091e1e_6e7e_5a46_40fb_76594f786504);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -40,7 +40,7 @@ pub struct ISpeechContinuousRecognitionResultGeneratedEventArgs_abi(
 pub struct ISpeechContinuousRecognitionSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechContinuousRecognitionSession {
     type Vtable = ISpeechContinuousRecognitionSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1780562948, 26132, 18936, [153, 162, 181, 233, 179, 160, 133, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a213c04_6614_49f8_99a2_b5e9b3a085c8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -80,7 +80,7 @@ pub struct ISpeechContinuousRecognitionSession_abi(
 pub struct ISpeechRecognitionCompilationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionCompilationResult {
     type Vtable = ISpeechRecognitionCompilationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1082027101, 27335, 19876, [156, 193, 47, 206, 50, 207, 116, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x407e6c5d_6ac7_4da4_9cc1_2fce32cf7489);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -99,7 +99,7 @@ pub struct ISpeechRecognitionCompilationResult_abi(
 pub struct ISpeechRecognitionConstraint(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionConstraint {
     type Vtable = ISpeechRecognitionConstraint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2041321000, 19816, 17348, [137, 17, 64, 220, 65, 1, 181, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79ac1628_4d68_43c4_8911_40dc4101b55b);
 }
 impl ISpeechRecognitionConstraint {
     #[doc = "*Required features: `Media_SpeechRecognition`*"]
@@ -215,7 +215,7 @@ pub struct ISpeechRecognitionConstraint_abi(
 pub struct ISpeechRecognitionGrammarFileConstraint(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionGrammarFileConstraint {
     type Vtable = ISpeechRecognitionGrammarFileConstraint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3036879503, 34250, 20388, [177, 26, 71, 79, 196, 27, 56, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5031a8f_85ca_4fa4_b11a_474fc41b3835);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -234,7 +234,7 @@ pub struct ISpeechRecognitionGrammarFileConstraint_abi(
 pub struct ISpeechRecognitionGrammarFileConstraintFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionGrammarFileConstraintFactory {
     type Vtable = ISpeechRecognitionGrammarFileConstraintFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1034383595, 50297, 19495, [159, 25, 137, 151, 78, 243, 146, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3da770eb_c479_4c27_9f19_89974ef392d1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -255,7 +255,7 @@ pub struct ISpeechRecognitionGrammarFileConstraintFactory_abi(
 pub struct ISpeechRecognitionHypothesis(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionHypothesis {
     type Vtable = ISpeechRecognitionHypothesis_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2054890928, 39365, 20349, [191, 132, 16, 170, 19, 2, 182, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a7b25b0_99c5_4f7d_bf84_10aa1302b634);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -273,7 +273,7 @@ pub struct ISpeechRecognitionHypothesis_abi(
 pub struct ISpeechRecognitionHypothesisGeneratedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionHypothesisGeneratedEventArgs {
     type Vtable = ISpeechRecognitionHypothesisGeneratedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1427511930, 32803, 22630, [65, 29, 18, 19, 187, 39, 20, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55161a7a_8023_5866_411d_1213bb271476);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -291,7 +291,7 @@ pub struct ISpeechRecognitionHypothesisGeneratedEventArgs_abi(
 pub struct ISpeechRecognitionListConstraint(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionListConstraint {
     type Vtable = ISpeechRecognitionListConstraint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(163874793, 58541, 17702, [129, 242, 73, 70, 251, 72, 29, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09c487e9_e4ad_4526_81f2_4946fb481d98);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -310,7 +310,7 @@ pub struct ISpeechRecognitionListConstraint_abi(
 pub struct ISpeechRecognitionListConstraintFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionListConstraintFactory {
     type Vtable = ISpeechRecognitionListConstraintFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1089719751, 22058, 17002, [159, 59, 59, 78, 40, 43, 225, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40f3cdc7_562a_426a_9f3b_3b4e282be1d5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -331,7 +331,7 @@ pub struct ISpeechRecognitionListConstraintFactory_abi(
 pub struct ISpeechRecognitionQualityDegradingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionQualityDegradingEventArgs {
     type Vtable = ISpeechRecognitionQualityDegradingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1340227845, 35898, 19582, [141, 10, 91, 212, 245, 177, 74, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4fe24105_8c3a_4c7e_8d0a_5bd4f5b14ad8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -349,7 +349,7 @@ pub struct ISpeechRecognitionQualityDegradingEventArgs_abi(
 pub struct ISpeechRecognitionResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionResult {
     type Vtable = ISpeechRecognitionResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1311781207, 846, 18002, [133, 126, 208, 69, 76, 196, 190, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e303157_034e_4652_857e_d0454cc4beec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -376,7 +376,7 @@ pub struct ISpeechRecognitionResult_abi(
 pub struct ISpeechRecognitionResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionResult2 {
     type Vtable = ISpeechRecognitionResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2944324026, 17691, 16742, [160, 193, 31, 254, 132, 3, 45, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf7ed1ba_451b_4166_a0c1_1ffe84032d03);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -397,7 +397,7 @@ pub struct ISpeechRecognitionResult2_abi(
 pub struct ISpeechRecognitionSemanticInterpretation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionSemanticInterpretation {
     type Vtable = ISpeechRecognitionSemanticInterpretation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2866928283, 32306, 19487, [137, 254, 12, 101, 244, 134, 245, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaae1da9b_7e32_4c1f_89fe_0c65f486f52e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -416,7 +416,7 @@ pub struct ISpeechRecognitionSemanticInterpretation_abi(
 pub struct ISpeechRecognitionTopicConstraint(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionTopicConstraint {
     type Vtable = ISpeechRecognitionTopicConstraint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3211779865, 33373, 20073, [166, 129, 54, 228, 140, 241, 201, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf6fdf19_825d_4e69_a681_36e48cf1c93e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -435,7 +435,7 @@ pub struct ISpeechRecognitionTopicConstraint_abi(
 pub struct ISpeechRecognitionTopicConstraintFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionTopicConstraintFactory {
     type Vtable = ISpeechRecognitionTopicConstraintFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1852335071, 60421, 18391, [165, 223, 86, 163, 67, 30, 88, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e6863df_ec05_47d7_a5df_56a3431e58d2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -454,7 +454,7 @@ pub struct ISpeechRecognitionTopicConstraintFactory_abi(
 pub struct ISpeechRecognitionVoiceCommandDefinitionConstraint(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionVoiceCommandDefinitionConstraint {
     type Vtable = ISpeechRecognitionVoiceCommandDefinitionConstraint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4068023339, 7924, 19175, [157, 119, 182, 255, 16, 184, 163, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2791c2b_1ef4_4ae7_9d77_b6ff10b8a3c2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -471,7 +471,7 @@ pub struct ISpeechRecognitionVoiceCommandDefinitionConstraint_abi(
 pub struct ISpeechRecognizer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognizer {
     type Vtable = ISpeechRecognizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(197380555, 49770, 16626, [174, 181, 128, 150, 178, 228, 128, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bc3c9cb_c26a_40f2_aeb5_8096b2e48073);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -508,7 +508,7 @@ pub struct ISpeechRecognizer_abi(
 pub struct ISpeechRecognizer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognizer2 {
     type Vtable = ISpeechRecognizer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1674164977, 37347, 20132, [134, 161, 124, 56, 103, 208, 132, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63c9baf1_91e3_4ea4_86a1_7c3867d084a6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -533,7 +533,7 @@ pub struct ISpeechRecognizer2_abi(
 pub struct ISpeechRecognizerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognizerFactory {
     type Vtable = ISpeechRecognizerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1623492829, 32696, 16435, [172, 112, 208, 70, 246, 72, 24, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60c488dd_7fb8_4033_ac70_d046f64818e1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -552,7 +552,7 @@ pub struct ISpeechRecognizerFactory_abi(
 pub struct ISpeechRecognizerStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognizerStateChangedEventArgs {
     type Vtable = ISpeechRecognizerStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1446858505, 47619, 19373, [173, 129, 221, 198, 196, 218, 176, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x563d4f09_ba03_4bad_ad81_ddc6c4dab0c3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -570,7 +570,7 @@ pub struct ISpeechRecognizerStateChangedEventArgs_abi(
 pub struct ISpeechRecognizerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognizerStatics {
     type Vtable = ISpeechRecognizerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2275630764, 42972, 19211, [188, 201, 36, 244, 124, 11, 126, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87a35eac_a7dc_4b0b_bcc9_24f47c0b7ebf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -593,7 +593,7 @@ pub struct ISpeechRecognizerStatics_abi(
 pub struct ISpeechRecognizerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognizerStatics2 {
     type Vtable = ISpeechRecognizerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(488312213, 30053, 20217, [162, 243, 186, 21, 22, 42, 150, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d1b0d95_7565_4ef9_a2f3_ba15162a96cf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -612,7 +612,7 @@ pub struct ISpeechRecognizerStatics2_abi(
 pub struct ISpeechRecognizerTimeouts(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognizerTimeouts {
     type Vtable = ISpeechRecognizerTimeouts_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(787967946, 27196, 19914, [161, 83, 223, 27, 200, 138, 121, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ef76fca_6a3c_4dca_a153_df1bc88a79af);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -641,7 +641,7 @@ pub struct ISpeechRecognizerTimeouts_abi(
 pub struct ISpeechRecognizerUIOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognizerUIOptions {
     type Vtable = ISpeechRecognizerUIOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2022233665, 47403, 17594, [162, 95, 209, 134, 70, 48, 100, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7888d641_b92b_44ba_a25f_d1864630641f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -666,7 +666,7 @@ pub struct ISpeechRecognizerUIOptions_abi(
 pub struct IVoiceCommandManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandManager {
     type Vtable = IVoiceCommandManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2855964117, 46823, 20194, [186, 169, 221, 107, 172, 237, 10, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa3a8dd5_b6e7_4ee2_baa9_dd6baced0a2b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -687,7 +687,7 @@ pub struct IVoiceCommandManager_abi(
 pub struct IVoiceCommandSet(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandSet {
     type Vtable = IVoiceCommandSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(200137333, 18150, 19217, [160, 136, 92, 104, 99, 40, 153, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bedda75_46e6_4b11_a088_5c68632899b5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -722,7 +722,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechContinuousRecognitionCompl
 }
 unsafe impl ::windows::runtime::Interface for SpeechContinuousRecognitionCompletedEventArgs {
     type Vtable = ISpeechContinuousRecognitionCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3822086587, 58124, 24088, [66, 75, 127, 190, 129, 248, 251, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3d069bb_e30c_5e18_424b_7fbe81f8fbd0);
 }
 impl ::windows::runtime::RuntimeName for SpeechContinuousRecognitionCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechContinuousRecognitionCompletedEventArgs";
@@ -810,7 +810,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechContinuousRecognitionResul
 }
 unsafe impl ::windows::runtime::Interface for SpeechContinuousRecognitionResultGeneratedEventArgs {
     type Vtable = ISpeechContinuousRecognitionResultGeneratedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(420027934, 28286, 23110, [64, 251, 118, 89, 79, 120, 101, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19091e1e_6e7e_5a46_40fb_76594f786504);
 }
 impl ::windows::runtime::RuntimeName for SpeechContinuousRecognitionResultGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechContinuousRecognitionResultGeneratedEventArgs";
@@ -963,7 +963,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechContinuousRecognitionSessi
 }
 unsafe impl ::windows::runtime::Interface for SpeechContinuousRecognitionSession {
     type Vtable = ISpeechContinuousRecognitionSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1780562948, 26132, 18936, [153, 162, 181, 233, 179, 160, 133, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a213c04_6614_49f8_99a2_b5e9b3a085c8);
 }
 impl ::windows::runtime::RuntimeName for SpeechContinuousRecognitionSession {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechContinuousRecognitionSession";
@@ -1056,7 +1056,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionCompilationResu
 }
 unsafe impl ::windows::runtime::Interface for SpeechRecognitionCompilationResult {
     type Vtable = ISpeechRecognitionCompilationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1082027101, 27335, 19876, [156, 193, 47, 206, 50, 207, 116, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x407e6c5d_6ac7_4da4_9cc1_2fce32cf7489);
 }
 impl ::windows::runtime::RuntimeName for SpeechRecognitionCompilationResult {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionCompilationResult";
@@ -1261,7 +1261,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionGrammarFileCons
 }
 unsafe impl ::windows::runtime::Interface for SpeechRecognitionGrammarFileConstraint {
     type Vtable = ISpeechRecognitionGrammarFileConstraint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3036879503, 34250, 20388, [177, 26, 71, 79, 196, 27, 56, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5031a8f_85ca_4fa4_b11a_474fc41b3835);
 }
 impl ::windows::runtime::RuntimeName for SpeechRecognitionGrammarFileConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint";
@@ -1349,7 +1349,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionHypothesis {
 }
 unsafe impl ::windows::runtime::Interface for SpeechRecognitionHypothesis {
     type Vtable = ISpeechRecognitionHypothesis_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2054890928, 39365, 20349, [191, 132, 16, 170, 19, 2, 182, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a7b25b0_99c5_4f7d_bf84_10aa1302b634);
 }
 impl ::windows::runtime::RuntimeName for SpeechRecognitionHypothesis {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionHypothesis";
@@ -1415,7 +1415,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionHypothesisGener
 }
 unsafe impl ::windows::runtime::Interface for SpeechRecognitionHypothesisGeneratedEventArgs {
     type Vtable = ISpeechRecognitionHypothesisGeneratedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1427511930, 32803, 22630, [65, 29, 18, 19, 187, 39, 20, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55161a7a_8023_5866_411d_1213bb271476);
 }
 impl ::windows::runtime::RuntimeName for SpeechRecognitionHypothesisGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionHypothesisGeneratedEventArgs";
@@ -1549,7 +1549,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionListConstraint 
 }
 unsafe impl ::windows::runtime::Interface for SpeechRecognitionListConstraint {
     type Vtable = ISpeechRecognitionListConstraint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(163874793, 58541, 17702, [129, 242, 73, 70, 251, 72, 29, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09c487e9_e4ad_4526_81f2_4946fb481d98);
 }
 impl ::windows::runtime::RuntimeName for SpeechRecognitionListConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint";
@@ -1637,7 +1637,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionQualityDegradin
 }
 unsafe impl ::windows::runtime::Interface for SpeechRecognitionQualityDegradingEventArgs {
     type Vtable = ISpeechRecognitionQualityDegradingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1340227845, 35898, 19582, [141, 10, 91, 212, 245, 177, 74, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4fe24105_8c3a_4c7e_8d0a_5bd4f5b14ad8);
 }
 impl ::windows::runtime::RuntimeName for SpeechRecognitionQualityDegradingEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionQualityDegradingEventArgs";
@@ -1779,7 +1779,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionResult {
 }
 unsafe impl ::windows::runtime::Interface for SpeechRecognitionResult {
     type Vtable = ISpeechRecognitionResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1311781207, 846, 18002, [133, 126, 208, 69, 76, 196, 190, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e303157_034e_4652_857e_d0454cc4beec);
 }
 impl ::windows::runtime::RuntimeName for SpeechRecognitionResult {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionResult";
@@ -1900,7 +1900,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionSemanticInterpr
 }
 unsafe impl ::windows::runtime::Interface for SpeechRecognitionSemanticInterpretation {
     type Vtable = ISpeechRecognitionSemanticInterpretation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2866928283, 32306, 19487, [137, 254, 12, 101, 244, 134, 245, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaae1da9b_7e32_4c1f_89fe_0c65f486f52e);
 }
 impl ::windows::runtime::RuntimeName for SpeechRecognitionSemanticInterpretation {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionSemanticInterpretation";
@@ -2039,7 +2039,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionTopicConstraint
 }
 unsafe impl ::windows::runtime::Interface for SpeechRecognitionTopicConstraint {
     type Vtable = ISpeechRecognitionTopicConstraint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3211779865, 33373, 20073, [166, 129, 54, 228, 140, 241, 201, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf6fdf19_825d_4e69_a681_36e48cf1c93e);
 }
 impl ::windows::runtime::RuntimeName for SpeechRecognitionTopicConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint";
@@ -2166,7 +2166,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionVoiceCommandDef
 }
 unsafe impl ::windows::runtime::Interface for SpeechRecognitionVoiceCommandDefinitionConstraint {
     type Vtable = ISpeechRecognitionVoiceCommandDefinitionConstraint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4068023339, 7924, 19175, [157, 119, 182, 255, 16, 184, 163, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2791c2b_1ef4_4ae7_9d77_b6ff10b8a3c2);
 }
 impl ::windows::runtime::RuntimeName for SpeechRecognitionVoiceCommandDefinitionConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionVoiceCommandDefinitionConstraint";
@@ -2442,7 +2442,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechRecognizer {
 }
 unsafe impl ::windows::runtime::Interface for SpeechRecognizer {
     type Vtable = ISpeechRecognizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(197380555, 49770, 16626, [174, 181, 128, 150, 178, 228, 128, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bc3c9cb_c26a_40f2_aeb5_8096b2e48073);
 }
 impl ::windows::runtime::RuntimeName for SpeechRecognizer {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizer";
@@ -2561,7 +2561,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechRecognizerStateChangedEven
 }
 unsafe impl ::windows::runtime::Interface for SpeechRecognizerStateChangedEventArgs {
     type Vtable = ISpeechRecognizerStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1446858505, 47619, 19373, [173, 129, 221, 198, 196, 218, 176, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x563d4f09_ba03_4bad_ad81_ddc6c4dab0c3);
 }
 impl ::windows::runtime::RuntimeName for SpeechRecognizerStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizerStateChangedEventArgs";
@@ -2664,7 +2664,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechRecognizerTimeouts {
 }
 unsafe impl ::windows::runtime::Interface for SpeechRecognizerTimeouts {
     type Vtable = ISpeechRecognizerTimeouts_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(787967946, 27196, 19914, [161, 83, 223, 27, 200, 138, 121, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ef76fca_6a3c_4dca_a153_df1bc88a79af);
 }
 impl ::windows::runtime::RuntimeName for SpeechRecognizerTimeouts {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizerTimeouts";
@@ -2774,7 +2774,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechRecognizerUIOptions {
 }
 unsafe impl ::windows::runtime::Interface for SpeechRecognizerUIOptions {
     type Vtable = ISpeechRecognizerUIOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2022233665, 47403, 17594, [162, 95, 209, 134, 70, 48, 100, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7888d641_b92b_44ba_a25f_d1864630641f);
 }
 impl ::windows::runtime::RuntimeName for SpeechRecognizerUIOptions {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizerUIOptions";
@@ -2884,7 +2884,7 @@ unsafe impl ::windows::runtime::RuntimeType for VoiceCommandSet {
 }
 unsafe impl ::windows::runtime::Interface for VoiceCommandSet {
     type Vtable = IVoiceCommandSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(200137333, 18150, 19217, [160, 136, 92, 104, 99, 40, 153, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bedda75_46e6_4b11_a088_5c68632899b5);
 }
 impl ::windows::runtime::RuntimeName for VoiceCommandSet {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.VoiceCommandSet";

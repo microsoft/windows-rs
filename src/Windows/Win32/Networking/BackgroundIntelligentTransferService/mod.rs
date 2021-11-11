@@ -31,7 +31,7 @@ impl AsyncIBackgroundCopyCallback {
 }
 unsafe impl ::windows::runtime::Interface for AsyncIBackgroundCopyCallback {
     type Vtable = AsyncIBackgroundCopyCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3391738449, 46267, 18041, [163, 217, 174, 128, 6, 17, 157, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca29d251_b4bb_4679_a3d9_ae8006119d54);
 }
 impl ::core::convert::From<AsyncIBackgroundCopyCallback> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIBackgroundCopyCallback) -> Self {
@@ -845,7 +845,7 @@ impl ::core::ops::Not for BG_TOKEN {
         Self(self.0.not())
     }
 }
-pub const BITSExtensionSetupFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4022053736, 29318, 18307, [148, 191, 148, 97, 216, 183, 231, 233]);
+pub const BITSExtensionSetupFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefbbab68_7286_4783_94bf_9461d8b7e7e9);
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BITS_COST_OPTION_IGNORE_CONGESTION: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
@@ -998,17 +998,17 @@ pub const BITS_MC_PEERCACHING_PORT: i32 = -2145828854i32;
 pub const BITS_MC_STATE_FILE_CORRUPT: i32 = -2145828857i32;
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BITS_MC_WSD_PORT: i32 = -2145828853i32;
-pub const BackgroundCopyManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1234293579, 32929, 17041, [131, 182, 51, 40, 54, 107, 144, 151]);
-pub const BackgroundCopyManager10_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1272177889, 31700, 18987, [153, 100, 73, 100, 0, 222, 81, 147]);
-pub const BackgroundCopyManager10_2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1165312911, 42696, 18806, [176, 254, 47, 38, 184, 13, 149, 158]);
-pub const BackgroundCopyManager10_3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1607740117, 49230, 19766, [173, 199, 224, 143, 241, 87, 55, 173]);
-pub const BackgroundCopyManager1_5: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4035409695, 55119, 19482, [187, 138, 225, 106, 202, 145, 36, 234]);
-pub const BackgroundCopyManager2_0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1830333714, 48611, 17299, [179, 17, 9, 156, 52, 110, 109, 249]);
-pub const BackgroundCopyManager2_5: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(63609046, 65373, 18872, [171, 198, 3, 221, 132, 18, 112, 32]);
-pub const BackgroundCopyManager3_0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1704779431, 18590, 4569, [169, 205, 0, 13, 86, 150, 82, 81]);
-pub const BackgroundCopyManager4_0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3144545643, 51918, 4572, [153, 146, 0, 25, 185, 58, 58, 132]);
-pub const BackgroundCopyManager5_0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(516727628, 59530, 17635, [141, 106, 137, 33, 189, 233, 228, 82]);
-pub const BackgroundCopyQMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1772964590, 20926, 17307, [169, 44, 134, 174, 73, 14, 139, 48]);
+pub const BackgroundCopyManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4991d34b_80a1_4291_83b6_3328366b9097);
+pub const BackgroundCopyManager10_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bd3e4e1_7bd4_4a2b_9964_496400de5193);
+pub const BackgroundCopyManager10_2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4575438f_a6c8_4976_b0fe_2f26b80d959e);
+pub const BackgroundCopyManager10_3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5fd42ad5_c04e_4d36_adc7_e08ff15737ad);
+pub const BackgroundCopyManager1_5: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf087771f_d74f_4c1a_bb8a_e16aca9124ea);
+pub const BackgroundCopyManager2_0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d18ad12_bde3_4393_b311_099c346e6df9);
+pub const BackgroundCopyManager2_5: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03ca98d6_ff5d_49b8_abc6_03dd84127020);
+pub const BackgroundCopyManager3_0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x659cdea7_489e_11d9_a9cd_000d56965251);
+pub const BackgroundCopyManager4_0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb6df56b_cace_11dc_9992_0019b93a3a84);
+pub const BackgroundCopyManager5_0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ecca34c_e88a_44e3_8d6a_8921bde9e452);
+pub const BackgroundCopyQMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69ad4aee_51be_439b_a92c_86ae490e8b30);
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1096,7 +1096,7 @@ impl IBITSExtensionSetup {
 }
 unsafe impl ::windows::runtime::Interface for IBITSExtensionSetup {
     type Vtable = IBITSExtensionSetup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(701479927, 2532, 19351, [176, 188, 242, 40, 126, 61, 142, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29cfbbf7_09e4_4b97_b0bc_f2287e3d8eb3);
 }
 impl ::core::convert::From<IBITSExtensionSetup> for ::windows::runtime::IUnknown {
     fn from(value: IBITSExtensionSetup) -> Self {
@@ -1176,7 +1176,7 @@ impl IBITSExtensionSetupFactory {
 }
 unsafe impl ::windows::runtime::Interface for IBITSExtensionSetupFactory {
     type Vtable = IBITSExtensionSetupFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3587364162, 21763, 20068, [139, 72, 114, 239, 145, 163, 46, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5d2d542_5503_4e64_8b48_72ef91a32ee1);
 }
 impl ::core::convert::From<IBITSExtensionSetupFactory> for ::windows::runtime::IUnknown {
     fn from(value: IBITSExtensionSetupFactory) -> Self {
@@ -1259,7 +1259,7 @@ impl IBackgroundCopyCallback {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyCallback {
     type Vtable = IBackgroundCopyCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2548734407, 390, 19156, [141, 249, 197, 180, 224, 237, 107, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97ea99c7_0186_4ad4_8df9_c5b4e0ed6b22);
 }
 impl ::core::convert::From<IBackgroundCopyCallback> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyCallback) -> Self {
@@ -1311,7 +1311,7 @@ impl IBackgroundCopyCallback1 {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyCallback1 {
     type Vtable = IBackgroundCopyCallback1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(139421075, 14336, 19976, [155, 89, 153, 250, 89, 173, 223, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x084f6593_3800_4e08_9b59_99fa59addf82);
 }
 impl ::core::convert::From<IBackgroundCopyCallback1> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyCallback1) -> Self {
@@ -1367,7 +1367,7 @@ impl IBackgroundCopyCallback2 {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyCallback2 {
     type Vtable = IBackgroundCopyCallback2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1704779436, 18590, 4569, [169, 205, 0, 13, 86, 150, 82, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x659cdeac_489e_11d9_a9cd_000d56965251);
 }
 impl ::core::convert::From<IBackgroundCopyCallback2> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyCallback2) -> Self {
@@ -1448,7 +1448,7 @@ impl IBackgroundCopyCallback3 {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyCallback3 {
     type Vtable = IBackgroundCopyCallback3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2563341266, 58155, 19160, [165, 40, 149, 253, 139, 22, 189, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98c97bd2_e32b_4ad8_a528_95fd8b16bd42);
 }
 impl ::core::convert::From<IBackgroundCopyCallback3> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyCallback3) -> Self {
@@ -1557,7 +1557,7 @@ impl IBackgroundCopyError {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyError {
     type Vtable = IBackgroundCopyError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(432411552, 64696, 20264, [129, 174, 137, 124, 61, 7, 143, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19c613a0_fcb8_4f28_81ae_897c3d078f81);
 }
 impl ::core::convert::From<IBackgroundCopyError> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyError) -> Self {
@@ -1620,7 +1620,7 @@ impl IBackgroundCopyFile {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyFile {
     type Vtable = IBackgroundCopyFile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(28818723, 64392, 19063, [132, 144, 88, 145, 211, 228, 101, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01b7bd23_fb88_4a77_8490_5891d3e4653a);
 }
 impl ::core::convert::From<IBackgroundCopyFile> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyFile) -> Self {
@@ -1690,7 +1690,7 @@ impl IBackgroundCopyFile2 {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyFile2 {
     type Vtable = IBackgroundCopyFile2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2213026707, 2163, 18253, [138, 140, 242, 1, 139, 26, 147, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83e81b93_0873_474d_8a8c_f2018b1a939c);
 }
 impl ::core::convert::From<IBackgroundCopyFile2> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyFile2) -> Self {
@@ -1806,7 +1806,7 @@ impl IBackgroundCopyFile3 {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyFile3 {
     type Vtable = IBackgroundCopyFile3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1704779434, 18590, 4569, [169, 205, 0, 13, 86, 150, 82, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x659cdeaa_489e_11d9_a9cd_000d56965251);
 }
 impl ::core::convert::From<IBackgroundCopyFile3> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyFile3) -> Self {
@@ -1954,7 +1954,7 @@ impl IBackgroundCopyFile4 {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyFile4 {
     type Vtable = IBackgroundCopyFile4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4018013781, 30856, 18784, [176, 229, 115, 8, 70, 224, 52, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef7e0655_7888_4960_b0e5_730846e03492);
 }
 impl ::core::convert::From<IBackgroundCopyFile4> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyFile4) -> Self {
@@ -2134,7 +2134,7 @@ impl IBackgroundCopyFile5 {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyFile5 {
     type Vtable = IBackgroundCopyFile5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2244044159, 56060, 16616, [136, 52, 223, 24, 234, 37, 113, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85c1657f_dafc_40e8_8834_df18ea25717e);
 }
 impl ::core::convert::From<IBackgroundCopyFile5> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyFile5) -> Self {
@@ -2350,7 +2350,7 @@ impl IBackgroundCopyFile6 {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyFile6 {
     type Vtable = IBackgroundCopyFile6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3479667959, 54903, 18941, [147, 104, 203, 71, 174, 233, 209, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf6784f7_d677_49fd_9368_cb47aee9d1ad);
 }
 impl ::core::convert::From<IBackgroundCopyFile6> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyFile6) -> Self {
@@ -2582,7 +2582,7 @@ impl IBackgroundCopyGroup {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyGroup {
     type Vtable = IBackgroundCopyGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(502104231, 21482, 16975, [138, 4, 23, 254, 169, 173, 196, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ded80a7_53ea_424f_8a04_17fea9adc4f5);
 }
 impl ::core::convert::From<IBackgroundCopyGroup> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyGroup) -> Self {
@@ -2790,7 +2790,7 @@ impl IBackgroundCopyJob {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyJob {
     type Vtable = IBackgroundCopyJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(929467703, 20606, 16736, [147, 22, 38, 48, 109, 21, 11, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x37668d37_507e_4160_9316_26306d150b12);
 }
 impl ::core::convert::From<IBackgroundCopyJob> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyJob) -> Self {
@@ -2907,7 +2907,7 @@ impl IBackgroundCopyJob1 {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyJob1 {
     type Vtable = IBackgroundCopyJob1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1509250364, 8241, 17961, [187, 24, 38, 69, 166, 151, 9, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59f5553c_2031_4629_bb18_2645a6970947);
 }
 impl ::core::convert::From<IBackgroundCopyJob1> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyJob1) -> Self {
@@ -3146,7 +3146,7 @@ impl IBackgroundCopyJob2 {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyJob2 {
     type Vtable = IBackgroundCopyJob2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1421150009, 26735, 17899, [157, 255, 214, 169, 160, 250, 169, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54b50739_686f_45eb_9dff_d6a9a0faa9af);
 }
 impl ::core::convert::From<IBackgroundCopyJob2> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyJob2) -> Self {
@@ -3469,7 +3469,7 @@ impl IBackgroundCopyJob3 {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyJob3 {
     type Vtable = IBackgroundCopyJob3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1144817972, 37119, 18669, [188, 222, 38, 245, 199, 69, 0, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x443c8934_90ff_48ed_bcde_26f5c7450042);
 }
 impl ::core::convert::From<IBackgroundCopyJob3> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyJob3) -> Self {
@@ -3847,7 +3847,7 @@ impl IBackgroundCopyJob4 {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyJob4 {
     type Vtable = IBackgroundCopyJob4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1704779438, 18590, 4569, [169, 205, 0, 13, 86, 150, 82, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x659cdeae_489e_11d9_a9cd_000d56965251);
 }
 impl ::core::convert::From<IBackgroundCopyJob4> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyJob4) -> Self {
@@ -4263,7 +4263,7 @@ impl IBackgroundCopyJob5 {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyJob5 {
     type Vtable = IBackgroundCopyJob5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3896967948, 48058, 18007, [175, 109, 72, 74, 164, 43, 241, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe847030c_bbba_4657_af6d_484aa42bf1fe);
 }
 impl ::core::convert::From<IBackgroundCopyJob5> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyJob5) -> Self {
@@ -4491,7 +4491,7 @@ impl IBackgroundCopyJobHttpOptions {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyJobHttpOptions {
     type Vtable = IBackgroundCopyJobHttpOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4055699577, 40705, 19420, [128, 54, 240, 155, 112, 9, 80, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1bd1079_9f01_4bdc_8036_f09b70095066);
 }
 impl ::core::convert::From<IBackgroundCopyJobHttpOptions> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyJobHttpOptions) -> Self {
@@ -4591,7 +4591,7 @@ impl IBackgroundCopyJobHttpOptions2 {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyJobHttpOptions2 {
     type Vtable = IBackgroundCopyJobHttpOptions2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3046220178, 41989, 20419, [131, 35, 76, 92, 84, 37, 120, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb591a192_a405_4fc3_8323_4c5c542578fc);
 }
 impl ::core::convert::From<IBackgroundCopyJobHttpOptions2> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyJobHttpOptions2) -> Self {
@@ -4723,7 +4723,7 @@ impl IBackgroundCopyJobHttpOptions3 {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyJobHttpOptions3 {
     type Vtable = IBackgroundCopyJobHttpOptions3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2324849619, 64844, 20186, [155, 40, 48, 19, 42, 77, 78, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a9263d3_fd4c_4eda_9b28_30132a4d4e3c);
 }
 impl ::core::convert::From<IBackgroundCopyJobHttpOptions3> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyJobHttpOptions3) -> Self {
@@ -4840,7 +4840,7 @@ impl IBackgroundCopyManager {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyManager {
     type Vtable = IBackgroundCopyManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1558400013, 3529, 19487, [137, 124, 218, 161, 183, 140, 238, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ce34c0d_0dc9_4c1f_897c_daa1b78cee7c);
 }
 impl ::core::convert::From<IBackgroundCopyManager> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyManager) -> Self {
@@ -4898,7 +4898,7 @@ impl IBackgroundCopyQMgr {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyQMgr {
     type Vtable = IBackgroundCopyQMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(385096809, 2549, 16850, [140, 216, 60, 8, 196, 123, 200, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16f41c69_09f5_41d2_8cd8_3c08c47bc8a8);
 }
 impl ::core::convert::From<IBackgroundCopyQMgr> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyQMgr) -> Self {
@@ -4942,7 +4942,7 @@ impl IBackgroundCopyServerCertificateValidationCallback {
 }
 unsafe impl ::windows::runtime::Interface for IBackgroundCopyServerCertificateValidationCallback {
     type Vtable = IBackgroundCopyServerCertificateValidationCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1290538242, 57079, 16728, [129, 58, 195, 42, 70, 148, 95, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4cec0d02_def7_4158_813a_c32a46945ff7);
 }
 impl ::core::convert::From<IBackgroundCopyServerCertificateValidationCallback> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyServerCertificateValidationCallback) -> Self {
@@ -4998,7 +4998,7 @@ impl IBitsPeer {
 }
 unsafe impl ::windows::runtime::Interface for IBitsPeer {
     type Vtable = IBitsPeer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1704779426, 18590, 4569, [169, 205, 0, 13, 86, 150, 82, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x659cdea2_489e_11d9_a9cd_000d56965251);
 }
 impl ::core::convert::From<IBitsPeer> for ::windows::runtime::IUnknown {
     fn from(value: IBitsPeer) -> Self {
@@ -5104,7 +5104,7 @@ impl IBitsPeerCacheAdministration {
 }
 unsafe impl ::windows::runtime::Interface for IBitsPeerCacheAdministration {
     type Vtable = IBitsPeerCacheAdministration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1704779437, 18590, 4569, [169, 205, 0, 13, 86, 150, 82, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x659cdead_489e_11d9_a9cd_000d56965251);
 }
 impl ::core::convert::From<IBitsPeerCacheAdministration> for ::windows::runtime::IUnknown {
     fn from(value: IBitsPeerCacheAdministration) -> Self {
@@ -5192,7 +5192,7 @@ impl IBitsPeerCacheRecord {
 }
 unsafe impl ::windows::runtime::Interface for IBitsPeerCacheRecord {
     type Vtable = IBitsPeerCacheRecord_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1704779439, 18590, 4569, [169, 205, 0, 13, 86, 150, 82, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x659cdeaf_489e_11d9_a9cd_000d56965251);
 }
 impl ::core::convert::From<IBitsPeerCacheRecord> for ::windows::runtime::IUnknown {
     fn from(value: IBitsPeerCacheRecord) -> Self {
@@ -5262,7 +5262,7 @@ impl IBitsTokenOptions {
 }
 unsafe impl ::windows::runtime::Interface for IBitsTokenOptions {
     type Vtable = IBitsTokenOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2586150083, 63442, 17786, [154, 94, 34, 182, 123, 255, 199, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a2584c3_f7d2_457a_9a5e_22b67bffc7d2);
 }
 impl ::core::convert::From<IBitsTokenOptions> for ::windows::runtime::IUnknown {
     fn from(value: IBitsTokenOptions) -> Self {
@@ -5327,7 +5327,7 @@ impl IEnumBackgroundCopyFiles {
 }
 unsafe impl ::windows::runtime::Interface for IEnumBackgroundCopyFiles {
     type Vtable = IEnumBackgroundCopyFiles_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3394363749, 50021, 16972, [141, 65, 36, 170, 164, 255, 60, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca51e165_c365_424c_8d41_24aaa4ff3c40);
 }
 impl ::core::convert::From<IEnumBackgroundCopyFiles> for ::windows::runtime::IUnknown {
     fn from(value: IEnumBackgroundCopyFiles) -> Self {
@@ -5391,7 +5391,7 @@ impl IEnumBackgroundCopyGroups {
 }
 unsafe impl ::windows::runtime::Interface for IEnumBackgroundCopyGroups {
     type Vtable = IEnumBackgroundCopyGroups_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3650348547, 19108, 18373, [134, 101, 194, 13, 57, 194, 186, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd993e603_4aa4_47c5_8665_c20d39c2ba4f);
 }
 impl ::core::convert::From<IEnumBackgroundCopyGroups> for ::windows::runtime::IUnknown {
     fn from(value: IEnumBackgroundCopyGroups) -> Self {
@@ -5455,7 +5455,7 @@ impl IEnumBackgroundCopyJobs {
 }
 unsafe impl ::windows::runtime::Interface for IEnumBackgroundCopyJobs {
     type Vtable = IEnumBackgroundCopyJobs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(452261394, 15217, 18031, [143, 88, 123, 111, 115, 172, 87, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1af4f612_3b71_466f_8f58_7b6f73ac57ad);
 }
 impl ::core::convert::From<IEnumBackgroundCopyJobs> for ::windows::runtime::IUnknown {
     fn from(value: IEnumBackgroundCopyJobs) -> Self {
@@ -5519,7 +5519,7 @@ impl IEnumBackgroundCopyJobs1 {
 }
 unsafe impl ::windows::runtime::Interface for IEnumBackgroundCopyJobs1 {
     type Vtable = IEnumBackgroundCopyJobs1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2343484061, 36636, 17092, [184, 44, 9, 174, 121, 152, 13, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8baeba9d_8f1c_42c4_b82c_09ae79980d25);
 }
 impl ::core::convert::From<IEnumBackgroundCopyJobs1> for ::windows::runtime::IUnknown {
     fn from(value: IEnumBackgroundCopyJobs1) -> Self {
@@ -5583,7 +5583,7 @@ impl IEnumBitsPeerCacheRecords {
 }
 unsafe impl ::windows::runtime::Interface for IEnumBitsPeerCacheRecords {
     type Vtable = IEnumBitsPeerCacheRecords_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1704779428, 18590, 4569, [169, 205, 0, 13, 86, 150, 82, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x659cdea4_489e_11d9_a9cd_000d56965251);
 }
 impl ::core::convert::From<IEnumBitsPeerCacheRecords> for ::windows::runtime::IUnknown {
     fn from(value: IEnumBitsPeerCacheRecords) -> Self {
@@ -5647,7 +5647,7 @@ impl IEnumBitsPeers {
 }
 unsafe impl ::windows::runtime::Interface for IEnumBitsPeers {
     type Vtable = IEnumBitsPeers_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1704779429, 18590, 4569, [169, 205, 0, 13, 86, 150, 82, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x659cdea5_489e_11d9_a9cd_000d56965251);
 }
 impl ::core::convert::From<IEnumBitsPeers> for ::windows::runtime::IUnknown {
     fn from(value: IEnumBitsPeers) -> Self {

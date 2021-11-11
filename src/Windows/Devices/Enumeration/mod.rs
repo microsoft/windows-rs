@@ -28,7 +28,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceAccessChangedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for DeviceAccessChangedEventArgs {
     type Vtable = IDeviceAccessChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3738831820, 20381, 20312, [157, 186, 169, 188, 128, 4, 8, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdeda0bcc_4f9d_4f58_9dba_a9bc800408d5);
 }
 impl ::windows::runtime::RuntimeName for DeviceAccessChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceAccessChangedEventArgs";
@@ -134,7 +134,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceAccessInformation {
 }
 unsafe impl ::windows::runtime::Interface for DeviceAccessInformation {
     type Vtable = IDeviceAccessInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(195730035, 28133, 18709, [141, 221, 154, 5, 84, 166, 245, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0baa9a73_6de5_4915_8ddd_9a0554a6f545);
 }
 impl ::windows::runtime::RuntimeName for DeviceAccessInformation {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceAccessInformation";
@@ -251,7 +251,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceConnectionChangeTriggerDet
 }
 unsafe impl ::windows::runtime::Interface for DeviceConnectionChangeTriggerDetails {
     type Vtable = IDeviceConnectionChangeTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3092745228, 48065, 18507, [191, 250, 123, 49, 220, 194, 0, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8578c0c_bbc1_484b_bffa_7b31dcc200b2);
 }
 impl ::windows::runtime::RuntimeName for DeviceConnectionChangeTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceConnectionChangeTriggerDetails";
@@ -317,7 +317,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceDisconnectButtonClickedEve
 }
 unsafe impl ::windows::runtime::Interface for DeviceDisconnectButtonClickedEventArgs {
     type Vtable = IDeviceDisconnectButtonClickedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2386867565, 63746, 18944, [181, 54, 243, 121, 146, 230, 162, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e44b56d_f902_4a00_b536_f37992e6a2a7);
 }
 impl ::windows::runtime::RuntimeName for DeviceDisconnectButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceDisconnectButtonClickedEventArgs";
@@ -579,7 +579,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceInformation {
 }
 unsafe impl ::windows::runtime::Interface for DeviceInformation {
     type Vtable = IDeviceInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2879454101, 17304, 18589, [142, 68, 230, 19, 9, 39, 1, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaba0fb95_4398_489d_8e44_e6130927011f);
 }
 impl ::windows::runtime::RuntimeName for DeviceInformation {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformation";
@@ -863,7 +863,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceInformationCustomPairing {
 }
 unsafe impl ::windows::runtime::Interface for DeviceInformationCustomPairing {
     type Vtable = IDeviceInformationCustomPairing_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2232650754, 20198, 18708, [131, 112, 16, 122, 57, 20, 76, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85138c02_4ee6_4914_8370_107a39144c0e);
 }
 impl ::windows::runtime::RuntimeName for DeviceInformationCustomPairing {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationCustomPairing";
@@ -1040,7 +1040,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceInformationPairing {
 }
 unsafe impl ::windows::runtime::Interface for DeviceInformationPairing {
     type Vtable = IDeviceInformationPairing_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(742877685, 63108, 16597, [132, 105, 232, 219, 170, 183, 4, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c4769f5_f684_40d5_8469_e8dbaab70485);
 }
 impl ::windows::runtime::RuntimeName for DeviceInformationPairing {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationPairing";
@@ -1123,7 +1123,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceInformationUpdate {
 }
 unsafe impl ::windows::runtime::Interface for DeviceInformationUpdate {
     type Vtable = IDeviceInformationUpdate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2402374405, 55666, 17591, [163, 126, 158, 130, 44, 120, 33, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f315305_d972_44b7_a37e_9e822c78213b);
 }
 impl ::windows::runtime::RuntimeName for DeviceInformationUpdate {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationUpdate";
@@ -1308,7 +1308,7 @@ unsafe impl ::windows::runtime::RuntimeType for DevicePairingRequestedEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for DevicePairingRequestedEventArgs {
     type Vtable = IDevicePairingRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4145544278, 56939, 18559, [131, 118, 1, 128, 172, 166, 153, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf717fc56_de6b_487f_8376_0180aca69963);
 }
 impl ::windows::runtime::RuntimeName for DevicePairingRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePairingRequestedEventArgs";
@@ -1382,7 +1382,7 @@ unsafe impl ::windows::runtime::RuntimeType for DevicePairingResult {
 }
 unsafe impl ::windows::runtime::Interface for DevicePairingResult {
     type Vtable = IDevicePairingResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(120259263, 56725, 16421, [155, 55, 222, 81, 173, 186, 55, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x072b02bf_dd95_4025_9b37_de51adba37b7);
 }
 impl ::windows::runtime::RuntimeName for DevicePairingResult {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePairingResult";
@@ -1597,7 +1597,7 @@ unsafe impl ::windows::runtime::RuntimeType for DevicePicker {
 }
 unsafe impl ::windows::runtime::Interface for DevicePicker {
     type Vtable = IDevicePicker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2224650914, 842, 17472, [136, 19, 125, 11, 212, 121, 191, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84997aa2_034a_4440_8813_7d0bd479bf5a);
 }
 impl ::windows::runtime::RuntimeName for DevicePicker {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePicker";
@@ -1758,7 +1758,7 @@ unsafe impl ::windows::runtime::RuntimeType for DevicePickerAppearance {
 }
 unsafe impl ::windows::runtime::Interface for DevicePickerAppearance {
     type Vtable = IDevicePickerAppearance_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3868857030, 58919, 20184, [155, 108, 70, 10, 244, 69, 229, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe69a12c6_e627_4ed8_9b6c_460af445e56d);
 }
 impl ::windows::runtime::RuntimeName for DevicePickerAppearance {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePickerAppearance";
@@ -1886,7 +1886,7 @@ unsafe impl ::windows::runtime::RuntimeType for DevicePickerFilter {
 }
 unsafe impl ::windows::runtime::Interface for DevicePickerFilter {
     type Vtable = IDevicePickerFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2447086242, 22475, 18673, [155, 89, 165, 155, 122, 31, 2, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91db92a2_57cb_48f1_9b59_a59b7a1f02a2);
 }
 impl ::windows::runtime::RuntimeName for DevicePickerFilter {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePickerFilter";
@@ -1952,7 +1952,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceSelectedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for DeviceSelectedEventArgs {
     type Vtable = IDeviceSelectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(647944926, 7471, 18752, [132, 2, 65, 86, 184, 29, 60, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x269edade_1d2f_4940_8402_4156b81d3c77);
 }
 impl ::windows::runtime::RuntimeName for DeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceSelectedEventArgs";
@@ -2131,7 +2131,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceThumbnail {
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::runtime::Interface for DeviceThumbnail {
     type Vtable = super::super::Storage::Streams::IRandomAccessStreamWithContentType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3424995367, 19261, 17295, [146, 50, 16, 199, 107, 199, 224, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc254827_4b3d_438f_9232_10c76bc7e038);
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::runtime::RuntimeName for DeviceThumbnail {
@@ -2362,7 +2362,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceUnpairingResult {
 }
 unsafe impl ::windows::runtime::Interface for DeviceUnpairingResult {
     type Vtable = IDeviceUnpairingResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1727285971, 31193, 17483, [146, 207, 169, 46, 247, 37, 113, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66f44ad3_79d9_444b_92cf_a92ef72571c7);
 }
 impl ::windows::runtime::RuntimeName for DeviceUnpairingResult {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceUnpairingResult";
@@ -2547,7 +2547,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceWatcher {
 }
 unsafe impl ::windows::runtime::Interface for DeviceWatcher {
     type Vtable = IDeviceWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3387603325, 36715, 20374, [169, 244, 171, 200, 20, 226, 34, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9eab97d_8f6b_4f96_a9f4_abc814e22271);
 }
 impl ::windows::runtime::RuntimeName for DeviceWatcher {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceWatcher";
@@ -2629,7 +2629,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceWatcherEvent {
 }
 unsafe impl ::windows::runtime::Interface for DeviceWatcherEvent {
     type Vtable = IDeviceWatcherEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1957338123, 7613, 18429, [182, 53, 60, 197, 86, 208, 255, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74aa9c0b_1dbd_47fd_b635_3cc556d0ff8b);
 }
 impl ::windows::runtime::RuntimeName for DeviceWatcherEvent {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceWatcherEvent";
@@ -2745,7 +2745,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceWatcherTriggerDetails {
 }
 unsafe impl ::windows::runtime::Interface for DeviceWatcherTriggerDetails {
     type Vtable = IDeviceWatcherTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(947945753, 19639, 20055, [165, 109, 119, 109, 7, 203, 254, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38808119_4cb7_4e57_a56d_776d07cbfef9);
 }
 impl ::windows::runtime::RuntimeName for DeviceWatcherTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceWatcherTriggerDetails";
@@ -2835,7 +2835,7 @@ unsafe impl ::windows::runtime::RuntimeType for EnclosureLocation {
 }
 unsafe impl ::windows::runtime::Interface for EnclosureLocation {
     type Vtable = IEnclosureLocation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1110706727, 22544, 17820, [170, 187, 198, 94, 31, 129, 62, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42340a27_5810_459c_aabb_c65e1f813ecf);
 }
 impl ::windows::runtime::RuntimeName for EnclosureLocation {
     const NAME: &'static str = "Windows.Devices.Enumeration.EnclosureLocation";
@@ -2887,7 +2887,7 @@ unsafe impl ::core::marker::Sync for EnclosureLocation {}
 pub struct IDeviceAccessChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceAccessChangedEventArgs {
     type Vtable = IDeviceAccessChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3738831820, 20381, 20312, [157, 186, 169, 188, 128, 4, 8, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdeda0bcc_4f9d_4f58_9dba_a9bc800408d5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2905,7 +2905,7 @@ pub struct IDeviceAccessChangedEventArgs_abi(
 pub struct IDeviceAccessChangedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceAccessChangedEventArgs2 {
     type Vtable = IDeviceAccessChangedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2186424930, 37707, 19248, [161, 120, 173, 195, 159, 47, 43, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82523262_934b_4b30_a178_adc39f2f2be3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2923,7 +2923,7 @@ pub struct IDeviceAccessChangedEventArgs2_abi(
 pub struct IDeviceAccessInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceAccessInformation {
     type Vtable = IDeviceAccessInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(195730035, 28133, 18709, [141, 221, 154, 5, 84, 166, 245, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0baa9a73_6de5_4915_8ddd_9a0554a6f545);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2945,7 +2945,7 @@ pub struct IDeviceAccessInformation_abi(
 pub struct IDeviceAccessInformationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceAccessInformationStatics {
     type Vtable = IDeviceAccessInformationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1464587219, 24368, 17869, [138, 148, 114, 79, 229, 151, 48, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x574bd3d3_5f30_45cd_8a94_724fe5973084);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2965,7 +2965,7 @@ pub struct IDeviceAccessInformationStatics_abi(
 pub struct IDeviceConnectionChangeTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceConnectionChangeTriggerDetails {
     type Vtable = IDeviceConnectionChangeTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3092745228, 48065, 18507, [191, 250, 123, 49, 220, 194, 0, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8578c0c_bbc1_484b_bffa_7b31dcc200b2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2983,7 +2983,7 @@ pub struct IDeviceConnectionChangeTriggerDetails_abi(
 pub struct IDeviceDisconnectButtonClickedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceDisconnectButtonClickedEventArgs {
     type Vtable = IDeviceDisconnectButtonClickedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2386867565, 63746, 18944, [181, 54, 243, 121, 146, 230, 162, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e44b56d_f902_4a00_b536_f37992e6a2a7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3001,7 +3001,7 @@ pub struct IDeviceDisconnectButtonClickedEventArgs_abi(
 pub struct IDeviceInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformation {
     type Vtable = IDeviceInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2879454101, 17304, 18589, [142, 68, 230, 19, 9, 39, 1, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaba0fb95_4398_489d_8e44_e6130927011f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3030,7 +3030,7 @@ pub struct IDeviceInformation_abi(
 pub struct IDeviceInformation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformation2 {
     type Vtable = IDeviceInformation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4048987704, 31127, 18649, [161, 12, 38, 157, 70, 83, 63, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf156a638_7997_48d9_a10c_269d46533f48);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3049,7 +3049,7 @@ pub struct IDeviceInformation2_abi(
 pub struct IDeviceInformationCustomPairing(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformationCustomPairing {
     type Vtable = IDeviceInformationCustomPairing_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2232650754, 20198, 18708, [131, 112, 16, 122, 57, 20, 76, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85138c02_4ee6_4914_8370_107a39144c0e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3076,7 +3076,7 @@ pub struct IDeviceInformationCustomPairing_abi(
 pub struct IDeviceInformationPairing(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformationPairing {
     type Vtable = IDeviceInformationPairing_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(742877685, 63108, 16597, [132, 105, 232, 219, 170, 183, 4, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c4769f5_f684_40d5_8469_e8dbaab70485);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3099,7 +3099,7 @@ pub struct IDeviceInformationPairing_abi(
 pub struct IDeviceInformationPairing2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformationPairing2 {
     type Vtable = IDeviceInformationPairing2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4135981821, 2798, 17192, [133, 204, 28, 116, 43, 177, 121, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf68612fd_0aee_4328_85cc_1c742bb1790d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3122,7 +3122,7 @@ pub struct IDeviceInformationPairing2_abi(
 pub struct IDeviceInformationPairingStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformationPairingStatics {
     type Vtable = IDeviceInformationPairingStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3910517768, 14036, 18849, [191, 19, 81, 65, 115, 121, 155, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe915c408_36d4_49a1_bf13_514173799b6b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3140,7 +3140,7 @@ pub struct IDeviceInformationPairingStatics_abi(
 pub struct IDeviceInformationPairingStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformationPairingStatics2 {
     type Vtable = IDeviceInformationPairingStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(81679218, 47031, 18283, [167, 79, 197, 131, 106, 112, 77, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04de5372_b7b7_476b_a74f_c5836a704d98);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3158,7 +3158,7 @@ pub struct IDeviceInformationPairingStatics2_abi(
 pub struct IDeviceInformationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformationStatics {
     type Vtable = IDeviceInformationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3246329870, 14918, 19064, [128, 19, 118, 157, 201, 185, 115, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc17f100e_3a46_4a78_8013_769dc9b97390);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3192,7 +3192,7 @@ pub struct IDeviceInformationStatics_abi(
 pub struct IDeviceInformationStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformationStatics2 {
     type Vtable = IDeviceInformationStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1228623668, 43087, 17917, [145, 103, 21, 209, 203, 27, 209, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x493b4f34_a84f_45fd_9167_15d1cb1bd1f9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3216,7 +3216,7 @@ pub struct IDeviceInformationStatics2_abi(
 pub struct IDeviceInformationUpdate(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformationUpdate {
     type Vtable = IDeviceInformationUpdate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2402374405, 55666, 17591, [163, 126, 158, 130, 44, 120, 33, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f315305_d972_44b7_a37e_9e822c78213b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3236,7 +3236,7 @@ pub struct IDeviceInformationUpdate_abi(
 pub struct IDeviceInformationUpdate2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformationUpdate2 {
     type Vtable = IDeviceInformationUpdate2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1570575500, 43123, 18526, [186, 166, 170, 98, 7, 136, 227, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d9d148c_a873_485e_baa6_aa620788e3cc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3254,7 +3254,7 @@ pub struct IDeviceInformationUpdate2_abi(
 pub struct IDevicePairingRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePairingRequestedEventArgs {
     type Vtable = IDevicePairingRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4145544278, 56939, 18559, [131, 118, 1, 128, 172, 166, 153, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf717fc56_de6b_487f_8376_0180aca69963);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3278,7 +3278,7 @@ pub struct IDevicePairingRequestedEventArgs_abi(
 pub struct IDevicePairingRequestedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePairingRequestedEventArgs2 {
     type Vtable = IDevicePairingRequestedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3359068889, 58579, 19888, [163, 96, 161, 5, 228, 55, 219, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc83752d9_e4d3_4db0_a360_a105e437dbdc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3297,7 +3297,7 @@ pub struct IDevicePairingRequestedEventArgs2_abi(
 pub struct IDevicePairingResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePairingResult {
     type Vtable = IDevicePairingResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(120259263, 56725, 16421, [155, 55, 222, 81, 173, 186, 55, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x072b02bf_dd95_4025_9b37_de51adba37b7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3317,7 +3317,7 @@ pub struct IDevicePairingResult_abi(
 pub struct IDevicePairingSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePairingSettings {
     type Vtable = IDevicePairingSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1210888828, 33723, 16910, [190, 81, 102, 2, 178, 34, 222, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x482cb27c_83bb_420e_be51_6602b222de54);
 }
 impl IDevicePairingSettings {}
 unsafe impl ::windows::runtime::RuntimeType for IDevicePairingSettings {
@@ -3378,7 +3378,7 @@ pub struct IDevicePairingSettings_abi(
 pub struct IDevicePicker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePicker {
     type Vtable = IDevicePicker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2224650914, 842, 17472, [136, 19, 125, 11, 212, 121, 191, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84997aa2_034a_4440_8813_7d0bd479bf5a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3421,7 +3421,7 @@ pub struct IDevicePicker_abi(
 pub struct IDevicePickerAppearance(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePickerAppearance {
     type Vtable = IDevicePickerAppearance_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3868857030, 58919, 20184, [155, 108, 70, 10, 244, 69, 229, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe69a12c6_e627_4ed8_9b6c_460af445e56d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3464,7 +3464,7 @@ pub struct IDevicePickerAppearance_abi(
 pub struct IDevicePickerFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePickerFilter {
     type Vtable = IDevicePickerFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2447086242, 22475, 18673, [155, 89, 165, 155, 122, 31, 2, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91db92a2_57cb_48f1_9b59_a59b7a1f02a2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3485,7 +3485,7 @@ pub struct IDevicePickerFilter_abi(
 pub struct IDeviceSelectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceSelectedEventArgs {
     type Vtable = IDeviceSelectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(647944926, 7471, 18752, [132, 2, 65, 86, 184, 29, 60, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x269edade_1d2f_4940_8402_4156b81d3c77);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3503,7 +3503,7 @@ pub struct IDeviceSelectedEventArgs_abi(
 pub struct IDeviceUnpairingResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceUnpairingResult {
     type Vtable = IDeviceUnpairingResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1727285971, 31193, 17483, [146, 207, 169, 46, 247, 37, 113, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66f44ad3_79d9_444b_92cf_a92ef72571c7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3521,7 +3521,7 @@ pub struct IDeviceUnpairingResult_abi(
 pub struct IDeviceWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceWatcher {
     type Vtable = IDeviceWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3387603325, 36715, 20374, [169, 244, 171, 200, 20, 226, 34, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9eab97d_8f6b_4f96_a9f4_abc814e22271);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3561,7 +3561,7 @@ pub struct IDeviceWatcher_abi(
 pub struct IDeviceWatcher2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceWatcher2 {
     type Vtable = IDeviceWatcher2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4278732142, 60692, 18921, [154, 105, 129, 23, 197, 74, 233, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff08456e_ed14_49e9_9a69_8117c54ae971);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3580,7 +3580,7 @@ pub struct IDeviceWatcher2_abi(
 pub struct IDeviceWatcherEvent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceWatcherEvent {
     type Vtable = IDeviceWatcherEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1957338123, 7613, 18429, [182, 53, 60, 197, 86, 208, 255, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74aa9c0b_1dbd_47fd_b635_3cc556d0ff8b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3600,7 +3600,7 @@ pub struct IDeviceWatcherEvent_abi(
 pub struct IDeviceWatcherTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceWatcherTriggerDetails {
     type Vtable = IDeviceWatcherTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(947945753, 19639, 20055, [165, 109, 119, 109, 7, 203, 254, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38808119_4cb7_4e57_a56d_776d07cbfef9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3619,7 +3619,7 @@ pub struct IDeviceWatcherTriggerDetails_abi(
 pub struct IEnclosureLocation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnclosureLocation {
     type Vtable = IEnclosureLocation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1110706727, 22544, 17820, [170, 187, 198, 94, 31, 129, 62, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42340a27_5810_459c_aabb_c65e1f813ecf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3639,7 +3639,7 @@ pub struct IEnclosureLocation_abi(
 pub struct IEnclosureLocation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnclosureLocation2 {
     type Vtable = IEnclosureLocation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(679844187, 57469, 18525, [138, 158, 189, 242, 154, 239, 79, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2885995b_e07d_485d_8a9e_bdf29aef4f66);
 }
 #[repr(C)]
 #[doc(hidden)]

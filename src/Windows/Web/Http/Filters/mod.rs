@@ -234,7 +234,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpBaseProtocolFilter {
 }
 unsafe impl ::windows::runtime::Interface for HttpBaseProtocolFilter {
     type Vtable = IHttpBaseProtocolFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1908972297, 57649, 19284, [165, 60, 235, 67, 255, 55, 233, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71c89b09_e131_4b54_a53c_eb43ff37e9bb);
 }
 impl ::windows::runtime::RuntimeName for HttpBaseProtocolFilter {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpBaseProtocolFilter";
@@ -366,7 +366,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpCacheControl {
 }
 unsafe impl ::windows::runtime::Interface for HttpCacheControl {
     type Vtable = IHttpCacheControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3346930868, 15594, 20149, [172, 133, 4, 225, 134, 230, 58, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc77e1cb4_3cea_4eb5_ac85_04e186e63ab7);
 }
 impl ::windows::runtime::RuntimeName for HttpCacheControl {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpCacheControl";
@@ -550,7 +550,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpServerCustomValidationReques
 }
 unsafe impl ::windows::runtime::Interface for HttpServerCustomValidationRequestedEventArgs {
     type Vtable = IHttpServerCustomValidationRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(828767794, 59357, 18615, [163, 97, 147, 156, 117, 14, 99, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3165fe32_e7dd_48b7_a361_939c750e63cc);
 }
 impl ::windows::runtime::RuntimeName for HttpServerCustomValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpServerCustomValidationRequestedEventArgs";
@@ -602,7 +602,7 @@ unsafe impl ::core::marker::Sync for HttpServerCustomValidationRequestedEventArg
 pub struct IHttpBaseProtocolFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBaseProtocolFilter {
     type Vtable = IHttpBaseProtocolFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1908972297, 57649, 19284, [165, 60, 235, 67, 255, 55, 233, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71c89b09_e131_4b54_a53c_eb43ff37e9bb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -645,7 +645,7 @@ pub struct IHttpBaseProtocolFilter_abi(
 pub struct IHttpBaseProtocolFilter2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBaseProtocolFilter2 {
     type Vtable = IHttpBaseProtocolFilter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(784531475, 37927, 18688, [160, 23, 250, 125, 163, 181, 201, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ec30013_9427_4900_a017_fa7da3b5c9ae);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -664,7 +664,7 @@ pub struct IHttpBaseProtocolFilter2_abi(
 pub struct IHttpBaseProtocolFilter3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBaseProtocolFilter3 {
     type Vtable = IHttpBaseProtocolFilter3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3560918348, 48450, 17326, [135, 23, 173, 44, 143, 75, 41, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd43f4d4c_bd42_43ae_8717_ad2c8f4b2937);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -683,7 +683,7 @@ pub struct IHttpBaseProtocolFilter3_abi(
 pub struct IHttpBaseProtocolFilter4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBaseProtocolFilter4 {
     type Vtable = IHttpBaseProtocolFilter4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2682481871, 10627, 18579, [148, 31, 235, 81, 140, 168, 206, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fe36ccf_2983_4893_941f_eb518ca8cef9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -705,7 +705,7 @@ pub struct IHttpBaseProtocolFilter4_abi(
 pub struct IHttpBaseProtocolFilter5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBaseProtocolFilter5 {
     type Vtable = IHttpBaseProtocolFilter5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1097746835, 12771, 18454, [191, 9, 224, 24, 238, 141, 193, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x416e4993_31e3_4816_bf09_e018ee8dc1f5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -724,7 +724,7 @@ pub struct IHttpBaseProtocolFilter5_abi(
 pub struct IHttpBaseProtocolFilterStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBaseProtocolFilterStatics {
     type Vtable = IHttpBaseProtocolFilterStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1833823756, 59656, 18766, [181, 163, 18, 99, 201, 184, 36, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d4dee0c_e908_494e_b5a3_1263c9b8242a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -743,7 +743,7 @@ pub struct IHttpBaseProtocolFilterStatics_abi(
 pub struct IHttpCacheControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpCacheControl {
     type Vtable = IHttpCacheControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3346930868, 15594, 20149, [172, 133, 4, 225, 134, 230, 58, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc77e1cb4_3cea_4eb5_ac85_04e186e63ab7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -765,7 +765,7 @@ pub struct IHttpCacheControl_abi(
 pub struct IHttpFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpFilter {
     type Vtable = IHttpFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2764795349, 2306, 17310, [191, 215, 225, 37, 82, 177, 101, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4cb6dd5_0902_439e_bfd7_e12552b165ce);
 }
 impl IHttpFilter {
     #[cfg(feature = "Foundation")]
@@ -870,7 +870,7 @@ pub struct IHttpFilter_abi(
 pub struct IHttpServerCustomValidationRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpServerCustomValidationRequestedEventArgs {
     type Vtable = IHttpServerCustomValidationRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(828767794, 59357, 18615, [163, 97, 147, 156, 117, 14, 99, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3165fe32_e7dd_48b7_a361_939c750e63cc);
 }
 #[repr(C)]
 #[doc(hidden)]

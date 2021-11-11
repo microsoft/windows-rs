@@ -13,7 +13,7 @@ impl IWaaSAssessor {
 }
 unsafe impl ::windows::runtime::Interface for IWaaSAssessor {
     type Vtable = IWaaSAssessor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(591903727, 6715, 17828, [144, 45, 62, 9, 194, 105, 180, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2347bbef_1a3b_45a4_902d_3e09c269b45e);
 }
 impl ::core::convert::From<IWaaSAssessor> for ::windows::runtime::IUnknown {
     fn from(value: IWaaSAssessor) -> Self {
@@ -174,4 +174,4 @@ impl ::core::convert::From<i32> for UpdateImpactLevel {
 unsafe impl ::windows::runtime::Abi for UpdateImpactLevel {
     type Abi = Self;
 }
-pub const WaaSAssessor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(160364657, 64159, 18095, [137, 88, 192, 131, 81, 93, 124, 156]);
+pub const WaaSAssessor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x098ef871_fa9f_46af_8958_c083515d7c9c);

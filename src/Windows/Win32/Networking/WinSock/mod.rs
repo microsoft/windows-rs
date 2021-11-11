@@ -332,7 +332,7 @@ pub const AI_SECURE: u32 = 32768u32;
 pub const AI_SECURE_WITH_FALLBACK: u32 = 1048576u32;
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
 pub const AI_V4MAPPED: u32 = 2048u32;
-pub const ASSOCIATE_NAMERES_CONTEXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1503890279, 54526, 18145, [186, 60, 135, 234, 116, 202, 48, 73]);
+pub const ASSOCIATE_NAMERES_CONTEXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59a38b67_d4fe_46e1_ba3c_87ea74ca3049);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
@@ -5122,8 +5122,8 @@ impl ::core::convert::From<i32> for RCVALL_VALUE {
 unsafe impl ::windows::runtime::Abi for RCVALL_VALUE {
     type Abi = Self;
 }
-pub const REAL_TIME_NOTIFICATION_CAPABILITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1801027994, 23726, 18733, [169, 1, 42, 60, 44, 80, 22, 79]);
-pub const REAL_TIME_NOTIFICATION_CAPABILITY_EX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1749277187, 5450, 17942, [165, 8, 68, 55, 18, 149, 249, 107]);
+pub const REAL_TIME_NOTIFICATION_CAPABILITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b59819a_5cae_492d_a901_2a3c2c50164f);
+pub const REAL_TIME_NOTIFICATION_CAPABILITY_EX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6843da03_154a_4616_a508_44371295f96b);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
@@ -7211,7 +7211,7 @@ impl ::core::cmp::Eq for SOCKET_ADDRESS_LIST {}
 unsafe impl ::windows::runtime::Abi for SOCKET_ADDRESS_LIST {
     type Abi = Self;
 }
-pub const SOCKET_DEFAULT2_QM_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2932010908, 14925, 19774, [136, 66, 35, 153, 66, 227, 154, 71]);
+pub const SOCKET_DEFAULT2_QM_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaec2ef9c_3a4d_4d3e_8842_239942e39a47);
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
 pub const SOCKET_ERROR: i32 = -1i32;
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]

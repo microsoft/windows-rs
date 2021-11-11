@@ -845,7 +845,7 @@ unsafe impl ::windows::runtime::RuntimeType for Calendar {
 }
 unsafe impl ::windows::runtime::Interface for Calendar {
     type Vtable = ICalendar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3392152093, 34521, 16635, [162, 107, 212, 78, 183, 207, 8, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca30221d_86d9_40fb_a26b_d44eb7cf08ea);
 }
 impl ::windows::runtime::RuntimeName for Calendar {
     const NAME: &'static str = "Windows.Globalization.Calendar";
@@ -1079,7 +1079,7 @@ unsafe impl ::windows::runtime::RuntimeType for CurrencyAmount {
 }
 unsafe impl ::windows::runtime::Interface for CurrencyAmount {
     type Vtable = ICurrencyAmount_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1957992770, 60277, 17466, [149, 179, 125, 114, 63, 86, 249, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74b49942_eb75_443a_95b3_7d723f56f93c);
 }
 impl ::windows::runtime::RuntimeName for CurrencyAmount {
     const NAME: &'static str = "Windows.Globalization.CurrencyAmount";
@@ -2403,7 +2403,7 @@ unsafe impl ::windows::runtime::RuntimeType for GeographicRegion {
 }
 unsafe impl ::windows::runtime::Interface for GeographicRegion {
     type Vtable = IGeographicRegion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(32089633, 19044, 20185, [149, 79, 158, 222, 176, 123, 217, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01e9a621_4a64_4ed9_954f_9edeb07bd903);
 }
 impl ::windows::runtime::RuntimeName for GeographicRegion {
     const NAME: &'static str = "Windows.Globalization.GeographicRegion";
@@ -2458,7 +2458,7 @@ pub struct GlobalizationJapanesePhoneticAnalyzerContract(pub u8);
 pub struct IApplicationLanguagesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationLanguagesStatics {
     type Vtable = IApplicationLanguagesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1974732871, 2636, 19090, [149, 101, 253, 99, 201, 95, 122, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75b40847_0a4c_4a92_9565_fd63c95f7aed);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2481,7 +2481,7 @@ pub struct IApplicationLanguagesStatics_abi(
 pub struct IApplicationLanguagesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationLanguagesStatics2 {
     type Vtable = IApplicationLanguagesStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(502324815, 1835, 19835, [143, 6, 203, 45, 180, 15, 43, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1df0de4f_072b_4d7b_8f06_cb2db40f2bb5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2500,7 +2500,7 @@ pub struct IApplicationLanguagesStatics2_abi(
 pub struct ICalendar(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendar {
     type Vtable = ICalendar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3392152093, 34521, 16635, [162, 107, 212, 78, 183, 207, 8, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca30221d_86d9_40fb_a26b_d44eb7cf08ea);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2619,7 +2619,7 @@ pub struct ICalendar_abi(
 pub struct ICalendarFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendarFactory {
     type Vtable = ICalendarFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2213905426, 58731, 19573, [166, 110, 15, 99, 213, 119, 88, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83f58412_e56b_4c75_a66e_0f63d57758a6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2640,7 +2640,7 @@ pub struct ICalendarFactory_abi(
 pub struct ICalendarFactory2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendarFactory2 {
     type Vtable = ICalendarFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3024828300, 51838, 17808, [158, 114, 234, 43, 236, 26, 81, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb44b378c_ca7e_4590_9e72_ea2bec1a5115);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2659,7 +2659,7 @@ pub struct ICalendarFactory2_abi(
 pub struct ICalendarIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendarIdentifiersStatics {
     type Vtable = ICalendarIdentifiersStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2154119016, 11442, 19487, [181, 144, 240, 245, 43, 244, 253, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80653f68_2cb2_4c1f_b590_f0f52bf4fd1a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2685,7 +2685,7 @@ pub struct ICalendarIdentifiersStatics_abi(
 pub struct ICalendarIdentifiersStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendarIdentifiersStatics2 {
     type Vtable = ICalendarIdentifiersStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2113197192, 24528, 17063, [149, 181, 125, 152, 216, 35, 7, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7df4d488_5fd0_42a7_95b5_7d98d823075f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2703,7 +2703,7 @@ pub struct ICalendarIdentifiersStatics2_abi(
 pub struct ICalendarIdentifiersStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendarIdentifiersStatics3 {
     type Vtable = ICalendarIdentifiersStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(740447267, 8109, 16576, [147, 52, 168, 235, 144, 219, 4, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c225423_1fad_40c0_9334_a8eb90db04f5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2725,7 +2725,7 @@ pub struct ICalendarIdentifiersStatics3_abi(
 pub struct IClockIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClockIdentifiersStatics {
     type Vtable = IClockIdentifiersStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1379403195, 4844, 20355, [188, 49, 177, 180, 55, 107, 8, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x523805bb_12ec_4f83_bc31_b1b4376b0808);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2744,7 +2744,7 @@ pub struct IClockIdentifiersStatics_abi(
 pub struct ICurrencyAmount(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyAmount {
     type Vtable = ICurrencyAmount_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1957992770, 60277, 17466, [149, 179, 125, 114, 63, 86, 249, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74b49942_eb75_443a_95b3_7d723f56f93c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2763,7 +2763,7 @@ pub struct ICurrencyAmount_abi(
 pub struct ICurrencyAmountFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyAmountFactory {
     type Vtable = ICurrencyAmountFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1222055567, 61243, 19182, [166, 161, 75, 3, 111, 224, 63, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48d7168f_ef3b_4aee_a6a1_4b036fe03ff0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2781,7 +2781,7 @@ pub struct ICurrencyAmountFactory_abi(
 pub struct ICurrencyIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyIdentifiersStatics {
     type Vtable = ICurrencyIdentifiersStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2669480219, 54662, 18707, [155, 106, 169, 189, 45, 193, 40, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f1d091b_d586_4913_9b6a_a9bd2dc12874);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2955,7 +2955,7 @@ pub struct ICurrencyIdentifiersStatics_abi(
 pub struct ICurrencyIdentifiersStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyIdentifiersStatics2 {
     type Vtable = ICurrencyIdentifiersStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(403995007, 50098, 19507, [149, 145, 152, 0, 17, 149, 13, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1814797f_c3b2_4c33_9591_980011950d37);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2973,7 +2973,7 @@ pub struct ICurrencyIdentifiersStatics2_abi(
 pub struct ICurrencyIdentifiersStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyIdentifiersStatics3 {
     type Vtable = ICurrencyIdentifiersStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1337080826, 60709, 20301, [133, 127, 35, 127, 23, 72, 194, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4fb23bfa_ed25_4f4d_857f_237f1748c21c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2994,7 +2994,7 @@ pub struct ICurrencyIdentifiersStatics3_abi(
 pub struct IGeographicRegion(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeographicRegion {
     type Vtable = IGeographicRegion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(32089633, 19044, 20185, [149, 79, 158, 222, 176, 123, 217, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01e9a621_4a64_4ed9_954f_9edeb07bd903);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3019,7 +3019,7 @@ pub struct IGeographicRegion_abi(
 pub struct IGeographicRegionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeographicRegionFactory {
     type Vtable = IGeographicRegionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1396855408, 30644, 17003, [133, 159, 129, 225, 157, 81, 37, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53425270_77b4_426b_859f_81e19d512546);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3037,7 +3037,7 @@ pub struct IGeographicRegionFactory_abi(
 pub struct IGeographicRegionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeographicRegionStatics {
     type Vtable = IGeographicRegionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(702712180, 31449, 20212, [135, 153, 179, 180, 79, 173, 236, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29e28974_7ad9_4ef4_8799_b3b44fadec08);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3055,7 +3055,7 @@ pub struct IGeographicRegionStatics_abi(
 pub struct IJapanesePhoneme(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJapanesePhoneme {
     type Vtable = IJapanesePhoneme_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(795513600, 59483, 17382, [137, 125, 93, 130, 248, 98, 223, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f6a9300_e85b_43e6_897d_5d82f862df21);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3075,7 +3075,7 @@ pub struct IJapanesePhoneme_abi(
 pub struct IJapanesePhoneticAnalyzerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJapanesePhoneticAnalyzerStatics {
     type Vtable = IJapanesePhoneticAnalyzerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2292948624, 37854, 16818, [180, 213, 142, 219, 34, 127, 209, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88ab9e90_93de_41b2_b4d5_8edb227fd1c2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3096,7 +3096,7 @@ pub struct IJapanesePhoneticAnalyzerStatics_abi(
 pub struct ILanguage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguage {
     type Vtable = ILanguage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3933841234, 63426, 16997, [177, 189, 196, 222, 196, 228, 240, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea79a752_f7c2_4265_b1bd_c4dec4e4f080);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3117,7 +3117,7 @@ pub struct ILanguage_abi(
 pub struct ILanguage2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguage2 {
     type Vtable = ILanguage2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1783096757, 55629, 18566, [164, 4, 165, 165, 185, 213, 180, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a47e5b5_d94d_4886_a404_a5a5b9d5b494);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3135,7 +3135,7 @@ pub struct ILanguage2_abi(
 pub struct ILanguage3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguage3 {
     type Vtable = ILanguage3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3333373200, 25626, 23460, [187, 67, 94, 18, 174, 215, 89, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6af3d10_641a_5ba4_bb43_5e12aed75954);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3153,7 +3153,7 @@ pub struct ILanguage3_abi(
 pub struct ILanguageExtensionSubtags(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageExtensionSubtags {
     type Vtable = ILanguageExtensionSubtags_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2105388869, 13965, 17252, [133, 43, 222, 201, 39, 3, 123, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d7daf45_368d_4364_852b_dec927037b85);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3172,7 +3172,7 @@ pub struct ILanguageExtensionSubtags_abi(
 pub struct ILanguageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageFactory {
     type Vtable = ILanguageFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2600620716, 3111, 17656, [183, 146, 151, 147, 251, 102, 198, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b0252ac_0c27_44f8_b792_9793fb66c63e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3190,7 +3190,7 @@ pub struct ILanguageFactory_abi(
 pub struct ILanguageStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageStatics {
     type Vtable = ILanguageStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2990331223, 2149, 18132, [137, 184, 213, 155, 232, 153, 15, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb23cd557_0865_46d4_89b8_d59be8990f0d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3209,7 +3209,7 @@ pub struct ILanguageStatics_abi(
 pub struct ILanguageStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageStatics2 {
     type Vtable = ILanguageStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(806985582, 37195, 19242, [157, 110, 227, 176, 226, 125, 190, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30199f6e_914b_4b2a_9d6e_e3b0e27dbe4f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3227,7 +3227,7 @@ pub struct ILanguageStatics2_abi(
 pub struct ILanguageStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageStatics3 {
     type Vtable = ILanguageStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3512650586, 29150, 22354, [149, 66, 250, 197, 180, 242, 114, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd15ecb5a_71de_5752_9542_fac5b4f27261);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3246,7 +3246,7 @@ pub struct ILanguageStatics3_abi(
 pub struct INumeralSystemIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumeralSystemIdentifiersStatics {
     type Vtable = INumeralSystemIdentifiersStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2781242051, 26825, 19773, [183, 101, 151, 32, 41, 226, 29, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5c662c3_68c9_4d3d_b765_972029e21dec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3299,7 +3299,7 @@ pub struct INumeralSystemIdentifiersStatics_abi(
 pub struct INumeralSystemIdentifiersStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumeralSystemIdentifiersStatics2 {
     type Vtable = INumeralSystemIdentifiersStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2130719272, 40411, 18996, [145, 4, 2, 96, 192, 145, 167, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f003228_9ddb_4a34_9104_0260c091a7c7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3328,7 +3328,7 @@ pub struct INumeralSystemIdentifiersStatics2_abi(
 pub struct ITimeZoneOnCalendar(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimeZoneOnCalendar {
     type Vtable = ITimeZoneOnCalendar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3141281253, 18127, 17175, [163, 245, 2, 98, 26, 213, 68, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb3c25e5_46cf_4317_a3f5_02621ad54478);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3379,7 +3379,7 @@ unsafe impl ::windows::runtime::RuntimeType for JapanesePhoneme {
 }
 unsafe impl ::windows::runtime::Interface for JapanesePhoneme {
     type Vtable = IJapanesePhoneme_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(795513600, 59483, 17382, [137, 125, 93, 130, 248, 98, 223, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f6a9300_e85b_43e6_897d_5d82f862df21);
 }
 impl ::windows::runtime::RuntimeName for JapanesePhoneme {
     const NAME: &'static str = "Windows.Globalization.JapanesePhoneme";
@@ -3571,7 +3571,7 @@ unsafe impl ::windows::runtime::RuntimeType for Language {
 }
 unsafe impl ::windows::runtime::Interface for Language {
     type Vtable = ILanguage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3933841234, 63426, 16997, [177, 189, 196, 222, 196, 228, 240, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea79a752_f7c2_4265_b1bd_c4dec4e4f080);
 }
 impl ::windows::runtime::RuntimeName for Language {
     const NAME: &'static str = "Windows.Globalization.Language";

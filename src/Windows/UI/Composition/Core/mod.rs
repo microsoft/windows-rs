@@ -60,7 +60,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositorController {
 }
 unsafe impl ::windows::runtime::Interface for CompositorController {
     type Vtable = ICompositorController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(762704730, 28839, 17301, [186, 45, 206, 240, 177, 131, 153, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d75f35a_70a7_4395_ba2d_cef0b18399f9);
 }
 impl ::windows::runtime::RuntimeName for CompositorController {
     const NAME: &'static str = "Windows.UI.Composition.Core.CompositorController";
@@ -138,7 +138,7 @@ unsafe impl ::core::marker::Sync for CompositorController {}
 pub struct ICompositorController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositorController {
     type Vtable = ICompositorController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(762704730, 28839, 17301, [186, 45, 206, 240, 177, 131, 153, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d75f35a_70a7_4395_ba2d_cef0b18399f9);
 }
 #[repr(C)]
 #[doc(hidden)]

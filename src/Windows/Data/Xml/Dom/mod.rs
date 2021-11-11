@@ -262,7 +262,7 @@ unsafe impl ::windows::runtime::RuntimeType for DtdEntity {
 }
 unsafe impl ::windows::runtime::Interface for DtdEntity {
     type Vtable = IDtdEntity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1779130364, 25524, 18447, [158, 106, 138, 146, 129, 106, 173, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a0b5ffc_63b4_480f_9e6a_8a92816aade4);
 }
 impl ::windows::runtime::RuntimeName for DtdEntity {
     const NAME: &'static str = "Windows.Data.Xml.Dom.DtdEntity";
@@ -630,7 +630,7 @@ unsafe impl ::windows::runtime::RuntimeType for DtdNotation {
 }
 unsafe impl ::windows::runtime::Interface for DtdNotation {
     type Vtable = IDtdNotation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2360664141, 27974, 20187, [171, 115, 223, 131, 197, 26, 211, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cb4e04d_6d46_4edb_ab73_df83c51ad397);
 }
 impl ::windows::runtime::RuntimeName for DtdNotation {
     const NAME: &'static str = "Windows.Data.Xml.Dom.DtdNotation";
@@ -748,7 +748,7 @@ unsafe impl ::core::marker::Sync for DtdNotation {}
 pub struct IDtdEntity(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDtdEntity {
     type Vtable = IDtdEntity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1779130364, 25524, 18447, [158, 106, 138, 146, 129, 106, 173, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a0b5ffc_63b4_480f_9e6a_8a92816aade4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -768,7 +768,7 @@ pub struct IDtdEntity_abi(
 pub struct IDtdNotation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDtdNotation {
     type Vtable = IDtdNotation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2360664141, 27974, 20187, [171, 115, 223, 131, 197, 26, 211, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cb4e04d_6d46_4edb_ab73_df83c51ad397);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -787,7 +787,7 @@ pub struct IDtdNotation_abi(
 pub struct IXmlAttribute(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlAttribute {
     type Vtable = IXmlAttribute_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2887010980, 46321, 19894, [178, 6, 138, 34, 195, 8, 219, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac144aa4_b4f1_4db6_b206_8a22c308db0a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -808,7 +808,7 @@ pub struct IXmlAttribute_abi(
 pub struct IXmlCDataSection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlCDataSection {
     type Vtable = IXmlCDataSection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1292153967, 51389, 17844, [136, 153, 4, 0, 215, 194, 198, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d04b46f_c8bd_45b4_8899_0400d7c2c60f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -826,7 +826,7 @@ pub struct IXmlCDataSection_abi(
 pub struct IXmlCharacterData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlCharacterData {
     type Vtable = IXmlCharacterData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(321798827, 20022, 19958, [177, 200, 12, 230, 47, 216, 139, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x132e42ab_4e36_4df6_b1c8_0ce62fd88b26);
 }
 impl IXmlCharacterData {
     #[doc = "*Required features: `Data_Xml_Dom`*"]
@@ -1239,7 +1239,7 @@ pub struct IXmlCharacterData_abi(
 pub struct IXmlComment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlComment {
     type Vtable = IXmlComment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3164894421, 46623, 17937, [156, 172, 46, 146, 227, 71, 109, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbca474d5_b61f_4611_9cac_2e92e3476d47);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1256,7 +1256,7 @@ pub struct IXmlComment_abi(
 pub struct IXmlDocument(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlDocument {
     type Vtable = IXmlDocument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4159939846, 7815, 17110, [188, 251, 184, 200, 9, 250, 84, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7f3a506_1e87_42d6_bcfb_b8c809fa5494);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1290,7 +1290,7 @@ pub struct IXmlDocument_abi(
 pub struct IXmlDocumentFragment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlDocumentFragment {
     type Vtable = IXmlDocumentFragment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3807013526, 3105, 17573, [139, 201, 158, 74, 38, 39, 8, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2ea6a96_0c21_44a5_8bc9_9e4a262708ec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1307,7 +1307,7 @@ pub struct IXmlDocumentFragment_abi(
 pub struct IXmlDocumentIO(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlDocumentIO {
     type Vtable = IXmlDocumentIO_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1825630030, 61029, 17545, [158, 191, 202, 67, 232, 123, 166, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6cd0e74e_ee65_4489_9ebf_ca43e87ba637);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1328,7 +1328,7 @@ pub struct IXmlDocumentIO_abi(
 pub struct IXmlDocumentIO2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlDocumentIO2 {
     type Vtable = IXmlDocumentIO2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1560495713, 31704, 19157, [158, 191, 129, 230, 52, 114, 99, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d034661_7bd8_4ad5_9ebf_81e6347263b1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1349,7 +1349,7 @@ pub struct IXmlDocumentIO2_abi(
 pub struct IXmlDocumentStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlDocumentStatics {
     type Vtable = IXmlDocumentStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1430508116, 55127, 19321, [149, 57, 35, 43, 24, 245, 11, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5543d254_d757_4b79_9539_232b18f50bf1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1374,7 +1374,7 @@ pub struct IXmlDocumentStatics_abi(
 pub struct IXmlDocumentType(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlDocumentType {
     type Vtable = IXmlDocumentType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4147389477, 38785, 18788, [142, 148, 155, 28, 109, 252, 155, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7342425_9781_4964_8e94_9b1c6dfc9bc7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1394,7 +1394,7 @@ pub struct IXmlDocumentType_abi(
 pub struct IXmlDomImplementation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlDomImplementation {
     type Vtable = IXmlDomImplementation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1843757362, 61725, 20411, [140, 198, 88, 60, 186, 147, 17, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6de58132_f11d_4fbb_8cc6_583cba93112f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1412,7 +1412,7 @@ pub struct IXmlDomImplementation_abi(
 pub struct IXmlElement(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlElement {
     type Vtable = IXmlElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(771459615, 27408, 20216, [159, 131, 239, 204, 232, 250, 236, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2dfb8a1f_6b10_4ef8_9f83_efcce8faec37);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1442,7 +1442,7 @@ pub struct IXmlElement_abi(
 pub struct IXmlEntityReference(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlEntityReference {
     type Vtable = IXmlEntityReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(774850492, 50128, 19663, [187, 134, 10, 184, 195, 106, 97, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e2f47bc_c3d0_4ccf_bb86_0ab8c36a61cf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1459,7 +1459,7 @@ pub struct IXmlEntityReference_abi(
 pub struct IXmlLoadSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlLoadSettings {
     type Vtable = IXmlLoadSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1487538088, 65238, 18167, [180, 197, 251, 27, 167, 33, 8, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58aa07a8_fed6_46f7_b4c5_fb1ba72108d6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1486,7 +1486,7 @@ pub struct IXmlLoadSettings_abi(
 pub struct IXmlNamedNodeMap(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlNamedNodeMap {
     type Vtable = IXmlNamedNodeMap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3014041264, 43696, 19330, [166, 250, 177, 69, 63, 124, 2, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3a69eb0_aab0_4b82_a6fa_b1453f7c021b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1512,7 +1512,7 @@ pub struct IXmlNamedNodeMap_abi(
 pub struct IXmlNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlNode {
     type Vtable = IXmlNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(477371737, 8482, 18389, [168, 86, 131, 243, 212, 33, 72, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c741d59_2122_47d5_a856_83f3d4214875);
 }
 impl IXmlNode {
     #[doc = "*Required features: `Data_Xml_Dom`*"]
@@ -1869,7 +1869,7 @@ pub struct IXmlNode_abi(
 pub struct IXmlNodeList(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlNodeList {
     type Vtable = IXmlNodeList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2355146103, 33700, 20161, [156, 84, 123, 164, 41, 225, 61, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c60ad77_83a4_4ec1_9c54_7ba429e13da6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1889,7 +1889,7 @@ pub struct IXmlNodeList_abi(
 pub struct IXmlNodeSelector(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlNodeSelector {
     type Vtable = IXmlNodeSelector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1675344523, 53467, 20449, [183, 69, 249, 67, 58, 253, 194, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63dbba8b_d0db_4fe1_b745_f9433afdc25b);
 }
 impl IXmlNodeSelector {
     #[doc = "*Required features: `Data_Xml_Dom`*"]
@@ -1988,7 +1988,7 @@ pub struct IXmlNodeSelector_abi(
 pub struct IXmlNodeSerializer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlNodeSerializer {
     type Vtable = IXmlNodeSerializer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1556460418, 59101, 18833, [171, 239, 6, 216, 210, 231, 189, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5cc5b382_e6dd_4991_abef_06d8d2e7bd0c);
 }
 impl IXmlNodeSerializer {
     #[doc = "*Required features: `Data_Xml_Dom`*"]
@@ -2074,7 +2074,7 @@ pub struct IXmlNodeSerializer_abi(
 pub struct IXmlProcessingInstruction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlProcessingInstruction {
     type Vtable = IXmlProcessingInstruction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(654834974, 7826, 20174, [182, 244, 38, 240, 105, 7, 141, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2707fd1e_1e92_4ece_b6f4_26f069078ddc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2095,7 +2095,7 @@ pub struct IXmlProcessingInstruction_abi(
 pub struct IXmlText(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlText {
     type Vtable = IXmlText_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4180780235, 12429, 18272, [161, 213, 67, 182, 116, 80, 172, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf931a4cb_308d_4760_a1d5_43b67450ac7e);
 }
 impl IXmlText {
     #[doc = "*Required features: `Data_Xml_Dom`*"]
@@ -2827,7 +2827,7 @@ unsafe impl ::windows::runtime::RuntimeType for XmlAttribute {
 }
 unsafe impl ::windows::runtime::Interface for XmlAttribute {
     type Vtable = IXmlAttribute_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2887010980, 46321, 19894, [178, 6, 138, 34, 195, 8, 219, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac144aa4_b4f1_4db6_b206_8a22c308db0a);
 }
 impl ::windows::runtime::RuntimeName for XmlAttribute {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlAttribute";
@@ -3236,7 +3236,7 @@ unsafe impl ::windows::runtime::RuntimeType for XmlCDataSection {
 }
 unsafe impl ::windows::runtime::Interface for XmlCDataSection {
     type Vtable = IXmlCDataSection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1292153967, 51389, 17844, [136, 153, 4, 0, 215, 194, 198, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d04b46f_c8bd_45b4_8899_0400d7c2c60f);
 }
 impl ::windows::runtime::RuntimeName for XmlCDataSection {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlCDataSection";
@@ -3681,7 +3681,7 @@ unsafe impl ::windows::runtime::RuntimeType for XmlComment {
 }
 unsafe impl ::windows::runtime::Interface for XmlComment {
     type Vtable = IXmlComment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3164894421, 46623, 17937, [156, 172, 46, 146, 227, 71, 109, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbca474d5_b61f_4611_9cac_2e92e3476d47);
 }
 impl ::windows::runtime::RuntimeName for XmlComment {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlComment";
@@ -4265,7 +4265,7 @@ unsafe impl ::windows::runtime::RuntimeType for XmlDocument {
 }
 unsafe impl ::windows::runtime::Interface for XmlDocument {
     type Vtable = IXmlDocument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4159939846, 7815, 17110, [188, 251, 184, 200, 9, 250, 84, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7f3a506_1e87_42d6_bcfb_b8c809fa5494);
 }
 impl ::windows::runtime::RuntimeName for XmlDocument {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDocument";
@@ -4617,7 +4617,7 @@ unsafe impl ::windows::runtime::RuntimeType for XmlDocumentFragment {
 }
 unsafe impl ::windows::runtime::Interface for XmlDocumentFragment {
     type Vtable = IXmlDocumentFragment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3807013526, 3105, 17573, [139, 201, 158, 74, 38, 39, 8, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2ea6a96_0c21_44a5_8bc9_9e4a262708ec);
 }
 impl ::windows::runtime::RuntimeName for XmlDocumentFragment {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDocumentFragment";
@@ -4993,7 +4993,7 @@ unsafe impl ::windows::runtime::RuntimeType for XmlDocumentType {
 }
 unsafe impl ::windows::runtime::Interface for XmlDocumentType {
     type Vtable = IXmlDocumentType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4147389477, 38785, 18788, [142, 148, 155, 28, 109, 252, 155, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7342425_9781_4964_8e94_9b1c6dfc9bc7);
 }
 impl ::windows::runtime::RuntimeName for XmlDocumentType {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDocumentType";
@@ -5125,7 +5125,7 @@ unsafe impl ::windows::runtime::RuntimeType for XmlDomImplementation {
 }
 unsafe impl ::windows::runtime::Interface for XmlDomImplementation {
     type Vtable = IXmlDomImplementation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1843757362, 61725, 20411, [140, 198, 88, 60, 186, 147, 17, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6de58132_f11d_4fbb_8cc6_583cba93112f);
 }
 impl ::windows::runtime::RuntimeName for XmlDomImplementation {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDomImplementation";
@@ -5503,7 +5503,7 @@ unsafe impl ::windows::runtime::RuntimeType for XmlElement {
 }
 unsafe impl ::windows::runtime::Interface for XmlElement {
     type Vtable = IXmlElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(771459615, 27408, 20216, [159, 131, 239, 204, 232, 250, 236, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2dfb8a1f_6b10_4ef8_9f83_efcce8faec37);
 }
 impl ::windows::runtime::RuntimeName for XmlElement {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlElement";
@@ -5855,7 +5855,7 @@ unsafe impl ::windows::runtime::RuntimeType for XmlEntityReference {
 }
 unsafe impl ::windows::runtime::Interface for XmlEntityReference {
     type Vtable = IXmlEntityReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(774850492, 50128, 19663, [187, 134, 10, 184, 195, 106, 97, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e2f47bc_c3d0_4ccf_bb86_0ab8c36a61cf);
 }
 impl ::windows::runtime::RuntimeName for XmlEntityReference {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlEntityReference";
@@ -6051,7 +6051,7 @@ unsafe impl ::windows::runtime::RuntimeType for XmlLoadSettings {
 }
 unsafe impl ::windows::runtime::Interface for XmlLoadSettings {
     type Vtable = IXmlLoadSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1487538088, 65238, 18167, [180, 197, 251, 27, 167, 33, 8, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58aa07a8_fed6_46f7_b4c5_fb1ba72108d6);
 }
 impl ::windows::runtime::RuntimeName for XmlLoadSettings {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlLoadSettings";
@@ -6218,7 +6218,7 @@ unsafe impl ::windows::runtime::RuntimeType for XmlNamedNodeMap {
 }
 unsafe impl ::windows::runtime::Interface for XmlNamedNodeMap {
     type Vtable = IXmlNamedNodeMap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3014041264, 43696, 19330, [166, 250, 177, 69, 63, 124, 2, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3a69eb0_aab0_4b82_a6fa_b1453f7c021b);
 }
 impl ::windows::runtime::RuntimeName for XmlNamedNodeMap {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlNamedNodeMap";
@@ -6405,7 +6405,7 @@ unsafe impl ::windows::runtime::RuntimeType for XmlNodeList {
 }
 unsafe impl ::windows::runtime::Interface for XmlNodeList {
     type Vtable = IXmlNodeList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2355146103, 33700, 20161, [156, 84, 123, 164, 41, 225, 61, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c60ad77_83a4_4ec1_9c54_7ba429e13da6);
 }
 impl ::windows::runtime::RuntimeName for XmlNodeList {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlNodeList";
@@ -6780,7 +6780,7 @@ unsafe impl ::windows::runtime::RuntimeType for XmlProcessingInstruction {
 }
 unsafe impl ::windows::runtime::Interface for XmlProcessingInstruction {
     type Vtable = IXmlProcessingInstruction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(654834974, 7826, 20174, [182, 244, 38, 240, 105, 7, 141, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2707fd1e_1e92_4ece_b6f4_26f069078ddc);
 }
 impl ::windows::runtime::RuntimeName for XmlProcessingInstruction {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlProcessingInstruction";
@@ -7189,7 +7189,7 @@ unsafe impl ::windows::runtime::RuntimeType for XmlText {
 }
 unsafe impl ::windows::runtime::Interface for XmlText {
     type Vtable = IXmlText_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4180780235, 12429, 18272, [161, 213, 67, 182, 116, 80, 172, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf931a4cb_308d_4760_a1d5_43b67450ac7e);
 }
 impl ::windows::runtime::RuntimeName for XmlText {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlText";

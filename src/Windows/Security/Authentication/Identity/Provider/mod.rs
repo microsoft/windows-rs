@@ -4,7 +4,7 @@
 pub struct ISecondaryAuthenticationFactorAuthentication(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthentication {
     type Vtable = ISecondaryAuthenticationFactorAuthentication_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(34215653, 27173, 16547, [140, 0, 80, 160, 35, 246, 25, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x020a16e5_6a25_40a3_8c00_50a023f619d1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -33,7 +33,7 @@ pub struct ISecondaryAuthenticationFactorAuthentication_abi(
 pub struct ISecondaryAuthenticationFactorAuthenticationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthenticationResult {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2629523847, 61293, 19394, [191, 73, 70, 23, 81, 90, 15, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9cbb5987_ef6d_4bc2_bf49_4617515a0f9a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -52,7 +52,7 @@ pub struct ISecondaryAuthenticationFactorAuthenticationResult_abi(
 pub struct ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3567644246, 29329, 16499, [188, 31, 204, 184, 245, 175, 223, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4a5ee56_7291_4073_bc1f_ccb8f5afdf96);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -70,7 +70,7 @@ pub struct ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_abi
 pub struct ISecondaryAuthenticationFactorAuthenticationStageInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthenticationStageInfo {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationStageInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1459536523, 59562, 19471, [142, 76, 165, 89, 231, 58, 221, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56fec28b_e8aa_4c0f_8e4c_a559e73add88);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -90,7 +90,7 @@ pub struct ISecondaryAuthenticationFactorAuthenticationStageInfo_abi(
 pub struct ISecondaryAuthenticationFactorAuthenticationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthenticationStatics {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1062741590, 10488, 19983, [174, 140, 88, 152, 185, 174, 36, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f582656_28f8_4e0f_ae8c_5898b9ae2469);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -117,7 +117,7 @@ pub struct ISecondaryAuthenticationFactorAuthenticationStatics_abi(
 pub struct ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics {
     type Vtable = ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2420742681, 32498, 17699, [149, 28, 164, 23, 162, 74, 207, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90499a19_7ef2_4523_951c_a417a24acf93);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -151,7 +151,7 @@ pub struct ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationSta
 pub struct ISecondaryAuthenticationFactorInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorInfo {
     type Vtable = ISecondaryAuthenticationFactorInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(506177633, 34099, 20430, [131, 155, 236, 183, 36, 16, 172, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e2ba861_8533_4fce_839b_ecb72410ac14);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -173,7 +173,7 @@ pub struct ISecondaryAuthenticationFactorInfo_abi(
 pub struct ISecondaryAuthenticationFactorInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorInfo2 {
     type Vtable = ISecondaryAuthenticationFactorInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(349798819, 64550, 20471, [171, 195, 72, 232, 42, 81, 42, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14d981a3_fc26_4ff7_abc3_48e82a512a0a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -194,7 +194,7 @@ pub struct ISecondaryAuthenticationFactorInfo2_abi(
 pub struct ISecondaryAuthenticationFactorRegistration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorRegistration {
     type Vtable = ISecondaryAuthenticationFactorRegistration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2672606132, 36026, 18608, [132, 13, 219, 178, 42, 84, 198, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f4cbbb4_8cba_48b0_840d_dbb22a54c678);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -215,7 +215,7 @@ pub struct ISecondaryAuthenticationFactorRegistration_abi(
 pub struct ISecondaryAuthenticationFactorRegistrationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorRegistrationResult {
     type Vtable = ISecondaryAuthenticationFactorRegistrationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2768123376, 44515, 18817, [175, 107, 236, 25, 89, 33, 104, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4fe35f0_ade3_4981_af6b_ec195921682a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -234,7 +234,7 @@ pub struct ISecondaryAuthenticationFactorRegistrationResult_abi(
 pub struct ISecondaryAuthenticationFactorRegistrationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorRegistrationStatics {
     type Vtable = ISecondaryAuthenticationFactorRegistrationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(450826085, 58295, 16725, [153, 127, 183, 86, 239, 101, 190, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1adf0f65_e3b7_4155_997f_b756ef65beba);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -381,7 +381,7 @@ unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorAut
 }
 unsafe impl ::windows::runtime::Interface for SecondaryAuthenticationFactorAuthentication {
     type Vtable = ISecondaryAuthenticationFactorAuthentication_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(34215653, 27173, 16547, [140, 0, 80, 160, 35, 246, 25, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x020a16e5_6a25_40a3_8c00_50a023f619d1);
 }
 impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorAuthentication {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthentication";
@@ -506,7 +506,7 @@ unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorAut
 }
 unsafe impl ::windows::runtime::Interface for SecondaryAuthenticationFactorAuthenticationResult {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2629523847, 61293, 19394, [191, 73, 70, 23, 81, 90, 15, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9cbb5987_ef6d_4bc2_bf49_4617515a0f9a);
 }
 impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorAuthenticationResult {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationResult";
@@ -624,7 +624,7 @@ unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorAut
 }
 unsafe impl ::windows::runtime::Interface for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3567644246, 29329, 16499, [188, 31, 204, 184, 245, 175, 223, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4a5ee56_7291_4073_bc1f_ccb8f5afdf96);
 }
 impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs";
@@ -709,7 +709,7 @@ unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorAut
 }
 unsafe impl ::windows::runtime::Interface for SecondaryAuthenticationFactorAuthenticationStageInfo {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationStageInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1459536523, 59562, 19471, [142, 76, 165, 89, 231, 58, 221, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56fec28b_e8aa_4c0f_8e4c_a559e73add88);
 }
 impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorAuthenticationStageInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStageInfo";
@@ -1026,7 +1026,7 @@ unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorInf
 }
 unsafe impl ::windows::runtime::Interface for SecondaryAuthenticationFactorInfo {
     type Vtable = ISecondaryAuthenticationFactorInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(506177633, 34099, 20430, [131, 155, 236, 183, 36, 16, 172, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e2ba861_8533_4fce_839b_ecb72410ac14);
 }
 impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorInfo";
@@ -1197,7 +1197,7 @@ unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorReg
 }
 unsafe impl ::windows::runtime::Interface for SecondaryAuthenticationFactorRegistration {
     type Vtable = ISecondaryAuthenticationFactorRegistration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2672606132, 36026, 18608, [132, 13, 219, 178, 42, 84, 198, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f4cbbb4_8cba_48b0_840d_dbb22a54c678);
 }
 impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorRegistration {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistration";
@@ -1273,7 +1273,7 @@ unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorReg
 }
 unsafe impl ::windows::runtime::Interface for SecondaryAuthenticationFactorRegistrationResult {
     type Vtable = ISecondaryAuthenticationFactorRegistrationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2768123376, 44515, 18817, [175, 107, 236, 25, 89, 33, 104, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4fe35f0_ade3_4981_af6b_ec195921682a);
 }
 impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorRegistrationResult {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistrationResult";

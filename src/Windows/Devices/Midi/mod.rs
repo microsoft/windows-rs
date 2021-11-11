@@ -4,7 +4,7 @@
 pub struct IMidiChannelPressureMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiChannelPressureMessage {
     type Vtable = IMidiChannelPressureMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3189745760, 25268, 19794, [163, 126, 146, 229, 77, 53, 185, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe1fa860_62b4_4d52_a37e_92e54d35b909);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23,7 +23,7 @@ pub struct IMidiChannelPressureMessage_abi(
 pub struct IMidiChannelPressureMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiChannelPressureMessageFactory {
     type Vtable = IMidiChannelPressureMessageFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1645800751, 8836, 16682, [148, 207, 16, 251, 4, 132, 44, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6218ed2f_2284_412a_94cf_10fb04842c6c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -41,7 +41,7 @@ pub struct IMidiChannelPressureMessageFactory_abi(
 pub struct IMidiControlChangeMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiControlChangeMessage {
     type Vtable = IMidiControlChangeMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085000579, 30733, 16479, [183, 129, 62, 21, 152, 201, 127, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7e15f83_780d_405f_b781_3e1598c97f40);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -61,7 +61,7 @@ pub struct IMidiControlChangeMessage_abi(
 pub struct IMidiControlChangeMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiControlChangeMessageFactory {
     type Vtable = IMidiControlChangeMessageFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(716260129, 38252, 18093, [151, 82, 248, 127, 85, 5, 47, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ab14321_956c_46ad_9752_f87f55052fe3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -79,7 +79,7 @@ pub struct IMidiControlChangeMessageFactory_abi(
 pub struct IMidiInPort(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiInPort {
     type Vtable = IMidiInPort_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3586251227, 38682, 20143, [162, 61, 234, 25, 254, 96, 127, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5c1d9db_971a_4eaf_a23d_ea19fe607ff9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -101,7 +101,7 @@ pub struct IMidiInPort_abi(
 pub struct IMidiInPortStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiInPortStatics {
     type Vtable = IMidiInPortStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1153710556, 26623, 19054, [139, 172, 253, 182, 97, 12, 242, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44c439dc_67ff_4a6e_8bac_fdb6610cf296);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -122,7 +122,7 @@ pub struct IMidiInPortStatics_abi(
 pub struct IMidiMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiMessage {
     type Vtable = IMidiMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037807429, 4244, 17027, [155, 224, 40, 159, 192, 238, 131, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79767945_1094_4283_9be0_289fc0ee8334);
 }
 impl IMidiMessage {
     #[cfg(feature = "Foundation")]
@@ -215,7 +215,7 @@ pub struct IMidiMessage_abi(
 pub struct IMidiMessageReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiMessageReceivedEventArgs {
     type Vtable = IMidiMessageReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1985375830, 62248, 19281, [144, 125, 179, 168, 206, 150, 191, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76566e56_f328_4b51_907d_b3a8ce96bf80);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -233,7 +233,7 @@ pub struct IMidiMessageReceivedEventArgs_abi(
 pub struct IMidiNoteOffMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiNoteOffMessage {
     type Vtable = IMidiNoteOffMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(385714932, 6542, 19855, [166, 84, 211, 5, 162, 147, 84, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16fd8af4_198e_4d8f_a654_d305a293548f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -253,7 +253,7 @@ pub struct IMidiNoteOffMessage_abi(
 pub struct IMidiNoteOffMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiNoteOffMessageFactory {
     type Vtable = IMidiNoteOffMessageFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2796699872, 42825, 16991, [138, 244, 164, 217, 121, 204, 21, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6b240e0_a749_425f_8af4_a4d979cc15b5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -271,7 +271,7 @@ pub struct IMidiNoteOffMessageFactory_abi(
 pub struct IMidiNoteOnMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiNoteOnMessage {
     type Vtable = IMidiNoteOnMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3760343797, 24961, 18141, [175, 162, 65, 0, 4, 192, 87, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0224af5_6181_46dd_afa2_410004c057aa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -291,7 +291,7 @@ pub struct IMidiNoteOnMessage_abi(
 pub struct IMidiNoteOnMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiNoteOnMessageFactory {
     type Vtable = IMidiNoteOnMessageFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2604826784, 22977, 16910, [181, 23, 21, 161, 10, 169, 96, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b4280a0_59c1_420e_b517_15a10aa9606b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -310,7 +310,7 @@ pub struct IMidiNoteOnMessageFactory_abi(
 pub struct IMidiOutPort(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiOutPort {
     type Vtable = IMidiOutPort_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468179359, 22434, 19002, [173, 184, 70, 64, 136, 111, 102, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x931d6d9f_57a2_4a3a_adb8_4640886f6693);
 }
 impl IMidiOutPort {
     #[doc = "*Required features: `Devices_Midi`*"]
@@ -427,7 +427,7 @@ pub struct IMidiOutPort_abi(
 pub struct IMidiOutPortStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiOutPortStatics {
     type Vtable = IMidiOutPortStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(106742761, 3976, 17547, [155, 100, 169, 88, 38, 198, 91, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x065cc3e9_0f88_448b_9b64_a95826c65b8f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -447,7 +447,7 @@ pub struct IMidiOutPortStatics_abi(
 pub struct IMidiPitchBendChangeMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiPitchBendChangeMessage {
     type Vtable = IMidiPitchBendChangeMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(702500017, 11935, 20399, [140, 43, 156, 184, 42, 144, 121, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29df4cb1_2e9f_4faf_8c2b_9cb82a9079ca);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -466,7 +466,7 @@ pub struct IMidiPitchBendChangeMessage_abi(
 pub struct IMidiPitchBendChangeMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiPitchBendChangeMessageFactory {
     type Vtable = IMidiPitchBendChangeMessageFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4126072661, 53192, 18726, [179, 14, 163, 98, 35, 147, 48, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5eedf55_cfc8_4926_b30e_a3622393306c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -484,7 +484,7 @@ pub struct IMidiPitchBendChangeMessageFactory_abi(
 pub struct IMidiPolyphonicKeyPressureMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiPolyphonicKeyPressureMessage {
     type Vtable = IMidiPolyphonicKeyPressureMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(527644670, 44264, 18592, [134, 142, 124, 219, 242, 15, 4, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f7337fe_ace8_48a0_868e_7cdbf20f04d6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -504,7 +504,7 @@ pub struct IMidiPolyphonicKeyPressureMessage_abi(
 pub struct IMidiPolyphonicKeyPressureMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiPolyphonicKeyPressureMessageFactory {
     type Vtable = IMidiPolyphonicKeyPressureMessageFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3918481470, 50355, 19922, [145, 124, 227, 73, 129, 90, 27, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe98f483e_c4b3_4dd2_917c_e349815a1b3b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -522,7 +522,7 @@ pub struct IMidiPolyphonicKeyPressureMessageFactory_abi(
 pub struct IMidiProgramChangeMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiProgramChangeMessage {
     type Vtable = IMidiProgramChangeMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2629516408, 31294, 17191, [170, 152, 32, 184, 228, 72, 90, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9cbb3c78_7a3e_4327_aa98_20b8e4485af8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -541,7 +541,7 @@ pub struct IMidiProgramChangeMessage_abi(
 pub struct IMidiProgramChangeMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiProgramChangeMessageFactory {
     type Vtable = IMidiProgramChangeMessageFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3601875847, 21067, 16644, [156, 153, 101, 114, 191, 210, 226, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6b04387_524b_4104_9c99_6572bfd2e261);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -559,7 +559,7 @@ pub struct IMidiProgramChangeMessageFactory_abi(
 pub struct IMidiSongPositionPointerMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSongPositionPointerMessage {
     type Vtable = IMidiSongPositionPointerMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1285885014, 60510, 19172, [161, 21, 136, 220, 87, 204, 43, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ca50c56_ec5e_4ae4_a115_88dc57cc2b79);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -577,7 +577,7 @@ pub struct IMidiSongPositionPointerMessage_abi(
 pub struct IMidiSongPositionPointerMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSongPositionPointerMessageFactory {
     type Vtable = IMidiSongPositionPointerMessageFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2617305494, 61707, 20458, [179, 149, 245, 214, 207, 128, 246, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c00e996_f10b_4fea_b395_f5d6cf80f64e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -595,7 +595,7 @@ pub struct IMidiSongPositionPointerMessageFactory_abi(
 pub struct IMidiSongSelectMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSongSelectMessage {
     type Vtable = IMidiSongSelectMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1240527487, 28035, 18241, [165, 191, 70, 41, 246, 190, 151, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49f0f27f_6d83_4741_a5bf_4629f6be974f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -613,7 +613,7 @@ pub struct IMidiSongSelectMessage_abi(
 pub struct IMidiSongSelectMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSongSelectMessageFactory {
     type Vtable = IMidiSongSelectMessageFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2223536356, 34632, 16681, [166, 108, 160, 84, 147, 247, 93, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x848878e4_8748_4129_a66c_a05493f75daa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -631,7 +631,7 @@ pub struct IMidiSongSelectMessageFactory_abi(
 pub struct IMidiSynthesizer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSynthesizer {
     type Vtable = IMidiSynthesizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4040824158, 56208, 16479, [184, 174, 33, 210, 225, 127, 46, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0da155e_db90_405f_b8ae_21d2e17f2e45);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -652,7 +652,7 @@ pub struct IMidiSynthesizer_abi(
 pub struct IMidiSynthesizerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSynthesizerStatics {
     type Vtable = IMidiSynthesizerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1109715624, 26153, 19819, [170, 143, 212, 82, 26, 90, 49, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4224eaa8_6629_4d6b_aa8f_d4521a5a31ce);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -675,7 +675,7 @@ pub struct IMidiSynthesizerStatics_abi(
 pub struct IMidiSystemExclusiveMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSystemExclusiveMessageFactory {
     type Vtable = IMidiSystemExclusiveMessageFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(138273314, 15220, 17184, [155, 66, 12, 168, 84, 95, 138, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x083de222_3b74_4320_9b42_0ca8545f8a24);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -694,7 +694,7 @@ pub struct IMidiSystemExclusiveMessageFactory_abi(
 pub struct IMidiTimeCodeMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiTimeCodeMessage {
     type Vtable = IMidiTimeCodeMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(200738941, 64099, 18972, [141, 235, 192, 232, 119, 150, 166, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bf7087d_fa63_4a1c_8deb_c0e87796a6d7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -713,7 +713,7 @@ pub struct IMidiTimeCodeMessage_abi(
 pub struct IMidiTimeCodeMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiTimeCodeMessageFactory {
     type Vtable = IMidiTimeCodeMessageFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3945830853, 30492, 16606, [185, 97, 23, 90, 116, 137, 168, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb3099c5_771c_40de_b961_175a7489a85e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -770,7 +770,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiActiveSensingMessage {
 }
 unsafe impl ::windows::runtime::Interface for MidiActiveSensingMessage {
     type Vtable = IMidiMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037807429, 4244, 17027, [155, 224, 40, 159, 192, 238, 131, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79767945_1094_4283_9be0_289fc0ee8334);
 }
 impl ::windows::runtime::RuntimeName for MidiActiveSensingMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiActiveSensingMessage";
@@ -901,7 +901,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiChannelPressureMessage {
 }
 unsafe impl ::windows::runtime::Interface for MidiChannelPressureMessage {
     type Vtable = IMidiChannelPressureMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3189745760, 25268, 19794, [163, 126, 146, 229, 77, 53, 185, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe1fa860_62b4_4d52_a37e_92e54d35b909);
 }
 impl ::windows::runtime::RuntimeName for MidiChannelPressureMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiChannelPressureMessage";
@@ -1014,7 +1014,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiContinueMessage {
 }
 unsafe impl ::windows::runtime::Interface for MidiContinueMessage {
     type Vtable = IMidiMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037807429, 4244, 17027, [155, 224, 40, 159, 192, 238, 131, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79767945_1094_4283_9be0_289fc0ee8334);
 }
 impl ::windows::runtime::RuntimeName for MidiContinueMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiContinueMessage";
@@ -1153,7 +1153,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiControlChangeMessage {
 }
 unsafe impl ::windows::runtime::Interface for MidiControlChangeMessage {
     type Vtable = IMidiControlChangeMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085000579, 30733, 16479, [183, 129, 62, 21, 152, 201, 127, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7e15f83_780d_405f_b781_3e1598c97f40);
 }
 impl ::windows::runtime::RuntimeName for MidiControlChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiControlChangeMessage";
@@ -1281,7 +1281,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiInPort {
 }
 unsafe impl ::windows::runtime::Interface for MidiInPort {
     type Vtable = IMidiInPort_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3586251227, 38682, 20143, [162, 61, 234, 25, 254, 96, 127, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5c1d9db_971a_4eaf_a23d_ea19fe607ff9);
 }
 impl ::windows::runtime::RuntimeName for MidiInPort {
     const NAME: &'static str = "Windows.Devices.Midi.MidiInPort";
@@ -1373,7 +1373,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiMessageReceivedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for MidiMessageReceivedEventArgs {
     type Vtable = IMidiMessageReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1985375830, 62248, 19281, [144, 125, 179, 168, 206, 150, 191, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76566e56_f328_4b51_907d_b3a8ce96bf80);
 }
 impl ::windows::runtime::RuntimeName for MidiMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Midi.MidiMessageReceivedEventArgs";
@@ -1532,7 +1532,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiNoteOffMessage {
 }
 unsafe impl ::windows::runtime::Interface for MidiNoteOffMessage {
     type Vtable = IMidiNoteOffMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(385714932, 6542, 19855, [166, 84, 211, 5, 162, 147, 84, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16fd8af4_198e_4d8f_a654_d305a293548f);
 }
 impl ::windows::runtime::RuntimeName for MidiNoteOffMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiNoteOffMessage";
@@ -1673,7 +1673,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiNoteOnMessage {
 }
 unsafe impl ::windows::runtime::Interface for MidiNoteOnMessage {
     type Vtable = IMidiNoteOnMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3760343797, 24961, 18141, [175, 162, 65, 0, 4, 192, 87, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0224af5_6181_46dd_afa2_410004c057aa);
 }
 impl ::windows::runtime::RuntimeName for MidiNoteOnMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiNoteOnMessage";
@@ -1797,7 +1797,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiOutPort {
 }
 unsafe impl ::windows::runtime::Interface for MidiOutPort {
     type Vtable = IMidiOutPort_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468179359, 22434, 19002, [173, 184, 70, 64, 136, 111, 102, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x931d6d9f_57a2_4a3a_adb8_4640886f6693);
 }
 impl ::windows::runtime::RuntimeName for MidiOutPort {
     const NAME: &'static str = "Windows.Devices.Midi.MidiOutPort";
@@ -1954,7 +1954,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiPitchBendChangeMessage {
 }
 unsafe impl ::windows::runtime::Interface for MidiPitchBendChangeMessage {
     type Vtable = IMidiPitchBendChangeMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(702500017, 11935, 20399, [140, 43, 156, 184, 42, 144, 121, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29df4cb1_2e9f_4faf_8c2b_9cb82a9079ca);
 }
 impl ::windows::runtime::RuntimeName for MidiPitchBendChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiPitchBendChangeMessage";
@@ -2095,7 +2095,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiPolyphonicKeyPressureMessage
 }
 unsafe impl ::windows::runtime::Interface for MidiPolyphonicKeyPressureMessage {
     type Vtable = IMidiPolyphonicKeyPressureMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(527644670, 44264, 18592, [134, 142, 124, 219, 242, 15, 4, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f7337fe_ace8_48a0_868e_7cdbf20f04d6);
 }
 impl ::windows::runtime::RuntimeName for MidiPolyphonicKeyPressureMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiPolyphonicKeyPressureMessage";
@@ -2228,7 +2228,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiProgramChangeMessage {
 }
 unsafe impl ::windows::runtime::Interface for MidiProgramChangeMessage {
     type Vtable = IMidiProgramChangeMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2629516408, 31294, 17191, [170, 152, 32, 184, 228, 72, 90, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9cbb3c78_7a3e_4327_aa98_20b8e4485af8);
 }
 impl ::windows::runtime::RuntimeName for MidiProgramChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiProgramChangeMessage";
@@ -2353,7 +2353,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiSongPositionPointerMessage {
 }
 unsafe impl ::windows::runtime::Interface for MidiSongPositionPointerMessage {
     type Vtable = IMidiSongPositionPointerMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1285885014, 60510, 19172, [161, 21, 136, 220, 87, 204, 43, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ca50c56_ec5e_4ae4_a115_88dc57cc2b79);
 }
 impl ::windows::runtime::RuntimeName for MidiSongPositionPointerMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSongPositionPointerMessage";
@@ -2478,7 +2478,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiSongSelectMessage {
 }
 unsafe impl ::windows::runtime::Interface for MidiSongSelectMessage {
     type Vtable = IMidiSongSelectMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1240527487, 28035, 18241, [165, 191, 70, 41, 246, 190, 151, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49f0f27f_6d83_4741_a5bf_4629f6be974f);
 }
 impl ::windows::runtime::RuntimeName for MidiSongSelectMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSongSelectMessage";
@@ -2591,7 +2591,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiStartMessage {
 }
 unsafe impl ::windows::runtime::Interface for MidiStartMessage {
     type Vtable = IMidiMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037807429, 4244, 17027, [155, 224, 40, 159, 192, 238, 131, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79767945_1094_4283_9be0_289fc0ee8334);
 }
 impl ::windows::runtime::RuntimeName for MidiStartMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiStartMessage";
@@ -2702,7 +2702,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiStopMessage {
 }
 unsafe impl ::windows::runtime::Interface for MidiStopMessage {
     type Vtable = IMidiMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037807429, 4244, 17027, [155, 224, 40, 159, 192, 238, 131, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79767945_1094_4283_9be0_289fc0ee8334);
 }
 impl ::windows::runtime::RuntimeName for MidiStopMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiStopMessage";
@@ -2855,7 +2855,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiSynthesizer {
 }
 unsafe impl ::windows::runtime::Interface for MidiSynthesizer {
     type Vtable = IMidiSynthesizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4040824158, 56208, 16479, [184, 174, 33, 210, 225, 127, 46, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0da155e_db90_405f_b8ae_21d2e17f2e45);
 }
 impl ::windows::runtime::RuntimeName for MidiSynthesizer {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSynthesizer";
@@ -2999,7 +2999,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiSystemExclusiveMessage {
 }
 unsafe impl ::windows::runtime::Interface for MidiSystemExclusiveMessage {
     type Vtable = IMidiMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037807429, 4244, 17027, [155, 224, 40, 159, 192, 238, 131, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79767945_1094_4283_9be0_289fc0ee8334);
 }
 impl ::windows::runtime::RuntimeName for MidiSystemExclusiveMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSystemExclusiveMessage";
@@ -3110,7 +3110,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiSystemResetMessage {
 }
 unsafe impl ::windows::runtime::Interface for MidiSystemResetMessage {
     type Vtable = IMidiMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037807429, 4244, 17027, [155, 224, 40, 159, 192, 238, 131, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79767945_1094_4283_9be0_289fc0ee8334);
 }
 impl ::windows::runtime::RuntimeName for MidiSystemResetMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSystemResetMessage";
@@ -3241,7 +3241,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiTimeCodeMessage {
 }
 unsafe impl ::windows::runtime::Interface for MidiTimeCodeMessage {
     type Vtable = IMidiTimeCodeMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(200738941, 64099, 18972, [141, 235, 192, 232, 119, 150, 166, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bf7087d_fa63_4a1c_8deb_c0e87796a6d7);
 }
 impl ::windows::runtime::RuntimeName for MidiTimeCodeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiTimeCodeMessage";
@@ -3354,7 +3354,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiTimingClockMessage {
 }
 unsafe impl ::windows::runtime::Interface for MidiTimingClockMessage {
     type Vtable = IMidiMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037807429, 4244, 17027, [155, 224, 40, 159, 192, 238, 131, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79767945_1094_4283_9be0_289fc0ee8334);
 }
 impl ::windows::runtime::RuntimeName for MidiTimingClockMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiTimingClockMessage";
@@ -3465,7 +3465,7 @@ unsafe impl ::windows::runtime::RuntimeType for MidiTuneRequestMessage {
 }
 unsafe impl ::windows::runtime::Interface for MidiTuneRequestMessage {
     type Vtable = IMidiMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037807429, 4244, 17027, [155, 224, 40, 159, 192, 238, 131, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79767945_1094_4283_9be0_289fc0ee8334);
 }
 impl ::windows::runtime::RuntimeName for MidiTuneRequestMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiTuneRequestMessage";

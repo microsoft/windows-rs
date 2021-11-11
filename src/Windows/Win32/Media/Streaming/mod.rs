@@ -437,7 +437,7 @@ impl IMFDeviceTransform {
 }
 unsafe impl ::windows::runtime::Interface for IMFDeviceTransform {
     type Vtable = IMFDeviceTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3625515992, 64582, 17138, [135, 172, 30, 162, 209, 249, 191, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd818fbd8_fc46_42f2_87ac_1ea2d1f9bf32);
 }
 impl ::core::convert::From<IMFDeviceTransform> for ::windows::runtime::IUnknown {
     fn from(value: IMFDeviceTransform) -> Self {
@@ -515,7 +515,7 @@ impl IMFDeviceTransformCallback {
 }
 unsafe impl ::windows::runtime::Interface for IMFDeviceTransformCallback {
     type Vtable = IMFDeviceTransformCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1834792518, 10732, 16891, [129, 121, 140, 76, 109, 117, 8, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d5cb646_29ec_41fb_8179_8c4c6d750811);
 }
 impl ::core::convert::From<IMFDeviceTransformCallback> for ::windows::runtime::IUnknown {
     fn from(value: IMFDeviceTransformCallback) -> Self {

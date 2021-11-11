@@ -164,7 +164,7 @@ unsafe impl ::windows::runtime::RuntimeType for ControlChannelTrigger {
 }
 unsafe impl ::windows::runtime::Interface for ControlChannelTrigger {
     type Vtable = IControlChannelTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2098475431, 61078, 16616, [161, 153, 135, 3, 205, 150, 158, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d1431a7_ee96_40e8_a199_8703cd969ec3);
 }
 impl ::windows::runtime::RuntimeName for ControlChannelTrigger {
     const NAME: &'static str = "Windows.Networking.Sockets.ControlChannelTrigger";
@@ -500,7 +500,7 @@ unsafe impl ::windows::runtime::RuntimeType for DatagramSocket {
 }
 unsafe impl ::windows::runtime::Interface for DatagramSocket {
     type Vtable = IDatagramSocket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2145541051, 50108, 18039, [132, 70, 202, 40, 164, 101, 163, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fe25bbb_c3bc_4677_8446_ca28a465a3af);
 }
 impl ::windows::runtime::RuntimeName for DatagramSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocket";
@@ -649,7 +649,7 @@ unsafe impl ::windows::runtime::RuntimeType for DatagramSocketControl {
 }
 unsafe impl ::windows::runtime::Interface for DatagramSocketControl {
     type Vtable = IDatagramSocketControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1387020078, 13466, 16693, [187, 88, 183, 155, 38, 71, 211, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52ac3f2e_349a_4135_bb58_b79b2647d390);
 }
 impl ::windows::runtime::RuntimeName for DatagramSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketControl";
@@ -739,7 +739,7 @@ unsafe impl ::windows::runtime::RuntimeType for DatagramSocketInformation {
 }
 unsafe impl ::windows::runtime::Interface for DatagramSocketInformation {
     type Vtable = IDatagramSocketInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1595561626, 22011, 18637, [151, 6, 122, 151, 79, 123, 21, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f1a569a_55fb_48cd_9706_7a974f7b1585);
 }
 impl ::windows::runtime::RuntimeName for DatagramSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketInformation";
@@ -839,7 +839,7 @@ unsafe impl ::windows::runtime::RuntimeType for DatagramSocketMessageReceivedEve
 }
 unsafe impl ::windows::runtime::Interface for DatagramSocketMessageReceivedEventArgs {
     type Vtable = IDatagramSocketMessageReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2653805730, 5906, 19684, [177, 121, 140, 101, 44, 109, 16, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e2ddca2_1712_4ce4_b179_8c652c6d107e);
 }
 impl ::windows::runtime::RuntimeName for DatagramSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs";
@@ -891,7 +891,7 @@ unsafe impl ::core::marker::Sync for DatagramSocketMessageReceivedEventArgs {}
 pub struct IControlChannelTrigger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IControlChannelTrigger {
     type Vtable = IControlChannelTrigger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2098475431, 61078, 16616, [161, 153, 135, 3, 205, 150, 158, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d1431a7_ee96_40e8_a199_8703cd969ec3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -921,7 +921,7 @@ pub struct IControlChannelTrigger_abi(
 pub struct IControlChannelTrigger2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IControlChannelTrigger2 {
     type Vtable = IControlChannelTrigger2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2936066615, 20926, 17684, [151, 37, 53, 86, 225, 135, 149, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf00d237_51be_4514_9725_3556e1879580);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -940,7 +940,7 @@ pub struct IControlChannelTrigger2_abi(
 pub struct IControlChannelTriggerEventDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IControlChannelTriggerEventDetails {
     type Vtable = IControlChannelTriggerEventDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(456581191, 35259, 16950, [150, 172, 113, 208, 18, 187, 72, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b36e047_89bb_4236_96ac_71d012bb4869);
 }
 impl IControlChannelTriggerEventDetails {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -1011,7 +1011,7 @@ pub struct IControlChannelTriggerEventDetails_abi(
 pub struct IControlChannelTriggerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IControlChannelTriggerFactory {
     type Vtable = IControlChannelTriggerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3662380272, 36209, 17519, [136, 195, 185, 81, 132, 162, 214, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda4b7cf0_8d71_446f_88c3_b95184a2d6cd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1031,7 +1031,7 @@ pub struct IControlChannelTriggerFactory_abi(
 pub struct IControlChannelTriggerResetEventDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IControlChannelTriggerResetEventDetails {
     type Vtable = IControlChannelTriggerResetEventDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1750139790, 36548, 17150, [155, 178, 33, 233, 27, 123, 252, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6851038e_8ec4_42fe_9bb2_21e91b7bfcb1);
 }
 impl IControlChannelTriggerResetEventDetails {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -1120,7 +1120,7 @@ pub struct IControlChannelTriggerResetEventDetails_abi(
 pub struct IDatagramSocket(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDatagramSocket {
     type Vtable = IDatagramSocket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2145541051, 50108, 18039, [132, 70, 202, 40, 164, 101, 163, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fe25bbb_c3bc_4677_8446_ca28a465a3af);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1158,7 +1158,7 @@ pub struct IDatagramSocket_abi(
 pub struct IDatagramSocket2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDatagramSocket2 {
     type Vtable = IDatagramSocket2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3627787092, 39581, 16773, [162, 10, 20, 36, 201, 194, 167, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd83ba354_9a9d_4185_a20a_1424c9c2a7cd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1177,7 +1177,7 @@ pub struct IDatagramSocket2_abi(
 pub struct IDatagramSocket3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDatagramSocket3 {
     type Vtable = IDatagramSocket3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(928272137, 43922, 17158, [154, 193, 12, 56, 18, 131, 217, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x37544f09_ab92_4306_9ac1_0c381283d9c6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1202,7 +1202,7 @@ pub struct IDatagramSocket3_abi(
 pub struct IDatagramSocketControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDatagramSocketControl {
     type Vtable = IDatagramSocketControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1387020078, 13466, 16693, [187, 88, 183, 155, 38, 71, 211, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52ac3f2e_349a_4135_bb58_b79b2647d390);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1223,7 +1223,7 @@ pub struct IDatagramSocketControl_abi(
 pub struct IDatagramSocketControl2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDatagramSocketControl2 {
     type Vtable = IDatagramSocketControl2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(871028162, 38812, 17429, [130, 161, 60, 250, 246, 70, 193, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33ead5c2_979c_4415_82a1_3cfaf646c192);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1244,7 +1244,7 @@ pub struct IDatagramSocketControl2_abi(
 pub struct IDatagramSocketControl3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDatagramSocketControl3 {
     type Vtable = IDatagramSocketControl3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3572204118, 8045, 17816, [155, 87, 212, 42, 0, 29, 243, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4eb8256_1f6d_4598_9b57_d42a001df349);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1263,7 +1263,7 @@ pub struct IDatagramSocketControl3_abi(
 pub struct IDatagramSocketInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDatagramSocketInformation {
     type Vtable = IDatagramSocketInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1595561626, 22011, 18637, [151, 6, 122, 151, 79, 123, 21, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f1a569a_55fb_48cd_9706_7a974f7b1585);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1284,7 +1284,7 @@ pub struct IDatagramSocketInformation_abi(
 pub struct IDatagramSocketMessageReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDatagramSocketMessageReceivedEventArgs {
     type Vtable = IDatagramSocketMessageReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2653805730, 5906, 19684, [177, 121, 140, 101, 44, 109, 16, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e2ddca2_1712_4ce4_b179_8c652c6d107e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1308,7 +1308,7 @@ pub struct IDatagramSocketMessageReceivedEventArgs_abi(
 pub struct IDatagramSocketStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDatagramSocketStatics {
     type Vtable = IDatagramSocketStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3922078446, 5268, 18977, [187, 126, 133, 137, 252, 117, 29, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9c62aee_1494_4a21_bb7e_8589fc751d9d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1329,7 +1329,7 @@ pub struct IDatagramSocketStatics_abi(
 pub struct IMessageWebSocket(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageWebSocket {
     type Vtable = IMessageWebSocket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(863141128, 13525, 18246, [173, 123, 141, 222, 91, 194, 239, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33727d08_34d5_4746_ad7b_8dde5bc2ef88);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1352,7 +1352,7 @@ pub struct IMessageWebSocket_abi(
 pub struct IMessageWebSocket2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageWebSocket2 {
     type Vtable = IMessageWebSocket2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3201355495, 63944, 17418, [154, 213, 115, 114, 129, 217, 116, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbed0cee7_f9c8_440a_9ad5_737281d9742e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1373,7 +1373,7 @@ pub struct IMessageWebSocket2_abi(
 pub struct IMessageWebSocket3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageWebSocket3 {
     type Vtable = IMessageWebSocket3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1507450619, 29103, 17225, [132, 135, 145, 31, 207, 104, 21, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59d9defb_71af_4349_8487_911fcf681597);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1394,7 +1394,7 @@ pub struct IMessageWebSocket3_abi(
 pub struct IMessageWebSocketControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageWebSocketControl {
     type Vtable = IMessageWebSocketControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2165848202, 50729, 20234, [128, 251, 129, 252, 5, 83, 136, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8118388a_c629_4f0a_80fb_81fc05538862);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1415,7 +1415,7 @@ pub struct IMessageWebSocketControl_abi(
 pub struct IMessageWebSocketControl2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageWebSocketControl2 {
     type Vtable = IMessageWebSocketControl2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3809466257, 2060, 16394, [167, 18, 39, 223, 169, 231, 68, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe30fd791_080c_400a_a712_27dfa9e744d8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1444,7 +1444,7 @@ pub struct IMessageWebSocketControl2_abi(
 pub struct IMessageWebSocketMessageReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageWebSocketMessageReceivedEventArgs {
     type Vtable = IMessageWebSocketMessageReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1200366252, 19531, 17133, [158, 215, 30, 249, 249, 79, 163, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x478c22ac_4c4b_42ed_9ed7_1ef9f94fa3d5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1466,7 +1466,7 @@ pub struct IMessageWebSocketMessageReceivedEventArgs_abi(
 pub struct IMessageWebSocketMessageReceivedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageWebSocketMessageReceivedEventArgs2 {
     type Vtable = IMessageWebSocketMessageReceivedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2311980797, 56687, 18951, [135, 249, 249, 235, 77, 137, 216, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89ce06fd_dd6f_4a07_87f9_f9eb4d89d83d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1484,7 +1484,7 @@ pub struct IMessageWebSocketMessageReceivedEventArgs2_abi(
 pub struct IServerMessageWebSocket(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IServerMessageWebSocket {
     type Vtable = IServerMessageWebSocket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3819737664, 33083, 24317, [126, 17, 174, 35, 5, 252, 119, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3ac9240_813b_5efd_7e11_ae2305fc77f1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1514,7 +1514,7 @@ pub struct IServerMessageWebSocket_abi(
 pub struct IServerMessageWebSocketControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IServerMessageWebSocketControl {
     type Vtable = IServerMessageWebSocketControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1774383185, 7199, 22650, [69, 25, 33, 129, 97, 1, 146, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69c2f051_1c1f_587a_4519_2181610192b7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1533,7 +1533,7 @@ pub struct IServerMessageWebSocketControl_abi(
 pub struct IServerMessageWebSocketInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IServerMessageWebSocketInformation {
     type Vtable = IServerMessageWebSocketInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4231181407, 17480, 21765, [108, 201, 9, 175, 168, 145, 95, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc32b45f_4448_5505_6cc9_09afa8915f5d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1553,7 +1553,7 @@ pub struct IServerMessageWebSocketInformation_abi(
 pub struct IServerStreamWebSocket(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IServerStreamWebSocket {
     type Vtable = IServerStreamWebSocket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(753753023, 29942, 21988, [121, 223, 145, 50, 104, 13, 254, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ced5bbf_74f6_55e4_79df_9132680dfee8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1580,7 +1580,7 @@ pub struct IServerStreamWebSocket_abi(
 pub struct IServerStreamWebSocketInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IServerStreamWebSocketInformation {
     type Vtable = IServerStreamWebSocketInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4231181407, 17480, 21765, [108, 201, 9, 171, 168, 145, 95, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc32b45f_4448_5505_6cc9_09aba8915f5d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1600,7 +1600,7 @@ pub struct IServerStreamWebSocketInformation_abi(
 pub struct ISocketActivityContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocketActivityContext {
     type Vtable = ISocketActivityContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1135627620, 19589, 17302, [166, 55, 29, 151, 63, 110, 189, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43b04d64_4c85_4396_a637_1d973f6ebd49);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1619,7 +1619,7 @@ pub struct ISocketActivityContext_abi(
 pub struct ISocketActivityContextFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocketActivityContextFactory {
     type Vtable = ISocketActivityContextFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3114255299, 2188, 17288, [131, 174, 37, 37, 19, 142, 4, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb99fc3c3_088c_4388_83ae_2525138e049a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1638,7 +1638,7 @@ pub struct ISocketActivityContextFactory_abi(
 pub struct ISocketActivityInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocketActivityInformation {
     type Vtable = ISocketActivityInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2374648548, 43134, 19316, [153, 104, 24, 91, 37, 17, 222, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d8a42e4_a87e_4b74_9968_185b2511defe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1662,7 +1662,7 @@ pub struct ISocketActivityInformation_abi(
 pub struct ISocketActivityInformationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocketActivityInformationStatics {
     type Vtable = ISocketActivityInformationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2238755962, 32381, 18230, [128, 65, 19, 39, 166, 84, 60, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8570b47a_7e7d_4736_8041_1327a6543c56);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1681,7 +1681,7 @@ pub struct ISocketActivityInformationStatics_abi(
 pub struct ISocketActivityTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocketActivityTriggerDetails {
     type Vtable = ISocketActivityTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1173620391, 64671, 20353, [172, 173, 53, 95, 239, 81, 230, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45f406a7_fc9f_4f81_acad_355fef51e67b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1700,7 +1700,7 @@ pub struct ISocketActivityTriggerDetails_abi(
 pub struct ISocketErrorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocketErrorStatics {
     type Vtable = ISocketErrorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2189637620, 32086, 19854, [183, 180, 160, 125, 215, 193, 188, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x828337f4_7d56_4d8e_b7b4_a07dd7c1bca9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1718,7 +1718,7 @@ pub struct ISocketErrorStatics_abi(
 pub struct IStreamSocket(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocket {
     type Vtable = IStreamSocket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1772236019, 64635, 18519, [175, 56, 246, 231, 222, 106, 91, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69a22cf3_fc7b_4857_af38_f6e7de6a5b49);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1751,7 +1751,7 @@ pub struct IStreamSocket_abi(
 pub struct IStreamSocket2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocket2 {
     type Vtable = IStreamSocket2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(701556085, 62228, 19721, [173, 240, 15, 189, 150, 127, 189, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29d0e575_f314_4d09_adf0_0fbd967fbd9f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1770,7 +1770,7 @@ pub struct IStreamSocket2_abi(
 pub struct IStreamSocket3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocket3 {
     type Vtable = IStreamSocket3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1061358336, 40232, 18516, [186, 195, 35, 1, 148, 30, 194, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f430b00_9d28_4854_bac3_2301941ec223);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1795,7 +1795,7 @@ pub struct IStreamSocket3_abi(
 pub struct IStreamSocketControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketControl {
     type Vtable = IStreamSocketControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4263882225, 37547, 19187, [153, 146, 15, 76, 133, 227, 108, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe25adf1_92ab_4af3_9992_0f4c85e36cc4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1822,7 +1822,7 @@ pub struct IStreamSocketControl_abi(
 pub struct IStreamSocketControl2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketControl2 {
     type Vtable = IStreamSocketControl2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3268450902, 1551, 17601, [184, 226, 31, 191, 96, 189, 98, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2d09a56_060f_44c1_b8e2_1fbf60bd62c5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1841,7 +1841,7 @@ pub struct IStreamSocketControl2_abi(
 pub struct IStreamSocketControl3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketControl3 {
     type Vtable = IStreamSocketControl3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3312075852, 20084, 16446, [137, 76, 179, 28, 174, 92, 115, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc56a444c_4e74_403e_894c_b31cae5c7342);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1864,7 +1864,7 @@ pub struct IStreamSocketControl3_abi(
 pub struct IStreamSocketControl4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketControl4 {
     type Vtable = IStreamSocketControl4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2521705277, 60455, 18568, [179, 206, 199, 75, 65, 132, 35, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x964e2b3d_ec27_4888_b3ce_c74b418423ad);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1883,7 +1883,7 @@ pub struct IStreamSocketControl4_abi(
 pub struct IStreamSocketInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketInformation {
     type Vtable = IStreamSocketInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(998288944, 24168, 16901, [136, 240, 220, 133, 210, 226, 93, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b80ae30_5e68_4205_88f0_dc85d2e25ded);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1911,7 +1911,7 @@ pub struct IStreamSocketInformation_abi(
 pub struct IStreamSocketInformation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketInformation2 {
     type Vtable = IStreamSocketInformation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(314737746, 19420, 20196, [151, 106, 207, 19, 14, 157, 146, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12c28452_4bdc_4ee4_976a_cf130e9d92e3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1935,7 +1935,7 @@ pub struct IStreamSocketInformation2_abi(
 pub struct IStreamSocketListener(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketListener {
     type Vtable = IStreamSocketListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4283511863, 57247, 19952, [191, 130, 14, 197, 215, 179, 90, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff513437_df9f_4df0_bf82_0ec5d7b35aae);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1962,7 +1962,7 @@ pub struct IStreamSocketListener_abi(
 pub struct IStreamSocketListener2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketListener2 {
     type Vtable = IStreamSocketListener2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1703788862, 47934, 17496, [178, 50, 237, 16, 136, 105, 75, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x658dc13e_bb3e_4458_b232_ed1088694b98);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1983,7 +1983,7 @@ pub struct IStreamSocketListener2_abi(
 pub struct IStreamSocketListener3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketListener3 {
     type Vtable = IStreamSocketListener3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1201152028, 48632, 18713, [133, 66, 40, 212, 80, 231, 69, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4798201c_bdf8_4919_8542_28d450e74507);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2006,7 +2006,7 @@ pub struct IStreamSocketListener3_abi(
 pub struct IStreamSocketListenerConnectionReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketListenerConnectionReceivedEventArgs {
     type Vtable = IStreamSocketListenerConnectionReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(205991593, 14143, 17531, [133, 177, 221, 212, 84, 136, 3, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c472ea9_373f_447b_85b1_ddd4548803ba);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2024,7 +2024,7 @@ pub struct IStreamSocketListenerConnectionReceivedEventArgs_abi(
 pub struct IStreamSocketListenerControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketListenerControl {
     type Vtable = IStreamSocketListenerControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(551077238, 36234, 19898, [151, 34, 161, 108, 77, 152, 73, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20d8c576_8d8a_4dba_9722_a16c4d984980);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2043,7 +2043,7 @@ pub struct IStreamSocketListenerControl_abi(
 pub struct IStreamSocketListenerControl2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketListenerControl2 {
     type Vtable = IStreamSocketListenerControl2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2492184165, 11326, 16459, [184, 176, 142, 178, 73, 162, 176, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x948bb665_2c3e_404b_b8b0_8eb249a2b0a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2068,7 +2068,7 @@ pub struct IStreamSocketListenerControl2_abi(
 pub struct IStreamSocketListenerInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketListenerInformation {
     type Vtable = IStreamSocketListenerInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3861620783, 42554, 17163, [191, 98, 41, 233, 62, 86, 51, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe62ba82f_a63a_430b_bf62_29e93e5633b4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2086,7 +2086,7 @@ pub struct IStreamSocketListenerInformation_abi(
 pub struct IStreamSocketStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketStatics {
     type Vtable = IStreamSocketStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2753608778, 28206, 19189, [181, 86, 53, 90, 224, 205, 79, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa420bc4a_6e2e_4af5_b556_355ae0cd4f29);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2107,7 +2107,7 @@ pub struct IStreamSocketStatics_abi(
 pub struct IStreamWebSocket(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamWebSocket {
     type Vtable = IStreamWebSocket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3175762392, 45705, 17851, [151, 235, 199, 82, 82, 5, 168, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd4a49d8_b289_45bb_97eb_c7525205a843);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2128,7 +2128,7 @@ pub struct IStreamWebSocket_abi(
 pub struct IStreamWebSocket2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamWebSocket2 {
     type Vtable = IStreamWebSocket2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2857175243, 37877, 18040, [130, 54, 87, 204, 229, 65, 126, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa4d08cb_93f5_4678_8236_57cce5417ed5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2149,7 +2149,7 @@ pub struct IStreamWebSocket2_abi(
 pub struct IStreamWebSocketControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamWebSocketControl {
     type Vtable = IStreamWebSocketControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3035920561, 42074, 18651, [149, 58, 100, 91, 125, 150, 76, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4f478b1_a45a_48db_953a_645b7d964c07);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2168,7 +2168,7 @@ pub struct IStreamWebSocketControl_abi(
 pub struct IStreamWebSocketControl2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamWebSocketControl2 {
     type Vtable = IStreamWebSocketControl2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(559783806, 64088, 16602, [159, 17, 164, 141, 175, 233, 80, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x215d9f7e_fa58_40da_9f11_a48dafe95037);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2196,7 +2196,7 @@ pub struct IStreamWebSocketControl2_abi(
 pub struct IWebSocket(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocket {
     type Vtable = IWebSocket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4168563055, 39345, 19992, [188, 8, 133, 12, 154, 223, 21, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf877396f_99b1_4e18_bc08_850c9adf156e);
 }
 impl IWebSocket {
     #[cfg(feature = "Storage_Streams")]
@@ -2343,7 +2343,7 @@ pub struct IWebSocket_abi(
 pub struct IWebSocketClosedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocketClosedEventArgs {
     type Vtable = IWebSocketClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3468135687, 53416, 18179, [160, 145, 200, 194, 192, 145, 91, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xceb78d07_d0a8_4703_a091_c8c2c0915bc3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2363,7 +2363,7 @@ pub struct IWebSocketClosedEventArgs_abi(
 pub struct IWebSocketControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocketControl {
     type Vtable = IWebSocketControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(784645571, 55717, 17754, [152, 17, 222, 36, 212, 83, 55, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ec4bdc3_d9a5_455a_9811_de24d45337e9);
 }
 impl IWebSocketControl {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -2490,7 +2490,7 @@ pub struct IWebSocketControl_abi(
 pub struct IWebSocketControl2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocketControl2 {
     type Vtable = IWebSocketControl2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2042871299, 62154, 17950, [175, 78, 150, 101, 188, 45, 6, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79c3be03_f2ca_461e_af4e_9665bc2d0620);
 }
 impl IWebSocketControl2 {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -2637,7 +2637,7 @@ pub struct IWebSocketControl2_abi(
 pub struct IWebSocketErrorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocketErrorStatics {
     type Vtable = IWebSocketErrorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(667808603, 8033, 18185, [142, 2, 97, 40, 58, 218, 78, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27cdf35b_1f61_4709_8e02_61283ada4e9d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2657,7 +2657,7 @@ pub struct IWebSocketErrorStatics_abi(
 pub struct IWebSocketInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocketInformation {
     type Vtable = IWebSocketInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1577181974, 51498, 18341, [178, 95, 7, 132, 118, 57, 209, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e01e316_c92a_47a5_b25f_07847639d181);
 }
 impl IWebSocketInformation {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -2747,7 +2747,7 @@ pub struct IWebSocketInformation_abi(
 pub struct IWebSocketInformation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocketInformation2 {
     type Vtable = IWebSocketInformation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3458021838, 41399, 19779, [130, 105, 141, 91, 152, 27, 212, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce1d39ce_a1b7_4d43_8269_8d5b981bd47a);
 }
 impl IWebSocketInformation2 {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -2897,7 +2897,7 @@ pub struct IWebSocketInformation2_abi(
 pub struct IWebSocketServerCustomValidationRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocketServerCustomValidationRequestedEventArgs {
     type Vtable = IWebSocketServerCustomValidationRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4293918280, 554, 19127, [139, 54, 225, 10, 244, 100, 14, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffeffe48_022a_4ab7_8b36_e10af4640e6b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3050,7 +3050,7 @@ unsafe impl ::windows::runtime::RuntimeType for MessageWebSocket {
 }
 unsafe impl ::windows::runtime::Interface for MessageWebSocket {
     type Vtable = IMessageWebSocket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(863141128, 13525, 18246, [173, 123, 141, 222, 91, 194, 239, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33727d08_34d5_4746_ad7b_8dde5bc2ef88);
 }
 impl ::windows::runtime::RuntimeName for MessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocket";
@@ -3295,7 +3295,7 @@ unsafe impl ::windows::runtime::RuntimeType for MessageWebSocketControl {
 }
 unsafe impl ::windows::runtime::Interface for MessageWebSocketControl {
     type Vtable = IMessageWebSocketControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2165848202, 50729, 20234, [128, 251, 129, 252, 5, 83, 136, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8118388a_c629_4f0a_80fb_81fc05538862);
 }
 impl ::windows::runtime::RuntimeName for MessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketControl";
@@ -3456,7 +3456,7 @@ unsafe impl ::windows::runtime::RuntimeType for MessageWebSocketInformation {
 }
 unsafe impl ::windows::runtime::Interface for MessageWebSocketInformation {
     type Vtable = IWebSocketInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1577181974, 51498, 18341, [178, 95, 7, 132, 118, 57, 209, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e01e316_c92a_47a5_b25f_07847639d181);
 }
 impl ::windows::runtime::RuntimeName for MessageWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketInformation";
@@ -3590,7 +3590,7 @@ unsafe impl ::windows::runtime::RuntimeType for MessageWebSocketMessageReceivedE
 }
 unsafe impl ::windows::runtime::Interface for MessageWebSocketMessageReceivedEventArgs {
     type Vtable = IMessageWebSocketMessageReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1200366252, 19531, 17133, [158, 215, 30, 249, 249, 79, 163, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x478c22ac_4c4b_42ed_9ed7_1ef9f94fa3d5);
 }
 impl ::windows::runtime::RuntimeName for MessageWebSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketMessageReceivedEventArgs";
@@ -3771,7 +3771,7 @@ unsafe impl ::windows::runtime::RuntimeType for ServerMessageWebSocket {
 }
 unsafe impl ::windows::runtime::Interface for ServerMessageWebSocket {
     type Vtable = IServerMessageWebSocket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3819737664, 33083, 24317, [126, 17, 174, 35, 5, 252, 119, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3ac9240_813b_5efd_7e11_ae2305fc77f1);
 }
 impl ::windows::runtime::RuntimeName for ServerMessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocket";
@@ -3868,7 +3868,7 @@ unsafe impl ::windows::runtime::RuntimeType for ServerMessageWebSocketControl {
 }
 unsafe impl ::windows::runtime::Interface for ServerMessageWebSocketControl {
     type Vtable = IServerMessageWebSocketControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1774383185, 7199, 22650, [69, 25, 33, 129, 97, 1, 146, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69c2f051_1c1f_587a_4519_2181610192b7);
 }
 impl ::windows::runtime::RuntimeName for ServerMessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocketControl";
@@ -3950,7 +3950,7 @@ unsafe impl ::windows::runtime::RuntimeType for ServerMessageWebSocketInformatio
 }
 unsafe impl ::windows::runtime::Interface for ServerMessageWebSocketInformation {
     type Vtable = IServerMessageWebSocketInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4231181407, 17480, 21765, [108, 201, 9, 175, 168, 145, 95, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc32b45f_4448_5505_6cc9_09afa8915f5d);
 }
 impl ::windows::runtime::RuntimeName for ServerMessageWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocketInformation";
@@ -4060,7 +4060,7 @@ unsafe impl ::windows::runtime::RuntimeType for ServerStreamWebSocket {
 }
 unsafe impl ::windows::runtime::Interface for ServerStreamWebSocket {
     type Vtable = IServerStreamWebSocket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(753753023, 29942, 21988, [121, 223, 145, 50, 104, 13, 254, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ced5bbf_74f6_55e4_79df_9132680dfee8);
 }
 impl ::windows::runtime::RuntimeName for ServerStreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerStreamWebSocket";
@@ -4168,7 +4168,7 @@ unsafe impl ::windows::runtime::RuntimeType for ServerStreamWebSocketInformation
 }
 unsafe impl ::windows::runtime::Interface for ServerStreamWebSocketInformation {
     type Vtable = IServerStreamWebSocketInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4231181407, 17480, 21765, [108, 201, 9, 171, 168, 145, 95, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc32b45f_4448_5505_6cc9_09aba8915f5d);
 }
 impl ::windows::runtime::RuntimeName for ServerStreamWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerStreamWebSocketInformation";
@@ -4269,7 +4269,7 @@ unsafe impl ::windows::runtime::RuntimeType for SocketActivityContext {
 }
 unsafe impl ::windows::runtime::Interface for SocketActivityContext {
     type Vtable = ISocketActivityContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1135627620, 19589, 17302, [166, 55, 29, 151, 63, 110, 189, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43b04d64_4c85_4396_a637_1d973f6ebd49);
 }
 impl ::windows::runtime::RuntimeName for SocketActivityContext {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityContext";
@@ -4395,7 +4395,7 @@ unsafe impl ::windows::runtime::RuntimeType for SocketActivityInformation {
 }
 unsafe impl ::windows::runtime::Interface for SocketActivityInformation {
     type Vtable = ISocketActivityInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2374648548, 43134, 19316, [153, 104, 24, 91, 37, 17, 222, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d8a42e4_a87e_4b74_9968_185b2511defe);
 }
 impl ::windows::runtime::RuntimeName for SocketActivityInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityInformation";
@@ -4493,7 +4493,7 @@ unsafe impl ::windows::runtime::RuntimeType for SocketActivityTriggerDetails {
 }
 unsafe impl ::windows::runtime::Interface for SocketActivityTriggerDetails {
     type Vtable = ISocketActivityTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1173620391, 64671, 20353, [172, 173, 53, 95, 239, 81, 230, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45f406a7_fc9f_4f81_acad_355fef51e67b);
 }
 impl ::windows::runtime::RuntimeName for SocketActivityTriggerDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityTriggerDetails";
@@ -4898,7 +4898,7 @@ unsafe impl ::windows::runtime::RuntimeType for StreamSocket {
 }
 unsafe impl ::windows::runtime::Interface for StreamSocket {
     type Vtable = IStreamSocket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1772236019, 64635, 18519, [175, 56, 246, 231, 222, 106, 91, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69a22cf3_fc7b_4857_af38_f6e7de6a5b49);
 }
 impl ::windows::runtime::RuntimeName for StreamSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocket";
@@ -5097,7 +5097,7 @@ unsafe impl ::windows::runtime::RuntimeType for StreamSocketControl {
 }
 unsafe impl ::windows::runtime::Interface for StreamSocketControl {
     type Vtable = IStreamSocketControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4263882225, 37547, 19187, [153, 146, 15, 76, 133, 227, 108, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe25adf1_92ab_4af3_9992_0f4c85e36cc4);
 }
 impl ::windows::runtime::RuntimeName for StreamSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketControl";
@@ -5271,7 +5271,7 @@ unsafe impl ::windows::runtime::RuntimeType for StreamSocketInformation {
 }
 unsafe impl ::windows::runtime::Interface for StreamSocketInformation {
     type Vtable = IStreamSocketInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(998288944, 24168, 16901, [136, 240, 220, 133, 210, 226, 93, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b80ae30_5e68_4205_88f0_dc85d2e25ded);
 }
 impl ::windows::runtime::RuntimeName for StreamSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketInformation";
@@ -5438,7 +5438,7 @@ unsafe impl ::windows::runtime::RuntimeType for StreamSocketListener {
 }
 unsafe impl ::windows::runtime::Interface for StreamSocketListener {
     type Vtable = IStreamSocketListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4283511863, 57247, 19952, [191, 130, 14, 197, 215, 179, 90, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff513437_df9f_4df0_bf82_0ec5d7b35aae);
 }
 impl ::windows::runtime::RuntimeName for StreamSocketListener {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListener";
@@ -5530,7 +5530,7 @@ unsafe impl ::windows::runtime::RuntimeType for StreamSocketListenerConnectionRe
 }
 unsafe impl ::windows::runtime::Interface for StreamSocketListenerConnectionReceivedEventArgs {
     type Vtable = IStreamSocketListenerConnectionReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(205991593, 14143, 17531, [133, 177, 221, 212, 84, 136, 3, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c472ea9_373f_447b_85b1_ddd4548803ba);
 }
 impl ::windows::runtime::RuntimeName for StreamSocketListenerConnectionReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerConnectionReceivedEventArgs";
@@ -5653,7 +5653,7 @@ unsafe impl ::windows::runtime::RuntimeType for StreamSocketListenerControl {
 }
 unsafe impl ::windows::runtime::Interface for StreamSocketListenerControl {
     type Vtable = IStreamSocketListenerControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(551077238, 36234, 19898, [151, 34, 161, 108, 77, 152, 73, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20d8c576_8d8a_4dba_9722_a16c4d984980);
 }
 impl ::windows::runtime::RuntimeName for StreamSocketListenerControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerControl";
@@ -5719,7 +5719,7 @@ unsafe impl ::windows::runtime::RuntimeType for StreamSocketListenerInformation 
 }
 unsafe impl ::windows::runtime::Interface for StreamSocketListenerInformation {
     type Vtable = IStreamSocketListenerInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3861620783, 42554, 17163, [191, 98, 41, 233, 62, 86, 51, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe62ba82f_a63a_430b_bf62_29e93e5633b4);
 }
 impl ::windows::runtime::RuntimeName for StreamSocketListenerInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerInformation";
@@ -5873,7 +5873,7 @@ unsafe impl ::windows::runtime::RuntimeType for StreamWebSocket {
 }
 unsafe impl ::windows::runtime::Interface for StreamWebSocket {
     type Vtable = IStreamWebSocket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3175762392, 45705, 17851, [151, 235, 199, 82, 82, 5, 168, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd4a49d8_b289_45bb_97eb_c7525205a843);
 }
 impl ::windows::runtime::RuntimeName for StreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocket";
@@ -6092,7 +6092,7 @@ unsafe impl ::windows::runtime::RuntimeType for StreamWebSocketControl {
 }
 unsafe impl ::windows::runtime::Interface for StreamWebSocketControl {
     type Vtable = IStreamWebSocketControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3035920561, 42074, 18651, [149, 58, 100, 91, 125, 150, 76, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4f478b1_a45a_48db_953a_645b7d964c07);
 }
 impl ::windows::runtime::RuntimeName for StreamWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocketControl";
@@ -6253,7 +6253,7 @@ unsafe impl ::windows::runtime::RuntimeType for StreamWebSocketInformation {
 }
 unsafe impl ::windows::runtime::Interface for StreamWebSocketInformation {
     type Vtable = IWebSocketInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1577181974, 51498, 18341, [178, 95, 7, 132, 118, 57, 209, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e01e316_c92a_47a5_b25f_07847639d181);
 }
 impl ::windows::runtime::RuntimeName for StreamWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocketInformation";
@@ -6369,7 +6369,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebSocketClosedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for WebSocketClosedEventArgs {
     type Vtable = IWebSocketClosedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3468135687, 53416, 18179, [160, 145, 200, 194, 192, 145, 91, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xceb78d07_d0a8_4703_a091_c8c2c0915bc3);
 }
 impl ::windows::runtime::RuntimeName for WebSocketClosedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketClosedEventArgs";
@@ -6463,7 +6463,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebSocketKeepAlive {
 #[cfg(feature = "ApplicationModel_Background")]
 unsafe impl ::windows::runtime::Interface for WebSocketKeepAlive {
     type Vtable = super::super::ApplicationModel::Background::IBackgroundTask_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2098451764, 64786, 17358, [140, 34, 234, 31, 241, 60, 6, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d13d534_fd12_43ce_8c22_ea1ff13c06df);
 }
 #[cfg(feature = "ApplicationModel_Background")]
 impl ::windows::runtime::RuntimeName for WebSocketKeepAlive {
@@ -6605,7 +6605,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebSocketServerCustomValidationR
 }
 unsafe impl ::windows::runtime::Interface for WebSocketServerCustomValidationRequestedEventArgs {
     type Vtable = IWebSocketServerCustomValidationRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4293918280, 554, 19127, [139, 54, 225, 10, 244, 100, 14, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffeffe48_022a_4ab7_8b36_e10af4640e6b);
 }
 impl ::windows::runtime::RuntimeName for WebSocketServerCustomValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketServerCustomValidationRequestedEventArgs";

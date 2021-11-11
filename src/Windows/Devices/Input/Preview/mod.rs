@@ -94,7 +94,7 @@ unsafe impl ::windows::runtime::RuntimeType for GazeDevicePreview {
 }
 unsafe impl ::windows::runtime::Interface for GazeDevicePreview {
     type Vtable = IGazeDevicePreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924073, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe79e7ee9_b389_11e7_b201_c8d3ffb75721);
 }
 impl ::windows::runtime::RuntimeName for GazeDevicePreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDevicePreview";
@@ -160,7 +160,7 @@ unsafe impl ::windows::runtime::RuntimeType for GazeDeviceWatcherAddedPreviewEve
 }
 unsafe impl ::windows::runtime::Interface for GazeDeviceWatcherAddedPreviewEventArgs {
     type Vtable = IGazeDeviceWatcherAddedPreviewEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924077, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe79e7eed_b389_11e7_b201_c8d3ffb75721);
 }
 impl ::windows::runtime::RuntimeName for GazeDeviceWatcherAddedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherAddedPreviewEventArgs";
@@ -288,7 +288,7 @@ unsafe impl ::windows::runtime::RuntimeType for GazeDeviceWatcherPreview {
 }
 unsafe impl ::windows::runtime::Interface for GazeDeviceWatcherPreview {
     type Vtable = IGazeDeviceWatcherPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924071, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe79e7ee7_b389_11e7_b201_c8d3ffb75721);
 }
 impl ::windows::runtime::RuntimeName for GazeDeviceWatcherPreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherPreview";
@@ -354,7 +354,7 @@ unsafe impl ::windows::runtime::RuntimeType for GazeDeviceWatcherRemovedPreviewE
 }
 unsafe impl ::windows::runtime::Interface for GazeDeviceWatcherRemovedPreviewEventArgs {
     type Vtable = IGazeDeviceWatcherRemovedPreviewEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4066582280, 3647, 17183, [166, 6, 80, 179, 90, 249, 74, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2631f08_0e3f_431f_a606_50b35af94a1c);
 }
 impl ::windows::runtime::RuntimeName for GazeDeviceWatcherRemovedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherRemovedPreviewEventArgs";
@@ -420,7 +420,7 @@ unsafe impl ::windows::runtime::RuntimeType for GazeDeviceWatcherUpdatedPreviewE
 }
 unsafe impl ::windows::runtime::Interface for GazeDeviceWatcherUpdatedPreviewEventArgs {
     type Vtable = IGazeDeviceWatcherUpdatedPreviewEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2145923311, 32520, 18231, [136, 225, 74, 131, 174, 78, 72, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fe830ef_7f08_4737_88e1_4a83ae4e4885);
 }
 impl ::windows::runtime::RuntimeName for GazeDeviceWatcherUpdatedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherUpdatedPreviewEventArgs";
@@ -499,7 +499,7 @@ unsafe impl ::windows::runtime::RuntimeType for GazeEnteredPreviewEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for GazeEnteredPreviewEventArgs {
     type Vtable = IGazeEnteredPreviewEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(627556163, 4645, 18591, [157, 209, 218, 167, 197, 15, 191, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2567bf43_1225_489f_9dd1_daa7c50fbf4b);
 }
 impl ::windows::runtime::RuntimeName for GazeEnteredPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeEnteredPreviewEventArgs";
@@ -578,7 +578,7 @@ unsafe impl ::windows::runtime::RuntimeType for GazeExitedPreviewEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for GazeExitedPreviewEventArgs {
     type Vtable = IGazeExitedPreviewEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1560998014, 32131, 16623, [159, 10, 251, 193, 187, 220, 197, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d0af07e_7d83_40ef_9f0a_fbc1bbdcc5ac);
 }
 impl ::windows::runtime::RuntimeName for GazeExitedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeExitedPreviewEventArgs";
@@ -699,7 +699,7 @@ unsafe impl ::windows::runtime::RuntimeType for GazeInputSourcePreview {
 }
 unsafe impl ::windows::runtime::Interface for GazeInputSourcePreview {
     type Vtable = IGazeInputSourcePreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924072, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe79e7ee8_b389_11e7_b201_c8d3ffb75721);
 }
 impl ::windows::runtime::RuntimeName for GazeInputSourcePreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeInputSourcePreview";
@@ -787,7 +787,7 @@ unsafe impl ::windows::runtime::RuntimeType for GazeMovedPreviewEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for GazeMovedPreviewEventArgs {
     type Vtable = IGazeMovedPreviewEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924075, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe79e7eeb_b389_11e7_b201_c8d3ffb75721);
 }
 impl ::windows::runtime::RuntimeName for GazeMovedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeMovedPreviewEventArgs";
@@ -888,7 +888,7 @@ unsafe impl ::windows::runtime::RuntimeType for GazePointPreview {
 }
 unsafe impl ::windows::runtime::Interface for GazePointPreview {
     type Vtable = IGazePointPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924074, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe79e7eea_b389_11e7_b201_c8d3ffb75721);
 }
 impl ::windows::runtime::RuntimeName for GazePointPreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazePointPreview";
@@ -940,7 +940,7 @@ unsafe impl ::core::marker::Sync for GazePointPreview {}
 pub struct IGazeDevicePreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeDevicePreview {
     type Vtable = IGazeDevicePreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924073, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe79e7ee9_b389_11e7_b201_c8d3ffb75721);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -967,7 +967,7 @@ pub struct IGazeDevicePreview_abi(
 pub struct IGazeDeviceWatcherAddedPreviewEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeDeviceWatcherAddedPreviewEventArgs {
     type Vtable = IGazeDeviceWatcherAddedPreviewEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924077, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe79e7eed_b389_11e7_b201_c8d3ffb75721);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -985,7 +985,7 @@ pub struct IGazeDeviceWatcherAddedPreviewEventArgs_abi(
 pub struct IGazeDeviceWatcherPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeDeviceWatcherPreview {
     type Vtable = IGazeDeviceWatcherPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924071, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe79e7ee7_b389_11e7_b201_c8d3ffb75721);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1020,7 +1020,7 @@ pub struct IGazeDeviceWatcherPreview_abi(
 pub struct IGazeDeviceWatcherRemovedPreviewEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeDeviceWatcherRemovedPreviewEventArgs {
     type Vtable = IGazeDeviceWatcherRemovedPreviewEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4066582280, 3647, 17183, [166, 6, 80, 179, 90, 249, 74, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2631f08_0e3f_431f_a606_50b35af94a1c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1038,7 +1038,7 @@ pub struct IGazeDeviceWatcherRemovedPreviewEventArgs_abi(
 pub struct IGazeDeviceWatcherUpdatedPreviewEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeDeviceWatcherUpdatedPreviewEventArgs {
     type Vtable = IGazeDeviceWatcherUpdatedPreviewEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2145923311, 32520, 18231, [136, 225, 74, 131, 174, 78, 72, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fe830ef_7f08_4737_88e1_4a83ae4e4885);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1056,7 +1056,7 @@ pub struct IGazeDeviceWatcherUpdatedPreviewEventArgs_abi(
 pub struct IGazeEnteredPreviewEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeEnteredPreviewEventArgs {
     type Vtable = IGazeEnteredPreviewEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(627556163, 4645, 18591, [157, 209, 218, 167, 197, 15, 191, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2567bf43_1225_489f_9dd1_daa7c50fbf4b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1076,7 +1076,7 @@ pub struct IGazeEnteredPreviewEventArgs_abi(
 pub struct IGazeExitedPreviewEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeExitedPreviewEventArgs {
     type Vtable = IGazeExitedPreviewEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1560998014, 32131, 16623, [159, 10, 251, 193, 187, 220, 197, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d0af07e_7d83_40ef_9f0a_fbc1bbdcc5ac);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1096,7 +1096,7 @@ pub struct IGazeExitedPreviewEventArgs_abi(
 pub struct IGazeInputSourcePreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeInputSourcePreview {
     type Vtable = IGazeInputSourcePreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924072, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe79e7ee8_b389_11e7_b201_c8d3ffb75721);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1125,7 +1125,7 @@ pub struct IGazeInputSourcePreview_abi(
 pub struct IGazeInputSourcePreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeInputSourcePreviewStatics {
     type Vtable = IGazeInputSourcePreviewStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924070, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe79e7ee6_b389_11e7_b201_c8d3ffb75721);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1144,7 +1144,7 @@ pub struct IGazeInputSourcePreviewStatics_abi(
 pub struct IGazeMovedPreviewEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeMovedPreviewEventArgs {
     type Vtable = IGazeMovedPreviewEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924075, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe79e7eeb_b389_11e7_b201_c8d3ffb75721);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1166,7 +1166,7 @@ pub struct IGazeMovedPreviewEventArgs_abi(
 pub struct IGazePointPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazePointPreview {
     type Vtable = IGazePointPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924074, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe79e7eea_b389_11e7_b201_c8d3ffb75721);
 }
 #[repr(C)]
 #[doc(hidden)]

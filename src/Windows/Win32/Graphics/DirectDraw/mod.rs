@@ -81,9 +81,9 @@ unsafe impl ::windows::runtime::Abi for ATTACHLIST {
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const CCHDEVICENAME: u32 = 32u32;
-pub const CLSID_DirectDraw: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3619098336, 17216, 4559, [176, 99, 0, 32, 175, 194, 205, 53]);
-pub const CLSID_DirectDraw7: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1009799574, 20699, 4563, [156, 254, 0, 192, 79, 217, 48, 197]);
-pub const CLSID_DirectDrawClipper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1496848288, 32179, 4559, [162, 222, 0, 170, 0, 185, 51, 86]);
+pub const CLSID_DirectDraw: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7b70ee0_4340_11cf_b063_0020afc2cd35);
+pub const CLSID_DirectDraw7: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c305196_50db_11d3_9cfe_00c04fd930c5);
+pub const CLSID_DirectDrawClipper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x593817a0_7db3_11cf_a2de_00aa00b93356);
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const D3DFMT_INTERNAL_D15S1: u32 = 73u32;
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
@@ -9530,13 +9530,13 @@ pub const DDVPSTATUS_VIDEOONLY: i32 = 2i32;
 pub const DDVPTARGET_VBI: i32 = 2i32;
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDVPTARGET_VIDEO: i32 = 1i32;
-pub const DDVPTYPE_BROOKTREE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324183392, 55905, 4559, [155, 6, 0, 160, 201, 3, 163, 184]);
-pub const DDVPTYPE_CCIR656: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4238550688, 55904, 4559, [155, 6, 0, 160, 201, 3, 163, 184]);
-pub const DDVPTYPE_E_HREFH_VREFH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1425250688, 55904, 4559, [155, 6, 0, 160, 201, 3, 163, 184]);
-pub const DDVPTYPE_E_HREFH_VREFL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2457350688, 55904, 4559, [155, 6, 0, 160, 201, 3, 163, 184]);
-pub const DDVPTYPE_E_HREFL_VREFH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2692350688, 55904, 4559, [155, 6, 0, 160, 201, 3, 163, 184]);
-pub const DDVPTYPE_E_HREFL_VREFL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3768350688, 55904, 4559, [155, 6, 0, 160, 201, 3, 163, 184]);
-pub const DDVPTYPE_PHILIPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(858583392, 55905, 4559, [155, 6, 0, 160, 201, 3, 163, 184]);
+pub const DDVPTYPE_BROOKTREE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1352a560_da61_11cf_9b06_00a0c903a3b8);
+pub const DDVPTYPE_CCIR656: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfca326a0_da60_11cf_9b06_00a0c903a3b8);
+pub const DDVPTYPE_E_HREFH_VREFH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54f39980_da60_11cf_9b06_00a0c903a3b8);
+pub const DDVPTYPE_E_HREFH_VREFL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92783220_da60_11cf_9b06_00a0c903a3b8);
+pub const DDVPTYPE_E_HREFL_VREFH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa07a02e0_da60_11cf_9b06_00a0c903a3b8);
+pub const DDVPTYPE_E_HREFL_VREFL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe09c77e0_da60_11cf_9b06_00a0c903a3b8);
+pub const DDVPTYPE_PHILIPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x332cf160_da61_11cf_9b06_00a0c903a3b8);
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDVPWAIT_BEGIN: i32 = 1i32;
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
@@ -13355,35 +13355,35 @@ pub unsafe fn DirectDrawEnumerateW(lpcallback: ::core::option::Option<LPDDENUMCA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const GUID_ColorControlCallbacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4023782594, 18919, 4560, [136, 157, 0, 170, 0, 187, 183, 106]);
-pub const GUID_D3DCallbacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2079353232, 34708, 4560, [145, 57, 8, 0, 54, 210, 239, 2]);
-pub const GUID_D3DCallbacks2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(195396833, 28854, 4560, [136, 157, 0, 170, 0, 187, 183, 106]);
-pub const GUID_D3DCallbacks3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3723760176, 60426, 4560, [169, 182, 0, 170, 0, 192, 153, 62]);
-pub const GUID_D3DCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2079353233, 34708, 4560, [145, 57, 8, 0, 54, 210, 239, 2]);
-pub const GUID_D3DExtendedCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2112102272, 40339, 4560, [137, 171, 0, 160, 201, 5, 65, 41]);
-pub const GUID_D3DParseUnknownCommandCallback: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(772079520, 39140, 4561, [140, 225, 0, 160, 201, 6, 41, 168]);
-pub const GUID_DDMoreCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2282467120, 45104, 4560, [142, 167, 0, 96, 151, 151, 234, 91]);
-pub const GUID_DDMoreSurfaceCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(998900838, 62057, 4561, [136, 11, 0, 192, 79, 217, 48, 197]);
-pub const GUID_DDStereoMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4163376796, 43240, 4562, [161, 242, 0, 160, 201, 131, 234, 246]);
-pub const GUID_DxApi: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2323234544, 47381, 4560, [145, 68, 8, 0, 54, 210, 239, 2]);
-pub const GUID_GetHeapAlignment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1121988374, 31553, 4562, [139, 255, 0, 160, 201, 131, 234, 246]);
-pub const GUID_KernelCallbacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2156279808, 27398, 4560, [155, 6, 0, 160, 201, 3, 163, 184]);
-pub const GUID_KernelCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4289361216, 31400, 4560, [155, 6, 0, 160, 201, 3, 163, 184]);
-pub const GUID_Miscellaneous2Callbacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1080766208, 15962, 4561, [182, 64, 0, 170, 0, 161, 249, 106]);
-pub const GUID_MiscellaneousCallbacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4023782592, 18919, 4560, [136, 157, 0, 170, 0, 187, 183, 106]);
-pub const GUID_MotionCompCallbacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2970757952, 23973, 4561, [143, 207, 0, 192, 79, 194, 155, 78]);
-pub const GUID_NTCallbacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1877601502, 57225, 4561, [157, 176, 0, 96, 8, 39, 113, 186]);
-pub const GUID_NTPrivateDriverCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4208028195, 31590, 4562, [131, 215, 0, 192, 79, 124, 229, 140]);
-pub const GUID_NonLocalVidMemCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2261056128, 36228, 4560, [148, 232, 0, 192, 79, 195, 65, 55]);
-pub const GUID_OptSurfaceKmodeInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3764159602, 20948, 4561, [140, 206, 0, 160, 201, 6, 41, 168]);
-pub const GUID_OptSurfaceUmodeInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2641963012, 24488, 4561, [140, 208, 0, 160, 201, 6, 41, 168]);
-pub const GUID_UpdateNonLocalHeap: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1121988375, 31553, 4562, [139, 255, 0, 160, 201, 131, 234, 246]);
-pub const GUID_UserModeDriverInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4038125794, 24471, 4561, [140, 208, 0, 160, 201, 6, 41, 168]);
-pub const GUID_UserModeDriverPassword: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2549637558, 24737, 4561, [140, 208, 0, 160, 201, 6, 41, 168]);
-pub const GUID_VPE2Callbacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1384653127, 11591, 18074, [160, 209, 3, 69, 88, 144, 246, 200]);
-pub const GUID_VideoPortCallbacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4023782593, 18919, 4560, [136, 157, 0, 170, 0, 187, 183, 106]);
-pub const GUID_VideoPortCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4023782595, 18919, 4560, [136, 157, 0, 170, 0, 187, 183, 106]);
-pub const GUID_ZPixelFormats: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2475071616, 14031, 4561, [155, 27, 0, 170, 0, 187, 184, 174]);
+pub const GUID_ColorControlCallbacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefd60cc2_49e7_11d0_889d_00aa00bbb76a);
+pub const GUID_D3DCallbacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bf06990_8794_11d0_9139_080036d2ef02);
+pub const GUID_D3DCallbacks2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ba584e1_70b6_11d0_889d_00aa00bbb76a);
+pub const GUID_D3DCallbacks3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddf41230_ec0a_11d0_a9b6_00aa00c0993e);
+pub const GUID_D3DCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bf06991_8794_11d0_9139_080036d2ef02);
+pub const GUID_D3DExtendedCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7de41f80_9d93_11d0_89ab_00a0c9054129);
+pub const GUID_D3DParseUnknownCommandCallback: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e04ffa0_98e4_11d1_8ce1_00a0c90629a8);
+pub const GUID_DDMoreCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x880baf30_b030_11d0_8ea7_00609797ea5b);
+pub const GUID_DDMoreSurfaceCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b8a0466_f269_11d1_880b_00c04fd930c5);
+pub const GUID_DDStereoMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf828169c_a8e8_11d2_a1f2_00a0c983eaf6);
+pub const GUID_DxApi: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a79bef0_b915_11d0_9144_080036d2ef02);
+pub const GUID_GetHeapAlignment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42e02f16_7b41_11d2_8bff_00a0c983eaf6);
+pub const GUID_KernelCallbacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80863800_6b06_11d0_9b06_00a0c903a3b8);
+pub const GUID_KernelCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffaa7540_7aa8_11d0_9b06_00a0c903a3b8);
+pub const GUID_Miscellaneous2Callbacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x406b2f00_3e5a_11d1_b640_00aa00a1f96a);
+pub const GUID_MiscellaneousCallbacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefd60cc0_49e7_11d0_889d_00aa00bbb76a);
+pub const GUID_MotionCompCallbacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1122b40_5da5_11d1_8fcf_00c04fc29b4e);
+pub const GUID_NTCallbacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fe9ecde_df89_11d1_9db0_0060082771ba);
+pub const GUID_NTPrivateDriverCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfad16a23_7b66_11d2_83d7_00c04f7ce58c);
+pub const GUID_NonLocalVidMemCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86c4fa80_8d84_11d0_94e8_00c04fc34137);
+pub const GUID_OptSurfaceKmodeInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe05c8472_51d4_11d1_8cce_00a0c90629a8);
+pub const GUID_OptSurfaceUmodeInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d792804_5fa8_11d1_8cd0_00a0c90629a8);
+pub const GUID_UpdateNonLocalHeap: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42e02f17_7b41_11d2_8bff_00a0c983eaf6);
+pub const GUID_UserModeDriverInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0b0e8e2_5f97_11d1_8cd0_00a0c90629a8);
+pub const GUID_UserModeDriverPassword: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97f861b6_60a1_11d1_8cd0_00a0c90629a8);
+pub const GUID_VPE2Callbacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52882147_2d47_469a_a0d1_03455890f6c8);
+pub const GUID_VideoPortCallbacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefd60cc1_49e7_11d0_889d_00aa00bbb76a);
+pub const GUID_VideoPortCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefd60cc3_49e7_11d0_889d_00aa00bbb76a);
+pub const GUID_ZPixelFormats: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93869880_36cf_11d1_9b1b_00aa00bbb8ae);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
@@ -13500,7 +13500,7 @@ impl IDDVideoPortContainer {
 }
 unsafe impl ::windows::runtime::Interface for IDDVideoPortContainer {
     type Vtable = IDDVideoPortContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1813260128, 42803, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c142760_a733_11ce_a521_0020af0be560);
 }
 impl ::core::convert::From<IDDVideoPortContainer> for ::windows::runtime::IUnknown {
     fn from(value: IDDVideoPortContainer) -> Self {
@@ -13630,7 +13630,7 @@ impl IDirectDraw {
 }
 unsafe impl ::windows::runtime::Interface for IDirectDraw {
     type Vtable = IDirectDraw_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1813306240, 42803, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c14db80_a733_11ce_a521_0020af0be560);
 }
 impl ::core::convert::From<IDirectDraw> for ::windows::runtime::IUnknown {
     fn from(value: IDirectDraw) -> Self {
@@ -13779,7 +13779,7 @@ impl IDirectDraw2 {
 }
 unsafe impl ::windows::runtime::Interface for IDirectDraw2 {
     type Vtable = IDirectDraw2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3014063072, 11075, 4559, [162, 222, 0, 170, 0, 185, 51, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3a6f3e0_2b43_11cf_a2de_00aa00b93356);
 }
 impl ::core::convert::From<IDirectDraw2> for ::windows::runtime::IUnknown {
     fn from(value: IDirectDraw2) -> Self {
@@ -13951,7 +13951,7 @@ impl IDirectDraw4 {
 }
 unsafe impl ::windows::runtime::Interface for IDirectDraw4 {
     type Vtable = IDirectDraw4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2623099034, 14781, 4561, [140, 74, 0, 192, 79, 217, 48, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c59509a_39bd_11d1_8c4a_00c04fd930c5);
 }
 impl ::core::convert::From<IDirectDraw4> for ::windows::runtime::IUnknown {
     fn from(value: IDirectDraw4) -> Self {
@@ -14138,7 +14138,7 @@ impl IDirectDraw7 {
 }
 unsafe impl ::windows::runtime::Interface for IDirectDraw7 {
     type Vtable = IDirectDraw7_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(367419072, 15260, 4562, [185, 47, 0, 96, 151, 151, 234, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15e65ec0_3b9c_11d2_b92f_00609797ea5b);
 }
 impl ::core::convert::From<IDirectDraw7> for ::windows::runtime::IUnknown {
     fn from(value: IDirectDraw7) -> Self {
@@ -14240,7 +14240,7 @@ impl IDirectDrawClipper {
 }
 unsafe impl ::windows::runtime::Interface for IDirectDrawClipper {
     type Vtable = IDirectDrawClipper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1813306245, 42803, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c14db85_a733_11ce_a521_0020af0be560);
 }
 impl ::core::convert::From<IDirectDrawClipper> for ::windows::runtime::IUnknown {
     fn from(value: IDirectDrawClipper) -> Self {
@@ -14299,7 +14299,7 @@ impl IDirectDrawColorControl {
 }
 unsafe impl ::windows::runtime::Interface for IDirectDrawColorControl {
     type Vtable = IDirectDrawColorControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1268715232, 3454, 4560, [155, 6, 0, 160, 201, 3, 163, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b9f0ee0_0d7e_11d0_9b06_00a0c903a3b8);
 }
 impl ::core::convert::From<IDirectDrawColorControl> for ::windows::runtime::IUnknown {
     fn from(value: IDirectDrawColorControl) -> Self {
@@ -14349,7 +14349,7 @@ impl IDirectDrawGammaControl {
 }
 unsafe impl ::windows::runtime::Interface for IDirectDrawGammaControl {
     type Vtable = IDirectDrawGammaControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1774263358, 46187, 4561, [173, 122, 0, 192, 79, 194, 155, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69c11c3e_b46b_11d1_ad7a_00c04fc29b4e);
 }
 impl ::core::convert::From<IDirectDrawGammaControl> for ::windows::runtime::IUnknown {
     fn from(value: IDirectDrawGammaControl) -> Self {
@@ -14403,7 +14403,7 @@ impl IDirectDrawKernel {
 }
 unsafe impl ::windows::runtime::Interface for IDirectDrawKernel {
     type Vtable = IDirectDrawKernel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2371272992, 27144, 4560, [155, 6, 0, 160, 201, 3, 163, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d56c120_6a08_11d0_9b06_00a0c903a3b8);
 }
 impl ::core::convert::From<IDirectDrawKernel> for ::windows::runtime::IUnknown {
     fn from(value: IDirectDrawKernel) -> Self {
@@ -14465,7 +14465,7 @@ impl IDirectDrawPalette {
 }
 unsafe impl ::windows::runtime::Interface for IDirectDrawPalette {
     type Vtable = IDirectDrawPalette_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1813306244, 42803, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c14db84_a733_11ce_a521_0020af0be560);
 }
 impl ::core::convert::From<IDirectDrawPalette> for ::windows::runtime::IUnknown {
     fn from(value: IDirectDrawPalette) -> Self {
@@ -14654,7 +14654,7 @@ impl IDirectDrawSurface {
 }
 unsafe impl ::windows::runtime::Interface for IDirectDrawSurface {
     type Vtable = IDirectDrawSurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1813306241, 42803, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c14db81_a733_11ce_a521_0020af0be560);
 }
 impl ::core::convert::From<IDirectDrawSurface> for ::windows::runtime::IUnknown {
     fn from(value: IDirectDrawSurface) -> Self {
@@ -14886,7 +14886,7 @@ impl IDirectDrawSurface2 {
 }
 unsafe impl ::windows::runtime::Interface for IDirectDrawSurface2 {
     type Vtable = IDirectDrawSurface2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1468029061, 28396, 4559, [148, 65, 168, 35, 3, 193, 14, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57805885_6eec_11cf_9441_a82303c10e27);
 }
 impl ::core::convert::From<IDirectDrawSurface2> for ::windows::runtime::IUnknown {
     fn from(value: IDirectDrawSurface2) -> Self {
@@ -15128,7 +15128,7 @@ impl IDirectDrawSurface3 {
 }
 unsafe impl ::windows::runtime::Interface for IDirectDrawSurface3 {
     type Vtable = IDirectDrawSurface3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3657715200, 27058, 4560, [161, 213, 0, 170, 0, 184, 223, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda044e00_69b2_11d0_a1d5_00aa00b8dfbb);
 }
 impl ::core::convert::From<IDirectDrawSurface3> for ::windows::runtime::IUnknown {
     fn from(value: IDirectDrawSurface3) -> Self {
@@ -15392,7 +15392,7 @@ impl IDirectDrawSurface4 {
 }
 unsafe impl ::windows::runtime::Interface for IDirectDrawSurface4 {
     type Vtable = IDirectDrawSurface4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(187401776, 44341, 4560, [142, 166, 0, 96, 151, 151, 234, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b2b8630_ad35_11d0_8ea6_00609797ea5b);
 }
 impl ::core::convert::From<IDirectDrawSurface4> for ::windows::runtime::IUnknown {
     fn from(value: IDirectDrawSurface4) -> Self {
@@ -15678,7 +15678,7 @@ impl IDirectDrawSurface7 {
 }
 unsafe impl ::windows::runtime::Interface for IDirectDrawSurface7 {
     type Vtable = IDirectDrawSurface7_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(107436672, 15259, 4562, [185, 47, 0, 96, 151, 151, 234, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06675a80_3b9b_11d2_b92f_00609797ea5b);
 }
 impl ::core::convert::From<IDirectDrawSurface7> for ::windows::runtime::IUnknown {
     fn from(value: IDirectDrawSurface7) -> Self {
@@ -15781,7 +15781,7 @@ impl IDirectDrawSurfaceKernel {
 }
 unsafe impl ::windows::runtime::Interface for IDirectDrawSurfaceKernel {
     type Vtable = IDirectDrawSurfaceKernel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1618304416, 27200, 4560, [155, 6, 0, 160, 201, 3, 163, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60755da0_6a40_11d0_9b06_00a0c903a3b8);
 }
 impl ::core::convert::From<IDirectDrawSurfaceKernel> for ::windows::runtime::IUnknown {
     fn from(value: IDirectDrawSurfaceKernel) -> Self {
@@ -15884,7 +15884,7 @@ impl IDirectDrawVideoPort {
 }
 unsafe impl ::windows::runtime::Interface for IDirectDrawVideoPort {
     type Vtable = IDirectDrawVideoPort_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3010302944, 11075, 4559, [162, 222, 0, 170, 0, 185, 51, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb36d93e0_2b43_11cf_a2de_00aa00b93356);
 }
 impl ::core::convert::From<IDirectDrawVideoPort> for ::windows::runtime::IUnknown {
     fn from(value: IDirectDrawVideoPort) -> Self {
@@ -15947,7 +15947,7 @@ impl IDirectDrawVideoPortNotify {
 }
 unsafe impl ::windows::runtime::Interface for IDirectDrawVideoPortNotify {
     type Vtable = IDirectDrawVideoPortNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2790652820, 1417, 20055, [179, 51, 86, 122, 137, 70, 140, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa655fb94_0589_4e57_b333_567a89468c88);
 }
 impl ::core::convert::From<IDirectDrawVideoPortNotify> for ::windows::runtime::IUnknown {
     fn from(value: IDirectDrawVideoPortNotify) -> Self {

@@ -99,7 +99,7 @@ impl ::core::cmp::Eq for EVENT_DATA_HEADER {}
 unsafe impl ::windows::runtime::Abi for EVENT_DATA_HEADER {
     type Abi = Self;
 }
-pub const GUID_DEVINTERFACE_SIDESHOW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(355358737, 65209, 19200, [144, 244, 211, 41, 71, 174, 22, 129]);
+pub const GUID_DEVINTERFACE_SIDESHOW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x152e5811_feb9_4b00_90f4_d32947ae1681);
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -117,7 +117,7 @@ impl ISideShowBulkCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for ISideShowBulkCapabilities {
     type Vtable = ISideShowBulkCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(975929276, 15061, 18621, [187, 241, 14, 108, 251, 209, 8, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a2b7fbc_3ad5_48bd_bbf1_0e6cfbd10807);
 }
 impl ::core::convert::From<ISideShowBulkCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: ISideShowBulkCapabilities) -> Self {
@@ -182,7 +182,7 @@ impl ISideShowCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for ISideShowCapabilities {
     type Vtable = ISideShowCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1398674297, 49310, 19028, [165, 17, 89, 123, 171, 58, 114, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x535e1379_c09e_4a54_a511_597bab3a72b8);
 }
 impl ::core::convert::From<ISideShowCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: ISideShowCapabilities) -> Self {
@@ -231,7 +231,7 @@ impl ISideShowCapabilitiesCollection {
 }
 unsafe impl ::windows::runtime::Interface for ISideShowCapabilitiesCollection {
     type Vtable = ISideShowCapabilitiesCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1345344919, 24077, 20471, [179, 175, 51, 208, 217, 189, 82, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50305597_5e0d_4ff7_b3af_33d0d9bd52dd);
 }
 impl ::core::convert::From<ISideShowCapabilitiesCollection> for ::windows::runtime::IUnknown {
     fn from(value: ISideShowCapabilitiesCollection) -> Self {
@@ -285,7 +285,7 @@ impl ISideShowContent {
 }
 unsafe impl ::windows::runtime::Interface for ISideShowContent {
     type Vtable = ISideShowContent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3246740205, 29951, 20460, [190, 7, 76, 254, 210, 157, 72, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc18552ed_74ff_4fec_be07_4cfed29d4887);
 }
 impl ::core::convert::From<ISideShowContent> for ::windows::runtime::IUnknown {
     fn from(value: ISideShowContent) -> Self {
@@ -347,7 +347,7 @@ impl ISideShowContentManager {
 }
 unsafe impl ::windows::runtime::Interface for ISideShowContentManager {
     type Vtable = ISideShowContentManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2782246507, 61177, 16859, [141, 126, 225, 124, 51, 171, 16, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5d5b66b_eef9_41db_8d7e_e17c33ab10b0);
 }
 impl ::core::convert::From<ISideShowContentManager> for ::windows::runtime::IUnknown {
     fn from(value: ISideShowContentManager) -> Self {
@@ -406,7 +406,7 @@ impl ISideShowEvents {
 }
 unsafe impl ::windows::runtime::Interface for ISideShowEvents {
     type Vtable = ISideShowEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1644087884, 57012, 19070, [141, 117, 81, 241, 19, 45, 97, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61feca4c_deb4_4a7e_8d75_51f1132d615b);
 }
 impl ::core::convert::From<ISideShowEvents> for ::windows::runtime::IUnknown {
     fn from(value: ISideShowEvents) -> Self {
@@ -469,7 +469,7 @@ impl ISideShowKeyCollection {
 }
 unsafe impl ::windows::runtime::Interface for ISideShowKeyCollection {
     type Vtable = ISideShowKeyCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(72643516, 41851, 18775, [177, 68, 104, 16, 84, 17, 237, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x045473bc_a37b_4957_b144_68105411ed8e);
 }
 impl ::core::convert::From<ISideShowKeyCollection> for ::windows::runtime::IUnknown {
     fn from(value: ISideShowKeyCollection) -> Self {
@@ -566,7 +566,7 @@ impl ISideShowNotification {
 }
 unsafe impl ::windows::runtime::Interface for ISideShowNotification {
     type Vtable = ISideShowNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(63517440, 35506, 16837, [155, 121, 70, 18, 122, 48, 225, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03c93300_8ab2_41c5_9b79_46127a30e148);
 }
 impl ::core::convert::From<ISideShowNotification> for ::windows::runtime::IUnknown {
     fn from(value: ISideShowNotification) -> Self {
@@ -633,7 +633,7 @@ impl ISideShowNotificationManager {
 }
 unsafe impl ::windows::runtime::Interface for ISideShowNotificationManager {
     type Vtable = ISideShowNotificationManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1674488073, 62137, 17154, [181, 225, 198, 142, 109, 154, 184, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63cea909_f2b9_4302_b5e1_c68e6d9ab833);
 }
 impl ::core::convert::From<ISideShowNotificationManager> for ::windows::runtime::IUnknown {
     fn from(value: ISideShowNotificationManager) -> Self {
@@ -695,7 +695,7 @@ impl ISideShowPropVariantCollection {
 }
 unsafe impl ::windows::runtime::Interface for ISideShowPropVariantCollection {
     type Vtable = ISideShowPropVariantCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(782738761, 31743, 19118, [186, 176, 34, 212, 49, 17, 222, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ea7a549_7bff_4aae_bab0_22d43111de49);
 }
 impl ::core::convert::From<ISideShowPropVariantCollection> for ::windows::runtime::IUnknown {
     fn from(value: ISideShowPropVariantCollection) -> Self {
@@ -749,7 +749,7 @@ impl ISideShowSession {
 }
 unsafe impl ::windows::runtime::Interface for ISideShowSession {
     type Vtable = ISideShowSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3793957358, 40573, 18722, [159, 194, 171, 122, 164, 28, 228, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe22331ee_9e7d_4922_9fc2_ab7aa41ce491);
 }
 impl ::core::convert::From<ISideShowSession> for ::windows::runtime::IUnknown {
     fn from(value: ISideShowSession) -> Self {
@@ -955,84 +955,84 @@ impl ::core::cmp::Eq for SCF_NAVIGATION_EVENT {}
 unsafe impl ::windows::runtime::Abi for SCF_NAVIGATION_EVENT {
     type Abi = Self;
 }
-pub const SIDESHOW_APPLICATION_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1286959866, 7483, 18867, [161, 122, 46, 107, 255, 5, 40, 84]);
+pub const SIDESHOW_APPLICATION_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4cb572fa_1d3b_49b3_a17a_2e6bff052854);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SIDESHOW_CAPABILITY_CLIENT_AREA_HEIGHT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2327611560, 34171, 19159, [163, 90, 181, 148, 47, 73, 43, 153]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SIDESHOW_CAPABILITY_CLIENT_AREA_WIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2327611560, 34171, 19159, [163, 90, 181, 148, 47, 73, 43, 153]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SIDESHOW_CAPABILITY_COLOR_DEPTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2327611560, 34171, 19159, [163, 90, 181, 148, 47, 73, 43, 153]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SIDESHOW_CAPABILITY_COLOR_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2327611560, 34171, 19159, [163, 90, 181, 148, 47, 73, 43, 153]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SIDESHOW_CAPABILITY_CURRENT_LANGUAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2327611560, 34171, 19159, [163, 90, 181, 148, 47, 73, 43, 153]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SIDESHOW_CAPABILITY_DATA_CACHE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2327611560, 34171, 19159, [163, 90, 181, 148, 47, 73, 43, 153]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SIDESHOW_CAPABILITY_DEVICE_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2327611560, 34171, 19159, [163, 90, 181, 148, 47, 73, 43, 153]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
     pid: 1u32,
 };
-pub const SIDESHOW_CAPABILITY_DEVICE_PROPERTIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2327611560, 34171, 19159, [163, 90, 181, 148, 47, 73, 43, 153]);
+pub const SIDESHOW_CAPABILITY_DEVICE_PROPERTIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SIDESHOW_CAPABILITY_SCREEN_HEIGHT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2327611560, 34171, 19159, [163, 90, 181, 148, 47, 73, 43, 153]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SIDESHOW_CAPABILITY_SCREEN_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2327611560, 34171, 19159, [163, 90, 181, 148, 47, 73, 43, 153]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SIDESHOW_CAPABILITY_SCREEN_WIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2327611560, 34171, 19159, [163, 90, 181, 148, 47, 73, 43, 153]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SIDESHOW_CAPABILITY_SUPPORTED_IMAGE_FORMATS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2327611560, 34171, 19159, [163, 90, 181, 148, 47, 73, 43, 153]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SIDESHOW_CAPABILITY_SUPPORTED_LANGUAGES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2327611560, 34171, 19159, [163, 90, 181, 148, 47, 73, 43, 153]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SIDESHOW_CAPABILITY_SUPPORTED_THEMES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(2327611560, 34171, 19159, [163, 90, 181, 148, 47, 73, 43, 153]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
     pid: 10u32,
 };
 #[doc = "*Required features: `Win32_System_SideShow`*"]
@@ -1050,14 +1050,14 @@ impl ::core::convert::From<i32> for SIDESHOW_COLOR_TYPE {
 unsafe impl ::windows::runtime::Abi for SIDESHOW_COLOR_TYPE {
     type Abi = Self;
 }
-pub const SIDESHOW_CONTENT_MISSING_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1342700456, 54035, 17311, [190, 162, 165, 2, 1, 211, 233, 168]);
-pub const SIDESHOW_ENDPOINT_ICAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1308571317, 40414, 20342, [154, 42, 150, 67, 80, 71, 6, 61]);
-pub const SIDESHOW_ENDPOINT_SIMPLE_CONTENT_FORMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2846176575, 11595, 18382, [147, 238, 117, 159, 58, 125, 218, 79]);
+pub const SIDESHOW_CONTENT_MISSING_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5007fba8_d313_439f_bea2_a50201d3e9a8);
+pub const SIDESHOW_ENDPOINT_ICAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4dff36b5_9dde_4f76_9a2a_96435047063d);
+pub const SIDESHOW_ENDPOINT_SIMPLE_CONTENT_FORMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9a5353f_2d4b_47ce_93ee_759f3a7dda4f);
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 pub const SIDESHOW_EVENTID_APPLICATION_ENTER: u32 = 4294901760u32;
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 pub const SIDESHOW_EVENTID_APPLICATION_EXIT: u32 = 4294901761u32;
-pub const SIDESHOW_NEW_EVENT_DATA_AVAILABLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1468086356, 12225, 16668, [165, 159, 242, 73, 39, 96, 136, 4]);
+pub const SIDESHOW_NEW_EVENT_DATA_AVAILABLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57813854_2fc1_411c_a59f_f24927608804);
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -1072,10 +1072,10 @@ impl ::core::convert::From<i32> for SIDESHOW_SCREEN_TYPE {
 unsafe impl ::windows::runtime::Abi for SIDESHOW_SCREEN_TYPE {
     type Abi = Self;
 }
-pub const SIDESHOW_USER_CHANGE_REQUEST_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1342793532, 16253, 19582, [153, 113, 234, 162, 233, 31, 21, 117]);
-pub const SideShowKeyCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3753630712, 6366, 18872, [131, 220, 235, 199, 39, 198, 45, 148]);
-pub const SideShowNotification: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(216262767, 54733, 17701, [167, 102, 26, 186, 177, 167, 82, 245]);
-pub const SideShowPropVariantCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3863016469, 21406, 18723, [150, 205, 95, 9, 59, 194, 80, 205]);
-pub const SideShowSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3791995833, 63365, 20130, [152, 30, 196, 255, 167, 107, 188, 124]);
+pub const SIDESHOW_USER_CHANGE_REQUEST_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5009673c_3f7d_4c7e_9971_eaa2e91f1575);
+pub const SideShowKeyCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdfbbdbf8_18de_49b8_83dc_ebc727c62d94);
+pub const SideShowNotification: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ce3e86f_d5cd_4525_a766_1abab1a752f5);
+pub const SideShowPropVariantCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe640f415_539e_4923_96cd_5f093bc250cd);
+pub const SideShowSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe20543b9_f785_4ea2_981e_c4ffa76bbc7c);
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 pub const VERSION_1_WINDOWS_7: u32 = 0u32;

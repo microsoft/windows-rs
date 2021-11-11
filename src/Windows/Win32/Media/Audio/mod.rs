@@ -1988,10 +1988,10 @@ pub const DEVICE_STATE_DISABLED: u32 = 2u32;
 pub const DEVICE_STATE_NOTPRESENT: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const DEVICE_STATE_UNPLUGGED: u32 = 8u32;
-pub const DEVINTERFACE_AUDIO_CAPTURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(787448254, 13306, 18432, [150, 112, 28, 212, 116, 151, 44, 63]);
-pub const DEVINTERFACE_AUDIO_RENDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3862068397, 56556, 18761, [174, 138, 153, 30, 151, 106, 121, 210]);
-pub const DEVINTERFACE_MIDI_INPUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1347150636, 52470, 19756, [183, 63, 111, 139, 55, 71, 226, 43]);
-pub const DEVINTERFACE_MIDI_OUTPUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1841443616, 43827, 19684, [128, 212, 187, 179, 235, 191, 40, 20]);
+pub const DEVINTERFACE_AUDIO_CAPTURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2eef81be_33fa_4800_9670_1cd474972c3f);
+pub const DEVINTERFACE_AUDIO_RENDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6327cad_dcec_4949_ae8a_991e976a79d2);
+pub const DEVINTERFACE_MIDI_INPUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x504be32c_ccf6_4d2c_b73f_6f8b3747e22b);
+pub const DEVINTERFACE_MIDI_OUTPUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6dc23320_ab33_4ce4_80d4_bbb3ebbf2814);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Audio`*"]
@@ -2042,7 +2042,7 @@ impl ::core::convert::From<i32> for DataFlow {
 unsafe impl ::windows::runtime::Abi for DataFlow {
     type Abi = Self;
 }
-pub const DeviceTopology: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(502675920, 24257, 18346, [147, 121, 130, 141, 193, 170, 140, 89]);
+pub const DeviceTopology: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1df639d0_5ec1_47aa_9379_828dc1aa8c59);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Audio`*"]
@@ -2110,7 +2110,7 @@ impl ::core::convert::From<i32> for ERole {
 unsafe impl ::windows::runtime::Abi for ERole {
     type Abi = Self;
 }
-pub const EVENTCONTEXT_VOLUMESLIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3804424670, 2481, 19204, [132, 229, 7, 147, 18, 37, 238, 4]);
+pub const EVENTCONTEXT_VOLUMESLIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2c2e9de_09b1_4b04_84e5_07931225ee04);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -2319,7 +2319,7 @@ impl IActivateAudioInterfaceAsyncOperation {
 }
 unsafe impl ::windows::runtime::Interface for IActivateAudioInterfaceAsyncOperation {
     type Vtable = IActivateAudioInterfaceAsyncOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1923231096, 52708, 17181, [184, 204, 132, 58, 113, 25, 155, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72a22d78_cde4_431d_b8cc_843a71199b6d);
 }
 impl ::core::convert::From<IActivateAudioInterfaceAsyncOperation> for ::windows::runtime::IUnknown {
     fn from(value: IActivateAudioInterfaceAsyncOperation) -> Self {
@@ -2361,7 +2361,7 @@ impl IActivateAudioInterfaceCompletionHandler {
 }
 unsafe impl ::windows::runtime::Interface for IActivateAudioInterfaceCompletionHandler {
     type Vtable = IActivateAudioInterfaceCompletionHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1104759211, 39010, 17482, [128, 246, 194, 97, 51, 77, 165, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41d949ab_9862_444a_80f6_c261334da5eb);
 }
 impl ::core::convert::From<IActivateAudioInterfaceCompletionHandler> for ::windows::runtime::IUnknown {
     fn from(value: IActivateAudioInterfaceCompletionHandler) -> Self {
@@ -2418,7 +2418,7 @@ impl IAudioAmbisonicsControl {
 }
 unsafe impl ::windows::runtime::Interface for IAudioAmbisonicsControl {
     type Vtable = IAudioAmbisonicsControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(678579345, 57141, 18518, [159, 118, 214, 162, 100, 19, 243, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28724c91_df35_4856_9f76_d6a26413f3df);
 }
 impl ::core::convert::From<IAudioAmbisonicsControl> for ::windows::runtime::IUnknown {
     fn from(value: IAudioAmbisonicsControl) -> Self {
@@ -2472,7 +2472,7 @@ impl IAudioAutoGainControl {
 }
 unsafe impl ::windows::runtime::Interface for IAudioAutoGainControl {
     type Vtable = IAudioAutoGainControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2235572180, 28132, 19357, [152, 105, 45, 103, 83, 168, 47, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85401fd4_6de4_4b9d_9869_2d6753a82f3c);
 }
 impl ::core::convert::From<IAudioAutoGainControl> for ::windows::runtime::IUnknown {
     fn from(value: IAudioAutoGainControl) -> Self {
@@ -2539,7 +2539,7 @@ impl IAudioBass {
 }
 unsafe impl ::windows::runtime::Interface for IAudioBass {
     type Vtable = IAudioBass_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2729550297, 19891, 16989, [162, 178, 189, 51, 92, 179, 226, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2b1a1d9_4db3_425d_a2b2_bd335cb3e2e5);
 }
 impl ::core::convert::From<IAudioBass> for ::windows::runtime::IUnknown {
     fn from(value: IAudioBass) -> Self {
@@ -2615,7 +2615,7 @@ impl IAudioCaptureClient {
 }
 unsafe impl ::windows::runtime::Interface for IAudioCaptureClient {
     type Vtable = IAudioCaptureClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3366829412, 59166, 18592, [164, 222, 24, 92, 57, 92, 211, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8adbd64_e71e_48a0_a4de_185c395cd317);
 }
 impl ::core::convert::From<IAudioCaptureClient> for ::windows::runtime::IUnknown {
     fn from(value: IAudioCaptureClient) -> Self {
@@ -2664,7 +2664,7 @@ impl IAudioChannelConfig {
 }
 unsafe impl ::windows::runtime::Interface for IAudioChannelConfig {
     type Vtable = IAudioChannelConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3138503791, 60456, 18748, [184, 138, 93, 184, 128, 98, 206, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb11c46f_ec28_493c_b88a_5db88062ce98);
 }
 impl ::core::convert::From<IAudioChannelConfig> for ::windows::runtime::IUnknown {
     fn from(value: IAudioChannelConfig) -> Self {
@@ -2757,7 +2757,7 @@ impl IAudioClient {
 }
 unsafe impl ::windows::runtime::Interface for IAudioClient {
     type Vtable = IAudioClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(481930572, 56314, 19506, [177, 120, 194, 245, 104, 167, 3, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cb9ad4c_dbfa_4c32_b178_c2f568a703b2);
 }
 impl ::core::convert::From<IAudioClient> for ::windows::runtime::IUnknown {
     fn from(value: IAudioClient) -> Self {
@@ -2877,7 +2877,7 @@ impl IAudioClient2 {
 }
 unsafe impl ::windows::runtime::Interface for IAudioClient2 {
     type Vtable = IAudioClient2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1919383757, 62986, 20186, [130, 222, 228, 118, 16, 205, 120, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x726778cd_f60a_4eda_82de_e47610cd78aa);
 }
 impl ::core::convert::From<IAudioClient2> for ::windows::runtime::IUnknown {
     fn from(value: IAudioClient2) -> Self {
@@ -3035,7 +3035,7 @@ impl IAudioClient3 {
 }
 unsafe impl ::windows::runtime::Interface for IAudioClient3 {
     type Vtable = IAudioClient3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2127883783, 36455, 19668, [140, 26, 43, 122, 89, 135, 173, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ed4ee07_8e67_4cd4_8c1a_2b7a5987ad42);
 }
 impl ::core::convert::From<IAudioClient3> for ::windows::runtime::IUnknown {
     fn from(value: IAudioClient3) -> Self {
@@ -3138,7 +3138,7 @@ impl IAudioClientDuckingControl {
 }
 unsafe impl ::windows::runtime::Interface for IAudioClientDuckingControl {
     type Vtable = IAudioClientDuckingControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3347698561, 41612, 16744, [178, 143, 211, 168, 55, 146, 77, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc789d381_a28c_4168_b28f_d3a837924dc3);
 }
 impl ::core::convert::From<IAudioClientDuckingControl> for ::windows::runtime::IUnknown {
     fn from(value: IAudioClientDuckingControl) -> Self {
@@ -3190,7 +3190,7 @@ impl IAudioClock {
 }
 unsafe impl ::windows::runtime::Interface for IAudioClock {
     type Vtable = IAudioClock_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3445829967, 16314, 18971, [129, 44, 239, 150, 53, 135, 40, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd63314f_3fba_4a1b_812c_ef96358728e7);
 }
 impl ::core::convert::From<IAudioClock> for ::windows::runtime::IUnknown {
     fn from(value: IAudioClock) -> Self {
@@ -3234,7 +3234,7 @@ impl IAudioClock2 {
 }
 unsafe impl ::windows::runtime::Interface for IAudioClock2 {
     type Vtable = IAudioClock2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1867120499, 26407, 18860, [160, 8, 217, 140, 245, 231, 0, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f49ff73_6727_49ac_a008_d98cf5e70048);
 }
 impl ::core::convert::From<IAudioClock2> for ::windows::runtime::IUnknown {
     fn from(value: IAudioClock2) -> Self {
@@ -3276,7 +3276,7 @@ impl IAudioClockAdjustment {
 }
 unsafe impl ::windows::runtime::Interface for IAudioClockAdjustment {
     type Vtable = IAudioClockAdjustment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4142186656, 18137, 20408, [190, 33, 87, 163, 239, 43, 98, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6e4c0a0_46d9_4fb8_be21_57a3ef2b626c);
 }
 impl ::core::convert::From<IAudioClockAdjustment> for ::windows::runtime::IUnknown {
     fn from(value: IAudioClockAdjustment) -> Self {
@@ -3318,7 +3318,7 @@ impl IAudioEffectsChangedNotificationClient {
 }
 unsafe impl ::windows::runtime::Interface for IAudioEffectsChangedNotificationClient {
     type Vtable = IAudioEffectsChangedNotificationClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2782843983, 15453, 19243, [189, 30, 93, 193, 238, 32, 187, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5ded44f_3c5d_4b2b_bd1e_5dc1ee20bbf6);
 }
 impl ::core::convert::From<IAudioEffectsChangedNotificationClient> for ::windows::runtime::IUnknown {
     fn from(value: IAudioEffectsChangedNotificationClient) -> Self {
@@ -3373,7 +3373,7 @@ impl IAudioEffectsManager {
 }
 unsafe impl ::windows::runtime::Interface for IAudioEffectsManager {
     type Vtable = IAudioEffectsManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1147188142, 19268, 17703, [134, 118, 117, 72, 168, 172, 210, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4460b3ae_4b44_4527_8676_7548a8acd260);
 }
 impl ::core::convert::From<IAudioEffectsManager> for ::windows::runtime::IUnknown {
     fn from(value: IAudioEffectsManager) -> Self {
@@ -3425,7 +3425,7 @@ impl IAudioFormatEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAudioFormatEnumerator {
     type Vtable = IAudioFormatEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3705317464, 35162, 18978, [165, 235, 103, 189, 165, 6, 9, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcdaa858_895a_4a22_a5eb_67bda506096d);
 }
 impl ::core::convert::From<IAudioFormatEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAudioFormatEnumerator) -> Self {
@@ -3473,7 +3473,7 @@ impl IAudioInputSelector {
 }
 unsafe impl ::windows::runtime::Interface for IAudioInputSelector {
     type Vtable = IAudioInputSelector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1325652994, 24174, 18003, [143, 114, 160, 48, 193, 35, 213, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f03dc02_5e6e_4653_8f72_a030c123d598);
 }
 impl ::core::convert::From<IAudioInputSelector> for ::windows::runtime::IUnknown {
     fn from(value: IAudioInputSelector) -> Self {
@@ -3523,7 +3523,7 @@ impl IAudioLoudness {
 }
 unsafe impl ::windows::runtime::Interface for IAudioLoudness {
     type Vtable = IAudioLoudness_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2106266679, 56659, 17232, [156, 27, 30, 226, 137, 11, 217, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d8b1437_dd53_4350_9c1b_1ee2890bd938);
 }
 impl ::core::convert::From<IAudioLoudness> for ::windows::runtime::IUnknown {
     fn from(value: IAudioLoudness) -> Self {
@@ -3590,7 +3590,7 @@ impl IAudioMidrange {
 }
 unsafe impl ::windows::runtime::Interface for IAudioMidrange {
     type Vtable = IAudioMidrange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1582610135, 46155, 16601, [154, 158, 230, 145, 217, 206, 110, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e54b6d7_b44b_40d9_9a9e_e691d9ce6edf);
 }
 impl ::core::convert::From<IAudioMidrange> for ::windows::runtime::IUnknown {
     fn from(value: IAudioMidrange) -> Self {
@@ -3664,7 +3664,7 @@ impl IAudioMute {
 }
 unsafe impl ::windows::runtime::Interface for IAudioMute {
     type Vtable = IAudioMute_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3745885930, 46922, 19307, [175, 173, 35, 102, 182, 170, 1, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf45aeea_b74a_4b6b_afad_2366b6aa012e);
 }
 impl ::core::convert::From<IAudioMute> for ::windows::runtime::IUnknown {
     fn from(value: IAudioMute) -> Self {
@@ -3714,7 +3714,7 @@ impl IAudioOutputSelector {
 }
 unsafe impl ::windows::runtime::Interface for IAudioOutputSelector {
     type Vtable = IAudioOutputSelector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3142672233, 38055, 17054, [139, 156, 39, 27, 63, 17, 163, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb515f69_94a7_429e_8b9c_271b3f11a3ab);
 }
 impl ::core::convert::From<IAudioOutputSelector> for ::windows::runtime::IUnknown {
     fn from(value: IAudioOutputSelector) -> Self {
@@ -3763,7 +3763,7 @@ impl IAudioPeakMeter {
 }
 unsafe impl ::windows::runtime::Interface for IAudioPeakMeter {
     type Vtable = IAudioPeakMeter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3715732028, 1433, 17888, [184, 182, 200, 223, 125, 182, 231, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd79923c_0599_45e0_b8b6_c8df7db6e796);
 }
 impl ::core::convert::From<IAudioPeakMeter> for ::windows::runtime::IUnknown {
     fn from(value: IAudioPeakMeter) -> Self {
@@ -3811,7 +3811,7 @@ impl IAudioRenderClient {
 }
 unsafe impl ::windows::runtime::Interface for IAudioRenderClient {
     type Vtable = IAudioRenderClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4069829884, 12614, 17539, [167, 191, 173, 220, 167, 194, 96, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf294acfc_3146_4483_a7bf_addca7c260e2);
 }
 impl ::core::convert::From<IAudioRenderClient> for ::windows::runtime::IUnknown {
     fn from(value: IAudioRenderClient) -> Self {
@@ -3894,7 +3894,7 @@ impl IAudioSessionControl {
 }
 unsafe impl ::windows::runtime::Interface for IAudioSessionControl {
     type Vtable = IAudioSessionControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4105282969, 29286, 17177, [168, 202, 231, 10, 203, 17, 232, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf4b1a599_7266_4319_a8ca_e70acb11e8cd);
 }
 impl ::core::convert::From<IAudioSessionControl> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSessionControl) -> Self {
@@ -4014,7 +4014,7 @@ impl IAudioSessionControl2 {
 }
 unsafe impl ::windows::runtime::Interface for IAudioSessionControl2 {
     type Vtable = IAudioSessionControl2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3216506760, 29241, 20425, [143, 162, 7, 201, 80, 190, 156, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfb7ff88_7239_4fc9_8fa2_07c950be9c6d);
 }
 impl ::core::convert::From<IAudioSessionControl2> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSessionControl2) -> Self {
@@ -4102,7 +4102,7 @@ impl IAudioSessionEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IAudioSessionEnumerator {
     type Vtable = IAudioSessionEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3807755025, 1392, 16586, [172, 221, 58, 160, 18, 119, 222, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2f5bb11_0570_40ca_acdd_3aa01277dee8);
 }
 impl ::core::convert::From<IAudioSessionEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSessionEnumerator) -> Self {
@@ -4172,7 +4172,7 @@ impl IAudioSessionEvents {
 }
 unsafe impl ::windows::runtime::Interface for IAudioSessionEvents {
     type Vtable = IAudioSessionEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(613518028, 25779, 14273, [140, 169, 116, 166, 110, 153, 87, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24918acc_64b3_37c1_8ca9_74a66e9957a8);
 }
 impl ::core::convert::From<IAudioSessionEvents> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSessionEvents) -> Self {
@@ -4229,7 +4229,7 @@ impl IAudioSessionManager {
 }
 unsafe impl ::windows::runtime::Interface for IAudioSessionManager {
     type Vtable = IAudioSessionManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3215553009, 19806, 16571, [147, 94, 150, 112, 57, 191, 190, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfa971f1_4d5e_40bb_935e_967039bfbee4);
 }
 impl ::core::convert::From<IAudioSessionManager> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSessionManager) -> Self {
@@ -4300,7 +4300,7 @@ impl IAudioSessionManager2 {
 }
 unsafe impl ::windows::runtime::Interface for IAudioSessionManager2 {
     type Vtable = IAudioSessionManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2007669152, 7126, 18511, [139, 199, 44, 101, 76, 154, 155, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77aa99a0_1bd6_484f_8bc7_2c654c9a9b6f);
 }
 impl ::core::convert::From<IAudioSessionManager2> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSessionManager2) -> Self {
@@ -4369,7 +4369,7 @@ impl IAudioSessionNotification {
 }
 unsafe impl ::windows::runtime::Interface for IAudioSessionNotification {
     type Vtable = IAudioSessionNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1679675915, 19777, 18892, [171, 163, 23, 75, 148, 119, 187, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x641dd20b_4d41_49cc_aba3_174b9477bb08);
 }
 impl ::core::convert::From<IAudioSessionNotification> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSessionNotification) -> Self {
@@ -4420,7 +4420,7 @@ impl IAudioStateMonitor {
 }
 unsafe impl ::windows::runtime::Interface for IAudioStateMonitor {
     type Vtable = IAudioStateMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1673365304, 58125, 19575, [191, 92, 131, 78, 135, 198, 87, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63bd8738_e30d_4c77_bf5c_834e87c657e2);
 }
 impl ::core::convert::From<IAudioStateMonitor> for ::windows::runtime::IUnknown {
     fn from(value: IAudioStateMonitor) -> Self {
@@ -4482,7 +4482,7 @@ impl IAudioStreamVolume {
 }
 unsafe impl ::windows::runtime::Interface for IAudioStreamVolume {
     type Vtable = IAudioStreamVolume_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2466334855, 9261, 16488, [138, 21, 207, 94, 147, 185, 15, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93014887_242d_4068_8a15_cf5e93b90fe3);
 }
 impl ::core::convert::From<IAudioStreamVolume> for ::windows::runtime::IUnknown {
     fn from(value: IAudioStreamVolume) -> Self {
@@ -4529,7 +4529,7 @@ impl IAudioSystemEffectsPropertyChangeNotificationClient {
 }
 unsafe impl ::windows::runtime::Interface for IAudioSystemEffectsPropertyChangeNotificationClient {
     type Vtable = IAudioSystemEffectsPropertyChangeNotificationClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(537173312, 22229, 16398, [162, 239, 56, 85, 153, 254, 237, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20049d40_56d5_400e_a2ef_385599feed49);
 }
 impl ::core::convert::From<IAudioSystemEffectsPropertyChangeNotificationClient> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSystemEffectsPropertyChangeNotificationClient) -> Self {
@@ -4602,7 +4602,7 @@ impl IAudioSystemEffectsPropertyStore {
 }
 unsafe impl ::windows::runtime::Interface for IAudioSystemEffectsPropertyStore {
     type Vtable = IAudioSystemEffectsPropertyStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(808118265, 55264, 17380, [151, 27, 31, 130, 147, 97, 61, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x302ae7f9_d7e0_43e4_971b_1f8293613d2a);
 }
 impl ::core::convert::From<IAudioSystemEffectsPropertyStore> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSystemEffectsPropertyStore) -> Self {
@@ -4675,7 +4675,7 @@ impl IAudioTreble {
 }
 unsafe impl ::windows::runtime::Interface for IAudioTreble {
     type Vtable = IAudioTreble_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(175208466, 26958, 18695, [183, 75, 186, 250, 92, 253, 202, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a717812_694e_4907_b74b_bafa5cfdca7b);
 }
 impl ::core::convert::From<IAudioTreble> for ::windows::runtime::IUnknown {
     fn from(value: IAudioTreble) -> Self {
@@ -4748,7 +4748,7 @@ impl IAudioVolumeDuckNotification {
 }
 unsafe impl ::windows::runtime::Interface for IAudioVolumeDuckNotification {
     type Vtable = IAudioVolumeDuckNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3283256532, 27961, 17241, [179, 207, 181, 109, 219, 59, 179, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3b284d4_6d39_4359_b3cf_b56ddb3bb39c);
 }
 impl ::core::convert::From<IAudioVolumeDuckNotification> for ::windows::runtime::IUnknown {
     fn from(value: IAudioVolumeDuckNotification) -> Self {
@@ -4815,7 +4815,7 @@ impl IAudioVolumeLevel {
 }
 unsafe impl ::windows::runtime::Interface for IAudioVolumeLevel {
     type Vtable = IAudioVolumeLevel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2142745743, 21277, 17570, [188, 179, 90, 213, 161, 52, 179, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fb7b48f_531d_44a2_bcb3_5ad5a134b3dc);
 }
 impl ::core::convert::From<IAudioVolumeLevel> for ::windows::runtime::IUnknown {
     fn from(value: IAudioVolumeLevel) -> Self {
@@ -4900,7 +4900,7 @@ impl IChannelAudioVolume {
 }
 unsafe impl ::windows::runtime::Interface for IChannelAudioVolume {
     type Vtable = IChannelAudioVolume_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(471173217, 46387, 19248, [177, 207, 232, 83, 229, 28, 89, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c158861_b533_4b30_b1cf_e853e51c59b8);
 }
 impl ::core::convert::From<IChannelAudioVolume> for ::windows::runtime::IUnknown {
     fn from(value: IChannelAudioVolume) -> Self {
@@ -4983,7 +4983,7 @@ impl IConnector {
 }
 unsafe impl ::windows::runtime::Interface for IConnector {
     type Vtable = IConnector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2620145752, 9205, 16862, [135, 122, 223, 58, 242, 54, 160, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c2c4058_23f5_41de_877a_df3af236a09e);
 }
 impl ::core::convert::From<IConnector> for ::windows::runtime::IUnknown {
     fn from(value: IConnector) -> Self {
@@ -5035,7 +5035,7 @@ impl IControlChangeNotify {
 }
 unsafe impl ::windows::runtime::Interface for IControlChangeNotify {
     type Vtable = IControlChangeNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2694124525, 50953, 19745, [189, 123, 95, 52, 196, 127, 57, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa09513ed_c709_4d21_bd7b_5f34c47f3947);
 }
 impl ::core::convert::From<IControlChangeNotify> for ::windows::runtime::IUnknown {
     fn from(value: IControlChangeNotify) -> Self {
@@ -5084,7 +5084,7 @@ impl IControlInterface {
 }
 unsafe impl ::windows::runtime::Interface for IControlInterface {
     type Vtable = IControlInterface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1171487807, 20800, 17482, [174, 36, 64, 7, 137, 243, 203, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45d37c3f_5140_444a_ae24_400789f3cbf3);
 }
 impl ::core::convert::From<IControlInterface> for ::windows::runtime::IUnknown {
     fn from(value: IControlInterface) -> Self {
@@ -5141,7 +5141,7 @@ impl IDeviceSpecificProperty {
 }
 unsafe impl ::windows::runtime::Interface for IDeviceSpecificProperty {
     type Vtable = IDeviceSpecificProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(992132287, 9606, 19184, [133, 131, 32, 93, 57, 27, 128, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b22bcbf_2586_4af0_8583_205d391b807c);
 }
 impl ::core::convert::From<IDeviceSpecificProperty> for ::windows::runtime::IUnknown {
     fn from(value: IDeviceSpecificProperty) -> Self {
@@ -5219,7 +5219,7 @@ impl IDeviceTopology {
 }
 unsafe impl ::windows::runtime::Interface for IDeviceTopology {
     type Vtable = IDeviceTopology_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(705118334, 25751, 18968, [151, 135, 50, 247, 155, 208, 217, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a07407e_6497_4a18_9787_32f79bd0d98f);
 }
 impl ::core::convert::From<IDeviceTopology> for ::windows::runtime::IUnknown {
     fn from(value: IDeviceTopology) -> Self {
@@ -5287,7 +5287,7 @@ impl IMMDevice {
 }
 unsafe impl ::windows::runtime::Interface for IMMDevice {
     type Vtable = IMMDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3597010495, 5511, 20035, [129, 241, 185, 72, 232, 7, 54, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd666063f_1587_4e43_81f1_b948e807363f);
 }
 impl ::core::convert::From<IMMDevice> for ::windows::runtime::IUnknown {
     fn from(value: IMMDevice) -> Self {
@@ -5336,7 +5336,7 @@ impl IMMDeviceActivator {
 }
 unsafe impl ::windows::runtime::Interface for IMMDeviceActivator {
     type Vtable = IMMDeviceActivator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(990711460, 53417, 19214, [147, 91, 9, 81, 103, 70, 250, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b0d0ea4_d0a9_4b0e_935b_09516746fac0);
 }
 impl ::core::convert::From<IMMDeviceActivator> for ::windows::runtime::IUnknown {
     fn from(value: IMMDeviceActivator) -> Self {
@@ -5385,7 +5385,7 @@ impl IMMDeviceCollection {
 }
 unsafe impl ::windows::runtime::Interface for IMMDeviceCollection {
     type Vtable = IMMDeviceCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(198681022, 31258, 17627, [131, 151, 204, 83, 146, 56, 123, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bd7a1be_7a1a_44db_8397_cc5392387b5e);
 }
 impl ::core::convert::From<IMMDeviceCollection> for ::windows::runtime::IUnknown {
     fn from(value: IMMDeviceCollection) -> Self {
@@ -5448,7 +5448,7 @@ impl IMMDeviceEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IMMDeviceEnumerator {
     type Vtable = IMMDeviceEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2841011410, 38420, 20277, [167, 70, 222, 141, 182, 54, 23, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa95664d2_9614_4f35_a746_de8db63617e6);
 }
 impl ::core::convert::From<IMMDeviceEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IMMDeviceEnumerator) -> Self {
@@ -5496,7 +5496,7 @@ impl IMMEndpoint {
 }
 unsafe impl ::windows::runtime::Interface for IMMEndpoint {
     type Vtable = IMMEndpoint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(467703688, 26772, 16521, [133, 134, 154, 42, 108, 38, 90, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1be09788_6894_4089_8586_9a2a6c265ac5);
 }
 impl ::core::convert::From<IMMEndpoint> for ::windows::runtime::IUnknown {
     fn from(value: IMMEndpoint) -> Self {
@@ -5559,7 +5559,7 @@ impl IMMNotificationClient {
 }
 unsafe impl ::windows::runtime::Interface for IMMNotificationClient {
     type Vtable = IMMNotificationClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039606985, 32393, 19845, [131, 144, 108, 112, 60, 236, 96, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7991eec9_7e89_4d85_8390_6c703cec60c0);
 }
 impl ::core::convert::From<IMMNotificationClient> for ::windows::runtime::IUnknown {
     fn from(value: IMMNotificationClient) -> Self {
@@ -5619,7 +5619,7 @@ impl IMessageFilter {
 }
 unsafe impl ::windows::runtime::Interface for IMessageFilter {
     type Vtable = IMessageFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(22, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000016_0000_0000_c000_000000000046);
 }
 impl ::core::convert::From<IMessageFilter> for ::windows::runtime::IUnknown {
     fn from(value: IMessageFilter) -> Self {
@@ -5724,7 +5724,7 @@ impl IPart {
 }
 unsafe impl ::windows::runtime::Interface for IPart {
     type Vtable = IPart_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2922242276, 23498, 20269, [170, 70, 93, 19, 248, 253, 179, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae2de0e4_5bca_4f2d_aa46_5d13f8fdb3a9);
 }
 impl ::core::convert::From<IPart> for ::windows::runtime::IUnknown {
     fn from(value: IPart) -> Self {
@@ -5786,7 +5786,7 @@ impl IPartsList {
 }
 unsafe impl ::windows::runtime::Interface for IPartsList {
     type Vtable = IPartsList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1839891596, 24240, 17868, [174, 165, 153, 138, 44, 218, 31, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6daa848c_5eb0_45cc_aea5_998a2cda1ffb);
 }
 impl ::core::convert::From<IPartsList> for ::windows::runtime::IUnknown {
     fn from(value: IPartsList) -> Self {
@@ -5851,7 +5851,7 @@ impl IPerChannelDbLevel {
 }
 unsafe impl ::windows::runtime::Interface for IPerChannelDbLevel {
     type Vtable = IPerChannelDbLevel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3271090177, 61957, 19401, [153, 188, 193, 59, 30, 4, 140, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2f8e001_f205_4bc9_99bc_c13b1e048ccb);
 }
 impl ::core::convert::From<IPerChannelDbLevel> for ::windows::runtime::IUnknown {
     fn from(value: IPerChannelDbLevel) -> Self {
@@ -5914,7 +5914,7 @@ impl ISimpleAudioVolume {
 }
 unsafe impl ::windows::runtime::Interface for ISimpleAudioVolume {
     type Vtable = ISimpleAudioVolume_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2278446232, 26838, 17637, [146, 21, 109, 164, 126, 248, 131, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87ce5498_68d6_44e5_9215_6da47ef883d8);
 }
 impl ::core::convert::From<ISimpleAudioVolume> for ::windows::runtime::IUnknown {
     fn from(value: ISimpleAudioVolume) -> Self {
@@ -5996,7 +5996,7 @@ impl ISpatialAudioClient {
 }
 unsafe impl ::windows::runtime::Interface for ISpatialAudioClient {
     type Vtable = ISpatialAudioClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3153649766, 43690, 18878, [154, 77, 253, 42, 133, 142, 162, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbbf8e066_aaaa_49be_9a4d_fd2a858ea27f);
 }
 impl ::core::convert::From<ISpatialAudioClient> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioClient) -> Self {
@@ -6094,7 +6094,7 @@ impl ISpatialAudioClient2 {
 }
 unsafe impl ::windows::runtime::Interface for ISpatialAudioClient2 {
     type Vtable = ISpatialAudioClient2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3400262738, 42602, 19438, [169, 62, 227, 32, 70, 63, 106, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcaabe452_a66a_4bee_a93e_e320463f6a53);
 }
 impl ::core::convert::From<ISpatialAudioClient2> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioClient2) -> Self {
@@ -6189,7 +6189,7 @@ impl ISpatialAudioMetadataClient {
 }
 unsafe impl ::windows::runtime::Interface for ISpatialAudioMetadataClient {
     type Vtable = ISpatialAudioMetadataClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2004699707, 63231, 18982, [133, 220, 104, 215, 205, 237, 161, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x777d4a3b_f6ff_4a26_85dc_68d7cdeda1d4);
 }
 impl ::core::convert::From<ISpatialAudioMetadataClient> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioMetadataClient) -> Self {
@@ -6244,7 +6244,7 @@ impl ISpatialAudioMetadataCopier {
 }
 unsafe impl ::windows::runtime::Interface for ISpatialAudioMetadataCopier {
     type Vtable = ISpatialAudioMetadataCopier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3525620275, 57937, 20432, [156, 162, 213, 236, 249, 166, 132, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd224b233_e251_4fd0_9ca2_d5ecf9a68404);
 }
 impl ::core::convert::From<ISpatialAudioMetadataCopier> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioMetadataCopier) -> Self {
@@ -6309,7 +6309,7 @@ impl ISpatialAudioMetadataItems {
 }
 unsafe impl ::windows::runtime::Interface for ISpatialAudioMetadataItems {
     type Vtable = ISpatialAudioMetadataItems_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3168257935, 12440, 20258, [181, 71, 162, 242, 90, 56, 18, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbcd7c78f_3098_4f22_b547_a2f25a381269);
 }
 impl ::core::convert::From<ISpatialAudioMetadataItems> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioMetadataItems) -> Self {
@@ -6363,7 +6363,7 @@ impl ISpatialAudioMetadataItemsBuffer {
 }
 unsafe impl ::windows::runtime::Interface for ISpatialAudioMetadataItemsBuffer {
     type Vtable = ISpatialAudioMetadataItemsBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1113852438, 57789, 17113, [159, 246, 3, 26, 183, 26, 45, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42640a16_e1bd_42d9_9ff6_031ab71a2dba);
 }
 impl ::core::convert::From<ISpatialAudioMetadataItemsBuffer> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioMetadataItemsBuffer) -> Self {
@@ -6419,7 +6419,7 @@ impl ISpatialAudioMetadataReader {
 }
 unsafe impl ::windows::runtime::Interface for ISpatialAudioMetadataReader {
     type Vtable = ISpatialAudioMetadataReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3079571106, 12761, 19506, [148, 210, 125, 244, 15, 199, 235, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb78e86a2_31d9_4c32_94d2_7df40fc7ebec);
 }
 impl ::core::convert::From<ISpatialAudioMetadataReader> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioMetadataReader) -> Self {
@@ -6476,7 +6476,7 @@ impl ISpatialAudioMetadataWriter {
 }
 unsafe impl ::windows::runtime::Interface for ISpatialAudioMetadataWriter {
     type Vtable = ISpatialAudioMetadataWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(454543873, 10581, 17485, [164, 48, 83, 125, 197, 137, 168, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b17ca01_2955_444d_a430_537dc589a844);
 }
 impl ::core::convert::From<ISpatialAudioMetadataWriter> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioMetadataWriter) -> Self {
@@ -6544,7 +6544,7 @@ impl ISpatialAudioObject {
 }
 unsafe impl ::windows::runtime::Interface for ISpatialAudioObject {
     type Vtable = ISpatialAudioObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3722611047, 21019, 18149, [143, 0, 189, 111, 43, 200, 171, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdde28967_521b_46e5_8f00_bd6f2bc8ab1d);
 }
 impl ::core::convert::From<ISpatialAudioObject> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObject) -> Self {
@@ -6627,7 +6627,7 @@ impl ISpatialAudioObjectBase {
 }
 unsafe impl ::windows::runtime::Interface for ISpatialAudioObjectBase {
     type Vtable = ISpatialAudioObjectBase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3437279474, 36173, 20219, [168, 207, 61, 110, 207, 28, 48, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcce0b8f2_8d4d_4efb_a8cf_3d6ecf1c30e0);
 }
 impl ::core::convert::From<ISpatialAudioObjectBase> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObjectBase) -> Self {
@@ -6712,7 +6712,7 @@ impl ISpatialAudioObjectForHrtf {
 }
 unsafe impl ::windows::runtime::Interface for ISpatialAudioObjectForHrtf {
     type Vtable = ISpatialAudioObjectForHrtf_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3611519710, 6520, 19988, [171, 160, 85, 91, 216, 235, 131, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7436ade_1978_4e14_aba0_555bd8eb83b4);
 }
 impl ::core::convert::From<ISpatialAudioObjectForHrtf> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObjectForHrtf) -> Self {
@@ -6803,7 +6803,7 @@ impl ISpatialAudioObjectForMetadataCommands {
 }
 unsafe impl ::windows::runtime::Interface for ISpatialAudioObjectForMetadataCommands {
     type Vtable = ISpatialAudioObjectForMetadataCommands_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(234015051, 62969, 18221, [175, 107, 196, 110, 10, 201, 205, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0df2c94b_f5f9_472d_af6b_c46e0ac9cd05);
 }
 impl ::core::convert::From<ISpatialAudioObjectForMetadataCommands> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObjectForMetadataCommands) -> Self {
@@ -6890,7 +6890,7 @@ impl ISpatialAudioObjectForMetadataItems {
 }
 unsafe impl ::windows::runtime::Interface for ISpatialAudioObjectForMetadataItems {
     type Vtable = ISpatialAudioObjectForMetadataItems_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3723119103, 15296, 17271, [138, 173, 159, 188, 253, 128, 133, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddea49ff_3bc0_4377_8aad_9fbcfd808566);
 }
 impl ::core::convert::From<ISpatialAudioObjectForMetadataItems> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObjectForMetadataItems) -> Self {
@@ -6988,7 +6988,7 @@ impl ISpatialAudioObjectRenderStream {
 }
 unsafe impl ::windows::runtime::Interface for ISpatialAudioObjectRenderStream {
     type Vtable = ISpatialAudioObjectRenderStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3132486771, 46115, 18299, [133, 245, 181, 163, 50, 160, 65, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbab5f473_b423_477b_85f5_b5a332a04153);
 }
 impl ::core::convert::From<ISpatialAudioObjectRenderStream> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObjectRenderStream) -> Self {
@@ -7083,7 +7083,7 @@ impl ISpatialAudioObjectRenderStreamBase {
 }
 unsafe impl ::windows::runtime::Interface for ISpatialAudioObjectRenderStreamBase {
     type Vtable = ISpatialAudioObjectRenderStreamBase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4272616451, 49624, 17677, [170, 5, 224, 204, 238, 117, 2, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfeaaf403_c1d8_450d_aa05_e0ccee7502a8);
 }
 impl ::core::convert::From<ISpatialAudioObjectRenderStreamBase> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObjectRenderStreamBase) -> Self {
@@ -7162,7 +7162,7 @@ impl ISpatialAudioObjectRenderStreamForHrtf {
 }
 unsafe impl ::windows::runtime::Interface for ISpatialAudioObjectRenderStreamForHrtf {
     type Vtable = ISpatialAudioObjectRenderStreamForHrtf_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3767398137, 21347, 16494, [159, 220, 8, 14, 226, 71, 187, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe08deef9_5363_406e_9fdc_080ee247bbe0);
 }
 impl ::core::convert::From<ISpatialAudioObjectRenderStreamForHrtf> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObjectRenderStreamForHrtf) -> Self {
@@ -7267,7 +7267,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata {
 }
 unsafe impl ::windows::runtime::Interface for ISpatialAudioObjectRenderStreamForMetadata {
     type Vtable = ISpatialAudioObjectRenderStreamForMetadata_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3150563591, 18645, 18990, [160, 199, 247, 240, 214, 124, 31, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbbc9c907_48d5_4a2e_a0c7_f7f0d67c1fb1);
 }
 impl ::core::convert::From<ISpatialAudioObjectRenderStreamForMetadata> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObjectRenderStreamForMetadata) -> Self {
@@ -7337,7 +7337,7 @@ impl ISpatialAudioObjectRenderStreamNotify {
 }
 unsafe impl ::windows::runtime::Interface for ISpatialAudioObjectRenderStreamNotify {
     type Vtable = ISpatialAudioObjectRenderStreamNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3722413030, 26839, 19568, [136, 63, 161, 131, 106, 251, 74, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdddf83e6_68d7_4c70_883f_a1836afb4a50);
 }
 impl ::core::convert::From<ISpatialAudioObjectRenderStreamNotify> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObjectRenderStreamNotify) -> Self {
@@ -7374,7 +7374,7 @@ pub struct ISubunit(pub ::windows::runtime::IUnknown);
 impl ISubunit {}
 unsafe impl ::windows::runtime::Interface for ISubunit {
     type Vtable = ISubunit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2182388357, 56230, 17543, [134, 187, 234, 143, 127, 239, 204, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82149a85_dba6_4487_86bb_ea8f7fefcc71);
 }
 impl ::core::convert::From<ISubunit> for ::windows::runtime::IUnknown {
     fn from(value: ISubunit) -> Self {
@@ -8960,7 +8960,7 @@ pub const MIXER_SETCONTROLDETAILSF_QUERYMASK: i32 = 15i32;
 pub const MIXER_SETCONTROLDETAILSF_VALUE: i32 = 0i32;
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const MIXER_SHORT_NAME_CHARS: u32 = 16u32;
-pub const MMDeviceEnumerator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3168666517, 58671, 18044, [142, 61, 196, 87, 146, 145, 105, 46]);
+pub const MMDeviceEnumerator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbcde0395_e52f_467c_8e3d_c4579291692e);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const MM_ACM_FILTERCHOOSE: u32 = 32768u32;
 #[doc = "*Required features: `Win32_Media_Audio`*"]
@@ -9006,97 +9006,97 @@ unsafe impl ::windows::runtime::Abi for PCMWAVEFORMAT {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AudioEndpointLogo_IconEffects: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(4054546445, 8208, 20179, [163, 166, 139, 135, 240, 240, 196, 118]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xf1ab780d_2010_4ed3_a3a6_8b87f0f0c476),
     pid: 0u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AudioEndpointLogo_IconPath: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(4054546445, 8208, 20179, [163, 166, 139, 135, 240, 240, 196, 118]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xf1ab780d_2010_4ed3_a3a6_8b87f0f0c476),
     pid: 1u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AudioEndpointSettings_LaunchContract: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(337911810, 800, 19940, [149, 85, 167, 216, 43, 115, 194, 134]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x14242002_0320_4de4_9555_a7d82b73c286),
     pid: 1u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AudioEndpointSettings_MenuText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(337911810, 800, 19940, [149, 85, 167, 216, 43, 115, 194, 134]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x14242002_0320_4de4_9555_a7d82b73c286),
     pid: 0u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AudioEndpoint_Association: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(497408003, 54418, 20189, [140, 35, 224, 192, 255, 238, 127, 14]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AudioEndpoint_ControlPanelPageProvider: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(497408003, 54418, 20189, [140, 35, 224, 192, 255, 238, 127, 14]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e),
     pid: 1u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AudioEndpoint_Default_VolumeInDb: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(497408003, 54418, 20189, [140, 35, 224, 192, 255, 238, 127, 14]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AudioEndpoint_Disable_SysFx: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(497408003, 54418, 20189, [140, 35, 224, 192, 255, 238, 127, 14]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AudioEndpoint_FormFactor: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(497408003, 54418, 20189, [140, 35, 224, 192, 255, 238, 127, 14]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e),
     pid: 0u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AudioEndpoint_FullRangeSpeakers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(497408003, 54418, 20189, [140, 35, 224, 192, 255, 238, 127, 14]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AudioEndpoint_GUID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(497408003, 54418, 20189, [140, 35, 224, 192, 255, 238, 127, 14]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AudioEndpoint_JackSubType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(497408003, 54418, 20189, [140, 35, 224, 192, 255, 238, 127, 14]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AudioEndpoint_PhysicalSpeakers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(497408003, 54418, 20189, [140, 35, 224, 192, 255, 238, 127, 14]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AudioEndpoint_Supports_EventDriven_Mode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(497408003, 54418, 20189, [140, 35, 224, 192, 255, 238, 127, 14]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AudioEngine_DeviceFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(4053730893, 2092, 20007, [188, 115, 104, 130, 161, 187, 142, 76]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xf19f064d_082c_4e27_bc73_6882a1bb8e4c),
     pid: 0u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AudioEngine_OEMFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(3834056230, 15557, 19666, [186, 70, 202, 10, 154, 112, 237, 4]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xe4870e26_3cc5_4cd2_ba46_ca0a9a70ed04),
     pid: 3u32,
 };
 #[doc = "*Required features: `Win32_Media_Audio`*"]

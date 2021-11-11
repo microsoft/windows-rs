@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const CLSID_WMPMediaPluginRegistrar: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1433004021, 16971, 19347, [137, 202, 121, 209, 121, 36, 104, 154]);
-pub const CLSID_WMPSkinManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2997353810, 12319, 17224, [185, 58, 99, 140, 109, 228, 146, 41]);
-pub const CLSID_XFeedsManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4268429763, 50990, 16481, [134, 198, 157, 22, 49, 33, 242, 41]);
+pub const CLSID_WMPMediaPluginRegistrar: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5569e7f5_424b_4b93_89ca_79d17924689a);
+pub const CLSID_WMPSkinManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2a7fd52_301f_4348_b93a_638c6de49229);
+pub const CLSID_XFeedsManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe6b11c3_c72e_4061_86c6_9d163121f229);
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const DISPID_DELTA: u32 = 50u32;
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
@@ -1165,9 +1165,9 @@ impl ::core::convert::From<i32> for FEEDS_XML_SORT_PROPERTY {
 unsafe impl ::windows::runtime::Abi for FEEDS_XML_SORT_PROPERTY {
     type Abi = Self;
 }
-pub const FeedFolderWatcher: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(672137709, 30565, 19632, [132, 175, 233, 179, 135, 175, 1, 255]);
-pub const FeedWatcher: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(413561723, 62515, 18055, [137, 188, 161, 180, 223, 185, 241, 35]);
-pub const FeedsManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4209726660, 63087, 18438, [131, 160, 128, 82, 153, 245, 227, 173]);
+pub const FeedFolderWatcher: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x281001ed_7765_4cb0_84af_e9b387af01ff);
+pub const FeedWatcher: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18a6737b_f433_4687_89bc_a1b4dfb9f123);
+pub const FeedsManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfaeb54c4_f66f_4806_83a0_805299f5e3ad);
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -1404,7 +1404,7 @@ impl IFeed {
 }
 unsafe impl ::windows::runtime::Interface for IFeed {
     type Vtable = IFeed_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4160296408, 11998, 17084, [152, 231, 165, 208, 80, 99, 167, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7f915d8_2ede_42bc_98e7_a5d05063a757);
 }
 impl ::core::convert::From<IFeed> for ::windows::runtime::IUnknown {
     fn from(value: IFeed) -> Self {
@@ -1830,7 +1830,7 @@ impl IFeed2 {
 }
 unsafe impl ::windows::runtime::Interface for IFeed2 {
     type Vtable = IFeed2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(871557641, 5016, 19129, [182, 164, 249, 75, 73, 208, 164, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33f2ea09_1398_4ab9_b6a4_f94b49d0a42e);
 }
 impl ::core::convert::From<IFeed2> for ::windows::runtime::IUnknown {
     fn from(value: IFeed2) -> Self {
@@ -2062,7 +2062,7 @@ impl IFeedEnclosure {
 }
 unsafe impl ::windows::runtime::Interface for IFeedEnclosure {
     type Vtable = IFeedEnclosure_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(907814647, 37028, 20071, [174, 9, 58, 54, 165, 70, 67, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x361c26f7_90a4_4e67_ae09_3a36a546436a);
 }
 impl ::core::convert::From<IFeedEnclosure> for ::windows::runtime::IUnknown {
     fn from(value: IFeedEnclosure) -> Self {
@@ -2190,7 +2190,7 @@ impl IFeedEvents {
 }
 unsafe impl ::windows::runtime::Interface for IFeedEvents {
     type Vtable = IFeedEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2884852889, 1665, 18410, [154, 140, 20, 54, 163, 117, 169, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xabf35c99_0681_47ea_9a8c_1436a375a99e);
 }
 impl ::core::convert::From<IFeedEvents> for ::windows::runtime::IUnknown {
     fn from(value: IFeedEvents) -> Self {
@@ -2375,7 +2375,7 @@ impl IFeedFolder {
 }
 unsafe impl ::windows::runtime::Interface for IFeedFolder {
     type Vtable = IFeedFolder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2180008657, 16788, 19837, [134, 214, 17, 129, 60, 236, 22, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81f04ad1_4194_4d7d_86d6_11813cec163c);
 }
 impl ::core::convert::From<IFeedFolder> for ::windows::runtime::IUnknown {
     fn from(value: IFeedFolder) -> Self {
@@ -2555,7 +2555,7 @@ impl IFeedFolderEvents {
 }
 unsafe impl ::windows::runtime::Interface for IFeedFolderEvents {
     type Vtable = IFeedFolderEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(547725222, 43076, 17968, [158, 152, 23, 95, 112, 180, 213, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20a59fa6_a844_4630_9e98_175f70b4d55b);
 }
 impl ::core::convert::From<IFeedFolderEvents> for ::windows::runtime::IUnknown {
     fn from(value: IFeedFolderEvents) -> Self {
@@ -2748,7 +2748,7 @@ impl IFeedItem {
 }
 unsafe impl ::windows::runtime::Interface for IFeedItem {
     type Vtable = IFeedItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(169766061, 2631, 19874, [161, 61, 91, 170, 165, 200, 189, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a1e6cad_0a47_4da2_a13d_5baaa5c8bd4f);
 }
 impl ::core::convert::From<IFeedItem> for ::windows::runtime::IUnknown {
     fn from(value: IFeedItem) -> Self {
@@ -2974,7 +2974,7 @@ impl IFeedItem2 {
 }
 unsafe impl ::windows::runtime::Interface for IFeedItem2 {
     type Vtable = IFeedItem2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2041356020, 63937, 19755, [165, 11, 167, 255, 186, 77, 207, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79ac9ef4_f9c1_4d2b_a50b_a7ffba4dcf37);
 }
 impl ::core::convert::From<IFeedItem2> for ::windows::runtime::IUnknown {
     fn from(value: IFeedItem2) -> Self {
@@ -3108,7 +3108,7 @@ impl IFeedsEnum {
 }
 unsafe impl ::windows::runtime::Interface for IFeedsEnum {
     type Vtable = IFeedsEnum_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3821862952, 12013, 19552, [143, 174, 163, 34, 83, 9, 168, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3cd0028_2eed_4c60_8fae_a3225309a836);
 }
 impl ::core::convert::From<IFeedsEnum> for ::windows::runtime::IUnknown {
     fn from(value: IFeedsEnum) -> Self {
@@ -3267,7 +3267,7 @@ impl IFeedsManager {
 }
 unsafe impl ::windows::runtime::Interface for IFeedsManager {
     type Vtable = IFeedsManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2806000076, 7962, 18694, [136, 240, 129, 6, 56, 216, 101, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa74029cc_1f1a_4906_88f0_810638d86591);
 }
 impl ::core::convert::From<IFeedsManager> for ::windows::runtime::IUnknown {
     fn from(value: IFeedsManager) -> Self {
@@ -3376,7 +3376,7 @@ impl IWMPAudioRenderConfig {
 }
 unsafe impl ::windows::runtime::Interface for IWMPAudioRenderConfig {
     type Vtable = IWMPAudioRenderConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885785929, 22935, 19684, [145, 124, 34, 163, 57, 30, 197, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe79c6349_5997_4ce4_917c_22a3391ec564);
 }
 impl ::core::convert::From<IWMPAudioRenderConfig> for ::windows::runtime::IUnknown {
     fn from(value: IWMPAudioRenderConfig) -> Self {
@@ -3431,7 +3431,7 @@ impl IWMPCdrom {
 }
 unsafe impl ::windows::runtime::Interface for IWMPCdrom {
     type Vtable = IWMPCdrom_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3484118680, 34608, 4563, [179, 136, 0, 192, 79, 104, 87, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfab6e98_8730_11d3_b388_00c04f68574b);
 }
 impl ::core::convert::From<IWMPCdrom> for ::windows::runtime::IUnknown {
     fn from(value: IWMPCdrom) -> Self {
@@ -3565,7 +3565,7 @@ impl IWMPCdromBurn {
 }
 unsafe impl ::windows::runtime::Interface for IWMPCdromBurn {
     type Vtable = IWMPCdromBurn_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3180649451, 16767, 18728, [170, 6, 8, 125, 86, 237, 155, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd94dbeb_417f_4928_aa06_087d56ed9b59);
 }
 impl ::core::convert::From<IWMPCdromBurn> for ::windows::runtime::IUnknown {
     fn from(value: IWMPCdromBurn) -> Self {
@@ -3635,7 +3635,7 @@ impl IWMPCdromCollection {
 }
 unsafe impl ::windows::runtime::Interface for IWMPCdromCollection {
     type Vtable = IWMPCdromCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3997994978, 13490, 4563, [163, 191, 0, 96, 151, 201, 179, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee4c8fe2_34b2_11d3_a3bf_006097c9b344);
 }
 impl ::core::convert::From<IWMPCdromCollection> for ::windows::runtime::IUnknown {
     fn from(value: IWMPCdromCollection) -> Self {
@@ -3724,7 +3724,7 @@ impl IWMPCdromRip {
 }
 unsafe impl ::windows::runtime::Interface for IWMPCdromRip {
     type Vtable = IWMPCdromRip_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1457662287, 27117, 17961, [168, 105, 174, 167, 44, 13, 204, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56e2294f_69ed_4629_a869_aea72c0dcc2c);
 }
 impl ::core::convert::From<IWMPCdromRip> for ::windows::runtime::IUnknown {
     fn from(value: IWMPCdromRip) -> Self {
@@ -3805,7 +3805,7 @@ impl IWMPClosedCaption {
 }
 unsafe impl ::windows::runtime::Interface for IWMPClosedCaption {
     type Vtable = IWMPClosedCaption_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1328412020, 50568, 4563, [158, 208, 0, 192, 79, 182, 233, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f2df574_c588_11d3_9ed0_00c04fb6e937);
 }
 impl ::core::convert::From<IWMPClosedCaption> for ::windows::runtime::IUnknown {
     fn from(value: IWMPClosedCaption) -> Self {
@@ -3984,7 +3984,7 @@ impl IWMPClosedCaption2 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPClosedCaption2 {
     type Vtable = IWMPClosedCaption2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(889956235, 27592, 16659, [165, 245, 49, 32, 86, 147, 78, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x350ba78b_6bc8_4113_a5f5_312056934eb6);
 }
 impl ::core::convert::From<IWMPClosedCaption2> for ::windows::runtime::IUnknown {
     fn from(value: IWMPClosedCaption2) -> Self {
@@ -4129,7 +4129,7 @@ impl IWMPContentContainer {
 }
 unsafe impl ::windows::runtime::Interface for IWMPContentContainer {
     type Vtable = IWMPContentContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2910801308, 6815, 20178, [152, 21, 236, 192, 181, 140, 182, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad7f4d9c_1a9f_4ed2_9815_ecc0b58cb616);
 }
 impl ::core::convert::From<IWMPContentContainer> for ::windows::runtime::IUnknown {
     fn from(value: IWMPContentContainer) -> Self {
@@ -4190,7 +4190,7 @@ impl IWMPContentContainerList {
 }
 unsafe impl ::windows::runtime::Interface for IWMPContentContainerList {
     type Vtable = IWMPContentContainerList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2845015928, 2050, 19192, [139, 141, 227, 240, 69, 188, 138, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9937f78_0802_4af8_8b8d_e3f045bc8ab5);
 }
 impl ::core::convert::From<IWMPContentContainerList> for ::windows::runtime::IUnknown {
     fn from(value: IWMPContentContainerList) -> Self {
@@ -4367,7 +4367,7 @@ impl IWMPContentPartner {
 }
 unsafe impl ::windows::runtime::Interface for IWMPContentPartner {
     type Vtable = IWMPContentPartner_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1430605939, 16821, 20085, [135, 184, 241, 59, 219, 41, 29, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55455073_41b5_4e75_87b8_f13bdb291d08);
 }
 impl ::core::convert::From<IWMPContentPartner> for ::windows::runtime::IUnknown {
     fn from(value: IWMPContentPartner) -> Self {
@@ -4519,7 +4519,7 @@ impl IWMPContentPartnerCallback {
 }
 unsafe impl ::windows::runtime::Interface for IWMPContentPartnerCallback {
     type Vtable = IWMPContentPartnerCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2660203938, 1685, 16444, [182, 151, 218, 16, 250, 250, 166, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e8f7da2_0695_403c_b697_da10fafaa676);
 }
 impl ::core::convert::From<IWMPContentPartnerCallback> for ::windows::runtime::IUnknown {
     fn from(value: IWMPContentPartnerCallback) -> Self {
@@ -4643,7 +4643,7 @@ impl IWMPControls {
 }
 unsafe impl ::windows::runtime::Interface for IWMPControls {
     type Vtable = IWMPControls_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1958780418, 63528, 4562, [167, 75, 0, 160, 201, 5, 243, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74c09e02_f828_11d2_a74b_00a0c905f36e);
 }
 impl ::core::convert::From<IWMPControls> for ::windows::runtime::IUnknown {
     fn from(value: IWMPControls) -> Self {
@@ -4833,7 +4833,7 @@ impl IWMPControls2 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPControls2 {
     type Vtable = IWMPControls2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1862470949, 2192, 18447, [151, 117, 31, 126, 64, 171, 91, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f030d25_0890_480f_9775_1f7e40ab5b8e);
 }
 impl ::core::convert::From<IWMPControls2> for ::windows::runtime::IUnknown {
     fn from(value: IWMPControls2) -> Self {
@@ -5088,7 +5088,7 @@ impl IWMPControls3 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPControls3 {
     type Vtable = IWMPControls3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2714833166, 54597, 18282, [154, 120, 172, 62, 76, 177, 230, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1d1110e_d545_476a_9a78_ac3e4cb1e6bd);
 }
 impl ::core::convert::From<IWMPControls3> for ::windows::runtime::IUnknown {
     fn from(value: IWMPControls3) -> Self {
@@ -5240,7 +5240,7 @@ impl IWMPConvert {
 }
 unsafe impl ::windows::runtime::Interface for IWMPConvert {
     type Vtable = IWMPConvert_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3598915119, 22484, 16648, [131, 115, 74, 150, 118, 209, 194, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd683162f_57d4_4108_8373_4a9676d1c2e9);
 }
 impl ::core::convert::From<IWMPConvert> for ::windows::runtime::IUnknown {
     fn from(value: IWMPConvert) -> Self {
@@ -5380,7 +5380,7 @@ impl IWMPCore {
 }
 unsafe impl ::windows::runtime::Interface for IWMPCore {
     type Vtable = IWMPCore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3628911257, 52450, 4562, [158, 204, 0, 0, 248, 8, 89, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd84cca99_cce2_11d2_9ecc_0000f8085981);
 }
 impl ::core::convert::From<IWMPCore> for ::windows::runtime::IUnknown {
     fn from(value: IWMPCore) -> Self {
@@ -5611,7 +5611,7 @@ impl IWMPCore2 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPCore2 {
     type Vtable = IWMPCore2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3155682743, 30049, 19480, [187, 144, 23, 212, 133, 119, 86, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc17e5b7_7561_4c18_bb90_17d485775659);
 }
 impl ::core::convert::From<IWMPCore2> for ::windows::runtime::IUnknown {
     fn from(value: IWMPCore2) -> Self {
@@ -5875,7 +5875,7 @@ impl IWMPCore3 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPCore3 {
     type Vtable = IWMPCore3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1971832423, 25231, 18847, [136, 231, 106, 111, 78, 136, 132, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7587c667_628f_499f_88e7_6a6f4e888464);
 }
 impl ::core::convert::From<IWMPCore3> for ::windows::runtime::IUnknown {
     fn from(value: IWMPCore3) -> Self {
@@ -6041,7 +6041,7 @@ impl IWMPDVD {
 }
 unsafe impl ::windows::runtime::Interface for IWMPDVD {
     type Vtable = IWMPDVD_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2376472198, 18024, 19036, [174, 93, 128, 49, 147, 41, 61, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8da61686_4668_4a5c_ae5d_803193293dbe);
 }
 impl ::core::convert::From<IWMPDVD> for ::windows::runtime::IUnknown {
     fn from(value: IWMPDVD) -> Self {
@@ -6145,7 +6145,7 @@ impl IWMPDownloadCollection {
 }
 unsafe impl ::windows::runtime::Interface for IWMPDownloadCollection {
     type Vtable = IWMPDownloadCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(171023487, 34297, 17260, [184, 142, 130, 253, 136, 0, 14, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a319c7f_85f9_436c_b88e_82fd88000e1c);
 }
 impl ::core::convert::From<IWMPDownloadCollection> for ::windows::runtime::IUnknown {
     fn from(value: IWMPDownloadCollection) -> Self {
@@ -6255,7 +6255,7 @@ impl IWMPDownloadItem {
 }
 unsafe impl ::windows::runtime::Interface for IWMPDownloadItem {
     type Vtable = IWMPDownloadItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3376877198, 16235, 18089, [160, 169, 69, 40, 21, 195, 66, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9470e8e_3f6b_46a9_a0a9_452815c34297);
 }
 impl ::core::convert::From<IWMPDownloadItem> for ::windows::runtime::IUnknown {
     fn from(value: IWMPDownloadItem) -> Self {
@@ -6405,7 +6405,7 @@ impl IWMPDownloadItem2 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPDownloadItem2 {
     type Vtable = IWMPDownloadItem2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2679845686, 28067, 18333, [184, 255, 103, 212, 110, 32, 169, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fbb3336_6da3_479d_b8ff_67d46e20a987);
 }
 impl ::core::convert::From<IWMPDownloadItem2> for ::windows::runtime::IUnknown {
     fn from(value: IWMPDownloadItem2) -> Self {
@@ -6516,7 +6516,7 @@ impl IWMPDownloadManager {
 }
 unsafe impl ::windows::runtime::Interface for IWMPDownloadManager {
     type Vtable = IWMPDownloadManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3781073617, 36640, 19652, [158, 199, 26, 50, 140, 168, 106, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe15e9ad1_8f20_4cc4_9ec7_1a328ca86a0d);
 }
 impl ::core::convert::From<IWMPDownloadManager> for ::windows::runtime::IUnknown {
     fn from(value: IWMPDownloadManager) -> Self {
@@ -6637,7 +6637,7 @@ impl IWMPEffects {
 }
 unsafe impl ::windows::runtime::Interface for IWMPEffects {
     type Vtable = IWMPEffects_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3549973523, 50123, 18658, [139, 229, 81, 104, 52, 11, 79, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3984c13_c3cb_48e2_8be5_5168340b4f35);
 }
 impl ::core::convert::From<IWMPEffects> for ::windows::runtime::IUnknown {
     fn from(value: IWMPEffects) -> Self {
@@ -6768,7 +6768,7 @@ impl IWMPEffects2 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPEffects2 {
     type Vtable = IWMPEffects2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1767081708, 43580, 17944, [165, 225, 221, 154, 139, 152, 118, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x695386ec_aa3c_4618_a5e1_dd9a8b987632);
 }
 impl ::core::convert::From<IWMPEffects2> for ::windows::runtime::IUnknown {
     fn from(value: IWMPEffects2) -> Self {
@@ -6868,7 +6868,7 @@ impl IWMPError {
 }
 unsafe impl ::windows::runtime::Interface for IWMPError {
     type Vtable = IWMPError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2704134013, 5291, 19483, [168, 205, 99, 144, 159, 6, 2, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa12dcf7d_14ab_4c1b_a8cd_63909f06025b);
 }
 impl ::core::convert::From<IWMPError> for ::windows::runtime::IUnknown {
     fn from(value: IWMPError) -> Self {
@@ -6964,7 +6964,7 @@ impl IWMPErrorItem {
 }
 unsafe impl ::windows::runtime::Interface for IWMPErrorItem {
     type Vtable = IWMPErrorItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(907331142, 15163, 19943, [168, 30, 147, 14, 63, 33, 39, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3614c646_3b3b_4de7_a81e_930e3f2127b3);
 }
 impl ::core::convert::From<IWMPErrorItem> for ::windows::runtime::IUnknown {
     fn from(value: IWMPErrorItem) -> Self {
@@ -7100,7 +7100,7 @@ impl IWMPErrorItem2 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPErrorItem2 {
     type Vtable = IWMPErrorItem2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4150054592, 50812, 18268, [147, 30, 135, 25, 135, 11, 238, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf75ccec0_c67c_475c_931e_8719870bee7d);
 }
 impl ::core::convert::From<IWMPErrorItem2> for ::windows::runtime::IUnknown {
     fn from(value: IWMPErrorItem2) -> Self {
@@ -7395,7 +7395,7 @@ impl IWMPEvents {
 }
 unsafe impl ::windows::runtime::Interface for IWMPEvents {
     type Vtable = IWMPEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(430334587, 55966, 18369, [187, 35, 0, 181, 230, 104, 35, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19a6627b_da9e_47c1_bb23_00b5e668236a);
 }
 impl ::core::convert::From<IWMPEvents> for ::windows::runtime::IUnknown {
     fn from(value: IWMPEvents) -> Self {
@@ -7716,7 +7716,7 @@ impl IWMPEvents2 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPEvents2 {
     type Vtable = IWMPEvents2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(511050234, 18410, 16647, [158, 169, 144, 4, 237, 150, 132, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e7601fa_47ea_4107_9ea9_9004ed9684ff);
 }
 impl ::core::convert::From<IWMPEvents2> for ::windows::runtime::IUnknown {
     fn from(value: IWMPEvents2) -> Self {
@@ -8113,7 +8113,7 @@ impl IWMPEvents3 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPEvents3 {
     type Vtable = IWMPEvents3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(525353584, 42603, 16931, [142, 150, 38, 160, 108, 99, 214, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f504270_a66b_4223_8e96_26a06c63d69f);
 }
 impl ::core::convert::From<IWMPEvents3> for ::windows::runtime::IUnknown {
     fn from(value: IWMPEvents3) -> Self {
@@ -8550,7 +8550,7 @@ impl IWMPEvents4 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPEvents4 {
     type Vtable = IWMPEvents4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(651869434, 12395, 16461, [154, 111, 99, 10, 132, 5, 4, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26dabcfa_306b_404d_9a6f_630a8405048d);
 }
 impl ::core::convert::From<IWMPEvents4> for ::windows::runtime::IUnknown {
     fn from(value: IWMPEvents4) -> Self {
@@ -8780,7 +8780,7 @@ impl IWMPFolderMonitorServices {
 }
 unsafe impl ::windows::runtime::Interface for IWMPFolderMonitorServices {
     type Vtable = IWMPFolderMonitorServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2022475587, 58751, 17309, [164, 104, 91, 199, 127, 46, 89, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x788c8743_e57f_439d_a468_5bc77f2e59c6);
 }
 impl ::core::convert::From<IWMPFolderMonitorServices> for ::windows::runtime::IUnknown {
     fn from(value: IWMPFolderMonitorServices) -> Self {
@@ -8843,7 +8843,7 @@ impl IWMPGraphCreation {
 }
 unsafe impl ::windows::runtime::Interface for IWMPGraphCreation {
     type Vtable = IWMPGraphCreation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3216209893, 50580, 17257, [169, 112, 222, 137, 109, 94, 206, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfb377e5_c594_4369_a970_de896d5ece74);
 }
 impl ::core::convert::From<IWMPGraphCreation> for ::windows::runtime::IUnknown {
     fn from(value: IWMPGraphCreation) -> Self {
@@ -8901,7 +8901,7 @@ impl IWMPLibrary {
 }
 unsafe impl ::windows::runtime::Interface for IWMPLibrary {
     type Vtable = IWMPLibrary_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1039431777, 32241, 19487, [168, 27, 76, 38, 240, 247, 167, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3df47861_7df1_4c1f_a81b_4c26f0f7a7c6);
 }
 impl ::core::convert::From<IWMPLibrary> for ::windows::runtime::IUnknown {
     fn from(value: IWMPLibrary) -> Self {
@@ -8966,7 +8966,7 @@ impl IWMPLibrary2 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPLibrary2 {
     type Vtable = IWMPLibrary2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3713501774, 31153, 17004, [191, 143, 58, 221, 144, 114, 80, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd578a4e_79b1_426c_bf8f_3add9072500b);
 }
 impl ::core::convert::From<IWMPLibrary2> for ::windows::runtime::IUnknown {
     fn from(value: IWMPLibrary2) -> Self {
@@ -9039,7 +9039,7 @@ impl IWMPLibraryServices {
 }
 unsafe impl ::windows::runtime::Interface for IWMPLibraryServices {
     type Vtable = IWMPLibraryServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(969078997, 7410, 19806, [174, 9, 215, 52, 146, 207, 158, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39c2f8d5_1cf2_4d5e_ae09_d73492cf9eaa);
 }
 impl ::core::convert::From<IWMPLibraryServices> for ::windows::runtime::IUnknown {
     fn from(value: IWMPLibraryServices) -> Self {
@@ -9090,7 +9090,7 @@ impl IWMPLibrarySharingServices {
 }
 unsafe impl ::windows::runtime::Interface for IWMPLibrarySharingServices {
     type Vtable = IWMPLibrarySharingServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2194385003, 40708, 18251, [163, 101, 214, 221, 20, 102, 229, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82cba86b_9f04_474b_a365_d6dd1466e541);
 }
 impl ::core::convert::From<IWMPLibrarySharingServices> for ::windows::runtime::IUnknown {
     fn from(value: IWMPLibrarySharingServices) -> Self {
@@ -9212,7 +9212,7 @@ impl IWMPMedia {
 }
 unsafe impl ::windows::runtime::Interface for IWMPMedia {
     type Vtable = IWMPMedia_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2497011349, 16300, 4563, [177, 85, 0, 192, 79, 121, 250, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94d55e95_3fac_11d3_b155_00c04f79faa6);
 }
 impl ::core::convert::From<IWMPMedia> for ::windows::runtime::IUnknown {
     fn from(value: IWMPMedia) -> Self {
@@ -9428,7 +9428,7 @@ impl IWMPMedia2 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPMedia2 {
     type Vtable = IWMPMedia2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2877065403, 5182, 20132, [172, 195, 228, 53, 11, 33, 6, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab7c88bb_143e_4ea4_acc3_e4350b2106c3);
 }
 impl ::core::convert::From<IWMPMedia2> for ::windows::runtime::IUnknown {
     fn from(value: IWMPMedia2) -> Self {
@@ -9675,7 +9675,7 @@ impl IWMPMedia3 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPMedia3 {
     type Vtable = IWMPMedia3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4044943303, 61498, 20404, [153, 201, 28, 2, 165, 193, 6, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf118efc7_f03a_4fb4_99c9_1c02a5c1065b);
 }
 impl ::core::convert::From<IWMPMedia3> for ::windows::runtime::IUnknown {
     fn from(value: IWMPMedia3) -> Self {
@@ -9881,7 +9881,7 @@ impl IWMPMediaCollection {
 }
 unsafe impl ::windows::runtime::Interface for IWMPMediaCollection {
     type Vtable = IWMPMediaCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2204351522, 46260, 19225, [152, 157, 28, 215, 101, 116, 157, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8363bc22_b4b4_4b19_989d_1cd765749dd1);
 }
 impl ::core::convert::From<IWMPMediaCollection> for ::windows::runtime::IUnknown {
     fn from(value: IWMPMediaCollection) -> Self {
@@ -10089,7 +10089,7 @@ impl IWMPMediaCollection2 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPMediaCollection2 {
     type Vtable = IWMPMediaCollection2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2343131125, 64908, 18321, [184, 45, 248, 64, 64, 30, 228, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ba957f5_fd8c_4791_b82d_f840401ee474);
 }
 impl ::core::convert::From<IWMPMediaCollection2> for ::windows::runtime::IUnknown {
     fn from(value: IWMPMediaCollection2) -> Self {
@@ -10235,7 +10235,7 @@ impl IWMPMediaPluginRegistrar {
 }
 unsafe impl ::windows::runtime::Interface for IWMPMediaPluginRegistrar {
     type Vtable = IWMPMediaPluginRegistrar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1759670341, 1469, 16562, [151, 32, 35, 8, 140, 120, 227, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68e27045_05bd_40b2_9720_23088c78e390);
 }
 impl ::core::convert::From<IWMPMediaPluginRegistrar> for ::windows::runtime::IUnknown {
     fn from(value: IWMPMediaPluginRegistrar) -> Self {
@@ -10295,7 +10295,7 @@ impl IWMPMetadataPicture {
 }
 unsafe impl ::windows::runtime::Interface for IWMPMetadataPicture {
     type Vtable = IWMPMetadataPicture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1546238944, 63613, 19525, [170, 40, 167, 15, 2, 48, 255, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c29bbe0_f87d_4c45_aa28_a70f0230ffa9);
 }
 impl ::core::convert::From<IWMPMetadataPicture> for ::windows::runtime::IUnknown {
     fn from(value: IWMPMetadataPicture) -> Self {
@@ -10382,7 +10382,7 @@ impl IWMPMetadataText {
 }
 unsafe impl ::windows::runtime::Interface for IWMPMetadataText {
     type Vtable = IWMPMetadataText_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1989833435, 5074, 17890, [156, 72, 83, 202, 157, 91, 116, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x769a72db_13d2_45e2_9c48_53ca9d5b7450);
 }
 impl ::core::convert::From<IWMPMetadataText> for ::windows::runtime::IUnknown {
     fn from(value: IWMPMetadataText) -> Self {
@@ -10578,7 +10578,7 @@ impl IWMPNetwork {
 }
 unsafe impl ::windows::runtime::Interface for IWMPNetwork {
     type Vtable = IWMPNetwork_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3961632633, 60911, 17965, [187, 164, 173, 157, 222, 43, 41, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec21b779_edef_462d_bba4_ad9dde2b29a7);
 }
 impl ::core::convert::From<IWMPNetwork> for ::windows::runtime::IUnknown {
     fn from(value: IWMPNetwork) -> Self {
@@ -10721,7 +10721,7 @@ impl IWMPNodeRealEstate {
 }
 unsafe impl ::windows::runtime::Interface for IWMPNodeRealEstate {
     type Vtable = IWMPNodeRealEstate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1114968472, 23120, 17504, [188, 180, 112, 159, 139, 220, 142, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42751198_5a50_4460_bcb4_709f8bdc8e59);
 }
 impl ::core::convert::From<IWMPNodeRealEstate> for ::windows::runtime::IUnknown {
     fn from(value: IWMPNodeRealEstate) -> Self {
@@ -10782,7 +10782,7 @@ impl IWMPNodeRealEstateHost {
 }
 unsafe impl ::windows::runtime::Interface for IWMPNodeRealEstateHost {
     type Vtable = IWMPNodeRealEstateHost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(345049213, 11371, 17608, [176, 25, 179, 201, 41, 210, 173, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1491087d_2c6b_44c8_b019_b3c929d2ada9);
 }
 impl ::core::convert::From<IWMPNodeRealEstateHost> for ::windows::runtime::IUnknown {
     fn from(value: IWMPNodeRealEstateHost) -> Self {
@@ -10831,7 +10831,7 @@ impl IWMPNodeWindowed {
 }
 unsafe impl ::windows::runtime::Interface for IWMPNodeWindowed {
     type Vtable = IWMPNodeWindowed_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2524187642, 50538, 17873, [163, 164, 118, 41, 20, 212, 173, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96740bfa_c56a_45d1_a3a4_762914d4ade9);
 }
 impl ::core::convert::From<IWMPNodeWindowed> for ::windows::runtime::IUnknown {
     fn from(value: IWMPNodeWindowed) -> Self {
@@ -10875,7 +10875,7 @@ impl IWMPNodeWindowedHost {
 }
 unsafe impl ::windows::runtime::Interface for IWMPNodeWindowedHost {
     type Vtable = IWMPNodeWindowedHost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2734702938, 21674, 16513, [173, 191, 59, 19, 97, 13, 137, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa300415a_54aa_4081_adbf_3b13610d8958);
 }
 impl ::core::convert::From<IWMPNodeWindowedHost> for ::windows::runtime::IUnknown {
     fn from(value: IWMPNodeWindowedHost) -> Self {
@@ -10924,7 +10924,7 @@ impl IWMPNodeWindowless {
 }
 unsafe impl ::windows::runtime::Interface for IWMPNodeWindowless {
     type Vtable = IWMPNodeWindowless_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2610010541, 30732, 20186, [184, 22, 38, 30, 186, 93, 21, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b9199ad_780c_4eda_b816_261eba5d1575);
 }
 impl ::core::convert::From<IWMPNodeWindowless> for ::windows::runtime::IUnknown {
     fn from(value: IWMPNodeWindowless) -> Self {
@@ -10990,7 +10990,7 @@ impl IWMPNodeWindowlessHost {
 }
 unsafe impl ::windows::runtime::Interface for IWMPNodeWindowlessHost {
     type Vtable = IWMPNodeWindowlessHost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3195017158, 52788, 18689, [129, 6, 119, 3, 129, 170, 110, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe7017c6_ce34_4901_8106_770381aa6e3e);
 }
 impl ::core::convert::From<IWMPNodeWindowlessHost> for ::windows::runtime::IUnknown {
     fn from(value: IWMPNodeWindowlessHost) -> Self {
@@ -11194,7 +11194,7 @@ impl IWMPPlayer {
 }
 unsafe impl ::windows::runtime::Interface for IWMPPlayer {
     type Vtable = IWMPPlayer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1811229263, 14666, 4563, [177, 83, 0, 192, 79, 121, 250, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6bf52a4f_394a_11d3_b153_00c04f79faa6);
 }
 impl ::core::convert::From<IWMPPlayer> for ::windows::runtime::IUnknown {
     fn from(value: IWMPPlayer) -> Self {
@@ -11500,7 +11500,7 @@ impl IWMPPlayer2 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPPlayer2 {
     type Vtable = IWMPPlayer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(241893841, 54279, 19589, [191, 95, 28, 1, 246, 21, 2, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e6b01d1_d407_4c85_bf5f_1c01f6150280);
 }
 impl ::core::convert::From<IWMPPlayer2> for ::windows::runtime::IUnknown {
     fn from(value: IWMPPlayer2) -> Self {
@@ -11815,7 +11815,7 @@ impl IWMPPlayer3 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPPlayer3 {
     type Vtable = IWMPPlayer3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1409690472, 1322, 19493, [163, 159, 139, 99, 52, 101, 17, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54062b68_052a_4c25_a39f_8b63346511d4);
 }
 impl ::core::convert::From<IWMPPlayer3> for ::windows::runtime::IUnknown {
     fn from(value: IWMPPlayer3) -> Self {
@@ -12177,7 +12177,7 @@ impl IWMPPlayer4 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPPlayer4 {
     type Vtable = IWMPPlayer4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1816755554, 35097, 16700, [130, 219, 233, 53, 251, 62, 197, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c497d62_8919_413c_82db_e935fb3ec584);
 }
 impl ::core::convert::From<IWMPPlayer4> for ::windows::runtime::IUnknown {
     fn from(value: IWMPPlayer4) -> Self {
@@ -12371,7 +12371,7 @@ impl IWMPPlayerApplication {
 }
 unsafe impl ::windows::runtime::Interface for IWMPPlayerApplication {
     type Vtable = IWMPPlayerApplication_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1082750820, 52907, 18366, [173, 74, 142, 40, 83, 127, 155, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40897764_ceab_47be_ad4a_8e28537f9bbf);
 }
 impl ::core::convert::From<IWMPPlayerApplication> for ::windows::runtime::IUnknown {
     fn from(value: IWMPPlayerApplication) -> Self {
@@ -12459,7 +12459,7 @@ impl IWMPPlayerServices {
 }
 unsafe impl ::windows::runtime::Interface for IWMPPlayerServices {
     type Vtable = IWMPPlayerServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(486669275, 44514, 19597, [152, 66, 193, 144, 185, 92, 51, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d01fbdb_ade2_4c8d_9842_c190b95c3306);
 }
 impl ::core::convert::From<IWMPPlayerServices> for ::windows::runtime::IUnknown {
     fn from(value: IWMPPlayerServices) -> Self {
@@ -12522,7 +12522,7 @@ impl IWMPPlayerServices2 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPPlayerServices2 {
     type Vtable = IWMPPlayerServices2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(464607535, 61504, 16778, [159, 113, 23, 199, 81, 43, 77, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bb1592f_f040_418a_9f71_17c7512b4d70);
 }
 impl ::core::convert::From<IWMPPlayerServices2> for ::windows::runtime::IUnknown {
     fn from(value: IWMPPlayerServices2) -> Self {
@@ -12649,7 +12649,7 @@ impl IWMPPlaylist {
 }
 unsafe impl ::windows::runtime::Interface for IWMPPlaylist {
     type Vtable = IWMPPlaylist_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3589338353, 4876, 4563, [177, 78, 0, 192, 79, 121, 250, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5f0f4f1_130c_11d3_b14e_00c04f79faa6);
 }
 impl ::core::convert::From<IWMPPlaylist> for ::windows::runtime::IUnknown {
     fn from(value: IWMPPlaylist) -> Self {
@@ -12746,7 +12746,7 @@ impl IWMPPlaylistArray {
 }
 unsafe impl ::windows::runtime::Interface for IWMPPlaylistArray {
     type Vtable = IWMPPlaylistArray_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1737755072, 39415, 4563, [159, 183, 0, 16, 90, 166, 32, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x679409c0_99f7_11d3_9fb7_00105aa620bb);
 }
 impl ::core::convert::From<IWMPPlaylistArray> for ::windows::runtime::IUnknown {
     fn from(value: IWMPPlaylistArray) -> Self {
@@ -12851,7 +12851,7 @@ impl IWMPPlaylistCollection {
 }
 unsafe impl ::windows::runtime::Interface for IWMPPlaylistCollection {
     type Vtable = IWMPPlaylistCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(278999575, 9127, 17307, [177, 192, 216, 71, 199, 155, 119, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10a13217_23a7_439b_b1c0_d847c79b7774);
 }
 impl ::core::convert::From<IWMPPlaylistCollection> for ::windows::runtime::IUnknown {
     fn from(value: IWMPPlaylistCollection) -> Self {
@@ -12953,7 +12953,7 @@ impl IWMPPlugin {
 }
 unsafe impl ::windows::runtime::Interface for IWMPPlugin {
     type Vtable = IWMPPlugin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4047055472, 588, 17083, [169, 152, 115, 223, 223, 231, 213, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1392a70_024c_42bb_a998_73dfdfe7d5a7);
 }
 impl ::core::convert::From<IWMPPlugin> for ::windows::runtime::IUnknown {
     fn from(value: IWMPPlugin) -> Self {
@@ -13006,7 +13006,7 @@ impl IWMPPluginEnable {
 }
 unsafe impl ::windows::runtime::Interface for IWMPPluginEnable {
     type Vtable = IWMPPluginEnable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1607091276, 31441, 18333, [164, 239, 64, 86, 106, 83, 9, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5fca444c_7ad1_479d_a4ef_40566a5309d6);
 }
 impl ::core::convert::From<IWMPPluginEnable> for ::windows::runtime::IUnknown {
     fn from(value: IWMPPluginEnable) -> Self {
@@ -13080,7 +13080,7 @@ impl IWMPPluginUI {
 }
 unsafe impl ::windows::runtime::Interface for IWMPPluginUI {
     type Vtable = IWMPPluginUI_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1281265567, 44350, 19449, [151, 83, 252, 211, 13, 109, 56, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c5e8f9f_ad3e_4bf9_9753_fcd30d6d38dd);
 }
 impl ::core::convert::From<IWMPPluginUI> for ::windows::runtime::IUnknown {
     fn from(value: IWMPPluginUI) -> Self {
@@ -13138,7 +13138,7 @@ impl IWMPQuery {
 }
 unsafe impl ::windows::runtime::Interface for IWMPQuery {
     type Vtable = IWMPQuery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2684950771, 42672, 19451, [145, 137, 253, 131, 76, 123, 197, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa00918f3_a6b0_4bfb_9189_fd834c7bc5a5);
 }
 impl ::core::convert::From<IWMPQuery> for ::windows::runtime::IUnknown {
     fn from(value: IWMPQuery) -> Self {
@@ -13230,7 +13230,7 @@ impl IWMPRemoteMediaServices {
 }
 unsafe impl ::windows::runtime::Interface for IWMPRemoteMediaServices {
     type Vtable = IWMPRemoteMediaServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3417909063, 29727, 17662, [171, 91, 241, 164, 143, 59, 42, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcbb92747_741f_44fe_ab5b_f1a48f3b2a59);
 }
 impl ::core::convert::From<IWMPRemoteMediaServices> for ::windows::runtime::IUnknown {
     fn from(value: IWMPRemoteMediaServices) -> Self {
@@ -13285,7 +13285,7 @@ impl IWMPRenderConfig {
 }
 unsafe impl ::windows::runtime::Interface for IWMPRenderConfig {
     type Vtable = IWMPRenderConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2509571777, 788, 20165, [158, 97, 133, 40, 219, 94, 84, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x959506c1_0314_4ec5_9e61_8528db5e5478);
 }
 impl ::core::convert::From<IWMPRenderConfig> for ::windows::runtime::IUnknown {
     fn from(value: IWMPRenderConfig) -> Self {
@@ -13334,7 +13334,7 @@ impl IWMPServices {
 }
 unsafe impl ::windows::runtime::Interface for IWMPServices {
     type Vtable = IWMPServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2947987307, 7712, 16792, [131, 179, 25, 29, 182, 224, 177, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xafb6b76b_1e20_4198_83b3_191db6e0b149);
 }
 impl ::core::convert::From<IWMPServices> for ::windows::runtime::IUnknown {
     fn from(value: IWMPServices) -> Self {
@@ -13472,7 +13472,7 @@ impl IWMPSettings {
 }
 unsafe impl ::windows::runtime::Interface for IWMPSettings {
     type Vtable = IWMPSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2433012139, 32969, 20461, [171, 240, 46, 100, 23, 166, 223, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9104d1ab_80c9_4fed_abf0_2e6417a6df14);
 }
 impl ::core::convert::From<IWMPSettings> for ::windows::runtime::IUnknown {
     fn from(value: IWMPSettings) -> Self {
@@ -13716,7 +13716,7 @@ impl IWMPSettings2 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPSettings2 {
     type Vtable = IWMPSettings2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4255725476, 61134, 19877, [160, 182, 57, 191, 137, 173, 226, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfda937a4_eece_4da5_a0b6_39bf89ade2c2);
 }
 impl ::core::convert::From<IWMPSettings2> for ::windows::runtime::IUnknown {
     fn from(value: IWMPSettings2) -> Self {
@@ -13845,7 +13845,7 @@ impl IWMPSkinManager {
 }
 unsafe impl ::windows::runtime::Interface for IWMPSkinManager {
     type Vtable = IWMPSkinManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(124727206, 60720, 17547, [140, 197, 63, 62, 243, 82, 156, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x076f2fa6_ed30_448b_8cc5_3f3ef3529c7a);
 }
 impl ::core::convert::From<IWMPSkinManager> for ::windows::runtime::IUnknown {
     fn from(value: IWMPSkinManager) -> Self {
@@ -13893,7 +13893,7 @@ impl IWMPStringCollection {
 }
 unsafe impl ::windows::runtime::Interface for IWMPStringCollection {
     type Vtable = IWMPStringCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1251435160, 35853, 4563, [179, 137, 0, 192, 79, 104, 87, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a976298_8c0d_11d3_b389_00c04f68574b);
 }
 impl ::core::convert::From<IWMPStringCollection> for ::windows::runtime::IUnknown {
     fn from(value: IWMPStringCollection) -> Self {
@@ -14025,7 +14025,7 @@ impl IWMPStringCollection2 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPStringCollection2 {
     type Vtable = IWMPStringCollection2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1185768589, 21489, 19060, [146, 226, 42, 27, 104, 214, 63, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46ad648d_53f1_4a74_92e2_2a1b68d63fd4);
 }
 impl ::core::convert::From<IWMPStringCollection2> for ::windows::runtime::IUnknown {
     fn from(value: IWMPStringCollection2) -> Self {
@@ -14144,7 +14144,7 @@ impl IWMPSubscriptionService {
 }
 unsafe impl ::windows::runtime::Interface for IWMPSubscriptionService {
     type Vtable = IWMPSubscriptionService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(929060344, 10841, 19059, [149, 1, 220, 165, 39, 58, 122, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x376055f8_2a59_4a73_9501_dca5273a7a10);
 }
 impl ::core::convert::From<IWMPSubscriptionService> for ::windows::runtime::IUnknown {
     fn from(value: IWMPSubscriptionService) -> Self {
@@ -14227,7 +14227,7 @@ impl IWMPSubscriptionService2 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPSubscriptionService2 {
     type Vtable = IWMPSubscriptionService2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2840334862, 54784, 20166, [176, 94, 236, 157, 86, 216, 77, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa94c120e_d600_4ec6_b05e_ec9d56d84de0);
 }
 impl ::core::convert::From<IWMPSubscriptionService2> for ::windows::runtime::IUnknown {
     fn from(value: IWMPSubscriptionService2) -> Self {
@@ -14302,7 +14302,7 @@ impl IWMPSubscriptionServiceCallback {
 }
 unsafe impl ::windows::runtime::Interface for IWMPSubscriptionServiceCallback {
     type Vtable = IWMPSubscriptionServiceCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3707883815, 11714, 19514, [135, 110, 99, 49, 32, 121, 249, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd01d127_2dc2_4c3a_876e_63312079f9b0);
 }
 impl ::core::convert::From<IWMPSubscriptionServiceCallback> for ::windows::runtime::IUnknown {
     fn from(value: IWMPSubscriptionServiceCallback) -> Self {
@@ -14409,7 +14409,7 @@ impl IWMPSyncDevice {
 }
 unsafe impl ::windows::runtime::Interface for IWMPSyncDevice {
     type Vtable = IWMPSyncDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2191693932, 659, 20432, [178, 121, 178, 27, 134, 192, 88, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82a2986c_0293_4fd0_b279_b21b86c058be);
 }
 impl ::core::convert::From<IWMPSyncDevice> for ::windows::runtime::IUnknown {
     fn from(value: IWMPSyncDevice) -> Self {
@@ -14541,7 +14541,7 @@ impl IWMPSyncDevice2 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPSyncDevice2 {
     type Vtable = IWMPSyncDevice2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2293216434, 5130, 17618, [145, 230, 69, 67, 218, 70, 124, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88afb4b2_140a_44d2_91e6_4543da467cd1);
 }
 impl ::core::convert::From<IWMPSyncDevice2> for ::windows::runtime::IUnknown {
     fn from(value: IWMPSyncDevice2) -> Self {
@@ -14703,7 +14703,7 @@ impl IWMPSyncDevice3 {
 }
 unsafe impl ::windows::runtime::Interface for IWMPSyncDevice3 {
     type Vtable = IWMPSyncDevice3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2989262329, 9788, 17266, [160, 218, 181, 24, 219, 155, 64, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb22c85f9_263c_4372_a0da_b518db9b4098);
 }
 impl ::core::convert::From<IWMPSyncDevice3> for ::windows::runtime::IUnknown {
     fn from(value: IWMPSyncDevice3) -> Self {
@@ -14814,7 +14814,7 @@ impl IWMPSyncServices {
 }
 unsafe impl ::windows::runtime::Interface for IWMPSyncServices {
     type Vtable = IWMPSyncServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2337296639, 57508, 18440, [179, 168, 137, 58, 158, 30, 216, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b5050ff_e0a4_4808_b3a8_893a9e1ed894);
 }
 impl ::core::convert::From<IWMPSyncServices> for ::windows::runtime::IUnknown {
     fn from(value: IWMPSyncServices) -> Self {
@@ -14857,7 +14857,7 @@ impl IWMPTranscodePolicy {
 }
 unsafe impl ::windows::runtime::Interface for IWMPTranscodePolicy {
     type Vtable = IWMPTranscodePolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3058481859, 16412, 17191, [163, 232, 185, 254, 179, 168, 194, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb64cbac3_401c_4327_a3e8_b9feb3a8c25c);
 }
 impl ::core::convert::From<IWMPTranscodePolicy> for ::windows::runtime::IUnknown {
     fn from(value: IWMPTranscodePolicy) -> Self {
@@ -14899,7 +14899,7 @@ impl IWMPUserEventSink {
 }
 unsafe impl ::windows::runtime::Interface for IWMPUserEventSink {
     type Vtable = IWMPUserEventSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3486317170, 49987, 18627, [162, 222, 183, 164, 64, 46, 57, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfccfa72_c343_48c3_a2de_b7a4402e39f2);
 }
 impl ::core::convert::From<IWMPUserEventSink> for ::windows::runtime::IUnknown {
     fn from(value: IWMPUserEventSink) -> Self {
@@ -14942,7 +14942,7 @@ impl IWMPVideoRenderConfig {
 }
 unsafe impl ::windows::runtime::Interface for IWMPVideoRenderConfig {
     type Vtable = IWMPVideoRenderConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1835857923, 7872, 19597, [179, 202, 241, 142, 39, 40, 32, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d6cf803_1ec0_4c8d_b3ca_f18e27282074);
 }
 impl ::core::convert::From<IWMPVideoRenderConfig> for ::windows::runtime::IUnknown {
     fn from(value: IWMPVideoRenderConfig) -> Self {
@@ -14986,7 +14986,7 @@ impl IWMPWindowMessageSink {
 }
 unsafe impl ::windows::runtime::Interface for IWMPWindowMessageSink {
     type Vtable = IWMPWindowMessageSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(973974064, 37005, 18313, [186, 135, 174, 216, 121, 181, 196, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a0daa30_908d_4789_ba87_aed879b5c49b);
 }
 impl ::core::convert::From<IWMPWindowMessageSink> for ::windows::runtime::IUnknown {
     fn from(value: IWMPWindowMessageSink) -> Self {
@@ -15255,7 +15255,7 @@ impl IXFeed {
 }
 unsafe impl ::windows::runtime::Interface for IXFeed {
     type Vtable = IXFeed_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2755754404, 57590, 16443, [175, 141, 208, 128, 244, 37, 164, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa44179a4_e0f6_403b_af8d_d080f425a451);
 }
 impl ::core::convert::From<IXFeed> for ::windows::runtime::IUnknown {
     fn from(value: IXFeed) -> Self {
@@ -15621,7 +15621,7 @@ impl IXFeed2 {
 }
 unsafe impl ::windows::runtime::Interface for IXFeed2 {
     type Vtable = IXFeed2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3461516919, 14102, 20151, [149, 109, 245, 227, 117, 2, 225, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce528e77_3716_4eb7_956d_f5e37502e12a);
 }
 impl ::core::convert::From<IXFeed2> for ::windows::runtime::IUnknown {
     fn from(value: IXFeed2) -> Self {
@@ -15822,7 +15822,7 @@ impl IXFeedEnclosure {
 }
 unsafe impl ::windows::runtime::Interface for IXFeedEnclosure {
     type Vtable = IXFeedEnclosure_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3217013075, 25679, 18322, [182, 156, 223, 172, 164, 203, 248, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfbfb953_644f_4792_b69c_dfaca4cbf89a);
 }
 impl ::core::convert::From<IXFeedEnclosure> for ::windows::runtime::IUnknown {
     fn from(value: IXFeedEnclosure) -> Self {
@@ -15917,7 +15917,7 @@ impl IXFeedEvents {
 }
 unsafe impl ::windows::runtime::Interface for IXFeedEvents {
     type Vtable = IXFeedEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(372278574, 4707, 18011, [152, 229, 254, 96, 255, 236, 74, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1630852e_1263_465b_98e5_fe60ffec4ac2);
 }
 impl ::core::convert::From<IXFeedEvents> for ::windows::runtime::IUnknown {
     fn from(value: IXFeedEvents) -> Self {
@@ -16065,7 +16065,7 @@ impl IXFeedFolder {
 }
 unsafe impl ::windows::runtime::Interface for IXFeedFolder {
     type Vtable = IXFeedFolder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1284912760, 14929, 19336, [133, 49, 152, 185, 11, 101, 8, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c963678_3a51_4b88_8531_98b90b6508f2);
 }
 impl ::core::convert::From<IXFeedFolder> for ::windows::runtime::IUnknown {
     fn from(value: IXFeedFolder) -> Self {
@@ -16210,7 +16210,7 @@ impl IXFeedFolderEvents {
 }
 unsafe impl ::windows::runtime::Interface for IXFeedFolderEvents {
     type Vtable = IXFeedFolderEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2036643689, 9034, 19377, [165, 244, 144, 69, 76, 138, 208, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7964b769_234a_4bb1_a5f4_90454c8ad07e);
 }
 impl ::core::convert::From<IXFeedFolderEvents> for ::windows::runtime::IUnknown {
     fn from(value: IXFeedFolderEvents) -> Self {
@@ -16374,7 +16374,7 @@ impl IXFeedItem {
 }
 unsafe impl ::windows::runtime::Interface for IXFeedItem {
     type Vtable = IXFeedItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881284341, 59198, 17230, [161, 191, 43, 215, 195, 230, 15, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe757b2f5_e73e_434e_a1bf_2bd7c3e60fcb);
 }
 impl ::core::convert::From<IXFeedItem> for ::windows::runtime::IUnknown {
     fn from(value: IXFeedItem) -> Self {
@@ -16542,7 +16542,7 @@ impl IXFeedItem2 {
 }
 unsafe impl ::windows::runtime::Interface for IXFeedItem2 {
     type Vtable = IXFeedItem2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1826237895, 36883, 17698, [153, 112, 42, 157, 217, 234, 213, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6cda2dc7_9013_4522_9970_2a9dd9ead5a3);
 }
 impl ::core::convert::From<IXFeedItem2> for ::windows::runtime::IUnknown {
     fn from(value: IXFeedItem2) -> Self {
@@ -16640,7 +16640,7 @@ impl IXFeedsEnum {
 }
 unsafe impl ::windows::runtime::Interface for IXFeedsEnum {
     type Vtable = IXFeedsEnum_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3695421909, 20501, 17153, [140, 150, 164, 116, 52, 180, 214, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc43a9d5_5015_4301_8c96_a47434b4d658);
 }
 impl ::core::convert::From<IXFeedsEnum> for ::windows::runtime::IUnknown {
     fn from(value: IXFeedsEnum) -> Self {
@@ -16763,7 +16763,7 @@ impl IXFeedsManager {
 }
 unsafe impl ::windows::runtime::Interface for IXFeedsManager {
     type Vtable = IXFeedsManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1398268472, 64274, 19146, [169, 48, 202, 183, 131, 43, 132, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5357e238_fb12_4aca_a930_cab7832b84bf);
 }
 impl ::core::convert::From<IXFeedsManager> for ::windows::runtime::IUnknown {
     fn from(value: IXFeedsManager) -> Self {
@@ -17074,7 +17074,7 @@ pub const WMPGC_FLAGS_IGNORE_AV_SYNC: u32 = 4u32;
 pub const WMPGC_FLAGS_SUPPRESS_DIALOGS: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const WMPGC_FLAGS_USE_CUSTOM_GRAPH: u32 = 16u32;
-pub const WMPLib: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1811229264, 14666, 4563, [177, 83, 0, 192, 79, 121, 250, 166]);
+pub const WMPLib: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6bf52a50_394a_11d3_b153_00c04f79faa6);
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -17207,7 +17207,7 @@ impl ::core::convert::From<i32> for WMPPlugin_Caps {
 unsafe impl ::windows::runtime::Abi for WMPPlugin_Caps {
     type Abi = Self;
 }
-pub const WMPRemoteMediaServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3744674931, 11511, 19426, [144, 127, 154, 173, 86, 97, 54, 79]);
+pub const WMPRemoteMediaServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf333473_2cf7_4be2_907f_9aad5661364f);
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -17375,9 +17375,9 @@ pub const WMPUE_EC_USER: u32 = 33024u32;
 pub const WMP_MDRT_FLAGS_UNREPORTED_ADDED_ITEMS: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const WMP_MDRT_FLAGS_UNREPORTED_DELETED_ITEMS: u32 = 1u32;
-pub const WMP_PLUGINTYPE_DSP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1681177322, 18772, 18829, [171, 213, 43, 7, 18, 62, 31, 4]);
-pub const WMP_PLUGINTYPE_DSP_OUTOFPROC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4012487028, 49991, 17612, [154, 79, 35, 153, 17, 143, 243, 140]);
-pub const WMP_PLUGINTYPE_RENDERING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2824160577, 4445, 16490, [164, 199, 81, 17, 28, 51, 1, 131]);
+pub const WMP_PLUGINTYPE_DSP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6434baea_4954_498d_abd5_2b07123e1f04);
+pub const WMP_PLUGINTYPE_DSP_OUTOFPROC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef29b174_c347_44cc_9a4f_2399118ff38c);
+pub const WMP_PLUGINTYPE_RENDERING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8554541_115d_406a_a4c7_51111c330183);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
@@ -17426,81 +17426,81 @@ impl ::core::cmp::Eq for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {}
 unsafe impl ::windows::runtime::Abi for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
     type Abi = Self;
 }
-pub const WMProfile_V40_100Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409225688, 26244, 17771, [160, 163, 51, 225, 49, 104, 149, 240]);
-pub const WMProfile_V40_128Audio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2480782866, 5084, 20018, [163, 94, 64, 55, 142, 52, 39, 154]);
-pub const WMProfile_V40_16AMRadio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(256632863, 54653, 16865, [178, 227, 47, 173, 152, 107, 254, 194]);
-pub const WMProfile_V40_1MBVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3024628300, 52247, 19207, [169, 78, 152, 24, 213, 224, 241, 63]);
-pub const WMProfile_V40_250Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1410875843, 37689, 20347, [154, 34, 177, 21, 64, 137, 78, 66]);
-pub const WMProfile_V40_2856100MBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1511793158, 56414, 16774, [190, 178, 76, 90, 153, 75, 19, 46]);
-pub const WMProfile_V40_288FMRadioMono: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2141552584, 28324, 17989, [138, 191, 182, 229, 168, 248, 20, 161]);
-pub const WMProfile_V40_288FMRadioStereo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(587002982, 43584, 17183, [162, 137, 6, 208, 234, 26, 30, 64]);
-pub const WMProfile_V40_288VideoAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2892070701, 27838, 20100, [142, 154, 206, 21, 26, 18, 163, 84]);
-pub const WMProfile_V40_288VideoVoice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3140207220, 3766, 19881, [181, 80, 236, 247, 242, 185, 148, 143]);
-pub const WMProfile_V40_288VideoWebServer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2884825101, 54613, 18453, [148, 206, 130, 117, 243, 167, 11, 254]);
-pub const WMProfile_V40_3MBVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1429686976, 12443, 17302, [184, 143, 230, 226, 146, 17, 63, 40]);
-pub const WMProfile_V40_512Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1883508333, 50415, 20356, [140, 208, 213, 194, 134, 134, 231, 132]);
-pub const WMProfile_V40_56DialUpStereo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3892473735, 59653, 17812, [163, 199, 0, 208, 0, 65, 209, 217]);
-pub const WMProfile_V40_56DialUpVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3793163195, 25903, 19883, [153, 222, 113, 224, 68, 0, 39, 15]);
-pub const WMProfile_V40_56DialUpVideoWebServer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3075931920, 21007, 18249, [163, 153, 183, 128, 226, 252, 146, 80]);
-pub const WMProfile_V40_64Audio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1210102775, 52204, 16860, [147, 145, 120, 89, 135, 20, 200, 229]);
-pub const WMProfile_V40_6VoiceAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3574110090, 4512, 19733, [176, 218, 172, 220, 153, 212, 248, 144]);
-pub const WMProfile_V40_96Audio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(251268835, 40548, 16866, [131, 127, 60, 0, 56, 243, 39, 186]);
-pub const WMProfile_V40_DialUpMBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4252977137, 29350, 17828, [128, 240, 58, 236, 239, 195, 44, 7]);
-pub const WMProfile_V40_IntranetMBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2194486049, 43338, 20476, [156, 43, 9, 44, 16, 202, 22, 231]);
-pub const WMProfile_V70_100Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3656632626, 24233, 19565, [137, 180, 38, 134, 229, 21, 66, 110]);
-pub const WMProfile_V70_128Audio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3326932442, 57157, 16595, [128, 39, 222, 105, 141, 104, 220, 102]);
-pub const WMProfile_V70_1500FilmContentVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4138071775, 60991, 17228, [164, 51, 82, 60, 229, 95, 81, 107]);
-pub const WMProfile_V70_1500Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(193533514, 21648, 18054, [158, 55, 90, 128, 136, 78, 81, 70]);
-pub const WMProfile_V70_150VideoPDA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(256321895, 58310, 18327, [150, 148, 240, 48, 76, 94, 47, 23]);
-pub const WMProfile_V70_2000Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2862088484, 48912, 20047, [154, 253, 67, 41, 167, 57, 92, 255]);
-pub const WMProfile_V70_225VideoPDA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4116620659, 19458, 17077, [144, 38, 168, 38, 12, 67, 138, 159]);
-pub const WMProfile_V70_256Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2951125818, 16447, 18971, [128, 7, 14, 33, 207, 179, 223, 132]);
-pub const WMProfile_V70_2856100MBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(132086309, 16354, 19035, [139, 30, 52, 139, 7, 33, 202, 112]);
-pub const WMProfile_V70_288FMRadioMono: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3222448179, 41019, 17573, [150, 220, 237, 149, 204, 101, 88, 45]);
-pub const WMProfile_V70_288FMRadioStereo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3916261321, 6713, 19908, [185, 0, 177, 24, 77, 200, 54, 32]);
-pub const WMProfile_V70_288VideoAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1488691438, 35178, 18760, [153, 83, 133, 183, 54, 248, 57, 71]);
-pub const WMProfile_V70_288VideoVoice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3109221262, 32188, 17715, [169, 202, 176, 11, 28, 110, 152, 0]);
-pub const WMProfile_V70_288VideoWebServer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1889742379, 58079, 20157, [145, 5, 217, 202, 25, 74, 45, 80]);
-pub const WMProfile_V70_384Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4090781627, 34690, 17631, [151, 198, 134, 120, 226, 249, 177, 61]);
-pub const WMProfile_V70_56DialUpStereo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1733224295, 2377, 20396, [135, 94, 244, 201, 194, 146, 1, 59]);
-pub const WMProfile_V70_56VideoWebServer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3740900928, 22460, 19123, [178, 209, 182, 227, 202, 246, 66, 87]);
-pub const WMProfile_V70_64Audio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2996633542, 61745, 16859, [181, 232, 153, 216, 176, 185, 69, 244]);
-pub const WMProfile_V70_64AudioISDN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2447287384, 40288, 16914, [156, 89, 212, 9, 25, 201, 57, 228]);
-pub const WMProfile_V70_64VideoISDN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3266815977, 31630, 18834, [161, 161, 6, 130, 23, 163, 179, 17]);
-pub const WMProfile_V70_6VoiceAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3938099135, 46671, 18867, [170, 12, 115, 251, 221, 21, 10, 208]);
-pub const WMProfile_V70_700FilmContentVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2054453536, 9289, 19830, [153, 203, 253, 176, 201, 4, 132, 212]);
-pub const WMProfile_V70_768Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(52882358, 63342, 18788, [176, 219, 231, 41, 151, 141, 53, 238]);
-pub const WMProfile_V70_96Audio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2849290265, 5836, 19033, [159, 55, 105, 61, 187, 3, 2, 214]);
-pub const WMProfile_V70_DialUpMBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1528227659, 16488, 17845, [184, 14, 123, 248, 200, 13, 44, 47]);
-pub const WMProfile_V70_IntranetMBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(72909020, 13494, 19625, [163, 38, 115, 85, 126, 209, 67, 243]);
-pub const WMProfile_V80_100768VideoMBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1541102094, 38814, 18387, [149, 150, 115, 179, 134, 57, 42, 85]);
-pub const WMProfile_V80_100Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2732785844, 49876, 20416, [181, 221, 236, 189, 148, 141, 192, 223]);
-pub const WMProfile_V80_128StereoAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1081840720, 35804, 20197, [136, 184, 111, 82, 123, 217, 65, 242]);
-pub const WMProfile_V80_1400NTSCVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468158446, 24954, 19405, [153, 5, 204, 208, 120, 102, 131, 238]);
-pub const WMProfile_V80_150VideoPDA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2934009338, 11284, 18991, [173, 63, 163, 3, 64, 49, 120, 79]);
-pub const WMProfile_V80_255VideoPDA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4276993247, 16300, 19603, [172, 13, 71, 148, 30, 199, 44, 11]);
-pub const WMProfile_V80_256Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3150402816, 13266, 17510, [184, 107, 18, 43, 32, 28, 201, 174]);
-pub const WMProfile_V80_288100VideoMBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3631361129, 9241, 19254, [180, 224, 110, 23, 182, 5, 100, 229]);
-pub const WMProfile_V80_28856VideoMBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3597213892, 49695, 20168, [160, 180, 149, 207, 43, 213, 127, 196]);
-pub const WMProfile_V80_288MonoAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2124616301, 57786, 18198, [137, 175, 246, 92, 238, 12, 12, 103]);
-pub const WMProfile_V80_288StereoAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2118953820, 13788, 17851, [167, 192, 25, 178, 128, 112, 208, 204]);
-pub const WMProfile_V80_288Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1039562969, 4946, 16774, [187, 248, 116, 240, 193, 155, 106, 226]);
-pub const WMProfile_V80_288VideoOnly: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2353378503, 19179, 20344, [165, 236, 136, 66, 11, 157, 173, 239]);
-pub const WMProfile_V80_32StereoAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1620082591, 45906, 18405, [178, 16, 14, 241, 244, 126, 159, 157]);
-pub const WMProfile_V80_384PALVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2452080274, 44642, 20338, [167, 234, 115, 96, 98, 208, 226, 30]);
-pub const WMProfile_V80_384Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(699403307, 2473, 18621, [173, 9, 205, 174, 17, 125, 29, 167]);
-pub const WMProfile_V80_48StereoAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1591765989, 18731, 18442, [138, 143, 18, 243, 115, 236, 249, 212]);
-pub const WMProfile_V80_56Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(625904278, 9746, 16476, [128, 57, 240, 191, 114, 92, 237, 125]);
-pub const WMProfile_V80_56VideoOnly: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1848273237, 33247, 18755, [186, 80, 104, 169, 134, 167, 8, 246]);
-pub const WMProfile_V80_64StereoAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(163273668, 12662, 17791, [141, 214, 60, 217, 25, 18, 62, 45]);
-pub const WMProfile_V80_700NTSCVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3368196191, 58841, 17720, [158, 35, 155, 33, 191, 120, 247, 69]);
-pub const WMProfile_V80_700PALVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3962145097, 25499, 17890, [150, 253, 74, 179, 45, 89, 25, 194]);
-pub const WMProfile_V80_768Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1959792898, 59162, 18464, [143, 13, 19, 210, 236, 30, 72, 114]);
-pub const WMProfile_V80_96StereoAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(533207344, 25074, 17263, [157, 51, 52, 159, 42, 28, 15, 16]);
-pub const WMProfile_V80_BESTVBRVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(75774394, 12444, 17422, [156, 180, 61, 204, 163, 117, 100, 35]);
-pub const WMProfile_V80_FAIRVBRVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(890284130, 22608, 18566, [131, 95, 215, 142, 198, 166, 64, 66]);
-pub const WMProfile_V80_HIGHVBRVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(252762579, 15108, 20400, [163, 211, 136, 212, 172, 133, 74, 204]);
-pub const WindowsMediaPlayer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1811229266, 14666, 4563, [177, 83, 0, 192, 79, 121, 250, 166]);
+pub const WMProfile_V40_100Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f99ddd8_6684_456b_a0a3_33e1316895f0);
+pub const WMProfile_V40_128Audio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93ddbe12_13dc_4e32_a35e_40378e34279a);
+pub const WMProfile_V40_16AMRadio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f4be81f_d57d_41e1_b2e3_2fad986bfec2);
+pub const WMProfile_V40_1MBVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4482a4c_cc17_4b07_a94e_9818d5e0f13f);
+pub const WMProfile_V40_250Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x541841c3_9339_4f7b_9a22_b11540894e42);
+pub const WMProfile_V40_2856100MBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a1c2206_dc5e_4186_beb2_4c5a994b132e);
+pub const WMProfile_V40_288FMRadioMono: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fa57fc8_6ea4_4645_8abf_b6e5a8f814a1);
+pub const WMProfile_V40_288FMRadioStereo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22fcf466_aa40_431f_a289_06d0ea1a1e40);
+pub const WMProfile_V40_288VideoAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac617f2d_6cbe_4e84_8e9a_ce151a12a354);
+pub const WMProfile_V40_288VideoVoice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb2bc274_0eb6_4da9_b550_ecf7f2b9948f);
+pub const WMProfile_V40_288VideoWebServer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xabf2f00d_d555_4815_94ce_8275f3a70bfe);
+pub const WMProfile_V40_3MBVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55374ac0_309b_4396_b88f_e6e292113f28);
+pub const WMProfile_V40_512Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70440e6d_c4ef_4f84_8cd0_d5c28686e784);
+pub const WMProfile_V40_56DialUpStereo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8026f87_e905_4594_a3c7_00d00041d1d9);
+pub const WMProfile_V40_56DialUpVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe21713bb_652f_4dab_99de_71e04400270f);
+pub const WMProfile_V40_56DialUpVideoWebServer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb756ff10_520f_4749_a399_b780e2fc9250);
+pub const WMProfile_V40_64Audio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4820b3f7_cbec_41dc_9391_78598714c8e5);
+pub const WMProfile_V40_6VoiceAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd508978a_11a0_4d15_b0da_acdc99d4f890);
+pub const WMProfile_V40_96Audio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0efa0ee3_9e64_41e2_837f_3c0038f327ba);
+pub const WMProfile_V40_DialUpMBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd7f47f1_72a6_45a4_80f0_3aecefc32c07);
+pub const WMProfile_V40_IntranetMBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82cd3321_a94a_4ffc_9c2b_092c10ca16e7);
+pub const WMProfile_V70_100Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9f3c932_5ea9_4c6d_89b4_2686e515426e);
+pub const WMProfile_V70_128Audio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc64cf5da_df45_40d3_8027_de698d68dc66);
+pub const WMProfile_V70_1500FilmContentVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6a5f6df_ee3f_434c_a433_523ce55f516b);
+pub const WMProfile_V70_1500Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b89164a_5490_4686_9e37_5a80884e5146);
+pub const WMProfile_V70_150VideoPDA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f472967_e3c6_4797_9694_f0304c5e2f17);
+pub const WMProfile_V70_2000Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa980124_bf10_4e4f_9afd_4329a7395cff);
+pub const WMProfile_V70_225VideoPDA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf55ea573_4c02_42b5_9026_a8260c438a9f);
+pub const WMProfile_V70_256Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xafe69b3a_403f_4a1b_8007_0e21cfb3df84);
+pub const WMProfile_V70_2856100MBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x07df7a25_3fe2_4a5b_8b1e_348b0721ca70);
+pub const WMProfile_V70_288FMRadioMono: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc012a833_a03b_44a5_96dc_ed95cc65582d);
+pub const WMProfile_V70_288FMRadioStereo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe96d67c9_1a39_4dc4_b900_b1184dc83620);
+pub const WMProfile_V70_288VideoAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58bba0ee_896a_4948_9953_85b736f83947);
+pub const WMProfile_V70_288VideoVoice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb952f38e_7dbc_4533_a9ca_b00b1c6e9800);
+pub const WMProfile_V70_288VideoWebServer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70a32e2b_e2df_4ebd_9105_d9ca194a2d50);
+pub const WMProfile_V70_384Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3d45fbb_8782_44df_97c6_8678e2f9b13d);
+pub const WMProfile_V70_56DialUpStereo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x674ee767_0949_4fac_875e_f4c9c292013b);
+pub const WMProfile_V70_56VideoWebServer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdef99e40_57bc_4ab3_b2d1_b6e3caf64257);
+pub const WMProfile_V70_64Audio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb29cffc6_f131_41db_b5e8_99d8b0b945f4);
+pub const WMProfile_V70_64AudioISDN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91dea458_9d60_4212_9c59_d40919c939e4);
+pub const WMProfile_V70_64VideoISDN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2b7a7e9_7b8e_4992_a1a1_068217a3b311);
+pub const WMProfile_V70_6VoiceAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeaba9fbf_b64f_49b3_aa0c_73fbdd150ad0);
+pub const WMProfile_V70_700FilmContentVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a747920_2449_4d76_99cb_fdb0c90484d4);
+pub const WMProfile_V70_768Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0326ebb6_f76e_4964_b0db_e729978d35ee);
+pub const WMProfile_V70_96Audio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9d4b819_16cc_4a59_9f37_693dbb0302d6);
+pub const WMProfile_V70_DialUpMBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b16e74b_4068_45b5_b80e_7bf8c80d2c2f);
+pub const WMProfile_V70_IntranetMBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x045880dc_34b6_4ca9_a326_73557ed143f3);
+pub const WMProfile_V80_100768VideoMBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5bdb5a0e_979e_47d3_9596_73b386392a55);
+pub const WMProfile_V80_100Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2e300b4_c2d4_4fc0_b5dd_ecbd948dc0df);
+pub const WMProfile_V80_128StereoAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x407b9450_8bdc_4ee5_88b8_6f527bd941f2);
+pub const WMProfile_V80_1400NTSCVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x931d1bee_617a_4bcd_9905_ccd0786683ee);
+pub const WMProfile_V80_150VideoPDA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaee16dfa_2c14_4a2f_ad3f_a3034031784f);
+pub const WMProfile_V80_255VideoPDA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfeedbcdf_3fac_4c93_ac0d_47941ec72c0b);
+pub const WMProfile_V80_256Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbbc75500_33d2_4466_b86b_122b201cc9ae);
+pub const WMProfile_V80_288100VideoMBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8722c69_2419_4b36_b4e0_6e17b60564e5);
+pub const WMProfile_V80_28856VideoMBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd66920c4_c21f_4ec8_a0b4_95cf2bd57fc4);
+pub const WMProfile_V80_288MonoAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ea3126d_e1ba_4716_89af_f65cee0c0c67);
+pub const WMProfile_V80_288StereoAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e4cab5c_35dc_45bb_a7c0_19b28070d0cc);
+pub const WMProfile_V80_288Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3df678d9_1352_4186_bbf8_74f0c19b6ae2);
+pub const WMProfile_V80_288VideoOnly: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c45b4c7_4aeb_4f78_a5ec_88420b9dadef);
+pub const WMProfile_V80_32StereoAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60907f9f_b352_47e5_b210_0ef1f47e9f9d);
+pub const WMProfile_V80_384PALVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9227c692_ae62_4f72_a7ea_736062d0e21e);
+pub const WMProfile_V80_384Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29b00c2b_09a9_48bd_ad09_cdae117d1da7);
+pub const WMProfile_V80_48StereoAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ee06be5_492b_480a_8a8f_12f373ecf9d4);
+pub const WMProfile_V80_56Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x254e8a96_2612_405c_8039_f0bf725ced7d);
+pub const WMProfile_V80_56VideoOnly: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e2a6955_81df_4943_ba50_68a986a708f6);
+pub const WMProfile_V80_64StereoAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09bb5bc4_3176_457f_8dd6_3cd919123e2d);
+pub const WMProfile_V80_700NTSCVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8c2985f_e5d9_4538_9e23_9b21bf78f745);
+pub const WMProfile_V80_700PALVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec298949_639b_45e2_96fd_4ab32d5919c2);
+pub const WMProfile_V80_768Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74d01102_e71a_4820_8f0d_13d2ec1e4872);
+pub const WMProfile_V80_96StereoAudio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1fc81930_61f2_436f_9d33_349f2a1c0f10);
+pub const WMProfile_V80_BESTVBRVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x048439ba_309c_440e_9cb4_3dcca3756423);
+pub const WMProfile_V80_FAIRVBRVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3510a862_5850_4886_835f_d78ec6a64042);
+pub const WMProfile_V80_HIGHVBRVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f10d9d3_3b04_4fb0_a3d3_88d4ac854acc);
+pub const WindowsMediaPlayer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6bf52a52_394a_11d3_b153_00c04f79faa6);
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -17508,7 +17508,7 @@ pub struct _WMPOCXEvents(pub ::windows::runtime::IUnknown);
 impl _WMPOCXEvents {}
 unsafe impl ::windows::runtime::Interface for _WMPOCXEvents {
     type Vtable = _WMPOCXEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1811229265, 14666, 4563, [177, 83, 0, 192, 79, 121, 250, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6bf52a51_394a_11d3_b153_00c04f79faa6);
 }
 impl ::core::convert::From<_WMPOCXEvents> for ::windows::runtime::IUnknown {
     fn from(value: _WMPOCXEvents) -> Self {

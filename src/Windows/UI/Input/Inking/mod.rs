@@ -33,7 +33,7 @@ impl ::windows::runtime::DefaultType for HandwritingLineHeight {
 pub struct IInkDrawingAttributes(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkDrawingAttributes {
     type Vtable = IInkDrawingAttributes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2543982444, 26484, 18605, [132, 240, 72, 245, 169, 190, 116, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97a2176c_6774_48ad_84f0_48f5a9be74f9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -62,7 +62,7 @@ pub struct IInkDrawingAttributes_abi(
 pub struct IInkDrawingAttributes2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkDrawingAttributes2 {
     type Vtable = IInkDrawingAttributes2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2091607304, 36548, 17149, [165, 165, 228, 183, 209, 213, 49, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7cab6508_8ec4_42fd_a5a5_e4b7d1d5316d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -85,7 +85,7 @@ pub struct IInkDrawingAttributes2_abi(
 pub struct IInkDrawingAttributes3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkDrawingAttributes3 {
     type Vtable = IInkDrawingAttributes3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1912733698, 32091, 18064, [138, 244, 230, 100, 203, 226, 183, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72020002_7d5b_4690_8af4_e664cbe2b74f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -104,7 +104,7 @@ pub struct IInkDrawingAttributes3_abi(
 pub struct IInkDrawingAttributes4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkDrawingAttributes4 {
     type Vtable = IInkDrawingAttributes4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4016430117, 40729, 17773, [145, 163, 188, 58, 61, 145, 197, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef65dc25_9f19_456d_91a3_bc3a3d91c5fb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -123,7 +123,7 @@ pub struct IInkDrawingAttributes4_abi(
 pub struct IInkDrawingAttributes5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkDrawingAttributes5 {
     type Vtable = IInkDrawingAttributes5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3508183227, 1909, 18514, [174, 100, 65, 20, 58, 122, 230, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd11aa0bb_0775_4852_ae64_41143a7ae6c9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -141,7 +141,7 @@ pub struct IInkDrawingAttributes5_abi(
 pub struct IInkDrawingAttributesPencilProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkDrawingAttributesPencilProperties {
     type Vtable = IInkDrawingAttributesPencilProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1327838411, 11654, 16827, [176, 232, 228, 194, 160, 37, 60, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f2534cb_2d86_41bb_b0e8_e4c2a0253c52);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -160,7 +160,7 @@ pub struct IInkDrawingAttributesPencilProperties_abi(
 pub struct IInkDrawingAttributesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkDrawingAttributesStatics {
     type Vtable = IInkDrawingAttributesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4147241023, 6757, 18530, [150, 203, 110, 22, 101, 225, 127, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf731e03f_1a65_4862_96cb_6e1665e17f6d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -178,7 +178,7 @@ pub struct IInkDrawingAttributesStatics_abi(
 pub struct IInkInputConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkInputConfiguration {
     type Vtable = IInkInputConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2477166020, 2939, 18903, [179, 79, 153, 1, 229, 36, 220, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93a68dc4_0b7b_49d7_b34f_9901e524dcf2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -199,7 +199,7 @@ pub struct IInkInputConfiguration_abi(
 pub struct IInkInputConfiguration2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkInputConfiguration2 {
     type Vtable = IInkInputConfiguration2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1791108910, 33204, 23748, [163, 109, 208, 87, 195, 135, 223, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ac2272e_81b4_5cc4_a36d_d057c387dfda);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -218,7 +218,7 @@ pub struct IInkInputConfiguration2_abi(
 pub struct IInkInputProcessingConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkInputProcessingConfiguration {
     type Vtable = IInkInputProcessingConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(662231134, 13258, 19206, [166, 211, 172, 57, 69, 17, 109, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2778d85e_33ca_4b06_a6d3_ac3945116d37);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -239,7 +239,7 @@ pub struct IInkInputProcessingConfiguration_abi(
 pub struct IInkManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkManager {
     type Vtable = IInkManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1195668349, 26395, 16739, [156, 149, 78, 141, 122, 3, 95, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4744737d_671b_4163_9c95_4e8d7a035fe1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -265,7 +265,7 @@ pub struct IInkManager_abi(
 pub struct IInkModelerAttributes(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkModelerAttributes {
     type Vtable = IInkModelerAttributes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3134398247, 3289, 19453, [182, 243, 158, 3, 186, 141, 116, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbad31f27_0cd9_4bfd_b6f3_9e03ba8d7454);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -288,7 +288,7 @@ pub struct IInkModelerAttributes_abi(
 pub struct IInkModelerAttributes2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkModelerAttributes2 {
     type Vtable = IInkModelerAttributes2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2261897370, 20216, 24101, [183, 188, 182, 84, 36, 241, 107, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86d1d09a_4ef8_5e25_b7bc_b65424f16bb3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -307,7 +307,7 @@ pub struct IInkModelerAttributes2_abi(
 pub struct IInkPoint(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPoint {
     type Vtable = IInkPoint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2676434731, 34188, 18085, [155, 65, 209, 149, 151, 4, 89, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f87272b_858c_46a5_9b41_d195970459fd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -327,7 +327,7 @@ pub struct IInkPoint_abi(
 pub struct IInkPoint2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPoint2 {
     type Vtable = IInkPoint2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4222206967, 44630, 19804, [189, 47, 10, 196, 95, 94, 74, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfba9c3f7_ae56_4d5c_bd2f_0ac45f5e4af9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -348,7 +348,7 @@ pub struct IInkPoint2_abi(
 pub struct IInkPointFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPointFactory {
     type Vtable = IInkPointFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(702928156, 51599, 16477, [159, 59, 229, 62, 49, 6, 141, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29e5d51c_c98f_405d_9f3b_e53e31068d4d);
 }
 impl IInkPointFactory {
     #[cfg(feature = "Foundation")]
@@ -421,7 +421,7 @@ pub struct IInkPointFactory_abi(
 pub struct IInkPointFactory2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPointFactory2 {
     type Vtable = IInkPointFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3759431301, 56063, 17906, [173, 105, 5, 13, 130, 86, 162, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0145e85_daff_45f2_ad69_050d8256a209);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -440,7 +440,7 @@ pub struct IInkPointFactory2_abi(
 pub struct IInkPresenter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPresenter {
     type Vtable = IInkPresenter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2795204834, 34939, 17807, [177, 115, 79, 228, 67, 137, 48, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa69b70e2_887b_458f_b173_4fe4438930a3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -480,7 +480,7 @@ pub struct IInkPresenter_abi(
 pub struct IInkPresenter2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPresenter2 {
     type Vtable = IInkPresenter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3478382098, 39476, 4582, [159, 51, 162, 79, 192, 217, 100, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf53e612_9a34_11e6_9f33_a24fc0d9649c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -499,7 +499,7 @@ pub struct IInkPresenter2_abi(
 pub struct IInkPresenter3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPresenter3 {
     type Vtable = IInkPresenter3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1373752969, 54141, 19088, [131, 252, 127, 94, 157, 251, 242, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51e1ce89_d37d_4a90_83fc_7f5e9dfbf217);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -517,7 +517,7 @@ pub struct IInkPresenter3_abi(
 pub struct IInkPresenterProtractor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPresenterProtractor {
     type Vtable = IInkPresenterProtractor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2112090794, 61292, 20113, [167, 59, 91, 112, 213, 111, 189, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7de3f2aa_ef6c_4e91_a73b_5b70d56fbd17);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -548,7 +548,7 @@ pub struct IInkPresenterProtractor_abi(
 pub struct IInkPresenterProtractorFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPresenterProtractorFactory {
     type Vtable = IInkPresenterProtractorFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(838927305, 26874, 18409, [129, 39, 131, 112, 113, 31, 196, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x320103c9_68fa_47e9_8127_8370711fc46c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -566,7 +566,7 @@ pub struct IInkPresenterProtractorFactory_abi(
 pub struct IInkPresenterRuler(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPresenterRuler {
     type Vtable = IInkPresenterRuler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1826258266, 57031, 19927, [135, 122, 33, 51, 241, 131, 212, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6cda7d5a_dec7_4dd7_877a_2133f183d48a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -587,7 +587,7 @@ pub struct IInkPresenterRuler_abi(
 pub struct IInkPresenterRuler2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPresenterRuler2 {
     type Vtable = IInkPresenterRuler2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1158876609, 48225, 17620, [164, 35, 84, 113, 42, 230, 113, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45130dc1_bc61_44d4_a423_54712ae671c4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -609,7 +609,7 @@ pub struct IInkPresenterRuler2_abi(
 pub struct IInkPresenterRulerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPresenterRulerFactory {
     type Vtable = IInkPresenterRulerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(875961323, 36865, 19019, [166, 144, 105, 219, 175, 99, 229, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34361beb_9001_4a4b_a690_69dbaf63e501);
 }
 impl IInkPresenterRulerFactory {
     #[doc = "*Required features: `UI_Input_Inking`*"]
@@ -681,7 +681,7 @@ pub struct IInkPresenterRulerFactory_abi(
 pub struct IInkPresenterStencil(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPresenterStencil {
     type Vtable = IInkPresenterStencil_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(819015021, 15878, 19714, [177, 22, 39, 127, 181, 216, 173, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30d12d6d_3e06_4d02_b116_277fb5d8addc);
 }
 impl IInkPresenterStencil {
     #[doc = "*Required features: `UI_Input_Inking`*"]
@@ -816,7 +816,7 @@ pub struct IInkPresenterStencil_abi(
 pub struct IInkRecognitionResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkRecognitionResult {
     type Vtable = IInkRecognitionResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(910563988, 20584, 16623, [138, 5, 44, 47, 182, 9, 8, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36461a94_5068_40ef_8a05_2c2fb60908a2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -839,7 +839,7 @@ pub struct IInkRecognitionResult_abi(
 pub struct IInkRecognizer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkRecognizer {
     type Vtable = IInkRecognizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(125619875, 36941, 17450, [177, 81, 170, 202, 54, 49, 196, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x077ccea3_904d_442a_b151_aaca3631c43b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -858,7 +858,7 @@ pub struct IInkRecognizer_abi(
 pub struct IInkRecognizerContainer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkRecognizerContainer {
     type Vtable = IInkRecognizerContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2806880817, 32839, 18072, [169, 18, 248, 42, 80, 133, 1, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa74d9a31_8047_4698_a912_f82a5085012f);
 }
 impl IInkRecognizerContainer {
     #[doc = "*Required features: `UI_Input_Inking`*"]
@@ -948,7 +948,7 @@ pub struct IInkRecognizerContainer_abi(
 pub struct IInkStroke(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStroke {
     type Vtable = IInkStroke_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(353652064, 52451, 20431, [157, 82, 17, 81, 138, 182, 175, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15144d60_cce3_4fcf_9d52_11518ab6afd4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -975,7 +975,7 @@ pub struct IInkStroke_abi(
 pub struct IInkStroke2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStroke2 {
     type Vtable = IInkStroke2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1572463860, 47866, 19937, [137, 211, 32, 27, 30, 215, 216, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5db9e4f4_bafa_4de1_89d3_201b1ed7d89b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -998,7 +998,7 @@ pub struct IInkStroke2_abi(
 pub struct IInkStroke3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStroke3 {
     type Vtable = IInkStroke3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1249932148, 38041, 16669, [161, 196, 104, 133, 93, 3, 214, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a807374_9499_411d_a1c4_68855d03d65f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1024,7 +1024,7 @@ pub struct IInkStroke3_abi(
 pub struct IInkStroke4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStroke4 {
     type Vtable = IInkStroke4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3445318373, 46825, 23441, [165, 119, 25, 33, 210, 52, 134, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd5b62e5_b6e9_5b91_a577_1921d2348690);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1042,7 +1042,7 @@ pub struct IInkStroke4_abi(
 pub struct IInkStrokeBuilder(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStrokeBuilder {
     type Vtable = IInkStrokeBuilder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2193347036, 7267, 16860, [158, 7, 75, 74, 112, 206, 216, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82bbd1dc_1c63_41dc_9e07_4b4a70ced801);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1065,7 +1065,7 @@ pub struct IInkStrokeBuilder_abi(
 pub struct IInkStrokeBuilder2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStrokeBuilder2 {
     type Vtable = IInkStrokeBuilder2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3179461671, 29471, 19644, [187, 191, 109, 70, 128, 68, 241, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd82bc27_731f_4cbc_bbbf_6d468044f1e5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1084,7 +1084,7 @@ pub struct IInkStrokeBuilder2_abi(
 pub struct IInkStrokeBuilder3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStrokeBuilder3 {
     type Vtable = IInkStrokeBuilder3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2999394253, 21618, 18097, [168, 29, 195, 122, 61, 22, 148, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2c71fcd_5472_46b1_a81d_c37a3d169441);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1104,7 +1104,7 @@ pub struct IInkStrokeBuilder3_abi(
 pub struct IInkStrokeContainer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStrokeContainer {
     type Vtable = IInkStrokeContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(581749702, 64169, 20244, [182, 140, 246, 206, 230, 112, 174, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22accbc6_faa9_4f14_b68c_f6cee670ae16);
 }
 impl IInkStrokeContainer {
     #[cfg(feature = "Foundation")]
@@ -1305,7 +1305,7 @@ pub struct IInkStrokeContainer_abi(
 pub struct IInkStrokeContainer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStrokeContainer2 {
     type Vtable = IInkStrokeContainer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2298598244, 55862, 19407, [158, 92, 209, 149, 130, 89, 149, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8901d364_da36_4bcf_9e5c_d195825995b4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1325,7 +1325,7 @@ pub struct IInkStrokeContainer2_abi(
 pub struct IInkStrokeContainer3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStrokeContainer3 {
     type Vtable = IInkStrokeContainer3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1023917733, 47850, 19586, [167, 25, 123, 131, 218, 16, 103, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d07bea5_baea_4c82_a719_7b83da1067d2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1345,7 +1345,7 @@ pub struct IInkStrokeContainer3_abi(
 pub struct IInkStrokeInput(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStrokeInput {
     type Vtable = IInkStrokeInput_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3476029051, 24080, 17350, [160, 128, 136, 242, 110, 29, 198, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf2ffe7b_5e10_43c6_a080_88f26e1dc67d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1379,7 +1379,7 @@ pub struct IInkStrokeInput_abi(
 pub struct IInkStrokeRenderingSegment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStrokeRenderingSegment {
     type Vtable = IInkStrokeRenderingSegment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1750142751, 35043, 18298, [162, 250, 86, 159, 95, 31, 155, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68510f1f_88e3_477a_a2fa_569f5f1f9bd5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1406,7 +1406,7 @@ pub struct IInkStrokeRenderingSegment_abi(
 pub struct IInkStrokesCollectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStrokesCollectedEventArgs {
     type Vtable = IInkStrokesCollectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3304321577, 6456, 18780, [180, 217, 109, 228, 176, 141, 72, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4f3f229_1938_495c_b4d9_6de4b08d4811);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1425,7 +1425,7 @@ pub struct IInkStrokesCollectedEventArgs_abi(
 pub struct IInkStrokesErasedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStrokesErasedEventArgs {
     type Vtable = IInkStrokesErasedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2753653282, 5379, 20159, [143, 245, 45, 232, 69, 132, 168, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4216a22_1503_4ebf_8ff5_2de84584a8aa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1444,7 +1444,7 @@ pub struct IInkStrokesErasedEventArgs_abi(
 pub struct IInkSynchronizer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkSynchronizer {
     type Vtable = IInkSynchronizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2610864480, 44699, 17913, [132, 7, 75, 73, 59, 22, 54, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b9ea160_ae9b_45f9_8407_4b493b163661);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1464,7 +1464,7 @@ pub struct IInkSynchronizer_abi(
 pub struct IInkUnprocessedInput(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkUnprocessedInput {
     type Vtable = IInkUnprocessedInput_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3678684640, 33688, 18721, [172, 59, 171, 151, 140, 91, 162, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb4445e0_8398_4921_ac3b_ab978c5ba256);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1510,7 +1510,7 @@ pub struct IInkUnprocessedInput_abi(
 pub struct IPenAndInkSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenAndInkSettings {
     type Vtable = IPenAndInkSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3157060495, 102, 17576, [187, 122, 184, 57, 179, 222, 184, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc2ceb8f_0066_44a8_bb7a_b839b3deb8f5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1533,7 +1533,7 @@ pub struct IPenAndInkSettings_abi(
 pub struct IPenAndInkSettings2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenAndInkSettings2 {
     type Vtable = IPenAndInkSettings2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(845339219, 8004, 21986, [153, 41, 235, 247, 126, 84, 129, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3262da53_1f44_55e2_9929_ebf77e5481b8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1551,7 +1551,7 @@ pub struct IPenAndInkSettings2_abi(
 pub struct IPenAndInkSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenAndInkSettingsStatics {
     type Vtable = IPenAndInkSettingsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3983396918, 22280, 23612, [150, 219, 242, 245, 82, 234, 182, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed6dd036_5708_5c3c_96db_f2f552eab641);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1725,7 +1725,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkDrawingAttributes {
 }
 unsafe impl ::windows::runtime::Interface for InkDrawingAttributes {
     type Vtable = IInkDrawingAttributes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2543982444, 26484, 18605, [132, 240, 72, 245, 169, 190, 116, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97a2176c_6774_48ad_84f0_48f5a9be74f9);
 }
 impl ::windows::runtime::RuntimeName for InkDrawingAttributes {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkDrawingAttributes";
@@ -1818,7 +1818,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkDrawingAttributesPencilProper
 }
 unsafe impl ::windows::runtime::Interface for InkDrawingAttributesPencilProperties {
     type Vtable = IInkDrawingAttributesPencilProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1327838411, 11654, 16827, [176, 232, 228, 194, 160, 37, 60, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f2534cb_2d86_41bb_b0e8_e4c2a0253c52);
 }
 impl ::windows::runtime::RuntimeName for InkDrawingAttributesPencilProperties {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkDrawingAttributesPencilProperties";
@@ -1938,7 +1938,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkInputConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for InkInputConfiguration {
     type Vtable = IInkInputConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2477166020, 2939, 18903, [179, 79, 153, 1, 229, 36, 220, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93a68dc4_0b7b_49d7_b34f_9901e524dcf2);
 }
 impl ::windows::runtime::RuntimeName for InkInputConfiguration {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkInputConfiguration";
@@ -2022,7 +2022,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkInputProcessingConfiguration 
 }
 unsafe impl ::windows::runtime::Interface for InkInputProcessingConfiguration {
     type Vtable = IInkInputProcessingConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(662231134, 13258, 19206, [166, 211, 172, 57, 69, 17, 109, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2778d85e_33ca_4b06_a6d3_ac3945116d37);
 }
 impl ::windows::runtime::RuntimeName for InkInputProcessingConfiguration {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkInputProcessingConfiguration";
@@ -2318,7 +2318,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkManager {
 }
 unsafe impl ::windows::runtime::Interface for InkManager {
     type Vtable = IInkManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1195668349, 26395, 16739, [156, 149, 78, 141, 122, 3, 95, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4744737d_671b_4163_9c95_4e8d7a035fe1);
 }
 impl ::windows::runtime::RuntimeName for InkManager {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkManager";
@@ -2482,7 +2482,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkModelerAttributes {
 }
 unsafe impl ::windows::runtime::Interface for InkModelerAttributes {
     type Vtable = IInkModelerAttributes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3134398247, 3289, 19453, [182, 243, 158, 3, 186, 141, 116, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbad31f27_0cd9_4bfd_b6f3_9e03ba8d7454);
 }
 impl ::windows::runtime::RuntimeName for InkModelerAttributes {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkModelerAttributes";
@@ -2627,7 +2627,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkPoint {
 }
 unsafe impl ::windows::runtime::Interface for InkPoint {
     type Vtable = IInkPoint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2676434731, 34188, 18085, [155, 65, 209, 149, 151, 4, 89, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f87272b_858c_46a5_9b41_d195970459fd);
 }
 impl ::windows::runtime::RuntimeName for InkPoint {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPoint";
@@ -2827,7 +2827,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkPresenter {
 }
 unsafe impl ::windows::runtime::Interface for InkPresenter {
     type Vtable = IInkPresenter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2795204834, 34939, 17807, [177, 115, 79, 228, 67, 137, 48, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa69b70e2_887b_458f_b173_4fe4438930a3);
 }
 impl ::windows::runtime::RuntimeName for InkPresenter {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPresenter";
@@ -3071,7 +3071,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkPresenterProtractor {
 }
 unsafe impl ::windows::runtime::Interface for InkPresenterProtractor {
     type Vtable = IInkPresenterProtractor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2112090794, 61292, 20113, [167, 59, 91, 112, 213, 111, 189, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7de3f2aa_ef6c_4e91_a73b_5b70d56fbd17);
 }
 impl ::windows::runtime::RuntimeName for InkPresenterProtractor {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPresenterProtractor";
@@ -3276,7 +3276,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkPresenterRuler {
 }
 unsafe impl ::windows::runtime::Interface for InkPresenterRuler {
     type Vtable = IInkPresenterRuler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1826258266, 57031, 19927, [135, 122, 33, 51, 241, 131, 212, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6cda7d5a_dec7_4dd7_877a_2133f183d48a);
 }
 impl ::windows::runtime::RuntimeName for InkPresenterRuler {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPresenterRuler";
@@ -3406,7 +3406,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkRecognitionResult {
 }
 unsafe impl ::windows::runtime::Interface for InkRecognitionResult {
     type Vtable = IInkRecognitionResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(910563988, 20584, 16623, [138, 5, 44, 47, 182, 9, 8, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36461a94_5068_40ef_8a05_2c2fb60908a2);
 }
 impl ::windows::runtime::RuntimeName for InkRecognitionResult {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkRecognitionResult";
@@ -3495,7 +3495,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkRecognizer {
 }
 unsafe impl ::windows::runtime::Interface for InkRecognizer {
     type Vtable = IInkRecognizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(125619875, 36941, 17450, [177, 81, 170, 202, 54, 49, 196, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x077ccea3_904d_442a_b151_aaca3631c43b);
 }
 impl ::windows::runtime::RuntimeName for InkRecognizer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkRecognizer";
@@ -3581,7 +3581,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkRecognizerContainer {
 }
 unsafe impl ::windows::runtime::Interface for InkRecognizerContainer {
     type Vtable = IInkRecognizerContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2806880817, 32839, 18072, [169, 18, 248, 42, 80, 133, 1, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa74d9a31_8047_4698_a912_f82a5085012f);
 }
 impl ::windows::runtime::RuntimeName for InkRecognizerContainer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkRecognizerContainer";
@@ -3787,7 +3787,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkStroke {
 }
 unsafe impl ::windows::runtime::Interface for InkStroke {
     type Vtable = IInkStroke_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(353652064, 52451, 20431, [157, 82, 17, 81, 138, 182, 175, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15144d60_cce3_4fcf_9d52_11518ab6afd4);
 }
 impl ::windows::runtime::RuntimeName for InkStroke {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStroke";
@@ -3917,7 +3917,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkStrokeBuilder {
 }
 unsafe impl ::windows::runtime::Interface for InkStrokeBuilder {
     type Vtable = IInkStrokeBuilder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2193347036, 7267, 16860, [158, 7, 75, 74, 112, 206, 216, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82bbd1dc_1c63_41dc_9e07_4b4a70ced801);
 }
 impl ::windows::runtime::RuntimeName for InkStrokeBuilder {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeBuilder";
@@ -4122,7 +4122,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkStrokeContainer {
 }
 unsafe impl ::windows::runtime::Interface for InkStrokeContainer {
     type Vtable = IInkStrokeContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(581749702, 64169, 20244, [182, 140, 246, 206, 230, 112, 174, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22accbc6_faa9_4f14_b68c_f6cee670ae16);
 }
 impl ::windows::runtime::RuntimeName for InkStrokeContainer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeContainer";
@@ -4266,7 +4266,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkStrokeInput {
 }
 unsafe impl ::windows::runtime::Interface for InkStrokeInput {
     type Vtable = IInkStrokeInput_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3476029051, 24080, 17350, [160, 128, 136, 242, 110, 29, 198, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf2ffe7b_5e10_43c6_a080_88f26e1dc67d);
 }
 impl ::windows::runtime::RuntimeName for InkStrokeInput {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeInput";
@@ -4383,7 +4383,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkStrokeRenderingSegment {
 }
 unsafe impl ::windows::runtime::Interface for InkStrokeRenderingSegment {
     type Vtable = IInkStrokeRenderingSegment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1750142751, 35043, 18298, [162, 250, 86, 159, 95, 31, 155, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68510f1f_88e3_477a_a2fa_569f5f1f9bd5);
 }
 impl ::windows::runtime::RuntimeName for InkStrokeRenderingSegment {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeRenderingSegment";
@@ -4450,7 +4450,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkStrokesCollectedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for InkStrokesCollectedEventArgs {
     type Vtable = IInkStrokesCollectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3304321577, 6456, 18780, [180, 217, 109, 228, 176, 141, 72, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4f3f229_1938_495c_b4d9_6de4b08d4811);
 }
 impl ::windows::runtime::RuntimeName for InkStrokesCollectedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokesCollectedEventArgs";
@@ -4515,7 +4515,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkStrokesErasedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for InkStrokesErasedEventArgs {
     type Vtable = IInkStrokesErasedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2753653282, 5379, 20159, [143, 245, 45, 232, 69, 132, 168, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4216a22_1503_4ebf_8ff5_2de84584a8aa);
 }
 impl ::windows::runtime::RuntimeName for InkStrokesErasedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokesErasedEventArgs";
@@ -4585,7 +4585,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkSynchronizer {
 }
 unsafe impl ::windows::runtime::Interface for InkSynchronizer {
     type Vtable = IInkSynchronizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2610864480, 44699, 17913, [132, 7, 75, 73, 59, 22, 54, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b9ea160_ae9b_45f9_8407_4b493b163661);
 }
 impl ::windows::runtime::RuntimeName for InkSynchronizer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkSynchronizer";
@@ -4754,7 +4754,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkUnprocessedInput {
 }
 unsafe impl ::windows::runtime::Interface for InkUnprocessedInput {
     type Vtable = IInkUnprocessedInput_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3678684640, 33688, 18721, [172, 59, 171, 151, 140, 91, 162, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb4445e0_8398_4921_ac3b_ab978c5ba256);
 }
 impl ::windows::runtime::RuntimeName for InkUnprocessedInput {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkUnprocessedInput";
@@ -4876,7 +4876,7 @@ unsafe impl ::windows::runtime::RuntimeType for PenAndInkSettings {
 }
 unsafe impl ::windows::runtime::Interface for PenAndInkSettings {
     type Vtable = IPenAndInkSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3157060495, 102, 17576, [187, 122, 184, 57, 179, 222, 184, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc2ceb8f_0066_44a8_bb7a_b839b3deb8f5);
 }
 impl ::windows::runtime::RuntimeName for PenAndInkSettings {
     const NAME: &'static str = "Windows.UI.Input.Inking.PenAndInkSettings";

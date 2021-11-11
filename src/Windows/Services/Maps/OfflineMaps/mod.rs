@@ -4,7 +4,7 @@
 pub struct IOfflineMapPackage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOfflineMapPackage {
     type Vtable = IOfflineMapPackage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2811717435, 42421, 16708, [181, 37, 230, 140, 136, 98, 102, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa797673b_a5b5_4144_b525_e68c8862664b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -31,7 +31,7 @@ pub struct IOfflineMapPackage_abi(
 pub struct IOfflineMapPackageQueryResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOfflineMapPackageQueryResult {
     type Vtable = IOfflineMapPackageQueryResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1431852049, 14817, 20033, [164, 225, 95, 72, 114, 190, 225, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55585411_39e1_4e41_a4e1_5f4872bee199);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -51,7 +51,7 @@ pub struct IOfflineMapPackageQueryResult_abi(
 pub struct IOfflineMapPackageStartDownloadResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOfflineMapPackageStartDownloadResult {
     type Vtable = IOfflineMapPackageStartDownloadResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3647322392, 54486, 19198, [147, 120, 62, 199, 30, 241, 28, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd965b918_d4d6_4afe_9378_3ec71ef11c3d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -69,7 +69,7 @@ pub struct IOfflineMapPackageStartDownloadResult_abi(
 pub struct IOfflineMapPackageStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOfflineMapPackageStatics {
     type Vtable = IOfflineMapPackageStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(408844578, 43057, 19120, [148, 31, 105, 152, 250, 146, 146, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x185e7922_a831_4ab0_941f_6998fa929285);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -182,7 +182,7 @@ unsafe impl ::windows::runtime::RuntimeType for OfflineMapPackage {
 }
 unsafe impl ::windows::runtime::Interface for OfflineMapPackage {
     type Vtable = IOfflineMapPackage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2811717435, 42421, 16708, [181, 37, 230, 140, 136, 98, 102, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa797673b_a5b5_4144_b525_e68c8862664b);
 }
 impl ::windows::runtime::RuntimeName for OfflineMapPackage {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackage";
@@ -257,7 +257,7 @@ unsafe impl ::windows::runtime::RuntimeType for OfflineMapPackageQueryResult {
 }
 unsafe impl ::windows::runtime::Interface for OfflineMapPackageQueryResult {
     type Vtable = IOfflineMapPackageQueryResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1431852049, 14817, 20033, [164, 225, 95, 72, 114, 190, 225, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55585411_39e1_4e41_a4e1_5f4872bee199);
 }
 impl ::windows::runtime::RuntimeName for OfflineMapPackageQueryResult {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryResult";
@@ -347,7 +347,7 @@ unsafe impl ::windows::runtime::RuntimeType for OfflineMapPackageStartDownloadRe
 }
 unsafe impl ::windows::runtime::Interface for OfflineMapPackageStartDownloadResult {
     type Vtable = IOfflineMapPackageStartDownloadResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3647322392, 54486, 19198, [147, 120, 62, 199, 30, 241, 28, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd965b918_d4d6_4afe_9378_3ec71ef11c3d);
 }
 impl ::windows::runtime::RuntimeName for OfflineMapPackageStartDownloadResult {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadResult";

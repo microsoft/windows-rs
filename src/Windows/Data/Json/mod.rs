@@ -4,7 +4,7 @@
 pub struct IJsonArray(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJsonArray {
     type Vtable = IJsonArray_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(146922934, 3261, 19098, [181, 211, 47, 133, 45, 195, 126, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08c1ddb6_0cbd_4a9a_b5d3_2f852dc37e81);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26,7 +26,7 @@ pub struct IJsonArray_abi(
 pub struct IJsonArrayStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJsonArrayStatics {
     type Vtable = IJsonArrayStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3675534505, 57700, 18847, [147, 226, 138, 143, 73, 187, 144, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb1434a9_e164_499f_93e2_8a8f49bb90ba);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -45,7 +45,7 @@ pub struct IJsonArrayStatics_abi(
 pub struct IJsonErrorStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJsonErrorStatics2 {
     type Vtable = IJsonErrorStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1077948634, 34768, 17260, [131, 171, 252, 123, 18, 192, 204, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x404030da_87d0_436c_83ab_fc7b12c0cc26);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -63,7 +63,7 @@ pub struct IJsonErrorStatics2_abi(
 pub struct IJsonObject(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJsonObject {
     type Vtable = IJsonObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(105784541, 10690, 20355, [154, 193, 158, 225, 21, 120, 190, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x064e24dd_29c2_4f83_9ac1_9ee11578beb3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -87,7 +87,7 @@ pub struct IJsonObject_abi(
 pub struct IJsonObjectStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJsonObjectStatics {
     type Vtable = IJsonObjectStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(579465561, 21726, 17880, [171, 204, 34, 96, 63, 160, 102, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2289f159_54de_45d8_abcc_22603fa066a0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -106,7 +106,7 @@ pub struct IJsonObjectStatics_abi(
 pub struct IJsonObjectWithDefaultValues(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJsonObjectWithDefaultValues {
     type Vtable = IJsonObjectWithDefaultValues_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3647001250, 47088, 20224, [142, 68, 216, 44, 244, 21, 234, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd960d2a2_b7f0_4f00_8e44_d82cf415ea13);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -130,7 +130,7 @@ pub struct IJsonObjectWithDefaultValues_abi(
 pub struct IJsonValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJsonValue {
     type Vtable = IJsonValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2736889547, 61619, 19917, [190, 238, 25, 212, 140, 211, 237, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3219ecb_f0b3_4dcd_beee_19d48cd3ed1e);
 }
 impl IJsonValue {
     #[doc = "*Required features: `Data_Json`*"]
@@ -255,7 +255,7 @@ pub struct IJsonValue_abi(
 pub struct IJsonValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJsonValueStatics {
     type Vtable = IJsonValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1600869450, 12115, 18657, [145, 163, 247, 139, 80, 166, 52, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f6b544a_2f53_48e1_91a3_f78b50a6345c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -277,7 +277,7 @@ pub struct IJsonValueStatics_abi(
 pub struct IJsonValueStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJsonValueStatics2 {
     type Vtable = IJsonValueStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(496946148, 16360, 17205, [131, 146, 147, 216, 227, 104, 101, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d9ecbe4_3fe8_4335_8392_93d8e36865f0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -527,7 +527,7 @@ unsafe impl ::windows::runtime::RuntimeType for JsonArray {
 }
 unsafe impl ::windows::runtime::Interface for JsonArray {
     type Vtable = IJsonArray_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(146922934, 3261, 19098, [181, 211, 47, 133, 45, 195, 126, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08c1ddb6_0cbd_4a9a_b5d3_2f852dc37e81);
 }
 impl ::windows::runtime::RuntimeName for JsonArray {
     const NAME: &'static str = "Windows.Data.Json.JsonArray";
@@ -1001,7 +1001,7 @@ unsafe impl ::windows::runtime::RuntimeType for JsonObject {
 }
 unsafe impl ::windows::runtime::Interface for JsonObject {
     type Vtable = IJsonObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(105784541, 10690, 20355, [154, 193, 158, 225, 21, 120, 190, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x064e24dd_29c2_4f83_9ac1_9ee11578beb3);
 }
 impl ::windows::runtime::RuntimeName for JsonObject {
     const NAME: &'static str = "Windows.Data.Json.JsonObject";
@@ -1290,7 +1290,7 @@ unsafe impl ::windows::runtime::RuntimeType for JsonValue {
 }
 unsafe impl ::windows::runtime::Interface for JsonValue {
     type Vtable = IJsonValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2736889547, 61619, 19917, [190, 238, 25, 212, 140, 211, 237, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3219ecb_f0b3_4dcd_beee_19d48cd3ed1e);
 }
 impl ::windows::runtime::RuntimeName for JsonValue {
     const NAME: &'static str = "Windows.Data.Json.JsonValue";

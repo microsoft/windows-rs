@@ -1,27 +1,27 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const BlockRange: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3037186599, 8708, 4573, [150, 106, 0, 26, 160, 27, 188, 88]);
-pub const BlockRangeList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3037186600, 8708, 4573, [150, 106, 0, 26, 160, 27, 188, 88]);
-pub const BootOptions: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904974, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
-pub const CATID_SMTP_DNSRESOLVERRECORDSINK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3171631974, 36355, 4562, [148, 246, 0, 192, 79, 121, 241, 214]);
-pub const CATID_SMTP_DSN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(582309681, 62968, 19747, [189, 143, 135, 181, 35, 113, 167, 58]);
-pub const CATID_SMTP_GET_AUX_DOMAIN_INFO_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2231318154, 64179, 17367, [188, 223, 105, 44, 91, 70, 230, 177]);
-pub const CATID_SMTP_LOG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2479924536, 11294, 19304, [167, 201, 215, 58, 138, 166, 238, 151]);
-pub const CATID_SMTP_MAXMSGSIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3958462942, 42622, 4562, [148, 247, 0, 192, 79, 121, 241, 214]);
-pub const CATID_SMTP_MSGTRACKLOG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3336524458, 32176, 4562, [148, 244, 0, 192, 79, 121, 241, 214]);
-pub const CATID_SMTP_ON_BEFORE_DATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4133653650, 3422, 4562, [170, 104, 0, 192, 79, 163, 91, 130]);
-pub const CATID_SMTP_ON_INBOUND_COMMAND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4133653645, 3422, 4562, [170, 104, 0, 192, 79, 163, 91, 130]);
-pub const CATID_SMTP_ON_MESSAGE_START: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4133653648, 3422, 4562, [170, 104, 0, 192, 79, 163, 91, 130]);
-pub const CATID_SMTP_ON_PER_RECIPIENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4133653649, 3422, 4562, [170, 104, 0, 192, 79, 163, 91, 130]);
-pub const CATID_SMTP_ON_SERVER_RESPONSE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4133653646, 3422, 4562, [170, 104, 0, 192, 79, 163, 91, 130]);
-pub const CATID_SMTP_ON_SESSION_END: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4133653651, 3422, 4562, [170, 104, 0, 192, 79, 163, 91, 130]);
-pub const CATID_SMTP_ON_SESSION_START: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4133653647, 3422, 4562, [170, 104, 0, 192, 79, 163, 91, 130]);
-pub const CATID_SMTP_STORE_DRIVER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1494702160, 58675, 4561, [170, 103, 0, 192, 79, 163, 69, 246]);
-pub const CATID_SMTP_TRANSPORT_CATEGORIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2516734627, 2618, 4562, [158, 0, 0, 192, 79, 163, 34, 186]);
-pub const CATID_SMTP_TRANSPORT_POSTCATEGORIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1987155540, 1446, 4562, [157, 253, 0, 192, 79, 163, 34, 186]);
-pub const CATID_SMTP_TRANSPORT_PRECATEGORIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2746022669, 33791, 4562, [158, 20, 0, 192, 79, 163, 34, 186]);
-pub const CATID_SMTP_TRANSPORT_ROUTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(674509001, 6224, 4562, [158, 3, 0, 192, 79, 163, 34, 186]);
-pub const CATID_SMTP_TRANSPORT_SUBMISSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4282165795, 185, 4562, [157, 251, 0, 192, 79, 163, 34, 186]);
-pub const CLSID_SmtpCat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2990290359, 37401, 4562, [158, 23, 0, 192, 79, 163, 34, 186]);
+pub const BlockRange: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb507ca27_2204_11dd_966a_001aa01bbc58);
+pub const BlockRangeList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb507ca28_2204_11dd_966a_001aa01bbc58);
+pub const BootOptions: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fce_975b_59be_a960_9a2a262853a5);
+pub const CATID_SMTP_DNSRESOLVERRECORDSINK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd0b4366_8e03_11d2_94f6_00c04f79f1d6);
+pub const CATID_SMTP_DSN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22b55731_f5f8_4d23_bd8f_87b52371a73a);
+pub const CATID_SMTP_GET_AUX_DOMAIN_INFO_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84ff368a_fab3_43d7_bcdf_692c5b46e6b1);
+pub const CATID_SMTP_LOG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93d0a538_2c1e_4b68_a7c9_d73a8aa6ee97);
+pub const CATID_SMTP_MAXMSGSIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xebf159de_a67e_11d2_94f7_00c04f79f1d6);
+pub const CATID_SMTP_MSGTRACKLOG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6df52aa_7db0_11d2_94f4_00c04f79f1d6);
+pub const CATID_SMTP_ON_BEFORE_DATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6628c92_0d5e_11d2_aa68_00c04fa35b82);
+pub const CATID_SMTP_ON_INBOUND_COMMAND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6628c8d_0d5e_11d2_aa68_00c04fa35b82);
+pub const CATID_SMTP_ON_MESSAGE_START: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6628c90_0d5e_11d2_aa68_00c04fa35b82);
+pub const CATID_SMTP_ON_PER_RECIPIENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6628c91_0d5e_11d2_aa68_00c04fa35b82);
+pub const CATID_SMTP_ON_SERVER_RESPONSE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6628c8e_0d5e_11d2_aa68_00c04fa35b82);
+pub const CATID_SMTP_ON_SESSION_END: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6628c93_0d5e_11d2_aa68_00c04fa35b82);
+pub const CATID_SMTP_ON_SESSION_START: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6628c8f_0d5e_11d2_aa68_00c04fa35b82);
+pub const CATID_SMTP_STORE_DRIVER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59175850_e533_11d1_aa67_00c04fa345f6);
+pub const CATID_SMTP_TRANSPORT_CATEGORIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x960252a3_0a3a_11d2_9e00_00c04fa322ba);
+pub const CATID_SMTP_TRANSPORT_POSTCATEGORIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76719654_05a6_11d2_9dfd_00c04fa322ba);
+pub const CATID_SMTP_TRANSPORT_PRECATEGORIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3acfb0d_83ff_11d2_9e14_00c04fa322ba);
+pub const CATID_SMTP_TRANSPORT_ROUTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x283430c9_1850_11d2_9e03_00c04fa322ba);
+pub const CATID_SMTP_TRANSPORT_SUBMISSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff3caa23_00b9_11d2_9dfb_00c04fa322ba);
+pub const CLSID_SmtpCat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb23c35b7_9219_11d2_9e17_00c04fa322ba);
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[inline]
 pub unsafe fn CloseIMsgSession(lpmsgsess: *mut _MSGSESS) {
@@ -49,7 +49,7 @@ impl DDiscFormat2DataEvents {
 }
 unsafe impl ::windows::runtime::Interface for DDiscFormat2DataEvents {
     type Vtable = DDiscFormat2DataEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801532, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2735413c_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<DDiscFormat2DataEvents> for ::windows::runtime::IUnknown {
     fn from(value: DDiscFormat2DataEvents) -> Self {
@@ -125,7 +125,7 @@ impl DDiscFormat2EraseEvents {
 }
 unsafe impl ::windows::runtime::Interface for DDiscFormat2EraseEvents {
     type Vtable = DDiscFormat2EraseEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801530, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2735413a_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<DDiscFormat2EraseEvents> for ::windows::runtime::IUnknown {
     fn from(value: DDiscFormat2EraseEvents) -> Self {
@@ -201,7 +201,7 @@ impl DDiscFormat2RawCDEvents {
 }
 unsafe impl ::windows::runtime::Interface for DDiscFormat2RawCDEvents {
     type Vtable = DDiscFormat2RawCDEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801538, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354142_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<DDiscFormat2RawCDEvents> for ::windows::runtime::IUnknown {
     fn from(value: DDiscFormat2RawCDEvents) -> Self {
@@ -277,7 +277,7 @@ impl DDiscFormat2TrackAtOnceEvents {
 }
 unsafe impl ::windows::runtime::Interface for DDiscFormat2TrackAtOnceEvents {
     type Vtable = DDiscFormat2TrackAtOnceEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801535, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2735413f_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<DDiscFormat2TrackAtOnceEvents> for ::windows::runtime::IUnknown {
     fn from(value: DDiscFormat2TrackAtOnceEvents) -> Self {
@@ -358,7 +358,7 @@ impl DDiscMaster2Events {
 }
 unsafe impl ::windows::runtime::Interface for DDiscMaster2Events {
     type Vtable = DDiscMaster2Events_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801521, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354131_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<DDiscMaster2Events> for ::windows::runtime::IUnknown {
     fn from(value: DDiscMaster2Events) -> Self {
@@ -436,7 +436,7 @@ impl DFileSystemImageEvents {
 }
 unsafe impl ::windows::runtime::Interface for DFileSystemImageEvents {
     type Vtable = DFileSystemImageEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904991, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fdf_975b_59be_a960_9a2a262853a5);
 }
 impl ::core::convert::From<DFileSystemImageEvents> for ::windows::runtime::IUnknown {
     fn from(value: DFileSystemImageEvents) -> Self {
@@ -522,7 +522,7 @@ impl DFileSystemImageImportEvents {
 }
 unsafe impl ::windows::runtime::Interface for DFileSystemImageImportEvents {
     type Vtable = DFileSystemImageImportEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3529257209, 16519, 17254, [158, 36, 229, 91, 226, 134, 66, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd25c30f9_4087_4366_9e24_e55be286424b);
 }
 impl ::core::convert::From<DFileSystemImageImportEvents> for ::windows::runtime::IUnknown {
     fn from(value: DFileSystemImageImportEvents) -> Self {
@@ -985,7 +985,7 @@ impl DWriteEngine2Events {
 }
 unsafe impl ::windows::runtime::Interface for DWriteEngine2Events {
     type Vtable = DWriteEngine2Events_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801527, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354137_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<DWriteEngine2Events> for ::windows::runtime::IUnknown {
     fn from(value: DWriteEngine2Events) -> Self {
@@ -1065,11 +1065,11 @@ impl ::core::convert::From<i32> for EmulationType {
 unsafe impl ::windows::runtime::Abi for EmulationType {
     type Abi = Self;
 }
-pub const EnumFsiItems: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904966, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
-pub const EnumProgressItems: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904970, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
-pub const FileSystemImageResult: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904972, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
-pub const FsiDirectoryItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904968, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
-pub const FsiFileItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904967, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
+pub const EnumFsiItems: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fc6_975b_59be_a960_9a2a262853a5);
+pub const EnumProgressItems: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fca_975b_59be_a960_9a2a262853a5);
+pub const FileSystemImageResult: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fcc_975b_59be_a960_9a2a262853a5);
+pub const FsiDirectoryItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fc8_975b_59be_a960_9a2a262853a5);
+pub const FsiFileItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fc7_975b_59be_a960_9a2a262853a5);
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -1102,10 +1102,10 @@ impl ::core::convert::From<i32> for FsiItemType {
 unsafe impl ::windows::runtime::Abi for FsiItemType {
     type Abi = Self;
 }
-pub const FsiNamedStreams: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3333880045, 27929, 17588, [181, 57, 177, 89, 183, 147, 163, 45]);
-pub const FsiStream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904973, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
-pub const GUID_SMTPSVC_SOURCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(456918630, 58480, 4561, [170, 103, 0, 192, 79, 163, 69, 246]);
-pub const GUID_SMTP_SOURCE_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4217750748, 58472, 4561, [170, 103, 0, 192, 79, 163, 69, 246]);
+pub const FsiNamedStreams: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6b6f8ed_6d19_44b4_b539_b159b793a32d);
+pub const FsiStream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fcd_975b_59be_a960_9a2a262853a5);
+pub const GUID_SMTPSVC_SOURCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b3c0666_e470_11d1_aa67_00c04fa345f6);
+pub const GUID_SMTP_SOURCE_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb65c4dc_e468_11d1_aa67_00c04fa345f6);
 #[doc = "*Required features: `Win32_Storage_Imapi`, `Win32_System_AddressBook`*"]
 #[cfg(feature = "Win32_System_AddressBook")]
 #[inline]
@@ -1139,7 +1139,7 @@ impl IBlockRange {
 }
 unsafe impl ::windows::runtime::Interface for IBlockRange {
     type Vtable = IBlockRange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3037186597, 8708, 4573, [150, 106, 0, 26, 160, 27, 188, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb507ca25_2204_11dd_966a_001aa01bbc58);
 }
 impl ::core::convert::From<IBlockRange> for ::windows::runtime::IUnknown {
     fn from(value: IBlockRange) -> Self {
@@ -1216,7 +1216,7 @@ impl IBlockRangeList {
 }
 unsafe impl ::windows::runtime::Interface for IBlockRangeList {
     type Vtable = IBlockRangeList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3037186598, 8708, 4573, [150, 106, 0, 26, 160, 27, 188, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb507ca26_2204_11dd_966a_001aa01bbc58);
 }
 impl ::core::convert::From<IBlockRangeList> for ::windows::runtime::IUnknown {
     fn from(value: IBlockRangeList) -> Self {
@@ -1332,7 +1332,7 @@ impl IBootOptions {
 }
 unsafe impl ::windows::runtime::Interface for IBootOptions {
     type Vtable = IBootOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904980, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fd4_975b_59be_a960_9a2a262853a5);
 }
 impl ::core::convert::From<IBootOptions> for ::windows::runtime::IUnknown {
     fn from(value: IBootOptions) -> Self {
@@ -1423,7 +1423,7 @@ impl IBurnVerification {
 }
 unsafe impl ::windows::runtime::Interface for IBurnVerification {
     type Vtable = IBurnVerification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3539982388, 38283, 17005, [132, 112, 42, 19, 135, 156, 106, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2ffd834_958b_426d_8470_2a13879c6a91);
 }
 impl ::core::convert::From<IBurnVerification> for ::windows::runtime::IUnknown {
     fn from(value: IBurnVerification) -> Self {
@@ -1488,7 +1488,7 @@ impl IDiscFormat2 {
 }
 unsafe impl ::windows::runtime::Interface for IDiscFormat2 {
     type Vtable = IDiscFormat2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801554, 36708, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354152_8f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<IDiscFormat2> for ::windows::runtime::IUnknown {
     fn from(value: IDiscFormat2) -> Self {
@@ -1777,7 +1777,7 @@ impl IDiscFormat2Data {
 }
 unsafe impl ::windows::runtime::Interface for IDiscFormat2Data {
     type Vtable = IDiscFormat2Data_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801555, 40804, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354153_9f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<IDiscFormat2Data> for ::windows::runtime::IUnknown {
     fn from(value: IDiscFormat2Data) -> Self {
@@ -1997,7 +1997,7 @@ impl IDiscFormat2DataEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for IDiscFormat2DataEventArgs {
     type Vtable = IDiscFormat2DataEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801533, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2735413d_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<IDiscFormat2DataEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: IDiscFormat2DataEventArgs) -> Self {
@@ -2193,7 +2193,7 @@ impl IDiscFormat2Erase {
 }
 unsafe impl ::windows::runtime::Interface for IDiscFormat2Erase {
     type Vtable = IDiscFormat2Erase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801558, 36708, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354156_8f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<IDiscFormat2Erase> for ::windows::runtime::IUnknown {
     fn from(value: IDiscFormat2Erase) -> Self {
@@ -2473,7 +2473,7 @@ impl IDiscFormat2RawCD {
 }
 unsafe impl ::windows::runtime::Interface for IDiscFormat2RawCD {
     type Vtable = IDiscFormat2RawCD_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801557, 36708, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354155_8f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<IDiscFormat2RawCD> for ::windows::runtime::IUnknown {
     fn from(value: IDiscFormat2RawCD) -> Self {
@@ -2681,7 +2681,7 @@ impl IDiscFormat2RawCDEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for IDiscFormat2RawCDEventArgs {
     type Vtable = IDiscFormat2RawCDEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801539, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354143_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<IDiscFormat2RawCDEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: IDiscFormat2RawCDEventArgs) -> Self {
@@ -2960,7 +2960,7 @@ impl IDiscFormat2TrackAtOnce {
 }
 unsafe impl ::windows::runtime::Interface for IDiscFormat2TrackAtOnce {
     type Vtable = IDiscFormat2TrackAtOnce_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801556, 36708, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354154_8f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<IDiscFormat2TrackAtOnce> for ::windows::runtime::IUnknown {
     fn from(value: IDiscFormat2TrackAtOnce) -> Self {
@@ -3173,7 +3173,7 @@ impl IDiscFormat2TrackAtOnceEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for IDiscFormat2TrackAtOnceEventArgs {
     type Vtable = IDiscFormat2TrackAtOnceEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801536, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354140_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<IDiscFormat2TrackAtOnceEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: IDiscFormat2TrackAtOnceEventArgs) -> Self {
@@ -3326,7 +3326,7 @@ impl IDiscMaster {
 }
 unsafe impl ::windows::runtime::Interface for IDiscMaster {
     type Vtable = IDiscMaster_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1376569954, 20901, 4563, [145, 68, 0, 16, 75, 161, 28, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x520cca62_51a5_11d3_9144_00104ba11c5e);
 }
 impl ::core::convert::From<IDiscMaster> for ::windows::runtime::IUnknown {
     fn from(value: IDiscMaster) -> Self {
@@ -3397,7 +3397,7 @@ impl IDiscMaster2 {
 }
 unsafe impl ::windows::runtime::Interface for IDiscMaster2 {
     type Vtable = IDiscMaster2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801520, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354130_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<IDiscMaster2> for ::windows::runtime::IUnknown {
     fn from(value: IDiscMaster2) -> Self {
@@ -3509,7 +3509,7 @@ impl IDiscMasterProgressEvents {
 }
 unsafe impl ::windows::runtime::Interface for IDiscMasterProgressEvents {
     type Vtable = IDiscMasterProgressEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3969798593, 20061, 4563, [145, 68, 0, 16, 75, 161, 28, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec9e51c1_4e5d_11d3_9144_00104ba11c5e);
 }
 impl ::core::convert::From<IDiscMasterProgressEvents> for ::windows::runtime::IUnknown {
     fn from(value: IDiscMasterProgressEvents) -> Self {
@@ -3625,7 +3625,7 @@ impl IDiscRecorder {
 }
 unsafe impl ::windows::runtime::Interface for IDiscRecorder {
     type Vtable = IDiscRecorder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2242680694, 51848, 19698, [137, 78, 9, 89, 140, 7, 138, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85ac9776_ca88_4cf2_894e_09598c078a41);
 }
 impl ::core::convert::From<IDiscRecorder> for ::windows::runtime::IUnknown {
     fn from(value: IDiscRecorder) -> Self {
@@ -3794,7 +3794,7 @@ impl IDiscRecorder2 {
 }
 unsafe impl ::windows::runtime::Interface for IDiscRecorder2 {
     type Vtable = IDiscRecorder2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801523, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354133_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<IDiscRecorder2> for ::windows::runtime::IUnknown {
     fn from(value: IDiscRecorder2) -> Self {
@@ -3976,7 +3976,7 @@ impl IDiscRecorder2Ex {
 }
 unsafe impl ::windows::runtime::Interface for IDiscRecorder2Ex {
     type Vtable = IDiscRecorder2Ex_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801522, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354132_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<IDiscRecorder2Ex> for ::windows::runtime::IUnknown {
     fn from(value: IDiscRecorder2Ex) -> Self {
@@ -4051,7 +4051,7 @@ impl IEnumDiscMasterFormats {
 }
 unsafe impl ::windows::runtime::Interface for IEnumDiscMasterFormats {
     type Vtable = IEnumDiscMasterFormats_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3723773409, 21690, 4563, [145, 68, 0, 16, 75, 161, 28, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddf445e1_54ba_11d3_9144_00104ba11c5e);
 }
 impl ::core::convert::From<IEnumDiscMasterFormats> for ::windows::runtime::IUnknown {
     fn from(value: IEnumDiscMasterFormats) -> Self {
@@ -4109,7 +4109,7 @@ impl IEnumDiscRecorders {
 }
 unsafe impl ::windows::runtime::Interface for IEnumDiscRecorders {
     type Vtable = IEnumDiscRecorders_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2602115553, 21676, 4563, [145, 68, 0, 16, 75, 161, 28, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b1921e1_54ac_11d3_9144_00104ba11c5e);
 }
 impl ::core::convert::From<IEnumDiscRecorders> for ::windows::runtime::IUnknown {
     fn from(value: IEnumDiscRecorders) -> Self {
@@ -4167,7 +4167,7 @@ impl IEnumFsiItems {
 }
 unsafe impl ::windows::runtime::Interface for IEnumFsiItems {
     type Vtable = IEnumFsiItems_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904986, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fda_975b_59be_a960_9a2a262853a5);
 }
 impl ::core::convert::From<IEnumFsiItems> for ::windows::runtime::IUnknown {
     fn from(value: IEnumFsiItems) -> Self {
@@ -4225,7 +4225,7 @@ impl IEnumProgressItems {
 }
 unsafe impl ::windows::runtime::Interface for IEnumProgressItems {
     type Vtable = IEnumProgressItems_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904982, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fd6_975b_59be_a960_9a2a262853a5);
 }
 impl ::core::convert::From<IEnumProgressItems> for ::windows::runtime::IUnknown {
     fn from(value: IEnumProgressItems) -> Self {
@@ -4514,7 +4514,7 @@ impl IFileSystemImage {
 }
 unsafe impl ::windows::runtime::Interface for IFileSystemImage {
     type Vtable = IFileSystemImage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904993, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fe1_975b_59be_a960_9a2a262853a5);
 }
 impl ::core::convert::From<IFileSystemImage> for ::windows::runtime::IUnknown {
     fn from(value: IFileSystemImage) -> Self {
@@ -4940,7 +4940,7 @@ impl IFileSystemImage2 {
 }
 unsafe impl ::windows::runtime::Interface for IFileSystemImage2 {
     type Vtable = IFileSystemImage2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3613674284, 5431, 18279, [182, 47, 241, 56, 123, 2, 221, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7644b2c_1537_4767_b62f_f1387b02ddfd);
 }
 impl ::core::convert::From<IFileSystemImage2> for ::windows::runtime::IUnknown {
     fn from(value: IFileSystemImage2) -> Self {
@@ -5404,7 +5404,7 @@ impl IFileSystemImage3 {
 }
 unsafe impl ::windows::runtime::Interface for IFileSystemImage3 {
     type Vtable = IFileSystemImage3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2097120300, 32407, 18439, [131, 4, 145, 13, 216, 247, 192, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7cff842c_7e97_4807_8304_910dd8f7c051);
 }
 impl ::core::convert::From<IFileSystemImage3> for ::windows::runtime::IUnknown {
     fn from(value: IFileSystemImage3) -> Self {
@@ -5613,7 +5613,7 @@ impl IFileSystemImageResult {
 }
 unsafe impl ::windows::runtime::Interface for IFileSystemImageResult {
     type Vtable = IFileSystemImageResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904984, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fd8_975b_59be_a960_9a2a262853a5);
 }
 impl ::core::convert::From<IFileSystemImageResult> for ::windows::runtime::IUnknown {
     fn from(value: IFileSystemImageResult) -> Self {
@@ -5753,7 +5753,7 @@ impl IFileSystemImageResult2 {
 }
 unsafe impl ::windows::runtime::Interface for IFileSystemImageResult2 {
     type Vtable = IFileSystemImageResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3037186601, 8708, 4573, [150, 106, 0, 26, 160, 27, 188, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb507ca29_2204_11dd_966a_001aa01bbc58);
 }
 impl ::core::convert::From<IFileSystemImageResult2> for ::windows::runtime::IUnknown {
     fn from(value: IFileSystemImageResult2) -> Self {
@@ -5993,7 +5993,7 @@ impl IFsiDirectoryItem {
 }
 unsafe impl ::windows::runtime::Interface for IFsiDirectoryItem {
     type Vtable = IFsiDirectoryItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904988, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fdc_975b_59be_a960_9a2a262853a5);
 }
 impl ::core::convert::From<IFsiDirectoryItem> for ::windows::runtime::IUnknown {
     fn from(value: IFsiDirectoryItem) -> Self {
@@ -6263,7 +6263,7 @@ impl IFsiDirectoryItem2 {
 }
 unsafe impl ::windows::runtime::Interface for IFsiDirectoryItem2 {
     type Vtable = IFsiDirectoryItem2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4160441243, 28054, 19835, [145, 21, 32, 27, 20, 72, 17, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7fb4b9b_6d96_4d7b_9115_201b144811ef);
 }
 impl ::core::convert::From<IFsiDirectoryItem2> for ::windows::runtime::IUnknown {
     fn from(value: IFsiDirectoryItem2) -> Self {
@@ -6525,7 +6525,7 @@ impl IFsiFileItem {
 }
 unsafe impl ::windows::runtime::Interface for IFsiFileItem {
     type Vtable = IFsiFileItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904987, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fdb_975b_59be_a960_9a2a262853a5);
 }
 impl ::core::convert::From<IFsiFileItem> for ::windows::runtime::IUnknown {
     fn from(value: IFsiFileItem) -> Self {
@@ -6784,7 +6784,7 @@ impl IFsiFileItem2 {
 }
 unsafe impl ::windows::runtime::Interface for IFsiFileItem2 {
     type Vtable = IFsiFileItem2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(429722649, 4577, 16619, [142, 194, 200, 200, 34, 160, 119, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x199d0c19_11e1_40eb_8ec2_c8c822a07792);
 }
 impl ::core::convert::From<IFsiFileItem2> for ::windows::runtime::IUnknown {
     fn from(value: IFsiFileItem2) -> Self {
@@ -6984,7 +6984,7 @@ impl IFsiItem {
 }
 unsafe impl ::windows::runtime::Interface for IFsiItem {
     type Vtable = IFsiItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904985, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fd9_975b_59be_a960_9a2a262853a5);
 }
 impl ::core::convert::From<IFsiItem> for ::windows::runtime::IUnknown {
     fn from(value: IFsiItem) -> Self {
@@ -7090,7 +7090,7 @@ impl IFsiNamedStreams {
 }
 unsafe impl ::windows::runtime::Interface for IFsiNamedStreams {
     type Vtable = IFsiNamedStreams_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3984177750, 21140, 16976, [141, 70, 249, 174, 206, 226, 52, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed79ba56_5294_4250_8d46_f9aecee23459);
 }
 impl ::core::convert::From<IFsiNamedStreams> for ::windows::runtime::IUnknown {
     fn from(value: IFsiNamedStreams) -> Self {
@@ -7190,7 +7190,7 @@ impl IIsoImageManager {
 }
 unsafe impl ::windows::runtime::Interface for IIsoImageManager {
     type Vtable = IIsoImageManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1822657509, 64443, 18432, [149, 161, 164, 56, 134, 94, 176, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ca38be5_fbbb_4800_95a1_a438865eb0d4);
 }
 impl ::core::convert::From<IIsoImageManager> for ::windows::runtime::IUnknown {
     fn from(value: IIsoImageManager) -> Self {
@@ -7299,7 +7299,7 @@ impl IJolietDiscMaster {
 }
 unsafe impl ::windows::runtime::Interface for IJolietDiscMaster {
     type Vtable = IJolietDiscMaster_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3820765902, 20060, 4563, [145, 68, 0, 16, 75, 161, 28, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3bc42ce_4e5c_11d3_9144_00104ba11c5e);
 }
 impl ::core::convert::From<IJolietDiscMaster> for ::windows::runtime::IUnknown {
     fn from(value: IJolietDiscMaster) -> Self {
@@ -8022,7 +8022,7 @@ impl IMultisession {
 }
 unsafe impl ::windows::runtime::Interface for IMultisession {
     type Vtable = IMultisession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801552, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354150_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<IMultisession> for ::windows::runtime::IUnknown {
     fn from(value: IMultisession) -> Self {
@@ -8161,7 +8161,7 @@ impl IMultisessionRandomWrite {
 }
 unsafe impl ::windows::runtime::Interface for IMultisessionRandomWrite {
     type Vtable = IMultisessionRandomWrite_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3037186595, 8708, 4573, [150, 106, 0, 26, 160, 27, 188, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb507ca23_2204_11dd_966a_001aa01bbc58);
 }
 impl ::core::convert::From<IMultisessionRandomWrite> for ::windows::runtime::IUnknown {
     fn from(value: IMultisessionRandomWrite) -> Self {
@@ -8333,7 +8333,7 @@ impl IMultisessionSequential {
 }
 unsafe impl ::windows::runtime::Interface for IMultisessionSequential {
     type Vtable = IMultisessionSequential_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801553, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354151_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<IMultisessionSequential> for ::windows::runtime::IUnknown {
     fn from(value: IMultisessionSequential) -> Self {
@@ -8512,7 +8512,7 @@ impl IMultisessionSequential2 {
 }
 unsafe impl ::windows::runtime::Interface for IMultisessionSequential2 {
     type Vtable = IMultisessionSequential2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3037186594, 8708, 4573, [150, 106, 0, 26, 160, 27, 188, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb507ca22_2204_11dd_966a_001aa01bbc58);
 }
 impl ::core::convert::From<IMultisessionSequential2> for ::windows::runtime::IUnknown {
     fn from(value: IMultisessionSequential2) -> Self {
@@ -8652,7 +8652,7 @@ impl IProgressItem {
 }
 unsafe impl ::windows::runtime::Interface for IProgressItem {
     type Vtable = IProgressItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904981, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fd5_975b_59be_a960_9a2a262853a5);
 }
 impl ::core::convert::From<IProgressItem> for ::windows::runtime::IUnknown {
     fn from(value: IProgressItem) -> Self {
@@ -8758,7 +8758,7 @@ impl IProgressItems {
 }
 unsafe impl ::windows::runtime::Interface for IProgressItems {
     type Vtable = IProgressItems_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904983, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fd7_975b_59be_a960_9a2a262853a5);
 }
 impl ::core::convert::From<IProgressItems> for ::windows::runtime::IUnknown {
     fn from(value: IProgressItems) -> Self {
@@ -8930,7 +8930,7 @@ impl IRawCDImageCreator {
 }
 unsafe impl ::windows::runtime::Interface for IRawCDImageCreator {
     type Vtable = IRawCDImageCreator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(630732112, 40293, 18894, [179, 53, 64, 99, 13, 144, 18, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25983550_9d65_49ce_b335_40630d901227);
 }
 impl ::core::convert::From<IRawCDImageCreator> for ::windows::runtime::IUnknown {
     fn from(value: IRawCDImageCreator) -> Self {
@@ -9088,7 +9088,7 @@ impl IRawCDImageTrackInfo {
 }
 unsafe impl ::windows::runtime::Interface for IRawCDImageTrackInfo {
     type Vtable = IRawCDImageTrackInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(630732113, 40293, 18894, [179, 53, 64, 99, 13, 144, 18, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25983551_9d65_49ce_b335_40630d901227);
 }
 impl ::core::convert::From<IRawCDImageTrackInfo> for ::windows::runtime::IUnknown {
     fn from(value: IRawCDImageTrackInfo) -> Self {
@@ -9210,7 +9210,7 @@ impl IRedbookDiscMaster {
 }
 unsafe impl ::windows::runtime::Interface for IRedbookDiscMaster {
     type Vtable = IRedbookDiscMaster_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3820765901, 20060, 4563, [145, 68, 0, 16, 75, 161, 28, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3bc42cd_4e5c_11d3_9144_00104ba11c5e);
 }
 impl ::core::convert::From<IRedbookDiscMaster> for ::windows::runtime::IUnknown {
     fn from(value: IRedbookDiscMaster) -> Self {
@@ -9326,7 +9326,7 @@ impl IStreamConcatenate {
 }
 unsafe impl ::windows::runtime::Interface for IStreamConcatenate {
     type Vtable = IStreamConcatenate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801542, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354146_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<IStreamConcatenate> for ::windows::runtime::IUnknown {
     fn from(value: IStreamConcatenate) -> Self {
@@ -9490,7 +9490,7 @@ impl IStreamInterleave {
 }
 unsafe impl ::windows::runtime::Interface for IStreamInterleave {
     type Vtable = IStreamInterleave_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801543, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354147_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<IStreamInterleave> for ::windows::runtime::IUnknown {
     fn from(value: IStreamInterleave) -> Self {
@@ -9660,7 +9660,7 @@ impl IStreamPseudoRandomBased {
 }
 unsafe impl ::windows::runtime::Interface for IStreamPseudoRandomBased {
     type Vtable = IStreamPseudoRandomBased_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801541, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354145_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<IStreamPseudoRandomBased> for ::windows::runtime::IUnknown {
     fn from(value: IStreamPseudoRandomBased) -> Self {
@@ -9823,7 +9823,7 @@ impl IWriteEngine2 {
 }
 unsafe impl ::windows::runtime::Interface for IWriteEngine2 {
     type Vtable = IWriteEngine2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801525, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354135_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<IWriteEngine2> for ::windows::runtime::IUnknown {
     fn from(value: IWriteEngine2) -> Self {
@@ -9941,7 +9941,7 @@ impl IWriteEngine2EventArgs {
 }
 unsafe impl ::windows::runtime::Interface for IWriteEngine2EventArgs {
     type Vtable = IWriteEngine2EventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801526, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354136_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<IWriteEngine2EventArgs> for ::windows::runtime::IUnknown {
     fn from(value: IWriteEngine2EventArgs) -> Self {
@@ -10032,7 +10032,7 @@ impl IWriteSpeedDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for IWriteSpeedDescriptor {
     type Vtable = IWriteSpeedDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801540, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354144_7f64_5b0f_8f00_5d77afbe261e);
 }
 impl ::core::convert::From<IWriteSpeedDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: IWriteSpeedDescriptor) -> Self {
@@ -10156,9 +10156,9 @@ pub const MP_STATUS_RETRY: u32 = 1u32;
 pub const MP_STATUS_SUBMITTED: u32 = 4u32;
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const MP_STATUS_SUCCESS: u32 = 0u32;
-pub const MSDiscMasterObj: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1376569955, 20901, 4563, [145, 68, 0, 16, 75, 161, 28, 94]);
-pub const MSDiscRecorderObj: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1376569953, 20901, 4563, [145, 68, 0, 16, 75, 161, 28, 94]);
-pub const MSEnumDiscRecordersObj: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2315474554, 25547, 19368, [186, 246, 82, 17, 152, 22, 209, 239]);
+pub const MSDiscMasterObj: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x520cca63_51a5_11d3_9144_00104ba11c5e);
+pub const MSDiscRecorderObj: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x520cca61_51a5_11d3_9144_00104ba11c5e);
+pub const MSEnumDiscRecordersObj: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a03567a_63cb_4ba8_baf6_52119816d1ef);
 #[doc = "*Required features: `Win32_Storage_Imapi`, `Win32_System_AddressBook`*"]
 #[cfg(feature = "Win32_System_AddressBook")]
 pub type MSGCALLRELEASE = unsafe extern "system" fn(ulcallerdata: u32, lpmessage: ::windows::runtime::RawPtr);
@@ -10176,23 +10176,23 @@ pub unsafe fn MapStorageSCode(stgscode: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const MsftDiscFormat2Data: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801514, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-pub const MsftDiscFormat2Erase: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801515, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-pub const MsftDiscFormat2RawCD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801512, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-pub const MsftDiscFormat2TrackAtOnce: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801513, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-pub const MsftDiscMaster2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801518, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-pub const MsftDiscRecorder2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801517, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-pub const MsftFileSystemImage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904965, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
-pub const MsftIsoImageManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3471719266, 36694, 16470, [134, 155, 239, 22, 145, 126, 62, 252]);
-pub const MsftMultisessionRandomWrite: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3037186596, 8708, 4573, [150, 106, 0, 26, 160, 27, 188, 88]);
-pub const MsftMultisessionSequential: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801506, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-pub const MsftRawCDImageCreator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(630732129, 40293, 18894, [179, 53, 64, 99, 13, 144, 18, 39]);
-pub const MsftStreamConcatenate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801509, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-pub const MsftStreamInterleave: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801508, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-pub const MsftStreamPrng001: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801510, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-pub const MsftStreamZero: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801511, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-pub const MsftWriteEngine2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801516, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-pub const MsftWriteSpeedDescriptor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801507, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
+pub const MsftDiscFormat2Data: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2735412a_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftDiscFormat2Erase: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2735412b_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftDiscFormat2RawCD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354128_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftDiscFormat2TrackAtOnce: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354129_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftDiscMaster2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2735412e_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftDiscRecorder2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2735412d_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftFileSystemImage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fc5_975b_59be_a960_9a2a262853a5);
+pub const MsftIsoImageManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xceee3b62_8f56_4056_869b_ef16917e3efc);
+pub const MsftMultisessionRandomWrite: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb507ca24_2204_11dd_966a_001aa01bbc58);
+pub const MsftMultisessionSequential: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354122_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftRawCDImageCreator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25983561_9d65_49ce_b335_40630d901227);
+pub const MsftStreamConcatenate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354125_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftStreamInterleave: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354124_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftStreamPrng001: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354126_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftStreamZero: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354127_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftWriteEngine2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2735412c_7f64_5b0f_8f00_5d77afbe261e);
+pub const MsftWriteSpeedDescriptor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27354123_7f64_5b0f_8f00_5d77afbe261e);
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const NMP_PROCESS_CONTROL: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -10269,8 +10269,8 @@ impl ::core::convert::From<i32> for PlatformId {
 unsafe impl ::windows::runtime::Abi for PlatformId {
     type Abi = Self;
 }
-pub const ProgressItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904971, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
-pub const ProgressItems: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904969, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
+pub const ProgressItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fcb_975b_59be_a960_9a2a262853a5);
+pub const ProgressItems: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c941fc9_975b_59be_a960_9a2a262853a5);
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -10380,7 +10380,7 @@ pub unsafe fn SetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptags
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _MSGSESS(pub u8);
-pub const tagIMMPID_CPV_STRUCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2728880938, 58669, 4561, [170, 100, 0, 192, 79, 163, 91, 130]);
+pub const tagIMMPID_CPV_STRUCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2a76b2a_e52d_11d1_aa64_00c04fa35b82);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -10409,8 +10409,8 @@ impl ::core::cmp::Eq for tagIMMPID_GUIDLIST_ITEM {}
 unsafe impl ::windows::runtime::Abi for tagIMMPID_GUIDLIST_ITEM {
     type Abi = Self;
 }
-pub const tagIMMPID_MPV_STRUCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3420886790, 51645, 4561, [159, 242, 0, 192, 79, 163, 115, 72]);
-pub const tagIMMPID_MP_STRUCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(322456816, 46020, 4561, [170, 146, 0, 170, 0, 107, 200, 11]);
-pub const tagIMMPID_NMP_STRUCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1949542826, 8418, 4562, [148, 214, 0, 192, 79, 163, 121, 241]);
-pub const tagIMMPID_RPV_STRUCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045255753, 54048, 4561, [159, 244, 0, 192, 79, 163, 115, 72]);
-pub const tagIMMPID_RP_STRUCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045255752, 54048, 4561, [159, 244, 0, 192, 79, 163, 115, 72]);
+pub const tagIMMPID_MPV_STRUCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcbe69706_c9bd_11d1_9ff2_00c04fa37348);
+pub const tagIMMPID_MP_STRUCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13384cf0_b3c4_11d1_aa92_00aa006bc80b);
+pub const tagIMMPID_NMP_STRUCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7433a9aa_20e2_11d2_94d6_00c04fa379f1);
+pub const tagIMMPID_RPV_STRUCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79e82049_d320_11d1_9ff4_00c04fa37348);
+pub const tagIMMPID_RP_STRUCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79e82048_d320_11d1_9ff4_00c04fa37348);

@@ -4,7 +4,7 @@
 pub struct IVoiceCommand(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommand {
     type Vtable = IVoiceCommand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2473546355, 60546, 17062, [165, 92, 210, 215, 158, 198, 249, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x936f5273_ec82_42a6_a55c_d2d79ec6f920);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26,7 +26,7 @@ pub struct IVoiceCommand_abi(
 pub struct IVoiceCommandCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandCompletedEventArgs {
     type Vtable = IVoiceCommandCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3361630045, 65090, 17196, [153, 7, 9, 223, 159, 207, 100, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc85e675d_fe42_432c_9907_09df9fcf64e8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -44,7 +44,7 @@ pub struct IVoiceCommandCompletedEventArgs_abi(
 pub struct IVoiceCommandConfirmationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandConfirmationResult {
     type Vtable = IVoiceCommandConfirmationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2686605630, 33313, 17702, [176, 131, 132, 9, 114, 38, 34, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa022593e_8221_4526_b083_840972262247);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -62,7 +62,7 @@ pub struct IVoiceCommandConfirmationResult_abi(
 pub struct IVoiceCommandContentTile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandContentTile {
     type Vtable = IVoiceCommandContentTile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1055910384, 47303, 19574, [160, 222, 22, 7, 137, 94, 227, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3eefe9f0_b8c7_4c76_a0de_1607895ee327);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -97,7 +97,7 @@ pub struct IVoiceCommandContentTile_abi(
 pub struct IVoiceCommandDefinition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandDefinition {
     type Vtable = IVoiceCommandDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037557968, 2420, 18809, [152, 75, 203, 137, 89, 205, 97, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7972aad0_0974_4979_984b_cb8959cd61ae);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -118,7 +118,7 @@ pub struct IVoiceCommandDefinition_abi(
 pub struct IVoiceCommandDefinitionManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandDefinitionManagerStatics {
     type Vtable = IVoiceCommandDefinitionManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2414323358, 1662, 20246, [161, 140, 91, 23, 233, 73, 153, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8fe7a69e_067e_4f16_a18c_5b17e9499940);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -139,7 +139,7 @@ pub struct IVoiceCommandDefinitionManagerStatics_abi(
 pub struct IVoiceCommandDisambiguationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandDisambiguationResult {
     type Vtable = IVoiceCommandDisambiguationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3972435198, 51628, 17887, [168, 234, 254, 234, 8, 239, 156, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xecc68cfe_c9ac_45df_a8ea_feea08ef9c5e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -157,7 +157,7 @@ pub struct IVoiceCommandDisambiguationResult_abi(
 pub struct IVoiceCommandResponse(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandResponse {
     type Vtable = IVoiceCommandResponse_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(42251022, 35387, 19652, [166, 161, 202, 213, 190, 39, 22, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0284b30e_8a3b_4cc4_a6a1_cad5be2716b5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -182,7 +182,7 @@ pub struct IVoiceCommandResponse_abi(
 pub struct IVoiceCommandResponseStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandResponseStatics {
     type Vtable = IVoiceCommandResponseStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691206163, 3387, 18930, [150, 221, 98, 80, 25, 189, 59, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2932f813_0d3b_49f2_96dd_625019bd3b5d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -206,7 +206,7 @@ pub struct IVoiceCommandResponseStatics_abi(
 pub struct IVoiceCommandServiceConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandServiceConnection {
     type Vtable = IVoiceCommandServiceConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3633626015, 8666, 17572, [152, 162, 251, 19, 25, 32, 169, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd894bb9f_21da_44a4_98a2_fb131920a9cc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -243,7 +243,7 @@ pub struct IVoiceCommandServiceConnection_abi(
 pub struct IVoiceCommandServiceConnectionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandServiceConnectionStatics {
     type Vtable = IVoiceCommandServiceConnectionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(923713531, 11572, 17119, [135, 112, 7, 77, 15, 51, 70, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x370ebffb_2d34_42df_8770_074d0f334697);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -262,7 +262,7 @@ pub struct IVoiceCommandServiceConnectionStatics_abi(
 pub struct IVoiceCommandUserMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandUserMessage {
     type Vtable = IVoiceCommandUserMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1733211072, 17654, 20231, [185, 121, 76, 114, 63, 192, 133, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x674eb3c0_44f6_4f07_b979_4c723fc08597);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -315,7 +315,7 @@ unsafe impl ::windows::runtime::RuntimeType for VoiceCommand {
 }
 unsafe impl ::windows::runtime::Interface for VoiceCommand {
     type Vtable = IVoiceCommand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2473546355, 60546, 17062, [165, 92, 210, 215, 158, 198, 249, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x936f5273_ec82_42a6_a55c_d2d79ec6f920);
 }
 impl ::windows::runtime::RuntimeName for VoiceCommand {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommand";
@@ -381,7 +381,7 @@ unsafe impl ::windows::runtime::RuntimeType for VoiceCommandCompletedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for VoiceCommandCompletedEventArgs {
     type Vtable = IVoiceCommandCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3361630045, 65090, 17196, [153, 7, 9, 223, 159, 207, 100, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc85e675d_fe42_432c_9907_09df9fcf64e8);
 }
 impl ::windows::runtime::RuntimeName for VoiceCommandCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletedEventArgs";
@@ -474,7 +474,7 @@ unsafe impl ::windows::runtime::RuntimeType for VoiceCommandConfirmationResult {
 }
 unsafe impl ::windows::runtime::Interface for VoiceCommandConfirmationResult {
     type Vtable = IVoiceCommandConfirmationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2686605630, 33313, 17702, [176, 131, 132, 9, 114, 38, 34, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa022593e_8221_4526_b083_840972262247);
 }
 impl ::windows::runtime::RuntimeName for VoiceCommandConfirmationResult {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandConfirmationResult";
@@ -645,7 +645,7 @@ unsafe impl ::windows::runtime::RuntimeType for VoiceCommandContentTile {
 }
 unsafe impl ::windows::runtime::Interface for VoiceCommandContentTile {
     type Vtable = IVoiceCommandContentTile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1055910384, 47303, 19574, [160, 222, 22, 7, 137, 94, 227, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3eefe9f0_b8c7_4c76_a0de_1607895ee327);
 }
 impl ::windows::runtime::RuntimeName for VoiceCommandContentTile {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile";
@@ -756,7 +756,7 @@ unsafe impl ::windows::runtime::RuntimeType for VoiceCommandDefinition {
 }
 unsafe impl ::windows::runtime::Interface for VoiceCommandDefinition {
     type Vtable = IVoiceCommandDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037557968, 2420, 18809, [152, 75, 203, 137, 89, 205, 97, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7972aad0_0974_4979_984b_cb8959cd61ae);
 }
 impl ::windows::runtime::RuntimeName for VoiceCommandDefinition {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinition";
@@ -849,7 +849,7 @@ unsafe impl ::windows::runtime::RuntimeType for VoiceCommandDisambiguationResult
 }
 unsafe impl ::windows::runtime::Interface for VoiceCommandDisambiguationResult {
     type Vtable = IVoiceCommandDisambiguationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3972435198, 51628, 17887, [168, 234, 254, 234, 8, 239, 156, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xecc68cfe_c9ac_45df_a8ea_feea08ef9c5e);
 }
 impl ::windows::runtime::RuntimeName for VoiceCommandDisambiguationResult {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandDisambiguationResult";
@@ -996,7 +996,7 @@ unsafe impl ::windows::runtime::RuntimeType for VoiceCommandResponse {
 }
 unsafe impl ::windows::runtime::Interface for VoiceCommandResponse {
     type Vtable = IVoiceCommandResponse_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(42251022, 35387, 19652, [166, 161, 202, 213, 190, 39, 22, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0284b30e_8a3b_4cc4_a6a1_cad5be2716b5);
 }
 impl ::windows::runtime::RuntimeName for VoiceCommandResponse {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandResponse";
@@ -1153,7 +1153,7 @@ unsafe impl ::windows::runtime::RuntimeType for VoiceCommandServiceConnection {
 }
 unsafe impl ::windows::runtime::Interface for VoiceCommandServiceConnection {
     type Vtable = IVoiceCommandServiceConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3633626015, 8666, 17572, [152, 162, 251, 19, 25, 32, 169, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd894bb9f_21da_44a4_98a2_fb131920a9cc);
 }
 impl ::windows::runtime::RuntimeName for VoiceCommandServiceConnection {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandServiceConnection";
@@ -1244,7 +1244,7 @@ unsafe impl ::windows::runtime::RuntimeType for VoiceCommandUserMessage {
 }
 unsafe impl ::windows::runtime::Interface for VoiceCommandUserMessage {
     type Vtable = IVoiceCommandUserMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1733211072, 17654, 20231, [185, 121, 76, 114, 63, 192, 133, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x674eb3c0_44f6_4f07_b979_4c723fc08597);
 }
 impl ::windows::runtime::RuntimeName for VoiceCommandUserMessage {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandUserMessage";

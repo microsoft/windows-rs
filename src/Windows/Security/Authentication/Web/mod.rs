@@ -8,7 +8,7 @@ pub mod Provider;
 pub struct IWebAuthenticationBrokerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAuthenticationBrokerStatics {
     type Vtable = IWebAuthenticationBrokerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(789880602, 58995, 16565, [188, 34, 32, 26, 104, 100, 163, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f149f1a_e673_40b5_bc22_201a6864a37b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -31,7 +31,7 @@ pub struct IWebAuthenticationBrokerStatics_abi(
 pub struct IWebAuthenticationBrokerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAuthenticationBrokerStatics2 {
     type Vtable = IWebAuthenticationBrokerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1942879134, 5351, 16858, [169, 113, 170, 244, 65, 11, 98, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73cdfb9e_14e7_41da_a971_aaf4410b621e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -58,7 +58,7 @@ pub struct IWebAuthenticationBrokerStatics2_abi(
 pub struct IWebAuthenticationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAuthenticationResult {
     type Vtable = IWebAuthenticationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1677732683, 60905, 18186, [165, 205, 3, 35, 250, 246, 226, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64002b4b_ede9_470a_a5cd_0323faf6e262);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -254,7 +254,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebAuthenticationResult {
 }
 unsafe impl ::windows::runtime::Interface for WebAuthenticationResult {
     type Vtable = IWebAuthenticationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1677732683, 60905, 18186, [165, 205, 3, 35, 250, 246, 226, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64002b4b_ede9_470a_a5cd_0323faf6e262);
 }
 impl ::windows::runtime::RuntimeName for WebAuthenticationResult {
     const NAME: &'static str = "Windows.Security.Authentication.Web.WebAuthenticationResult";

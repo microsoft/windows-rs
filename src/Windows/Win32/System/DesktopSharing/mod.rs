@@ -366,7 +366,7 @@ impl IRDPSRAPIApplication {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIApplication {
     type Vtable = IRDPSRAPIApplication_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1105698973, 60282, 17262, [147, 93, 120, 12, 162, 98, 131, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41e7a09d_eb7a_436e_935d_780ca2628324);
 }
 impl ::core::convert::From<IRDPSRAPIApplication> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPIApplication) -> Self {
@@ -460,7 +460,7 @@ impl IRDPSRAPIApplicationFilter {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIApplicationFilter {
     type Vtable = IRDPSRAPIApplicationFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3524202698, 26167, 20230, [177, 213, 39, 126, 167, 229, 22, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd20f10ca_6637_4f06_b1d5_277ea7e5160d);
 }
 impl ::core::convert::From<IRDPSRAPIApplicationFilter> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPIApplicationFilter) -> Self {
@@ -542,7 +542,7 @@ impl IRDPSRAPIApplicationList {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIApplicationList {
     type Vtable = IRDPSRAPIApplicationList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3568610995, 8924, 18487, [179, 182, 66, 234, 37, 23, 132, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4b4aeb3_22dc_4837_b3b6_42ea2517849a);
 }
 impl ::core::convert::From<IRDPSRAPIApplicationList> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPIApplicationList) -> Self {
@@ -651,7 +651,7 @@ impl IRDPSRAPIAttendee {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIAttendee {
     type Vtable = IRDPSRAPIAttendee_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3959845299, 7032, 19328, [164, 100, 145, 50, 36, 117, 67, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec0671b3_1b78_4b80_a464_9132247543e3);
 }
 impl ::core::convert::From<IRDPSRAPIAttendee> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPIAttendee) -> Self {
@@ -743,7 +743,7 @@ impl IRDPSRAPIAttendeeDisconnectInfo {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIAttendeeDisconnectInfo {
     type Vtable = IRDPSRAPIAttendeeDisconnectInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3246876831, 17532, 17569, [156, 20, 255, 251, 179, 183, 236, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc187689f_447c_44a1_9c14_fffbb3b7ec17);
 }
 impl ::core::convert::From<IRDPSRAPIAttendeeDisconnectInfo> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPIAttendeeDisconnectInfo) -> Self {
@@ -824,7 +824,7 @@ impl IRDPSRAPIAttendeeManager {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIAttendeeManager {
     type Vtable = IRDPSRAPIAttendeeManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3124377576, 13274, 18249, [141, 160, 7, 250, 52, 218, 121, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba3a37e8_33da_4749_8da0_07fa34da7944);
 }
 impl ::core::convert::From<IRDPSRAPIAttendeeManager> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPIAttendeeManager) -> Self {
@@ -915,7 +915,7 @@ impl IRDPSRAPIAudioStream {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIAudioStream {
     type Vtable = IRDPSRAPIAudioStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3823308537, 35270, 17729, [186, 59, 25, 51, 106, 198, 211, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3e30ef9_89c6_4541_ba3b_19336ac6d31c);
 }
 impl ::core::convert::From<IRDPSRAPIAudioStream> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPIAudioStream) -> Self {
@@ -963,7 +963,7 @@ impl IRDPSRAPIClipboardUseEvents {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIClipboardUseEvents {
     type Vtable = IRDPSRAPIClipboardUseEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3579442586, 31271, 16696, [135, 99, 36, 124, 229, 246, 89, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd559f59a_7a27_4138_8763_247ce5f659a8);
 }
 impl ::core::convert::From<IRDPSRAPIClipboardUseEvents> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPIClipboardUseEvents) -> Self {
@@ -1013,7 +1013,7 @@ impl IRDPSRAPIDebug {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIDebug {
     type Vtable = IRDPSRAPIDebug_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2854109877, 18797, 19620, [166, 144, 52, 141, 203, 46, 196, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa1e42b5_496d_4ca4_a690_348dcb2ec4ad);
 }
 impl ::core::convert::From<IRDPSRAPIDebug> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPIDebug) -> Self {
@@ -1075,7 +1075,7 @@ impl IRDPSRAPIFrameBuffer {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIFrameBuffer {
     type Vtable = IRDPSRAPIFrameBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1030219730, 45691, 17550, [129, 179, 198, 17, 14, 216, 180, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d67e7d2_b27b_448e_81b3_c6110ed8b4be);
 }
 impl ::core::convert::From<IRDPSRAPIFrameBuffer> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPIFrameBuffer) -> Self {
@@ -1184,7 +1184,7 @@ impl IRDPSRAPIInvitation {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIInvitation {
     type Vtable = IRDPSRAPIInvitation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1336679747, 64593, 17851, [177, 180, 43, 83, 170, 86, 47, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4fac1d43_fc51_45bb_b1b4_2b53aa562fa3);
 }
 impl ::core::convert::From<IRDPSRAPIInvitation> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPIInvitation) -> Self {
@@ -1284,7 +1284,7 @@ impl IRDPSRAPIInvitationManager {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIInvitationManager {
     type Vtable = IRDPSRAPIInvitationManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1193455689, 37571, 19501, [138, 101, 247, 52, 143, 100, 77, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4722b049_92c3_4c2d_8a65_f7348f644dcf);
 }
 impl ::core::convert::From<IRDPSRAPIInvitationManager> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPIInvitationManager) -> Self {
@@ -1362,7 +1362,7 @@ impl IRDPSRAPIPerfCounterLogger {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIPerfCounterLogger {
     type Vtable = IRDPSRAPIPerfCounterLogger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(119285043, 4004, 20111, [174, 131, 156, 16, 180, 48, 90, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x071c2533_0fa4_4e8f_ae83_9c10b4305ab5);
 }
 impl ::core::convert::From<IRDPSRAPIPerfCounterLogger> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPIPerfCounterLogger) -> Self {
@@ -1406,7 +1406,7 @@ impl IRDPSRAPIPerfCounterLoggingManager {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIPerfCounterLoggingManager {
     type Vtable = IRDPSRAPIPerfCounterLoggingManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2589011078, 44142, 19086, [177, 164, 252, 239, 54, 63, 110, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a512c86_ac6e_4a8e_b1a4_fcef363f6e64);
 }
 impl ::core::convert::From<IRDPSRAPIPerfCounterLoggingManager> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPIPerfCounterLoggingManager) -> Self {
@@ -1456,7 +1456,7 @@ impl IRDPSRAPISessionProperties {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPISessionProperties {
     type Vtable = IRDPSRAPISessionProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(865805554, 39872, 20246, [154, 172, 241, 101, 67, 61, 19, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x339b24f2_9bc0_4f16_9aac_f165433d13d4);
 }
 impl ::core::convert::From<IRDPSRAPISessionProperties> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPISessionProperties) -> Self {
@@ -1591,7 +1591,7 @@ impl IRDPSRAPISharingSession {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPISharingSession {
     type Vtable = IRDPSRAPISharingSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4004644998, 58480, 19702, [132, 43, 39, 57, 192, 236, 92, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeeb20886_e470_4cf6_842b_2739c0ec5cfb);
 }
 impl ::core::convert::From<IRDPSRAPISharingSession> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPISharingSession) -> Self {
@@ -1783,7 +1783,7 @@ impl IRDPSRAPISharingSession2 {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPISharingSession2 {
     type Vtable = IRDPSRAPISharingSession2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4276416087, 58344, 16901, [143, 176, 143, 209, 208, 103, 92, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfee4ee57_e3e8_4205_8fb0_8fd1d0675c21);
 }
 impl ::core::convert::From<IRDPSRAPISharingSession2> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPISharingSession2) -> Self {
@@ -1917,7 +1917,7 @@ impl IRDPSRAPITcpConnectionInfo {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPITcpConnectionInfo {
     type Vtable = IRDPSRAPITcpConnectionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4148185508, 15622, 16424, [129, 147, 10, 140, 41, 188, 36, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf74049a4_3d06_4028_8193_0a8c29bc2452);
 }
 impl ::core::convert::From<IRDPSRAPITcpConnectionInfo> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPITcpConnectionInfo) -> Self {
@@ -2017,7 +2017,7 @@ impl IRDPSRAPITransportStream {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPITransportStream {
     type Vtable = IRDPSRAPITransportStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(919576677, 17339, 20215, [174, 215, 155, 136, 165, 5, 48, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36cfa065_43bb_4ef7_aed7_9b88a5053036);
 }
 impl ::core::convert::From<IRDPSRAPITransportStream> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPITransportStream) -> Self {
@@ -2106,7 +2106,7 @@ impl IRDPSRAPITransportStreamBuffer {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPITransportStreamBuffer {
     type Vtable = IRDPSRAPITransportStreamBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2177368720, 20613, 17584, [180, 96, 248, 101, 195, 156, 180, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81c80290_5085_44b0_b460_f865c39cb4a9);
 }
 impl ::core::convert::From<IRDPSRAPITransportStreamBuffer> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPITransportStreamBuffer) -> Self {
@@ -2165,7 +2165,7 @@ impl IRDPSRAPITransportStreamEvents {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPITransportStreamEvents {
     type Vtable = IRDPSRAPITransportStreamEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3934372436, 62895, 20032, [152, 46, 62, 99, 187, 89, 82, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea81c254_f5af_4e40_982e_3e63bb595276);
 }
 impl ::core::convert::From<IRDPSRAPITransportStreamEvents> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPITransportStreamEvents) -> Self {
@@ -2273,7 +2273,7 @@ impl IRDPSRAPIViewer {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIViewer {
     type Vtable = IRDPSRAPIViewer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3334458680, 36073, 16461, [138, 232, 243, 29, 0, 198, 92, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6bfcd38_8ce9_404d_8ae8_f31d00c65cb5);
 }
 impl ::core::convert::From<IRDPSRAPIViewer> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPIViewer) -> Self {
@@ -2384,7 +2384,7 @@ impl IRDPSRAPIVirtualChannel {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIVirtualChannel {
     type Vtable = IRDPSRAPIVirtualChannel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(98643861, 10419, 19610, [135, 128, 208, 36, 133, 116, 161, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05e12f95_28b3_4c9a_8780_d0248574a1e0);
 }
 impl ::core::convert::From<IRDPSRAPIVirtualChannel> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPIVirtualChannel) -> Self {
@@ -2476,7 +2476,7 @@ impl IRDPSRAPIVirtualChannelManager {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIVirtualChannelManager {
     type Vtable = IRDPSRAPIVirtualChannelManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(219268705, 23821, 20196, [137, 223, 33, 102, 174, 31, 223, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d11c661_5d0d_4ee4_89df_2166ae1fdfed);
 }
 impl ::core::convert::From<IRDPSRAPIVirtualChannelManager> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPIVirtualChannelManager) -> Self {
@@ -2583,7 +2583,7 @@ impl IRDPSRAPIWindow {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIWindow {
     type Vtable = IRDPSRAPIWindow_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3199197433, 51067, 18739, [186, 159, 162, 76, 221, 204, 39, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbeafe0f9_c77b_4933_ba9f_a24cddcc27cf);
 }
 impl ::core::convert::From<IRDPSRAPIWindow> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPIWindow) -> Self {
@@ -2669,7 +2669,7 @@ impl IRDPSRAPIWindowList {
 }
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIWindowList {
     type Vtable = IRDPSRAPIWindowList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2315636292, 29018, 16662, [161, 137, 161, 24, 243, 10, 7, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a05ce44_715a_4116_a189_a118f30a07bd);
 }
 impl ::core::convert::From<IRDPSRAPIWindowList> for ::windows::runtime::IUnknown {
     fn from(value: IRDPSRAPIWindowList) -> Self {
@@ -2771,7 +2771,7 @@ impl IRDPViewerInputSink {
 }
 unsafe impl ::windows::runtime::Interface for IRDPViewerInputSink {
     type Vtable = IRDPViewerInputSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3143174227, 42693, 19067, [141, 212, 118, 182, 158, 234, 18, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb590853_a6c5_4a7b_8dd4_76b69eea12d5);
 }
 impl ::core::convert::From<IRDPViewerInputSink> for ::windows::runtime::IUnknown {
     fn from(value: IRDPViewerInputSink) -> Self {
@@ -2821,19 +2821,19 @@ impl ::core::convert::From<i32> for RDPENCOMAPI_ATTENDEE_FLAGS {
 unsafe impl ::windows::runtime::Abi for RDPENCOMAPI_ATTENDEE_FLAGS {
     type Abi = Self;
 }
-pub const RDPSRAPIApplication: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3239486596, 19237, 19359, [138, 84, 185, 52, 176, 110, 87, 250]);
-pub const RDPSRAPIApplicationFilter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3814379145, 51176, 17022, [164, 249, 185, 218, 7, 40, 38, 189]);
-pub const RDPSRAPIApplicationList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2654062613, 29747, 18550, [151, 251, 237, 89, 254, 43, 170, 34]);
-pub const RDPSRAPIAttendee: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1962490805, 30047, 18574, [138, 41, 35, 144, 16, 138, 239, 85]);
-pub const RDPSRAPIAttendeeDisconnectInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3028120144, 23515, 16477, [180, 135, 202, 173, 156, 86, 244, 248]);
-pub const RDPSRAPIAttendeeManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3618716161, 63444, 17062, [133, 149, 18, 252, 140, 36, 232, 81]);
-pub const RDPSRAPIFrameBuffer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2767612876, 21390, 16641, [149, 29, 48, 132, 122, 219, 81, 1]);
-pub const RDPSRAPIInvitation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1226264006, 1841, 19294, [142, 225, 131, 166, 61, 56, 104, 250]);
-pub const RDPSRAPIInvitationManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1406781915, 30123, 17009, [148, 138, 76, 78, 179, 106, 143, 43]);
-pub const RDPSRAPISessionProperties: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3715470591, 59946, 19462, [143, 223, 19, 45, 228, 139, 101, 16]);
-pub const RDPSRAPITcpConnectionInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3192511295, 60342, 17016, [140, 224, 213, 69, 88, 51, 234, 238]);
-pub const RDPSRAPIWindow: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(63915739, 52805, 19766, [134, 237, 237, 40, 183, 67, 152, 191]);
-pub const RDPSRAPIWindowList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2619466424, 24020, 17100, [129, 186, 28, 9, 152, 82, 230, 250]);
+pub const RDPSRAPIApplication: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc116a484_4b25_4b9f_8a54_b934b06e57fa);
+pub const RDPSRAPIApplicationFilter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe35ace89_c7e8_427e_a4f9_b9da072826bd);
+pub const RDPSRAPIApplicationList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e31c815_7433_4876_97fb_ed59fe2baa22);
+pub const RDPSRAPIAttendee: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74f93bb5_755f_488e_8a29_2390108aef55);
+pub const RDPSRAPIAttendeeDisconnectInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb47d7250_5bdb_405d_b487_caad9c56f4f8);
+pub const RDPSRAPIAttendeeManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7b13a01_f7d4_42a6_8595_12fc8c24e851);
+pub const RDPSRAPIFrameBuffer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4f66bcc_538e_4101_951d_30847adb5101);
+pub const RDPSRAPIInvitation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49174dc6_0731_4b5e_8ee1_83a63d3868fa);
+pub const RDPSRAPIInvitationManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53d9c9db_75ab_4271_948a_4c4eb36a8f2b);
+pub const RDPSRAPISessionProperties: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd7594ff_ea2a_4c06_8fdf_132de48b6510);
+pub const RDPSRAPITcpConnectionInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe49db3f_ebb6_4278_8ce0_d5455833eaee);
+pub const RDPSRAPIWindow: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03cf46db_ce45_4d36_86ed_ed28b74398bf);
+pub const RDPSRAPIWindowList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c21e2b8_5dd4_42cc_81ba_1c099852e6fa);
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -2908,10 +2908,10 @@ impl ::core::convert::From<i32> for RDPSRAPI_WND_FLAGS {
 unsafe impl ::windows::runtime::Abi for RDPSRAPI_WND_FLAGS {
     type Abi = Self;
 }
-pub const RDPSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608394470, 15877, 19035, [178, 232, 231, 67, 168, 149, 107, 101]);
-pub const RDPTransportStreamBuffer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2370444393, 61823, 17737, [166, 153, 118, 28, 110, 107, 92, 10]);
-pub const RDPTransportStreamEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(837004064, 21328, 18495, [157, 198, 103, 72, 102, 94, 253, 235]);
-pub const RDPViewer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(851336914, 23686, 18447, [169, 20, 15, 248, 136, 90, 27, 63]);
+pub const RDPSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b78f0e6_3e05_4a5b_b2e8_e743a8956b65);
+pub const RDPTransportStreamBuffer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d4a1c69_f17f_4549_a699_761c6e6b5c0a);
+pub const RDPTransportStreamEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31e3ab20_5350_483f_9dc6_6748665efdeb);
+pub const RDPViewer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32be5ed2_5c86_480f_a914_0ff8885a1b3f);
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -2919,7 +2919,7 @@ pub struct _IRDPSessionEvents(pub ::windows::runtime::IUnknown);
 impl _IRDPSessionEvents {}
 unsafe impl ::windows::runtime::Interface for _IRDPSessionEvents {
     type Vtable = _IRDPSessionEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2561241154, 26264, 16617, [142, 253, 179, 32, 9, 144, 0, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98a97042_6698_40e9_8efd_b3200990004b);
 }
 impl ::core::convert::From<_IRDPSessionEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IRDPSessionEvents) -> Self {

@@ -50,7 +50,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for ChatCapabilities {
     type Vtable = IChatCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(989820860, 14793, 19921, [173, 45, 57, 100, 221, 157, 64, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3aff77bc_39c9_4dd1_ad2d_3964dd9d403f);
 }
 impl ::windows::runtime::RuntimeName for ChatCapabilities {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatCapabilities";
@@ -312,7 +312,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatConversation {
 }
 unsafe impl ::windows::runtime::Interface for ChatConversation {
     type Vtable = IChatConversation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2777417741, 6767, 18140, [143, 61, 245, 2, 134, 96, 182, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa58c080d_1a6f_46dc_8f3d_f5028660b6ee);
 }
 impl ::windows::runtime::RuntimeName for ChatConversation {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatConversation";
@@ -410,7 +410,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatConversationReader {
 }
 unsafe impl ::windows::runtime::Interface for ChatConversationReader {
     type Vtable = IChatConversationReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(89208530, 56882, 19015, [169, 58, 179, 220, 8, 51, 133, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x055136d2_de32_4a47_a93a_b3dc0833852b);
 }
 impl ::windows::runtime::RuntimeName for ChatConversationReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatConversationReader";
@@ -536,7 +536,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatConversationThreadingInfo {
 }
 unsafe impl ::windows::runtime::Interface for ChatConversationThreadingInfo {
     type Vtable = IChatConversationThreadingInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(857481692, 31239, 17442, [163, 44, 36, 190, 124, 109, 171, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x331c21dc_7a07_4422_a32c_24be7c6dab24);
 }
 impl ::windows::runtime::RuntimeName for ChatConversationThreadingInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatConversationThreadingInfo";
@@ -987,7 +987,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessage {
 }
 unsafe impl ::windows::runtime::Interface for ChatMessage {
     type Vtable = IChatMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1262028074, 4418, 20617, [118, 218, 242, 219, 61, 23, 205, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b39052a_1142_5089_76da_f2db3d17cd05);
 }
 impl ::windows::runtime::RuntimeName for ChatMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessage";
@@ -1174,7 +1174,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageAttachment {
 }
 unsafe impl ::windows::runtime::Interface for ChatMessageAttachment {
     type Vtable = IChatMessageAttachment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3351575924, 48995, 22763, [80, 140, 139, 134, 63, 241, 107, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7c4fd74_bf63_58eb_508c_8b863ff16b67);
 }
 impl ::windows::runtime::RuntimeName for ChatMessageAttachment {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageAttachment";
@@ -1267,7 +1267,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageChange {
 }
 unsafe impl ::windows::runtime::Interface for ChatMessageChange {
     type Vtable = IChatMessageChange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(471384917, 16926, 21688, [109, 56, 107, 58, 108, 130, 252, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c18c355_421e_54b8_6d38_6b3a6c82fccc);
 }
 impl ::windows::runtime::RuntimeName for ChatMessageChange {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChange";
@@ -1344,7 +1344,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageChangeReader {
 }
 unsafe impl ::windows::runtime::Interface for ChatMessageChangeReader {
     type Vtable = IChatMessageChangeReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(338063392, 10446, 24358, [123, 5, 154, 92, 124, 206, 135, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14267020_28ce_5f26_7b05_9a5c7cce87ca);
 }
 impl ::windows::runtime::RuntimeName for ChatMessageChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangeReader";
@@ -1420,7 +1420,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageChangeTracker {
 }
 unsafe impl ::windows::runtime::Interface for ChatMessageChangeTracker {
     type Vtable = IChatMessageChangeTracker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1622667366, 28832, 21028, [80, 140, 36, 46, 247, 193, 208, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60b7f066_70a0_5224_508c_242ef7c1d06f);
 }
 impl ::windows::runtime::RuntimeName for ChatMessageChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangeTracker";
@@ -1507,7 +1507,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageChangedDeferral {
 }
 unsafe impl ::windows::runtime::Interface for ChatMessageChangedDeferral {
     type Vtable = IChatMessageChangedDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4224103180, 30860, 19916, [172, 231, 98, 130, 56, 41, 104, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbc6b30c_788c_4dcc_ace7_6282382968cf);
 }
 impl ::windows::runtime::RuntimeName for ChatMessageChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangedDeferral";
@@ -1573,7 +1573,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageChangedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ChatMessageChangedEventArgs {
     type Vtable = IChatMessageChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3065462317, 26908, 20191, [134, 96, 110, 185, 137, 104, 146, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6b73e2d_691c_4edf_8660_6eb9896892e3);
 }
 impl ::windows::runtime::RuntimeName for ChatMessageChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangedEventArgs";
@@ -1769,7 +1769,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageNotificationTriggerDe
 }
 unsafe impl ::windows::runtime::Interface for ChatMessageNotificationTriggerDetails {
     type Vtable = IChatMessageNotificationTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4248063483, 12387, 19991, [133, 134, 198, 192, 130, 98, 230, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd344dfb_3063_4e17_8586_c6c08262e6c0);
 }
 impl ::windows::runtime::RuntimeName for ChatMessageNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageNotificationTriggerDetails";
@@ -1869,7 +1869,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageReader {
 }
 unsafe impl ::windows::runtime::Interface for ChatMessageReader {
     type Vtable = IChatMessageReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3068819662, 17545, 22265, [118, 170, 226, 4, 104, 37, 20, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6ea78ce_4489_56f9_76aa_e204682514cf);
 }
 impl ::windows::runtime::RuntimeName for ChatMessageReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageReader";
@@ -2220,7 +2220,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageStore {
 }
 unsafe impl ::windows::runtime::Interface for ChatMessageStore {
     type Vtable = IChatMessageStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(838008065, 52470, 22539, [73, 118, 10, 7, 221, 93, 59, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31f2fd01_ccf6_580b_4976_0a07dd5d3b47);
 }
 impl ::windows::runtime::RuntimeName for ChatMessageStore {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageStore";
@@ -2294,7 +2294,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageStoreChangedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for ChatMessageStoreChangedEventArgs {
     type Vtable = IChatMessageStoreChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1707503532, 65164, 18132, [145, 25, 87, 184, 65, 3, 17, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65c66fac_fe8c_46d4_9119_57b8410311d5);
 }
 impl ::windows::runtime::RuntimeName for ChatMessageStoreChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageStoreChangedEventArgs";
@@ -2409,7 +2409,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageTransport {
 }
 unsafe impl ::windows::runtime::Interface for ChatMessageTransport {
     type Vtable = IChatMessageTransport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1672076280, 59059, 23706, [95, 133, 212, 121, 37, 185, 189, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63a9dbf8_e6b3_5c9a_5f85_d47925b9bd18);
 }
 impl ::windows::runtime::RuntimeName for ChatMessageTransport {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageTransport";
@@ -2509,7 +2509,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageTransportConfiguratio
 }
 unsafe impl ::windows::runtime::Interface for ChatMessageTransportConfiguration {
     type Vtable = IChatMessageTransportConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2275407653, 6664, 19146, [160, 117, 51, 85, 18, 99, 18, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x879ff725_1a08_4aca_a075_3355126312e6);
 }
 impl ::windows::runtime::RuntimeName for ChatMessageTransportConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageTransportConfiguration";
@@ -2626,7 +2626,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageValidationResult {
 }
 unsafe impl ::windows::runtime::Interface for ChatMessageValidationResult {
     type Vtable = IChatMessageValidationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(636041731, 10476, 22665, [86, 155, 126, 72, 107, 18, 111, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25e93a03_28ec_5889_569b_7e486b126f18);
 }
 impl ::windows::runtime::RuntimeName for ChatMessageValidationResult {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageValidationResult";
@@ -2738,7 +2738,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatQueryOptions {
 }
 unsafe impl ::windows::runtime::Interface for ChatQueryOptions {
     type Vtable = IChatQueryOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(802383014, 48950, 17143, [183, 231, 146, 60, 10, 171, 254, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2fd364a6_bf36_42f7_b7e7_923c0aabfe16);
 }
 impl ::windows::runtime::RuntimeName for ChatQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatQueryOptions";
@@ -2886,7 +2886,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatRecipientDeliveryInfo {
 }
 unsafe impl ::windows::runtime::Interface for ChatRecipientDeliveryInfo {
     type Vtable = IChatRecipientDeliveryInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4291277474, 10300, 19466, [138, 14, 140, 51, 189, 191, 5, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffc7b2a2_283c_4c0a_8a0e_8c33bdbf0545);
 }
 impl ::windows::runtime::RuntimeName for ChatRecipientDeliveryInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo";
@@ -2985,7 +2985,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatSearchReader {
 }
 unsafe impl ::windows::runtime::Interface for ChatSearchReader {
     type Vtable = IChatSearchReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1181089353, 36896, 18258, [152, 13, 57, 97, 35, 37, 245, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4665fe49_9020_4752_980d_39612325f589);
 }
 impl ::windows::runtime::RuntimeName for ChatSearchReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatSearchReader";
@@ -3097,7 +3097,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatSyncConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for ChatSyncConfiguration {
     type Vtable = IChatSyncConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(167274930, 27124, 19199, [130, 182, 6, 153, 47, 244, 2, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09f869b2_69f4_4aff_82b6_06992ff402d2);
 }
 impl ::windows::runtime::RuntimeName for ChatSyncConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatSyncConfiguration";
@@ -3204,7 +3204,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatSyncManager {
 }
 unsafe impl ::windows::runtime::Interface for ChatSyncManager {
     type Vtable = IChatSyncManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2074422371, 9808, 18543, [180, 180, 107, 217, 211, 214, 60, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ba52c63_2650_486f_b4b4_6bd9d3d63c84);
 }
 impl ::windows::runtime::RuntimeName for ChatSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatSyncManager";
@@ -3306,7 +3306,7 @@ impl ::windows::runtime::DefaultType for ChatTransportInterpretedErrorCode {
 pub struct IChatCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatCapabilities {
     type Vtable = IChatCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(989820860, 14793, 19921, [173, 45, 57, 100, 221, 157, 64, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3aff77bc_39c9_4dd1_ad2d_3964dd9d403f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3328,7 +3328,7 @@ pub struct IChatCapabilities_abi(
 pub struct IChatCapabilitiesManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatCapabilitiesManagerStatics {
     type Vtable = IChatCapabilitiesManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3044683568, 28737, 17806, [176, 207, 124, 13, 159, 234, 51, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb57a2f30_7041_458e_b0cf_7c0d9fea333a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3349,7 +3349,7 @@ pub struct IChatCapabilitiesManagerStatics_abi(
 pub struct IChatCapabilitiesManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatCapabilitiesManagerStatics2 {
     type Vtable = IChatCapabilitiesManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3809297012, 54721, 19145, [159, 252, 64, 230, 145, 132, 254, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe30d4274_d5c1_4ac9_9ffc_40e69184fec8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3370,7 +3370,7 @@ pub struct IChatCapabilitiesManagerStatics2_abi(
 pub struct IChatConversation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatConversation {
     type Vtable = IChatConversation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2777417741, 6767, 18140, [143, 61, 245, 2, 134, 96, 182, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa58c080d_1a6f_46dc_8f3d_f5028660b6ee);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3412,7 +3412,7 @@ pub struct IChatConversation_abi(
 pub struct IChatConversation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatConversation2 {
     type Vtable = IChatConversation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(167972049, 38970, 18346, [154, 144, 238, 72, 238, 153, 123, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a030cd1_983a_47aa_9a90_ee48ee997b59);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3431,7 +3431,7 @@ pub struct IChatConversation2_abi(
 pub struct IChatConversationReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatConversationReader {
     type Vtable = IChatConversationReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(89208530, 56882, 19015, [169, 58, 179, 220, 8, 51, 133, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x055136d2_de32_4a47_a93a_b3dc0833852b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3452,7 +3452,7 @@ pub struct IChatConversationReader_abi(
 pub struct IChatConversationThreadingInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatConversationThreadingInfo {
     type Vtable = IChatConversationThreadingInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(857481692, 31239, 17442, [163, 44, 36, 190, 124, 109, 171, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x331c21dc_7a07_4422_a32c_24be7c6dab24);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3480,7 +3480,7 @@ pub struct IChatConversationThreadingInfo_abi(
 pub struct IChatItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatItem {
     type Vtable = IChatItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2270285824, 52913, 16963, [184, 3, 21, 212, 90, 29, 212, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8751d000_ceb1_4243_b803_15d45a1dd428);
 }
 impl IChatItem {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -3551,7 +3551,7 @@ pub struct IChatItem_abi(
 pub struct IChatMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessage {
     type Vtable = IChatMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1262028074, 4418, 20617, [118, 218, 242, 219, 61, 23, 205, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b39052a_1142_5089_76da_f2db3d17cd05);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3590,7 +3590,7 @@ pub struct IChatMessage_abi(
 pub struct IChatMessage2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessage2 {
     type Vtable = IChatMessage2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2254865202, 21567, 18933, [172, 113, 108, 42, 252, 101, 101, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86668332_543f_49f5_ac71_6c2afc6565fd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3638,7 +3638,7 @@ pub struct IChatMessage2_abi(
 pub struct IChatMessage3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessage3 {
     type Vtable = IChatMessage3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1961570224, 15271, 17823, [142, 11, 232, 175, 15, 235, 217, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74eb2fb0_3ba7_459f_8e0b_e8af0febd9ad);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3656,7 +3656,7 @@ pub struct IChatMessage3_abi(
 pub struct IChatMessage4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessage4 {
     type Vtable = IChatMessage4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(756304655, 53951, 17932, [170, 104, 109, 63, 132, 131, 201, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d144b0f_d2bf_460c_aa68_6d3f8483c9bf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3675,7 +3675,7 @@ pub struct IChatMessage4_abi(
 pub struct IChatMessageAttachment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageAttachment {
     type Vtable = IChatMessageAttachment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3351575924, 48995, 22763, [80, 140, 139, 134, 63, 241, 107, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7c4fd74_bf63_58eb_508c_8b863ff16b67);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3702,7 +3702,7 @@ pub struct IChatMessageAttachment_abi(
 pub struct IChatMessageAttachment2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageAttachment2 {
     type Vtable = IChatMessageAttachment2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1591317104, 32209, 19079, [168, 206, 172, 221, 135, 216, 13, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ed99270_7dd1_4a87_a8ce_acdd87d80dc8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3727,7 +3727,7 @@ pub struct IChatMessageAttachment2_abi(
 pub struct IChatMessageAttachmentFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageAttachmentFactory {
     type Vtable = IChatMessageAttachmentFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(542659234, 41814, 23409, [108, 169, 102, 201, 133, 183, 208, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x205852a2_a356_5b71_6ca9_66c985b7d0d5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3746,7 +3746,7 @@ pub struct IChatMessageAttachmentFactory_abi(
 pub struct IChatMessageBlockingStatic(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageBlockingStatic {
     type Vtable = IChatMessageBlockingStatic_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4139361152, 52714, 4580, [136, 48, 8, 0, 32, 12, 154, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6b9a380_cdea_11e4_8830_0800200c9a66);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3765,7 +3765,7 @@ pub struct IChatMessageBlockingStatic_abi(
 pub struct IChatMessageChange(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageChange {
     type Vtable = IChatMessageChange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(471384917, 16926, 21688, [109, 56, 107, 58, 108, 130, 252, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c18c355_421e_54b8_6d38_6b3a6c82fccc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3784,7 +3784,7 @@ pub struct IChatMessageChange_abi(
 pub struct IChatMessageChangeReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageChangeReader {
     type Vtable = IChatMessageChangeReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(338063392, 10446, 24358, [123, 5, 154, 92, 124, 206, 135, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14267020_28ce_5f26_7b05_9a5c7cce87ca);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3805,7 +3805,7 @@ pub struct IChatMessageChangeReader_abi(
 pub struct IChatMessageChangeTracker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageChangeTracker {
     type Vtable = IChatMessageChangeTracker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1622667366, 28832, 21028, [80, 140, 36, 46, 247, 193, 208, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60b7f066_70a0_5224_508c_242ef7c1d06f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3825,7 +3825,7 @@ pub struct IChatMessageChangeTracker_abi(
 pub struct IChatMessageChangedDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageChangedDeferral {
     type Vtable = IChatMessageChangedDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4224103180, 30860, 19916, [172, 231, 98, 130, 56, 41, 104, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbc6b30c_788c_4dcc_ace7_6282382968cf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3843,7 +3843,7 @@ pub struct IChatMessageChangedDeferral_abi(
 pub struct IChatMessageChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageChangedEventArgs {
     type Vtable = IChatMessageChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3065462317, 26908, 20191, [134, 96, 110, 185, 137, 104, 146, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6b73e2d_691c_4edf_8660_6eb9896892e3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3861,7 +3861,7 @@ pub struct IChatMessageChangedEventArgs_abi(
 pub struct IChatMessageManager2Statics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageManager2Statics {
     type Vtable = IChatMessageManager2Statics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(491075855, 40783, 20021, [150, 78, 27, 156, 166, 26, 192, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d45390f_9f4f_4e35_964e_1b9ca61ac044);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3882,7 +3882,7 @@ pub struct IChatMessageManager2Statics_abi(
 pub struct IChatMessageManagerStatic(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageManagerStatic {
     type Vtable = IChatMessageManagerStatic_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4049363191, 54760, 24210, [85, 109, 224, 59, 96, 37, 49, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf15c60f7_d5e8_5e92_556d_e03b60253104);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3906,7 +3906,7 @@ pub struct IChatMessageManagerStatic_abi(
 pub struct IChatMessageManagerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageManagerStatics3 {
     type Vtable = IChatMessageManagerStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(546013965, 26453, 18636, [154, 179, 253, 3, 196, 99, 252, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x208b830d_6755_48cc_9ab3_fd03c463fc92);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3925,7 +3925,7 @@ pub struct IChatMessageManagerStatics3_abi(
 pub struct IChatMessageNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageNotificationTriggerDetails {
     type Vtable = IChatMessageNotificationTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4248063483, 12387, 19991, [133, 134, 198, 192, 130, 98, 230, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd344dfb_3063_4e17_8586_c6c08262e6c0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3943,7 +3943,7 @@ pub struct IChatMessageNotificationTriggerDetails_abi(
 pub struct IChatMessageNotificationTriggerDetails2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageNotificationTriggerDetails2 {
     type Vtable = IChatMessageNotificationTriggerDetails2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1807033056, 43527, 20433, [148, 113, 119, 147, 79, 183, 94, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6bb522e0_aa07_4fd1_9471_77934fb75ee6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3964,7 +3964,7 @@ pub struct IChatMessageNotificationTriggerDetails2_abi(
 pub struct IChatMessageReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageReader {
     type Vtable = IChatMessageReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3068819662, 17545, 22265, [118, 170, 226, 4, 104, 37, 20, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6ea78ce_4489_56f9_76aa_e204682514cf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3983,7 +3983,7 @@ pub struct IChatMessageReader_abi(
 pub struct IChatMessageReader2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageReader2 {
     type Vtable = IChatMessageReader2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2305046147, 25787, 18189, [157, 244, 13, 232, 190, 26, 5, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89643683_64bb_470d_9df4_0de8be1a05bf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4002,7 +4002,7 @@ pub struct IChatMessageReader2_abi(
 pub struct IChatMessageStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageStore {
     type Vtable = IChatMessageStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(838008065, 52470, 22539, [73, 118, 10, 7, 221, 93, 59, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31f2fd01_ccf6_580b_4976_0a07dd5d3b47);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4040,7 +4040,7 @@ pub struct IChatMessageStore_abi(
 pub struct IChatMessageStore2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageStore2 {
     type Vtable = IChatMessageStore2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2907555054, 15060, 18715, [179, 17, 171, 223, 155, 178, 39, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad4dc4ee_3ad4_491b_b311_abdf9bb22768);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4089,7 +4089,7 @@ pub struct IChatMessageStore2_abi(
 pub struct IChatMessageStore3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageStore3 {
     type Vtable = IChatMessageStore3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2598091529, 17221, 20161, [139, 116, 183, 51, 130, 67, 113, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9adbbb09_4345_4ec1_8b74_b7338243719c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4108,7 +4108,7 @@ pub struct IChatMessageStore3_abi(
 pub struct IChatMessageStoreChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageStoreChangedEventArgs {
     type Vtable = IChatMessageStoreChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1707503532, 65164, 18132, [145, 25, 87, 184, 65, 3, 17, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65c66fac_fe8c_46d4_9119_57b8410311d5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4127,7 +4127,7 @@ pub struct IChatMessageStoreChangedEventArgs_abi(
 pub struct IChatMessageTransport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageTransport {
     type Vtable = IChatMessageTransport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1672076280, 59059, 23706, [95, 133, 212, 121, 37, 185, 189, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63a9dbf8_e6b3_5c9a_5f85_d47925b9bd18);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4150,7 +4150,7 @@ pub struct IChatMessageTransport_abi(
 pub struct IChatMessageTransport2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageTransport2 {
     type Vtable = IChatMessageTransport2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2426885666, 55370, 19490, [169, 77, 84, 68, 68, 237, 200, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90a75622_d84a_4c22_a94d_544444edc8a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4169,7 +4169,7 @@ pub struct IChatMessageTransport2_abi(
 pub struct IChatMessageTransportConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageTransportConfiguration {
     type Vtable = IChatMessageTransportConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2275407653, 6664, 19146, [160, 117, 51, 85, 18, 99, 18, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x879ff725_1a08_4aca_a075_3355126312e6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4193,7 +4193,7 @@ pub struct IChatMessageTransportConfiguration_abi(
 pub struct IChatMessageValidationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageValidationResult {
     type Vtable = IChatMessageValidationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(636041731, 10476, 22665, [86, 155, 126, 72, 107, 18, 111, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25e93a03_28ec_5889_569b_7e486b126f18);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4217,7 +4217,7 @@ pub struct IChatMessageValidationResult_abi(
 pub struct IChatQueryOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatQueryOptions {
     type Vtable = IChatQueryOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(802383014, 48950, 17143, [183, 231, 146, 60, 10, 171, 254, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2fd364a6_bf36_42f7_b7e7_923c0aabfe16);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4236,7 +4236,7 @@ pub struct IChatQueryOptions_abi(
 pub struct IChatRecipientDeliveryInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatRecipientDeliveryInfo {
     type Vtable = IChatRecipientDeliveryInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4291277474, 10300, 19466, [138, 14, 140, 51, 189, 191, 5, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffc7b2a2_283c_4c0a_8a0e_8c33bdbf0545);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4268,7 +4268,7 @@ pub struct IChatRecipientDeliveryInfo_abi(
 pub struct IChatSearchReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatSearchReader {
     type Vtable = IChatSearchReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1181089353, 36896, 18258, [152, 13, 57, 97, 35, 37, 245, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4665fe49_9020_4752_980d_39612325f589);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4289,7 +4289,7 @@ pub struct IChatSearchReader_abi(
 pub struct IChatSyncConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatSyncConfiguration {
     type Vtable = IChatSyncConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(167274930, 27124, 19199, [130, 182, 6, 153, 47, 244, 2, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09f869b2_69f4_4aff_82b6_06992ff402d2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4310,7 +4310,7 @@ pub struct IChatSyncConfiguration_abi(
 pub struct IChatSyncManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatSyncManager {
     type Vtable = IChatSyncManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2074422371, 9808, 18543, [180, 180, 107, 217, 211, 214, 60, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ba52c63_2650_486f_b4b4_6bd9d3d63c84);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4337,7 +4337,7 @@ pub struct IChatSyncManager_abi(
 pub struct IRcsEndUserMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRcsEndUserMessage {
     type Vtable = IRcsEndUserMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3620578795, 52183, 20283, [133, 38, 181, 6, 222, 195, 92, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7cda5eb_cbd7_4f3b_8526_b506dec35c53);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4364,7 +4364,7 @@ pub struct IRcsEndUserMessage_abi(
 pub struct IRcsEndUserMessageAction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRcsEndUserMessageAction {
     type Vtable = IRcsEndUserMessageAction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2453112631, 39746, 18131, [157, 94, 60, 27, 45, 174, 124, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92378737_9b42_46d3_9d5e_3c1b2dae7cb8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4382,7 +4382,7 @@ pub struct IRcsEndUserMessageAction_abi(
 pub struct IRcsEndUserMessageAvailableEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRcsEndUserMessageAvailableEventArgs {
     type Vtable = IRcsEndUserMessageAvailableEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(759541249, 16265, 16874, [151, 2, 158, 158, 212, 17, 170, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d45ae01_3f89_41ea_9702_9e9ed411aa98);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4401,7 +4401,7 @@ pub struct IRcsEndUserMessageAvailableEventArgs_abi(
 pub struct IRcsEndUserMessageAvailableTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRcsEndUserMessageAvailableTriggerDetails {
     type Vtable = IRcsEndUserMessageAvailableTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1536652333, 13599, 18066, [180, 30, 27, 3, 93, 193, 137, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b97742d_351f_4692_b41e_1b035dc18986);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4420,7 +4420,7 @@ pub struct IRcsEndUserMessageAvailableTriggerDetails_abi(
 pub struct IRcsEndUserMessageManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRcsEndUserMessageManager {
     type Vtable = IRcsEndUserMessageManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(810856026, 19743, 19289, [148, 51, 18, 108, 115, 78, 134, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3054ae5a_4d1f_4b59_9433_126c734e86a6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4441,7 +4441,7 @@ pub struct IRcsEndUserMessageManager_abi(
 pub struct IRcsManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRcsManagerStatics {
     type Vtable = IRcsManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2099710661, 2749, 20273, [155, 153, 165, 158, 113, 167, 183, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d270ac5_0abd_4f31_9b99_a59e71a7b731);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4465,7 +4465,7 @@ pub struct IRcsManagerStatics_abi(
 pub struct IRcsManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRcsManagerStatics2 {
     type Vtable = IRcsManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3444157720, 44426, 17066, [142, 235, 167, 152, 168, 128, 137, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd49ad18_ad8a_42aa_8eeb_a798a8808959);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4486,7 +4486,7 @@ pub struct IRcsManagerStatics2_abi(
 pub struct IRcsServiceKindSupportedChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRcsServiceKindSupportedChangedEventArgs {
     type Vtable = IRcsServiceKindSupportedChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4101939780, 59267, 18534, [179, 167, 78, 92, 207, 2, 48, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf47ea244_e783_4866_b3a7_4e5ccf023070);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4504,7 +4504,7 @@ pub struct IRcsServiceKindSupportedChangedEventArgs_abi(
 pub struct IRcsTransport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRcsTransport {
     type Vtable = IRcsTransport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4272113497, 62332, 17177, [133, 70, 236, 132, 210, 29, 48, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfea34759_f37c_4319_8546_ec84d21d30ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4533,7 +4533,7 @@ pub struct IRcsTransport_abi(
 pub struct IRcsTransportConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRcsTransportConfiguration {
     type Vtable = IRcsTransportConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(533508354, 9330, 19385, [153, 136, 193, 33, 28, 131, 232, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1fccb102_2472_4bb9_9988_c1211c83e8a9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4556,7 +4556,7 @@ pub struct IRcsTransportConfiguration_abi(
 pub struct IRemoteParticipantComposingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteParticipantComposingChangedEventArgs {
     type Vtable = IRemoteParticipantComposingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(515917223, 53193, 17865, [152, 118, 68, 159, 43, 193, 128, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ec045a7_cfc9_45c9_9876_449f2bc180f5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4641,7 +4641,7 @@ unsafe impl ::windows::runtime::RuntimeType for RcsEndUserMessage {
 }
 unsafe impl ::windows::runtime::Interface for RcsEndUserMessage {
     type Vtable = IRcsEndUserMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3620578795, 52183, 20283, [133, 38, 181, 6, 222, 195, 92, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7cda5eb_cbd7_4f3b_8526_b506dec35c53);
 }
 impl ::windows::runtime::RuntimeName for RcsEndUserMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessage";
@@ -4707,7 +4707,7 @@ unsafe impl ::windows::runtime::RuntimeType for RcsEndUserMessageAction {
 }
 unsafe impl ::windows::runtime::Interface for RcsEndUserMessageAction {
     type Vtable = IRcsEndUserMessageAction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2453112631, 39746, 18131, [157, 94, 60, 27, 45, 174, 124, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92378737_9b42_46d3_9d5e_3c1b2dae7cb8);
 }
 impl ::windows::runtime::RuntimeName for RcsEndUserMessageAction {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageAction";
@@ -4781,7 +4781,7 @@ unsafe impl ::windows::runtime::RuntimeType for RcsEndUserMessageAvailableEventA
 }
 unsafe impl ::windows::runtime::Interface for RcsEndUserMessageAvailableEventArgs {
     type Vtable = IRcsEndUserMessageAvailableEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(759541249, 16265, 16874, [151, 2, 158, 158, 212, 17, 170, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d45ae01_3f89_41ea_9702_9e9ed411aa98);
 }
 impl ::windows::runtime::RuntimeName for RcsEndUserMessageAvailableEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableEventArgs";
@@ -4855,7 +4855,7 @@ unsafe impl ::windows::runtime::RuntimeType for RcsEndUserMessageAvailableTrigge
 }
 unsafe impl ::windows::runtime::Interface for RcsEndUserMessageAvailableTriggerDetails {
     type Vtable = IRcsEndUserMessageAvailableTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1536652333, 13599, 18066, [180, 30, 27, 3, 93, 193, 137, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b97742d_351f_4692_b41e_1b035dc18986);
 }
 impl ::windows::runtime::RuntimeName for RcsEndUserMessageAvailableTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableTriggerDetails";
@@ -4928,7 +4928,7 @@ unsafe impl ::windows::runtime::RuntimeType for RcsEndUserMessageManager {
 }
 unsafe impl ::windows::runtime::Interface for RcsEndUserMessageManager {
     type Vtable = IRcsEndUserMessageManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(810856026, 19743, 19289, [148, 51, 18, 108, 115, 78, 134, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3054ae5a_4d1f_4b59_9433_126c734e86a6);
 }
 impl ::windows::runtime::RuntimeName for RcsEndUserMessageManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageManager";
@@ -5077,7 +5077,7 @@ unsafe impl ::windows::runtime::RuntimeType for RcsServiceKindSupportedChangedEv
 }
 unsafe impl ::windows::runtime::Interface for RcsServiceKindSupportedChangedEventArgs {
     type Vtable = IRcsServiceKindSupportedChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4101939780, 59267, 18534, [179, 167, 78, 92, 207, 2, 48, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf47ea244_e783_4866_b3a7_4e5ccf023070);
 }
 impl ::windows::runtime::RuntimeName for RcsServiceKindSupportedChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsServiceKindSupportedChangedEventArgs";
@@ -5207,7 +5207,7 @@ unsafe impl ::windows::runtime::RuntimeType for RcsTransport {
 }
 unsafe impl ::windows::runtime::Interface for RcsTransport {
     type Vtable = IRcsTransport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4272113497, 62332, 17177, [133, 70, 236, 132, 210, 29, 48, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfea34759_f37c_4319_8546_ec84d21d30ff);
 }
 impl ::windows::runtime::RuntimeName for RcsTransport {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsTransport";
@@ -5313,7 +5313,7 @@ unsafe impl ::windows::runtime::RuntimeType for RcsTransportConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for RcsTransportConfiguration {
     type Vtable = IRcsTransportConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(533508354, 9330, 19385, [153, 136, 193, 33, 28, 131, 232, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1fccb102_2472_4bb9_9988_c1211c83e8a9);
 }
 impl ::windows::runtime::RuntimeName for RcsTransportConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsTransportConfiguration";
@@ -5395,7 +5395,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoteParticipantComposingChange
 }
 unsafe impl ::windows::runtime::Interface for RemoteParticipantComposingChangedEventArgs {
     type Vtable = IRemoteParticipantComposingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(515917223, 53193, 17865, [152, 118, 68, 159, 43, 193, 128, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ec045a7_cfc9_45c9_9876_449f2bc180f5);
 }
 impl ::windows::runtime::RuntimeName for RemoteParticipantComposingChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RemoteParticipantComposingChangedEventArgs";

@@ -22,7 +22,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreAppWindowPreview {
 }
 unsafe impl ::windows::runtime::Interface for CoreAppWindowPreview {
     type Vtable = ICoreAppWindowPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2767644261, 13918, 24542, [135, 165, 149, 67, 195, 161, 90, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4f6e665_365e_5fde_87a5_9543c3a15aa8);
 }
 impl ::windows::runtime::RuntimeName for CoreAppWindowPreview {
     const NAME: &'static str = "Windows.UI.Core.Preview.CoreAppWindowPreview";
@@ -74,7 +74,7 @@ unsafe impl ::core::marker::Sync for CoreAppWindowPreview {}
 pub struct ICoreAppWindowPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreAppWindowPreview {
     type Vtable = ICoreAppWindowPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2767644261, 13918, 24542, [135, 165, 149, 67, 195, 161, 90, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4f6e665_365e_5fde_87a5_9543c3a15aa8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -91,7 +91,7 @@ pub struct ICoreAppWindowPreview_abi(
 pub struct ICoreAppWindowPreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreAppWindowPreviewStatics {
     type Vtable = ICoreAppWindowPreviewStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(866918846, 16955, 23990, [138, 142, 77, 200, 115, 83, 183, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33ac21be_423b_5db6_8a8e_4dc87353b75b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -110,7 +110,7 @@ pub struct ICoreAppWindowPreviewStatics_abi(
 pub struct ISystemNavigationCloseRequestedPreviewEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemNavigationCloseRequestedPreviewEventArgs {
     type Vtable = ISystemNavigationCloseRequestedPreviewEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2211450337, 52197, 20273, [132, 20, 54, 29, 160, 70, 81, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83d00de1_cbe5_4f31_8414_361da046518f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -131,7 +131,7 @@ pub struct ISystemNavigationCloseRequestedPreviewEventArgs_abi(
 pub struct ISystemNavigationManagerPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemNavigationManagerPreview {
     type Vtable = ISystemNavigationManagerPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3965650056, 25637, 18295, [165, 54, 203, 86, 52, 66, 127, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec5f0488_6425_4777_a536_cb5634427f0d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -152,7 +152,7 @@ pub struct ISystemNavigationManagerPreview_abi(
 pub struct ISystemNavigationManagerPreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemNavigationManagerPreviewStatics {
     type Vtable = ISystemNavigationManagerPreviewStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(244781920, 57204, 19406, [132, 203, 189, 17, 129, 172, 10, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e971360_df74_4bce_84cb_bd1181ac0a71);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -198,7 +198,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemNavigationCloseRequestedPr
 }
 unsafe impl ::windows::runtime::Interface for SystemNavigationCloseRequestedPreviewEventArgs {
     type Vtable = ISystemNavigationCloseRequestedPreviewEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2211450337, 52197, 20273, [132, 20, 54, 29, 160, 70, 81, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83d00de1_cbe5_4f31_8414_361da046518f);
 }
 impl ::windows::runtime::RuntimeName for SystemNavigationCloseRequestedPreviewEventArgs {
     const NAME: &'static str = "Windows.UI.Core.Preview.SystemNavigationCloseRequestedPreviewEventArgs";
@@ -282,7 +282,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemNavigationManagerPreview {
 }
 unsafe impl ::windows::runtime::Interface for SystemNavigationManagerPreview {
     type Vtable = ISystemNavigationManagerPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3965650056, 25637, 18295, [165, 54, 203, 86, 52, 66, 127, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec5f0488_6425_4777_a536_cb5634427f0d);
 }
 impl ::windows::runtime::RuntimeName for SystemNavigationManagerPreview {
     const NAME: &'static str = "Windows.UI.Core.Preview.SystemNavigationManagerPreview";

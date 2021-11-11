@@ -11,7 +11,7 @@ impl IInkCommitRequestHandler {
 }
 unsafe impl ::windows::runtime::Interface for IInkCommitRequestHandler {
     type Vtable = IInkCommitRequestHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4206797820, 45320, 17846, [169, 252, 141, 8, 250, 159, 133, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfabea3fc_b108_45b6_a9fc_8d08fa9f85cf);
 }
 impl ::core::convert::From<IInkCommitRequestHandler> for ::windows::runtime::IUnknown {
     fn from(value: IInkCommitRequestHandler) -> Self {
@@ -54,7 +54,7 @@ impl IInkD2DRenderer {
 }
 unsafe impl ::windows::runtime::Interface for IInkD2DRenderer {
     type Vtable = IInkD2DRenderer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1082110430, 63578, 16720, [151, 207, 183, 251, 39, 79, 180, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x407fb1de_f85a_4150_97cf_b7fb274fb4f8);
 }
 impl ::core::convert::From<IInkD2DRenderer> for ::windows::runtime::IUnknown {
     fn from(value: IInkD2DRenderer) -> Self {
@@ -97,7 +97,7 @@ impl IInkD2DRenderer2 {
 }
 unsafe impl ::windows::runtime::Interface for IInkD2DRenderer2 {
     type Vtable = IInkD2DRenderer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(177593561, 17784, 19313, [178, 11, 191, 102, 77, 75, 254, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a95dcd9_4578_4b71_b20b_bf664d4bfeee);
 }
 impl ::core::convert::From<IInkD2DRenderer2> for ::windows::runtime::IUnknown {
     fn from(value: IInkD2DRenderer2) -> Self {
@@ -149,7 +149,7 @@ impl IInkDesktopHost {
 }
 unsafe impl ::windows::runtime::Interface for IInkDesktopHost {
     type Vtable = IInkDesktopHost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1290262645, 43393, 16704, [161, 255, 173, 147, 37, 142, 141, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ce7d875_a981_4140_a1ff_ad93258e8d59);
 }
 impl ::core::convert::From<IInkDesktopHost> for ::windows::runtime::IUnknown {
     fn from(value: IInkDesktopHost) -> Self {
@@ -193,7 +193,7 @@ impl IInkHostWorkItem {
 }
 unsafe impl ::windows::runtime::Interface for IInkHostWorkItem {
     type Vtable = IInkHostWorkItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3436841626, 7032, 17970, [187, 150, 151, 128, 6, 98, 226, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xccda0a9a_1b78_4632_bb96_97800662e26c);
 }
 impl ::core::convert::From<IInkHostWorkItem> for ::windows::runtime::IUnknown {
     fn from(value: IInkHostWorkItem) -> Self {
@@ -251,7 +251,7 @@ impl IInkPresenterDesktop {
 }
 unsafe impl ::windows::runtime::Interface for IInkPresenterDesktop {
     type Vtable = IInkPresenterDesktop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1945354457, 11915, 18675, [137, 94, 32, 203, 210, 123, 114, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73f3c0d9_2e8b_48f3_895e_20cbd27b723b);
 }
 impl ::core::convert::From<IInkPresenterDesktop> for ::windows::runtime::IUnknown {
     fn from(value: IInkPresenterDesktop) -> Self {
@@ -300,5 +300,5 @@ impl ::core::convert::From<i32> for INK_HIGH_CONTRAST_ADJUSTMENT {
 unsafe impl ::windows::runtime::Abi for INK_HIGH_CONTRAST_ADJUSTMENT {
     type Abi = Self;
 }
-pub const InkD2DRenderer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1078257164, 31489, 18033, [169, 124, 4, 224, 33, 10, 7, 165]);
-pub const InkDesktopHost: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(103122086, 63536, 19420, [164, 210, 10, 16, 171, 6, 43, 29]);
+pub const InkD2DRenderer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4044e60c_7b01_4671_a97c_04e0210a07a5);
+pub const InkDesktopHost: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x062584a6_f830_4bdc_a4d2_0a10ab062b1d);

@@ -14,7 +14,7 @@ pub struct DRendezvousSessionEvents(pub ::windows::runtime::IUnknown);
 impl DRendezvousSessionEvents {}
 unsafe impl ::windows::runtime::Interface for DRendezvousSessionEvents {
     type Vtable = DRendezvousSessionEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1067556088, 25796, 20307, [174, 96, 99, 91, 56, 6, 236, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3fa19cf8_64c4_4f53_ae60_635b3806eca6);
 }
 impl ::core::convert::From<DRendezvousSessionEvents> for ::windows::runtime::IUnknown {
     fn from(value: DRendezvousSessionEvents) -> Self {
@@ -86,7 +86,7 @@ impl IRendezvousApplication {
 }
 unsafe impl ::windows::runtime::Interface for IRendezvousApplication {
     type Vtable = IRendezvousApplication_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1330448139, 41589, 18939, [177, 13, 142, 194, 99, 135, 181, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f4d070b_a275_49fb_b10d_8ec26387b50d);
 }
 impl ::core::convert::From<IRendezvousApplication> for ::windows::runtime::IUnknown {
     fn from(value: IRendezvousApplication) -> Self {
@@ -150,7 +150,7 @@ impl IRendezvousSession {
 }
 unsafe impl ::windows::runtime::Interface for IRendezvousSession {
     type Vtable = IRendezvousSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2611261917, 35596, 18615, [158, 124, 47, 37, 133, 124, 141, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ba4b1dd_8b0c_48b7_9e7c_2f25857c8df5);
 }
 impl ::core::convert::From<IRendezvousSession> for ::windows::runtime::IUnknown {
     fn from(value: IRendezvousSession) -> Self {
@@ -225,4 +225,4 @@ impl ::core::convert::From<i32> for RENDEZVOUS_SESSION_STATE {
 unsafe impl ::windows::runtime::Abi for RENDEZVOUS_SESSION_STATE {
     type Abi = Self;
 }
-pub const RendezvousApplication: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(192807322, 46558, 18426, [137, 102, 144, 130, 248, 47, 177, 146]);
+pub const RendezvousApplication: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b7e019a_b5de_47fa_8966_9082f82fb192);

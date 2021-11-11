@@ -4,7 +4,7 @@
 pub struct IInstalledDesktopApp(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInstalledDesktopApp {
     type Vtable = IInstalledDesktopApp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1978317037, 49340, 21348, [76, 40, 22, 110, 5, 69, 22, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75eab8ed_c0bc_5364_4c28_166e0545167a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25,7 +25,7 @@ pub struct IInstalledDesktopApp_abi(
 pub struct IInstalledDesktopAppStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInstalledDesktopAppStatics {
     type Vtable = IInstalledDesktopAppStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(642578254, 8653, 24475, [96, 86, 120, 102, 173, 114, 72, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x264cf74e_21cd_5f9b_6056_7866ad72489a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -103,7 +103,7 @@ unsafe impl ::windows::runtime::RuntimeType for InstalledDesktopApp {
 }
 unsafe impl ::windows::runtime::Interface for InstalledDesktopApp {
     type Vtable = IInstalledDesktopApp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1978317037, 49340, 21348, [76, 40, 22, 110, 5, 69, 22, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75eab8ed_c0bc_5364_4c28_166e0545167a);
 }
 impl ::windows::runtime::RuntimeName for InstalledDesktopApp {
     const NAME: &'static str = "Windows.System.Inventory.InstalledDesktopApp";

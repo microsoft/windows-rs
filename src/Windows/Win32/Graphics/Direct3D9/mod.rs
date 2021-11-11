@@ -1255,24 +1255,24 @@ impl ::core::cmp::Eq for D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
     type Abi = Self;
 }
-pub const D3DAUTHENTICATEDCONFIGURE_CRYPTOSESSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1665584212, 11516, 19156, [130, 36, 209, 88, 55, 222, 119, 0]);
-pub const D3DAUTHENTICATEDCONFIGURE_ENCRYPTIONWHENACCESSIBLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1107292806, 27360, 19779, [157, 85, 164, 110, 158, 253, 21, 138]);
-pub const D3DAUTHENTICATEDCONFIGURE_INITIALIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(101796827, 13603, 18186, [141, 202, 251, 194, 132, 81, 84, 240]);
-pub const D3DAUTHENTICATEDCONFIGURE_PROTECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1346721368, 16199, 17250, [191, 153, 191, 223, 205, 233, 237, 41]);
-pub const D3DAUTHENTICATEDCONFIGURE_SHAREDRESOURCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(124964935, 6976, 18664, [156, 166, 181, 245, 16, 222, 159, 1]);
-pub const D3DAUTHENTICATEDQUERY_ACCESSIBILITYATTRIBUTES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1645533650, 17196, 19131, [159, 206, 33, 110, 234, 38, 158, 59]);
-pub const D3DAUTHENTICATEDQUERY_CHANNELTYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3155892389, 45563, 17067, [189, 148, 181, 130, 139, 75, 247, 190]);
-pub const D3DAUTHENTICATEDQUERY_CRYPTOSESSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(640960926, 53272, 19828, [172, 23, 127, 114, 64, 89, 82, 141]);
-pub const D3DAUTHENTICATEDQUERY_CURRENTENCRYPTIONWHENACCESSIBLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3960967623, 56019, 20245, [158, 195, 250, 169, 61, 96, 212, 240]);
-pub const D3DAUTHENTICATEDQUERY_DEVICEHANDLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3961279389, 36095, 20010, [188, 196, 245, 105, 47, 153, 244, 128]);
-pub const D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4164573528, 59782, 19418, [190, 176, 65, 31, 106, 122, 1, 183]);
-pub const D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUIDCOUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3004133478, 8252, 19207, [147, 252, 206, 170, 253, 97, 36, 30]);
-pub const D3DAUTHENTICATEDQUERY_OUTPUTID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2208160931, 39758, 16868, [176, 83, 137, 43, 210, 161, 30, 231]);
-pub const D3DAUTHENTICATEDQUERY_OUTPUTIDCOUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(738470750, 35847, 18133, [170, 190, 143, 117, 203, 173, 76, 49]);
-pub const D3DAUTHENTICATEDQUERY_PROTECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2823730564, 50325, 18602, [185, 77, 139, 210, 214, 251, 206, 5]);
-pub const D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1687927515, 61684, 17977, [161, 91, 36, 57, 63, 195, 171, 172]);
-pub const D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESSCOUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(229771187, 37968, 18086, [130, 222, 27, 150, 212, 79, 156, 242]);
-pub const D3DAUTHENTICATEDQUERY_UNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(19860438, 58978, 17524, [190, 253, 170, 83, 229, 20, 60, 109]);
+pub const D3DAUTHENTICATEDCONFIGURE_CRYPTOSESSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6346cc54_2cfc_4ad4_8224_d15837de7700);
+pub const D3DAUTHENTICATEDCONFIGURE_ENCRYPTIONWHENACCESSIBLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41fff286_6ae0_4d43_9d55_a46e9efd158a);
+pub const D3DAUTHENTICATEDCONFIGURE_INITIALIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06114bdb_3523_470a_8dca_fbc2845154f0);
+pub const D3DAUTHENTICATEDCONFIGURE_PROTECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50455658_3f47_4362_bf99_bfdfcde9ed29);
+pub const D3DAUTHENTICATEDCONFIGURE_SHAREDRESOURCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0772d047_1b40_48e8_9ca6_b5f510de9f01);
+pub const D3DAUTHENTICATEDQUERY_ACCESSIBILITYATTRIBUTES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6214d9d2_432c_4abb_9fce_216eea269e3b);
+pub const D3DAUTHENTICATEDQUERY_CHANNELTYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc1b18a5_b1fb_42ab_bd94_b5828b4bf7be);
+pub const D3DAUTHENTICATEDQUERY_CRYPTOSESSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2634499e_d018_4d74_ac17_7f724059528d);
+pub const D3DAUTHENTICATEDQUERY_CURRENTENCRYPTIONWHENACCESSIBLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec1791c7_dad3_4f15_9ec3_faa93d60d4f0);
+pub const D3DAUTHENTICATEDQUERY_DEVICEHANDLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec1c539d_8cff_4e2a_bcc4_f5692f99f480);
+pub const D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf83a5958_e986_4bda_beb0_411f6a7a01b7);
+pub const D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUIDCOUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb30f7066_203c_4b07_93fc_ceaafd61241e);
+pub const D3DAUTHENTICATEDQUERY_OUTPUTID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x839ddca3_9b4e_41e4_b053_892bd2a11ee7);
+pub const D3DAUTHENTICATEDQUERY_OUTPUTIDCOUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c042b5e_8c07_46d5_aabe_8f75cbad4c31);
+pub const D3DAUTHENTICATEDQUERY_PROTECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa84eb584_c495_48aa_b94d_8bd2d6fbce05);
+pub const D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x649bbadb_f0f4_4639_a15b_24393fc3abac);
+pub const D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESSCOUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0db207b3_9450_46a6_82de_1b96d44f9cf2);
+pub const D3DAUTHENTICATEDQUERY_UNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x012f0bd6_e662_4474_befd_aa53e5143c6d);
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -1961,8 +1961,8 @@ pub const D3DCREATE_PUREDEVICE: i32 = 16i32;
 pub const D3DCREATE_SCREENSAVER: i32 = 268435456i32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCREATE_SOFTWARE_VERTEXPROCESSING: i32 = 32i32;
-pub const D3DCRYPTOTYPE_AES128_CTR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2607535889, 20340, 16841, [158, 123, 11, 226, 215, 217, 59, 79]);
-pub const D3DCRYPTOTYPE_PROPRIETARY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2874055421, 7452, 18150, [167, 47, 8, 105, 145, 123, 13, 232]);
+pub const D3DCRYPTOTYPE_AES128_CTR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b6bd711_4f74_41c9_9e7b_0be2d7d93b4f);
+pub const D3DCRYPTOTYPE_PROPRIETARY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab4e9afd_1d1c_46e6_a72f_0869917b0de8);
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCS_BACK: i32 = 32i32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
@@ -2896,8 +2896,8 @@ unsafe impl ::windows::runtime::Abi for D3DINDEXBUFFER_DESC {
 pub const D3DISSUE_BEGIN: u32 = 2u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DISSUE_END: u32 = 1u32;
-pub const D3DKEYEXCHANGE_DXVA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1137932124, 14565, 18724, [141, 134, 211, 252, 207, 21, 62, 155]);
-pub const D3DKEYEXCHANGE_RSAES_OAEP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3247741077, 55082, 18973, [142, 93, 237, 133, 125, 23, 21, 32]);
+pub const D3DKEYEXCHANGE_DXVA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43d3775c_38e5_4924_8d86_d3fccf153e9b);
+pub const D3DKEYEXCHANGE_RSAES_OAEP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1949895_d72a_4a1d_8e5d_ed857d171520);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -5225,7 +5225,7 @@ impl IDirect3D9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3D9 {
     type Vtable = IDirect3D9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2176699338, 25812, 17005, [174, 141, 173, 1, 71, 244, 39, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81bdcbca_64d4_426d_ae8d_ad0147f4275c);
 }
 impl ::core::convert::From<IDirect3D9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3D9) -> Self {
@@ -5374,7 +5374,7 @@ impl IDirect3D9Ex {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3D9Ex {
     type Vtable = IDirect3D9Ex_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(35091009, 27132, 16396, [143, 241, 147, 164, 77, 246, 134, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02177241_69fc_400c_8ff1_93a44df6861d);
 }
 impl ::core::convert::From<IDirect3D9Ex> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3D9Ex) -> Self {
@@ -5514,7 +5514,7 @@ impl IDirect3DBaseTexture9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DBaseTexture9 {
     type Vtable = IDirect3DBaseTexture9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1477224574, 7484, 19796, [153, 29, 183, 211, 227, 194, 152, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x580ca87e_1d3c_4d54_991d_b7d3e3c298ce);
 }
 impl ::core::convert::From<IDirect3DBaseTexture9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DBaseTexture9) -> Self {
@@ -5665,7 +5665,7 @@ impl IDirect3DCubeTexture9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DCubeTexture9 {
     type Vtable = IDirect3DCubeTexture9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4294127489, 55635, 18234, [146, 35, 147, 214, 82, 171, 169, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfff32f81_d953_473a_9223_93d652aba93f);
 }
 impl ::core::convert::From<IDirect3DCubeTexture9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DCubeTexture9) -> Self {
@@ -6323,7 +6323,7 @@ impl IDirect3DDevice9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DDevice9 {
     type Vtable = IDirect3DDevice9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3491904406, 49018, 17405, [146, 189, 164, 59, 13, 130, 185, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0223b96_bf7a_43fd_92bd_a43b0d82b9eb);
 }
 impl ::core::convert::From<IDirect3DDevice9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DDevice9) -> Self {
@@ -7161,7 +7161,7 @@ impl IDirect3DDevice9Ex {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DDevice9Ex {
     type Vtable = IDirect3DDevice9Ex_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2978681038, 9801, 16474, [135, 15, 149, 247, 119, 212, 49, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb18b10ce_2649_405a_870f_95f777d4313a);
 }
 impl ::core::convert::From<IDirect3DDevice9Ex> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DDevice9Ex) -> Self {
@@ -7435,7 +7435,7 @@ impl IDirect3DIndexBuffer9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DIndexBuffer9 {
     type Vtable = IDirect3DIndexBuffer9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2090718814, 54263, 17705, [172, 238, 120, 88, 48, 172, 222, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c9dd65e_d3f7_4529_acee_785830acde35);
 }
 impl ::core::convert::From<IDirect3DIndexBuffer9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DIndexBuffer9) -> Self {
@@ -7512,7 +7512,7 @@ impl IDirect3DPixelShader9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DPixelShader9 {
     type Vtable = IDirect3DPixelShader9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1832639452, 23298, 17429, [184, 82, 206, 94, 139, 204, 178, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d3bdbdc_5b02_4415_b852_ce5e8bccb289);
 }
 impl ::core::convert::From<IDirect3DPixelShader9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DPixelShader9) -> Self {
@@ -7572,7 +7572,7 @@ impl IDirect3DQuery9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DQuery9 {
     type Vtable = IDirect3DQuery9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3648459872, 42645, 20262, [187, 211, 39, 184, 64, 181, 65, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9771460_a695_4f26_bbd3_27b840b541cc);
 }
 impl ::core::convert::From<IDirect3DQuery9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DQuery9) -> Self {
@@ -7647,7 +7647,7 @@ impl IDirect3DResource9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DResource9 {
     type Vtable = IDirect3DResource9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(99532893, 36733, 17250, [185, 153, 209, 186, 243, 87, 199, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05eec05d_8f7d_4362_b999_d1baf357c704);
 }
 impl ::core::convert::From<IDirect3DResource9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DResource9) -> Self {
@@ -7705,7 +7705,7 @@ impl IDirect3DStateBlock9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DStateBlock9 {
     type Vtable = IDirect3DStateBlock9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2960936933, 12557, 19368, [162, 60, 79, 15, 32, 111, 33, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb07c4fe5_310d_4ba8_a23c_4f0f206f218b);
 }
 impl ::core::convert::From<IDirect3DStateBlock9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DStateBlock9) -> Self {
@@ -7805,7 +7805,7 @@ impl IDirect3DSurface9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DSurface9 {
     type Vtable = IDirect3DSurface9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(217820986, 40950, 17050, [153, 179, 162, 121, 106, 248, 184, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cfbaf3a_9ff6_429a_99b3_a2796af8b89b);
 }
 impl ::core::convert::From<IDirect3DSurface9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DSurface9) -> Self {
@@ -7912,7 +7912,7 @@ impl IDirect3DSwapChain9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DSwapChain9 {
     type Vtable = IDirect3DSwapChain9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2034847986, 44540, 17802, [144, 94, 16, 161, 11, 11, 80, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x794950f2_adfc_458a_905e_10a10b0b503b);
 }
 impl ::core::convert::From<IDirect3DSwapChain9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DSwapChain9) -> Self {
@@ -8004,7 +8004,7 @@ impl IDirect3DSwapChain9Ex {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DSwapChain9Ex {
     type Vtable = IDirect3DSwapChain9Ex_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2441637039, 7229, 19758, [160, 171, 62, 76, 125, 141, 51, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91886caf_1c3d_4d2e_a0ab_3e4c7d8d3303);
 }
 impl ::core::convert::From<IDirect3DSwapChain9Ex> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DSwapChain9Ex) -> Self {
@@ -8154,7 +8154,7 @@ impl IDirect3DTexture9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DTexture9 {
     type Vtable = IDirect3DTexture9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2244153895, 15845, 20224, [155, 58, 241, 26, 195, 140, 24, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85c31227_3de5_4f00_9b3a_f11ac38c18b5);
 }
 impl ::core::convert::From<IDirect3DTexture9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DTexture9) -> Self {
@@ -8297,7 +8297,7 @@ impl IDirect3DVertexBuffer9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DVertexBuffer9 {
     type Vtable = IDirect3DVertexBuffer9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3058414005, 64880, 19958, [191, 145, 25, 208, 161, 36, 85, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb64bb1b5_fd70_4df6_bf91_19d0a12455e3);
 }
 impl ::core::convert::From<IDirect3DVertexBuffer9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DVertexBuffer9) -> Self {
@@ -8374,7 +8374,7 @@ impl IDirect3DVertexDeclaration9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DVertexDeclaration9 {
     type Vtable = IDirect3DVertexDeclaration9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3709060508, 14074, 16536, [168, 251, 199, 237, 57, 220, 133, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd13c59c_36fa_4098_a8fb_c7ed39dc8546);
 }
 impl ::core::convert::From<IDirect3DVertexDeclaration9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DVertexDeclaration9) -> Self {
@@ -8422,7 +8422,7 @@ impl IDirect3DVertexShader9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DVertexShader9 {
     type Vtable = IDirect3DVertexShader9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4022687102, 25189, 17939, [138, 148, 67, 133, 120, 137, 235, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefc5557e_6265_4613_8a94_43857889eb36);
 }
 impl ::core::convert::From<IDirect3DVertexShader9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DVertexShader9) -> Self {
@@ -8494,7 +8494,7 @@ impl IDirect3DVolume9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DVolume9 {
     type Vtable = IDirect3DVolume9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(619976422, 8039, 19111, [184, 142, 211, 63, 111, 49, 40, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24f416e6_1f67_4aa7_b88e_d33f6f3128a1);
 }
 impl ::core::convert::From<IDirect3DVolume9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DVolume9) -> Self {
@@ -8617,7 +8617,7 @@ impl IDirect3DVolumeTexture9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DVolumeTexture9 {
     type Vtable = IDirect3DVolumeTexture9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(622350956, 59273, 16657, [167, 185, 71, 239, 50, 141, 19, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2518526c_e789_4111_a7b9_47ef328d13e6);
 }
 impl ::core::convert::From<IDirect3DVolumeTexture9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DVolumeTexture9) -> Self {

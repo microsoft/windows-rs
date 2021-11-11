@@ -4,7 +4,7 @@
 pub struct IWiFiDirectService(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectService {
     type Vtable = IWiFiDirectService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1353366456, 24433, 17900, [132, 241, 161, 228, 252, 120, 121, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50aabbb8_5f71_45ec_84f1_a1e4fc7879a3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -42,7 +42,7 @@ pub struct IWiFiDirectService_abi(
 pub struct IWiFiDirectServiceAdvertiser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceAdvertiser {
     type Vtable = IWiFiDirectServiceAdvertiser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2762612449, 40335, 20303, [147, 238, 125, 222, 162, 227, 127, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4aa1ee1_9d8f_4f4f_93ee_7ddea2e37f46);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -100,7 +100,7 @@ pub struct IWiFiDirectServiceAdvertiser_abi(
 pub struct IWiFiDirectServiceAdvertiserFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceAdvertiserFactory {
     type Vtable = IWiFiDirectServiceAdvertiserFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(822520845, 46150, 20243, [159, 154, 138, 233, 37, 254, 186, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3106ac0d_b446_4f13_9f9a_8ae925feba2b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -118,7 +118,7 @@ pub struct IWiFiDirectServiceAdvertiserFactory_abi(
 pub struct IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
     type Vtable = IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3705266206, 33759, 17381, [143, 67, 203, 232, 71, 158, 132, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcd9e01e_83df_43e5_8f43_cbe8479e84eb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -138,7 +138,7 @@ pub struct IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs_abi(
 pub struct IWiFiDirectServiceProvisioningInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceProvisioningInfo {
     type Vtable = IWiFiDirectServiceProvisioningInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2346417406, 38873, 17826, [142, 153, 219, 80, 145, 15, 182, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bdb7cfe_97d9_45a2_8e99_db50910fb6a6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -157,7 +157,7 @@ pub struct IWiFiDirectServiceProvisioningInfo_abi(
 pub struct IWiFiDirectServiceRemotePortAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceRemotePortAddedEventArgs {
     type Vtable = IWiFiDirectServiceRemotePortAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3570318017, 16339, 20238, [183, 189, 120, 41, 6, 244, 68, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4cebac1_3fd3_4f0e_b7bd_782906f44411);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -177,7 +177,7 @@ pub struct IWiFiDirectServiceRemotePortAddedEventArgs_abi(
 pub struct IWiFiDirectServiceSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceSession {
     type Vtable = IWiFiDirectServiceSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2165580131, 58406, 18379, [134, 64, 225, 179, 88, 139, 242, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81142163_e426_47cb_8640_e1b3588bf26f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -215,7 +215,7 @@ pub struct IWiFiDirectServiceSession_abi(
 pub struct IWiFiDirectServiceSessionDeferredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceSessionDeferredEventArgs {
     type Vtable = IWiFiDirectServiceSessionDeferredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2382109055, 4609, 20255, [182, 244, 93, 241, 183, 185, 251, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8dfc197f_1201_4f1f_b6f4_5df1b7b9fb2e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -234,7 +234,7 @@ pub struct IWiFiDirectServiceSessionDeferredEventArgs_abi(
 pub struct IWiFiDirectServiceSessionRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceSessionRequest {
     type Vtable = IWiFiDirectServiceSessionRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2699197579, 20683, 19032, [155, 207, 228, 114, 185, 159, 186, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0e27c8b_50cb_4a58_9bcf_e472b99fba04);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -256,7 +256,7 @@ pub struct IWiFiDirectServiceSessionRequest_abi(
 pub struct IWiFiDirectServiceSessionRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceSessionRequestedEventArgs {
     type Vtable = IWiFiDirectServiceSessionRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1958595601, 21462, 18841, [180, 248, 108, 142, 204, 23, 113, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74bdcc11_53d6_4999_b4f8_6c8ecc1771e7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -274,7 +274,7 @@ pub struct IWiFiDirectServiceSessionRequestedEventArgs_abi(
 pub struct IWiFiDirectServiceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceStatics {
     type Vtable = IWiFiDirectServiceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2108948549, 64884, 18056, [183, 37, 93, 206, 134, 172, 242, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7db40045_fd74_4688_b725_5dce86acf233);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -425,7 +425,7 @@ unsafe impl ::windows::runtime::RuntimeType for WiFiDirectService {
 }
 unsafe impl ::windows::runtime::Interface for WiFiDirectService {
     type Vtable = IWiFiDirectService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1353366456, 24433, 17900, [132, 241, 161, 228, 252, 120, 121, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50aabbb8_5f71_45ec_84f1_a1e4fc7879a3);
 }
 impl ::windows::runtime::RuntimeName for WiFiDirectService {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectService";
@@ -715,7 +715,7 @@ unsafe impl ::windows::runtime::RuntimeType for WiFiDirectServiceAdvertiser {
 }
 unsafe impl ::windows::runtime::Interface for WiFiDirectServiceAdvertiser {
     type Vtable = IWiFiDirectServiceAdvertiser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2762612449, 40335, 20303, [147, 238, 125, 222, 162, 227, 127, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4aa1ee1_9d8f_4f4f_93ee_7ddea2e37f46);
 }
 impl ::windows::runtime::RuntimeName for WiFiDirectServiceAdvertiser {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAdvertiser";
@@ -790,7 +790,7 @@ unsafe impl ::windows::runtime::RuntimeType for WiFiDirectServiceAutoAcceptSessi
 }
 unsafe impl ::windows::runtime::Interface for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
     type Vtable = IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3705266206, 33759, 17381, [143, 67, 203, 232, 71, 158, 132, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcd9e01e_83df_43e5_8f43_cbe8479e84eb);
 }
 impl ::windows::runtime::RuntimeName for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAutoAcceptSessionConnectedEventArgs";
@@ -934,7 +934,7 @@ unsafe impl ::windows::runtime::RuntimeType for WiFiDirectServiceProvisioningInf
 }
 unsafe impl ::windows::runtime::Interface for WiFiDirectServiceProvisioningInfo {
     type Vtable = IWiFiDirectServiceProvisioningInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2346417406, 38873, 17826, [142, 153, 219, 80, 145, 15, 182, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bdb7cfe_97d9_45a2_8e99_db50910fb6a6);
 }
 impl ::windows::runtime::RuntimeName for WiFiDirectServiceProvisioningInfo {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceProvisioningInfo";
@@ -1009,7 +1009,7 @@ unsafe impl ::windows::runtime::RuntimeType for WiFiDirectServiceRemotePortAdded
 }
 unsafe impl ::windows::runtime::Interface for WiFiDirectServiceRemotePortAddedEventArgs {
     type Vtable = IWiFiDirectServiceRemotePortAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3570318017, 16339, 20238, [183, 189, 120, 41, 6, 244, 68, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4cebac1_3fd3_4f0e_b7bd_782906f44411);
 }
 impl ::windows::runtime::RuntimeName for WiFiDirectServiceRemotePortAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceRemotePortAddedEventArgs";
@@ -1186,7 +1186,7 @@ unsafe impl ::windows::runtime::RuntimeType for WiFiDirectServiceSession {
 }
 unsafe impl ::windows::runtime::Interface for WiFiDirectServiceSession {
     type Vtable = IWiFiDirectServiceSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2165580131, 58406, 18379, [134, 64, 225, 179, 88, 139, 242, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81142163_e426_47cb_8640_e1b3588bf26f);
 }
 impl ::windows::runtime::RuntimeName for WiFiDirectServiceSession {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSession";
@@ -1279,7 +1279,7 @@ unsafe impl ::windows::runtime::RuntimeType for WiFiDirectServiceSessionDeferred
 }
 unsafe impl ::windows::runtime::Interface for WiFiDirectServiceSessionDeferredEventArgs {
     type Vtable = IWiFiDirectServiceSessionDeferredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2382109055, 4609, 20255, [182, 244, 93, 241, 183, 185, 251, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8dfc197f_1201_4f1f_b6f4_5df1b7b9fb2e);
 }
 impl ::windows::runtime::RuntimeName for WiFiDirectServiceSessionDeferredEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionDeferredEventArgs";
@@ -1395,7 +1395,7 @@ unsafe impl ::windows::runtime::RuntimeType for WiFiDirectServiceSessionRequest 
 }
 unsafe impl ::windows::runtime::Interface for WiFiDirectServiceSessionRequest {
     type Vtable = IWiFiDirectServiceSessionRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2699197579, 20683, 19032, [155, 207, 228, 114, 185, 159, 186, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0e27c8b_50cb_4a58_9bcf_e472b99fba04);
 }
 impl ::windows::runtime::RuntimeName for WiFiDirectServiceSessionRequest {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionRequest";
@@ -1487,7 +1487,7 @@ unsafe impl ::windows::runtime::RuntimeType for WiFiDirectServiceSessionRequeste
 }
 unsafe impl ::windows::runtime::Interface for WiFiDirectServiceSessionRequestedEventArgs {
     type Vtable = IWiFiDirectServiceSessionRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1958595601, 21462, 18841, [180, 248, 108, 142, 204, 23, 113, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74bdcc11_53d6_4999_b4f8_6c8ecc1771e7);
 }
 impl ::windows::runtime::RuntimeName for WiFiDirectServiceSessionRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionRequestedEventArgs";

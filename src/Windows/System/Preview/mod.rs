@@ -30,7 +30,7 @@ impl ::windows::runtime::DefaultType for HingeState {
 pub struct ITwoPanelHingedDevicePosturePreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITwoPanelHingedDevicePosturePreview {
     type Vtable = ITwoPanelHingedDevicePosturePreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1914985521, 19257, 17062, [142, 115, 114, 53, 173, 225, 104, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72245c31_4b39_42a6_8e73_7235ade16853);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -53,7 +53,7 @@ pub struct ITwoPanelHingedDevicePosturePreview_abi(
 pub struct ITwoPanelHingedDevicePosturePreviewReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITwoPanelHingedDevicePosturePreviewReading {
     type Vtable = ITwoPanelHingedDevicePosturePreviewReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2686784594, 19158, 19256, [132, 38, 197, 154, 21, 73, 58, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0251452_4ad6_4b38_8426_c59a15493a7d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -79,7 +79,7 @@ pub struct ITwoPanelHingedDevicePosturePreviewReading_abi(
 pub struct ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
     type Vtable = ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(757930950, 718, 18250, [165, 86, 167, 91, 28, 249, 58, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d2d1bc6_02ce_474a_a556_a75b1cf93a03);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -97,7 +97,7 @@ pub struct ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs_abi(
 pub struct ITwoPanelHingedDevicePosturePreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITwoPanelHingedDevicePosturePreviewStatics {
     type Vtable = ITwoPanelHingedDevicePosturePreviewStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(205992914, 22496, 16768, [189, 94, 243, 26, 33, 56, 66, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c4733d2_57e0_4180_bd5e_f31a2138423e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -162,7 +162,7 @@ unsafe impl ::windows::runtime::RuntimeType for TwoPanelHingedDevicePosturePrevi
 }
 unsafe impl ::windows::runtime::Interface for TwoPanelHingedDevicePosturePreview {
     type Vtable = ITwoPanelHingedDevicePosturePreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1914985521, 19257, 17062, [142, 115, 114, 53, 173, 225, 104, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72245c31_4b39_42a6_8e73_7235ade16853);
 }
 impl ::windows::runtime::RuntimeName for TwoPanelHingedDevicePosturePreview {
     const NAME: &'static str = "Windows.System.Preview.TwoPanelHingedDevicePosturePreview";
@@ -277,7 +277,7 @@ unsafe impl ::windows::runtime::RuntimeType for TwoPanelHingedDevicePosturePrevi
 }
 unsafe impl ::windows::runtime::Interface for TwoPanelHingedDevicePosturePreviewReading {
     type Vtable = ITwoPanelHingedDevicePosturePreviewReading_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2686784594, 19158, 19256, [132, 38, 197, 154, 21, 73, 58, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0251452_4ad6_4b38_8426_c59a15493a7d);
 }
 impl ::windows::runtime::RuntimeName for TwoPanelHingedDevicePosturePreviewReading {
     const NAME: &'static str = "Windows.System.Preview.TwoPanelHingedDevicePosturePreviewReading";
@@ -344,7 +344,7 @@ unsafe impl ::windows::runtime::RuntimeType for TwoPanelHingedDevicePosturePrevi
 }
 unsafe impl ::windows::runtime::Interface for TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
     type Vtable = ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(757930950, 718, 18250, [165, 86, 167, 91, 28, 249, 58, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d2d1bc6_02ce_474a_a556_a75b1cf93a03);
 }
 impl ::windows::runtime::RuntimeName for TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
     const NAME: &'static str = "Windows.System.Preview.TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs";

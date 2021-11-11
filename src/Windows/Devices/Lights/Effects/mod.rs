@@ -4,7 +4,7 @@
 pub struct ILampArrayBitmapEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayBitmapEffect {
     type Vtable = ILampArrayBitmapEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(842588261, 55415, 17959, [137, 229, 42, 136, 247, 5, 47, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3238e065_d877_4627_89e5_2a88f7052fa6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -39,7 +39,7 @@ pub struct ILampArrayBitmapEffect_abi(
 pub struct ILampArrayBitmapEffectFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayBitmapEffectFactory {
     type Vtable = ILampArrayBitmapEffectFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(325091472, 58166, 19599, [144, 83, 169, 36, 7, 202, 123, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13608090_e336_4c8f_9053_a92407ca7b1d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -57,7 +57,7 @@ pub struct ILampArrayBitmapEffectFactory_abi(
 pub struct ILampArrayBitmapRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayBitmapRequestedEventArgs {
     type Vtable = ILampArrayBitmapRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3367284638, 65123, 19793, [186, 189, 97, 157, 239, 180, 84, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8b4af9e_fe63_4d51_babd_619defb454ba);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -78,7 +78,7 @@ pub struct ILampArrayBitmapRequestedEventArgs_abi(
 pub struct ILampArrayBlinkEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayBlinkEffect {
     type Vtable = ILampArrayBlinkEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3955176950, 12229, 19379, [179, 195, 98, 33, 167, 104, 13, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xebbf35f6_2fc5_4bb3_b3c3_6221a7680d13);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -123,7 +123,7 @@ pub struct ILampArrayBlinkEffect_abi(
 pub struct ILampArrayBlinkEffectFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayBlinkEffectFactory {
     type Vtable = ILampArrayBlinkEffectFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2275351959, 40784, 18866, [165, 111, 1, 58, 160, 141, 85, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x879f1d97_9f50_49b2_a56f_013aa08d55e0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -141,7 +141,7 @@ pub struct ILampArrayBlinkEffectFactory_abi(
 pub struct ILampArrayColorRampEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayColorRampEffect {
     type Vtable = ILampArrayColorRampEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(721437751, 16551, 17198, [160, 185, 13, 87, 12, 33, 83, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b004437_40a7_432e_a0b9_0d570c2153ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -172,7 +172,7 @@ pub struct ILampArrayColorRampEffect_abi(
 pub struct ILampArrayColorRampEffectFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayColorRampEffectFactory {
     type Vtable = ILampArrayColorRampEffectFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1376506163, 3188, 19957, [190, 167, 72, 153, 224, 38, 107, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x520bd133_0c74_4df5_bea7_4899e0266b0f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -190,7 +190,7 @@ pub struct ILampArrayColorRampEffectFactory_abi(
 pub struct ILampArrayCustomEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayCustomEffect {
     type Vtable = ILampArrayCustomEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3965161840, 15412, 18550, [129, 139, 87, 101, 247, 139, 14, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec579170_3c34_4876_818b_5765f78b0ee4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -219,7 +219,7 @@ pub struct ILampArrayCustomEffect_abi(
 pub struct ILampArrayCustomEffectFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayCustomEffectFactory {
     type Vtable = ILampArrayCustomEffectFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1756657485, 25573, 19184, [165, 139, 62, 83, 91, 148, 232, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68b4774d_63e5_4af0_a58b_3e535b94e8c9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -238,7 +238,7 @@ pub struct ILampArrayCustomEffectFactory_abi(
 pub struct ILampArrayEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayEffect {
     type Vtable = ILampArrayEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(299128208, 22523, 17734, [177, 206, 134, 49, 7, 247, 64, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11d45590_57fb_4546_b1ce_863107f740df);
 }
 impl ILampArrayEffect {
     #[doc = "*Required features: `Devices_Lights_Effects`*"]
@@ -315,7 +315,7 @@ pub struct ILampArrayEffect_abi(
 pub struct ILampArrayEffectPlaylist(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayEffectPlaylist {
     type Vtable = ILampArrayEffectPlaylist_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2112195582, 28513, 16643, [152, 199, 214, 99, 47, 123, 145, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7de58bfe_6f61_4103_98c7_d6632f7b9169);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -343,7 +343,7 @@ pub struct ILampArrayEffectPlaylist_abi(
 pub struct ILampArrayEffectPlaylistStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayEffectPlaylistStatics {
     type Vtable = ILampArrayEffectPlaylistStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4212466524, 59957, 19583, [160, 22, 243, 191, 198, 166, 196, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb15235c_ea35_4c7f_a016_f3bfc6a6c47d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -366,7 +366,7 @@ pub struct ILampArrayEffectPlaylistStatics_abi(
 pub struct ILampArraySolidEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArraySolidEffect {
     type Vtable = ILampArraySolidEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1142915603, 17356, 19251, [128, 235, 198, 221, 222, 125, 200, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x441f8213_43cc_4b33_80eb_c6ddde7dc8ed);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -397,7 +397,7 @@ pub struct ILampArraySolidEffect_abi(
 pub struct ILampArraySolidEffectFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArraySolidEffectFactory {
     type Vtable = ILampArraySolidEffectFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4167213868, 21878, 17217, [150, 27, 174, 225, 241, 60, 249, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf862a32c_5576_4341_961b_aee1f13cf9dd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -415,7 +415,7 @@ pub struct ILampArraySolidEffectFactory_abi(
 pub struct ILampArrayUpdateRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayUpdateRequestedEventArgs {
     type Vtable = ILampArrayUpdateRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1935019370, 22378, 18607, [133, 57, 103, 255, 160, 171, 53, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73560d6a_576a_48af_8539_67ffa0ab3516);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -541,7 +541,7 @@ unsafe impl ::windows::runtime::RuntimeType for LampArrayBitmapEffect {
 }
 unsafe impl ::windows::runtime::Interface for LampArrayBitmapEffect {
     type Vtable = ILampArrayBitmapEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(842588261, 55415, 17959, [137, 229, 42, 136, 247, 5, 47, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3238e065_d877_4627_89e5_2a88f7052fa6);
 }
 impl ::windows::runtime::RuntimeName for LampArrayBitmapEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBitmapEffect";
@@ -636,7 +636,7 @@ unsafe impl ::windows::runtime::RuntimeType for LampArrayBitmapRequestedEventArg
 }
 unsafe impl ::windows::runtime::Interface for LampArrayBitmapRequestedEventArgs {
     type Vtable = ILampArrayBitmapRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3367284638, 65123, 19793, [186, 189, 97, 157, 239, 180, 84, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8b4af9e_fe63_4d51_babd_619defb454ba);
 }
 impl ::windows::runtime::RuntimeName for LampArrayBitmapRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBitmapRequestedEventArgs";
@@ -834,7 +834,7 @@ unsafe impl ::windows::runtime::RuntimeType for LampArrayBlinkEffect {
 }
 unsafe impl ::windows::runtime::Interface for LampArrayBlinkEffect {
     type Vtable = ILampArrayBlinkEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3955176950, 12229, 19379, [179, 195, 98, 33, 167, 104, 13, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xebbf35f6_2fc5_4bb3_b3c3_6221a7680d13);
 }
 impl ::windows::runtime::RuntimeName for LampArrayBlinkEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBlinkEffect";
@@ -996,7 +996,7 @@ unsafe impl ::windows::runtime::RuntimeType for LampArrayColorRampEffect {
 }
 unsafe impl ::windows::runtime::Interface for LampArrayColorRampEffect {
     type Vtable = ILampArrayColorRampEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(721437751, 16551, 17198, [160, 185, 13, 87, 12, 33, 83, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b004437_40a7_432e_a0b9_0d570c2153ff);
 }
 impl ::windows::runtime::RuntimeName for LampArrayColorRampEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayColorRampEffect";
@@ -1145,7 +1145,7 @@ unsafe impl ::windows::runtime::RuntimeType for LampArrayCustomEffect {
 }
 unsafe impl ::windows::runtime::Interface for LampArrayCustomEffect {
     type Vtable = ILampArrayCustomEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3965161840, 15412, 18550, [129, 139, 87, 101, 247, 139, 14, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec579170_3c34_4876_818b_5765f78b0ee4);
 }
 impl ::windows::runtime::RuntimeName for LampArrayCustomEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayCustomEffect";
@@ -1382,7 +1382,7 @@ unsafe impl ::windows::runtime::RuntimeType for LampArrayEffectPlaylist {
 }
 unsafe impl ::windows::runtime::Interface for LampArrayEffectPlaylist {
     type Vtable = ILampArrayEffectPlaylist_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2112195582, 28513, 16643, [152, 199, 214, 99, 47, 123, 145, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7de58bfe_6f61_4103_98c7_d6632f7b9169);
 }
 impl ::windows::runtime::RuntimeName for LampArrayEffectPlaylist {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayEffectPlaylist";
@@ -1634,7 +1634,7 @@ unsafe impl ::windows::runtime::RuntimeType for LampArraySolidEffect {
 }
 unsafe impl ::windows::runtime::Interface for LampArraySolidEffect {
     type Vtable = ILampArraySolidEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1142915603, 17356, 19251, [128, 235, 198, 221, 222, 125, 200, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x441f8213_43cc_4b33_80eb_c6ddde7dc8ed);
 }
 impl ::windows::runtime::RuntimeName for LampArraySolidEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArraySolidEffect";
@@ -1747,7 +1747,7 @@ unsafe impl ::windows::runtime::RuntimeType for LampArrayUpdateRequestedEventArg
 }
 unsafe impl ::windows::runtime::Interface for LampArrayUpdateRequestedEventArgs {
     type Vtable = ILampArrayUpdateRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1935019370, 22378, 18607, [133, 57, 103, 255, 160, 171, 53, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73560d6a_576a_48af_8539_67ffa0ab3516);
 }
 impl ::windows::runtime::RuntimeName for LampArrayUpdateRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayUpdateRequestedEventArgs";

@@ -27,7 +27,7 @@ impl IOpcCertificateEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IOpcCertificateEnumerator {
     type Vtable = IOpcCertificateEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2232621367, 36644, 16927, [180, 57, 89, 171, 36, 209, 64, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85131937_8f24_421f_b439_59ab24d140b8);
 }
 impl ::core::convert::From<IOpcCertificateEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IOpcCertificateEnumerator) -> Self {
@@ -86,7 +86,7 @@ impl IOpcCertificateSet {
 }
 unsafe impl ::windows::runtime::Interface for IOpcCertificateSet {
     type Vtable = IOpcCertificateSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1458193189, 36397, 16743, [177, 164, 228, 134, 210, 76, 143, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56ea4325_8e2d_4167_b1a4_e486d24c8fa7);
 }
 impl ::core::convert::From<IOpcCertificateSet> for ::windows::runtime::IUnknown {
     fn from(value: IOpcCertificateSet) -> Self {
@@ -202,7 +202,7 @@ impl IOpcDigitalSignature {
 }
 unsafe impl ::windows::runtime::Interface for IOpcDigitalSignature {
     type Vtable = IOpcDigitalSignature_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1386947037, 7376, 18761, [188, 128, 12, 18, 50, 208, 12, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52ab21dd_1cd0_4949_bc80_0c1232d00cb4);
 }
 impl ::core::convert::From<IOpcDigitalSignature> for ::windows::runtime::IUnknown {
     fn from(value: IOpcDigitalSignature) -> Self {
@@ -280,7 +280,7 @@ impl IOpcDigitalSignatureEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IOpcDigitalSignatureEnumerator {
     type Vtable = IOpcDigitalSignatureEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2524670082, 2979, 17240, [185, 231, 182, 76, 117, 6, 60, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x967b6882_0ba3_4358_b9e7_b64c75063c5e);
 }
 impl ::core::convert::From<IOpcDigitalSignatureEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IOpcDigitalSignatureEnumerator) -> Self {
@@ -362,7 +362,7 @@ impl IOpcDigitalSignatureManager {
 }
 unsafe impl ::windows::runtime::Interface for IOpcDigitalSignatureManager {
     type Vtable = IOpcDigitalSignatureManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3588631051, 26989, 17967, [148, 223, 114, 227, 60, 239, 38, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5e62a0b_696d_462f_94df_72e33cef2659);
 }
 impl ::core::convert::From<IOpcDigitalSignatureManager> for ::windows::runtime::IUnknown {
     fn from(value: IOpcDigitalSignatureManager) -> Self {
@@ -447,7 +447,7 @@ impl IOpcFactory {
 }
 unsafe impl ::windows::runtime::Interface for IOpcFactory {
     type Vtable = IOpcFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1829454918, 52595, 19123, [148, 244, 140, 205, 246, 17, 97, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d0b4446_cd73_4ab3_94f4_8ccdf6116154);
 }
 impl ::core::convert::From<IOpcFactory> for ::windows::runtime::IUnknown {
     fn from(value: IOpcFactory) -> Self {
@@ -505,7 +505,7 @@ impl IOpcPackage {
 }
 unsafe impl ::windows::runtime::Interface for IOpcPackage {
     type Vtable = IOpcPackage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1108957513, 15225, 20424, [137, 198, 252, 127, 185, 121, 238, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee70);
 }
 impl ::core::convert::From<IOpcPackage> for ::windows::runtime::IUnknown {
     fn from(value: IOpcPackage) -> Self {
@@ -571,7 +571,7 @@ impl IOpcPart {
 }
 unsafe impl ::windows::runtime::Interface for IOpcPart {
     type Vtable = IOpcPart_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1108957513, 15225, 20424, [137, 198, 252, 127, 185, 121, 238, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee71);
 }
 impl ::core::convert::From<IOpcPart> for ::windows::runtime::IUnknown {
     fn from(value: IOpcPart) -> Self {
@@ -637,7 +637,7 @@ impl IOpcPartEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IOpcPartEnumerator {
     type Vtable = IOpcPartEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1108957513, 15225, 20424, [137, 198, 252, 127, 185, 121, 238, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee75);
 }
 impl ::core::convert::From<IOpcPartEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IOpcPartEnumerator) -> Self {
@@ -706,7 +706,7 @@ impl IOpcPartSet {
 }
 unsafe impl ::windows::runtime::Interface for IOpcPartSet {
     type Vtable = IOpcPartSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1108957513, 15225, 20424, [137, 198, 252, 127, 185, 121, 238, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee73);
 }
 impl ::core::convert::From<IOpcPartSet> for ::windows::runtime::IUnknown {
     fn from(value: IOpcPartSet) -> Self {
@@ -925,7 +925,7 @@ impl IOpcPartUri {
 }
 unsafe impl ::windows::runtime::Interface for IOpcPartUri {
     type Vtable = IOpcPartUri_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2101062631, 34994, 18106, [133, 203, 66, 3, 203, 1, 108, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d3babe7_88b2_46ba_85cb_4203cb016c87);
 }
 impl ::core::convert::From<IOpcPartUri> for ::windows::runtime::IUnknown {
     fn from(value: IOpcPartUri) -> Self {
@@ -1088,7 +1088,7 @@ impl IOpcRelationship {
 }
 unsafe impl ::windows::runtime::Interface for IOpcRelationship {
     type Vtable = IOpcRelationship_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1108957513, 15225, 20424, [137, 198, 252, 127, 185, 121, 238, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee72);
 }
 impl ::core::convert::From<IOpcRelationship> for ::windows::runtime::IUnknown {
     fn from(value: IOpcRelationship) -> Self {
@@ -1155,7 +1155,7 @@ impl IOpcRelationshipEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IOpcRelationshipEnumerator {
     type Vtable = IOpcRelationshipEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1108957513, 15225, 20424, [137, 198, 252, 127, 185, 121, 238, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee76);
 }
 impl ::core::convert::From<IOpcRelationshipEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IOpcRelationshipEnumerator) -> Self {
@@ -1209,7 +1209,7 @@ impl IOpcRelationshipSelector {
 }
 unsafe impl ::windows::runtime::Interface for IOpcRelationshipSelector {
     type Vtable = IOpcRelationshipSelector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4176637055, 45711, 18585, [132, 200, 93, 86, 57, 237, 231, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8f26c7f_b28f_4899_84c8_5d5639ede75f);
 }
 impl ::core::convert::From<IOpcRelationshipSelector> for ::windows::runtime::IUnknown {
     fn from(value: IOpcRelationshipSelector) -> Self {
@@ -1271,7 +1271,7 @@ impl IOpcRelationshipSelectorEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IOpcRelationshipSelectorEnumerator {
     type Vtable = IOpcRelationshipSelectorEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1582342529, 43291, 18604, [136, 210, 188, 163, 216, 248, 192, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e50a181_a91b_48ac_88d2_bca3d8f8c0b1);
 }
 impl ::core::convert::From<IOpcRelationshipSelectorEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IOpcRelationshipSelectorEnumerator) -> Self {
@@ -1329,7 +1329,7 @@ impl IOpcRelationshipSelectorSet {
 }
 unsafe impl ::windows::runtime::Interface for IOpcRelationshipSelectorSet {
     type Vtable = IOpcRelationshipSelectorSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1848951401, 42195, 18368, [181, 196, 135, 255, 43, 59, 97, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e34c269_a4d3_47c0_b5c4_87ff2b3b6136);
 }
 impl ::core::convert::From<IOpcRelationshipSelectorSet> for ::windows::runtime::IUnknown {
     fn from(value: IOpcRelationshipSelectorSet) -> Self {
@@ -1410,7 +1410,7 @@ impl IOpcRelationshipSet {
 }
 unsafe impl ::windows::runtime::Interface for IOpcRelationshipSet {
     type Vtable = IOpcRelationshipSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1108957513, 15225, 20424, [137, 198, 252, 127, 185, 121, 238, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee74);
 }
 impl ::core::convert::From<IOpcRelationshipSet> for ::windows::runtime::IUnknown {
     fn from(value: IOpcRelationshipSet) -> Self {
@@ -1464,7 +1464,7 @@ impl IOpcSignatureCustomObject {
 }
 unsafe impl ::windows::runtime::Interface for IOpcSignatureCustomObject {
     type Vtable = IOpcSignatureCustomObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1568121246, 25281, 17639, [190, 205, 69, 218, 90, 229, 26, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d77a19e_62c1_44e7_becd_45da5ae51a56);
 }
 impl ::core::convert::From<IOpcSignatureCustomObject> for ::windows::runtime::IUnknown {
     fn from(value: IOpcSignatureCustomObject) -> Self {
@@ -1524,7 +1524,7 @@ impl IOpcSignatureCustomObjectEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IOpcSignatureCustomObjectEnumerator {
     type Vtable = IOpcSignatureCustomObjectEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1592065565, 57776, 18051, [128, 121, 126, 160, 252, 248, 11, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ee4fe1d_e1b0_4683_8079_7ea0fcf80b4c);
 }
 impl ::core::convert::From<IOpcSignatureCustomObjectEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IOpcSignatureCustomObjectEnumerator) -> Self {
@@ -1581,7 +1581,7 @@ impl IOpcSignatureCustomObjectSet {
 }
 unsafe impl ::windows::runtime::Interface for IOpcSignatureCustomObjectSet {
     type Vtable = IOpcSignatureCustomObjectSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2407082693, 31047, 19985, [188, 61, 38, 89, 255, 4, 106, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f792ac5_7947_4e11_bc3d_2659ff046ae1);
 }
 impl ::core::convert::From<IOpcSignatureCustomObjectSet> for ::windows::runtime::IUnknown {
     fn from(value: IOpcSignatureCustomObjectSet) -> Self {
@@ -1647,7 +1647,7 @@ impl IOpcSignaturePartReference {
 }
 unsafe impl ::windows::runtime::Interface for IOpcSignaturePartReference {
     type Vtable = IOpcSignaturePartReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3795988938, 23028, 18510, [182, 75, 54, 238, 218, 54, 7, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe24231ca_59f4_484e_b64b_36eeda36072c);
 }
 impl ::core::convert::From<IOpcSignaturePartReference> for ::windows::runtime::IUnknown {
     fn from(value: IOpcSignaturePartReference) -> Self {
@@ -1713,7 +1713,7 @@ impl IOpcSignaturePartReferenceEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IOpcSignaturePartReferenceEnumerator {
     type Vtable = IOpcSignaturePartReferenceEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2162890081, 35959, 18895, [130, 102, 69, 155, 53, 110, 233, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80eb1561_8c77_49cf_8266_459b356ee99a);
 }
 impl ::core::convert::From<IOpcSignaturePartReferenceEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IOpcSignaturePartReferenceEnumerator) -> Self {
@@ -1771,7 +1771,7 @@ impl IOpcSignaturePartReferenceSet {
 }
 unsafe impl ::windows::runtime::Interface for IOpcSignaturePartReferenceSet {
     type Vtable = IOpcSignaturePartReferenceSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1822417548, 60633, 19234, [157, 54, 127, 221, 230, 112, 254, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c9fe28c_ecd9_4b22_9d36_7fdde670fec0);
 }
 impl ::core::convert::From<IOpcSignaturePartReferenceSet> for ::windows::runtime::IUnknown {
     fn from(value: IOpcSignaturePartReferenceSet) -> Self {
@@ -1845,7 +1845,7 @@ impl IOpcSignatureReference {
 }
 unsafe impl ::windows::runtime::Interface for IOpcSignatureReference {
     type Vtable = IOpcSignatureReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(457637982, 12305, 20188, [190, 111, 15, 101, 229, 171, 3, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b47005e_3011_4edc_be6f_0f65e5ab0342);
 }
 impl ::core::convert::From<IOpcSignatureReference> for ::windows::runtime::IUnknown {
     fn from(value: IOpcSignatureReference) -> Self {
@@ -1914,7 +1914,7 @@ impl IOpcSignatureReferenceEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IOpcSignatureReferenceEnumerator {
     type Vtable = IOpcSignatureReferenceEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3483736645, 10417, 18536, [150, 158, 250, 128, 151, 253, 193, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfa59a45_28b1_4868_969e_fa8097fdc12a);
 }
 impl ::core::convert::From<IOpcSignatureReferenceEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IOpcSignatureReferenceEnumerator) -> Self {
@@ -1979,7 +1979,7 @@ impl IOpcSignatureReferenceSet {
 }
 unsafe impl ::windows::runtime::Interface for IOpcSignatureReferenceSet {
     type Vtable = IOpcSignatureReferenceSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4088409393, 43794, 17117, [158, 47, 43, 22, 118, 28, 60, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3b02d31_ab12_42dd_9e2f_2b16761c3c1e);
 }
 impl ::core::convert::From<IOpcSignatureReferenceSet> for ::windows::runtime::IUnknown {
     fn from(value: IOpcSignatureReferenceSet) -> Self {
@@ -2050,7 +2050,7 @@ impl IOpcSignatureRelationshipReference {
 }
 unsafe impl ::windows::runtime::Interface for IOpcSignatureRelationshipReference {
     type Vtable = IOpcSignatureRelationshipReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1471855302, 40266, 20048, [139, 134, 229, 212, 5, 30, 174, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57babac6_9d4a_4e50_8b86_e5d4051eae7c);
 }
 impl ::core::convert::From<IOpcSignatureRelationshipReference> for ::windows::runtime::IUnknown {
     fn from(value: IOpcSignatureRelationshipReference) -> Self {
@@ -2116,7 +2116,7 @@ impl IOpcSignatureRelationshipReferenceEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IOpcSignatureRelationshipReferenceEnumerator {
     type Vtable = IOpcSignatureRelationshipReferenceEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2000397284, 61473, 18660, [170, 4, 152, 22, 219, 93, 52, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x773ba3e4_f021_48e4_aa04_9816db5d3495);
 }
 impl ::core::convert::From<IOpcSignatureRelationshipReferenceEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IOpcSignatureRelationshipReferenceEnumerator) -> Self {
@@ -2179,7 +2179,7 @@ impl IOpcSignatureRelationshipReferenceSet {
 }
 unsafe impl ::windows::runtime::Interface for IOpcSignatureRelationshipReferenceSet {
     type Vtable = IOpcSignatureRelationshipReferenceSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2676374693, 13873, 16460, [130, 141, 128, 126, 7, 21, 6, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f863ca5_3631_404c_828d_807e0715069b);
 }
 impl ::core::convert::From<IOpcSignatureRelationshipReferenceSet> for ::windows::runtime::IUnknown {
     fn from(value: IOpcSignatureRelationshipReferenceSet) -> Self {
@@ -2306,7 +2306,7 @@ impl IOpcSigningOptions {
 }
 unsafe impl ::windows::runtime::Interface for IOpcSigningOptions {
     type Vtable = IOpcSigningOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1355994789, 31467, 18112, [178, 65, 67, 171, 14, 155, 64, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50d2d6a5_7aeb_46c0_b241_43ab0e9b407e);
 }
 impl ::core::convert::From<IOpcSigningOptions> for ::windows::runtime::IUnknown {
     fn from(value: IOpcSigningOptions) -> Self {
@@ -2525,7 +2525,7 @@ impl IOpcUri {
 }
 unsafe impl ::windows::runtime::Interface for IOpcUri {
     type Vtable = IOpcUri_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3164347291, 54828, 18923, [174, 240, 59, 78, 11, 40, 235, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc9c1b9b_d62c_49eb_aef0_3b4e0b28ebed);
 }
 impl ::core::convert::From<IOpcUri> for ::windows::runtime::IUnknown {
     fn from(value: IOpcUri) -> Self {
@@ -3052,4 +3052,4 @@ impl ::core::ops::Not for OPC_WRITE_FLAGS {
         Self(self.0.not())
     }
 }
-pub const OpcFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1798138784, 40766, 20263, [146, 11, 49, 60, 196, 38, 163, 158]);
+pub const OpcFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b2d6ba0_9f3e_4f27_920b_313cc426a39e);

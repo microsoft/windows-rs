@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const AACMFTEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2477722705, 8821, 17874, [163, 91, 242, 186, 33, 202, 237, 0]);
+pub const AACMFTEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93af0c51_2275_45d2_a35b_f2ba21caed00);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -51,8 +51,8 @@ impl ::core::convert::From<i32> for AEC_VAD_MODE {
 unsafe impl ::windows::runtime::Abi for AEC_VAD_MODE {
     type Abi = Self;
 }
-pub const ALawCodecWrapper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(919301644, 30913, 17074, [153, 67, 132, 98, 98, 243, 23, 134]);
-pub const AM_MEDIA_TYPE_REPRESENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3806603986, 4908, 18718, [162, 104, 60, 124, 45, 202, 24, 31]);
+pub const ALawCodecWrapper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36cb6e0c_78c1_42b2_9943_846262f31786);
+pub const AM_MEDIA_TYPE_REPRESENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2e42ad2_132c_491e_a268_3c7c2dca181f);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -298,413 +298,413 @@ impl ::core::cmp::Eq for AecQualityMetrics_Struct {}
 unsafe impl ::windows::runtime::Abi for AecQualityMetrics_Struct {
     type Abi = Self;
 }
-pub const CAC3DecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(64473090, 60666, 18393, [178, 104, 95, 179, 227, 16, 222, 228]);
-pub const CClusterDetectorDmo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(921182404, 5722, 17697, [134, 60, 97, 158, 17, 96, 212, 212]);
-pub const CColorControlDmo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2038454768, 35274, 16736, [179, 37, 174, 180, 142, 254, 79, 154]);
-pub const CColorConvertDMO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2552431985, 135, 16900, [176, 32, 50, 130, 83, 142, 87, 211]);
-pub const CColorLegalizerDmo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4261062483, 58510, 20019, [156, 116, 152, 162, 127, 198, 114, 106]);
-pub const CDTVAudDecoderDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2384891954, 65027, 18259, [155, 23, 24, 37, 60, 33, 114, 46]);
-pub const CDTVVidDecoderDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1685552584, 20004, 19435, [157, 25, 96, 163, 91, 225, 218, 175]);
-pub const CDVDecoderMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3846638021, 7703, 19597, [148, 231, 71, 137, 64, 67, 53, 132]);
-pub const CDVEncoderMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3358254889, 49959, 19662, [145, 77, 129, 113, 254, 254, 190, 251]);
-pub const CDeColorConvMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1224952837, 62524, 16399, [132, 193, 144, 166, 131, 25, 90, 58]);
-pub const CFrameInterpDMO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(175963675, 27317, 17204, [158, 216, 63, 151, 203, 55, 218, 161]);
-pub const CFrameRateConvertDmo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(32730338, 2311, 19851, [151, 157, 241, 81, 190, 145, 200, 131]);
-pub const CInterlaceMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3047726208, 18689, 16507, [154, 188, 144, 217, 166, 68, 187, 70]);
-pub const CLSID_AudioResamplerMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4098340510, 6276, 19070, [128, 85, 52, 111, 116, 214, 237, 179]);
-pub const CLSID_CAsfTocParser: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608316658, 34613, 18117, [185, 15, 95, 11, 48, 62, 246, 171]);
-pub const CLSID_CAviTocParser: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(987555276, 5064, 17779, [179, 40, 237, 67, 142, 182, 148, 249]);
-pub const CLSID_CClusterDetectorEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1194673298, 33406, 19338, [179, 24, 200, 14, 186, 19, 129, 240]);
-pub const CLSID_CFileClient: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3217871253, 4676, 18496, [171, 68, 72, 9, 117, 196, 255, 228]);
-pub const CLSID_CFileIo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(295252373, 4676, 18496, [171, 68, 72, 9, 117, 196, 255, 228]);
-pub const CLSID_CToc: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1340228757, 10446, 18720, [164, 196, 229, 86, 225, 240, 223, 42]);
-pub const CLSID_CTocCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1347954989, 41540, 18496, [171, 68, 72, 9, 117, 196, 255, 228]);
-pub const CLSID_CTocEntry: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4063190533, 22620, 19951, [133, 35, 101, 85, 207, 188, 12, 179]);
-pub const CLSID_CTocEntryList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(982305980, 3837, 17315, [184, 56, 243, 138, 85, 43, 162, 55]);
-pub const CLSID_CTocParser: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1235136234, 10039, 18505, [139, 182, 71, 241, 7, 234, 243, 88]);
-pub const CLSID_CreateMediaExtensionObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4016416077, 1928, 17848, [139, 20, 188, 15, 106, 107, 81, 55]);
-pub const CLSID_FrameServerNetworkCameraSource: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2048998055, 34415, 16714, [140, 26, 39, 92, 114, 131, 163, 149]);
-pub const CLSID_HttpSchemePlugin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1154171947, 40361, 18911, [179, 253, 2, 55, 119, 177, 110, 80]);
-pub const CLSID_MFByteStreamProxyClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1997442679, 18710, 17436, [169, 167, 179, 66, 208, 238, 188, 113]);
-pub const CLSID_MFCaptureEngine: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4023269587, 35092, 18036, [167, 223, 174, 27, 61, 101, 75, 138]);
-pub const CLSID_MFCaptureEngineClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4023269587, 35092, 18036, [167, 223, 174, 27, 61, 101, 75, 138]);
-pub const CLSID_MFImageSharingEngineClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2989241145, 34803, 16473, [160, 197, 3, 122, 169, 112, 126, 175]);
-pub const CLSID_MFMediaEngineClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3024327386, 18843, 17515, [164, 203, 0, 95, 234, 208, 230, 213]);
-pub const CLSID_MFMediaSharingEngineClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4175628283, 27973, 19155, [153, 147, 102, 205, 90, 82, 150, 89]);
-pub const CLSID_MFReadWriteClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1222831375, 39106, 18999, [190, 213, 22, 99, 18, 221, 216, 63]);
-pub const CLSID_MFSinkWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2747005719, 33395, 20050, [158, 14, 151, 57, 220, 136, 121, 144]);
-pub const CLSID_MFSourceReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(393679676, 2177, 16667, [165, 119, 173, 84, 95, 7, 20, 196]);
-pub const CLSID_MFSourceResolver: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2431301135, 58426, 16776, [188, 196, 228, 127, 223, 4, 134, 140]);
-pub const CLSID_MP3DecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3152980033, 2659, 20306, [167, 171, 169, 179, 168, 78, 211, 138]);
-pub const CLSID_MPEG2ByteStreamPlugin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1082596441, 43840, 18207, [141, 195, 31, 37, 157, 134, 36, 121]);
-pub const CLSID_MPEG2DLNASink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4200589253, 27165, 19217, [180, 31, 249, 89, 214, 199, 101, 0]);
-pub const CLSID_MSAACDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(852592295, 8591, 19573, [136, 118, 221, 119, 39, 58, 137, 153]);
-pub const CLSID_MSDDPlusDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(394005246, 36875, 18644, [158, 76, 87, 173, 210, 80, 179, 212]);
-pub const CLSID_MSH264DecoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1657699954, 19569, 19744, [177, 93, 69, 40, 49, 168, 125, 157]);
-pub const CLSID_MSH264EncoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1822753604, 1306, 19949, [151, 121, 164, 51, 5, 22, 94, 53]);
-pub const CLSID_MSH265DecoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1107972515, 54789, 17164, [180, 252, 69, 39, 79, 166, 197, 98]);
-pub const CLSID_MSMPEGAudDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1886419769, 45770, 16405, [171, 234, 248, 68, 125, 34, 216, 139]);
-pub const CLSID_MSMPEGDecoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(762355282, 4671, 18869, [156, 188, 154, 245, 205, 226, 143, 185]);
-pub const CLSID_MSOpusDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1675721744, 11587, 19522, [143, 227, 141, 139, 99, 228, 106, 106]);
-pub const CLSID_MSVPxDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3819631944, 51620, 19566, [35, 77, 90, 218, 55, 75, 0, 0]);
-pub const CLSID_NetSchemePlugin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3925142443, 55675, 17982, [162, 177, 197, 78, 227, 249, 65, 77]);
-pub const CLSID_PlayToSourceClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3658961818, 15811, 17089, [167, 73, 161, 131, 181, 31, 8, 94]);
-pub const CLSID_UrlmonSchemePlugin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2663691513, 12329, 17837, [148, 123, 52, 77, 226, 162, 73, 226]);
-pub const CLSID_VideoProcessorMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2289384230, 23332, 18877, [178, 231, 12, 68, 92, 120, 201, 130]);
-pub const CLSID_WMADecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(787172063, 17784, 19728, [188, 167, 187, 149, 95, 86, 50, 10]);
-pub const CLSID_WMDRMSystemID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2303245090, 4541, 18326, [147, 227, 151, 77, 27, 87, 86, 120]);
-pub const CLSID_WMVDecoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2194887647, 37053, 17282, [139, 194, 63, 97, 146, 183, 110, 52]);
-pub const CMP3DecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3152980033, 2659, 20306, [167, 171, 169, 179, 168, 78, 211, 138]);
-pub const CMPEG2AudDecoderDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3790708920, 48878, 18701, [186, 124, 6, 108, 64, 181, 226, 185]);
-pub const CMPEG2AudioEncoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1185209692, 29688, 17156, [148, 223, 48, 143, 118, 9, 116, 244]);
-pub const CMPEG2EncoderAudioDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2899596220, 50570, 17617, [187, 245, 191, 179, 37, 190, 45, 120]);
-pub const CMPEG2EncoderDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1599799114, 12159, 17017, [136, 194, 205, 136, 235, 57, 209, 68]);
-pub const CMPEG2EncoderVideoDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1108675801, 51866, 20133, [153, 57, 48, 238, 3, 127, 110, 116]);
-pub const CMPEG2VidDecoderDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(556175611, 33765, 17702, [143, 215, 116, 71, 139, 121, 57, 205]);
-pub const CMPEG2VideoEncoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3862126338, 32951, 19908, [173, 250, 223, 231, 33, 13, 32, 213]);
-pub const CMPEGAACDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2380142450, 60845, 16835, [180, 190, 31, 48, 251, 78, 224, 214]);
-pub const CMSAACDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(852592295, 8591, 19573, [136, 118, 221, 119, 39, 58, 137, 153]);
-pub const CMSAC3Enc: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3333685474, 8359, 20056, [162, 254, 36, 97, 150, 130, 206, 108]);
-pub const CMSALACDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3234692370, 12796, 19388, [179, 99, 115, 34, 238, 62, 24, 121]);
-pub const CMSALACEncMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2595660428, 29838, 19306, [191, 255, 204, 68, 59, 142, 143, 180]);
-pub const CMSDDPlusDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(394005246, 36875, 18644, [158, 76, 87, 173, 210, 80, 179, 212]);
-pub const CMSDolbyDigitalEncMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2889029065, 62593, 17879, [130, 108, 11, 64, 108, 31, 100, 184]);
-pub const CMSFLACDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1795898987, 41669, 17684, [128, 85, 175, 232, 169, 82, 66, 217]);
-pub const CMSFLACEncMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(310708713, 50254, 17884, [149, 233, 194, 85, 184, 244, 102, 166]);
-pub const CMSH263EncoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3158834430, 39072, 20263, [187, 7, 105, 138, 242, 79, 43, 56]);
-pub const CMSH264DecoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1657699954, 19569, 19744, [177, 93, 69, 40, 49, 168, 125, 157]);
-pub const CMSH264EncoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1822753604, 1306, 19949, [151, 121, 164, 51, 5, 22, 94, 53]);
-pub const CMSH264RemuxMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(94666427, 35824, 19647, [173, 47, 59, 113, 215, 88, 102, 245]);
-pub const CMSH265EncoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4076355700, 35786, 16573, [145, 89, 232, 128, 246, 115, 221, 59]);
-pub const CMSMPEGAudDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1886419769, 45770, 16405, [171, 234, 248, 68, 125, 34, 216, 139]);
-pub const CMSMPEGDecoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(762355282, 4671, 18869, [156, 188, 154, 245, 205, 226, 143, 185]);
-pub const CMSOpusDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1675721744, 11587, 19522, [143, 227, 141, 139, 99, 228, 106, 106]);
-pub const CMSSCDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2075112369, 55540, 17017, [146, 83, 39, 218, 66, 49, 8, 222]);
-pub const CMSSCEncMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2360986630, 53561, 19174, [139, 180, 65, 230, 18, 225, 65, 213]);
-pub const CMSSCEncMediaObject2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4160741536, 42229, 17589, [148, 158, 21, 237, 43, 198, 111, 157]);
-pub const CMSVPXEncoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2931214165, 9542, 18561, [130, 204, 225, 90, 229, 235, 255, 61]);
-pub const CMSVideoDSPMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1364662084, 32740, 20466, [164, 152, 45, 195, 79, 247, 79, 27]);
-pub const CMpeg2DecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2252170957, 52686, 17943, [180, 127, 200, 146, 156, 252, 40, 166]);
-pub const CMpeg43DecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3416909707, 18851, 18922, [147, 212, 107, 203, 168, 196, 222, 7]);
-pub const CMpeg4DecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4084298378, 24658, 19783, [130, 124, 208, 57, 51, 93, 254, 10]);
-pub const CMpeg4EncMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(619862232, 50769, 16450, [147, 228, 202, 101, 74, 187, 104, 44]);
-pub const CMpeg4sDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1451663577, 65081, 16543, [157, 255, 63, 219, 200, 73, 249, 245]);
-pub const CMpeg4sDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(705805026, 65134, 16969, [134, 75, 158, 158, 214, 232, 219, 194]);
-pub const CMpeg4sEncMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1858447294, 55326, 20382, [173, 163, 205, 27, 242, 98, 182, 216]);
-pub const CNokiaAACCCDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3938417263, 52410, 19808, [134, 32, 177, 82, 204, 151, 114, 99]);
-pub const CNokiaAACDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018346980, 20009, 19524, [167, 62, 45, 124, 44, 70, 214, 236]);
-pub const CODECAPI_AVAudioChannelConfig: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(402169011, 50061, 17256, [158, 222, 99, 185, 77, 23, 127, 159]);
-pub const CODECAPI_AVAudioChannelCount: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(490046404, 5507, 18254, [183, 26, 94, 228, 99, 193, 152, 228]);
-pub const CODECAPI_AVAudioSampleRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2535270179, 6859, 17127, [133, 92, 82, 10, 75, 112, 165, 242]);
-pub const CODECAPI_AVDDSurroundMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2582836102, 39121, 17490, [161, 99, 171, 199, 138, 110, 183, 112]);
-pub const CODECAPI_AVDSPLoudnessEqualization: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2331843093, 6162, 19647, [147, 25, 67, 58, 91, 42, 59, 39]);
-pub const CODECAPI_AVDSPSpeakerFill: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1444068513, 22234, 17794, [141, 161, 202, 128, 144, 249, 39, 104]);
-pub const CODECAPI_AVDecAACDownmixMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(19350645, 63163, 16407, [176, 132, 129, 167, 99, 201, 66, 212]);
-pub const CODECAPI_AVDecAudioDualMono: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1246940584, 12536, 16918, [190, 15, 186, 11, 32, 37, 146, 29]);
-pub const CODECAPI_AVDecAudioDualMonoReproMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2769314182, 52372, 19401, [140, 217, 170, 47, 97, 246, 128, 126]);
-pub const CODECAPI_AVDecCommonInputFormat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3842003513, 48521, 19427, [156, 15, 93, 222, 49, 121, 136, 204]);
-pub const CODECAPI_AVDecCommonMeanBitRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497924119, 122, 20346, [142, 65, 92, 72, 177, 234, 197, 198]);
-pub const CODECAPI_AVDecCommonMeanBitRateInterval: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(249837510, 14503, 19548, [148, 76, 104, 171, 66, 17, 107, 133]);
-pub const CODECAPI_AVDecCommonOutputFormat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1014562856, 49358, 16982, [177, 162, 27, 15, 200, 177, 220, 220]);
-pub const CODECAPI_AVDecDDDynamicRangeScaleHigh: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1343843361, 7987, 19189, [178, 150, 17, 66, 109, 108, 135, 137]);
-pub const CODECAPI_AVDecDDDynamicRangeScaleLow: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(72245988, 4517, 17109, [163, 178, 59, 178, 199, 194, 215, 207]);
-pub const CODECAPI_AVDecDDMatrixDecodingMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3720876453, 1261, 19443, [160, 202, 208, 4, 73, 249, 53, 95]);
-pub const CODECAPI_AVDecDDOperationalMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3604399825, 1614, 20445, [164, 14, 62, 203, 252, 183, 235, 208]);
-pub const CODECAPI_AVDecDDStereoDownMixMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1826886188, 16105, 16770, [180, 174, 193, 15, 192, 136, 100, 157]);
-pub const CODECAPI_AVDecDisableVideoPostProcessing: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4168389011, 26234, 20268, [169, 232, 93, 74, 249, 36, 240, 143]);
-pub const CODECAPI_AVDecHEAACDynamicRangeControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(679250622, 27044, 19769, [128, 128, 211, 217, 113, 33, 120, 160]);
-pub const CODECAPI_AVDecNumWorkerThreads: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2506212328, 60062, 17461, [155, 30, 169, 62, 105, 24, 148, 216]);
-pub const CODECAPI_AVDecSoftwareDynamicFormatChange: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2251173642, 20603, 18431, [175, 71, 1, 226, 98, 66, 152, 183]);
-pub const CODECAPI_AVDecVideoAcceleration_H264: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4158360111, 20296, 20200, [174, 49, 139, 110, 190, 85, 138, 226]);
-pub const CODECAPI_AVDecVideoAcceleration_MPEG2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4158360110, 20296, 20200, [174, 49, 139, 110, 190, 85, 138, 226]);
-pub const CODECAPI_AVDecVideoAcceleration_VC1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4158360112, 20296, 20200, [174, 49, 139, 110, 190, 85, 138, 226]);
-pub const CODECAPI_AVDecVideoCodecType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1128605925, 8688, 18102, [182, 44, 155, 27, 107, 101, 140, 209]);
-pub const CODECAPI_AVDecVideoDXVABusEncryption: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1108688011, 64779, 18277, [164, 98, 221, 217, 232, 188, 195, 136]);
-pub const CODECAPI_AVDecVideoDXVAMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4149801118, 29495, 19175, [131, 135, 115, 220, 45, 84, 230, 125]);
-pub const CODECAPI_AVDecVideoDropPicWithMissingRef: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4163003267, 5314, 17767, [151, 52, 80, 4, 233, 111, 248, 135]);
-pub const CODECAPI_AVDecVideoFastDecodeMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1800576893, 54193, 18886, [169, 153, 158, 198, 145, 27, 237, 191]);
-pub const CODECAPI_AVDecVideoH264ErrorConcealment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3974933736, 13366, 17964, [146, 148, 205, 123, 172, 215, 88, 169]);
-pub const CODECAPI_AVDecVideoImageSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1592095868, 26625, 19627, [170, 241, 98, 72, 250, 132, 27, 164]);
-pub const CODECAPI_AVDecVideoInputScanType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(944209439, 3751, 17101, [140, 209, 19, 12, 237, 87, 197, 128]);
-pub const CODECAPI_AVDecVideoMPEG2ErrorConcealment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2636906008, 29325, 18642, [179, 88, 188, 126, 67, 108, 102, 116]);
-pub const CODECAPI_AVDecVideoMaxCodedHeight: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1919066474, 53980, 20085, [155, 168, 101, 192, 198, 211, 43, 19]);
-pub const CODECAPI_AVDecVideoMaxCodedWidth: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1524979640, 30639, 16885, [159, 166, 77, 178, 254, 29, 75, 202]);
-pub const CODECAPI_AVDecVideoPixelAspectRatio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2966389317, 62253, 16863, [176, 44, 135, 189, 48, 77, 18, 171]);
-pub const CODECAPI_AVDecVideoProcDeinterlaceCSC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4158360113, 20296, 20200, [174, 49, 139, 110, 190, 85, 138, 226]);
-pub const CODECAPI_AVDecVideoSWPowerLevel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4217185095, 19928, 17673, [174, 208, 219, 95, 169, 170, 147, 244]);
-pub const CODECAPI_AVDecVideoSoftwareDeinterlaceMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(201904590, 40173, 17728, [186, 227, 206, 179, 128, 20, 17, 9]);
-pub const CODECAPI_AVDecVideoThumbnailGenerationMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(788369134, 4432, 17192, [156, 245, 102, 220, 233, 51, 252, 244]);
-pub const CODECAPI_AVEnableInLoopDeblockFilter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3538477977, 1571, 19443, [146, 168, 77, 24, 24, 82, 157, 237]);
-pub const CODECAPI_AVEncAdaptiveMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1142534533, 55839, 20307, [188, 118, 9, 125, 12, 30, 251, 30]);
-pub const CODECAPI_AVEncAudioDualMono: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(910692971, 41960, 17193, [155, 58, 92, 229, 102, 164, 59, 211]);
-pub const CODECAPI_AVEncAudioInputContent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1042443307, 24761, 19001, [176, 11, 167, 180, 15, 112, 213, 102]);
-pub const CODECAPI_AVEncAudioIntervalToEncode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2255375181, 29274, 18044, [187, 1, 180, 150, 178, 59, 37, 249]);
-pub const CODECAPI_AVEncAudioIntervalToSkip: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2294374292, 50060, 18326, [169, 232, 150, 233, 103, 152, 63, 38]);
-pub const CODECAPI_AVEncAudioMapDestChannel0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3160214368, 57194, 19990, [152, 3, 184, 32, 7, 163, 12, 141]);
-pub const CODECAPI_AVEncAudioMapDestChannel1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3160214369, 57194, 19990, [152, 3, 184, 32, 7, 163, 12, 141]);
-pub const CODECAPI_AVEncAudioMapDestChannel10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3160214378, 57194, 19990, [152, 3, 184, 32, 7, 163, 12, 141]);
-pub const CODECAPI_AVEncAudioMapDestChannel11: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3160214379, 57194, 19990, [152, 3, 184, 32, 7, 163, 12, 141]);
-pub const CODECAPI_AVEncAudioMapDestChannel12: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3160214380, 57194, 19990, [152, 3, 184, 32, 7, 163, 12, 141]);
-pub const CODECAPI_AVEncAudioMapDestChannel13: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3160214381, 57194, 19990, [152, 3, 184, 32, 7, 163, 12, 141]);
-pub const CODECAPI_AVEncAudioMapDestChannel14: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3160214382, 57194, 19990, [152, 3, 184, 32, 7, 163, 12, 141]);
-pub const CODECAPI_AVEncAudioMapDestChannel15: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3160214383, 57194, 19990, [152, 3, 184, 32, 7, 163, 12, 141]);
-pub const CODECAPI_AVEncAudioMapDestChannel2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3160214370, 57194, 19990, [152, 3, 184, 32, 7, 163, 12, 141]);
-pub const CODECAPI_AVEncAudioMapDestChannel3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3160214371, 57194, 19990, [152, 3, 184, 32, 7, 163, 12, 141]);
-pub const CODECAPI_AVEncAudioMapDestChannel4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3160214372, 57194, 19990, [152, 3, 184, 32, 7, 163, 12, 141]);
-pub const CODECAPI_AVEncAudioMapDestChannel5: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3160214373, 57194, 19990, [152, 3, 184, 32, 7, 163, 12, 141]);
-pub const CODECAPI_AVEncAudioMapDestChannel6: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3160214374, 57194, 19990, [152, 3, 184, 32, 7, 163, 12, 141]);
-pub const CODECAPI_AVEncAudioMapDestChannel7: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3160214375, 57194, 19990, [152, 3, 184, 32, 7, 163, 12, 141]);
-pub const CODECAPI_AVEncAudioMapDestChannel8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3160214376, 57194, 19990, [152, 3, 184, 32, 7, 163, 12, 141]);
-pub const CODECAPI_AVEncAudioMapDestChannel9: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3160214377, 57194, 19990, [152, 3, 184, 32, 7, 163, 12, 141]);
-pub const CODECAPI_AVEncAudioMeanBitRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2450691515, 20426, 18041, [170, 184, 158, 42, 29, 117, 51, 132]);
-pub const CODECAPI_AVEncChromaEncodeMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2319952730, 18328, 19603, [181, 165, 85, 79, 154, 59, 159, 80]);
-pub const CODECAPI_AVEncChromaUpdateTime: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1263524248, 17012, 16571, [142, 228, 7, 85, 62, 126, 45, 58]);
-pub const CODECAPI_AVEncCodecType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(145705665, 62450, 19572, [157, 207, 55, 242, 236, 121, 248, 38]);
-pub const CODECAPI_AVEncCommonAllowFrameDrops: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3628563915, 38296, 18659, [141, 12, 117, 43, 242, 6, 9, 62]);
-pub const CODECAPI_AVEncCommonBufferInLevel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3653617883, 64628, 16484, [148, 233, 205, 25, 249, 71, 237, 69]);
-pub const CODECAPI_AVEncCommonBufferOutLevel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3433987913, 53436, 20029, [165, 126, 251, 87, 64, 20, 0, 105]);
-pub const CODECAPI_AVEncCommonBufferSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(230253940, 46756, 19595, [129, 6, 55, 115, 222, 3, 16, 205]);
-pub const CODECAPI_AVEncCommonFormatConstraint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1472969144, 4463, 18769, [180, 12, 194, 160, 53, 237, 143, 23]);
-pub const CODECAPI_AVEncCommonLowLatency: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2638138709, 35304, 18698, [151, 10, 12, 149, 72, 213, 165, 110]);
-pub const CODECAPI_AVEncCommonMaxBitRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2521950948, 14777, 20159, [133, 239, 215, 244, 68, 236, 116, 101]);
-pub const CODECAPI_AVEncCommonMeanBitRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4146209652, 8516, 18453, [181, 80, 163, 127, 142, 18, 238, 82]);
-pub const CODECAPI_AVEncCommonMeanBitRateInterval: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3215601420, 52098, 19392, [132, 116, 240, 106, 138, 13, 2, 88]);
-pub const CODECAPI_AVEncCommonMinBitRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(269747634, 8323, 16436, [168, 6, 239, 190, 221, 215, 201, 255]);
-pub const CODECAPI_AVEncCommonMultipassMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(575880524, 18401, 16821, [147, 82, 162, 183, 120, 14, 122, 196]);
-pub const CODECAPI_AVEncCommonPassEnd: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(238879164, 51292, 18045, [139, 96, 196, 16, 18, 238, 59, 246]);
-pub const CODECAPI_AVEncCommonPassStart: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1785164703, 20149, 17285, [153, 40, 242, 118, 169, 57, 239, 149]);
-pub const CODECAPI_AVEncCommonQuality: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4240398243, 32421, 19212, [150, 68, 105, 180, 12, 57, 195, 145]);
-pub const CODECAPI_AVEncCommonQualityVsSpeed: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2553490936, 973, 18283, [137, 250, 63, 158, 68, 45, 236, 159]);
-pub const CODECAPI_AVEncCommonRateControlMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(470157545, 14092, 18192, [138, 88, 203, 97, 129, 196, 36, 35]);
-pub const CODECAPI_AVEncCommonRealTime: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(339349494, 41265, 17370, [184, 30, 152, 251, 184, 236, 55, 142]);
-pub const CODECAPI_AVEncCommonStreamEndHandling: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1789735087, 27560, 19660, [143, 202, 24, 209, 155, 234, 235, 28]);
-pub const CODECAPI_AVEncCommonTranscodeEncodingProfile: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1766291580, 62728, 20137, [177, 233, 161, 254, 58, 73, 251, 201]);
-pub const CODECAPI_AVEncDDAtoDConverterType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1906284050, 33185, 18400, [154, 5, 217, 74, 213, 252, 169, 72]);
-pub const CODECAPI_AVEncDDCentreDownMixLevel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3800368940, 51544, 19073, [175, 210, 229, 224, 218, 241, 177, 72]);
-pub const CODECAPI_AVEncDDChannelBWLowPassFilter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3784802845, 53991, 17378, [173, 44, 0, 88, 47, 81, 133, 69]);
-pub const CODECAPI_AVEncDDCopyright: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2257907830, 52597, 18461, [165, 198, 169, 4, 220, 200, 40, 240]);
-pub const CODECAPI_AVEncDDDCHighPassFilter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2506433439, 34332, 19144, [191, 218, 224, 12, 180, 219, 133, 72]);
-pub const CODECAPI_AVEncDDDialogNormalization: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3607452367, 61733, 17277, [167, 4, 121, 199, 159, 4, 4, 168]);
-pub const CODECAPI_AVEncDDDigitalDeemphasis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3760497346, 38012, 17836, [135, 216, 241, 3, 12, 92, 0, 130]);
-pub const CODECAPI_AVEncDDDynamicRangeCompressionControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3485663085, 31160, 19341, [168, 170, 160, 201, 189, 28, 41, 64]);
-pub const CODECAPI_AVEncDDHeadphoneMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1079172076, 21237, 17141, [155, 0, 209, 52, 177, 52, 27, 157]);
-pub const CODECAPI_AVEncDDLFELowPassFilter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3552055151, 40213, 17893, [145, 190, 1, 156, 63, 171, 31, 1]);
-pub const CODECAPI_AVEncDDLoRoCenterMixLvl_x10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(486253090, 9651, 19444, [155, 253, 231, 17, 18, 103, 133, 140]);
-pub const CODECAPI_AVEncDDLoRoSurroundMixLvl_x10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3878014966, 60246, 16583, [132, 80, 43, 147, 103, 233, 21, 85]);
-pub const CODECAPI_AVEncDDLtRtCenterMixLvl_x10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3701549218, 18719, 17920, [178, 218, 118, 227, 52, 75, 65, 151]);
-pub const CODECAPI_AVEncDDLtRtSurroundMixLvl_x10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(555894471, 15660, 19962, [188, 33, 101, 42, 144, 152, 105, 13]);
-pub const CODECAPI_AVEncDDOriginalBitstream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2523588608, 23507, 20473, [149, 185, 211, 5, 102, 39, 56, 86]);
-pub const CODECAPI_AVEncDDPreferredStereoDownMixMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2135845681, 37253, 16445, [176, 162, 118, 55, 67, 230, 240, 99]);
-pub const CODECAPI_AVEncDDProductionInfoExists: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2964848223, 46763, 20288, [150, 77, 141, 145, 241, 124, 25, 232]);
-pub const CODECAPI_AVEncDDProductionMixLevel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(807211066, 52217, 18294, [136, 153, 124, 21, 180, 97, 171, 38]);
-pub const CODECAPI_AVEncDDProductionRoomType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3671567712, 9176, 19127, [162, 132, 85, 105, 134, 216, 166, 254]);
-pub const CODECAPI_AVEncDDRFPreEmphasisFilter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(565134528, 9294, 20285, [162, 204, 61, 48, 104, 178, 231, 63]);
-pub const CODECAPI_AVEncDDService: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3538009799, 20850, 19754, [165, 14, 47, 59, 130, 177, 221, 248]);
-pub const CODECAPI_AVEncDDSurround3dBAttenuation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1296284061, 12770, 18617, [191, 46, 92, 191, 26, 87, 39, 132]);
-pub const CODECAPI_AVEncDDSurround90DegreeePhaseShift: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(636284061, 13651, 17088, [187, 86, 210, 87, 146, 16, 79, 128]);
-pub const CODECAPI_AVEncDDSurroundDownMixLevel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2065749733, 3023, 17011, [164, 135, 80, 107, 4, 121, 151, 233]);
-pub const CODECAPI_AVEncDDSurroundExMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2439019758, 56285, 20150, [188, 162, 170, 223, 175, 163, 221, 104]);
-pub const CODECAPI_AVEncEnableVideoProcessing: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(7293942, 3747, 19778, [135, 2, 181, 216, 190, 15, 122, 146]);
-pub const CODECAPI_AVEncH264CABACEnable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4000099682, 54021, 16968, [165, 14, 225, 178, 85, 247, 202, 248]);
-pub const CODECAPI_AVEncH264PPSID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3219300034, 1388, 19816, [163, 141, 174, 89, 68, 200, 88, 46]);
-pub const CODECAPI_AVEncH264SPSID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1358139217, 11129, 16611, [179, 156, 126, 159, 160, 119, 5, 1]);
-pub const CODECAPI_AVEncInputVideoSystem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3202225261, 46614, 19911, [146, 178, 245, 217, 250, 146, 152, 247]);
-pub const CODECAPI_AVEncLowPowerEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3060323714, 35757, 20330, [145, 65, 55, 90, 149, 53, 139, 109]);
-pub const CODECAPI_AVEncMP12MuxDVDNavPacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3344989421, 36081, 19097, [131, 161, 238, 84, 97, 190, 53, 116]);
-pub const CODECAPI_AVEncMP12MuxEarliestPTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(359805622, 63497, 18254, [148, 100, 167, 249, 48, 20, 168, 23]);
-pub const CODECAPI_AVEncMP12MuxInitialSCR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(875801889, 7057, 18955, [177, 144, 43, 119, 6, 59, 99, 164]);
-pub const CODECAPI_AVEncMP12MuxLargestPacketSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(902739729, 62561, 19346, [164, 239, 23, 182, 132, 30, 210, 84]);
-pub const CODECAPI_AVEncMP12MuxMuxRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3993271410, 19419, 19101, [142, 33, 65, 146, 108, 130, 61, 167]);
-pub const CODECAPI_AVEncMP12MuxNumStreams: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4145433153, 56557, 18009, [168, 242, 251, 105, 63, 42, 76, 208]);
-pub const CODECAPI_AVEncMP12MuxPackSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4178969914, 7400, 20399, [170, 11, 186, 49, 200, 0, 52, 184]);
-pub const CODECAPI_AVEncMP12MuxPacketOverhead: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3825981216, 14677, 17491, [172, 249, 183, 145, 50, 163, 143, 160]);
-pub const CODECAPI_AVEncMP12MuxSysAudioLock: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(263935826, 7491, 18367, [189, 121, 242, 41, 61, 140, 227, 55]);
-pub const CODECAPI_AVEncMP12MuxSysCSPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2035482437, 39949, 18466, [188, 130, 138, 215, 114, 224, 41, 147]);
-pub const CODECAPI_AVEncMP12MuxSysFixed: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3472595070, 35151, 17710, [143, 137, 164, 239, 140, 236, 6, 58]);
-pub const CODECAPI_AVEncMP12MuxSysRateBound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(99631754, 60976, 18589, [174, 40, 32, 92, 114, 68, 103, 16]);
-pub const CODECAPI_AVEncMP12MuxSysSTDBufferBound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(896821507, 46405, 17383, [187, 53, 197, 224, 167, 213, 9, 60]);
-pub const CODECAPI_AVEncMP12MuxSysVideoLock: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3089720328, 9264, 19767, [162, 161, 149, 179, 228, 53, 169, 29]);
-pub const CODECAPI_AVEncMP12MuxTargetPacketizer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3630309674, 8213, 17885, [154, 50, 27, 58, 168, 130, 5, 160]);
-pub const CODECAPI_AVEncMP12PktzCopyright: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3371479233, 2380, 17351, [142, 104, 165, 149, 64, 90, 110, 248]);
-pub const CODECAPI_AVEncMP12PktzInitialPTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(709828709, 39523, 19744, [174, 34, 10, 27, 200, 150, 163, 21]);
-pub const CODECAPI_AVEncMP12PktzOriginal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1796703254, 12729, 18788, [148, 203, 107, 255, 134, 108, 223, 131]);
-pub const CODECAPI_AVEncMP12PktzPacketSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2876322938, 4914, 19934, [160, 229, 204, 247, 218, 138, 15, 34]);
-pub const CODECAPI_AVEncMP12PktzSTDBuffer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(192224208, 33182, 18316, [148, 53, 117, 32, 137, 38, 179, 119]);
-pub const CODECAPI_AVEncMP12PktzStreamID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3358904376, 62952, 17416, [155, 96, 136, 243, 100, 147, 254, 223]);
-pub const CODECAPI_AVEncMPACodingMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2976570883, 19347, 17367, [165, 80, 144, 180, 254, 34, 69, 55]);
-pub const CODECAPI_AVEncMPACopyright: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2796451370, 53417, 17492, [184, 239, 242, 219, 238, 253, 211, 189]);
-pub const CODECAPI_AVEncMPAEmphasisType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(760872154, 48974, 20182, [181, 223, 91, 3, 179, 107, 10, 31]);
-pub const CODECAPI_AVEncMPAEnableRedundancyProtection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1582608542, 45799, 18803, [168, 155, 11, 54, 80, 163, 190, 218]);
-pub const CODECAPI_AVEncMPALayer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2637656624, 63771, 17725, [156, 224, 120, 68, 84, 20, 194, 45]);
-pub const CODECAPI_AVEncMPAOriginalBitstream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1023113301, 40137, 18431, [184, 41, 179, 103, 134, 201, 35, 70]);
-pub const CODECAPI_AVEncMPAPrivateUserBit: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2946827726, 49635, 20029, [133, 27, 97, 183, 0, 229, 230, 204]);
-pub const CODECAPI_AVEncMPVAddSeqEndCode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2820872079, 22495, 19578, [184, 253, 229, 236, 136, 135, 112, 141]);
-pub const CODECAPI_AVEncMPVDefaultBPictureCount: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2369325740, 56412, 16896, [181, 127, 129, 77, 4, 186, 186, 178]);
-pub const CODECAPI_AVEncMPVFrameFieldMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2897600150, 31635, 19503, [136, 37, 176, 41, 95, 169, 59, 244]);
-pub const CODECAPI_AVEncMPVGOPOpen: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2983580838, 13056, 18865, [174, 97, 160, 153, 55, 171, 14, 73]);
-pub const CODECAPI_AVEncMPVGOPSInSeq: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2570326228, 9873, 16786, [153, 120, 152, 220, 38, 3, 102, 159]);
-pub const CODECAPI_AVEncMPVGOPSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2515737382, 38308, 16810, [147, 3, 36, 106, 127, 198, 238, 241]);
-pub const CODECAPI_AVEncMPVGOPSizeMax: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4269663428, 6454, 20450, [189, 247, 31, 24, 202, 29, 0, 31]);
-pub const CODECAPI_AVEncMPVGOPSizeMin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1901448992, 54336, 18514, [173, 15, 156, 74, 191, 227, 122, 106]);
-pub const CODECAPI_AVEncMPVGenerateHeaderPicDispExt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3326160772, 49215, 20288, [160, 12, 66, 147, 223, 131, 149, 187]);
-pub const CODECAPI_AVEncMPVGenerateHeaderPicExt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461661355, 37967, 17904, [183, 78, 58, 88, 218, 209, 31, 55]);
-pub const CODECAPI_AVEncMPVGenerateHeaderSeqDispExt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1681369711, 23100, 19945, [138, 22, 83, 217, 196, 173, 50, 111]);
-pub const CODECAPI_AVEncMPVGenerateHeaderSeqExt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3588720145, 2093, 20075, [152, 175, 15, 81, 171, 19, 146, 34]);
-pub const CODECAPI_AVEncMPVGenerateHeaderSeqScaleExt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(119723567, 56665, 19078, [156, 213, 100, 79, 142, 38, 83, 216]);
-pub const CODECAPI_AVEncMPVIntraDCPrecision: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2685493585, 52168, 19187, [151, 220, 208, 12, 206, 184, 45, 121]);
-pub const CODECAPI_AVEncMPVIntraVLCTable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2729983989, 6809, 16474, [175, 149, 197, 153, 125, 85, 141, 58]);
-pub const CODECAPI_AVEncMPVLevel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1860439104, 42508, 16879, [143, 80, 55, 194, 36, 158, 44, 179]);
-pub const CODECAPI_AVEncMPVProfile: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3669709642, 7577, 17028, [151, 90, 217, 14, 34, 57, 186, 161]);
-pub const CODECAPI_AVEncMPVQScaleType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(729410487, 62596, 19191, [187, 88, 162, 161, 136, 197, 203, 190]);
-pub const CODECAPI_AVEncMPVQuantMatrixChromaIntra: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2662984916, 397, 20477, [143, 45, 57, 228, 159, 7, 177, 122]);
-pub const CODECAPI_AVEncMPVQuantMatrixChromaNonIntra: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(336967345, 13866, 17208, [186, 154, 30, 245, 135, 3, 192, 91]);
-pub const CODECAPI_AVEncMPVQuantMatrixIntra: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2615805171, 26145, 17452, [139, 161, 58, 195, 120, 151, 150, 152]);
-pub const CODECAPI_AVEncMPVQuantMatrixNonIntra: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2280931800, 2455, 19435, [160, 142, 133, 115, 212, 9, 207, 117]);
-pub const CODECAPI_AVEncMPVScanPattern: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2139768718, 31675, 19170, [178, 252, 150, 209, 127, 196, 162, 214]);
-pub const CODECAPI_AVEncMPVSceneDetection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1428658673, 56140, 16475, [138, 58, 201, 63, 45, 6, 116, 220]);
-pub const CODECAPI_AVEncMPVUseConcealmentMotionVectors: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3967225075, 26888, 19275, [170, 48, 127, 185, 134, 33, 79, 234]);
-pub const CODECAPI_AVEncMaxFrameRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3113098033, 6650, 19791, [153, 49, 214, 165, 184, 170, 185, 60]);
-pub const CODECAPI_AVEncMuxOutputStreamType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3470630543, 13523, 17627, [161, 216, 248, 21, 32, 37, 79, 62]);
-pub const CODECAPI_AVEncNoInputCopy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3535039018, 59630, 20165, [134, 158, 68, 155, 108, 98, 200, 26]);
-pub const CODECAPI_AVEncNumWorkerThreads: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2965946208, 5879, 18769, [163, 11, 29, 177, 96, 146, 147, 214]);
-pub const CODECAPI_AVEncProgressiveUpdateTime: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1688186726, 44998, 18472, [143, 220, 7, 113, 205, 154, 177, 125]);
-pub const CODECAPI_AVEncSliceControlMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3924263663, 24344, 17609, [169, 11, 233, 195, 194, 193, 123, 11]);
-pub const CODECAPI_AVEncSliceControlSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2465537523, 1957, 16754, [174, 254, 198, 156, 163, 182, 14, 53]);
-pub const CODECAPI_AVEncSliceGenerationMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2322318975, 38039, 17030, [180, 107, 2, 219, 141, 96, 237, 188]);
-pub const CODECAPI_AVEncStatAudioAverageBPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3395757275, 28761, 17233, [139, 67, 248, 33, 152, 130, 106, 20]);
-pub const CODECAPI_AVEncStatAudioAveragePCMValue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2542957304, 53631, 20018, [187, 115, 78, 115, 28, 104, 186, 45]);
-pub const CODECAPI_AVEncStatAudioPeakPCMValue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3706191156, 56320, 19478, [130, 27, 53, 217, 235, 0, 251, 26]);
-pub const CODECAPI_AVEncStatAverageBPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3395757275, 28761, 17233, [139, 67, 248, 33, 152, 130, 106, 20]);
-pub const CODECAPI_AVEncStatCommonCompletedPasses: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1046340915, 40439, 17292, [133, 79, 159, 125, 211, 104, 61, 52]);
-pub const CODECAPI_AVEncStatHardwareBandwidthUtilitization: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(19184283, 56385, 18470, [180, 95, 24, 172, 1, 179, 213, 168]);
-pub const CODECAPI_AVEncStatHardwareProcessorUtilitization: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2573058087, 52117, 18918, [185, 27, 89, 103, 117, 60, 220, 184]);
-pub const CODECAPI_AVEncStatMPVSkippedEmptyFrames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(840523731, 22797, 18450, [167, 237, 109, 99, 154, 31, 151, 17]);
-pub const CODECAPI_AVEncStatVideoCodedFrames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3565129057, 28506, 18982, [187, 159, 205, 149, 24, 70, 43, 205]);
-pub const CODECAPI_AVEncStatVideoOutputFrameRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3195304009, 39604, 19043, [152, 254, 241, 67, 240, 79, 142, 233]);
-pub const CODECAPI_AVEncStatVideoTotalFrames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4255815958, 4506, 16930, [154, 214, 63, 124, 171, 153, 204, 139]);
-pub const CODECAPI_AVEncStatWMVCBAvg: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1789272735, 54786, 19357, [182, 140, 193, 173, 120, 136, 75, 239]);
-pub const CODECAPI_AVEncStatWMVCBMax: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3916873464, 254, 17588, [182, 37, 143, 35, 139, 192, 52, 153]);
-pub const CODECAPI_AVEncStatWMVDecoderComplexityProfile: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2313592771, 3995, 17260, [151, 74, 223, 130, 18, 39, 201, 13]);
-pub const CODECAPI_AVEncVideoCBRMotionTradeoff: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(222905630, 6357, 17255, [164, 239, 50, 64, 223, 22, 147, 196]);
-pub const CODECAPI_AVEncVideoCTBSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3565009074, 59195, 19641, [140, 62, 189, 135, 125, 6, 215, 123]);
-pub const CODECAPI_AVEncVideoCodedVideoAccessUnitSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3031501845, 5287, 19688, [177, 115, 220, 144, 160, 180, 252, 219]);
-pub const CODECAPI_AVEncVideoContentType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1712421578, 60279, 17821, [147, 12, 164, 141, 157, 6, 131, 252]);
-pub const CODECAPI_AVEncVideoDefaultUpperFieldDominant: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2164352964, 3009, 18378, [143, 194, 87, 5, 90, 20, 116, 165]);
-pub const CODECAPI_AVEncVideoDirtyRectEnabled: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2328596445, 24076, 19558, [135, 41, 184, 246, 41, 171, 4, 251]);
-pub const CODECAPI_AVEncVideoDisplayDimension: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3724883560, 62700, 18345, [134, 208, 131, 103, 112, 240, 193, 213]);
-pub const CODECAPI_AVEncVideoEncodeDimension: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(276094760, 32271, 18340, [164, 83, 205, 215, 56, 112, 245, 206]);
-pub const CODECAPI_AVEncVideoEncodeFrameTypeQP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2859513360, 57407, 17676, [173, 7, 7, 49, 78, 99, 156, 231]);
-pub const CODECAPI_AVEncVideoEncodeOffsetOrigin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1807784190, 42778, 17492, [133, 46, 77, 45, 222, 178, 205, 36]);
-pub const CODECAPI_AVEncVideoEncodeQP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(750086507, 9211, 19681, [160, 249, 239, 91, 144, 253, 85, 202]);
-pub const CODECAPI_AVEncVideoFieldSwap: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4278023529, 19978, 18930, [159, 43, 54, 14, 164, 140, 25, 162]);
-pub const CODECAPI_AVEncVideoForceKeyFrame: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(965483416, 33619, 18266, [158, 242, 143, 38, 93, 38, 3, 69]);
-pub const CODECAPI_AVEncVideoForceSourceScanType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(519177823, 1418, 18277, [164, 252, 138, 134, 76, 16, 48, 18]);
-pub const CODECAPI_AVEncVideoGradualIntraRefresh: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2402581998, 51981, 18874, [180, 98, 219, 105, 39, 238, 33, 1]);
-pub const CODECAPI_AVEncVideoHeaderDropFrame: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1859772708, 31013, 17406, [151, 27, 224, 25, 246, 34, 34, 180]);
-pub const CODECAPI_AVEncVideoHeaderFrames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2950034791, 23579, 19164, [189, 175, 115, 86, 16, 56, 20, 54]);
-pub const CODECAPI_AVEncVideoHeaderHours: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(718042882, 58074, 16728, [191, 155, 136, 136, 1, 41, 215, 64]);
-pub const CODECAPI_AVEncVideoHeaderMinutes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3692730830, 775, 16523, [136, 11, 184, 52, 142, 232, 202, 127]);
-pub const CODECAPI_AVEncVideoHeaderSeconds: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1244535301, 42880, 20312, [129, 32, 154, 68, 157, 105, 101, 107]);
-pub const CODECAPI_AVEncVideoInputChromaResolution: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3138186291, 5873, 18352, [138, 136, 55, 129, 91, 238, 23, 57]);
-pub const CODECAPI_AVEncVideoInputChromaSubsampling: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2833726009, 17461, 20163, [166, 234, 152, 48, 15, 75, 54, 247]);
-pub const CODECAPI_AVEncVideoInputColorLighting: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1185518921, 21, 19013, [156, 48, 29, 92, 250, 37, 131, 22]);
-pub const CODECAPI_AVEncVideoInputColorNominalRange: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(382674374, 41638, 18665, [174, 128, 33, 174, 196, 29, 66, 126]);
-pub const CODECAPI_AVEncVideoInputColorPrimaries: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259856959, 31974, 17016, [144, 171, 40, 164, 241, 229, 248, 108]);
-pub const CODECAPI_AVEncVideoInputColorTransferFunction: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2349162769, 43459, 19208, [160, 160, 206, 19, 248, 162, 124, 117]);
-pub const CODECAPI_AVEncVideoInputColorTransferMatrix: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1391290553, 29397, 16521, [149, 141, 245, 64, 93, 85, 8, 28]);
-pub const CODECAPI_AVEncVideoInstantTemporalUpSwitching: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2737865479, 3478, 19364, [177, 240, 185, 26, 94, 73, 223, 16]);
-pub const CODECAPI_AVEncVideoIntraLayerPrediction: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3551479480, 48967, 17595, [162, 131, 105, 240, 176, 34, 143, 249]);
-pub const CODECAPI_AVEncVideoInverseTelecineEnable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(782829963, 59245, 19661, [160, 48, 211, 184, 137, 193, 182, 76]);
-pub const CODECAPI_AVEncVideoInverseTelecineThreshold: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1076133252, 59541, 18815, [180, 76, 183, 69, 96, 172, 254, 39]);
-pub const CODECAPI_AVEncVideoLTRBufferControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2762008893, 19644, 17484, [137, 244, 130, 109, 49, 14, 146, 167]);
-pub const CODECAPI_AVEncVideoMarkLTRFrame: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3828303688, 41069, 20217, [140, 234, 61, 5, 253, 227, 189, 59]);
-pub const CODECAPI_AVEncVideoMaxCTBSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2183357439, 52936, 17381, [146, 253, 224, 151, 72, 132, 133, 233]);
-pub const CODECAPI_AVEncVideoMaxKeyframeDistance: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(696717882, 47763, 18180, [180, 137, 236, 30, 95, 37, 41, 44]);
-pub const CODECAPI_AVEncVideoMaxNumRefFrame: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2521311725, 38137, 17332, [183, 77, 239, 64, 148, 75, 105, 160]);
-pub const CODECAPI_AVEncVideoMaxQP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1034907494, 42663, 17888, [168, 229, 242, 116, 63, 70, 163, 162]);
-pub const CODECAPI_AVEncVideoMaxTemporalLayers: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2623966462, 2273, 16970, [147, 78, 183, 100, 176, 100, 128, 42]);
-pub const CODECAPI_AVEncVideoMeanAbsoluteDifference: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3854614799, 33188, 16941, [140, 63, 180, 116, 164, 88, 19, 54]);
-pub const CODECAPI_AVEncVideoMinQP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(249703530, 41852, 17768, [181, 241, 157, 76, 43, 58, 184, 134]);
-pub const CODECAPI_AVEncVideoNoOfFieldsToEncode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1642380258, 20192, 16615, [128, 171, 81, 221, 238, 190, 98, 145]);
-pub const CODECAPI_AVEncVideoNoOfFieldsToSkip: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2843611712, 5159, 19478, [167, 247, 61, 207, 216, 186, 76, 197]);
-pub const CODECAPI_AVEncVideoNumGOPsPerIDR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2210159579, 23433, 17697, [143, 102, 51, 21, 28, 55, 49, 118]);
-pub const CODECAPI_AVEncVideoOutputChromaResolution: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1620554953, 31773, 20068, [191, 204, 158, 151, 101, 49, 138, 231]);
-pub const CODECAPI_AVEncVideoOutputChromaSubsampling: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4199947372, 32023, 17648, [131, 201, 50, 237, 18, 233, 99, 67]);
-pub const CODECAPI_AVEncVideoOutputColorLighting: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(240822982, 44262, 19548, [153, 142, 26, 140, 156, 108, 15, 137]);
-pub const CODECAPI_AVEncVideoOutputColorNominalRange: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2535994861, 34741, 20117, [149, 0, 199, 57, 88, 86, 110, 84]);
-pub const CODECAPI_AVEncVideoOutputColorPrimaries: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3197472892, 40196, 18721, [137, 133, 166, 214, 216, 125, 26, 108]);
-pub const CODECAPI_AVEncVideoOutputColorTransferFunction: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1249871946, 59921, 17933, [191, 87, 184, 139, 199, 89, 0, 222]);
-pub const CODECAPI_AVEncVideoOutputColorTransferMatrix: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2847474756, 44864, 17168, [143, 190, 237, 109, 147, 63, 137, 43]);
-pub const CODECAPI_AVEncVideoOutputFrameRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3934644163, 38247, 19865, [135, 196, 2, 193, 194, 120, 202, 124]);
-pub const CODECAPI_AVEncVideoOutputFrameRateConversion: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2349239284, 13978, 19363, [130, 253, 178, 81, 143, 179, 57, 110]);
-pub const CODECAPI_AVEncVideoOutputScanType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1175147894, 33838, 18859, [166, 45, 179, 111, 115, 18, 201, 219]);
-pub const CODECAPI_AVEncVideoPixelAspectRatio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1021079951, 46057, 20150, [165, 127, 207, 31, 27, 50, 27, 135]);
-pub const CODECAPI_AVEncVideoROIEnabled: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3612311320, 17629, 19333, [171, 163, 5, 217, 244, 42, 130, 128]);
-pub const CODECAPI_AVEncVideoRateControlParams: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2278831975, 30277, 17644, [180, 56, 211, 50, 47, 188, 162, 159]);
-pub const CODECAPI_AVEncVideoSelectLayer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3943728373, 27306, 18708, [187, 47, 97, 71, 34, 127, 18, 231]);
-pub const CODECAPI_AVEncVideoSourceFilmContent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395429451, 52476, 18471, [160, 237, 37, 87, 121, 59, 43, 28]);
-pub const CODECAPI_AVEncVideoSourceIsBW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1124058267, 6162, 20444, [141, 36, 112, 84, 197, 33, 230, 235]);
-pub const CODECAPI_AVEncVideoSupportedControls: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3555987421, 30649, 18237, [129, 150, 6, 18, 89, 230, 156, 255]);
-pub const CODECAPI_AVEncVideoTemporalLayerCount: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(432729087, 46925, 19709, [140, 39, 194, 249, 217, 125, 95, 82]);
-pub const CODECAPI_AVEncVideoUsage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(526608457, 24001, 18929, [177, 216, 206, 60, 246, 46, 163, 133]);
-pub const CODECAPI_AVEncVideoUseLTRFrame: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(7679416, 22007, 20352, [137, 91, 39, 99, 145, 149, 242, 173]);
-pub const CODECAPI_AVEncWMVDecoderComplexity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4079750571, 62411, 16919, [183, 159, 135, 98, 118, 139, 95, 103]);
-pub const CODECAPI_AVEncWMVInterlacedEncoding: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3822063498, 50933, 19988, [165, 136, 14, 200, 122, 114, 111, 155]);
-pub const CODECAPI_AVEncWMVKeyFrameBufferLevelMarker: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1375670549, 13228, 17004, [161, 177, 9, 50, 27, 223, 150, 180]);
-pub const CODECAPI_AVEncWMVKeyFrameDistance: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1432946014, 57960, 18289, [184, 62, 149, 85, 234, 40, 174, 211]);
-pub const CODECAPI_AVEncWMVProduceDummyFrames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3597258753, 6204, 17123, [163, 202, 47, 69, 134, 210, 57, 108]);
-pub const CODECAPI_AVLowLatencyMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2619836698, 60794, 16609, [136, 232, 178, 39, 39, 160, 36, 238]);
-pub const CODECAPI_AVPriorityControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1421491656, 48606, 17193, [177, 135, 32, 24, 188, 92, 43, 161]);
-pub const CODECAPI_AVRealtimeControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1866729010, 50349, 19447, [158, 82, 69, 105, 66, 180, 84, 176]);
-pub const CODECAPI_AVScenarioInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2995416676, 16377, 17514, [138, 75, 13, 122, 83, 65, 50, 54]);
-pub const CODECAPI_GUID_AVDecAudioInputAAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2548004904, 47434, 18402, [164, 188, 81, 25, 77, 178, 42, 77]);
-pub const CODECAPI_GUID_AVDecAudioInputDTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1611382986, 27167, 20113, [178, 65, 27, 190, 177, 203, 25, 224]);
-pub const CODECAPI_GUID_AVDecAudioInputDolby: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2386700448, 61440, 19979, [143, 84, 171, 141, 36, 173, 97, 162]);
-pub const CODECAPI_GUID_AVDecAudioInputDolbyDigitalPlus: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(134472069, 36701, 18421, [153, 8, 25, 165, 187, 201, 254, 52]);
-pub const CODECAPI_GUID_AVDecAudioInputHEAAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(384808106, 13070, 20316, [152, 168, 207, 106, 197, 92, 190, 96]);
-pub const CODECAPI_GUID_AVDecAudioInputMPEG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2433773366, 709, 20341, [151, 25, 59, 122, 191, 117, 225, 246]);
-pub const CODECAPI_GUID_AVDecAudioInputPCM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4064419237, 48052, 19669, [169, 150, 147, 60, 107, 93, 19, 71]);
-pub const CODECAPI_GUID_AVDecAudioInputWMA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3378417103, 16472, 16900, [140, 66, 203, 36, 217, 30, 75, 155]);
-pub const CODECAPI_GUID_AVDecAudioInputWMAPro: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(19445703, 55922, 20451, [190, 248, 92, 82, 227, 85, 119, 4]);
-pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1768824113, 21647, 16438, [130, 95, 112, 38, 198, 0, 17, 189]);
-pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Headphones: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1768824116, 21647, 16438, [130, 95, 112, 38, 198, 0, 17, 189]);
-pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_Auto: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1768824117, 21647, 16438, [130, 95, 112, 38, 198, 0, 17, 189]);
-pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_MatrixEncoded: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1768824112, 21647, 16438, [130, 95, 112, 38, 198, 0, 17, 189]);
-pub const CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_Bitstream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1768824115, 21647, 16438, [130, 95, 112, 38, 198, 0, 17, 189]);
-pub const CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_PCM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1768824114, 21647, 16438, [130, 95, 112, 38, 198, 0, 17, 189]);
-pub const CODECAPI_GUID_AVEncCommonFormatATSC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2373683580, 40985, 18032, [170, 118, 46, 220, 172, 122, 194, 150]);
-pub const CODECAPI_GUID_AVEncCommonFormatDVB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1904414095, 27699, 17165, [132, 75, 194, 112, 91, 170, 230, 219]);
-pub const CODECAPI_GUID_AVEncCommonFormatDVD_DashVR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3847330262, 1100, 19886, [164, 136, 83, 30, 211, 6, 35, 91]);
-pub const CODECAPI_GUID_AVEncCommonFormatDVD_PlusVR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3880546094, 60471, 18317, [154, 244, 165, 225, 53, 182, 39, 28]);
-pub const CODECAPI_GUID_AVEncCommonFormatDVD_V: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3432356036, 59390, 17693, [177, 202, 118, 27, 200, 64, 183, 243]);
-pub const CODECAPI_GUID_AVEncCommonFormatHighMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(514582368, 64299, 18728, [144, 209, 120, 219, 136, 238, 232, 137]);
-pub const CODECAPI_GUID_AVEncCommonFormatHighMPV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2731695544, 47353, 17090, [139, 199, 11, 147, 207, 96, 71, 136]);
-pub const CODECAPI_GUID_AVEncCommonFormatMP3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(882324429, 60168, 19906, [129, 151, 228, 152, 53, 239, 130, 139]);
-pub const CODECAPI_GUID_AVEncCommonFormatSVCD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1373132824, 33312, 17548, [128, 102, 214, 155, 237, 22, 201, 173]);
-pub const CODECAPI_GUID_AVEncCommonFormatUnSpecified: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2940642138, 24612, 17701, [164, 138, 9, 75, 151, 245, 179, 194]);
-pub const CODECAPI_GUID_AVEncCommonFormatVCD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2500025335, 40336, 16639, [173, 92, 92, 248, 207, 113, 202, 29]);
-pub const CODECAPI_GUID_AVEncDTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1174129314, 24174, 19120, [136, 147, 89, 3, 190, 233, 58, 207]);
-pub const CODECAPI_GUID_AVEncDTSHD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(542303792, 18077, 19451, [128, 202, 29, 101, 110, 126, 145, 143]);
-pub const CODECAPI_GUID_AVEncDV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(163015111, 13097, 17659, [137, 84, 250, 48, 147, 125, 61, 90]);
-pub const CODECAPI_GUID_AVEncDolbyDigitalConsumer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3248996204, 89, 19450, [148, 239, 239, 116, 122, 118, 141, 82]);
-pub const CODECAPI_GUID_AVEncDolbyDigitalPlus: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1770855296, 63453, 16732, [151, 28, 66, 73, 42, 32, 86, 198]);
-pub const CODECAPI_GUID_AVEncDolbyDigitalPro: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4122900172, 4088, 16619, [156, 177, 187, 169, 64, 4, 212, 79]);
-pub const CODECAPI_GUID_AVEncH264Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2500087467, 12723, 18398, [142, 117, 56, 164, 43, 176, 62, 40]);
-pub const CODECAPI_GUID_AVEncMLP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(100089385, 61649, 17182, [164, 28, 164, 116, 50, 236, 90, 102]);
-pub const CODECAPI_GUID_AVEncMPEG1Audio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3571258210, 52554, 19670, [129, 56, 185, 77, 180, 84, 43, 4]);
-pub const CODECAPI_GUID_AVEncMPEG1Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3369795326, 55838, 18292, [178, 125, 17, 131, 12, 22, 177, 254]);
-pub const CODECAPI_GUID_AVEncMPEG2Audio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3998006047, 39999, 18288, [146, 181, 252, 183, 194, 168, 211, 129]);
-pub const CODECAPI_GUID_AVEncMPEG2Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(74301850, 26231, 19114, [163, 29, 193, 171, 113, 111, 69, 96]);
-pub const CODECAPI_GUID_AVEncPCM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2219567092, 9935, 18297, [179, 134, 204, 5, 209, 135, 153, 12]);
-pub const CODECAPI_GUID_AVEncSDDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499234863, 4552, 19569, [183, 182, 238, 62, 185, 188, 43, 148]);
-pub const CODECAPI_GUID_AVEncWMALossless: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1439330917, 9176, 18273, [144, 49, 183, 79, 190, 18, 244, 193]);
-pub const CODECAPI_GUID_AVEncWMAPro: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(425064716, 13303, 19048, [171, 129, 83, 245, 101, 113, 37, 196]);
-pub const CODECAPI_GUID_AVEncWMAVoice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(334305483, 20712, 17014, [162, 136, 166, 170, 34, 131, 130, 217]);
-pub const CODECAPI_GUID_AVEncWMV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1309667227, 7491, 16829, [184, 189, 77, 123, 247, 69, 122, 42]);
-pub const CODECAPI_GUID_AVEndMPEG4Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3711414570, 38147, 20363, [184, 208, 50, 74, 0, 192, 161, 207]);
-pub const CODECAPI_GetOPMContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(788753413, 19476, 18057, [136, 57, 41, 76, 109, 115, 224, 83]);
-pub const CODECAPI_SetHDCPManagerContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1831673800, 15817, 18411, [161, 162, 71, 28, 128, 205, 96, 208]);
-pub const CODECAPI_VideoEncoderDisplayContentType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2042170151, 62641, 17116, [157, 215, 205, 175, 129, 53, 196, 0]);
+pub const CAC3DecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03d7c802_ecfa_47d9_b268_5fb3e310dee4);
+pub const CClusterDetectorDmo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36e820c4_165a_4521_863c_619e1160d4d4);
+pub const CColorControlDmo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x798059f0_89ca_4160_b325_aeb48efe4f9a);
+pub const CColorConvertDMO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98230571_0087_4204_b020_3282538e57d3);
+pub const CColorLegalizerDmo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfdfaa753_e48e_4e33_9c74_98a27fc6726a);
+pub const CDTVAudDecoderDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e269032_fe03_4753_9b17_18253c21722e);
+pub const CDTVVidDecoderDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64777dc8_4e24_4beb_9d19_60a35be1daaf);
+pub const CDVDecoderMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe54709c5_1e17_4c8d_94e7_478940433584);
+pub const CDVEncoderMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc82ae729_c327_4cce_914d_8171fefebefb);
+pub const CDeColorConvMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49034c05_f43c_400f_84c1_90a683195a3a);
+pub const CFrameInterpDMO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a7cfe1b_6ab5_4334_9ed8_3f97cb37daa1);
+pub const CFrameRateConvertDmo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01f36ce2_0907_4d8b_979d_f151be91c883);
+pub const CInterlaceMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5a89c80_4901_407b_9abc_90d9a644bb46);
+pub const CLSID_AudioResamplerMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf447b69e_1884_4a7e_8055_346f74d6edb3);
+pub const CLSID_CAsfTocParser: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b77c0f2_8735_46c5_b90f_5f0b303ef6ab);
+pub const CLSID_CAviTocParser: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3adce5cc_13c8_4573_b328_ed438eb694f9);
+pub const CLSID_CClusterDetectorEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47354492_827e_4b8a_b318_c80eba1381f0);
+pub const CLSID_CFileClient: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfccd195_1244_4840_ab44_480975c4ffe4);
+pub const CLSID_CFileIo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11993195_1244_4840_ab44_480975c4ffe4);
+pub const CLSID_CToc: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4fe24495_28ce_4920_a4c4_e556e1f0df2a);
+pub const CLSID_CTocCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5058292d_a244_4840_ab44_480975c4ffe4);
+pub const CLSID_CTocEntry: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf22f5e05_585c_4def_8523_6555cfbc0cb3);
+pub const CLSID_CTocEntryList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a8cccbc_0efd_43a3_b838_f38a552ba237);
+pub const CLSID_CTocParser: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x499eaeea_2737_4849_8bb6_47f107eaf358);
+pub const CLSID_CreateMediaExtensionObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef65a54d_0788_45b8_8b14_bc0f6a6b5137);
+pub const CLSID_FrameServerNetworkCameraSource: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a213aa7_866f_414a_8c1a_275c7283a395);
+pub const CLSID_HttpSchemePlugin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44cb442b_9da9_49df_b3fd_023777b16e50);
+pub const CLSID_MFByteStreamProxyClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x770e8e77_4916_441c_a9a7_b342d0eebc71);
+pub const CLSID_MFCaptureEngine: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefce38d3_8914_4674_a7df_ae1b3d654b8a);
+pub const CLSID_MFCaptureEngineClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefce38d3_8914_4674_a7df_ae1b3d654b8a);
+pub const CLSID_MFImageSharingEngineClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb22c3339_87f3_4059_a0c5_037aa9707eaf);
+pub const CLSID_MFMediaEngineClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb44392da_499b_446b_a4cb_005fead0e6d5);
+pub const CLSID_MFMediaSharingEngineClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8e307fb_6d45_4ad3_9993_66cd5a529659);
+pub const CLSID_MFReadWriteClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48e2ed0f_98c2_4a37_bed5_166312ddd83f);
+pub const CLSID_MFSinkWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3bbfb17_8273_4e52_9e0e_9739dc887990);
+pub const CLSID_MFSourceReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1777133c_0881_411b_a577_ad545f0714c4);
+pub const CLSID_MFSourceResolver: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90eab60f_e43a_4188_bcc4_e47fdf04868c);
+pub const CLSID_MP3DecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbbeea841_0a63_4f52_a7ab_a9b3a84ed38a);
+pub const CLSID_MPEG2ByteStreamPlugin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40871c59_ab40_471f_8dc3_1f259d862479);
+pub const CLSID_MPEG2DLNASink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa5fe7c5_6a1d_4b11_b41f_f959d6c76500);
+pub const CLSID_MSAACDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32d186a7_218f_4c75_8876_dd77273a8999);
+pub const CLSID_MSDDPlusDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x177c0afe_900b_48d4_9e4c_57add250b3d4);
+pub const CLSID_MSH264DecoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62ce7e72_4c71_4d20_b15d_452831a87d9d);
+pub const CLSID_MSH264EncoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ca50344_051a_4ded_9779_a43305165e35);
+pub const CLSID_MSH265DecoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x420a51a3_d605_430c_b4fc_45274fa6c562);
+pub const CLSID_MSMPEGAudDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70707b39_b2ca_4015_abea_f8447d22d88b);
+pub const CLSID_MSMPEGDecoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d709e52_123f_49b5_9cbc_9af5cde28fb9);
+pub const CLSID_MSOpusDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63e17c10_2d43_4c42_8fe3_8d8b63e46a6a);
+pub const CLSID_MSVPxDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3aaf548_c9a4_4c6e_234d_5ada374b0000);
+pub const CLSID_NetSchemePlugin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9f4ebab_d97b_463e_a2b1_c54ee3f9414d);
+pub const CLSID_PlayToSourceClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda17539a_3dc3_42c1_a749_a183b51f085e);
+pub const CLSID_UrlmonSchemePlugin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ec4b4f9_3029_45ad_947b_344de2a249e2);
+pub const CLSID_VideoProcessorMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88753b26_5b24_49bd_b2e7_0c445c78c982);
+pub const CLSID_WMADecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2eeb4adf_4578_4d10_bca7_bb955f56320a);
+pub const CLSID_WMDRMSystemID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8948bb22_11bd_4796_93e3_974d1b575678);
+pub const CLSID_WMVDecoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82d353df_90bd_4382_8bc2_3f6192b76e34);
+pub const CMP3DecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbbeea841_0a63_4f52_a7ab_a9b3a84ed38a);
+pub const CMPEG2AudDecoderDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1f1a0b8_beee_490d_ba7c_066c40b5e2b9);
+pub const CMPEG2AudioEncoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46a4dd5c_73f8_4304_94df_308f760974f4);
+pub const CMPEG2EncoderAudioDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xacd453bc_c58a_44d1_bbf5_bfb325be2d78);
+pub const CMPEG2EncoderDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f5aff4a_2f7f_4279_88c2_cd88eb39d144);
+pub const CMPEG2EncoderVideoDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42150cd9_ca9a_4ea5_9939_30ee037f6e74);
+pub const CMPEG2VidDecoderDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x212690fb_83e5_4526_8fd7_74478b7939cd);
+pub const CMPEG2VideoEncoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6335f02_80b7_4dc4_adfa_dfe7210d20d5);
+pub const CMPEGAACDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8dde1772_edad_41c3_b4be_1f30fb4ee0d6);
+pub const CMSAACDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32d186a7_218f_4c75_8876_dd77273a8999);
+pub const CMSAC3Enc: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6b400e2_20a7_4e58_a2fe_24619682ce6c);
+pub const CMSALACDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0cd7d12_31fc_4bbc_b363_7322ee3e1879);
+pub const CMSALACEncMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ab6a28c_748e_4b6a_bfff_cc443b8e8fb4);
+pub const CMSDDPlusDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x177c0afe_900b_48d4_9e4c_57add250b3d4);
+pub const CMSDolbyDigitalEncMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac3315c9_f481_45d7_826c_0b406c1f64b8);
+pub const CMSFLACDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b0b3e6b_a2c5_4514_8055_afe8a95242d9);
+pub const CMSFLACEncMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x128509e9_c44e_45dc_95e9_c255b8f466a6);
+pub const CMSH263EncoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc47fcfe_98a0_4f27_bb07_698af24f2b38);
+pub const CMSH264DecoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62ce7e72_4c71_4d20_b15d_452831a87d9d);
+pub const CMSH264EncoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ca50344_051a_4ded_9779_a43305165e35);
+pub const CMSH264RemuxMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05a47ebb_8bf0_4cbf_ad2f_3b71d75866f5);
+pub const CMSH265EncoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2f84074_8bca_40bd_9159_e880f673dd3b);
+pub const CMSMPEGAudDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70707b39_b2ca_4015_abea_f8447d22d88b);
+pub const CMSMPEGDecoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d709e52_123f_49b5_9cbc_9af5cde28fb9);
+pub const CMSOpusDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63e17c10_2d43_4c42_8fe3_8d8b63e46a6a);
+pub const CMSSCDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bafb3b1_d8f4_4279_9253_27da423108de);
+pub const CMSSCEncMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cb9cc06_d139_4ae6_8bb4_41e612e141d5);
+pub const CMSSCEncMediaObject2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7ffe0a0_a4f5_44b5_949e_15ed2bc66f9d);
+pub const CMSVPXEncoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaeb6c755_2546_4881_82cc_e15ae5ebff3d);
+pub const CMSVideoDSPMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51571744_7fe4_4ff2_a498_2dc34ff74f1b);
+pub const CMpeg2DecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x863d66cd_cdce_4617_b47f_c8929cfc28a6);
+pub const CMpeg43DecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcba9e78b_49a3_49ea_93d4_6bcba8c4de07);
+pub const CMpeg4DecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf371728a_6052_4d47_827c_d039335dfe0a);
+pub const CMpeg4EncMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24f258d8_c651_4042_93e4_ca654abb682c);
+pub const CMpeg4sDecMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5686a0d9_fe39_409f_9dff_3fdbc849f9f5);
+pub const CMpeg4sDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a11bae2_fe6e_4249_864b_9e9ed6e8dbc2);
+pub const CMpeg4sEncMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ec5a7be_d81e_4f9e_ada3_cd1bf262b6d8);
+pub const CNokiaAACCCDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeabf7a6f_ccba_4d60_8620_b152cc977263);
+pub const CNokiaAACDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb2bde4_4e29_4c44_a73e_2d7c2c46d6ec);
+pub const CODECAPI_AVAudioChannelConfig: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17f89cb3_c38d_4368_9ede_63b94d177f9f);
+pub const CODECAPI_AVAudioChannelCount: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d3583c4_1583_474e_b71a_5ee463c198e4);
+pub const CODECAPI_AVAudioSampleRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x971d2723_1acb_42e7_855c_520a4b70a5f2);
+pub const CODECAPI_AVDDSurroundMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99f2f386_98d1_4452_a163_abc78a6eb770);
+pub const CODECAPI_AVDSPLoudnessEqualization: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8afd1a15_1812_4cbf_9319_433a5b2a3b27);
+pub const CODECAPI_AVDSPSpeakerFill: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5612bca1_56da_4582_8da1_ca8090f92768);
+pub const CODECAPI_AVDecAACDownmixMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01274475_f6bb_4017_b084_81a763c942d4);
+pub const CODECAPI_AVDecAudioDualMono: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a52cda8_30f8_4216_be0f_ba0b2025921d);
+pub const CODECAPI_AVDecAudioDualMonoReproMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5106186_cc94_4bc9_8cd9_aa2f61f6807e);
+pub const CODECAPI_AVDecCommonInputFormat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5005239_bd89_4be3_9c0f_5dde317988cc);
+pub const CODECAPI_AVDecCommonMeanBitRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59488217_007a_4f7a_8e41_5c48b1eac5c6);
+pub const CODECAPI_AVDecCommonMeanBitRateInterval: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ee437c6_38a7_4c5c_944c_68ab42116b85);
+pub const CODECAPI_AVDecCommonOutputFormat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c790028_c0ce_4256_b1a2_1b0fc8b1dcdc);
+pub const CODECAPI_AVDecDDDynamicRangeScaleHigh: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50196c21_1f33_4af5_b296_11426d6c8789);
+pub const CODECAPI_AVDecDDDynamicRangeScaleLow: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x044e62e4_11a5_42d5_a3b2_3bb2c7c2d7cf);
+pub const CODECAPI_AVDecDDMatrixDecodingMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddc811a5_04ed_4bf3_a0ca_d00449f9355f);
+pub const CODECAPI_AVDecDDOperationalMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6d6c6d1_064e_4fdd_a40e_3ecbfcb7ebd0);
+pub const CODECAPI_AVDecDDStereoDownMixMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ce4122c_3ee9_4182_b4ae_c10fc088649d);
+pub const CODECAPI_AVDecDisableVideoPostProcessing: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8749193_667a_4f2c_a9e8_5d4af924f08f);
+pub const CODECAPI_AVDecHEAACDynamicRangeControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x287c8abe_69a4_4d39_8080_d3d9712178a0);
+pub const CODECAPI_AVDecNumWorkerThreads: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9561c3e8_ea9e_4435_9b1e_a93e691894d8);
+pub const CODECAPI_AVDecSoftwareDynamicFormatChange: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x862e2f0a_507b_47ff_af47_01e2624298b7);
+pub const CODECAPI_AVDecVideoAcceleration_H264: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7db8a2f_4f48_4ee8_ae31_8b6ebe558ae2);
+pub const CODECAPI_AVDecVideoAcceleration_MPEG2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7db8a2e_4f48_4ee8_ae31_8b6ebe558ae2);
+pub const CODECAPI_AVDecVideoAcceleration_VC1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7db8a30_4f48_4ee8_ae31_8b6ebe558ae2);
+pub const CODECAPI_AVDecVideoCodecType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x434528e5_21f0_46b6_b62c_9b1b6b658cd1);
+pub const CODECAPI_AVDecVideoDXVABusEncryption: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42153c8b_fd0b_4765_a462_ddd9e8bcc388);
+pub const CODECAPI_AVDecVideoDXVAMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf758f09e_7337_4ae7_8387_73dc2d54e67d);
+pub const CODECAPI_AVDecVideoDropPicWithMissingRef: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8226383_14c2_4567_9734_5004e96ff887);
+pub const CODECAPI_AVDecVideoFastDecodeMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b529f7d_d3b1_49c6_a999_9ec6911bedbf);
+pub const CODECAPI_AVDecVideoH264ErrorConcealment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xececace8_3436_462c_9294_cd7bacd758a9);
+pub const CODECAPI_AVDecVideoImageSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ee5747c_6801_4cab_aaf1_6248fa841ba4);
+pub const CODECAPI_AVDecVideoInputScanType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38477e1f_0ea7_42cd_8cd1_130ced57c580);
+pub const CODECAPI_AVDecVideoMPEG2ErrorConcealment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d2bfe18_728d_48d2_b358_bc7e436c6674);
+pub const CODECAPI_AVDecVideoMaxCodedHeight: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7262a16a_d2dc_4e75_9ba8_65c0c6d32b13);
+pub const CODECAPI_AVDecVideoMaxCodedWidth: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ae557b8_77af_41f5_9fa6_4db2fe1d4bca);
+pub const CODECAPI_AVDecVideoPixelAspectRatio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0cf8245_f32d_41df_b02c_87bd304d12ab);
+pub const CODECAPI_AVDecVideoProcDeinterlaceCSC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7db8a31_4f48_4ee8_ae31_8b6ebe558ae2);
+pub const CODECAPI_AVDecVideoSWPowerLevel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb5d2347_4dd8_4509_aed0_db5fa9aa93f4);
+pub const CODECAPI_AVDecVideoSoftwareDeinterlaceMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c08d1ce_9ced_4540_bae3_ceb380141109);
+pub const CODECAPI_AVDecVideoThumbnailGenerationMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2efd8eee_1150_4328_9cf5_66dce933fcf4);
+pub const CODECAPI_AVEnableInLoopDeblockFilter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2e8e399_0623_4bf3_92a8_4d1818529ded);
+pub const CODECAPI_AVEncAdaptiveMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4419b185_da1f_4f53_bc76_097d0c1efb1e);
+pub const CODECAPI_AVEncAudioDualMono: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3648126b_a3e8_4329_9b3a_5ce566a43bd3);
+pub const CODECAPI_AVEncAudioInputContent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e226c2b_60b9_4a39_b00b_a7b40f70d566);
+pub const CODECAPI_AVEncAudioIntervalToEncode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x866e4b4d_725a_467c_bb01_b496b23b25f9);
+pub const CODECAPI_AVEncAudioIntervalToSkip: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88c15f94_c38c_4796_a9e8_96e967983f26);
+pub const CODECAPI_AVEncAudioMapDestChannel0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc5d0b60_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc5d0b61_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc5d0b6a_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel11: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc5d0b6b_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel12: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc5d0b6c_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel13: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc5d0b6d_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel14: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc5d0b6e_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel15: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc5d0b6f_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc5d0b62_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc5d0b63_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc5d0b64_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel5: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc5d0b65_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel6: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc5d0b66_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel7: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc5d0b67_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc5d0b68_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel9: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc5d0b69_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMeanBitRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x921295bb_4fca_4679_aab8_9e2a1d753384);
+pub const CODECAPI_AVEncChromaEncodeMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a47ab5a_4798_4c93_b5a5_554f9a3b9f50);
+pub const CODECAPI_AVEncChromaUpdateTime: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b4fd998_4274_40bb_8ee4_07553e7e2d3a);
+pub const CODECAPI_AVEncCodecType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08af4ac1_f3f2_4c74_9dcf_37f2ec79f826);
+pub const CODECAPI_AVEncCommonAllowFrameDrops: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8477dcb_9598_48e3_8d0c_752bf206093e);
+pub const CODECAPI_AVEncCommonBufferInLevel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9c5c8db_fc74_4064_94e9_cd19f947ed45);
+pub const CODECAPI_AVEncCommonBufferOutLevel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xccae7f49_d0bc_4e3d_a57e_fb5740140069);
+pub const CODECAPI_AVEncCommonBufferSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0db96574_b6a4_4c8b_8106_3773de0310cd);
+pub const CODECAPI_AVEncCommonFormatConstraint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57cbb9b8_116f_4951_b40c_c2a035ed8f17);
+pub const CODECAPI_AVEncCommonLowLatency: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d3ecd55_89e8_490a_970a_0c9548d5a56e);
+pub const CODECAPI_AVEncCommonMaxBitRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9651eae4_39b9_4ebf_85ef_d7f444ec7465);
+pub const CODECAPI_AVEncCommonMeanBitRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7222374_2144_4815_b550_a37f8e12ee52);
+pub const CODECAPI_AVEncCommonMeanBitRateInterval: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfaa2f0c_cb82_4bc0_8474_f06a8a0d0258);
+pub const CODECAPI_AVEncCommonMinBitRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x101405b2_2083_4034_a806_efbeddd7c9ff);
+pub const CODECAPI_AVEncCommonMultipassMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22533d4c_47e1_41b5_9352_a2b7780e7ac4);
+pub const CODECAPI_AVEncCommonPassEnd: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e3d01bc_c85c_467d_8b60_c41012ee3bf6);
+pub const CODECAPI_AVEncCommonPassStart: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a67739f_4eb5_4385_9928_f276a939ef95);
+pub const CODECAPI_AVEncCommonQuality: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcbf57a3_7ea5_4b0c_9644_69b40c39c391);
+pub const CODECAPI_AVEncCommonQualityVsSpeed: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98332df8_03cd_476b_89fa_3f9e442dec9f);
+pub const CODECAPI_AVEncCommonRateControlMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c0608e9_370c_4710_8a58_cb6181c42423);
+pub const CODECAPI_AVEncCommonRealTime: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x143a0ff6_a131_43da_b81e_98fbb8ec378e);
+pub const CODECAPI_AVEncCommonStreamEndHandling: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6aad30af_6ba8_4ccc_8fca_18d19beaeb1c);
+pub const CODECAPI_AVEncCommonTranscodeEncodingProfile: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6947787c_f508_4ea9_b1e9_a1fe3a49fbc9);
+pub const CODECAPI_AVEncDDAtoDConverterType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x719f9612_81a1_47e0_9a05_d94ad5fca948);
+pub const CODECAPI_AVEncDDCentreDownMixLevel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe285072c_c958_4a81_afd2_e5e0daf1b148);
+pub const CODECAPI_AVEncDDChannelBWLowPassFilter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe197821d_d2e7_43e2_ad2c_00582f518545);
+pub const CODECAPI_AVEncDDCopyright: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8694f076_cd75_481d_a5c6_a904dcc828f0);
+pub const CODECAPI_AVEncDDDCHighPassFilter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9565239f_861c_4ac8_bfda_e00cb4db8548);
+pub const CODECAPI_AVEncDDDialogNormalization: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7055acf_f125_437d_a704_79c79f0404a8);
+pub const CODECAPI_AVEncDDDigitalDeemphasis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe024a2c2_947c_45ac_87d8_f1030c5c0082);
+pub const CODECAPI_AVEncDDDynamicRangeCompressionControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfc2ff6d_79b8_4b8d_a8aa_a0c9bd1c2940);
+pub const CODECAPI_AVEncDDHeadphoneMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4052dbec_52f5_42f5_9b00_d134b1341b9d);
+pub const CODECAPI_AVEncDDLFELowPassFilter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3b80f6f_9d15_45e5_91be_019c3fab1f01);
+pub const CODECAPI_AVEncDDLoRoCenterMixLvl_x10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cfba222_25b3_4bf4_9bfd_e7111267858c);
+pub const CODECAPI_AVEncDDLoRoSurroundMixLvl_x10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe725cff6_eb56_40c7_8450_2b9367e91555);
+pub const CODECAPI_AVEncDDLtRtCenterMixLvl_x10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdca128a2_491f_4600_b2da_76e3344b4197);
+pub const CODECAPI_AVEncDDLtRtSurroundMixLvl_x10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x212246c7_3d2c_4dfa_bc21_652a9098690d);
+pub const CODECAPI_AVEncDDOriginalBitstream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x966ae800_5bd3_4ff9_95b9_d30566273856);
+pub const CODECAPI_AVEncDDPreferredStereoDownMixMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f4e6b31_9185_403d_b0a2_763743e6f063);
+pub const CODECAPI_AVEncDDProductionInfoExists: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0b7fe5f_b6ab_4f40_964d_8d91f17c19e8);
+pub const CODECAPI_AVEncDDProductionMixLevel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x301d103a_cbf9_4776_8899_7c15b461ab26);
+pub const CODECAPI_AVEncDDProductionRoomType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdad7ad60_23d8_4ab7_a284_556986d8a6fe);
+pub const CODECAPI_AVEncDDRFPreEmphasisFilter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x21af44c0_244e_4f3d_a2cc_3d3068b2e73f);
+pub const CODECAPI_AVEncDDService: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2e1bec7_5172_4d2a_a50e_2f3b82b1ddf8);
+pub const CODECAPI_AVEncDDSurround3dBAttenuation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d43b99d_31e2_48b9_bf2e_5cbf1a572784);
+pub const CODECAPI_AVEncDDSurround90DegreeePhaseShift: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25ecec9d_3553_42c0_bb56_d25792104f80);
+pub const CODECAPI_AVEncDDSurroundDownMixLevel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b20d6e5_0bcf_4273_a487_506b047997e9);
+pub const CODECAPI_AVEncDDSurroundExMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91607cee_dbdd_4eb6_bca2_aadfafa3dd68);
+pub const CODECAPI_AVEncEnableVideoProcessing: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x006f4bf6_0ea3_4d42_8702_b5d8be0f7a92);
+pub const CODECAPI_AVEncH264CABACEnable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee6cad62_d305_4248_a50e_e1b255f7caf8);
+pub const CODECAPI_AVEncH264PPSID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfe29ec2_056c_4d68_a38d_ae5944c8582e);
+pub const CODECAPI_AVEncH264SPSID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50f38f51_2b79_40e3_b39c_7e9fa0770501);
+pub const CODECAPI_AVEncInputVideoSystem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbede146d_b616_4dc7_92b2_f5d9fa9298f7);
+pub const CODECAPI_AVEncLowPowerEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb668d582_8bad_4f6a_9141_375a95358b6d);
+pub const CODECAPI_AVEncMP12MuxDVDNavPacks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7607ced_8cf1_4a99_83a1_ee5461be3574);
+pub const CODECAPI_AVEncMP12MuxEarliestPTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x157232b6_f809_474e_9464_a7f93014a817);
+pub const CODECAPI_AVEncMP12MuxInitialSCR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3433ad21_1b91_4a0b_b190_2b77063b63a4);
+pub const CODECAPI_AVEncMP12MuxLargestPacketSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35ceb711_f461_4b92_a4ef_17b6841ed254);
+pub const CODECAPI_AVEncMP12MuxMuxRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee047c72_4bdb_4a9d_8e21_41926c823da7);
+pub const CODECAPI_AVEncMP12MuxNumStreams: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7164a41_dced_4659_a8f2_fb693f2a4cd0);
+pub const CODECAPI_AVEncMP12MuxPackSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf916053a_1ce8_4faf_aa0b_ba31c80034b8);
+pub const CODECAPI_AVEncMP12MuxPacketOverhead: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe40bd720_3955_4453_acf9_b79132a38fa0);
+pub const CODECAPI_AVEncMP12MuxSysAudioLock: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0fbb5752_1d43_47bf_bd79_f2293d8ce337);
+pub const CODECAPI_AVEncMP12MuxSysCSPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7952ff45_9c0d_4822_bc82_8ad772e02993);
+pub const CODECAPI_AVEncMP12MuxSysFixed: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcefb987e_894f_452e_8f89_a4ef8cec063a);
+pub const CODECAPI_AVEncMP12MuxSysRateBound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05f0428a_ee30_489d_ae28_205c72446710);
+pub const CODECAPI_AVEncMP12MuxSysSTDBufferBound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35746903_b545_43e7_bb35_c5e0a7d5093c);
+pub const CODECAPI_AVEncMP12MuxSysVideoLock: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8296408_2430_4d37_a2a1_95b3e435a91d);
+pub const CODECAPI_AVEncMP12MuxTargetPacketizer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd862212a_2015_45dd_9a32_1b3aa88205a0);
+pub const CODECAPI_AVEncMP12PktzCopyright: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8f4b0c1_094c_43c7_8e68_a595405a6ef8);
+pub const CODECAPI_AVEncMP12PktzInitialPTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a4f2065_9a63_4d20_ae22_0a1bc896a315);
+pub const CODECAPI_AVEncMP12PktzOriginal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b178416_31b9_4964_94cb_6bff866cdf83);
+pub const CODECAPI_AVEncMP12PktzPacketSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab71347a_1332_4dde_a0e5_ccf7da8a0f22);
+pub const CODECAPI_AVEncMP12PktzSTDBuffer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b751bd0_819e_478c_9435_75208926b377);
+pub const CODECAPI_AVEncMP12PktzStreamID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc834d038_f5e8_4408_9b60_88f36493fedf);
+pub const CODECAPI_AVEncMPACodingMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb16ade03_4b93_43d7_a550_90b4fe224537);
+pub const CODECAPI_AVEncMPACopyright: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6ae762a_d0a9_4454_b8ef_f2dbeefdd3bd);
+pub const CODECAPI_AVEncMPAEmphasisType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d59fcda_bf4e_4ed6_b5df_5b03b36b0a1f);
+pub const CODECAPI_AVEncMPAEnableRedundancyProtection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e54b09e_b2e7_4973_a89b_0b3650a3beda);
+pub const CODECAPI_AVEncMPALayer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d377230_f91b_453d_9ce0_78445414c22d);
+pub const CODECAPI_AVEncMPAOriginalBitstream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cfb7855_9cc9_47ff_b829_b36786c92346);
+pub const CODECAPI_AVEncMPAPrivateUserBit: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xafa505ce_c1e3_4e3d_851b_61b700e5e6cc);
+pub const CODECAPI_AVEncMPVAddSeqEndCode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa823178f_57df_4c7a_b8fd_e5ec8887708d);
+pub const CODECAPI_AVEncMPVDefaultBPictureCount: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d390aac_dc5c_4200_b57f_814d04babab2);
+pub const CODECAPI_AVEncMPVFrameFieldMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xacb5de96_7b93_4c2f_8825_b0295fa93bf4);
+pub const CODECAPI_AVEncMPVGOPOpen: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1d5d4a6_3300_49b1_ae61_a09937ab0e49);
+pub const CODECAPI_AVEncMPVGOPSInSeq: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x993410d4_2691_4192_9978_98dc2603669f);
+pub const CODECAPI_AVEncMPVGOPSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95f31b26_95a4_41aa_9303_246a7fc6eef1);
+pub const CODECAPI_AVEncMPVGOPSizeMax: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe7de4c4_1936_4fe2_bdf7_1f18ca1d001f);
+pub const CODECAPI_AVEncMPVGOPSizeMin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7155cf20_d440_4852_ad0f_9c4abfe37a6a);
+pub const CODECAPI_AVEncMPVGenerateHeaderPicDispExt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6412f84_c03f_4f40_a00c_4293df8395bb);
+pub const CODECAPI_AVEncMPVGenerateHeaderPicExt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b8464ab_944f_45f0_b74e_3a58dad11f37);
+pub const CODECAPI_AVEncMPVGenerateHeaderSeqDispExt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6437aa6f_5a3c_4de9_8a16_53d9c4ad326f);
+pub const CODECAPI_AVEncMPVGenerateHeaderSeqExt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5e78611_082d_4e6b_98af_0f51ab139222);
+pub const CODECAPI_AVEncMPVGenerateHeaderSeqScaleExt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0722d62f_dd59_4a86_9cd5_644f8e2653d8);
+pub const CODECAPI_AVEncMPVIntraDCPrecision: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0116151_cbc8_4af3_97dc_d00cceb82d79);
+pub const CODECAPI_AVEncMPVIntraVLCTable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2b83ff5_1a99_405a_af95_c5997d558d3a);
+pub const CODECAPI_AVEncMPVLevel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ee40c40_a60c_41ef_8f50_37c2249e2cb3);
+pub const CODECAPI_AVEncMPVProfile: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdabb534a_1d99_4284_975a_d90e2239baa1);
+pub const CODECAPI_AVEncMPVQScaleType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b79ebb7_f484_4af7_bb58_a2a188c5cbbe);
+pub const CODECAPI_AVEncMPVQuantMatrixChromaIntra: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9eb9ecd4_018d_4ffd_8f2d_39e49f07b17a);
+pub const CODECAPI_AVEncMPVQuantMatrixChromaNonIntra: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1415b6b1_362a_4338_ba9a_1ef58703c05b);
+pub const CODECAPI_AVEncMPVQuantMatrixIntra: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9bea04f3_6621_442c_8ba1_3ac378979698);
+pub const CODECAPI_AVEncMPVQuantMatrixNonIntra: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87f441d8_0997_4beb_a08e_8573d409cf75);
+pub const CODECAPI_AVEncMPVScanPattern: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f8a478e_7bbb_4ae2_b2fc_96d17fc4a2d6);
+pub const CODECAPI_AVEncMPVSceneDetection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x552799f1_db4c_405b_8a3a_c93f2d0674dc);
+pub const CODECAPI_AVEncMPVUseConcealmentMotionVectors: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec770cf3_6908_4b4b_aa30_7fb986214fea);
+pub const CODECAPI_AVEncMaxFrameRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb98e1b31_19fa_4d4f_9931_d6a5b8aab93c);
+pub const CODECAPI_AVEncMuxOutputStreamType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcedd9e8f_34d3_44db_a1d8_f81520254f3e);
+pub const CODECAPI_AVEncNoInputCopy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2b46a2a_e8ee_4ec5_869e_449b6c62c81a);
+pub const CODECAPI_AVEncNumWorkerThreads: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0c8bf60_16f7_4951_a30b_1db1609293d6);
+pub const CODECAPI_AVEncProgressiveUpdateTime: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x649faf66_afc6_4828_8fdc_0771cd9ab17d);
+pub const CODECAPI_AVEncSliceControlMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9e782ef_5f18_44c9_a90b_e9c3c2c17b0b);
+pub const CODECAPI_AVEncSliceControlSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92f51df3_07a5_4172_aefe_c69ca3b60e35);
+pub const CODECAPI_AVEncSliceGenerationMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a6bc67f_9497_4286_b46b_02db8d60edbc);
+pub const CODECAPI_AVEncStatAudioAverageBPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca6724db_7059_4351_8b43_f82198826a14);
+pub const CODECAPI_AVEncStatAudioAveragePCMValue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x979272f8_d17f_4e32_bb73_4e731c68ba2d);
+pub const CODECAPI_AVEncStatAudioPeakPCMValue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdce7fd34_dc00_4c16_821b_35d9eb00fb1a);
+pub const CODECAPI_AVEncStatAverageBPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca6724db_7059_4351_8b43_f82198826a14);
+pub const CODECAPI_AVEncStatCommonCompletedPasses: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e5de533_9df7_438c_854f_9f7dd3683d34);
+pub const CODECAPI_AVEncStatHardwareBandwidthUtilitization: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0124ba9b_dc41_4826_b45f_18ac01b3d5a8);
+pub const CODECAPI_AVEncStatHardwareProcessorUtilitization: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x995dc027_cb95_49e6_b91b_5967753cdcb8);
+pub const CODECAPI_AVEncStatMPVSkippedEmptyFrames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32195fd3_590d_4812_a7ed_6d639a1f9711);
+pub const CODECAPI_AVEncStatVideoCodedFrames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd47f8d61_6f5a_4a26_bb9f_cd9518462bcd);
+pub const CODECAPI_AVEncStatVideoOutputFrameRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe747849_9ab4_4a63_98fe_f143f04f8ee9);
+pub const CODECAPI_AVEncStatVideoTotalFrames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfdaa9916_119a_4222_9ad6_3f7cab99cc8b);
+pub const CODECAPI_AVEncStatWMVCBAvg: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6aa6229f_d602_4b9d_b68c_c1ad78884bef);
+pub const CODECAPI_AVEncStatWMVCBMax: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe976bef8_00fe_44b4_b625_8f238bc03499);
+pub const CODECAPI_AVEncStatWMVDecoderComplexityProfile: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89e69fc3_0f9b_436c_974a_df821227c90d);
+pub const CODECAPI_AVEncVideoCBRMotionTradeoff: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d49451e_18d5_4367_a4ef_3240df1693c4);
+pub const CODECAPI_AVEncVideoCTBSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd47db8b2_e73b_4cb9_8c3e_bd877d06d77b);
+pub const CODECAPI_AVEncVideoCodedVideoAccessUnitSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4b10c15_14a7_4ce8_b173_dc90a0b4fcdb);
+pub const CODECAPI_AVEncVideoContentType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66117aca_eb77_459d_930c_a48d9d0683fc);
+pub const CODECAPI_AVEncVideoDefaultUpperFieldDominant: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x810167c4_0bc1_47ca_8fc2_57055a1474a5);
+pub const CODECAPI_AVEncVideoDirtyRectEnabled: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8acb8fdd_5e0c_4c66_8729_b8f629ab04fb);
+pub const CODECAPI_AVEncVideoDisplayDimension: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde053668_f4ec_47a9_86d0_836770f0c1d5);
+pub const CODECAPI_AVEncVideoEncodeDimension: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1074df28_7e0f_47a4_a453_cdd73870f5ce);
+pub const CODECAPI_AVEncVideoEncodeFrameTypeQP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa70b610_e03f_450c_ad07_07314e639ce7);
+pub const CODECAPI_AVEncVideoEncodeOffsetOrigin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6bc098fe_a71a_4454_852e_4d2ddeb2cd24);
+pub const CODECAPI_AVEncVideoEncodeQP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cb5696b_23fb_4ce1_a0f9_ef5b90fd55ca);
+pub const CODECAPI_AVEncVideoFieldSwap: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfefd7569_4e0a_49f2_9f2b_360ea48c19a2);
+pub const CODECAPI_AVEncVideoForceKeyFrame: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x398c1b98_8353_475a_9ef2_8f265d260345);
+pub const CODECAPI_AVEncVideoForceSourceScanType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ef2065f_058a_4765_a4fc_8a864c103012);
+pub const CODECAPI_AVEncVideoGradualIntraRefresh: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f347dee_cb0d_49ba_b462_db6927ee2101);
+pub const CODECAPI_AVEncVideoHeaderDropFrame: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ed9e124_7925_43fe_971b_e019f62222b4);
+pub const CODECAPI_AVEncVideoHeaderFrames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xafd5f567_5c1b_4adc_bdaf_735610381436);
+pub const CODECAPI_AVEncVideoHeaderHours: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2acc7702_e2da_4158_bf9b_88880129d740);
+pub const CODECAPI_AVEncVideoHeaderMinutes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc1a99ce_0307_408b_880b_b8348ee8ca7f);
+pub const CODECAPI_AVEncVideoHeaderSeconds: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a2e1a05_a780_4f58_8120_9a449d69656b);
+pub const CODECAPI_AVEncVideoInputChromaResolution: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb0cec33_16f1_47b0_8a88_37815bee1739);
+pub const CODECAPI_AVEncVideoInputChromaSubsampling: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8e73a39_4435_4ec3_a6ea_98300f4b36f7);
+pub const CODECAPI_AVEncVideoInputColorLighting: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46a99549_0015_4a45_9c30_1d5cfa258316);
+pub const CODECAPI_AVEncVideoInputColorNominalRange: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16cf25c6_a2a6_48e9_ae80_21aec41d427e);
+pub const CODECAPI_AVEncVideoInputColorPrimaries: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc24d783f_7ce6_4278_90ab_28a4f1e5f86c);
+pub const CODECAPI_AVEncVideoInputColorTransferFunction: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c056111_a9c3_4b08_a0a0_ce13f8a27c75);
+pub const CODECAPI_AVEncVideoInputColorTransferMatrix: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52ed68b9_72d5_4089_958d_f5405d55081c);
+pub const CODECAPI_AVEncVideoInstantTemporalUpSwitching: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3308307_0d96_4ba4_b1f0_b91a5e49df10);
+pub const CODECAPI_AVEncVideoIntraLayerPrediction: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3af46b8_bf47_44bb_a283_69f0b0228ff9);
+pub const CODECAPI_AVEncVideoInverseTelecineEnable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ea9098b_e76d_4ccd_a030_d3b889c1b64c);
+pub const CODECAPI_AVEncVideoInverseTelecineThreshold: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40247d84_e895_497f_b44c_b74560acfe27);
+pub const CODECAPI_AVEncVideoLTRBufferControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4a0e93d_4cbc_444c_89f4_826d310e92a7);
+pub const CODECAPI_AVEncVideoMarkLTRFrame: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe42f4748_a06d_4ef9_8cea_3d05fde3bd3b);
+pub const CODECAPI_AVEncVideoMaxCTBSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x822363ff_cec8_43e5_92fd_e097488485e9);
+pub const CODECAPI_AVEncVideoMaxKeyframeDistance: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2987123a_ba93_4704_b489_ec1e5f25292c);
+pub const CODECAPI_AVEncVideoMaxNumRefFrame: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x964829ed_94f9_43b4_b74d_ef40944b69a0);
+pub const CODECAPI_AVEncVideoMaxQP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3daf6f66_a6a7_45e0_a8e5_f2743f46a3a2);
+pub const CODECAPI_AVEncVideoMaxTemporalLayers: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c668cfe_08e1_424a_934e_b764b064802a);
+pub const CODECAPI_AVEncVideoMeanAbsoluteDifference: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5c0c10f_81a4_422d_8c3f_b474a4581336);
+pub const CODECAPI_AVEncVideoMinQP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ee22c6a_a37c_4568_b5f1_9d4c2b3ab886);
+pub const CODECAPI_AVEncVideoNoOfFieldsToEncode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61e4bbe2_4ee0_40e7_80ab_51ddeebe6291);
+pub const CODECAPI_AVEncVideoNoOfFieldsToSkip: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa97e1240_1427_4c16_a7f7_3dcfd8ba4cc5);
+pub const CODECAPI_AVEncVideoNumGOPsPerIDR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83bc5bdb_5b89_4521_8f66_33151c373176);
+pub const CODECAPI_AVEncVideoOutputChromaResolution: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6097b4c9_7c1d_4e64_bfcc_9e9765318ae7);
+pub const CODECAPI_AVEncVideoOutputChromaSubsampling: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa561c6c_7d17_44f0_83c9_32ed12e96343);
+pub const CODECAPI_AVEncVideoOutputColorLighting: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e5aaac6_ace6_4c5c_998e_1a8c9c6c0f89);
+pub const CODECAPI_AVEncVideoOutputColorNominalRange: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x972835ed_87b5_4e95_9500_c73958566e54);
+pub const CODECAPI_AVEncVideoOutputColorPrimaries: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe95907c_9d04_4921_8985_a6d6d87d1a6c);
+pub const CODECAPI_AVEncVideoOutputColorTransferFunction: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a7f884a_ea11_460d_bf57_b88bc75900de);
+pub const CODECAPI_AVEncVideoOutputColorTransferMatrix: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9b90444_af40_4310_8fbe_ed6d933f892b);
+pub const CODECAPI_AVEncVideoOutputFrameRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea85e7c3_9567_4d99_87c4_02c1c278ca7c);
+pub const CODECAPI_AVEncVideoOutputFrameRateConversion: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c068bf4_369a_4ba3_82fd_b2518fb3396e);
+pub const CODECAPI_AVEncVideoOutputScanType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x460b5576_842e_49ab_a62d_b36f7312c9db);
+pub const CODECAPI_AVEncVideoPixelAspectRatio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cdc718f_b3e9_4eb6_a57f_cf1f1b321b87);
+pub const CODECAPI_AVEncVideoROIEnabled: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd74f7f18_44dd_4b85_aba3_05d9f42a8280);
+pub const CODECAPI_AVEncVideoRateControlParams: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87d43767_7645_44ec_b438_d3322fbca29f);
+pub const CODECAPI_AVEncVideoSelectLayer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb1084f5_6aaa_4914_bb2f_6147227f12e7);
+pub const CODECAPI_AVEncVideoSourceFilmContent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1791c64b_ccfc_4827_a0ed_2557793b2b1c);
+pub const CODECAPI_AVEncVideoSourceIsBW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42ffc49b_1812_4fdc_8d24_7054c521e6eb);
+pub const CODECAPI_AVEncVideoSupportedControls: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3f40fdd_77b9_473d_8196_061259e69cff);
+pub const CODECAPI_AVEncVideoTemporalLayerCount: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19caebff_b74d_4cfd_8c27_c2f9d97d5f52);
+pub const CODECAPI_AVEncVideoUsage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f636849_5dc1_49f1_b1d8_ce3cf62ea385);
+pub const CODECAPI_AVEncVideoUseLTRFrame: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00752db8_55f7_4f80_895b_27639195f2ad);
+pub const CODECAPI_AVEncWMVDecoderComplexity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf32c0dab_f3cb_4217_b79f_8762768b5f67);
+pub const CODECAPI_AVEncWMVInterlacedEncoding: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3d00f8a_c6f5_4e14_a588_0ec87a726f9b);
+pub const CODECAPI_AVEncWMVKeyFrameBufferLevelMarker: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51ff1115_33ac_426c_a1b1_09321bdf96b4);
+pub const CODECAPI_AVEncWMVKeyFrameDistance: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5569055e_e268_4771_b83e_9555ea28aed3);
+pub const CODECAPI_AVEncWMVProduceDummyFrames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd669d001_183c_42e3_a3ca_2f4586d2396c);
+pub const CODECAPI_AVLowLatencyMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c27891a_ed7a_40e1_88e8_b22727a024ee);
+pub const CODECAPI_AVPriorityControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54ba3dc8_bdde_4329_b187_2018bc5c2ba1);
+pub const CODECAPI_AVRealtimeControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f440632_c4ad_4bf7_9e52_456942b454b0);
+pub const CODECAPI_AVScenarioInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb28a6e64_3ff9_446a_8a4b_0d7a53413236);
+pub const CODECAPI_GUID_AVDecAudioInputAAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97df7828_b94a_47e2_a4bc_51194db22a4d);
+pub const CODECAPI_GUID_AVDecAudioInputDTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x600bc0ca_6a1f_4e91_b241_1bbeb1cb19e0);
+pub const CODECAPI_GUID_AVDecAudioInputDolby: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e4228a0_f000_4e0b_8f54_ab8d24ad61a2);
+pub const CODECAPI_GUID_AVDecAudioInputDolbyDigitalPlus: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0803e185_8f5d_47f5_9908_19a5bbc9fe34);
+pub const CODECAPI_GUID_AVDecAudioInputHEAAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16efb4aa_330e_4f5c_98a8_cf6ac55cbe60);
+pub const CODECAPI_GUID_AVDecAudioInputMPEG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91106f36_02c5_4f75_9719_3b7abf75e1f6);
+pub const CODECAPI_GUID_AVDecAudioInputPCM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2421da5_bbb4_4cd5_a996_933c6b5d1347);
+pub const CODECAPI_GUID_AVDecAudioInputWMA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc95e8dcf_4058_4204_8c42_cb24d91e4b9b);
+pub const CODECAPI_GUID_AVDecAudioInputWMAPro: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0128b7c7_da72_4fe3_bef8_5c52e3557704);
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x696e1d31_548f_4036_825f_7026c60011bd);
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Headphones: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x696e1d34_548f_4036_825f_7026c60011bd);
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_Auto: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x696e1d35_548f_4036_825f_7026c60011bd);
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_MatrixEncoded: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x696e1d30_548f_4036_825f_7026c60011bd);
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_Bitstream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x696e1d33_548f_4036_825f_7026c60011bd);
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_PCM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x696e1d32_548f_4036_825f_7026c60011bd);
+pub const CODECAPI_GUID_AVEncCommonFormatATSC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d7b897c_a019_4670_aa76_2edcac7ac296);
+pub const CODECAPI_GUID_AVEncCommonFormatDVB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71830d8f_6c33_430d_844b_c2705baae6db);
+pub const CODECAPI_GUID_AVEncCommonFormatDVD_DashVR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe55199d6_044c_4dae_a488_531ed306235b);
+pub const CODECAPI_GUID_AVEncCommonFormatDVD_PlusVR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe74c6f2e_ec37_478d_9af4_a5e135b6271c);
+pub const CODECAPI_GUID_AVEncCommonFormatDVD_V: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc9598c4_e7fe_451d_b1ca_761bc840b7f3);
+pub const CODECAPI_GUID_AVEncCommonFormatHighMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1eabe760_fb2b_4928_90d1_78db88eee889);
+pub const CODECAPI_GUID_AVEncCommonFormatHighMPV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2d25db8_b8f9_42c2_8bc7_0b93cf604788);
+pub const CODECAPI_GUID_AVEncCommonFormatMP3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x349733cd_eb08_4dc2_8197_e49835ef828b);
+pub const CODECAPI_GUID_AVEncCommonFormatSVCD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51d85818_8220_448c_8066_d69bed16c9ad);
+pub const CODECAPI_GUID_AVEncCommonFormatUnSpecified: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf46a35a_6024_4525_a48a_094b97f5b3c2);
+pub const CODECAPI_GUID_AVEncCommonFormatVCD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95035bf7_9d90_40ff_ad5c_5cf8cf71ca1d);
+pub const CODECAPI_GUID_AVEncDTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45fbcaa2_5e6e_4ab0_8893_5903bee93acf);
+pub const CODECAPI_GUID_AVEncDTSHD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2052e630_469d_4bfb_80ca_1d656e7e918f);
+pub const CODECAPI_GUID_AVEncDV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09b769c7_3329_44fb_8954_fa30937d3d5a);
+pub const CODECAPI_GUID_AVEncDolbyDigitalConsumer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1a7bf6c_0059_4bfa_94ef_ef747a768d52);
+pub const CODECAPI_GUID_AVEncDolbyDigitalPlus: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x698d1b80_f7dd_415c_971c_42492a2056c6);
+pub const CODECAPI_GUID_AVEncDolbyDigitalPro: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5be76cc_0ff8_40eb_9cb1_bba94004d44f);
+pub const CODECAPI_GUID_AVEncH264Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95044eab_31b3_47de_8e75_38a42bb03e28);
+pub const CODECAPI_GUID_AVEncMLP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05f73e29_f0d1_431e_a41c_a47432ec5a66);
+pub const CODECAPI_GUID_AVEncMPEG1Audio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4dd1362_cd4a_4cd6_8138_b94db4542b04);
+pub const CODECAPI_GUID_AVEncMPEG1Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8dafefe_da1e_4774_b27d_11830c16b1fe);
+pub const CODECAPI_GUID_AVEncMPEG2Audio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee4cbb1f_9c3f_4770_92b5_fcb7c2a8d381);
+pub const CODECAPI_GUID_AVEncMPEG2Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x046dc19a_6677_4aaa_a31d_c1ab716f4560);
+pub const CODECAPI_GUID_AVEncPCM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x844be7f4_26cf_4779_b386_cc05d187990c);
+pub const CODECAPI_GUID_AVEncSDDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1dc1b82f_11c8_4c71_b7b6_ee3eb9bc2b94);
+pub const CODECAPI_GUID_AVEncWMALossless: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55ca7265_23d8_4761_9031_b74fbe12f4c1);
+pub const CODECAPI_GUID_AVEncWMAPro: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1955f90c_33f7_4a68_ab81_53f5657125c4);
+pub const CODECAPI_GUID_AVEncWMAVoice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13ed18cb_50e8_4276_a288_a6aa228382d9);
+pub const CODECAPI_GUID_AVEncWMV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e0fef9b_1d43_41bd_b8bd_4d7bf7457a2a);
+pub const CODECAPI_GUID_AVEndMPEG4Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd37b12a_9503_4f8b_b8d0_324a00c0a1cf);
+pub const CODECAPI_GetOPMContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f036c05_4c14_4689_8839_294c6d73e053);
+pub const CODECAPI_SetHDCPManagerContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d2d1fc8_3dc9_47eb_a1a2_471c80cd60d0);
+pub const CODECAPI_VideoEncoderDisplayContentType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79b90b27_f4b1_42dc_9dd7_cdaf8135c400);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const COPP_ProtectionType_ACP: i32 = 2i32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -719,39 +719,39 @@ pub const COPP_ProtectionType_None: i32 = 0i32;
 pub const COPP_ProtectionType_Reserved: i32 = 2147483640i32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const COPP_ProtectionType_Unknown: i32 = -2147483648i32;
-pub const CPK_DS_AC3Decoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1822190038, 4092, 17537, [175, 219, 205, 241, 199, 156, 111, 62]);
-pub const CPK_DS_MPEG2Decoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2568013261, 38345, 19974, [134, 90, 239, 161, 200, 1, 107, 244]);
-pub const CResamplerMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4098340510, 6276, 19070, [128, 85, 52, 111, 116, 214, 237, 179]);
-pub const CResizerDMO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(513927700, 18676, 16468, [173, 26, 232, 174, 225, 10, 200, 5]);
-pub const CResizerMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3555494795, 30504, 20440, [159, 224, 123, 103, 209, 159, 115, 163]);
-pub const CShotDetectorDmo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1454308045, 4364, 17303, [146, 146, 176, 160, 198, 27, 103, 80]);
-pub const CSmpteTransformsDmo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3185981579, 55845, 18525, [186, 127, 250, 188, 40, 178, 3, 24]);
-pub const CThumbnailGeneratorDmo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1436314541, 7848, 18787, [160, 135, 138, 104, 16, 249, 33, 139]);
-pub const CTocGeneratorDmo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1306138945, 30624, 20401, [165, 24, 226, 24, 80, 65, 215, 12]);
-pub const CVodafoneAACCCDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2121711487, 51603, 20006, [143, 171, 71, 10, 112, 192, 213, 156]);
-pub const CVodafoneAACDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2134309186, 56563, 19842, [146, 137, 91, 24, 32, 39, 143, 124]);
-pub const CWMADecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(787172063, 17784, 19728, [188, 167, 187, 149, 95, 86, 50, 10]);
-pub const CWMAEncMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1895143657, 62635, 18778, [153, 226, 167, 196, 211, 216, 154, 191]);
-pub const CWMATransMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3989494219, 12583, 16607, [181, 39, 1, 82, 204, 179, 246, 245]);
-pub const CWMAudioAEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1951422407, 62291, 20269, [167, 238, 88, 67, 68, 119, 115, 14]);
-pub const CWMAudioCAPXGFXAPO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(329989821, 4990, 18691, [157, 137, 96, 190, 130, 119, 253, 23]);
-pub const CWMAudioCAPXLFXAPO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3376758387, 35932, 17507, [153, 132, 175, 139, 171, 47, 84, 71]);
-pub const CWMAudioGFXAPO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1669089549, 61155, 19466, [151, 63, 55, 25, 88, 128, 45, 162]);
-pub const CWMAudioLFXAPO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1658591891, 44580, 17996, [164, 62, 69, 47, 130, 76, 66, 80]);
-pub const CWMAudioSpdTxDMO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1376844004, 45243, 18371, [168, 217, 123, 34, 130, 204, 121, 237]);
-pub const CWMSPDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2269196747, 20172, 17467, [137, 72, 116, 107, 137, 89, 93, 32]);
-pub const CWMSPEncMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1736710915, 50825, 16776, [173, 63, 76, 158, 190, 236, 113, 11]);
-pub const CWMSPEncMediaObject2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(522145306, 8786, 16483, [132, 187, 238, 231, 95, 136, 86, 213]);
-pub const CWMTDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4191929934, 11728, 17885, [155, 82, 102, 100, 46, 249, 68, 49]);
-pub const CWMTEncMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1622570578, 58475, 20036, [134, 9, 247, 75, 255, 220, 8, 60]);
-pub const CWMV9EncMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3527119056, 5199, 18109, [132, 29, 89, 228, 235, 25, 220, 89]);
-pub const CWMVDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2194887647, 37053, 17282, [139, 194, 63, 97, 146, 183, 110, 52]);
-pub const CWMVEncMediaObject2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2528476381, 35174, 16652, [187, 31, 201, 126, 234, 118, 92, 4]);
-pub const CWMVXEncMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2117206162, 22890, 16818, [187, 235, 23, 93, 16, 80, 78, 182]);
-pub const CWVC1DecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3384786127, 58894, 17800, [163, 223, 90, 3, 177, 253, 149, 133]);
-pub const CWVC1EncMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1147485453, 36042, 16871, [186, 202, 136, 67, 55, 183, 71, 172]);
-pub const CZuneAACCCDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2806946034, 21206, 19278, [136, 91, 224, 166, 202, 79, 24, 122]);
-pub const CZuneM4S2DecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3312435804, 4038, 16458, [149, 3, 177, 11, 245, 26, 138, 185]);
+pub const CPK_DS_AC3Decoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c9c69d6_0ffc_4481_afdb_cdf1c79c6f3e);
+pub const CPK_DS_MPEG2Decoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9910c5cd_95c9_4e06_865a_efa1c8016bf4);
+pub const CResamplerMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf447b69e_1884_4a7e_8055_346f74d6edb3);
+pub const CResizerDMO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ea1ea14_48f4_4054_ad1a_e8aee10ac805);
+pub const CResizerMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3ec8b8b_7728_4fd8_9fe0_7b67d19f73a3);
+pub const CShotDetectorDmo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56aefacd_110c_4397_9292_b0a0c61b6750);
+pub const CSmpteTransformsDmo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbde6388b_da25_485d_ba7f_fabc28b20318);
+pub const CThumbnailGeneratorDmo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x559c6bad_1ea8_4963_a087_8a6810f9218b);
+pub const CTocGeneratorDmo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4dda1941_77a0_4fb1_a518_e2185041d70c);
+pub const CVodafoneAACCCDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e76bf7f_c993_4e26_8fab_470a70c0d59c);
+pub const CVodafoneAACDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f36f942_dcf3_4d82_9289_5b1820278f7c);
+pub const CWMADecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2eeb4adf_4578_4d10_bca7_bb955f56320a);
+pub const CWMAEncMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70f598e9_f4ab_495a_99e2_a7c4d3d89abf);
+pub const CWMATransMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xedcad9cb_3127_40df_b527_0152ccb3f6f5);
+pub const CWMAudioAEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x745057c7_f353_4f2d_a7ee_58434477730e);
+pub const CWMAudioCAPXGFXAPO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13ab3ebd_137e_4903_9d89_60be8277fd17);
+pub const CWMAudioCAPXLFXAPO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9453e73_8c5c_4463_9984_af8bab2f5447);
+pub const CWMAudioGFXAPO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x637c490d_eee3_4c0a_973f_371958802da2);
+pub const CWMAudioLFXAPO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62dc1a93_ae24_464c_a43e_452f824c4250);
+pub const CWMAudioSpdTxDMO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5210f8e4_b0bb_47c3_a8d9_7b2282cc79ed);
+pub const CWMSPDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x874131cb_4ecc_443b_8948_746b89595d20);
+pub const CWMSPEncMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x67841b03_c689_4188_ad3f_4c9ebeec710b);
+pub const CWMSPEncMediaObject2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f1f4e1a_2252_4063_84bb_eee75f8856d5);
+pub const CWMTDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9dbc64e_2dd0_45dd_9b52_66642ef94431);
+pub const CWMTEncMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60b67652_e46b_4e44_8609_f74bffdc083c);
+pub const CWMV9EncMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd23b90d0_144f_46bd_841d_59e4eb19dc59);
+pub const CWMVDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82d353df_90bd_4382_8bc2_3f6192b76e34);
+pub const CWMVEncMediaObject2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96b57cdd_8966_410c_bb1f_c97eea765c04);
+pub const CWMVXEncMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e320092_596a_41b2_bbeb_175d10504eb6);
+pub const CWVC1DecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9bfbccf_e60e_4588_a3df_5a03b1fd9585);
+pub const CWVC1EncMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44653d0d_8cca_41e7_baca_884337b747ac);
+pub const CZuneAACCCDecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa74e98f2_52d6_4b4e_885b_e0a6ca4f187a);
+pub const CZuneM4S2DecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc56fc25c_0fc6_404a_9503_b10bf51a8ab9);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -3083,26 +3083,26 @@ impl ::core::cmp::Eq for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-pub const D3D12_VIDEO_DECODE_PROFILE_AV1_12BIT_PROFILE2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(387084297, 40975, 19681, [153, 78, 191, 64, 129, 246, 243, 240]);
-pub const D3D12_VIDEO_DECODE_PROFILE_AV1_12BIT_PROFILE2_420: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(763412182, 40108, 18485, [158, 145, 50, 123, 188, 79, 158, 232]);
-pub const D3D12_VIDEO_DECODE_PROFILE_AV1_PROFILE0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3099479243, 53075, 18106, [141, 89, 214, 184, 166, 218, 93, 42]);
-pub const D3D12_VIDEO_DECODE_PROFILE_AV1_PROFILE1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1765211919, 17841, 16739, [156, 193, 100, 110, 246, 148, 97, 8]);
-pub const D3D12_VIDEO_DECODE_PROFILE_AV1_PROFILE2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(207563425, 58689, 16521, [187, 123, 152, 17, 10, 25, 215, 200]);
-pub const D3D12_VIDEO_DECODE_PROFILE_H264: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487720, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const D3D12_VIDEO_DECODE_PROFILE_H264_MULTIVIEW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1885052290, 30415, 18902, [183, 230, 172, 136, 114, 219, 1, 60]);
-pub const D3D12_VIDEO_DECODE_PROFILE_H264_STEREO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4188720315, 49846, 19708, [135, 121, 87, 7, 177, 118, 5, 82]);
-pub const D3D12_VIDEO_DECODE_PROFILE_H264_STEREO_PROGRESSIVE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3617319130, 3313, 19585, [184, 42, 105, 164, 226, 54, 244, 61]);
-pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1527895323, 12108, 17490, [188, 195, 9, 242, 161, 22, 12, 192]);
-pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(276492512, 61210, 19737, [171, 168, 103, 161, 99, 7, 61, 19]);
-pub const D3D12_VIDEO_DECODE_PROFILE_MPEG1_AND_MPEG2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2255052562, 13326, 20228, [159, 211, 146, 83, 221, 50, 116, 96]);
-pub const D3D12_VIDEO_DECODE_PROFILE_MPEG2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3995550079, 24104, 20069, [190, 234, 29, 38, 181, 8, 173, 201]);
-pub const D3D12_VIDEO_DECODE_PROFILE_MPEG4PT2_ADVSIMPLE_NOGMC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3980495519, 269, 20186, [154, 227, 154, 101, 53, 141, 141, 46]);
-pub const D3D12_VIDEO_DECODE_PROFILE_MPEG4PT2_SIMPLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4023799156, 51688, 16855, [165, 233, 233, 176, 227, 159, 163, 25]);
-pub const D3D12_VIDEO_DECODE_PROFILE_VC1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487779, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const D3D12_VIDEO_DECODE_PROFILE_VC1_D2010: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487780, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const D3D12_VIDEO_DECODE_PROFILE_VP8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2428017130, 14946, 18181, [136, 179, 141, 240, 75, 39, 68, 231]);
-pub const D3D12_VIDEO_DECODE_PROFILE_VP9: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1178011640, 41424, 17797, [135, 109, 131, 170, 109, 96, 184, 158]);
-pub const D3D12_VIDEO_DECODE_PROFILE_VP9_10BIT_PROFILE2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2764524015, 28367, 18602, [132, 72, 80, 167, 161, 22, 95, 247]);
+pub const D3D12_VIDEO_DECODE_PROFILE_AV1_12BIT_PROFILE2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17127009_a00f_4ce1_994e_bf4081f6f3f0);
+pub const D3D12_VIDEO_DECODE_PROFILE_AV1_12BIT_PROFILE2_420: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d80bed6_9cac_4835_9e91_327bbc4f9ee8);
+pub const D3D12_VIDEO_DECODE_PROFILE_AV1_PROFILE0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8be4ccb_cf53_46ba_8d59_d6b8a6da5d2a);
+pub const D3D12_VIDEO_DECODE_PROFILE_AV1_PROFILE1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6936ff0f_45b1_4163_9cc1_646ef6946108);
+pub const D3D12_VIDEO_DECODE_PROFILE_AV1_PROFILE2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c5f2aa1_e541_4089_bb7b_98110a19d7c8);
+pub const D3D12_VIDEO_DECODE_PROFILE_H264: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be68_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D12_VIDEO_DECODE_PROFILE_H264_MULTIVIEW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x705b9d82_76cf_49d6_b7e6_ac8872db013c);
+pub const D3D12_VIDEO_DECODE_PROFILE_H264_STEREO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9aaccbb_c2b6_4cfc_8779_5707b1760552);
+pub const D3D12_VIDEO_DECODE_PROFILE_H264_STEREO_PROGRESSIVE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd79be8da_0cf1_4c81_b82a_69a4e236f43d);
+pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b11d51b_2f4c_4452_bcc3_09f2a1160cc0);
+pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x107af0e0_ef1a_4d19_aba8_67a163073d13);
+pub const D3D12_VIDEO_DECODE_PROFILE_MPEG1_AND_MPEG2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86695f12_340e_4f04_9fd3_9253dd327460);
+pub const D3D12_VIDEO_DECODE_PROFILE_MPEG2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee27417f_5e28_4e65_beea_1d26b508adc9);
+pub const D3D12_VIDEO_DECODE_PROFILE_MPEG4PT2_ADVSIMPLE_NOGMC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed418a9f_010d_4eda_9ae3_9a65358d8d2e);
+pub const D3D12_VIDEO_DECODE_PROFILE_MPEG4PT2_SIMPLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefd64d74_c9e8_41d7_a5e9_e9b0e39fa319);
+pub const D3D12_VIDEO_DECODE_PROFILE_VC1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81bea3_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D12_VIDEO_DECODE_PROFILE_VC1_D2010: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81bea4_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D12_VIDEO_DECODE_PROFILE_VP8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90b899ea_3a62_4705_88b3_8df04b2744e7);
+pub const D3D12_VIDEO_DECODE_PROFILE_VP9: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x463707f8_a1d0_4585_876d_83aa6d60b89e);
+pub const D3D12_VIDEO_DECODE_PROFILE_VP9_10BIT_PROFILE2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4c749ef_6ecf_48aa_8448_50a7a1165ff7);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -7686,7 +7686,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_INFO {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceInterface_IsVirtualCamera: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(1859937037, 49891, 17335, [178, 209, 32, 82, 90, 26, 241, 32]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120),
     pid: 3u32,
 };
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8328,40 +8328,40 @@ impl ::core::cmp::Eq for DXVA2_Frequency {}
 unsafe impl ::windows::runtime::Abi for DXVA2_Frequency {
     type Abi = Self;
 }
-pub const DXVA2_ModeH264_A: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487716, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const DXVA2_ModeH264_B: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487717, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const DXVA2_ModeH264_C: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487718, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const DXVA2_ModeH264_D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487719, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const DXVA2_ModeH264_E: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487720, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const DXVA2_ModeH264_F: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487721, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const DXVA2_ModeH264_VLD_Multiview_NoFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1885052290, 30415, 18902, [183, 230, 172, 136, 114, 219, 1, 60]);
-pub const DXVA2_ModeH264_VLD_Stereo_NoFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4188720315, 49846, 19708, [135, 121, 87, 7, 177, 118, 5, 82]);
-pub const DXVA2_ModeH264_VLD_Stereo_Progressive_NoFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3617319130, 3313, 19585, [184, 42, 105, 164, 226, 54, 244, 61]);
-pub const DXVA2_ModeH264_VLD_WithFMOASO_NoFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3589296121, 13336, 17880, [149, 97, 50, 167, 106, 174, 45, 221]);
-pub const DXVA2_ModeHEVC_VLD_Main: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1527895323, 12108, 17490, [188, 195, 9, 242, 161, 22, 12, 192]);
-pub const DXVA2_ModeHEVC_VLD_Main10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(276492512, 61210, 19737, [171, 168, 103, 161, 99, 7, 61, 19]);
-pub const DXVA2_ModeMPEG1_VLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1866385177, 14133, 17100, [128, 99, 101, 204, 60, 179, 102, 22]);
-pub const DXVA2_ModeMPEG2_IDCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3206720768, 1002, 18064, [128, 119, 71, 51, 70, 32, 155, 126]);
-pub const DXVA2_ModeMPEG2_MoComp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3869897803, 25008, 17763, [158, 164, 99, 210, 163, 198, 254, 102]);
-pub const DXVA2_ModeMPEG2_VLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3995550079, 24104, 20069, [190, 234, 29, 38, 181, 8, 173, 201]);
-pub const DXVA2_ModeMPEG2and1_VLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2255052562, 13326, 20228, [159, 211, 146, 83, 221, 50, 116, 96]);
-pub const DXVA2_ModeMPEG4pt2_VLD_AdvSimple_GMC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2878966619, 16984, 17577, [159, 235, 148, 229, 151, 166, 186, 174]);
-pub const DXVA2_ModeMPEG4pt2_VLD_AdvSimple_NoGMC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3980495519, 269, 20186, [154, 227, 154, 101, 53, 141, 141, 46]);
-pub const DXVA2_ModeMPEG4pt2_VLD_Simple: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4023799156, 51688, 16855, [165, 233, 233, 176, 227, 159, 163, 25]);
-pub const DXVA2_ModeVC1_A: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487776, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const DXVA2_ModeVC1_B: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487777, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const DXVA2_ModeVC1_C: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487778, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const DXVA2_ModeVC1_D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487779, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const DXVA2_ModeVC1_D2010: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487780, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const DXVA2_ModeVP8_VLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2428017130, 14946, 18181, [136, 179, 141, 240, 75, 39, 68, 231]);
-pub const DXVA2_ModeVP9_VLD_10bit_Profile2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2764524015, 28367, 18602, [132, 72, 80, 167, 161, 22, 95, 247]);
-pub const DXVA2_ModeVP9_VLD_Profile0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1178011640, 41424, 17797, [135, 109, 131, 170, 109, 96, 184, 158]);
-pub const DXVA2_ModeWMV8_A: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487744, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const DXVA2_ModeWMV8_B: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487745, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const DXVA2_ModeWMV9_A: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487760, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const DXVA2_ModeWMV9_B: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487761, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const DXVA2_ModeWMV9_C: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487764, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const DXVA2_NoEncrypt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487824, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
+pub const DXVA2_ModeH264_A: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be64_a0c7_11d3_b984_00c04f2e73c5);
+pub const DXVA2_ModeH264_B: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be65_a0c7_11d3_b984_00c04f2e73c5);
+pub const DXVA2_ModeH264_C: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be66_a0c7_11d3_b984_00c04f2e73c5);
+pub const DXVA2_ModeH264_D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be67_a0c7_11d3_b984_00c04f2e73c5);
+pub const DXVA2_ModeH264_E: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be68_a0c7_11d3_b984_00c04f2e73c5);
+pub const DXVA2_ModeH264_F: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be69_a0c7_11d3_b984_00c04f2e73c5);
+pub const DXVA2_ModeH264_VLD_Multiview_NoFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x705b9d82_76cf_49d6_b7e6_ac8872db013c);
+pub const DXVA2_ModeH264_VLD_Stereo_NoFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9aaccbb_c2b6_4cfc_8779_5707b1760552);
+pub const DXVA2_ModeH264_VLD_Stereo_Progressive_NoFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd79be8da_0cf1_4c81_b82a_69a4e236f43d);
+pub const DXVA2_ModeH264_VLD_WithFMOASO_NoFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5f04ff9_3418_45d8_9561_32a76aae2ddd);
+pub const DXVA2_ModeHEVC_VLD_Main: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b11d51b_2f4c_4452_bcc3_09f2a1160cc0);
+pub const DXVA2_ModeHEVC_VLD_Main10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x107af0e0_ef1a_4d19_aba8_67a163073d13);
+pub const DXVA2_ModeMPEG1_VLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f3ec719_3735_42cc_8063_65cc3cb36616);
+pub const DXVA2_ModeMPEG2_IDCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf22ad00_03ea_4690_8077_473346209b7e);
+pub const DXVA2_ModeMPEG2_MoComp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6a9f44b_61b0_4563_9ea4_63d2a3c6fe66);
+pub const DXVA2_ModeMPEG2_VLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee27417f_5e28_4e65_beea_1d26b508adc9);
+pub const DXVA2_ModeMPEG2and1_VLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86695f12_340e_4f04_9fd3_9253dd327460);
+pub const DXVA2_ModeMPEG4pt2_VLD_AdvSimple_GMC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab998b5b_4258_44a9_9feb_94e597a6baae);
+pub const DXVA2_ModeMPEG4pt2_VLD_AdvSimple_NoGMC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed418a9f_010d_4eda_9ae3_9a65358d8d2e);
+pub const DXVA2_ModeMPEG4pt2_VLD_Simple: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefd64d74_c9e8_41d7_a5e9_e9b0e39fa319);
+pub const DXVA2_ModeVC1_A: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81bea0_a0c7_11d3_b984_00c04f2e73c5);
+pub const DXVA2_ModeVC1_B: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81bea1_a0c7_11d3_b984_00c04f2e73c5);
+pub const DXVA2_ModeVC1_C: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81bea2_a0c7_11d3_b984_00c04f2e73c5);
+pub const DXVA2_ModeVC1_D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81bea3_a0c7_11d3_b984_00c04f2e73c5);
+pub const DXVA2_ModeVC1_D2010: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81bea4_a0c7_11d3_b984_00c04f2e73c5);
+pub const DXVA2_ModeVP8_VLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90b899ea_3a62_4705_88b3_8df04b2744e7);
+pub const DXVA2_ModeVP9_VLD_10bit_Profile2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4c749ef_6ecf_48aa_8448_50a7a1165ff7);
+pub const DXVA2_ModeVP9_VLD_Profile0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x463707f8_a1d0_4585_876d_83aa6d60b89e);
+pub const DXVA2_ModeWMV8_A: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be80_a0c7_11d3_b984_00c04f2e73c5);
+pub const DXVA2_ModeWMV8_B: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be81_a0c7_11d3_b984_00c04f2e73c5);
+pub const DXVA2_ModeWMV9_A: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be90_a0c7_11d3_b984_00c04f2e73c5);
+pub const DXVA2_ModeWMV9_B: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be91_a0c7_11d3_b984_00c04f2e73c5);
+pub const DXVA2_ModeWMV9_C: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be94_a0c7_11d3_b984_00c04f2e73c5);
+pub const DXVA2_NoEncrypt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81bed0_a0c7_11d3_b984_00c04f2e73c5);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -8629,9 +8629,9 @@ impl ::core::convert::From<i32> for DXVA2_VideoPrimaries {
 unsafe impl ::windows::runtime::Abi for DXVA2_VideoPrimaries {
     type Abi = Self;
 }
-pub const DXVA2_VideoProcBobDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(861578094, 30852, 17316, [156, 145, 127, 135, 250, 243, 227, 126]);
-pub const DXVA2_VideoProcProgressiveDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1515495625, 51180, 19417, [142, 222, 243, 199, 93, 196, 57, 59]);
-pub const DXVA2_VideoProcSoftwareDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1163121791, 61054, 20031, [148, 117, 219, 241, 55, 108, 72, 16]);
+pub const DXVA2_VideoProcBobDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x335aa36e_7884_43a4_9c91_7f87faf3e37e);
+pub const DXVA2_VideoProcProgressiveDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a54a0c9_c7ec_4bd9_8ede_f3c75dc4393b);
+pub const DXVA2_VideoProcSoftwareDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4553d47f_ee7e_4e3f_9475_dbf1376c4810);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -8932,13 +8932,13 @@ impl ::core::cmp::Eq for DXVACompBufferInfo {}
 unsafe impl ::windows::runtime::Abi for DXVACompBufferInfo {
     type Abi = Self;
 }
-pub const DXVAHDControlGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2688052853, 63244, 17996, [169, 206, 51, 196, 78, 9, 22, 35]);
-pub const DXVAHDETWGUID_CREATEVIDEOPROCESSOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1746812190, 22132, 20403, [165, 3, 47, 32, 85, 233, 31, 96]);
-pub const DXVAHDETWGUID_DESTROYVIDEOPROCESSOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4181979296, 16150, 17376, [128, 147, 16, 90, 152, 106, 165, 241]);
-pub const DXVAHDETWGUID_VIDEOPROCESSBLTHD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3203650613, 30919, 19939, [151, 7, 205, 27, 8, 59, 22, 10]);
-pub const DXVAHDETWGUID_VIDEOPROCESSBLTHD_STREAM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(665732926, 42492, 19429, [180, 227, 242, 73, 148, 211, 196, 149]);
-pub const DXVAHDETWGUID_VIDEOPROCESSBLTSTATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1992903514, 6463, 18066, [148, 132, 164, 217, 153, 218, 129, 168]);
-pub const DXVAHDETWGUID_VIDEOPROCESSSTREAMSTATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(640420610, 8349, 18413, [148, 216, 130, 174, 2, 184, 74, 167]);
+pub const DXVAHDControlGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0386e75_f70c_464c_a9ce_33c44e091623);
+pub const DXVAHDETWGUID_CREATEVIDEOPROCESSOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x681e3d1e_5674_4fb3_a503_2f2055e91f60);
+pub const DXVAHDETWGUID_DESTROYVIDEOPROCESSOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf943f0a0_3f16_43e0_8093_105a986aa5f1);
+pub const DXVAHDETWGUID_VIDEOPROCESSBLTHD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbef3d435_78c7_4de3_9707_cd1b083b160a);
+pub const DXVAHDETWGUID_VIDEOPROCESSBLTHD_STREAM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27ae473e_a5fc_4be5_b4e3_f24994d3c495);
+pub const DXVAHDETWGUID_VIDEOPROCESSBLTSTATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76c94b5a_193f_4692_9484_a4d999da81a8);
+pub const DXVAHDETWGUID_VIDEOPROCESSSTREAMSTATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x262c0b02_209d_47ed_94d8_82ae02b84aa7);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -10384,7 +10384,7 @@ impl ::core::cmp::Eq for DXVAHD_STREAM_STATE_PRIVATE_DATA {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_STREAM_STATE_PRIVATE_DATA {
     type Abi = Self;
 }
-pub const DXVAHD_STREAM_STATE_PRIVATE_IVTC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2623544892, 3891, 16716, [167, 57, 153, 84, 14, 228, 45, 165]);
+pub const DXVAHD_STREAM_STATE_PRIVATE_IVTC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c601e3c_0f33_414c_a739_99540ee42da5);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -11829,11 +11829,11 @@ impl ::core::convert::From<i32> for DXVA_VideoTransferMatrix {
 unsafe impl ::windows::runtime::Abi for DXVA_VideoTransferMatrix {
     type Abi = Self;
 }
-pub const DXVAp_DeinterlaceBobDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(861578094, 30852, 17316, [156, 145, 127, 135, 250, 243, 227, 126]);
-pub const DXVAp_DeinterlaceContainerDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(243649427, 12358, 20464, [174, 204, 213, 140, 181, 240, 53, 253]);
-pub const DXVAp_ModeMPEG2_A: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487626, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const DXVAp_ModeMPEG2_C: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487628, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const DXVAp_NoEncrypt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487824, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
+pub const DXVAp_DeinterlaceBobDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x335aa36e_7884_43a4_9c91_7f87faf3e37e);
+pub const DXVAp_DeinterlaceContainerDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e85cb93_3046_4ff0_aecc_d58cb5f035fd);
+pub const DXVAp_ModeMPEG2_A: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be0a_a0c7_11d3_b984_00c04f2e73c5);
+pub const DXVAp_ModeMPEG2_C: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be0c_a0c7_11d3_b984_00c04f2e73c5);
+pub const DXVAp_NoEncrypt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81bed0_a0c7_11d3_b984_00c04f2e73c5);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -11949,9 +11949,9 @@ impl ::core::convert::From<i32> for FILE_OPENMODE {
 unsafe impl ::windows::runtime::Abi for FILE_OPENMODE {
     type Abi = Self;
 }
-pub const FORMAT_MFVideoFormat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2933173037, 29478, 17355, [148, 100, 200, 121, 202, 185, 196, 61]);
-pub const GUID_NativeDeviceService: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4017218876, 21236, 17349, [184, 106, 173, 108, 178, 22, 166, 30]);
-pub const GUID_PlayToService: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4138270621, 40468, 16841, [191, 15, 18, 10, 43, 60, 225, 32]);
+pub const FORMAT_MFVideoFormat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaed4ab2d_7326_43cb_9464_c879cab9c43d);
+pub const GUID_NativeDeviceService: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef71e53c_52f4_43c5_b86a_ad6cb216a61e);
+pub const GUID_PlayToService: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6a8ff9d_9e14_41c9_bf0f_120a2b3ce120);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -11965,7 +11965,7 @@ impl IAdvancedMediaCapture {
 }
 unsafe impl ::windows::runtime::Interface for IAdvancedMediaCapture {
     type Vtable = IAdvancedMediaCapture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3497334149, 53782, 17220, [181, 191, 70, 59, 104, 249, 119, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0751585_d216_4344_b5bf_463b68f977bb);
 }
 impl ::core::convert::From<IAdvancedMediaCapture> for ::windows::runtime::IUnknown {
     fn from(value: IAdvancedMediaCapture) -> Self {
@@ -12007,7 +12007,7 @@ impl IAdvancedMediaCaptureInitializationSettings {
 }
 unsafe impl ::windows::runtime::Interface for IAdvancedMediaCaptureInitializationSettings {
     type Vtable = IAdvancedMediaCaptureInitializationSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1038225929, 35750, 20266, [165, 119, 40, 25, 181, 111, 241, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3de21209_8ba6_4f2a_a577_2819b56ff14d);
 }
 impl ::core::convert::From<IAdvancedMediaCaptureInitializationSettings> for ::windows::runtime::IUnknown {
     fn from(value: IAdvancedMediaCaptureInitializationSettings) -> Self {
@@ -12050,7 +12050,7 @@ impl IAdvancedMediaCaptureSettings {
 }
 unsafe impl ::windows::runtime::Interface for IAdvancedMediaCaptureSettings {
     type Vtable = IAdvancedMediaCaptureSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(618678367, 41790, 19105, [181, 100, 96, 25, 177, 209, 79, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24e0485f_a33e_4aa1_b564_6019b1d14f65);
 }
 impl ::core::convert::From<IAdvancedMediaCaptureSettings> for ::windows::runtime::IUnknown {
     fn from(value: IAdvancedMediaCaptureSettings) -> Self {
@@ -12092,7 +12092,7 @@ impl IAudioSourceProvider {
 }
 unsafe impl ::windows::runtime::Interface for IAudioSourceProvider {
     type Vtable = IAudioSourceProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3954897481, 44994, 17794, [145, 198, 182, 13, 242, 232, 73, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xebbaf249_afc2_4582_91c6_b60df2e84954);
 }
 impl ::core::convert::From<IAudioSourceProvider> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSourceProvider) -> Self {
@@ -12139,7 +12139,7 @@ impl IClusterDetector {
 }
 unsafe impl ::windows::runtime::Interface for IClusterDetector {
     type Vtable = IClusterDetector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1057486775, 50816, 16857, [148, 35, 145, 81, 7, 236, 159, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f07f7b7_c680_41d9_9423_915107ec9ff9);
 }
 impl ::core::convert::From<IClusterDetector> for ::windows::runtime::IUnknown {
     fn from(value: IClusterDetector) -> Self {
@@ -12249,7 +12249,7 @@ impl ICodecAPI {
 }
 unsafe impl ::windows::runtime::Interface for ICodecAPI {
     type Vtable = ICodecAPI_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2417865927, 12750, 16802, [133, 220, 143, 160, 191, 65, 184, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x901db4c7_31ce_41a2_85dc_8fa0bf41b8da);
 }
 impl ::core::convert::From<ICodecAPI> for ::windows::runtime::IUnknown {
     fn from(value: ICodecAPI) -> Self {
@@ -12409,7 +12409,7 @@ impl ID3D12VideoDecodeCommandList {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoDecodeCommandList {
     type Vtable = ID3D12VideoDecodeCommandList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(996168558, 44329, 20068, [162, 105, 248, 83, 131, 126, 94, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b60536e_ad29_4e64_a269_f853837e5e53);
 }
 impl ::core::convert::From<ID3D12VideoDecodeCommandList> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoDecodeCommandList) -> Self {
@@ -12653,7 +12653,7 @@ impl ID3D12VideoDecodeCommandList1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoDecodeCommandList1 {
     type Vtable = ID3D12VideoDecodeCommandList1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3576627483, 46446, 17724, [160, 90, 167, 243, 17, 200, 244, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd52f011b_b56e_453c_a05a_a7f311c8f472);
 }
 impl ::core::convert::From<ID3D12VideoDecodeCommandList1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoDecodeCommandList1) -> Self {
@@ -12932,7 +12932,7 @@ impl ID3D12VideoDecodeCommandList2 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoDecodeCommandList2 {
     type Vtable = ID3D12VideoDecodeCommandList2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1846675584, 49428, 16723, [128, 54, 210, 71, 5, 30, 23, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e120880_c114_4153_8036_d247051e1729);
 }
 impl ::core::convert::From<ID3D12VideoDecodeCommandList2> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoDecodeCommandList2) -> Self {
@@ -13145,7 +13145,7 @@ impl ID3D12VideoDecoder {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoDecoder {
     type Vtable = ID3D12VideoDecoder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3315297244, 30496, 16500, [161, 54, 23, 161, 86, 3, 116, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc59b6bdc_7720_4074_a136_17a156037470);
 }
 impl ::core::convert::From<ID3D12VideoDecoder> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoDecoder) -> Self {
@@ -13292,7 +13292,7 @@ impl ID3D12VideoDecoder1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoDecoder1 {
     type Vtable = ID3D12VideoDecoder1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2040718843, 52434, 18074, [159, 222, 25, 93, 16, 149, 31, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79a2e5fb_ccd2_469a_9fde_195d10951f7e);
 }
 impl ::core::convert::From<ID3D12VideoDecoder1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoDecoder1) -> Self {
@@ -13457,7 +13457,7 @@ impl ID3D12VideoDecoderHeap {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoDecoderHeap {
     type Vtable = ID3D12VideoDecoderHeap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(155629513, 60406, 16455, [187, 115, 134, 131, 226, 125, 187, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0946b7c9_ebf6_4047_bb73_8683e27dbb1f);
 }
 impl ::core::convert::From<ID3D12VideoDecoderHeap> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoDecoderHeap) -> Self {
@@ -13606,7 +13606,7 @@ impl ID3D12VideoDecoderHeap1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoDecoderHeap1 {
     type Vtable = ID3D12VideoDecoderHeap1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3659372741, 21407, 16818, [191, 107, 17, 152, 160, 59, 109, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda1d98c5_539f_41b2_bf6b_1198a03b6d26);
 }
 impl ::core::convert::From<ID3D12VideoDecoderHeap1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoDecoderHeap1) -> Self {
@@ -13765,7 +13765,7 @@ impl ID3D12VideoDevice {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoDevice {
     type Vtable = ID3D12VideoDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(520431623, 2886, 19148, [138, 137, 54, 79, 121, 55, 24, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f052807_0b46_4acc_8a89_364f793718a4);
 }
 impl ::core::convert::From<ID3D12VideoDevice> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoDevice) -> Self {
@@ -13841,7 +13841,7 @@ impl ID3D12VideoDevice1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoDevice1 {
     type Vtable = ID3D12VideoDevice1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2551583149, 41284, 19587, [152, 144, 243, 14, 38, 214, 88, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x981611ad_a144_4c83_9890_f30e26d658ab);
 }
 impl ::core::convert::From<ID3D12VideoDevice1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoDevice1) -> Self {
@@ -13979,7 +13979,7 @@ impl ID3D12VideoDevice2 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoDevice2 {
     type Vtable = ID3D12VideoDevice2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4028214345, 63544, 19093, [155, 23, 87, 148, 55, 200, 245, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf019ac49_f838_4a95_9b17_579437c8f513);
 }
 impl ::core::convert::From<ID3D12VideoDevice2> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoDevice2) -> Self {
@@ -14158,7 +14158,7 @@ impl ID3D12VideoDevice3 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoDevice3 {
     type Vtable = ID3D12VideoDevice3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1111731636, 14898, 18022, [151, 60, 12, 204, 86, 37, 220, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4243adb4_3a32_4666_973c_0ccc5625dc44);
 }
 impl ::core::convert::From<ID3D12VideoDevice3> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoDevice3) -> Self {
@@ -14387,7 +14387,7 @@ impl ID3D12VideoEncodeCommandList {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoEncodeCommandList {
     type Vtable = ID3D12VideoEncodeCommandList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2220173626, 3261, 18481, [155, 57, 251, 219, 171, 114, 71, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8455293a_0cbd_4831_9b39_fbdbab724723);
 }
 impl ::core::convert::From<ID3D12VideoEncodeCommandList> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoEncodeCommandList) -> Self {
@@ -14648,7 +14648,7 @@ impl ID3D12VideoEncodeCommandList1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoEncodeCommandList1 {
     type Vtable = ID3D12VideoEncodeCommandList1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2492931786, 11227, 18281, [136, 207, 54, 117, 234, 117, 126, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94971eca_2bdb_4769_88cf_3675ea757ebc);
 }
 impl ::core::convert::From<ID3D12VideoEncodeCommandList1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoEncodeCommandList1) -> Self {
@@ -14941,7 +14941,7 @@ impl ID3D12VideoEncodeCommandList2 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoEncodeCommandList2 {
     type Vtable = ID3D12VideoEncodeCommandList2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2304020962, 59137, 18089, [154, 31, 141, 52, 128, 237, 134, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x895491e2_e701_46a9_9a1f_8d3480ed867a);
 }
 impl ::core::convert::From<ID3D12VideoEncodeCommandList2> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoEncodeCommandList2) -> Self {
@@ -15181,7 +15181,7 @@ impl ID3D12VideoEncoder {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoEncoder {
     type Vtable = ID3D12VideoEncoder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(772612397, 36345, 17574, [167, 112, 187, 40, 155, 24, 39, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e0d212d_8df9_44a6_a770_bb289b182737);
 }
 impl ::core::convert::From<ID3D12VideoEncoder> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoEncoder) -> Self {
@@ -15353,7 +15353,7 @@ impl ID3D12VideoEncoderHeap {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoEncoderHeap {
     type Vtable = ID3D12VideoEncoderHeap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(582180246, 34666, 17600, [178, 94, 251, 140, 156, 127, 28, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22b35d96_876a_44c0_b25e_fb8c9c7f1c4a);
 }
 impl ::core::convert::From<ID3D12VideoEncoderHeap> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoEncoderHeap) -> Self {
@@ -15506,7 +15506,7 @@ impl ID3D12VideoExtensionCommand {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoExtensionCommand {
     type Vtable = ID3D12VideoExtensionCommand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1431192040, 44686, 19084, [183, 210, 91, 79, 39, 74, 48, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x554e41e8_ae8e_4a8c_b7d2_5b4f274a30e4);
 }
 impl ::core::convert::From<ID3D12VideoExtensionCommand> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoExtensionCommand) -> Self {
@@ -15655,7 +15655,7 @@ impl ID3D12VideoMotionEstimator {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoMotionEstimator {
     type Vtable = ID3D12VideoMotionEstimator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(872263182, 2443, 17039, [135, 187, 52, 182, 149, 222, 8, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33fdae0e_098b_428f_87bb_34b695de08f8);
 }
 impl ::core::convert::From<ID3D12VideoMotionEstimator> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoMotionEstimator) -> Self {
@@ -15805,7 +15805,7 @@ impl ID3D12VideoMotionVectorHeap {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoMotionVectorHeap {
     type Vtable = ID3D12VideoMotionVectorHeap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1541503367, 29754, 16481, [131, 75, 35, 210, 45, 174, 165, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5be17987_743a_4061_834b_23d22daea505);
 }
 impl ::core::convert::From<ID3D12VideoMotionVectorHeap> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoMotionVectorHeap) -> Self {
@@ -16022,7 +16022,7 @@ impl ID3D12VideoProcessCommandList {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoProcessCommandList {
     type Vtable = ID3D12VideoProcessCommandList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2930922554, 5759, 18050, [172, 200, 209, 89, 237, 74, 98, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaeb2543a_167f_4682_acc8_d159ed4a6209);
 }
 impl ::core::convert::From<ID3D12VideoProcessCommandList> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoProcessCommandList) -> Self {
@@ -16266,7 +16266,7 @@ impl ID3D12VideoProcessCommandList1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoProcessCommandList1 {
     type Vtable = ID3D12VideoProcessCommandList1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1412193357, 30102, 17231, [140, 147, 78, 250, 103, 102, 242, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x542c5c4d_7596_434f_8c93_4efa6766f267);
 }
 impl ::core::convert::From<ID3D12VideoProcessCommandList1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoProcessCommandList1) -> Self {
@@ -16545,7 +16545,7 @@ impl ID3D12VideoProcessCommandList2 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoProcessCommandList2 {
     type Vtable = ID3D12VideoProcessCommandList2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3679607524, 27350, 18236, [186, 167, 89, 178, 227, 112, 130, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb525ae4_6ad6_473c_baa7_59b2e37082e4);
 }
 impl ::core::convert::From<ID3D12VideoProcessCommandList2> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoProcessCommandList2) -> Self {
@@ -16772,7 +16772,7 @@ impl ID3D12VideoProcessor {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoProcessor {
     type Vtable = ID3D12VideoProcessor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(810539826, 48862, 16650, [133, 69, 148, 58, 198, 164, 97, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x304fdb32_bede_410a_8545_943ac6a46138);
 }
 impl ::core::convert::From<ID3D12VideoProcessor> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoProcessor) -> Self {
@@ -16938,7 +16938,7 @@ impl ID3D12VideoProcessor1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D12VideoProcessor1 {
     type Vtable = ID3D12VideoProcessor1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4090488341, 21823, 16988, [134, 216, 238, 140, 27, 31, 176, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3cfe615_553f_425c_86d8_ee8c1b1fb01c);
 }
 impl ::core::convert::From<ID3D12VideoProcessor1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D12VideoProcessor1) -> Self {
@@ -17132,7 +17132,7 @@ impl IDXVAHD_Device {
 }
 unsafe impl ::windows::runtime::Interface for IDXVAHD_Device {
     type Vtable = IDXVAHD_Device_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2515611133, 55166, 18878, [129, 95, 87, 213, 121, 99, 77, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95f12dfd_d77e_49be_815f_57d579634d6d);
 }
 impl ::core::convert::From<IDXVAHD_Device> for ::windows::runtime::IUnknown {
     fn from(value: IDXVAHD_Device) -> Self {
@@ -17203,7 +17203,7 @@ impl IDXVAHD_VideoProcessor {
 }
 unsafe impl ::windows::runtime::Interface for IDXVAHD_VideoProcessor {
     type Vtable = IDXVAHD_VideoProcessor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2515856884, 28163, 19671, [190, 27, 48, 117, 214, 101, 170, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95f4edf4_6e03_4cd7_be1b_3075d665aa52);
 }
 impl ::core::convert::From<IDXVAHD_VideoProcessor> for ::windows::runtime::IUnknown {
     fn from(value: IDXVAHD_VideoProcessor) -> Self {
@@ -17262,7 +17262,7 @@ impl IDirect3D9ExOverlayExtension {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3D9ExOverlayExtension {
     type Vtable = IDirect3D9ExOverlayExtension_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(410708755, 43765, 19545, [135, 109, 224, 89, 8, 140, 13, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x187aeb13_aaf5_4c59_876d_e059088c0df8);
 }
 impl ::core::convert::From<IDirect3D9ExOverlayExtension> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3D9ExOverlayExtension) -> Self {
@@ -17322,7 +17322,7 @@ impl IDirect3DAuthenticatedChannel9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DAuthenticatedChannel9 {
     type Vtable = IDirect3DAuthenticatedChannel9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4280598254, 55841, 19435, [152, 181, 210, 248, 153, 249, 138, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff24beee_da21_4beb_98b5_d2f899f98af9);
 }
 impl ::core::convert::From<IDirect3DAuthenticatedChannel9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DAuthenticatedChannel9) -> Self {
@@ -17404,7 +17404,7 @@ impl IDirect3DCryptoSession9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DCryptoSession9 {
     type Vtable = IDirect3DCryptoSession9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4195006361, 31388, 18634, [140, 91, 35, 126, 113, 165, 68, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa0ab799_7a9c_48ca_8c5b_237e71a54434);
 }
 impl ::core::convert::From<IDirect3DCryptoSession9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DCryptoSession9) -> Self {
@@ -17467,7 +17467,7 @@ impl IDirect3DDevice9Video {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DDevice9Video {
     type Vtable = IDirect3DDevice9Video_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(651969889, 41454, 19175, [150, 218, 17, 138, 54, 192, 236, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26dc4561_a1ee_4ae7_96da_118a36c0ec95);
 }
 impl ::core::convert::From<IDirect3DDevice9Video> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DDevice9Video) -> Self {
@@ -17545,7 +17545,7 @@ impl IDirect3DDeviceManager9 {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DDeviceManager9 {
     type Vtable = IDirect3DDeviceManager9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2697649679, 1749, 19700, [161, 199, 243, 205, 215, 37, 170, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0cade0f_06d5_4cf4_a1c7_f3cdd725aa75);
 }
 impl ::core::convert::From<IDirect3DDeviceManager9> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DDeviceManager9) -> Self {
@@ -17613,7 +17613,7 @@ impl IDirectXVideoAccelerationService {
 }
 unsafe impl ::windows::runtime::Interface for IDirectXVideoAccelerationService {
     type Vtable = IDirectXVideoAccelerationService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4233209168, 54759, 4569, [175, 85, 0, 5, 78, 67, 255, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc51a550_d5e7_11d9_af55_00054e43ff02);
 }
 impl ::core::convert::From<IDirectXVideoAccelerationService> for ::windows::runtime::IUnknown {
     fn from(value: IDirectXVideoAccelerationService) -> Self {
@@ -17684,7 +17684,7 @@ impl IDirectXVideoDecoder {
 }
 unsafe impl ::windows::runtime::Interface for IDirectXVideoDecoder {
     type Vtable = IDirectXVideoDecoder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4071653642, 64768, 17353, [145, 140, 223, 148, 226, 216, 239, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2b0810a_fd00_43c9_918c_df94e2d8ef7d);
 }
 impl ::core::convert::From<IDirectXVideoDecoder> for ::windows::runtime::IUnknown {
     fn from(value: IDirectXVideoDecoder) -> Self {
@@ -17768,7 +17768,7 @@ impl IDirectXVideoDecoderService {
 }
 unsafe impl ::windows::runtime::Interface for IDirectXVideoDecoderService {
     type Vtable = IDirectXVideoDecoderService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4233209169, 54759, 4569, [175, 85, 0, 5, 78, 67, 255, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc51a551_d5e7_11d9_af55_00054e43ff02);
 }
 impl ::core::convert::From<IDirectXVideoDecoderService> for ::windows::runtime::IUnknown {
     fn from(value: IDirectXVideoDecoderService) -> Self {
@@ -17843,7 +17843,7 @@ impl IDirectXVideoMemoryConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for IDirectXVideoMemoryConfiguration {
     type Vtable = IDirectXVideoMemoryConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3086554845, 56123, 18881, [132, 215, 228, 94, 249, 158, 199, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7f916dd_db3b_49c1_84d7_e45ef99ec726);
 }
 impl ::core::convert::From<IDirectXVideoMemoryConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: IDirectXVideoMemoryConfiguration) -> Self {
@@ -17913,7 +17913,7 @@ impl IDirectXVideoProcessor {
 }
 unsafe impl ::windows::runtime::Interface for IDirectXVideoProcessor {
     type Vtable = IDirectXVideoProcessor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2352626160, 37230, 18064, [128, 79, 76, 128, 1, 53, 93, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c3a39f0_916e_4690_804f_4c8001355d25);
 }
 impl ::core::convert::From<IDirectXVideoProcessor> for ::windows::runtime::IUnknown {
     fn from(value: IDirectXVideoProcessor) -> Self {
@@ -18019,7 +18019,7 @@ impl IDirectXVideoProcessorService {
 }
 unsafe impl ::windows::runtime::Interface for IDirectXVideoProcessorService {
     type Vtable = IDirectXVideoProcessorService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4233209170, 54759, 4569, [175, 85, 0, 5, 78, 67, 255, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc51a552_d5e7_11d9_af55_00054e43ff02);
 }
 impl ::core::convert::From<IDirectXVideoProcessorService> for ::windows::runtime::IUnknown {
     fn from(value: IDirectXVideoProcessorService) -> Self {
@@ -18102,7 +18102,7 @@ impl IEVRFilterConfig {
 }
 unsafe impl ::windows::runtime::Interface for IEVRFilterConfig {
     type Vtable = IEVRFilterConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2213092997, 33473, 20135, [128, 29, 133, 220, 80, 183, 80, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83e91e85_82c1_4ea7_801d_85dc50b75086);
 }
 impl ::core::convert::From<IEVRFilterConfig> for ::windows::runtime::IUnknown {
     fn from(value: IEVRFilterConfig) -> Self {
@@ -18159,7 +18159,7 @@ impl IEVRFilterConfigEx {
 }
 unsafe impl ::windows::runtime::Interface for IEVRFilterConfigEx {
     type Vtable = IEVRFilterConfigEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2929942568, 31085, 17743, [190, 238, 180, 128, 113, 226, 67, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaea36028_796d_454f_beee_b48071e24304);
 }
 impl ::core::convert::From<IEVRFilterConfigEx> for ::windows::runtime::IUnknown {
     fn from(value: IEVRFilterConfigEx) -> Self {
@@ -18241,7 +18241,7 @@ impl IEVRTrustedVideoPlugin {
 }
 unsafe impl ::windows::runtime::Interface for IEVRTrustedVideoPlugin {
     type Vtable = IEVRTrustedVideoPlugin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2208616000, 30480, 18763, [168, 147, 164, 114, 4, 154, 246, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83a4ce40_7710_494b_a893_a472049af630);
 }
 impl ::core::convert::From<IEVRTrustedVideoPlugin> for ::windows::runtime::IUnknown {
     fn from(value: IEVRTrustedVideoPlugin) -> Self {
@@ -18296,7 +18296,7 @@ impl IEVRVideoStreamControl {
 }
 unsafe impl ::windows::runtime::Interface for IEVRVideoStreamControl {
     type Vtable = IEVRVideoStreamControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3503285131, 37863, 18290, [137, 87, 4, 0, 196, 154, 68, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0cfe38b_93e7_4772_8957_0400c49a4485);
 }
 impl ::core::convert::From<IEVRVideoStreamControl> for ::windows::runtime::IUnknown {
     fn from(value: IEVRVideoStreamControl) -> Self {
@@ -18349,7 +18349,7 @@ impl IFileClient {
 }
 unsafe impl ::windows::runtime::Interface for IFileClient {
     type Vtable = IFileClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3217871254, 4676, 18496, [171, 68, 72, 9, 117, 196, 255, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfccd196_1244_4840_ab44_480975c4ffe4);
 }
 impl ::core::convert::From<IFileClient> for ::windows::runtime::IUnknown {
     fn from(value: IFileClient) -> Self {
@@ -18431,7 +18431,7 @@ impl IFileIo {
 }
 unsafe impl ::windows::runtime::Interface for IFileIo {
     type Vtable = IFileIo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(295252374, 4676, 18496, [171, 68, 72, 9, 117, 196, 255, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11993196_1244_4840_ab44_480975c4ffe4);
 }
 impl ::core::convert::From<IFileIo> for ::windows::runtime::IUnknown {
     fn from(value: IFileIo) -> Self {
@@ -18511,7 +18511,7 @@ impl IMF2DBuffer {
 }
 unsafe impl ::windows::runtime::Interface for IMF2DBuffer {
     type Vtable = IMF2DBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2110379513, 40665, 17644, [155, 191, 6, 0, 187, 88, 159, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7dc9d5f9_9ed9_44ec_9bbf_0600bb589fbb);
 }
 impl ::core::convert::From<IMF2DBuffer> for ::windows::runtime::IUnknown {
     fn from(value: IMF2DBuffer) -> Self {
@@ -18595,7 +18595,7 @@ impl IMF2DBuffer2 {
 }
 unsafe impl ::windows::runtime::Interface for IMF2DBuffer2 {
     type Vtable = IMF2DBuffer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(867065510, 17174, 17263, [141, 221, 215, 61, 34, 248, 41, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33ae5ea6_4316_436f_8ddd_d73d22f829ec);
 }
 impl ::core::convert::From<IMF2DBuffer2> for ::windows::runtime::IUnknown {
     fn from(value: IMF2DBuffer2) -> Self {
@@ -18695,7 +18695,7 @@ impl IMFASFContentInfo {
 }
 unsafe impl ::windows::runtime::Interface for IMFASFContentInfo {
     type Vtable = IMFASFContentInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2984027597, 54746, 17489, [142, 158, 219, 92, 89, 145, 78, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1dca5cd_d5da_4451_8e9e_db5c59914ead);
 }
 impl ::core::convert::From<IMFASFContentInfo> for ::windows::runtime::IUnknown {
     fn from(value: IMFASFContentInfo) -> Self {
@@ -18799,7 +18799,7 @@ impl IMFASFIndexer {
 }
 unsafe impl ::windows::runtime::Interface for IMFASFIndexer {
     type Vtable = IMFASFIndexer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1398345544, 56379, 17047, [129, 63, 120, 119, 97, 173, 123, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53590f48_dc3b_4297_813f_787761ad7b3e);
 }
 impl ::core::convert::From<IMFASFIndexer> for ::windows::runtime::IUnknown {
     fn from(value: IMFASFIndexer) -> Self {
@@ -18890,7 +18890,7 @@ impl IMFASFMultiplexer {
 }
 unsafe impl ::windows::runtime::Interface for IMFASFMultiplexer {
     type Vtable = IMFASFMultiplexer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1472059402, 39736, 18488, [183, 55, 197, 143, 103, 13, 125, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57bdd80a_9b38_4838_b737_c58f670d7d4f);
 }
 impl ::core::convert::From<IMFASFMultiplexer> for ::windows::runtime::IUnknown {
     fn from(value: IMFASFMultiplexer) -> Self {
@@ -18976,7 +18976,7 @@ impl IMFASFMutualExclusion {
 }
 unsafe impl ::windows::runtime::Interface for IMFASFMutualExclusion {
     type Vtable = IMFASFMutualExclusion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(307593873, 58265, 4565, [188, 42, 0, 176, 208, 243, 244, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12558291_e399_11d5_bc2a_00b0d0f3f4ab);
 }
 impl ::core::convert::From<IMFASFMutualExclusion> for ::windows::runtime::IUnknown {
     fn from(value: IMFASFMutualExclusion) -> Self {
@@ -19234,7 +19234,7 @@ impl IMFASFProfile {
 }
 unsafe impl ::windows::runtime::Interface for IMFASFProfile {
     type Vtable = IMFASFProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3530014570, 651, 19981, [144, 61, 67, 240, 239, 130, 208, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd267bf6a_028b_4e0d_903d_43f0ef82d0d4);
 }
 impl ::core::convert::From<IMFASFProfile> for ::windows::runtime::IUnknown {
     fn from(value: IMFASFProfile) -> Self {
@@ -19383,7 +19383,7 @@ impl IMFASFSplitter {
 }
 unsafe impl ::windows::runtime::Interface for IMFASFSplitter {
     type Vtable = IMFASFSplitter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(307593877, 58265, 4565, [188, 42, 0, 176, 208, 243, 244, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12558295_e399_11d5_bc2a_00b0d0f3f4ab);
 }
 impl ::core::convert::From<IMFASFSplitter> for ::windows::runtime::IUnknown {
     fn from(value: IMFASFSplitter) -> Self {
@@ -19612,7 +19612,7 @@ impl IMFASFStreamConfig {
 }
 unsafe impl ::windows::runtime::Interface for IMFASFStreamConfig {
     type Vtable = IMFASFStreamConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2659903698, 56253, 16896, [154, 202, 6, 230, 223, 72, 73, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e8ae8d2_dbbd_4200_9aca_06e6df484913);
 }
 impl ::core::convert::From<IMFASFStreamConfig> for ::windows::runtime::IUnknown {
     fn from(value: IMFASFStreamConfig) -> Self {
@@ -19739,7 +19739,7 @@ impl IMFASFStreamPrioritization {
 }
 unsafe impl ::windows::runtime::Interface for IMFASFStreamPrioritization {
     type Vtable = IMFASFStreamPrioritization_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1771822119, 48047, 18943, [142, 56, 156, 57, 201, 181, 224, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x699bdc27_bbaf_49ff_8e38_9c39c9b5e088);
 }
 impl ::core::convert::From<IMFASFStreamPrioritization> for ::windows::runtime::IUnknown {
     fn from(value: IMFASFStreamPrioritization) -> Self {
@@ -19847,7 +19847,7 @@ impl IMFASFStreamSelector {
 }
 unsafe impl ::windows::runtime::Interface for IMFASFStreamSelector {
     type Vtable = IMFASFStreamSelector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3491474762, 20384, 19040, [147, 73, 194, 126, 98, 218, 157, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd01bad4a_4fa0_4a60_9349_c27e62da9d41);
 }
 impl ::core::convert::From<IMFASFStreamSelector> for ::windows::runtime::IUnknown {
     fn from(value: IMFASFStreamSelector) -> Self {
@@ -20050,7 +20050,7 @@ impl IMFActivate {
 }
 unsafe impl ::windows::runtime::Interface for IMFActivate {
     type Vtable = IMFActivate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2146344602, 19081, 18342, [137, 156, 182, 165, 58, 112, 251, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fee9e9a_4a89_47a6_899c_b6a53a70fb67);
 }
 impl ::core::convert::From<IMFActivate> for ::windows::runtime::IUnknown {
     fn from(value: IMFActivate) -> Self {
@@ -20156,7 +20156,7 @@ impl IMFAsyncCallback {
 }
 unsafe impl ::windows::runtime::Interface for IMFAsyncCallback {
     type Vtable = IMFAsyncCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2725249999, 9044, 20266, [141, 106, 171, 124, 255, 21, 67, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa27003cf_2354_4f2a_8d6a_ab7cff15437e);
 }
 impl ::core::convert::From<IMFAsyncCallback> for ::windows::runtime::IUnknown {
     fn from(value: IMFAsyncCallback) -> Self {
@@ -20211,7 +20211,7 @@ impl IMFAsyncCallbackLogging {
 }
 unsafe impl ::windows::runtime::Interface for IMFAsyncCallbackLogging {
     type Vtable = IMFAsyncCallbackLogging_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3349470369, 62960, 18358, [185, 43, 191, 1, 6, 210, 87, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7a4dca1_f5f0_47b6_b92b_bf0106d25791);
 }
 impl ::core::convert::From<IMFAsyncCallbackLogging> for ::windows::runtime::IUnknown {
     fn from(value: IMFAsyncCallbackLogging) -> Self {
@@ -20294,7 +20294,7 @@ impl IMFAsyncResult {
 }
 unsafe impl ::windows::runtime::Interface for IMFAsyncResult {
     type Vtable = IMFAsyncResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2892724361, 1856, 19793, [134, 25, 144, 89, 148, 165, 92, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac6b7889_0740_4d51_8619_905994a55cc6);
 }
 impl ::core::convert::From<IMFAsyncResult> for ::windows::runtime::IUnknown {
     fn from(value: IMFAsyncResult) -> Self {
@@ -20475,7 +20475,7 @@ impl IMFAttributes {
 }
 unsafe impl ::windows::runtime::Interface for IMFAttributes {
     type Vtable = IMFAttributes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752015649, 50247, 17575, [161, 60, 74, 218, 191, 194, 71, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd2d921_c447_44a7_a13c_4adabfc247e3);
 }
 impl ::core::convert::From<IMFAttributes> for ::windows::runtime::IUnknown {
     fn from(value: IMFAttributes) -> Self {
@@ -20718,7 +20718,7 @@ impl IMFAudioMediaType {
 }
 unsafe impl ::windows::runtime::Interface for IMFAudioMediaType {
     type Vtable = IMFAudioMediaType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(648064451, 52774, 18034, [147, 4, 105, 85, 46, 221, 63, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26a0adc3_ce26_4672_9304_69552edd3faf);
 }
 impl ::core::convert::From<IMFAudioMediaType> for ::windows::runtime::IUnknown {
     fn from(value: IMFAudioMediaType) -> Self {
@@ -20872,7 +20872,7 @@ impl IMFAudioPolicy {
 }
 unsafe impl ::windows::runtime::Interface for IMFAudioPolicy {
     type Vtable = IMFAudioPolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2690878507, 25701, 17301, [154, 231, 163, 33, 169, 253, 40, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0638c2b_6465_4395_9ae7_a321a9fd2856);
 }
 impl ::core::convert::From<IMFAudioPolicy> for ::windows::runtime::IUnknown {
     fn from(value: IMFAudioPolicy) -> Self {
@@ -20941,7 +20941,7 @@ impl IMFAudioStreamVolume {
 }
 unsafe impl ::windows::runtime::Interface for IMFAudioStreamVolume {
     type Vtable = IMFAudioStreamVolume_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1991359451, 20168, 20278, [177, 6, 112, 169, 49, 109, 245, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76b1bbdb_4ec8_4f36_b106_70a9316df593);
 }
 impl ::core::convert::From<IMFAudioStreamVolume> for ::windows::runtime::IUnknown {
     fn from(value: IMFAudioStreamVolume) -> Self {
@@ -20991,7 +20991,7 @@ impl IMFBufferListNotify {
 }
 unsafe impl ::windows::runtime::Interface for IMFBufferListNotify {
     type Vtable = IMFBufferListNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(617433079, 33240, 18309, [173, 178, 175, 105, 122, 150, 60, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24cd47f7_81d8_4785_adb2_af697a963cd2);
 }
 impl ::core::convert::From<IMFBufferListNotify> for ::windows::runtime::IUnknown {
     fn from(value: IMFBufferListNotify) -> Self {
@@ -21099,7 +21099,7 @@ impl IMFByteStream {
 }
 unsafe impl ::windows::runtime::Interface for IMFByteStream {
     type Vtable = IMFByteStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2907446016, 19447, 16943, [145, 117, 117, 102, 147, 217, 19, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad4c1b00_4bf7_422f_9175_756693d9130d);
 }
 impl ::core::convert::From<IMFByteStream> for ::windows::runtime::IUnknown {
     fn from(value: IMFByteStream) -> Self {
@@ -21165,7 +21165,7 @@ impl IMFByteStreamBuffering {
 }
 unsafe impl ::windows::runtime::Interface for IMFByteStreamBuffering {
     type Vtable = IMFByteStreamBuffering_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1835456386, 7503, 19895, [140, 99, 203, 140, 119, 241, 239, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d66d782_1d4f_4db7_8c63_cb8c77f1ef5e);
 }
 impl ::core::convert::From<IMFByteStreamBuffering> for ::windows::runtime::IUnknown {
     fn from(value: IMFByteStreamBuffering) -> Self {
@@ -21210,7 +21210,7 @@ impl IMFByteStreamCacheControl {
 }
 unsafe impl ::windows::runtime::Interface for IMFByteStreamCacheControl {
     type Vtable = IMFByteStreamCacheControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4110692004, 31382, 19061, [170, 123, 43, 225, 239, 127, 136, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5042ea4_7a96_4a75_aa7b_2be1ef7f88d5);
 }
 impl ::core::convert::From<IMFByteStreamCacheControl> for ::windows::runtime::IUnknown {
     fn from(value: IMFByteStreamCacheControl) -> Self {
@@ -21266,7 +21266,7 @@ impl IMFByteStreamCacheControl2 {
 }
 unsafe impl ::windows::runtime::Interface for IMFByteStreamCacheControl2 {
     type Vtable = IMFByteStreamCacheControl2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1909343900, 62283, 18922, [165, 107, 45, 42, 16, 229, 17, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71ce469c_f34b_49ea_a56b_2d2a10e51149);
 }
 impl ::core::convert::From<IMFByteStreamCacheControl2> for ::windows::runtime::IUnknown {
     fn from(value: IMFByteStreamCacheControl2) -> Self {
@@ -21355,7 +21355,7 @@ impl IMFByteStreamHandler {
 }
 unsafe impl ::windows::runtime::Interface for IMFByteStreamHandler {
     type Vtable = IMFByteStreamHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3141667492, 30299, 18975, [145, 254, 214, 168, 161, 67, 146, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb420aa4_765b_4a1f_91fe_d6a8a143924c);
 }
 impl ::core::convert::From<IMFByteStreamHandler> for ::windows::runtime::IUnknown {
     fn from(value: IMFByteStreamHandler) -> Self {
@@ -21402,7 +21402,7 @@ impl IMFByteStreamProxyClassFactory {
 }
 unsafe impl ::windows::runtime::Interface for IMFByteStreamProxyClassFactory {
     type Vtable = IMFByteStreamProxyClassFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2796830596, 23562, 17128, [164, 77, 177, 133, 122, 118, 153, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6b43f84_5c0a_42e8_a44d_b1857a76992f);
 }
 impl ::core::convert::From<IMFByteStreamProxyClassFactory> for ::windows::runtime::IUnknown {
     fn from(value: IMFByteStreamProxyClassFactory) -> Self {
@@ -21454,7 +21454,7 @@ impl IMFByteStreamTimeSeek {
 }
 unsafe impl ::windows::runtime::Interface for IMFByteStreamTimeSeek {
     type Vtable = IMFByteStreamTimeSeek_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1687645178, 64353, 16449, [144, 105, 140, 154, 95, 101, 155, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64976bfa_fb61_4041_9069_8c9a5f659beb);
 }
 impl ::core::convert::From<IMFByteStreamTimeSeek> for ::windows::runtime::IUnknown {
     fn from(value: IMFByteStreamTimeSeek) -> Self {
@@ -21507,7 +21507,7 @@ impl IMFCameraOcclusionStateMonitor {
 }
 unsafe impl ::windows::runtime::Interface for IMFCameraOcclusionStateMonitor {
     type Vtable = IMFCameraOcclusionStateMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3429445446, 50839, 18402, [167, 45, 123, 6, 70, 23, 116, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc692f46_c697_47e2_a72d_7b064617749b);
 }
 impl ::core::convert::From<IMFCameraOcclusionStateMonitor> for ::windows::runtime::IUnknown {
     fn from(value: IMFCameraOcclusionStateMonitor) -> Self {
@@ -21552,7 +21552,7 @@ impl IMFCameraOcclusionStateReport {
 }
 unsafe impl ::windows::runtime::Interface for IMFCameraOcclusionStateReport {
     type Vtable = IMFCameraOcclusionStateReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(373338831, 29914, 17506, [164, 59, 183, 109, 59, 220, 20, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1640b2cf_74da_4462_a43b_b76d3bdc1434);
 }
 impl ::core::convert::From<IMFCameraOcclusionStateReport> for ::windows::runtime::IUnknown {
     fn from(value: IMFCameraOcclusionStateReport) -> Self {
@@ -21594,7 +21594,7 @@ impl IMFCameraOcclusionStateReportCallback {
 }
 unsafe impl ::windows::runtime::Interface for IMFCameraOcclusionStateReportCallback {
     type Vtable = IMFCameraOcclusionStateReportCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1851277767, 14473, 16409, [144, 53, 120, 63, 177, 155, 89, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e5841c7_3889_4019_9035_783fb19b5948);
 }
 impl ::core::convert::From<IMFCameraOcclusionStateReportCallback> for ::windows::runtime::IUnknown {
     fn from(value: IMFCameraOcclusionStateReportCallback) -> Self {
@@ -21640,7 +21640,7 @@ impl IMFCameraSyncObject {
 }
 unsafe impl ::windows::runtime::Interface for IMFCameraSyncObject {
     type Vtable = IMFCameraSyncObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1664660026, 12354, 18898, [163, 234, 236, 15, 237, 129, 84, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6338b23a_3042_49d2_a3ea_ec0fed815407);
 }
 impl ::core::convert::From<IMFCameraSyncObject> for ::windows::runtime::IUnknown {
     fn from(value: IMFCameraSyncObject) -> Self {
@@ -21714,7 +21714,7 @@ impl IMFCaptureEngine {
 }
 unsafe impl ::windows::runtime::Interface for IMFCaptureEngine {
     type Vtable = IMFCaptureEngine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2797315123, 5995, 18610, [179, 117, 83, 170, 3, 71, 50, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6bba433_176b_48b2_b375_53aa03473207);
 }
 impl ::core::convert::From<IMFCaptureEngine> for ::windows::runtime::IUnknown {
     fn from(value: IMFCaptureEngine) -> Self {
@@ -21764,7 +21764,7 @@ impl IMFCaptureEngineClassFactory {
 }
 unsafe impl ::windows::runtime::Interface for IMFCaptureEngineClassFactory {
     type Vtable = IMFCaptureEngineClassFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2399326528, 22268, 17154, [167, 5, 58, 151, 199, 139, 231, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f02d140_56fc_4302_a705_3a97c78be779);
 }
 impl ::core::convert::From<IMFCaptureEngineClassFactory> for ::windows::runtime::IUnknown {
     fn from(value: IMFCaptureEngineClassFactory) -> Self {
@@ -21806,7 +21806,7 @@ impl IMFCaptureEngineOnEventCallback {
 }
 unsafe impl ::windows::runtime::Interface for IMFCaptureEngineOnEventCallback {
     type Vtable = IMFCaptureEngineOnEventCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2933543360, 36901, 18819, [144, 18, 222, 89, 123, 136, 176, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaeda51c0_9025_4983_9012_de597b88b089);
 }
 impl ::core::convert::From<IMFCaptureEngineOnEventCallback> for ::windows::runtime::IUnknown {
     fn from(value: IMFCaptureEngineOnEventCallback) -> Self {
@@ -21848,7 +21848,7 @@ impl IMFCaptureEngineOnSampleCallback {
 }
 unsafe impl ::windows::runtime::Interface for IMFCaptureEngineOnSampleCallback {
     type Vtable = IMFCaptureEngineOnSampleCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1377110914, 43833, 17511, [152, 15, 228, 139, 240, 130, 46, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52150b82_ab39_4467_980f_e48bf0822ecd);
 }
 impl ::core::convert::From<IMFCaptureEngineOnSampleCallback> for ::windows::runtime::IUnknown {
     fn from(value: IMFCaptureEngineOnSampleCallback) -> Self {
@@ -21894,7 +21894,7 @@ impl IMFCaptureEngineOnSampleCallback2 {
 }
 unsafe impl ::windows::runtime::Interface for IMFCaptureEngineOnSampleCallback2 {
     type Vtable = IMFCaptureEngineOnSampleCallback2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3816615639, 13327, 17684, [159, 77, 156, 42, 224, 38, 16, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe37ceed7_340f_4514_9f4d_9c2ae026100b);
 }
 impl ::core::convert::From<IMFCaptureEngineOnSampleCallback2> for ::windows::runtime::IUnknown {
     fn from(value: IMFCaptureEngineOnSampleCallback2) -> Self {
@@ -21966,7 +21966,7 @@ impl IMFCapturePhotoConfirmation {
 }
 unsafe impl ::windows::runtime::Interface for IMFCapturePhotoConfirmation {
     type Vtable = IMFCapturePhotoConfirmation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(435586377, 51850, 18182, [164, 239, 72, 29, 188, 149, 225, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19f68549_ca8a_4706_a4ef_481dbc95e12c);
 }
 impl ::core::convert::From<IMFCapturePhotoConfirmation> for ::windows::runtime::IUnknown {
     fn from(value: IMFCapturePhotoConfirmation) -> Self {
@@ -22042,7 +22042,7 @@ impl IMFCapturePhotoSink {
 }
 unsafe impl ::windows::runtime::Interface for IMFCapturePhotoSink {
     type Vtable = IMFCapturePhotoSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3537124552, 18619, 19111, [149, 219, 16, 192, 105, 119, 231, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2d43cc8_48bb_4aa7_95db_10c06977e777);
 }
 impl ::core::convert::From<IMFCapturePhotoSink> for ::windows::runtime::IUnknown {
     fn from(value: IMFCapturePhotoSink) -> Self {
@@ -22173,7 +22173,7 @@ impl IMFCapturePreviewSink {
 }
 unsafe impl ::windows::runtime::Interface for IMFCapturePreviewSink {
     type Vtable = IMFCapturePreviewSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1999924477, 23369, 19827, [172, 224, 91, 82, 168, 89, 242, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77346cfd_5b49_4d73_ace0_5b52a859f2e0);
 }
 impl ::core::convert::From<IMFCapturePreviewSink> for ::windows::runtime::IUnknown {
     fn from(value: IMFCapturePreviewSink) -> Self {
@@ -22297,7 +22297,7 @@ impl IMFCaptureRecordSink {
 }
 unsafe impl ::windows::runtime::Interface for IMFCaptureRecordSink {
     type Vtable = IMFCaptureRecordSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(857978202, 63786, 20450, [142, 220, 233, 191, 192, 99, 77, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3323b55a_f92a_4fe2_8edc_e9bfc0634d77);
 }
 impl ::core::convert::From<IMFCaptureRecordSink> for ::windows::runtime::IUnknown {
     fn from(value: IMFCaptureRecordSink) -> Self {
@@ -22389,7 +22389,7 @@ impl IMFCaptureSink {
 }
 unsafe impl ::windows::runtime::Interface for IMFCaptureSink {
     type Vtable = IMFCaptureSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1926632283, 13801, 16684, [185, 38, 253, 82, 101, 242, 168, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72d6135b_35e9_412c_b926_fd5265f2a885);
 }
 impl ::core::convert::From<IMFCaptureSink> for ::windows::runtime::IUnknown {
     fn from(value: IMFCaptureSink) -> Self {
@@ -22458,7 +22458,7 @@ impl IMFCaptureSink2 {
 }
 unsafe impl ::windows::runtime::Interface for IMFCaptureSink2 {
     type Vtable = IMFCaptureSink2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4192477598, 24983, 19294, [184, 136, 190, 227, 16, 171, 44, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9e4219e_6197_4b5e_b888_bee310ab2c59);
 }
 impl ::core::convert::From<IMFCaptureSink2> for ::windows::runtime::IUnknown {
     fn from(value: IMFCaptureSink2) -> Self {
@@ -22588,7 +22588,7 @@ impl IMFCaptureSource {
 }
 unsafe impl ::windows::runtime::Interface for IMFCaptureSource {
     type Vtable = IMFCaptureSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1134183080, 3372, 17669, [190, 131, 247, 155, 42, 5, 213, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x439a42a8_0d2c_4505_be83_f79b2a05d5c4);
 }
 impl ::core::convert::From<IMFCaptureSource> for ::windows::runtime::IUnknown {
     fn from(value: IMFCaptureSource) -> Self {
@@ -22649,7 +22649,7 @@ impl IMFCdmSuspendNotify {
 }
 unsafe impl ::windows::runtime::Interface for IMFCdmSuspendNotify {
     type Vtable = IMFCdmSuspendNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2052474322, 17341, 18429, [135, 183, 220, 210, 76, 199, 214, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a5645d2_43bd_47fd_87b7_dcd24cc7d692);
 }
 impl ::core::convert::From<IMFCdmSuspendNotify> for ::windows::runtime::IUnknown {
     fn from(value: IMFCdmSuspendNotify) -> Self {
@@ -22712,7 +22712,7 @@ impl IMFClock {
 }
 unsafe impl ::windows::runtime::Interface for IMFClock {
     type Vtable = IMFClock_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(783411525, 6328, 16697, [155, 26, 213, 213, 132, 129, 133, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2eb1e945_18b8_4139_9b1a_d5d584818530);
 }
 impl ::core::convert::From<IMFClock> for ::windows::runtime::IUnknown {
     fn from(value: IMFClock) -> Self {
@@ -22763,7 +22763,7 @@ impl IMFClockConsumer {
 }
 unsafe impl ::windows::runtime::Interface for IMFClockConsumer {
     type Vtable = IMFClockConsumer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1861396066, 18368, 18022, [177, 61, 203, 183, 23, 242, 250, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ef2a662_47c0_4666_b13d_cbb717f2fa2c);
 }
 impl ::core::convert::From<IMFClockConsumer> for ::windows::runtime::IUnknown {
     fn from(value: IMFClockConsumer) -> Self {
@@ -22822,7 +22822,7 @@ impl IMFClockStateSink {
 }
 unsafe impl ::windows::runtime::Interface for IMFClockStateSink {
     type Vtable = IMFClockStateSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4134104706, 29943, 20285, [161, 120, 138, 94, 9, 195, 101, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6696e82_74f7_4f3d_a178_8a5e09c3659f);
 }
 impl ::core::convert::From<IMFClockStateSink> for ::windows::runtime::IUnknown {
     fn from(value: IMFClockStateSink) -> Self {
@@ -22891,7 +22891,7 @@ impl IMFCollection {
 }
 unsafe impl ::windows::runtime::Interface for IMFCollection {
     type Vtable = IMFCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1539876715, 34458, 18083, [155, 3, 250, 33, 138, 102, 174, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5bc8a76b_869a_46a3_9b03_fa218a66aebe);
 }
 impl ::core::convert::From<IMFCollection> for ::windows::runtime::IUnknown {
     fn from(value: IMFCollection) -> Self {
@@ -22965,7 +22965,7 @@ impl IMFContentDecryptionModule {
 }
 unsafe impl ::windows::runtime::Interface for IMFContentDecryptionModule {
     type Vtable = IMFContentDecryptionModule_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2277415020, 4286, 18755, [191, 72, 75, 84, 206, 25, 131, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87be986c_10be_4943_bf48_4b54ce1983a2);
 }
 impl ::core::convert::From<IMFContentDecryptionModule> for ::windows::runtime::IUnknown {
     fn from(value: IMFContentDecryptionModule) -> Self {
@@ -23027,7 +23027,7 @@ impl IMFContentDecryptionModuleAccess {
 }
 unsafe impl ::windows::runtime::Interface for IMFContentDecryptionModuleAccess {
     type Vtable = IMFContentDecryptionModuleAccess_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2824065524, 58016, 17155, [158, 220, 241, 166, 142, 228, 49, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa853d1f4_e2a0_4303_9edc_f1a68ee43136);
 }
 impl ::core::convert::From<IMFContentDecryptionModuleAccess> for ::windows::runtime::IUnknown {
     fn from(value: IMFContentDecryptionModuleAccess) -> Self {
@@ -23081,7 +23081,7 @@ impl IMFContentDecryptionModuleFactory {
 }
 unsafe impl ::windows::runtime::Interface for IMFContentDecryptionModuleFactory {
     type Vtable = IMFContentDecryptionModuleFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2103099158, 19643, 19976, [185, 119, 155, 165, 144, 73, 148, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d5abf16_4cbb_4e08_b977_9ba59049943e);
 }
 impl ::core::convert::From<IMFContentDecryptionModuleFactory> for ::windows::runtime::IUnknown {
     fn from(value: IMFContentDecryptionModuleFactory) -> Self {
@@ -23160,7 +23160,7 @@ impl IMFContentDecryptionModuleSession {
 }
 unsafe impl ::windows::runtime::Interface for IMFContentDecryptionModuleSession {
     type Vtable = IMFContentDecryptionModuleSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1310932733, 7634, 18920, [181, 119, 214, 62, 238, 76, 13, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e233efd_1dd2_49e8_b577_d63eee4c0d33);
 }
 impl ::core::convert::From<IMFContentDecryptionModuleSession> for ::windows::runtime::IUnknown {
     fn from(value: IMFContentDecryptionModuleSession) -> Self {
@@ -23217,7 +23217,7 @@ impl IMFContentDecryptionModuleSessionCallbacks {
 }
 unsafe impl ::windows::runtime::Interface for IMFContentDecryptionModuleSessionCallbacks {
     type Vtable = IMFContentDecryptionModuleSessionCallbacks_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1066856000, 44417, 16534, [132, 112, 89, 164, 183, 112, 248, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f96ee40_ad81_4096_8470_59a4b770f89a);
 }
 impl ::core::convert::From<IMFContentDecryptionModuleSessionCallbacks> for ::windows::runtime::IUnknown {
     fn from(value: IMFContentDecryptionModuleSessionCallbacks) -> Self {
@@ -23262,7 +23262,7 @@ impl IMFContentDecryptorContext {
 }
 unsafe impl ::windows::runtime::Interface for IMFContentDecryptorContext {
     type Vtable = IMFContentDecryptorContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2126819773, 17403, 18275, [133, 210, 100, 252, 181, 197, 244, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ec4b1bd_43fb_4763_85d2_64fcb5c5f4cb);
 }
 impl ::core::convert::From<IMFContentDecryptorContext> for ::windows::runtime::IUnknown {
     fn from(value: IMFContentDecryptorContext) -> Self {
@@ -23332,7 +23332,7 @@ impl IMFContentEnabler {
 }
 unsafe impl ::windows::runtime::Interface for IMFContentEnabler {
     type Vtable = IMFContentEnabler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3552898905, 18894, 17281, [144, 113, 213, 188, 208, 68, 199, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3c4ef59_49ce_4381_9071_d5bcd044c770);
 }
 impl ::core::convert::From<IMFContentEnabler> for ::windows::runtime::IUnknown {
     fn from(value: IMFContentEnabler) -> Self {
@@ -23386,7 +23386,7 @@ impl IMFContentProtectionDevice {
 }
 unsafe impl ::windows::runtime::Interface for IMFContentProtectionDevice {
     type Vtable = IMFContentProtectionDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3861213556, 41056, 19610, [160, 136, 59, 27, 71, 28, 173, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6257174_a060_4c9a_a088_3b1b471cad28);
 }
 impl ::core::convert::From<IMFContentProtectionDevice> for ::windows::runtime::IUnknown {
     fn from(value: IMFContentProtectionDevice) -> Self {
@@ -23433,7 +23433,7 @@ impl IMFContentProtectionManager {
 }
 unsafe impl ::windows::runtime::Interface for IMFContentProtectionManager {
     type Vtable = IMFContentProtectionManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2902008921, 27233, 17085, [181, 124, 180, 62, 81, 32, 60, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xacf92459_6a61_42bd_b57c_b43e51203cb0);
 }
 impl ::core::convert::From<IMFContentProtectionManager> for ::windows::runtime::IUnknown {
     fn from(value: IMFContentProtectionManager) -> Self {
@@ -23481,7 +23481,7 @@ impl IMFD3D12SynchronizationObject {
 }
 unsafe impl ::windows::runtime::Interface for IMFD3D12SynchronizationObject {
     type Vtable = IMFD3D12SynchronizationObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2149778096, 33502, 17889, [180, 33, 241, 158, 229, 189, 175, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x802302b0_82de_45e1_b421_f19ee5bdaf23);
 }
 impl ::core::convert::From<IMFD3D12SynchronizationObject> for ::windows::runtime::IUnknown {
     fn from(value: IMFD3D12SynchronizationObject) -> Self {
@@ -23541,7 +23541,7 @@ impl IMFD3D12SynchronizationObjectCommands {
 }
 unsafe impl ::windows::runtime::Interface for IMFD3D12SynchronizationObjectCommands {
     type Vtable = IMFD3D12SynchronizationObjectCommands_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(164689973, 37631, 20051, [142, 250, 64, 250, 165, 81, 242, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09d0f835_92ff_4e53_8efa_40faa551f233);
 }
 impl ::core::convert::From<IMFD3D12SynchronizationObjectCommands> for ::windows::runtime::IUnknown {
     fn from(value: IMFD3D12SynchronizationObjectCommands) -> Self {
@@ -23591,7 +23591,7 @@ impl IMFDLNASinkInit {
 }
 unsafe impl ::windows::runtime::Interface for IMFDLNASinkInit {
     type Vtable = IMFDLNASinkInit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(201402265, 7009, 19472, [189, 169, 4, 68, 91, 229, 245, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c012799_1b61_4c10_bda9_04445be5f561);
 }
 impl ::core::convert::From<IMFDLNASinkInit> for ::windows::runtime::IUnknown {
     fn from(value: IMFDLNASinkInit) -> Self {
@@ -23639,7 +23639,7 @@ impl IMFDRMNetHelper {
 }
 unsafe impl ::windows::runtime::Interface for IMFDRMNetHelper {
     type Vtable = IMFDRMNetHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1025503466, 26522, 16784, [141, 70, 127, 166, 158, 140, 126, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d1ff0ea_679a_4190_8d46_7fa69e8c7e15);
 }
 impl ::core::convert::From<IMFDRMNetHelper> for ::windows::runtime::IUnknown {
     fn from(value: IMFDRMNetHelper) -> Self {
@@ -23696,7 +23696,7 @@ impl IMFDXGIBuffer {
 }
 unsafe impl ::windows::runtime::Interface for IMFDXGIBuffer {
     type Vtable = IMFDXGIBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3877063930, 7326, 18609, [136, 102, 98, 98, 38, 191, 194, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7174cfa_1c9e_48b1_8866_626226bfc258);
 }
 impl ::core::convert::From<IMFDXGIBuffer> for ::windows::runtime::IUnknown {
     fn from(value: IMFDXGIBuffer) -> Self {
@@ -23772,7 +23772,7 @@ impl IMFDXGIDeviceManager {
 }
 unsafe impl ::windows::runtime::Interface for IMFDXGIDeviceManager {
     type Vtable = IMFDXGIDeviceManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3948100957, 11702, 16632, [151, 169, 73, 70, 146, 1, 79, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb533d5d_2db6_40f8_97a9_494692014f07);
 }
 impl ::core::convert::From<IMFDXGIDeviceManager> for ::windows::runtime::IUnknown {
     fn from(value: IMFDXGIDeviceManager) -> Self {
@@ -23827,7 +23827,7 @@ impl IMFDXGIDeviceManagerSource {
 }
 unsafe impl ::windows::runtime::Interface for IMFDXGIDeviceManagerSource {
     type Vtable = IMFDXGIDeviceManagerSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(549193547, 31373, 17929, [140, 59, 100, 160, 163, 181, 215, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20bc074b_7a8d_4609_8c3b_64a0a3b5d7ce);
 }
 impl ::core::convert::From<IMFDXGIDeviceManagerSource> for ::windows::runtime::IUnknown {
     fn from(value: IMFDXGIDeviceManagerSource) -> Self {
@@ -23877,7 +23877,7 @@ impl IMFDesiredSample {
 }
 unsafe impl ::windows::runtime::Interface for IMFDesiredSample {
     type Vtable = IMFDesiredSample_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1455592656, 30014, 16992, [141, 97, 163, 216, 130, 11, 29, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56c294d0_753e_4260_8d61_a3d8820b1d54);
 }
 impl ::core::convert::From<IMFDesiredSample> for ::windows::runtime::IUnknown {
     fn from(value: IMFDesiredSample) -> Self {
@@ -23941,7 +23941,7 @@ impl IMFExtendedCameraControl {
 }
 unsafe impl ::windows::runtime::Interface for IMFExtendedCameraControl {
     type Vtable = IMFExtendedCameraControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(954414368, 64673, 18501, [162, 122, 104, 183, 198, 171, 55, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38e33520_fca1_4845_a27a_68b7c6ab3789);
 }
 impl ::core::convert::From<IMFExtendedCameraControl> for ::windows::runtime::IUnknown {
     fn from(value: IMFExtendedCameraControl) -> Self {
@@ -23989,7 +23989,7 @@ impl IMFExtendedCameraController {
 }
 unsafe impl ::windows::runtime::Interface for IMFExtendedCameraController {
     type Vtable = IMFExtendedCameraController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3105800174, 51715, 19188, [138, 130, 163, 23, 82, 244, 160, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb91ebfee_ca03_4af4_8a82_a31752f4a0fc);
 }
 impl ::core::convert::From<IMFExtendedCameraController> for ::windows::runtime::IUnknown {
     fn from(value: IMFExtendedCameraController) -> Self {
@@ -24041,7 +24041,7 @@ impl IMFExtendedCameraIntrinsicModel {
 }
 unsafe impl ::windows::runtime::Interface for IMFExtendedCameraIntrinsicModel {
     type Vtable = IMFExtendedCameraIntrinsicModel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1549360740, 17968, 16945, [133, 90, 18, 132, 47, 115, 50, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c595e64_4630_4231_855a_12842f733245);
 }
 impl ::core::convert::From<IMFExtendedCameraIntrinsicModel> for ::windows::runtime::IUnknown {
     fn from(value: IMFExtendedCameraIntrinsicModel) -> Self {
@@ -24108,7 +24108,7 @@ impl IMFExtendedCameraIntrinsics {
 }
 unsafe impl ::windows::runtime::Interface for IMFExtendedCameraIntrinsics {
     type Vtable = IMFExtendedCameraIntrinsics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1753181612, 27015, 18256, [161, 106, 115, 77, 30, 122, 16, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x687f6dac_6987_4750_a16a_734d1e7a10fe);
 }
 impl ::core::convert::From<IMFExtendedCameraIntrinsics> for ::windows::runtime::IUnknown {
     fn from(value: IMFExtendedCameraIntrinsics) -> Self {
@@ -24160,7 +24160,7 @@ impl IMFExtendedCameraIntrinsicsDistortionModel6KT {
 }
 unsafe impl ::windows::runtime::Interface for IMFExtendedCameraIntrinsicsDistortionModel6KT {
     type Vtable = IMFExtendedCameraIntrinsicsDistortionModel6KT_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1958896955, 24405, 20145, [159, 15, 24, 184, 246, 139, 125, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74c2653b_5f55_4eb1_9f0f_18b8f68b7d3d);
 }
 impl ::core::convert::From<IMFExtendedCameraIntrinsicsDistortionModel6KT> for ::windows::runtime::IUnknown {
     fn from(value: IMFExtendedCameraIntrinsicsDistortionModel6KT) -> Self {
@@ -24208,7 +24208,7 @@ impl IMFExtendedCameraIntrinsicsDistortionModelArcTan {
 }
 unsafe impl ::windows::runtime::Interface for IMFExtendedCameraIntrinsicsDistortionModelArcTan {
     type Vtable = IMFExtendedCameraIntrinsicsDistortionModelArcTan_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2167234453, 46450, 17884, [186, 252, 174, 36, 25, 157, 221, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x812d5f95_b572_45dc_bafc_ae24199ddda8);
 }
 impl ::core::convert::From<IMFExtendedCameraIntrinsicsDistortionModelArcTan> for ::windows::runtime::IUnknown {
     fn from(value: IMFExtendedCameraIntrinsicsDistortionModelArcTan) -> Self {
@@ -24253,7 +24253,7 @@ impl IMFExtendedDRMTypeSupport {
 }
 unsafe impl ::windows::runtime::Interface for IMFExtendedDRMTypeSupport {
     type Vtable = IMFExtendedDRMTypeSupport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(858703202, 14168, 18061, [167, 132, 227, 143, 35, 85, 33, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x332ec562_3758_468d_a784_e38f23552128);
 }
 impl ::core::convert::From<IMFExtendedDRMTypeSupport> for ::windows::runtime::IUnknown {
     fn from(value: IMFExtendedDRMTypeSupport) -> Self {
@@ -24296,7 +24296,7 @@ impl IMFFieldOfUseMFTUnlock {
 }
 unsafe impl ::windows::runtime::Interface for IMFFieldOfUseMFTUnlock {
     type Vtable = IMFFieldOfUseMFTUnlock_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1351512531, 60518, 20419, [135, 117, 180, 185, 237, 107, 168, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x508e71d3_ec66_4fc3_8775_b4b9ed6ba847);
 }
 impl ::core::convert::From<IMFFieldOfUseMFTUnlock> for ::windows::runtime::IUnknown {
     fn from(value: IMFFieldOfUseMFTUnlock) -> Self {
@@ -24384,7 +24384,7 @@ impl IMFFinalizableMediaSink {
 }
 unsafe impl ::windows::runtime::Interface for IMFFinalizableMediaSink {
     type Vtable = IMFFinalizableMediaSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3941381962, 39504, 17102, [149, 65, 106, 127, 87, 170, 74, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeaecb74a_9a50_42ce_9541_6a7f57aa4ad7);
 }
 impl ::core::convert::From<IMFFinalizableMediaSink> for ::windows::runtime::IUnknown {
     fn from(value: IMFFinalizableMediaSink) -> Self {
@@ -24457,7 +24457,7 @@ impl IMFGetService {
 }
 unsafe impl ::windows::runtime::Interface for IMFGetService {
     type Vtable = IMFGetService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4204345480, 17283, 16730, [169, 48, 221, 71, 42, 140, 246, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa993888_4383_415a_a930_dd472a8cf6f7);
 }
 impl ::core::convert::From<IMFGetService> for ::windows::runtime::IUnknown {
     fn from(value: IMFGetService) -> Self {
@@ -24504,7 +24504,7 @@ impl IMFHDCPStatus {
 }
 unsafe impl ::windows::runtime::Interface for IMFHDCPStatus {
     type Vtable = IMFHDCPStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3728740180, 23537, 16591, [137, 100, 11, 234, 19, 107, 30, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde400f54_5bf1_40cf_8964_0bea136b1e3d);
 }
 impl ::core::convert::From<IMFHDCPStatus> for ::windows::runtime::IUnknown {
     fn from(value: IMFHDCPStatus) -> Self {
@@ -24620,7 +24620,7 @@ impl IMFHttpDownloadRequest {
 }
 unsafe impl ::windows::runtime::Interface for IMFHttpDownloadRequest {
     type Vtable = IMFHttpDownloadRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4151967199, 9959, 17008, [138, 139, 185, 131, 209, 133, 157, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf779fddf_26e7_4270_8a8b_b983d1859de0);
 }
 impl ::core::convert::From<IMFHttpDownloadRequest> for ::windows::runtime::IUnknown {
     fn from(value: IMFHttpDownloadRequest) -> Self {
@@ -24700,7 +24700,7 @@ impl IMFHttpDownloadSession {
 }
 unsafe impl ::windows::runtime::Interface for IMFHttpDownloadSession {
     type Vtable = IMFHttpDownloadSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1912248876, 21454, 18018, [161, 50, 26, 126, 140, 191, 98, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71fa9a2c_53ce_4662_a132_1a7e8cbf62db);
 }
 impl ::core::convert::From<IMFHttpDownloadSession> for ::windows::runtime::IUnknown {
     fn from(value: IMFHttpDownloadSession) -> Self {
@@ -24748,7 +24748,7 @@ impl IMFHttpDownloadSessionProvider {
 }
 unsafe impl ::windows::runtime::Interface for IMFHttpDownloadSessionProvider {
     type Vtable = IMFHttpDownloadSessionProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(458028217, 14870, 16661, [131, 157, 3, 204, 92, 153, 223, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b4cf4b9_3a16_4115_839d_03cc5c99df01);
 }
 impl ::core::convert::From<IMFHttpDownloadSessionProvider> for ::windows::runtime::IUnknown {
     fn from(value: IMFHttpDownloadSessionProvider) -> Self {
@@ -24801,7 +24801,7 @@ impl IMFImageSharingEngine {
 }
 unsafe impl ::windows::runtime::Interface for IMFImageSharingEngine {
     type Vtable = IMFImageSharingEngine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3483414158, 32284, 17618, [174, 104, 252, 76, 20, 138, 99, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfa0ae8e_7e1c_44d2_ae68_fc4c148a6354);
 }
 impl ::core::convert::From<IMFImageSharingEngine> for ::windows::runtime::IUnknown {
     fn from(value: IMFImageSharingEngine) -> Self {
@@ -24848,7 +24848,7 @@ impl IMFImageSharingEngineClassFactory {
 }
 unsafe impl ::windows::runtime::Interface for IMFImageSharingEngineClassFactory {
     type Vtable = IMFImageSharingEngineClassFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(533026599, 43003, 20424, [131, 174, 138, 240, 36, 153, 10, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1fc55727_a7fb_4fc8_83ae_8af024990af1);
 }
 impl ::core::convert::From<IMFImageSharingEngineClassFactory> for ::windows::runtime::IUnknown {
     fn from(value: IMFImageSharingEngineClassFactory) -> Self {
@@ -24913,7 +24913,7 @@ impl IMFInputTrustAuthority {
 }
 unsafe impl ::windows::runtime::Interface for IMFInputTrustAuthority {
     type Vtable = IMFInputTrustAuthority_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3516894872, 45350, 17478, [137, 12, 93, 203, 122, 215, 20, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd19f8e98_b126_4446_890c_5dcb7ad71453);
 }
 impl ::core::convert::From<IMFInputTrustAuthority> for ::windows::runtime::IUnknown {
     fn from(value: IMFInputTrustAuthority) -> Self {
@@ -24961,7 +24961,7 @@ impl IMFLocalMFTRegistration {
 }
 unsafe impl ::windows::runtime::Interface for IMFLocalMFTRegistration {
     type Vtable = IMFLocalMFTRegistration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(345787763, 46270, 20365, [139, 135, 7, 158, 146, 107, 106, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x149c4d73_b4be_4f8d_8b87_079e926b6add);
 }
 impl ::core::convert::From<IMFLocalMFTRegistration> for ::windows::runtime::IUnknown {
     fn from(value: IMFLocalMFTRegistration) -> Self {
@@ -25022,7 +25022,7 @@ impl IMFMediaBuffer {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaBuffer {
     type Vtable = IMFMediaBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(73377171, 34713, 17080, [188, 141, 137, 104, 198, 69, 53, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x045fa593_8799_42b8_bc8d_8968c6453507);
 }
 impl ::core::convert::From<IMFMediaBuffer> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaBuffer) -> Self {
@@ -25254,7 +25254,7 @@ impl IMFMediaEngine {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngine {
     type Vtable = IMFMediaEngine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2560733371, 1003, 18741, [174, 124, 147, 193, 250, 14, 28, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98a1b0bb_03eb_4935_ae7c_93c1fa0e1c93);
 }
 impl ::core::convert::From<IMFMediaEngine> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngine) -> Self {
@@ -25359,7 +25359,7 @@ impl IMFMediaEngineAudioEndpointId {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngineAudioEndpointId {
     type Vtable = IMFMediaEngineAudioEndpointId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2050731160, 3702, 18939, [140, 32, 138, 134, 253, 152, 234, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a3bac98_0e76_49fb_8c20_8a86fd98eaf2);
 }
 impl ::core::convert::From<IMFMediaEngineAudioEndpointId> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngineAudioEndpointId) -> Self {
@@ -25415,7 +25415,7 @@ impl IMFMediaEngineClassFactory {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngineClassFactory {
     type Vtable = IMFMediaEngineClassFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1298422478, 9898, 18056, [155, 225, 223, 53, 22, 153, 11, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d645ace_26aa_4688_9be1_df3516990b93);
 }
 impl ::core::convert::From<IMFMediaEngineClassFactory> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngineClassFactory) -> Self {
@@ -25461,7 +25461,7 @@ impl IMFMediaEngineClassFactory2 {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngineClassFactory2 {
     type Vtable = IMFMediaEngineClassFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(151534831, 34431, 19446, [135, 118, 222, 227, 167, 180, 47, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09083cef_867f_4bf6_8776_dee3a7b42fca);
 }
 impl ::core::convert::From<IMFMediaEngineClassFactory2> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngineClassFactory2) -> Self {
@@ -25506,7 +25506,7 @@ impl IMFMediaEngineClassFactory3 {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngineClassFactory3 {
     type Vtable = IMFMediaEngineClassFactory3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(931619151, 26103, 16387, [182, 115, 234, 216, 41, 58, 14, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3787614f_65f7_4003_b673_ead8293a0e60);
 }
 impl ::core::convert::From<IMFMediaEngineClassFactory3> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngineClassFactory3) -> Self {
@@ -25550,7 +25550,7 @@ impl IMFMediaEngineClassFactory4 {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngineClassFactory4 {
     type Vtable = IMFMediaEngineClassFactory4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4225914561, 17359, 19099, [140, 184, 206, 134, 50, 163, 65, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbe256c1_43cf_4a9b_8cb8_ce8632a34186);
 }
 impl ::core::convert::From<IMFMediaEngineClassFactory4> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngineClassFactory4) -> Self {
@@ -25621,7 +25621,7 @@ impl IMFMediaEngineClassFactoryEx {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngineClassFactoryEx {
     type Vtable = IMFMediaEngineClassFactoryEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3311490758, 59995, 18597, [157, 248, 251, 224, 53, 208, 146, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc56156c6_ea5b_48a5_9df8_fbe035d0929e);
 }
 impl ::core::convert::From<IMFMediaEngineClassFactoryEx> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngineClassFactoryEx) -> Self {
@@ -25695,7 +25695,7 @@ impl IMFMediaEngineEME {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngineEME {
     type Vtable = IMFMediaEngineEME_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1356633060, 47695, 17013, [174, 102, 131, 232, 54, 229, 116, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50dc93e4_ba4f_4275_ae66_83e836e57469);
 }
 impl ::core::convert::From<IMFMediaEngineEME> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngineEME) -> Self {
@@ -25743,7 +25743,7 @@ impl IMFMediaEngineEMENotify {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngineEMENotify {
     type Vtable = IMFMediaEngineEMENotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2652392725, 52663, 20358, [180, 158, 86, 102, 137, 244, 166, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e184d15_cdb7_4f86_b49e_566689f4a601);
 }
 impl ::core::convert::From<IMFMediaEngineEMENotify> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngineEMENotify) -> Self {
@@ -26154,7 +26154,7 @@ impl IMFMediaEngineEx {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngineEx {
     type Vtable = IMFMediaEngineEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2197905069, 45542, 16592, [169, 138, 55, 20, 95, 254, 26, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83015ead_b1e6_40d0_a98a_37145ffe1ad1);
 }
 impl ::core::convert::From<IMFMediaEngineEx> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngineEx) -> Self {
@@ -26352,7 +26352,7 @@ impl IMFMediaEngineExtension {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngineExtension {
     type Vtable = IMFMediaEngineExtension_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(795465250, 8373, 16873, [175, 223, 137, 206, 209, 221, 160, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f69d622_20b5_41e9_afdf_89ced1dda04e);
 }
 impl ::core::convert::From<IMFMediaEngineExtension> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngineExtension) -> Self {
@@ -26399,7 +26399,7 @@ impl IMFMediaEngineNeedKeyNotify {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngineNeedKeyNotify {
     type Vtable = IMFMediaEngineNeedKeyNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1185088004, 42646, 19224, [136, 4, 36, 107, 143, 3, 27, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46a30204_a696_4b18_8804_246b8f031bb1);
 }
 impl ::core::convert::From<IMFMediaEngineNeedKeyNotify> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngineNeedKeyNotify) -> Self {
@@ -26441,7 +26441,7 @@ impl IMFMediaEngineNotify {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngineNotify {
     type Vtable = IMFMediaEngineNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4276601106, 59254, 17077, [155, 191, 0, 72, 82, 78, 43, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfee7c112_e776_42b5_9bbf_0048524e2bd5);
 }
 impl ::core::convert::From<IMFMediaEngineNotify> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngineNotify) -> Self {
@@ -26484,7 +26484,7 @@ impl IMFMediaEngineOPMInfo {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngineOPMInfo {
     type Vtable = IMFMediaEngineOPMInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1985438694, 27649, 19201, [187, 15, 184, 41, 246, 14, 210, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x765763e6_6c01_4b01_bb0f_b829f60ed28c);
 }
 impl ::core::convert::From<IMFMediaEngineOPMInfo> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngineOPMInfo) -> Self {
@@ -26551,7 +26551,7 @@ impl IMFMediaEngineProtectedContent {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngineProtectedContent {
     type Vtable = IMFMediaEngineProtectedContent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2675974632, 40076, 18558, [187, 92, 121, 170, 71, 121, 147, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f8021e8_9c8c_487e_bb5c_79aa4779938c);
 }
 impl ::core::convert::From<IMFMediaEngineProtectedContent> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngineProtectedContent) -> Self {
@@ -26627,7 +26627,7 @@ impl IMFMediaEngineSrcElements {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngineSrcElements {
     type Vtable = IMFMediaEngineSrcElements_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2053002068, 45332, 19570, [185, 145, 49, 49, 215, 80, 50, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a5e5354_b114_4c72_b991_3131d75032ea);
 }
 impl ::core::convert::From<IMFMediaEngineSrcElements> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngineSrcElements) -> Self {
@@ -26716,7 +26716,7 @@ impl IMFMediaEngineSrcElementsEx {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngineSrcElementsEx {
     type Vtable = IMFMediaEngineSrcElementsEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1699376051, 57763, 16970, [153, 8, 83, 164, 58, 13, 253, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x654a6bb3_e1a3_424a_9908_53a43a0dfda0);
 }
 impl ::core::convert::From<IMFMediaEngineSrcElementsEx> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngineSrcElementsEx) -> Self {
@@ -26801,7 +26801,7 @@ impl IMFMediaEngineSupportsSourceTransfer {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngineSupportsSourceTransfer {
     type Vtable = IMFMediaEngineSupportsSourceTransfer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2804199510, 6958, 17986, [166, 243, 219, 148, 32, 197, 41, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa724b056_1b2e_4642_a6f3_db9420c52908);
 }
 impl ::core::convert::From<IMFMediaEngineSupportsSourceTransfer> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngineSupportsSourceTransfer) -> Self {
@@ -26846,7 +26846,7 @@ impl IMFMediaEngineTransferSource {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngineTransferSource {
     type Vtable = IMFMediaEngineTransferSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(606274642, 65108, 16588, [148, 243, 252, 195, 148, 195, 64, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24230452_fe54_40cc_94f3_fcc394c340d6);
 }
 impl ::core::convert::From<IMFMediaEngineTransferSource> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngineTransferSource) -> Self {
@@ -26898,7 +26898,7 @@ impl IMFMediaEngineWebSupport {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEngineWebSupport {
     type Vtable = IMFMediaEngineWebSupport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3123135393, 2016, 18671, [132, 182, 154, 46, 208, 35, 202, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba2743a1_07e0_48ef_84b6_9a2ed023ca6c);
 }
 impl ::core::convert::From<IMFMediaEngineWebSupport> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEngineWebSupport) -> Self {
@@ -26955,7 +26955,7 @@ impl IMFMediaError {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaError {
     type Vtable = IMFMediaError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4228780242, 43818, 17665, [169, 81, 6, 187, 16, 117, 24, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc0e10d2_ab2a_4501_a951_06bb1075184c);
 }
 impl ::core::convert::From<IMFMediaError> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaError) -> Self {
@@ -27156,7 +27156,7 @@ impl IMFMediaEvent {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEvent {
     type Vtable = IMFMediaEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3747186994, 61708, 20025, [187, 162, 195, 8, 241, 1, 218, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf598932_f10c_4e39_bba2_c308f101daa3);
 }
 impl ::core::convert::From<IMFMediaEvent> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEvent) -> Self {
@@ -27275,7 +27275,7 @@ impl IMFMediaEventGenerator {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEventGenerator {
     type Vtable = IMFMediaEventGenerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(751877458, 48341, 19337, [182, 44, 234, 220, 12, 3, 30, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd0bd52_bcd5_4b89_b62c_eadc0c031e7d);
 }
 impl ::core::convert::From<IMFMediaEventGenerator> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEventGenerator) -> Self {
@@ -27348,7 +27348,7 @@ impl IMFMediaEventQueue {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaEventQueue {
     type Vtable = IMFMediaEventQueue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(922240764, 8790, 18614, [181, 142, 226, 182, 56, 49, 101, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36f846fc_2256_48b6_b58e_e2b638316581);
 }
 impl ::core::convert::From<IMFMediaEventQueue> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaEventQueue) -> Self {
@@ -27417,7 +27417,7 @@ impl IMFMediaKeySession {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaKeySession {
     type Vtable = IMFMediaKeySession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(620390357, 53712, 19909, [153, 92, 192, 239, 220, 25, 31, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24fa67d5_d1d0_4dc5_995c_c0efdc191fb5);
 }
 impl ::core::convert::From<IMFMediaKeySession> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaKeySession) -> Self {
@@ -27513,7 +27513,7 @@ impl IMFMediaKeySession2 {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaKeySession2 {
     type Vtable = IMFMediaKeySession2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3916463621, 27989, 17974, [177, 133, 61, 226, 18, 16, 189, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9707e05_6d55_4636_b185_3de21210bd75);
 }
 impl ::core::convert::From<IMFMediaKeySession2> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaKeySession2) -> Self {
@@ -27598,7 +27598,7 @@ impl IMFMediaKeySessionNotify {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaKeySessionNotify {
     type Vtable = IMFMediaKeySessionNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1778418681, 35143, 19485, [156, 224, 205, 238, 34, 178, 49, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a0083f9_8947_4c1d_9ce0_cdee22b23135);
 }
 impl ::core::convert::From<IMFMediaKeySessionNotify> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaKeySessionNotify) -> Self {
@@ -27661,7 +27661,7 @@ impl IMFMediaKeySessionNotify2 {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaKeySessionNotify2 {
     type Vtable = IMFMediaKeySessionNotify2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3282692394, 55944, 18096, [161, 16, 108, 249, 83, 2, 108, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3a9e92a_da88_46b0_a110_6cf953026cb9);
 }
 impl ::core::convert::From<IMFMediaKeySessionNotify2> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaKeySessionNotify2) -> Self {
@@ -27743,7 +27743,7 @@ impl IMFMediaKeySystemAccess {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaKeySystemAccess {
     type Vtable = IMFMediaKeySystemAccess_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2932228058, 31383, 18756, [179, 92, 108, 109, 248, 8, 92, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaec63fda_7a97_4944_b35c_6c6df8085cc3);
 }
 impl ::core::convert::From<IMFMediaKeySystemAccess> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaKeySystemAccess) -> Self {
@@ -27807,7 +27807,7 @@ impl IMFMediaKeys {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaKeys {
     type Vtable = IMFMediaKeys_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1555241989, 25087, 16783, [175, 218, 202, 175, 65, 66, 26, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5cb31c05_61ff_418f_afda_caaf41421a38);
 }
 impl ::core::convert::From<IMFMediaKeys> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaKeys) -> Self {
@@ -27885,7 +27885,7 @@ impl IMFMediaKeys2 {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaKeys2 {
     type Vtable = IMFMediaKeys2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1166615815, 44390, 19938, [131, 162, 172, 187, 19, 205, 141, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45892507_ad66_4de2_83a2_acbb13cd8d43);
 }
 impl ::core::convert::From<IMFMediaKeys2> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaKeys2) -> Self {
@@ -28014,7 +28014,7 @@ impl IMFMediaSession {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaSession {
     type Vtable = IMFMediaSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2419554356, 8656, 19950, [130, 20, 186, 46, 62, 108, 17, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90377834_21d0_4dee_8214_ba2e3e6c1127);
 }
 impl ::core::convert::From<IMFMediaSession> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaSession) -> Self {
@@ -28283,7 +28283,7 @@ impl IMFMediaSharingEngine {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaSharingEngine {
     type Vtable = IMFMediaSharingEngine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2369577407, 9063, 16608, [158, 238, 64, 211, 119, 204, 27, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d3ce1bf_2367_40e0_9eee_40d377cc1b46);
 }
 impl ::core::convert::From<IMFMediaSharingEngine> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaSharingEngine) -> Self {
@@ -28404,7 +28404,7 @@ impl IMFMediaSharingEngineClassFactory {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaSharingEngineClassFactory {
     type Vtable = IMFMediaSharingEngineClassFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1380789188, 45745, 20453, [143, 172, 250, 78, 69, 18, 180, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x524d2bc4_b2b1_4fe5_8fac_fa4e4512b4e0);
 }
 impl ::core::convert::From<IMFMediaSharingEngineClassFactory> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaSharingEngineClassFactory) -> Self {
@@ -28484,7 +28484,7 @@ impl IMFMediaSink {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaSink {
     type Vtable = IMFMediaSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1861396064, 18368, 18022, [177, 61, 203, 183, 23, 242, 250, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ef2a660_47c0_4666_b13d_cbb717f2fa2c);
 }
 impl ::core::convert::From<IMFMediaSink> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaSink) -> Self {
@@ -28534,7 +28534,7 @@ impl IMFMediaSinkPreroll {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaSinkPreroll {
     type Vtable = IMFMediaSinkPreroll_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1576880938, 30324, 16656, [164, 230, 138, 104, 253, 95, 54, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5dfd4b2a_7674_4110_a4e6_8a68fd5f3688);
 }
 impl ::core::convert::From<IMFMediaSinkPreroll> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaSinkPreroll) -> Self {
@@ -28618,7 +28618,7 @@ impl IMFMediaSource {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaSource {
     type Vtable = IMFMediaSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(664436877, 44743, 16584, [156, 107, 166, 180, 146, 199, 138, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x279a808d_aec7_40c8_9c6b_a6b492c78a66);
 }
 impl ::core::convert::From<IMFMediaSource> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaSource) -> Self {
@@ -28751,7 +28751,7 @@ impl IMFMediaSource2 {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaSource2 {
     type Vtable = IMFMediaSource2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4222628884, 53563, 18310, [131, 25, 90, 197, 31, 192, 161, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbb03414_d13b_4786_8319_5ac51fc0a136);
 }
 impl ::core::convert::From<IMFMediaSource2> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaSource2) -> Self {
@@ -28924,7 +28924,7 @@ impl IMFMediaSourceEx {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaSourceEx {
     type Vtable = IMFMediaSourceEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1016803001, 34517, 17684, [163, 148, 245, 102, 100, 249, 240, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c9b2eb9_86d5_4514_a394_f56664f9f0d8);
 }
 impl ::core::convert::From<IMFMediaSourceEx> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaSourceEx) -> Self {
@@ -29059,7 +29059,7 @@ impl IMFMediaSourceExtension {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaSourceExtension {
     type Vtable = IMFMediaSourceExtension_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3832002894, 42771, 17762, [168, 2, 129, 106, 66, 233, 0, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe467b94e_a713_4562_a802_816a42e9008a);
 }
 impl ::core::convert::From<IMFMediaSourceExtension> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaSourceExtension) -> Self {
@@ -29116,7 +29116,7 @@ impl IMFMediaSourceExtensionLiveSeekableRange {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaSourceExtensionLiveSeekableRange {
     type Vtable = IMFMediaSourceExtensionLiveSeekableRange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1562034134, 17674, 19858, [158, 252, 214, 182, 203, 193, 244, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d1abfd6_450a_4d92_9efc_d6b6cbc1f4da);
 }
 impl ::core::convert::From<IMFMediaSourceExtensionLiveSeekableRange> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaSourceExtensionLiveSeekableRange) -> Self {
@@ -29167,7 +29167,7 @@ impl IMFMediaSourceExtensionNotify {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaSourceExtensionNotify {
     type Vtable = IMFMediaSourceExtensionNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2811237159, 1501, 17513, [167, 183, 14, 1, 151, 158, 54, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7901327_05dd_4469_a7b7_0e01979e361d);
 }
 impl ::core::convert::From<IMFMediaSourceExtensionNotify> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaSourceExtensionNotify) -> Self {
@@ -29211,7 +29211,7 @@ impl IMFMediaSourcePresentationProvider {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaSourcePresentationProvider {
     type Vtable = IMFMediaSourcePresentationProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(236806154, 51699, 17453, [140, 81, 164, 45, 45, 73, 69, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e1d600a_c9f3_442d_8c51_a42d2d49452f);
 }
 impl ::core::convert::From<IMFMediaSourcePresentationProvider> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaSourcePresentationProvider) -> Self {
@@ -29254,7 +29254,7 @@ impl IMFMediaSourceTopologyProvider {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaSourceTopologyProvider {
     type Vtable = IMFMediaSourceTopologyProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(236806153, 51699, 17453, [140, 81, 164, 45, 45, 73, 69, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e1d6009_c9f3_442d_8c51_a42d2d49452f);
 }
 impl ::core::convert::From<IMFMediaSourceTopologyProvider> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaSourceTopologyProvider) -> Self {
@@ -29325,7 +29325,7 @@ impl IMFMediaStream {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaStream {
     type Vtable = IMFMediaStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3514962063, 20166, 17471, [170, 66, 167, 17, 6, 236, 130, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd182108f_4ec6_443f_aa42_a71106ec825f);
 }
 impl ::core::convert::From<IMFMediaStream> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaStream) -> Self {
@@ -29432,7 +29432,7 @@ impl IMFMediaStream2 {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaStream2 {
     type Vtable = IMFMediaStream2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3317446614, 30151, 18081, [161, 50, 129, 181, 247, 35, 194, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5bc37d6_75c7_46a1_a132_81b5f723c20f);
 }
 impl ::core::convert::From<IMFMediaStream2> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaStream2) -> Self {
@@ -29523,7 +29523,7 @@ impl IMFMediaStreamSourceSampleRequest {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaStreamSourceSampleRequest {
     type Vtable = IMFMediaStreamSourceSampleRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(940284665, 43099, 20088, [162, 175, 234, 92, 230, 69, 198, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x380b9af9_a85b_4e78_a2af_ea5ce645c6b4);
 }
 impl ::core::convert::From<IMFMediaStreamSourceSampleRequest> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaStreamSourceSampleRequest) -> Self {
@@ -29588,7 +29588,7 @@ impl IMFMediaTimeRange {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaTimeRange {
     type Vtable = IMFMediaTimeRange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3681657596, 1930, 16718, [157, 249, 140, 37, 49, 176, 170, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb71a2fc_078a_414e_9df9_8c2531b0aa6c);
 }
 impl ::core::convert::From<IMFMediaTimeRange> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaTimeRange) -> Self {
@@ -29795,7 +29795,7 @@ impl IMFMediaType {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaType {
     type Vtable = IMFMediaType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1152257960, 59953, 16649, [141, 46, 76, 174, 73, 151, 197, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44ae0fa8_ea31_4109_8d2e_4cae4997c555);
 }
 impl ::core::convert::From<IMFMediaType> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaType) -> Self {
@@ -29925,7 +29925,7 @@ impl IMFMediaTypeHandler {
 }
 unsafe impl ::windows::runtime::Interface for IMFMediaTypeHandler {
     type Vtable = IMFMediaTypeHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3913142124, 19207, 19998, [129, 35, 170, 22, 237, 110, 173, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe93dcf6c_4b07_4e1e_8123_aa16ed6eadf5);
 }
 impl ::core::convert::From<IMFMediaTypeHandler> for ::windows::runtime::IUnknown {
     fn from(value: IMFMediaTypeHandler) -> Self {
@@ -30007,7 +30007,7 @@ impl IMFMetadata {
 }
 unsafe impl ::windows::runtime::Interface for IMFMetadata {
     type Vtable = IMFMetadata_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4169989004, 61206, 18833, [180, 80, 203, 140, 105, 229, 23, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf88cfb8c_ef16_4991_b450_cb8c69e51704);
 }
 impl ::core::convert::From<IMFMetadata> for ::windows::runtime::IUnknown {
     fn from(value: IMFMetadata) -> Self {
@@ -30063,7 +30063,7 @@ impl IMFMetadataProvider {
 }
 unsafe impl ::windows::runtime::Interface for IMFMetadataProvider {
     type Vtable = IMFMetadataProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1444420909, 57889, 19163, [177, 200, 60, 238, 106, 83, 247, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56181d2d_e221_4adb_b1c8_3cee6a53f76f);
 }
 impl ::core::convert::From<IMFMetadataProvider> for ::windows::runtime::IUnknown {
     fn from(value: IMFMetadataProvider) -> Self {
@@ -30111,7 +30111,7 @@ impl IMFMuxStreamAttributesManager {
 }
 unsafe impl ::windows::runtime::Interface for IMFMuxStreamAttributesManager {
     type Vtable = IMFMuxStreamAttributesManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3465270646, 58432, 17331, [190, 52, 30, 83, 245, 101, 247, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce8bd576_e440_43b3_be34_1e53f565f7e8);
 }
 impl ::core::convert::From<IMFMuxStreamAttributesManager> for ::windows::runtime::IUnknown {
     fn from(value: IMFMuxStreamAttributesManager) -> Self {
@@ -30178,7 +30178,7 @@ impl IMFMuxStreamMediaTypeManager {
 }
 unsafe impl ::windows::runtime::Interface for IMFMuxStreamMediaTypeManager {
     type Vtable = IMFMuxStreamMediaTypeManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1348086898, 17143, 18064, [174, 171, 143, 81, 61, 15, 253, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x505a2c72_42f7_4690_aeab_8f513d0ffdb8);
 }
 impl ::core::convert::From<IMFMuxStreamMediaTypeManager> for ::windows::runtime::IUnknown {
     fn from(value: IMFMuxStreamMediaTypeManager) -> Self {
@@ -30235,7 +30235,7 @@ impl IMFMuxStreamSampleManager {
 }
 unsafe impl ::windows::runtime::Interface for IMFMuxStreamSampleManager {
     type Vtable = IMFMuxStreamSampleManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1957411865, 45516, 20033, [187, 139, 157, 155, 134, 168, 246, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74abbc19_b1cc_4e41_bb8b_9d9b86a8f6ca);
 }
 impl ::core::convert::From<IMFMuxStreamSampleManager> for ::windows::runtime::IUnknown {
     fn from(value: IMFMuxStreamSampleManager) -> Self {
@@ -30301,7 +30301,7 @@ impl IMFNetCredential {
 }
 unsafe impl ::windows::runtime::Interface for IMFNetCredential {
     type Vtable = IMFNetCredential_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1535635306, 32472, 17231, [186, 14, 24, 79, 172, 22, 40, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b87ef6a_7ed8_434f_ba0e_184fac1628d1);
 }
 impl ::core::convert::From<IMFNetCredential> for ::windows::runtime::IUnknown {
     fn from(value: IMFNetCredential) -> Self {
@@ -30362,7 +30362,7 @@ impl IMFNetCredentialCache {
 }
 unsafe impl ::windows::runtime::Interface for IMFNetCredentialCache {
     type Vtable = IMFNetCredentialCache_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1535635308, 32472, 17231, [186, 14, 24, 79, 172, 22, 40, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b87ef6c_7ed8_434f_ba0e_184fac1628d1);
 }
 impl ::core::convert::From<IMFNetCredentialCache> for ::windows::runtime::IUnknown {
     fn from(value: IMFNetCredentialCache) -> Self {
@@ -30419,7 +30419,7 @@ impl IMFNetCredentialManager {
 }
 unsafe impl ::windows::runtime::Interface for IMFNetCredentialManager {
     type Vtable = IMFNetCredentialManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1535635307, 32472, 17231, [186, 14, 24, 79, 172, 22, 40, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b87ef6b_7ed8_434f_ba0e_184fac1628d1);
 }
 impl ::core::convert::From<IMFNetCredentialManager> for ::windows::runtime::IUnknown {
     fn from(value: IMFNetCredentialManager) -> Self {
@@ -30478,7 +30478,7 @@ impl IMFNetCrossOriginSupport {
 }
 unsafe impl ::windows::runtime::Interface for IMFNetCrossOriginSupport {
     type Vtable = IMFNetCrossOriginSupport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3156966724, 42797, 18901, [131, 118, 20, 128, 222, 229, 139, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc2b7d44_a72d_49d5_8376_1480dee58b22);
 }
 impl ::core::convert::From<IMFNetCrossOriginSupport> for ::windows::runtime::IUnknown {
     fn from(value: IMFNetCrossOriginSupport) -> Self {
@@ -30543,7 +30543,7 @@ impl IMFNetProxyLocator {
 }
 unsafe impl ::windows::runtime::Interface for IMFNetProxyLocator {
     type Vtable = IMFNetProxyLocator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3922527107, 41576, 19380, [130, 222, 101, 141, 83, 87, 77, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9cd0383_a268_4bb4_82de_658d53574d41);
 }
 impl ::core::convert::From<IMFNetProxyLocator> for ::windows::runtime::IUnknown {
     fn from(value: IMFNetProxyLocator) -> Self {
@@ -30593,7 +30593,7 @@ impl IMFNetProxyLocatorFactory {
 }
 unsafe impl ::windows::runtime::Interface for IMFNetProxyLocatorFactory {
     type Vtable = IMFNetProxyLocatorFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3922527108, 41576, 19380, [130, 222, 101, 141, 83, 87, 77, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9cd0384_a268_4bb4_82de_658d53574d41);
 }
 impl ::core::convert::From<IMFNetProxyLocatorFactory> for ::windows::runtime::IUnknown {
     fn from(value: IMFNetProxyLocatorFactory) -> Self {
@@ -30643,7 +30643,7 @@ impl IMFNetResourceFilter {
 }
 unsafe impl ::windows::runtime::Interface for IMFNetResourceFilter {
     type Vtable = IMFNetResourceFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(152598691, 48913, 19036, [188, 159, 51, 153, 91, 6, 239, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x091878a3_bf11_4a5c_bc9f_33995b06ef2d);
 }
 impl ::core::convert::From<IMFNetResourceFilter> for ::windows::runtime::IUnknown {
     fn from(value: IMFNetResourceFilter) -> Self {
@@ -30698,7 +30698,7 @@ impl IMFNetSchemeHandlerConfig {
 }
 unsafe impl ::windows::runtime::Interface for IMFNetSchemeHandlerConfig {
     type Vtable = IMFNetSchemeHandlerConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2078383731, 51647, 18058, [172, 90, 165, 232, 101, 59, 236, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7be19e73_c9bf_468a_ac5a_a5e8653bec87);
 }
 impl ::core::convert::From<IMFNetSchemeHandlerConfig> for ::windows::runtime::IUnknown {
     fn from(value: IMFNetSchemeHandlerConfig) -> Self {
@@ -30746,7 +30746,7 @@ impl IMFObjectReferenceStream {
 }
 unsafe impl ::windows::runtime::Interface for IMFObjectReferenceStream {
     type Vtable = IMFObjectReferenceStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(166681571, 51367, 18078, [139, 112, 115, 191, 37, 187, 25, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09ef5be3_c8a7_469e_8b70_73bf25bb193f);
 }
 impl ::core::convert::From<IMFObjectReferenceStream> for ::windows::runtime::IUnknown {
     fn from(value: IMFObjectReferenceStream) -> Self {
@@ -30939,7 +30939,7 @@ impl IMFOutputPolicy {
 }
 unsafe impl ::windows::runtime::Interface for IMFOutputPolicy {
     type Vtable = IMFOutputPolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2130768138, 56045, 16815, [171, 38, 95, 223, 164, 223, 186, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f00f10a_daed_41af_ab26_5fdfa4dfba3c);
 }
 impl ::core::convert::From<IMFOutputPolicy> for ::windows::runtime::IUnknown {
     fn from(value: IMFOutputPolicy) -> Self {
@@ -31191,7 +31191,7 @@ impl IMFOutputSchema {
 }
 unsafe impl ::windows::runtime::Interface for IMFOutputSchema {
     type Vtable = IMFOutputSchema_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2078342235, 43993, 17659, [165, 200, 245, 1, 54, 231, 21, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7be0fc5b_abd9_44fb_a5c8_f50136e71599);
 }
 impl ::core::convert::From<IMFOutputSchema> for ::windows::runtime::IUnknown {
     fn from(value: IMFOutputSchema) -> Self {
@@ -31298,7 +31298,7 @@ impl IMFOutputTrustAuthority {
 }
 unsafe impl ::windows::runtime::Interface for IMFOutputTrustAuthority {
     type Vtable = IMFOutputTrustAuthority_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3516894868, 45350, 17478, [137, 12, 93, 203, 122, 215, 20, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd19f8e94_b126_4446_890c_5dcb7ad71453);
 }
 impl ::core::convert::From<IMFOutputTrustAuthority> for ::windows::runtime::IUnknown {
     fn from(value: IMFOutputTrustAuthority) -> Self {
@@ -31341,7 +31341,7 @@ impl IMFPMPClient {
 }
 unsafe impl ::windows::runtime::Interface for IMFPMPClient {
     type Vtable = IMFPMPClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1817077085, 60120, 17441, [182, 185, 84, 220, 219, 189, 248, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c4e655d_ead8_4421_b6b9_54dcdbbdf820);
 }
 impl ::core::convert::From<IMFPMPClient> for ::windows::runtime::IUnknown {
     fn from(value: IMFPMPClient) -> Self {
@@ -31383,7 +31383,7 @@ impl IMFPMPClientApp {
 }
 unsafe impl ::windows::runtime::Interface for IMFPMPClientApp {
     type Vtable = IMFPMPClientApp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3221550662, 48684, 18675, [147, 162, 160, 152, 62, 186, 17, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc004f646_be2c_48f3_93a2_a0983eba1108);
 }
 impl ::core::convert::From<IMFPMPClientApp> for ::windows::runtime::IUnknown {
     fn from(value: IMFPMPClientApp) -> Self {
@@ -31435,7 +31435,7 @@ impl IMFPMPHost {
 }
 unsafe impl ::windows::runtime::Interface for IMFPMPHost {
     type Vtable = IMFPMPHost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4144800169, 64967, 18306, [185, 148, 173, 255, 177, 201, 134, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf70ca1a9_fdc7_4782_b994_adffb1c98606);
 }
 impl ::core::convert::From<IMFPMPHost> for ::windows::runtime::IUnknown {
     fn from(value: IMFPMPHost) -> Self {
@@ -31490,7 +31490,7 @@ impl IMFPMPHostApp {
 }
 unsafe impl ::windows::runtime::Interface for IMFPMPHostApp {
     type Vtable = IMFPMPHostApp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2228356426, 15009, 18216, [163, 176, 68, 10, 65, 140, 244, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84d2054a_3aa1_4728_a3b0_440a418cf49c);
 }
 impl ::core::convert::From<IMFPMPHostApp> for ::windows::runtime::IUnknown {
     fn from(value: IMFPMPHostApp) -> Self {
@@ -31544,7 +31544,7 @@ impl IMFPMPServer {
 }
 unsafe impl ::windows::runtime::Interface for IMFPMPServer {
     type Vtable = IMFPMPServer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2572034991, 7362, 18748, [185, 250, 70, 241, 203, 4, 15, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x994e23af_1cc2_493c_b9fa_46f1cb040fa4);
 }
 impl ::core::convert::From<IMFPMPServer> for ::windows::runtime::IUnknown {
     fn from(value: IMFPMPServer) -> Self {
@@ -31684,7 +31684,7 @@ impl IMFPMediaItem {
 }
 unsafe impl ::windows::runtime::Interface for IMFPMediaItem {
     type Vtable = IMFPMediaItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2431336043, 60607, 17868, [177, 218, 198, 254, 62, 167, 13, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90eb3e6b_ecbf_45cc_b1da_c6fe3ea70d57);
 }
 impl ::core::convert::From<IMFPMediaItem> for ::windows::runtime::IUnknown {
     fn from(value: IMFPMediaItem) -> Self {
@@ -31924,7 +31924,7 @@ impl IMFPMediaPlayer {
 }
 unsafe impl ::windows::runtime::Interface for IMFPMediaPlayer {
     type Vtable = IMFPMediaPlayer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2803128586, 22703, 17162, [133, 191, 68, 245, 236, 131, 141, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa714590a_58af_430a_85bf_44f5ec838d85);
 }
 impl ::core::convert::From<IMFPMediaPlayer> for ::windows::runtime::IUnknown {
     fn from(value: IMFPMediaPlayer) -> Self {
@@ -32014,7 +32014,7 @@ impl IMFPMediaPlayerCallback {
 }
 unsafe impl ::windows::runtime::Interface for IMFPMediaPlayerCallback {
     type Vtable = IMFPMediaPlayerCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1986826235, 24539, 20458, [162, 141, 185, 18, 153, 111, 81, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x766c8ffb_5fdb_4fea_a28d_b912996f51bd);
 }
 impl ::core::convert::From<IMFPMediaPlayerCallback> for ::windows::runtime::IUnknown {
     fn from(value: IMFPMediaPlayerCallback) -> Self {
@@ -32083,7 +32083,7 @@ impl IMFPluginControl {
 }
 unsafe impl ::windows::runtime::Interface for IMFPluginControl {
     type Vtable = IMFPluginControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1550599359, 7606, 17243, [146, 73, 232, 205, 16, 253, 236, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c6c44bf_1db6_435b_9249_e8cd10fdec96);
 }
 impl ::core::convert::From<IMFPluginControl> for ::windows::runtime::IUnknown {
     fn from(value: IMFPluginControl) -> Self {
@@ -32164,7 +32164,7 @@ impl IMFPluginControl2 {
 }
 unsafe impl ::windows::runtime::Interface for IMFPluginControl2 {
     type Vtable = IMFPluginControl2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3331858563, 15836, 17867, [175, 94, 15, 122, 140, 228, 222, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6982083_3ddc_45cb_af5e_0f7a8ce4de77);
 }
 impl ::core::convert::From<IMFPluginControl2> for ::windows::runtime::IUnknown {
     fn from(value: IMFPluginControl2) -> Self {
@@ -32290,7 +32290,7 @@ impl IMFPresentationClock {
 }
 unsafe impl ::windows::runtime::Interface for IMFPresentationClock {
     type Vtable = IMFPresentationClock_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2257381468, 36521, 20309, [171, 130, 176, 9, 169, 16, 168, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x868ce85c_8ea9_4f55_ab82_b009a910a805);
 }
 impl ::core::convert::From<IMFPresentationClock> for ::windows::runtime::IUnknown {
     fn from(value: IMFPresentationClock) -> Self {
@@ -32522,7 +32522,7 @@ impl IMFPresentationDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for IMFPresentationDescriptor {
     type Vtable = IMFPresentationDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(63645457, 9431, 19894, [161, 127, 243, 167, 164, 121, 165, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03cb2711_24d7_4db6_a17f_f3a7a479a536);
 }
 impl ::core::convert::From<IMFPresentationDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: IMFPresentationDescriptor) -> Self {
@@ -32652,7 +32652,7 @@ impl IMFPresentationTimeSource {
 }
 unsafe impl ::windows::runtime::Interface for IMFPresentationTimeSource {
     type Vtable = IMFPresentationTimeSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2146512078, 63343, 16834, [134, 59, 22, 102, 200, 229, 225, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ff12cce_f76f_41c2_863b_1666c8e5e139);
 }
 impl ::core::convert::From<IMFPresentationTimeSource> for ::windows::runtime::IUnknown {
     fn from(value: IMFPresentationTimeSource) -> Self {
@@ -32724,7 +32724,7 @@ impl IMFProtectedEnvironmentAccess {
 }
 unsafe impl ::windows::runtime::Interface for IMFProtectedEnvironmentAccess {
     type Vtable = IMFProtectedEnvironmentAccess_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4015900741, 61657, 20169, [176, 12, 203, 81, 131, 211, 132, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef5dc845_f0d9_4ec9_b00c_cb5183d38434);
 }
 impl ::core::convert::From<IMFProtectedEnvironmentAccess> for ::windows::runtime::IUnknown {
     fn from(value: IMFProtectedEnvironmentAccess) -> Self {
@@ -32785,7 +32785,7 @@ impl IMFQualityAdvise {
 }
 unsafe impl ::windows::runtime::Interface for IMFQualityAdvise {
     type Vtable = IMFQualityAdvise_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3960857321, 58219, 20348, [135, 88, 119, 212, 82, 239, 76, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec15e2e9_e36b_4f7c_8758_77d452ef4ce7);
 }
 impl ::core::convert::From<IMFQualityAdvise> for ::windows::runtime::IUnknown {
     fn from(value: IMFQualityAdvise) -> Self {
@@ -32854,7 +32854,7 @@ impl IMFQualityAdvise2 {
 }
 unsafe impl ::windows::runtime::Interface for IMFQualityAdvise2 {
     type Vtable = IMFQualityAdvise2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4084231949, 36514, 18566, [128, 0, 113, 85, 233, 236, 46, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3706f0d_8ea2_4886_8000_7155e9ec2eae);
 }
 impl ::core::convert::From<IMFQualityAdvise2> for ::windows::runtime::IUnknown {
     fn from(value: IMFQualityAdvise2) -> Self {
@@ -32927,7 +32927,7 @@ impl IMFQualityAdviseLimits {
 }
 unsafe impl ::windows::runtime::Interface for IMFQualityAdviseLimits {
     type Vtable = IMFQualityAdviseLimits_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3754790477, 12469, 17767, [172, 170, 142, 181, 183, 133, 61, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdfcd8e4d_30b5_4567_acaa_8eb5b7853dc9);
 }
 impl ::core::convert::From<IMFQualityAdviseLimits> for ::windows::runtime::IUnknown {
     fn from(value: IMFQualityAdviseLimits) -> Self {
@@ -32990,7 +32990,7 @@ impl IMFQualityManager {
 }
 unsafe impl ::windows::runtime::Interface for IMFQualityManager {
     type Vtable = IMFQualityManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2365627782, 23455, 16661, [177, 252, 159, 128, 213, 42, 184, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d009d86_5b9f_4115_b1fc_9f80d52ab8ab);
 }
 impl ::core::convert::From<IMFQualityManager> for ::windows::runtime::IUnknown {
     fn from(value: IMFQualityManager) -> Self {
@@ -33043,7 +33043,7 @@ impl IMFRateControl {
 }
 unsafe impl ::windows::runtime::Interface for IMFRateControl {
     type Vtable = IMFRateControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2296237345, 963, 17013, [145, 237, 85, 238, 57, 41, 50, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88ddcd21_03c3_4275_91ed_55ee3929328f);
 }
 impl ::core::convert::From<IMFRateControl> for ::windows::runtime::IUnknown {
     fn from(value: IMFRateControl) -> Self {
@@ -33101,7 +33101,7 @@ impl IMFRateSupport {
 }
 unsafe impl ::windows::runtime::Interface for IMFRateSupport {
     type Vtable = IMFRateSupport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(178048444, 55191, 17763, [150, 103, 148, 236, 93, 121, 41, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a9ccdbc_d797_4563_9667_94ec5d79292d);
 }
 impl ::core::convert::From<IMFRateSupport> for ::windows::runtime::IUnknown {
     fn from(value: IMFRateSupport) -> Self {
@@ -33153,7 +33153,7 @@ impl IMFReadWriteClassFactory {
 }
 unsafe impl ::windows::runtime::Interface for IMFReadWriteClassFactory {
     type Vtable = IMFReadWriteClassFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3892194834, 26140, 16602, [146, 249, 79, 0, 42, 182, 118, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7fe2e12_661c_40da_92f9_4f002ab67627);
 }
 impl ::core::convert::From<IMFReadWriteClassFactory> for ::windows::runtime::IUnknown {
     fn from(value: IMFReadWriteClassFactory) -> Self {
@@ -33206,7 +33206,7 @@ impl IMFRealTimeClient {
 }
 unsafe impl ::windows::runtime::Interface for IMFRealTimeClient {
     type Vtable = IMFRealTimeClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(591910411, 16309, 18444, [136, 3, 141, 243, 173, 205, 62, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2347d60b_3fb5_480c_8803_8df3adcd3ef0);
 }
 impl ::core::convert::From<IMFRealTimeClient> for ::windows::runtime::IUnknown {
     fn from(value: IMFRealTimeClient) -> Self {
@@ -33260,7 +33260,7 @@ impl IMFRealTimeClientEx {
 }
 unsafe impl ::windows::runtime::Interface for IMFRealTimeClientEx {
     type Vtable = IMFRealTimeClientEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(59836488, 43798, 17937, [177, 0, 23, 184, 138, 226, 242, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03910848_ab16_4611_b100_17b88ae2f248);
 }
 impl ::core::convert::From<IMFRealTimeClientEx> for ::windows::runtime::IUnknown {
     fn from(value: IMFRealTimeClientEx) -> Self {
@@ -33306,7 +33306,7 @@ impl IMFRelativePanelReport {
 }
 unsafe impl ::windows::runtime::Interface for IMFRelativePanelReport {
     type Vtable = IMFRelativePanelReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4065551082, 11278, 17535, [129, 226, 117, 89, 20, 205, 192, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf25362ea_2c0e_447f_81e2_755914cdc0c3);
 }
 impl ::core::convert::From<IMFRelativePanelReport> for ::windows::runtime::IUnknown {
     fn from(value: IMFRelativePanelReport) -> Self {
@@ -33367,7 +33367,7 @@ impl IMFRelativePanelWatcher {
 }
 unsafe impl ::windows::runtime::Interface for IMFRelativePanelWatcher {
     type Vtable = IMFRelativePanelWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1109063670, 22334, 19152, [143, 218, 46, 87, 206, 219, 24, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x421af7f6_573e_4ad0_8fda_2e57cedb18c6);
 }
 impl ::core::convert::From<IMFRelativePanelWatcher> for ::windows::runtime::IUnknown {
     fn from(value: IMFRelativePanelWatcher) -> Self {
@@ -33433,7 +33433,7 @@ impl IMFRemoteAsyncCallback {
 }
 unsafe impl ::windows::runtime::Interface for IMFRemoteAsyncCallback {
     type Vtable = IMFRemoteAsyncCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2725250000, 9044, 20266, [141, 106, 171, 124, 255, 21, 67, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa27003d0_2354_4f2a_8d6a_ab7cff15437e);
 }
 impl ::core::convert::From<IMFRemoteAsyncCallback> for ::windows::runtime::IUnknown {
     fn from(value: IMFRemoteAsyncCallback) -> Self {
@@ -33475,7 +33475,7 @@ impl IMFRemoteDesktopPlugin {
 }
 unsafe impl ::windows::runtime::Interface for IMFRemoteDesktopPlugin {
     type Vtable = IMFRemoteDesktopPlugin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(484336393, 51936, 18752, [144, 126, 193, 236, 156, 61, 29, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cde6309_cae0_4940_907e_c1ec9c3d1d4a);
 }
 impl ::core::convert::From<IMFRemoteDesktopPlugin> for ::windows::runtime::IUnknown {
     fn from(value: IMFRemoteDesktopPlugin) -> Self {
@@ -33521,7 +33521,7 @@ impl IMFRemoteProxy {
 }
 unsafe impl ::windows::runtime::Interface for IMFRemoteProxy {
     type Vtable = IMFRemoteProxy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2572034989, 7362, 18748, [185, 250, 70, 241, 203, 4, 15, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x994e23ad_1cc2_493c_b9fa_46f1cb040fa4);
 }
 impl ::core::convert::From<IMFRemoteProxy> for ::windows::runtime::IUnknown {
     fn from(value: IMFRemoteProxy) -> Self {
@@ -33582,7 +33582,7 @@ impl IMFSAMIStyle {
 }
 unsafe impl ::windows::runtime::Interface for IMFSAMIStyle {
     type Vtable = IMFSAMIStyle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2816484829, 21251, 19042, [137, 214, 231, 71, 225, 239, 172, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7e025dd_5303_4a62_89d6_e747e1efac73);
 }
 impl ::core::convert::From<IMFSAMIStyle> for ::windows::runtime::IUnknown {
     fn from(value: IMFSAMIStyle) -> Self {
@@ -33651,7 +33651,7 @@ impl IMFSSLCertificateManager {
 }
 unsafe impl ::windows::runtime::Interface for IMFSSLCertificateManager {
     type Vtable = IMFSSLCertificateManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1643632775, 4656, 19083, [174, 186, 138, 212, 52, 209, 166, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61f7d887_1230_4a8b_aeba_8ad434d1a64d);
 }
 impl ::core::convert::From<IMFSSLCertificateManager> for ::windows::runtime::IUnknown {
     fn from(value: IMFSSLCertificateManager) -> Self {
@@ -33899,7 +33899,7 @@ impl IMFSample {
 }
 unsafe impl ::windows::runtime::Interface for IMFSample {
     type Vtable = IMFSample_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3288989938, 47418, 19840, [174, 140, 90, 28, 99, 79, 88, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc40a00f2_b93a_4d80_ae8c_5a1c634f58e4);
 }
 impl ::core::convert::From<IMFSample> for ::windows::runtime::IUnknown {
     fn from(value: IMFSample) -> Self {
@@ -34016,7 +34016,7 @@ impl IMFSampleAllocatorControl {
 }
 unsafe impl ::windows::runtime::Interface for IMFSampleAllocatorControl {
     type Vtable = IMFSampleAllocatorControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3663903064, 14904, 19095, [189, 39, 20, 156, 100, 12, 7, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda62b958_3a38_4a97_bd27_149c640c0771);
 }
 impl ::core::convert::From<IMFSampleAllocatorControl> for ::windows::runtime::IUnknown {
     fn from(value: IMFSampleAllocatorControl) -> Self {
@@ -34087,7 +34087,7 @@ impl IMFSampleGrabberSinkCallback {
 }
 unsafe impl ::windows::runtime::Interface for IMFSampleGrabberSinkCallback {
     type Vtable = IMFSampleGrabberSinkCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2356904127, 60994, 19289, [177, 223, 85, 102, 142, 27, 220, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c7b80bf_ee42_4b59_b1df_55668e1bdca8);
 }
 impl ::core::convert::From<IMFSampleGrabberSinkCallback> for ::windows::runtime::IUnknown {
     fn from(value: IMFSampleGrabberSinkCallback) -> Self {
@@ -34198,7 +34198,7 @@ impl IMFSampleGrabberSinkCallback2 {
 }
 unsafe impl ::windows::runtime::Interface for IMFSampleGrabberSinkCallback2 {
     type Vtable = IMFSampleGrabberSinkCallback2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3397823056, 50286, 17054, [171, 39, 22, 214, 172, 104, 68, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca86aa50_c46e_429e_ab27_16d6ac6844cb);
 }
 impl ::core::convert::From<IMFSampleGrabberSinkCallback2> for ::windows::runtime::IUnknown {
     fn from(value: IMFSampleGrabberSinkCallback2) -> Self {
@@ -34296,7 +34296,7 @@ impl IMFSampleOutputStream {
 }
 unsafe impl ::windows::runtime::Interface for IMFSampleOutputStream {
     type Vtable = IMFSampleOutputStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2414793832, 28542, 17421, [134, 154, 73, 189, 210, 131, 173, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8feed468_6f7e_440d_869a_49bdd283ad0d);
 }
 impl ::core::convert::From<IMFSampleOutputStream> for ::windows::runtime::IUnknown {
     fn from(value: IMFSampleOutputStream) -> Self {
@@ -34358,7 +34358,7 @@ impl IMFSampleProtection {
 }
 unsafe impl ::windows::runtime::Interface for IMFSampleProtection {
     type Vtable = IMFSampleProtection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2385918303, 51129, 17348, [165, 77, 81, 43, 74, 246, 60, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e36395f_c7b9_43c4_a54d_512b4af63c95);
 }
 impl ::core::convert::From<IMFSampleProtection> for ::windows::runtime::IUnknown {
     fn from(value: IMFSampleProtection) -> Self {
@@ -34417,7 +34417,7 @@ impl IMFSaveJob {
 }
 unsafe impl ::windows::runtime::Interface for IMFSaveJob {
     type Vtable = IMFSaveJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3918730851, 32959, 19566, [152, 175, 93, 207, 88, 116, 125, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9931663_80bf_4c6e_98af_5dcf58747d1f);
 }
 impl ::core::convert::From<IMFSaveJob> for ::windows::runtime::IUnknown {
     fn from(value: IMFSaveJob) -> Self {
@@ -34479,7 +34479,7 @@ impl IMFSchemeHandler {
 }
 unsafe impl ::windows::runtime::Interface for IMFSchemeHandler {
     type Vtable = IMFSchemeHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1833728884, 21152, 19383, [176, 219, 85, 242, 159, 71, 166, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d4c7b74_52a0_4bb7_b0db_55f29f47a668);
 }
 impl ::core::convert::From<IMFSchemeHandler> for ::windows::runtime::IUnknown {
     fn from(value: IMFSchemeHandler) -> Self {
@@ -34525,7 +34525,7 @@ impl IMFSecureBuffer {
 }
 unsafe impl ::windows::runtime::Interface for IMFSecureBuffer {
     type Vtable = IMFSecureBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3240139012, 58756, 18258, [162, 214, 127, 33, 105, 63, 139, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1209904_e584_4752_a2d6_7f21693f8b21);
 }
 impl ::core::convert::From<IMFSecureBuffer> for ::windows::runtime::IUnknown {
     fn from(value: IMFSecureBuffer) -> Self {
@@ -34571,7 +34571,7 @@ impl IMFSecureChannel {
 }
 unsafe impl ::windows::runtime::Interface for IMFSecureChannel {
     type Vtable = IMFSecureChannel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3501086045, 15122, 19863, [176, 96, 9, 144, 188, 90, 235, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0ae555d_3b12_4d97_b060_0990bc5aeb67);
 }
 impl ::core::convert::From<IMFSecureChannel> for ::windows::runtime::IUnknown {
     fn from(value: IMFSecureChannel) -> Self {
@@ -34615,7 +34615,7 @@ impl IMFSeekInfo {
 }
 unsafe impl ::windows::runtime::Interface for IMFSeekInfo {
     type Vtable = IMFSeekInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(649062995, 55789, 17077, [171, 128, 230, 79, 158, 227, 71, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26afea53_d9ed_42b5_ab80_e64f9ee34779);
 }
 impl ::core::convert::From<IMFSeekInfo> for ::windows::runtime::IUnknown {
     fn from(value: IMFSeekInfo) -> Self {
@@ -34671,7 +34671,7 @@ impl IMFSensorActivitiesReport {
 }
 unsafe impl ::windows::runtime::Interface for IMFSensorActivitiesReport {
     type Vtable = IMFSensorActivitiesReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1748990558, 18969, 17357, [177, 169, 219, 244, 171, 63, 119, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x683f7a5e_4a19_43cd_b1a9_dbf4ab3f7777);
 }
 impl ::core::convert::From<IMFSensorActivitiesReport> for ::windows::runtime::IUnknown {
     fn from(value: IMFSensorActivitiesReport) -> Self {
@@ -34716,7 +34716,7 @@ impl IMFSensorActivitiesReportCallback {
 }
 unsafe impl ::windows::runtime::Interface for IMFSensorActivitiesReportCallback {
     type Vtable = IMFSensorActivitiesReportCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3729814254, 56291, 18140, [138, 135, 182, 246, 49, 25, 71, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde5072ee_dbe3_46dc_8a87_b6f631194751);
 }
 impl ::core::convert::From<IMFSensorActivitiesReportCallback> for ::windows::runtime::IUnknown {
     fn from(value: IMFSensorActivitiesReportCallback) -> Self {
@@ -34762,7 +34762,7 @@ impl IMFSensorActivityMonitor {
 }
 unsafe impl ::windows::runtime::Interface for IMFSensorActivityMonitor {
     type Vtable = IMFSensorActivityMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3503223109, 46068, 17216, [162, 229, 122, 80, 128, 202, 5, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0cef145_b3f4_4340_a2e5_7a5080ca05cb);
 }
 impl ::core::convert::From<IMFSensorActivityMonitor> for ::windows::runtime::IUnknown {
     fn from(value: IMFSensorActivityMonitor) -> Self {
@@ -34821,7 +34821,7 @@ impl IMFSensorActivityReport {
 }
 unsafe impl ::windows::runtime::Interface for IMFSensorActivityReport {
     type Vtable = IMFSensorActivityReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1049381857, 43202, 17704, [144, 222, 40, 81, 189, 229, 254, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e8c4be1_a8c2_4528_90de_2851bde5fead);
 }
 impl ::core::convert::From<IMFSensorActivityReport> for ::windows::runtime::IUnknown {
     fn from(value: IMFSensorActivityReport) -> Self {
@@ -34908,7 +34908,7 @@ impl IMFSensorDevice {
 }
 unsafe impl ::windows::runtime::Interface for IMFSensorDevice {
     type Vtable = IMFSensorDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4221520114, 10776, 20008, [151, 48, 120, 111, 48, 240, 77, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb9f48f2_2a18_4e28_9730_786f30f04dc4);
 }
 impl ::core::convert::From<IMFSensorDevice> for ::windows::runtime::IUnknown {
     fn from(value: IMFSensorDevice) -> Self {
@@ -34994,7 +34994,7 @@ impl IMFSensorGroup {
 }
 unsafe impl ::windows::runtime::Interface for IMFSensorGroup {
     type Vtable = IMFSensorGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1091576890, 38743, 17951, [137, 241, 242, 35, 69, 188, 171, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4110243a_9757_461f_89f1_f22345bcab4e);
 }
 impl ::core::convert::From<IMFSensorGroup> for ::windows::runtime::IUnknown {
     fn from(value: IMFSensorGroup) -> Self {
@@ -35062,7 +35062,7 @@ impl IMFSensorProcessActivity {
 }
 unsafe impl ::windows::runtime::Interface for IMFSensorProcessActivity {
     type Vtable = IMFSensorProcessActivity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(970751818, 45377, 18201, [129, 60, 167, 244, 97, 98, 162, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39dc7f4a_b141_4719_813c_a7f46162a2b8);
 }
 impl ::core::convert::From<IMFSensorProcessActivity> for ::windows::runtime::IUnknown {
     fn from(value: IMFSensorProcessActivity) -> Self {
@@ -35126,7 +35126,7 @@ impl IMFSensorProfile {
 }
 unsafe impl ::windows::runtime::Interface for IMFSensorProfile {
     type Vtable = IMFSensorProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(586638801, 36267, 16647, [132, 109, 86, 186, 247, 34, 21, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22f765d1_8dab_4107_846d_56baf72215e7);
 }
 impl ::core::convert::From<IMFSensorProfile> for ::windows::runtime::IUnknown {
     fn from(value: IMFSensorProfile) -> Self {
@@ -35196,7 +35196,7 @@ impl IMFSensorProfileCollection {
 }
 unsafe impl ::windows::runtime::Interface for IMFSensorProfileCollection {
     type Vtable = IMFSensorProfileCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3378423131, 391, 18622, [147, 83, 141, 37, 7, 102, 35, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc95ea55b_0187_48be_9353_8d2507662351);
 }
 impl ::core::convert::From<IMFSensorProfileCollection> for ::windows::runtime::IUnknown {
     fn from(value: IMFSensorProfileCollection) -> Self {
@@ -35393,7 +35393,7 @@ impl IMFSensorStream {
 }
 unsafe impl ::windows::runtime::Interface for IMFSensorStream {
     type Vtable = IMFSensorStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3919847793, 50542, 18826, [139, 57, 237, 165, 160, 112, 183, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9a42171_c56e_498a_8b39_eda5a070b7fc);
 }
 impl ::core::convert::From<IMFSensorStream> for ::windows::runtime::IUnknown {
     fn from(value: IMFSensorStream) -> Self {
@@ -35515,7 +35515,7 @@ impl IMFSensorTransformFactory {
 }
 unsafe impl ::windows::runtime::Interface for IMFSensorTransformFactory {
     type Vtable = IMFSensorTransformFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4007248622, 26292, 20248, [166, 151, 172, 125, 57, 96, 33, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeed9c2ee_66b4_4f18_a697_ac7d3960215c);
 }
 impl ::core::convert::From<IMFSensorTransformFactory> for ::windows::runtime::IUnknown {
     fn from(value: IMFSensorTransformFactory) -> Self {
@@ -35579,7 +35579,7 @@ impl IMFSequencerSource {
 }
 unsafe impl ::windows::runtime::Interface for IMFSequencerSource {
     type Vtable = IMFSequencerSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(427610649, 6603, 19937, [166, 76, 172, 242, 237, 203, 229, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x197cd219_19cb_4de1_a64c_acf2edcbe59e);
 }
 impl ::core::convert::From<IMFSequencerSource> for ::windows::runtime::IUnknown {
     fn from(value: IMFSequencerSource) -> Self {
@@ -35626,7 +35626,7 @@ impl IMFSharingEngineClassFactory {
 }
 unsafe impl ::windows::runtime::Interface for IMFSharingEngineClassFactory {
     type Vtable = IMFSharingEngineClassFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(732307346, 33541, 16699, [151, 51, 250, 241, 95, 37, 147, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ba61f92_8305_413b_9733_faf15f259384);
 }
 impl ::core::convert::From<IMFSharingEngineClassFactory> for ::windows::runtime::IUnknown {
     fn from(value: IMFSharingEngineClassFactory) -> Self {
@@ -35673,7 +35673,7 @@ impl IMFShutdown {
 }
 unsafe impl ::windows::runtime::Interface for IMFShutdown {
     type Vtable = IMFShutdown_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2548838052, 3650, 18743, [151, 172, 157, 109, 50, 136, 36, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97ec2ea4_0e42_4937_97ac_9d6d328824e1);
 }
 impl ::core::convert::From<IMFShutdown> for ::windows::runtime::IUnknown {
     fn from(value: IMFShutdown) -> Self {
@@ -35717,7 +35717,7 @@ impl IMFSignedLibrary {
 }
 unsafe impl ::windows::runtime::Interface for IMFSignedLibrary {
     type Vtable = IMFSignedLibrary_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1249004490, 65386, 19463, [142, 13, 122, 53, 132, 33, 207, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a724bca_ff6a_4c07_8e0d_7a358421cf06);
 }
 impl ::core::convert::From<IMFSignedLibrary> for ::windows::runtime::IUnknown {
     fn from(value: IMFSignedLibrary) -> Self {
@@ -35776,7 +35776,7 @@ impl IMFSimpleAudioVolume {
 }
 unsafe impl ::windows::runtime::Interface for IMFSimpleAudioVolume {
     type Vtable = IMFSimpleAudioVolume_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(144629523, 53105, 17208, [141, 19, 158, 86, 157, 189, 195, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x089edf13_cf71_4338_8d13_9e569dbdc319);
 }
 impl ::core::convert::From<IMFSimpleAudioVolume> for ::windows::runtime::IUnknown {
     fn from(value: IMFSimpleAudioVolume) -> Self {
@@ -35865,7 +35865,7 @@ impl IMFSinkWriter {
 }
 unsafe impl ::windows::runtime::Interface for IMFSinkWriter {
     type Vtable = IMFSinkWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(825749965, 65118, 18437, [165, 216, 251, 71, 116, 72, 203, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3137f1cd_fe5e_4805_a5d8_fb477448cb3d);
 }
 impl ::core::convert::From<IMFSinkWriter> for ::windows::runtime::IUnknown {
     fn from(value: IMFSinkWriter) -> Self {
@@ -35921,7 +35921,7 @@ impl IMFSinkWriterCallback {
 }
 unsafe impl ::windows::runtime::Interface for IMFSinkWriterCallback {
     type Vtable = IMFSinkWriterCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1718580958, 13266, 16825, [164, 88, 41, 237, 10, 151, 44, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x666f76de_33d2_41b9_a458_29ed0a972c58);
 }
 impl ::core::convert::From<IMFSinkWriterCallback> for ::windows::runtime::IUnknown {
     fn from(value: IMFSinkWriterCallback) -> Self {
@@ -35976,7 +35976,7 @@ impl IMFSinkWriterCallback2 {
 }
 unsafe impl ::windows::runtime::Interface for IMFSinkWriterCallback2 {
     type Vtable = IMFSinkWriterCallback2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(609664344, 49255, 17683, [132, 254, 141, 12, 136, 255, 220, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2456bd58_c067_4513_84fe_8d0c88ffdc61);
 }
 impl ::core::convert::From<IMFSinkWriterCallback2> for ::windows::runtime::IUnknown {
     fn from(value: IMFSinkWriterCallback2) -> Self {
@@ -36045,7 +36045,7 @@ impl IMFSinkWriterEncoderConfig {
 }
 unsafe impl ::windows::runtime::Interface for IMFSinkWriterEncoderConfig {
     type Vtable = IMFSinkWriterEncoderConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(398686110, 15582, 20190, [140, 96, 56, 153, 245, 245, 58, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17c3779e_3cde_4ede_8c60_3899f5f53ad6);
 }
 impl ::core::convert::From<IMFSinkWriterEncoderConfig> for ::windows::runtime::IUnknown {
     fn from(value: IMFSinkWriterEncoderConfig) -> Self {
@@ -36134,7 +36134,7 @@ impl IMFSinkWriterEx {
 }
 unsafe impl ::windows::runtime::Interface for IMFSinkWriterEx {
     type Vtable = IMFSinkWriterEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1485664939, 23489, 18794, [135, 20, 183, 6, 23, 20, 27, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x588d72ab_5bc1_496a_8714_b70617141b25);
 }
 impl ::core::convert::From<IMFSinkWriterEx> for ::windows::runtime::IUnknown {
     fn from(value: IMFSinkWriterEx) -> Self {
@@ -36253,7 +36253,7 @@ impl IMFSourceBuffer {
 }
 unsafe impl ::windows::runtime::Interface for IMFSourceBuffer {
     type Vtable = IMFSourceBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3805100619, 44837, 19773, [145, 16, 218, 14, 111, 142, 232, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2cd3a4b_af25_4d3d_9110_da0e6f8ee877);
 }
 impl ::core::convert::From<IMFSourceBuffer> for ::windows::runtime::IUnknown {
     fn from(value: IMFSourceBuffer) -> Self {
@@ -36311,7 +36311,7 @@ impl IMFSourceBufferAppendMode {
 }
 unsafe impl ::windows::runtime::Interface for IMFSourceBufferAppendMode {
     type Vtable = IMFSourceBufferAppendMode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(426143668, 47806, 19541, [188, 3, 10, 7, 77, 163, 126, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19666fb4_babe_4c55_bc03_0a074da37e2a);
 }
 impl ::core::convert::From<IMFSourceBufferAppendMode> for ::windows::runtime::IUnknown {
     fn from(value: IMFSourceBufferAppendMode) -> Self {
@@ -36358,7 +36358,7 @@ impl IMFSourceBufferList {
 }
 unsafe impl ::windows::runtime::Interface for IMFSourceBufferList {
     type Vtable = IMFSourceBufferList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(614040056, 33573, 16883, [184, 12, 59, 158, 58, 173, 12, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x249981f8_8325_41f3_b80c_3b9e3aad0cbe);
 }
 impl ::core::convert::From<IMFSourceBufferList> for ::windows::runtime::IUnknown {
     fn from(value: IMFSourceBufferList) -> Self {
@@ -36417,7 +36417,7 @@ impl IMFSourceBufferNotify {
 }
 unsafe impl ::windows::runtime::Interface for IMFSourceBufferNotify {
     type Vtable = IMFSourceBufferNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2279896611, 11499, 17878, [155, 136, 216, 82, 12, 77, 203, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87e47623_2ceb_45d6_9b88_d8520c4dcbbc);
 }
 impl ::core::convert::From<IMFSourceBufferNotify> for ::windows::runtime::IUnknown {
     fn from(value: IMFSourceBufferNotify) -> Self {
@@ -36463,7 +36463,7 @@ impl IMFSourceOpenMonitor {
 }
 unsafe impl ::windows::runtime::Interface for IMFSourceOpenMonitor {
     type Vtable = IMFSourceOpenMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(93344947, 636, 18764, [162, 125, 145, 19, 41, 28, 248, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x059054b3_027c_494c_a27d_9113291cf87f);
 }
 impl ::core::convert::From<IMFSourceOpenMonitor> for ::windows::runtime::IUnknown {
     fn from(value: IMFSourceOpenMonitor) -> Self {
@@ -36549,7 +36549,7 @@ impl IMFSourceReader {
 }
 unsafe impl ::windows::runtime::Interface for IMFSourceReader {
     type Vtable = IMFSourceReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1890477810, 51209, 20047, [137, 21, 189, 203, 64, 107, 121, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70ae66f2_c809_4e4f_8915_bdcb406b7993);
 }
 impl ::core::convert::From<IMFSourceReader> for ::windows::runtime::IUnknown {
     fn from(value: IMFSourceReader) -> Self {
@@ -36612,7 +36612,7 @@ impl IMFSourceReaderCallback {
 }
 unsafe impl ::windows::runtime::Interface for IMFSourceReaderCallback {
     type Vtable = IMFSourceReaderCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3740044697, 64029, 19842, [132, 194, 44, 137, 105, 148, 72, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdeec8d99_fa1d_4d82_84c2_2c8969944867);
 }
 impl ::core::convert::From<IMFSourceReaderCallback> for ::windows::runtime::IUnknown {
     fn from(value: IMFSourceReaderCallback) -> Self {
@@ -36672,7 +36672,7 @@ impl IMFSourceReaderCallback2 {
 }
 unsafe impl ::windows::runtime::Interface for IMFSourceReaderCallback2 {
     type Vtable = IMFSourceReaderCallback2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3481509862, 35882, 19922, [182, 234, 194, 45, 105, 97, 175, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf839fe6_8c2a_4dd2_b6ea_c22d6961af05);
 }
 impl ::core::convert::From<IMFSourceReaderCallback2> for ::windows::runtime::IUnknown {
     fn from(value: IMFSourceReaderCallback2) -> Self {
@@ -36799,7 +36799,7 @@ impl IMFSourceReaderEx {
 }
 unsafe impl ::windows::runtime::Interface for IMFSourceReaderEx {
     type Vtable = IMFSourceReaderEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2073566448, 22030, 16662, [152, 117, 176, 153, 137, 95, 35, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b981cf0_560e_4116_9875_b099895f23d7);
 }
 impl ::core::convert::From<IMFSourceReaderEx> for ::windows::runtime::IUnknown {
     fn from(value: IMFSourceReaderEx) -> Self {
@@ -36923,7 +36923,7 @@ impl IMFSourceResolver {
 }
 unsafe impl ::windows::runtime::Interface for IMFSourceResolver {
     type Vtable = IMFSourceResolver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4226130733, 42135, 19297, [187, 133, 151, 177, 168, 72, 166, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbe5a32d_a497_4b61_bb85_97b1a848a6e3);
 }
 impl ::core::convert::From<IMFSourceResolver> for ::windows::runtime::IUnknown {
     fn from(value: IMFSourceResolver) -> Self {
@@ -37019,7 +37019,7 @@ impl IMFSpatialAudioObjectBuffer {
 }
 unsafe impl ::windows::runtime::Interface for IMFSpatialAudioObjectBuffer {
     type Vtable = IMFSpatialAudioObjectBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3549883532, 24670, 16969, [151, 141, 114, 173, 28, 49, 40, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd396ec8c_605e_4249_978d_72ad1c312872);
 }
 impl ::core::convert::From<IMFSpatialAudioObjectBuffer> for ::windows::runtime::IUnknown {
     fn from(value: IMFSpatialAudioObjectBuffer) -> Self {
@@ -37305,7 +37305,7 @@ impl IMFSpatialAudioSample {
 }
 unsafe impl ::windows::runtime::Interface for IMFSpatialAudioSample {
     type Vtable = IMFSpatialAudioSample_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2884799131, 13203, 17040, [186, 121, 95, 252, 70, 217, 134, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xabf28a9b_3393_4290_ba79_5ffc46d986b2);
 }
 impl ::core::convert::From<IMFSpatialAudioSample> for ::windows::runtime::IUnknown {
     fn from(value: IMFSpatialAudioSample) -> Self {
@@ -37586,7 +37586,7 @@ impl IMFStreamDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for IMFStreamDescriptor {
     type Vtable = IMFStreamDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1455439260, 40379, 17909, [171, 75, 216, 15, 71, 192, 89, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56c03d9c_9dbb_45f5_ab4b_d80f47c05938);
 }
 impl ::core::convert::From<IMFStreamDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: IMFStreamDescriptor) -> Self {
@@ -37730,7 +37730,7 @@ impl IMFStreamSink {
 }
 unsafe impl ::windows::runtime::Interface for IMFStreamSink {
     type Vtable = IMFStreamSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(177714127, 36476, 19005, [143, 140, 12, 132, 61, 194, 71, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a97b3cf_8e7c_4a3d_8f8c_0c843dc247fb);
 }
 impl ::core::convert::From<IMFStreamSink> for ::windows::runtime::IUnknown {
     fn from(value: IMFStreamSink) -> Self {
@@ -37804,7 +37804,7 @@ impl IMFStreamingSinkConfig {
 }
 unsafe impl ::windows::runtime::Interface for IMFStreamingSinkConfig {
     type Vtable = IMFStreamingSinkConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2646059585, 15557, 16596, [133, 9, 85, 88, 4, 173, 52, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9db7aa41_3cc5_40d4_8509_555804ad34cc);
 }
 impl ::core::convert::From<IMFStreamingSinkConfig> for ::windows::runtime::IUnknown {
     fn from(value: IMFStreamingSinkConfig) -> Self {
@@ -37851,7 +37851,7 @@ impl IMFSystemId {
 }
 unsafe impl ::windows::runtime::Interface for IMFSystemId {
     type Vtable = IMFSystemId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4294225722, 8129, 20217, [162, 155, 210, 108, 73, 226, 243, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfff4af3a_1fc1_4ef9_a29b_d26c49e2f31a);
 }
 impl ::core::convert::From<IMFSystemId> for ::windows::runtime::IUnknown {
     fn from(value: IMFSystemId) -> Self {
@@ -37910,7 +37910,7 @@ impl IMFTimecodeTranslate {
 }
 unsafe impl ::windows::runtime::Interface for IMFTimecodeTranslate {
     type Vtable = IMFTimecodeTranslate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2879227489, 63464, 20212, [152, 97, 137, 243, 52, 249, 78, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab9d8661_f7e8_4ef4_9861_89f334f94e74);
 }
 impl ::core::convert::From<IMFTimecodeTranslate> for ::windows::runtime::IUnknown {
     fn from(value: IMFTimecodeTranslate) -> Self {
@@ -38023,7 +38023,7 @@ impl IMFTimedText {
 }
 unsafe impl ::windows::runtime::Interface for IMFTimedText {
     type Vtable = IMFTimedText_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(522884297, 41951, 17165, [157, 15, 172, 216, 93, 220, 41, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f2a94c9_a3df_430d_9d0f_acd85ddc29af);
 }
 impl ::core::convert::From<IMFTimedText> for ::windows::runtime::IUnknown {
     fn from(value: IMFTimedText) -> Self {
@@ -38084,7 +38084,7 @@ impl IMFTimedTextBinary {
 }
 unsafe impl ::windows::runtime::Interface for IMFTimedTextBinary {
     type Vtable = IMFTimedTextBinary_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1256432658, 1349, 17348, [191, 111, 107, 151, 165, 198, 196, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ae3a412_0545_43c4_bf6f_6b97a5c6c432);
 }
 impl ::core::convert::From<IMFTimedTextBinary> for ::windows::runtime::IUnknown {
     fn from(value: IMFTimedTextBinary) -> Self {
@@ -38137,7 +38137,7 @@ impl IMFTimedTextBouten {
 }
 unsafe impl ::windows::runtime::Interface for IMFTimedTextBouten {
     type Vtable = IMFTimedTextBouten_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1012874890, 37056, 17998, [129, 54, 137, 141, 41, 117, 248, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c5f3e8a_90c0_464e_8136_898d2975f847);
 }
 impl ::core::convert::From<IMFTimedTextBouten> for ::windows::runtime::IUnknown {
     fn from(value: IMFTimedTextBouten) -> Self {
@@ -38227,7 +38227,7 @@ impl IMFTimedTextCue {
 }
 unsafe impl ::windows::runtime::Interface for IMFTimedTextCue {
     type Vtable = IMFTimedTextCue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(508953671, 39467, 17377, [169, 76, 176, 170, 171, 251, 251, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e560447_9a2b_43e1_a94c_b0aaabfbfbc9);
 }
 impl ::core::convert::From<IMFTimedTextCue> for ::windows::runtime::IUnknown {
     fn from(value: IMFTimedTextCue) -> Self {
@@ -38311,7 +38311,7 @@ impl IMFTimedTextCueList {
 }
 unsafe impl ::windows::runtime::Interface for IMFTimedTextCueList {
     type Vtable = IMFTimedTextCueList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2903672645, 8475, 16544, [153, 129, 254, 101, 241, 102, 208, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad128745_211b_40a0_9981_fe65f166d0fd);
 }
 impl ::core::convert::From<IMFTimedTextCueList> for ::windows::runtime::IUnknown {
     fn from(value: IMFTimedTextCueList) -> Self {
@@ -38371,7 +38371,7 @@ impl IMFTimedTextFormattedText {
 }
 unsafe impl ::windows::runtime::Interface for IMFTimedTextFormattedText {
     type Vtable = IMFTimedTextFormattedText_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3778737089, 19783, 17236, [177, 245, 232, 58, 224, 236, 174, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe13af3c1_4d47_4354_b1f5_e83ae0ecae60);
 }
 impl ::core::convert::From<IMFTimedTextFormattedText> for ::windows::runtime::IUnknown {
     fn from(value: IMFTimedTextFormattedText) -> Self {
@@ -38441,7 +38441,7 @@ impl IMFTimedTextNotify {
 }
 unsafe impl ::windows::runtime::Interface for IMFTimedTextNotify {
     type Vtable = IMFTimedTextNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3748366262, 52754, 17883, [171, 167, 67, 47, 224, 84, 229, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf6b87b6_ce12_45db_aba7_432fe054e57d);
 }
 impl ::core::convert::From<IMFTimedTextNotify> for ::windows::runtime::IUnknown {
     fn from(value: IMFTimedTextNotify) -> Self {
@@ -38545,7 +38545,7 @@ impl IMFTimedTextRegion {
 }
 unsafe impl ::windows::runtime::Interface for IMFTimedTextRegion {
     type Vtable = IMFTimedTextRegion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3369216764, 48199, 19423, [155, 4, 120, 126, 73, 206, 63, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8d22afc_bc47_4bdf_9b04_787e49ce3f58);
 }
 impl ::core::convert::From<IMFTimedTextRegion> for ::windows::runtime::IUnknown {
     fn from(value: IMFTimedTextRegion) -> Self {
@@ -38618,7 +38618,7 @@ impl IMFTimedTextRuby {
 }
 unsafe impl ::windows::runtime::Interface for IMFTimedTextRuby {
     type Vtable = IMFTimedTextRuby_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1992730357, 18773, 19941, [178, 123, 20, 183, 52, 204, 20, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76c6a6f5_4955_4de5_b27b_14b734cc14b4);
 }
 impl ::core::convert::From<IMFTimedTextRuby> for ::windows::runtime::IUnknown {
     fn from(value: IMFTimedTextRuby) -> Self {
@@ -38728,7 +38728,7 @@ impl IMFTimedTextStyle {
 }
 unsafe impl ::windows::runtime::Interface for IMFTimedTextStyle {
     type Vtable = IMFTimedTextStyle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(162678109, 47156, 20225, [163, 71, 144, 82, 226, 28, 69, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09b2455d_b834_4f01_a347_9052e21c450e);
 }
 impl ::core::convert::From<IMFTimedTextStyle> for ::windows::runtime::IUnknown {
     fn from(value: IMFTimedTextStyle) -> Self {
@@ -38805,7 +38805,7 @@ impl IMFTimedTextStyle2 {
 }
 unsafe impl ::windows::runtime::Interface for IMFTimedTextStyle2 {
     type Vtable = IMFTimedTextStyle2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3680735641, 51209, 19593, [191, 202, 208, 187, 185, 114, 157, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb639199_c809_4c89_bfca_d0bbb9729d6e);
 }
 impl ::core::convert::From<IMFTimedTextStyle2> for ::windows::runtime::IUnknown {
     fn from(value: IMFTimedTextStyle2) -> Self {
@@ -38910,7 +38910,7 @@ impl IMFTimedTextTrack {
 }
 unsafe impl ::windows::runtime::Interface for IMFTimedTextTrack {
     type Vtable = IMFTimedTextTrack_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2283979565, 25934, 16947, [191, 33, 215, 242, 230, 125, 48, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8822c32d_654e_4233_bf21_d7f2e67d30d4);
 }
 impl ::core::convert::From<IMFTimedTextTrack> for ::windows::runtime::IUnknown {
     fn from(value: IMFTimedTextTrack) -> Self {
@@ -38980,7 +38980,7 @@ impl IMFTimedTextTrackList {
 }
 unsafe impl ::windows::runtime::Interface for IMFTimedTextTrackList {
     type Vtable = IMFTimedTextTrackList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(603927372, 17452, 17503, [188, 204, 237, 196, 56, 170, 17, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23ff334c_442c_445f_bccc_edc438aa11e2);
 }
 impl ::core::convert::From<IMFTimedTextTrackList> for ::windows::runtime::IUnknown {
     fn from(value: IMFTimedTextTrackList) -> Self {
@@ -39029,7 +39029,7 @@ impl IMFTimer {
 }
 unsafe impl ::windows::runtime::Interface for IMFTimer {
     type Vtable = IMFTimer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3849211069, 36720, 18904, [160, 248, 237, 179, 214, 171, 155, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe56e4cbd_8f70_49d8_a0f8_edb3d6ab9bf2);
 }
 impl ::core::convert::From<IMFTimer> for ::windows::runtime::IUnknown {
     fn from(value: IMFTimer) -> Self {
@@ -39072,7 +39072,7 @@ impl IMFTopoLoader {
 }
 unsafe impl ::windows::runtime::Interface for IMFTopoLoader {
     type Vtable = IMFTopoLoader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3734659415, 63072, 17987, [181, 106, 223, 159, 121, 152, 199, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde9a6157_f660_4643_b56a_df9f7998c7cd);
 }
 impl ::core::convert::From<IMFTopoLoader> for ::windows::runtime::IUnknown {
     fn from(value: IMFTopoLoader) -> Self {
@@ -39295,7 +39295,7 @@ impl IMFTopology {
 }
 unsafe impl ::windows::runtime::Interface for IMFTopology {
     type Vtable = IMFTopology_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2211415866, 63194, 19400, [130, 63, 186, 207, 213, 93, 196, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83cf873a_f6da_4bc8_823f_bacfd55dc433);
 }
 impl ::core::convert::From<IMFTopology> for ::windows::runtime::IUnknown {
     fn from(value: IMFTopology) -> Self {
@@ -39610,7 +39610,7 @@ impl IMFTopologyNode {
 }
 unsafe impl ::windows::runtime::Interface for IMFTopologyNode {
     type Vtable = IMFTopologyNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2211415866, 63194, 19400, [130, 63, 186, 207, 213, 93, 196, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83cf873a_f6da_4bc8_823f_bacfd55dc430);
 }
 impl ::core::convert::From<IMFTopologyNode> for ::windows::runtime::IUnknown {
     fn from(value: IMFTopologyNode) -> Self {
@@ -39725,7 +39725,7 @@ impl IMFTopologyNodeAttributeEditor {
 }
 unsafe impl ::windows::runtime::Interface for IMFTopologyNodeAttributeEditor {
     type Vtable = IMFTopologyNodeAttributeEditor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1735042781, 9098, 16653, [187, 153, 101, 102, 141, 1, 96, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x676aa6dd_238a_410d_bb99_65668d01605a);
 }
 impl ::core::convert::From<IMFTopologyNodeAttributeEditor> for ::windows::runtime::IUnknown {
     fn from(value: IMFTopologyNodeAttributeEditor) -> Self {
@@ -39767,7 +39767,7 @@ impl IMFTopologyServiceLookup {
 }
 unsafe impl ::windows::runtime::Interface for IMFTopologyServiceLookup {
     type Vtable = IMFTopologyServiceLookup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4204345481, 17283, 16730, [169, 48, 221, 71, 42, 140, 246, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa993889_4383_415a_a930_dd472a8cf6f7);
 }
 impl ::core::convert::From<IMFTopologyServiceLookup> for ::windows::runtime::IUnknown {
     fn from(value: IMFTopologyServiceLookup) -> Self {
@@ -39813,7 +39813,7 @@ impl IMFTopologyServiceLookupClient {
 }
 unsafe impl ::windows::runtime::Interface for IMFTopologyServiceLookupClient {
     type Vtable = IMFTopologyServiceLookupClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4204345482, 17283, 16730, [169, 48, 221, 71, 42, 140, 246, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa99388a_4383_415a_a930_dd472a8cf6f7);
 }
 impl ::core::convert::From<IMFTopologyServiceLookupClient> for ::windows::runtime::IUnknown {
     fn from(value: IMFTopologyServiceLookupClient) -> Self {
@@ -39856,7 +39856,7 @@ impl IMFTrackedSample {
 }
 unsafe impl ::windows::runtime::Interface for IMFTrackedSample {
     type Vtable = IMFTrackedSample_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(610007273, 1877, 16631, [136, 165, 174, 15, 24, 213, 94, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x245bf8e9_0755_40f7_88a5_ae0f18d55e17);
 }
 impl ::core::convert::From<IMFTrackedSample> for ::windows::runtime::IUnknown {
     fn from(value: IMFTrackedSample) -> Self {
@@ -39921,7 +39921,7 @@ impl IMFTranscodeProfile {
 }
 unsafe impl ::windows::runtime::Interface for IMFTranscodeProfile {
     type Vtable = IMFTranscodeProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1256184739, 31408, 18771, [166, 43, 70, 30, 127, 243, 218, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4adfdba3_7ab0_4953_a62b_461e7ff3da1e);
 }
 impl ::core::convert::From<IMFTranscodeProfile> for ::windows::runtime::IUnknown {
     fn from(value: IMFTranscodeProfile) -> Self {
@@ -39982,7 +39982,7 @@ impl IMFTranscodeSinkInfoProvider {
 }
 unsafe impl ::windows::runtime::Interface for IMFTranscodeSinkInfoProvider {
     type Vtable = IMFTranscodeSinkInfoProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2365574446, 23043, 19002, [175, 247, 237, 205, 16, 124, 98, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cffcd2e_5a03_4a3a_aff7_edcd107c620e);
 }
 impl ::core::convert::From<IMFTranscodeSinkInfoProvider> for ::windows::runtime::IUnknown {
     fn from(value: IMFTranscodeSinkInfoProvider) -> Self {
@@ -40127,7 +40127,7 @@ impl IMFTransform {
 }
 unsafe impl ::windows::runtime::Interface for IMFTransform {
     type Vtable = IMFTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3214197025, 23301, 20079, [128, 0, 186, 89, 137, 97, 65, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf94c121_5b05_4e6f_8000_ba598961414d);
 }
 impl ::core::convert::From<IMFTransform> for ::windows::runtime::IUnknown {
     fn from(value: IMFTransform) -> Self {
@@ -40192,7 +40192,7 @@ impl IMFTrustedInput {
 }
 unsafe impl ::windows::runtime::Interface for IMFTrustedInput {
     type Vtable = IMFTrustedInput_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1411781316, 41400, 17970, [181, 33, 222, 17, 234, 100, 160, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x542612c4_a1b8_4632_b521_de11ea64a0b0);
 }
 impl ::core::convert::From<IMFTrustedInput> for ::windows::runtime::IUnknown {
     fn from(value: IMFTrustedInput) -> Self {
@@ -40246,7 +40246,7 @@ impl IMFTrustedOutput {
 }
 unsafe impl ::windows::runtime::Interface for IMFTrustedOutput {
     type Vtable = IMFTrustedOutput_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3516894869, 45350, 17478, [137, 12, 93, 203, 122, 215, 20, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd19f8e95_b126_4446_890c_5dcb7ad71453);
 }
 impl ::core::convert::From<IMFTrustedOutput> for ::windows::runtime::IUnknown {
     fn from(value: IMFTrustedOutput) -> Self {
@@ -40308,7 +40308,7 @@ impl IMFVideoCaptureSampleAllocator {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoCaptureSampleAllocator {
     type Vtable = IMFVideoCaptureSampleAllocator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1918597063, 51871, 20453, [157, 114, 153, 70, 191, 155, 60, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x725b77c7_ca9f_4fe5_9d72_9946bf9b3c70);
 }
 impl ::core::convert::From<IMFVideoCaptureSampleAllocator> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoCaptureSampleAllocator) -> Self {
@@ -40375,7 +40375,7 @@ impl IMFVideoDeviceID {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoDeviceID {
     type Vtable = IMFVideoDeviceID_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2743965031, 23196, 20284, [178, 147, 142, 180, 21, 178, 121, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa38d9567_5a9c_4f3c_b293_8eb415b279ba);
 }
 impl ::core::convert::From<IMFVideoDeviceID> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoDeviceID) -> Self {
@@ -40491,7 +40491,7 @@ impl IMFVideoDisplayControl {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoDisplayControl {
     type Vtable = IMFVideoDisplayControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2760946148, 43908, 19761, [161, 178, 24, 30, 3, 177, 7, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa490b1e4_ab84_4d31_a1b2_181e03b1077a);
 }
 impl ::core::convert::From<IMFVideoDisplayControl> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoDisplayControl) -> Self {
@@ -40725,7 +40725,7 @@ impl IMFVideoMediaType {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoMediaType {
     type Vtable = IMFVideoMediaType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3114219551, 43257, 18338, [165, 175, 202, 58, 34, 90, 56, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb99f381f_a8f9_47a2_a5af_ca3a225a3890);
 }
 impl ::core::convert::From<IMFVideoMediaType> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoMediaType) -> Self {
@@ -40869,7 +40869,7 @@ impl IMFVideoMixerBitmap {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoMixerBitmap {
     type Vtable = IMFVideoMixerBitmap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2169273120, 4059, 20204, [175, 143, 249, 87, 200, 246, 158, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x814c7b20_0fdb_4eec_af8f_f957c8f69edc);
 }
 impl ::core::convert::From<IMFVideoMixerBitmap> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoMixerBitmap) -> Self {
@@ -40931,7 +40931,7 @@ impl IMFVideoMixerControl {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoMixerControl {
     type Vtable = IMFVideoMixerControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2781267263, 49666, 19109, [150, 149, 23, 91, 168, 197, 8, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5c6c53f_c202_4aa5_9695_175ba8c508a5);
 }
 impl ::core::convert::From<IMFVideoMixerControl> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoMixerControl) -> Self {
@@ -40999,7 +40999,7 @@ impl IMFVideoMixerControl2 {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoMixerControl2 {
     type Vtable = IMFVideoMixerControl2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2220450157, 38510, 18736, [182, 88, 84, 250, 126, 90, 22, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8459616d_966e_4930_b658_54fa7e5a16d3);
 }
 impl ::core::convert::From<IMFVideoMixerControl2> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoMixerControl2) -> Self {
@@ -41066,7 +41066,7 @@ impl IMFVideoPositionMapper {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoPositionMapper {
     type Vtable = IMFVideoPositionMapper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(527081239, 59147, 20004, [138, 228, 11, 44, 59, 167, 164, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f6a9f17_e70b_4e24_8ae4_0b2c3ba7a4ae);
 }
 impl ::core::convert::From<IMFVideoPositionMapper> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoPositionMapper) -> Self {
@@ -41133,7 +41133,7 @@ impl IMFVideoPresenter {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoPresenter {
     type Vtable = IMFVideoPresenter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(699396224, 6186, 19037, [175, 59, 68, 143, 58, 99, 70, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29aff080_182a_4a5d_af3b_448f3a6346cb);
 }
 impl ::core::convert::From<IMFVideoPresenter> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoPresenter) -> Self {
@@ -41253,7 +41253,7 @@ impl IMFVideoProcessor {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoProcessor {
     type Vtable = IMFVideoProcessor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1789919244, 65230, 19743, [162, 172, 169, 87, 53, 48, 101, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ab0000c_fece_4d1f_a2ac_a9573530656e);
 }
 impl ::core::convert::From<IMFVideoProcessor> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoProcessor) -> Self {
@@ -41330,7 +41330,7 @@ impl IMFVideoProcessorControl {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoProcessorControl {
     type Vtable = IMFVideoProcessorControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2750838229, 24857, 20351, [161, 0, 29, 139, 40, 15, 14, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3f675d5_6119_4f7f_a100_1d8b280f0efb);
 }
 impl ::core::convert::From<IMFVideoProcessorControl> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoProcessorControl) -> Self {
@@ -41417,7 +41417,7 @@ impl IMFVideoProcessorControl2 {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoProcessorControl2 {
     type Vtable = IMFVideoProcessorControl2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3185980371, 57820, 19071, [166, 147, 187, 174, 57, 156, 74, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbde633d3_e1dc_4a7f_a693_bbae399c4a20);
 }
 impl ::core::convert::From<IMFVideoProcessorControl2> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoProcessorControl2) -> Self {
@@ -41546,7 +41546,7 @@ impl IMFVideoProcessorControl3 {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoProcessorControl3 {
     type Vtable = IMFVideoProcessorControl3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(606385138, 60195, 16625, [145, 170, 116, 189, 222, 234, 8, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2424b3f2_eb23_40f1_91aa_74bddeea0883);
 }
 impl ::core::convert::From<IMFVideoProcessorControl3> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoProcessorControl3) -> Self {
@@ -41645,7 +41645,7 @@ impl IMFVideoRenderer {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoRenderer {
     type Vtable = IMFVideoRenderer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3755987351, 43466, 17368, [179, 65, 106, 243, 80, 55, 146, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdfdfd197_a9ca_43d8_b341_6af3503792cd);
 }
 impl ::core::convert::From<IMFVideoRenderer> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoRenderer) -> Self {
@@ -41687,7 +41687,7 @@ impl IMFVideoRendererEffectControl {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoRendererEffectControl {
     type Vtable = IMFVideoRendererEffectControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1615672279, 53027, 16853, [130, 36, 91, 187, 177, 168, 116, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x604d33d7_cf23_41d5_8224_5bbbb1a87475);
 }
 impl ::core::convert::From<IMFVideoRendererEffectControl> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoRendererEffectControl) -> Self {
@@ -41742,7 +41742,7 @@ impl IMFVideoSampleAllocator {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoSampleAllocator {
     type Vtable = IMFVideoSampleAllocator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2261502224, 58675, 18257, [142, 59, 241, 155, 91, 128, 106, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86cbc910_e533_4751_8e3b_f19b5b806a03);
 }
 impl ::core::convert::From<IMFVideoSampleAllocator> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoSampleAllocator) -> Self {
@@ -41792,7 +41792,7 @@ impl IMFVideoSampleAllocatorCallback {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoSampleAllocatorCallback {
     type Vtable = IMFVideoSampleAllocatorCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2569242804, 13170, 20327, [139, 111, 200, 76, 7, 31, 71, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x992388b4_3372_4f67_8b6f_c84c071f4751);
 }
 impl ::core::convert::From<IMFVideoSampleAllocatorCallback> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoSampleAllocatorCallback) -> Self {
@@ -41852,7 +41852,7 @@ impl IMFVideoSampleAllocatorEx {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoSampleAllocatorEx {
     type Vtable = IMFVideoSampleAllocatorEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1415264840, 12931, 20322, [134, 111, 166, 45, 143, 89, 143, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x545b3a48_3283_4f62_866f_a62d8f598f9f);
 }
 impl ::core::convert::From<IMFVideoSampleAllocatorEx> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoSampleAllocatorEx) -> Self {
@@ -41918,7 +41918,7 @@ impl IMFVideoSampleAllocatorNotify {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoSampleAllocatorNotify {
     type Vtable = IMFVideoSampleAllocatorNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2811415998, 50036, 20105, [131, 53, 39, 142, 123, 153, 86, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa792cdbe_c374_4e89_8335_278e7b9956a4);
 }
 impl ::core::convert::From<IMFVideoSampleAllocatorNotify> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoSampleAllocatorNotify) -> Self {
@@ -41964,7 +41964,7 @@ impl IMFVideoSampleAllocatorNotifyEx {
 }
 unsafe impl ::windows::runtime::Interface for IMFVideoSampleAllocatorNotifyEx {
     type Vtable = IMFVideoSampleAllocatorNotifyEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(964209178, 27995, 19327, [163, 64, 144, 137, 145, 137, 174, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3978aa1a_6d5b_4b7f_a340_90899189ae34);
 }
 impl ::core::convert::From<IMFVideoSampleAllocatorNotifyEx> for ::windows::runtime::IUnknown {
     fn from(value: IMFVideoSampleAllocatorNotifyEx) -> Self {
@@ -42225,7 +42225,7 @@ impl IMFVirtualCamera {
 }
 unsafe impl ::windows::runtime::Interface for IMFVirtualCamera {
     type Vtable = IMFVirtualCamera_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(470329444, 61292, 19573, [175, 89, 95, 45, 104, 218, 149, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c08a864_ef6c_4c75_af59_5f2d68da9563);
 }
 impl ::core::convert::From<IMFVirtualCamera> for ::windows::runtime::IUnknown {
     fn from(value: IMFVirtualCamera) -> Self {
@@ -42390,7 +42390,7 @@ impl IMFWorkQueueServices {
 }
 unsafe impl ::windows::runtime::Interface for IMFWorkQueueServices {
     type Vtable = IMFWorkQueueServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(905845688, 41897, 16638, [187, 236, 235, 86, 156, 156, 204, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35fe1bb8_a3a9_40fe_bbec_eb569c9ccca3);
 }
 impl ::core::convert::From<IMFWorkQueueServices> for ::windows::runtime::IUnknown {
     fn from(value: IMFWorkQueueServices) -> Self {
@@ -42511,7 +42511,7 @@ impl IMFWorkQueueServicesEx {
 }
 unsafe impl ::windows::runtime::Interface for IMFWorkQueueServicesEx {
     type Vtable = IMFWorkQueueServicesEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2529138203, 16638, 17137, [186, 157, 50, 2, 56, 180, 151, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96bf961b_40fe_42f1_ba9d_320238b49700);
 }
 impl ::core::convert::From<IMFWorkQueueServicesEx> for ::windows::runtime::IUnknown {
     fn from(value: IMFWorkQueueServicesEx) -> Self {
@@ -42609,7 +42609,7 @@ impl IOPMVideoOutput {
 }
 unsafe impl ::windows::runtime::Interface for IOPMVideoOutput {
     type Vtable = IOPMVideoOutput_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(169153949, 16839, 17494, [147, 225, 40, 76, 214, 29, 78, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a15159d_41c7_4456_93e1_284cd61d4e8d);
 }
 impl ::core::convert::From<IOPMVideoOutput> for ::windows::runtime::IUnknown {
     fn from(value: IOPMVideoOutput) -> Self {
@@ -42659,7 +42659,7 @@ impl IPlayToControl {
 }
 unsafe impl ::windows::runtime::Interface for IPlayToControl {
     type Vtable = IPlayToControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1618310379, 62646, 17857, [176, 140, 203, 113, 81, 34, 144, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x607574eb_f4b6_45c1_b08c_cb715122901d);
 }
 impl ::core::convert::From<IPlayToControl> for ::windows::runtime::IUnknown {
     fn from(value: IPlayToControl) -> Self {
@@ -42711,7 +42711,7 @@ impl IPlayToControlWithCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for IPlayToControlWithCapabilities {
     type Vtable = IPlayToControlWithCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2862471183, 50442, 16928, [145, 193, 51, 34, 135, 248, 42, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa9dd80f_c50a_4220_91c1_332287f82a34);
 }
 impl ::core::convert::From<IPlayToControlWithCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: IPlayToControlWithCapabilities) -> Self {
@@ -42776,7 +42776,7 @@ impl IPlayToSourceClassFactory {
 }
 unsafe impl ::windows::runtime::Interface for IPlayToSourceClassFactory {
     type Vtable = IPlayToSourceClassFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2217423523, 39835, 19740, [179, 243, 73, 25, 50, 72, 165, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x842b32a3_9b9b_4d1c_b3f3_49193248a554);
 }
 impl ::core::convert::From<IPlayToSourceClassFactory> for ::windows::runtime::IUnknown {
     fn from(value: IPlayToSourceClassFactory) -> Self {
@@ -42861,7 +42861,7 @@ impl IToc {
 }
 unsafe impl ::windows::runtime::Interface for IToc {
     type Vtable = IToc_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3606074433, 43289, 16955, [145, 160, 137, 213, 180, 168, 171, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6f05441_a919_423b_91a0_89d5b4a8ab77);
 }
 impl ::core::convert::From<IToc> for ::windows::runtime::IUnknown {
     fn from(value: IToc) -> Self {
@@ -42932,7 +42932,7 @@ impl ITocCollection {
 }
 unsafe impl ::windows::runtime::Interface for ITocCollection {
     type Vtable = ITocCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(603908145, 44694, 17119, [177, 112, 37, 160, 72, 71, 163, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23fee831_ae96_42df_b170_25a04847a3ca);
 }
 impl ::core::convert::From<ITocCollection> for ::windows::runtime::IUnknown {
     fn from(value: ITocCollection) -> Self {
@@ -43008,7 +43008,7 @@ impl ITocEntry {
 }
 unsafe impl ::windows::runtime::Interface for ITocEntry {
     type Vtable = ITocEntry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4063190534, 22620, 19951, [133, 35, 101, 85, 207, 188, 12, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf22f5e06_585c_4def_8523_6555cfbc0cb3);
 }
 impl ::core::convert::From<ITocEntry> for ::windows::runtime::IUnknown {
     fn from(value: ITocEntry) -> Self {
@@ -43076,7 +43076,7 @@ impl ITocEntryList {
 }
 unsafe impl ::windows::runtime::Interface for ITocEntryList {
     type Vtable = ITocEntryList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(982305981, 3837, 17315, [184, 56, 243, 138, 85, 43, 162, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a8cccbd_0efd_43a3_b838_f38a552ba237);
 }
 impl ::core::convert::From<ITocEntryList> for ::windows::runtime::IUnknown {
     fn from(value: ITocEntryList) -> Self {
@@ -43153,7 +43153,7 @@ impl ITocParser {
 }
 unsafe impl ::windows::runtime::Interface for ITocParser {
     type Vtable = ITocParser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3975912021, 37528, 20297, [136, 127, 11, 54, 32, 101, 153, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xecfb9a55_9298_4f49_887f_0b36206599d2);
 }
 impl ::core::convert::From<ITocParser> for ::windows::runtime::IUnknown {
     fn from(value: ITocParser) -> Self {
@@ -43203,7 +43203,7 @@ impl IValidateBinding {
 }
 unsafe impl ::windows::runtime::Interface for IValidateBinding {
     type Vtable = IValidateBinding_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(77953202, 59256, 16938, [168, 5, 179, 238, 84, 217, 11, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04a578b2_e778_422a_a805_b3ee54d90bd9);
 }
 impl ::core::convert::From<IValidateBinding> for ::windows::runtime::IUnknown {
     fn from(value: IValidateBinding) -> Self {
@@ -43257,7 +43257,7 @@ impl IWMCodecLeakyBucket {
 }
 unsafe impl ::windows::runtime::Interface for IWMCodecLeakyBucket {
     type Vtable = IWMCodecLeakyBucket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2820384327, 25127, 17335, [178, 49, 199, 177, 81, 53, 221, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa81ba647_6227_43b7_b231_c7b15135dd7d);
 }
 impl ::core::convert::From<IWMCodecLeakyBucket> for ::windows::runtime::IUnknown {
     fn from(value: IWMCodecLeakyBucket) -> Self {
@@ -43302,7 +43302,7 @@ impl IWMCodecOutputTimestamp {
 }
 unsafe impl ::windows::runtime::Interface for IWMCodecOutputTimestamp {
     type Vtable = IWMCodecOutputTimestamp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3073040277, 31452, 19058, [188, 5, 87, 125, 142, 166, 191, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb72adf95_7adc_4a72_bc05_577d8ea6bf68);
 }
 impl ::core::convert::From<IWMCodecOutputTimestamp> for ::windows::runtime::IUnknown {
     fn from(value: IWMCodecOutputTimestamp) -> Self {
@@ -43349,7 +43349,7 @@ impl IWMCodecPrivateData {
 }
 unsafe impl ::windows::runtime::Interface for IWMCodecPrivateData {
     type Vtable = IWMCodecPrivateData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1945157262, 22519, 20225, [170, 102, 159, 87, 52, 12, 254, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73f0be8e_57f7_4f01_aa66_9f57340cfe0e);
 }
 impl ::core::convert::From<IWMCodecPrivateData> for ::windows::runtime::IUnknown {
     fn from(value: IWMCodecPrivateData) -> Self {
@@ -43399,7 +43399,7 @@ impl IWMCodecProps {
 }
 unsafe impl ::windows::runtime::Interface for IWMCodecProps {
     type Vtable = IWMCodecProps_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(628351258, 61466, 20445, [169, 141, 99, 184, 224, 186, 149, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2573e11a_f01a_4fdd_a98d_63b8e0ba9589);
 }
 impl ::core::convert::From<IWMCodecProps> for ::windows::runtime::IUnknown {
     fn from(value: IWMCodecProps) -> Self {
@@ -43450,7 +43450,7 @@ impl IWMCodecStrings {
 }
 unsafe impl ::windows::runtime::Interface for IWMCodecStrings {
     type Vtable = IWMCodecStrings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2813481035, 58762, 18427, [149, 139, 202, 199, 22, 90, 5, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7b2504b_e58a_47fb_958b_cac7165a057d);
 }
 impl ::core::convert::From<IWMCodecStrings> for ::windows::runtime::IUnknown {
     fn from(value: IWMCodecStrings) -> Self {
@@ -43499,7 +43499,7 @@ impl IWMColorConvProps {
 }
 unsafe impl ::windows::runtime::Interface for IWMColorConvProps {
     type Vtable = IWMColorConvProps_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3869548066, 49305, 16925, [170, 211, 192, 97, 251, 74, 232, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6a49e22_c099_421d_aad3_c061fb4ae85b);
 }
 impl ::core::convert::From<IWMColorConvProps> for ::windows::runtime::IUnknown {
     fn from(value: IWMColorConvProps) -> Self {
@@ -43542,7 +43542,7 @@ impl IWMColorLegalizerProps {
 }
 unsafe impl ::windows::runtime::Interface for IWMColorLegalizerProps {
     type Vtable = IWMColorLegalizerProps_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2003604403, 46893, 17672, [182, 208, 32, 135, 133, 245, 83, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x776c93b3_b72d_4508_b6d0_208785f553e7);
 }
 impl ::core::convert::From<IWMColorLegalizerProps> for ::windows::runtime::IUnknown {
     fn from(value: IWMColorLegalizerProps) -> Self {
@@ -43597,7 +43597,7 @@ impl IWMFrameInterpProps {
 }
 unsafe impl ::windows::runtime::Interface for IWMFrameInterpProps {
     type Vtable = IWMFrameInterpProps_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1275509659, 25196, 17940, [131, 41, 204, 106, 33, 185, 63, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c06bb9b_626c_4614_8329_cc6a21b93fa0);
 }
 impl ::core::convert::From<IWMFrameInterpProps> for ::windows::runtime::IUnknown {
     fn from(value: IWMFrameInterpProps) -> Self {
@@ -43651,7 +43651,7 @@ impl IWMInterlaceProps {
 }
 unsafe impl ::windows::runtime::Interface for IWMInterlaceProps {
     type Vtable = IWMInterlaceProps_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2064836049, 48418, 18666, [188, 6, 152, 232, 147, 34, 28, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b12e5d1_bd22_48ea_bc06_98e893221c89);
 }
 impl ::core::convert::From<IWMInterlaceProps> for ::windows::runtime::IUnknown {
     fn from(value: IWMInterlaceProps) -> Self {
@@ -43699,7 +43699,7 @@ impl IWMResamplerProps {
 }
 unsafe impl ::windows::runtime::Interface for IWMResamplerProps {
     type Vtable = IWMResamplerProps_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3890845775, 61599, 19876, [144, 63, 110, 46, 14, 254, 86, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7e9984f_f09f_4da4_903f_6e2e0efe56b5);
 }
 impl ::core::convert::From<IWMResamplerProps> for ::windows::runtime::IUnknown {
     fn from(value: IWMResamplerProps) -> Self {
@@ -43780,7 +43780,7 @@ impl IWMResizerProps {
 }
 unsafe impl ::windows::runtime::Interface for IWMResizerProps {
     type Vtable = IWMResizerProps_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1466326348, 1044, 20394, [144, 91, 16, 229, 70, 248, 28, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57665d4c_0414_4faa_905b_10e546f81c33);
 }
 impl ::core::convert::From<IWMResizerProps> for ::windows::runtime::IUnknown {
     fn from(value: IWMResizerProps) -> Self {
@@ -43827,7 +43827,7 @@ impl IWMSampleExtensionSupport {
 }
 unsafe impl ::windows::runtime::Interface for IWMSampleExtensionSupport {
     type Vtable = IWMSampleExtensionSupport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2613745796, 1540, 19498, [135, 218, 121, 63, 244, 213, 134, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9bca9884_0604_4c2a_87da_793ff4d586c3);
 }
 impl ::core::convert::From<IWMSampleExtensionSupport> for ::windows::runtime::IUnknown {
     fn from(value: IWMSampleExtensionSupport) -> Self {
@@ -43870,7 +43870,7 @@ impl IWMValidate {
 }
 unsafe impl ::windows::runtime::Interface for IWMValidate {
     type Vtable = IWMValidate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3471040242, 14344, 16717, [190, 102, 250, 253, 71, 34, 16, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcee3def2_3808_414d_be66_fafd472210bc);
 }
 impl ::core::convert::From<IWMValidate> for ::windows::runtime::IUnknown {
     fn from(value: IWMValidate) -> Self {
@@ -43916,7 +43916,7 @@ impl IWMVideoDecoderHurryup {
 }
 unsafe impl ::windows::runtime::Interface for IWMVideoDecoderHurryup {
     type Vtable = IWMVideoDecoderHurryup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(892056509, 11597, 17187, [158, 113, 220, 220, 251, 213, 60, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x352bb3bd_2d4d_4323_9e71_dcdcfbd53ca6);
 }
 impl ::core::convert::From<IWMVideoDecoderHurryup> for ::windows::runtime::IUnknown {
     fn from(value: IWMVideoDecoderHurryup) -> Self {
@@ -43969,7 +43969,7 @@ impl IWMVideoDecoderReconBuffer {
 }
 unsafe impl ::windows::runtime::Interface for IWMVideoDecoderReconBuffer {
     type Vtable = IWMVideoDecoderReconBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1170055852, 35042, 18723, [152, 186, 57, 73, 8, 7, 17, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45bda2ac_88e2_4923_98ba_3949080711a3);
 }
 impl ::core::convert::From<IWMVideoDecoderReconBuffer> for ::windows::runtime::IUnknown {
     fn from(value: IWMVideoDecoderReconBuffer) -> Self {
@@ -44015,7 +44015,7 @@ impl IWMVideoForceKeyFrame {
 }
 unsafe impl ::windows::runtime::Interface for IWMVideoForceKeyFrame {
     type Vtable = IWMVideoForceKeyFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2676266686, 23450, 16825, [169, 232, 242, 28, 216, 5, 150, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f8496be_5b9a_41b9_a9e8_f21cd80596c2);
 }
 impl ::core::convert::From<IWMVideoForceKeyFrame> for ::windows::runtime::IUnknown {
     fn from(value: IWMVideoForceKeyFrame) -> Self {
@@ -44060,7 +44060,7 @@ impl ::core::convert::From<i32> for KSMETHOD_OPMVIDEOOUTPUT {
 unsafe impl ::windows::runtime::Abi for KSMETHOD_OPMVIDEOOUTPUT {
     type Abi = Self;
 }
-pub const KSPROPSETID_OPMVideoOutput: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(116659387, 62522, 20450, [165, 102, 119, 75, 76, 129, 240, 219]);
+pub const KSPROPSETID_OPMVideoOutput: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06f414bb_f43a_4fe2_a566_774b4c81f0db);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const LOCAL_D3DFMT_DEFINES: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -44118,69 +44118,69 @@ pub const MEDIASINK_FIXED_STREAMS: u32 = 1u32;
 pub const MEDIASINK_RATELESS: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MEDIASINK_REQUIRE_REFERENCE_MEDIATYPE: u32 = 32u32;
-pub const MEDIASUBTYPE_AVC1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(826496577, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_DOLBY_DDPLUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2818279343, 11522, 17147, [164, 212, 5, 205, 147, 132, 59, 221]);
-pub const MEDIASUBTYPE_DOLBY_TRUEHD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3945254596, 5694, 19619, [139, 116, 142, 37, 249, 27, 81, 126]);
-pub const MEDIASUBTYPE_DTS2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(8193, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_DTS_HD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2732953271, 4009, 18619, [164, 12, 250, 14, 21, 109, 6, 69]);
-pub const MEDIASUBTYPE_DTS_HD_HRA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2786771812, 44302, 18244, [137, 255, 33, 60, 224, 223, 136, 4]);
-pub const MEDIASUBTYPE_DVM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(8192, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_I420: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(808596553, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_M4S2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(844313677, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_MP42: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(842289229, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_MP43: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(859066445, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_MP4S: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1395937357, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_MPEG_ADTS_AAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(5632, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_MPEG_HEAAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(5648, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_MPEG_LOAS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(5634, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_MPEG_RAW_AAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(5633, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_MPG4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(877088845, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_MSAUDIO1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(352, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_MSS1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(827544397, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_MSS2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(844321613, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_NOKIA_MPEG_ADTS_AAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(5640, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_NOKIA_MPEG_RAW_AAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(5641, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_NV11: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(825316942, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_None: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3828804494, 21071, 4558, [159, 83, 0, 32, 175, 11, 167, 112]);
-pub const MEDIASUBTYPE_RAW_AAC1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(255, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_V216: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(909193814, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_V410: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(808531030, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_VODAFONE_MPEG_ADTS_AAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(5642, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_VODAFONE_MPEG_RAW_AAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(5643, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_WMASPDIF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(356, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_WMAUDIO2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(353, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_WMAUDIO3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(354, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_WMAUDIO4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(360, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_WMAUDIO_LOSSLESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(355, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_WMV1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(827739479, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_WMV2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(844516695, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_WMV3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(861293911, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_WMVA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1096174935, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_WMVB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1112952151, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_WMVP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1347833175, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_WMVR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1381387607, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_WVC1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(826496599, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_WVP2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(844125783, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_X264: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(875967064, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_Y41T: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1412510809, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_Y42T: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1412576345, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_h264: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(875967080, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_m4s2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(846410861, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_mp42: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(842297453, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_mp43: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(859074669, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_mp4s: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1932816493, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_mpg4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(879194221, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_v210: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(808530550, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_wmv1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(829844855, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_wmv2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(846622071, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_wmv3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(863399287, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_wmva: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1635151223, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_wmvb: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1651928439, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_wmvp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1886809463, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_wmvr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1920363895, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_wvc1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(828601975, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_wvp2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(846231159, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MEDIASUBTYPE_x264: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(875967096, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
+pub const MEDIASUBTYPE_AVC1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31435641_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_DOLBY_DDPLUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7fb87af_2d02_42fb_a4d4_05cd93843bdd);
+pub const MEDIASUBTYPE_DOLBY_TRUEHD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb27cec4_163e_4ca3_8b74_8e25f91b517e);
+pub const MEDIASUBTYPE_DTS2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00002001_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_DTS_HD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2e58eb7_0fa9_48bb_a40c_fa0e156d0645);
+pub const MEDIASUBTYPE_DTS_HD_HRA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa61ac364_ad0e_4744_89ff_213ce0df8804);
+pub const MEDIASUBTYPE_DVM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00002000_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_I420: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30323449_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_M4S2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3253344d_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_MP42: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3234504d_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_MP43: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3334504d_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_MP4S: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5334504d_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_MPEG_ADTS_AAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00001600_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_MPEG_HEAAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00001610_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_MPEG_LOAS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00001602_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_MPEG_RAW_AAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00001601_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_MPG4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3447504d_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_MSAUDIO1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000160_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_MSS1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3153534d_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_MSS2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3253534d_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_NOKIA_MPEG_ADTS_AAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00001608_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_NOKIA_MPEG_RAW_AAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00001609_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_NV11: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3131564e_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_None: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe436eb8e_524f_11ce_9f53_0020af0ba770);
+pub const MEDIASUBTYPE_RAW_AAC1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x000000ff_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_V216: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36313256_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_V410: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30313456_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_VODAFONE_MPEG_ADTS_AAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0000160a_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_VODAFONE_MPEG_RAW_AAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0000160b_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_WMASPDIF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000164_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_WMAUDIO2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000161_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_WMAUDIO3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000162_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_WMAUDIO4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000168_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_WMAUDIO_LOSSLESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000163_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_WMV1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31564d57_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_WMV2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32564d57_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_WMV3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33564d57_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_WMVA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41564d57_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_WMVB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42564d57_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_WMVP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50564d57_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_WMVR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52564d57_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_WVC1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31435657_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_WVP2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32505657_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_X264: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34363258_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_Y41T: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54313459_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_Y42T: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54323459_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_h264: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34363268_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_m4s2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3273346d_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_mp42: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3234706d_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_mp43: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3334706d_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_mp4s: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7334706d_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_mpg4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3467706d_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_v210: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30313276_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_wmv1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31766d77_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_wmv2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32766d77_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_wmv3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33766d77_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_wmva: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61766d77_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_wmvb: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62766d77_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_wmvp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70766d77_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_wmvr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72766d77_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_wvc1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31637677_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_wvp2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32707677_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_x264: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34363278_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -44223,7 +44223,7 @@ impl ::core::ops::Not for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
         Self(self.0.not())
     }
 }
-pub const MEDeviceStreamCreated: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(38969807, 13632, 17332, [145, 100, 215, 46, 180, 5, 250, 64]);
+pub const MEDeviceStreamCreated: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0252a1cf_3540_43b4_9164_d72eb405fa40);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -44255,8 +44255,8 @@ impl ::core::convert::From<i32> for MF3DVideoOutputType {
 unsafe impl ::windows::runtime::Abi for MF3DVideoOutputType {
     type Abi = Self;
 }
-pub const MFAMRNBByteStreamHandler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4024836234, 2604, 18938, [138, 1, 55, 104, 181, 89, 182, 218]);
-pub const MFAMRNBSinkClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2955350360, 28882, 19547, [159, 148, 118, 245, 73, 217, 15, 223]);
+pub const MFAMRNBByteStreamHandler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefe6208a_0a2c_49fa_8a01_3768b559b6da);
+pub const MFAMRNBSinkClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0271158_70d2_4c5b_9f94_76f549d90fdf);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -44294,20 +44294,20 @@ pub const MFASFINDEXER_NO_FIXED_INTERVAL: u32 = 4294967295u32;
 pub const MFASFINDEXER_PER_ENTRY_BYTES_DYNAMIC: u32 = 65535u32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFASFINDEXER_READ_FOR_REVERSEPLAYBACK_OUTOFDATASEGMENT: u64 = 18446744073709551615u64;
-pub const MFASFINDEXER_TYPE_TIMECODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1233211953, 27565, 17661, [129, 10, 63, 96, 152, 78, 199, 253]);
-pub const MFASFMutexType_Bitrate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1914145836, 58459, 4565, [188, 42, 0, 176, 208, 243, 244, 171]);
-pub const MFASFMutexType_Language: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1914145835, 58459, 4565, [188, 42, 0, 176, 208, 243, 244, 171]);
-pub const MFASFMutexType_Presentation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1914145837, 58459, 4565, [188, 42, 0, 176, 208, 243, 244, 171]);
-pub const MFASFMutexType_Unknown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1914145838, 58459, 4565, [188, 42, 0, 176, 208, 243, 244, 171]);
-pub const MFASFSPLITTER_PACKET_BOUNDARY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4267198981, 59606, 17123, [177, 118, 241, 33, 23, 5, 251, 111]);
-pub const MFASFSampleExtension_ContentType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3583040544, 1980, 17260, [156, 247, 243, 187, 251, 241, 164, 220]);
-pub const MFASFSampleExtension_Encryption_KeyID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1983341969, 31071, 19873, [134, 237, 157, 70, 236, 161, 9, 169]);
-pub const MFASFSampleExtension_Encryption_SampleID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1721284686, 2810, 17200, [174, 178, 28, 10, 152, 215, 164, 77]);
-pub const MFASFSampleExtension_FileName: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3781553166, 6637, 17879, [180, 167, 37, 203, 209, 226, 142, 155]);
-pub const MFASFSampleExtension_OutputCleanPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4146740335, 28340, 20156, [177, 146, 9, 173, 151, 89, 232, 40]);
-pub const MFASFSampleExtension_PixelAspectRatio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(455009620, 63978, 19400, [130, 26, 55, 107, 116, 228, 196, 184]);
-pub const MFASFSampleExtension_SMPTE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(966104556, 34407, 20013, [143, 219, 152, 129, 76, 231, 108, 30]);
-pub const MFASFSampleExtension_SampleDuration: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3334313040, 34431, 18695, [131, 163, 199, 121, 33, 183, 51, 173]);
+pub const MFASFINDEXER_TYPE_TIMECODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49815231_6bad_44fd_810a_3f60984ec7fd);
+pub const MFASFMutexType_Bitrate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72178c2c_e45b_11d5_bc2a_00b0d0f3f4ab);
+pub const MFASFMutexType_Language: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72178c2b_e45b_11d5_bc2a_00b0d0f3f4ab);
+pub const MFASFMutexType_Presentation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72178c2d_e45b_11d5_bc2a_00b0d0f3f4ab);
+pub const MFASFMutexType_Unknown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72178c2e_e45b_11d5_bc2a_00b0d0f3f4ab);
+pub const MFASFSPLITTER_PACKET_BOUNDARY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe584a05_e8d6_42e3_b176_f1211705fb6f);
+pub const MFASFSampleExtension_ContentType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd590dc20_07bc_436c_9cf7_f3bbfbf1a4dc);
+pub const MFASFSampleExtension_Encryption_KeyID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76376591_795f_4da1_86ed_9d46eca109a9);
+pub const MFASFSampleExtension_Encryption_SampleID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6698b84e_0afa_4330_aeb2_1c0a98d7a44d);
+pub const MFASFSampleExtension_FileName: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe165ec0e_19ed_45d7_b4a7_25cbd1e28e9b);
+pub const MFASFSampleExtension_OutputCleanPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf72a3c6f_6eb4_4ebc_b192_09ad9759e828);
+pub const MFASFSampleExtension_PixelAspectRatio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b1ee554_f9ea_4bc8_821a_376b74e4c4b8);
+pub const MFASFSampleExtension_SMPTE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x399595ec_8667_4e2d_8fdb_98814ce76c1e);
+pub const MFASFSampleExtension_SampleDuration: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6bd9450_867f_4907_83a3_c77921b733ad);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFASF_DEFAULT_BUFFER_WINDOW_MS: u32 = 3000u32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -44634,48 +44634,48 @@ impl ::core::cmp::Eq for MFAudioDecoderDegradationInfo {}
 unsafe impl ::windows::runtime::Abi for MFAudioDecoderDegradationInfo {
     type Abi = Self;
 }
-pub const MFAudioFormat_AAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(5648, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_AAC_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1100729974, 35698, 16399, [173, 235, 132, 181, 125, 99, 72, 77]);
-pub const MFAudioFormat_ADTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(5632, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_ADTS_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3662242723, 5336, 19919, [146, 183, 25, 62, 184, 67, 99, 219]);
-pub const MFAudioFormat_ALAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(27745, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_AMR_NB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(29537, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_AMR_WB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(29538, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_AMR_WP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(29539, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_Base: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_Base_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(948221372, 57975, 17405, [152, 61, 3, 138, 168, 217, 182, 5]);
-pub const MFAudioFormat_DRM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(9, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_DTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(8, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_DTS_HD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2732953271, 4009, 18619, [164, 12, 250, 14, 21, 109, 6, 69]);
-pub const MFAudioFormat_DTS_LBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3271454474, 20028, 19953, [155, 96, 80, 134, 48, 145, 228, 185]);
-pub const MFAudioFormat_DTS_RAW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3765272627, 56134, 4559, [180, 209, 0, 128, 95, 108, 187, 234]);
-pub const MFAudioFormat_DTS_UHD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2265055511, 44259, 17118, [183, 62, 198, 86, 112, 98, 99, 248]);
-pub const MFAudioFormat_DTS_UHDY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2610743808, 37305, 19660, [136, 58, 143, 120, 122, 195, 204, 134]);
-pub const MFAudioFormat_DTS_XLL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1169390619, 35952, 20057, [167, 190, 161, 228, 44, 129, 200, 13]);
-pub const MFAudioFormat_Dolby_AC3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3765272620, 56134, 4559, [180, 209, 0, 128, 95, 108, 187, 234]);
-pub const MFAudioFormat_Dolby_AC3_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2540059264, 36859, 17477, [166, 186, 121, 45, 144, 143, 73, 127]);
-pub const MFAudioFormat_Dolby_AC3_SPDIF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(146, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_Dolby_AC4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(44096, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_Dolby_AC4_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(918000252, 15751, 18986, [145, 150, 162, 26, 217, 233, 53, 230]);
-pub const MFAudioFormat_Dolby_AC4_V1_ES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2643315910, 53590, 20408, [151, 156, 168, 91, 231, 210, 29, 250]);
-pub const MFAudioFormat_Dolby_AC4_V2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2040050336, 6109, 18870, [141, 250, 155, 39, 133, 82, 162, 172]);
-pub const MFAudioFormat_Dolby_AC4_V2_ES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2119748089, 45168, 17908, [140, 205, 169, 154, 4, 23, 193, 172]);
-pub const MFAudioFormat_Dolby_DDPlus: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2818279343, 11522, 17147, [164, 212, 5, 205, 147, 132, 59, 221]);
-pub const MFAudioFormat_FLAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(61868, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_Float: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_Float_SpatialObjects: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4198092180, 48228, 19121, [155, 113, 220, 208, 157, 90, 126, 122]);
-pub const MFAudioFormat_LPCM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3765272626, 56134, 4559, [180, 209, 0, 128, 95, 108, 187, 234]);
-pub const MFAudioFormat_MP3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(85, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_MPEG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(80, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_MSP1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(10, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_Opus: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(28751, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_PCM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_PCM_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2783444737, 33809, 19148, [168, 101, 95, 73, 65, 40, 141, 128]);
-pub const MFAudioFormat_Vorbis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2368721163, 22593, 19051, [137, 5, 88, 143, 236, 26, 222, 217]);
-pub const MFAudioFormat_WMASPDIF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(356, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_WMAudioV8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(353, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_WMAudioV9: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(354, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFAudioFormat_WMAudio_Lossless: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(355, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
+pub const MFAudioFormat_AAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00001610_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_AAC_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x419bce76_8b72_400f_adeb_84b57d63484d);
+pub const MFAudioFormat_ADTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00001600_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_ADTS_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda4963a3_14d8_4dcf_92b7_193eb84363db);
+pub const MFAudioFormat_ALAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00006c61_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_AMR_NB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00007361_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_AMR_WB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00007362_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_AMR_WP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00007363_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_Base: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000000_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_Base_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3884b5bc_e277_43fd_983d_038aa8d9b605);
+pub const MFAudioFormat_DRM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000009_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_DTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000008_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_DTS_HD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2e58eb7_0fa9_48bb_a40c_fa0e156d0645);
+pub const MFAudioFormat_DTS_LBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2fe6f0a_4e3c_4df1_9b60_50863091e4b9);
+pub const MFAudioFormat_DTS_RAW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe06d8033_db46_11cf_b4d1_00805f6cbbea);
+pub const MFAudioFormat_DTS_UHD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87020117_ace3_42de_b73e_c656706263f8);
+pub const MFAudioFormat_DTS_UHDY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b9cca00_91b9_4ccc_883a_8f787ac3cc86);
+pub const MFAudioFormat_DTS_XLL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45b37c1b_8c70_4e59_a7be_a1e42c81c80d);
+pub const MFAudioFormat_Dolby_AC3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe06d802c_db46_11cf_b4d1_00805f6cbbea);
+pub const MFAudioFormat_Dolby_AC3_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97663a80_8ffb_4445_a6ba_792d908f497f);
+pub const MFAudioFormat_Dolby_AC3_SPDIF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000092_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_Dolby_AC4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0000ac40_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_Dolby_AC4_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36b7927c_3d87_4a2a_9196_a21ad9e935e6);
+pub const MFAudioFormat_Dolby_AC4_V1_ES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d8dccc6_d156_4fb8_979c_a85be7d21dfa);
+pub const MFAudioFormat_Dolby_AC4_V2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7998b2a0_17dd_49b6_8dfa_9b278552a2ac);
+pub const MFAudioFormat_Dolby_AC4_V2_ES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e58c9f9_b070_45f4_8ccd_a99a0417c1ac);
+pub const MFAudioFormat_Dolby_DDPlus: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7fb87af_2d02_42fb_a4d4_05cd93843bdd);
+pub const MFAudioFormat_FLAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0000f1ac_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_Float: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000003_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_Float_SpatialObjects: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa39cd94_bc64_4ab1_9b71_dcd09d5a7e7a);
+pub const MFAudioFormat_LPCM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe06d8032_db46_11cf_b4d1_00805f6cbbea);
+pub const MFAudioFormat_MP3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000055_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_MPEG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000050_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_MSP1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0000000a_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_Opus: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0000704f_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_PCM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000001_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_PCM_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5e7ff01_8411_4acc_a865_5f4941288d80);
+pub const MFAudioFormat_Vorbis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d2fd10b_5841_4a6b_8905_588fec1aded9);
+pub const MFAudioFormat_WMASPDIF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000164_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_WMAudioV8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000161_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_WMAudioV9: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000162_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_WMAudio_Lossless: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000163_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[inline]
 pub unsafe fn MFAverageTimePerFrameToFrameRate(unaveragetimeperframe: u64, punnumerator: *mut u32, pundenominator: *mut u32) -> ::windows::runtime::Result<()> {
@@ -44924,28 +44924,28 @@ unsafe impl ::windows::runtime::Abi for MFCLOCK_STATE {
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFCLOCK_TOLERANCE_UNKNOWN: u32 = 50000u32;
-pub const MFCONNECTOR_AGP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2889543520, 52803, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_COMPONENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473075563, 52807, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_COMPOSITE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473075562, 52807, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_DISPLAYPORT_EMBEDDED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473075571, 52807, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_DISPLAYPORT_EXTERNAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473075570, 52807, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_DVI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473075564, 52807, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_D_JPN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473075568, 52807, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_HDMI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473075565, 52807, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_LVDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473075566, 52807, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_MIRACAST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473075575, 52807, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_PCI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2889543517, 52803, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_PCIX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2889543518, 52803, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_PCI_Express: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2889543519, 52803, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_SDI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473075569, 52807, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_SPDIF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(194291474, 44350, 19694, [131, 206, 206, 50, 227, 219, 101, 34]);
-pub const MFCONNECTOR_SVIDEO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473075561, 52807, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_TRANSPORT_AGNOSTIC_DIGITAL_MODE_A: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473075576, 52807, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_TRANSPORT_AGNOSTIC_DIGITAL_MODE_B: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473075577, 52807, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_UDI_EMBEDDED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473075573, 52807, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_UDI_EXTERNAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473075572, 52807, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_UNKNOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2889543516, 52803, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
-pub const MFCONNECTOR_VGA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473075560, 52807, 4569, [146, 219, 0, 11, 219, 40, 255, 152]);
+pub const MFCONNECTOR_AGP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac3aef60_ce43_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_COMPONENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57cd596b_ce47_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_COMPOSITE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57cd596a_ce47_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_DISPLAYPORT_EMBEDDED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57cd5973_ce47_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_DISPLAYPORT_EXTERNAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57cd5972_ce47_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_DVI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57cd596c_ce47_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_D_JPN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57cd5970_ce47_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_HDMI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57cd596d_ce47_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_LVDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57cd596e_ce47_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_MIRACAST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57cd5977_ce47_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_PCI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac3aef5d_ce43_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_PCIX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac3aef5e_ce43_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_PCI_Express: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac3aef5f_ce43_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_SDI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57cd5971_ce47_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_SPDIF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b94a712_ad3e_4cee_83ce_ce32e3db6522);
+pub const MFCONNECTOR_SVIDEO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57cd5969_ce47_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_TRANSPORT_AGNOSTIC_DIGITAL_MODE_A: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57cd5978_ce47_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_TRANSPORT_AGNOSTIC_DIGITAL_MODE_B: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57cd5979_ce47_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_UDI_EMBEDDED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57cd5975_ce47_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_UDI_EXTERNAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57cd5974_ce47_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_UNKNOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac3aef5c_ce43_11d9_92db_000bdb28ff98);
+pub const MFCONNECTOR_VGA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57cd5968_ce47_11d9_92db_000bdb28ff98);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFCONTENTPROTECTIONDEVICE_FUNCTIONID_START: u32 = 67108864u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -47392,12 +47392,12 @@ pub unsafe fn MFDeserializePresentationDescriptor(cbdata: u32, pbdata: *const u8
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const MFENABLETYPE_MF_RebootRequired: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1833778507, 3790, 18002, [139, 58, 242, 210, 66, 96, 216, 135]);
-pub const MFENABLETYPE_MF_UpdateRevocationInformation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3847794869, 46020, 17568, [146, 76, 80, 209, 120, 147, 35, 133]);
-pub const MFENABLETYPE_MF_UpdateUntrustedComponent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2558129110, 52962, 18662, [181, 115, 151, 103, 171, 23, 47, 22]);
-pub const MFENABLETYPE_WMDRMV1_LicenseAcquisition: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1341583023, 2883, 18327, [155, 133, 171, 243, 24, 21, 231, 176]);
-pub const MFENABLETYPE_WMDRMV7_Individualization: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2899494986, 45827, 20325, [188, 44, 44, 132, 141, 1, 169, 137]);
-pub const MFENABLETYPE_WMDRMV7_LicenseAcquisition: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3344095, 18950, 18564, [160, 151, 239, 109, 34, 236, 132, 163]);
+pub const MFENABLETYPE_MF_RebootRequired: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d4d3d4b_0ece_4652_8b3a_f2d24260d887);
+pub const MFENABLETYPE_MF_UpdateRevocationInformation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe558b0b5_b3c4_44a0_924c_50d178932385);
+pub const MFENABLETYPE_MF_UpdateUntrustedComponent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9879f3d6_cee2_48e6_b573_9767ab172f16);
+pub const MFENABLETYPE_WMDRMV1_LicenseAcquisition: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ff6eeaf_0b43_4797_9b85_abf31815e7b0);
+pub const MFENABLETYPE_WMDRMV7_Individualization: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xacd2c84a_b303_4f65_bc2c_2c848d01a989);
+pub const MFENABLETYPE_WMDRMV7_LicenseAcquisition: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x003306df_4a06_4884_a097_ef6d22ec84a3);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFEVRDLL: u32 = 0u32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -47487,8 +47487,8 @@ impl ::core::cmp::Eq for MFExtendedCameraIntrinsic_IntrinsicModel {}
 unsafe impl ::windows::runtime::Abi for MFExtendedCameraIntrinsic_IntrinsicModel {
     type Abi = Self;
 }
-pub const MFFLACBytestreamHandler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(239194040, 1286, 16628, [165, 22, 119, 204, 35, 100, 45, 145]);
-pub const MFFLACSinkClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2100938095, 24693, 18377, [155, 174, 140, 249, 229, 49, 181, 245]);
+pub const MFFLACBytestreamHandler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e41cfb8_0506_40f4_a516_77cc23642d91);
+pub const MFFLACSinkClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d39c56f_6075_47c9_9bae_8cf9e531b5f5);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -47935,8 +47935,8 @@ impl ::core::cmp::Eq for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {}
 unsafe impl ::windows::runtime::Abi for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
     type Abi = Self;
 }
-pub const MFImageFormat_JPEG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(434415018, 22114, 20421, [160, 192, 23, 88, 2, 142, 16, 87]);
-pub const MFImageFormat_RGB32: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(22, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
+pub const MFImageFormat_JPEG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19e4a5aa_5662_4fc5_a0c0_1758028e1057);
+pub const MFImageFormat_RGB32: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000016_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_Media_DirectShow`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
 #[inline]
@@ -48329,7 +48329,7 @@ impl ::core::cmp::Eq for MFMPEG2DLNASINKSTATS {}
 unsafe impl ::windows::runtime::Abi for MFMPEG2DLNASINKSTATS {
     type Abi = Self;
 }
-pub const MFMPEG4Format_Base: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 30330, 18765, [180, 120, 242, 157, 37, 220, 144, 55]);
+pub const MFMPEG4Format_Base: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000000_767a_494d_b478_f29d25dc9037);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Graphics_Dxgi_Common`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[inline]
@@ -48388,28 +48388,28 @@ impl ::core::cmp::Eq for MFMediaKeyStatus {}
 unsafe impl ::windows::runtime::Abi for MFMediaKeyStatus {
     type Abi = Self;
 }
-pub const MFMediaType_Audio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1935963489, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFMediaType_Binary: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1914145829, 58459, 4565, [188, 42, 0, 176, 208, 243, 244, 171]);
-pub const MFMediaType_Default: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2175013606, 33027, 19206, [133, 127, 24, 98, 120, 16, 36, 172]);
-pub const MFMediaType_FileTransfer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1914145830, 58459, 4565, [188, 42, 0, 176, 208, 243, 244, 171]);
-pub const MFMediaType_HTML: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1914145828, 58459, 4565, [188, 42, 0, 176, 208, 243, 244, 171]);
-pub const MFMediaType_Image: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1914145827, 58459, 4565, [188, 42, 0, 176, 208, 243, 244, 171]);
-pub const MFMediaType_Metadata: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747610636, 33467, 18306, [144, 160, 152, 162, 165, 189, 142, 248]);
-pub const MFMediaType_MultiplexedFrames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1856324272, 10271, 16945, [164, 100, 254, 47, 80, 34, 80, 28]);
-pub const MFMediaType_Perception: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1501558521, 28322, 18032, [133, 180, 234, 132, 7, 63, 233, 64]);
-pub const MFMediaType_Protected: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2068541414, 40196, 17556, [190, 20, 126, 11, 208, 118, 200, 228]);
-pub const MFMediaType_SAMI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3868617120, 15821, 16587, [158, 46, 55, 8, 56, 124, 6, 22]);
-pub const MFMediaType_Script: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1914145826, 58459, 4565, [188, 42, 0, 176, 208, 243, 244, 171]);
-pub const MFMediaType_Stream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3828804483, 21071, 4558, [159, 83, 0, 32, 175, 11, 167, 112]);
-pub const MFMediaType_Subtitle: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2798728577, 60752, 20069, [174, 8, 38, 6, 85, 118, 170, 204]);
-pub const MFMediaType_Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1935960438, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFNETSOURCE_ACCELERATEDSTREAMINGDURATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294903, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_AUTORECONNECTLIMIT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294906, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_AUTORECONNECTPROGRESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294914, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_BROWSERUSERAGENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294923, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_BROWSERWEBPAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294924, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_BUFFERINGTIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294902, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_CACHEENABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294905, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
+pub const MFMediaType_Audio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73647561_0000_0010_8000_00aa00389b71);
+pub const MFMediaType_Binary: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72178c25_e45b_11d5_bc2a_00b0d0f3f4ab);
+pub const MFMediaType_Default: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81a412e6_8103_4b06_857f_1862781024ac);
+pub const MFMediaType_FileTransfer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72178c26_e45b_11d5_bc2a_00b0d0f3f4ab);
+pub const MFMediaType_HTML: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72178c24_e45b_11d5_bc2a_00b0d0f3f4ab);
+pub const MFMediaType_Image: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72178c23_e45b_11d5_bc2a_00b0d0f3f4ab);
+pub const MFMediaType_Metadata: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c8fa20c_82bb_4782_90a0_98a2a5bd8ef8);
+pub const MFMediaType_MultiplexedFrames: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ea542b0_281f_4231_a464_fe2f5022501c);
+pub const MFMediaType_Perception: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x597ff6f9_6ea2_4670_85b4_ea84073fe940);
+pub const MFMediaType_Protected: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b4b6fe6_9d04_4494_be14_7e0bd076c8e4);
+pub const MFMediaType_SAMI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe69669a0_3dcd_40cb_9e2e_3708387c0616);
+pub const MFMediaType_Script: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72178c22_e45b_11d5_bc2a_00b0d0f3f4ab);
+pub const MFMediaType_Stream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe436eb83_524f_11ce_9f53_0020af0ba770);
+pub const MFMediaType_Subtitle: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6d13581_ed50_4e65_ae08_26065576aacc);
+pub const MFMediaType_Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73646976_0000_0010_8000_00aa00389b71);
+pub const MFNETSOURCE_ACCELERATEDSTREAMINGDURATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f277_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_AUTORECONNECTLIMIT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f27a_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_AUTORECONNECTPROGRESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f282_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_BROWSERUSERAGENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f28b_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_BROWSERWEBPAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f28c_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_BUFFERINGTIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f276_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_CACHEENABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f279_0505_4c5d_ae71_0a556344efa1);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -48425,34 +48425,34 @@ impl ::core::convert::From<i32> for MFNETSOURCE_CACHE_STATE {
 unsafe impl ::windows::runtime::Abi for MFNETSOURCE_CACHE_STATE {
     type Abi = Self;
 }
-pub const MFNETSOURCE_CLIENTGUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1621279910, 61847, 19476, [165, 191, 136, 131, 13, 36, 88, 175]);
-pub const MFNETSOURCE_CONNECTIONBANDWIDTH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294904, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_CREDENTIAL_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294912, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_CROSS_ORIGIN_SUPPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2554470524, 45100, 17009, [162, 252, 114, 228, 147, 8, 229, 194]);
-pub const MFNETSOURCE_DRMNET_LICENSE_REPRESENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1206575549, 48638, 17122, [130, 243, 84, 164, 140, 23, 150, 45]);
-pub const MFNETSOURCE_ENABLE_DOWNLOAD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294941, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_ENABLE_HTTP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294937, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_ENABLE_MSB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294934, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_ENABLE_PRIVATEMODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2185722328, 61835, 17413, [140, 241, 70, 79, 181, 170, 143, 113]);
-pub const MFNETSOURCE_ENABLE_RTSP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294936, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_ENABLE_STREAMING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294940, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_ENABLE_TCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294933, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_ENABLE_UDP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294932, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_FRIENDLYNAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1529509719, 48235, 17534, [170, 6, 13, 218, 28, 100, 110, 47]);
-pub const MFNETSOURCE_HOSTEXE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294927, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_HOSTVERSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294929, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_HTTP_DOWNLOAD_SESSION_PROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2102724638, 12413, 19821, [166, 99, 169, 59, 233, 124, 75, 92]);
-pub const MFNETSOURCE_LOGPARAMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1687382760, 37912, 17722, [140, 218, 62, 10, 102, 139, 53, 59]);
-pub const MFNETSOURCE_LOGURL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294931, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_MAXBUFFERTIMEMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1082860774, 16440, 17409, [181, 178, 254, 112, 26, 158, 191, 16]);
-pub const MFNETSOURCE_MAXUDPACCELERATEDSTREAMINGDURATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1252731001, 48097, 18836, [159, 240, 84, 149, 189, 37, 1, 41]);
-pub const MFNETSOURCE_PEERMANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1219664603, 65215, 17902, [169, 191, 239, 184, 28, 73, 46, 252]);
-pub const MFNETSOURCE_PLAYERID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294926, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_PLAYERUSERAGENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294930, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_PLAYERVERSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294925, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_PPBANDWIDTH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294913, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_PREVIEWMODEENABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294911, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_PROTOCOL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294909, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
+pub const MFNETSOURCE_CLIENTGUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60a2c4a6_f197_4c14_a5bf_88830d2458af);
+pub const MFNETSOURCE_CONNECTIONBANDWIDTH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f278_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_CREDENTIAL_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f280_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_CROSS_ORIGIN_SUPPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9842207c_b02c_4271_a2fc_72e49308e5c2);
+pub const MFNETSOURCE_DRMNET_LICENSE_REPRESENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47eae1bd_bdfe_42e2_82f3_54a48c17962d);
+pub const MFNETSOURCE_ENABLE_DOWNLOAD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f29d_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_ENABLE_HTTP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f299_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_ENABLE_MSB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f296_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_ENABLE_PRIVATEMODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x824779d8_f18b_4405_8cf1_464fb5aa8f71);
+pub const MFNETSOURCE_ENABLE_RTSP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f298_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_ENABLE_STREAMING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f29c_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_ENABLE_TCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f295_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_ENABLE_UDP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f294_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_FRIENDLYNAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b2a7757_bc6b_447e_aa06_0dda1c646e2f);
+pub const MFNETSOURCE_HOSTEXE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f28f_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_HOSTVERSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f291_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_HTTP_DOWNLOAD_SESSION_PROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d55081e_307d_4d6d_a663_a93be97c4b5c);
+pub const MFNETSOURCE_LOGPARAMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64936ae8_9418_453a_8cda_3e0a668b353b);
+pub const MFNETSOURCE_LOGURL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f293_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_MAXBUFFERTIMEMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x408b24e6_4038_4401_b5b2_fe701a9ebf10);
+pub const MFNETSOURCE_MAXUDPACCELERATEDSTREAMINGDURATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4aab2879_bbe1_4994_9ff0_5495bd250129);
+pub const MFNETSOURCE_PEERMANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48b29adb_febf_45ee_a9bf_efb81c492efc);
+pub const MFNETSOURCE_PLAYERID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f28e_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_PLAYERUSERAGENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f292_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_PLAYERVERSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f28d_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_PPBANDWIDTH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f281_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_PREVIEWMODEENABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f27f_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_PROTOCOL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f27d_0505_4c5d_ae71_0a556344efa1);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -48470,18 +48470,18 @@ impl ::core::convert::From<i32> for MFNETSOURCE_PROTOCOL_TYPE {
 unsafe impl ::windows::runtime::Abi for MFNETSOURCE_PROTOCOL_TYPE {
     type Abi = Self;
 }
-pub const MFNETSOURCE_PROXYBYPASSFORLOCAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294918, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_PROXYEXCEPTIONLIST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294917, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_PROXYHOSTNAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294916, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_PROXYINFO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294939, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_PROXYLOCATORFACTORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294915, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_PROXYPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294920, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_PROXYRERUNAUTODETECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294921, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_PROXYSETTINGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294919, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_RESENDSENABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294907, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_RESOURCE_FILTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2170359798, 9818, 17527, [158, 70, 123, 128, 173, 128, 181, 251]);
-pub const MFNETSOURCE_SSLCERTIFICATE_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1441188647, 59035, 16999, [148, 12, 45, 126, 197, 187, 138, 15]);
-pub const MFNETSOURCE_STATISTICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294900, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
+pub const MFNETSOURCE_PROXYBYPASSFORLOCAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f286_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_PROXYEXCEPTIONLIST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f285_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_PROXYHOSTNAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f284_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_PROXYINFO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f29b_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_PROXYLOCATORFACTORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f283_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_PROXYPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f288_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_PROXYRERUNAUTODETECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f289_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_PROXYSETTINGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f287_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_RESENDSENABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f27b_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_RESOURCE_FILTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x815d0ff6_265a_4477_9e46_7b80ad80b5fb);
+pub const MFNETSOURCE_SSLCERTIFICATE_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55e6cb27_e69b_4267_940c_2d7ec5bb8a0f);
+pub const MFNETSOURCE_STATISTICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f274_0505_4c5d_ae71_0a556344efa1);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -48524,10 +48524,10 @@ impl ::core::convert::From<i32> for MFNETSOURCE_STATISTICS_IDS {
 unsafe impl ::windows::runtime::Abi for MFNETSOURCE_STATISTICS_IDS {
     type Abi = Self;
 }
-pub const MFNETSOURCE_STATISTICS_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294901, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_STREAM_LANGUAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2595504920, 63437, 20269, [141, 109, 250, 53, 180, 146, 206, 203]);
-pub const MFNETSOURCE_THINNINGENABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294908, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
-pub const MFNETSOURCE_TRANSPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294910, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
+pub const MFNETSOURCE_STATISTICS_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f275_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_STREAM_LANGUAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ab44318_f7cd_4f2d_8d6d_fa35b492cecb);
+pub const MFNETSOURCE_THINNINGENABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f27c_0505_4c5d_ae71_0a556344efa1);
+pub const MFNETSOURCE_TRANSPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f27e_0505_4c5d_ae71_0a556344efa1);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -48542,7 +48542,7 @@ impl ::core::convert::From<i32> for MFNETSOURCE_TRANSPORT_TYPE {
 unsafe impl ::windows::runtime::Abi for MFNETSOURCE_TRANSPORT_TYPE {
     type Abi = Self;
 }
-pub const MFNETSOURCE_UDP_PORT_RANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294938, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
+pub const MFNETSOURCE_UDP_PORT_RANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb1f29a_0505_4c5d_ae71_0a556344efa1);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -48559,7 +48559,7 @@ impl ::core::convert::From<i32> for MFNET_PROXYSETTINGS {
 unsafe impl ::windows::runtime::Abi for MFNET_PROXYSETTINGS {
     type Abi = Self;
 }
-pub const MFNET_SAVEJOB_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3092928639, 15618, 20050, [149, 101, 85, 211, 236, 30, 127, 247]);
+pub const MFNET_SAVEJOB_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb85a587f_3d02_4e52_9565_55d3ec1e7ff7);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -48754,26 +48754,26 @@ impl ::core::convert::From<i32> for MFPOLICYMANAGER_ACTION {
 unsafe impl ::windows::runtime::Abi for MFPOLICYMANAGER_ACTION {
     type Abi = Self;
 }
-pub const MFPROTECTIONATTRIBUTE_BEST_EFFORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3370148657, 30192, 20161, [142, 119, 23, 87, 143, 119, 59, 70]);
-pub const MFPROTECTIONATTRIBUTE_CONSTRICTVIDEO_IMAGESIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(8681212, 19288, 19840, [167, 144, 231, 41, 118, 115, 22, 29]);
-pub const MFPROTECTIONATTRIBUTE_FAIL_OVER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2234952645, 14577, 16721, [156, 206, 245, 93, 148, 18, 41, 172]);
-pub const MFPROTECTIONATTRIBUTE_HDCP_SRM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1865425159, 13431, 17512, [138, 8, 238, 249, 219, 16, 226, 15]);
-pub const MFPROTECTION_ACP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3288142278, 63671, 19744, [176, 8, 29, 177, 125, 97, 242, 218]);
-pub const MFPROTECTION_CGMSA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3850267113, 8811, 19761, [180, 227, 211, 219, 0, 135, 54, 221]);
-pub const MFPROTECTION_CONSTRICTAUDIO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4291402564, 57160, 19990, [142, 102, 9, 104, 146, 193, 87, 138]);
-pub const MFPROTECTION_CONSTRICTVIDEO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(422801614, 50660, 19514, [138, 102, 105, 89, 180, 218, 68, 66]);
-pub const MFPROTECTION_CONSTRICTVIDEO_NOOPM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2776688845, 49735, 18775, [185, 131, 60, 46, 235, 209, 255, 89]);
-pub const MFPROTECTION_DISABLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2361841691, 65222, 19855, [150, 75, 207, 186, 11, 13, 173, 13]);
-pub const MFPROTECTION_DISABLE_SCREEN_SCRAPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2719054244, 47053, 16600, [150, 20, 142, 242, 55, 27, 167, 141]);
-pub const MFPROTECTION_FFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1177179826, 10342, 19382, [152, 13, 109, 141, 158, 219, 26, 140]);
-pub const MFPROTECTION_GRAPHICS_TRANSFER_AES_ENCRYPTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3363036772, 55461, 18918, [136, 187, 251, 150, 63, 211, 212, 206]);
-pub const MFPROTECTION_HARDWARE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1323823297, 40663, 16975, [182, 190, 153, 107, 51, 82, 136, 86]);
-pub const MFPROTECTION_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2927411261, 51240, 16417, [172, 183, 213, 120, 210, 122, 175, 19]);
-pub const MFPROTECTION_HDCP_WITH_TYPE_ENFORCEMENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2762311144, 60768, 17453, [129, 77, 219, 77, 66, 32, 160, 109]);
-pub const MFPROTECTION_PROTECTED_SURFACE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1331533158, 59202, 18981, [141, 31, 210, 135, 181, 250, 10, 222]);
-pub const MFPROTECTION_TRUSTEDAUDIODRIVERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1706947538, 360, 18454, [165, 51, 85, 212, 123, 2, 113, 1]);
-pub const MFPROTECTION_VIDEO_FRAMES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(916823228, 29697, 19084, [188, 32, 70, 167, 201, 229, 151, 240]);
-pub const MFPROTECTION_WMDRMOTA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2724701857, 13870, 18384, [136, 5, 70, 40, 89, 138, 35, 228]);
+pub const MFPROTECTIONATTRIBUTE_BEST_EFFORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8e06331_75f0_4ec1_8e77_17578f773b46);
+pub const MFPROTECTIONATTRIBUTE_CONSTRICTVIDEO_IMAGESIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x008476fc_4b58_4d80_a790_e7297673161d);
+pub const MFPROTECTIONATTRIBUTE_FAIL_OVER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8536abc5_38f1_4151_9cce_f55d941229ac);
+pub const MFPROTECTIONATTRIBUTE_HDCP_SRM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f302107_3477_4468_8a08_eef9db10e20f);
+pub const MFPROTECTION_ACP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3fd11c6_f8b7_4d20_b008_1db17d61f2da);
+pub const MFPROTECTION_CGMSA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe57e69e9_226b_4d31_b4e3_d3db008736dd);
+pub const MFPROTECTION_CONSTRICTAUDIO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffc99b44_df48_4e16_8e66_096892c1578a);
+pub const MFPROTECTION_CONSTRICTVIDEO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x193370ce_c5e4_4c3a_8a66_6959b4da4442);
+pub const MFPROTECTION_CONSTRICTVIDEO_NOOPM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa580e8cd_c247_4957_b983_3c2eebd1ff59);
+pub const MFPROTECTION_DISABLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cc6d81b_fec6_4d8f_964b_cfba0b0dad0d);
+pub const MFPROTECTION_DISABLE_SCREEN_SCRAPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa21179a4_b7cd_40d8_9614_8ef2371ba78d);
+pub const MFPROTECTION_FFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x462a56b2_2866_4bb6_980d_6d8d9edb1a8c);
+pub const MFPROTECTION_GRAPHICS_TRANSFER_AES_ENCRYPTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc873de64_d8a5_49e6_88bb_fb963fd3d4ce);
+pub const MFPROTECTION_HARDWARE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ee7f0c1_9ed7_424f_b6be_996b33528856);
+pub const MFPROTECTION_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae7cc03d_c828_4021_acb7_d578d27aaf13);
+pub const MFPROTECTION_HDCP_WITH_TYPE_ENFORCEMENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4a585e8_ed60_442d_814d_db4d4220a06d);
+pub const MFPROTECTION_PROTECTED_SURFACE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f5d9566_e742_4a25_8d1f_d287b5fa0ade);
+pub const MFPROTECTION_TRUSTEDAUDIODRIVERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65bdf3d2_0168_4816_a533_55d47b027101);
+pub const MFPROTECTION_VIDEO_FRAMES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36a59cbc_7401_4a8c_bc20_46a7c9e597f0);
+pub const MFPROTECTION_WMDRMOTA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa267a6a1_362e_47d0_8805_4628598a23e4);
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -49232,7 +49232,7 @@ impl ::core::cmp::Eq for MFP_PLAY_EVENT {}
 unsafe impl ::windows::runtime::Abi for MFP_PLAY_EVENT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-pub const MFP_POSITIONTYPE_100NS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0]);
+pub const MFP_POSITIONTYPE_100NS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -49784,81 +49784,81 @@ impl ::core::convert::From<i32> for MFSampleEncryptionProtectionScheme {
 unsafe impl ::windows::runtime::Abi for MFSampleEncryptionProtectionScheme {
     type Abi = Self;
 }
-pub const MFSampleExtension_3DVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4168062884, 56660, 20014, [154, 94, 85, 252, 45, 116, 160, 5]);
-pub const MFSampleExtension_3DVideo_SampleFormat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(140973938, 58223, 19711, [151, 179, 215, 46, 32, 152, 122, 72]);
-pub const MFSampleExtension_AccumulatedNonRefPicPercent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045408479, 42816, 17499, [188, 152, 201, 237, 31, 38, 14, 238]);
-pub const MFSampleExtension_BottomFieldFirst: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2484920483, 27363, 19930, [154, 8, 166, 66, 152, 52, 6, 23]);
-pub const MFSampleExtension_CameraExtrinsics: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1802901080, 47084, 19515, [130, 37, 134, 35, 202, 190, 195, 29]);
-pub const MFSampleExtension_CaptureMetadata: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(784212904, 64245, 17482, [166, 162, 235, 129, 8, 128, 171, 93]);
-pub const MFSampleExtension_ChromaOnly: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(515446684, 40991, 18501, [140, 4, 14, 101, 162, 110, 176, 79]);
-pub const MFSampleExtension_CleanPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2631860696, 41200, 17338, [176, 119, 234, 160, 108, 189, 114, 138]);
-pub const MFSampleExtension_ClosedCaption_CEA708: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(653299816, 59204, 18396, [170, 3, 219, 242, 4, 3, 189, 230]);
+pub const MFSampleExtension_3DVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf86f97a4_dd54_4e2e_9a5e_55fc2d74a005);
+pub const MFSampleExtension_3DVideo_SampleFormat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08671772_e36f_4cff_97b3_d72e20987a48);
+pub const MFSampleExtension_AccumulatedNonRefPicPercent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79ea74df_a740_445b_bc98_c9ed1f260eee);
+pub const MFSampleExtension_BottomFieldFirst: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x941ce0a3_6ae3_4dda_9a08_a64298340617);
+pub const MFSampleExtension_CameraExtrinsics: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b761658_b7ec_4c3b_8225_8623cabec31d);
+pub const MFSampleExtension_CaptureMetadata: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ebe23a8_faf5_444a_a6a2_eb810880ab5d);
+pub const MFSampleExtension_ChromaOnly: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1eb9179c_a01f_4845_8c04_0e65a26eb04f);
+pub const MFSampleExtension_CleanPoint: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9cdf01d8_a0f0_43ba_b077_eaa06cbd728a);
+pub const MFSampleExtension_ClosedCaption_CEA708: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26f09068_e744_47dc_aa03_dbf20403bde6);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFSampleExtension_ClosedCaption_CEA708_MAX_SIZE: u32 = 256u32;
-pub const MFSampleExtension_Content_KeyID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3334993328, 44234, 16731, [135, 217, 16, 68, 20, 105, 239, 198]);
-pub const MFSampleExtension_DecodeTimestamp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1940477140, 2530, 18529, [190, 252, 148, 189, 151, 192, 142, 110]);
-pub const MFSampleExtension_Depth_MaxReliableDepth: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3830793681, 7951, 18994, [168, 167, 97, 1, 162, 78, 168, 190]);
-pub const MFSampleExtension_Depth_MinReliableDepth: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1602585266, 58219, 18376, [155, 135, 254, 225, 202, 114, 197, 176]);
-pub const MFSampleExtension_DerivedFromTopField: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1750222426, 44572, 17747, [142, 155, 195, 66, 15, 203, 22, 55]);
-pub const MFSampleExtension_DescrambleData: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1128807398, 18691, 17172, [176, 50, 41, 81, 54, 89, 54, 252]);
-pub const MFSampleExtension_DeviceReferenceSystemTime: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1696823130, 47661, 16479, [178, 197, 1, 255, 136, 226, 232, 246]);
-pub const MFSampleExtension_DeviceTimestamp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2403218919, 11725, 18567, [134, 34, 42, 88, 186, 166, 82, 176]);
-pub const MFSampleExtension_DirtyRects: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2611413541, 45890, 20119, [145, 38, 11, 86, 106, 183, 234, 126]);
-pub const MFSampleExtension_Discontinuity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2631860697, 41200, 17338, [176, 119, 234, 160, 108, 189, 114, 138]);
-pub const MFSampleExtension_Encryption_ClearSliceHeaderData: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1426695412, 12813, 20076, [141, 26, 148, 198, 109, 210, 12, 176]);
-pub const MFSampleExtension_Encryption_CryptByteBlock: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2642684059, 3199, 18195, [171, 149, 16, 138, 180, 42, 216, 1]);
-pub const MFSampleExtension_Encryption_HardwareProtection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2586520875, 33392, 17379, [132, 72, 153, 79, 66, 110, 136, 134]);
-pub const MFSampleExtension_Encryption_HardwareProtection_KeyInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2989957248, 17755, 19927, [153, 137, 26, 149, 87, 132, 183, 84]);
-pub const MFSampleExtension_Encryption_HardwareProtection_KeyInfoID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2361380075, 38053, 19937, [130, 49, 168, 94, 71, 207, 129, 231]);
-pub const MFSampleExtension_Encryption_HardwareProtection_VideoDecryptorContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1765044424, 59447, 18336, [136, 203, 83, 91, 144, 94, 53, 130]);
-pub const MFSampleExtension_Encryption_KeyID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1983341969, 31071, 19873, [134, 237, 157, 70, 236, 161, 9, 169]);
-pub const MFSampleExtension_Encryption_NALUTypes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2968545223, 29004, 16748, [141, 89, 95, 77, 223, 137, 19, 182]);
-pub const MFSampleExtension_Encryption_Opaque_Data: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(575502309, 5009, 20475, [159, 65, 180, 50, 246, 140, 97, 29]);
-pub const MFSampleExtension_Encryption_ProtectionScheme: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3495219350, 10427, 17882, [135, 236, 116, 243, 81, 135, 20, 6]);
-pub const MFSampleExtension_Encryption_ResumeVideoOutput: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2754980773, 45022, 19701, [188, 28, 246, 172, 175, 19, 148, 157]);
-pub const MFSampleExtension_Encryption_SEIData: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1022421362, 17730, 18055, [153, 153, 88, 95, 86, 95, 186, 125]);
-pub const MFSampleExtension_Encryption_SPSPPSData: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2933788578, 3596, 17724, [183, 243, 222, 134, 147, 54, 77, 17]);
-pub const MFSampleExtension_Encryption_SampleID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1721284686, 2810, 17200, [174, 178, 28, 10, 152, 215, 164, 77]);
-pub const MFSampleExtension_Encryption_SkipByteBlock: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(223675720, 33559, 19121, [132, 95, 208, 99, 6, 226, 147, 227]);
-pub const MFSampleExtension_Encryption_SubSampleMappingSplit: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4261565625, 10917, 20188, [153, 247, 23, 232, 157, 191, 145, 116]);
-pub const MFSampleExtension_Encryption_SubSample_Mapping: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2219111034, 27041, 18650, [189, 8, 17, 206, 243, 104, 48, 210]);
-pub const MFSampleExtension_ExtendedCameraIntrinsics: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1443611813, 19936, 16659, [156, 220, 131, 45, 185, 116, 15, 61]);
-pub const MFSampleExtension_FeatureMap: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2687684965, 18172, 16394, [180, 73, 73, 222, 83, 230, 42, 110]);
-pub const MFSampleExtension_ForwardedDecodeUnitType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(144594887, 18387, 18982, [191, 156, 75, 100, 250, 251, 93, 30]);
-pub const MFSampleExtension_ForwardedDecodeUnits: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1112307020, 38856, 18646, [135, 119, 252, 65, 247, 182, 8, 121]);
-pub const MFSampleExtension_FrameCorruption: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3034401420, 3051, 17604, [139, 117, 176, 43, 145, 59, 4, 240]);
-pub const MFSampleExtension_GenKeyCtx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(411115723, 55258, 19289, [155, 62, 146, 82, 253, 55, 48, 28]);
-pub const MFSampleExtension_GenKeyFunc: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1142727150, 27423, 17665, [144, 58, 222, 135, 223, 66, 246, 237]);
-pub const MFSampleExtension_HDCP_FrameCounter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2637732960, 62727, 19110, [164, 10, 113, 2, 122, 2, 243, 222]);
-pub const MFSampleExtension_HDCP_OptionalHeader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2586735504, 4639, 17759, [131, 118, 201, 116, 40, 224, 181, 64]);
-pub const MFSampleExtension_HDCP_StreamID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(394157428, 50032, 19066, [149, 162, 54, 131, 60, 1, 208, 175]);
-pub const MFSampleExtension_Interlaced: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2983559946, 57016, 16611, [144, 250, 56, 153, 67, 113, 100, 97]);
-pub const MFSampleExtension_LastSlice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(727536727, 21831, 20231, [184, 200, 180, 163, 169, 161, 218, 172]);
-pub const MFSampleExtension_LongTermReferenceFrameInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2438230847, 57789, 16831, [129, 211, 252, 217, 24, 247, 19, 50]);
-pub const MFSampleExtension_MDLCacheCookie: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1593846521, 55545, 16803, [182, 195, 162, 173, 67, 246, 71, 173]);
-pub const MFSampleExtension_MULTIPLEXED_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2379083385, 27482, 19525, [141, 185, 32, 179, 149, 240, 47, 207]);
-pub const MFSampleExtension_MaxDecodeFrameSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3553387855, 63987, 18963, [136, 159, 240, 78, 178, 181, 185, 87]);
-pub const MFSampleExtension_MeanAbsoluteDifference: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(484171281, 2228, 17169, [166, 221, 15, 159, 55, 25, 7, 170]);
-pub const MFSampleExtension_MoveRegions: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3802580627, 14987, 19341, [149, 208, 246, 2, 129, 161, 47, 183]);
-pub const MFSampleExtension_NALULengthInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(420630140, 44363, 18015, [187, 24, 32, 24, 98, 135, 182, 175]);
-pub const MFSampleExtension_PacketCrossOffsets: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(663316253, 14495, 16571, [144, 217, 194, 130, 247, 127, 154, 189]);
-pub const MFSampleExtension_PhotoThumbnail: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1958463580, 51387, 17116, [181, 134, 218, 23, 255, 211, 93, 204]);
-pub const MFSampleExtension_PhotoThumbnailMediaType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1638749216, 60408, 16707, [137, 175, 107, 242, 95, 103, 45, 239]);
-pub const MFSampleExtension_PinholeCameraIntrinsics: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1323546309, 27157, 20082, [151, 97, 112, 193, 219, 139, 159, 227]);
-pub const MFSampleExtension_ROIRectangle: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(873767992, 18840, 19756, [190, 130, 190, 60, 160, 178, 77, 67]);
-pub const MFSampleExtension_RepeatFirstField: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(810362236, 29843, 20413, [177, 73, 146, 40, 222, 141, 154, 153]);
-pub const MFSampleExtension_RepeatFrame: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2294182799, 1809, 20290, [180, 88, 52, 74, 237, 66, 236, 47]);
-pub const MFSampleExtension_SampleKeyID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2664895432, 39815, 19238, [130, 151, 169, 59, 12, 90, 138, 204]);
-pub const MFSampleExtension_SingleField: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2642802710, 25995, 17754, [189, 224, 159, 167, 225, 90, 184, 249]);
-pub const MFSampleExtension_Spatial_CameraCoordinateSystem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2635319343, 8601, 20071, [145, 205, 209, 164, 24, 31, 37, 52]);
-pub const MFSampleExtension_Spatial_CameraProjectionTransform: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1207565493, 10754, 20262, [164, 119, 121, 47, 223, 149, 136, 106]);
-pub const MFSampleExtension_Spatial_CameraViewTransform: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1311055780, 33551, 18288, [133, 154, 75, 141, 153, 170, 128, 155]);
-pub const MFSampleExtension_TargetGlobalLuminance: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1063317302, 12783, 19887, [131, 96, 148, 3, 151, 228, 30, 243]);
-pub const MFSampleExtension_Timestamp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(507734425, 27070, 19578, [147, 105, 112, 6, 140, 2, 96, 203]);
-pub const MFSampleExtension_Token: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2190793318, 62248, 18437, [181, 81, 0, 222, 180, 197, 122, 97]);
-pub const MFSampleExtension_VideoDSPMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3240973771, 55257, 18285, [129, 243, 105, 17, 127, 22, 62, 160]);
-pub const MFSampleExtension_VideoEncodePictureType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2536965350, 52500, 18492, [143, 32, 201, 252, 9, 40, 186, 213]);
-pub const MFSampleExtension_VideoEncodeQP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3002066040, 63865, 19558, [185, 94, 238, 43, 130, 200, 47, 54]);
+pub const MFSampleExtension_Content_KeyID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6c7f5b0_acca_415b_87d9_10441469efc6);
+pub const MFSampleExtension_DecodeTimestamp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73a954d4_09e2_4861_befc_94bd97c08e6e);
+pub const MFSampleExtension_Depth_MaxReliableDepth: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe45545d1_1f0f_4a32_a8a7_6101a24ea8be);
+pub const MFSampleExtension_Depth_MinReliableDepth: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f8582b2_e36b_47c8_9b87_fee1ca72c5b0);
+pub const MFSampleExtension_DerivedFromTopField: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6852465a_ae1c_4553_8e9b_c3420fcb1637);
+pub const MFSampleExtension_DescrambleData: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43483be6_4903_4314_b032_2951365936fc);
+pub const MFSampleExtension_DeviceReferenceSystemTime: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6523775a_ba2d_405f_b2c5_01ff88e2e8f6);
+pub const MFSampleExtension_DeviceTimestamp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f3e35e7_2dcd_4887_8622_2a58baa652b0);
+pub const MFSampleExtension_DirtyRects: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ba70225_b342_4e97_9126_0b566ab7ea7e);
+pub const MFSampleExtension_Discontinuity: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9cdf01d9_a0f0_43ba_b077_eaa06cbd728a);
+pub const MFSampleExtension_Encryption_ClearSliceHeaderData: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5509a4f4_320d_4e6c_8d1a_94c66dd20cb0);
+pub const MFSampleExtension_Encryption_CryptByteBlock: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d84289b_0c7f_4713_ab95_108ab42ad801);
+pub const MFSampleExtension_Encryption_HardwareProtection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a2b2d2b_8270_43e3_8448_994f426e8886);
+pub const MFSampleExtension_Encryption_HardwareProtection_KeyInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2372080_455b_4dd7_9989_1a955784b754);
+pub const MFSampleExtension_Encryption_HardwareProtection_KeyInfoID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cbfcceb_94a5_4de1_8231_a85e47cf81e7);
+pub const MFSampleExtension_Encryption_HardwareProtection_VideoDecryptorContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x693470c8_e837_47a0_88cb_535b905e3582);
+pub const MFSampleExtension_Encryption_KeyID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76376591_795f_4da1_86ed_9d46eca109a9);
+pub const MFSampleExtension_Encryption_NALUTypes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0f067c7_714c_416c_8d59_5f4ddf8913b6);
+pub const MFSampleExtension_Encryption_Opaque_Data: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x224d77e5_1391_4ffb_9f41_b432f68c611d);
+pub const MFSampleExtension_Encryption_ProtectionScheme: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd054d096_28bb_45da_87ec_74f351871406);
+pub const MFSampleExtension_Encryption_ResumeVideoOutput: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa435aba5_afde_4cf5_bc1c_f6acaf13949d);
+pub const MFSampleExtension_Encryption_SEIData: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cf0e972_4542_4687_9999_585f565fba7d);
+pub const MFSampleExtension_Encryption_SPSPPSData: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaede0fa2_0e0c_453c_b7f3_de8693364d11);
+pub const MFSampleExtension_Encryption_SampleID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6698b84e_0afa_4330_aeb2_1c0a98d7a44d);
+pub const MFSampleExtension_Encryption_SkipByteBlock: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d550548_8317_4ab1_845f_d06306e293e3);
+pub const MFSampleExtension_Encryption_SubSampleMappingSplit: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe0254b9_2aa5_4edc_99f7_17e89dbf9174);
+pub const MFSampleExtension_Encryption_SubSample_Mapping: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8444f27a_69a1_48da_bd08_11cef36830d2);
+pub const MFSampleExtension_ExtendedCameraIntrinsics: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x560bc4a5_4de0_4113_9cdc_832db9740f3d);
+pub const MFSampleExtension_FeatureMap: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa032d165_46fc_400a_b449_49de53e62a6e);
+pub const MFSampleExtension_ForwardedDecodeUnitType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x089e57c7_47d3_4a26_bf9c_4b64fafb5d1e);
+pub const MFSampleExtension_ForwardedDecodeUnits: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x424c754c_97c8_48d6_8777_fc41f7b60879);
+pub const MFSampleExtension_FrameCorruption: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4dd4a8c_0beb_44c4_8b75_b02b913b04f0);
+pub const MFSampleExtension_GenKeyCtx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x188120cb_d7da_4b59_9b3e_9252fd37301c);
+pub const MFSampleExtension_GenKeyFunc: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x441ca1ee_6b1f_4501_903a_de87df42f6ed);
+pub const MFSampleExtension_HDCP_FrameCounter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d389c60_f507_4aa6_a40a_71027a02f3de);
+pub const MFSampleExtension_HDCP_OptionalHeader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a2e7390_121f_455f_8376_c97428e0b540);
+pub const MFSampleExtension_HDCP_StreamID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x177e5d74_c370_4a7a_95a2_36833c01d0af);
+pub const MFSampleExtension_Interlaced: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1d5830a_deb8_40e3_90fa_389943716461);
+pub const MFSampleExtension_LastSlice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b5d5457_5547_4f07_b8c8_b4a3a9a1daac);
+pub const MFSampleExtension_LongTermReferenceFrameInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9154733f_e1bd_41bf_81d3_fcd918f71332);
+pub const MFSampleExtension_MDLCacheCookie: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f002af9_d8f9_41a3_b6c3_a2ad43f647ad);
+pub const MFSampleExtension_MULTIPLEXED_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8dcdee79_6b5a_4c45_8db9_20b395f02fcf);
+pub const MFSampleExtension_MaxDecodeFrameSize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3cc654f_f9f3_4a13_889f_f04eb2b5b957);
+pub const MFSampleExtension_MeanAbsoluteDifference: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cdbde11_08b4_4311_a6dd_0f9f371907aa);
+pub const MFSampleExtension_MoveRegions: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2a6c693_3a8b_4b8d_95d0_f60281a12fb7);
+pub const MFSampleExtension_NALULengthInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19124e7c_ad4b_465f_bb18_20186287b6af);
+pub const MFSampleExtension_PacketCrossOffsets: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2789671d_389f_40bb_90d9_c282f77f9abd);
+pub const MFSampleExtension_PhotoThumbnail: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74bbc85c_c8bb_42dc_b586_da17ffd35dcc);
+pub const MFSampleExtension_PhotoThumbnailMediaType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61ad5420_ebf8_4143_89af_6bf25f672def);
+pub const MFSampleExtension_PinholeCameraIntrinsics: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ee3b6c5_6a15_4e72_9761_70c1db8b9fe3);
+pub const MFSampleExtension_ROIRectangle: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3414a438_4998_4d2c_be82_be3ca0b24d43);
+pub const MFSampleExtension_RepeatFirstField: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x304d257c_7493_4fbd_b149_9228de8d9a99);
+pub const MFSampleExtension_RepeatFrame: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88be738f_0711_4f42_b458_344aed42ec2f);
+pub const MFSampleExtension_SampleKeyID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ed713c8_9b87_4b26_8297_a93b0c5a8acc);
+pub const MFSampleExtension_SingleField: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d85f816_658b_455a_bde0_9fa7e15ab8f9);
+pub const MFSampleExtension_Spatial_CameraCoordinateSystem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d13c82f_2199_4e67_91cd_d1a4181f2534);
+pub const MFSampleExtension_Spatial_CameraProjectionTransform: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47f9fcb5_2a02_4f26_a477_792fdf95886a);
+pub const MFSampleExtension_Spatial_CameraViewTransform: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e251fa4_830f_4770_859a_4b8d99aa809b);
+pub const MFSampleExtension_TargetGlobalLuminance: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f60ef36_31ef_4daf_8360_940397e41ef3);
+pub const MFSampleExtension_Timestamp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e436999_69be_4c7a_9369_70068c0260cb);
+pub const MFSampleExtension_Token: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8294da66_f328_4805_b551_00deb4c57a61);
+pub const MFSampleExtension_VideoDSPMode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc12d55cb_d7d9_476d_81f3_69117f163ea0);
+pub const MFSampleExtension_VideoEncodePictureType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x973704e6_cd14_483c_8f20_c9fc0928bad5);
+pub const MFSampleExtension_VideoEncodeQP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2efe478_f979_4c66_b95e_ee2b82c82f36);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[inline]
 pub unsafe fn MFScheduleWorkItem<'a, Param0: ::windows::runtime::IntoParam<'a, IMFAsyncCallback>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pcallback: Param0, pstate: Param1, timeout: i64) -> ::windows::runtime::Result<u64> {
@@ -50055,20 +50055,20 @@ pub unsafe fn MFStartup(version: u32, dwflags: u32) -> ::windows::runtime::Resul
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const MFStreamExtension_CameraExtrinsics: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1751226064, 5090, 16857, [150, 56, 239, 3, 44, 39, 42, 82]);
-pub const MFStreamExtension_ExtendedCameraIntrinsics: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2859774943, 39468, 18646, [131, 147, 91, 209, 193, 168, 30, 110]);
-pub const MFStreamExtension_PinholeCameraIntrinsics: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3685483605, 3784, 19183, [156, 50, 122, 62, 227, 69, 111, 83]);
-pub const MFStreamFormat_MPEG2Program: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(640706513, 54064, 17884, [182, 105, 52, 217, 134, 228, 227, 225]);
-pub const MFStreamFormat_MPEG2Transport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3765272611, 56134, 4559, [180, 209, 0, 128, 95, 108, 187, 234]);
-pub const MFSubtitleFormat_ATSC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2141715107, 65198, 19990, [174, 223, 54, 185, 172, 251, 176, 153]);
-pub const MFSubtitleFormat_CustomUserData: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(464771145, 26132, 19840, [136, 130, 237, 36, 170, 130, 218, 146]);
-pub const MFSubtitleFormat_PGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1911819850, 4728, 17474, [179, 13, 57, 221, 29, 119, 34, 188]);
-pub const MFSubtitleFormat_SRT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1581678382, 30666, 19621, [131, 145, 209, 66, 237, 75, 118, 200]);
-pub const MFSubtitleFormat_SSA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1461152283, 6814, 20202, [171, 239, 198, 23, 96, 25, 138, 196]);
-pub const MFSubtitleFormat_TTML: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1944533394, 39440, 17238, [149, 87, 113, 148, 233, 30, 62, 84]);
-pub const MFSubtitleFormat_VobSub: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1804484852, 36140, 19693, [173, 145, 89, 96, 228, 91, 68, 51]);
-pub const MFSubtitleFormat_WebVTT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3364278805, 62597, 16571, [141, 182, 250, 219, 198, 25, 164, 93]);
-pub const MFSubtitleFormat_XML: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(537327951, 10698, 16789, [184, 219, 0, 222, 216, 255, 12, 151]);
+pub const MFStreamExtension_CameraExtrinsics: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x686196d0_13e2_41d9_9638_ef032c272a52);
+pub const MFStreamExtension_ExtendedCameraIntrinsics: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa74b3df_9a2c_48d6_8393_5bd1c1a81e6e);
+pub const MFStreamExtension_PinholeCameraIntrinsics: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbac0455_0ec8_4aef_9c32_7a3ee3456f53);
+pub const MFStreamFormat_MPEG2Program: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x263067d1_d330_45dc_b669_34d986e4e3e1);
+pub const MFStreamFormat_MPEG2Transport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe06d8023_db46_11cf_b4d1_00805f6cbbea);
+pub const MFSubtitleFormat_ATSC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fa7faa3_feae_4e16_aedf_36b9acfbb099);
+pub const MFSubtitleFormat_CustomUserData: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bb3d849_6614_4d80_8882_ed24aa82da92);
+pub const MFSubtitleFormat_PGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71f40e4a_1278_4442_b30d_39dd1d7722bc);
+pub const MFSubtitleFormat_SRT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e467f2e_77ca_4ca5_8391_d142ed4b76c8);
+pub const MFSubtitleFormat_SSA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57176a1b_1a9e_4eea_abef_c61760198ac4);
+pub const MFSubtitleFormat_TTML: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73e73992_9a10_4356_9557_7194e91e3e54);
+pub const MFSubtitleFormat_VobSub: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b8e40f4_8d2c_4ced_ad91_5960e45b4433);
+pub const MFSubtitleFormat_WebVTT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc886d215_f485_40bb_8db6_fadbc619a45d);
+pub const MFSubtitleFormat_XML: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2006f94f_29ca_4195_b8db_00ded8ff0c97);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[inline]
 pub unsafe fn MFTEnum<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param4: ::windows::runtime::IntoParam<'a, IMFAttributes>>(guidcategory: Param0, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: Param4, ppclsidmft: *mut *mut ::windows::runtime::GUID, pcmfts: *mut u32) -> ::windows::runtime::Result<()> {
@@ -50325,8 +50325,8 @@ pub unsafe fn MFTUnregisterLocalByCLSID<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const MFT_AUDIO_DECODER_AUDIO_ENDPOINT_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3352092014, 21400, 18069, [139, 231, 81, 179, 233, 81, 17, 189]);
-pub const MFT_AUDIO_DECODER_DEGRADATION_INFO_ATTRIBUTE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1815316141, 60448, 17165, [178, 165, 80, 92, 113, 120, 217, 196]);
+pub const MFT_AUDIO_DECODER_AUDIO_ENDPOINT_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7ccdd6e_5398_4695_8be7_51b3e95111bd);
+pub const MFT_AUDIO_DECODER_DEGRADATION_INFO_ATTRIBUTE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c3386ad_ec20_430d_b2a5_505c7178d9c4);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -50357,26 +50357,26 @@ impl ::core::convert::From<i32> for MFT_AUDIO_DECODER_DEGRADATION_TYPE {
 unsafe impl ::windows::runtime::Abi for MFT_AUDIO_DECODER_DEGRADATION_TYPE {
     type Abi = Self;
 }
-pub const MFT_AUDIO_DECODER_SPATIAL_METADATA_CLIENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(93879796, 4720, 18841, [146, 95, 142, 147, 154, 124, 10, 247]);
-pub const MFT_CATEGORY_AUDIO_DECODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2661760948, 61306, 17753, [141, 93, 113, 157, 143, 4, 38, 199]);
-pub const MFT_CATEGORY_AUDIO_EFFECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(285625416, 13896, 20176, [147, 46, 5, 206, 138, 200, 17, 183]);
-pub const MFT_CATEGORY_AUDIO_ENCODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2445691856, 63774, 19852, [146, 118, 219, 36, 130, 121, 217, 117]);
-pub const MFT_CATEGORY_DEMULTIPLEXER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2825915002, 37787, 17605, [153, 215, 118, 34, 107, 35, 179, 241]);
-pub const MFT_CATEGORY_ENCRYPTOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2965800894, 461, 17589, [184, 178, 124, 29, 126, 5, 139, 31]);
-pub const MFT_CATEGORY_MULTIPLEXER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(94131742, 1454, 19297, [182, 157, 85, 182, 30, 229, 74, 123]);
-pub const MFT_CATEGORY_OTHER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2417450327, 47082, 18689, [174, 179, 147, 58, 135, 71, 117, 111]);
-pub const MFT_CATEGORY_VIDEO_DECODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3602918731, 26675, 17844, [151, 26, 5, 164, 176, 75, 171, 145]);
-pub const MFT_CATEGORY_VIDEO_EFFECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(316767265, 21292, 19054, [138, 28, 64, 130, 90, 115, 99, 151]);
-pub const MFT_CATEGORY_VIDEO_ENCODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4154371197, 58693, 17287, [189, 238, 214, 71, 215, 189, 228, 42]);
-pub const MFT_CATEGORY_VIDEO_PROCESSOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(808363004, 43615, 18425, [159, 122, 194, 24, 139, 177, 99, 2]);
-pub const MFT_CATEGORY_VIDEO_RENDERER_EFFECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(341629108, 37620, 19235, [138, 231, 224, 223, 6, 194, 218, 149]);
-pub const MFT_CODEC_MERIT_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2292697877, 31495, 18996, [145, 40, 230, 76, 103, 3, 196, 211]);
-pub const MFT_CONNECTED_STREAM_ATTRIBUTE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1911470112, 42399, 19938, [188, 236, 56, 219, 29, 214, 17, 164]);
-pub const MFT_CONNECTED_TO_HW_STREAM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(887547688, 1750, 17553, [165, 83, 71, 149, 101, 13, 185, 18]);
-pub const MFT_DECODER_EXPOSE_OUTPUT_TYPES_IN_NATIVE_ORDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4018176831, 63738, 17625, [128, 216, 65, 237, 98, 50, 103, 12]);
-pub const MFT_DECODER_FINAL_VIDEO_RESOLUTION_HINT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3694101654, 5572, 16506, [182, 240, 27, 102, 171, 95, 191, 83]);
-pub const MFT_DECODER_QUALITY_MANAGEMENT_CUSTOM_CONTROL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2723033303, 56869, 17752, [187, 251, 113, 7, 10, 45, 51, 46]);
-pub const MFT_DECODER_QUALITY_MANAGEMENT_RECOVERY_WITHOUT_ARTIFACTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3633843691, 2632, 16991, [134, 35, 97, 29, 180, 29, 56, 16]);
+pub const MFT_AUDIO_DECODER_SPATIAL_METADATA_CLIENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05987df4_1270_4999_925f_8e939a7c0af7);
+pub const MFT_CATEGORY_AUDIO_DECODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ea73fb4_ef7a_4559_8d5d_719d8f0426c7);
+pub const MFT_CATEGORY_AUDIO_EFFECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11064c48_3648_4ed0_932e_05ce8ac811b7);
+pub const MFT_CATEGORY_AUDIO_ENCODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91c64bd0_f91e_4d8c_9276_db248279d975);
+pub const MFT_CATEGORY_DEMULTIPLEXER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8700a7a_939b_44c5_99d7_76226b23b3f1);
+pub const MFT_CATEGORY_ENCRYPTOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0c687be_01cd_44b5_b8b2_7c1d7e058b1f);
+pub const MFT_CATEGORY_MULTIPLEXER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x059c561e_05ae_4b61_b69d_55b61ee54a7b);
+pub const MFT_CATEGORY_OTHER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90175d57_b7ea_4901_aeb3_933a8747756f);
+pub const MFT_CATEGORY_VIDEO_DECODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6c02d4b_6833_45b4_971a_05a4b04bab91);
+pub const MFT_CATEGORY_VIDEO_EFFECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12e17c21_532c_4a6e_8a1c_40825a736397);
+pub const MFT_CATEGORY_VIDEO_ENCODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf79eac7d_e545_4387_bdee_d647d7bde42a);
+pub const MFT_CATEGORY_VIDEO_PROCESSOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x302ea3fc_aa5f_47f9_9f7a_c2188bb16302);
+pub const MFT_CATEGORY_VIDEO_RENDERER_EFFECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x145cd8b4_92f4_4b23_8ae7_e0df06c2da95);
+pub const MFT_CODEC_MERIT_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88a7cb15_7b07_4a34_9128_e64c6703c4d3);
+pub const MFT_CONNECTED_STREAM_ATTRIBUTE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71eeb820_a59f_4de2_bcec_38db1dd611a4);
+pub const MFT_CONNECTED_TO_HW_STREAM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34e6e728_06d6_4491_a553_4795650db912);
+pub const MFT_DECODER_EXPOSE_OUTPUT_TYPES_IN_NATIVE_ORDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef80833f_f8fa_44d9_80d8_41ed6232670c);
+pub const MFT_DECODER_FINAL_VIDEO_RESOLUTION_HINT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc2f8496_15c4_407a_b6f0_1b66ab5fbf53);
+pub const MFT_DECODER_QUALITY_MANAGEMENT_CUSTOM_CONTROL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa24e30d7_de25_4558_bbfb_71070a2d332e);
+pub const MFT_DECODER_QUALITY_MANAGEMENT_RECOVERY_WITHOUT_ARTIFACTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8980deb_0a48_425f_8623_611db41d3810);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -50391,18 +50391,18 @@ impl ::core::convert::From<i32> for MFT_DRAIN_TYPE {
 unsafe impl ::windows::runtime::Abi for MFT_DRAIN_TYPE {
     type Abi = Self;
 }
-pub const MFT_ENCODER_ERROR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3369201060, 39140, 16853, [146, 151, 68, 245, 56, 82, 249, 14]);
-pub const MFT_ENCODER_SUPPORTS_CONFIG_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2258851246, 14967, 20164, [159, 49, 1, 20, 154, 78, 146, 222]);
-pub const MFT_END_STREAMING_AWARE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1895548997, 45182, 16521, [176, 100, 57, 157, 198, 17, 15, 41]);
-pub const MFT_ENUM_ADAPTER_LUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(490295692, 57888, 19880, [160, 127, 186, 23, 37, 82, 214, 177]);
-pub const MFT_ENUM_HARDWARE_URL_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(800614060, 45176, 18754, [171, 108, 0, 61, 5, 205, 166, 116]);
-pub const MFT_ENUM_HARDWARE_VENDOR_ID_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(988590284, 859, 19404, [129, 133, 43, 141, 85, 30, 243, 175]);
-pub const MFT_ENUM_TRANSCODE_ONLY_ATTRIBUTE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(287221965, 46634, 19419, [137, 246, 103, 255, 205, 194, 69, 139]);
-pub const MFT_ENUM_VIDEO_RENDERER_EXTENSION_PROFILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1657104680, 39502, 17467, [185, 220, 202, 200, 48, 194, 65, 0]);
-pub const MFT_FIELDOFUSE_UNLOCK_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2395138557, 37192, 16653, [131, 30, 112, 36, 57, 70, 26, 142]);
-pub const MFT_FRIENDLY_NAME_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(827325358, 23361, 19605, [156, 25, 78, 125, 88, 111, 172, 227]);
-pub const MFT_GFX_DRIVER_VERSION_ID_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4081815699, 1504, 19222, [153, 61, 62, 42, 44, 222, 106, 211]);
-pub const MFT_HW_TIMESTAMP_WITH_QPC_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2365788088, 52291, 16984, [162, 46, 146, 16, 190, 248, 155, 228]);
+pub const MFT_ENCODER_ERROR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8d1eda4_98e4_41d5_9297_44f53852f90e);
+pub const MFT_ENCODER_SUPPORTS_CONFIG_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86a355ae_3a77_4ec4_9f31_01149a4e92de);
+pub const MFT_END_STREAMING_AWARE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70fbc845_b07e_4089_b064_399dc6110f29);
+pub const MFT_ENUM_ADAPTER_LUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d39518c_e220_4da8_a07f_ba172552d6b1);
+pub const MFT_ENUM_HARDWARE_URL_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2fb866ac_b078_4942_ab6c_003d05cda674);
+pub const MFT_ENUM_HARDWARE_VENDOR_ID_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3aecb0cc_035b_4bcc_8185_2b8d551ef3af);
+pub const MFT_ENUM_TRANSCODE_ONLY_ATTRIBUTE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x111ea8cd_b62a_4bdb_89f6_67ffcdc2458b);
+pub const MFT_ENUM_VIDEO_RENDERER_EXTENSION_PROFILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62c56928_9a4e_443b_b9dc_cac830c24100);
+pub const MFT_FIELDOFUSE_UNLOCK_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ec2e9fd_9148_410d_831e_702439461a8e);
+pub const MFT_FRIENDLY_NAME_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x314ffbae_5b41_4c95_9c19_4e7d586face3);
+pub const MFT_GFX_DRIVER_VERSION_ID_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf34b9093_05e0_4b16_993d_3e2a2cde6ad3);
+pub const MFT_HW_TIMESTAMP_WITH_QPC_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d030fb8_cc43_4258_a22e_9210bef89be4);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -50433,7 +50433,7 @@ impl ::core::cmp::Eq for MFT_INPUT_STREAM_INFO {}
 unsafe impl ::windows::runtime::Abi for MFT_INPUT_STREAM_INFO {
     type Abi = Self;
 }
-pub const MFT_INPUT_TYPES_Attributes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1115081137, 30109, 19443, [156, 208, 13, 114, 61, 19, 143, 150]);
+pub const MFT_INPUT_TYPES_Attributes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4276c9b1_759d_4bf3_9cd0_0d723d138f96);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -50520,11 +50520,11 @@ impl ::core::cmp::Eq for MFT_OUTPUT_STREAM_INFO {}
 unsafe impl ::windows::runtime::Abi for MFT_OUTPUT_STREAM_INFO {
     type Abi = Self;
 }
-pub const MFT_OUTPUT_TYPES_Attributes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2393804019, 42063, 17158, [186, 92, 191, 93, 218, 36, 40, 24]);
-pub const MFT_POLICY_SET_AWARE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1516452633, 52281, 20392, [140, 165, 89, 152, 27, 122, 0, 24]);
-pub const MFT_PREFERRED_ENCODER_PROFILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1392527625, 7925, 18135, [161, 142, 90, 117, 248, 181, 144, 95]);
-pub const MFT_PREFERRED_OUTPUTTYPE_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2121270425, 14698, 18926, [177, 180, 246, 40, 2, 30, 140, 157]);
-pub const MFT_PROCESS_LOCAL_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1412531940, 17993, 20069, [181, 136, 74, 163, 82, 175, 243, 121]);
+pub const MFT_OUTPUT_TYPES_Attributes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8eae8cf3_a44f_4306_ba5c_bf5dda242818);
+pub const MFT_POLICY_SET_AWARE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a633b19_cc39_4fa8_8ca5_59981b7a0018);
+pub const MFT_PREFERRED_ENCODER_PROFILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53004909_1ef5_46d7_a18e_5a75f8b5905f);
+pub const MFT_PREFERRED_OUTPUTTYPE_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e700499_396a_49ee_b1b4_f628021e8c9d);
+pub const MFT_PROCESS_LOCAL_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x543186e4_4649_4e65_b588_4aa352aff379);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -50601,7 +50601,7 @@ impl ::core::cmp::Eq for MFT_REGISTRATION_INFO {}
 unsafe impl ::windows::runtime::Abi for MFT_REGISTRATION_INFO {
     type Abi = Self;
 }
-pub const MFT_REMUX_MARK_I_PICTURE_AS_CLEAN_POINT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(911118213, 16174, 17260, [178, 162, 68, 64, 160, 18, 169, 232]);
+pub const MFT_REMUX_MARK_I_PICTURE_AS_CLEAN_POINT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x364e8f85_3f2e_436c_b2a2_4440a012a9e8);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFT_STREAMS_UNLIMITED: u32 = 4294967295u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -50631,22 +50631,22 @@ impl ::core::cmp::Eq for MFT_STREAM_STATE_PARAM {}
 unsafe impl ::windows::runtime::Abi for MFT_STREAM_STATE_PARAM {
     type Abi = Self;
 }
-pub const MFT_SUPPORT_3DVIDEO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(155156913, 20270, 17969, [129, 104, 121, 52, 3, 42, 1, 211]);
-pub const MFT_SUPPORT_DYNAMIC_FORMAT_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1397189137, 16147, 18939, [172, 66, 238, 39, 51, 201, 103, 65]);
-pub const MFT_TRANSFORM_CLSID_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1747043371, 26020, 20098, [153, 188, 154, 136, 32, 94, 205, 12]);
-pub const MFT_USING_HARDWARE_DRM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(888842109, 55198, 18775, [184, 206, 54, 43, 38, 132, 153, 108]);
-pub const MFTranscodeContainerType_3GP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(885326183, 17522, 20276, [158, 160, 196, 159, 186, 207, 3, 125]);
-pub const MFTranscodeContainerType_AC3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1837994435, 35985, 20177, [135, 66, 140, 52, 125, 91, 68, 208]);
-pub const MFTranscodeContainerType_ADTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(321901181, 3842, 17374, [163, 1, 56, 251, 187, 179, 131, 78]);
-pub const MFTranscodeContainerType_AMR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(39672531, 25114, 18267, [150, 77, 102, 177, 200, 36, 240, 121]);
-pub const MFTranscodeContainerType_ASF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1125085038, 46783, 20417, [160, 189, 158, 228, 110, 238, 42, 251]);
-pub const MFTranscodeContainerType_AVI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2128603311, 16431, 19830, [163, 60, 97, 159, 209, 87, 208, 241]);
-pub const MFTranscodeContainerType_FLAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(825510563, 1449, 17077, [144, 27, 142, 157, 66, 87, 247, 94]);
-pub const MFTranscodeContainerType_FMPEG4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2611508977, 16799, 19319, [161, 224, 53, 149, 157, 157, 64, 4]);
-pub const MFTranscodeContainerType_MP3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3828922642, 33777, 19942, [158, 58, 159, 251, 198, 221, 36, 209]);
-pub const MFTranscodeContainerType_MPEG2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3217218553, 31668, 20367, [175, 222, 225, 18, 196, 75, 168, 130]);
-pub const MFTranscodeContainerType_MPEG4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3698118749, 47568, 16623, [189, 53, 250, 98, 44, 26, 178, 138]);
-pub const MFTranscodeContainerType_WAVE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1690518844, 3878, 18241, [190, 99, 135, 189, 248, 187, 147, 91]);
+pub const MFT_SUPPORT_3DVIDEO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x093f81b1_4f2e_4631_8168_7934032a01d3);
+pub const MFT_SUPPORT_DYNAMIC_FORMAT_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53476a11_3f13_49fb_ac42_ee2733c96741);
+pub const MFT_TRANSFORM_CLSID_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6821c42b_65a4_4e82_99bc_9a88205ecd0c);
+pub const MFT_USING_HARDWARE_DRM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34faa77d_d79e_4957_b8ce_362b2684996c);
+pub const MFTranscodeContainerType_3GP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34c50167_4472_4f34_9ea0_c49fbacf037d);
+pub const MFTranscodeContainerType_AC3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d8d91c3_8c91_4ed1_8742_8c347d5b44d0);
+pub const MFTranscodeContainerType_ADTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x132fd27d_0f02_43de_a301_38fbbbb3834e);
+pub const MFTranscodeContainerType_AMR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x025d5ad3_621a_475b_964d_66b1c824f079);
+pub const MFTranscodeContainerType_ASF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x430f6f6e_b6bf_4fc1_a0bd_9ee46eee2afb);
+pub const MFTranscodeContainerType_AVI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7edfe8af_402f_4d76_a33c_619fd157d0f1);
+pub const MFTranscodeContainerType_FLAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31344aa3_05a9_42b5_901b_8e9d4257f75e);
+pub const MFTranscodeContainerType_FMPEG4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ba876f1_419f_4b77_a1e0_35959d9d4004);
+pub const MFTranscodeContainerType_MP3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe438b912_83f1_4de6_9e3a_9ffbc6dd24d1);
+pub const MFTranscodeContainerType_MPEG2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfc2dbf9_7bb4_4f8f_afde_e112c44ba882);
+pub const MFTranscodeContainerType_MPEG4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc6cd05d_b9d0_40ef_bd35_fa622c1ab28a);
+pub const MFTranscodeContainerType_WAVE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64c3453c_0f26_4741_be63_87bdf8bb935b);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[inline]
 pub unsafe fn MFTranscodeGetAudioOutputAvailableTypes<'a, Param2: ::windows::runtime::IntoParam<'a, IMFAttributes>>(guidsubtype: *const ::windows::runtime::GUID, dwmftflags: u32, pcodecconfig: Param2) -> ::windows::runtime::Result<IMFCollection> {
@@ -51115,79 +51115,79 @@ impl ::core::convert::From<i32> for MFVideoFlags {
 unsafe impl ::windows::runtime::Abi for MFVideoFlags {
     type Abi = Self;
 }
-pub const MFVideoFormat_420O: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1328558644, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_A16B16G16R16F: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(113, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_A2R10G10B10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(31, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_AI44: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(875841857, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_ARGB32: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(21, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_AV1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(825251393, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_AYUV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1448433985, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_Base: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_Base_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3938695637, 48404, 16951, [143, 31, 186, 180, 40, 228, 147, 18]);
-pub const MFVideoFormat_D16: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(80, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_DV25: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(892499556, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_DV50: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(808810084, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_DVH1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(828929636, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_DVHD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1684567652, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_DVSD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1685288548, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_DVSL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1819506276, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_H263: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(859189832, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_H264: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(875967048, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_H264_ES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1061221616, 22050, 20472, [182, 216, 161, 122, 88, 75, 238, 94]);
-pub const MFVideoFormat_H264_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1561127389, 38935, 18906, [189, 253, 245, 245, 185, 143, 24, 166]);
-pub const MFVideoFormat_H265: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(892744264, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_HEVC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1129727304, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_HEVC_ES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1398162760, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_HEVC_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1023283174, 1476, 18396, [157, 112, 75, 219, 41, 89, 114, 15]);
-pub const MFVideoFormat_I420: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(808596553, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_IYUV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1448433993, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_L16: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(81, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_L8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(50, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_M4S2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(844313677, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_MJPG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1196444237, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_MP43: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(859066445, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_MP4S: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1395937357, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_MP4V: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1446269005, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_MPEG2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3765272614, 56134, 4559, [180, 209, 0, 128, 95, 108, 187, 234]);
-pub const MFVideoFormat_MPG1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(826757197, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_MSS1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(827544397, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_MSS2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(844321613, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_NV11: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(825316942, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_NV12: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(842094158, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_NV21: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(825382478, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_ORAW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1463898703, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_P010: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(808530000, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_P016: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(909193296, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_P210: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(808530512, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_P216: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(909193808, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_RGB24: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(20, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_RGB32: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(22, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_RGB555: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(24, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_RGB565: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(23, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_RGB8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(41, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_Theora: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1868916852, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_UYVY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1498831189, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_VP10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(808538198, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_VP80: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(808996950, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_VP90: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(809062486, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_WMV1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(827739479, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_WMV2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(844516695, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_WMV3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(861293911, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_WVC1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(826496599, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_Y210: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(808530521, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_Y216: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(909193817, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_Y410: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(808531033, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_Y416: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(909194329, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_Y41P: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1345401945, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_Y41T: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1412510809, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_Y42T: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1412576345, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_YUY2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(844715353, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_YV12: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(842094169, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_YVU9: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(961893977, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_YVYU: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1431918169, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_v210: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(808530550, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_v216: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(909193846, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const MFVideoFormat_v410: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(808531062, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
+pub const MFVideoFormat_420O: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f303234_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_A16B16G16R16F: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000071_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_A2R10G10B10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0000001f_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_AI44: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34344941_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_ARGB32: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000015_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_AV1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31305641_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_AYUV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56555941_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_Base: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000000_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_Base_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeac3b9d5_bd14_4237_8f1f_bab428e49312);
+pub const MFVideoFormat_D16: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000050_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_DV25: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35327664_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_DV50: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30357664_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_DVH1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31687664_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_DVHD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64687664_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_DVSD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64737664_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_DVSL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c737664_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_H263: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33363248_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_H264: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34363248_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_H264_ES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f40f4f0_5622_4ff8_b6d8_a17a584bee5e);
+pub const MFVideoFormat_H264_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d0ce9dd_9817_49da_bdfd_f5f5b98f18a6);
+pub const MFVideoFormat_H265: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35363248_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_HEVC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43564548_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_HEVC_ES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53564548_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_HEVC_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cfe0fe6_05c4_47dc_9d70_4bdb2959720f);
+pub const MFVideoFormat_I420: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30323449_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_IYUV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56555949_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_L16: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000051_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_L8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000032_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_M4S2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3253344d_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_MJPG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47504a4d_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_MP43: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3334504d_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_MP4S: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5334504d_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_MP4V: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5634504d_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_MPEG2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe06d8026_db46_11cf_b4d1_00805f6cbbea);
+pub const MFVideoFormat_MPG1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3147504d_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_MSS1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3153534d_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_MSS2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3253534d_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_NV11: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3131564e_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_NV12: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3231564e_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_NV21: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3132564e_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_ORAW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5741524f_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_P010: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30313050_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_P016: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36313050_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_P210: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30313250_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_P216: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36313250_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_RGB24: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000014_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_RGB32: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000016_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_RGB555: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000018_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_RGB565: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000017_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_RGB8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000029_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_Theora: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f656874_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_UYVY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59565955_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_VP10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30315056_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_VP80: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30385056_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_VP90: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30395056_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_WMV1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31564d57_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_WMV2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32564d57_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_WMV3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33564d57_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_WVC1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31435657_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_Y210: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30313259_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_Y216: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36313259_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_Y410: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30313459_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_Y416: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36313459_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_Y41P: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50313459_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_Y41T: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54313459_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_Y42T: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54323459_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_YUY2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32595559_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_YV12: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32315659_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_YVU9: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39555659_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_YVYU: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55595659_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_v210: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30313276_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_v216: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36313276_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_v410: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30313476_0000_0010_8000_00aa00389b71);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -51609,7 +51609,7 @@ pub const MF_64_BYTE_ALIGNMENT: u32 = 63u32;
 pub const MF_8192_BYTE_ALIGNMENT: u32 = 8191u32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_8_BYTE_ALIGNMENT: u32 = 7u32;
-pub const MF_ACCESS_CONTROLLED_MEDIASOURCE_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(21647409, 12037, 19562, [159, 156, 125, 13, 196, 237, 165, 244]);
+pub const MF_ACCESS_CONTROLLED_MEDIASOURCE_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x014a5031_2f05_4c6a_9f9c_7d0dc4eda5f4);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -51636,20 +51636,20 @@ impl ::core::convert::From<i32> for MF_ACTIVATE_CUSTOM_PRESENTER {
 unsafe impl ::windows::runtime::Abi for MF_ACTIVATE_CUSTOM_PRESENTER {
     type Abi = Self;
 }
-pub const MF_ACTIVATE_CUSTOM_VIDEO_MIXER_ACTIVATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3125351265, 48720, 17694, [149, 171, 109, 74, 204, 199, 218, 216]);
-pub const MF_ACTIVATE_CUSTOM_VIDEO_MIXER_CLSID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3125351264, 48720, 17694, [149, 171, 109, 74, 204, 199, 218, 216]);
-pub const MF_ACTIVATE_CUSTOM_VIDEO_MIXER_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3125351266, 48720, 17694, [149, 171, 109, 74, 204, 199, 218, 216]);
-pub const MF_ACTIVATE_CUSTOM_VIDEO_PRESENTER_ACTIVATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3125351269, 48720, 17694, [149, 171, 109, 74, 204, 199, 218, 216]);
-pub const MF_ACTIVATE_CUSTOM_VIDEO_PRESENTER_CLSID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3125351268, 48720, 17694, [149, 171, 109, 74, 204, 199, 218, 216]);
-pub const MF_ACTIVATE_CUSTOM_VIDEO_PRESENTER_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3125351270, 48720, 17694, [149, 171, 109, 74, 204, 199, 218, 216]);
-pub const MF_ACTIVATE_MFT_LOCKED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3254126908, 32613, 20413, [158, 57, 95, 174, 195, 196, 251, 215]);
-pub const MF_ACTIVATE_VIDEO_WINDOW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2586688477, 62846, 16738, [130, 185, 104, 49, 55, 118, 130, 211]);
+pub const MF_ACTIVATE_CUSTOM_VIDEO_MIXER_ACTIVATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba491361_be50_451e_95ab_6d4accc7dad8);
+pub const MF_ACTIVATE_CUSTOM_VIDEO_MIXER_CLSID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba491360_be50_451e_95ab_6d4accc7dad8);
+pub const MF_ACTIVATE_CUSTOM_VIDEO_MIXER_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba491362_be50_451e_95ab_6d4accc7dad8);
+pub const MF_ACTIVATE_CUSTOM_VIDEO_PRESENTER_ACTIVATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba491365_be50_451e_95ab_6d4accc7dad8);
+pub const MF_ACTIVATE_CUSTOM_VIDEO_PRESENTER_CLSID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba491364_be50_451e_95ab_6d4accc7dad8);
+pub const MF_ACTIVATE_CUSTOM_VIDEO_PRESENTER_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba491366_be50_451e_95ab_6d4accc7dad8);
+pub const MF_ACTIVATE_MFT_LOCKED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1f6093c_7f65_4fbd_9e39_5faec3c4fbd7);
+pub const MF_ACTIVATE_VIDEO_WINDOW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a2dbbdd_f57e_4162_82b9_6831377682d3);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_API_VERSION: u32 = 112u32;
-pub const MF_ASFPROFILE_MAXPACKETSIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(576222759, 18398, 16744, [135, 245, 181, 170, 155, 18, 168, 240]);
-pub const MF_ASFPROFILE_MINPACKETSIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(576222758, 18398, 16744, [135, 245, 181, 170, 155, 18, 168, 240]);
-pub const MF_ASFSTREAMCONFIG_LEAKYBUCKET1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3332069633, 59930, 19611, [182, 146, 226, 160, 210, 154, 138, 221]);
-pub const MF_ASFSTREAMCONFIG_LEAKYBUCKET2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3332069634, 59930, 19611, [182, 146, 226, 160, 210, 154, 138, 221]);
+pub const MF_ASFPROFILE_MAXPACKETSIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22587627_47de_4168_87f5_b5aa9b12a8f0);
+pub const MF_ASFPROFILE_MINPACKETSIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22587626_47de_4168_87f5_b5aa9b12a8f0);
+pub const MF_ASFSTREAMCONFIG_LEAKYBUCKET1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc69b5901_ea1a_4c9b_b692_e2a0d29a8add);
+pub const MF_ASFSTREAMCONFIG_LEAKYBUCKET2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc69b5902_ea1a_4c9b_b692_e2a0d29a8add);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -51699,17 +51699,17 @@ impl ::core::convert::From<i32> for MF_ATTRIBUTE_TYPE {
 unsafe impl ::windows::runtime::Abi for MF_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
-pub const MF_AUDIO_RENDERER_ATTRIBUTE_ENDPOINT_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2970267331, 61297, 19651, [184, 115, 5, 169, 160, 139, 159, 142]);
-pub const MF_AUDIO_RENDERER_ATTRIBUTE_ENDPOINT_ROLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1806058751, 10181, 19714, [152, 135, 194, 134, 25, 253, 185, 27]);
-pub const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3991188960, 63493, 19820, [153, 179, 219, 1, 191, 149, 223, 171]);
+pub const MF_AUDIO_RENDERER_ATTRIBUTE_ENDPOINT_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb10aaec3_ef71_4cc3_b873_05a9a08b9f8e);
+pub const MF_AUDIO_RENDERER_ATTRIBUTE_ENDPOINT_ROLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ba644ff_27c5_4d02_9887_c28619fdb91b);
+pub const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xede4b5e0_f805_4d6c_99b3_db01bf95dfab);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_CROSSPROCESS: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_DONT_ALLOW_FORMAT_CHANGES: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_NOPERSIST: u32 = 2u32;
-pub const MF_AUDIO_RENDERER_ATTRIBUTE_SESSION_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3991188963, 63493, 19820, [153, 179, 219, 1, 191, 149, 223, 171]);
-pub const MF_AUDIO_RENDERER_ATTRIBUTE_STREAM_CATEGORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2843149425, 37612, 19956, [148, 254, 129, 195, 111, 12, 58, 122]);
+pub const MF_AUDIO_RENDERER_ATTRIBUTE_SESSION_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xede4b5e3_f805_4d6c_99b3_db01bf95dfab);
+pub const MF_AUDIO_RENDERER_ATTRIBUTE_STREAM_CATEGORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9770471_92ec_4df4_94fe_81c36f0c3a7a);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -51726,19 +51726,19 @@ impl ::core::convert::From<i32> for MF_AUVRHP_ROOMMODEL {
 unsafe impl ::windows::runtime::Abi for MF_AUVRHP_ROOMMODEL {
     type Abi = Self;
 }
-pub const MF_BD_MVC_PLANE_OFFSET_METADATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1655067876, 46956, 18689, [152, 35, 44, 182, 21, 212, 115, 24]);
+pub const MF_BD_MVC_PLANE_OFFSET_METADATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62a654e4_b76c_4901_9823_2cb615d47318);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_BOOT_DRIVER_VERIFICATION_FAILED: u32 = 1048576u32;
-pub const MF_BYTESTREAMHANDLER_ACCEPTS_SHARE_WRITE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2799826739, 12289, 18709, [129, 80, 21, 88, 162, 24, 14, 200]);
-pub const MF_BYTESTREAM_CONTENT_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4231365257, 15542, 17932, [164, 36, 182, 104, 18, 96, 55, 90]);
-pub const MF_BYTESTREAM_DLNA_PROFILE_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4231365261, 15542, 17932, [164, 36, 182, 104, 18, 96, 55, 90]);
-pub const MF_BYTESTREAM_DURATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4231365258, 15542, 17932, [164, 36, 182, 104, 18, 96, 55, 90]);
-pub const MF_BYTESTREAM_EFFECTIVE_URL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2600075785, 35281, 17071, [132, 86, 29, 230, 181, 98, 214, 145]);
-pub const MF_BYTESTREAM_IFO_FILE_URI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4231365260, 15542, 17932, [164, 36, 182, 104, 18, 96, 55, 90]);
-pub const MF_BYTESTREAM_LAST_MODIFIED_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4231365259, 15542, 17932, [164, 36, 182, 104, 18, 96, 55, 90]);
-pub const MF_BYTESTREAM_ORIGIN_NAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4231365256, 15542, 17932, [164, 36, 182, 104, 18, 96, 55, 90]);
-pub const MF_BYTESTREAM_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2869059115, 5849, 16768, [161, 39, 186, 108, 112, 21, 97, 97]);
-pub const MF_BYTESTREAM_TRANSCODED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3066413698, 19913, 19897, [171, 72, 207, 59, 109, 139, 197, 224]);
+pub const MF_BYTESTREAMHANDLER_ACCEPTS_SHARE_WRITE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6e1f733_3001_4915_8150_1558a2180ec8);
+pub const MF_BYTESTREAM_CONTENT_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc358289_3cb6_460c_a424_b6681260375a);
+pub const MF_BYTESTREAM_DLNA_PROFILE_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc35828d_3cb6_460c_a424_b6681260375a);
+pub const MF_BYTESTREAM_DURATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc35828a_3cb6_460c_a424_b6681260375a);
+pub const MF_BYTESTREAM_EFFECTIVE_URL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9afa0209_89d1_42af_8456_1de6b562d691);
+pub const MF_BYTESTREAM_IFO_FILE_URI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc35828c_3cb6_460c_a424_b6681260375a);
+pub const MF_BYTESTREAM_LAST_MODIFIED_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc35828b_3cb6_460c_a424_b6681260375a);
+pub const MF_BYTESTREAM_ORIGIN_NAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc358288_3cb6_460c_a424_b6681260375a);
+pub const MF_BYTESTREAM_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab025e2b_16d9_4180_a127_ba6c70156161);
+pub const MF_BYTESTREAM_TRANSCODED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6c5c282_4dc9_4db9_ab48_cf3b6d8bc5e0);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -51766,8 +51766,8 @@ impl ::core::cmp::Eq for MF_BYTE_STREAM_CACHE_RANGE {}
 unsafe impl ::windows::runtime::Abi for MF_BYTE_STREAM_CACHE_RANGE {
     type Abi = Self;
 }
-pub const MF_CAPTURE_ENGINE_ALL_EFFECTS_REMOVED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4260197665, 36568, 17178, [169, 107, 243, 226, 86, 94, 152, 28]);
-pub const MF_CAPTURE_ENGINE_AUDIO_PROCESSING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(284278366, 32273, 16651, [151, 61, 244, 182, 16, 144, 0, 254]);
+pub const MF_CAPTURE_ENGINE_ALL_EFFECTS_REMOVED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfded7521_8ed8_431a_a96b_f3e2565e981c);
+pub const MF_CAPTURE_ENGINE_AUDIO_PROCESSING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10f1be5e_7e11_410b_973d_f4b6109000fe);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -51782,10 +51782,10 @@ impl ::core::convert::From<i32> for MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE {
 unsafe impl ::windows::runtime::Abi for MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE {
     type Abi = Self;
 }
-pub const MF_CAPTURE_ENGINE_CAMERA_STREAM_BLOCKED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2753598487, 36153, 18163, [183, 89, 89, 18, 82, 143, 66, 7]);
-pub const MF_CAPTURE_ENGINE_CAMERA_STREAM_UNBLOCKED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2615799536, 52655, 18199, [133, 100, 131, 74, 174, 102, 65, 92]);
-pub const MF_CAPTURE_ENGINE_D3D_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1994546811, 54677, 17027, [150, 44, 197, 148, 175, 215, 141, 223]);
-pub const MF_CAPTURE_ENGINE_DECODER_MFT_FIELDOFUSE_UNLOCK_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(730518248, 31435, 17185, [166, 6, 50, 92, 66, 73, 244, 252]);
+pub const MF_CAPTURE_ENGINE_CAMERA_STREAM_BLOCKED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4209417_8d39_46f3_b759_5912528f4207);
+pub const MF_CAPTURE_ENGINE_CAMERA_STREAM_UNBLOCKED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9be9eef0_cdaf_4717_8564_834aae66415c);
+pub const MF_CAPTURE_ENGINE_D3D_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76e25e7b_d595_4283_962c_c594afd78ddf);
+pub const MF_CAPTURE_ENGINE_DECODER_MFT_FIELDOFUSE_UNLOCK_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b8ad2e8_7acb_4321_a606_325c4249f4fc);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -51800,18 +51800,18 @@ impl ::core::convert::From<i32> for MF_CAPTURE_ENGINE_DEVICE_TYPE {
 unsafe impl ::windows::runtime::Abi for MF_CAPTURE_ENGINE_DEVICE_TYPE {
     type Abi = Self;
 }
-pub const MF_CAPTURE_ENGINE_DISABLE_DXVA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4186015842, 6045, 17215, [163, 47, 116, 203, 207, 116, 70, 109]);
-pub const MF_CAPTURE_ENGINE_DISABLE_HARDWARE_TRANSFORMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3083086443, 12807, 17557, [180, 231, 129, 249, 195, 93, 89, 145]);
-pub const MF_CAPTURE_ENGINE_EFFECT_ADDED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2861418421, 41032, 19987, [142, 190, 242, 60, 70, 200, 48, 193]);
-pub const MF_CAPTURE_ENGINE_EFFECT_REMOVED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3337149191, 64265, 19016, [137, 198, 191, 146, 160, 66, 34, 201]);
-pub const MF_CAPTURE_ENGINE_ENABLE_CAMERA_STREAMSTATE_NOTIFICATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1283493533, 43757, 18195, [144, 251, 203, 36, 6, 74, 184, 218]);
-pub const MF_CAPTURE_ENGINE_ENCODER_MFT_FIELDOFUSE_UNLOCK_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1422277120, 30933, 16943, [170, 62, 94, 153, 172, 100, 146, 105]);
-pub const MF_CAPTURE_ENGINE_ERROR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1186504646, 13260, 17305, [157, 173, 120, 77, 231, 125, 88, 124]);
-pub const MF_CAPTURE_ENGINE_EVENT_GENERATOR_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2885323477, 64621, 18705, [135, 224, 150, 25, 69, 248, 247, 206]);
-pub const MF_CAPTURE_ENGINE_EVENT_STREAM_INDEX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2187951940, 45519, 17131, [151, 83, 248, 109, 100, 156, 136, 101]);
-pub const MF_CAPTURE_ENGINE_INITIALIZED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(563712700, 53138, 17713, [161, 174, 150, 225, 232, 134, 200, 241]);
-pub const MF_CAPTURE_ENGINE_MEDIASOURCE_CONFIG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3161033170, 4033, 18145, [167, 79, 239, 211, 107, 199, 136, 222]);
-pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2386516949, 56255, 17136, [133, 66, 208, 122, 57, 113, 118, 42]);
+pub const MF_CAPTURE_ENGINE_DISABLE_DXVA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9818862_179d_433f_a32f_74cbcf74466d);
+pub const MF_CAPTURE_ENGINE_DISABLE_HARDWARE_TRANSFORMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7c42a6b_3207_4495_b4e7_81f9c35d5991);
+pub const MF_CAPTURE_ENGINE_EFFECT_ADDED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa8dc7b5_a048_4e13_8ebe_f23c46c830c1);
+pub const MF_CAPTURE_ENGINE_EFFECT_REMOVED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6e8db07_fb09_4a48_89c6_bf92a04222c9);
+pub const MF_CAPTURE_ENGINE_ENABLE_CAMERA_STREAMSTATE_NOTIFICATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c808e9d_aaed_4713_90fb_cb24064ab8da);
+pub const MF_CAPTURE_ENGINE_ENCODER_MFT_FIELDOFUSE_UNLOCK_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54c63a00_78d5_422f_aa3e_5e99ac649269);
+pub const MF_CAPTURE_ENGINE_ERROR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46b89fc6_33cc_4399_9dad_784de77d587c);
+pub const MF_CAPTURE_ENGINE_EVENT_GENERATOR_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xabfa8ad5_fc6d_4911_87e0_961945f8f7ce);
+pub const MF_CAPTURE_ENGINE_EVENT_STREAM_INDEX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82697f44_b1cf_42eb_9753_f86d649c8865);
+pub const MF_CAPTURE_ENGINE_INITIALIZED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x219992bc_cf92_4531_a1ae_96e1e886c8f1);
+pub const MF_CAPTURE_ENGINE_MEDIASOURCE_CONFIG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc6989d2_0fc1_46e1_a74f_efd36bc788de);
+pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e3f5bd5_dbbf_42f0_8542_d07a3971762a);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -51832,18 +51832,18 @@ impl ::core::convert::From<i32> for MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE {
 unsafe impl ::windows::runtime::Abi for MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE {
     type Abi = Self;
 }
-pub const MF_CAPTURE_ENGINE_OUTPUT_MEDIA_TYPE_SET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3400194452, 33772, 17897, [163, 10, 31, 32, 170, 219, 152, 49]);
-pub const MF_CAPTURE_ENGINE_PHOTO_TAKEN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1011926085, 29444, 18667, [134, 93, 187, 161, 155, 163, 175, 92]);
-pub const MF_CAPTURE_ENGINE_PREVIEW_STARTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2752962337, 63955, 19060, [153, 27, 184, 23, 41, 137, 82, 196]);
-pub const MF_CAPTURE_ENGINE_PREVIEW_STOPPED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(332731452, 7901, 20048, [162, 239, 53, 10, 71, 103, 128, 96]);
-pub const MF_CAPTURE_ENGINE_RECORD_SINK_AUDIO_MAX_PROCESSED_SAMPLES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2560024874, 63239, 17664, [182, 189, 219, 142, 184, 16, 181, 15]);
-pub const MF_CAPTURE_ENGINE_RECORD_SINK_AUDIO_MAX_UNPROCESSED_SAMPLES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(484290881, 42996, 19800, [152, 150, 77, 21, 165, 60, 78, 254]);
-pub const MF_CAPTURE_ENGINE_RECORD_SINK_VIDEO_MAX_PROCESSED_SAMPLES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3887375518, 14380, 19183, [169, 70, 174, 213, 73, 11, 113, 17]);
-pub const MF_CAPTURE_ENGINE_RECORD_SINK_VIDEO_MAX_UNPROCESSED_SAMPLES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3026712325, 30995, 18580, [157, 66, 162, 21, 254, 162, 61, 169]);
-pub const MF_CAPTURE_ENGINE_RECORD_STARTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2888499835, 56825, 18592, [137, 190, 56, 171, 53, 239, 69, 192]);
-pub const MF_CAPTURE_ENGINE_RECORD_STOPPED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1441079306, 63887, 19469, [169, 236, 158, 178, 94, 211, 215, 115]);
-pub const MF_CAPTURE_ENGINE_SELECTEDCAMERAPROFILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(51776382, 7279, 19890, [173, 86, 167, 196, 48, 248, 35, 146]);
-pub const MF_CAPTURE_ENGINE_SELECTEDCAMERAPROFILE_INDEX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1021871635, 8724, 18115, [180, 23, 130, 248, 163, 19, 201, 195]);
+pub const MF_CAPTURE_ENGINE_OUTPUT_MEDIA_TYPE_SET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcaaad994_83ec_45e9_a30a_1f20aadb9831);
+pub const MF_CAPTURE_ENGINE_PHOTO_TAKEN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c50c445_7304_48eb_865d_bba19ba3af5c);
+pub const MF_CAPTURE_ENGINE_PREVIEW_STARTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa416df21_f9d3_4a74_991b_b817298952c4);
+pub const MF_CAPTURE_ENGINE_PREVIEW_STOPPED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13d5143c_1edd_4e50_a2ef_350a47678060);
+pub const MF_CAPTURE_ENGINE_RECORD_SINK_AUDIO_MAX_PROCESSED_SAMPLES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9896e12a_f707_4500_b6bd_db8eb810b50f);
+pub const MF_CAPTURE_ENGINE_RECORD_SINK_AUDIO_MAX_UNPROCESSED_SAMPLES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cddb141_a7f4_4d58_9896_4d15a53c4efe);
+pub const MF_CAPTURE_ENGINE_RECORD_SINK_VIDEO_MAX_PROCESSED_SAMPLES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7b4a49e_382c_4aef_a946_aed5490b7111);
+pub const MF_CAPTURE_ENGINE_RECORD_SINK_VIDEO_MAX_UNPROCESSED_SAMPLES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb467f705_7913_4894_9d42_a215fea23da9);
+pub const MF_CAPTURE_ENGINE_RECORD_STARTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac2b027b_ddf9_48a0_89be_38ab35ef45c0);
+pub const MF_CAPTURE_ENGINE_RECORD_STOPPED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55e5200a_f98f_4c0d_a9ec_9eb25ed3d773);
+pub const MF_CAPTURE_ENGINE_SELECTEDCAMERAPROFILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03160b7e_1c6f_4db2_ad56_a7c430f82392);
+pub const MF_CAPTURE_ENGINE_SELECTEDCAMERAPROFILE_INDEX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ce88613_2214_46c3_b417_82f8a313c9c3);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -51924,39 +51924,39 @@ impl ::core::convert::From<i32> for MF_CAPTURE_ENGINE_STREAM_CATEGORY {
 unsafe impl ::windows::runtime::Abi for MF_CAPTURE_ENGINE_STREAM_CATEGORY {
     type Abi = Self;
 }
-pub const MF_CAPTURE_ENGINE_USE_AUDIO_DEVICE_ONLY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(478181338, 33894, 19908, [139, 142, 39, 107, 63, 133, 146, 59]);
-pub const MF_CAPTURE_ENGINE_USE_VIDEO_DEVICE_ONLY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2114081137, 53042, 20270, [143, 25, 65, 5, 119, 183, 58, 102]);
-pub const MF_CAPTURE_METADATA_DIGITALWINDOW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(661615266, 22984, 20329, [151, 180, 6, 139, 140, 14, 192, 68]);
-pub const MF_CAPTURE_METADATA_EXIF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(781546936, 35889, 18946, [133, 117, 66, 177, 151, 183, 21, 146]);
-pub const MF_CAPTURE_METADATA_EXPOSURE_COMPENSATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3516443253, 19298, 17221, [171, 243, 60, 49, 250, 18, 194, 153]);
-pub const MF_CAPTURE_METADATA_EXPOSURE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(381267609, 52612, 16483, [135, 157, 162, 140, 118, 51, 114, 158]);
-pub const MF_CAPTURE_METADATA_FACEROICHARACTERIZATIONS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3106382248, 6383, 18131, [179, 175, 105, 55, 47, 148, 217, 178]);
-pub const MF_CAPTURE_METADATA_FACEROIS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2253333926, 13471, 18097, [163, 14, 84, 204, 34, 146, 138, 71]);
-pub const MF_CAPTURE_METADATA_FACEROITIMESTAMPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3914158284, 15776, 17620, [187, 52, 131, 25, 138, 116, 24, 104]);
-pub const MF_CAPTURE_METADATA_FIRST_SCANLINE_START_TIME_QPC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1781287409, 57426, 18102, [178, 217, 115, 193, 85, 135, 9, 175]);
-pub const MF_CAPTURE_METADATA_FLASH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1246843403, 64310, 17516, [157, 242, 104, 23, 27, 154, 3, 137]);
-pub const MF_CAPTURE_METADATA_FLASH_POWER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2618166601, 517, 18714, [188, 157, 45, 110, 31, 77, 86, 132]);
-pub const MF_CAPTURE_METADATA_FOCUSSTATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2826887508, 39295, 18013, [185, 31, 41, 213, 59, 152, 43, 136]);
-pub const MF_CAPTURE_METADATA_FRAME_BACKGROUND_MASK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(66145747, 30173, 17210, [168, 226, 30, 63, 95, 42, 80, 160]);
-pub const MF_CAPTURE_METADATA_FRAME_ILLUMINATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1835569148, 25555, 18174, [186, 218, 91, 148, 125, 176, 208, 128]);
-pub const MF_CAPTURE_METADATA_FRAME_RAWSTREAM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2454849403, 9856, 18873, [174, 2, 177, 144, 117, 151, 59, 112]);
-pub const MF_CAPTURE_METADATA_HISTOGRAM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2234876978, 12022, 19369, [163, 251, 6, 216, 41, 116, 184, 149]);
-pub const MF_CAPTURE_METADATA_ISO_GAINS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(92285641, 3613, 16839, [168, 200, 126, 115, 105, 248, 78, 30]);
-pub const MF_CAPTURE_METADATA_ISO_SPEED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3844646543, 45795, 17662, [139, 101, 7, 191, 75, 90, 19, 255]);
-pub const MF_CAPTURE_METADATA_LAST_SCANLINE_END_TIME_QPC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3704282827, 50388, 16397, [180, 24, 16, 232, 133, 37, 225, 246]);
-pub const MF_CAPTURE_METADATA_LENS_POSITION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3053227654, 4561, 20080, [129, 155, 114, 58, 137, 250, 69, 32]);
-pub const MF_CAPTURE_METADATA_PHOTO_FRAME_FLASH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(262002374, 24579, 17880, [189, 89, 241, 245, 62, 61, 4, 232]);
-pub const MF_CAPTURE_METADATA_REQUESTED_FRAME_SETTING_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3140949721, 35425, 18340, [129, 151, 69, 156, 127, 241, 116, 213]);
-pub const MF_CAPTURE_METADATA_SCANLINE_DIRECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1687593914, 6407, 18918, [176, 195, 18, 55, 149, 243, 128, 169]);
-pub const MF_CAPTURE_METADATA_SCANLINE_TIME_QPC_ACCURACY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1289198673, 63333, 19209, [177, 225, 39, 209, 247, 235, 234, 9]);
-pub const MF_CAPTURE_METADATA_SCENE_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2630071629, 24275, 19374, [179, 136, 118, 112, 174, 245, 158, 19]);
-pub const MF_CAPTURE_METADATA_SENSORFRAMERATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3679532414, 40253, 18786, [176, 109, 7, 206, 101, 13, 154, 10]);
-pub const MF_CAPTURE_METADATA_UVC_PAYLOADHEADER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4193815175, 57821, 17438, [149, 203, 66, 226, 26, 100, 241, 217]);
-pub const MF_CAPTURE_METADATA_WHITEBALANCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3342269815, 4025, 20014, [151, 162, 252, 212, 144, 115, 158, 233]);
-pub const MF_CAPTURE_METADATA_WHITEBALANCE_GAINS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881241743, 11723, 19580, [170, 206, 34, 236, 231, 204, 230, 71]);
-pub const MF_CAPTURE_METADATA_ZOOMFACTOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3842706305, 58625, 17090, [171, 242, 133, 126, 203, 19, 250, 92]);
-pub const MF_CAPTURE_SINK_PREPARED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2080170583, 4785, 17417, [140, 52, 212, 69, 218, 171, 117, 120]);
-pub const MF_CAPTURE_SOURCE_CURRENT_DEVICE_MEDIA_TYPE_SET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3890699852, 924, 17424, [129, 91, 135, 65, 48, 123, 99, 170]);
+pub const MF_CAPTURE_ENGINE_USE_AUDIO_DEVICE_ONLY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c8077da_8466_4dc4_8b8e_276b3f85923b);
+pub const MF_CAPTURE_ENGINE_USE_VIDEO_DEVICE_ONLY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e025171_cf32_4f2e_8f19_410577b73a66);
+pub const MF_CAPTURE_METADATA_DIGITALWINDOW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x276f72a2_59c8_4f69_97b4_068b8c0ec044);
+pub const MF_CAPTURE_METADATA_EXIF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e9575b8_8c31_4a02_8575_42b197b71592);
+pub const MF_CAPTURE_METADATA_EXPOSURE_COMPENSATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd198aa75_4b62_4345_abf3_3c31fa12c299);
+pub const MF_CAPTURE_METADATA_EXPOSURE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16b9ae99_cd84_4063_879d_a28c7633729e);
+pub const MF_CAPTURE_METADATA_FACEROICHARACTERIZATIONS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb927a1a8_18ef_46d3_b3af_69372f94d9b2);
+pub const MF_CAPTURE_METADATA_FACEROIS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x864f25a6_349f_46b1_a30e_54cc22928a47);
+pub const MF_CAPTURE_METADATA_FACEROITIMESTAMPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe94d50cc_3da0_44d4_bb34_83198a741868);
+pub const MF_CAPTURE_METADATA_FIRST_SCANLINE_START_TIME_QPC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a2c49f1_e052_46b6_b2d9_73c1558709af);
+pub const MF_CAPTURE_METADATA_FLASH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a51520b_fb36_446c_9df2_68171b9a0389);
+pub const MF_CAPTURE_METADATA_FLASH_POWER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c0e0d49_0205_491a_bc9d_2d6e1f4d5684);
+pub const MF_CAPTURE_METADATA_FOCUSSTATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa87ee154_997f_465d_b91f_29d53b982b88);
+pub const MF_CAPTURE_METADATA_FRAME_BACKGROUND_MASK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03f14dd3_75dd_433a_a8e2_1e3f5f2a50a0);
+pub const MF_CAPTURE_METADATA_FRAME_ILLUMINATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d688ffc_63d3_46fe_bada_5b947db0d080);
+pub const MF_CAPTURE_METADATA_FRAME_RAWSTREAM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9252077b_2680_49b9_ae02_b19075973b70);
+pub const MF_CAPTURE_METADATA_HISTOGRAM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85358432_2ef6_4ba9_a3fb_06d82974b895);
+pub const MF_CAPTURE_METADATA_ISO_GAINS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05802ac9_0e1d_41c7_a8c8_7e7369f84e1e);
+pub const MF_CAPTURE_METADATA_ISO_SPEED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe528a68f_b2e3_44fe_8b65_07bf4b5a13ff);
+pub const MF_CAPTURE_METADATA_LAST_SCANLINE_END_TIME_QPC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdccadecb_c4d4_400d_b418_10e88525e1f6);
+pub const MF_CAPTURE_METADATA_LENS_POSITION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5fc8e86_11d1_4e70_819b_723a89fa4520);
+pub const MF_CAPTURE_METADATA_PHOTO_FRAME_FLASH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f9dd6c6_6003_45d8_bd59_f1f53e3d04e8);
+pub const MF_CAPTURE_METADATA_REQUESTED_FRAME_SETTING_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb3716d9_8a61_47a4_8197_459c7ff174d5);
+pub const MF_CAPTURE_METADATA_SCANLINE_DIRECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6496a3ba_1907_49e6_b0c3_123795f380a9);
+pub const MF_CAPTURE_METADATA_SCANLINE_TIME_QPC_ACCURACY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4cd79c51_f765_4b09_b1e1_27d1f7ebea09);
+pub const MF_CAPTURE_METADATA_SCENE_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9cc3b54d_5ed3_4bae_b388_7670aef59e13);
+pub const MF_CAPTURE_METADATA_SENSORFRAMERATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb51357e_9d3d_4962_b06d_07ce650d9a0a);
+pub const MF_CAPTURE_METADATA_UVC_PAYLOADHEADER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9f88a87_e1dd_441e_95cb_42e21a64f1d9);
+pub const MF_CAPTURE_METADATA_WHITEBALANCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc736fd77_0fb9_4e2e_97a2_fcd490739ee9);
+pub const MF_CAPTURE_METADATA_WHITEBALANCE_GAINS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7570c8f_2dcb_4c7c_aace_22ece7cce647);
+pub const MF_CAPTURE_METADATA_ZOOMFACTOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe50b0b81_e501_42c2_abf2_857ecb13fa5c);
+pub const MF_CAPTURE_SINK_PREPARED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bfce257_12b1_4409_8c34_d445daab7578);
+pub const MF_CAPTURE_SOURCE_CURRENT_DEVICE_MEDIA_TYPE_SET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7e75e4c_039c_4410_815b_8741307b63aa);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_COMPONENT_CERT_REVOKED: u32 = 32768u32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -51987,9 +51987,9 @@ impl ::core::convert::From<i32> for MF_CONNECT_METHOD {
 unsafe impl ::windows::runtime::Abi for MF_CONNECT_METHOD {
     type Abi = Self;
 }
-pub const MF_CONTENTDECRYPTIONMODULE_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(355601477, 65408, 18506, [157, 203, 13, 248, 148, 230, 154, 1]);
-pub const MF_CONTENT_DECRYPTOR_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1755785511, 64635, 17646, [133, 244, 124, 81, 189, 85, 166, 89]);
-pub const MF_CONTENT_PROTECTION_DEVICE_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4283974511, 30368, 16894, [181, 102, 16, 204, 83, 150, 46, 221]);
+pub const MF_CONTENTDECRYPTIONMODULE_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15320c45_ff80_484a_9dcb_0df894e69a01);
+pub const MF_CONTENT_DECRYPTOR_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68a72927_fc7b_44ee_85f4_7c51bd55a659);
+pub const MF_CONTENT_PROTECTION_DEVICE_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff58436f_76a0_41fe_b566_10cc53962edd);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -52019,75 +52019,75 @@ impl ::core::convert::From<i32> for MF_CUSTOM_DECODE_UNIT_TYPE {
 unsafe impl ::windows::runtime::Abi for MF_CUSTOM_DECODE_UNIT_TYPE {
     type Abi = Self;
 }
-pub const MF_D3D12_SYNCHRONIZATION_OBJECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(712805738, 34214, 18765, [160, 70, 6, 234, 26, 19, 143, 75]);
-pub const MF_DECODER_FWD_CUSTOM_SEI_DECODE_ORDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4047224380, 14036, 16650, [185, 133, 122, 149, 26, 30, 98, 148]);
-pub const MF_DEVICEMFT_CONNECTED_FILTER_KSCONTROL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1781288870, 53625, 16845, [149, 35, 130, 35, 113, 234, 64, 229]);
-pub const MF_DEVICEMFT_CONNECTED_PIN_KSCONTROL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3862106359, 45636, 20216, [154, 125, 36, 199, 78, 50, 235, 208]);
-pub const MF_DEVICEMFT_EXTENSION_PLUGIN_CLSID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(138730414, 13562, 18592, [167, 131, 142, 105, 111, 177, 201, 168]);
-pub const MF_DEVICEMFT_SENSORPROFILE_COLLECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(921427012, 45356, 17435, [137, 244, 8, 178, 244, 26, 156, 252]);
-pub const MF_DEVICESTREAM_ATTRIBUTE_FACEAUTH_CAPABILITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3413102890, 8776, 20033, [173, 70, 231, 139, 185, 10, 185, 252]);
-pub const MF_DEVICESTREAM_ATTRIBUTE_FRAMESOURCE_TYPES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(387211217, 6955, 16956, [128, 1, 43, 104, 51, 237, 53, 136]);
-pub const MF_DEVICESTREAM_ATTRIBUTE_SECURE_CAPABILITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2484065830, 60014, 18052, [152, 64, 54, 189, 110, 201, 251, 239]);
-pub const MF_DEVICESTREAM_EXTENSION_PLUGIN_CLSID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(76440920, 24772, 16755, [189, 91, 106, 60, 162, 137, 106, 238]);
-pub const MF_DEVICESTREAM_EXTENSION_PLUGIN_CONNECTION_POINT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(939079516, 58980, 20132, [170, 228, 203, 109, 29, 172, 161, 244]);
-pub const MF_DEVICESTREAM_FILTER_KSCONTROL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1182285002, 15861, 18723, [169, 239, 54, 183, 34, 62, 221, 224]);
-pub const MF_DEVICESTREAM_FRAMESERVER_HIDDEN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4093793915, 19857, 16761, [150, 209, 116, 200, 72, 12, 32, 52]);
-pub const MF_DEVICESTREAM_FRAMESERVER_SHARED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(481523945, 45689, 16852, [175, 151, 52, 162, 67, 230, 131, 32]);
-pub const MF_DEVICESTREAM_IMAGE_STREAM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2818553957, 59314, 17328, [159, 111, 154, 242, 160, 229, 15, 192]);
-pub const MF_DEVICESTREAM_INDEPENDENT_IMAGE_STREAM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(65989758, 54789, 17782, [139, 41, 101, 128, 180, 144, 215, 211]);
-pub const MF_DEVICESTREAM_MAX_FRAME_BUFFERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(377802430, 12661, 18821, [136, 44, 14, 253, 62, 138, 193, 30]);
-pub const MF_DEVICESTREAM_MULTIPLEXED_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1856324272, 10271, 16945, [164, 100, 254, 47, 80, 34, 80, 28]);
-pub const MF_DEVICESTREAM_PIN_KSCONTROL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4013881767, 34802, 18634, [190, 2, 103, 72, 120, 145, 142, 152]);
-pub const MF_DEVICESTREAM_REQUIRED_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1837864318, 31990, 17396, [175, 86, 156, 14, 30, 79, 203, 225]);
-pub const MF_DEVICESTREAM_REQUIRED_SDDL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(857401437, 49363, 18874, [131, 186, 130, 161, 45, 99, 205, 214]);
-pub const MF_DEVICESTREAM_SENSORSTREAM_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3814432740, 1625, 19629, [187, 81, 51, 22, 11, 231, 228, 19]);
-pub const MF_DEVICESTREAM_SOURCE_ATTRIBUTES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(797750807, 13851, 17231, [133, 234, 153, 160, 62, 28, 228, 224]);
-pub const MF_DEVICESTREAM_STREAM_CATEGORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691660728, 42542, 17785, [182, 116, 212, 7, 61, 250, 187, 186]);
-pub const MF_DEVICESTREAM_STREAM_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(297619744, 53540, 17515, [136, 230, 23, 6, 2, 87, 255, 249]);
-pub const MF_DEVICESTREAM_TAKEPHOTO_TRIGGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(488115764, 21388, 20411, [167, 90, 133, 154, 247, 210, 97, 166]);
-pub const MF_DEVICESTREAM_TRANSFORM_STREAM_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3862509495, 55983, 19785, [129, 95, 216, 38, 248, 173, 49, 231]);
-pub const MF_DEVICE_THERMAL_STATE_CHANGED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1892470959, 64671, 19947, [168, 117, 159, 236, 209, 108, 91, 212]);
-pub const MF_DEVSOURCE_ATTRIBUTE_FRIENDLY_NAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1624302937, 21240, 20386, [187, 206, 172, 219, 52, 168, 236, 1]);
-pub const MF_DEVSOURCE_ATTRIBUTE_MEDIA_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1453857226, 3192, 19940, [160, 167, 61, 218, 186, 15, 36, 212]);
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_PASSWORD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2700967446, 17113, 18911, [132, 192, 232, 44, 94, 171, 136, 116]);
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_STREAM_URL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2642100434, 13847, 16451, [147, 227, 141, 109, 169, 187, 52, 146]);
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3322594814, 9514, 18319, [160, 239, 188, 143, 165, 247, 202, 211]);
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_ENDPOINT_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(819630680, 65209, 18343, [164, 83, 118, 58, 122, 142, 28, 95]);
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(350067228, 31999, 16830, [177, 185, 186, 26, 198, 236, 181, 113]);
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_ROLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3164410254, 35943, 18968, [133, 212, 18, 211, 0, 64, 5, 82]);
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_SYMBOLIC_LINK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2563918686, 22832, 17940, [181, 161, 246, 0, 249, 53, 90, 120]);
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_CATEGORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2012261993, 50109, 17673, [148, 29, 70, 126, 77, 36, 137, 158]);
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2328057978, 19175, 17112, [153, 224, 10, 96, 19, 238, 249, 15]);
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_HW_SOURCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3731900090, 21718, 17543, [162, 164, 236, 124, 13, 27, 209, 99]);
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_MAX_BUFFERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2111420208, 20269, 16853, [143, 149, 12, 201, 169, 18, 186, 38]);
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_PROVIDER_DEVICE_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(912825666, 41068, 16558, [132, 207, 245, 160, 52, 6, 124, 196]);
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_SYMBOLIC_LINK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1492167384, 8895, 20362, [187, 61, 210, 196, 151, 140, 110, 47]);
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_USERNAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(97524445, 38047, 18155, [188, 142, 139, 13, 43, 50, 215, 157]);
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_XADDRESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3164651090, 49959, 17607, [155, 125, 127, 168, 217, 181, 188, 218]);
-pub const MF_DISABLE_FRAME_CORRUPTION_INFO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1887887724, 18885, 16897, [136, 42, 133, 56, 243, 140, 241, 58]);
-pub const MF_DISABLE_LOCALLY_REGISTERED_PLUGINS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1722903977, 44500, 18400, [161, 107, 90, 241, 251, 72, 54, 52]);
-pub const MF_DMFT_FRAME_BUFFER_INFO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(963437001, 26537, 17740, [135, 151, 149, 164, 87, 153, 216, 4]);
-pub const MF_ENABLE_3DVIDEO_OUTPUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3182263242, 3679, 19216, [171, 22, 38, 222, 56, 27, 98, 147]);
-pub const MF_EVENT_DO_THINNING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(840869627, 56025, 18148, [179, 29, 210, 234, 231, 9, 14, 48]);
-pub const MF_EVENT_MFT_CONTEXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3083678193, 35230, 19265, [128, 201, 38, 168, 150, 211, 41, 119]);
-pub const MF_EVENT_MFT_INPUT_STREAM_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4070321354, 31462, 17106, [178, 132, 191, 131, 124, 200, 116, 226]);
-pub const MF_EVENT_OUTPUT_NODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2198805131, 49248, 18141, [168, 1, 28, 149, 222, 201, 177, 7]);
-pub const MF_EVENT_PRESENTATION_TIME_OFFSET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1524176081, 39749, 19085, [162, 192, 129, 209, 229, 11, 251, 7]);
-pub const MF_EVENT_SCRUBSAMPLE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2596737715, 56504, 17621, [141, 12, 55, 69, 90, 39, 130, 227]);
-pub const MF_EVENT_SESSIONCAPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2120137936, 4536, 19134, [175, 173, 16, 246, 89, 154, 127, 66]);
-pub const MF_EVENT_SESSIONCAPS_DELTA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2120137937, 4536, 19134, [175, 173, 16, 246, 89, 154, 127, 66]);
-pub const MF_EVENT_SOURCE_ACTUAL_START: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2831963561, 27441, 16799, [132, 93, 255, 179, 81, 162, 67, 75]);
-pub const MF_EVENT_SOURCE_CHARACTERISTICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1205568656, 35618, 20306, [175, 218, 156, 225, 178, 211, 207, 168]);
-pub const MF_EVENT_SOURCE_CHARACTERISTICS_OLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1205568657, 35618, 20306, [175, 218, 156, 225, 178, 211, 207, 168]);
-pub const MF_EVENT_SOURCE_FAKE_START: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2831963559, 27441, 16799, [132, 93, 255, 179, 81, 162, 67, 75]);
-pub const MF_EVENT_SOURCE_PROJECTSTART: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2831963560, 27441, 16799, [132, 93, 255, 179, 81, 162, 67, 75]);
-pub const MF_EVENT_SOURCE_TOPOLOGY_CANCELED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3680695888, 39518, 18180, [172, 243, 86, 59, 198, 167, 51, 100]);
-pub const MF_EVENT_START_PRESENTATION_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1524176080, 39749, 19085, [162, 192, 129, 209, 229, 11, 251, 7]);
-pub const MF_EVENT_START_PRESENTATION_TIME_AT_OUTPUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1524176082, 39749, 19085, [162, 192, 129, 209, 229, 11, 251, 7]);
-pub const MF_EVENT_STREAM_METADATA_CONTENT_KEYIDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1348682909, 52265, 20422, [167, 90, 210, 71, 179, 90, 248, 92]);
-pub const MF_EVENT_STREAM_METADATA_KEYDATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3445204129, 19003, 19389, [134, 101, 114, 164, 15, 190, 167, 118]);
-pub const MF_EVENT_STREAM_METADATA_SYSTEMID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(513994596, 47638, 18998, [135, 25, 254, 117, 96, 186, 50, 173]);
-pub const MF_EVENT_TOPOLOGY_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(818217357, 39507, 17739, [173, 158, 109, 95, 143, 167, 196, 59]);
+pub const MF_D3D12_SYNCHRONIZATION_OBJECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a7c8d6a_85a6_494d_a046_06ea1a138f4b);
+pub const MF_DECODER_FWD_CUSTOM_SEI_DECODE_ORDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf13bbe3c_36d4_410a_b985_7a951a1e6294);
+pub const MF_DEVICEMFT_CONNECTED_FILTER_KSCONTROL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a2c4fa6_d179_41cd_9523_822371ea40e5);
+pub const MF_DEVICEMFT_CONNECTED_PIN_KSCONTROL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe63310f7_b244_4ef8_9a7d_24c74e32ebd0);
+pub const MF_DEVICEMFT_EXTENSION_PLUGIN_CLSID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0844dbae_34fa_48a0_a783_8e696fb1c9a8);
+pub const MF_DEVICEMFT_SENSORPROFILE_COLLECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36ebdc44_b12c_441b_89f4_08b2f41a9cfc);
+pub const MF_DEVICESTREAM_ATTRIBUTE_FACEAUTH_CAPABILITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb6fd12a_2248_4e41_ad46_e78bb90ab9fc);
+pub const MF_DEVICESTREAM_ATTRIBUTE_FRAMESOURCE_TYPES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17145fd1_1b2b_423c_8001_2b6833ed3588);
+pub const MF_DEVICESTREAM_ATTRIBUTE_SECURE_CAPABILITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x940fd626_ea6e_4684_9840_36bd6ec9fbef);
+pub const MF_DEVICESTREAM_EXTENSION_PLUGIN_CLSID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x048e6558_60c4_4173_bd5b_6a3ca2896aee);
+pub const MF_DEVICESTREAM_EXTENSION_PLUGIN_CONNECTION_POINT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x37f9375c_e664_4ea4_aae4_cb6d1daca1f4);
+pub const MF_DEVICESTREAM_FILTER_KSCONTROL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46783cca_3df5_4923_a9ef_36b7223edde0);
+pub const MF_DEVICESTREAM_FRAMESERVER_HIDDEN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf402567b_4d91_4179_96d1_74c8480c2034);
+pub const MF_DEVICESTREAM_FRAMESERVER_SHARED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cb378e9_b279_41d4_af97_34a243e68320);
+pub const MF_DEVICESTREAM_IMAGE_STREAM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7ffb865_e7b2_43b0_9f6f_9af2a0e50fc0);
+pub const MF_DEVICESTREAM_INDEPENDENT_IMAGE_STREAM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03eeec7e_d605_4576_8b29_6580b490d7d3);
+pub const MF_DEVICESTREAM_MAX_FRAME_BUFFERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1684cebe_3175_4985_882c_0efd3e8ac11e);
+pub const MF_DEVICESTREAM_MULTIPLEXED_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ea542b0_281f_4231_a464_fe2f5022501c);
+pub const MF_DEVICESTREAM_PIN_KSCONTROL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef3ef9a7_87f2_48ca_be02_674878918e98);
+pub const MF_DEVICESTREAM_REQUIRED_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d8b957e_7cf6_43f4_af56_9c0e1e4fcbe1);
+pub const MF_DEVICESTREAM_REQUIRED_SDDL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x331ae85d_c0d3_49ba_83ba_82a12d63cdd6);
+pub const MF_DEVICESTREAM_SENSORSTREAM_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe35b9fe4_0659_4cad_bb51_33160be7e413);
+pub const MF_DEVICESTREAM_SOURCE_ATTRIBUTES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f8cb617_361b_434f_85ea_99a03e1ce4e0);
+pub const MF_DEVICESTREAM_STREAM_CATEGORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2939e7b8_a62e_4579_b674_d4073dfabbba);
+pub const MF_DEVICESTREAM_STREAM_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11bd5120_d124_446b_88e6_17060257fff9);
+pub const MF_DEVICESTREAM_TAKEPHOTO_TRIGGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d180e34_538c_4fbb_a75a_859af7d261a6);
+pub const MF_DEVICESTREAM_TRANSFORM_STREAM_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe63937b7_daaf_4d49_815f_d826f8ad31e7);
+pub const MF_DEVICE_THERMAL_STATE_CHANGED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70ccd0af_fc9f_4deb_a875_9fecd16c5bd4);
+pub const MF_DEVSOURCE_ATTRIBUTE_FRIENDLY_NAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60d0e559_52f8_4fa2_bbce_acdb34a8ec01);
+pub const MF_DEVSOURCE_ATTRIBUTE_MEDIA_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56a819ca_0c78_4de4_a0a7_3ddaba0f24d4);
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_PASSWORD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0fd7e16_42d9_49df_84c0_e82c5eab8874);
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_STREAM_URL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d7b40d2_3617_4043_93e3_8d6da9bb3492);
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc60ac5fe_252a_478f_a0ef_bc8fa5f7cad3);
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_ENDPOINT_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30da9258_feb9_47a7_a453_763a7a8e1c5f);
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14dd9a1c_7cff_41be_b1b9_ba1ac6ecb571);
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_ROLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc9d118e_8c67_4a18_85d4_12d300400552);
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_SYMBOLIC_LINK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98d24b5e_5930_4614_b5a1_f600f9355a78);
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_CATEGORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77f0ae69_c3bd_4509_941d_467e4d24899e);
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ac3587a_4ae7_42d8_99e0_0a6013eef90f);
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_HW_SOURCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde7046ba_54d6_4487_a2a4_ec7c0d1bd163);
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_MAX_BUFFERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7dd9b730_4f2d_41d5_8f95_0cc9a912ba26);
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_PROVIDER_DEVICE_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36689d42_a06c_40ae_84cf_f5a034067cc4);
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_SYMBOLIC_LINK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58f0aad8_22bf_4f8a_bb3d_d2c4978c6e2f);
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_USERNAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05d01add_949f_46eb_bc8e_8b0d2b32d79d);
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_XADDRESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbca0be52_c327_44c7_9b7d_7fa8d9b5bcda);
+pub const MF_DISABLE_FRAME_CORRUPTION_INFO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7086e16c_49c5_4201_882a_8538f38cf13a);
+pub const MF_DISABLE_LOCALLY_REGISTERED_PLUGINS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66b16da9_add4_47e0_a16b_5af1fb483634);
+pub const MF_DMFT_FRAME_BUFFER_INFO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x396ce1c9_67a9_454c_8797_95a45799d804);
+pub const MF_ENABLE_3DVIDEO_OUTPUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbdad7bca_0e5f_4b10_ab16_26de381b6293);
+pub const MF_EVENT_DO_THINNING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x321ea6fb_dad9_46e4_b31d_d2eae7090e30);
+pub const MF_EVENT_MFT_CONTEXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7cd31f1_899e_4b41_80c9_26a896d32977);
+pub const MF_EVENT_MFT_INPUT_STREAM_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf29c2cca_7ae6_42d2_b284_bf837cc874e2);
+pub const MF_EVENT_OUTPUT_NODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x830f1a8b_c060_46dd_a801_1c95dec9b107);
+pub const MF_EVENT_PRESENTATION_TIME_OFFSET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ad914d1_9b45_4a8d_a2c0_81d1e50bfb07);
+pub const MF_EVENT_SCRUBSAMPLE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ac712b3_dcb8_44d5_8d0c_37455a2782e3);
+pub const MF_EVENT_SESSIONCAPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e5ebcd0_11b8_4abe_afad_10f6599a7f42);
+pub const MF_EVENT_SESSIONCAPS_DELTA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e5ebcd1_11b8_4abe_afad_10f6599a7f42);
+pub const MF_EVENT_SOURCE_ACTUAL_START: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8cc55a9_6b31_419f_845d_ffb351a2434b);
+pub const MF_EVENT_SOURCE_CHARACTERISTICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47db8490_8b22_4f52_afda_9ce1b2d3cfa8);
+pub const MF_EVENT_SOURCE_CHARACTERISTICS_OLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47db8491_8b22_4f52_afda_9ce1b2d3cfa8);
+pub const MF_EVENT_SOURCE_FAKE_START: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8cc55a7_6b31_419f_845d_ffb351a2434b);
+pub const MF_EVENT_SOURCE_PROJECTSTART: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8cc55a8_6b31_419f_845d_ffb351a2434b);
+pub const MF_EVENT_SOURCE_TOPOLOGY_CANCELED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb62f650_9a5e_4704_acf3_563bc6a73364);
+pub const MF_EVENT_START_PRESENTATION_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ad914d0_9b45_4a8d_a2c0_81d1e50bfb07);
+pub const MF_EVENT_START_PRESENTATION_TIME_AT_OUTPUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ad914d2_9b45_4a8d_a2c0_81d1e50bfb07);
+pub const MF_EVENT_STREAM_METADATA_CONTENT_KEYIDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5063449d_cc29_4fc6_a75a_d247b35af85c);
+pub const MF_EVENT_STREAM_METADATA_KEYDATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd59a4a1_4a3b_4bbd_8665_72a40fbea776);
+pub const MF_EVENT_STREAM_METADATA_SYSTEMID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ea2ef64_ba16_4a36_8719_fe7560ba32ad);
+pub const MF_EVENT_TOPOLOGY_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30c5018d_9a53_454b_ad9e_6d5f8fa7c43b);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -52998,12 +52998,12 @@ impl ::core::cmp::Eq for MF_FLOAT3 {}
 unsafe impl ::windows::runtime::Abi for MF_FLOAT3 {
     type Abi = Self;
 }
-pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_CUSTOM_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1851345052, 18387, 17511, [131, 239, 18, 211, 78, 135, 22, 101]);
-pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_PIPELINE_SHUTDOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1168644913, 17400, 20061, [140, 226, 34, 220, 224, 38, 153, 109]);
-pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_INITIALIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3844886015, 58477, 19723, [188, 117, 221, 212, 200, 114, 63, 150]);
-pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_START: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2985212297, 46166, 20298, [174, 64, 7, 156, 40, 226, 74, 248]);
-pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_STOP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3086908001, 65169, 16734, [134, 8, 211, 125, 237, 177, 165, 139]);
-pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_UNINITIALIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2699799463, 42018, 20019, [132, 1, 179, 125, 40, 0, 170, 103]);
+pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_CUSTOM_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e59489c_47d3_4467_83ef_12d34e871665);
+pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_PIPELINE_SHUTDOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45a81b31_43f8_4e5d_8ce2_22dce026996d);
+pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_INITIALIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe52c4dff_e46d_4d0b_bc75_ddd4c8723f96);
+pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_START: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1eeb989_b456_4f4a_ae40_079c28e24af8);
+pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_STOP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7fe7a61_fe91_415e_8608_d37dedb1a58b);
+pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_UNINITIALIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0ebaba7_a422_4e33_8401_b37d2800aa67);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_GRL_ABSENT: u32 = 4096u32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -53035,7 +53035,7 @@ pub const MF_HISTOGRAM_CHANNEL_G: u32 = 4u32;
 pub const MF_HISTOGRAM_CHANNEL_R: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_HISTOGRAM_CHANNEL_Y: u32 = 1u32;
-pub const MF_INDEPENDENT_STILL_IMAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3927093057, 1808, 17097, [161, 39, 218, 163, 231, 132, 131, 165]);
+pub const MF_INDEPENDENT_STILL_IMAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea12af41_0710_42c9_a127_daa3e78483a5);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_INDEX_SIZE_ERR: u32 = 2154823681u32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -53077,12 +53077,12 @@ impl ::core::cmp::Eq for MF_LEAKY_BUCKET_PAIR {}
 unsafe impl ::windows::runtime::Abi for MF_LEAKY_BUCKET_PAIR {
     type Abi = Self;
 }
-pub const MF_LOCAL_MFT_REGISTRATION_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3723874204, 17670, 17834, [171, 240, 109, 93, 148, 221, 27, 74]);
-pub const MF_LOCAL_PLUGIN_CONTROL_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3642425477, 51309, 20353, [136, 34, 140, 104, 225, 215, 250, 4]);
-pub const MF_LOW_LATENCY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2619836698, 60794, 16609, [136, 232, 178, 39, 39, 160, 36, 238]);
-pub const MF_LUMA_KEY_ENABLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1936294415, 30430, 17354, [146, 132, 71, 184, 243, 126, 6, 73]);
-pub const MF_LUMA_KEY_LOWER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2480388309, 2945, 18197, [174, 160, 135, 37, 135, 22, 33, 233]);
-pub const MF_LUMA_KEY_UPPER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3500095931, 17922, 19505, [167, 6, 161, 33, 113, 165, 17, 10]);
+pub const MF_LOCAL_MFT_REGISTRATION_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddf5cf9c_4506_45aa_abf0_6d5d94dd1b4a);
+pub const MF_LOCAL_PLUGIN_CONTROL_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd91b0085_c86d_4f81_8822_8c68e1d7fa04);
+pub const MF_LOW_LATENCY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c27891a_ed7a_40e1_88e8_b22727a024ee);
+pub const MF_LUMA_KEY_ENABLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7369820f_76de_43ca_9284_47b8f37e0649);
+pub const MF_LUMA_KEY_LOWER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93d7b8d5_0b81_4715_aea0_8725871621e9);
+pub const MF_LUMA_KEY_UPPER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd09f39bb_4602_4c31_a706_a12171a5110a);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -53150,10 +53150,10 @@ impl ::core::convert::From<i32> for MF_MEDIAKEY_STATUS {
 unsafe impl ::windows::runtime::Abi for MF_MEDIAKEY_STATUS {
     type Abi = Self;
 }
-pub const MF_MEDIASINK_AUTOFINALIZE_SUPPORTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1220620734, 4954, 16843, [130, 144, 3, 101, 37, 9, 201, 153]);
-pub const MF_MEDIASINK_ENABLE_AUTOFINALIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(872497765, 52094, 19678, [172, 124, 239, 253, 59, 60, 37, 48]);
-pub const MF_MEDIASOURCE_EXPOSE_ALL_STREAMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3891417272, 36825, 18953, [182, 193, 106, 49, 92, 124, 114, 14]);
-pub const MF_MEDIASOURCE_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4036596471, 40890, 19530, [163, 127, 140, 71, 180, 225, 223, 231]);
+pub const MF_MEDIASINK_AUTOFINALIZE_SUPPORTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48c131be_135a_41cb_8290_03652509c999);
+pub const MF_MEDIASINK_ENABLE_AUTOFINALIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34014265_cb7e_4cde_ac7c_effd3b3c2530);
+pub const MF_MEDIASOURCE_EXPOSE_ALL_STREAMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7f250b8_8fd9_4a09_b6c1_6a315c7c720e);
+pub const MF_MEDIASOURCE_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf09992f7_9fba_4c4a_a37f_8c47b4e1dfe7);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_MEDIATYPE_EQUAL_FORMAT_DATA: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -53162,15 +53162,15 @@ pub const MF_MEDIATYPE_EQUAL_FORMAT_TYPES: u32 = 2u32;
 pub const MF_MEDIATYPE_EQUAL_FORMAT_USER_DATA: u32 = 8u32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_MEDIATYPE_EQUAL_MAJOR_TYPES: u32 = 1u32;
-pub const MF_MEDIATYPE_MULTIPLEXED_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(331845557, 62069, 20128, [187, 95, 2, 73, 131, 43, 13, 110]);
-pub const MF_MEDIA_ENGINE_AUDIO_CATEGORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3369387293, 13582, 16882, [186, 70, 250, 235, 187, 8, 87, 246]);
-pub const MF_MEDIA_ENGINE_AUDIO_ENDPOINT_ROLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3536557009, 4458, 17650, [147, 133, 247, 208, 253, 162, 251, 70]);
-pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1308758754, 57743, 16865, [149, 229, 192, 231, 233, 35, 91, 195]);
-pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(295992061, 25993, 16676, [179, 18, 97, 88, 236, 81, 127, 195]);
-pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE11: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(485568863, 52799, 16437, [147, 145, 22, 20, 47, 119, 81, 137]);
-pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE9: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(86781241, 16576, 16776, [171, 134, 248, 40, 39, 59, 117, 34]);
-pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE_EDGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2801001573, 15050, 17452, [163, 240, 173, 109, 218, 216, 57, 174]);
-pub const MF_MEDIA_ENGINE_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3322118584, 33700, 16888, [163, 208, 222, 5, 7, 104, 73, 169]);
+pub const MF_MEDIATYPE_MULTIPLEXED_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13c78fb5_f275_4ea0_bb5f_0249832b0d6e);
+pub const MF_MEDIA_ENGINE_AUDIO_CATEGORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8d4c51d_350e_41f2_ba46_faebbb0857f6);
+pub const MF_MEDIA_ENGINE_AUDIO_ENDPOINT_ROLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2cb93d1_116a_44f2_9385_f7d0fda2fb46);
+pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e0212e2_e18f_41e1_95e5_c0e7e9235bc3);
+pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11a47afd_6589_4124_b312_6158ec517fc3);
+pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE11: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cf1315f_ce3f_4035_9391_16142f775189);
+pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE9: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x052c2d39_40c0_4188_ab86_f828273b7522);
+pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE_EDGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6f3e465_3aca_442c_a3f0_ad6ddad839ae);
+pub const MF_MEDIA_ENGINE_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc60381b8_83a4_41f8_a3d0_de05076849a9);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -53186,13 +53186,13 @@ impl ::core::convert::From<i32> for MF_MEDIA_ENGINE_CANPLAY {
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_CANPLAY {
     type Abi = Self;
 }
-pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1056074452, 56404, 17886, [185, 175, 118, 200, 198, 107, 250, 142]);
-pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE_WIN10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1529208969, 27815, 16697, [162, 203, 252, 170, 179, 149, 82, 163]);
-pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE_WWA_EDGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(364023960, 40705, 20045, [182, 90, 192, 108, 108, 137, 218, 42]);
-pub const MF_MEDIA_ENGINE_CONTENT_PROTECTION_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3761570339, 23215, 19830, [167, 195, 6, 222, 112, 137, 77, 180]);
-pub const MF_MEDIA_ENGINE_CONTENT_PROTECTION_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4258717610, 48517, 19187, [158, 15, 160, 29, 83, 157, 135, 106]);
-pub const MF_MEDIA_ENGINE_CONTINUE_ON_CODEC_ERROR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3687692281, 18660, 17045, [183, 13, 213, 24, 35, 78, 235, 56]);
-pub const MF_MEDIA_ENGINE_COREWINDOW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4241155292, 2943, 16834, [159, 150, 70, 89, 148, 138, 205, 220]);
+pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ef26ad4_dc54_45de_b9af_76c8c66bfa8e);
+pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE_WIN10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b25e089_6ca7_4139_a2cb_fcaab39552a3);
+pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE_WWA_EDGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15b29098_9f01_4e4d_b65a_c06c6c89da2a);
+pub const MF_MEDIA_ENGINE_CONTENT_PROTECTION_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0350223_5aaf_4d76_a7c3_06de70894db4);
+pub const MF_MEDIA_ENGINE_CONTENT_PROTECTION_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfdd6dfaa_bd85_4af3_9e0f_a01d539d876a);
+pub const MF_MEDIA_ENGINE_CONTINUE_ON_CODEC_ERROR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbcdb7f9_48e4_4295_b70d_d518234eeb38);
+pub const MF_MEDIA_ENGINE_COREWINDOW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfccae4dc_0b7f_41c2_9f96_4659948acddc);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -53211,8 +53211,8 @@ impl ::core::convert::From<i32> for MF_MEDIA_ENGINE_CREATEFLAGS {
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_CREATEFLAGS {
     type Abi = Self;
 }
-pub const MF_MEDIA_ENGINE_DXGI_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(106365658, 4244, 18541, [134, 23, 238, 124, 196, 238, 70, 72]);
-pub const MF_MEDIA_ENGINE_EME_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229280167, 42113, 19639, [190, 197, 56, 9, 3, 81, 55, 49]);
+pub const MF_MEDIA_ENGINE_DXGI_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x065702da_1094_486d_8617_ee7cc4ee4648);
+pub const MF_MEDIA_ENGINE_EME_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x494553a7_a481_4cb7_bec5_380903513731);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -53282,7 +53282,7 @@ impl ::core::convert::From<i32> for MF_MEDIA_ENGINE_EVENT {
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_EVENT {
     type Abi = Self;
 }
-pub const MF_MEDIA_ENGINE_EXTENSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(822738246, 1549, 19298, [141, 207, 250, 255, 129, 19, 24, 210]);
+pub const MF_MEDIA_ENGINE_EXTENSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3109fd46_060d_4b62_8dcf_faff811318d2);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -53330,8 +53330,8 @@ impl ::core::convert::From<i32> for MF_MEDIA_ENGINE_KEYERR {
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_KEYERR {
     type Abi = Self;
 }
-pub const MF_MEDIA_ENGINE_MEDIA_PLAYER_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1037929797, 23201, 16658, [130, 229, 54, 246, 162, 25, 126, 110]);
-pub const MF_MEDIA_ENGINE_NEEDKEY_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2124941379, 46820, 17196, [142, 164, 120, 72, 255, 228, 34, 14]);
+pub const MF_MEDIA_ENGINE_MEDIA_PLAYER_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ddd8d45_5aa1_4112_82e5_36f6a2197e6e);
+pub const MF_MEDIA_ENGINE_NEEDKEY_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ea80843_b6e4_432c_8ea4_7848ffe4220e);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -53348,7 +53348,7 @@ impl ::core::convert::From<i32> for MF_MEDIA_ENGINE_NETWORK {
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_NETWORK {
     type Abi = Self;
 }
-pub const MF_MEDIA_ENGINE_OPM_HWND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2696842983, 1394, 20268, [168, 1, 42, 21, 27, 211, 231, 38]);
+pub const MF_MEDIA_ENGINE_OPM_HWND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0be8ee7_0572_4f2c_a801_2a151bd3e726);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -53367,8 +53367,8 @@ impl ::core::convert::From<i32> for MF_MEDIA_ENGINE_OPM_STATUS {
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_OPM_STATUS {
     type Abi = Self;
 }
-pub const MF_MEDIA_ENGINE_PLAYBACK_HWND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3649603483, 26569, 19858, [186, 167, 110, 173, 212, 70, 3, 157]);
-pub const MF_MEDIA_ENGINE_PLAYBACK_VISUAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1844171375, 27321, 19838, [176, 238, 198, 26, 115, 255, 173, 21]);
+pub const MF_MEDIA_ENGINE_PLAYBACK_HWND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd988879b_67c9_4d92_baa7_6eadd446039d);
+pub const MF_MEDIA_ENGINE_PLAYBACK_VISUAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6debd26f_6ab9_4d7e_b0ee_c61a73ffad15);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -53447,7 +53447,7 @@ impl ::core::convert::From<i32> for MF_MEDIA_ENGINE_SEEK_MODE {
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_SEEK_MODE {
     type Abi = Self;
 }
-pub const MF_MEDIA_ENGINE_SOURCE_RESOLVER_CONFIG_STORE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(180405399, 46020, 18633, [156, 222, 187, 140, 162, 68, 44, 163]);
+pub const MF_MEDIA_ENGINE_SOURCE_RESOLVER_CONFIG_STORE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ac0c497_b3c4_48c9_9cde_bb8ca2442ca3);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -53483,15 +53483,15 @@ impl ::core::convert::From<i32> for MF_MEDIA_ENGINE_STREAMTYPE_FAILED {
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_STREAMTYPE_FAILED {
     type Abi = Self;
 }
-pub const MF_MEDIA_ENGINE_STREAM_CONTAINS_ALPHA_CHANNEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1556066116, 53938, 19707, [128, 167, 212, 41, 199, 76, 120, 157]);
-pub const MF_MEDIA_ENGINE_SYNCHRONOUS_CLOSE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3284328751, 32270, 20035, [185, 28, 220, 153, 44, 205, 250, 94]);
-pub const MF_MEDIA_ENGINE_TELEMETRY_APPLICATION_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(511387451, 42980, 16426, [143, 81, 196, 142, 136, 162, 202, 188]);
-pub const MF_MEDIA_ENGINE_TIMEDTEXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2153686033, 37600, 20057, [155, 110, 92, 125, 121, 21, 230, 79]);
-pub const MF_MEDIA_ENGINE_TRACK_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1706992402, 16451, 18453, [142, 171, 68, 220, 226, 239, 143, 42]);
-pub const MF_MEDIA_ENGINE_VIDEO_OUTPUT_FORMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1348897084, 36089, 17084, [139, 138, 71, 34, 18, 229, 39, 38]);
-pub const MF_MEDIA_PROTECTION_MANAGER_PROPERTIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(951943593, 44266, 19571, [137, 178, 85, 50, 192, 174, 202, 121]);
-pub const MF_MEDIA_SHARING_ENGINE_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3026306442, 31240, 19352, [153, 168, 112, 253, 95, 59, 173, 253]);
-pub const MF_MEDIA_SHARING_ENGINE_DEVICE_NAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1998456273, 34351, 17049, [149, 172, 174, 129, 253, 20, 243, 231]);
+pub const MF_MEDIA_ENGINE_STREAM_CONTAINS_ALPHA_CHANNEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5cbfaf44_d2b2_4cfb_80a7_d429c74c789d);
+pub const MF_MEDIA_ENGINE_SYNCHRONOUS_CLOSE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3c2e12f_7e0e_4e43_b91c_dc992ccdfa5e);
+pub const MF_MEDIA_ENGINE_TELEMETRY_APPLICATION_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e7b273b_a7e4_402a_8f51_c48e88a2cabc);
+pub const MF_MEDIA_ENGINE_TIMEDTEXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x805ea411_92e0_4e59_9b6e_5c7d7915e64f);
+pub const MF_MEDIA_ENGINE_TRACK_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65bea312_4043_4815_8eab_44dce2ef8f2a);
+pub const MF_MEDIA_ENGINE_VIDEO_OUTPUT_FORMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5066893c_8cf9_42bc_8b8a_472212e52726);
+pub const MF_MEDIA_PROTECTION_MANAGER_PROPERTIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38bd81a9_acea_4c73_89b2_5532c0aeca79);
+pub const MF_MEDIA_SHARING_ENGINE_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb461c58a_7a08_4b98_99a8_70fd5f3badfd);
+pub const MF_MEDIA_SHARING_ENGINE_DEVICE_NAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x771e05d1_862f_4299_95ac_ae81fd14f3e7);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -53505,27 +53505,27 @@ impl ::core::convert::From<i32> for MF_MEDIA_SHARING_ENGINE_EVENT {
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_SHARING_ENGINE_EVENT {
     type Abi = Self;
 }
-pub const MF_MEDIA_SHARING_ENGINE_INITIAL_SEEK_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1865717749, 54568, 19023, [141, 215, 219, 54, 101, 126, 196, 201]);
+pub const MF_MEDIA_SHARING_ENGINE_INITIAL_SEEK_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f3497f5_d528_4a4f_8dd7_db36657ec4c9);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_METADATAFACIALEXPRESSION_SMILE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_METADATATIMESTAMPS_DEVICE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_METADATATIMESTAMPS_PRESENTATION: u32 = 2u32;
-pub const MF_METADATA_PROVIDER_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3676389508, 22692, 19758, [184, 79, 111, 117, 91, 47, 122, 13]);
+pub const MF_METADATA_PROVIDER_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb214084_58a4_4d2e_b84f_6f755b2f7a0d);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_MINCRYPT_FAILURE: u32 = 268435456u32;
-pub const MF_MP2DLNA_AUDIO_BIT_RATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(756811534, 11103, 19123, [167, 230, 141, 148, 59, 168, 208, 10]);
-pub const MF_MP2DLNA_ENCODE_QUALITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3039001047, 7494, 20406, [163, 23, 164, 165, 246, 9, 89, 248]);
-pub const MF_MP2DLNA_STATISTICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1977911459, 54701, 18584, [133, 224, 188, 206, 36, 167, 34, 215]);
-pub const MF_MP2DLNA_USE_MMCSS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1425269486, 41634, 18813, [152, 52, 151, 58, 253, 229, 33, 235]);
-pub const MF_MP2DLNA_VIDEO_BIT_RATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3901049054, 29620, 17111, [156, 117, 173, 250, 10, 42, 110, 76]);
-pub const MF_MPEG4SINK_MAX_CODED_SEQUENCES_PER_FRAGMENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4229643222, 26925, 19685, [146, 153, 115, 138, 165, 70, 62, 154]);
-pub const MF_MPEG4SINK_MINIMUM_PROPERTIES_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3701599570, 17678, 18978, [140, 98, 78, 212, 82, 247, 161, 135]);
-pub const MF_MPEG4SINK_MIN_FRAGMENT_DURATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2735429388, 36605, 17896, [148, 254, 39, 200, 75, 91, 223, 246]);
-pub const MF_MPEG4SINK_MOOV_BEFORE_MDAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4134724524, 57830, 20240, [181, 236, 95, 59, 48, 130, 136, 22]);
-pub const MF_MPEG4SINK_SPSPPS_PASSTHROUGH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1442947380, 8197, 19154, [179, 125, 34, 166, 197, 84, 222, 178]);
-pub const MF_MSE_ACTIVELIST_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2493241871, 17737, 18133, [173, 127, 184, 70, 225, 171, 22, 82]);
+pub const MF_MP2DLNA_AUDIO_BIT_RATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d1c070e_2b5f_4ab3_a7e6_8d943ba8d00a);
+pub const MF_MP2DLNA_ENCODE_QUALITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb52379d7_1d46_4fb6_a317_a4a5f60959f8);
+pub const MF_MP2DLNA_STATISTICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75e488a3_d5ad_4898_85e0_bcce24a722d7);
+pub const MF_MP2DLNA_USE_MMCSS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54f3e2ee_a2a2_497d_9834_973afde521eb);
+pub const MF_MP2DLNA_VIDEO_BIT_RATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe88548de_73b4_42d7_9c75_adfa0a2a6e4c);
+pub const MF_MPEG4SINK_MAX_CODED_SEQUENCES_PER_FRAGMENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc1b3bd6_692d_4ce5_9299_738aa5463e9a);
+pub const MF_MPEG4SINK_MINIMUM_PROPERTIES_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdca1ed52_450e_4a22_8c62_4ed452f7a187);
+pub const MF_MPEG4SINK_MIN_FRAGMENT_DURATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa30b570c_8efd_45e8_94fe_27c84b5bdff6);
+pub const MF_MPEG4SINK_MOOV_BEFORE_MDAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf672e3ac_e1e6_4f10_b5ec_5f3b30828816);
+pub const MF_MPEG4SINK_SPSPPS_PASSTHROUGH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5601a134_2005_4ad2_b37d_22a6c554deb2);
+pub const MF_MSE_ACTIVELIST_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x949bda0f_4549_46d5_ad7f_b846e1ab1652);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -53540,8 +53540,8 @@ impl ::core::convert::From<i32> for MF_MSE_APPEND_MODE {
 unsafe impl ::windows::runtime::Abi for MF_MSE_APPEND_MODE {
     type Abi = Self;
 }
-pub const MF_MSE_BUFFERLIST_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1122396592, 54798, 19195, [168, 91, 216, 229, 254, 107, 218, 181]);
-pub const MF_MSE_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2422450112, 17093, 20477, [168, 168, 111, 207, 158, 163, 208, 12]);
+pub const MF_MSE_BUFFERLIST_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42e669b0_d60e_4afb_a85b_d8e5fe6bdab5);
+pub const MF_MSE_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9063a7c0_42c5_4ffd_a8a8_6fcf9ea3d00c);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -53558,7 +53558,7 @@ impl ::core::convert::From<i32> for MF_MSE_ERROR {
 unsafe impl ::windows::runtime::Abi for MF_MSE_ERROR {
     type Abi = Self;
 }
-pub const MF_MSE_OPUS_SUPPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1294093505, 36036, 18595, [167, 167, 228, 193, 108, 230, 56, 138]);
+pub const MF_MSE_OPUS_SUPPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d224cc1_8cc4_48a3_a7a7_e4c16ce6388a);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -53588,7 +53588,7 @@ impl ::core::convert::From<i32> for MF_MSE_READY {
 unsafe impl ::windows::runtime::Abi for MF_MSE_READY {
     type Abi = Self;
 }
-pub const MF_MSE_VP9_SUPPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2463597609, 55435, 20464, [131, 34, 128, 62, 250, 110, 150, 38]);
+pub const MF_MSE_VP9_SUPPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92d78429_d88b_4ff0_8322_803efa6e9626);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -53604,43 +53604,43 @@ impl ::core::convert::From<i32> for MF_MSE_VP9_SUPPORT_TYPE {
 unsafe impl ::windows::runtime::Abi for MF_MSE_VP9_SUPPORT_TYPE {
     type Abi = Self;
 }
-pub const MF_MT_AAC_AUDIO_PROFILE_LEVEL_INDICATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1983049958, 38200, 19809, [172, 218, 234, 41, 200, 193, 68, 86]);
-pub const MF_MT_AAC_PAYLOAD_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3216686713, 29748, 19740, [148, 240, 114, 163, 185, 225, 113, 136]);
-pub const MF_MT_ALL_SAMPLES_INDEPENDENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3373741881, 24150, 17948, [183, 19, 70, 251, 153, 92, 185, 95]);
-pub const MF_MT_ALPHA_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1570085645, 19647, 19716, [145, 159, 63, 95, 127, 40, 66, 17]);
-pub const MF_MT_AM_FORMAT_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1943078701, 6256, 16756, [160, 99, 41, 255, 79, 246, 193, 30]);
-pub const MF_MT_ARBITRARY_FORMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1517662793, 3453, 18849, [161, 195, 224, 216, 127, 12, 173, 229]);
-pub const MF_MT_ARBITRARY_HEADER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2657867509, 265, 20373, [132, 172, 147, 9, 21, 58, 25, 252]);
-pub const MF_MT_AUDIO_AVG_BYTES_PER_SECOND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(447444424, 53231, 17692, [171, 149, 172, 3, 75, 142, 23, 49]);
-pub const MF_MT_AUDIO_BITS_PER_SAMPLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4074681727, 16634, 18276, [170, 51, 237, 79, 45, 31, 246, 105]);
-pub const MF_MT_AUDIO_BLOCK_ALIGNMENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(841867824, 40683, 17341, [171, 122, 255, 65, 34, 81, 84, 29]);
-pub const MF_MT_AUDIO_CHANNEL_MASK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1442535269, 25674, 19631, [132, 121, 147, 137, 131, 187, 21, 136]);
-pub const MF_MT_AUDIO_FLAC_MAX_BLOCK_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2340531630, 19290, 19776, [128, 34, 243, 141, 9, 202, 60, 92]);
-pub const MF_MT_AUDIO_FLOAT_SAMPLES_PER_SECOND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4214977098, 53173, 17177, [174, 254, 110, 66, 178, 64, 97, 50]);
-pub const MF_MT_AUDIO_FOLDDOWN_MATRIX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2640482940, 14014, 19698, [181, 196, 163, 146, 110, 62, 135, 17]);
-pub const MF_MT_AUDIO_NUM_CHANNELS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(937724917, 25694, 19547, [137, 222, 173, 169, 226, 155, 105, 106]);
-pub const MF_MT_AUDIO_PREFER_WAVEFORMATEX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2835458746, 57399, 17802, [189, 246, 84, 91, 226, 7, 64, 66]);
-pub const MF_MT_AUDIO_SAMPLES_PER_BLOCK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2863749804, 57658, 18837, [146, 34, 80, 30, 161, 92, 104, 119]);
-pub const MF_MT_AUDIO_SAMPLES_PER_SECOND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1605298919, 656, 19505, [158, 138, 197, 52, 246, 141, 157, 186]);
-pub const MF_MT_AUDIO_VALID_BITS_PER_SAMPLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3653209450, 38192, 19324, [157, 223, 255, 111, 213, 139, 189, 6]);
-pub const MF_MT_AUDIO_WMADRC_AVGREF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2640482943, 14014, 19698, [181, 196, 163, 146, 110, 62, 135, 17]);
-pub const MF_MT_AUDIO_WMADRC_AVGTARGET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2640482944, 14014, 19698, [181, 196, 163, 146, 110, 62, 135, 17]);
-pub const MF_MT_AUDIO_WMADRC_PEAKREF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2640482941, 14014, 19698, [181, 196, 163, 146, 110, 62, 135, 17]);
-pub const MF_MT_AUDIO_WMADRC_PEAKTARGET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2640482942, 14014, 19698, [181, 196, 163, 146, 110, 62, 135, 17]);
-pub const MF_MT_AVG_BITRATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(540223012, 64269, 19870, [189, 13, 203, 246, 120, 108, 16, 46]);
-pub const MF_MT_AVG_BIT_ERROR_RATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2040310742, 13576, 19892, [163, 199, 86, 156, 213, 51, 222, 177]);
-pub const MF_MT_COMPRESSED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(989662446, 6386, 19365, [161, 16, 139, 234, 80, 46, 31, 146]);
-pub const MF_MT_CONTAINER_RATE_SCALING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2206695262, 1092, 20008, [132, 121, 109, 176, 152, 155, 140, 9]);
-pub const MF_MT_CUSTOM_VIDEO_PRIMARIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1196651027, 36091, 18210, [170, 52, 251, 201, 226, 77, 119, 184]);
-pub const MF_MT_D3D12_CPU_READBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(686727139, 54401, 18086, [185, 138, 127, 105, 213, 40, 14, 130]);
-pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_CROSS_ADAPTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2795627577, 12182, 19125, [152, 220, 173, 247, 73, 115, 80, 93]);
-pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2970848707, 469, 19476, [155, 220, 205, 201, 51, 111, 85, 185]);
-pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4004259205, 13360, 18828, [132, 162, 119, 177, 187, 165, 112, 246]);
-pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_SIMULTANEOUS_ACCESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(172572850, 53206, 18232, [157, 2, 152, 17, 55, 52, 1, 90]);
-pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2194167367, 20567, 18784, [149, 89, 244, 91, 142, 39, 20, 39]);
-pub const MF_MT_D3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3121004460, 65507, 18250, [171, 85, 22, 30, 228, 65, 122, 46]);
-pub const MF_MT_D3D12_TEXTURE_LAYOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2546490538, 3051, 20193, [151, 21, 242, 47, 173, 140, 16, 245]);
-pub const MF_MT_D3D_RESOURCE_VERSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(391061125, 65062, 17725, [181, 46, 91, 221, 78, 85, 185, 68]);
+pub const MF_MT_AAC_AUDIO_PROFILE_LEVEL_INDICATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7632f0e6_9538_4d61_acda_ea29c8c14456);
+pub const MF_MT_AAC_PAYLOAD_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfbabe79_7434_4d1c_94f0_72a3b9e17188);
+pub const MF_MT_ALL_SAMPLES_INDEPENDENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9173739_5e56_461c_b713_46fb995cb95f);
+pub const MF_MT_ALPHA_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d959b0d_4cbf_4d04_919f_3f5f7f284211);
+pub const MF_MT_AM_FORMAT_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73d1072d_1870_4174_a063_29ff4ff6c11e);
+pub const MF_MT_ARBITRARY_FORMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a75b249_0d7d_49a1_a1c3_e0d87f0cade5);
+pub const MF_MT_ARBITRARY_HEADER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e6bd6f5_0109_4f95_84ac_9309153a19fc);
+pub const MF_MT_AUDIO_AVG_BYTES_PER_SECOND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1aab75c8_cfef_451c_ab95_ac034b8e1731);
+pub const MF_MT_AUDIO_BITS_PER_SAMPLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2deb57f_40fa_4764_aa33_ed4f2d1ff669);
+pub const MF_MT_AUDIO_BLOCK_ALIGNMENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x322de230_9eeb_43bd_ab7a_ff412251541d);
+pub const MF_MT_AUDIO_CHANNEL_MASK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55fb5765_644a_4caf_8479_938983bb1588);
+pub const MF_MT_AUDIO_FLAC_MAX_BLOCK_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b81adae_4b5a_4d40_8022_f38d09ca3c5c);
+pub const MF_MT_AUDIO_FLOAT_SAMPLES_PER_SECOND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb3b724a_cfb5_4319_aefe_6e42b2406132);
+pub const MF_MT_AUDIO_FOLDDOWN_MATRIX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d62927c_36be_4cf2_b5c4_a3926e3e8711);
+pub const MF_MT_AUDIO_NUM_CHANNELS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x37e48bf5_645e_4c5b_89de_ada9e29b696a);
+pub const MF_MT_AUDIO_PREFER_WAVEFORMATEX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa901aaba_e037_458a_bdf6_545be2074042);
+pub const MF_MT_AUDIO_SAMPLES_PER_BLOCK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaab15aac_e13a_4995_9222_501ea15c6877);
+pub const MF_MT_AUDIO_SAMPLES_PER_SECOND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5faeeae7_0290_4c31_9e8a_c534f68d9dba);
+pub const MF_MT_AUDIO_VALID_BITS_PER_SAMPLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9bf8d6a_9530_4b7c_9ddf_ff6fd58bbd06);
+pub const MF_MT_AUDIO_WMADRC_AVGREF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d62927f_36be_4cf2_b5c4_a3926e3e8711);
+pub const MF_MT_AUDIO_WMADRC_AVGTARGET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d629280_36be_4cf2_b5c4_a3926e3e8711);
+pub const MF_MT_AUDIO_WMADRC_PEAKREF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d62927d_36be_4cf2_b5c4_a3926e3e8711);
+pub const MF_MT_AUDIO_WMADRC_PEAKTARGET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d62927e_36be_4cf2_b5c4_a3926e3e8711);
+pub const MF_MT_AVG_BITRATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20332624_fb0d_4d9e_bd0d_cbf6786c102e);
+pub const MF_MT_AVG_BIT_ERROR_RATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x799cabd6_3508_4db4_a3c7_569cd533deb1);
+pub const MF_MT_COMPRESSED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3afd0cee_18f2_4ba5_a110_8bea502e1f92);
+pub const MF_MT_CONTAINER_RATE_SCALING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83877f5e_0444_4e28_8479_6db0989b8c09);
+pub const MF_MT_CUSTOM_VIDEO_PRIMARIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47537213_8cfb_4722_aa34_fbc9e24d77b8);
+pub const MF_MT_D3D12_CPU_READBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28ee9fe3_d481_46a6_b98a_7f69d5280e82);
+pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_CROSS_ADAPTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6a1e439_2f96_4ab5_98dc_adf74973505d);
+pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1138dc3_01d5_4c14_9bdc_cdc9336f55b9);
+pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeeac2585_3430_498c_84a2_77b1bba570f6);
+pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_SIMULTANEOUS_ACCESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a4940b2_cfd6_4738_9d02_98113734015a);
+pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82c85647_5057_4960_9559_f45b8e271427);
+pub const MF_MT_D3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba06bfac_ffe3_474a_ab55_161ee4417a2e);
+pub const MF_MT_D3D12_TEXTURE_LAYOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97c85caa_0beb_4ee1_9715_f22fad8c10f5);
+pub const MF_MT_D3D_RESOURCE_VERSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x174f1e85_fe26_453d_b52e_5bdd4e55b944);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -53655,103 +53655,103 @@ impl ::core::convert::From<i32> for MF_MT_D3D_RESOURCE_VERSION_ENUM {
 unsafe impl ::windows::runtime::Abi for MF_MT_D3D_RESOURCE_VERSION_ENUM {
     type Abi = Self;
 }
-pub const MF_MT_DECODER_MAX_DPB_COUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1740510284, 34999, 19625, [150, 40, 200, 8, 213, 38, 34, 23]);
-pub const MF_MT_DECODER_USE_MAX_RESOLUTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1280605220, 44954, 20280, [150, 173, 151, 135, 115, 207, 83, 231]);
-pub const MF_MT_DEFAULT_STRIDE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1682656840, 7682, 17686, [176, 235, 192, 28, 169, 212, 154, 198]);
-pub const MF_MT_DEPTH_MEASUREMENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4250584201, 2327, 19382, [157, 84, 49, 34, 191, 112, 20, 75]);
-pub const MF_MT_DEPTH_VALUE_UNIT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(564658421, 12681, 18327, [190, 186, 241, 60, 217, 163, 26, 94]);
-pub const MF_MT_DRM_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2272457507, 13658, 19655, [187, 120, 109, 97, 160, 72, 174, 130]);
-pub const MF_MT_DV_AAUX_CTRL_PACK_0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4147183694, 7633, 17685, [170, 190, 240, 192, 106, 165, 54, 172]);
-pub const MF_MT_DV_AAUX_CTRL_PACK_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3441379085, 7940, 20448, [191, 185, 208, 122, 224, 56, 106, 216]);
-pub const MF_MT_DV_AAUX_SRC_PACK_0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2227002760, 4024, 19144, [190, 75, 168, 132, 139, 239, 152, 243]);
-pub const MF_MT_DV_AAUX_SRC_PACK_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1913546052, 549, 16387, [166, 81, 1, 150, 86, 58, 149, 142]);
-pub const MF_MT_DV_VAUX_CTRL_PACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(797237700, 3489, 18312, [147, 142, 13, 251, 251, 179, 75, 72]);
-pub const MF_MT_DV_VAUX_SRC_PACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1094725021, 31575, 17350, [177, 41, 44, 185, 151, 241, 80, 9]);
-pub const MF_MT_FIXED_SIZE_SAMPLES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3102470063, 46872, 19972, [176, 169, 17, 103, 117, 227, 50, 27]);
-pub const MF_MT_FORWARD_CUSTOM_NALU: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3979570941, 9295, 17037, [145, 83, 40, 243, 153, 69, 136, 144]);
-pub const MF_MT_FORWARD_CUSTOM_SEI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3799212785, 45366, 16849, [149, 148, 58, 126, 79, 235, 242, 209]);
-pub const MF_MT_FRAME_RATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3294208744, 15660, 20036, [177, 50, 254, 229, 21, 108, 123, 176]);
-pub const MF_MT_FRAME_RATE_RANGE_MAX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3812040001, 46287, 18949, [189, 78, 32, 184, 139, 178, 196, 214]);
-pub const MF_MT_FRAME_RATE_RANGE_MIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3538376076, 56351, 16447, [154, 114, 210, 139, 177, 235, 59, 94]);
-pub const MF_MT_FRAME_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(374522685, 54962, 16402, [184, 52, 114, 3, 8, 73, 163, 125]);
-pub const MF_MT_GEOMETRIC_APERTURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1718978371, 32351, 16397, [152, 10, 170, 133, 150, 200, 86, 150]);
-pub const MF_MT_H264_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3141260552, 18698, 4576, [153, 228, 19, 22, 223, 215, 32, 133]);
-pub const MF_MT_H264_LAYOUT_PER_STREAM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2246220210, 37091, 20456, [178, 245, 192, 103, 224, 191, 229, 122]);
-pub const MF_MT_H264_MAX_CODEC_CONFIG_DELAY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4120025478, 19525, 20411, [187, 73, 108, 197, 52, 208, 91, 155]);
-pub const MF_MT_H264_MAX_MB_PER_SEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1160080688, 29205, 17782, [147, 54, 176, 241, 188, 213, 155, 178]);
-pub const MF_MT_H264_RATE_CONTROL_MODES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1884387288, 17867, 4576, [172, 125, 185, 28, 224, 215, 32, 133]);
-pub const MF_MT_H264_RESOLUTION_SCALING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3817161330, 63253, 18263, [186, 144, 27, 105, 108, 119, 52, 87]);
-pub const MF_MT_H264_SIMULCAST_SUPPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2661471805, 21488, 18996, [185, 78, 157, 228, 154, 7, 140, 179]);
-pub const MF_MT_H264_SUPPORTED_RATE_CONTROL_MODES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1787479166, 20892, 20248, [155, 179, 126, 234, 174, 165, 89, 77]);
-pub const MF_MT_H264_SUPPORTED_SLICE_MODES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3367901495, 19812, 17737, [131, 67, 168, 8, 108, 11, 253, 165]);
-pub const MF_MT_H264_SUPPORTED_SYNC_FRAME_TYPES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2309303297, 62082, 18642, [181, 34, 34, 230, 174, 99, 49, 153]);
-pub const MF_MT_H264_SUPPORTED_USAGES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1622256024, 56321, 16590, [151, 54, 171, 168, 69, 162, 219, 220]);
-pub const MF_MT_H264_SVC_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4170791614, 55607, 19087, [187, 202, 105, 102, 254, 158, 17, 82]);
-pub const MF_MT_H264_USAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(899474341, 44800, 18890, [162, 244, 42, 201, 76, 168, 43, 97]);
-pub const MF_MT_IMAGE_LOSS_TOLERANT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3976604916, 58190, 18722, [190, 153, 147, 64, 50, 19, 61, 124]);
-pub const MF_MT_INTERLACE_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3799141304, 58998, 18438, [180, 178, 168, 214, 239, 180, 76, 205]);
-pub const MF_MT_IN_BAND_PARAMETER_SET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1977241744, 37131, 18947, [137, 108, 123, 137, 143, 238, 165, 175]);
-pub const MF_MT_MAJOR_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1223401870, 63689, 18055, [191, 17, 10, 116, 201, 249, 106, 143]);
-pub const MF_MT_MAX_FRAME_AVERAGE_LUMINANCE_LEVEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1490337623, 28498, 18227, [161, 149, 169, 226, 158, 207, 158, 39]);
-pub const MF_MT_MAX_KEYFRAME_SPACING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3245258027, 29601, 18287, [141, 98, 131, 157, 106, 2, 6, 82]);
-pub const MF_MT_MAX_LUMINANCE_LEVEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1344614696, 49424, 19940, [152, 174, 70, 163, 36, 250, 230, 218]);
-pub const MF_MT_MAX_MASTERING_LUMINANCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3603347863, 10031, 19617, [141, 0, 128, 66, 17, 26, 15, 246]);
-pub const MF_MT_MINIMUM_DISPLAY_APERTURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3610806118, 6398, 18630, [161, 119, 238, 137, 72, 103, 200, 196]);
-pub const MF_MT_MIN_MASTERING_LUMINANCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2207925344, 20094, 19279, [174, 121, 204, 8, 144, 92, 123, 39]);
-pub const MF_MT_MPEG2_CONTENT_PACKET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2187154916, 20242, 16791, [158, 179, 89, 182, 228, 113, 15, 6]);
-pub const MF_MT_MPEG2_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(836999453, 63233, 19247, [180, 38, 138, 227, 189, 169, 224, 75]);
-pub const MF_MT_MPEG2_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(378477386, 16017, 17679, [174, 167, 228, 186, 234, 218, 229, 186]);
-pub const MF_MT_MPEG2_LEVEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2532730228, 4549, 16405, [134, 102, 191, 245, 22, 67, 109, 167]);
-pub const MF_MT_MPEG2_ONE_FRAME_PER_PACKET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2443484853, 7456, 19266, [172, 232, 128, 66, 105, 191, 149, 237]);
-pub const MF_MT_MPEG2_PROFILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2910234635, 11612, 19979, [179, 117, 100, 229, 32, 19, 112, 54]);
-pub const MF_MT_MPEG2_STANDARD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2718628328, 37514, 19238, [170, 169, 240, 92, 116, 202, 196, 124]);
-pub const MF_MT_MPEG2_TIMECODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1378466320, 58013, 20352, [165, 156, 223, 79, 24, 2, 7, 210]);
-pub const MF_MT_MPEG4_CURRENT_SAMPLE_ENTRY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2594693461, 46666, 19485, [165, 0, 69, 93, 96, 11, 101, 96]);
-pub const MF_MT_MPEG4_SAMPLE_DESCRIPTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(639540611, 38185, 19343, [161, 17, 139, 156, 149, 10, 129, 169]);
-pub const MF_MT_MPEG4_TRACK_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1425311453, 37671, 20333, [128, 171, 111, 112, 158, 187, 76, 206]);
-pub const MF_MT_MPEG_SEQUENCE_HEADER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1006857703, 15056, 19614, [146, 22, 238, 109, 106, 194, 28, 179]);
-pub const MF_MT_MPEG_START_TIME_CODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2448849029, 17203, 17024, [151, 205, 189, 90, 108, 3, 160, 110]);
-pub const MF_MT_ORIGINAL_4CC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3619569632, 11207, 18733, [184, 67, 97, 161, 145, 155, 112, 195]);
-pub const MF_MT_ORIGINAL_WAVE_FORMAT_TAG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2361116739, 40921, 18882, [136, 47, 167, 37, 134, 196, 8, 173]);
-pub const MF_MT_OUTPUT_BUFFER_NUM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2768622508, 63792, 17262, [142, 222, 147, 165, 9, 206, 35, 178]);
-pub const MF_MT_PAD_CONTROL_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1292792805, 33002, 17236, [169, 208, 17, 118, 206, 176, 40, 234]);
-pub const MF_MT_PALETTE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1831354178, 38982, 17424, [175, 217, 101, 77, 80, 59, 26, 84]);
-pub const MF_MT_PAN_SCAN_APERTURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2036420062, 37255, 18683, [184, 199, 77, 82, 104, 157, 230, 73]);
-pub const MF_MT_PAN_SCAN_ENABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1266641859, 35603, 16562, [169, 147, 171, 246, 48, 184, 32, 78]);
-pub const MF_MT_PIXEL_ASPECT_RATIO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3325520414, 36106, 16423, [190, 69, 109, 154, 10, 211, 155, 182]);
-pub const MF_MT_REALTIME_CONTENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3138572834, 11227, 16990, [145, 236, 35, 8, 225, 137, 165, 143]);
-pub const MF_MT_SAMPLE_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3671305080, 6544, 16523, [188, 226, 235, 166, 115, 218, 204, 16]);
-pub const MF_MT_SECURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3316434173, 772, 20175, [128, 159, 71, 188, 151, 255, 99, 189]);
-pub const MF_MT_SOURCE_CONTENT_HINT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1756144588, 8912, 17638, [133, 248, 40, 22, 113, 151, 250, 56]);
-pub const MF_MT_SPATIAL_AUDIO_DATA_PRESENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1749219047, 54334, 20155, [156, 156, 201, 111, 65, 120, 72, 99]);
-pub const MF_MT_SPATIAL_AUDIO_MAX_DYNAMIC_OBJECTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3707478602, 9737, 16960, [167, 33, 63, 174, 167, 106, 77, 249]);
-pub const MF_MT_SPATIAL_AUDIO_MAX_METADATA_ITEMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(296386740, 57562, 18374, [128, 96, 150, 193, 37, 154, 229, 13]);
-pub const MF_MT_SPATIAL_AUDIO_MIN_METADATA_ITEM_OFFSET_SPACING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2213113545, 4484, 16766, [130, 84, 159, 38, 145, 88, 252, 6]);
-pub const MF_MT_SPATIAL_AUDIO_OBJECT_METADATA_FORMAT_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(716643264, 25123, 19367, [173, 100, 123, 148, 180, 122, 231, 146]);
-pub const MF_MT_SPATIAL_AUDIO_OBJECT_METADATA_LENGTH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(155953342, 55075, 18591, [146, 250, 118, 103, 119, 179, 71, 38]);
-pub const MF_MT_SUBTYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4158868634, 17128, 18196, [183, 75, 203, 41, 215, 44, 53, 229]);
-pub const MF_MT_TIMESTAMP_CAN_BE_DTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(613892629, 7035, 16868, [134, 37, 172, 70, 159, 45, 237, 170]);
-pub const MF_MT_TRANSFER_FUNCTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1605434601, 48732, 18741, [168, 17, 236, 131, 143, 142, 237, 147]);
-pub const MF_MT_USER_DATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3065804383, 19515, 16548, [189, 81, 37, 53, 182, 111, 224, 157]);
-pub const MF_MT_VIDEO_3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3411970255, 31579, 18283, [133, 170, 28, 165, 174, 24, 117, 85]);
-pub const MF_MT_VIDEO_3D_FIRST_IS_LEFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3962143891, 2778, 20129, [164, 254, 203, 189, 54, 206, 147, 49]);
-pub const MF_MT_VIDEO_3D_FORMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1393940640, 34757, 18071, [183, 147, 102, 6, 198, 124, 4, 155]);
-pub const MF_MT_VIDEO_3D_LEFT_IS_BASE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1833663487, 22057, 17412, [148, 140, 198, 52, 244, 206, 38, 212]);
-pub const MF_MT_VIDEO_3D_NUM_VIEWS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3137830538, 56511, 17131, [175, 96, 65, 141, 249, 138, 164, 149]);
-pub const MF_MT_VIDEO_CHROMA_SITING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1709122416, 51059, 19507, [170, 100, 132, 62, 6, 142, 251, 12]);
-pub const MF_MT_VIDEO_H264_NO_FMOASO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3980795094, 60575, 16746, [168, 163, 38, 215, 211, 16, 24, 215]);
-pub const MF_MT_VIDEO_LEVEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2532730228, 4549, 16405, [134, 102, 191, 245, 22, 67, 109, 167]);
-pub const MF_MT_VIDEO_LIGHTING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1403015836, 35083, 16918, [139, 249, 89, 147, 103, 173, 109, 32]);
-pub const MF_MT_VIDEO_NOMINAL_RANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3256585957, 47446, 16497, [141, 175, 50, 94, 223, 92, 171, 17]);
-pub const MF_MT_VIDEO_NO_FRAME_ORDERING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1062932591, 27586, 20195, [183, 237, 137, 2, 193, 143, 83, 81]);
-pub const MF_MT_VIDEO_PRIMARIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3690718423, 1856, 20192, [129, 146, 133, 10, 176, 226, 25, 53]);
-pub const MF_MT_VIDEO_PROFILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2910234635, 11612, 19979, [179, 117, 100, 229, 32, 19, 112, 54]);
-pub const MF_MT_VIDEO_RENDERER_EXTENSION_PROFILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2218251449, 54344, 20429, [155, 107, 131, 155, 249, 108, 119, 152]);
-pub const MF_MT_VIDEO_ROTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3279963741, 8817, 17036, [155, 131, 236, 234, 59, 74, 133, 193]);
-pub const MF_MT_WRAPPED_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1296005923, 53295, 20076, [155, 238, 228, 191, 44, 108, 105, 93]);
-pub const MF_MT_YUV_MATRIX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1042535504, 11381, 19749, [160, 14, 185, 22, 112, 209, 35, 39]);
-pub const MF_NALU_LENGTH_INFORMATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(420630140, 44363, 18015, [187, 24, 32, 24, 98, 135, 182, 175]);
-pub const MF_NALU_LENGTH_SET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2811305299, 4772, 18789, [174, 112, 110, 173, 214, 255, 5, 81]);
+pub const MF_MT_DECODER_MAX_DPB_COUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x67be144c_88b7_4ca9_9628_c808d5262217);
+pub const MF_MT_DECODER_USE_MAX_RESOLUTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c547c24_af9a_4f38_96ad_978773cf53e7);
+pub const MF_MT_DEFAULT_STRIDE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x644b4e48_1e02_4516_b0eb_c01ca9d49ac6);
+pub const MF_MT_DEPTH_MEASUREMENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd5ac489_0917_4bb6_9d54_3122bf70144b);
+pub const MF_MT_DEPTH_VALUE_UNIT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x21a800f5_3189_4797_beba_f13cd9a31a5e);
+pub const MF_MT_DRM_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8772f323_355a_4cc7_bb78_6d61a048ae82);
+pub const MF_MT_DV_AAUX_CTRL_PACK_0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf731004e_1dd1_4515_aabe_f0c06aa536ac);
+pub const MF_MT_DV_AAUX_CTRL_PACK_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd1f470d_1f04_4fe0_bfb9_d07ae0386ad8);
+pub const MF_MT_DV_AAUX_SRC_PACK_0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84bd5d88_0fb8_4ac8_be4b_a8848bef98f3);
+pub const MF_MT_DV_AAUX_SRC_PACK_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x720e6544_0225_4003_a651_0196563a958e);
+pub const MF_MT_DV_VAUX_CTRL_PACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f84e1c4_0da1_4788_938e_0dfbfbb34b48);
+pub const MF_MT_DV_VAUX_SRC_PACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41402d9d_7b57_43c6_b129_2cb997f15009);
+pub const MF_MT_FIXED_SIZE_SAMPLES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8ebefaf_b718_4e04_b0a9_116775e3321b);
+pub const MF_MT_FORWARD_CUSTOM_NALU: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed336efd_244f_428d_9153_28f399458890);
+pub const MF_MT_FORWARD_CUSTOM_SEI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe27362f1_b136_41d1_9594_3a7e4febf2d1);
+pub const MF_MT_FRAME_RATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc459a2e8_3d2c_4e44_b132_fee5156c7bb0);
+pub const MF_MT_FRAME_RATE_RANGE_MAX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3371d41_b4cf_4a05_bd4e_20b88bb2c4d6);
+pub const MF_MT_FRAME_RATE_RANGE_MIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2e7558c_dc1f_403f_9a72_d28bb1eb3b5e);
+pub const MF_MT_FRAME_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1652c33d_d6b2_4012_b834_72030849a37d);
+pub const MF_MT_GEOMETRIC_APERTURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66758743_7e5f_400d_980a_aa8596c85696);
+pub const MF_MT_H264_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb3bd508_490a_11e0_99e4_1316dfd72085);
+pub const MF_MT_H264_LAYOUT_PER_STREAM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85e299b2_90e3_4fe8_b2f5_c067e0bfe57a);
+pub const MF_MT_H264_MAX_CODEC_CONFIG_DELAY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5929986_4c45_4fbb_bb49_6cc534d05b9b);
+pub const MF_MT_H264_MAX_MB_PER_SEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45256d30_7215_4576_9336_b0f1bcd59bb2);
+pub const MF_MT_H264_RATE_CONTROL_MODES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x705177d8_45cb_11e0_ac7d_b91ce0d72085);
+pub const MF_MT_H264_RESOLUTION_SCALING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3854272_f715_4757_ba90_1b696c773457);
+pub const MF_MT_H264_SIMULCAST_SUPPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ea2d63d_53f0_4a34_b94e_9de49a078cb3);
+pub const MF_MT_H264_SUPPORTED_RATE_CONTROL_MODES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a8ac47e_519c_4f18_9bb3_7eeaaea5594d);
+pub const MF_MT_H264_SUPPORTED_SLICE_MODES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8be1937_4d64_4549_8343_a8086c0bfda5);
+pub const MF_MT_H264_SUPPORTED_SYNC_FRAME_TYPES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89a52c01_f282_48d2_b522_22e6ae633199);
+pub const MF_MT_H264_SUPPORTED_USAGES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60b1a998_dc01_40ce_9736_aba845a2dbdc);
+pub const MF_MT_H264_SVC_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8993abe_d937_4a8f_bbca_6966fe9e1152);
+pub const MF_MT_H264_USAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x359ce3a5_af00_49ca_a2f4_2ac94ca82b61);
+pub const MF_MT_IMAGE_LOSS_TOLERANT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed062cf4_e34e_4922_be99_934032133d7c);
+pub const MF_MT_INTERLACE_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2724bb8_e676_4806_b4b2_a8d6efb44ccd);
+pub const MF_MT_IN_BAND_PARAMETER_SET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75da5090_910b_4a03_896c_7b898feea5af);
+pub const MF_MT_MAJOR_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48eba18e_f8c9_4687_bf11_0a74c9f96a8f);
+pub const MF_MT_MAX_FRAME_AVERAGE_LUMINANCE_LEVEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58d4bf57_6f52_4733_a195_a9e29ecf9e27);
+pub const MF_MT_MAX_KEYFRAME_SPACING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc16eb52b_73a1_476f_8d62_839d6a020652);
+pub const MF_MT_MAX_LUMINANCE_LEVEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50253128_c110_4de4_98ae_46a324fae6da);
+pub const MF_MT_MAX_MASTERING_LUMINANCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6c6b997_272f_4ca1_8d00_8042111a0ff6);
+pub const MF_MT_MINIMUM_DISPLAY_APERTURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7388766_18fe_48c6_a177_ee894867c8c4);
+pub const MF_MT_MIN_MASTERING_LUMINANCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x839a4460_4e7e_4b4f_ae79_cc08905c7b27);
+pub const MF_MT_MPEG2_CONTENT_PACKET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x825d55e4_4f12_4197_9eb3_59b6e4710f06);
+pub const MF_MT_MPEG2_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31e3991d_f701_4b2f_b426_8ae3bda9e04b);
+pub const MF_MT_MPEG2_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x168f1b4a_3e91_450f_aea7_e4baeadae5ba);
+pub const MF_MT_MPEG2_LEVEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96f66574_11c5_4015_8666_bff516436da7);
+pub const MF_MT_MPEG2_ONE_FRAME_PER_PACKET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91a49eb5_1d20_4b42_ace8_804269bf95ed);
+pub const MF_MT_MPEG2_PROFILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad76a80b_2d5c_4e0b_b375_64e520137036);
+pub const MF_MT_MPEG2_STANDARD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa20af9e8_928a_4b26_aaa9_f05c74cac47c);
+pub const MF_MT_MPEG2_TIMECODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5229ba10_e29d_4f80_a59c_df4f180207d2);
+pub const MF_MT_MPEG4_CURRENT_SAMPLE_ENTRY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9aa7e155_b64a_4c1d_a500_455d600b6560);
+pub const MF_MT_MPEG4_SAMPLE_DESCRIPTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x261e9d83_9529_4b8f_a111_8b9c950a81a9);
+pub const MF_MT_MPEG4_TRACK_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54f486dd_9327_4f6d_80ab_6f709ebb4cce);
+pub const MF_MT_MPEG_SEQUENCE_HEADER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c036de7_3ad0_4c9e_9216_ee6d6ac21cb3);
+pub const MF_MT_MPEG_START_TIME_CODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91f67885_4333_4280_97cd_bd5a6c03a06e);
+pub const MF_MT_ORIGINAL_4CC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7be3fe0_2bc7_492d_b843_61a1919b70c3);
+pub const MF_MT_ORIGINAL_WAVE_FORMAT_TAG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cbbc843_9fd9_49c2_882f_a72586c408ad);
+pub const MF_MT_OUTPUT_BUFFER_NUM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa505d3ac_f930_436e_8ede_93a509ce23b2);
+pub const MF_MT_PAD_CONTROL_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d0e73e5_80ea_4354_a9d0_1176ceb028ea);
+pub const MF_MT_PALETTE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d283f42_9846_4410_afd9_654d503b1a54);
+pub const MF_MT_PAN_SCAN_APERTURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79614dde_9187_48fb_b8c7_4d52689de649);
+pub const MF_MT_PAN_SCAN_ENABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b7f6bc3_8b13_40b2_a993_abf630b8204e);
+pub const MF_MT_PIXEL_ASPECT_RATIO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6376a1e_8d0a_4027_be45_6d9a0ad39bb6);
+pub const MF_MT_REALTIME_CONTENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb12d222_2bdb_425e_91ec_2308e189a58f);
+pub const MF_MT_SAMPLE_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdad3ab78_1990_408b_bce2_eba673dacc10);
+pub const MF_MT_SECURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5acc4fd_0304_4ecf_809f_47bc97ff63bd);
+pub const MF_MT_SOURCE_CONTENT_HINT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68aca3cc_22d0_44e6_85f8_28167197fa38);
+pub const MF_MT_SPATIAL_AUDIO_DATA_PRESENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6842f6e7_d43e_4ebb_9c9c_c96f41784863);
+pub const MF_MT_SPATIAL_AUDIO_MAX_DYNAMIC_OBJECTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcfba24a_2609_4240_a721_3faea76a4df9);
+pub const MF_MT_SPATIAL_AUDIO_MAX_METADATA_ITEMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11aa80b4_e0da_47c6_8060_96c1259ae50d);
+pub const MF_MT_SPATIAL_AUDIO_MIN_METADATA_ITEM_OFFSET_SPACING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83e96ec9_1184_417e_8254_9f269158fc06);
+pub const MF_MT_SPATIAL_AUDIO_OBJECT_METADATA_FORMAT_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ab71bc0_6223_4ba7_ad64_7b94b47ae792);
+pub const MF_MT_SPATIAL_AUDIO_OBJECT_METADATA_LENGTH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x094ba8be_d723_489f_92fa_766777b34726);
+pub const MF_MT_SUBTYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7e34c9a_42e8_4714_b74b_cb29d72c35e5);
+pub const MF_MT_TIMESTAMP_CAN_BE_DTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24974215_1b7b_41e4_8625_ac469f2dedaa);
+pub const MF_MT_TRANSFER_FUNCTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5fb0fce9_be5c_4935_a811_ec838f8eed93);
+pub const MF_MT_USER_DATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6bc765f_4c3b_40a4_bd51_2535b66fe09d);
+pub const MF_MT_VIDEO_3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb5e88cf_7b5b_476b_85aa_1ca5ae187555);
+pub const MF_MT_VIDEO_3D_FIRST_IS_LEFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec298493_0ada_4ea1_a4fe_cbbd36ce9331);
+pub const MF_MT_VIDEO_3D_FORMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5315d8a0_87c5_4697_b793_6606c67c049b);
+pub const MF_MT_VIDEO_3D_LEFT_IS_BASE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d4b7bff_5629_4404_948c_c634f4ce26d4);
+pub const MF_MT_VIDEO_3D_NUM_VIEWS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb077e8a_dcbf_42eb_af60_418df98aa495);
+pub const MF_MT_VIDEO_CHROMA_SITING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65df2370_c773_4c33_aa64_843e068efb0c);
+pub const MF_MT_VIDEO_H264_NO_FMOASO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed461cd6_ec9f_416a_a8a3_26d7d31018d7);
+pub const MF_MT_VIDEO_LEVEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96f66574_11c5_4015_8666_bff516436da7);
+pub const MF_MT_VIDEO_LIGHTING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53a0529c_890b_4216_8bf9_599367ad6d20);
+pub const MF_MT_VIDEO_NOMINAL_RANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc21b8ee5_b956_4071_8daf_325edf5cab11);
+pub const MF_MT_VIDEO_NO_FRAME_ORDERING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f5b106f_6bc2_4ee3_b7ed_8902c18f5351);
+pub const MF_MT_VIDEO_PRIMARIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbfbe4d7_0740_4ee0_8192_850ab0e21935);
+pub const MF_MT_VIDEO_PROFILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad76a80b_2d5c_4e0b_b375_64e520137036);
+pub const MF_MT_VIDEO_RENDERER_EXTENSION_PROFILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8437d4b9_d448_4fcd_9b6b_839bf96c7798);
+pub const MF_MT_VIDEO_ROTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc380465d_2271_428c_9b83_ecea3b4a85c1);
+pub const MF_MT_WRAPPED_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d3f7b23_d02f_4e6c_9bee_e4bf2c6c695d);
+pub const MF_MT_YUV_MATRIX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e23d450_2c75_4d25_a00e_b91670d12327);
+pub const MF_NALU_LENGTH_INFORMATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19124e7c_ad4b_465f_bb18_20186287b6af);
+pub const MF_NALU_LENGTH_SET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7911d53_12a4_4965_ae70_6eadd6ff0551);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_NOT_FOUND_ERR: u32 = 2154823688u32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -53808,49 +53808,49 @@ unsafe impl ::windows::runtime::Abi for MF_OPM_CGMSA_PROTECTION_LEVEL {
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_PARSE_ERR: u32 = 2154823761u32;
-pub const MF_PD_ADAPTIVE_STREAMING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3926744471, 10745, 18571, [174, 107, 125, 107, 65, 54, 17, 43]);
-pub const MF_PD_APP_CONTEXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1821969714, 48014, 18298, [133, 152, 13, 93, 150, 252, 216, 138]);
-pub const MF_PD_ASF_CODECLIST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3837474057, 49549, 19953, [187, 153, 122, 54, 179, 204, 65, 25]);
-pub const MF_PD_ASF_CONTENTENCRYPTIONEX_ENCRYPTION_DATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1649445861, 60639, 18724, [163, 89, 114, 186, 179, 57, 123, 157]);
-pub const MF_PD_ASF_CONTENTENCRYPTION_KEYID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2233531966, 10110, 18154, [153, 228, 227, 10, 134, 219, 18, 190]);
-pub const MF_PD_ASF_CONTENTENCRYPTION_LICENSE_URL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2233531968, 10110, 18154, [153, 228, 227, 10, 134, 219, 18, 190]);
-pub const MF_PD_ASF_CONTENTENCRYPTION_SECRET_DATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2233531967, 10110, 18154, [153, 228, 227, 10, 134, 219, 18, 190]);
-pub const MF_PD_ASF_CONTENTENCRYPTION_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2233531965, 10110, 18154, [153, 228, 227, 10, 134, 219, 18, 190]);
-pub const MF_PD_ASF_DATA_LENGTH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3889542120, 7977, 17875, [136, 34, 62, 120, 250, 226, 114, 237]);
-pub const MF_PD_ASF_DATA_START_OFFSET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3889542119, 7977, 17875, [136, 34, 62, 120, 250, 226, 114, 237]);
-pub const MF_PD_ASF_FILEPROPERTIES_CREATION_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1038502326, 55149, 20070, [158, 201, 120, 18, 15, 180, 199, 227]);
-pub const MF_PD_ASF_FILEPROPERTIES_FILE_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1038502324, 55149, 20070, [158, 201, 120, 18, 15, 180, 199, 227]);
-pub const MF_PD_ASF_FILEPROPERTIES_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1038502331, 55149, 20070, [158, 201, 120, 18, 15, 180, 199, 227]);
-pub const MF_PD_ASF_FILEPROPERTIES_MAX_BITRATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1038502334, 55149, 20070, [158, 201, 120, 18, 15, 180, 199, 227]);
-pub const MF_PD_ASF_FILEPROPERTIES_MAX_PACKET_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1038502333, 55149, 20070, [158, 201, 120, 18, 15, 180, 199, 227]);
-pub const MF_PD_ASF_FILEPROPERTIES_MIN_PACKET_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1038502332, 55149, 20070, [158, 201, 120, 18, 15, 180, 199, 227]);
-pub const MF_PD_ASF_FILEPROPERTIES_PACKETS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1038502327, 55149, 20070, [158, 201, 120, 18, 15, 180, 199, 227]);
-pub const MF_PD_ASF_FILEPROPERTIES_PLAY_DURATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1038502328, 55149, 20070, [158, 201, 120, 18, 15, 180, 199, 227]);
-pub const MF_PD_ASF_FILEPROPERTIES_PREROLL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1038502330, 55149, 20070, [158, 201, 120, 18, 15, 180, 199, 227]);
-pub const MF_PD_ASF_FILEPROPERTIES_SEND_DURATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1038502329, 55149, 20070, [158, 201, 120, 18, 15, 180, 199, 227]);
-pub const MF_PD_ASF_INFO_HAS_AUDIO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2162565781, 8854, 19012, [179, 28, 209, 3, 198, 254, 210, 60]);
-pub const MF_PD_ASF_INFO_HAS_NON_AUDIO_VIDEO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2162565783, 8854, 19012, [179, 28, 209, 3, 198, 254, 210, 60]);
-pub const MF_PD_ASF_INFO_HAS_VIDEO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2162565782, 8854, 19012, [179, 28, 209, 3, 198, 254, 210, 60]);
-pub const MF_PD_ASF_LANGLIST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4064142396, 39287, 17933, [166, 236, 50, 147, 127, 22, 15, 125]);
-pub const MF_PD_ASF_LANGLIST_LEGACYORDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4064142397, 39287, 17933, [166, 236, 50, 147, 127, 22, 15, 125]);
-pub const MF_PD_ASF_MARKER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1362375438, 33702, 18270, [169, 213, 79, 184, 117, 251, 46, 49]);
-pub const MF_PD_ASF_METADATA_IS_VBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1606849658, 61280, 17501, [180, 73, 68, 46, 204, 120, 180, 193]);
-pub const MF_PD_ASF_METADATA_LEAKY_BUCKET_PAIRS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1606849661, 61280, 17501, [180, 73, 68, 46, 204, 120, 180, 193]);
-pub const MF_PD_ASF_METADATA_V8_BUFFERAVERAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1606849660, 61280, 17501, [180, 73, 68, 46, 204, 120, 180, 193]);
-pub const MF_PD_ASF_METADATA_V8_VBRPEAK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1606849659, 61280, 17501, [180, 73, 68, 46, 204, 120, 180, 193]);
-pub const MF_PD_ASF_SCRIPT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3801927895, 54786, 18723, [167, 254, 115, 253, 151, 236, 198, 80]);
-pub const MF_PD_AUDIO_ENCODING_BITRATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1821969717, 48014, 18298, [133, 152, 13, 93, 150, 252, 216, 138]);
-pub const MF_PD_AUDIO_ISVARIABLEBITRATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(855797472, 58247, 17794, [174, 10, 52, 162, 173, 59, 170, 24]);
-pub const MF_PD_DURATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1821969715, 48014, 18298, [133, 152, 13, 93, 150, 252, 216, 138]);
-pub const MF_PD_LAST_MODIFIED_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1821969720, 48014, 18298, [133, 152, 13, 93, 150, 252, 216, 138]);
-pub const MF_PD_MIME_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1821969719, 48014, 18298, [133, 152, 13, 93, 150, 252, 216, 138]);
-pub const MF_PD_PLAYBACK_BOUNDARY_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1821969723, 48014, 18298, [133, 152, 13, 93, 150, 252, 216, 138]);
-pub const MF_PD_PLAYBACK_ELEMENT_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1821969721, 48014, 18298, [133, 152, 13, 93, 150, 252, 216, 138]);
-pub const MF_PD_PMPHOST_CONTEXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1821969713, 48014, 18298, [133, 152, 13, 93, 150, 252, 216, 138]);
-pub const MF_PD_PREFERRED_LANGUAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1821969722, 48014, 18298, [133, 152, 13, 93, 150, 252, 216, 138]);
-pub const MF_PD_SAMI_STYLELIST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3770104959, 18541, 18510, [152, 114, 77, 229, 25, 42, 123, 248]);
-pub const MF_PD_TOTAL_FILE_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1821969716, 48014, 18298, [133, 152, 13, 93, 150, 252, 216, 138]);
-pub const MF_PD_VIDEO_ENCODING_BITRATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1821969718, 48014, 18298, [133, 152, 13, 93, 150, 252, 216, 138]);
+pub const MF_PD_ADAPTIVE_STREAMING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea0d5d97_29f9_488b_ae6b_7d6b4136112b);
+pub const MF_PD_APP_CONTEXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c990d32_bb8e_477a_8598_0d5d96fcd88a);
+pub const MF_PD_ASF_CODECLIST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4bb3509_c18d_4df1_bb99_7a36b3cc4119);
+pub const MF_PD_ASF_CONTENTENCRYPTIONEX_ENCRYPTION_DATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62508be5_ecdf_4924_a359_72bab3397b9d);
+pub const MF_PD_ASF_CONTENTENCRYPTION_KEYID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8520fe3e_277e_46ea_99e4_e30a86db12be);
+pub const MF_PD_ASF_CONTENTENCRYPTION_LICENSE_URL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8520fe40_277e_46ea_99e4_e30a86db12be);
+pub const MF_PD_ASF_CONTENTENCRYPTION_SECRET_DATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8520fe3f_277e_46ea_99e4_e30a86db12be);
+pub const MF_PD_ASF_CONTENTENCRYPTION_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8520fe3d_277e_46ea_99e4_e30a86db12be);
+pub const MF_PD_ASF_DATA_LENGTH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7d5b3e8_1f29_45d3_8822_3e78fae272ed);
+pub const MF_PD_ASF_DATA_START_OFFSET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7d5b3e7_1f29_45d3_8822_3e78fae272ed);
+pub const MF_PD_ASF_FILEPROPERTIES_CREATION_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3de649b6_d76d_4e66_9ec9_78120fb4c7e3);
+pub const MF_PD_ASF_FILEPROPERTIES_FILE_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3de649b4_d76d_4e66_9ec9_78120fb4c7e3);
+pub const MF_PD_ASF_FILEPROPERTIES_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3de649bb_d76d_4e66_9ec9_78120fb4c7e3);
+pub const MF_PD_ASF_FILEPROPERTIES_MAX_BITRATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3de649be_d76d_4e66_9ec9_78120fb4c7e3);
+pub const MF_PD_ASF_FILEPROPERTIES_MAX_PACKET_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3de649bd_d76d_4e66_9ec9_78120fb4c7e3);
+pub const MF_PD_ASF_FILEPROPERTIES_MIN_PACKET_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3de649bc_d76d_4e66_9ec9_78120fb4c7e3);
+pub const MF_PD_ASF_FILEPROPERTIES_PACKETS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3de649b7_d76d_4e66_9ec9_78120fb4c7e3);
+pub const MF_PD_ASF_FILEPROPERTIES_PLAY_DURATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3de649b8_d76d_4e66_9ec9_78120fb4c7e3);
+pub const MF_PD_ASF_FILEPROPERTIES_PREROLL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3de649ba_d76d_4e66_9ec9_78120fb4c7e3);
+pub const MF_PD_ASF_FILEPROPERTIES_SEND_DURATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3de649b9_d76d_4e66_9ec9_78120fb4c7e3);
+pub const MF_PD_ASF_INFO_HAS_AUDIO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80e62295_2296_4a44_b31c_d103c6fed23c);
+pub const MF_PD_ASF_INFO_HAS_NON_AUDIO_VIDEO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80e62297_2296_4a44_b31c_d103c6fed23c);
+pub const MF_PD_ASF_INFO_HAS_VIDEO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80e62296_2296_4a44_b31c_d103c6fed23c);
+pub const MF_PD_ASF_LANGLIST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf23de43c_9977_460d_a6ec_32937f160f7d);
+pub const MF_PD_ASF_LANGLIST_LEGACYORDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf23de43d_9977_460d_a6ec_32937f160f7d);
+pub const MF_PD_ASF_MARKER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5134330e_83a6_475e_a9d5_4fb875fb2e31);
+pub const MF_PD_ASF_METADATA_IS_VBR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5fc6947a_ef60_445d_b449_442ecc78b4c1);
+pub const MF_PD_ASF_METADATA_LEAKY_BUCKET_PAIRS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5fc6947d_ef60_445d_b449_442ecc78b4c1);
+pub const MF_PD_ASF_METADATA_V8_BUFFERAVERAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5fc6947c_ef60_445d_b449_442ecc78b4c1);
+pub const MF_PD_ASF_METADATA_V8_VBRPEAK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5fc6947b_ef60_445d_b449_442ecc78b4c1);
+pub const MF_PD_ASF_SCRIPT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe29cd0d7_d602_4923_a7fe_73fd97ecc650);
+pub const MF_PD_AUDIO_ENCODING_BITRATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c990d35_bb8e_477a_8598_0d5d96fcd88a);
+pub const MF_PD_AUDIO_ISVARIABLEBITRATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33026ee0_e387_4582_ae0a_34a2ad3baa18);
+pub const MF_PD_DURATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c990d33_bb8e_477a_8598_0d5d96fcd88a);
+pub const MF_PD_LAST_MODIFIED_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c990d38_bb8e_477a_8598_0d5d96fcd88a);
+pub const MF_PD_MIME_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c990d37_bb8e_477a_8598_0d5d96fcd88a);
+pub const MF_PD_PLAYBACK_BOUNDARY_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c990d3b_bb8e_477a_8598_0d5d96fcd88a);
+pub const MF_PD_PLAYBACK_ELEMENT_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c990d39_bb8e_477a_8598_0d5d96fcd88a);
+pub const MF_PD_PMPHOST_CONTEXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c990d31_bb8e_477a_8598_0d5d96fcd88a);
+pub const MF_PD_PREFERRED_LANGUAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c990d3a_bb8e_477a_8598_0d5d96fcd88a);
+pub const MF_PD_SAMI_STYLELIST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0b73c7f_486d_484e_9872_4de5192a7bf8);
+pub const MF_PD_TOTAL_FILE_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c990d34_bb8e_477a_8598_0d5d96fcd88a);
+pub const MF_PD_VIDEO_ENCODING_BITRATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c990d36_bb8e_477a_8598_0d5d96fcd88a);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -53867,11 +53867,11 @@ impl ::core::convert::From<i32> for MF_PLUGIN_CONTROL_POLICY {
 unsafe impl ::windows::runtime::Abi for MF_PLUGIN_CONTROL_POLICY {
     type Abi = Self;
 }
-pub const MF_PMP_SERVER_CONTEXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(788580624, 53967, 17016, [139, 106, 208, 119, 250, 195, 162, 95]);
-pub const MF_POLICY_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2975908429, 49241, 18673, [169, 1, 158, 226, 152, 169, 168, 195]);
-pub const MF_PREFERRED_SOURCE_URI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1606964360, 17258, 19896, [144, 175, 77, 180, 2, 174, 92, 87]);
-pub const MF_PROGRESSIVE_CODING_CONTENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2399276778, 5384, 18207, [157, 166, 80, 125, 124, 250, 64, 219]);
-pub const MF_PROPERTY_HANDLER_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2751122946, 12984, 16861, [144, 231, 95, 239, 124, 137, 145, 181]);
+pub const MF_PMP_SERVER_CONTEXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f00c910_d2cf_4278_8b6a_d077fac3a25f);
+pub const MF_POLICY_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb160c24d_c059_48f1_a901_9ee298a9a8c3);
+pub const MF_PREFERRED_SOURCE_URI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5fc85488_436a_4db8_90af_4db402ae5c57);
+pub const MF_PROGRESSIVE_CODING_CONTENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f020eea_1508_471f_9da6_507d7cfa40db);
+pub const MF_PROPERTY_HANDLER_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3face02_32b8_41dd_90e7_5fef7c8991b5);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -53939,9 +53939,9 @@ impl ::core::convert::From<i32> for MF_QUALITY_LEVEL {
 unsafe impl ::windows::runtime::Abi for MF_QUALITY_LEVEL {
     type Abi = Self;
 }
-pub const MF_QUALITY_NOTIFY_PROCESSING_LATENCY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4139010808, 24653, 18174, [169, 93, 69, 71, 155, 16, 201, 188]);
-pub const MF_QUALITY_NOTIFY_SAMPLE_LAG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(819024390, 60714, 18272, [190, 23, 235, 74, 159, 18, 41, 92]);
-pub const MF_QUALITY_SERVICES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085090321, 12182, 17984, [181, 44, 40, 35, 101, 189, 241, 108]);
+pub const MF_QUALITY_NOTIFY_PROCESSING_LATENCY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6b44af8_604d_46fe_a95d_45479b10c9bc);
+pub const MF_QUALITY_NOTIFY_SAMPLE_LAG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30d15206_ed2a_4760_be17_eb4a9f12295c);
+pub const MF_QUALITY_SERVICES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7e2be11_2f96_4640_b52c_282365bdf16c);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -53973,16 +53973,16 @@ unsafe impl ::windows::runtime::Abi for MF_QUATERNION {
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_QUOTA_EXCEEDED_ERR: u32 = 2154823702u32;
-pub const MF_RATE_CONTROL_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2255463063, 47106, 19448, [157, 201, 94, 59, 106, 159, 83, 201]);
-pub const MF_READWRITE_D3D_OPTIONAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(560232921, 12401, 17098, [187, 108, 76, 34, 16, 46, 29, 24]);
-pub const MF_READWRITE_DISABLE_CONVERTERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2564141157, 4980, 18503, [141, 93, 49, 82, 15, 238, 113, 86]);
-pub const MF_READWRITE_ENABLE_AUTOFINALIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3715932457, 36049, 19909, [157, 222, 206, 22, 134, 117, 222, 97]);
-pub const MF_READWRITE_ENABLE_HARDWARE_TRANSFORMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2788469020, 33323, 16825, [164, 148, 77, 228, 100, 54, 18, 176]);
-pub const MF_READWRITE_MMCSS_CLASS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(959988480, 53483, 16561, [135, 160, 51, 24, 135, 27, 90, 83]);
-pub const MF_READWRITE_MMCSS_CLASS_AUDIO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1124616154, 2192, 19214, [147, 140, 5, 67, 50, 197, 71, 225]);
-pub const MF_READWRITE_MMCSS_PRIORITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1135417806, 62271, 19369, [165, 128, 228, 205, 18, 242, 209, 68]);
-pub const MF_READWRITE_MMCSS_PRIORITY_AUDIO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(658356357, 11746, 19890, [166, 167, 253, 182, 111, 180, 11, 97]);
-pub const MF_REMOTE_PROXY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(788580622, 53967, 17016, [139, 106, 208, 119, 250, 195, 162, 95]);
+pub const MF_RATE_CONTROL_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x866fa297_b802_4bf8_9dc9_5e3b6a9f53c9);
+pub const MF_READWRITE_D3D_OPTIONAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x216479d9_3071_42ca_bb6c_4c22102e1d18);
+pub const MF_READWRITE_DISABLE_CONVERTERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98d5b065_1374_4847_8d5d_31520fee7156);
+pub const MF_READWRITE_ENABLE_AUTOFINALIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd7ca129_8cd1_4dc5_9dde_ce168675de61);
+pub const MF_READWRITE_ENABLE_HARDWARE_TRANSFORMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa634a91c_822b_41b9_a494_4de4643612b0);
+pub const MF_READWRITE_MMCSS_CLASS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39384300_d0eb_40b1_87a0_3318871b5a53);
+pub const MF_READWRITE_MMCSS_CLASS_AUDIO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x430847da_0890_4b0e_938c_054332c547e1);
+pub const MF_READWRITE_MMCSS_PRIORITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43ad19ce_f33f_4ba9_a580_e4cd12f2d144);
+pub const MF_READWRITE_MMCSS_PRIORITY_AUDIO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x273db885_2de2_4db2_a6a7_fdb66fb40b61);
+pub const MF_REMOTE_PROXY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f00c90e_d2cf_4278_8b6a_d077fac3a25f);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -54034,48 +54034,48 @@ impl ::core::ops::Not for MF_RESOLUTION_FLAGS {
         Self(self.0.not())
     }
 }
-pub const MF_SAMI_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1235786471, 46297, 20210, [170, 92, 246, 90, 62, 5, 174, 78]);
-pub const MF_SAMPLEGRABBERSINK_IGNORE_CLOCK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(251503296, 11113, 20014, [171, 141, 70, 220, 191, 247, 210, 93]);
-pub const MF_SAMPLEGRABBERSINK_SAMPLE_TIME_OFFSET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1659098998, 33024, 19971, [166, 232, 189, 56, 87, 172, 156, 71]);
-pub const MF_SA_AUDIO_ENDPOINT_AWARE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3224901377, 32860, 17074, [172, 141, 226, 180, 191, 33, 244, 248]);
-pub const MF_SA_BUFFERS_PER_SAMPLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2268877169, 7741, 20005, [152, 141, 180, 51, 206, 4, 25, 131]);
-pub const MF_SA_D3D11_ALLOCATE_DISPLAYABLE_RESOURCES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4009414253, 11945, 19167, [187, 223, 123, 188, 72, 42, 27, 109]);
-pub const MF_SA_D3D11_ALLOW_DYNAMIC_YUV_TEXTURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3456554143, 1555, 19357, [134, 166, 216, 196, 249, 193, 0, 117]);
-pub const MF_SA_D3D11_AWARE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543903688, 64761, 19537, [175, 227, 151, 100, 54, 158, 51, 160]);
-pub const MF_SA_D3D11_BINDFLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3939473325, 1628, 17416, [190, 227, 253, 203, 253, 18, 139, 226]);
-pub const MF_SA_D3D11_HW_PROTECTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(982231513, 37578, 17159, [163, 145, 105, 153, 219, 243, 182, 206]);
-pub const MF_SA_D3D11_SHARED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2072982211, 28054, 19337, [146, 3, 221, 56, 182, 20, 20, 243]);
-pub const MF_SA_D3D11_SHARED_WITHOUT_MUTEX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(970708045, 11844, 18737, [164, 200, 53, 45, 61, 196, 33, 21]);
-pub const MF_SA_D3D11_USAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3898598466, 11427, 18542, [169, 199, 16, 157, 218, 96, 152, 128]);
-pub const MF_SA_D3D12_CLEAR_VALUE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2260376121, 1318, 18781, [154, 181, 84, 236, 159, 173, 111, 195]);
-pub const MF_SA_D3D12_HEAP_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1231762022, 53903, 20364, [147, 167, 74, 89, 107, 26, 49, 161]);
-pub const MF_SA_D3D12_HEAP_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1458727542, 48065, 19680, [187, 17, 226, 35, 104, 216, 116, 237]);
-pub const MF_SA_D3D_AWARE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3936574505, 30558, 18574, [155, 97, 179, 40, 62, 73, 88, 59]);
-pub const MF_SA_MINIMUM_OUTPUT_SAMPLE_COUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2232894933, 50134, 18285, [149, 39, 73, 142, 242, 209, 13, 24]);
-pub const MF_SA_MINIMUM_OUTPUT_SAMPLE_COUNT_PROGRESSIVE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(257237925, 7346, 18373, [165, 80, 46, 235, 132, 180, 209, 74]);
-pub const MF_SA_REQUIRED_SAMPLE_COUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(411053153, 12875, 18770, [171, 208, 23, 111, 245, 198, 150, 255]);
-pub const MF_SA_REQUIRED_SAMPLE_COUNT_PROGRESSIVE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2977093006, 64119, 20040, [141, 42, 29, 242, 216, 80, 234, 194]);
+pub const MF_SAMI_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49a89ae7_b4d9_4ef2_aa5c_f65a3e05ae4e);
+pub const MF_SAMPLEGRABBERSINK_IGNORE_CLOCK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0efda2c0_2b69_4e2e_ab8d_46dcbff7d25d);
+pub const MF_SAMPLEGRABBERSINK_SAMPLE_TIME_OFFSET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62e3d776_8100_4e03_a6e8_bd3857ac9c47);
+pub const MF_SA_AUDIO_ENDPOINT_AWARE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0381701_805c_42b2_ac8d_e2b4bf21f4f8);
+pub const MF_SA_BUFFERS_PER_SAMPLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x873c5171_1e3d_4e25_988d_b433ce041983);
+pub const MF_SA_D3D11_ALLOCATE_DISPLAYABLE_RESOURCES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeeface6d_2ea9_4adf_bbdf_7bbc482a1b6d);
+pub const MF_SA_D3D11_ALLOW_DYNAMIC_YUV_TEXTURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce06d49f_0613_4b9d_86a6_d8c4f9c10075);
+pub const MF_SA_D3D11_AWARE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206b4fc8_fcf9_4c51_afe3_9764369e33a0);
+pub const MF_SA_D3D11_BINDFLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeacf97ad_065c_4408_bee3_fdcbfd128be2);
+pub const MF_SA_D3D11_HW_PROTECTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a8ba9d9_92ca_4307_a391_6999dbf3b6ce);
+pub const MF_SA_D3D11_SHARED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b8f32c3_6d96_4b89_9203_dd38b61414f3);
+pub const MF_SA_D3D11_SHARED_WITHOUT_MUTEX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39dbd44d_2e44_4931_a4c8_352d3dc42115);
+pub const MF_SA_D3D11_USAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe85fe442_2ca3_486e_a9c7_109dda609880);
+pub const MF_SA_D3D12_CLEAR_VALUE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86ba9a39_0526_495d_9ab5_54ec9fad6fc3);
+pub const MF_SA_D3D12_HEAP_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x496b3266_d28f_4f8c_93a7_4a596b1a31a1);
+pub const MF_SA_D3D12_HEAP_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56f26a76_bbc1_4ce0_bb11_e22368d874ed);
+pub const MF_SA_D3D_AWARE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeaa35c29_775e_488e_9b61_b3283e49583b);
+pub const MF_SA_MINIMUM_OUTPUT_SAMPLE_COUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x851745d5_c3d6_476d_9527_498ef2d10d18);
+pub const MF_SA_MINIMUM_OUTPUT_SAMPLE_COUNT_PROGRESSIVE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f5523a5_1cb2_47c5_a550_2eeb84b4d14a);
+pub const MF_SA_REQUIRED_SAMPLE_COUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18802c61_324b_4952_abd0_176ff5c696ff);
+pub const MF_SA_REQUIRED_SAMPLE_COUNT_PROGRESSIVE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb172d58e_fa77_4e48_8d2a_1df2d850eac2);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_SDK_VERSION: u32 = 2u32;
-pub const MF_SD_AMBISONICS_SAMPLE3D_DESCRIPTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4145401662, 43364, 19519, [148, 174, 157, 107, 167, 38, 70, 65]);
-pub const MF_SD_ASF_EXTSTRMPROP_AVG_BUFFERSIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1224254756, 12381, 16941, [133, 36, 37, 2, 221, 163, 54, 128]);
-pub const MF_SD_ASF_EXTSTRMPROP_AVG_DATA_BITRATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1224254755, 12381, 16941, [133, 36, 37, 2, 221, 163, 54, 128]);
-pub const MF_SD_ASF_EXTSTRMPROP_LANGUAGE_ID_INDEX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1224254754, 12381, 16941, [133, 36, 37, 2, 221, 163, 54, 128]);
-pub const MF_SD_ASF_EXTSTRMPROP_MAX_BUFFERSIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1224254758, 12381, 16941, [133, 36, 37, 2, 221, 163, 54, 128]);
-pub const MF_SD_ASF_EXTSTRMPROP_MAX_DATA_BITRATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1224254757, 12381, 16941, [133, 36, 37, 2, 221, 163, 54, 128]);
-pub const MF_SD_ASF_METADATA_DEVICE_CONFORMANCE_TEMPLATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(610177693, 50254, 20350, [187, 60, 119, 212, 223, 210, 127, 138]);
-pub const MF_SD_ASF_STREAMBITRATES_BITRATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2833351405, 45000, 17360, [176, 209, 246, 91, 173, 157, 165, 88]);
-pub const MF_SD_AUDIO_ENCODER_DELAY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2391097900, 29662, 16447, [154, 53, 85, 10, 214, 232, 185, 81]);
-pub const MF_SD_AUDIO_ENCODER_PADDING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1385987884, 44107, 20031, [191, 195, 9, 2, 25, 73, 130, 203]);
-pub const MF_SD_LANGUAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(11477376, 48578, 16956, [171, 202, 245, 3, 89, 59, 193, 33]);
-pub const MF_SD_MEDIASOURCE_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(420702091, 64527, 17626, [143, 67, 27, 163, 181, 38, 244, 174]);
-pub const MF_SD_MUTUALLY_EXCLUSIVE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(37681052, 14477, 18559, [172, 23, 105, 108, 214, 227, 198, 245]);
-pub const MF_SD_PROTECTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(11477377, 48578, 16956, [171, 202, 245, 3, 89, 59, 193, 33]);
-pub const MF_SD_SAMI_LANGUAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(922532234, 27856, 17611, [172, 185, 168, 245, 96, 13, 208, 187]);
-pub const MF_SD_STREAM_NAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1327171997, 54036, 16869, [167, 129, 127, 239, 170, 76, 80, 31]);
-pub const MF_SD_VIDEO_SPHERICAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2770183241, 16348, 18316, [188, 181, 48, 190, 118, 89, 95, 85]);
-pub const MF_SD_VIDEO_SPHERICAL_FORMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1250935815, 28321, 18120, [181, 103, 105, 113, 212, 161, 57, 195]);
-pub const MF_SD_VIDEO_SPHERICAL_INITIAL_VIEWDIRECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(298998345, 47970, 18047, [157, 177, 193, 113, 101, 113, 108, 73]);
+pub const MF_SD_AMBISONICS_SAMPLE3D_DESCRIPTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf715cf3e_a964_4c3f_94ae_9d6ba7264641);
+pub const MF_SD_ASF_EXTSTRMPROP_AVG_BUFFERSIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48f8a524_305d_422d_8524_2502dda33680);
+pub const MF_SD_ASF_EXTSTRMPROP_AVG_DATA_BITRATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48f8a523_305d_422d_8524_2502dda33680);
+pub const MF_SD_ASF_EXTSTRMPROP_LANGUAGE_ID_INDEX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48f8a522_305d_422d_8524_2502dda33680);
+pub const MF_SD_ASF_EXTSTRMPROP_MAX_BUFFERSIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48f8a526_305d_422d_8524_2502dda33680);
+pub const MF_SD_ASF_EXTSTRMPROP_MAX_DATA_BITRATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48f8a525_305d_422d_8524_2502dda33680);
+pub const MF_SD_ASF_METADATA_DEVICE_CONFORMANCE_TEMPLATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x245e929d_c44e_4f7e_bb3c_77d4dfd27f8a);
+pub const MF_SD_ASF_STREAMBITRATES_BITRATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8e182ed_afc8_43d0_b0d1_f65bad9da558);
+pub const MF_SD_AUDIO_ENCODER_DELAY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e85422c_73de_403f_9a35_550ad6e8b951);
+pub const MF_SD_AUDIO_ENCODER_PADDING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x529c7f2c_ac4b_4e3f_bfc3_0902194982cb);
+pub const MF_SD_LANGUAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00af2180_bdc2_423c_abca_f503593bc121);
+pub const MF_SD_MEDIASOURCE_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1913678b_fc0f_44da_8f43_1ba3b526f4ae);
+pub const MF_SD_MUTUALLY_EXCLUSIVE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x023ef79c_388d_487f_ac17_696cd6e3c6f5);
+pub const MF_SD_PROTECTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00af2181_bdc2_423c_abca_f503593bc121);
+pub const MF_SD_SAMI_LANGUAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36fcb98a_6cd0_44cb_acb9_a8f5600dd0bb);
+pub const MF_SD_STREAM_NAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f1b099d_d314_41e5_a781_7fefaa4c501f);
+pub const MF_SD_VIDEO_SPHERICAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa51da449_3fdc_478c_bcb5_30be76595f55);
+pub const MF_SD_VIDEO_SPHERICAL_FORMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a8fc407_6ea1_46c8_b567_6971d4a139c3);
+pub const MF_SD_VIDEO_SPHERICAL_INITIAL_VIEWDIRECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11d25a49_bb62_467f_9db1_c17165716c49);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -54094,14 +54094,14 @@ impl ::core::convert::From<i32> for MF_SERVICE_LOOKUP_TYPE {
 unsafe impl ::windows::runtime::Abi for MF_SERVICE_LOOKUP_TYPE {
     type Abi = Self;
 }
-pub const MF_SESSION_APPROX_EVENT_OCCURRENCE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(420381999, 25144, 17105, [181, 175, 105, 234, 51, 142, 248, 80]);
-pub const MF_SESSION_CONTENT_PROTECTION_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(511956098, 7964, 17777, [132, 5, 136, 244, 178, 24, 31, 116]);
-pub const MF_SESSION_GLOBAL_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(511956098, 7964, 17777, [132, 5, 136, 244, 178, 24, 31, 114]);
-pub const MF_SESSION_QUALITY_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(511956098, 7964, 17777, [132, 5, 136, 244, 178, 24, 31, 115]);
-pub const MF_SESSION_REMOTE_SOURCE_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4093853428, 39859, 17272, [148, 31, 133, 160, 133, 107, 194, 68]);
-pub const MF_SESSION_SERVER_CONTEXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2951066257, 20730, 18152, [185, 190, 12, 12, 60, 228, 179, 165]);
-pub const MF_SESSION_TOPOLOADER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(511956098, 7964, 17777, [132, 5, 136, 244, 178, 24, 31, 113]);
-pub const MF_SHARING_ENGINE_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1474043541, 53842, 17402, [155, 188, 24, 0, 112, 238, 254, 109]);
+pub const MF_SESSION_APPROX_EVENT_OCCURRENCE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x190e852f_6238_42d1_b5af_69ea338ef850);
+pub const MF_SESSION_CONTENT_PROTECTION_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e83d482_1f1c_4571_8405_88f4b2181f74);
+pub const MF_SESSION_GLOBAL_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e83d482_1f1c_4571_8405_88f4b2181f72);
+pub const MF_SESSION_QUALITY_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e83d482_1f1c_4571_8405_88f4b2181f73);
+pub const MF_SESSION_REMOTE_SOURCE_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf4033ef4_9bb3_4378_941f_85a0856bc244);
+pub const MF_SESSION_SERVER_CONTEXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xafe5b291_50fa_46e8_b9be_0c0c3ce4b3a5);
+pub const MF_SESSION_TOPOLOADER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e83d482_1f1c_4571_8405_88f4b2181f71);
+pub const MF_SHARING_ENGINE_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57dc1e95_d252_43fa_9bbc_180070eefe6d);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -54119,14 +54119,14 @@ impl ::core::convert::From<i32> for MF_SHARING_ENGINE_EVENT {
 unsafe impl ::windows::runtime::Abi for MF_SHARING_ENGINE_EVENT {
     type Abi = Self;
 }
-pub const MF_SHARING_ENGINE_SHAREDRENDERER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020520608, 29671, 16462, [138, 226, 254, 246, 10, 245, 163, 43]);
-pub const MF_SHUTDOWN_RENDERER_ON_ENGINE_SHUTDOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3239237965, 27548, 18680, [182, 249, 121, 80, 255, 154, 183, 30]);
-pub const MF_SINK_VIDEO_DISPLAY_ASPECT_RATIO_DENOMINATOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1856105367, 8160, 20240, [166, 228, 31, 79, 102, 21, 100, 224]);
-pub const MF_SINK_VIDEO_DISPLAY_ASPECT_RATIO_NUMERATOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3505601314, 46986, 18553, [180, 85, 240, 62, 243, 250, 130, 205]);
-pub const MF_SINK_VIDEO_NATIVE_HEIGHT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4039796485, 18700, 17384, [148, 28, 192, 179, 32, 107, 154, 101]);
-pub const MF_SINK_VIDEO_NATIVE_WIDTH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3872827143, 5381, 18247, [155, 16, 114, 210, 209, 88, 203, 58]);
-pub const MF_SINK_VIDEO_PTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(560119271, 16926, 19344, [155, 51, 229, 143, 191, 29, 88, 182]);
-pub const MF_SINK_WRITER_ASYNC_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1221269566, 31499, 18164, [130, 46, 94, 29, 45, 218, 67, 84]);
+pub const MF_SHARING_ENGINE_SHAREDRENDERER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefa446a0_73e7_404e_8ae2_fef60af5a32b);
+pub const MF_SHUTDOWN_RENDERER_ON_ENGINE_SHUTDOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc112d94d_6b9c_48f8_b6f9_7950ff9ab71e);
+pub const MF_SINK_VIDEO_DISPLAY_ASPECT_RATIO_DENOMINATOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ea1eb97_1fe0_4f10_a6e4_1f4f661564e0);
+pub const MF_SINK_VIDEO_DISPLAY_ASPECT_RATIO_NUMERATOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0f33b22_b78a_4879_b455_f03ef3fa82cd);
+pub const MF_SINK_VIDEO_NATIVE_HEIGHT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0ca6705_490c_43e8_941c_c0b3206b9a65);
+pub const MF_SINK_VIDEO_NATIVE_WIDTH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6d6a707_1505_4747_9b10_72d2d158cb3a);
+pub const MF_SINK_VIDEO_PTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2162bde7_421e_4b90_9b33_e58fbf1d58b6);
+pub const MF_SINK_WRITER_ASYNC_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48cb183e_7b0b_46f4_822e_5e1d2dda4354);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -54170,9 +54170,9 @@ impl ::core::ops::Not for MF_SINK_WRITER_CONSTANTS {
         Self(self.0.not())
     }
 }
-pub const MF_SINK_WRITER_D3D_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3967954338, 57833, 19241, [160, 216, 86, 60, 113, 159, 82, 105]);
-pub const MF_SINK_WRITER_DISABLE_THROTTLING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(146294232, 11124, 19198, [157, 83, 190, 22, 210, 213, 174, 79]);
-pub const MF_SINK_WRITER_ENCODER_CONFIG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2912013572, 42956, 19143, [153, 182, 165, 123, 154, 74, 124, 112]);
+pub const MF_SINK_WRITER_D3D_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec822da2_e1e9_4b29_a0d8_563c719f5269);
+pub const MF_SINK_WRITER_DISABLE_THROTTLING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08b845d8_2b74_4afe_9d53_be16d2d5ae4f);
+pub const MF_SINK_WRITER_ENCODER_CONFIG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad91cd04_a7cc_4ac7_99b6_a57b9a4a7c70);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -54246,8 +54246,8 @@ impl ::core::cmp::Eq for MF_SINK_WRITER_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for MF_SINK_WRITER_STATISTICS {
     type Abi = Self;
 }
-pub const MF_SOURCE_PRESENTATION_PROVIDER_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3758271196, 62639, 20197, [152, 71, 5, 62, 223, 132, 4, 38]);
-pub const MF_SOURCE_READER_ASYNC_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(507362988, 47939, 19509, [181, 7, 205, 100, 68, 100, 201, 101]);
+pub const MF_SOURCE_PRESENTATION_PROVIDER_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe002aadc_f4af_4ee5_9847_053edf840426);
+pub const MF_SOURCE_READER_ASYNC_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e3dbeac_bb43_4c35_b507_cd644464c965);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -54292,14 +54292,14 @@ impl ::core::convert::From<i32> for MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS {
 unsafe impl ::windows::runtime::Abi for MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS {
     type Abi = Self;
 }
-pub const MF_SOURCE_READER_D3D11_BIND_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(871569787, 63290, 19988, [141, 133, 14, 76, 67, 104, 120, 141]);
-pub const MF_SOURCE_READER_D3D_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3967954338, 57833, 19241, [160, 216, 86, 60, 113, 159, 82, 105]);
-pub const MF_SOURCE_READER_DISABLE_CAMERA_PLUGINS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2637391325, 1423, 19707, [159, 151, 179, 20, 204, 153, 200, 173]);
-pub const MF_SOURCE_READER_DISABLE_DXVA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2856676605, 14659, 18974, [167, 125, 24, 56, 192, 234, 46, 53]);
-pub const MF_SOURCE_READER_DISCONNECT_MEDIASOURCE_ON_SHUTDOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1454797157, 8606, 17773, [162, 46, 45, 48, 4, 199, 254, 86]);
-pub const MF_SOURCE_READER_ENABLE_ADVANCED_VIDEO_PROCESSING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(260168236, 46391, 18034, [168, 178, 166, 129, 177, 115, 7, 163]);
-pub const MF_SOURCE_READER_ENABLE_TRANSCODE_ONLY_TRANSFORMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3755274248, 46589, 20088, [174, 68, 98, 161, 230, 123, 190, 39]);
-pub const MF_SOURCE_READER_ENABLE_VIDEO_PROCESSING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4214837053, 52465, 17134, [187, 179, 249, 184, 69, 213, 104, 29]);
+pub const MF_SOURCE_READER_D3D11_BIND_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33f3197b_f73a_4e14_8d85_0e4c4368788d);
+pub const MF_SOURCE_READER_D3D_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec822da2_e1e9_4b29_a0d8_563c719f5269);
+pub const MF_SOURCE_READER_DISABLE_CAMERA_PLUGINS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d3365dd_058f_4cfb_9f97_b314cc99c8ad);
+pub const MF_SOURCE_READER_DISABLE_DXVA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa456cfd_3943_4a1e_a77d_1838c0ea2e35);
+pub const MF_SOURCE_READER_DISCONNECT_MEDIASOURCE_ON_SHUTDOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56b67165_219e_456d_a22e_2d3004c7fe56);
+pub const MF_SOURCE_READER_ENABLE_ADVANCED_VIDEO_PROCESSING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f81da2c_b537_4672_a8b2_a681b17307a3);
+pub const MF_SOURCE_READER_ENABLE_TRANSCODE_ONLY_TRANSFORMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdfd4f008_b5fd_4e78_ae44_62a1e67bbe27);
+pub const MF_SOURCE_READER_ENABLE_VIDEO_PROCESSING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb394f3d_ccf1_42ee_bbb3_f9b845d5681d);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -54319,13 +54319,13 @@ impl ::core::convert::From<i32> for MF_SOURCE_READER_FLAG {
 unsafe impl ::windows::runtime::Abi for MF_SOURCE_READER_FLAG {
     type Abi = Self;
 }
-pub const MF_SOURCE_READER_MEDIASOURCE_CHARACTERISTICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1831073224, 50647, 19099, [153, 113, 93, 17, 248, 188, 168, 128]);
-pub const MF_SOURCE_READER_MEDIASOURCE_CONFIG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2424679403, 852, 18681, [171, 181, 32, 13, 248, 56, 198, 142]);
-pub const MF_SOURCE_STREAM_SUPPORTS_HW_CONNECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2743227306, 25364, 17149, [163, 206, 187, 39, 182, 133, 153, 70]);
-pub const MF_STF_VERSION_DATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(832660949, 57191, 16533, [142, 68, 136, 104, 252, 32, 219, 253]);
-pub const MF_STF_VERSION_INFO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1735441721, 61314, 17646, [164, 155, 147, 75, 235, 36, 174, 247]);
-pub const MF_STREAM_SINK_SUPPORTS_HW_CONNECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2605079743, 1431, 20382, [159, 60, 185, 126, 238, 249, 3, 89]);
-pub const MF_STREAM_SINK_SUPPORTS_ROTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3018416768, 48389, 16805, [151, 173, 138, 127, 238, 36, 185, 18]);
+pub const MF_SOURCE_READER_MEDIASOURCE_CHARACTERISTICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d23f5c8_c5d7_4a9b_9971_5d11f8bca880);
+pub const MF_SOURCE_READER_MEDIASOURCE_CONFIG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9085abeb_0354_48f9_abb5_200df838c68e);
+pub const MF_SOURCE_STREAM_SUPPORTS_HW_CONNECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa38253aa_6314_42fd_a3ce_bb27b6859946);
+pub const MF_STF_VERSION_DATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31a165d5_df67_4095_8e44_8868fc20dbfd);
+pub const MF_STF_VERSION_INFO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6770bd39_ef82_44ee_a49b_934beb24aef7);
+pub const MF_STREAM_SINK_SUPPORTS_HW_CONNECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b465cbf_0597_4f9e_9f3c_b97eeef90359);
+pub const MF_STREAM_SINK_SUPPORTS_ROTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3e96280_bd05_41a5_97ad_8a7fee24b912);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -54341,7 +54341,7 @@ impl ::core::convert::From<i32> for MF_STREAM_STATE {
 unsafe impl ::windows::runtime::Abi for MF_STREAM_STATE {
     type Abi = Self;
 }
-pub const MF_ST_MEDIASOURCE_COLLECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1634593138, 33709, 18768, [129, 112, 99, 13, 25, 203, 227, 7]);
+pub const MF_ST_MEDIASOURCE_COLLECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x616de972_83ad_4950_8170_630d19cbe307);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_SYNTAX_ERR: u32 = 2154823692u32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -54368,10 +54368,10 @@ pub const MF_S_TRANSFORM_DO_NOT_PROPAGATE_EVENT: ::windows::runtime::HRESULT = :
 pub const MF_S_VIDEO_DISABLED_WITH_UNKNOWN_SOFTWARE_OUTPUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(881001i32 as _);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_S_WAIT_FOR_POLICY_SET: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(881000i32 as _);
-pub const MF_SampleProtectionSalt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1409539822, 47598, 17295, [170, 131, 56, 4, 153, 126, 86, 157]);
+pub const MF_SampleProtectionSalt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5403deee_b9ee_438f_aa83_3804997e569d);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_TEST_SIGNED_COMPONENT_LOADING: u32 = 16777216u32;
-pub const MF_TIMECODE_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2698314407, 3763, 18565, [177, 185, 159, 235, 13, 8, 52, 84]);
+pub const MF_TIMECODE_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0d502a7_0eb3_4885_b1b9_9feb0d083454);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -54629,19 +54629,19 @@ impl ::core::convert::From<i32> for MF_TIMED_TEXT_WRITING_MODE {
 unsafe impl ::windows::runtime::Abi for MF_TIMED_TEXT_WRITING_MODE {
     type Abi = Self;
 }
-pub const MF_TIME_FORMAT_ENTRY_RELATIVE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1134162296, 18131, 17668, [175, 218, 32, 211, 46, 155, 163, 96]);
-pub const MF_TIME_FORMAT_SEGMENT_OFFSET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3367550583, 34460, 17181, [129, 46, 22, 150, 147, 246, 90, 57]);
-pub const MF_TOPOLOGY_DXVA_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(512570614, 62891, 20003, [187, 136, 135, 74, 163, 161, 167, 77]);
-pub const MF_TOPOLOGY_DYNAMIC_CHANGE_NOT_ALLOWED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3576272139, 54404, 17703, [169, 205, 177, 144, 149, 50, 181, 176]);
-pub const MF_TOPOLOGY_ENABLE_XVP_FOR_PLAYBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(426210079, 52600, 17148, [176, 38, 9, 146, 165, 110, 86, 147]);
-pub const MF_TOPOLOGY_ENUMERATE_SOURCE_TYPES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1648935789, 23819, 20288, [160, 187, 176, 179, 5, 247, 118, 152]);
-pub const MF_TOPOLOGY_HARDWARE_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3537068797, 20047, 16785, [165, 121, 198, 24, 182, 103, 6, 175]);
-pub const MF_TOPOLOGY_NO_MARKIN_MARKOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2127820804, 34491, 19263, [183, 228, 124, 180, 58, 253, 75, 128]);
-pub const MF_TOPOLOGY_PLAYBACK_FRAMERATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3244585850, 49841, 17747, [131, 187, 90, 82, 96, 114, 68, 143]);
-pub const MF_TOPOLOGY_PLAYBACK_MAX_DIMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1461047065, 22376, 17578, [173, 110, 135, 33, 241, 176, 249, 187]);
-pub const MF_TOPOLOGY_PROJECTSTART: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2127820802, 34491, 19263, [183, 228, 124, 180, 58, 253, 75, 128]);
-pub const MF_TOPOLOGY_PROJECTSTOP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2127820803, 34491, 19263, [183, 228, 124, 180, 58, 253, 75, 128]);
-pub const MF_TOPOLOGY_RESOLUTION_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700318, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
+pub const MF_TIME_FORMAT_ENTRY_RELATIVE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4399f178_46d3_4504_afda_20d32e9ba360);
+pub const MF_TIME_FORMAT_SEGMENT_OFFSET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8b8be77_869c_431d_812e_169693f65a39);
+pub const MF_TOPOLOGY_DXVA_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e8d34f6_f5ab_4e23_bb88_874aa3a1a74d);
+pub const MF_TOPOLOGY_DYNAMIC_CHANGE_NOT_ALLOWED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd529950b_d484_4527_a9cd_b1909532b5b0);
+pub const MF_TOPOLOGY_ENABLE_XVP_FOR_PLAYBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1967731f_cd78_42fc_b026_0992a56e5693);
+pub const MF_TOPOLOGY_ENUMERATE_SOURCE_TYPES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6248c36d_5d0b_4f40_a0bb_b0b305f77698);
+pub const MF_TOPOLOGY_HARDWARE_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2d362fd_4e4f_4191_a579_c618b66706af);
+pub const MF_TOPOLOGY_NO_MARKIN_MARKOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ed3f804_86bb_4b3f_b7e4_7cb43afd4b80);
+pub const MF_TOPOLOGY_PLAYBACK_FRAMERATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc164737a_c2b1_4553_83bb_5a526072448f);
+pub const MF_TOPOLOGY_PLAYBACK_MAX_DIMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5715cf19_5768_44aa_ad6e_8721f1b0f9bb);
+pub const MF_TOPOLOGY_PROJECTSTART: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ed3f802_86bb_4b3f_b7e4_7cb43afd4b80);
+pub const MF_TOPOLOGY_PROJECTSTOP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ed3f803_86bb_4b3f_b7e4_7cb43afd4b80);
+pub const MF_TOPOLOGY_RESOLUTION_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x494bbcde_b031_4e38_97c4_d5422dd618dc);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -54657,8 +54657,8 @@ impl ::core::convert::From<i32> for MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS {
 unsafe impl ::windows::runtime::Abi for MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS {
     type Abi = Self;
 }
-pub const MF_TOPOLOGY_START_TIME_ON_PRESENTATION_SWITCH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3368816959, 31057, 17736, [170, 214, 158, 214, 32, 46, 98, 179]);
-pub const MF_TOPOLOGY_STATIC_PLAYBACK_OPTIMIZATIONS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3094129730, 16806, 19321, [137, 122, 26, 176, 229, 43, 74, 27]);
+pub const MF_TOPOLOGY_START_TIME_ON_PRESENTATION_SWITCH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8cc113f_7951_4548_aad6_9ed6202e62b3);
+pub const MF_TOPOLOGY_STATIC_PLAYBACK_OPTIMIZATIONS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb86cac42_41a6_4b79_897a_1ab0e52b4a1b);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -54676,14 +54676,14 @@ impl ::core::convert::From<i32> for MF_TOPOLOGY_TYPE {
 unsafe impl ::windows::runtime::Abi for MF_TOPOLOGY_TYPE {
     type Abi = Self;
 }
-pub const MF_TOPONODE_ATTRIBUTE_EDITOR_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1701146138, 1919, 17522, [131, 239, 49, 111, 17, 213, 8, 122]);
-pub const MF_TOPONODE_CONNECT_METHOD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700337, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
-pub const MF_TOPONODE_D3DAWARE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700333, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
-pub const MF_TOPONODE_DECODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700354, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
-pub const MF_TOPONODE_DECRYPTOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700346, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
-pub const MF_TOPONODE_DISABLE_PREROLL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(345190302, 36999, 19380, [132, 18, 81, 103, 20, 92, 190, 4]);
-pub const MF_TOPONODE_DISCARDABLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700347, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
-pub const MF_TOPONODE_DRAIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700329, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
+pub const MF_TOPONODE_ATTRIBUTE_EDITOR_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65656e1a_077f_4472_83ef_316f11d5087a);
+pub const MF_TOPONODE_CONNECT_METHOD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x494bbcf1_b031_4e38_97c4_d5422dd618dc);
+pub const MF_TOPONODE_D3DAWARE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x494bbced_b031_4e38_97c4_d5422dd618dc);
+pub const MF_TOPONODE_DECODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x494bbd02_b031_4e38_97c4_d5422dd618dc);
+pub const MF_TOPONODE_DECRYPTOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x494bbcfa_b031_4e38_97c4_d5422dd618dc);
+pub const MF_TOPONODE_DISABLE_PREROLL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14932f9e_9087_4bb4_8412_5167145cbe04);
+pub const MF_TOPONODE_DISCARDABLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x494bbcfb_b031_4e38_97c4_d5422dd618dc);
+pub const MF_TOPONODE_DRAIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x494bbce9_b031_4e38_97c4_d5422dd618dc);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -54699,10 +54699,10 @@ impl ::core::convert::From<i32> for MF_TOPONODE_DRAIN_MODE {
 unsafe impl ::windows::runtime::Abi for MF_TOPONODE_DRAIN_MODE {
     type Abi = Self;
 }
-pub const MF_TOPONODE_ERRORCODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700334, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
-pub const MF_TOPONODE_ERROR_MAJORTYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700349, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
-pub const MF_TOPONODE_ERROR_SUBTYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700350, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
-pub const MF_TOPONODE_FLUSH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700328, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
+pub const MF_TOPONODE_ERRORCODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x494bbcee_b031_4e38_97c4_d5422dd618dc);
+pub const MF_TOPONODE_ERROR_MAJORTYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x494bbcfd_b031_4e38_97c4_d5422dd618dc);
+pub const MF_TOPONODE_ERROR_SUBTYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x494bbcfe_b031_4e38_97c4_d5422dd618dc);
+pub const MF_TOPONODE_FLUSH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x494bbce8_b031_4e38_97c4_d5422dd618dc);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -54718,25 +54718,25 @@ impl ::core::convert::From<i32> for MF_TOPONODE_FLUSH_MODE {
 unsafe impl ::windows::runtime::Abi for MF_TOPONODE_FLUSH_MODE {
     type Abi = Self;
 }
-pub const MF_TOPONODE_LOCKED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700343, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
-pub const MF_TOPONODE_MARKIN_HERE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700352, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
-pub const MF_TOPONODE_MARKOUT_HERE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700353, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
-pub const MF_TOPONODE_MEDIASTART: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2203867370, 57461, 19399, [188, 186, 77, 224, 0, 223, 154, 230]);
-pub const MF_TOPONODE_MEDIASTOP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2203867371, 57461, 19399, [188, 186, 77, 224, 0, 223, 154, 230]);
-pub const MF_TOPONODE_NOSHUTDOWN_ON_REMOVE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(345190300, 36999, 19380, [132, 18, 81, 103, 20, 92, 190, 4]);
-pub const MF_TOPONODE_PRESENTATION_DESCRIPTOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2203867373, 57461, 19399, [188, 186, 77, 224, 0, 223, 154, 230]);
-pub const MF_TOPONODE_PRIMARYOUTPUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1661267865, 5810, 20158, [157, 103, 228, 197, 57, 179, 162, 89]);
-pub const MF_TOPONODE_RATELESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(345190301, 36999, 19380, [132, 18, 81, 103, 20, 92, 190, 4]);
-pub const MF_TOPONODE_SEQUENCE_ELEMENTID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2203867375, 57461, 19399, [188, 186, 77, 224, 0, 223, 154, 230]);
-pub const MF_TOPONODE_SOURCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2203867372, 57461, 19399, [188, 186, 77, 224, 0, 223, 154, 230]);
-pub const MF_TOPONODE_STREAMID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(345190299, 36999, 19380, [132, 18, 81, 103, 20, 92, 190, 4]);
-pub const MF_TOPONODE_STREAM_DESCRIPTOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2203867374, 57461, 19399, [188, 186, 77, 224, 0, 223, 154, 230]);
-pub const MF_TOPONODE_TRANSFORM_OBJECTID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2296168649, 10558, 20107, [154, 235, 10, 214, 76, 192, 22, 176]);
-pub const MF_TOPONODE_WORKQUEUE_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700344, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
-pub const MF_TOPONODE_WORKQUEUE_ITEM_PRIORITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2717882814, 24215, 19027, [180, 148, 86, 140, 100, 44, 15, 243]);
-pub const MF_TOPONODE_WORKQUEUE_MMCSS_CLASS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700345, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
-pub const MF_TOPONODE_WORKQUEUE_MMCSS_PRIORITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1342306368, 10262, 18676, [147, 100, 173, 30, 246, 97, 161, 35]);
-pub const MF_TOPONODE_WORKQUEUE_MMCSS_TASKID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700351, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
+pub const MF_TOPONODE_LOCKED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x494bbcf7_b031_4e38_97c4_d5422dd618dc);
+pub const MF_TOPONODE_MARKIN_HERE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x494bbd00_b031_4e38_97c4_d5422dd618dc);
+pub const MF_TOPONODE_MARKOUT_HERE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x494bbd01_b031_4e38_97c4_d5422dd618dc);
+pub const MF_TOPONODE_MEDIASTART: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x835c58ea_e075_4bc7_bcba_4de000df9ae6);
+pub const MF_TOPONODE_MEDIASTOP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x835c58eb_e075_4bc7_bcba_4de000df9ae6);
+pub const MF_TOPONODE_NOSHUTDOWN_ON_REMOVE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14932f9c_9087_4bb4_8412_5167145cbe04);
+pub const MF_TOPONODE_PRESENTATION_DESCRIPTOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x835c58ed_e075_4bc7_bcba_4de000df9ae6);
+pub const MF_TOPONODE_PRIMARYOUTPUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6304ef99_16b2_4ebe_9d67_e4c539b3a259);
+pub const MF_TOPONODE_RATELESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14932f9d_9087_4bb4_8412_5167145cbe04);
+pub const MF_TOPONODE_SEQUENCE_ELEMENTID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x835c58ef_e075_4bc7_bcba_4de000df9ae6);
+pub const MF_TOPONODE_SOURCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x835c58ec_e075_4bc7_bcba_4de000df9ae6);
+pub const MF_TOPONODE_STREAMID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14932f9b_9087_4bb4_8412_5167145cbe04);
+pub const MF_TOPONODE_STREAM_DESCRIPTOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x835c58ee_e075_4bc7_bcba_4de000df9ae6);
+pub const MF_TOPONODE_TRANSFORM_OBJECTID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88dcc0c9_293e_4e8b_9aeb_0ad64cc016b0);
+pub const MF_TOPONODE_WORKQUEUE_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x494bbcf8_b031_4e38_97c4_d5422dd618dc);
+pub const MF_TOPONODE_WORKQUEUE_ITEM_PRIORITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1ff99be_5e97_4a53_b494_568c642c0ff3);
+pub const MF_TOPONODE_WORKQUEUE_MMCSS_CLASS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x494bbcf9_b031_4e38_97c4_d5422dd618dc);
+pub const MF_TOPONODE_WORKQUEUE_MMCSS_PRIORITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5001f840_2816_48f4_9364_ad1ef661a123);
+pub const MF_TOPONODE_WORKQUEUE_MMCSS_TASKID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x494bbcff_b031_4e38_97c4_d5422dd618dc);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -54755,7 +54755,7 @@ impl ::core::convert::From<i32> for MF_TOPOSTATUS {
 unsafe impl ::windows::runtime::Abi for MF_TOPOSTATUS {
     type Abi = Self;
 }
-pub const MF_TRANSCODE_ADJUST_PROFILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2620899867, 1551, 18556, [166, 144, 128, 215, 245, 13, 28, 114]);
+pub const MF_TRANSCODE_ADJUST_PROFILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c37c21b_060f_487c_a690_80d7f50d1c72);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -54770,10 +54770,10 @@ impl ::core::convert::From<i32> for MF_TRANSCODE_ADJUST_PROFILE_FLAGS {
 unsafe impl ::windows::runtime::Abi for MF_TRANSCODE_ADJUST_PROFILE_FLAGS {
     type Abi = Self;
 }
-pub const MF_TRANSCODE_CONTAINERTYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(353366591, 19132, 18315, [172, 79, 225, 145, 111, 186, 28, 202]);
-pub const MF_TRANSCODE_DONOT_INSERT_ENCODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4099581902, 43812, 16402, [161, 27, 220, 130, 32, 32, 20, 16]);
-pub const MF_TRANSCODE_ENCODINGPROFILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1766291580, 62728, 20137, [177, 233, 161, 254, 58, 73, 251, 201]);
-pub const MF_TRANSCODE_QUALITYVSSPEED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2553490936, 973, 18283, [137, 250, 63, 158, 68, 45, 236, 159]);
+pub const MF_TRANSCODE_CONTAINERTYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x150ff23f_4abc_478b_ac4f_e1916fba1cca);
+pub const MF_TRANSCODE_DONOT_INSERT_ENCODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf45aa7ce_ab24_4012_a11b_dc8220201410);
+pub const MF_TRANSCODE_ENCODINGPROFILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6947787c_f508_4ea9_b1e9_a1fe3a49fbc9);
+pub const MF_TRANSCODE_QUALITYVSSPEED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98332df8_03cd_476b_89fa_3f9e442dec9f);
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -54803,8 +54803,8 @@ impl ::core::cmp::Eq for MF_TRANSCODE_SINK_INFO {}
 unsafe impl ::windows::runtime::Abi for MF_TRANSCODE_SINK_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-pub const MF_TRANSCODE_SKIP_METADATA_TRANSFER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1313106415, 46449, 18777, [143, 131, 61, 207, 186, 51, 163, 147]);
-pub const MF_TRANSCODE_TOPOLOGYMODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1044248080, 14666, 16562, [157, 234, 59, 171, 101, 11, 235, 242]);
+pub const MF_TRANSCODE_SKIP_METADATA_TRANSFER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e4469ef_b571_4959_8f83_3dcfba33a393);
+pub const MF_TRANSCODE_TOPOLOGYMODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e3df610_394a_40b2_9dea_3bab650bebf2);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -54819,10 +54819,10 @@ impl ::core::convert::From<i32> for MF_TRANSCODE_TOPOLOGYMODE_FLAGS {
 unsafe impl ::windows::runtime::Abi for MF_TRANSCODE_TOPOLOGYMODE_FLAGS {
     type Abi = Self;
 }
-pub const MF_TRANSFORM_ASYNC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4162480538, 25754, 18813, [140, 115, 41, 248, 254, 214, 173, 122]);
-pub const MF_TRANSFORM_ASYNC_UNLOCK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3848695147, 13346, 20150, [164, 33, 218, 125, 177, 248, 226, 7]);
-pub const MF_TRANSFORM_CATEGORY_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3467360841, 20589, 18263, [166, 255, 102, 193, 132, 152, 126, 78]);
-pub const MF_TRANSFORM_FLAGS_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2472131454, 25205, 18116, [160, 37, 28, 1, 228, 95, 26, 134]);
+pub const MF_TRANSFORM_ASYNC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf81a699a_649a_497d_8c73_29f8fed6ad7a);
+pub const MF_TRANSFORM_ASYNC_UNLOCK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5666d6b_3422_4eb6_a421_da7db1f8e207);
+pub const MF_TRANSFORM_CATEGORY_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xceabba49_506d_4757_a6ff_66c184987e4e);
+pub const MF_TRANSFORM_FLAGS_Attribute: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9359bb7e_6275_46c4_a025_1c01e45f1a86);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_TYPE_ERR: u32 = 2154840069u32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -54842,13 +54842,13 @@ impl ::core::convert::From<i32> for MF_URL_TRUST_STATUS {
 unsafe impl ::windows::runtime::Abi for MF_URL_TRUST_STATUS {
     type Abi = Self;
 }
-pub const MF_USER_DATA_PAYLOAD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3520370781, 56466, 17786, [179, 160, 101, 26, 51, 163, 16, 71]);
-pub const MF_USER_EXTENDED_ATTRIBUTES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3224025798, 65202, 17729, [146, 47, 146, 11, 67, 112, 39, 34]);
+pub const MF_USER_DATA_PAYLOAD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1d4985d_dc92_457a_b3a0_651a33a31047);
+pub const MF_USER_EXTENDED_ATTRIBUTES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc02abac6_feb2_4541_922f_920b43702722);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_USER_MODE_COMPONENT_LOAD: u32 = 1u32;
-pub const MF_VIDEODSP_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(383197424, 30348, 4574, [138, 57, 8, 0, 32, 12, 154, 102]);
-pub const MF_VIDEO_MAX_MB_PER_SEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3824345603, 54341, 19340, [146, 17, 174, 57, 13, 59, 160, 23]);
-pub const MF_VIDEO_PROCESSOR_ALGORITHM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1242177055, 10028, 20406, [158, 177, 219, 51, 12, 188, 151, 202]);
+pub const MF_VIDEODSP_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16d720f0_768c_11de_8a39_0800200c9a66);
+pub const MF_VIDEO_MAX_MB_PER_SEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3f2e203_d445_4b8c_9211_ae390d3ba017);
+pub const MF_VIDEO_PROCESSOR_ALGORITHM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a0a1e1f_272c_4fb6_9eb1_db330cbc97ca);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -54892,7 +54892,7 @@ impl ::core::convert::From<i32> for MF_VIDEO_PROCESSOR_ROTATION {
 unsafe impl ::windows::runtime::Abi for MF_VIDEO_PROCESSOR_ROTATION {
     type Abi = Self;
 }
-pub const MF_VIDEO_RENDERER_EFFECT_APP_SERVICE_NAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3322227328, 28060, 16547, [157, 184, 240, 39, 162, 92, 154, 185]);
+pub const MF_VIDEO_RENDERER_EFFECT_APP_SERVICE_NAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6052a80_6d9c_40a3_9db8_f027a25c9ab9);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -54921,15 +54921,15 @@ impl ::core::cmp::Eq for MF_VIDEO_SPHERICAL_VIEWDIRECTION {}
 unsafe impl ::windows::runtime::Abi for MF_VIDEO_SPHERICAL_VIEWDIRECTION {
     type Abi = Self;
 }
-pub const MF_VIRTUALCAMERA_CONFIGURATION_APP_PACKAGE_FAMILY_NAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1703591505, 32836, 17966, [151, 234, 230, 118, 253, 114, 5, 95]);
-pub const MF_WORKQUEUE_SERVICES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2386023561, 16864, 16698, [144, 104, 40, 124, 136, 109, 141, 218]);
-pub const MF_WRAPPED_BUFFER_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2874425458, 49769, 20156, [165, 82, 28, 59, 50, 190, 213, 202]);
-pub const MF_WRAPPED_OBJECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(723004492, 54956, 18932, [137, 21, 247, 24, 135, 219, 112, 205]);
-pub const MF_WRAPPED_SAMPLE_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(838151154, 53310, 16456, [128, 208, 156, 16, 70, 216, 124, 97]);
-pub const MF_WVC1_PROG_SINGLE_SLICE_CONTENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1743529305, 3887, 17440, [164, 221, 47, 142, 231, 165, 115, 139]);
-pub const MF_XVP_CALLER_ALLOCATES_OUTPUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(77777596, 3243, 16561, [161, 185, 117, 188, 54, 88, 240, 0]);
-pub const MF_XVP_DISABLE_FRC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(738916889, 31383, 19802, [158, 232, 22, 212, 252, 81, 141, 140]);
-pub const MF_XVP_SAMPLE_LOCK_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2857229097, 20788, 17251, [172, 114, 131, 236, 75, 193, 4, 38]);
+pub const MF_VIRTUALCAMERA_CONFIGURATION_APP_PACKAGE_FAMILY_NAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x658abe51_8044_462e_97ea_e676fd72055f);
+pub const MF_WORKQUEUE_SERVICES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e37d489_41e0_413a_9068_287c886d8dda);
+pub const MF_WRAPPED_BUFFER_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab544072_c269_4ebc_a552_1c3b32bed5ca);
+pub const MF_WRAPPED_OBJECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b182c4c_d6ac_49f4_8915_f71887db70cd);
+pub const MF_WRAPPED_SAMPLE_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31f52bf2_d03e_4048_80d0_9c1046d87c61);
+pub const MF_WVC1_PROG_SINGLE_SLICE_CONTENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x67ec2559_0f2f_4420_a4dd_2f8ee7a5738b);
+pub const MF_XVP_CALLER_ALLOCATES_OUTPUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04a2cabc_0cab_40b1_a1b9_75bc3658f000);
+pub const MF_XVP_DISABLE_FRC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c0afa19_7a97_4d5a_9ee8_16d4fc518d8c);
+pub const MF_XVP_SAMPLE_LOCK_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa4ddb29_5134_4363_ac72_83ec4bc10426);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[inline]
 pub unsafe fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64 {
@@ -55030,17 +55030,17 @@ impl ::core::cmp::Eq for MOVE_RECT {}
 unsafe impl ::windows::runtime::Abi for MOVE_RECT {
     type Abi = Self;
 }
-pub const MP3ACMCodecWrapper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(286274593, 13644, 19658, [167, 163, 26, 255, 154, 91, 103, 1]);
-pub const MR_AUDIO_POLICY_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2434783031, 26485, 19120, [166, 20, 41, 120, 98, 253, 172, 136]);
-pub const MR_BUFFER_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2774672524, 39622, 20476, [159, 186, 58, 248, 248, 173, 26, 77]);
-pub const MR_CAPTURE_POLICY_VOLUME_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(604179149, 4218, 16997, [151, 92, 65, 78, 51, 230, 95, 42]);
-pub const MR_POLICY_VOLUME_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(448438956, 40251, 18374, [171, 72, 197, 149, 6, 222, 120, 77]);
-pub const MR_STREAM_VOLUME_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4172675631, 13039, 18165, [177, 114, 19, 33, 33, 47, 178, 196]);
-pub const MR_VIDEO_ACCELERATION_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4025438581, 23677, 19682, [187, 189, 52, 255, 139, 202, 101, 84]);
-pub const MR_VIDEO_MIXER_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(121426684, 27892, 16567, [136, 89, 232, 149, 82, 200, 65, 248]);
-pub const MR_VIDEO_RENDER_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(278046828, 43802, 17818, [163, 54, 131, 31, 188, 77, 17, 255]);
-pub const MSAMRNBDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(642781614, 21633, 20343, [162, 149, 171, 182, 255, 232, 214, 62]);
-pub const MSAMRNBEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(799967998, 1187, 16954, [168, 20, 133, 219, 69, 71, 18, 176]);
+pub const MP3ACMCodecWrapper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11103421_354c_4cca_a7a3_1aff9a5b6701);
+pub const MR_AUDIO_POLICY_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x911fd737_6775_4ab0_a614_297862fdac88);
+pub const MR_BUFFER_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa562248c_9ac6_4ffc_9fba_3af8f8ad1a4d);
+pub const MR_CAPTURE_POLICY_VOLUME_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24030acd_107a_4265_975c_414e33e65f2a);
+pub const MR_POLICY_VOLUME_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1abaa2ac_9d3b_47c6_ab48_c59506de784d);
+pub const MR_STREAM_VOLUME_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8b5fa2f_32ef_46f5_b172_1321212fb2c4);
+pub const MR_VIDEO_ACCELERATION_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefef5175_5c7d_4ce2_bbbd_34ff8bca6554);
+pub const MR_VIDEO_MIXER_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x073cd2fc_6cf4_40b7_8859_e89552c841f8);
+pub const MR_VIDEO_RENDER_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1092a86c_ab1a_459a_a336_831fbc4d11ff);
+pub const MSAMRNBDecoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x265011ae_5481_4f77_a295_abb6ffe8d63e);
+pub const MSAMRNBEncoder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2fae8afe_04a3_423a_a814_85db454712b0);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -55119,7 +55119,7 @@ impl ::core::cmp::Eq for MT_CUSTOM_VIDEO_PRIMARIES {}
 unsafe impl ::windows::runtime::Abi for MT_CUSTOM_VIDEO_PRIMARIES {
     type Abi = Self;
 }
-pub const MULawCodecWrapper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2461425792, 24109, 17566, [144, 196, 196, 31, 38, 142, 85, 20]);
+pub const MULawCodecWrapper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92b66080_5e2d_449e_90c4_c41f268e5514);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -55466,11 +55466,11 @@ impl ::core::cmp::Eq for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
     type Abi = Self;
 }
-pub const OPM_GET_ACP_AND_CGMSA_SIGNALING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1714005393, 15225, 19699, [146, 74, 17, 232, 231, 129, 22, 113]);
-pub const OPM_GET_ACTUAL_OUTPUT_FORMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3619625891, 44307, 20366, [175, 152, 13, 203, 60, 162, 4, 204]);
-pub const OPM_GET_ACTUAL_PROTECTION_LEVEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(425140490, 30566, 17706, [185, 154, 210, 122, 237, 84, 240, 58]);
-pub const OPM_GET_ADAPTER_BUS_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3337934451, 24948, 16772, [142, 53, 246, 219, 82, 0, 188, 186]);
-pub const OPM_GET_CODEC_INFO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1329022097, 36703, 17477, [157, 186, 149, 88, 143, 107, 88, 180]);
+pub const OPM_GET_ACP_AND_CGMSA_SIGNALING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6629a591_3b79_4cf3_924a_11e8e7811671);
+pub const OPM_GET_ACTUAL_OUTPUT_FORMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7bf1ba3_ad13_4f8e_af98_0dcb3ca204cc);
+pub const OPM_GET_ACTUAL_PROTECTION_LEVEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1957210a_7766_452a_b99a_d27aed54f03a);
+pub const OPM_GET_ADAPTER_BUS_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6f4d673_6174_4184_8e35_f6db5200bcba);
+pub const OPM_GET_CODEC_INFO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f374491_8f5f_4445_9dba_95588f6b58b4);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -55515,10 +55515,10 @@ impl ::core::cmp::Eq for OPM_GET_CODEC_INFO_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for OPM_GET_CODEC_INFO_PARAMETERS {
     type Abi = Self;
 }
-pub const OPM_GET_CONNECTED_HDCP_DEVICE_INFORMATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(230006132, 43410, 18734, [160, 189, 194, 63, 218, 86, 78, 0]);
-pub const OPM_GET_CONNECTOR_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2177941461, 27390, 18626, [153, 192, 149, 160, 143, 151, 197, 218]);
-pub const OPM_GET_CURRENT_HDCP_SRM_VERSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2579877631, 24349, 18553, [129, 193, 197, 36, 67, 201, 72, 43]);
-pub const OPM_GET_DVI_CHARACTERISTICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2758849467, 24023, 16754, [131, 156, 61, 55, 118, 224, 235, 245]);
+pub const OPM_GET_CONNECTED_HDCP_DEVICE_INFORMATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0db59d74_a992_492e_a0bd_c23fda564e00);
+pub const OPM_GET_CONNECTOR_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81d0bfd5_6afe_48c2_99c0_95a08f97c5da);
+pub const OPM_GET_CURRENT_HDCP_SRM_VERSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99c5ceff_5f1d_4879_81c1_c52443c9482b);
+pub const OPM_GET_DVI_CHARACTERISTICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa470b3bb_5dd7_4172_839c_3d3776e0ebf5);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -55545,10 +55545,10 @@ impl ::core::cmp::Eq for OPM_GET_INFO_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for OPM_GET_INFO_PARAMETERS {
     type Abi = Self;
 }
-pub const OPM_GET_OUTPUT_HARDWARE_PROTECTION_SUPPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(991073673, 11000, 20208, [150, 162, 112, 74, 132, 90, 33, 142]);
-pub const OPM_GET_OUTPUT_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1925934579, 9295, 16590, [176, 158, 32, 80, 106, 246, 48, 47]);
-pub const OPM_GET_SUPPORTED_PROTECTION_TYPES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(955426817, 39532, 18619, [145, 7, 182, 105, 110, 111, 23, 151]);
-pub const OPM_GET_VIRTUAL_PROTECTION_LEVEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2986825815, 16090, 19805, [136, 219, 116, 143, 140, 26, 5, 73]);
+pub const OPM_GET_OUTPUT_HARDWARE_PROTECTION_SUPPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b129589_2af8_4ef0_96a2_704a845a218e);
+pub const OPM_GET_OUTPUT_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72cb6df3_244f_40ce_b09e_20506af6302f);
+pub const OPM_GET_SUPPORTED_PROTECTION_TYPES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38f2a801_9a6c_48bb_9107_b6696e6f1797);
+pub const OPM_GET_VIRTUAL_PROTECTION_LEVEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2075857_3eda_4d5d_88db_748f8c1a0549);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -55870,7 +55870,7 @@ impl ::core::cmp::Eq for OPM_REQUESTED_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for OPM_REQUESTED_INFORMATION {
     type Abi = Self;
 }
-pub const OPM_SET_ACP_AND_CGMSA_SIGNALING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(161886629, 54916, 19552, [142, 77, 211, 187, 15, 11, 227, 238]);
+pub const OPM_SET_ACP_AND_CGMSA_SIGNALING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09a631a5_d684_4c60_8e4d_d3bb0f0be3ee);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -55901,7 +55901,7 @@ impl ::core::cmp::Eq for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     type Abi = Self;
 }
-pub const OPM_SET_HDCP_SRM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2338256337, 49933, 17663, [132, 165, 234, 113, 220, 231, 143, 19]);
+pub const OPM_SET_HDCP_SRM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b5ef5d1_c30d_44ff_84a5_ea71dce78f13);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -55923,8 +55923,8 @@ impl ::core::cmp::Eq for OPM_SET_HDCP_SRM_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for OPM_SET_HDCP_SRM_PARAMETERS {
     type Abi = Self;
 }
-pub const OPM_SET_PROTECTION_LEVEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2612605564, 20149, 18215, [159, 0, 180, 43, 9, 25, 192, 218]);
-pub const OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(969814846, 19648, 17582, [191, 204, 218, 80, 181, 248, 46, 114]);
+pub const OPM_SET_PROTECTION_LEVEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9bb9327c_4eb5_4727_9f00_b42b0919c0da);
+pub const OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39ce333e_4cc0_44ae_bfcc_da50b5f82e72);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -56368,8 +56368,8 @@ impl ::core::convert::From<i32> for TOC_POS_TYPE {
 unsafe impl ::windows::runtime::Abi for TOC_POS_TYPE {
     type Abi = Self;
 }
-pub const VIDEO_ZOOM_RECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2057967160, 7039, 19603, [189, 137, 91, 156, 159, 182, 252, 240]);
-pub const VorbisDecoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(437882610, 24805, 20136, [144, 216, 218, 31, 40, 50, 194, 136]);
+pub const VIDEO_ZOOM_RECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7aaa1638_1b7f_4c93_bd89_5b9c9fb6fcf0);
+pub const VorbisDecoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a198ef2_60e5_4ea8_90d8_da1f2832c288);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const WMAAECMA_E_NO_ACTIVE_RENDER_STREAM: u32 = 2278293514u32;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]

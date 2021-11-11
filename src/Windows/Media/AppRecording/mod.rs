@@ -74,7 +74,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppRecordingManager {
 }
 unsafe impl ::windows::runtime::Interface for AppRecordingManager {
     type Vtable = IAppRecordingManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3890372726, 41028, 18658, [165, 18, 48, 148, 213, 116, 199, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7e26076_a044_48e2_a512_3094d574c7cc);
 }
 impl ::windows::runtime::RuntimeName for AppRecordingManager {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingManager";
@@ -165,7 +165,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppRecordingResult {
 }
 unsafe impl ::windows::runtime::Interface for AppRecordingResult {
     type Vtable = IAppRecordingResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(982517860, 50797, 18169, [178, 217, 91, 194, 218, 208, 112, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a900864_c66d_46f9_b2d9_5bc2dad070d7);
 }
 impl ::windows::runtime::RuntimeName for AppRecordingResult {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingResult";
@@ -270,7 +270,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppRecordingSaveScreenshotResult
 }
 unsafe impl ::windows::runtime::Interface for AppRecordingSaveScreenshotResult {
     type Vtable = IAppRecordingSaveScreenshotResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2623245578, 2747, 17495, [170, 238, 36, 249, 193, 46, 199, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c5b8d0a_0abb_4457_aaee_24f9c12ec778);
 }
 impl ::windows::runtime::RuntimeName for AppRecordingSaveScreenshotResult {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingSaveScreenshotResult";
@@ -345,7 +345,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppRecordingSavedScreenshotInfo 
 }
 unsafe impl ::windows::runtime::Interface for AppRecordingSavedScreenshotInfo {
     type Vtable = IAppRecordingSavedScreenshotInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2607033610, 6298, 19712, [191, 37, 225, 187, 18, 73, 213, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b642d0a_189a_4d00_bf25_e1bb1249d594);
 }
 impl ::windows::runtime::RuntimeName for AppRecordingSavedScreenshotInfo {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingSavedScreenshotInfo";
@@ -436,7 +436,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppRecordingStatus {
 }
 unsafe impl ::windows::runtime::Interface for AppRecordingStatus {
     type Vtable = IAppRecordingStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(487376940, 48152, 19338, [166, 239, 18, 126, 250, 179, 181, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d0cc82c_bc18_4b8a_a6ef_127efab3b5d9);
 }
 impl ::windows::runtime::RuntimeName for AppRecordingStatus {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingStatus";
@@ -566,7 +566,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppRecordingStatusDetails {
 }
 unsafe impl ::windows::runtime::Interface for AppRecordingStatusDetails {
     type Vtable = IAppRecordingStatusDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3040389552, 5357, 17426, [172, 69, 109, 103, 44, 156, 153, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb538a9b0_14ed_4412_ac45_6d672c9c9949);
 }
 impl ::windows::runtime::RuntimeName for AppRecordingStatusDetails {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingStatusDetails";
@@ -618,7 +618,7 @@ unsafe impl ::core::marker::Sync for AppRecordingStatusDetails {}
 pub struct IAppRecordingManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingManager {
     type Vtable = IAppRecordingManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3890372726, 41028, 18658, [165, 18, 48, 148, 213, 116, 199, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7e26076_a044_48e2_a512_3094d574c7cc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -644,7 +644,7 @@ pub struct IAppRecordingManager_abi(
 pub struct IAppRecordingManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingManagerStatics {
     type Vtable = IAppRecordingManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357318647, 14542, 19411, [157, 178, 231, 43, 190, 157, 225, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50e709f7_38ce_4bd3_9db2_e72bbe9de11d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -662,7 +662,7 @@ pub struct IAppRecordingManagerStatics_abi(
 pub struct IAppRecordingResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingResult {
     type Vtable = IAppRecordingResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(982517860, 50797, 18169, [178, 217, 91, 194, 218, 208, 112, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a900864_c66d_46f9_b2d9_5bc2dad070d7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -684,7 +684,7 @@ pub struct IAppRecordingResult_abi(
 pub struct IAppRecordingSaveScreenshotResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingSaveScreenshotResult {
     type Vtable = IAppRecordingSaveScreenshotResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2623245578, 2747, 17495, [170, 238, 36, 249, 193, 46, 199, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c5b8d0a_0abb_4457_aaee_24f9c12ec778);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -705,7 +705,7 @@ pub struct IAppRecordingSaveScreenshotResult_abi(
 pub struct IAppRecordingSavedScreenshotInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingSavedScreenshotInfo {
     type Vtable = IAppRecordingSavedScreenshotInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2607033610, 6298, 19712, [191, 37, 225, 187, 18, 73, 213, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b642d0a_189a_4d00_bf25_e1bb1249d594);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -725,7 +725,7 @@ pub struct IAppRecordingSavedScreenshotInfo_abi(
 pub struct IAppRecordingStatus(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingStatus {
     type Vtable = IAppRecordingStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(487376940, 48152, 19338, [166, 239, 18, 126, 250, 179, 181, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d0cc82c_bc18_4b8a_a6ef_127efab3b5d9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -747,7 +747,7 @@ pub struct IAppRecordingStatus_abi(
 pub struct IAppRecordingStatusDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingStatusDetails {
     type Vtable = IAppRecordingStatusDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3040389552, 5357, 17426, [172, 69, 109, 103, 44, 156, 153, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb538a9b0_14ed_4412_ac45_6d672c9c9949);
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -4,7 +4,7 @@
 pub struct ITargetedContentAction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentAction {
     type Vtable = ITargetedContentAction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3613092126, 27862, 19616, [157, 143, 71, 40, 176, 183, 230, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd75b691e_6cd6_4ca0_9d8f_4728b0b7e6b6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23,7 +23,7 @@ pub struct ITargetedContentAction_abi(
 pub struct ITargetedContentAvailabilityChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentAvailabilityChangedEventArgs {
     type Vtable = ITargetedContentAvailabilityChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3774192934, 22823, 17488, [150, 92, 28, 235, 123, 236, 222, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0f59d26_5927_4450_965c_1ceb7becde65);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -42,7 +42,7 @@ pub struct ITargetedContentAvailabilityChangedEventArgs_abi(
 pub struct ITargetedContentChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentChangedEventArgs {
     type Vtable = ITargetedContentChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2580842697, 22654, 17798, [142, 247, 181, 76, 169, 69, 58, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99d488c9_587e_4586_8ef7_b54ca9453a16);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -62,7 +62,7 @@ pub struct ITargetedContentChangedEventArgs_abi(
 pub struct ITargetedContentCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentCollection {
     type Vtable = ITargetedContentCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(759916229, 61795, 17594, [159, 110, 225, 164, 194, 187, 85, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d4b66c5_f163_44ba_9f6e_e1a4c2bb559d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -89,7 +89,7 @@ pub struct ITargetedContentCollection_abi(
 pub struct ITargetedContentContainer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentContainer {
     type Vtable = ITargetedContentContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3156513993, 34871, 18370, [133, 15, 215, 157, 100, 89, 89, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc2494c9_8837_47c2_850f_d79d64595926);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -112,7 +112,7 @@ pub struct ITargetedContentContainer_abi(
 pub struct ITargetedContentContainerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentContainerStatics {
     type Vtable = ITargetedContentContainerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1531439099, 8512, 19487, [167, 54, 197, 149, 131, 242, 39, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b47e7fb_2140_4c1f_a736_c59583f227d8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -131,7 +131,7 @@ pub struct ITargetedContentContainerStatics_abi(
 pub struct ITargetedContentImage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentImage {
     type Vtable = ITargetedContentImage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2812642777, 30623, 19230, [187, 177, 142, 175, 83, 251, 234, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7a585d9_779f_4b1e_bbb1_8eaf53fbeab2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -150,7 +150,7 @@ pub struct ITargetedContentImage_abi(
 pub struct ITargetedContentItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentItem {
     type Vtable = ITargetedContentItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(941002180, 10092, 19506, [150, 186, 86, 92, 110, 64, 110, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38168dc4_276c_4c32_96ba_565c6e406e74);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -175,7 +175,7 @@ pub struct ITargetedContentItem_abi(
 pub struct ITargetedContentItemState(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentItemState {
     type Vtable = ITargetedContentItemState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1939035220, 19557, 19271, [164, 65, 71, 45, 229, 60, 121, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73935454_4c65_4b47_a441_472de53c79b6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -194,7 +194,7 @@ pub struct ITargetedContentItemState_abi(
 pub struct ITargetedContentObject(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentObject {
     type Vtable = ITargetedContentObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(69040489, 8722, 17105, [157, 250, 136, 168, 227, 3, 58, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x041d7969_2212_42d1_9dfa_88a8e3033aa3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -215,7 +215,7 @@ pub struct ITargetedContentObject_abi(
 pub struct ITargetedContentStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentStateChangedEventArgs {
     type Vtable = ITargetedContentStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2585587517, 32883, 17430, [141, 242, 84, 104, 53, 166, 65, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a1cef3d_8073_4416_8df2_546835a6414f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -234,7 +234,7 @@ pub struct ITargetedContentStateChangedEventArgs_abi(
 pub struct ITargetedContentSubscription(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentSubscription {
     type Vtable = ITargetedContentSubscription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2284596297, 50770, 19578, [172, 173, 31, 127, 162, 152, 108, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x882c2c49_c652_4c7a_acad_1f7fa2986c73);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -266,7 +266,7 @@ pub struct ITargetedContentSubscription_abi(
 pub struct ITargetedContentSubscriptionOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentSubscriptionOptions {
     type Vtable = ITargetedContentSubscriptionOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1643014864, 11395, 16923, [132, 103, 65, 62, 175, 26, 235, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61ee6ad0_2c83_421b_8467_413eaf1aeb97);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -291,7 +291,7 @@ pub struct ITargetedContentSubscriptionOptions_abi(
 pub struct ITargetedContentSubscriptionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentSubscriptionStatics {
     type Vtable = ITargetedContentSubscriptionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4208852608, 13837, 18710, [181, 60, 126, 162, 112, 144, 208, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfaddfe80_360d_4916_b53c_7ea27090d02a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -311,7 +311,7 @@ pub struct ITargetedContentSubscriptionStatics_abi(
 pub struct ITargetedContentValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentValue {
     type Vtable = ITargetedContentValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2868765875, 16917, 19448, [134, 127, 67, 240, 72, 101, 249, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaafde4b3_4215_4bf8_867f_43f04865f9bf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -368,7 +368,7 @@ unsafe impl ::windows::runtime::RuntimeType for TargetedContentAction {
 }
 unsafe impl ::windows::runtime::Interface for TargetedContentAction {
     type Vtable = ITargetedContentAction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3613092126, 27862, 19616, [157, 143, 71, 40, 176, 183, 230, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd75b691e_6cd6_4ca0_9d8f_4728b0b7e6b6);
 }
 impl ::windows::runtime::RuntimeName for TargetedContentAction {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentAction";
@@ -481,7 +481,7 @@ unsafe impl ::windows::runtime::RuntimeType for TargetedContentAvailabilityChang
 }
 unsafe impl ::windows::runtime::Interface for TargetedContentAvailabilityChangedEventArgs {
     type Vtable = ITargetedContentAvailabilityChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3774192934, 22823, 17488, [150, 92, 28, 235, 123, 236, 222, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0f59d26_5927_4450_965c_1ceb7becde65);
 }
 impl ::windows::runtime::RuntimeName for TargetedContentAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentAvailabilityChangedEventArgs";
@@ -556,7 +556,7 @@ unsafe impl ::windows::runtime::RuntimeType for TargetedContentChangedEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for TargetedContentChangedEventArgs {
     type Vtable = ITargetedContentChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2580842697, 22654, 17798, [142, 247, 181, 76, 169, 69, 58, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99d488c9_587e_4586_8ef7_b54ca9453a16);
 }
 impl ::windows::runtime::RuntimeName for TargetedContentChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentChangedEventArgs";
@@ -667,7 +667,7 @@ unsafe impl ::windows::runtime::RuntimeType for TargetedContentCollection {
 }
 unsafe impl ::windows::runtime::Interface for TargetedContentCollection {
     type Vtable = ITargetedContentCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(759916229, 61795, 17594, [159, 110, 225, 164, 194, 187, 85, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d4b66c5_f163_44ba_9f6e_e1a4c2bb559d);
 }
 impl ::windows::runtime::RuntimeName for TargetedContentCollection {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentCollection";
@@ -778,7 +778,7 @@ unsafe impl ::windows::runtime::RuntimeType for TargetedContentContainer {
 }
 unsafe impl ::windows::runtime::Interface for TargetedContentContainer {
     type Vtable = ITargetedContentContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3156513993, 34871, 18370, [133, 15, 215, 157, 100, 89, 89, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc2494c9_8837_47c2_850f_d79d64595926);
 }
 impl ::windows::runtime::RuntimeName for TargetedContentContainer {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentContainer";
@@ -852,7 +852,7 @@ unsafe impl ::windows::runtime::RuntimeType for TargetedContentFile {
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::runtime::Interface for TargetedContentFile {
     type Vtable = super::super::Storage::Streams::IRandomAccessStreamReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(871248180, 7638, 20026, [128, 103, 209, 193, 98, 232, 100, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33ee3134_1dd6_4e3a_8067_d1c162e8642b);
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::runtime::RuntimeName for TargetedContentFile {
@@ -970,7 +970,7 @@ unsafe impl ::windows::runtime::RuntimeType for TargetedContentImage {
 }
 unsafe impl ::windows::runtime::Interface for TargetedContentImage {
     type Vtable = ITargetedContentImage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2812642777, 30623, 19230, [187, 177, 142, 175, 83, 251, 234, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7a585d9_779f_4b1e_bbb1_8eaf53fbeab2);
 }
 impl ::windows::runtime::RuntimeName for TargetedContentImage {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentImage";
@@ -1131,7 +1131,7 @@ unsafe impl ::windows::runtime::RuntimeType for TargetedContentItem {
 }
 unsafe impl ::windows::runtime::Interface for TargetedContentItem {
     type Vtable = ITargetedContentItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(941002180, 10092, 19506, [150, 186, 86, 92, 110, 64, 110, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38168dc4_276c_4c32_96ba_565c6e406e74);
 }
 impl ::windows::runtime::RuntimeName for TargetedContentItem {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentItem";
@@ -1205,7 +1205,7 @@ unsafe impl ::windows::runtime::RuntimeType for TargetedContentItemState {
 }
 unsafe impl ::windows::runtime::Interface for TargetedContentItemState {
     type Vtable = ITargetedContentItemState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1939035220, 19557, 19271, [164, 65, 71, 45, 229, 60, 121, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73935454_4c65_4b47_a441_472de53c79b6);
 }
 impl ::windows::runtime::RuntimeName for TargetedContentItemState {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentItemState";
@@ -1295,7 +1295,7 @@ unsafe impl ::windows::runtime::RuntimeType for TargetedContentObject {
 }
 unsafe impl ::windows::runtime::Interface for TargetedContentObject {
     type Vtable = ITargetedContentObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(69040489, 8722, 17105, [157, 250, 136, 168, 227, 3, 58, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x041d7969_2212_42d1_9dfa_88a8e3033aa3);
 }
 impl ::windows::runtime::RuntimeName for TargetedContentObject {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentObject";
@@ -1385,7 +1385,7 @@ unsafe impl ::windows::runtime::RuntimeType for TargetedContentStateChangedEvent
 }
 unsafe impl ::windows::runtime::Interface for TargetedContentStateChangedEventArgs {
     type Vtable = ITargetedContentStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2585587517, 32883, 17430, [141, 242, 84, 104, 53, 166, 65, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a1cef3d_8073_4416_8df2_546835a6414f);
 }
 impl ::windows::runtime::RuntimeName for TargetedContentStateChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentStateChangedEventArgs";
@@ -1524,7 +1524,7 @@ unsafe impl ::windows::runtime::RuntimeType for TargetedContentSubscription {
 }
 unsafe impl ::windows::runtime::Interface for TargetedContentSubscription {
     type Vtable = ITargetedContentSubscription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2284596297, 50770, 19578, [172, 173, 31, 127, 162, 152, 108, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x882c2c49_c652_4c7a_acad_1f7fa2986c73);
 }
 impl ::windows::runtime::RuntimeName for TargetedContentSubscription {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentSubscription";
@@ -1626,7 +1626,7 @@ unsafe impl ::windows::runtime::RuntimeType for TargetedContentSubscriptionOptio
 }
 unsafe impl ::windows::runtime::Interface for TargetedContentSubscriptionOptions {
     type Vtable = ITargetedContentSubscriptionOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1643014864, 11395, 16923, [132, 103, 65, 62, 175, 26, 235, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61ee6ad0_2c83_421b_8467_413eaf1aeb97);
 }
 impl ::windows::runtime::RuntimeName for TargetedContentSubscriptionOptions {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentSubscriptionOptions";
@@ -1821,7 +1821,7 @@ unsafe impl ::windows::runtime::RuntimeType for TargetedContentValue {
 }
 unsafe impl ::windows::runtime::Interface for TargetedContentValue {
     type Vtable = ITargetedContentValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2868765875, 16917, 19448, [134, 127, 67, 240, 72, 101, 249, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaafde4b3_4215_4bf8_867f_43f04865f9bf);
 }
 impl ::windows::runtime::RuntimeName for TargetedContentValue {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentValue";

@@ -5,7 +5,7 @@
 pub struct II2cControllerProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for II2cControllerProvider {
     type Vtable = II2cControllerProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1640151938, 17680, 16739, [168, 124, 78, 21, 169, 85, 137, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61c2bb82_4510_4163_a87c_4e15a9558980);
 }
 impl II2cControllerProvider {
     #[doc = "*Required features: `Devices_I2c_Provider`*"]
@@ -77,7 +77,7 @@ pub struct II2cControllerProvider_abi(
 pub struct II2cDeviceProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for II2cDeviceProvider {
     type Vtable = II2cDeviceProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2905876052, 22504, 17726, [131, 41, 209, 228, 71, 209, 3, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad342654_57e8_453e_8329_d1e447d103a9);
 }
 impl II2cDeviceProvider {
     #[cfg(feature = "Foundation")]
@@ -226,7 +226,7 @@ pub struct II2cDeviceProvider_abi(
 pub struct II2cProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for II2cProvider {
     type Vtable = II2cProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1863518270, 48994, 20450, [169, 90, 240, 137, 153, 102, 152, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f13083e_bf62_4fe2_a95a_f08999669818);
 }
 impl II2cProvider {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -299,7 +299,7 @@ pub struct II2cProvider_abi(
 pub struct IProviderI2cConnectionSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProviderI2cConnectionSettings {
     type Vtable = IProviderI2cConnectionSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3923463732, 58640, 17591, [128, 157, 242, 248, 91, 85, 83, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9db4e34_e510_44b7_809d_f2f85b555339);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -389,7 +389,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProviderI2cConnectionSettings {
 }
 unsafe impl ::windows::runtime::Interface for ProviderI2cConnectionSettings {
     type Vtable = IProviderI2cConnectionSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3923463732, 58640, 17591, [128, 157, 242, 248, 91, 85, 83, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9db4e34_e510_44b7_809d_f2f85b555339);
 }
 impl ::windows::runtime::RuntimeName for ProviderI2cConnectionSettings {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.ProviderI2cConnectionSettings";

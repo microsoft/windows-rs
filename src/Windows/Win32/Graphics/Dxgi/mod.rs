@@ -425,12 +425,12 @@ unsafe impl ::windows::runtime::Abi for DXGI_COMPUTE_PREEMPTION_GRANULARITY {
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_CREATE_FACTORY_DEBUG: u32 = 1u32;
-pub const DXGI_DEBUG_ALL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3834307203, 55936, 18699, [135, 230, 67, 233, 169, 207, 218, 8]);
-pub const DXGI_DEBUG_APP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(114126337, 16921, 20157, [135, 9, 39, 237, 35, 54, 12, 98]);
+pub const DXGI_DEBUG_ALL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe48ae283_da80_490b_87e6_43e9a9cfda08);
+pub const DXGI_DEBUG_APP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06cd6e01_4219_4ebd_8709_27ed23360c62);
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_DEBUG_BINARY_VERSION: u32 = 1u32;
-pub const DXGI_DEBUG_DX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(902682620, 5042, 16925, [165, 215, 126, 68, 81, 40, 125, 100]);
-pub const DXGI_DEBUG_DXGI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(634247844, 45510, 18401, [172, 62, 152, 135, 91, 90, 46, 42]);
+pub const DXGI_DEBUG_DX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35cdd7fc_13b2_421d_a5d7_7e4451287d64);
+pub const DXGI_DEBUG_DXGI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25cddaa4_b1c6_47e1_ac3e_98875b5a2e2a);
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -2383,7 +2383,7 @@ impl IDXGIAdapter {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIAdapter {
     type Vtable = IDXGIAdapter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(605153249, 4780, 19663, [189, 20, 151, 152, 232, 83, 77, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2411e7e1_12ac_4ccf_bd14_9798e8534dc0);
 }
 impl ::core::convert::From<IDXGIAdapter> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIAdapter) -> Self {
@@ -2487,7 +2487,7 @@ impl IDXGIAdapter1 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIAdapter1 {
     type Vtable = IDXGIAdapter1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(688099169, 14393, 17958, [145, 253, 8, 104, 121, 1, 26, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29038f61_3839_4626_91fd_086879011a05);
 }
 impl ::core::convert::From<IDXGIAdapter1> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIAdapter1) -> Self {
@@ -2619,7 +2619,7 @@ impl IDXGIAdapter2 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIAdapter2 {
     type Vtable = IDXGIAdapter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(178368010, 64014, 19332, [134, 68, 224, 95, 248, 229, 172, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0aa1ae0a_fa0e_4b84_8644_e05ff8e5acb5);
 }
 impl ::core::convert::From<IDXGIAdapter2> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIAdapter2) -> Self {
@@ -2802,7 +2802,7 @@ impl IDXGIAdapter3 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIAdapter3 {
     type Vtable = IDXGIAdapter3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1683580836, 5010, 17168, [167, 152, 128, 83, 206, 62, 147, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x645967a4_1392_4310_a798_8053ce3e93fd);
 }
 impl ::core::convert::From<IDXGIAdapter3> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIAdapter3) -> Self {
@@ -3019,7 +3019,7 @@ impl IDXGIAdapter4 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIAdapter4 {
     type Vtable = IDXGIAdapter4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1015912913, 20415, 16769, [168, 44, 175, 102, 191, 123, 210, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c8d99d1_4fbf_4181_a82c_af66bf7bd24e);
 }
 impl ::core::convert::From<IDXGIAdapter4> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIAdapter4) -> Self {
@@ -3182,7 +3182,7 @@ impl IDXGIDebug {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIDebug {
     type Vtable = IDXGIDebug_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(295597138, 56990, 16638, [136, 6, 136, 249, 12, 18, 180, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x119e7452_de9e_40fe_8806_88f90c12b441);
 }
 impl ::core::convert::From<IDXGIDebug> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIDebug) -> Self {
@@ -3237,7 +3237,7 @@ impl IDXGIDebug1 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIDebug1 {
     type Vtable = IDXGIDebug1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3315621644, 5874, 19167, [159, 77, 168, 196, 213, 138, 197, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5a05f0c_16f2_4adf_9f4d_a8c4d58ac550);
 }
 impl ::core::convert::From<IDXGIDebug1> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIDebug1) -> Self {
@@ -3341,7 +3341,7 @@ impl IDXGIDecodeSwapChain {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIDecodeSwapChain {
     type Vtable = IDXGIDecodeSwapChain_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(640878187, 17684, 19578, [143, 216, 18, 234, 152, 5, 157, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2633066b_4514_4c7a_8fd8_12ea98059d18);
 }
 impl ::core::convert::From<IDXGIDecodeSwapChain> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIDecodeSwapChain) -> Self {
@@ -3431,7 +3431,7 @@ impl IDXGIDevice {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIDevice {
     type Vtable = IDXGIDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1424783354, 4983, 17638, [140, 50, 136, 253, 95, 68, 200, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54ec77fa_1377_44e6_8c32_88fd5f44c84c);
 }
 impl ::core::convert::From<IDXGIDevice> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIDevice) -> Self {
@@ -3547,7 +3547,7 @@ impl IDXGIDevice1 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIDevice1 {
     type Vtable = IDXGIDevice1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2010879759, 25206, 18618, [186, 40, 7, 1, 67, 180, 57, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77db970f_6276_48ba_ba28_070143b4392c);
 }
 impl ::core::convert::From<IDXGIDevice1> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIDevice1) -> Self {
@@ -3700,7 +3700,7 @@ impl IDXGIDevice2 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIDevice2 {
     type Vtable = IDXGIDevice2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(83920407, 64509, 16465, [167, 144, 20, 72, 132, 180, 246, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05008617_fbfd_4051_a790_144884b4f6a9);
 }
 impl ::core::convert::From<IDXGIDevice2> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIDevice2) -> Self {
@@ -3882,7 +3882,7 @@ impl IDXGIDevice3 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIDevice3 {
     type Vtable = IDXGIDevice3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1611106668, 12868, 19197, [191, 24, 166, 211, 190, 218, 80, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6007896c_3244_4afd_bf18_a6d3beda5023);
 }
 impl ::core::convert::From<IDXGIDevice3> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIDevice3) -> Self {
@@ -4094,7 +4094,7 @@ impl IDXGIDevice4 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIDevice4 {
     type Vtable = IDXGIDevice4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2511665503, 55514, 19620, [158, 230, 59, 118, 213, 150, 138, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95b4f95f_d8da_4ca4_9ee6_3b76d5968a10);
 }
 impl ::core::convert::From<IDXGIDevice4> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIDevice4) -> Self {
@@ -4273,7 +4273,7 @@ impl IDXGIDeviceSubObject {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIDeviceSubObject {
     type Vtable = IDXGIDeviceSubObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1027474297, 63966, 19800, [187, 108, 24, 214, 41, 146, 241, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d3e0379_f9de_4d58_bb6c_18d62992f1a6);
 }
 impl ::core::convert::From<IDXGIDeviceSubObject> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIDeviceSubObject) -> Self {
@@ -4345,7 +4345,7 @@ impl IDXGIDisplayControl {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIDisplayControl {
     type Vtable = IDXGIDisplayControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3936206618, 51342, 17542, [133, 74, 152, 170, 1, 56, 243, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea9dbf1a_c88e_4486_854a_98aa0138f30c);
 }
 impl ::core::convert::From<IDXGIDisplayControl> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIDisplayControl) -> Self {
@@ -4431,7 +4431,7 @@ impl IDXGIFactory {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIFactory {
     type Vtable = IDXGIFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2071029484, 8647, 17582, [178, 26, 201, 174, 50, 26, 227, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b7166ec_21c7_44ae_b21a_c9ae321ae369);
 }
 impl ::core::convert::From<IDXGIFactory> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIFactory) -> Self {
@@ -4556,7 +4556,7 @@ impl IDXGIFactory1 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIFactory1 {
     type Vtable = IDXGIFactory1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1997188728, 62063, 19898, [168, 41, 37, 60, 131, 209, 179, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x770aae78_f26f_4dba_a829_253c83d1b387);
 }
 impl ::core::convert::From<IDXGIFactory1> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIFactory1) -> Self {
@@ -4765,7 +4765,7 @@ impl IDXGIFactory2 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIFactory2 {
     type Vtable = IDXGIFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1355299356, 57458, 19528, [135, 176, 54, 48, 250, 54, 166, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50c83a1c_e072_4c48_87b0_3630fa36a6d0);
 }
 impl ::core::convert::From<IDXGIFactory2> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIFactory2) -> Self {
@@ -5018,7 +5018,7 @@ impl IDXGIFactory3 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIFactory3 {
     type Vtable = IDXGIFactory3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(625489955, 52550, 19581, [134, 202, 71, 170, 149, 184, 55, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25483823_cd46_4c7d_86ca_47aa95b837bd);
 }
 impl ::core::convert::From<IDXGIFactory3> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIFactory3) -> Self {
@@ -5303,7 +5303,7 @@ impl IDXGIFactory4 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIFactory4 {
     type Vtable = IDXGIFactory4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(466020866, 61238, 17999, [191, 12, 33, 202, 57, 229, 22, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bc6ea02_ef36_464f_bf0c_21ca39e5168a);
 }
 impl ::core::convert::From<IDXGIFactory4> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIFactory4) -> Self {
@@ -5615,7 +5615,7 @@ impl IDXGIFactory5 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIFactory5 {
     type Vtable = IDXGIFactory5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1983046133, 61029, 19914, [135, 253, 132, 205, 117, 248, 131, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7632e1f5_ee65_4dca_87fd_84cd75f8838d);
 }
 impl ::core::convert::From<IDXGIFactory5> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIFactory5) -> Self {
@@ -5953,7 +5953,7 @@ impl IDXGIFactory6 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIFactory6 {
     type Vtable = IDXGIFactory6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3249957199, 65289, 17577, [176, 60, 119, 144, 10, 10, 29, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1b6694f_ff09_44a9_b03c_77900a0a1d17);
 }
 impl ::core::convert::From<IDXGIFactory6> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIFactory6) -> Self {
@@ -6322,7 +6322,7 @@ impl IDXGIFactory7 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIFactory7 {
     type Vtable = IDXGIFactory7_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2761322221, 30427, 17626, [132, 193, 238, 154, 122, 251, 32, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4966eed_76db_44da_84c1_ee9a7afb20a8);
 }
 impl ::core::convert::From<IDXGIFactory7> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIFactory7) -> Self {
@@ -6583,7 +6583,7 @@ impl IDXGIFactoryMedia {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIFactoryMedia {
     type Vtable = IDXGIFactoryMedia_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1105711602, 42385, 20347, [162, 229, 250, 156, 132, 62, 28, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41e7d1f2_a591_4f7b_a2e5_fa9c843e1c12);
 }
 impl ::core::convert::From<IDXGIFactoryMedia> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIFactoryMedia) -> Self {
@@ -6782,7 +6782,7 @@ impl IDXGIInfoQueue {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIInfoQueue {
     type Vtable = IDXGIInfoQueue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3597943239, 26410, 18287, [158, 130, 205, 85, 180, 73, 73, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd67441c7_672a_476f_9e82_cd55b44949ce);
 }
 impl ::core::convert::From<IDXGIInfoQueue> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIInfoQueue) -> Self {
@@ -6896,7 +6896,7 @@ impl IDXGIKeyedMutex {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIKeyedMutex {
     type Vtable = IDXGIKeyedMutex_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2643333769, 55219, 18015, [129, 38, 37, 14, 52, 154, 248, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d8e1289_d7b3_465f_8126_250e349af85d);
 }
 impl ::core::convert::From<IDXGIKeyedMutex> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIKeyedMutex) -> Self {
@@ -6997,7 +6997,7 @@ impl IDXGIObject {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIObject {
     type Vtable = IDXGIObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2931961784, 30451, 17977, [155, 224, 40, 235, 67, 166, 122, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaec22fb8_76f3_4639_9be0_28eb43a67a2e);
 }
 impl ::core::convert::From<IDXGIObject> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIObject) -> Self {
@@ -7114,7 +7114,7 @@ impl IDXGIOutput {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIOutput {
     type Vtable = IDXGIOutput_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2919427803, 50997, 18064, [141, 82, 90, 141, 194, 2, 19, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae02eedb_c735_4690_8d52_5a8dc20213aa);
 }
 impl ::core::convert::From<IDXGIOutput> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIOutput) -> Self {
@@ -7289,7 +7289,7 @@ impl IDXGIOutput1 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIOutput1 {
     type Vtable = IDXGIOutput1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(13491880, 37787, 19331, [163, 64, 166, 133, 34, 102, 102, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00cddea8_939b_4b83_a340_a685226666cc);
 }
 impl ::core::convert::From<IDXGIOutput1> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIOutput1) -> Self {
@@ -7495,7 +7495,7 @@ impl IDXGIOutput2 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIOutput2 {
     type Vtable = IDXGIOutput2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1499347409, 10020, 18019, [153, 177, 218, 150, 157, 226, 131, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x595e39d1_2724_4663_99b1_da969de28364);
 }
 impl ::core::convert::From<IDXGIOutput2> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIOutput2) -> Self {
@@ -7729,7 +7729,7 @@ impl IDXGIOutput3 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIOutput3 {
     type Vtable = IDXGIOutput3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2322313985, 32382, 16884, [168, 224, 91, 50, 247, 249, 155, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a6bb301_7e7e_41f4_a8e0_5b32f7f99b18);
 }
 impl ::core::convert::From<IDXGIOutput3> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIOutput3) -> Self {
@@ -7991,7 +7991,7 @@ impl IDXGIOutput4 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIOutput4 {
     type Vtable = IDXGIOutput4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3699231285, 8598, 16717, [159, 83, 97, 120, 132, 3, 42, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc7dca35_2196_414d_9f53_617884032a60);
 }
 impl ::core::convert::From<IDXGIOutput4> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIOutput4) -> Self {
@@ -8281,7 +8281,7 @@ impl IDXGIOutput5 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIOutput5 {
     type Vtable = IDXGIOutput5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2157999140, 43858, 17131, [131, 60, 12, 66, 253, 40, 45, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80a07424_ab52_42eb_833c_0c42fd282d98);
 }
 impl ::core::convert::From<IDXGIOutput5> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIOutput5) -> Self {
@@ -8604,7 +8604,7 @@ impl IDXGIOutput6 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIOutput6 {
     type Vtable = IDXGIOutput6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(109266664, 43756, 19332, [173, 215, 19, 127, 81, 63, 119, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x068346e8_aaec_4b84_add7_137f513f77a1);
 }
 impl ::core::convert::From<IDXGIOutput6> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIOutput6) -> Self {
@@ -8876,7 +8876,7 @@ impl IDXGIOutputDuplication {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIOutputDuplication {
     type Vtable = IDXGIOutputDuplication_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(421329603, 41793, 18189, [178, 110, 168, 100, 244, 40, 49, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x191cfac3_a341_470d_b26e_a864f428319c);
 }
 impl ::core::convert::From<IDXGIOutputDuplication> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIOutputDuplication) -> Self {
@@ -8992,7 +8992,7 @@ impl IDXGIResource {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIResource {
     type Vtable = IDXGIResource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(56572596, 18478, 20048, [180, 31, 138, 127, 139, 216, 150, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x035f3ab4_482e_4e50_b41f_8a7f8bd8960b);
 }
 impl ::core::convert::From<IDXGIResource> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIResource) -> Self {
@@ -9132,7 +9132,7 @@ impl IDXGIResource1 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGIResource1 {
     type Vtable = IDXGIResource1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(815141753, 17929, 19009, [153, 142, 84, 254, 86, 126, 224, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30961379_4609_4a41_998e_54fe567ee0c1);
 }
 impl ::core::convert::From<IDXGIResource1> for ::windows::runtime::IUnknown {
     fn from(value: IDXGIResource1) -> Self {
@@ -9278,7 +9278,7 @@ impl IDXGISurface {
 }
 unsafe impl ::windows::runtime::Interface for IDXGISurface {
     type Vtable = IDXGISurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3405559148, 27331, 18569, [191, 71, 158, 35, 187, 210, 96, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcafcb56c_6ac3_4889_bf47_9e23bbd260ec);
 }
 impl ::core::convert::From<IDXGISurface> for ::windows::runtime::IUnknown {
     fn from(value: IDXGISurface) -> Self {
@@ -9411,7 +9411,7 @@ impl IDXGISurface1 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGISurface1 {
     type Vtable = IDXGISurface1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1256599698, 25383, 19483, [128, 174, 191, 225, 46, 163, 43, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ae63092_6327_4c1b_80ae_bfe12ea32b86);
 }
 impl ::core::convert::From<IDXGISurface1> for ::windows::runtime::IUnknown {
     fn from(value: IDXGISurface1) -> Self {
@@ -9572,7 +9572,7 @@ impl IDXGISurface2 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGISurface2 {
     type Vtable = IDXGISurface2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2879690461, 46615, 19640, [168, 102, 188, 68, 215, 235, 31, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaba496dd_b617_4cb8_a866_bc44d7eb1fa2);
 }
 impl ::core::convert::From<IDXGISurface2> for ::windows::runtime::IUnknown {
     fn from(value: IDXGISurface2) -> Self {
@@ -9775,7 +9775,7 @@ impl IDXGISwapChain {
 }
 unsafe impl ::windows::runtime::Interface for IDXGISwapChain {
     type Vtable = IDXGISwapChain_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(822949536, 53991, 19466, [170, 4, 106, 157, 35, 184, 136, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x310d36a0_d2e7_4c0a_aa04_6a9d23b8886a);
 }
 impl ::core::convert::From<IDXGISwapChain> for ::windows::runtime::IUnknown {
     fn from(value: IDXGISwapChain) -> Self {
@@ -10002,7 +10002,7 @@ impl IDXGISwapChain1 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGISwapChain1 {
     type Vtable = IDXGISwapChain1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2030716407, 3394, 18550, [152, 58, 10, 85, 207, 230, 244, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x790a45f7_0d42_4876_983a_0a55cfe6f4aa);
 }
 impl ::core::convert::From<IDXGISwapChain1> for ::windows::runtime::IUnknown {
     fn from(value: IDXGISwapChain1) -> Self {
@@ -10298,7 +10298,7 @@ impl IDXGISwapChain2 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGISwapChain2 {
     type Vtable = IDXGISwapChain2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2831035076, 6559, 18758, [179, 49, 121, 89, 159, 185, 141, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8be2ac4_199f_4946_b331_79599fb98de7);
 }
 impl ::core::convert::From<IDXGISwapChain2> for ::windows::runtime::IUnknown {
     fn from(value: IDXGISwapChain2) -> Self {
@@ -10642,7 +10642,7 @@ impl IDXGISwapChain3 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGISwapChain3 {
     type Vtable = IDXGISwapChain3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2497289179, 61944, 19120, [178, 54, 125, 160, 23, 14, 218, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94d99bdb_f1f8_4ab0_b236_7da0170edab1);
 }
 impl ::core::convert::From<IDXGISwapChain3> for ::windows::runtime::IUnknown {
     fn from(value: IDXGISwapChain3) -> Self {
@@ -11017,7 +11017,7 @@ impl IDXGISwapChain4 {
 }
 unsafe impl ::windows::runtime::Interface for IDXGISwapChain4 {
     type Vtable = IDXGISwapChain4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029201242, 48458, 18590, [177, 244, 61, 188, 182, 69, 47, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d585d5a_bd4a_489e_b1f4_3dbcb6452ffb);
 }
 impl ::core::convert::From<IDXGISwapChain4> for ::windows::runtime::IUnknown {
     fn from(value: IDXGISwapChain4) -> Self {
@@ -11241,7 +11241,7 @@ impl IDXGISwapChainMedia {
 }
 unsafe impl ::windows::runtime::Interface for IDXGISwapChainMedia {
     type Vtable = IDXGISwapChainMedia_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3717576971, 61535, 20330, [189, 101, 37, 191, 178, 100, 189, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd95b90b_f05f_4f6a_bd65_25bfb264bd84);
 }
 impl ::core::convert::From<IDXGISwapChainMedia> for ::windows::runtime::IUnknown {
     fn from(value: IDXGISwapChainMedia) -> Self {
@@ -11289,7 +11289,7 @@ impl IDXGraphicsAnalysis {
 }
 unsafe impl ::windows::runtime::Interface for IDXGraphicsAnalysis {
     type Vtable = IDXGraphicsAnalysis_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2670007572, 40269, 18690, [157, 96, 24, 152, 138, 183, 212, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f251514_9d4d_4902_9d60_18988ab7d4b5);
 }
 impl ::core::convert::From<IDXGraphicsAnalysis> for ::windows::runtime::IUnknown {
     fn from(value: IDXGraphicsAnalysis) -> Self {

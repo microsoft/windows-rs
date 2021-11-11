@@ -4,7 +4,7 @@
 pub struct IVariablePhotoCapturedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVariablePhotoCapturedEventArgs {
     type Vtable = IVariablePhotoCapturedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3521858652, 6995, 20042, [139, 92, 219, 120, 135, 172, 148, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1eb4c5c_1b53_4e4a_8b5c_db7887ac949b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27,7 +27,7 @@ pub struct IVariablePhotoCapturedEventArgs_abi(
 pub struct IVariablePhotoSequenceCapture(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVariablePhotoSequenceCapture {
     type Vtable = IVariablePhotoSequenceCapture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3490786589, 798, 16449, [166, 214, 189, 116, 36, 118, 168, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0112d1d_031e_4041_a6d6_bd742476a8ee);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -58,7 +58,7 @@ pub struct IVariablePhotoSequenceCapture_abi(
 pub struct IVariablePhotoSequenceCapture2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVariablePhotoSequenceCapture2 {
     type Vtable = IVariablePhotoSequenceCapture2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4264321724, 20656, 17379, [145, 124, 227, 185, 39, 152, 148, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe2c62bc_50b0_43e3_917c_e3b92798942f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -117,7 +117,7 @@ unsafe impl ::windows::runtime::RuntimeType for VariablePhotoCapturedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for VariablePhotoCapturedEventArgs {
     type Vtable = IVariablePhotoCapturedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3521858652, 6995, 20042, [139, 92, 219, 120, 135, 172, 148, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1eb4c5c_1b53_4e4a_8b5c_db7887ac949b);
 }
 impl ::windows::runtime::RuntimeName for VariablePhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Core.VariablePhotoCapturedEventArgs";
@@ -241,7 +241,7 @@ unsafe impl ::windows::runtime::RuntimeType for VariablePhotoSequenceCapture {
 }
 unsafe impl ::windows::runtime::Interface for VariablePhotoSequenceCapture {
     type Vtable = IVariablePhotoSequenceCapture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3490786589, 798, 16449, [166, 214, 189, 116, 36, 118, 168, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0112d1d_031e_4041_a6d6_bd742476a8ee);
 }
 impl ::windows::runtime::RuntimeName for VariablePhotoSequenceCapture {
     const NAME: &'static str = "Windows.Media.Capture.Core.VariablePhotoSequenceCapture";

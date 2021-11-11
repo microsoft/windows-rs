@@ -116,7 +116,7 @@ impl ::core::convert::From<i32> for DEDUP_SET_PARAM_TYPE {
 unsafe impl ::windows::runtime::Abi for DEDUP_SET_PARAM_TYPE {
     type Abi = Self;
 }
-pub const DedupBackupSupport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1943450285, 10628, 18197, [178, 227, 146, 76, 20, 151, 68, 221]);
+pub const DedupBackupSupport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73d6b2ad_2984_4715_b2e3_924c149744dd);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
@@ -188,7 +188,7 @@ impl ::core::convert::From<i32> for DedupCompressionAlgorithm {
 unsafe impl ::windows::runtime::Abi for DedupCompressionAlgorithm {
     type Abi = Self;
 }
-pub const DedupDataPort: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400219655, 6185, 18610, [166, 75, 230, 31, 142, 13, 154, 203]);
+pub const DedupDataPort: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f107207_1829_48b2_a64b_e61f8e0d9acb);
 #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -358,7 +358,7 @@ impl IDedupBackupSupport {
 }
 unsafe impl ::windows::runtime::Interface for IDedupBackupSupport {
     type Vtable = IDedupBackupSupport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3340360035, 11053, 16734, [172, 247, 126, 183, 202, 89, 111, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc719d963_2b2d_415e_acf7_7eb7ca596ff4);
 }
 impl ::core::convert::From<IDedupBackupSupport> for ::windows::runtime::IUnknown {
     fn from(value: IDedupBackupSupport) -> Self {
@@ -415,7 +415,7 @@ impl IDedupChunkLibrary {
 }
 unsafe impl ::windows::runtime::Interface for IDedupChunkLibrary {
     type Vtable = IDedupChunkLibrary_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3142665431, 10016, 19916, [135, 119, 120, 89, 116, 22, 236, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb5144d7_2720_4dcc_8777_78597416ec23);
 }
 impl ::core::convert::From<IDedupChunkLibrary> for ::windows::runtime::IUnknown {
     fn from(value: IDedupChunkLibrary) -> Self {
@@ -542,7 +542,7 @@ impl IDedupDataPort {
 }
 unsafe impl ::windows::runtime::Interface for IDedupDataPort {
     type Vtable = IDedupDataPort_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2036586292, 16553, 20131, [187, 246, 90, 137, 210, 111, 122, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7963d734_40a9_4ea3_bbf6_5a89d26f7ae8);
 }
 impl ::core::convert::From<IDedupDataPort> for ::windows::runtime::IUnknown {
     fn from(value: IDedupDataPort) -> Self {
@@ -612,7 +612,7 @@ impl IDedupDataPortManager {
 }
 unsafe impl ::windows::runtime::Interface for IDedupDataPortManager {
     type Vtable = IDedupDataPortManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1147630674, 47370, 17502, [129, 146, 205, 207, 232, 21, 17, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44677452_b90a_445e_8192_cdcfe81511fb);
 }
 impl ::core::convert::From<IDedupDataPortManager> for ::windows::runtime::IUnknown {
     fn from(value: IDedupDataPortManager) -> Self {
@@ -670,7 +670,7 @@ impl IDedupIterateChunksHash32 {
 }
 unsafe impl ::windows::runtime::Interface for IDedupIterateChunksHash32 {
     type Vtable = IDedupIterateChunksHash32_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2427815123, 29354, 16399, [151, 103, 202, 216, 102, 165, 162, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90b584d3_72aa_400f_9767_cad866a5a2d8);
 }
 impl ::core::convert::From<IDedupIterateChunksHash32> for ::windows::runtime::IUnknown {
     fn from(value: IDedupIterateChunksHash32) -> Self {
@@ -726,7 +726,7 @@ impl IDedupReadFileCallback {
 }
 unsafe impl ::windows::runtime::Interface for IDedupReadFileCallback {
     type Vtable = IDedupReadFileCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2074920570, 12061, 17104, [137, 126, 111, 246, 45, 213, 51, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bacc67a_2f1d_42d0_897e_6ff62dd533bb);
 }
 impl ::core::convert::From<IDedupReadFileCallback> for ::windows::runtime::IUnknown {
     fn from(value: IDedupReadFileCallback) -> Self {

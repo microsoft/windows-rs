@@ -104,7 +104,7 @@ unsafe impl ::windows::runtime::RuntimeType for AdvancedColorInfo {
 }
 unsafe impl ::windows::runtime::Interface for AdvancedColorInfo {
     type Vtable = IAdvancedColorInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2274876667, 45609, 16513, [174, 154, 44, 200, 94, 52, 173, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8797dcfb_b229_4081_ae9a_2cc85e34ad6a);
 }
 impl ::windows::runtime::RuntimeName for AdvancedColorInfo {
     const NAME: &'static str = "Windows.Graphics.Display.AdvancedColorInfo";
@@ -308,7 +308,7 @@ unsafe impl ::windows::runtime::RuntimeType for BrightnessOverride {
 }
 unsafe impl ::windows::runtime::Interface for BrightnessOverride {
     type Vtable = IBrightnessOverride_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2529780250, 49475, 17298, [190, 221, 74, 126, 149, 116, 200, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96c9621a_c143_4392_bedd_4a7e9574c8fd);
 }
 impl ::windows::runtime::RuntimeName for BrightnessOverride {
     const NAME: &'static str = "Windows.Graphics.Display.BrightnessOverride";
@@ -407,7 +407,7 @@ unsafe impl ::windows::runtime::RuntimeType for BrightnessOverrideSettings {
 }
 unsafe impl ::windows::runtime::Interface for BrightnessOverrideSettings {
     type Vtable = IBrightnessOverrideSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3507661610, 30212, 19898, [188, 248, 75, 111, 73, 80, 44, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd112ab2a_7604_4dba_bcf8_4b6f49502cb0);
 }
 impl ::windows::runtime::RuntimeName for BrightnessOverrideSettings {
     const NAME: &'static str = "Windows.Graphics.Display.BrightnessOverrideSettings";
@@ -484,7 +484,7 @@ unsafe impl ::windows::runtime::RuntimeType for ColorOverrideSettings {
 }
 unsafe impl ::windows::runtime::Interface for ColorOverrideSettings {
     type Vtable = IColorOverrideSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4226785588, 19073, 19533, [165, 182, 125, 27, 92, 75, 208, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbefa134_4a81_4c4d_a5b6_7d1b5c4bd00b);
 }
 impl ::windows::runtime::RuntimeName for ColorOverrideSettings {
     const NAME: &'static str = "Windows.Graphics.Display.ColorOverrideSettings";
@@ -776,7 +776,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayEnhancementOverride {
 }
 unsafe impl ::windows::runtime::Interface for DisplayEnhancementOverride {
     type Vtable = IDisplayEnhancementOverride_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1117099215, 55674, 19202, [164, 40, 92, 66, 146, 247, 245, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x429594cf_d97a_4b02_a428_5c4292f7f522);
 }
 impl ::windows::runtime::RuntimeName for DisplayEnhancementOverride {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayEnhancementOverride";
@@ -859,7 +859,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayEnhancementOverrideCapabi
 }
 unsafe impl ::windows::runtime::Interface for DisplayEnhancementOverrideCapabilities {
     type Vtable = IDisplayEnhancementOverrideCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1164992734, 61018, 18359, [153, 24, 30, 81, 232, 18, 204, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x457060de_ee5a_47b7_9918_1e51e812ccc8);
 }
 impl ::windows::runtime::RuntimeName for DisplayEnhancementOverrideCapabilities {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayEnhancementOverrideCapabilities";
@@ -925,7 +925,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayEnhancementOverrideCapabi
 }
 unsafe impl ::windows::runtime::Interface for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     type Vtable = IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3680626276, 5626, 18906, [139, 119, 7, 219, 210, 175, 88, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb61e664_15fa_49da_8b77_07dbd2af585d);
 }
 impl ::windows::runtime::RuntimeName for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayEnhancementOverrideCapabilitiesChangedEventArgs";
@@ -1199,7 +1199,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayInformation {
 }
 unsafe impl ::windows::runtime::Interface for DisplayInformation {
     type Vtable = IDisplayInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3201372846, 44483, 19913, [174, 101, 133, 31, 77, 125, 71, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbed112ae_adc3_4dc9_ae65_851f4d7d4799);
 }
 impl ::windows::runtime::RuntimeName for DisplayInformation {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayInformation";
@@ -1471,7 +1471,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayPropertiesEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for DisplayPropertiesEventHandler {
     type Vtable = DisplayPropertiesEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3688729345, 61857, 18129, [158, 227, 84, 59, 204, 153, 89, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbdd8b01_f1a1_46d1_9ee3_543bcc995980);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1542,7 +1542,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayServices {
 }
 unsafe impl ::windows::runtime::Interface for DisplayServices {
     type Vtable = IDisplayServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(458552107, 35085, 22343, [189, 38, 253, 189, 235, 12, 138, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b54f32b_890d_5747_bd26_fdbdeb0c8a71);
 }
 impl ::windows::runtime::RuntimeName for DisplayServices {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayServices";
@@ -1616,7 +1616,7 @@ impl ::windows::runtime::DefaultType for HdrMetadataFormat {
 pub struct IAdvancedColorInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedColorInfo {
     type Vtable = IAdvancedColorInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2274876667, 45609, 16513, [174, 154, 44, 200, 94, 52, 173, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8797dcfb_b229_4081_ae9a_2cc85e34ad6a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1648,7 +1648,7 @@ pub struct IAdvancedColorInfo_abi(
 pub struct IBrightnessOverride(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBrightnessOverride {
     type Vtable = IBrightnessOverride_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2529780250, 49475, 17298, [190, 221, 74, 126, 149, 116, 200, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96c9621a_c143_4392_bedd_4a7e9574c8fd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1685,7 +1685,7 @@ pub struct IBrightnessOverride_abi(
 pub struct IBrightnessOverrideSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBrightnessOverrideSettings {
     type Vtable = IBrightnessOverrideSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3507661610, 30212, 19898, [188, 248, 75, 111, 73, 80, 44, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd112ab2a_7604_4dba_bcf8_4b6f49502cb0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1704,7 +1704,7 @@ pub struct IBrightnessOverrideSettings_abi(
 pub struct IBrightnessOverrideSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBrightnessOverrideSettingsStatics {
     type Vtable = IBrightnessOverrideSettingsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3565673616, 28532, 17419, [179, 131, 95, 233, 108, 240, 11, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd487dc90_6f74_440b_b383_5fe96cf00b0f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1724,7 +1724,7 @@ pub struct IBrightnessOverrideSettingsStatics_abi(
 pub struct IBrightnessOverrideStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBrightnessOverrideStatics {
     type Vtable = IBrightnessOverrideStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(61323757, 57841, 19048, [161, 31, 148, 106, 216, 206, 83, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03a7b9ed_e1f1_4a68_a11f_946ad8ce5393);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1745,7 +1745,7 @@ pub struct IBrightnessOverrideStatics_abi(
 pub struct IColorOverrideSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorOverrideSettings {
     type Vtable = IColorOverrideSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4226785588, 19073, 19533, [165, 182, 125, 27, 92, 75, 208, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbefa134_4a81_4c4d_a5b6_7d1b5c4bd00b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1763,7 +1763,7 @@ pub struct IColorOverrideSettings_abi(
 pub struct IColorOverrideSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorOverrideSettingsStatics {
     type Vtable = IColorOverrideSettingsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2959663199, 50207, 19145, [175, 171, 130, 122, 182, 36, 143, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb068e05f_c41f_4ac9_afab_827ab6248f9a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1781,7 +1781,7 @@ pub struct IColorOverrideSettingsStatics_abi(
 pub struct IDisplayEnhancementOverride(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayEnhancementOverride {
     type Vtable = IDisplayEnhancementOverride_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1117099215, 55674, 19202, [164, 40, 92, 66, 146, 247, 245, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x429594cf_d97a_4b02_a428_5c4292f7f522);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1819,7 +1819,7 @@ pub struct IDisplayEnhancementOverride_abi(
 pub struct IDisplayEnhancementOverrideCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayEnhancementOverrideCapabilities {
     type Vtable = IDisplayEnhancementOverrideCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1164992734, 61018, 18359, [153, 24, 30, 81, 232, 18, 204, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x457060de_ee5a_47b7_9918_1e51e812ccc8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1840,7 +1840,7 @@ pub struct IDisplayEnhancementOverrideCapabilities_abi(
 pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     type Vtable = IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3680626276, 5626, 18906, [139, 119, 7, 219, 210, 175, 88, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb61e664_15fa_49da_8b77_07dbd2af585d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1858,7 +1858,7 @@ pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_abi(
 pub struct IDisplayEnhancementOverrideStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayEnhancementOverrideStatics {
     type Vtable = IDisplayEnhancementOverrideStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3478879937, 38801, 17491, [176, 19, 41, 182, 247, 120, 229, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf5b7ec1_9791_4453_b013_29b6f778e519);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1876,7 +1876,7 @@ pub struct IDisplayEnhancementOverrideStatics_abi(
 pub struct IDisplayInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayInformation {
     type Vtable = IDisplayInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3201372846, 44483, 19913, [174, 101, 133, 31, 77, 125, 71, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbed112ae_adc3_4dc9_ae65_851f4d7d4799);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1918,7 +1918,7 @@ pub struct IDisplayInformation_abi(
 pub struct IDisplayInformation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayInformation2 {
     type Vtable = IDisplayInformation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1305280545, 64209, 19342, [142, 223, 119, 88, 135, 184, 191, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4dcd0021_fad1_4b8e_8edf_775887b8bf19);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1936,7 +1936,7 @@ pub struct IDisplayInformation2_abi(
 pub struct IDisplayInformation3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayInformation3 {
     type Vtable = IDisplayInformation3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3675586845, 3849, 17510, [143, 243, 17, 222, 154, 60, 146, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb15011d_0f09_4466_8ff3_11de9a3c929a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1955,7 +1955,7 @@ pub struct IDisplayInformation3_abi(
 pub struct IDisplayInformation4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayInformation4 {
     type Vtable = IDisplayInformation4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3379744303, 4674, 18110, [181, 54, 225, 170, 254, 158, 122, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc972ce2f_1242_46be_b536_e1aafe9e7acf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1974,7 +1974,7 @@ pub struct IDisplayInformation4_abi(
 pub struct IDisplayInformation5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayInformation5 {
     type Vtable = IDisplayInformation5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(978600668, 11486, 19085, [128, 209, 33, 220, 90, 220, 193, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a5442dc_2cde_4a8d_80d1_21dc5adcc1aa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1996,7 +1996,7 @@ pub struct IDisplayInformation5_abi(
 pub struct IDisplayInformationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayInformationStatics {
     type Vtable = IDisplayInformationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3332385388, 54354, 17628, [186, 7, 150, 243, 198, 173, 249, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6a02a6c_d452_44dc_ba07_96f3c6adf9d1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2020,7 +2020,7 @@ pub struct IDisplayInformationStatics_abi(
 pub struct IDisplayPropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayPropertiesStatics {
     type Vtable = IDisplayPropertiesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1765272973, 12522, 19949, [130, 113, 69, 83, 255, 2, 246, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6937ed8d_30ea_4ded_8271_4553ff02f68a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2066,7 +2066,7 @@ pub struct IDisplayPropertiesStatics_abi(
 pub struct IDisplayServices(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayServices {
     type Vtable = IDisplayServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(458552107, 35085, 22343, [189, 38, 253, 189, 235, 12, 138, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b54f32b_890d_5747_bd26_fdbdeb0c8a71);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2083,7 +2083,7 @@ pub struct IDisplayServices_abi(
 pub struct IDisplayServicesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayServicesStatics {
     type Vtable = IDisplayServicesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3693123263, 29450, 21856, [180, 97, 145, 193, 61, 105, 46, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc2096bf_730a_5560_b461_91c13d692e0c);
 }
 #[repr(C)]
 #[doc(hidden)]

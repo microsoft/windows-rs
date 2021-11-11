@@ -94,7 +94,7 @@ impl IDynamicPortMapping {
 }
 unsafe impl ::windows::runtime::Interface for IDynamicPortMapping {
     type Vtable = IDynamicPortMapping_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1338507906, 9142, 17272, [154, 39, 205, 143, 23, 201, 64, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4fc80282_23b6_4378_9a27_cd8f17c9400c);
 }
 impl ::core::convert::From<IDynamicPortMapping> for ::windows::runtime::IUnknown {
     fn from(value: IDynamicPortMapping) -> Self {
@@ -233,7 +233,7 @@ impl IDynamicPortMappingCollection {
 }
 unsafe impl ::windows::runtime::Interface for IDynamicPortMappingCollection {
     type Vtable = IDynamicPortMappingCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3054362639, 5486, 20109, [158, 193, 58, 35, 66, 193, 8, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb60de00f_156e_4e8d_9ec1_3a2342c10899);
 }
 impl ::core::convert::From<IDynamicPortMappingCollection> for ::windows::runtime::IUnknown {
     fn from(value: IDynamicPortMappingCollection) -> Self {
@@ -339,7 +339,7 @@ impl IEnumNetConnection {
 }
 unsafe impl ::windows::runtime::Interface for IEnumNetConnection {
     type Vtable = IEnumNetConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226080, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc08956a0_1cd3_11d1_b1c5_00805fc1270e);
 }
 impl ::core::convert::From<IEnumNetConnection> for ::windows::runtime::IUnknown {
     fn from(value: IEnumNetConnection) -> Self {
@@ -398,7 +398,7 @@ impl IEnumNetSharingEveryConnection {
 }
 unsafe impl ::windows::runtime::Interface for IEnumNetSharingEveryConnection {
     type Vtable = IEnumNetSharingEveryConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226104, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc08956b8_1cd3_11d1_b1c5_00805fc1270e);
 }
 impl ::core::convert::From<IEnumNetSharingEveryConnection> for ::windows::runtime::IUnknown {
     fn from(value: IEnumNetSharingEveryConnection) -> Self {
@@ -458,7 +458,7 @@ impl IEnumNetSharingPortMapping {
 }
 unsafe impl ::windows::runtime::Interface for IEnumNetSharingPortMapping {
     type Vtable = IEnumNetSharingPortMapping_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226096, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc08956b0_1cd3_11d1_b1c5_00805fc1270e);
 }
 impl ::core::convert::From<IEnumNetSharingPortMapping> for ::windows::runtime::IUnknown {
     fn from(value: IEnumNetSharingPortMapping) -> Self {
@@ -518,7 +518,7 @@ impl IEnumNetSharingPrivateConnection {
 }
 unsafe impl ::windows::runtime::Interface for IEnumNetSharingPrivateConnection {
     type Vtable = IEnumNetSharingPrivateConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226101, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc08956b5_1cd3_11d1_b1c5_00805fc1270e);
 }
 impl ::core::convert::From<IEnumNetSharingPrivateConnection> for ::windows::runtime::IUnknown {
     fn from(value: IEnumNetSharingPrivateConnection) -> Self {
@@ -578,7 +578,7 @@ impl IEnumNetSharingPublicConnection {
 }
 unsafe impl ::windows::runtime::Interface for IEnumNetSharingPublicConnection {
     type Vtable = IEnumNetSharingPublicConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226100, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc08956b4_1cd3_11d1_b1c5_00805fc1270e);
 }
 impl ::core::convert::From<IEnumNetSharingPublicConnection> for ::windows::runtime::IUnknown {
     fn from(value: IEnumNetSharingPublicConnection) -> Self {
@@ -628,7 +628,7 @@ impl INATEventManager {
 }
 unsafe impl ::windows::runtime::Interface for INATEventManager {
     type Vtable = INATEventManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1649137032, 36960, 16649, [176, 176, 26, 219, 188, 172, 50, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x624bd588_9060_4109_b0b0_1adbbcac32df);
 }
 impl ::core::convert::From<INATEventManager> for ::windows::runtime::IUnknown {
     fn from(value: INATEventManager) -> Self {
@@ -704,7 +704,7 @@ impl INATExternalIPAddressCallback {
 }
 unsafe impl ::windows::runtime::Interface for INATExternalIPAddressCallback {
     type Vtable = INATExternalIPAddressCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2621531968, 41806, 17519, [186, 6, 171, 208, 76, 49, 73, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c416740_a34e_446f_ba06_abd04c3149ae);
 }
 impl ::core::convert::From<INATExternalIPAddressCallback> for ::windows::runtime::IUnknown {
     fn from(value: INATExternalIPAddressCallback) -> Self {
@@ -747,7 +747,7 @@ impl INATNumberOfEntriesCallback {
 }
 unsafe impl ::windows::runtime::Interface for INATNumberOfEntriesCallback {
     type Vtable = INATNumberOfEntriesCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3359246964, 37358, 16822, [182, 122, 103, 224, 240, 11, 189, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc83a0a74_91ee_41b6_b67a_67e0f00bbd78);
 }
 impl ::core::convert::From<INATNumberOfEntriesCallback> for ::windows::runtime::IUnknown {
     fn from(value: INATNumberOfEntriesCallback) -> Self {
@@ -1029,7 +1029,7 @@ impl INetConnection {
 }
 unsafe impl ::windows::runtime::Interface for INetConnection {
     type Vtable = INetConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226081, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc08956a1_1cd3_11d1_b1c5_00805fc1270e);
 }
 impl ::core::convert::From<INetConnection> for ::windows::runtime::IUnknown {
     fn from(value: INetConnection) -> Self {
@@ -1090,7 +1090,7 @@ impl INetConnectionConnectUi {
 }
 unsafe impl ::windows::runtime::Interface for INetConnectionConnectUi {
     type Vtable = INetConnectionConnectUi_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226083, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc08956a3_1cd3_11d1_b1c5_00805fc1270e);
 }
 impl ::core::convert::From<INetConnectionConnectUi> for ::windows::runtime::IUnknown {
     fn from(value: INetConnectionConnectUi) -> Self {
@@ -1137,7 +1137,7 @@ impl INetConnectionManager {
 }
 unsafe impl ::windows::runtime::Interface for INetConnectionManager {
     type Vtable = INetConnectionManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226082, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc08956a2_1cd3_11d1_b1c5_00805fc1270e);
 }
 impl ::core::convert::From<INetConnectionManager> for ::windows::runtime::IUnknown {
     fn from(value: INetConnectionManager) -> Self {
@@ -1208,7 +1208,7 @@ impl INetConnectionProps {
 }
 unsafe impl ::windows::runtime::Interface for INetConnectionProps {
     type Vtable = INetConnectionProps_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4096228501, 52827, 17981, [129, 103, 86, 98, 217, 188, 170, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf4277c95_ce5b_463d_8167_5662d9bcaa72);
 }
 impl ::core::convert::From<INetConnectionProps> for ::windows::runtime::IUnknown {
     fn from(value: INetConnectionProps) -> Self {
@@ -1346,7 +1346,7 @@ impl INetFwAuthorizedApplication {
 }
 unsafe impl ::windows::runtime::Interface for INetFwAuthorizedApplication {
     type Vtable = INetFwAuthorizedApplication_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3051769850, 49861, 17486, [163, 1, 251, 94, 0, 1, 128, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5e64ffa_c2c5_444e_a301_fb5e00018050);
 }
 impl ::core::convert::From<INetFwAuthorizedApplication> for ::windows::runtime::IUnknown {
     fn from(value: INetFwAuthorizedApplication) -> Self {
@@ -1458,7 +1458,7 @@ impl INetFwAuthorizedApplications {
 }
 unsafe impl ::windows::runtime::Interface for INetFwAuthorizedApplications {
     type Vtable = INetFwAuthorizedApplications_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1682898258, 52473, 18540, [151, 162, 57, 243, 82, 87, 11, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x644efd52_ccf9_486c_97a2_39f352570b30);
 }
 impl ::core::convert::From<INetFwAuthorizedApplications> for ::windows::runtime::IUnknown {
     fn from(value: INetFwAuthorizedApplications) -> Self {
@@ -1624,7 +1624,7 @@ impl INetFwIcmpSettings {
 }
 unsafe impl ::windows::runtime::Interface for INetFwIcmpSettings {
     type Vtable = INetFwIcmpSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2787146542, 31965, 17002, [149, 30, 94, 28, 188, 90, 254, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6207b2e_7cdd_426a_951e_5e1cbc5afead);
 }
 impl ::core::convert::From<INetFwIcmpSettings> for ::windows::runtime::IUnknown {
     fn from(value: INetFwIcmpSettings) -> Self {
@@ -1737,7 +1737,7 @@ impl INetFwMgr {
 }
 unsafe impl ::windows::runtime::Interface for INetFwMgr {
     type Vtable = INetFwMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4152986357, 51908, 17970, [162, 236, 218, 6, 229, 17, 26, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7898af5_cac4_4632_a2ec_da06e5111af2);
 }
 impl ::core::convert::From<INetFwMgr> for ::windows::runtime::IUnknown {
     fn from(value: INetFwMgr) -> Self {
@@ -1886,7 +1886,7 @@ impl INetFwOpenPort {
 }
 unsafe impl ::windows::runtime::Interface for INetFwOpenPort {
     type Vtable = INetFwOpenPort_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3762830240, 18431, 19868, [166, 214, 119, 65, 208, 177, 149, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0483ba0_47ff_4d9c_a6d6_7741d0b195f7);
 }
 impl ::core::convert::From<INetFwOpenPort> for ::windows::runtime::IUnknown {
     fn from(value: INetFwOpenPort) -> Self {
@@ -1997,7 +1997,7 @@ impl INetFwOpenPorts {
 }
 unsafe impl ::windows::runtime::Interface for INetFwOpenPorts {
     type Vtable = INetFwOpenPorts_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236550650, 57470, 17162, [177, 154, 9, 12, 232, 45, 146, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e9d7fa_e07e_430a_b19a_090ce82d92e2);
 }
 impl ::core::convert::From<INetFwOpenPorts> for ::windows::runtime::IUnknown {
     fn from(value: INetFwOpenPorts) -> Self {
@@ -2081,7 +2081,7 @@ impl INetFwPolicy {
 }
 unsafe impl ::windows::runtime::Interface for INetFwPolicy {
     type Vtable = INetFwPolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3563922552, 39625, 16392, [157, 199, 85, 99, 206, 85, 54, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd46d2478_9ac9_4008_9dc7_5563ce5536cc);
 }
 impl ::core::convert::From<INetFwPolicy> for ::windows::runtime::IUnknown {
     fn from(value: INetFwPolicy) -> Self {
@@ -2258,7 +2258,7 @@ impl INetFwPolicy2 {
 }
 unsafe impl ::windows::runtime::Interface for INetFwPolicy2 {
     type Vtable = INetFwPolicy2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2553434183, 50801, 16756, [141, 129, 222, 252, 211, 240, 49, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98325047_c671_4174_8d81_defcd3f03186);
 }
 impl ::core::convert::From<INetFwPolicy2> for ::windows::runtime::IUnknown {
     fn from(value: INetFwPolicy2) -> Self {
@@ -2382,7 +2382,7 @@ impl INetFwProduct {
 }
 unsafe impl ::windows::runtime::Interface for INetFwProduct {
     type Vtable = INetFwProduct_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1904744089, 6388, 17803, [184, 146, 63, 252, 229, 224, 127, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71881699_18f4_458b_b892_3ffce5e07f75);
 }
 impl ::core::convert::From<INetFwProduct> for ::windows::runtime::IUnknown {
     fn from(value: INetFwProduct) -> Self {
@@ -2481,7 +2481,7 @@ impl INetFwProducts {
 }
 unsafe impl ::windows::runtime::Interface for INetFwProducts {
     type Vtable = INetFwProducts_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(971716320, 8343, 16573, [138, 242, 99, 161, 59, 82, 83, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39eb36e0_2097_40bd_8af2_63a13b525362);
 }
 impl ::core::convert::From<INetFwProducts> for ::windows::runtime::IUnknown {
     fn from(value: INetFwProducts) -> Self {
@@ -2620,7 +2620,7 @@ impl INetFwProfile {
 }
 unsafe impl ::windows::runtime::Interface for INetFwProfile {
     type Vtable = INetFwProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(390729178, 59897, 17565, [153, 59, 33, 171, 102, 124, 164, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x174a0dda_e9f9_449d_993b_21ab667ca456);
 }
 impl ::core::convert::From<INetFwProfile> for ::windows::runtime::IUnknown {
     fn from(value: INetFwProfile) -> Self {
@@ -2741,7 +2741,7 @@ impl INetFwRemoteAdminSettings {
 }
 unsafe impl ::windows::runtime::Interface for INetFwRemoteAdminSettings {
     type Vtable = INetFwRemoteAdminSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3569274335, 28531, 19075, [184, 50, 156, 102, 135, 76, 210, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4becddf_6f73_4a83_b832_9c66874cd20e);
 }
 impl ::core::convert::From<INetFwRemoteAdminSettings> for ::windows::runtime::IUnknown {
     fn from(value: INetFwRemoteAdminSettings) -> Self {
@@ -3006,7 +3006,7 @@ impl INetFwRule {
 }
 unsafe impl ::windows::runtime::Interface for INetFwRule {
     type Vtable = INetFwRule_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2938309927, 47802, 20034, [172, 237, 245, 36, 242, 44, 252, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf230d27_baba_4e42_aced_f524f22cfce2);
 }
 impl ::core::convert::From<INetFwRule> for ::windows::runtime::IUnknown {
     fn from(value: INetFwRule) -> Self {
@@ -3362,7 +3362,7 @@ impl INetFwRule2 {
 }
 unsafe impl ::windows::runtime::Interface for INetFwRule2 {
     type Vtable = INetFwRule2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2619853018, 6299, 19934, [137, 247, 139, 57, 163, 22, 120, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c27c8da_189b_4dde_89f7_8b39a316782c);
 }
 impl ::core::convert::From<INetFwRule2> for ::windows::runtime::IUnknown {
     fn from(value: INetFwRule2) -> Self {
@@ -3804,7 +3804,7 @@ impl INetFwRule3 {
 }
 unsafe impl ::windows::runtime::Interface for INetFwRule3 {
     type Vtable = INetFwRule3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2987746303, 54934, 16930, [171, 70, 78, 137, 183, 58, 179, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb21563ff_d696_4222_ab46_4e89b73ab34a);
 }
 impl ::core::convert::From<INetFwRule3> for ::windows::runtime::IUnknown {
     fn from(value: INetFwRule3) -> Self {
@@ -4022,7 +4022,7 @@ impl INetFwRules {
 }
 unsafe impl ::windows::runtime::Interface for INetFwRules {
     type Vtable = INetFwRules_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2622251639, 20519, 17438, [175, 174, 202, 31, 84, 45, 160, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c4c6277_5027_441e_afae_ca1f542da009);
 }
 impl ::core::convert::From<INetFwRules> for ::windows::runtime::IUnknown {
     fn from(value: INetFwRules) -> Self {
@@ -4157,7 +4157,7 @@ impl INetFwService {
 }
 unsafe impl ::windows::runtime::Interface for INetFwService {
     type Vtable = INetFwService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2046646216, 37006, 18998, [152, 136, 213, 179, 240, 164, 68, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79fd57c8_908e_4a36_9888_d5b3f0a444cf);
 }
 impl ::core::convert::From<INetFwService> for ::windows::runtime::IUnknown {
     fn from(value: INetFwService) -> Self {
@@ -4257,7 +4257,7 @@ impl INetFwServiceRestriction {
 }
 unsafe impl ::windows::runtime::Interface for INetFwServiceRestriction {
     type Vtable = INetFwServiceRestriction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2187836387, 63632, 18716, [183, 182, 45, 177, 239, 14, 93, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8267bbe3_f890_491c_b7b6_2db1ef0e5d2b);
 }
 impl ::core::convert::From<INetFwServiceRestriction> for ::windows::runtime::IUnknown {
     fn from(value: INetFwServiceRestriction) -> Self {
@@ -4346,7 +4346,7 @@ impl INetFwServices {
 }
 unsafe impl ::windows::runtime::Interface for INetFwServices {
     type Vtable = INetFwServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2036636596, 36926, 16923, [148, 201, 121, 132, 142, 121, 246, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79649bb4_903e_421b_94c9_79848e79f6ee);
 }
 impl ::core::convert::From<INetFwServices> for ::windows::runtime::IUnknown {
     fn from(value: INetFwServices) -> Self {
@@ -4475,7 +4475,7 @@ impl INetSharingConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for INetSharingConfiguration {
     type Vtable = INetSharingConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226102, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc08956b6_1cd3_11d1_b1c5_00805fc1270e);
 }
 impl ::core::convert::From<INetSharingConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: INetSharingConfiguration) -> Self {
@@ -4565,7 +4565,7 @@ impl INetSharingEveryConnectionCollection {
 }
 unsafe impl ::windows::runtime::Interface for INetSharingEveryConnectionCollection {
     type Vtable = INetSharingEveryConnectionCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(868508732, 30737, 18170, [168, 154, 118, 133, 151, 189, 114, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33c4643c_7811_46fa_a89a_768597bd7223);
 }
 impl ::core::convert::From<INetSharingEveryConnectionCollection> for ::windows::runtime::IUnknown {
     fn from(value: INetSharingEveryConnectionCollection) -> Self {
@@ -4666,7 +4666,7 @@ impl INetSharingManager {
 }
 unsafe impl ::windows::runtime::Interface for INetSharingManager {
     type Vtable = INetSharingManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226103, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc08956b7_1cd3_11d1_b1c5_00805fc1270e);
 }
 impl ::core::convert::From<INetSharingManager> for ::windows::runtime::IUnknown {
     fn from(value: INetSharingManager) -> Self {
@@ -4758,7 +4758,7 @@ impl INetSharingPortMapping {
 }
 unsafe impl ::windows::runtime::Interface for INetSharingPortMapping {
     type Vtable = INetSharingPortMapping_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226097, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc08956b1_1cd3_11d1_b1c5_00805fc1270e);
 }
 impl ::core::convert::From<INetSharingPortMapping> for ::windows::runtime::IUnknown {
     fn from(value: INetSharingPortMapping) -> Self {
@@ -4841,7 +4841,7 @@ impl INetSharingPortMappingCollection {
 }
 unsafe impl ::windows::runtime::Interface for INetSharingPortMappingCollection {
     type Vtable = INetSharingPortMappingCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(48538334, 55840, 20020, [137, 200, 172, 34, 39, 90, 1, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02e4a2de_da20_4e34_89c8_ac22275a010b);
 }
 impl ::core::convert::From<INetSharingPortMappingCollection> for ::windows::runtime::IUnknown {
     fn from(value: INetSharingPortMappingCollection) -> Self {
@@ -4955,7 +4955,7 @@ impl INetSharingPortMappingProps {
 }
 unsafe impl ::windows::runtime::Interface for INetSharingPortMappingProps {
     type Vtable = INetSharingPortMappingProps_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(616032693, 58255, 18053, [133, 27, 0, 137, 44, 245, 249, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24b7e9b5_e38f_4685_851b_00892cf5f940);
 }
 impl ::core::convert::From<INetSharingPortMappingProps> for ::windows::runtime::IUnknown {
     fn from(value: INetSharingPortMappingProps) -> Self {
@@ -5045,7 +5045,7 @@ impl INetSharingPrivateConnectionCollection {
 }
 unsafe impl ::windows::runtime::Interface for INetSharingPrivateConnectionCollection {
     type Vtable = INetSharingPrivateConnectionCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(950954464, 17417, 16426, [162, 203, 233, 101, 199, 39, 248, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38ae69e0_4409_402a_a2cb_e965c727f840);
 }
 impl ::core::convert::From<INetSharingPrivateConnectionCollection> for ::windows::runtime::IUnknown {
     fn from(value: INetSharingPrivateConnectionCollection) -> Self {
@@ -5126,7 +5126,7 @@ impl INetSharingPublicConnectionCollection {
 }
 unsafe impl ::windows::runtime::Interface for INetSharingPublicConnectionCollection {
     type Vtable = INetSharingPublicConnectionCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2105172821, 62322, 18801, [161, 73, 191, 201, 39, 190, 118, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d7a6355_f372_4971_a149_bfc927be762a);
 }
 impl ::core::convert::From<INetSharingPublicConnectionCollection> for ::windows::runtime::IUnknown {
     fn from(value: INetSharingPublicConnectionCollection) -> Self {
@@ -5254,7 +5254,7 @@ impl IStaticPortMapping {
 }
 unsafe impl ::windows::runtime::Interface for IStaticPortMapping {
     type Vtable = IStaticPortMapping_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1863348511, 29339, 16869, [147, 184, 242, 29, 15, 129, 141, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f10711f_729b_41e5_93b8_f21d0f818df1);
 }
 impl ::core::convert::From<IStaticPortMapping> for ::windows::runtime::IUnknown {
     fn from(value: IStaticPortMapping) -> Self {
@@ -5367,7 +5367,7 @@ impl IStaticPortMappingCollection {
 }
 unsafe impl ::windows::runtime::Interface for IStaticPortMappingCollection {
     type Vtable = IStaticPortMappingCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3441376887, 26326, 18020, [130, 199, 54, 219, 182, 65, 208, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd1f3e77_66d6_4664_82c7_36dbb641d0f1);
 }
 impl ::core::convert::From<IStaticPortMappingCollection> for ::windows::runtime::IUnknown {
     fn from(value: IStaticPortMappingCollection) -> Self {
@@ -5459,7 +5459,7 @@ impl IUPnPNAT {
 }
 unsafe impl ::windows::runtime::Interface for IUPnPNAT {
     type Vtable = IUPnPNAT_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2977024018, 52342, 18522, [148, 216, 182, 179, 162, 121, 78, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb171c812_cc76_485a_94d8_b6b3a2794e99);
 }
 impl ::core::convert::From<IUPnPNAT> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPNAT) -> Self {
@@ -5947,14 +5947,14 @@ impl ::core::convert::From<i32> for NET_FW_SERVICE_TYPE {
 unsafe impl ::windows::runtime::Abi for NET_FW_SERVICE_TYPE {
     type Abi = Self;
 }
-pub const NetFwAuthorizedApplication: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3969402547, 10082, 19051, [162, 20, 106, 203, 96, 52, 98, 210]);
-pub const NetFwMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(810346818, 28217, 16600, [148, 58, 185, 19, 196, 12, 156, 212]);
-pub const NetFwOpenPort: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(212157894, 14253, 19052, [191, 146, 159, 118, 16, 6, 126, 245]);
-pub const NetFwPolicy2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3803433343, 27361, 16812, [129, 122, 246, 249, 33, 102, 215, 221]);
-pub const NetFwProduct: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2641649368, 50452, 19741, [191, 66, 117, 31, 237, 45, 90, 199]);
-pub const NetFwProducts: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3424192411, 33394, 19827, [187, 112, 205, 181, 51, 82, 123, 97]);
-pub const NetFwRule: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(744211518, 13161, 19507, [171, 12, 190, 148, 105, 103, 122, 244]);
-pub const NetSharingManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1550041517, 14678, 20472, [132, 134, 64, 3, 71, 88, 49, 91]);
+pub const NetFwAuthorizedApplication: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec9846b3_2762_4a6b_a214_6acb603462d2);
+pub const NetFwMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x304ce942_6e39_40d8_943a_b913c40c9cd4);
+pub const NetFwOpenPort: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ca545c6_37ad_4a6c_bf92_9f7610067ef5);
+pub const NetFwPolicy2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2b3c97f_6ae1_41ac_817a_f6f92166d7dd);
+pub const NetFwProduct: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d745ed8_c514_4d1d_bf42_751fed2d5ac7);
+pub const NetFwProducts: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc19079b_8272_4d73_bb70_cdb533527b61);
+pub const NetFwRule: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c5bc43e_3369_4c33_ab0c_be9469677af4);
+pub const NetSharingManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c63c1ad_3956_4ff8_8486_40034758315b);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -6136,7 +6136,7 @@ unsafe impl ::windows::runtime::Abi for SHARINGCONNECTION_ENUM_FLAGS {
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 pub const S_OBJECT_NO_LONGER_VALID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(2i32 as _);
-pub const UPnPNAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2921201834, 16341, 16444, [138, 39, 43, 189, 195, 12, 208, 225]);
+pub const UPnPNAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae1e00aa_3fd5_403c_8a27_2bbdc30cd0e1);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]

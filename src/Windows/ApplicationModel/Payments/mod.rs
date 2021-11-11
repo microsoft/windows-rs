@@ -6,7 +6,7 @@ pub mod Provider;
 pub struct IPaymentAddress(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentAddress {
     type Vtable = IPaymentAddress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1596089577, 28474, 16742, [160, 24, 10, 11, 6, 187, 50, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f2264e9_6f3a_4166_a018_0a0b06bb32b5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -49,7 +49,7 @@ pub struct IPaymentAddress_abi(
 pub struct IPaymentCanMakePaymentResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentCanMakePaymentResult {
     type Vtable = IPaymentCanMakePaymentResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1989606997, 54739, 19773, [179, 69, 69, 89, 23, 89, 197, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7696fe55_d5d3_4d3d_b345_45591759c510);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -67,7 +67,7 @@ pub struct IPaymentCanMakePaymentResult_abi(
 pub struct IPaymentCanMakePaymentResultFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentCanMakePaymentResultFactory {
     type Vtable = IPaymentCanMakePaymentResultFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3151800894, 32073, 20329, [170, 83, 42, 15, 129, 100, 183, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbbdcaa3e_7d49_4f69_aa53_2a0f8164b7c9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -85,7 +85,7 @@ pub struct IPaymentCanMakePaymentResultFactory_abi(
 pub struct IPaymentCurrencyAmount(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentCurrencyAmount {
     type Vtable = IPaymentCurrencyAmount_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3819170272, 46111, 18823, [189, 203, 7, 19, 49, 242, 218, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3a3e9e0_b41f_4987_bdcb_071331f2daa4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -108,7 +108,7 @@ pub struct IPaymentCurrencyAmount_abi(
 pub struct IPaymentCurrencyAmountFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentCurrencyAmountFactory {
     type Vtable = IPaymentCurrencyAmountFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(844616504, 5132, 17781, [133, 53, 247, 115, 23, 140, 9, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3257d338_140c_4575_8535_f773178c09a7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -127,7 +127,7 @@ pub struct IPaymentCurrencyAmountFactory_abi(
 pub struct IPaymentDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentDetails {
     type Vtable = IPaymentDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1404775805, 57579, 16467, [142, 174, 206, 124, 72, 224, 41, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53bb2d7d_e0eb_4053_8eae_ce7c48e02945);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -158,7 +158,7 @@ pub struct IPaymentDetails_abi(
 pub struct IPaymentDetailsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentDetailsFactory {
     type Vtable = IPaymentDetailsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3488133102, 49386, 19617, [139, 199, 109, 230, 123, 31, 55, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfe8afee_c0ea_4ca1_8bc7_6de67b1f3763);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -178,7 +178,7 @@ pub struct IPaymentDetailsFactory_abi(
 pub struct IPaymentDetailsModifier(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentDetailsModifier {
     type Vtable = IPaymentDetailsModifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3189538149, 17187, 16855, [179, 5, 223, 203, 118, 95, 105, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe1c7d65_4323_41d7_b305_dfcb765f69de);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -201,7 +201,7 @@ pub struct IPaymentDetailsModifier_abi(
 pub struct IPaymentDetailsModifierFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentDetailsModifierFactory {
     type Vtable = IPaymentDetailsModifierFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2030064262, 21726, 17052, [158, 79, 93, 206, 110, 16, 235, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79005286_54de_429c_9e4f_5dce6e10ebce);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -224,7 +224,7 @@ pub struct IPaymentDetailsModifierFactory_abi(
 pub struct IPaymentItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentItem {
     type Vtable = IPaymentItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1750780043, 31154, 19318, [158, 3, 168, 118, 34, 61, 254, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x685ac88b_79b2_4b76_9e03_a876223dfe72);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -247,7 +247,7 @@ pub struct IPaymentItem_abi(
 pub struct IPaymentItemFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentItemFactory {
     type Vtable = IPaymentItemFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3333126872, 9475, 19741, [167, 120, 2, 178, 229, 146, 123, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6ab7ad8_2503_4d1d_a778_02b2e5927b2c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -265,7 +265,7 @@ pub struct IPaymentItemFactory_abi(
 pub struct IPaymentMediator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentMediator {
     type Vtable = IPaymentMediator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4212058153, 60428, 17562, [131, 218, 122, 227, 7, 51, 101, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb0ee829_ec0c_449a_83da_7ae3073365a2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -288,7 +288,7 @@ pub struct IPaymentMediator_abi(
 pub struct IPaymentMediator2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentMediator2 {
     type Vtable = IPaymentMediator2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3471808753, 58375, 16680, [142, 115, 217, 61, 95, 130, 39, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xceef98f1_e407_4128_8e73_d93d5f822786);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -307,7 +307,7 @@ pub struct IPaymentMediator2_abi(
 pub struct IPaymentMerchantInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentMerchantInfo {
     type Vtable = IPaymentMerchantInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1665421392, 3732, 20182, [170, 203, 230, 1, 43, 211, 39, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63445050_0e94_4ed6_aacb_e6012bd327a7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -327,7 +327,7 @@ pub struct IPaymentMerchantInfo_abi(
 pub struct IPaymentMerchantInfoFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentMerchantInfoFactory {
     type Vtable = IPaymentMerchantInfoFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2659831507, 52407, 16743, [168, 236, 225, 10, 233, 109, 188, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e89ced3_ccb7_4167_a8ec_e10ae96dbcd1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -346,7 +346,7 @@ pub struct IPaymentMerchantInfoFactory_abi(
 pub struct IPaymentMethodData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentMethodData {
     type Vtable = IPaymentMethodData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3520318196, 56984, 16681, [177, 183, 195, 173, 134, 35, 123, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1d3caf4_de98_4129_b1b7_c3ad86237bf4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -366,7 +366,7 @@ pub struct IPaymentMethodData_abi(
 pub struct IPaymentMethodDataFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentMethodDataFactory {
     type Vtable = IPaymentMethodDataFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2329793151, 39850, 19074, [131, 66, 168, 33, 9, 146, 163, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8addd27f_9baa_4a82_8342_a8210992a36b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -387,7 +387,7 @@ pub struct IPaymentMethodDataFactory_abi(
 pub struct IPaymentOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentOptions {
     type Vtable = IPaymentOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2862811220, 7979, 17253, [130, 81, 1, 181, 137, 21, 165, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaaa30854_1f2b_4365_8251_01b58915a5bc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -414,7 +414,7 @@ pub struct IPaymentOptions_abi(
 pub struct IPaymentRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentRequest {
     type Vtable = IPaymentRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3075031777, 60795, 18411, [188, 8, 120, 204, 93, 104, 150, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb74942e1_ed7b_47eb_bc08_78cc5d6896b6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -436,7 +436,7 @@ pub struct IPaymentRequest_abi(
 pub struct IPaymentRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentRequest2 {
     type Vtable = IPaymentRequest2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3057438645, 22936, 18750, [160, 76, 103, 4, 138, 80, 241, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb63ccfb5_5998_493e_a04c_67048a50f141);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -454,7 +454,7 @@ pub struct IPaymentRequest2_abi(
 pub struct IPaymentRequestChangedArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentRequestChangedArgs {
     type Vtable = IPaymentRequestChangedArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3323223620, 52619, 19428, [181, 85, 39, 201, 145, 148, 192, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6145e44_cd8b_4be4_b555_27c99194c0c5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -475,7 +475,7 @@ pub struct IPaymentRequestChangedArgs_abi(
 pub struct IPaymentRequestChangedResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentRequestChangedResult {
     type Vtable = IPaymentRequestChangedResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3748240988, 5828, 18349, [148, 1, 132, 64, 236, 7, 87, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf699e5c_16c4_47ad_9401_8440ec0757db);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -498,7 +498,7 @@ pub struct IPaymentRequestChangedResult_abi(
 pub struct IPaymentRequestChangedResultFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentRequestChangedResultFactory {
     type Vtable = IPaymentRequestChangedResultFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(141823830, 7475, 17457, [129, 75, 103, 234, 36, 191, 33, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08740f56_1d33_4431_814b_67ea24bf21db);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -517,7 +517,7 @@ pub struct IPaymentRequestChangedResultFactory_abi(
 pub struct IPaymentRequestFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentRequestFactory {
     type Vtable = IPaymentRequestFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1049262556, 27508, 17107, [177, 3, 240, 222, 53, 251, 24, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e8a79dc_6b74_42d3_b103_f0de35fb1848);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -540,7 +540,7 @@ pub struct IPaymentRequestFactory_abi(
 pub struct IPaymentRequestFactory2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentRequestFactory2 {
     type Vtable = IPaymentRequestFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3872264997, 42246, 17266, [183, 239, 26, 3, 29, 86, 98, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6ce1325_a506_4372_b7ef_1a031d5662d1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -559,7 +559,7 @@ pub struct IPaymentRequestFactory2_abi(
 pub struct IPaymentRequestSubmitResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentRequestSubmitResult {
     type Vtable = IPaymentRequestSubmitResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2073835794, 12530, 20112, [178, 73, 140, 231, 215, 143, 254, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b9c3912_30f2_4e90_b249_8ce7d78ffe56);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -578,7 +578,7 @@ pub struct IPaymentRequestSubmitResult_abi(
 pub struct IPaymentResponse(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentResponse {
     type Vtable = IPaymentResponse_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3778581591, 35794, 18568, [159, 168, 151, 152, 85, 69, 16, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1389457_8bd2_4888_9fa8_97985545108e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -603,7 +603,7 @@ pub struct IPaymentResponse_abi(
 pub struct IPaymentShippingOption(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentShippingOption {
     type Vtable = IPaymentShippingOption_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(322382554, 38739, 17780, [137, 102, 147, 20, 90, 118, 199, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13372ada_9753_4574_8966_93145a76c7f9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -628,7 +628,7 @@ pub struct IPaymentShippingOption_abi(
 pub struct IPaymentShippingOptionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentShippingOptionFactory {
     type Vtable = IPaymentShippingOptionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1575352599, 45783, 17515, [157, 115, 97, 35, 251, 202, 59, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5de5f917_b2d7_446b_9d73_6123fbca3bc6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -648,7 +648,7 @@ pub struct IPaymentShippingOptionFactory_abi(
 pub struct IPaymentToken(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentToken {
     type Vtable = IPaymentToken_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3150626835, 52432, 16882, [178, 161, 10, 46, 75, 93, 206, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbbcac013_ccd0_41f2_b2a1_0a2e4b5dce25);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -667,7 +667,7 @@ pub struct IPaymentToken_abi(
 pub struct IPaymentTokenFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentTokenFactory {
     type Vtable = IPaymentTokenFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2559367082, 18259, 18692, [131, 115, 221, 123, 8, 185, 149, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x988cd7aa_4753_4904_8373_dd7b08b995c1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -853,7 +853,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentAddress {
 }
 unsafe impl ::windows::runtime::Interface for PaymentAddress {
     type Vtable = IPaymentAddress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1596089577, 28474, 16742, [160, 24, 10, 11, 6, 187, 50, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f2264e9_6f3a_4166_a018_0a0b06bb32b5);
 }
 impl ::windows::runtime::RuntimeName for PaymentAddress {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentAddress";
@@ -930,7 +930,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentCanMakePaymentResult {
 }
 unsafe impl ::windows::runtime::Interface for PaymentCanMakePaymentResult {
     type Vtable = IPaymentCanMakePaymentResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1989606997, 54739, 19773, [179, 69, 69, 89, 23, 89, 197, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7696fe55_d5d3_4d3d_b345_45591759c510);
 }
 impl ::windows::runtime::RuntimeName for PaymentCanMakePaymentResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentCanMakePaymentResult";
@@ -1072,7 +1072,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentCurrencyAmount {
 }
 unsafe impl ::windows::runtime::Interface for PaymentCurrencyAmount {
     type Vtable = IPaymentCurrencyAmount_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3819170272, 46111, 18823, [189, 203, 7, 19, 49, 242, 218, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3a3e9e0_b41f_4987_bdcb_071331f2daa4);
 }
 impl ::windows::runtime::RuntimeName for PaymentCurrencyAmount {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentCurrencyAmount";
@@ -1214,7 +1214,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentDetails {
 }
 unsafe impl ::windows::runtime::Interface for PaymentDetails {
     type Vtable = IPaymentDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1404775805, 57579, 16467, [142, 174, 206, 124, 72, 224, 41, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53bb2d7d_e0eb_4053_8eae_ce7c48e02945);
 }
 impl ::windows::runtime::RuntimeName for PaymentDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentDetails";
@@ -1339,7 +1339,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentDetailsModifier {
 }
 unsafe impl ::windows::runtime::Interface for PaymentDetailsModifier {
     type Vtable = IPaymentDetailsModifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3189538149, 17187, 16855, [179, 5, 223, 203, 118, 95, 105, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe1c7d65_4323_41d7_b305_dfcb765f69de);
 }
 impl ::windows::runtime::RuntimeName for PaymentDetailsModifier {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentDetailsModifier";
@@ -1447,7 +1447,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentItem {
 }
 unsafe impl ::windows::runtime::Interface for PaymentItem {
     type Vtable = IPaymentItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1750780043, 31154, 19318, [158, 3, 168, 118, 34, 61, 254, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x685ac88b_79b2_4b76_9e03_a876223dfe72);
 }
 impl ::windows::runtime::RuntimeName for PaymentItem {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentItem";
@@ -1548,7 +1548,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentMediator {
 }
 unsafe impl ::windows::runtime::Interface for PaymentMediator {
     type Vtable = IPaymentMediator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4212058153, 60428, 17562, [131, 218, 122, 227, 7, 51, 101, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb0ee829_ec0c_449a_83da_7ae3073365a2);
 }
 impl ::windows::runtime::RuntimeName for PaymentMediator {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentMediator";
@@ -1642,7 +1642,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentMerchantInfo {
 }
 unsafe impl ::windows::runtime::Interface for PaymentMerchantInfo {
     type Vtable = IPaymentMerchantInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1665421392, 3732, 20182, [170, 203, 230, 1, 43, 211, 39, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63445050_0e94_4ed6_aacb_e6012bd327a7);
 }
 impl ::windows::runtime::RuntimeName for PaymentMerchantInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentMerchantInfo";
@@ -1737,7 +1737,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentMethodData {
 }
 unsafe impl ::windows::runtime::Interface for PaymentMethodData {
     type Vtable = IPaymentMethodData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3520318196, 56984, 16681, [177, 183, 195, 173, 134, 35, 123, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1d3caf4_de98_4129_b1b7_c3ad86237bf4);
 }
 impl ::windows::runtime::RuntimeName for PaymentMethodData {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentMethodData";
@@ -1890,7 +1890,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentOptions {
 }
 unsafe impl ::windows::runtime::Interface for PaymentOptions {
     type Vtable = IPaymentOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2862811220, 7979, 17253, [130, 81, 1, 181, 137, 21, 165, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaaa30854_1f2b_4365_8251_01b58915a5bc);
 }
 impl ::windows::runtime::RuntimeName for PaymentOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentOptions";
@@ -2035,7 +2035,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentRequest {
 }
 unsafe impl ::windows::runtime::Interface for PaymentRequest {
     type Vtable = IPaymentRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3075031777, 60795, 18411, [188, 8, 120, 204, 93, 104, 150, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb74942e1_ed7b_47eb_bc08_78cc5d6896b6);
 }
 impl ::windows::runtime::RuntimeName for PaymentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequest";
@@ -2144,7 +2144,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentRequestChangedArgs {
 }
 unsafe impl ::windows::runtime::Interface for PaymentRequestChangedArgs {
     type Vtable = IPaymentRequestChangedArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3323223620, 52619, 19428, [181, 85, 39, 201, 145, 148, 192, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6145e44_cd8b_4be4_b555_27c99194c0c5);
 }
 impl ::windows::runtime::RuntimeName for PaymentRequestChangedArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequestChangedArgs";
@@ -2215,7 +2215,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentRequestChangedHandler {
 }
 unsafe impl ::windows::runtime::Interface for PaymentRequestChangedHandler {
     type Vtable = PaymentRequestChangedHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1350089185, 62360, 20268, [162, 126, 148, 211, 113, 207, 108, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5078b9e1_f398_4f2c_a27e_94d371cf6c7d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2336,7 +2336,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentRequestChangedResult {
 }
 unsafe impl ::windows::runtime::Interface for PaymentRequestChangedResult {
     type Vtable = IPaymentRequestChangedResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3748240988, 5828, 18349, [148, 1, 132, 64, 236, 7, 87, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf699e5c_16c4_47ad_9401_8440ec0757db);
 }
 impl ::windows::runtime::RuntimeName for PaymentRequestChangedResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequestChangedResult";
@@ -2456,7 +2456,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentRequestSubmitResult {
 }
 unsafe impl ::windows::runtime::Interface for PaymentRequestSubmitResult {
     type Vtable = IPaymentRequestSubmitResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2073835794, 12530, 20112, [178, 73, 140, 231, 215, 143, 254, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b9c3912_30f2_4e90_b249_8ce7d78ffe56);
 }
 impl ::windows::runtime::RuntimeName for PaymentRequestSubmitResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequestSubmitResult";
@@ -2571,7 +2571,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentResponse {
 }
 unsafe impl ::windows::runtime::Interface for PaymentResponse {
     type Vtable = IPaymentResponse_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3778581591, 35794, 18568, [159, 168, 151, 152, 85, 69, 16, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe1389457_8bd2_4888_9fa8_97985545108e);
 }
 impl ::windows::runtime::RuntimeName for PaymentResponse {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentResponse";
@@ -2706,7 +2706,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentShippingOption {
 }
 unsafe impl ::windows::runtime::Interface for PaymentShippingOption {
     type Vtable = IPaymentShippingOption_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(322382554, 38739, 17780, [137, 102, 147, 20, 90, 118, 199, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13372ada_9753_4574_8966_93145a76c7f9);
 }
 impl ::windows::runtime::RuntimeName for PaymentShippingOption {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentShippingOption";
@@ -2821,7 +2821,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaymentToken {
 }
 unsafe impl ::windows::runtime::Interface for PaymentToken {
     type Vtable = IPaymentToken_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3150626835, 52432, 16882, [178, 161, 10, 46, 75, 93, 206, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbbcac013_ccd0_41f2_b2a1_0a2e4b5dce25);
 }
 impl ::windows::runtime::RuntimeName for PaymentToken {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentToken";

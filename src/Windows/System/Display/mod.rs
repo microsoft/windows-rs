@@ -27,7 +27,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayRequest {
 }
 unsafe impl ::windows::runtime::Interface for DisplayRequest {
     type Vtable = IDisplayRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3849527364, 62623, 19296, [141, 212, 94, 126, 58, 99, 42, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5732044_f49f_4b60_8dd4_5e7e3a632ac0);
 }
 impl ::windows::runtime::RuntimeName for DisplayRequest {
     const NAME: &'static str = "Windows.System.Display.DisplayRequest";
@@ -77,7 +77,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 pub struct IDisplayRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayRequest {
     type Vtable = IDisplayRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3849527364, 62623, 19296, [141, 212, 94, 126, 58, 99, 42, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5732044_f49f_4b60_8dd4_5e7e3a632ac0);
 }
 #[repr(C)]
 #[doc(hidden)]

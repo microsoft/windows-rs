@@ -46,7 +46,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerDisableScannerRequ
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerDisableScannerRequest {
     type Vtable = IBarcodeScannerDisableScannerRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2297231296, 14265, 17013, [142, 119, 200, 229, 42, 229, 169, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88ecf7c0_37b9_4275_8e77_c8e52ae5a9c8);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerDisableScannerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequest";
@@ -121,7 +121,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerDisableScannerRequ
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerDisableScannerRequestEventArgs {
     type Vtable = IBarcodeScannerDisableScannerRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1879499074, 59394, 18165, [182, 4, 53, 42, 21, 206, 146, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7006e142_e802_46f5_b604_352a15ce9232);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerDisableScannerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequestEventArgs";
@@ -215,7 +215,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerEnableScannerReque
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerEnableScannerRequest {
     type Vtable = IBarcodeScannerEnableScannerRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3233016250, 33130, 17707, [189, 119, 183, 228, 83, 236, 68, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0b3e9ba_816a_452b_bd77_b7e453ec446d);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerEnableScannerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequest";
@@ -290,7 +290,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerEnableScannerReque
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerEnableScannerRequestEventArgs {
     type Vtable = IBarcodeScannerEnableScannerRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2506920985, 31566, 17489, [140, 65, 142, 16, 207, 188, 91, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x956c9419_7b4e_4451_8c41_8e10cfbc5b41);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerEnableScannerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequestEventArgs";
@@ -404,7 +404,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerFrameReader {
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerFrameReader {
     type Vtable = IBarcodeScannerFrameReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3687262983, 25795, 18475, [147, 200, 101, 251, 51, 194, 34, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbc72b07_64c3_482b_93c8_65fb33c22208);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerFrameReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReader";
@@ -497,7 +497,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerFrameReaderFrameAr
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerFrameReaderFrameArrivedEventArgs {
     type Vtable = IBarcodeScannerFrameReaderFrameArrivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2965100036, 21757, 17261, [134, 41, 113, 46, 120, 114, 35, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0bbd604_54fd_436d_8629_712e787223dd);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerFrameReaderFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReaderFrameArrivedEventArgs";
@@ -599,7 +599,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerGetSymbologyAttrib
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerGetSymbologyAttributesRequest {
     type Vtable = IBarcodeScannerGetSymbologyAttributesRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2541012074, 22756, 19551, [184, 233, 228, 20, 103, 99, 39, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9774c46a_58e4_4c5f_b8e9_e41467632700);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerGetSymbologyAttributesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequest";
@@ -674,7 +674,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerGetSymbologyAttrib
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     type Vtable = IBarcodeScannerGetSymbologyAttributesRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2139741758, 64349, 18748, [180, 2, 53, 107, 36, 213, 116, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f89de3e_fb5d_493c_b402_356b24d574a6);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequestEventArgs";
@@ -768,7 +768,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerHideVideoPreviewRe
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerHideVideoPreviewRequest {
     type Vtable = IBarcodeScannerHideVideoPreviewRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4199464575, 26224, 16609, [185, 11, 187, 16, 216, 212, 37, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa4ebe7f_6670_40e1_b90b_bb10d8d425fa);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerHideVideoPreviewRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequest";
@@ -843,7 +843,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerHideVideoPreviewRe
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerHideVideoPreviewRequestEventArgs {
     type Vtable = IBarcodeScannerHideVideoPreviewRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(379748860, 54974, 19399, [157, 241, 51, 116, 31, 62, 173, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16a281fc_d6be_4bc7_9df1_33741f3eadea);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerHideVideoPreviewRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequestEventArgs";
@@ -1159,7 +1159,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerProviderConnection
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerProviderConnection {
     type Vtable = IBarcodeScannerProviderConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3024800749, 2874, 20387, [134, 197, 73, 30, 163, 7, 128, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb44acbed_0b3a_4fa3_86c5_491ea30780eb);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerProviderConnection {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerProviderConnection";
@@ -1251,7 +1251,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerProviderTriggerDet
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerProviderTriggerDetails {
     type Vtable = IBarcodeScannerProviderTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1350921602, 9443, 18638, [153, 199, 112, 170, 193, 203, 201, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50856d82_24e3_48ce_99c7_70aac1cbc9f7);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerProviderTriggerDetails {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerProviderTriggerDetails";
@@ -1354,7 +1354,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerSetActiveSymbologi
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerSetActiveSymbologiesRequest {
     type Vtable = IBarcodeScannerSetActiveSymbologiesRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3678352057, 63450, 16801, [159, 121, 7, 188, 217, 95, 11, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb3f32b9_f7da_41a1_9f79_07bcd95f0bdf);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerSetActiveSymbologiesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequest";
@@ -1429,7 +1429,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerSetActiveSymbologi
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     type Vtable = IBarcodeScannerSetActiveSymbologiesRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(103832314, 31734, 19794, [128, 26, 51, 2, 114, 246, 10, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06305afa_7bf6_4d52_801a_330272f60ae1);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequestEventArgs";
@@ -1539,7 +1539,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerSetSymbologyAttrib
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerSetSymbologyAttributesRequest {
     type Vtable = IBarcodeScannerSetSymbologyAttributesRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(855343439, 41855, 18608, [172, 234, 220, 225, 72, 15, 18, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32fb814f_a37f_48b0_acea_dce1480f12ae);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerSetSymbologyAttributesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequest";
@@ -1614,7 +1614,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerSetSymbologyAttrib
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     type Vtable = IBarcodeScannerSetSymbologyAttributesRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2998441993, 38948, 18388, [133, 189, 208, 7, 123, 170, 123, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2b89809_9824_47d4_85bd_d0077baa7bd2);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequestEventArgs";
@@ -1708,7 +1708,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerStartSoftwareTrigg
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerStartSoftwareTriggerRequest {
     type Vtable = IBarcodeScannerStartSoftwareTriggerRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3824843559, 65378, 17492, [175, 74, 203, 97, 68, 163, 227, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3fa7b27_ff62_4454_af4a_cb6144a3e3f7);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerStartSoftwareTriggerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequest";
@@ -1783,7 +1783,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerStartSoftwareTrigg
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     type Vtable = IBarcodeScannerStartSoftwareTriggerRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(587585603, 51343, 20283, [140, 59, 211, 223, 7, 16, 81, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2305d843_c88f_4f3b_8c3b_d3df071051ec);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequestEventArgs";
@@ -1877,7 +1877,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerStopSoftwareTrigge
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerStopSoftwareTriggerRequest {
     type Vtable = IBarcodeScannerStopSoftwareTriggerRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1872736053, 57991, 19624, [183, 13, 90, 145, 214, 148, 246, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f9faf35_e287_4ca8_b70d_5a91d694f668);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerStopSoftwareTriggerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequest";
@@ -1952,7 +1952,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerStopSoftwareTrigge
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     type Vtable = IBarcodeScannerStopSoftwareTriggerRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3938665552, 20151, 18458, [146, 115, 20, 122, 39, 59, 153, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeac34450_4eb7_481a_9273_147a273b99b8);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequestEventArgs";
@@ -2072,7 +2072,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerVideoFrame {
 }
 unsafe impl ::windows::runtime::Interface for BarcodeScannerVideoFrame {
     type Vtable = IBarcodeScannerVideoFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2119717448, 40439, 16673, [161, 117, 128, 29, 128, 0, 17, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e585248_9df7_4121_a175_801d8000112e);
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerVideoFrame {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerVideoFrame";
@@ -2210,7 +2210,7 @@ unsafe impl ::windows::runtime::RuntimeType for BarcodeSymbologyAttributesBuilde
 }
 unsafe impl ::windows::runtime::Interface for BarcodeSymbologyAttributesBuilder {
     type Vtable = IBarcodeSymbologyAttributesBuilder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3313175743, 58613, 16569, [132, 207, 230, 63, 186, 234, 66, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc57b0cbf_e4f5_40b9_84cf_e63fbaea42b4);
 }
 impl ::windows::runtime::RuntimeName for BarcodeSymbologyAttributesBuilder {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeSymbologyAttributesBuilder";
@@ -2262,7 +2262,7 @@ unsafe impl ::core::marker::Sync for BarcodeSymbologyAttributesBuilder {}
 pub struct IBarcodeScannerDisableScannerRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerDisableScannerRequest {
     type Vtable = IBarcodeScannerDisableScannerRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2297231296, 14265, 17013, [142, 119, 200, 229, 42, 229, 169, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88ecf7c0_37b9_4275_8e77_c8e52ae5a9c8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2283,7 +2283,7 @@ pub struct IBarcodeScannerDisableScannerRequest_abi(
 pub struct IBarcodeScannerDisableScannerRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerDisableScannerRequest2 {
     type Vtable = IBarcodeScannerDisableScannerRequest2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3437225509, 26051, 19660, [180, 87, 243, 156, 122, 158, 166, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xccdfe625_65c3_4ccc_b457_f39c7a9ea60d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2304,7 +2304,7 @@ pub struct IBarcodeScannerDisableScannerRequest2_abi(
 pub struct IBarcodeScannerDisableScannerRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerDisableScannerRequestEventArgs {
     type Vtable = IBarcodeScannerDisableScannerRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1879499074, 59394, 18165, [182, 4, 53, 42, 21, 206, 146, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7006e142_e802_46f5_b604_352a15ce9232);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2324,7 +2324,7 @@ pub struct IBarcodeScannerDisableScannerRequestEventArgs_abi(
 pub struct IBarcodeScannerEnableScannerRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerEnableScannerRequest {
     type Vtable = IBarcodeScannerEnableScannerRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3233016250, 33130, 17707, [189, 119, 183, 228, 83, 236, 68, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0b3e9ba_816a_452b_bd77_b7e453ec446d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2345,7 +2345,7 @@ pub struct IBarcodeScannerEnableScannerRequest_abi(
 pub struct IBarcodeScannerEnableScannerRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerEnableScannerRequest2 {
     type Vtable = IBarcodeScannerEnableScannerRequest2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1906635432, 39173, 16812, [145, 33, 182, 69, 145, 106, 132, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71a4f2a8_9905_41ac_9121_b645916a84a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2366,7 +2366,7 @@ pub struct IBarcodeScannerEnableScannerRequest2_abi(
 pub struct IBarcodeScannerEnableScannerRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerEnableScannerRequestEventArgs {
     type Vtable = IBarcodeScannerEnableScannerRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2506920985, 31566, 17489, [140, 65, 142, 16, 207, 188, 91, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x956c9419_7b4e_4451_8c41_8e10cfbc5b41);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2386,7 +2386,7 @@ pub struct IBarcodeScannerEnableScannerRequestEventArgs_abi(
 pub struct IBarcodeScannerFrameReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerFrameReader {
     type Vtable = IBarcodeScannerFrameReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3687262983, 25795, 18475, [147, 200, 101, 251, 51, 194, 34, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbc72b07_64c3_482b_93c8_65fb33c22208);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2414,7 +2414,7 @@ pub struct IBarcodeScannerFrameReader_abi(
 pub struct IBarcodeScannerFrameReaderFrameArrivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerFrameReaderFrameArrivedEventArgs {
     type Vtable = IBarcodeScannerFrameReaderFrameArrivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2965100036, 21757, 17261, [134, 41, 113, 46, 120, 114, 35, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0bbd604_54fd_436d_8629_712e787223dd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2433,7 +2433,7 @@ pub struct IBarcodeScannerFrameReaderFrameArrivedEventArgs_abi(
 pub struct IBarcodeScannerGetSymbologyAttributesRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerGetSymbologyAttributesRequest {
     type Vtable = IBarcodeScannerGetSymbologyAttributesRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2541012074, 22756, 19551, [184, 233, 228, 20, 103, 99, 39, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9774c46a_58e4_4c5f_b8e9_e41467632700);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2455,7 +2455,7 @@ pub struct IBarcodeScannerGetSymbologyAttributesRequest_abi(
 pub struct IBarcodeScannerGetSymbologyAttributesRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerGetSymbologyAttributesRequest2 {
     type Vtable = IBarcodeScannerGetSymbologyAttributesRequest2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1785342739, 30120, 18939, [184, 82, 191, 185, 61, 118, 10, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a6a2b13_75a8_49fb_b852_bfb93d760af7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2476,7 +2476,7 @@ pub struct IBarcodeScannerGetSymbologyAttributesRequest2_abi(
 pub struct IBarcodeScannerGetSymbologyAttributesRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerGetSymbologyAttributesRequestEventArgs {
     type Vtable = IBarcodeScannerGetSymbologyAttributesRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2139741758, 64349, 18748, [180, 2, 53, 107, 36, 213, 116, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f89de3e_fb5d_493c_b402_356b24d574a6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2496,7 +2496,7 @@ pub struct IBarcodeScannerGetSymbologyAttributesRequestEventArgs_abi(
 pub struct IBarcodeScannerHideVideoPreviewRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerHideVideoPreviewRequest {
     type Vtable = IBarcodeScannerHideVideoPreviewRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4199464575, 26224, 16609, [185, 11, 187, 16, 216, 212, 37, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa4ebe7f_6670_40e1_b90b_bb10d8d425fa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2517,7 +2517,7 @@ pub struct IBarcodeScannerHideVideoPreviewRequest_abi(
 pub struct IBarcodeScannerHideVideoPreviewRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerHideVideoPreviewRequest2 {
     type Vtable = IBarcodeScannerHideVideoPreviewRequest2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2116567901, 38932, 17181, [162, 242, 214, 36, 140, 90, 212, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e28435d_9814_431d_a2f2_d6248c5ad4b5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2538,7 +2538,7 @@ pub struct IBarcodeScannerHideVideoPreviewRequest2_abi(
 pub struct IBarcodeScannerHideVideoPreviewRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerHideVideoPreviewRequestEventArgs {
     type Vtable = IBarcodeScannerHideVideoPreviewRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(379748860, 54974, 19399, [157, 241, 51, 116, 31, 62, 173, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16a281fc_d6be_4bc7_9df1_33741f3eadea);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2558,7 +2558,7 @@ pub struct IBarcodeScannerHideVideoPreviewRequestEventArgs_abi(
 pub struct IBarcodeScannerProviderConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerProviderConnection {
     type Vtable = IBarcodeScannerProviderConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3024800749, 2874, 20387, [134, 197, 73, 30, 163, 7, 128, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb44acbed_0b3a_4fa3_86c5_491ea30780eb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2626,7 +2626,7 @@ pub struct IBarcodeScannerProviderConnection_abi(
 pub struct IBarcodeScannerProviderConnection2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerProviderConnection2 {
     type Vtable = IBarcodeScannerProviderConnection2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3197850573, 4404, 16780, [160, 107, 4, 66, 58, 115, 243, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe9b53cd_1134_418c_a06b_04423a73f3d7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2649,7 +2649,7 @@ pub struct IBarcodeScannerProviderConnection2_abi(
 pub struct IBarcodeScannerProviderTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerProviderTriggerDetails {
     type Vtable = IBarcodeScannerProviderTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1350921602, 9443, 18638, [153, 199, 112, 170, 193, 203, 201, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50856d82_24e3_48ce_99c7_70aac1cbc9f7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2667,7 +2667,7 @@ pub struct IBarcodeScannerProviderTriggerDetails_abi(
 pub struct IBarcodeScannerSetActiveSymbologiesRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerSetActiveSymbologiesRequest {
     type Vtable = IBarcodeScannerSetActiveSymbologiesRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3678352057, 63450, 16801, [159, 121, 7, 188, 217, 95, 11, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb3f32b9_f7da_41a1_9f79_07bcd95f0bdf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2690,7 +2690,7 @@ pub struct IBarcodeScannerSetActiveSymbologiesRequest_abi(
 pub struct IBarcodeScannerSetActiveSymbologiesRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerSetActiveSymbologiesRequest2 {
     type Vtable = IBarcodeScannerSetActiveSymbologiesRequest2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4127157983, 64154, 18249, [177, 27, 232, 252, 203, 117, 188, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5ff6edf_fa9a_4749_b11b_e8fccb75bc6b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2711,7 +2711,7 @@ pub struct IBarcodeScannerSetActiveSymbologiesRequest2_abi(
 pub struct IBarcodeScannerSetActiveSymbologiesRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerSetActiveSymbologiesRequestEventArgs {
     type Vtable = IBarcodeScannerSetActiveSymbologiesRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(103832314, 31734, 19794, [128, 26, 51, 2, 114, 246, 10, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06305afa_7bf6_4d52_801a_330272f60ae1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2731,7 +2731,7 @@ pub struct IBarcodeScannerSetActiveSymbologiesRequestEventArgs_abi(
 pub struct IBarcodeScannerSetSymbologyAttributesRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerSetSymbologyAttributesRequest {
     type Vtable = IBarcodeScannerSetSymbologyAttributesRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(855343439, 41855, 18608, [172, 234, 220, 225, 72, 15, 18, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32fb814f_a37f_48b0_acea_dce1480f12ae);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2754,7 +2754,7 @@ pub struct IBarcodeScannerSetSymbologyAttributesRequest_abi(
 pub struct IBarcodeScannerSetSymbologyAttributesRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerSetSymbologyAttributesRequest2 {
     type Vtable = IBarcodeScannerSetSymbologyAttributesRequest2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3757817793, 56232, 19319, [190, 30, 181, 108, 215, 47, 101, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdffbbfc1_dba8_4b77_be1e_b56cd72f65b3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2775,7 +2775,7 @@ pub struct IBarcodeScannerSetSymbologyAttributesRequest2_abi(
 pub struct IBarcodeScannerSetSymbologyAttributesRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerSetSymbologyAttributesRequestEventArgs {
     type Vtable = IBarcodeScannerSetSymbologyAttributesRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2998441993, 38948, 18388, [133, 189, 208, 7, 123, 170, 123, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2b89809_9824_47d4_85bd_d0077baa7bd2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2795,7 +2795,7 @@ pub struct IBarcodeScannerSetSymbologyAttributesRequestEventArgs_abi(
 pub struct IBarcodeScannerStartSoftwareTriggerRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStartSoftwareTriggerRequest {
     type Vtable = IBarcodeScannerStartSoftwareTriggerRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3824843559, 65378, 17492, [175, 74, 203, 97, 68, 163, 227, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3fa7b27_ff62_4454_af4a_cb6144a3e3f7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2816,7 +2816,7 @@ pub struct IBarcodeScannerStartSoftwareTriggerRequest_abi(
 pub struct IBarcodeScannerStartSoftwareTriggerRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStartSoftwareTriggerRequest2 {
     type Vtable = IBarcodeScannerStartSoftwareTriggerRequest2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3950158428, 26200, 18277, [166, 142, 50, 116, 130, 101, 61, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb72a25c_6658_4765_a68e_327482653deb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2837,7 +2837,7 @@ pub struct IBarcodeScannerStartSoftwareTriggerRequest2_abi(
 pub struct IBarcodeScannerStartSoftwareTriggerRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStartSoftwareTriggerRequestEventArgs {
     type Vtable = IBarcodeScannerStartSoftwareTriggerRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(587585603, 51343, 20283, [140, 59, 211, 223, 7, 16, 81, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2305d843_c88f_4f3b_8c3b_d3df071051ec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2857,7 +2857,7 @@ pub struct IBarcodeScannerStartSoftwareTriggerRequestEventArgs_abi(
 pub struct IBarcodeScannerStopSoftwareTriggerRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStopSoftwareTriggerRequest {
     type Vtable = IBarcodeScannerStopSoftwareTriggerRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1872736053, 57991, 19624, [183, 13, 90, 145, 214, 148, 246, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f9faf35_e287_4ca8_b70d_5a91d694f668);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2878,7 +2878,7 @@ pub struct IBarcodeScannerStopSoftwareTriggerRequest_abi(
 pub struct IBarcodeScannerStopSoftwareTriggerRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStopSoftwareTriggerRequest2 {
     type Vtable = IBarcodeScannerStopSoftwareTriggerRequest2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3411527133, 65104, 18936, [160, 180, 189, 194, 48, 129, 77, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb57c5dd_fe50_49f8_a0b4_bdc230814da2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2899,7 +2899,7 @@ pub struct IBarcodeScannerStopSoftwareTriggerRequest2_abi(
 pub struct IBarcodeScannerStopSoftwareTriggerRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStopSoftwareTriggerRequestEventArgs {
     type Vtable = IBarcodeScannerStopSoftwareTriggerRequestEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3938665552, 20151, 18458, [146, 115, 20, 122, 39, 59, 153, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeac34450_4eb7_481a_9273_147a273b99b8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2919,7 +2919,7 @@ pub struct IBarcodeScannerStopSoftwareTriggerRequestEventArgs_abi(
 pub struct IBarcodeScannerVideoFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerVideoFrame {
     type Vtable = IBarcodeScannerVideoFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2119717448, 40439, 16673, [161, 117, 128, 29, 128, 0, 17, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e585248_9df7_4121_a175_801d8000112e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2942,7 +2942,7 @@ pub struct IBarcodeScannerVideoFrame_abi(
 pub struct IBarcodeSymbologyAttributesBuilder(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeSymbologyAttributesBuilder {
     type Vtable = IBarcodeSymbologyAttributesBuilder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3313175743, 58613, 16569, [132, 207, 230, 63, 186, 234, 66, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc57b0cbf_e4f5_40b9_84cf_e63fbaea42b4);
 }
 #[repr(C)]
 #[doc(hidden)]

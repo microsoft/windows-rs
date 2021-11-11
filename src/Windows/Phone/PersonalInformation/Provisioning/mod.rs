@@ -43,7 +43,7 @@ impl ::windows::runtime::RuntimeName for ContactPartnerProvisioningManager {
 pub struct IContactPartnerProvisioningManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactPartnerProvisioningManagerStatics {
     type Vtable = IContactPartnerProvisioningManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3235355169, 431, 20435, [152, 205, 179, 214, 86, 222, 21, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0d79a21_01af_4fd3_98cd_b3d656de15f4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -64,7 +64,7 @@ pub struct IContactPartnerProvisioningManagerStatics_abi(
 pub struct IContactPartnerProvisioningManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactPartnerProvisioningManagerStatics2 {
     type Vtable = IContactPartnerProvisioningManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3261158903, 21997, 18269, [147, 52, 197, 212, 132, 195, 15, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc26155f7_55ed_475d_9334_c5d484c30f1a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -83,7 +83,7 @@ pub struct IContactPartnerProvisioningManagerStatics2_abi(
 pub struct IMessagePartnerProvisioningManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessagePartnerProvisioningManagerStatics {
     type Vtable = IMessagePartnerProvisioningManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2317027408, 29637, 17788, [188, 89, 237, 125, 97, 92, 5, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a1b0850_73c5_457c_bc59_ed7d615c05a4);
 }
 #[repr(C)]
 #[doc(hidden)]

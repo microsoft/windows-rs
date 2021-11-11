@@ -48,7 +48,7 @@ unsafe impl ::windows::runtime::RuntimeType for AdvancedCapturedPhoto {
 }
 unsafe impl ::windows::runtime::Interface for AdvancedCapturedPhoto {
     type Vtable = IAdvancedCapturedPhoto_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4034032267, 45714, 17553, [157, 65, 153, 128, 122, 85, 11, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf072728b_b292_4491_9d41_99807a550bbf);
 }
 impl ::windows::runtime::RuntimeName for AdvancedCapturedPhoto {
     const NAME: &'static str = "Windows.Media.Capture.AdvancedCapturedPhoto";
@@ -163,7 +163,7 @@ unsafe impl ::windows::runtime::RuntimeType for AdvancedPhotoCapture {
 }
 unsafe impl ::windows::runtime::Interface for AdvancedPhotoCapture {
     type Vtable = IAdvancedPhotoCapture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2214570746, 26215, 17628, [151, 60, 166, 188, 229, 150, 170, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83ffaafa_6667_44dc_973c_a6bce596aa0f);
 }
 impl ::windows::runtime::RuntimeName for AdvancedPhotoCapture {
     const NAME: &'static str = "Windows.Media.Capture.AdvancedPhotoCapture";
@@ -393,7 +393,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastBackgroundService {
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastBackgroundService {
     type Vtable = IAppBroadcastBackgroundService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3134318378, 64148, 18169, [149, 252, 215, 21, 17, 205, 167, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbad1e72a_fa94_46f9_95fc_d71511cda70b);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastBackgroundService {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastBackgroundService";
@@ -539,7 +539,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastBackgroundServiceSig
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastBackgroundServiceSignInInfo {
     type Vtable = IAppBroadcastBackgroundServiceSignInInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1584616053, 35016, 20170, [137, 186, 72, 37, 152, 93, 184, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e735275_88c8_4eca_89ba_4825985db880);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastBackgroundServiceSignInInfo {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo";
@@ -700,7 +700,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastBackgroundServiceStr
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastBackgroundServiceStreamInfo {
     type Vtable = IAppBroadcastBackgroundServiceStreamInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(836502204, 39178, 18692, [170, 150, 254, 54, 67, 129, 241, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31dc02bc_990a_4904_aa96_fe364381f136);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastBackgroundServiceStreamInfo {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo";
@@ -795,7 +795,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastCameraCaptureStateCh
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastCameraCaptureStateChangedEventArgs {
     type Vtable = IAppBroadcastCameraCaptureStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(506678480, 47234, 19336, [134, 146, 5, 153, 154, 206, 183, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e334cd0_b882_4b88_8692_05999aceb70f);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastCameraCaptureStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs";
@@ -1116,7 +1116,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastGlobalSettings {
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastGlobalSettings {
     type Vtable = IAppBroadcastGlobalSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2999658405, 28924, 19991, [128, 189, 107, 160, 253, 63, 243, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2cb27a5_70fc_4e17_80bd_6ba0fd3ff3a0);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastGlobalSettings {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastGlobalSettings";
@@ -1185,7 +1185,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastHeartbeatRequestedEv
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastHeartbeatRequestedEventArgs {
     type Vtable = IAppBroadcastHeartbeatRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3466936963, 61009, 19903, [148, 114, 121, 169, 237, 78, 33, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcea54283_ee51_4dbf_9472_79a9ed4e2165);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastHeartbeatRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastHeartbeatRequestedEventArgs";
@@ -1313,7 +1313,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastMicrophoneCaptureSta
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastMicrophoneCaptureStateChangedEventArgs {
     type Vtable = IAppBroadcastMicrophoneCaptureStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2825573865, 37952, 18696, [157, 9, 101, 183, 227, 21, 215, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa86ad5e9_9440_4908_9d09_65b7e315d795);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastMicrophoneCaptureStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs";
@@ -1404,7 +1404,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastPlugIn {
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastPlugIn {
     type Vtable = IAppBroadcastPlugIn_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1376525926, 25875, 17780, [172, 84, 35, 183, 151, 41, 97, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x520c1e66_6513_4574_ac54_23b79729615b);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastPlugIn {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPlugIn";
@@ -1511,7 +1511,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastPlugInManager {
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastPlugInManager {
     type Vtable = IAppBroadcastPlugInManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3847281017, 10145, 18855, [187, 244, 215, 169, 233, 208, 118, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe550d979_27a1_49a7_bbf4_d7a9e9d07668);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastPlugInManager {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPlugInManager";
@@ -1604,7 +1604,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastPlugInStateChangedEv
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastPlugInStateChangedEventArgs {
     type Vtable = IAppBroadcastPlugInStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1216467186, 43973, 20422, [132, 176, 137, 55, 11, 180, 114, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4881d0f2_abc5_4fc6_84b0_89370bb47212);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastPlugInStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs";
@@ -1707,7 +1707,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastPreview {
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastPreview {
     type Vtable = IAppBroadcastPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(347475802, 28234, 19328, [161, 79, 103, 238, 119, 209, 83, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14b60f5a_6e4a_4b80_a14f_67ee77d153e7);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastPreview {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreview";
@@ -1804,7 +1804,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastPreviewStateChangedE
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastPreviewStateChangedEventArgs {
     type Vtable = IAppBroadcastPreviewStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1515713246, 36330, 20102, [144, 173, 3, 252, 38, 185, 101, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a57f2de_8dea_4e86_90ad_03fc26b9653c);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastPreviewStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs";
@@ -1927,7 +1927,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastPreviewStreamReader 
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastPreviewStreamReader {
     type Vtable = IAppBroadcastPreviewStreamReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2451737936, 56127, 16552, [140, 212, 244, 227, 113, 221, 171, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92228d50_db3f_40a8_8cd4_f4e371ddab37);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastPreviewStreamReader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStreamReader";
@@ -2002,7 +2002,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastPreviewStreamVideoFr
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastPreviewStreamVideoFrame {
     type Vtable = IAppBroadcastPreviewStreamVideoFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(17809057, 38142, 17561, [184, 192, 141, 36, 66, 121, 251, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x010fbea1_94fe_4499_b8c0_8d244279fb12);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastPreviewStreamVideoFrame {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame";
@@ -2095,7 +2095,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastPreviewStreamVideoHe
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastPreviewStreamVideoHeader {
     type Vtable = IAppBroadcastPreviewStreamVideoHeader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2347720979, 55940, 17561, [167, 171, 135, 17, 140, 180, 161, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bef6113_da84_4499_a7ab_87118cb4a157);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastPreviewStreamVideoHeader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader";
@@ -2244,7 +2244,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastProviderSettings {
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastProviderSettings {
     type Vtable = IAppBroadcastProviderSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3272335202, 39240, 17807, [173, 80, 170, 6, 236, 3, 218, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc30bdf62_9948_458f_ad50_aa06ec03da08);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastProviderSettings {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastProviderSettings";
@@ -2401,7 +2401,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastServices {
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastServices {
     type Vtable = IAppBroadcastServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2254484694, 38555, 20028, [172, 58, 139, 4, 46, 228, 238, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8660b4d6_969b_4e3c_ac3a_8b042ee4ee63);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastServices {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastServices";
@@ -2525,7 +2525,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastSignInStateChangedEv
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastSignInStateChangedEventArgs {
     type Vtable = IAppBroadcastSignInStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(45519524, 22809, 19102, [141, 94, 201, 187, 13, 211, 55, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02b692a4_5919_4a9e_8d5e_c9bb0dd3377a);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastSignInStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs";
@@ -2842,7 +2842,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastState {
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastState {
     type Vtable = IAppBroadcastState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3993503085, 32921, 19933, [146, 46, 197, 109, 172, 88, 171, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee08056d_8099_4ddd_922e_c56dac58abfb);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastState {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastState";
@@ -2917,7 +2917,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastStreamAudioFrame {
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastStreamAudioFrame {
     type Vtable = IAppBroadcastStreamAudioFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020980424, 8634, 17727, [139, 183, 94, 147, 138, 46, 154, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefab4ac8_21ba_453f_8bb7_5e938a2e9a74);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastStreamAudioFrame {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamAudioFrame";
@@ -3016,7 +3016,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastStreamAudioHeader {
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastStreamAudioHeader {
     type Vtable = IAppBroadcastStreamAudioHeader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3206653296, 27512, 16918, [159, 7, 90, 255, 82, 86, 241, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf21a570_6b78_4216_9f07_5aff5256f1b7);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastStreamAudioHeader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamAudioHeader";
@@ -3175,7 +3175,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastStreamReader {
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastStreamReader {
     type Vtable = IAppBroadcastStreamReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3006840057, 13156, 17504, [181, 241, 60, 194, 121, 106, 138, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb338bcf9_3364_4460_b5f1_3cc2796a8aa2);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastStreamReader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamReader";
@@ -3264,7 +3264,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastStreamStateChangedEv
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastStreamStateChangedEventArgs {
     type Vtable = IAppBroadcastStreamStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1359521587, 53256, 19081, [147, 190, 88, 174, 217, 97, 55, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5108a733_d008_4a89_93be_58aed961374e);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastStreamStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs";
@@ -3337,7 +3337,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastStreamVideoFrame {
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastStreamVideoFrame {
     type Vtable = IAppBroadcastStreamVideoFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(261607211, 51684, 20104, [129, 148, 216, 20, 203, 213, 133, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f97cf2b_c9e4_4e88_8194_d814cbd585d8);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastStreamVideoFrame {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamVideoFrame";
@@ -3444,7 +3444,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastStreamVideoHeader {
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastStreamVideoHeader {
     type Vtable = IAppBroadcastStreamVideoHeader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(194952910, 32306, 17197, [140, 162, 54, 191, 16, 185, 244, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b9ebece_7e32_432d_8ca2_36bf10b9f462);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastStreamVideoHeader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamVideoHeader";
@@ -3538,7 +3538,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastTriggerDetails {
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastTriggerDetails {
     type Vtable = IAppBroadcastTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3739986741, 60510, 19855, [177, 192, 93, 166, 232, 199, 86, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdeebab35_ec5e_4d8f_b1c0_5da6e8c75638);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastTriggerDetails {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastTriggerDetails";
@@ -3646,7 +3646,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppBroadcastViewerCountChangedEv
 }
 unsafe impl ::windows::runtime::Interface for AppBroadcastViewerCountChangedEventArgs {
     type Vtable = IAppBroadcastViewerCountChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3873511461, 21505, 19166, [139, 210, 193, 78, 206, 230, 128, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6e11825_5401_4ade_8bd2_c14ecee6807d);
 }
 impl ::windows::runtime::RuntimeName for AppBroadcastViewerCountChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs";
@@ -3758,7 +3758,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppCapture {
 }
 unsafe impl ::windows::runtime::Interface for AppCapture {
     type Vtable = IAppCapture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2538198099, 41626, 17901, [143, 41, 34, 208, 153, 66, 207, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9749d453_a29a_45ed_8f29_22d09942cff7);
 }
 impl ::windows::runtime::RuntimeName for AppCapture {
     const NAME: &'static str = "Windows.Media.Capture.AppCapture";
@@ -4054,7 +4054,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppCaptureAlternateShortcutKeys 
 }
 unsafe impl ::windows::runtime::Interface for AppCaptureAlternateShortcutKeys {
     type Vtable = IAppCaptureAlternateShortcutKeys_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(434692335, 9068, 16633, [179, 143, 155, 125, 214, 93, 28, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19e8e0ef_236c_40f9_b38f_9b7dd65d1ccc);
 }
 impl ::windows::runtime::RuntimeName for AppCaptureAlternateShortcutKeys {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureAlternateShortcutKeys";
@@ -4122,7 +4122,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppCaptureDurationGeneratedEvent
 }
 unsafe impl ::windows::runtime::Interface for AppCaptureDurationGeneratedEventArgs {
     type Vtable = IAppCaptureDurationGeneratedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3254081083, 65441, 17609, [151, 95, 39, 251, 235, 85, 59, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1f5563b_ffa1_44c9_975f_27fbeb553b35);
 }
 impl ::windows::runtime::RuntimeName for AppCaptureDurationGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureDurationGeneratedEventArgs";
@@ -4189,7 +4189,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppCaptureFileGeneratedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for AppCaptureFileGeneratedEventArgs {
     type Vtable = IAppCaptureFileGeneratedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1099561972, 18014, 17855, [144, 127, 22, 91, 63, 178, 55, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4189fbf4_465e_45bf_907f_165b3fb23758);
 }
 impl ::windows::runtime::RuntimeName for AppCaptureFileGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureFileGeneratedEventArgs";
@@ -4392,7 +4392,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppCaptureMetadataWriter {
 }
 unsafe impl ::windows::runtime::Interface for AppCaptureMetadataWriter {
     type Vtable = IAppCaptureMetadataWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3771615351, 39599, 18100, [173, 49, 106, 96, 180, 65, 199, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0ce4877_9aaf_46b4_ad31_6a60b441c780);
 }
 impl ::windows::runtime::RuntimeName for AppCaptureMetadataWriter {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureMetadataWriter";
@@ -4515,7 +4515,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppCaptureMicrophoneCaptureState
 }
 unsafe impl ::windows::runtime::Interface for AppCaptureMicrophoneCaptureStateChangedEventArgs {
     type Vtable = IAppCaptureMicrophoneCaptureStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(843916446, 17852, 19509, [188, 53, 228, 105, 252, 122, 105, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x324d249e_45bc_4c35_bc35_e469fc7a69e0);
 }
 impl ::windows::runtime::RuntimeName for AppCaptureMicrophoneCaptureStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureMicrophoneCaptureStateChangedEventArgs";
@@ -4667,7 +4667,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppCaptureRecordOperation {
 }
 unsafe impl ::windows::runtime::Interface for AppCaptureRecordOperation {
     type Vtable = IAppCaptureRecordOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3328188585, 5432, 18780, [155, 187, 43, 168, 112, 236, 88, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc66020a9_1538_495c_9bbb_2ba870ec5861);
 }
 impl ::windows::runtime::RuntimeName for AppCaptureRecordOperation {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureRecordOperation";
@@ -4764,7 +4764,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppCaptureRecordingStateChangedE
 }
 unsafe impl ::windows::runtime::Interface for AppCaptureRecordingStateChangedEventArgs {
     type Vtable = IAppCaptureRecordingStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(620529426, 58117, 18701, [180, 21, 107, 28, 144, 73, 115, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24fc8712_e305_490d_b415_6b1c9049736b);
 }
 impl ::windows::runtime::RuntimeName for AppCaptureRecordingStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureRecordingStateChangedEventArgs";
@@ -4855,7 +4855,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppCaptureServices {
 }
 unsafe impl ::windows::runtime::Interface for AppCaptureServices {
     type Vtable = IAppCaptureServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1157546165, 13557, 20248, [174, 140, 185, 18, 58, 187, 252, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44fec0b5_34f5_4f18_ae8c_b9123abbfc0d);
 }
 impl ::windows::runtime::RuntimeName for AppCaptureServices {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureServices";
@@ -5266,7 +5266,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppCaptureSettings {
 }
 unsafe impl ::windows::runtime::Interface for AppCaptureSettings {
     type Vtable = IAppCaptureSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(342375046, 34823, 18643, [136, 58, 151, 14, 228, 83, 42, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14683a86_8807_48d3_883a_970ee4532a39);
 }
 impl ::windows::runtime::RuntimeName for AppCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureSettings";
@@ -5402,7 +5402,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppCaptureState {
 }
 unsafe impl ::windows::runtime::Interface for AppCaptureState {
     type Vtable = IAppCaptureState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1930642290, 54507, 17614, [149, 56, 70, 95, 80, 106, 196, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73134372_d4eb_44ce_9538_465f506ac4ea);
 }
 impl ::windows::runtime::RuntimeName for AppCaptureState {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureState";
@@ -5560,7 +5560,7 @@ unsafe impl ::windows::runtime::RuntimeType for CameraCaptureUI {
 }
 unsafe impl ::windows::runtime::Interface for CameraCaptureUI {
     type Vtable = ICameraCaptureUI_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1213756736, 28563, 19380, [184, 243, 232, 158, 72, 148, 140, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48587540_6f93_4bb4_b8f3_e89e48948c91);
 }
 impl ::windows::runtime::RuntimeName for CameraCaptureUI {
     const NAME: &'static str = "Windows.Media.Capture.CameraCaptureUI";
@@ -5761,7 +5761,7 @@ unsafe impl ::windows::runtime::RuntimeType for CameraCaptureUIPhotoCaptureSetti
 }
 unsafe impl ::windows::runtime::Interface for CameraCaptureUIPhotoCaptureSettings {
     type Vtable = ICameraCaptureUIPhotoCaptureSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3119890071, 13426, 18088, [138, 158, 4, 206, 66, 204, 201, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9f5be97_3472_46a8_8a9e_04ce42ccc97d);
 }
 impl ::windows::runtime::RuntimeName for CameraCaptureUIPhotoCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.CameraCaptureUIPhotoCaptureSettings";
@@ -5894,7 +5894,7 @@ unsafe impl ::windows::runtime::RuntimeType for CameraCaptureUIVideoCaptureSetti
 }
 unsafe impl ::windows::runtime::Interface for CameraCaptureUIVideoCaptureSettings {
     type Vtable = ICameraCaptureUIVideoCaptureSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1693003039, 41613, 16986, [184, 79, 229, 104, 51, 95, 242, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64e92d1f_a28d_425a_b84f_e568335ff24e);
 }
 impl ::windows::runtime::RuntimeName for CameraCaptureUIVideoCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.CameraCaptureUIVideoCaptureSettings";
@@ -6148,7 +6148,7 @@ unsafe impl ::windows::runtime::RuntimeType for CapturedFrame {
 }
 unsafe impl ::windows::runtime::Interface for CapturedFrame {
     type Vtable = ICapturedFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(500358687, 22299, 17624, [142, 128, 160, 138, 21, 120, 118, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1dd2de1f_571b_44d8_8e80_a08a1578766e);
 }
 impl ::windows::runtime::RuntimeName for CapturedFrame {
     const NAME: &'static str = "Windows.Media.Capture.CapturedFrame";
@@ -6488,7 +6488,7 @@ unsafe impl ::windows::runtime::RuntimeType for CapturedFrameControlValues {
 }
 unsafe impl ::windows::runtime::Interface for CapturedFrameControlValues {
     type Vtable = ICapturedFrameControlValues_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2428918655, 19981, 19620, [136, 45, 122, 20, 79, 237, 10, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90c65b7f_4e0d_4ca4_882d_7a144fed0a90);
 }
 impl ::windows::runtime::RuntimeName for CapturedFrameControlValues {
     const NAME: &'static str = "Windows.Media.Capture.CapturedFrameControlValues";
@@ -6562,7 +6562,7 @@ unsafe impl ::windows::runtime::RuntimeType for CapturedPhoto {
 }
 unsafe impl ::windows::runtime::Interface for CapturedPhoto {
     type Vtable = ICapturedPhoto_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2966322778, 53196, 19820, [138, 209, 8, 105, 32, 138, 202, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0ce7e5a_cfcc_4d6c_8ad1_0869208aca16);
 }
 impl ::windows::runtime::RuntimeName for CapturedPhoto {
     const NAME: &'static str = "Windows.Media.Capture.CapturedPhoto";
@@ -6767,7 +6767,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameBarServices {
 }
 unsafe impl ::windows::runtime::Interface for GameBarServices {
     type Vtable = IGameBarServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(767470935, 20646, 18846, [140, 108, 211, 48, 167, 49, 23, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2dbead57_50a6_499e_8c6c_d330a7311796);
 }
 impl ::windows::runtime::RuntimeName for GameBarServices {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServices";
@@ -6841,7 +6841,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameBarServicesCommandEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for GameBarServicesCommandEventArgs {
     type Vtable = IGameBarServicesCommandEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2806130354, 61814, 20431, [143, 187, 207, 105, 139, 46, 184, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa74226b2_f176_4fcf_8fbb_cf698b2eb8e0);
 }
 impl ::windows::runtime::RuntimeName for GameBarServicesCommandEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesCommandEventArgs";
@@ -6947,7 +6947,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameBarServicesManager {
 }
 unsafe impl ::windows::runtime::Interface for GameBarServicesManager {
     type Vtable = IGameBarServicesManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(978033914, 32651, 19552, [157, 187, 11, 205, 38, 45, 255, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a4b9cfa_7f8b_4c60_9dbb_0bcd262dffc6);
 }
 impl ::windows::runtime::RuntimeName for GameBarServicesManager {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesManager";
@@ -7013,7 +7013,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameBarServicesManagerGameBarSer
 }
 unsafe impl ::windows::runtime::Interface for GameBarServicesManagerGameBarServicesCreatedEventArgs {
     type Vtable = IGameBarServicesManagerGameBarServicesCreatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3991780764, 5182, 18851, [165, 234, 11, 25, 149, 200, 212, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xededbd9c_143e_49a3_a5ea_0b1995c8d46e);
 }
 impl ::windows::runtime::RuntimeName for GameBarServicesManagerGameBarServicesCreatedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesManagerGameBarServicesCreatedEventArgs";
@@ -7103,7 +7103,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameBarServicesTargetInfo {
 }
 unsafe impl ::windows::runtime::Interface for GameBarServicesTargetInfo {
     type Vtable = IGameBarServicesTargetInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3022008210, 5649, 19973, [182, 239, 223, 215, 55, 174, 51, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4202f92_1611_4e05_b6ef_dfd737ae33b0);
 }
 impl ::windows::runtime::RuntimeName for GameBarServicesTargetInfo {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesTargetInfo";
@@ -7180,7 +7180,7 @@ impl ::windows::runtime::DefaultType for GameBarTargetCapturePolicy {
 pub struct IAdvancedCapturedPhoto(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedCapturedPhoto {
     type Vtable = IAdvancedCapturedPhoto_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4034032267, 45714, 17553, [157, 65, 153, 128, 122, 85, 11, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf072728b_b292_4491_9d41_99807a550bbf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7201,7 +7201,7 @@ pub struct IAdvancedCapturedPhoto_abi(
 pub struct IAdvancedCapturedPhoto2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedCapturedPhoto2 {
     type Vtable = IAdvancedCapturedPhoto2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(416247000, 53246, 17112, [129, 4, 1, 123, 179, 24, 244, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18cf6cd8_cffe_42d8_8104_017bb318f4a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7220,7 +7220,7 @@ pub struct IAdvancedCapturedPhoto2_abi(
 pub struct IAdvancedPhotoCapture(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedPhotoCapture {
     type Vtable = IAdvancedPhotoCapture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2214570746, 26215, 17628, [151, 60, 166, 188, 229, 150, 170, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83ffaafa_6667_44dc_973c_a6bce596aa0f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7251,7 +7251,7 @@ pub struct IAdvancedPhotoCapture_abi(
 pub struct IAppBroadcastBackgroundService(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastBackgroundService {
     type Vtable = IAppBroadcastBackgroundService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3134318378, 64148, 18169, [149, 252, 215, 21, 17, 205, 167, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbad1e72a_fa94_46f9_95fc_d71511cda70b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7284,7 +7284,7 @@ pub struct IAppBroadcastBackgroundService_abi(
 pub struct IAppBroadcastBackgroundService2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastBackgroundService2 {
     type Vtable = IAppBroadcastBackgroundService2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4237085631, 21833, 19335, [149, 159, 35, 202, 64, 31, 212, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc8ccbbf_5549_4b87_959f_23ca401fd473);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7318,7 +7318,7 @@ pub struct IAppBroadcastBackgroundService2_abi(
 pub struct IAppBroadcastBackgroundServiceSignInInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastBackgroundServiceSignInInfo {
     type Vtable = IAppBroadcastBackgroundServiceSignInInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1584616053, 35016, 20170, [137, 186, 72, 37, 152, 93, 184, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e735275_88c8_4eca_89ba_4825985db880);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7352,7 +7352,7 @@ pub struct IAppBroadcastBackgroundServiceSignInInfo_abi(
 pub struct IAppBroadcastBackgroundServiceSignInInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastBackgroundServiceSignInInfo2 {
     type Vtable = IAppBroadcastBackgroundServiceSignInInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2432968796, 25295, 19004, [167, 238, 174, 181, 7, 64, 70, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9104285c_62cf_4a3c_a7ee_aeb507404645);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7373,7 +7373,7 @@ pub struct IAppBroadcastBackgroundServiceSignInInfo2_abi(
 pub struct IAppBroadcastBackgroundServiceStreamInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastBackgroundServiceStreamInfo {
     type Vtable = IAppBroadcastBackgroundServiceStreamInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(836502204, 39178, 18692, [170, 150, 254, 54, 67, 129, 241, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31dc02bc_990a_4904_aa96_fe364381f136);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7410,7 +7410,7 @@ pub struct IAppBroadcastBackgroundServiceStreamInfo_abi(
 pub struct IAppBroadcastBackgroundServiceStreamInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastBackgroundServiceStreamInfo2 {
     type Vtable = IAppBroadcastBackgroundServiceStreamInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3172900717, 38108, 20430, [149, 65, 169, 241, 41, 89, 99, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd1e9f6d_94dc_4fce_9541_a9f129596334);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7428,7 +7428,7 @@ pub struct IAppBroadcastBackgroundServiceStreamInfo2_abi(
 pub struct IAppBroadcastCameraCaptureStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastCameraCaptureStateChangedEventArgs {
     type Vtable = IAppBroadcastCameraCaptureStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(506678480, 47234, 19336, [134, 146, 5, 153, 154, 206, 183, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e334cd0_b882_4b88_8692_05999aceb70f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7447,7 +7447,7 @@ pub struct IAppBroadcastCameraCaptureStateChangedEventArgs_abi(
 pub struct IAppBroadcastGlobalSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastGlobalSettings {
     type Vtable = IAppBroadcastGlobalSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2999658405, 28924, 19991, [128, 189, 107, 160, 253, 63, 243, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2cb27a5_70fc_4e17_80bd_6ba0fd3ff3a0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7488,7 +7488,7 @@ pub struct IAppBroadcastGlobalSettings_abi(
 pub struct IAppBroadcastHeartbeatRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastHeartbeatRequestedEventArgs {
     type Vtable = IAppBroadcastHeartbeatRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3466936963, 61009, 19903, [148, 114, 121, 169, 237, 78, 33, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcea54283_ee51_4dbf_9472_79a9ed4e2165);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7507,7 +7507,7 @@ pub struct IAppBroadcastHeartbeatRequestedEventArgs_abi(
 pub struct IAppBroadcastManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastManagerStatics {
     type Vtable = IAppBroadcastManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(911081867, 7758, 16671, [171, 62, 146, 149, 152, 68, 193, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x364e018b_1e4e_411f_ab3e_92959844c156);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7528,7 +7528,7 @@ pub struct IAppBroadcastManagerStatics_abi(
 pub struct IAppBroadcastMicrophoneCaptureStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastMicrophoneCaptureStateChangedEventArgs {
     type Vtable = IAppBroadcastMicrophoneCaptureStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2825573865, 37952, 18696, [157, 9, 101, 183, 227, 21, 215, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa86ad5e9_9440_4908_9d09_65b7e315d795);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7547,7 +7547,7 @@ pub struct IAppBroadcastMicrophoneCaptureStateChangedEventArgs_abi(
 pub struct IAppBroadcastPlugIn(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastPlugIn {
     type Vtable = IAppBroadcastPlugIn_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1376525926, 25875, 17780, [172, 84, 35, 183, 151, 41, 97, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x520c1e66_6513_4574_ac54_23b79729615b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7569,7 +7569,7 @@ pub struct IAppBroadcastPlugIn_abi(
 pub struct IAppBroadcastPlugInManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastPlugInManager {
     type Vtable = IAppBroadcastPlugInManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3847281017, 10145, 18855, [187, 244, 215, 169, 233, 208, 118, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe550d979_27a1_49a7_bbf4_d7a9e9d07668);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7591,7 +7591,7 @@ pub struct IAppBroadcastPlugInManager_abi(
 pub struct IAppBroadcastPlugInManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastPlugInManagerStatics {
     type Vtable = IAppBroadcastPlugInManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4066663456, 23670, 19676, [147, 100, 130, 254, 158, 182, 83, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2645c20_5c76_4cdc_9364_82fe9eb6534d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7611,7 +7611,7 @@ pub struct IAppBroadcastPlugInManagerStatics_abi(
 pub struct IAppBroadcastPlugInStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastPlugInStateChangedEventArgs {
     type Vtable = IAppBroadcastPlugInStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1216467186, 43973, 20422, [132, 176, 137, 55, 11, 180, 114, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4881d0f2_abc5_4fc6_84b0_89370bb47212);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7629,7 +7629,7 @@ pub struct IAppBroadcastPlugInStateChangedEventArgs_abi(
 pub struct IAppBroadcastPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastPreview {
     type Vtable = IAppBroadcastPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(347475802, 28234, 19328, [161, 79, 103, 238, 119, 209, 83, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14b60f5a_6e4a_4b80_a14f_67ee77d153e7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7655,7 +7655,7 @@ pub struct IAppBroadcastPreview_abi(
 pub struct IAppBroadcastPreviewStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastPreviewStateChangedEventArgs {
     type Vtable = IAppBroadcastPreviewStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1515713246, 36330, 20102, [144, 173, 3, 252, 38, 185, 101, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a57f2de_8dea_4e86_90ad_03fc26b9653c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7674,7 +7674,7 @@ pub struct IAppBroadcastPreviewStateChangedEventArgs_abi(
 pub struct IAppBroadcastPreviewStreamReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastPreviewStreamReader {
     type Vtable = IAppBroadcastPreviewStreamReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2451737936, 56127, 16552, [140, 212, 244, 227, 113, 221, 171, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92228d50_db3f_40a8_8cd4_f4e371ddab37);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7703,7 +7703,7 @@ pub struct IAppBroadcastPreviewStreamReader_abi(
 pub struct IAppBroadcastPreviewStreamVideoFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastPreviewStreamVideoFrame {
     type Vtable = IAppBroadcastPreviewStreamVideoFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(17809057, 38142, 17561, [184, 192, 141, 36, 66, 121, 251, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x010fbea1_94fe_4499_b8c0_8d244279fb12);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7723,7 +7723,7 @@ pub struct IAppBroadcastPreviewStreamVideoFrame_abi(
 pub struct IAppBroadcastPreviewStreamVideoHeader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastPreviewStreamVideoHeader {
     type Vtable = IAppBroadcastPreviewStreamVideoHeader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2347720979, 55940, 17561, [167, 171, 135, 17, 140, 180, 161, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bef6113_da84_4499_a7ab_87118cb4a157);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7747,7 +7747,7 @@ pub struct IAppBroadcastPreviewStreamVideoHeader_abi(
 pub struct IAppBroadcastProviderSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastProviderSettings {
     type Vtable = IAppBroadcastProviderSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3272335202, 39240, 17807, [173, 80, 170, 6, 236, 3, 218, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc30bdf62_9948_458f_ad50_aa06ec03da08);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7778,7 +7778,7 @@ pub struct IAppBroadcastProviderSettings_abi(
 pub struct IAppBroadcastServices(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastServices {
     type Vtable = IAppBroadcastServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2254484694, 38555, 20028, [172, 58, 139, 4, 46, 228, 238, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8660b4d6_969b_4e3c_ac3a_8b042ee4ee63);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7812,7 +7812,7 @@ pub struct IAppBroadcastServices_abi(
 pub struct IAppBroadcastSignInStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastSignInStateChangedEventArgs {
     type Vtable = IAppBroadcastSignInStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(45519524, 22809, 19102, [141, 94, 201, 187, 13, 211, 55, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02b692a4_5919_4a9e_8d5e_c9bb0dd3377a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7831,7 +7831,7 @@ pub struct IAppBroadcastSignInStateChangedEventArgs_abi(
 pub struct IAppBroadcastState(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastState {
     type Vtable = IAppBroadcastState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3993503085, 32921, 19933, [146, 46, 197, 109, 172, 88, 171, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee08056d_8099_4ddd_922e_c56dac58abfb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7900,7 +7900,7 @@ pub struct IAppBroadcastState_abi(
 pub struct IAppBroadcastStreamAudioFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastStreamAudioFrame {
     type Vtable = IAppBroadcastStreamAudioFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020980424, 8634, 17727, [139, 183, 94, 147, 138, 46, 154, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefab4ac8_21ba_453f_8bb7_5e938a2e9a74);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7920,7 +7920,7 @@ pub struct IAppBroadcastStreamAudioFrame_abi(
 pub struct IAppBroadcastStreamAudioHeader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastStreamAudioHeader {
     type Vtable = IAppBroadcastStreamAudioHeader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3206653296, 27512, 16918, [159, 7, 90, 255, 82, 86, 241, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf21a570_6b78_4216_9f07_5aff5256f1b7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7945,7 +7945,7 @@ pub struct IAppBroadcastStreamAudioHeader_abi(
 pub struct IAppBroadcastStreamReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastStreamReader {
     type Vtable = IAppBroadcastStreamReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3006840057, 13156, 17504, [181, 241, 60, 194, 121, 106, 138, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb338bcf9_3364_4460_b5f1_3cc2796a8aa2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7980,7 +7980,7 @@ pub struct IAppBroadcastStreamReader_abi(
 pub struct IAppBroadcastStreamStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastStreamStateChangedEventArgs {
     type Vtable = IAppBroadcastStreamStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1359521587, 53256, 19081, [147, 190, 88, 174, 217, 97, 55, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5108a733_d008_4a89_93be_58aed961374e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7998,7 +7998,7 @@ pub struct IAppBroadcastStreamStateChangedEventArgs_abi(
 pub struct IAppBroadcastStreamVideoFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastStreamVideoFrame {
     type Vtable = IAppBroadcastStreamVideoFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(261607211, 51684, 20104, [129, 148, 216, 20, 203, 213, 133, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f97cf2b_c9e4_4e88_8194_d814cbd585d8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8018,7 +8018,7 @@ pub struct IAppBroadcastStreamVideoFrame_abi(
 pub struct IAppBroadcastStreamVideoHeader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastStreamVideoHeader {
     type Vtable = IAppBroadcastStreamVideoHeader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(194952910, 32306, 17197, [140, 162, 54, 191, 16, 185, 244, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b9ebece_7e32_432d_8ca2_36bf10b9f462);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8044,7 +8044,7 @@ pub struct IAppBroadcastStreamVideoHeader_abi(
 pub struct IAppBroadcastTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastTriggerDetails {
     type Vtable = IAppBroadcastTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3739986741, 60510, 19855, [177, 192, 93, 166, 232, 199, 86, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdeebab35_ec5e_4d8f_b1c0_5da6e8c75638);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8062,7 +8062,7 @@ pub struct IAppBroadcastTriggerDetails_abi(
 pub struct IAppBroadcastViewerCountChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastViewerCountChangedEventArgs {
     type Vtable = IAppBroadcastViewerCountChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3873511461, 21505, 19166, [139, 210, 193, 78, 206, 230, 128, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6e11825_5401_4ade_8bd2_c14ecee6807d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8080,7 +8080,7 @@ pub struct IAppBroadcastViewerCountChangedEventArgs_abi(
 pub struct IAppCapture(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCapture {
     type Vtable = IAppCapture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2538198099, 41626, 17901, [143, 41, 34, 208, 153, 66, 207, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9749d453_a29a_45ed_8f29_22d09942cff7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8103,7 +8103,7 @@ pub struct IAppCapture_abi(
 pub struct IAppCaptureAlternateShortcutKeys(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCaptureAlternateShortcutKeys {
     type Vtable = IAppCaptureAlternateShortcutKeys_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(434692335, 9068, 16633, [179, 143, 155, 125, 214, 93, 28, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19e8e0ef_236c_40f9_b38f_9b7dd65d1ccc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8160,7 +8160,7 @@ pub struct IAppCaptureAlternateShortcutKeys_abi(
 pub struct IAppCaptureAlternateShortcutKeys2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCaptureAlternateShortcutKeys2 {
     type Vtable = IAppCaptureAlternateShortcutKeys2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3278278800, 56599, 18416, [149, 229, 206, 66, 40, 108, 243, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3669090_dd17_47f0_95e5_ce42286cf338);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8185,7 +8185,7 @@ pub struct IAppCaptureAlternateShortcutKeys2_abi(
 pub struct IAppCaptureAlternateShortcutKeys3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCaptureAlternateShortcutKeys3 {
     type Vtable = IAppCaptureAlternateShortcutKeys3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2072069260, 16782, 18076, [164, 154, 69, 181, 151, 200, 38, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b81448c_418e_469c_a49a_45b597c826b6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8218,7 +8218,7 @@ pub struct IAppCaptureAlternateShortcutKeys3_abi(
 pub struct IAppCaptureDurationGeneratedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCaptureDurationGeneratedEventArgs {
     type Vtable = IAppCaptureDurationGeneratedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3254081083, 65441, 17609, [151, 95, 39, 251, 235, 85, 59, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1f5563b_ffa1_44c9_975f_27fbeb553b35);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8237,7 +8237,7 @@ pub struct IAppCaptureDurationGeneratedEventArgs_abi(
 pub struct IAppCaptureFileGeneratedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCaptureFileGeneratedEventArgs {
     type Vtable = IAppCaptureFileGeneratedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1099561972, 18014, 17855, [144, 127, 22, 91, 63, 178, 55, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4189fbf4_465e_45bf_907f_165b3fb23758);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8256,7 +8256,7 @@ pub struct IAppCaptureFileGeneratedEventArgs_abi(
 pub struct IAppCaptureManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCaptureManagerStatics {
     type Vtable = IAppCaptureManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2107522727, 25218, 18229, [141, 78, 170, 69, 249, 15, 103, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d9e3ea7_6282_4735_8d4e_aa45f90f6723);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8275,7 +8275,7 @@ pub struct IAppCaptureManagerStatics_abi(
 pub struct IAppCaptureMetadataWriter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCaptureMetadataWriter {
     type Vtable = IAppCaptureMetadataWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3771615351, 39599, 18100, [173, 49, 106, 96, 180, 65, 199, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0ce4877_9aaf_46b4_ad31_6a60b441c780);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8305,7 +8305,7 @@ pub struct IAppCaptureMetadataWriter_abi(
 pub struct IAppCaptureMicrophoneCaptureStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCaptureMicrophoneCaptureStateChangedEventArgs {
     type Vtable = IAppCaptureMicrophoneCaptureStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(843916446, 17852, 19509, [188, 53, 228, 105, 252, 122, 105, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x324d249e_45bc_4c35_bc35_e469fc7a69e0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8324,7 +8324,7 @@ pub struct IAppCaptureMicrophoneCaptureStateChangedEventArgs_abi(
 pub struct IAppCaptureRecordOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCaptureRecordOperation {
     type Vtable = IAppCaptureRecordOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3328188585, 5432, 18780, [155, 187, 43, 168, 112, 236, 88, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc66020a9_1538_495c_9bbb_2ba870ec5861);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8363,7 +8363,7 @@ pub struct IAppCaptureRecordOperation_abi(
 pub struct IAppCaptureRecordingStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCaptureRecordingStateChangedEventArgs {
     type Vtable = IAppCaptureRecordingStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(620529426, 58117, 18701, [180, 21, 107, 28, 144, 73, 115, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24fc8712_e305_490d_b415_6b1c9049736b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8382,7 +8382,7 @@ pub struct IAppCaptureRecordingStateChangedEventArgs_abi(
 pub struct IAppCaptureServices(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCaptureServices {
     type Vtable = IAppCaptureServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1157546165, 13557, 20248, [174, 140, 185, 18, 58, 187, 252, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44fec0b5_34f5_4f18_ae8c_b9123abbfc0d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8404,7 +8404,7 @@ pub struct IAppCaptureServices_abi(
 pub struct IAppCaptureSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCaptureSettings {
     type Vtable = IAppCaptureSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(342375046, 34823, 18643, [136, 58, 151, 14, 228, 83, 42, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14683a86_8807_48d3_883a_970ee4532a39);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8463,7 +8463,7 @@ pub struct IAppCaptureSettings_abi(
 pub struct IAppCaptureSettings2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCaptureSettings2 {
     type Vtable = IAppCaptureSettings2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4239970023, 57963, 18287, [155, 26, 236, 52, 45, 42, 143, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcb8cee7_e26b_476f_9b1a_ec342d2a8fde);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8482,7 +8482,7 @@ pub struct IAppCaptureSettings2_abi(
 pub struct IAppCaptureSettings3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCaptureSettings3 {
     type Vtable = IAppCaptureSettings3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2838823678, 35010, 17110, [170, 170, 64, 254, 255, 215, 90, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa93502fe_88c2_42d6_aaaa_40feffd75aec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8501,7 +8501,7 @@ pub struct IAppCaptureSettings3_abi(
 pub struct IAppCaptureSettings4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCaptureSettings4 {
     type Vtable = IAppCaptureSettings4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(130185036, 6785, 18479, [162, 68, 4, 157, 149, 242, 91, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x07c2774c_1a81_482f_a244_049d95f25b0b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8526,7 +8526,7 @@ pub struct IAppCaptureSettings4_abi(
 pub struct IAppCaptureSettings5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCaptureSettings5 {
     type Vtable = IAppCaptureSettings5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(411649314, 45288, 19360, [143, 19, 62, 170, 95, 164, 1, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18894522_b0e8_4ba0_8f13_3eaa5fa4013b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8547,7 +8547,7 @@ pub struct IAppCaptureSettings5_abi(
 pub struct IAppCaptureState(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCaptureState {
     type Vtable = IAppCaptureState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1930642290, 54507, 17614, [149, 56, 70, 95, 80, 106, 196, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73134372_d4eb_44ce_9538_465f506ac4ea);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8579,7 +8579,7 @@ pub struct IAppCaptureState_abi(
 pub struct IAppCaptureStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCaptureStatics {
     type Vtable = IAppCaptureStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4179811692, 2686, 20084, [139, 32, 156, 31, 144, 45, 8, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf922dd6c_0a7e_4e74_8b20_9c1f902d08a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8597,7 +8597,7 @@ pub struct IAppCaptureStatics_abi(
 pub struct IAppCaptureStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCaptureStatics2 {
     type Vtable = IAppCaptureStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3000533460, 33644, 19876, [175, 215, 250, 204, 4, 30, 28, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2d881d4_836c_4da4_afd7_facc041e1cf3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8616,7 +8616,7 @@ pub struct IAppCaptureStatics2_abi(
 pub struct ICameraCaptureUI(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraCaptureUI {
     type Vtable = ICameraCaptureUI_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1213756736, 28563, 19380, [184, 243, 232, 158, 72, 148, 140, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48587540_6f93_4bb4_b8f3_e89e48948c91);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8637,7 +8637,7 @@ pub struct ICameraCaptureUI_abi(
 pub struct ICameraCaptureUIPhotoCaptureSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraCaptureUIPhotoCaptureSettings {
     type Vtable = ICameraCaptureUIPhotoCaptureSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3119890071, 13426, 18088, [138, 158, 4, 206, 66, 204, 201, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9f5be97_3472_46a8_8a9e_04ce42ccc97d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8668,7 +8668,7 @@ pub struct ICameraCaptureUIPhotoCaptureSettings_abi(
 pub struct ICameraCaptureUIVideoCaptureSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraCaptureUIVideoCaptureSettings {
     type Vtable = ICameraCaptureUIVideoCaptureSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1693003039, 41613, 16986, [184, 79, 229, 104, 51, 95, 242, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64e92d1f_a28d_425a_b84f_e568335ff24e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8693,7 +8693,7 @@ pub struct ICameraCaptureUIVideoCaptureSettings_abi(
 pub struct ICameraOptionsUIStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraOptionsUIStatics {
     type Vtable = ICameraOptionsUIStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(990731828, 14598, 19325, [148, 108, 123, 222, 132, 68, 153, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b0d5e34_3906_4b7d_946c_7bde844499ae);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8711,7 +8711,7 @@ pub struct ICameraOptionsUIStatics_abi(
 pub struct ICapturedFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICapturedFrame {
     type Vtable = ICapturedFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(500358687, 22299, 17624, [142, 128, 160, 138, 21, 120, 118, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1dd2de1f_571b_44d8_8e80_a08a1578766e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8730,7 +8730,7 @@ pub struct ICapturedFrame_abi(
 pub struct ICapturedFrame2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICapturedFrame2 {
     type Vtable = ICapturedFrame2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1413457617, 48504, 18534, [173, 218, 36, 49, 75, 198, 93, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x543fa6d1_bd78_4866_adda_24314bc65dea);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8750,7 +8750,7 @@ pub struct ICapturedFrame2_abi(
 pub struct ICapturedFrameControlValues(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICapturedFrameControlValues {
     type Vtable = ICapturedFrameControlValues_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2428918655, 19981, 19620, [136, 45, 122, 20, 79, 237, 10, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90c65b7f_4e0d_4ca4_882d_7a144fed0a90);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8785,7 +8785,7 @@ pub struct ICapturedFrameControlValues_abi(
 pub struct ICapturedFrameControlValues2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICapturedFrameControlValues2 {
     type Vtable = ICapturedFrameControlValues2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1342909320, 1746, 19111, [167, 219, 211, 122, 247, 51, 33, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x500b2b88_06d2_4aa7_a7db_d37af73321d8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8812,7 +8812,7 @@ pub struct ICapturedFrameControlValues2_abi(
 pub struct ICapturedFrameWithSoftwareBitmap(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICapturedFrameWithSoftwareBitmap {
     type Vtable = ICapturedFrameWithSoftwareBitmap_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3046017902, 34051, 18869, [158, 134, 137, 125, 38, 163, 255, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb58e8b6e_8503_49b5_9e86_897d26a3ff3d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8831,7 +8831,7 @@ pub struct ICapturedFrameWithSoftwareBitmap_abi(
 pub struct ICapturedPhoto(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICapturedPhoto {
     type Vtable = ICapturedPhoto_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2966322778, 53196, 19820, [138, 209, 8, 105, 32, 138, 202, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0ce7e5a_cfcc_4d6c_8ad1_0869208aca16);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8850,7 +8850,7 @@ pub struct ICapturedPhoto_abi(
 pub struct IGameBarServices(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameBarServices {
     type Vtable = IGameBarServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(767470935, 20646, 18846, [140, 108, 211, 48, 167, 49, 23, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2dbead57_50a6_499e_8c6c_d330a7311796);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8878,7 +8878,7 @@ pub struct IGameBarServices_abi(
 pub struct IGameBarServicesCommandEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameBarServicesCommandEventArgs {
     type Vtable = IGameBarServicesCommandEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2806130354, 61814, 20431, [143, 187, 207, 105, 139, 46, 184, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa74226b2_f176_4fcf_8fbb_cf698b2eb8e0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8897,7 +8897,7 @@ pub struct IGameBarServicesCommandEventArgs_abi(
 pub struct IGameBarServicesManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameBarServicesManager {
     type Vtable = IGameBarServicesManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(978033914, 32651, 19552, [157, 187, 11, 205, 38, 45, 255, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a4b9cfa_7f8b_4c60_9dbb_0bcd262dffc6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8918,7 +8918,7 @@ pub struct IGameBarServicesManager_abi(
 pub struct IGameBarServicesManagerGameBarServicesCreatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameBarServicesManagerGameBarServicesCreatedEventArgs {
     type Vtable = IGameBarServicesManagerGameBarServicesCreatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3991780764, 5182, 18851, [165, 234, 11, 25, 149, 200, 212, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xededbd9c_143e_49a3_a5ea_0b1995c8d46e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8936,7 +8936,7 @@ pub struct IGameBarServicesManagerGameBarServicesCreatedEventArgs_abi(
 pub struct IGameBarServicesManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameBarServicesManagerStatics {
     type Vtable = IGameBarServicesManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(885110294, 65317, 18322, [152, 242, 211, 117, 63, 21, 172, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34c1b616_ff25_4792_98f2_d3753f15ac13);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8954,7 +8954,7 @@ pub struct IGameBarServicesManagerStatics_abi(
 pub struct IGameBarServicesTargetInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameBarServicesTargetInfo {
     type Vtable = IGameBarServicesTargetInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3022008210, 5649, 19973, [182, 239, 223, 215, 55, 174, 51, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4202f92_1611_4e05_b6ef_dfd737ae33b0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8975,7 +8975,7 @@ pub struct IGameBarServicesTargetInfo_abi(
 pub struct ILowLagMediaRecording(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLagMediaRecording {
     type Vtable = ILowLagMediaRecording_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1103674103, 65343, 18928, [164, 119, 241, 149, 227, 206, 81, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41c8baf7_ff3f_49f0_a477_f195e3ce5108);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8998,7 +8998,7 @@ pub struct ILowLagMediaRecording_abi(
 pub struct ILowLagMediaRecording2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLagMediaRecording2 {
     type Vtable = ILowLagMediaRecording2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1667876696, 22084, 16866, [151, 175, 142, 245, 106, 37, 226, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6369c758_5644_41e2_97af_8ef56a25e225);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9019,7 +9019,7 @@ pub struct ILowLagMediaRecording2_abi(
 pub struct ILowLagMediaRecording3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLagMediaRecording3 {
     type Vtable = ILowLagMediaRecording3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1546890002, 18679, 18394, [180, 30, 144, 136, 10, 95, 224, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c33ab12_48f7_47da_b41e_90880a5fe0ec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9040,7 +9040,7 @@ pub struct ILowLagMediaRecording3_abi(
 pub struct ILowLagPhotoCapture(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLagPhotoCapture {
     type Vtable = ILowLagPhotoCapture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2742178231, 27460, 18237, [143, 36, 247, 3, 214, 192, 236, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa37251b7_6b44_473d_8f24_f703d6c0ec44);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9061,7 +9061,7 @@ pub struct ILowLagPhotoCapture_abi(
 pub struct ILowLagPhotoSequenceCapture(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLagPhotoSequenceCapture {
     type Vtable = ILowLagPhotoSequenceCapture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2093172411, 47529, 19601, [143, 250, 40, 126, 156, 102, 134, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7cc346bb_b9a9_4c91_8ffa_287e9c668669);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9088,7 +9088,7 @@ pub struct ILowLagPhotoSequenceCapture_abi(
 pub struct IMediaCapture(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCapture {
     type Vtable = IMediaCapture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3323657140, 64272, 18996, [172, 24, 202, 128, 217, 200, 231, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc61afbb4_fb10_4a34_ac18_ca80d9c8e7ee);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9148,7 +9148,7 @@ pub struct IMediaCapture_abi(
 pub struct IMediaCapture2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCapture2 {
     type Vtable = IMediaCapture2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2630255200, 32161, 16451, [182, 82, 33, 184, 135, 141, 175, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9cc68260_7da1_4043_b652_21b8878daff9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9179,7 +9179,7 @@ pub struct IMediaCapture2_abi(
 pub struct IMediaCapture3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCapture3 {
     type Vtable = IMediaCapture3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3558043440, 5476, 18030, [188, 10, 175, 148, 224, 42, 176, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4136f30_1564_466e_bc0a_af94e02ab016);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9206,7 +9206,7 @@ pub struct IMediaCapture3_abi(
 pub struct IMediaCapture4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCapture4 {
     type Vtable = IMediaCapture4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3134025686, 64264, 18759, [174, 162, 206, 20, 239, 240, 206, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbacd6fd6_fb08_4947_aea2_ce14eff0ce13);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9248,7 +9248,7 @@ pub struct IMediaCapture4_abi(
 pub struct IMediaCapture5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCapture5 {
     type Vtable = IMediaCapture5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3665329186, 15003, 18208, [167, 30, 151, 144, 10, 49, 110, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda787c22_3a9b_4720_a71e_97900a316e5a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9279,7 +9279,7 @@ pub struct IMediaCapture5_abi(
 pub struct IMediaCapture6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCapture6 {
     type Vtable = IMediaCapture6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(579422397, 19232, 19377, [159, 214, 165, 131, 33, 42, 16, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x228948bd_4b20_4bb1_9fd6_a583212a1012);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9302,7 +9302,7 @@ pub struct IMediaCapture6_abi(
 pub struct IMediaCapture7(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCapture7 {
     type Vtable = IMediaCapture7_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2439639298, 34952, 21530, [149, 188, 36, 228, 212, 98, 84, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9169f102_8888_541a_95bc_24e4d462542a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9321,7 +9321,7 @@ pub struct IMediaCapture7_abi(
 pub struct IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
     type Vtable = IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2637140493, 42376, 17350, [137, 214, 90, 211, 34, 175, 0, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d2f920d_a588_43c6_89d6_5ad322af006a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9340,7 +9340,7 @@ pub struct IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_abi(
 pub struct IMediaCaptureFailedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureFailedEventArgs {
     type Vtable = IMediaCaptureFailedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2164122612, 21700, 17088, [141, 25, 206, 161, 168, 124, 161, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80fde3f4_54c4_42c0_8d19_cea1a87ca18b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9359,7 +9359,7 @@ pub struct IMediaCaptureFailedEventArgs_abi(
 pub struct IMediaCaptureFocusChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureFocusChangedEventArgs {
     type Vtable = IMediaCaptureFocusChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2179054719, 8823, 18750, [171, 238, 211, 244, 79, 249, 140, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81e1bc7f_2277_493e_abee_d3f44ff98c04);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9378,7 +9378,7 @@ pub struct IMediaCaptureFocusChangedEventArgs_abi(
 pub struct IMediaCaptureInitializationSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureInitializationSettings {
     type Vtable = IMediaCaptureInitializationSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2541927024, 60005, 18688, [147, 86, 140, 168, 135, 114, 104, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9782ba70_ea65_4900_9356_8ca887726884);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9403,7 +9403,7 @@ pub struct IMediaCaptureInitializationSettings_abi(
 pub struct IMediaCaptureInitializationSettings2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureInitializationSettings2 {
     type Vtable = IMediaCaptureInitializationSettings2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1078855206, 51676, 17385, [174, 228, 230, 191, 27, 87, 180, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x404e0626_c9dc_43e9_aee4_e6bf1b57b44c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9424,7 +9424,7 @@ pub struct IMediaCaptureInitializationSettings2_abi(
 pub struct IMediaCaptureInitializationSettings3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureInitializationSettings3 {
     type Vtable = IMediaCaptureInitializationSettings3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1096831389, 48712, 18224, [129, 4, 12, 246, 233, 233, 121, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4160519d_be48_4730_8104_0cf6e9e97948);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9449,7 +9449,7 @@ pub struct IMediaCaptureInitializationSettings3_abi(
 pub struct IMediaCaptureInitializationSettings4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureInitializationSettings4 {
     type Vtable = IMediaCaptureInitializationSettings4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4110591287, 19639, 19752, [149, 237, 79, 159, 1, 46, 5, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf502a537_4cb7_4d28_95ed_4f9f012e0518);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9474,7 +9474,7 @@ pub struct IMediaCaptureInitializationSettings4_abi(
 pub struct IMediaCaptureInitializationSettings5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureInitializationSettings5 {
     type Vtable = IMediaCaptureInitializationSettings5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3584222136, 9766, 20116, [183, 179, 83, 8, 160, 246, 75, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5a2e3b8_2626_4e94_b7b3_5308a0f64b1a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9499,7 +9499,7 @@ pub struct IMediaCaptureInitializationSettings5_abi(
 pub struct IMediaCaptureInitializationSettings6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureInitializationSettings6 {
     type Vtable = IMediaCaptureInitializationSettings6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3001183047, 15793, 19763, [171, 99, 15, 250, 9, 5, 101, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2e26b47_3db1_4d33_ab63_0ffa09056585);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9518,7 +9518,7 @@ pub struct IMediaCaptureInitializationSettings6_abi(
 pub struct IMediaCaptureInitializationSettings7(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureInitializationSettings7 {
     type Vtable = IMediaCaptureInitializationSettings7_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1096051047, 62858, 23938, [158, 244, 237, 87, 47, 181, 227, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41546967_f58a_5d82_9ef4_ed572fb5e34e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9543,7 +9543,7 @@ pub struct IMediaCaptureInitializationSettings7_abi(
 pub struct IMediaCapturePauseResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCapturePauseResult {
     type Vtable = IMediaCapturePauseResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2932112547, 17527, 19204, [160, 111, 44, 28, 81, 130, 254, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaec47ca3_4477_4b04_a06f_2c1c5182fe9d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9563,7 +9563,7 @@ pub struct IMediaCapturePauseResult_abi(
 pub struct IMediaCaptureRelativePanelWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureRelativePanelWatcher {
     type Vtable = IMediaCaptureRelativePanelWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2106156390, 1214, 23433, [179, 14, 189, 52, 169, 241, 45, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d896566_04be_5b89_b30e_bd34a9f12db0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9588,7 +9588,7 @@ pub struct IMediaCaptureRelativePanelWatcher_abi(
 pub struct IMediaCaptureSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureSettings {
     type Vtable = IMediaCaptureSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(495168254, 27973, 17527, [141, 196, 172, 91, 192, 28, 64, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d83aafe_6d45_4477_8dc4_ac5bc01c4091);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9610,7 +9610,7 @@ pub struct IMediaCaptureSettings_abi(
 pub struct IMediaCaptureSettings2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureSettings2 {
     type Vtable = IMediaCaptureSettings2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1872657659, 64159, 19219, [156, 190, 90, 185, 79, 31, 52, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f9e7cfb_fa9f_4b13_9cbe_5ab94f1f3493);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9638,7 +9638,7 @@ pub struct IMediaCaptureSettings2_abi(
 pub struct IMediaCaptureSettings3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureSettings3 {
     type Vtable = IMediaCaptureSettings3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(809265090, 32856, 19227, [184, 119, 140, 46, 243, 82, 132, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x303c67c2_8058_4b1b_b877_8c2ef3528440);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9657,7 +9657,7 @@ pub struct IMediaCaptureSettings3_abi(
 pub struct IMediaCaptureStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureStatics {
     type Vtable = IMediaCaptureStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2901377535, 39405, 17989, [150, 94, 25, 37, 207, 198, 56, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xacef81ff_99ed_4645_965e_1925cfc63834);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9681,7 +9681,7 @@ pub struct IMediaCaptureStatics_abi(
 pub struct IMediaCaptureStopResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureStopResult {
     type Vtable = IMediaCaptureStopResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4191906346, 41106, 19153, [151, 212, 242, 1, 249, 208, 130, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9db6a2a_a092_4ad1_97d4_f201f9d082db);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9701,7 +9701,7 @@ pub struct IMediaCaptureStopResult_abi(
 pub struct IMediaCaptureVideoPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureVideoPreview {
     type Vtable = IMediaCaptureVideoPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(661811315, 21662, 17535, [162, 10, 79, 3, 196, 121, 216, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27727073_549e_447f_a20a_4f03c479d8c0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9726,7 +9726,7 @@ pub struct IMediaCaptureVideoPreview_abi(
 pub struct IMediaCaptureVideoProfile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureVideoProfile {
     type Vtable = IMediaCaptureVideoProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(564163519, 41966, 20175, [158, 246, 80, 176, 188, 78, 19, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x21a073bf_a3ee_4ecf_9ef6_50b0bc4e1305);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9753,7 +9753,7 @@ pub struct IMediaCaptureVideoProfile_abi(
 pub struct IMediaCaptureVideoProfile2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureVideoProfile2 {
     type Vtable = IMediaCaptureVideoProfile2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547894623, 38094, 18063, [147, 22, 252, 91, 194, 99, 143, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97ddc95f_94ce_468f_9316_fc5bc2638f6b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9774,7 +9774,7 @@ pub struct IMediaCaptureVideoProfile2_abi(
 pub struct IMediaCaptureVideoProfileMediaDescription(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureVideoProfileMediaDescription {
     type Vtable = IMediaCaptureVideoProfileMediaDescription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2148708335, 46737, 18943, [131, 242, 193, 231, 110, 170, 234, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8012afef_b691_49ff_83f2_c1e76eaaea1b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9796,7 +9796,7 @@ pub struct IMediaCaptureVideoProfileMediaDescription_abi(
 pub struct IMediaCaptureVideoProfileMediaDescription2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCaptureVideoProfileMediaDescription2 {
     type Vtable = IMediaCaptureVideoProfileMediaDescription2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3332828947, 12845, 16698, [184, 90, 104, 168, 142, 2, 244, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6a6ef13_322d_413a_b85a_68a88e02f4e9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9816,7 +9816,7 @@ pub struct IMediaCaptureVideoProfileMediaDescription2_abi(
 pub struct IOptionalReferencePhotoCapturedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOptionalReferencePhotoCapturedEventArgs {
     type Vtable = IOptionalReferencePhotoCapturedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1192200371, 7789, 16465, [156, 139, 241, 216, 90, 240, 71, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x470f88b3_1e6d_4051_9c8b_f1d85af047b7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9835,7 +9835,7 @@ pub struct IOptionalReferencePhotoCapturedEventArgs_abi(
 pub struct IPhotoCapturedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoCapturedEventArgs {
     type Vtable = IPhotoCapturedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(926677953, 38990, 20464, [191, 133, 28, 0, 170, 188, 90, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x373bfbc1_984e_4ff0_bf85_1c00aabc5a45);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9856,7 +9856,7 @@ pub struct IPhotoCapturedEventArgs_abi(
 pub struct IPhotoConfirmationCapturedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoConfirmationCapturedEventArgs {
     type Vtable = IPhotoConfirmationCapturedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2873570930, 49802, 18471, [143, 141, 54, 54, 211, 190, 181, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab473672_c28a_4827_8f8d_3636d3beb51e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9876,7 +9876,7 @@ pub struct IPhotoConfirmationCapturedEventArgs_abi(
 pub struct IScreenCapture(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScreenCapture {
     type Vtable = IScreenCapture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2300026615, 52498, 19982, [166, 212, 91, 61, 233, 139, 46, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89179ef7_cd12_4e0e_a6d4_5b3de98b2e9b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9903,7 +9903,7 @@ pub struct IScreenCapture_abi(
 pub struct IScreenCaptureStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScreenCaptureStatics {
     type Vtable = IScreenCaptureStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3365454768, 51365, 4578, [139, 139, 8, 0, 32, 12, 154, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc898c3b0_c8a5_11e2_8b8b_0800200c9a66);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9921,7 +9921,7 @@ pub struct IScreenCaptureStatics_abi(
 pub struct ISourceSuspensionChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISourceSuspensionChangedEventArgs {
     type Vtable = ISourceSuspensionChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(785283934, 54427, 17300, [188, 50, 249, 125, 108, 237, 236, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ece7b5e_d49b_4394_bc32_f97d6cedec1c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9940,7 +9940,7 @@ pub struct ISourceSuspensionChangedEventArgs_abi(
 pub struct IVideoStreamConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoStreamConfiguration {
     type Vtable = IVideoStreamConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3631680111, 17296, 19294, [173, 62, 15, 138, 240, 150, 52, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8770a6f_4390_4b5e_ad3e_0f8af0963490);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10061,7 +10061,7 @@ unsafe impl ::windows::runtime::RuntimeType for LowLagMediaRecording {
 }
 unsafe impl ::windows::runtime::Interface for LowLagMediaRecording {
     type Vtable = ILowLagMediaRecording_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1103674103, 65343, 18928, [164, 119, 241, 149, 227, 206, 81, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41c8baf7_ff3f_49f0_a477_f195e3ce5108);
 }
 impl ::windows::runtime::RuntimeName for LowLagMediaRecording {
     const NAME: &'static str = "Windows.Media.Capture.LowLagMediaRecording";
@@ -10135,7 +10135,7 @@ unsafe impl ::windows::runtime::RuntimeType for LowLagPhotoCapture {
 }
 unsafe impl ::windows::runtime::Interface for LowLagPhotoCapture {
     type Vtable = ILowLagPhotoCapture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2742178231, 27460, 18237, [143, 36, 247, 3, 214, 192, 236, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa37251b7_6b44_473d_8f24_f703d6c0ec44);
 }
 impl ::windows::runtime::RuntimeName for LowLagPhotoCapture {
     const NAME: &'static str = "Windows.Media.Capture.LowLagPhotoCapture";
@@ -10233,7 +10233,7 @@ unsafe impl ::windows::runtime::RuntimeType for LowLagPhotoSequenceCapture {
 }
 unsafe impl ::windows::runtime::Interface for LowLagPhotoSequenceCapture {
     type Vtable = ILowLagPhotoSequenceCapture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2093172411, 47529, 19601, [143, 250, 40, 126, 156, 102, 134, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7cc346bb_b9a9_4c91_8ffa_287e9c668669);
 }
 impl ::windows::runtime::RuntimeName for LowLagPhotoSequenceCapture {
     const NAME: &'static str = "Windows.Media.Capture.LowLagPhotoSequenceCapture";
@@ -10889,7 +10889,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaCapture {
 }
 unsafe impl ::windows::runtime::Interface for MediaCapture {
     type Vtable = IMediaCapture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3323657140, 64272, 18996, [172, 24, 202, 128, 217, 200, 231, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc61afbb4_fb10_4a34_ac18_ca80d9c8e7ee);
 }
 impl ::windows::runtime::RuntimeName for MediaCapture {
     const NAME: &'static str = "Windows.Media.Capture.MediaCapture";
@@ -11009,7 +11009,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaCaptureDeviceExclusiveContr
 }
 unsafe impl ::windows::runtime::Interface for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
     type Vtable = IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2637140493, 42376, 17350, [137, 214, 90, 211, 34, 175, 0, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d2f920d_a588_43c6_89d6_5ad322af006a);
 }
 impl ::windows::runtime::RuntimeName for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureDeviceExclusiveControlStatusChangedEventArgs";
@@ -11083,7 +11083,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaCaptureFailedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for MediaCaptureFailedEventArgs {
     type Vtable = IMediaCaptureFailedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2164122612, 21700, 17088, [141, 25, 206, 161, 168, 124, 161, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80fde3f4_54c4_42c0_8d19_cea1a87ca18b);
 }
 impl ::windows::runtime::RuntimeName for MediaCaptureFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureFailedEventArgs";
@@ -11152,7 +11152,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaCaptureFailedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for MediaCaptureFailedEventHandler {
     type Vtable = MediaCaptureFailedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(538243067, 23768, 20232, [163, 20, 13, 54, 13, 165, 159, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2014effb_5cd8_4f08_a314_0d360da59f14);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11225,7 +11225,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaCaptureFocusChangedEventArg
 }
 unsafe impl ::windows::runtime::Interface for MediaCaptureFocusChangedEventArgs {
     type Vtable = IMediaCaptureFocusChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2179054719, 8823, 18750, [171, 238, 211, 244, 79, 249, 140, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81e1bc7f_2277_493e_abee_d3f44ff98c04);
 }
 impl ::windows::runtime::RuntimeName for MediaCaptureFocusChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureFocusChangedEventArgs";
@@ -11534,7 +11534,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaCaptureInitializationSettin
 }
 unsafe impl ::windows::runtime::Interface for MediaCaptureInitializationSettings {
     type Vtable = IMediaCaptureInitializationSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2541927024, 60005, 18688, [147, 86, 140, 168, 135, 114, 104, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9782ba70_ea65_4900_9356_8ca887726884);
 }
 impl ::windows::runtime::RuntimeName for MediaCaptureInitializationSettings {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureInitializationSettings";
@@ -11637,7 +11637,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaCapturePauseResult {
 }
 unsafe impl ::windows::runtime::Interface for MediaCapturePauseResult {
     type Vtable = IMediaCapturePauseResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2932112547, 17527, 19204, [160, 111, 44, 28, 81, 130, 254, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaec47ca3_4477_4b04_a06f_2c1c5182fe9d);
 }
 impl ::windows::runtime::RuntimeName for MediaCapturePauseResult {
     const NAME: &'static str = "Windows.Media.Capture.MediaCapturePauseResult";
@@ -11759,7 +11759,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaCaptureRelativePanelWatcher
 }
 unsafe impl ::windows::runtime::Interface for MediaCaptureRelativePanelWatcher {
     type Vtable = IMediaCaptureRelativePanelWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2106156390, 1214, 23433, [179, 14, 189, 52, 169, 241, 45, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d896566_04be_5b89_b30e_bd34a9f12db0);
 }
 impl ::windows::runtime::RuntimeName for MediaCaptureRelativePanelWatcher {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureRelativePanelWatcher";
@@ -11959,7 +11959,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaCaptureSettings {
 }
 unsafe impl ::windows::runtime::Interface for MediaCaptureSettings {
     type Vtable = IMediaCaptureSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(495168254, 27973, 17527, [141, 196, 172, 91, 192, 28, 64, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d83aafe_6d45_4477_8dc4_ac5bc01c4091);
 }
 impl ::windows::runtime::RuntimeName for MediaCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureSettings";
@@ -12060,7 +12060,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaCaptureStopResult {
 }
 unsafe impl ::windows::runtime::Interface for MediaCaptureStopResult {
     type Vtable = IMediaCaptureStopResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4191906346, 41106, 19153, [151, 212, 242, 1, 249, 208, 130, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9db6a2a_a092_4ad1_97d4_f201f9d082db);
 }
 impl ::windows::runtime::RuntimeName for MediaCaptureStopResult {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureStopResult";
@@ -12234,7 +12234,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaCaptureVideoProfile {
 }
 unsafe impl ::windows::runtime::Interface for MediaCaptureVideoProfile {
     type Vtable = IMediaCaptureVideoProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(564163519, 41966, 20175, [158, 246, 80, 176, 188, 78, 19, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x21a073bf_a3ee_4ecf_9ef6_50b0bc4e1305);
 }
 impl ::windows::runtime::RuntimeName for MediaCaptureVideoProfile {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureVideoProfile";
@@ -12351,7 +12351,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaCaptureVideoProfileMediaDes
 }
 unsafe impl ::windows::runtime::Interface for MediaCaptureVideoProfileMediaDescription {
     type Vtable = IMediaCaptureVideoProfileMediaDescription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2148708335, 46737, 18943, [131, 242, 193, 231, 110, 170, 234, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8012afef_b691_49ff_83f2_c1e76eaaea1b);
 }
 impl ::windows::runtime::RuntimeName for MediaCaptureVideoProfileMediaDescription {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureVideoProfileMediaDescription";
@@ -12478,7 +12478,7 @@ unsafe impl ::windows::runtime::RuntimeType for OptionalReferencePhotoCapturedEv
 }
 unsafe impl ::windows::runtime::Interface for OptionalReferencePhotoCapturedEventArgs {
     type Vtable = IOptionalReferencePhotoCapturedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1192200371, 7789, 16465, [156, 139, 241, 216, 90, 240, 71, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x470f88b3_1e6d_4051_9c8b_f1d85af047b7);
 }
 impl ::windows::runtime::RuntimeName for OptionalReferencePhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.OptionalReferencePhotoCapturedEventArgs";
@@ -12584,7 +12584,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoCapturedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for PhotoCapturedEventArgs {
     type Vtable = IPhotoCapturedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(926677953, 38990, 20464, [191, 133, 28, 0, 170, 188, 90, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x373bfbc1_984e_4ff0_bf85_1c00aabc5a45);
 }
 impl ::windows::runtime::RuntimeName for PhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.PhotoCapturedEventArgs";
@@ -12659,7 +12659,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoConfirmationCapturedEventAr
 }
 unsafe impl ::windows::runtime::Interface for PhotoConfirmationCapturedEventArgs {
     type Vtable = IPhotoConfirmationCapturedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2873570930, 49802, 18471, [143, 141, 54, 54, 211, 190, 181, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab473672_c28a_4827_8f8d_3636d3beb51e);
 }
 impl ::windows::runtime::RuntimeName for PhotoConfirmationCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.PhotoConfirmationCapturedEventArgs";
@@ -12754,7 +12754,7 @@ unsafe impl ::windows::runtime::RuntimeType for RecordLimitationExceededEventHan
 }
 unsafe impl ::windows::runtime::Interface for RecordLimitationExceededEventHandler {
     type Vtable = RecordLimitationExceededEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1068404526, 20449, 20477, [170, 186, 225, 241, 51, 125, 78, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3fae8f2e_4fe1_4ffd_aaba_e1f1337d4e53);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12874,7 +12874,7 @@ unsafe impl ::windows::runtime::RuntimeType for ScreenCapture {
 }
 unsafe impl ::windows::runtime::Interface for ScreenCapture {
     type Vtable = IScreenCapture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2300026615, 52498, 19982, [166, 212, 91, 61, 233, 139, 46, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89179ef7_cd12_4e0e_a6d4_5b3de98b2e9b);
 }
 impl ::windows::runtime::RuntimeName for ScreenCapture {
     const NAME: &'static str = "Windows.Media.Capture.ScreenCapture";
@@ -12948,7 +12948,7 @@ unsafe impl ::windows::runtime::RuntimeType for SourceSuspensionChangedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for SourceSuspensionChangedEventArgs {
     type Vtable = ISourceSuspensionChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(785283934, 54427, 17300, [188, 50, 249, 125, 108, 237, 236, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ece7b5e_d49b_4394_bc32_f97d6cedec1c);
 }
 impl ::windows::runtime::RuntimeName for SourceSuspensionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.SourceSuspensionChangedEventArgs";
@@ -13096,7 +13096,7 @@ unsafe impl ::windows::runtime::RuntimeType for VideoStreamConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for VideoStreamConfiguration {
     type Vtable = IVideoStreamConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3631680111, 17296, 19294, [173, 62, 15, 138, 240, 150, 52, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8770a6f_4390_4b5e_ad3e_0f8af0963490);
 }
 impl ::windows::runtime::RuntimeName for VideoStreamConfiguration {
     const NAME: &'static str = "Windows.Media.Capture.VideoStreamConfiguration";

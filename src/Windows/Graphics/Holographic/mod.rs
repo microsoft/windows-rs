@@ -182,7 +182,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicCamera {
 }
 unsafe impl ::windows::runtime::Interface for HolographicCamera {
     type Vtable = IHolographicCamera_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3840508997, 39917, 18816, [155, 160, 232, 118, 128, 209, 203, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4e98445_9bed_4980_9ba0_e87680d1cb74);
 }
 impl ::windows::runtime::RuntimeName for HolographicCamera {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCamera";
@@ -327,7 +327,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicCameraPose {
 }
 unsafe impl ::windows::runtime::Interface for HolographicCameraPose {
     type Vtable = IHolographicCameraPose_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(226328112, 4830, 17853, [145, 43, 199, 246, 86, 21, 153, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d7d7e30_12de_45bd_912b_c7f6561599d1);
 }
 impl ::windows::runtime::RuntimeName for HolographicCameraPose {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCameraPose";
@@ -472,7 +472,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicCameraRenderingParame
 }
 unsafe impl ::windows::runtime::Interface for HolographicCameraRenderingParameters {
     type Vtable = IHolographicCameraRenderingParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2393648849, 23540, 19990, [130, 54, 174, 8, 0, 193, 29, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8eac2ed1_5bf4_4e16_8236_ae0800c11d0d);
 }
 impl ::windows::runtime::RuntimeName for HolographicCameraRenderingParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCameraRenderingParameters";
@@ -548,7 +548,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicCameraViewportParamet
 }
 unsafe impl ::windows::runtime::Interface for HolographicCameraViewportParameters {
     type Vtable = IHolographicCameraViewportParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2160980983, 33834, 16865, [147, 237, 86, 146, 171, 31, 187, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80cdf3f7_842a_41e1_93ed_5692ab1fbb10);
 }
 impl ::windows::runtime::RuntimeName for HolographicCameraViewportParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCameraViewportParameters";
@@ -705,7 +705,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicDisplay {
 }
 unsafe impl ::windows::runtime::Interface for HolographicDisplay {
     type Vtable = IHolographicDisplay_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2597233684, 7583, 16528, [163, 136, 144, 192, 111, 110, 174, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9acea414_1d9f_4090_a388_90c06f6eae9c);
 }
 impl ::windows::runtime::RuntimeName for HolographicDisplay {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicDisplay";
@@ -848,7 +848,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicFrame {
 }
 unsafe impl ::windows::runtime::Interface for HolographicFrame {
     type Vtable = IHolographicFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3331886774, 43193, 12372, [166, 235, 214, 36, 182, 83, 99, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6988eb6_a8b9_3054_a6eb_d624b6536375);
 }
 impl ::windows::runtime::RuntimeName for HolographicFrame {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrame";
@@ -956,7 +956,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicFramePrediction {
 }
 unsafe impl ::windows::runtime::Interface for HolographicFramePrediction {
     type Vtable = IHolographicFramePrediction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1376734689, 23562, 20089, [168, 30, 106, 190, 2, 187, 39, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x520f4de1_5c0a_4e79_a81e_6abe02bb2739);
 }
 impl ::windows::runtime::RuntimeName for HolographicFramePrediction {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePrediction";
@@ -1074,7 +1074,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicFramePresentationMoni
 }
 unsafe impl ::windows::runtime::Interface for HolographicFramePresentationMonitor {
     type Vtable = IHolographicFramePresentationMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3397854572, 28590, 17038, [187, 131, 37, 223, 238, 81, 19, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca87256c_6fae_428e_bb83_25dfee51136b);
 }
 impl ::windows::runtime::RuntimeName for HolographicFramePresentationMonitor {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePresentationMonitor";
@@ -1206,7 +1206,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicFramePresentationRepo
 }
 unsafe impl ::windows::runtime::Interface for HolographicFramePresentationReport {
     type Vtable = IHolographicFramePresentationReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2159736340, 62196, 19594, [141, 227, 6, 92, 120, 246, 213, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80baf614_f2f4_4c8a_8de3_065c78f6d5de);
 }
 impl ::windows::runtime::RuntimeName for HolographicFramePresentationReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePresentationReport";
@@ -1307,7 +1307,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicFrameRenderingReport 
 }
 unsafe impl ::windows::runtime::Interface for HolographicFrameRenderingReport {
     type Vtable = IHolographicFrameRenderingReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(99823076, 58244, 20915, [185, 52, 240, 211, 160, 247, 134, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05f32de4_e384_51b3_b934_f0d3a0f78606);
 }
 impl ::windows::runtime::RuntimeName for HolographicFrameRenderingReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrameRenderingReport";
@@ -1380,7 +1380,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicFrameScanoutMonitor {
 }
 unsafe impl ::windows::runtime::Interface for HolographicFrameScanoutMonitor {
     type Vtable = IHolographicFrameScanoutMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2122575785, 33852, 21505, [128, 149, 155, 193, 184, 176, 134, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e83efa9_843c_5401_8095_9bc1b8b08638);
 }
 impl ::windows::runtime::RuntimeName for HolographicFrameScanoutMonitor {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrameScanoutMonitor";
@@ -1507,7 +1507,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicFrameScanoutReport {
 }
 unsafe impl ::windows::runtime::Interface for HolographicFrameScanoutReport {
     type Vtable = IHolographicFrameScanoutReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(247195142, 928, 23712, [180, 110, 187, 160, 104, 215, 35, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ebbe606_03a0_5ca0_b46e_bba068d7233f);
 }
 impl ::windows::runtime::RuntimeName for HolographicFrameScanoutReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrameScanoutReport";
@@ -1609,7 +1609,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicQuadLayer {
 }
 unsafe impl ::windows::runtime::Interface for HolographicQuadLayer {
     type Vtable = IHolographicQuadLayer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2419351753, 51673, 23900, [65, 172, 162, 213, 171, 15, 211, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x903460c9_c9d9_5d5c_41ac_a2d5ab0fd331);
 }
 impl ::windows::runtime::RuntimeName for HolographicQuadLayer {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicQuadLayer";
@@ -1748,7 +1748,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicQuadLayerUpdateParame
 }
 unsafe impl ::windows::runtime::Interface for HolographicQuadLayerUpdateParameters {
     type Vtable = IHolographicQuadLayerUpdateParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(722379696, 31117, 23498, [85, 194, 44, 12, 118, 46, 187, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b0ea3b0_798d_5bca_55c2_2c0c762ebb08);
 }
 impl ::windows::runtime::RuntimeName for HolographicQuadLayerUpdateParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicQuadLayerUpdateParameters";
@@ -1986,7 +1986,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicSpace {
 }
 unsafe impl ::windows::runtime::Interface for HolographicSpace {
     type Vtable = IHolographicSpace_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1132518310, 24184, 17231, [128, 124, 52, 51, 209, 239, 232, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4380dba6_5e78_434f_807c_3433d1efe8b7);
 }
 impl ::windows::runtime::RuntimeName for HolographicSpace {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicSpace";
@@ -2061,7 +2061,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicSpaceCameraAddedEvent
 }
 unsafe impl ::windows::runtime::Interface for HolographicSpaceCameraAddedEventArgs {
     type Vtable = IHolographicSpaceCameraAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1492245045, 48051, 15503, [153, 61, 108, 128, 231, 254, 185, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58f1da35_bbb3_3c8f_993d_6c80e7feb99f);
 }
 impl ::windows::runtime::RuntimeName for HolographicSpaceCameraAddedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicSpaceCameraAddedEventArgs";
@@ -2127,7 +2127,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicSpaceCameraRemovedEve
 }
 unsafe impl ::windows::runtime::Interface for HolographicSpaceCameraRemovedEventArgs {
     type Vtable = IHolographicSpaceCameraRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2153006248, 62126, 12846, [141, 169, 131, 106, 10, 149, 164, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x805444a8_f2ae_322e_8da9_836a0a95a4c1);
 }
 impl ::windows::runtime::RuntimeName for HolographicSpaceCameraRemovedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicSpaceCameraRemovedEventArgs";
@@ -2355,7 +2355,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicViewConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for HolographicViewConfiguration {
     type Vtable = IHolographicViewConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1545463526, 26601, 20484, [176, 44, 103, 163, 161, 34, 181, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c1de6e6_67e9_5004_b02c_67a3a122b576);
 }
 impl ::windows::runtime::RuntimeName for HolographicViewConfiguration {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicViewConfiguration";
@@ -2429,7 +2429,7 @@ impl ::windows::runtime::DefaultType for HolographicViewConfigurationKind {
 pub struct IHolographicCamera(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCamera {
     type Vtable = IHolographicCamera_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3840508997, 39917, 18816, [155, 160, 232, 118, 128, 209, 203, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4e98445_9bed_4980_9ba0_e87680d1cb74);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2454,7 +2454,7 @@ pub struct IHolographicCamera_abi(
 pub struct IHolographicCamera2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCamera2 {
     type Vtable = IHolographicCamera2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3042680602, 47756, 20356, [173, 121, 46, 126, 30, 36, 80, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb55b9f1a_ba8c_4f84_ad79_2e7e1e2450f3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2474,7 +2474,7 @@ pub struct IHolographicCamera2_abi(
 pub struct IHolographicCamera3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCamera3 {
     type Vtable = IHolographicCamera3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1168789427, 31577, 21070, [74, 63, 74, 106, 214, 101, 4, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45aa4fb3_7b59_524e_4a3f_4a6ad6650477);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2496,7 +2496,7 @@ pub struct IHolographicCamera3_abi(
 pub struct IHolographicCamera4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCamera4 {
     type Vtable = IHolographicCamera4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2586128854, 18211, 20281, [169, 165, 157, 5, 24, 29, 155, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a2531d6_4723_4f39_a9a5_9d05181d9b44);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2514,7 +2514,7 @@ pub struct IHolographicCamera4_abi(
 pub struct IHolographicCamera5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCamera5 {
     type Vtable = IHolographicCamera5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(580323058, 25229, 20213, [156, 8, 166, 63, 221, 119, 135, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x229706f2_628d_4ef5_9c08_a63fdd7787c6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2534,7 +2534,7 @@ pub struct IHolographicCamera5_abi(
 pub struct IHolographicCamera6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCamera6 {
     type Vtable = IHolographicCamera6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(34150735, 25389, 20820, [171, 82, 11, 93, 21, 177, 37, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0209194f_632d_5154_ab52_0b5d15b12505);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2552,7 +2552,7 @@ pub struct IHolographicCamera6_abi(
 pub struct IHolographicCameraPose(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCameraPose {
     type Vtable = IHolographicCameraPose_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(226328112, 4830, 17853, [145, 43, 199, 246, 86, 21, 153, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d7d7e30_12de_45bd_912b_c7f6561599d1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2582,7 +2582,7 @@ pub struct IHolographicCameraPose_abi(
 pub struct IHolographicCameraPose2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCameraPose2 {
     type Vtable = IHolographicCameraPose2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(590078067, 23853, 17760, [129, 78, 38, 151, 196, 252, 225, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x232be073_5d2d_4560_814e_2697c4fce16b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2605,7 +2605,7 @@ pub struct IHolographicCameraPose2_abi(
 pub struct IHolographicCameraRenderingParameters(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCameraRenderingParameters {
     type Vtable = IHolographicCameraRenderingParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2393648849, 23540, 19990, [130, 54, 174, 8, 0, 193, 29, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8eac2ed1_5bf4_4e16_8236_ae0800c11d0d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2632,7 +2632,7 @@ pub struct IHolographicCameraRenderingParameters_abi(
 pub struct IHolographicCameraRenderingParameters2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCameraRenderingParameters2 {
     type Vtable = IHolographicCameraRenderingParameters2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(638742755, 46742, 17972, [148, 214, 190, 6, 129, 100, 53, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x261270e3_b696_4634_94d6_be0681643599);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2653,7 +2653,7 @@ pub struct IHolographicCameraRenderingParameters2_abi(
 pub struct IHolographicCameraRenderingParameters3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCameraRenderingParameters3 {
     type Vtable = IHolographicCameraRenderingParameters3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2980729151, 4973, 19206, [185, 212, 228, 185, 20, 205, 6, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1aa513f_136d_4b06_b9d4_e4b914cd0683);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2672,7 +2672,7 @@ pub struct IHolographicCameraRenderingParameters3_abi(
 pub struct IHolographicCameraRenderingParameters4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCameraRenderingParameters4 {
     type Vtable = IHolographicCameraRenderingParameters4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(142146124, 57699, 22492, [130, 183, 196, 6, 171, 62, 5, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0878fa4c_e163_57dc_82b7_c406ab3e0537);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2691,7 +2691,7 @@ pub struct IHolographicCameraRenderingParameters4_abi(
 pub struct IHolographicCameraViewportParameters(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCameraViewportParameters {
     type Vtable = IHolographicCameraViewportParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2160980983, 33834, 16865, [147, 237, 86, 146, 171, 31, 187, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80cdf3f7_842a_41e1_93ed_5692ab1fbb10);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2712,7 +2712,7 @@ pub struct IHolographicCameraViewportParameters_abi(
 pub struct IHolographicDisplay(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicDisplay {
     type Vtable = IHolographicDisplay_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2597233684, 7583, 16528, [163, 136, 144, 192, 111, 110, 174, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9acea414_1d9f_4090_a388_90c06f6eae9c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2737,7 +2737,7 @@ pub struct IHolographicDisplay_abi(
 pub struct IHolographicDisplay2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicDisplay2 {
     type Vtable = IHolographicDisplay2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1974222722, 59221, 17260, [141, 150, 77, 50, 209, 49, 71, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75ac3f82_e755_436c_8d96_4d32d131473e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2755,7 +2755,7 @@ pub struct IHolographicDisplay2_abi(
 pub struct IHolographicDisplay3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicDisplay3 {
     type Vtable = IHolographicDisplay3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4232866502, 25728, 20488, [178, 158, 21, 125, 119, 200, 67, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc4c6ac6_6480_5008_b29e_157d77c843f7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2773,7 +2773,7 @@ pub struct IHolographicDisplay3_abi(
 pub struct IHolographicDisplayStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicDisplayStatics {
     type Vtable = IHolographicDisplayStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3409398147, 59312, 18497, [131, 85, 58, 229, 181, 54, 233, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb374983_e7b0_4841_8355_3ae5b536e9a4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2791,7 +2791,7 @@ pub struct IHolographicDisplayStatics_abi(
 pub struct IHolographicFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicFrame {
     type Vtable = IHolographicFrame_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3331886774, 43193, 12372, [166, 235, 214, 36, 182, 83, 99, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6988eb6_a8b9_3054_a6eb_d624b6536375);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2820,7 +2820,7 @@ pub struct IHolographicFrame_abi(
 pub struct IHolographicFrame2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicFrame2 {
     type Vtable = IHolographicFrame2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(675231679, 15346, 24209, [102, 51, 135, 5, 116, 230, 242, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x283f37bf_3bf2_5e91_6633_870574e6f217);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2838,7 +2838,7 @@ pub struct IHolographicFrame2_abi(
 pub struct IHolographicFrame3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicFrame3 {
     type Vtable = IHolographicFrame3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3857278153, 35367, 21971, [159, 152, 148, 83, 13, 54, 144, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5e964c9_8a27_55d3_9f98_94530d369052);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2856,7 +2856,7 @@ pub struct IHolographicFrame3_abi(
 pub struct IHolographicFramePrediction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicFramePrediction {
     type Vtable = IHolographicFramePrediction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1376734689, 23562, 20089, [168, 30, 106, 190, 2, 187, 39, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x520f4de1_5c0a_4e79_a81e_6abe02bb2739);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2877,7 +2877,7 @@ pub struct IHolographicFramePrediction_abi(
 pub struct IHolographicFramePresentationMonitor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicFramePresentationMonitor {
     type Vtable = IHolographicFramePresentationMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3397854572, 28590, 17038, [187, 131, 37, 223, 238, 81, 19, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca87256c_6fae_428e_bb83_25dfee51136b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2896,7 +2896,7 @@ pub struct IHolographicFramePresentationMonitor_abi(
 pub struct IHolographicFramePresentationReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicFramePresentationReport {
     type Vtable = IHolographicFramePresentationReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2159736340, 62196, 19594, [141, 227, 6, 92, 120, 246, 213, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80baf614_f2f4_4c8a_8de3_065c78f6d5de);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2921,7 +2921,7 @@ pub struct IHolographicFramePresentationReport_abi(
 pub struct IHolographicFrameRenderingReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicFrameRenderingReport {
     type Vtable = IHolographicFrameRenderingReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(99823076, 58244, 20915, [185, 52, 240, 211, 160, 247, 134, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05f32de4_e384_51b3_b934_f0d3a0f78606);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2946,7 +2946,7 @@ pub struct IHolographicFrameRenderingReport_abi(
 pub struct IHolographicFrameScanoutMonitor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicFrameScanoutMonitor {
     type Vtable = IHolographicFrameScanoutMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2122575785, 33852, 21505, [128, 149, 155, 193, 184, 176, 134, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e83efa9_843c_5401_8095_9bc1b8b08638);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2965,7 +2965,7 @@ pub struct IHolographicFrameScanoutMonitor_abi(
 pub struct IHolographicFrameScanoutReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicFrameScanoutReport {
     type Vtable = IHolographicFrameScanoutReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(247195142, 928, 23712, [180, 110, 187, 160, 104, 215, 35, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ebbe606_03a0_5ca0_b46e_bba068d7233f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2990,7 +2990,7 @@ pub struct IHolographicFrameScanoutReport_abi(
 pub struct IHolographicQuadLayer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicQuadLayer {
     type Vtable = IHolographicQuadLayer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2419351753, 51673, 23900, [65, 172, 162, 213, 171, 15, 211, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x903460c9_c9d9_5d5c_41ac_a2d5ab0fd331);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3011,7 +3011,7 @@ pub struct IHolographicQuadLayer_abi(
 pub struct IHolographicQuadLayerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicQuadLayerFactory {
     type Vtable = IHolographicQuadLayerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2792700147, 23060, 23056, [72, 154, 69, 80, 101, 179, 123, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa67538f3_5a14_5a10_489a_455065b37b76);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3032,7 +3032,7 @@ pub struct IHolographicQuadLayerFactory_abi(
 pub struct IHolographicQuadLayerUpdateParameters(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicQuadLayerUpdateParameters {
     type Vtable = IHolographicQuadLayerUpdateParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(722379696, 31117, 23498, [85, 194, 44, 12, 118, 46, 187, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b0ea3b0_798d_5bca_55c2_2c0c762ebb08);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3060,7 +3060,7 @@ pub struct IHolographicQuadLayerUpdateParameters_abi(
 pub struct IHolographicQuadLayerUpdateParameters2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicQuadLayerUpdateParameters2 {
     type Vtable = IHolographicQuadLayerUpdateParameters2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1328796461, 33473, 18113, [137, 128, 60, 183, 13, 152, 24, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f33d32d_82c1_46c1_8980_3cb70d98182b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3080,7 +3080,7 @@ pub struct IHolographicQuadLayerUpdateParameters2_abi(
 pub struct IHolographicSpace(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicSpace {
     type Vtable = IHolographicSpace_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1132518310, 24184, 17231, [128, 124, 52, 51, 209, 239, 232, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4380dba6_5e78_434f_807c_3433d1efe8b7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3109,7 +3109,7 @@ pub struct IHolographicSpace_abi(
 pub struct IHolographicSpace2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicSpace2 {
     type Vtable = IHolographicSpace2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1333897640, 47103, 18563, [152, 39, 125, 103, 114, 135, 234, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f81a9a8_b7ff_4883_9827_7d677287ea70);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3135,7 +3135,7 @@ pub struct IHolographicSpace2_abi(
 pub struct IHolographicSpace3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicSpace3 {
     type Vtable = IHolographicSpace3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3742839761, 61988, 22654, [141, 113, 30, 143, 200, 240, 123, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf1733d1_f224_587e_8d71_1e8fc8f07b1f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3153,7 +3153,7 @@ pub struct IHolographicSpace3_abi(
 pub struct IHolographicSpaceCameraAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicSpaceCameraAddedEventArgs {
     type Vtable = IHolographicSpaceCameraAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1492245045, 48051, 15503, [153, 61, 108, 128, 231, 254, 185, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58f1da35_bbb3_3c8f_993d_6c80e7feb99f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3173,7 +3173,7 @@ pub struct IHolographicSpaceCameraAddedEventArgs_abi(
 pub struct IHolographicSpaceCameraRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicSpaceCameraRemovedEventArgs {
     type Vtable = IHolographicSpaceCameraRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2153006248, 62126, 12846, [141, 169, 131, 106, 10, 149, 164, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x805444a8_f2ae_322e_8da9_836a0a95a4c1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3191,7 +3191,7 @@ pub struct IHolographicSpaceCameraRemovedEventArgs_abi(
 pub struct IHolographicSpaceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicSpaceStatics {
     type Vtable = IHolographicSpaceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(911106148, 51442, 15265, [131, 145, 102, 184, 72, 158, 103, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x364e6064_c8f2_3ba1_8391_66b8489e67fd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3210,7 +3210,7 @@ pub struct IHolographicSpaceStatics_abi(
 pub struct IHolographicSpaceStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicSpaceStatics2 {
     type Vtable = IHolographicSpaceStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(242708616, 30204, 18607, [135, 88, 6, 82, 246, 240, 124, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e777088_75fc_48af_8758_0652f6f07c59);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3233,7 +3233,7 @@ pub struct IHolographicSpaceStatics2_abi(
 pub struct IHolographicSpaceStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicSpaceStatics3 {
     type Vtable = IHolographicSpaceStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(989912637, 45475, 19966, [142, 121, 254, 197, 144, 158, 109, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b00de3d_b1a3_4dfe_8e79_fec5909e6df8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3251,7 +3251,7 @@ pub struct IHolographicSpaceStatics3_abi(
 pub struct IHolographicViewConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicViewConfiguration {
     type Vtable = IHolographicViewConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1545463526, 26601, 20484, [176, 44, 103, 163, 161, 34, 181, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c1de6e6_67e9_5004_b02c_67a3a122b576);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3286,7 +3286,7 @@ pub struct IHolographicViewConfiguration_abi(
 pub struct IHolographicViewConfiguration2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicViewConfiguration2 {
     type Vtable = IHolographicViewConfiguration2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3795940718, 57552, 20505, [154, 245, 27, 22, 91, 194, 245, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe241756e_e0d0_5019_9af5_1b165bc2f54e);
 }
 #[repr(C)]
 #[doc(hidden)]

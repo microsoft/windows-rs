@@ -23,7 +23,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackPressedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for BackPressedEventArgs {
     type Vtable = IBackPressedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4143273471, 25836, 17058, [185, 59, 47, 188, 12, 54, 161, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6f555ff_64ec_42a2_b93b_2fbc0c36a121);
 }
 impl ::windows::runtime::RuntimeName for BackPressedEventArgs {
     const NAME: &'static str = "Windows.Phone.UI.Input.BackPressedEventArgs";
@@ -80,7 +80,7 @@ unsafe impl ::windows::runtime::RuntimeType for CameraEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for CameraEventArgs {
     type Vtable = ICameraEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3020307418, 8223, 18237, [188, 105, 233, 228, 172, 87, 201, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4063bda_201f_473d_bc69_e9e4ac57c9d0);
 }
 impl ::windows::runtime::RuntimeName for CameraEventArgs {
     const NAME: &'static str = "Windows.Phone.UI.Input.CameraEventArgs";
@@ -199,7 +199,7 @@ impl ::windows::runtime::RuntimeName for HardwareButtons {
 pub struct IBackPressedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackPressedEventArgs {
     type Vtable = IBackPressedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4143273471, 25836, 17058, [185, 59, 47, 188, 12, 54, 161, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6f555ff_64ec_42a2_b93b_2fbc0c36a121);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -218,7 +218,7 @@ pub struct IBackPressedEventArgs_abi(
 pub struct ICameraEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraEventArgs {
     type Vtable = ICameraEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3020307418, 8223, 18237, [188, 105, 233, 228, 172, 87, 201, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4063bda_201f_473d_bc69_e9e4ac57c9d0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -235,7 +235,7 @@ pub struct ICameraEventArgs_abi(
 pub struct IHardwareButtonsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHardwareButtonsStatics {
     type Vtable = IHardwareButtonsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1498122112, 55910, 20440, [167, 118, 117, 6, 189, 12, 191, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x594b8780_da66_4fd8_a776_7506bd0cbfa7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -256,7 +256,7 @@ pub struct IHardwareButtonsStatics_abi(
 pub struct IHardwareButtonsStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHardwareButtonsStatics2 {
     type Vtable = IHardwareButtonsStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(969327220, 39231, 16605, [133, 76, 131, 26, 137, 52, 185, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39c6c274_993f_40dd_854c_831a8934b92e);
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -279,7 +279,7 @@ unsafe impl ::windows::runtime::RuntimeType for AddPackageOptions {
 }
 unsafe impl ::windows::runtime::Interface for AddPackageOptions {
     type Vtable = IAddPackageOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(97443864, 63119, 16939, [149, 164, 102, 103, 158, 199, 127, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05cee018_f68f_422b_95a4_66679ec77fc0);
 }
 impl ::windows::runtime::RuntimeName for AddPackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.AddPackageOptions";
@@ -371,7 +371,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppInstallerManager {
 }
 unsafe impl ::windows::runtime::Interface for AppInstallerManager {
     type Vtable = IAppInstallerManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3891143107, 8451, 21486, [155, 24, 104, 175, 234, 176, 3, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7ee21c3_2103_53ee_9b18_68afeab0033d);
 }
 impl ::windows::runtime::RuntimeName for AppInstallerManager {
     const NAME: &'static str = "Windows.Management.Deployment.AppInstallerManager";
@@ -605,7 +605,7 @@ unsafe impl ::windows::runtime::RuntimeType for AutoUpdateSettingsOptions {
 }
 unsafe impl ::windows::runtime::Interface for AutoUpdateSettingsOptions {
     type Vtable = IAutoUpdateSettingsOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1732844935, 13793, 20778, [137, 104, 26, 232, 141, 27, 230, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x67491d87_35e1_512a_8968_1ae88d1be6d3);
 }
 impl ::windows::runtime::RuntimeName for AutoUpdateSettingsOptions {
     const NAME: &'static str = "Windows.Management.Deployment.AutoUpdateSettingsOptions";
@@ -705,7 +705,7 @@ unsafe impl ::windows::runtime::RuntimeType for CreateSharedPackageContainerOpti
 }
 unsafe impl ::windows::runtime::Interface for CreateSharedPackageContainerOptions {
     type Vtable = ICreateSharedPackageContainerOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3266014926, 63076, 23694, [164, 179, 42, 51, 39, 109, 61, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2ab6ece_f664_5c8e_a4b3_2a33276d3dde);
 }
 impl ::windows::runtime::RuntimeName for CreateSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.CreateSharedPackageContainerOptions";
@@ -787,7 +787,7 @@ unsafe impl ::windows::runtime::RuntimeType for CreateSharedPackageContainerResu
 }
 unsafe impl ::windows::runtime::Interface for CreateSharedPackageContainerResult {
     type Vtable = ICreateSharedPackageContainerResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3465023679, 5404, 22279, [185, 54, 73, 126, 86, 74, 252, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce8810bf_151c_5707_b936_497e564afc7a);
 }
 impl ::windows::runtime::RuntimeName for CreateSharedPackageContainerResult {
     const NAME: &'static str = "Windows.Management.Deployment.CreateSharedPackageContainerResult";
@@ -878,7 +878,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeleteSharedPackageContainerOpti
 }
 unsafe impl ::windows::runtime::Interface for DeleteSharedPackageContainerOptions {
     type Vtable = IDeleteSharedPackageContainerOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2642511455, 39022, 20792, [139, 93, 56, 77, 142, 102, 237, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d81865f_986e_5138_8b5d_384d8e66ed6c);
 }
 impl ::windows::runtime::RuntimeName for DeleteSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.DeleteSharedPackageContainerOptions";
@@ -952,7 +952,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeleteSharedPackageContainerResu
 }
 unsafe impl ::windows::runtime::Interface for DeleteSharedPackageContainerResult {
     type Vtable = IDeleteSharedPackageContainerResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(892962948, 22326, 20859, [133, 188, 229, 152, 200, 26, 178, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35398884_5736_517b_85bc_e598c81ab284);
 }
 impl ::windows::runtime::RuntimeName for DeleteSharedPackageContainerResult {
     const NAME: &'static str = "Windows.Management.Deployment.DeleteSharedPackageContainerResult";
@@ -1154,7 +1154,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeploymentResult {
 }
 unsafe impl ::windows::runtime::Interface for DeploymentResult {
     type Vtable = IDeploymentResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(627292590, 46973, 19487, [138, 123, 32, 230, 173, 81, 94, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2563b9ae_b77d_4c1f_8a7b_20e6ad515ef3);
 }
 impl ::windows::runtime::RuntimeName for DeploymentResult {
     const NAME: &'static str = "Windows.Management.Deployment.DeploymentResult";
@@ -1245,7 +1245,7 @@ unsafe impl ::windows::runtime::RuntimeType for FindSharedPackageContainerOption
 }
 unsafe impl ::windows::runtime::Interface for FindSharedPackageContainerOptions {
     type Vtable = IFindSharedPackageContainerOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3020933374, 33668, 21708, [129, 125, 174, 9, 211, 182, 166, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb40fc8fe_8384_54cc_817d_ae09d3b6a606);
 }
 impl ::windows::runtime::RuntimeName for FindSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.FindSharedPackageContainerOptions";
@@ -1297,7 +1297,7 @@ unsafe impl ::core::marker::Sync for FindSharedPackageContainerOptions {}
 pub struct IAddPackageOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAddPackageOptions {
     type Vtable = IAddPackageOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(97443864, 63119, 16939, [149, 164, 102, 103, 158, 199, 127, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05cee018_f68f_422b_95a4_66679ec77fc0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1350,7 +1350,7 @@ pub struct IAddPackageOptions_abi(
 pub struct IAppInstallerManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallerManager {
     type Vtable = IAppInstallerManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3891143107, 8451, 21486, [155, 24, 104, 175, 234, 176, 3, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7ee21c3_2103_53ee_9b18_68afeab0033d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1371,7 +1371,7 @@ pub struct IAppInstallerManager_abi(
 pub struct IAppInstallerManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallerManagerStatics {
     type Vtable = IAppInstallerManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3378147029, 64601, 21302, [155, 46, 43, 7, 197, 230, 20, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc95a6ed5_fc59_5336_9b2e_2b07c5e61434);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1390,7 +1390,7 @@ pub struct IAppInstallerManagerStatics_abi(
 pub struct IAutoUpdateSettingsOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutoUpdateSettingsOptions {
     type Vtable = IAutoUpdateSettingsOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1732844935, 13793, 20778, [137, 104, 26, 232, 141, 27, 230, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x67491d87_35e1_512a_8968_1ae88d1be6d3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1437,7 +1437,7 @@ pub struct IAutoUpdateSettingsOptions_abi(
 pub struct IAutoUpdateSettingsOptionsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutoUpdateSettingsOptionsStatics {
     type Vtable = IAutoUpdateSettingsOptionsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2289775485, 3077, 21712, [189, 73, 59, 183, 162, 192, 132, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x887b337d_0c05_54d0_bd49_3bb7a2c084cb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1456,7 +1456,7 @@ pub struct IAutoUpdateSettingsOptionsStatics_abi(
 pub struct ICreateSharedPackageContainerOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateSharedPackageContainerOptions {
     type Vtable = ICreateSharedPackageContainerOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3266014926, 63076, 23694, [164, 179, 42, 51, 39, 109, 61, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2ab6ece_f664_5c8e_a4b3_2a33276d3dde);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1479,7 +1479,7 @@ pub struct ICreateSharedPackageContainerOptions_abi(
 pub struct ICreateSharedPackageContainerResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateSharedPackageContainerResult {
     type Vtable = ICreateSharedPackageContainerResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3465023679, 5404, 22279, [185, 54, 73, 126, 86, 74, 252, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce8810bf_151c_5707_b936_497e564afc7a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1499,7 +1499,7 @@ pub struct ICreateSharedPackageContainerResult_abi(
 pub struct IDeleteSharedPackageContainerOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeleteSharedPackageContainerOptions {
     type Vtable = IDeleteSharedPackageContainerOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2642511455, 39022, 20792, [139, 93, 56, 77, 142, 102, 237, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d81865f_986e_5138_8b5d_384d8e66ed6c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1520,7 +1520,7 @@ pub struct IDeleteSharedPackageContainerOptions_abi(
 pub struct IDeleteSharedPackageContainerResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeleteSharedPackageContainerResult {
     type Vtable = IDeleteSharedPackageContainerResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(892962948, 22326, 20859, [133, 188, 229, 152, 200, 26, 178, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35398884_5736_517b_85bc_e598c81ab284);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1539,7 +1539,7 @@ pub struct IDeleteSharedPackageContainerResult_abi(
 pub struct IDeploymentResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeploymentResult {
     type Vtable = IDeploymentResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(627292590, 46973, 19487, [138, 123, 32, 230, 173, 81, 94, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2563b9ae_b77d_4c1f_8a7b_20e6ad515ef3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1559,7 +1559,7 @@ pub struct IDeploymentResult_abi(
 pub struct IDeploymentResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeploymentResult2 {
     type Vtable = IDeploymentResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4228804956, 23041, 19415, [188, 241, 56, 28, 140, 130, 224, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc0e715c_5a01_4bd7_bcf1_381c8c82e04a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1577,7 +1577,7 @@ pub struct IDeploymentResult2_abi(
 pub struct IFindSharedPackageContainerOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFindSharedPackageContainerOptions {
     type Vtable = IFindSharedPackageContainerOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3020933374, 33668, 21708, [129, 125, 174, 9, 211, 182, 166, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb40fc8fe_8384_54cc_817d_ae09d3b6a606);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1598,7 +1598,7 @@ pub struct IFindSharedPackageContainerOptions_abi(
 pub struct IPackageAllUserProvisioningOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageAllUserProvisioningOptions {
     type Vtable = IPackageAllUserProvisioningOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3660950050, 7648, 23870, [153, 255, 210, 79, 49, 24, 191, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda35aa22_1de0_5d3e_99ff_d24f3118bf5e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1619,7 +1619,7 @@ pub struct IPackageAllUserProvisioningOptions_abi(
 pub struct IPackageManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager {
     type Vtable = IPackageManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2591902565, 24207, 20423, [162, 229, 127, 105, 37, 203, 139, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a7d4b65_5e8f_4fc7_a2e5_7f6925cb8b53);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1667,7 +1667,7 @@ pub struct IPackageManager_abi(
 pub struct IPackageManager10(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager10 {
     type Vtable = IPackageManager10_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2815938686, 11878, 16531, [174, 213, 224, 147, 237, 135, 179, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7d7d07e_2e66_4093_aed5_e093ed87b3bb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1686,7 +1686,7 @@ pub struct IPackageManager10_abi(
 pub struct IPackageManager2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager2 {
     type Vtable = IPackageManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4155166861, 2112, 18162, [181, 216, 202, 212, 118, 147, 160, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7aad08d_0840_46f2_b5d8_cad47693a095);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1723,7 +1723,7 @@ pub struct IPackageManager2_abi(
 pub struct IPackageManager3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager3 {
     type Vtable = IPackageManager3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3668810056, 14065, 16807, [145, 136, 188, 38, 62, 13, 203, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdaad9948_36f1_41a7_9188_bc263e0dcb72);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1765,7 +1765,7 @@ pub struct IPackageManager3_abi(
 pub struct IPackageManager4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager4 {
     type Vtable = IPackageManager4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1014077795, 47798, 18111, [143, 247, 218, 71, 25, 35, 10, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c719963_bab6_46bf_8ff7_da4719230ae6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1784,7 +1784,7 @@ pub struct IPackageManager4_abi(
 pub struct IPackageManager5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager5 {
     type Vtable = IPackageManager5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1897869591, 6909, 17171, [151, 140, 155, 182, 225, 184, 100, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x711f3117_1afd_4313_978c_9bb6e1b864a7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1808,7 +1808,7 @@ pub struct IPackageManager5_abi(
 pub struct IPackageManager6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager6 {
     type Vtable = IPackageManager6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(138930441, 21453, 20047, [131, 46, 87, 209, 128, 246, 228, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0847e909_53cd_4e4f_832e_57d180f6e447);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1839,7 +1839,7 @@ pub struct IPackageManager6_abi(
 pub struct IPackageManager7(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager7 {
     type Vtable = IPackageManager7_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4068889844, 11175, 19328, [136, 214, 190, 21, 249, 162, 63, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf28654f4_2ba7_4b80_88d6_be15f9a23fba);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1859,7 +1859,7 @@ pub struct IPackageManager7_abi(
 pub struct IPackageManager8(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager8 {
     type Vtable = IPackageManager8_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3092730672, 4760, 20194, [128, 238, 127, 101, 156, 93, 39, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8575330_1298_4ee2_80ee_7f659c5d2782);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1878,7 +1878,7 @@ pub struct IPackageManager8_abi(
 pub struct IPackageManager9(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager9 {
     type Vtable = IPackageManager9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(447189045, 52337, 19246, [128, 166, 199, 4, 29, 133, 121, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1aa79035_cc71_4b2e_80a6_c7041d8579a7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1907,7 +1907,7 @@ pub struct IPackageManager9_abi(
 pub struct IPackageManagerDebugSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManagerDebugSettings {
     type Vtable = IPackageManagerDebugSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(442570371, 43400, 20431, [143, 15, 206, 23, 88, 152, 232, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a611683_a988_4fcf_8f0f_ce175898e8eb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1928,7 +1928,7 @@ pub struct IPackageManagerDebugSettings_abi(
 pub struct IPackageUserInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageUserInformation {
     type Vtable = IPackageUserInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4130878499, 64009, 19644, [144, 85, 21, 202, 39, 94, 46, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6383423_fa09_4cbc_9055_15ca275e2e7e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1947,7 +1947,7 @@ pub struct IPackageUserInformation_abi(
 pub struct IPackageVolume(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageVolume {
     type Vtable = IPackageVolume_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3475403459, 6720, 17488, [151, 57, 42, 206, 46, 137, 136, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf2672c3_1a40_4450_9739_2ace2e898853);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1998,7 +1998,7 @@ pub struct IPackageVolume_abi(
 pub struct IPackageVolume2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageVolume2 {
     type Vtable = IPackageVolume2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1185664814, 40404, 18338, [171, 140, 198, 64, 131, 73, 188, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46abcf2e_9dd4_47a2_ab8c_c6408349bcd8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2019,7 +2019,7 @@ pub struct IPackageVolume2_abi(
 pub struct IRegisterPackageOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRegisterPackageOptions {
     type Vtable = IRegisterPackageOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1735463591, 20692, 18796, [132, 21, 6, 2, 180, 198, 211, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x677112a7_50d4_496c_8415_0602b4c6d3bf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2062,7 +2062,7 @@ pub struct IRegisterPackageOptions_abi(
 pub struct ISharedPackageContainer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISharedPackageContainer {
     type Vtable = ISharedPackageContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(394205865, 5406, 24311, [177, 217, 47, 186, 11, 75, 13, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x177f1aa9_151e_5ef7_b1d9_2fba0b4b0d17);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2085,7 +2085,7 @@ pub struct ISharedPackageContainer_abi(
 pub struct ISharedPackageContainerManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISharedPackageContainerManager {
     type Vtable = ISharedPackageContainerManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3191156840, 7927, 23240, [171, 63, 11, 159, 97, 47, 2, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe353068_1ef7_5ac8_ab3f_0b9f612f0274);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2109,7 +2109,7 @@ pub struct ISharedPackageContainerManager_abi(
 pub struct ISharedPackageContainerManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISharedPackageContainerManagerStatics {
     type Vtable = ISharedPackageContainerManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(787833672, 33674, 24405, [168, 158, 17, 152, 162, 198, 39, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ef56348_838a_5f55_a89e_1198a2c627e6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2129,7 +2129,7 @@ pub struct ISharedPackageContainerManagerStatics_abi(
 pub struct ISharedPackageContainerMember(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISharedPackageContainerMember {
     type Vtable = ISharedPackageContainerMember_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4262265912, 17353, 21542, [184, 156, 247, 155, 248, 93, 223, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe0d0438_43c9_5426_b89c_f79bf85ddff4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2147,7 +2147,7 @@ pub struct ISharedPackageContainerMember_abi(
 pub struct ISharedPackageContainerMemberFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISharedPackageContainerMemberFactory {
     type Vtable = ISharedPackageContainerMemberFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1236324075, 18831, 23138, [183, 56, 179, 202, 13, 67, 103, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49b0ceeb_498f_5a62_b738_b3ca0d436704);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2165,7 +2165,7 @@ pub struct ISharedPackageContainerMemberFactory_abi(
 pub struct IStagePackageOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStagePackageOptions {
     type Vtable = IStagePackageOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(185666716, 47453, 19542, [189, 54, 109, 101, 104, 0, 208, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b110c9c_b95d_4c56_bd36_6d656800d06b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2210,7 +2210,7 @@ pub struct IStagePackageOptions_abi(
 pub struct IUpdateSharedPackageContainerOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUpdateSharedPackageContainerOptions {
     type Vtable = IUpdateSharedPackageContainerOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2154245763, 29076, 23033, [181, 185, 218, 165, 55, 95, 19, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80672e83_7194_59f9_b5b9_daa5375f130a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2231,7 +2231,7 @@ pub struct IUpdateSharedPackageContainerOptions_abi(
 pub struct IUpdateSharedPackageContainerResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUpdateSharedPackageContainerResult {
     type Vtable = IUpdateSharedPackageContainerResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2856353271, 50989, 21592, [174, 163, 70, 69, 182, 168, 238, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa407df7_c72d_5458_aea3_4645b6a8ee99);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2281,7 +2281,7 @@ unsafe impl ::windows::runtime::RuntimeType for PackageAllUserProvisioningOption
 }
 unsafe impl ::windows::runtime::Interface for PackageAllUserProvisioningOptions {
     type Vtable = IPackageAllUserProvisioningOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3660950050, 7648, 23870, [153, 255, 210, 79, 49, 24, 191, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda35aa22_1de0_5d3e_99ff_d24f3118bf5e);
 }
 impl ::windows::runtime::RuntimeName for PackageAllUserProvisioningOptions {
     const NAME: &'static str = "Windows.Management.Deployment.PackageAllUserProvisioningOptions";
@@ -3031,7 +3031,7 @@ unsafe impl ::windows::runtime::RuntimeType for PackageManager {
 }
 unsafe impl ::windows::runtime::Interface for PackageManager {
     type Vtable = IPackageManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2591902565, 24207, 20423, [162, 229, 127, 105, 37, 203, 139, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a7d4b65_5e8f_4fc7_a2e5_7f6925cb8b53);
 }
 impl ::windows::runtime::RuntimeName for PackageManager {
     const NAME: &'static str = "Windows.Management.Deployment.PackageManager";
@@ -3107,7 +3107,7 @@ unsafe impl ::windows::runtime::RuntimeType for PackageManagerDebugSettings {
 }
 unsafe impl ::windows::runtime::Interface for PackageManagerDebugSettings {
     type Vtable = IPackageManagerDebugSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(442570371, 43400, 20431, [143, 15, 206, 23, 88, 152, 232, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a611683_a988_4fcf_8f0f_ce175898e8eb);
 }
 impl ::windows::runtime::RuntimeName for PackageManagerDebugSettings {
     const NAME: &'static str = "Windows.Management.Deployment.PackageManagerDebugSettings";
@@ -3336,7 +3336,7 @@ unsafe impl ::windows::runtime::RuntimeType for PackageUserInformation {
 }
 unsafe impl ::windows::runtime::Interface for PackageUserInformation {
     type Vtable = IPackageUserInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4130878499, 64009, 19644, [144, 85, 21, 202, 39, 94, 46, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6383423_fa09_4cbc_9055_15ca275e2e7e);
 }
 impl ::windows::runtime::RuntimeName for PackageUserInformation {
     const NAME: &'static str = "Windows.Management.Deployment.PackageUserInformation";
@@ -3599,7 +3599,7 @@ unsafe impl ::windows::runtime::RuntimeType for PackageVolume {
 }
 unsafe impl ::windows::runtime::Interface for PackageVolume {
     type Vtable = IPackageVolume_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3475403459, 6720, 17488, [151, 57, 42, 206, 46, 137, 136, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf2672c3_1a40_4450_9739_2ace2e898853);
 }
 impl ::windows::runtime::RuntimeName for PackageVolume {
     const NAME: &'static str = "Windows.Management.Deployment.PackageVolume";
@@ -3814,7 +3814,7 @@ unsafe impl ::windows::runtime::RuntimeType for RegisterPackageOptions {
 }
 unsafe impl ::windows::runtime::Interface for RegisterPackageOptions {
     type Vtable = IRegisterPackageOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1735463591, 20692, 18796, [132, 21, 6, 2, 180, 198, 211, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x677112a7_50d4_496c_8415_0602b4c6d3bf);
 }
 impl ::windows::runtime::RuntimeName for RegisterPackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.RegisterPackageOptions";
@@ -3965,7 +3965,7 @@ unsafe impl ::windows::runtime::RuntimeType for SharedPackageContainer {
 }
 unsafe impl ::windows::runtime::Interface for SharedPackageContainer {
     type Vtable = ISharedPackageContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(394205865, 5406, 24311, [177, 217, 47, 186, 11, 75, 13, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x177f1aa9_151e_5ef7_b1d9_2fba0b4b0d17);
 }
 impl ::windows::runtime::RuntimeName for SharedPackageContainer {
     const NAME: &'static str = "Windows.Management.Deployment.SharedPackageContainer";
@@ -4116,7 +4116,7 @@ unsafe impl ::windows::runtime::RuntimeType for SharedPackageContainerManager {
 }
 unsafe impl ::windows::runtime::Interface for SharedPackageContainerManager {
     type Vtable = ISharedPackageContainerManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3191156840, 7927, 23240, [171, 63, 11, 159, 97, 47, 2, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe353068_1ef7_5ac8_ab3f_0b9f612f0274);
 }
 impl ::windows::runtime::RuntimeName for SharedPackageContainerManager {
     const NAME: &'static str = "Windows.Management.Deployment.SharedPackageContainerManager";
@@ -4193,7 +4193,7 @@ unsafe impl ::windows::runtime::RuntimeType for SharedPackageContainerMember {
 }
 unsafe impl ::windows::runtime::Interface for SharedPackageContainerMember {
     type Vtable = ISharedPackageContainerMember_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4262265912, 17353, 21542, [184, 156, 247, 155, 248, 93, 223, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe0d0438_43c9_5426_b89c_f79bf85ddff4);
 }
 impl ::windows::runtime::RuntimeName for SharedPackageContainerMember {
     const NAME: &'static str = "Windows.Management.Deployment.SharedPackageContainerMember";
@@ -4439,7 +4439,7 @@ unsafe impl ::windows::runtime::RuntimeType for StagePackageOptions {
 }
 unsafe impl ::windows::runtime::Interface for StagePackageOptions {
     type Vtable = IStagePackageOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(185666716, 47453, 19542, [189, 54, 109, 101, 104, 0, 208, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b110c9c_b95d_4c56_bd36_6d656800d06b);
 }
 impl ::windows::runtime::RuntimeName for StagePackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.StagePackageOptions";
@@ -4554,7 +4554,7 @@ unsafe impl ::windows::runtime::RuntimeType for UpdateSharedPackageContainerOpti
 }
 unsafe impl ::windows::runtime::Interface for UpdateSharedPackageContainerOptions {
     type Vtable = IUpdateSharedPackageContainerOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2154245763, 29076, 23033, [181, 185, 218, 165, 55, 95, 19, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80672e83_7194_59f9_b5b9_daa5375f130a);
 }
 impl ::windows::runtime::RuntimeName for UpdateSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.UpdateSharedPackageContainerOptions";
@@ -4628,7 +4628,7 @@ unsafe impl ::windows::runtime::RuntimeType for UpdateSharedPackageContainerResu
 }
 unsafe impl ::windows::runtime::Interface for UpdateSharedPackageContainerResult {
     type Vtable = IUpdateSharedPackageContainerResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2856353271, 50989, 21592, [174, 163, 70, 69, 182, 168, 238, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa407df7_c72d_5458_aea3_4645b6a8ee99);
 }
 impl ::windows::runtime::RuntimeName for UpdateSharedPackageContainerResult {
     const NAME: &'static str = "Windows.Management.Deployment.UpdateSharedPackageContainerResult";

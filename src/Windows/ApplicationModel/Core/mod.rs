@@ -52,7 +52,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppListEntry {
 }
 unsafe impl ::windows::runtime::Interface for AppListEntry {
     type Vtable = IAppListEntry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4009816191, 8456, 18698, [135, 122, 138, 159, 23, 194, 95, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef00f07f_2108_490a_877a_8a9f17c25fad);
 }
 impl ::windows::runtime::RuntimeName for AppListEntry {
     const NAME: &'static str = "Windows.ApplicationModel.Core.AppListEntry";
@@ -465,7 +465,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreApplicationView {
 }
 unsafe impl ::windows::runtime::Interface for CoreApplicationView {
     type Vtable = ICoreApplicationView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1670099675, 17693, 18017, [176, 153, 65, 79, 52, 255, 185, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x638bb2db_451d_4661_b099_414f34ffb9f1);
 }
 impl ::windows::runtime::RuntimeName for CoreApplicationView {
     const NAME: &'static str = "Windows.ApplicationModel.Core.CoreApplicationView";
@@ -596,7 +596,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreApplicationViewTitleBar {
 }
 unsafe impl ::windows::runtime::Interface for CoreApplicationViewTitleBar {
     type Vtable = ICoreApplicationViewTitleBar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(7157219, 57841, 17179, [149, 8, 41, 185, 105, 38, 172, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x006d35e3_e1f1_431b_9508_29b96926ac53);
 }
 impl ::windows::runtime::RuntimeName for CoreApplicationViewTitleBar {
     const NAME: &'static str = "Windows.ApplicationModel.Core.CoreApplicationViewTitleBar";
@@ -661,7 +661,7 @@ unsafe impl ::windows::runtime::RuntimeType for HostedViewClosingEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for HostedViewClosingEventArgs {
     type Vtable = IHostedViewClosingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3526923324, 45646, 18320, [172, 181, 62, 66, 67, 196, 255, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd238943c_b24e_4790_acb5_3e4243c4ff87);
 }
 impl ::windows::runtime::RuntimeName for HostedViewClosingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Core.HostedViewClosingEventArgs";
@@ -713,7 +713,7 @@ unsafe impl ::core::marker::Sync for HostedViewClosingEventArgs {}
 pub struct IAppListEntry(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppListEntry {
     type Vtable = IAppListEntry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4009816191, 8456, 18698, [135, 122, 138, 159, 23, 194, 95, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef00f07f_2108_490a_877a_8a9f17c25fad);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -733,7 +733,7 @@ pub struct IAppListEntry_abi(
 pub struct IAppListEntry2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppListEntry2 {
     type Vtable = IAppListEntry2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3500546221, 48949, 17068, [172, 6, 134, 238, 235, 65, 208, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0a618ad_bf35_42ac_ac06_86eeeb41d04b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -751,7 +751,7 @@ pub struct IAppListEntry2_abi(
 pub struct IAppListEntry3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppListEntry3 {
     type Vtable = IAppListEntry3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1620701837, 64562, 18186, [188, 105, 75, 6, 26, 118, 239, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6099f28d_fc32_470a_bc69_4b061a76ef2e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -770,7 +770,7 @@ pub struct IAppListEntry3_abi(
 pub struct IAppListEntry4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppListEntry4 {
     type Vtable = IAppListEntry4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(705896146, 22261, 18556, [134, 151, 81, 102, 243, 179, 61, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a131ed2_56f5_487c_8697_5166f3b33da0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -788,7 +788,7 @@ pub struct IAppListEntry4_abi(
 pub struct ICoreApplication(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplication {
     type Vtable = ICoreApplication_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(179107748, 24093, 18911, [128, 52, 251, 106, 104, 188, 94, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0aacf7a4_5e1d_49df_8034_fb6a68bc5ed1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -820,7 +820,7 @@ pub struct ICoreApplication_abi(
 pub struct ICoreApplication2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplication2 {
     type Vtable = ICoreApplication2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2575729147, 6838, 19327, [190, 74, 154, 6, 69, 34, 76, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x998681fb_1ab6_4b7f_be4a_9a0645224c04);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -850,7 +850,7 @@ pub struct ICoreApplication2_abi(
 pub struct ICoreApplication3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplication3 {
     type Vtable = ICoreApplication3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4276882745, 22923, 17671, [138, 103, 119, 38, 50, 88, 10, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfeec0d39_598b_4507_8a67_772632580a57);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -871,7 +871,7 @@ pub struct ICoreApplication3_abi(
 pub struct ICoreApplicationExit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationExit {
     type Vtable = ICoreApplicationExit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3481683485, 9758, 19314, [154, 205, 68, 237, 42, 206, 106, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf86461d_261e_4b72_9acd_44ed2ace6a29);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -894,7 +894,7 @@ pub struct ICoreApplicationExit_abi(
 pub struct ICoreApplicationUnhandledError(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationUnhandledError {
     type Vtable = ICoreApplicationUnhandledError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4041362096, 56585, 17121, [176, 188, 224, 225, 49, 247, 141, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0e24ab0_dd09_42e1_b0bc_e0e131f78d7e);
 }
 impl ICoreApplicationUnhandledError {
     #[cfg(feature = "Foundation")]
@@ -975,7 +975,7 @@ pub struct ICoreApplicationUnhandledError_abi(
 pub struct ICoreApplicationUseCount(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationUseCount {
     type Vtable = ICoreApplicationUseCount_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1368245256, 49271, 18267, [128, 158, 11, 192, 197, 126, 75, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x518dc408_c077_475b_809e_0bc0c57e4b74);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -994,7 +994,7 @@ pub struct ICoreApplicationUseCount_abi(
 pub struct ICoreApplicationView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationView {
     type Vtable = ICoreApplicationView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1670099675, 17693, 18017, [176, 153, 65, 79, 52, 255, 185, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x638bb2db_451d_4661_b099_414f34ffb9f1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1019,7 +1019,7 @@ pub struct ICoreApplicationView_abi(
 pub struct ICoreApplicationView2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationView2 {
     type Vtable = ICoreApplicationView2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1760262879, 37247, 18667, [154, 235, 125, 229, 62, 8, 106, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68eb7adf_917f_48eb_9aeb_7de53e086ab1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1038,7 +1038,7 @@ pub struct ICoreApplicationView2_abi(
 pub struct ICoreApplicationView3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationView3 {
     type Vtable = ICoreApplicationView3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(132899251, 42191, 17744, [171, 112, 176, 126, 133, 51, 11, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x07ebe1b3_a4cf_4550_ab70_b07e85330bc8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1061,7 +1061,7 @@ pub struct ICoreApplicationView3_abi(
 pub struct ICoreApplicationView5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationView5 {
     type Vtable = ICoreApplicationView5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(734041512, 36592, 17517, [158, 96, 58, 62, 4, 40, 198, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bc095a8_8ef0_446d_9e60_3a3e0428c671);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1080,7 +1080,7 @@ pub struct ICoreApplicationView5_abi(
 pub struct ICoreApplicationView6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationView6 {
     type Vtable = ICoreApplicationView6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3239695514, 1657, 18874, [128, 63, 183, 156, 92, 243, 76, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc119d49a_0679_49ba_803f_b79c5cf34cca);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1099,7 +1099,7 @@ pub struct ICoreApplicationView6_abi(
 pub struct ICoreApplicationViewTitleBar(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationViewTitleBar {
     type Vtable = ICoreApplicationViewTitleBar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(7157219, 57841, 17179, [149, 8, 41, 185, 105, 38, 172, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x006d35e3_e1f1_431b_9508_29b96926ac53);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1130,7 +1130,7 @@ pub struct ICoreApplicationViewTitleBar_abi(
 pub struct ICoreImmersiveApplication(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreImmersiveApplication {
     type Vtable = ICoreImmersiveApplication_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(450498110, 58530, 16675, [180, 81, 220, 150, 191, 128, 4, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ada0e3e_e4a2_4123_b451_dc96bf800419);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1151,7 +1151,7 @@ pub struct ICoreImmersiveApplication_abi(
 pub struct ICoreImmersiveApplication2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreImmersiveApplication2 {
     type Vtable = ICoreImmersiveApplication2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2190351926, 59875, 19708, [155, 102, 72, 183, 142, 169, 187, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x828e1e36_e9e3_4cfc_9b66_48b78ea9bb2c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1169,7 +1169,7 @@ pub struct ICoreImmersiveApplication2_abi(
 pub struct ICoreImmersiveApplication3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreImmersiveApplication3 {
     type Vtable = ICoreImmersiveApplication3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(882924335, 60941, 16869, [131, 20, 207, 16, 201, 27, 240, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34a05b2f_ee0d_41e5_8314_cf10c91bf0af);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1188,7 +1188,7 @@ pub struct ICoreImmersiveApplication3_abi(
 pub struct IFrameworkView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameworkView {
     type Vtable = IFrameworkView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4205534416, 35108, 17836, [173, 15, 160, 143, 174, 93, 3, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfaab5cd0_8924_45ac_ad0f_a08fae5d0324);
 }
 impl IFrameworkView {
     #[doc = "*Required features: `ApplicationModel_Core`*"]
@@ -1283,7 +1283,7 @@ pub struct IFrameworkView_abi(
 pub struct IFrameworkViewSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameworkViewSource {
     type Vtable = IFrameworkViewSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3447129620, 26052, 17004, [148, 148, 52, 252, 67, 85, 72, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd770614_65c4_426c_9494_34fc43554862);
 }
 impl IFrameworkViewSource {
     #[doc = "*Required features: `ApplicationModel_Core`*"]
@@ -1354,7 +1354,7 @@ pub struct IFrameworkViewSource_abi(
 pub struct IHostedViewClosingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHostedViewClosingEventArgs {
     type Vtable = IHostedViewClosingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3526923324, 45646, 18320, [172, 181, 62, 66, 67, 196, 255, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd238943c_b24e_4790_acb5_3e4243c4ff87);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1373,7 +1373,7 @@ pub struct IHostedViewClosingEventArgs_abi(
 pub struct IUnhandledError(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnhandledError {
     type Vtable = IUnhandledError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2488907558, 21429, 18054, [158, 175, 250, 129, 98, 220, 57, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9459b726_53b5_4686_9eaf_fa8162dc3980);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1392,7 +1392,7 @@ pub struct IUnhandledError_abi(
 pub struct IUnhandledErrorDetectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnhandledErrorDetectedEventArgs {
     type Vtable = IUnhandledErrorDetectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1738192779, 45878, 18466, [172, 64, 13, 117, 15, 11, 122, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x679ab78b_b336_4822_ac40_0d750f0b7a2b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1429,7 +1429,7 @@ unsafe impl ::windows::runtime::RuntimeType for UnhandledError {
 }
 unsafe impl ::windows::runtime::Interface for UnhandledError {
     type Vtable = IUnhandledError_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2488907558, 21429, 18054, [158, 175, 250, 129, 98, 220, 57, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9459b726_53b5_4686_9eaf_fa8162dc3980);
 }
 impl ::windows::runtime::RuntimeName for UnhandledError {
     const NAME: &'static str = "Windows.ApplicationModel.Core.UnhandledError";
@@ -1495,7 +1495,7 @@ unsafe impl ::windows::runtime::RuntimeType for UnhandledErrorDetectedEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for UnhandledErrorDetectedEventArgs {
     type Vtable = IUnhandledErrorDetectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1738192779, 45878, 18466, [172, 64, 13, 117, 15, 11, 122, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x679ab78b_b336_4822_ac40_0d750f0b7a2b);
 }
 impl ::windows::runtime::RuntimeName for UnhandledErrorDetectedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Core.UnhandledErrorDetectedEventArgs";

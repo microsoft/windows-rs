@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const CLSID_AudioFrameNativeFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(379626425, 40805, 16642, [147, 103, 44, 218, 58, 79, 55, 42]);
-pub const CLSID_VideoFrameNativeFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3516151914, 1251, 18452, [129, 0, 178, 176, 174, 109, 120, 199]);
+pub const CLSID_AudioFrameNativeFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16a0a3b9_9f65_4102_9367_2cda3a4f372a);
+pub const CLSID_VideoFrameNativeFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd194386a_04e3_4814_8100_b2b0ae6d78c7);
 #[doc = "*Required features: `Win32_System_WinRT_Media`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -14,7 +14,7 @@ impl IAudioFrameNative {
 }
 unsafe impl ::windows::runtime::Interface for IAudioFrameNative {
     type Vtable = IAudioFrameNative_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(549330478, 37647, 18246, [147, 53, 60, 51, 47, 37, 80, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20be1e2e_930f_4746_9335_3c332f255093);
 }
 impl ::core::convert::From<IAudioFrameNative> for ::windows::runtime::IUnknown {
     fn from(value: IAudioFrameNative) -> Self {
@@ -61,7 +61,7 @@ impl IAudioFrameNativeFactory {
 }
 unsafe impl ::windows::runtime::Interface for IAudioFrameNativeFactory {
     type Vtable = IAudioFrameNativeFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2077654264, 49021, 17382, [175, 141, 177, 112, 238, 12, 1, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bd67cf8_bf7d_43e6_af8d_b170ee0c0110);
 }
 impl ::core::convert::From<IAudioFrameNativeFactory> for ::windows::runtime::IUnknown {
     fn from(value: IAudioFrameNativeFactory) -> Self {
@@ -113,7 +113,7 @@ impl IVideoFrameNative {
 }
 unsafe impl ::windows::runtime::Interface for IVideoFrameNative {
     type Vtable = IVideoFrameNative_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(649752619, 12618, 17952, [170, 246, 122, 81, 170, 88, 250, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26ba702b_314a_4620_aaf6_7a51aa58fa18);
 }
 impl ::core::convert::From<IVideoFrameNative> for ::windows::runtime::IUnknown {
     fn from(value: IVideoFrameNative) -> Self {
@@ -182,7 +182,7 @@ impl IVideoFrameNativeFactory {
 }
 unsafe impl ::windows::runtime::Interface for IVideoFrameNativeFactory {
     type Vtable = IVideoFrameNativeFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1776511294, 36382, 20067, [172, 76, 127, 220, 33, 217, 115, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69e3693e_8e1e_4e63_ac4c_7fdc21d9731d);
 }
 impl ::core::convert::From<IVideoFrameNativeFactory> for ::windows::runtime::IUnknown {
     fn from(value: IVideoFrameNativeFactory) -> Self {

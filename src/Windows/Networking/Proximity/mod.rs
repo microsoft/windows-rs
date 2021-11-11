@@ -18,7 +18,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConnectionRequestedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ConnectionRequestedEventArgs {
     type Vtable = IConnectionRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3949498798, 20254, 19558, [189, 13, 70, 146, 74, 148, 46, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb6891ae_4f1e_4c66_bd0d_46924a942e08);
 }
 impl ::windows::runtime::RuntimeName for ConnectionRequestedEventArgs {
     const NAME: &'static str = "Windows.Networking.Proximity.ConnectionRequestedEventArgs";
@@ -89,7 +89,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceArrivedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for DeviceArrivedEventHandler {
     type Vtable = DeviceArrivedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020886121, 63201, 18889, [164, 158, 142, 15, 197, 143, 185, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefa9da69_f6e1_49c9_a49e_8e0fc58fb911);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -162,7 +162,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeviceDepartedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for DeviceDepartedEventHandler {
     type Vtable = DeviceDepartedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020886121, 63202, 18889, [164, 158, 142, 15, 197, 143, 185, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefa9da69_f6e2_49c9_a49e_8e0fc58fb911);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -216,7 +216,7 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::runtime::R
 pub struct IConnectionRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionRequestedEventArgs {
     type Vtable = IConnectionRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3949498798, 20254, 19558, [189, 13, 70, 146, 74, 148, 46, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb6891ae_4f1e_4c66_bd0d_46924a942e08);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -234,7 +234,7 @@ pub struct IConnectionRequestedEventArgs_abi(
 pub struct IPeerFinderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPeerFinderStatics {
     type Vtable = IPeerFinderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2437626721, 63201, 18372, [161, 76, 20, 138, 25, 3, 208, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x914b3b61_f6e1_47c4_a14c_148a1903d0c6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -277,7 +277,7 @@ pub struct IPeerFinderStatics_abi(
 pub struct IPeerFinderStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPeerFinderStatics2 {
     type Vtable = IPeerFinderStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3605478501, 64976, 19211, [147, 18, 134, 100, 8, 147, 93, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6e73c65_fdd0_4b0b_9312_866408935d82);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -301,7 +301,7 @@ pub struct IPeerFinderStatics2_abi(
 pub struct IPeerInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPeerInformation {
     type Vtable = IPeerInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(537022216, 40959, 17908, [182, 233, 64, 139, 46, 190, 243, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20024f08_9fff_45f4_b6e9_408b2ebef373);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -319,7 +319,7 @@ pub struct IPeerInformation_abi(
 pub struct IPeerInformation3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPeerInformation3 {
     type Vtable = IPeerInformation3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2987352362, 56272, 16632, [149, 189, 45, 66, 9, 199, 131, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb20f612a_dbd0_40f8_95bd_2d4209c7836f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -339,7 +339,7 @@ pub struct IPeerInformation3_abi(
 pub struct IPeerInformationWithHostAndService(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPeerInformationWithHostAndService {
     type Vtable = IPeerInformationWithHostAndService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3972517037, 7024, 20107, [146, 219, 187, 231, 129, 65, 147, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xecc7ccad_1b70_4e8b_92db_bbe781419308);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -358,7 +358,7 @@ pub struct IPeerInformationWithHostAndService_abi(
 pub struct IPeerWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPeerWatcher {
     type Vtable = IPeerWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1022239224, 12198, 18041, [150, 145, 3, 201, 74, 66, 15, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cee21f8_2fa6_4679_9691_03c94a420f34);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -398,7 +398,7 @@ pub struct IPeerWatcher_abi(
 pub struct IProximityDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProximityDevice {
     type Vtable = IProximityDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020806994, 63201, 17193, [160, 252, 171, 107, 15, 210, 130, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefa8a552_f6e1_4329_a0fc_ab6b0fd28262);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -439,7 +439,7 @@ pub struct IProximityDevice_abi(
 pub struct IProximityDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProximityDeviceStatics {
     type Vtable = IProximityDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2437652509, 63201, 18372, [161, 76, 20, 138, 25, 3, 208, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x914ba01d_f6e1_47c4_a14c_148a1903d0c6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -459,7 +459,7 @@ pub struct IProximityDeviceStatics_abi(
 pub struct IProximityMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProximityMessage {
     type Vtable = IProximityMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020963202, 63201, 18037, [160, 69, 216, 227, 32, 194, 72, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefab0782_f6e1_4675_a045_d8e320c24808);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -481,7 +481,7 @@ pub struct IProximityMessage_abi(
 pub struct ITriggeredConnectionStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITriggeredConnectionStateChangedEventArgs {
     type Vtable = ITriggeredConnectionStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3332866221, 63201, 19796, [150, 226, 51, 246, 32, 188, 168, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6a780ad_f6e1_4d54_96e2_33f620bca88a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -521,7 +521,7 @@ unsafe impl ::windows::runtime::RuntimeType for MessageReceivedHandler {
 }
 unsafe impl ::windows::runtime::Interface for MessageReceivedHandler {
     type Vtable = MessageReceivedHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020963202, 63202, 18037, [160, 69, 216, 227, 32, 194, 72, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefab0782_f6e2_4675_a045_d8e320c24808);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -594,7 +594,7 @@ unsafe impl ::windows::runtime::RuntimeType for MessageTransmittedHandler {
 }
 unsafe impl ::windows::runtime::Interface for MessageTransmittedHandler {
     type Vtable = MessageTransmittedHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020898634, 63202, 19837, [133, 108, 120, 252, 142, 252, 2, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefaa0b4a_f6e2_4d7d_856c_78fc8efc021e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -905,7 +905,7 @@ unsafe impl ::windows::runtime::RuntimeType for PeerInformation {
 }
 unsafe impl ::windows::runtime::Interface for PeerInformation {
     type Vtable = IPeerInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(537022216, 40959, 17908, [182, 233, 64, 139, 46, 190, 243, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20024f08_9fff_45f4_b6e9_408b2ebef373);
 }
 impl ::windows::runtime::RuntimeName for PeerInformation {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerInformation";
@@ -1079,7 +1079,7 @@ unsafe impl ::windows::runtime::RuntimeType for PeerWatcher {
 }
 unsafe impl ::windows::runtime::Interface for PeerWatcher {
     type Vtable = IPeerWatcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1022239224, 12198, 18041, [150, 145, 3, 201, 74, 66, 15, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cee21f8_2fa6_4679_9691_03c94a420f34);
 }
 impl ::windows::runtime::RuntimeName for PeerWatcher {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerWatcher";
@@ -1312,7 +1312,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProximityDevice {
 }
 unsafe impl ::windows::runtime::Interface for ProximityDevice {
     type Vtable = IProximityDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020806994, 63201, 17193, [160, 252, 171, 107, 15, 210, 130, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefa8a552_f6e1_4329_a0fc_ab6b0fd28262);
 }
 impl ::windows::runtime::RuntimeName for ProximityDevice {
     const NAME: &'static str = "Windows.Networking.Proximity.ProximityDevice";
@@ -1403,7 +1403,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProximityMessage {
 }
 unsafe impl ::windows::runtime::Interface for ProximityMessage {
     type Vtable = IProximityMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020963202, 63201, 18037, [160, 69, 216, 227, 32, 194, 72, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefab0782_f6e1_4675_a045_d8e320c24808);
 }
 impl ::windows::runtime::RuntimeName for ProximityMessage {
     const NAME: &'static str = "Windows.Networking.Proximity.ProximityMessage";
@@ -1512,7 +1512,7 @@ unsafe impl ::windows::runtime::RuntimeType for TriggeredConnectionStateChangedE
 }
 unsafe impl ::windows::runtime::Interface for TriggeredConnectionStateChangedEventArgs {
     type Vtable = ITriggeredConnectionStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3332866221, 63201, 19796, [150, 226, 51, 246, 32, 188, 168, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6a780ad_f6e1_4d54_96e2_33f620bca88a);
 }
 impl ::windows::runtime::RuntimeName for TriggeredConnectionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.Proximity.TriggeredConnectionStateChangedEventArgs";

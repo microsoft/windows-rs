@@ -4,7 +4,7 @@
 pub struct IIndexedResourceCandidate(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIndexedResourceCandidate {
     type Vtable = IIndexedResourceCandidate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(241278707, 64236, 17428, [169, 215, 84, 172, 213, 149, 63, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e619ef3_faec_4414_a9d7_54acd5953f29);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30,7 +30,7 @@ pub struct IIndexedResourceCandidate_abi(
 pub struct IIndexedResourceQualifier(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIndexedResourceQualifier {
     type Vtable = IIndexedResourceQualifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3672357787, 54020, 18815, [161, 104, 163, 64, 4, 44, 138, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdae3bb9b_d304_497f_a168_a340042c8adb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -49,7 +49,7 @@ pub struct IIndexedResourceQualifier_abi(
 pub struct IResourceIndexer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceIndexer {
     type Vtable = IResourceIndexer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(760019365, 58159, 19122, [135, 72, 150, 53, 10, 1, 109, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d4cf9a5_e32f_4ab2_8748_96350a016da3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -70,7 +70,7 @@ pub struct IResourceIndexer_abi(
 pub struct IResourceIndexerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceIndexerFactory {
     type Vtable = IResourceIndexerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3101572873, 12749, 19863, [189, 48, 141, 57, 247, 66, 188, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8de3f09_31cd_4d97_bd30_8d39f742bc61);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -89,7 +89,7 @@ pub struct IResourceIndexerFactory_abi(
 pub struct IResourceIndexerFactory2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceIndexerFactory2 {
     type Vtable = IResourceIndexerFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1614868877, 54757, 19296, [146, 1, 205, 39, 156, 188, 254, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6040f18d_d5e5_4b60_9201_cd279cbcfed9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -165,7 +165,7 @@ unsafe impl ::windows::runtime::RuntimeType for IndexedResourceCandidate {
 }
 unsafe impl ::windows::runtime::Interface for IndexedResourceCandidate {
     type Vtable = IIndexedResourceCandidate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(241278707, 64236, 17428, [169, 215, 84, 172, 213, 149, 63, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e619ef3_faec_4414_a9d7_54acd5953f29);
 }
 impl ::windows::runtime::RuntimeName for IndexedResourceCandidate {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.IndexedResourceCandidate";
@@ -239,7 +239,7 @@ unsafe impl ::windows::runtime::RuntimeType for IndexedResourceQualifier {
 }
 unsafe impl ::windows::runtime::Interface for IndexedResourceQualifier {
     type Vtable = IIndexedResourceQualifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3672357787, 54020, 18815, [161, 104, 163, 64, 4, 44, 138, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdae3bb9b_d304_497f_a168_a340042c8adb);
 }
 impl ::windows::runtime::RuntimeName for IndexedResourceQualifier {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.IndexedResourceQualifier";
@@ -366,7 +366,7 @@ unsafe impl ::windows::runtime::RuntimeType for ResourceIndexer {
 }
 unsafe impl ::windows::runtime::Interface for ResourceIndexer {
     type Vtable = IResourceIndexer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(760019365, 58159, 19122, [135, 72, 150, 53, 10, 1, 109, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d4cf9a5_e32f_4ab2_8748_96350a016da3);
 }
 impl ::windows::runtime::RuntimeName for ResourceIndexer {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.ResourceIndexer";

@@ -415,7 +415,7 @@ unsafe impl ::windows::runtime::RuntimeType for FileInformation {
 }
 unsafe impl ::windows::runtime::Interface for FileInformation {
     type Vtable = IStorageItemInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2275789707, 35186, 20288, [141, 224, 216, 111, 177, 121, 216, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa);
 }
 impl ::windows::runtime::RuntimeName for FileInformation {
     const NAME: &'static str = "Windows.Storage.BulkAccess.FileInformation";
@@ -811,7 +811,7 @@ unsafe impl ::windows::runtime::RuntimeType for FileInformationFactory {
 }
 unsafe impl ::windows::runtime::Interface for FileInformationFactory {
     type Vtable = IFileInformationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1075677374, 38415, 19821, [167, 208, 26, 56, 97, 231, 108, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x401d88be_960f_4d6d_a7d0_1a3861e76c83);
 }
 impl ::windows::runtime::RuntimeName for FileInformationFactory {
     const NAME: &'static str = "Windows.Storage.BulkAccess.FileInformationFactory";
@@ -1376,7 +1376,7 @@ unsafe impl ::windows::runtime::RuntimeType for FolderInformation {
 }
 unsafe impl ::windows::runtime::Interface for FolderInformation {
     type Vtable = IStorageItemInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2275789707, 35186, 20288, [141, 224, 216, 111, 177, 121, 216, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa);
 }
 impl ::windows::runtime::RuntimeName for FolderInformation {
     const NAME: &'static str = "Windows.Storage.BulkAccess.FolderInformation";
@@ -1604,7 +1604,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Search::IStorageFolderQueryOpe
 pub struct IFileInformationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileInformationFactory {
     type Vtable = IFileInformationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1075677374, 38415, 19821, [167, 208, 26, 56, 97, 231, 108, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x401d88be_960f_4d6d_a7d0_1a3861e76c83);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1636,7 +1636,7 @@ pub struct IFileInformationFactory_abi(
 pub struct IFileInformationFactoryFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileInformationFactoryFactory {
     type Vtable = IFileInformationFactoryFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2229931645, 58530, 20224, [138, 250, 175, 94, 15, 130, 107, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84ea0e7d_e4a2_4f00_8afa_af5e0f826bd5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1662,7 +1662,7 @@ pub struct IFileInformationFactoryFactory_abi(
 pub struct IStorageItemInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageItemInformation {
     type Vtable = IStorageItemInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2275789707, 35186, 20288, [141, 224, 216, 111, 177, 121, 216, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa);
 }
 impl IStorageItemInformation {
     #[cfg(feature = "Storage_FileProperties")]

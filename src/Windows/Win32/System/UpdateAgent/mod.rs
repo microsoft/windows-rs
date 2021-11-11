@@ -45,7 +45,7 @@ impl ::core::convert::From<i32> for AutoSelectionMode {
 unsafe impl ::windows::runtime::Abi for AutoSelectionMode {
     type Abi = Self;
 }
-pub const AutomaticUpdates: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3219230364, 28039, 17488, [179, 124, 224, 47, 11, 55, 56, 3]);
+pub const AutomaticUpdates: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfe18e9c_6d87_4450_b37c_e02f0b373803);
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -200,7 +200,7 @@ impl IAutomaticUpdates {
 }
 unsafe impl ::windows::runtime::Interface for IAutomaticUpdates {
     type Vtable = IAutomaticUpdates_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1731470783, 49282, 19580, [189, 253, 86, 148, 100, 184, 224, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x673425bf_c082_4c7c_bdfd_569464b8e0ce);
 }
 impl ::core::convert::From<IAutomaticUpdates> for ::windows::runtime::IUnknown {
     fn from(value: IAutomaticUpdates) -> Self {
@@ -342,7 +342,7 @@ impl IAutomaticUpdates2 {
 }
 unsafe impl ::windows::runtime::Interface for IAutomaticUpdates2 {
     type Vtable = IAutomaticUpdates2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1244617777, 53209, 16654, [183, 251, 41, 166, 83, 151, 58, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a2f5c31_cfd9_410e_b7fb_29a653973a0f);
 }
 impl ::core::convert::From<IAutomaticUpdates2> for ::windows::runtime::IUnknown {
     fn from(value: IAutomaticUpdates2) -> Self {
@@ -450,7 +450,7 @@ impl IAutomaticUpdatesResults {
 }
 unsafe impl ::windows::runtime::Interface for IAutomaticUpdatesResults {
     type Vtable = IAutomaticUpdatesResults_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3886339636, 31042, 19929, [161, 17, 130, 34, 139, 163, 57, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7a4d634_7942_4dd9_a111_82228ba33901);
 }
 impl ::core::convert::From<IAutomaticUpdatesResults> for ::windows::runtime::IUnknown {
     fn from(value: IAutomaticUpdatesResults) -> Self {
@@ -567,7 +567,7 @@ impl IAutomaticUpdatesSettings {
 }
 unsafe impl ::windows::runtime::Interface for IAutomaticUpdatesSettings {
     type Vtable = IAutomaticUpdatesSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(786730786, 44860, 16479, [137, 112, 247, 27, 225, 46, 233, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ee48f22_af3c_405f_8970_f71be12ee9a2);
 }
 impl ::core::convert::From<IAutomaticUpdatesSettings> for ::windows::runtime::IUnknown {
     fn from(value: IAutomaticUpdatesSettings) -> Self {
@@ -736,7 +736,7 @@ impl IAutomaticUpdatesSettings2 {
 }
 unsafe impl ::windows::runtime::Interface for IAutomaticUpdatesSettings2 {
     type Vtable = IAutomaticUpdatesSettings2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1790710634, 50122, 17284, [129, 113, 203, 43, 30, 89, 184, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6abc136a_c3ca_4384_8171_cb2b1e59b8dc);
 }
 impl ::core::convert::From<IAutomaticUpdatesSettings2> for ::windows::runtime::IUnknown {
     fn from(value: IAutomaticUpdatesSettings2) -> Self {
@@ -946,7 +946,7 @@ impl IAutomaticUpdatesSettings3 {
 }
 unsafe impl ::windows::runtime::Interface for IAutomaticUpdatesSettings3 {
     type Vtable = IAutomaticUpdatesSettings3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3045586371, 62846, 18527, [187, 245, 13, 24, 28, 92, 208, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb587f5c3_f57e_485f_bbf5_0d181c5cd0dc);
 }
 impl ::core::convert::From<IAutomaticUpdatesSettings3> for ::windows::runtime::IUnknown {
     fn from(value: IAutomaticUpdatesSettings3) -> Self {
@@ -1120,7 +1120,7 @@ impl ICategory {
 }
 unsafe impl ::windows::runtime::Interface for ICategory {
     type Vtable = ICategory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2178793912, 40245, 18342, [180, 113, 91, 128, 245, 25, 34, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81ddc1b8_9d35_47a6_b471_5b80f519223b);
 }
 impl ::core::convert::From<ICategory> for ::windows::runtime::IUnknown {
     fn from(value: ICategory) -> Self {
@@ -1216,7 +1216,7 @@ impl ICategoryCollection {
 }
 unsafe impl ::windows::runtime::Interface for ICategoryCollection {
     type Vtable = ICategoryCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(978763704, 22380, 17399, [147, 53, 254, 72, 56, 253, 126, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a56bfb8_576c_43f7_9335_fe4838fd7e37);
 }
 impl ::core::convert::From<ICategoryCollection> for ::windows::runtime::IUnknown {
     fn from(value: ICategoryCollection) -> Self {
@@ -1291,7 +1291,7 @@ impl IDownloadCompletedCallback {
 }
 unsafe impl ::windows::runtime::Interface for IDownloadCompletedCallback {
     type Vtable = IDownloadCompletedCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1998932070, 40795, 19598, [185, 226, 199, 122, 133, 48, 214, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77254866_9f5b_4c8e_b9e2_c77a8530d64b);
 }
 impl ::core::convert::From<IDownloadCompletedCallback> for ::windows::runtime::IUnknown {
     fn from(value: IDownloadCompletedCallback) -> Self {
@@ -1328,7 +1328,7 @@ pub struct IDownloadCompletedCallbackArgs(pub ::windows::runtime::IUnknown);
 impl IDownloadCompletedCallbackArgs {}
 unsafe impl ::windows::runtime::Interface for IDownloadCompletedCallbackArgs {
     type Vtable = IDownloadCompletedCallbackArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4199963427, 18828, 18336, [151, 157, 231, 213, 177, 129, 51, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa565b23_498c_47a0_979d_e7d5b1813360);
 }
 impl ::core::convert::From<IDownloadCompletedCallbackArgs> for ::windows::runtime::IUnknown {
     fn from(value: IDownloadCompletedCallbackArgs) -> Self {
@@ -1425,7 +1425,7 @@ impl IDownloadJob {
 }
 unsafe impl ::windows::runtime::Interface for IDownloadJob {
     type Vtable = IDownloadJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3312770693, 29528, 17398, [170, 232, 134, 151, 230, 45, 139, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc574de85_7358_43f6_aae8_8697e62d8ba7);
 }
 impl ::core::convert::From<IDownloadJob> for ::windows::runtime::IUnknown {
     fn from(value: IDownloadJob) -> Self {
@@ -1549,7 +1549,7 @@ impl IDownloadProgress {
 }
 unsafe impl ::windows::runtime::Interface for IDownloadProgress {
     type Vtable = IDownloadProgress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3541719980, 63257, 16760, [157, 187, 94, 44, 180, 127, 209, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd31a5bac_f719_4178_9dbb_5e2cb47fd18a);
 }
 impl ::core::convert::From<IDownloadProgress> for ::windows::runtime::IUnknown {
     fn from(value: IDownloadProgress) -> Self {
@@ -1634,7 +1634,7 @@ impl IDownloadProgressChangedCallback {
 }
 unsafe impl ::windows::runtime::Interface for IDownloadProgressChangedCallback {
     type Vtable = IDownloadProgressChangedCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2352946397, 24947, 17809, [174, 189, 165, 106, 83, 202, 119, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c3f1cdd_6173_4591_aebd_a56a53ca77c1);
 }
 impl ::core::convert::From<IDownloadProgressChangedCallback> for ::windows::runtime::IUnknown {
     fn from(value: IDownloadProgressChangedCallback) -> Self {
@@ -1677,7 +1677,7 @@ impl IDownloadProgressChangedCallbackArgs {
 }
 unsafe impl ::windows::runtime::Interface for IDownloadProgressChangedCallbackArgs {
     type Vtable = IDownloadProgressChangedCallbackArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(844100294, 18817, 19204, [148, 18, 87, 72, 23, 69, 171, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x324ff2c6_4981_4b04_9412_57481745ab24);
 }
 impl ::core::convert::From<IDownloadProgressChangedCallbackArgs> for ::windows::runtime::IUnknown {
     fn from(value: IDownloadProgressChangedCallbackArgs) -> Self {
@@ -1761,7 +1761,7 @@ impl IDownloadResult {
 }
 unsafe impl ::windows::runtime::Interface for IDownloadResult {
     type Vtable = IDownloadResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3668245968, 18215, 19902, [161, 231, 116, 93, 202, 49, 113, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdaa4fdd0_4727_4dbe_a1e7_745dca317144);
 }
 impl ::core::convert::From<IDownloadResult> for ::windows::runtime::IUnknown {
     fn from(value: IDownloadResult) -> Self {
@@ -1854,7 +1854,7 @@ impl IImageInformation {
 }
 unsafe impl ::windows::runtime::Interface for IImageInformation {
     type Vtable = IImageInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2089842788, 13420, 19179, [143, 63, 87, 218, 40, 159, 150, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c907864_346c_4aeb_8f3f_57da289f969f);
 }
 impl ::core::convert::From<IImageInformation> for ::windows::runtime::IUnknown {
     fn from(value: IImageInformation) -> Self {
@@ -1933,7 +1933,7 @@ impl IInstallationAgent {
 }
 unsafe impl ::windows::runtime::Interface for IInstallationAgent {
     type Vtable = IInstallationAgent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2455551000, 41706, 17992, [191, 28, 236, 139, 173, 207, 226, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x925cbc18_a2ea_4648_bf1c_ec8badcfe20a);
 }
 impl ::core::convert::From<IInstallationAgent> for ::windows::runtime::IUnknown {
     fn from(value: IInstallationAgent) -> Self {
@@ -2023,7 +2023,7 @@ impl IInstallationBehavior {
 }
 unsafe impl ::windows::runtime::Interface for IInstallationBehavior {
     type Vtable = IInstallationBehavior_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3651507001, 57925, 19901, [150, 134, 77, 87, 99, 227, 150, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9a59339_e245_4dbd_9686_4d5763e39624);
 }
 impl ::core::convert::From<IInstallationBehavior> for ::windows::runtime::IUnknown {
     fn from(value: IInstallationBehavior) -> Self {
@@ -2099,7 +2099,7 @@ impl IInstallationCompletedCallback {
 }
 unsafe impl ::windows::runtime::Interface for IInstallationCompletedCallback {
     type Vtable = IInstallationCompletedCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1173681907, 54786, 20376, [154, 138, 62, 250, 21, 42, 210, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45f4f6f3_d602_4f98_9a8a_3efa152ad2d3);
 }
 impl ::core::convert::From<IInstallationCompletedCallback> for ::windows::runtime::IUnknown {
     fn from(value: IInstallationCompletedCallback) -> Self {
@@ -2136,7 +2136,7 @@ pub struct IInstallationCompletedCallbackArgs(pub ::windows::runtime::IUnknown);
 impl IInstallationCompletedCallbackArgs {}
 unsafe impl ::windows::runtime::Interface for IInstallationCompletedCallbackArgs {
     type Vtable = IInstallationCompletedCallbackArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(621682950, 36603, 18181, [150, 83, 239, 19, 197, 129, 182, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x250e2106_8efb_4705_9653_ef13c581b6a1);
 }
 impl ::core::convert::From<IInstallationCompletedCallbackArgs> for ::windows::runtime::IUnknown {
     fn from(value: IInstallationCompletedCallbackArgs) -> Self {
@@ -2233,7 +2233,7 @@ impl IInstallationJob {
 }
 unsafe impl ::windows::runtime::Interface for IInstallationJob {
     type Vtable = IInstallationJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1545641739, 47829, 17194, [149, 86, 70, 153, 190, 210, 99, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c209f0b_bad5_432a_9556_4699bed2638a);
 }
 impl ::core::convert::From<IInstallationJob> for ::windows::runtime::IUnknown {
     fn from(value: IInstallationJob) -> Self {
@@ -2328,7 +2328,7 @@ impl IInstallationProgress {
 }
 unsafe impl ::windows::runtime::Interface for IInstallationProgress {
     type Vtable = IInstallationProgress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(878477892, 17315, 20018, [163, 104, 101, 240, 115, 183, 111, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x345c8244_43a3_4e32_a368_65f073b76f36);
 }
 impl ::core::convert::From<IInstallationProgress> for ::windows::runtime::IUnknown {
     fn from(value: IInstallationProgress) -> Self {
@@ -2404,7 +2404,7 @@ impl IInstallationProgressChangedCallback {
 }
 unsafe impl ::windows::runtime::Interface for IInstallationProgressChangedCallback {
     type Vtable = IInstallationProgressChangedCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3759407829, 63706, 17338, [160, 18, 56, 137, 75, 208, 72, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe01402d5_f8da_43ba_a012_38894bd048f1);
 }
 impl ::core::convert::From<IInstallationProgressChangedCallback> for ::windows::runtime::IUnknown {
     fn from(value: IInstallationProgressChangedCallback) -> Self {
@@ -2447,7 +2447,7 @@ impl IInstallationProgressChangedCallbackArgs {
 }
 unsafe impl ::windows::runtime::Interface for IInstallationProgressChangedCallbackArgs {
     type Vtable = IInstallationProgressChangedCallbackArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3841019422, 26781, 16920, [160, 185, 188, 24, 156, 72, 74, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4f14e1e_689d_4218_a0b9_bc189c484a01);
 }
 impl ::core::convert::From<IInstallationProgressChangedCallbackArgs> for ::windows::runtime::IUnknown {
     fn from(value: IInstallationProgressChangedCallbackArgs) -> Self {
@@ -2536,7 +2536,7 @@ impl IInstallationResult {
 }
 unsafe impl ::windows::runtime::Interface for IInstallationResult {
     type Vtable = IInstallationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2755417814, 29777, 18644, [175, 150, 182, 205, 45, 13, 155, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa43c56d6_7451_48d4_af96_b6cd2d0d9b7a);
 }
 impl ::core::convert::From<IInstallationResult> for ::windows::runtime::IUnknown {
     fn from(value: IInstallationResult) -> Self {
@@ -2662,7 +2662,7 @@ impl IInvalidProductLicenseException {
 }
 unsafe impl ::windows::runtime::Interface for IInvalidProductLicenseException {
     type Vtable = IInvalidProductLicenseException_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2742878453, 31664, 18771, [180, 20, 249, 233, 131, 38, 242, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa37d00f5_7bb0_4953_b414_f9e98326f2e8);
 }
 impl ::core::convert::From<IInvalidProductLicenseException> for ::windows::runtime::IUnknown {
     fn from(value: IInvalidProductLicenseException) -> Self {
@@ -2760,7 +2760,7 @@ impl ISearchCompletedCallback {
 }
 unsafe impl ::windows::runtime::Interface for ISearchCompletedCallback {
     type Vtable = ISearchCompletedCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2293162072, 54448, 18213, [162, 241, 129, 74, 103, 174, 150, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88aee058_d4b0_4725_a2f1_814a67ae964c);
 }
 impl ::core::convert::From<ISearchCompletedCallback> for ::windows::runtime::IUnknown {
     fn from(value: ISearchCompletedCallback) -> Self {
@@ -2797,7 +2797,7 @@ pub struct ISearchCompletedCallbackArgs(pub ::windows::runtime::IUnknown);
 impl ISearchCompletedCallbackArgs {}
 unsafe impl ::windows::runtime::Interface for ISearchCompletedCallbackArgs {
     type Vtable = ISearchCompletedCallbackArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2801837620, 10320, 19527, [147, 138, 158, 75, 110, 90, 249, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa700a634_2850_4c47_938a_9e4b6e5af9a6);
 }
 impl ::core::convert::From<ISearchCompletedCallbackArgs> for ::windows::runtime::IUnknown {
     fn from(value: ISearchCompletedCallbackArgs) -> Self {
@@ -2884,7 +2884,7 @@ impl ISearchJob {
 }
 unsafe impl ::windows::runtime::Interface for ISearchJob {
     type Vtable = ISearchJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1936124438, 31258, 20130, [176, 66, 151, 61, 62, 156, 217, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7366ea16_7a1a_4ea2_b042_973d3e9cd99b);
 }
 impl ::core::convert::From<ISearchJob> for ::windows::runtime::IUnknown {
     fn from(value: ISearchJob) -> Self {
@@ -2977,7 +2977,7 @@ impl ISearchResult {
 }
 unsafe impl ::windows::runtime::Interface for ISearchResult {
     type Vtable = ISearchResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3557621602, 57484, 17560, [148, 26, 1, 226, 95, 15, 211, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd40cff62_e08c_4498_941a_01e25f0fd33c);
 }
 impl ::core::convert::From<ISearchResult> for ::windows::runtime::IUnknown {
     fn from(value: ISearchResult) -> Self {
@@ -3099,7 +3099,7 @@ impl IStringCollection {
 }
 unsafe impl ::windows::runtime::Interface for IStringCollection {
     type Vtable = IStringCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4026074498, 11740, 18447, [160, 109, 96, 243, 251, 195, 98, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeff90582_2ddc_480f_a06d_60f3fbc362c3);
 }
 impl ::core::convert::From<IStringCollection> for ::windows::runtime::IUnknown {
     fn from(value: IStringCollection) -> Self {
@@ -3192,7 +3192,7 @@ impl ISystemInformation {
 }
 unsafe impl ::windows::runtime::Interface for ISystemInformation {
     type Vtable = ISystemInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2917694455, 31574, 17013, [143, 171, 185, 176, 229, 145, 132, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xade87bf7_7b56_4275_8fab_b9b0e591844b);
 }
 impl ::core::convert::From<ISystemInformation> for ::windows::runtime::IUnknown {
     fn from(value: ISystemInformation) -> Self {
@@ -3497,7 +3497,7 @@ impl IUpdate {
 }
 unsafe impl ::windows::runtime::Interface for IUpdate {
     type Vtable = IUpdate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1787998330, 55329, 18050, [180, 35, 92, 128, 80, 34, 204, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a92b07a_d821_4682_b423_5c805022cc4d);
 }
 impl ::core::convert::From<IUpdate> for ::windows::runtime::IUnknown {
     fn from(value: IUpdate) -> Self {
@@ -3907,7 +3907,7 @@ impl IUpdate2 {
 }
 unsafe impl ::windows::runtime::Interface for IUpdate2 {
     type Vtable = IUpdate2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(340781488, 53821, 19083, [134, 52, 251, 68, 87, 83, 59, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x144fe9b0_d23d_4a8b_8634_fb4457533b7a);
 }
 impl ::core::convert::From<IUpdate2> for ::windows::runtime::IUnknown {
     fn from(value: IUpdate2) -> Self {
@@ -4346,7 +4346,7 @@ impl IUpdate3 {
 }
 unsafe impl ::windows::runtime::Interface for IUpdate3 {
     type Vtable = IUpdate3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(288283243, 38323, 18287, [157, 144, 174, 232, 44, 107, 129, 129]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x112eda6b_95b3_476f_9d90_aee82c6b8181);
 }
 impl ::core::convert::From<IUpdate3> for ::windows::runtime::IUnknown {
     fn from(value: IUpdate3) -> Self {
@@ -4811,7 +4811,7 @@ impl IUpdate4 {
 }
 unsafe impl ::windows::runtime::Interface for IUpdate4 {
     type Vtable = IUpdate4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(669600525, 20793, 18850, [154, 97, 147, 82, 45, 197, 70, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27e94b0d_5139_49a2_9a61_93522dc54652);
 }
 impl ::core::convert::From<IUpdate4> for ::windows::runtime::IUnknown {
     fn from(value: IUpdate4) -> Self {
@@ -5307,7 +5307,7 @@ impl IUpdate5 {
 }
 unsafe impl ::windows::runtime::Interface for IUpdate5 {
     type Vtable = IUpdate5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3250778650, 54004, 18690, [181, 198, 138, 8, 28, 25, 168, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1c2f21a_d2f4_4902_b5c6_8a081c19a890);
 }
 impl ::core::convert::From<IUpdate5> for ::windows::runtime::IUnknown {
     fn from(value: IUpdate5) -> Self {
@@ -5566,7 +5566,7 @@ impl IUpdateCollection {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateCollection {
     type Vtable = IUpdateCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(133645196, 30473, 19621, [181, 24, 145, 39, 146, 136, 19, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x07f7438c_7709_4ca5_b518_91279288134e);
 }
 impl ::core::convert::From<IUpdateCollection> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateCollection) -> Self {
@@ -5650,7 +5650,7 @@ impl IUpdateDownloadContent {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateDownloadContent {
     type Vtable = IUpdateDownloadContent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1419954989, 39436, 18614, [138, 80, 154, 187, 105, 238, 45, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54a2cb2d_9a0c_48b6_8a50_9abb69ee2d02);
 }
 impl ::core::convert::From<IUpdateDownloadContent> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateDownloadContent) -> Self {
@@ -5763,7 +5763,7 @@ impl IUpdateDownloadContent2 {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateDownloadContent2 {
     type Vtable = IUpdateDownloadContent2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3380269339, 62039, 16907, [157, 159, 55, 127, 115, 63, 111, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc97ad11b_f257_420b_9d9f_377f733f6f68);
 }
 impl ::core::convert::From<IUpdateDownloadContent2> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateDownloadContent2) -> Self {
@@ -5869,7 +5869,7 @@ impl IUpdateDownloadContentCollection {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateDownloadContentCollection {
     type Vtable = IUpdateDownloadContentCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3159692232, 46008, 19447, [164, 212, 54, 28, 13, 140, 136, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc5513c8_b3b8_4bf7_a4d4_361c0d8c88ba);
 }
 impl ::core::convert::From<IUpdateDownloadContentCollection> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateDownloadContentCollection) -> Self {
@@ -5950,7 +5950,7 @@ impl IUpdateDownloadResult {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateDownloadResult {
     type Vtable = IUpdateDownloadResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3214520182, 46453, 17069, [138, 164, 51, 203, 181, 71, 122, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf99af76_b575_42ad_8aa4_33cbb5477af1);
 }
 impl ::core::convert::From<IUpdateDownloadResult> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateDownloadResult) -> Self {
@@ -6074,7 +6074,7 @@ impl IUpdateDownloader {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateDownloader {
     type Vtable = IUpdateDownloader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1760675577, 32460, 18022, [164, 100, 36, 127, 225, 36, 150, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68f1c6f9_7ecc_4666_a464_247fe12496c3);
 }
 impl ::core::convert::From<IUpdateDownloader> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateDownloader) -> Self {
@@ -6172,7 +6172,7 @@ impl IUpdateException {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateException {
     type Vtable = IUpdateException_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2742476126, 2516, 17023, [175, 124, 254, 213, 182, 225, 193, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa376dd5e_09d4_427f_af7c_fed5b6e1c1d6);
 }
 impl ::core::convert::From<IUpdateException> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateException) -> Self {
@@ -6259,7 +6259,7 @@ impl IUpdateExceptionCollection {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateExceptionCollection {
     type Vtable = IUpdateExceptionCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1345726115, 36372, 18217, [147, 85, 15, 230, 100, 189, 35, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x503626a3_8e14_4729_9355_0fe664bd2321);
 }
 impl ::core::convert::From<IUpdateExceptionCollection> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateExceptionCollection) -> Self {
@@ -6406,7 +6406,7 @@ impl IUpdateHistoryEntry {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateHistoryEntry {
     type Vtable = IUpdateHistoryEntry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3193349700, 44814, 19982, [163, 17, 193, 216, 230, 149, 203, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe56a644_af0e_4e0e_a311_c1d8e695cbff);
 }
 impl ::core::convert::From<IUpdateHistoryEntry> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateHistoryEntry) -> Self {
@@ -6607,7 +6607,7 @@ impl IUpdateHistoryEntry2 {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateHistoryEntry2 {
     type Vtable = IUpdateHistoryEntry2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3267344256, 17721, 16690, [171, 140, 10, 135, 114, 1, 58, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2bfb780_4539_4132_ab8c_0a8772013ab6);
 }
 impl ::core::convert::From<IUpdateHistoryEntry2> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateHistoryEntry2) -> Self {
@@ -6731,7 +6731,7 @@ impl IUpdateHistoryEntryCollection {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateHistoryEntryCollection {
     type Vtable = IUpdateHistoryEntryCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2817543996, 41616, 17243, [170, 223, 161, 22, 195, 53, 122, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7f04f3c_a290_435b_aadf_a116c3357a5c);
 }
 impl ::core::convert::From<IUpdateHistoryEntryCollection> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateHistoryEntryCollection) -> Self {
@@ -6813,7 +6813,7 @@ impl IUpdateIdentity {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateIdentity {
     type Vtable = IUpdateIdentity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1177122851, 39232, 19465, [174, 217, 205, 62, 166, 208, 89, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46297823_9940_4c09_aed9_cd3ea6d05968);
 }
 impl ::core::convert::From<IUpdateIdentity> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateIdentity) -> Self {
@@ -6899,7 +6899,7 @@ impl IUpdateInstallationResult {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateInstallationResult {
     type Vtable = IUpdateInstallationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3644911864, 15547, 20432, [153, 63, 71, 30, 127, 35, 40, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd940f0f8_3cbb_4fd0_993f_471e7f2328ad);
 }
 impl ::core::convert::From<IUpdateInstallationResult> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateInstallationResult) -> Self {
@@ -7076,7 +7076,7 @@ impl IUpdateInstaller {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateInstaller {
     type Vtable = IUpdateInstaller_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2073205864, 52444, 16934, [150, 177, 135, 36, 96, 11, 84, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b929c68_ccdc_4226_96b1_8724600b54c2);
 }
 impl ::core::convert::From<IUpdateInstaller> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateInstaller) -> Self {
@@ -7319,7 +7319,7 @@ impl IUpdateInstaller2 {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateInstaller2 {
     type Vtable = IUpdateInstaller2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(876795134, 8781, 19694, [152, 207, 48, 224, 196, 210, 41, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3442d4fe_224d_4cee_98cf_30e0c4d229e6);
 }
 impl ::core::convert::From<IUpdateInstaller2> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateInstaller2) -> Self {
@@ -7593,7 +7593,7 @@ impl IUpdateInstaller3 {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateInstaller3 {
     type Vtable = IUpdateInstaller3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(382802997, 2458, 18640, [131, 56, 95, 174, 100, 4, 127, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16d11c35_099a_48d0_8338_5fae64047f8e);
 }
 impl ::core::convert::From<IUpdateInstaller3> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateInstaller3) -> Self {
@@ -7893,7 +7893,7 @@ impl IUpdateInstaller4 {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateInstaller4 {
     type Vtable = IUpdateInstaller4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4018276586, 8964, 18733, [145, 9, 35, 129, 59, 9, 88, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef8208ea_2304_492d_9109_23813b0958e1);
 }
 impl ::core::convert::From<IUpdateInstaller4> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateInstaller4) -> Self {
@@ -8058,7 +8058,7 @@ impl IUpdateLockdown {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateLockdown {
     type Vtable = IUpdateLockdown_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2843132557, 30113, 17066, [148, 174, 138, 248, 184, 114, 8, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa976c28d_75a1_42aa_94ae_8af8b872089a);
 }
 impl ::core::convert::From<IUpdateLockdown> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateLockdown) -> Self {
@@ -8187,7 +8187,7 @@ impl IUpdateSearcher {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateSearcher {
     type Vtable = IUpdateSearcher_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2403707889, 63918, 19349, [169, 51, 240, 246, 110, 80, 86, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f45abf1_f9ae_4b95_a933_f0f66e5056ea);
 }
 impl ::core::convert::From<IUpdateSearcher> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateSearcher) -> Self {
@@ -8412,7 +8412,7 @@ impl IUpdateSearcher2 {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateSearcher2 {
     type Vtable = IUpdateSearcher2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1287506733, 5513, 19435, [189, 28, 62, 88, 47, 240, 173, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4cbdcb2d_1589_4beb_bd1c_3e582ff0add0);
 }
 impl ::core::convert::From<IUpdateSearcher2> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateSearcher2) -> Self {
@@ -8668,7 +8668,7 @@ impl IUpdateSearcher3 {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateSearcher3 {
     type Vtable = IUpdateSearcher3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(80120157, 60146, 16436, [151, 243, 49, 29, 233, 190, 65, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04c6895d_eaf2_4034_97f3_311de9be413a);
 }
 impl ::core::convert::From<IUpdateSearcher3> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateSearcher3) -> Self {
@@ -8875,7 +8875,7 @@ impl IUpdateService {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateService {
     type Vtable = IUpdateService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1991487870, 44758, 19877, [133, 240, 131, 88, 127, 129, 171, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76b3b17e_aed6_4da5_85f0_83587f81abe3);
 }
 impl ::core::convert::From<IUpdateService> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateService) -> Self {
@@ -9068,7 +9068,7 @@ impl IUpdateService2 {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateService2 {
     type Vtable = IUpdateService2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(353940576, 25880, 16754, [148, 15, 199, 88, 131, 178, 76, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1518b460_6518_4172_940f_c75883b24ceb);
 }
 impl ::core::convert::From<IUpdateService2> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateService2) -> Self {
@@ -9190,7 +9190,7 @@ impl IUpdateServiceCollection {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateServiceCollection {
     type Vtable = IUpdateServiceCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2600686506, 3666, 17663, [184, 176, 31, 127, 160, 67, 127, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b0353aa_0e52_44ff_b8b0_1f7fa0437f88);
 }
 impl ::core::convert::From<IUpdateServiceCollection> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateServiceCollection) -> Self {
@@ -9298,7 +9298,7 @@ impl IUpdateServiceManager {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateServiceManager {
     type Vtable = IUpdateServiceManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(595951164, 698, 17571, [148, 35, 177, 201, 0, 128, 95, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23857e3c_02ba_44a3_9423_b1c900805f37);
 }
 impl ::core::convert::From<IUpdateServiceManager> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateServiceManager) -> Self {
@@ -9471,7 +9471,7 @@ impl IUpdateServiceManager2 {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateServiceManager2 {
     type Vtable = IUpdateServiceManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(196629277, 32397, 16975, [152, 108, 160, 184, 246, 10, 62, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bb8531d_7e8d_424f_986c_a0b8f60a3e7b);
 }
 impl ::core::convert::From<IUpdateServiceManager2> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateServiceManager2) -> Self {
@@ -9601,7 +9601,7 @@ impl IUpdateServiceRegistration {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateServiceRegistration {
     type Vtable = IUpdateServiceRegistration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3722453632, 4787, 19979, [147, 123, 103, 71, 246, 172, 178, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdde02280_12b3_4e0b_937b_6747f6acb286);
 }
 impl ::core::convert::From<IUpdateServiceRegistration> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateServiceRegistration) -> Self {
@@ -9714,7 +9714,7 @@ impl IUpdateSession {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateSession {
     type Vtable = IUpdateSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2171099300, 9741, 16992, [147, 58, 37, 133, 241, 171, 199, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x816858a4_260d_4260_933a_2585f1abc76b);
 }
 impl ::core::convert::From<IUpdateSession> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateSession) -> Self {
@@ -9873,7 +9873,7 @@ impl IUpdateSession2 {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateSession2 {
     type Vtable = IUpdateSession2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2445998000, 60195, 18925, [153, 55, 197, 45, 129, 127, 70, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91caf7b0_eb23_49ed_9937_c52d817f46f7);
 }
 impl ::core::convert::From<IUpdateSession2> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateSession2) -> Self {
@@ -10065,7 +10065,7 @@ impl IUpdateSession3 {
 }
 unsafe impl ::windows::runtime::Interface for IUpdateSession3 {
     type Vtable = IUpdateSession3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2442067230, 46552, 19600, [133, 64, 174, 185, 189, 197, 111, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x918efd1e_b5d8_4c90_8540_aeb9bdc56f9d);
 }
 impl ::core::convert::From<IUpdateSession3> for ::windows::runtime::IUnknown {
     fn from(value: IUpdateSession3) -> Self {
@@ -10257,7 +10257,7 @@ impl IWebProxy {
 }
 unsafe impl ::windows::runtime::Interface for IWebProxy {
     type Vtable = IWebProxy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(390889982, 44749, 19886, [184, 160, 44, 99, 24, 221, 134, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x174c81fe_aecd_4dae_b8a0_2c6318dd86a8);
 }
 impl ::core::convert::From<IWebProxy> for ::windows::runtime::IUnknown {
     fn from(value: IWebProxy) -> Self {
@@ -10657,7 +10657,7 @@ impl IWindowsDriverUpdate {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsDriverUpdate {
     type Vtable = IWindowsDriverUpdate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3011759386, 23785, 17668, [159, 99, 118, 75, 18, 54, 241, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb383cd1a_5ce9_4504_9f63_764b1236f191);
 }
 impl ::core::convert::From<IWindowsDriverUpdate> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsDriverUpdate) -> Self {
@@ -11145,7 +11145,7 @@ impl IWindowsDriverUpdate2 {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsDriverUpdate2 {
     type Vtable = IWindowsDriverUpdate2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1633436265, 31304, 17341, [150, 183, 191, 108, 162, 125, 108, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x615c4269_7a48_43bd_96b7_bf6ca27d6c3e);
 }
 impl ::core::convert::From<IWindowsDriverUpdate2> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsDriverUpdate2) -> Self {
@@ -11662,7 +11662,7 @@ impl IWindowsDriverUpdate3 {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsDriverUpdate3 {
     type Vtable = IWindowsDriverUpdate3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1240192258, 19094, 16829, [158, 62, 76, 80, 87, 244, 37, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49ebd502_4a96_41bd_9e3e_4c5057f4250c);
 }
 impl ::core::convert::From<IWindowsDriverUpdate3> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsDriverUpdate3) -> Self {
@@ -12210,7 +12210,7 @@ impl IWindowsDriverUpdate4 {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsDriverUpdate4 {
     type Vtable = IWindowsDriverUpdate4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(5007915, 3097, 19561, [159, 92, 162, 105, 178, 86, 13, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x004c6a2b_0c19_4c69_9f5c_a269b2560db9);
 }
 impl ::core::convert::From<IWindowsDriverUpdate4> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsDriverUpdate4) -> Self {
@@ -12790,7 +12790,7 @@ impl IWindowsDriverUpdate5 {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsDriverUpdate5 {
     type Vtable = IWindowsDriverUpdate5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1892637826, 34370, 17083, [157, 188, 12, 253, 38, 60, 108, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70cf5c82_8642_42bb_9dbc_0cfd263c6c4f);
 }
 impl ::core::convert::From<IWindowsDriverUpdate5> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsDriverUpdate5) -> Self {
@@ -13082,7 +13082,7 @@ impl IWindowsDriverUpdateEntry {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsDriverUpdateEntry {
     type Vtable = IWindowsDriverUpdateEntry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3985374784, 42507, 17130, [150, 82, 129, 125, 252, 250, 35, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed8bfe40_a60b_42ea_9652_817dfcfa23ec);
 }
 impl ::core::convert::From<IWindowsDriverUpdateEntry> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsDriverUpdateEntry) -> Self {
@@ -13178,7 +13178,7 @@ impl IWindowsDriverUpdateEntryCollection {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsDriverUpdateEntryCollection {
     type Vtable = IWindowsDriverUpdateEntryCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(223483648, 41842, 19439, [130, 139, 61, 0, 193, 10, 222, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d521700_a372_4bef_828b_3d00c10adebd);
 }
 impl ::core::convert::From<IWindowsDriverUpdateEntryCollection> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsDriverUpdateEntryCollection) -> Self {
@@ -13255,7 +13255,7 @@ impl IWindowsUpdateAgentInfo {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsUpdateAgentInfo {
     type Vtable = IWindowsUpdateAgentInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2238791585, 30614, 20386, [190, 59, 226, 214, 18, 77, 211, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85713fa1_7796_4fa2_be3b_e2d6124dd373);
 }
 impl ::core::convert::From<IWindowsUpdateAgentInfo> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsUpdateAgentInfo) -> Self {
@@ -13317,7 +13317,7 @@ pub struct IWindowsUpdateAgentInfo_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, varinfoidentifier: ::core::mem::ManuallyDrop<super::Com::VARIANT>, retval: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-pub const InstallationAgent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(830378748, 5753, 18173, [160, 181, 240, 137, 20, 221, 134, 35]);
+pub const InstallationAgent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x317e92fc_1679_46fd_a0b5_f08914dd8623);
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -13348,7 +13348,7 @@ impl ::core::convert::From<i32> for InstallationRebootBehavior {
 unsafe impl ::windows::runtime::Abi for InstallationRebootBehavior {
     type Abi = Self;
 }
-pub const LIBID_WUApiLib: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3046558879, 22245, 16798, [166, 34, 224, 27, 180, 87, 67, 30]);
+pub const LIBID_WUApiLib: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb596cc9f_56e5_419e_a622_e01bb457431e);
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -13401,12 +13401,12 @@ impl ::core::convert::From<i32> for ServerSelection {
 unsafe impl ::windows::runtime::Abi for ServerSelection {
     type Abi = Self;
 }
-pub const StringCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1925807476, 31803, 16558, [183, 125, 171, 219, 34, 235, 166, 251]);
-pub const SystemInformation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3223034784, 48807, 16826, [182, 4, 208, 163, 111, 70, 145, 51]);
+pub const StringCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72c97d74_7c3b_40ae_b77d_abdb22eba6fb);
+pub const SystemInformation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc01b9ba0_bea7_41ba_b604_d0a36f469133);
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 pub const UPDATE_LOCKDOWN_WEBSITE_ACCESS: u32 = 1u32;
-pub const UpdateCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(325293155, 219, 17990, [128, 61, 82, 128, 38, 20, 13, 136]);
-pub const UpdateDownloader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1538221386, 23047, 16996, [162, 85, 159, 245, 76, 113, 81, 231]);
+pub const UpdateCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13639463_00db_4646_803d_528026140d88);
+pub const UpdateDownloader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5baf654a_5a07_4264_a255_9ff54c7151e7);
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -13423,7 +13423,7 @@ impl ::core::convert::From<i32> for UpdateExceptionContext {
 unsafe impl ::windows::runtime::Abi for UpdateExceptionContext {
     type Abi = Self;
 }
-pub const UpdateInstaller: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3537960575, 53822, 18657, [147, 192, 111, 168, 204, 52, 100, 116]);
+pub const UpdateInstaller: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2e0fe7f_d23e_48e1_93c0_6fa8cc346474);
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -13451,8 +13451,8 @@ impl ::core::convert::From<i32> for UpdateOperation {
 unsafe impl ::windows::runtime::Abi for UpdateOperation {
     type Abi = Self;
 }
-pub const UpdateSearcher: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3063539176, 26623, 16759, [136, 176, 54, 132, 163, 56, 139, 251]);
-pub const UpdateServiceManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4174533593, 35236, 19882, [135, 182, 17, 104, 54, 159, 11, 33]);
+pub const UpdateSearcher: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb699e5e8_67ff_4177_88b0_3684a3388bfb);
+pub const UpdateServiceManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8d253d9_89a4_4daa_87b6_1168369f0b21);
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -13481,7 +13481,7 @@ impl ::core::convert::From<i32> for UpdateServiceRegistrationState {
 unsafe impl ::windows::runtime::Abi for UpdateServiceRegistrationState {
     type Abi = Self;
 }
-pub const UpdateSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1286880639, 32494, 18694, [134, 152, 96, 218, 28, 56, 242, 254]);
+pub const UpdateSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4cb43d7f_7eee_4906_8698_60da1c38f2fe);
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -14426,5 +14426,5 @@ pub const WU_S_UH_DOWNLOAD_SIZE_CALCULATED: ::windows::runtime::HRESULT = ::wind
 pub const WU_S_UH_INSTALLSTILLPENDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(2367509i32 as _);
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 pub const WU_S_UPDATE_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(2359299i32 as _);
-pub const WebProxy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1694827471, 37128, 19932, [162, 206, 108, 35, 65, 225, 197, 130]);
-pub const WindowsUpdateAgentInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3270020143, 28507, 19114, [137, 75, 85, 200, 71, 173, 58, 45]);
+pub const WebProxy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x650503cf_9108_4ddc_a2ce_6c2341e1c582);
+pub const WindowsUpdateAgentInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2e88c2f_6f5b_4aaa_894b_55c847ad3a2d);

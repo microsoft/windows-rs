@@ -37,7 +37,7 @@ pub mod Windows {
         pub struct IPropertyValue(pub ::windows::runtime::IInspectable);
         unsafe impl ::windows::runtime::Interface for IPropertyValue {
             type Vtable = IPropertyValue_abi;
-            const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1272349405, 30036, 16617, [154, 155, 130, 101, 78, 222, 126, 98]);
+            const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bd682dd_7554_40e9_9a9b_82654ede7e62);
         }
         impl IPropertyValue {
             pub fn Type(&self) -> ::windows::runtime::Result<PropertyType> {
@@ -354,7 +354,7 @@ pub mod Windows {
         pub struct IPropertyValueStatics(pub ::windows::runtime::IInspectable);
         unsafe impl ::windows::runtime::Interface for IPropertyValueStatics {
             type Vtable = IPropertyValueStatics_abi;
-            const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1654381512, 55602, 20468, [150, 185, 141, 150, 197, 193, 232, 88]);
+            const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x629bdbc8_d932_4ff4_96b9_8d96c5c1e858);
         }
         #[repr(C)]
         #[doc(hidden)]
@@ -723,7 +723,7 @@ pub mod Windows {
         pub struct IStringable(pub ::windows::runtime::IInspectable);
         unsafe impl ::windows::runtime::Interface for IStringable {
             type Vtable = IStringable_abi;
-            const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520162132, 36534, 18672, [171, 206, 193, 178, 17, 230, 39, 195]);
+            const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96369f54_8eb6_48f0_abce_c1b211e627c3);
         }
         impl IStringable {
             pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1780,7 +1780,7 @@ pub mod Windows {
                 impl IAgileObject {}
                 unsafe impl ::windows::runtime::Interface for IAgileObject {
                     type Vtable = IAgileObject_abi;
-                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2498374548, 59852, 18912, [192, 255, 238, 100, 202, 143, 91, 144]);
+                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94ea2b94_e9cc_49e0_c0ff_ee64ca8f5b90);
                 }
                 impl ::core::convert::From<IAgileObject> for ::windows::runtime::IUnknown {
                     fn from(value: IAgileObject) -> Self {
@@ -1836,7 +1836,7 @@ pub mod Windows {
                 }
                 unsafe impl ::windows::runtime::Interface for IErrorInfo {
                     type Vtable = IErrorInfo_abi;
-                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(485667104, 21629, 4123, [142, 101, 8, 0, 43, 43, 209, 25]);
+                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cf2b120_547d_101b_8e65_08002b2bd119);
                 }
                 impl ::core::convert::From<IErrorInfo> for ::windows::runtime::IUnknown {
                     fn from(value: IErrorInfo) -> Self {
@@ -2149,7 +2149,7 @@ pub mod Windows {
                 }
                 unsafe impl ::windows::runtime::Interface for ILanguageExceptionErrorInfo {
                     type Vtable = ILanguageExceptionErrorInfo_abi;
-                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(77782003, 57219, 4460, [9, 70, 8, 18, 171, 246, 224, 125]);
+                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04a2dbf3_df83_116c_0946_0812abf6e07d);
                 }
                 impl ::core::convert::From<ILanguageExceptionErrorInfo> for ::windows::runtime::IUnknown {
                     fn from(value: ILanguageExceptionErrorInfo) -> Self {
@@ -2201,7 +2201,7 @@ pub mod Windows {
                 }
                 unsafe impl ::windows::runtime::Interface for ILanguageExceptionErrorInfo2 {
                     type Vtable = ILanguageExceptionErrorInfo2_abi;
-                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1464264132, 23447, 16972, [182, 32, 40, 34, 145, 87, 52, 221]);
+                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5746e5c4_5b97_424c_b620_2822915734dd);
                 }
                 impl ::core::convert::From<ILanguageExceptionErrorInfo2> for ::windows::runtime::IUnknown {
                     fn from(value: ILanguageExceptionErrorInfo2) -> Self {
@@ -2268,7 +2268,7 @@ pub mod Windows {
                 }
                 unsafe impl ::windows::runtime::Interface for IRestrictedErrorInfo {
                     type Vtable = IRestrictedErrorInfo_abi;
-                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2193256594, 19592, 17021, [167, 188, 22, 221, 147, 254, 182, 126]);
+                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82ba7092_4c88_427d_a7bc_16dd93feb67e);
                 }
                 impl ::core::convert::From<IRestrictedErrorInfo> for ::windows::runtime::IUnknown {
                     fn from(value: IRestrictedErrorInfo) -> Self {
@@ -2312,7 +2312,7 @@ pub mod Windows {
                 }
                 unsafe impl ::windows::runtime::Interface for IWeakReference {
                     type Vtable = IWeakReference_abi;
-                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(55, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000037_0000_0000_c000_000000000046);
                 }
                 impl ::core::convert::From<IWeakReference> for ::windows::runtime::IUnknown {
                     fn from(value: IWeakReference) -> Self {
@@ -2353,7 +2353,7 @@ pub mod Windows {
                 }
                 unsafe impl ::windows::runtime::Interface for IWeakReferenceSource {
                     type Vtable = IWeakReferenceSource_abi;
-                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(56, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000038_0000_0000_c000_000000000046);
                 }
                 impl ::core::convert::From<IWeakReferenceSource> for ::windows::runtime::IUnknown {
                     fn from(value: IWeakReferenceSource) -> Self {

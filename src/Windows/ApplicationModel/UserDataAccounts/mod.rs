@@ -8,7 +8,7 @@ pub mod SystemAccess;
 pub struct IUserDataAccount(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccount {
     type Vtable = IUserDataAccount_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3116643966, 45896, 18704, [190, 148, 74, 212, 187, 166, 222, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9c4367e_b348_4910_be94_4ad4bba6dea7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -46,7 +46,7 @@ pub struct IUserDataAccount_abi(
 pub struct IUserDataAccount2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccount2 {
     type Vtable = IUserDataAccount2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(126671007, 56962, 16459, [129, 149, 200, 163, 172, 25, 143, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x078cd89f_de82_404b_8195_c8a3ac198f60);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -65,7 +65,7 @@ pub struct IUserDataAccount2_abi(
 pub struct IUserDataAccount3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccount3 {
     type Vtable = IUserDataAccount3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(22231109, 27715, 17030, [157, 105, 62, 23, 9, 161, 242, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01533845_6c43_4286_9d69_3e1709a1f266);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -86,7 +86,7 @@ pub struct IUserDataAccount3_abi(
 pub struct IUserDataAccount4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccount4 {
     type Vtable = IUserDataAccount4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3291566608, 60133, 20234, [168, 178, 28, 202, 17, 94, 0, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4315210_eae5_4f0a_a8b2_1cca115e008f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -116,7 +116,7 @@ pub struct IUserDataAccount4_abi(
 pub struct IUserDataAccountManagerForUser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountManagerForUser {
     type Vtable = IUserDataAccountManagerForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1453779163, 56207, 16811, [166, 95, 140, 89, 113, 170, 201, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56a6e8db_db8f_41ab_a65f_8c5971aac982);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -137,7 +137,7 @@ pub struct IUserDataAccountManagerForUser_abi(
 pub struct IUserDataAccountManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountManagerStatics {
     type Vtable = IUserDataAccountManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(228297194, 6440, 18976, [134, 213, 60, 115, 127, 125, 195, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d9b89ea_1928_4a20_86d5_3c737f7dc3b0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -162,7 +162,7 @@ pub struct IUserDataAccountManagerStatics_abi(
 pub struct IUserDataAccountManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountManagerStatics2 {
     type Vtable = IUserDataAccountManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1782443400, 12651, 17246, [181, 52, 247, 212, 180, 183, 219, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a3ded88_316b_435e_b534_f7d4b4b7dba6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -181,7 +181,7 @@ pub struct IUserDataAccountManagerStatics2_abi(
 pub struct IUserDataAccountStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountStore {
     type Vtable = IUserDataAccountStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(544452781, 32010, 20086, [191, 69, 35, 104, 249, 120, 165, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2073b0ad_7d0a_4e76_bf45_2368f978a59a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -204,7 +204,7 @@ pub struct IUserDataAccountStore_abi(
 pub struct IUserDataAccountStore2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountStore2 {
     type Vtable = IUserDataAccountStore2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2984292087, 38240, 17969, [138, 240, 6, 29, 48, 22, 20, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1e0aef7_9560_4631_8af0_061d30161469);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -227,7 +227,7 @@ pub struct IUserDataAccountStore2_abi(
 pub struct IUserDataAccountStore3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountStore3 {
     type Vtable = IUserDataAccountStore3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2168635540, 62409, 18315, [177, 23, 101, 133, 190, 187, 103, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8142c094_f3c9_478b_b117_6585bebb6789);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -246,7 +246,7 @@ pub struct IUserDataAccountStore3_abi(
 pub struct IUserDataAccountStoreChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountStoreChangedEventArgs {
     type Vtable = IUserDataAccountStoreChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2229527269, 34848, 17682, [177, 246, 46, 3, 91, 225, 7, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84e3e2e5_8820_4512_b1f6_2e035be1072c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -482,7 +482,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataAccount {
 }
 unsafe impl ::windows::runtime::Interface for UserDataAccount {
     type Vtable = IUserDataAccount_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3116643966, 45896, 18704, [190, 148, 74, 212, 187, 166, 222, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9c4367e_b348_4910_be94_4ad4bba6dea7);
 }
 impl ::windows::runtime::RuntimeName for UserDataAccount {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.UserDataAccount";
@@ -664,7 +664,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataAccountManagerForUser {
 }
 unsafe impl ::windows::runtime::Interface for UserDataAccountManagerForUser {
     type Vtable = IUserDataAccountManagerForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1453779163, 56207, 16811, [166, 95, 140, 89, 113, 170, 201, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56a6e8db_db8f_41ab_a65f_8c5971aac982);
 }
 impl ::windows::runtime::RuntimeName for UserDataAccountManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.UserDataAccountManagerForUser";
@@ -805,7 +805,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataAccountStore {
 }
 unsafe impl ::windows::runtime::Interface for UserDataAccountStore {
     type Vtable = IUserDataAccountStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(544452781, 32010, 20086, [191, 69, 35, 104, 249, 120, 165, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2073b0ad_7d0a_4e76_bf45_2368f978a59a);
 }
 impl ::windows::runtime::RuntimeName for UserDataAccountStore {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.UserDataAccountStore";
@@ -894,7 +894,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataAccountStoreChangedEvent
 }
 unsafe impl ::windows::runtime::Interface for UserDataAccountStoreChangedEventArgs {
     type Vtable = IUserDataAccountStoreChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2229527269, 34848, 17682, [177, 246, 46, 3, 91, 225, 7, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84e3e2e5_8820_4512_b1f6_2e035be1072c);
 }
 impl ::windows::runtime::RuntimeName for UserDataAccountStoreChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.UserDataAccountStoreChangedEventArgs";

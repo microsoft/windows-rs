@@ -6,7 +6,7 @@ pub mod Preview;
 pub struct IImageFeatureDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageFeatureDescriptor {
     type Vtable = IImageFeatureDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(911574437, 5914, 18986, [152, 95, 38, 81, 89, 211, 137, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x365585a5_171a_4a2a_985f_265159d3895a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29,7 +29,7 @@ pub struct IImageFeatureDescriptor_abi(
 pub struct IImageFeatureDescriptor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageFeatureDescriptor2 {
     type Vtable = IImageFeatureDescriptor2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(724028583, 54579, 22626, [187, 152, 22, 17, 177, 85, 176, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b27cca7_d533_5862_bb98_1611b155b0e1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -47,7 +47,7 @@ pub struct IImageFeatureDescriptor2_abi(
 pub struct IImageFeatureValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageFeatureValue {
     type Vtable = IImageFeatureValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4030812121, 51626, 17413, [183, 251, 148, 248, 124, 138, 48, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0414fd9_c9aa_4405_b7fb_94f87c8a3037);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -66,7 +66,7 @@ pub struct IImageFeatureValue_abi(
 pub struct IImageFeatureValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageFeatureValueStatics {
     type Vtable = IImageFeatureValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(465770493, 9163, 17936, [176, 133, 200, 225, 200, 126, 186, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bc317fd_23cb_4610_b085_c8e1c87ebaa0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -85,7 +85,7 @@ pub struct IImageFeatureValueStatics_abi(
 pub struct ILearningModel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModel {
     type Vtable = ILearningModel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1536051488, 18591, 20102, [145, 40, 38, 90, 50, 123, 120, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b8e4920_489f_4e86_9128_265a327b78fa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -113,7 +113,7 @@ pub struct ILearningModel_abi(
 pub struct ILearningModelBinding(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelBinding {
     type Vtable = ILearningModelBinding_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3929091872, 5775, 20364, [148, 254, 46, 122, 195, 27, 74, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea312f20_168f_4f8c_94fe_2e7ac31b4aa8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -134,7 +134,7 @@ pub struct ILearningModelBinding_abi(
 pub struct ILearningModelBindingFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelBindingFactory {
     type Vtable = ILearningModelBindingFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3378477690, 59272, 18270, [137, 23, 35, 170, 56, 31, 175, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc95f7a7a_e788_475e_8917_23aa381faf0b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -152,7 +152,7 @@ pub struct ILearningModelBindingFactory_abi(
 pub struct ILearningModelDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelDevice {
     type Vtable = ILearningModelDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4123183358, 16214, 19084, [172, 95, 253, 185, 45, 139, 130, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5c2c8fe_3f56_4a8c_ac5f_fdb92d8b8252);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -173,7 +173,7 @@ pub struct ILearningModelDevice_abi(
 pub struct ILearningModelDeviceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelDeviceFactory {
     type Vtable = ILearningModelDeviceFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2634012493, 45541, 20256, [128, 173, 10, 86, 105, 13, 176, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9cffd74d_b1e5_4f20_80ad_0a56690db06b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -191,7 +191,7 @@ pub struct ILearningModelDeviceFactory_abi(
 pub struct ILearningModelDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelDeviceStatics {
     type Vtable = ILearningModelDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1240670471, 43199, 17083, [146, 199, 16, 177, 45, 197, 210, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49f32107_a8bf_42bb_92c7_10b12dc5d21f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -210,7 +210,7 @@ pub struct ILearningModelDeviceStatics_abi(
 pub struct ILearningModelEvaluationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelEvaluationResult {
     type Vtable = ILearningModelEvaluationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3002712013, 38414, 18880, [133, 147, 235, 25, 10, 227, 238, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2f9bfcd_960e_49c0_8593_eb190ae3eee2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -233,7 +233,7 @@ pub struct ILearningModelEvaluationResult_abi(
 pub struct ILearningModelFeatureDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelFeatureDescriptor {
     type Vtable = ILearningModelFeatureDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3154694012, 28368, 16388, [151, 186, 185, 162, 238, 205, 43, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc08cf7c_6ed0_4004_97ba_b9a2eecd2b4f);
 }
 impl ILearningModelFeatureDescriptor {
     #[doc = "*Required features: `AI_MachineLearning`*"]
@@ -332,7 +332,7 @@ pub struct ILearningModelFeatureDescriptor_abi(
 pub struct ILearningModelFeatureValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelFeatureValue {
     type Vtable = ILearningModelFeatureValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4111467995, 16517, 19966, [159, 237, 149, 235, 12, 12, 247, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf51005db_4085_4dfe_9fed_95eb0c0cf75c);
 }
 impl ILearningModelFeatureValue {
     #[doc = "*Required features: `AI_MachineLearning`*"]
@@ -404,7 +404,7 @@ pub struct ILearningModelFeatureValue_abi(
 pub struct ILearningModelOperatorProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelOperatorProvider {
     type Vtable = ILearningModelOperatorProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(706883165, 44977, 18413, [191, 173, 181, 179, 164, 89, 236, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a222e5d_afb1_47ed_bfad_b5b3a459ec04);
 }
 impl ILearningModelOperatorProvider {}
 unsafe impl ::windows::runtime::RuntimeType for ILearningModelOperatorProvider {
@@ -465,7 +465,7 @@ pub struct ILearningModelOperatorProvider_abi(
 pub struct ILearningModelSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSession {
     type Vtable = ILearningModelSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2388195574, 46983, 19473, [144, 240, 113, 41, 174, 202, 116, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e58f8f6_b787_4c11_90f0_7129aeca74a9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -493,7 +493,7 @@ pub struct ILearningModelSession_abi(
 pub struct ILearningModelSessionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionFactory {
     type Vtable = ILearningModelSessionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(258705437, 7323, 18358, [191, 224, 241, 207, 98, 166, 117, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f6b881d_1c9b_47b6_bfe0_f1cf62a67579);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -512,7 +512,7 @@ pub struct ILearningModelSessionFactory_abi(
 pub struct ILearningModelSessionFactory2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionFactory2 {
     type Vtable = ILearningModelSessionFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1314687167, 2591, 24556, [173, 224, 47, 217, 30, 78, 242, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e5c88bf_0a1f_5fec_ade0_2fd91e4ef29b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -530,7 +530,7 @@ pub struct ILearningModelSessionFactory2_abi(
 pub struct ILearningModelSessionOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionOptions {
     type Vtable = ILearningModelSessionOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3103145889, 4941, 20787, [140, 255, 58, 92, 60, 38, 59, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8f63fa1_134d_5133_8cff_3a5c3c263beb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -549,7 +549,7 @@ pub struct ILearningModelSessionOptions_abi(
 pub struct ILearningModelSessionOptions2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionOptions2 {
     type Vtable = ILearningModelSessionOptions2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1875713476, 5983, 23506, [141, 229, 47, 32, 6, 162, 90, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fcd1dc4_175f_5bd2_8de5_2f2006a25adf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -568,7 +568,7 @@ pub struct ILearningModelSessionOptions2_abi(
 pub struct ILearningModelSessionOptions3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionOptions3 {
     type Vtable = ILearningModelSessionOptions3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1491164398, 55490, 22268, [146, 232, 118, 215, 81, 8, 16, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58e15cee_d8c2_56fc_92e8_76d751081086);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -586,7 +586,7 @@ pub struct ILearningModelSessionOptions3_abi(
 pub struct ILearningModelStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelStatics {
     type Vtable = ILearningModelStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3820582888, 26962, 20039, [142, 244, 31, 127, 7, 137, 124, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3b977e8_6952_4e47_8ef4_1f7f07897c6d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -617,7 +617,7 @@ pub struct ILearningModelStatics_abi(
 pub struct IMapFeatureDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapFeatureDescriptor {
     type Vtable = IMapFeatureDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1392780477, 41559, 17261, [158, 96, 194, 152, 31, 124, 197, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x530424bd_a257_436d_9e60_c2981f7cc5c4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -636,7 +636,7 @@ pub struct IMapFeatureDescriptor_abi(
 pub struct ISequenceFeatureDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISequenceFeatureDescriptor {
     type Vtable = ISequenceFeatureDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2230752346, 22059, 19810, [168, 81, 115, 154, 206, 217, 102, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84f6945a_562b_4d62_a851_739aced96668);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -655,7 +655,7 @@ pub struct ISequenceFeatureDescriptor_abi(
 pub struct ITensor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensor {
     type Vtable = ITensor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(88642963, 41733, 18981, [173, 9, 68, 1, 25, 180, 183, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05489593_a305_4a25_ad09_440119b4b7f6);
 }
 impl ITensor {
     #[doc = "*Required features: `AI_MachineLearning`*"]
@@ -767,7 +767,7 @@ pub struct ITensor_abi(
 pub struct ITensorBoolean(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorBoolean {
     type Vtable = ITensorBoolean_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1358107117, 10729, 19036, [164, 77, 143, 197, 18, 88, 78, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50f311ed_29e9_4a5c_a44d_8fc512584eed);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -786,7 +786,7 @@ pub struct ITensorBoolean_abi(
 pub struct ITensorBooleanStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorBooleanStatics {
     type Vtable = ITensorBooleanStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(664176172, 9047, 18855, [180, 118, 208, 170, 61, 254, 104, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2796862c_2357_49a7_b476_d0aa3dfe6866);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -810,7 +810,7 @@ pub struct ITensorBooleanStatics_abi(
 pub struct ITensorBooleanStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorBooleanStatics2 {
     type Vtable = ITensorBooleanStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2745476353, 27181, 21207, [176, 75, 196, 53, 186, 238, 1, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3a4a501_6a2d_52d7_b04b_c435baee0115);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -830,7 +830,7 @@ pub struct ITensorBooleanStatics2_abi(
 pub struct ITensorDouble(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorDouble {
     type Vtable = ITensorDouble_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2447643218, 31375, 20238, [162, 143, 150, 55, 255, 200, 163, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91e41252_7a8f_4f0e_a28f_9637ffc8a3d0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -849,7 +849,7 @@ pub struct ITensorDouble_abi(
 pub struct ITensorDoubleStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorDoubleStatics {
     type Vtable = ITensorDoubleStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2825294789, 38200, 17639, [163, 202, 93, 243, 116, 165, 167, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa86693c5_9538_44e7_a3ca_5df374a5a70c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -873,7 +873,7 @@ pub struct ITensorDoubleStatics_abi(
 pub struct ITensorDoubleStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorDoubleStatics2 {
     type Vtable = ITensorDoubleStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2477093086, 24218, 20628, [133, 200, 89, 44, 101, 94, 104, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93a570de_5e9a_5094_85c8_592c655e68ac);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -893,7 +893,7 @@ pub struct ITensorDoubleStatics2_abi(
 pub struct ITensorFeatureDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFeatureDescriptor {
     type Vtable = ITensorFeatureDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1950702720, 37994, 17168, [161, 156, 238, 10, 240, 40, 252, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74455c80_946a_4310_a19c_ee0af028fce4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -913,7 +913,7 @@ pub struct ITensorFeatureDescriptor_abi(
 pub struct ITensorFloat(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloat {
     type Vtable = ITensorFloat_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4062719362, 43522, 17096, [160, 200, 223, 30, 252, 150, 118, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2282d82_aa02_42c8_a0c8_df1efc9676e1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -932,7 +932,7 @@ pub struct ITensorFloat_abi(
 pub struct ITensorFloat16Bit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloat16Bit {
     type Vtable = ITensorFloat16Bit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(179934460, 23433, 19516, [181, 228, 82, 130, 165, 49, 108, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ab994fc_5b89_4c3c_b5e4_5282a5316c0a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -951,7 +951,7 @@ pub struct ITensorFloat16Bit_abi(
 pub struct ITensorFloat16BitStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloat16BitStatics {
     type Vtable = ITensorFloat16BitStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2771236597, 12682, 17620, [130, 11, 12, 220, 112, 84, 168, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa52db6f5_318a_44d4_820b_0cdc7054a84a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -975,7 +975,7 @@ pub struct ITensorFloat16BitStatics_abi(
 pub struct ITensorFloat16BitStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloat16BitStatics2 {
     type Vtable = ITensorFloat16BitStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1750357798, 11719, 20927, [180, 112, 11, 52, 76, 194, 161, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68545726_2dc7_51bf_b470_0b344cc2a1bc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -995,7 +995,7 @@ pub struct ITensorFloat16BitStatics2_abi(
 pub struct ITensorFloatStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloatStatics {
     type Vtable = ITensorFloatStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3687659867, 15267, 17711, [177, 13, 60, 19, 94, 87, 63, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbcd395b_3ba3_452f_b10d_3c135e573fa9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1019,7 +1019,7 @@ pub struct ITensorFloatStatics_abi(
 pub struct ITensorFloatStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloatStatics2 {
     type Vtable = ITensorFloatStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(610339777, 24132, 22291, [178, 129, 143, 74, 212, 213, 85, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24610bc1_5e44_5713_b281_8f4ad4d555e8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1039,7 +1039,7 @@ pub struct ITensorFloatStatics2_abi(
 pub struct ITensorInt16Bit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt16Bit {
     type Vtable = ITensorInt16Bit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2560830777, 59094, 17583, [138, 250, 186, 235, 196, 77, 192, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98a32d39_e6d6_44af_8afa_baebc44dc020);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1058,7 +1058,7 @@ pub struct ITensorInt16Bit_abi(
 pub struct ITensorInt16BitStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt16BitStatics {
     type Vtable = ITensorInt16BitStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2556715667, 9838, 19226, [130, 31, 230, 13, 112, 137, 139, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98646293_266e_4b1a_821f_e60d70898b91);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1082,7 +1082,7 @@ pub struct ITensorInt16BitStatics_abi(
 pub struct ITensorInt16BitStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt16BitStatics2 {
     type Vtable = ITensorInt16BitStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(215420148, 26988, 24159, [149, 216, 94, 191, 150, 112, 20, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cd70cf4_696c_5e5f_95d8_5ebf9670148b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1102,7 +1102,7 @@ pub struct ITensorInt16BitStatics2_abi(
 pub struct ITensorInt32Bit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt32Bit {
     type Vtable = ITensorInt32Bit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(738994387, 8316, 17542, [167, 210, 136, 69, 34, 197, 229, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c0c28d3_207c_4486_a7d2_884522c5e589);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1121,7 +1121,7 @@ pub struct ITensorInt32Bit_abi(
 pub struct ITensorInt32BitStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt32BitStatics {
     type Vtable = ITensorInt32BitStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1698268747, 21242, 20021, [144, 124, 131, 76, 172, 65, 123, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6539864b_52fa_4e35_907c_834cac417b50);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1145,7 +1145,7 @@ pub struct ITensorInt32BitStatics_abi(
 pub struct ITensorInt32BitStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt32BitStatics2 {
     type Vtable = ITensorInt32BitStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2085291930, 59734, 23776, [163, 189, 21, 125, 157, 121, 181, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c4b079a_e956_5ce0_a3bd_157d9d79b5ec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1165,7 +1165,7 @@ pub struct ITensorInt32BitStatics2_abi(
 pub struct ITensorInt64Bit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt64Bit {
     type Vtable = ITensorInt64Bit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1234593210, 8098, 17837, [175, 37, 160, 189, 155, 218, 76, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x499665ba_1fa2_45ad_af25_a0bd9bda4c87);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1184,7 +1184,7 @@ pub struct ITensorInt64Bit_abi(
 pub struct ITensorInt64BitStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt64BitStatics {
     type Vtable = ITensorInt64BitStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2521345437, 4504, 19828, [149, 23, 120, 58, 182, 43, 156, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9648ad9d_1198_4d74_9517_783ab62b9cc2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1208,7 +1208,7 @@ pub struct ITensorInt64BitStatics_abi(
 pub struct ITensorInt64BitStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt64BitStatics2 {
     type Vtable = ITensorInt64BitStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1832754635, 65344, 24258, [137, 254, 8, 78, 43, 107, 198, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d3d9dcb_ff40_5ec2_89fe_084e2b6bc6db);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1228,7 +1228,7 @@ pub struct ITensorInt64BitStatics2_abi(
 pub struct ITensorInt8Bit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt8Bit {
     type Vtable = ITensorInt8Bit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3453851589, 65496, 20463, [174, 251, 48, 225, 164, 133, 178, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcddd97c5_ffd8_4fef_aefb_30e1a485b2ee);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1247,7 +1247,7 @@ pub struct ITensorInt8Bit_abi(
 pub struct ITensorInt8BitStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt8BitStatics {
     type Vtable = ITensorInt8BitStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2980127364, 2396, 19574, [166, 97, 172, 76, 238, 31, 62, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1a12284_095c_4c76_a661_ac4cee1f3e8b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1271,7 +1271,7 @@ pub struct ITensorInt8BitStatics_abi(
 pub struct ITensorInt8BitStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt8BitStatics2 {
     type Vtable = ITensorInt8BitStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3235223095, 50280, 22267, [149, 53, 192, 82, 189, 185, 61, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0d59637_c468_56fb_9535_c052bdb93dc0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1291,7 +1291,7 @@ pub struct ITensorInt8BitStatics2_abi(
 pub struct ITensorString(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorString {
     type Vtable = ITensorString_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1478702536, 48561, 17936, [188, 117, 53, 233, 203, 240, 9, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x582335c8_bdb1_4610_bc75_35e9cbf009b7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1310,7 +1310,7 @@ pub struct ITensorString_abi(
 pub struct ITensorStringStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorStringStatics {
     type Vtable = ITensorStringStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2204250916, 53030, 20247, [162, 212, 32, 239, 141, 9, 125, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83623324_cf26_4f17_a2d4_20ef8d097d53);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1334,7 +1334,7 @@ pub struct ITensorStringStatics_abi(
 pub struct ITensorStringStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorStringStatics2 {
     type Vtable = ITensorStringStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2654297808, 51426, 21076, [145, 55, 1, 147, 163, 102, 143, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e355ed0_c8e2_5254_9137_0193a3668fd8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1352,7 +1352,7 @@ pub struct ITensorStringStatics2_abi(
 pub struct ITensorUInt16Bit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt16Bit {
     type Vtable = ITensorUInt16Bit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1746145099, 9152, 17139, [129, 246, 168, 145, 192, 17, 188, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68140f4b_23c0_42f3_81f6_a891c011bc3f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1371,7 +1371,7 @@ pub struct ITensorUInt16Bit_abi(
 pub struct ITensorUInt16BitStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt16BitStatics {
     type Vtable = ITensorUInt16BitStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1576486365, 650, 18458, [162, 124, 199, 230, 67, 94, 82, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5df745dd_028a_481a_a27c_c7e6435e52dd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1395,7 +1395,7 @@ pub struct ITensorUInt16BitStatics_abi(
 pub struct ITensorUInt16BitStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt16BitStatics2 {
     type Vtable = ITensorUInt16BitStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2331249764, 54943, 21269, [147, 72, 73, 8, 119, 187, 214, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8af40c64_d69f_5315_9348_490877bbd642);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1415,7 +1415,7 @@ pub struct ITensorUInt16BitStatics2_abi(
 pub struct ITensorUInt32Bit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt32Bit {
     type Vtable = ITensorUInt32Bit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3637101311, 29969, 17827, [191, 172, 195, 143, 55, 13, 34, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8c9c2ff_7511_45a3_bfac_c38f370d2237);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1434,7 +1434,7 @@ pub struct ITensorUInt32Bit_abi(
 pub struct ITensorUInt32BitStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt32BitStatics {
     type Vtable = ITensorUInt32BitStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1098659895, 59251, 17272, [142, 127, 12, 195, 61, 190, 166, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x417c3837_e773_4378_8e7f_0cc33dbea697);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1458,7 +1458,7 @@ pub struct ITensorUInt32BitStatics_abi(
 pub struct ITensorUInt32BitStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt32BitStatics2 {
     type Vtable = ITensorUInt32BitStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4011466524, 12622, 22173, [180, 150, 92, 132, 71, 210, 12, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef1a1f1c_314e_569d_b496_5c8447d20cd2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1478,7 +1478,7 @@ pub struct ITensorUInt32BitStatics2_abi(
 pub struct ITensorUInt64Bit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt64Bit {
     type Vtable = ITensorUInt64Bit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(779157421, 1215, 18469, [131, 154, 130, 186, 239, 140, 120, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e70ffad_04bf_4825_839a_82baef8c7886);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1497,7 +1497,7 @@ pub struct ITensorUInt64Bit_abi(
 pub struct ITensorUInt64BitStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt64BitStatics {
     type Vtable = ITensorUInt64BitStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2055086315, 9263, 18379, [169, 198, 246, 2, 236, 251, 254, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a7e20eb_242f_47cb_a9c6_f602ecfbfee4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1521,7 +1521,7 @@ pub struct ITensorUInt64BitStatics_abi(
 pub struct ITensorUInt64BitStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt64BitStatics2 {
     type Vtable = ITensorUInt64BitStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(140142717, 26593, 23326, [178, 50, 79, 171, 233, 202, 32, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x085a687d_67e1_5b1e_b232_4fabe9ca20b3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1541,7 +1541,7 @@ pub struct ITensorUInt64BitStatics2_abi(
 pub struct ITensorUInt8Bit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt8Bit {
     type Vtable = ITensorUInt8Bit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1491185191, 25131, 18659, [190, 34, 216, 103, 174, 209, 218, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58e1ae27_622b_48e3_be22_d867aed1daac);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1560,7 +1560,7 @@ pub struct ITensorUInt8Bit_abi(
 pub struct ITensorUInt8BitStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt8BitStatics {
     type Vtable = ITensorUInt8BitStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(100038019, 48164, 16928, [138, 65, 45, 205, 140, 94, 211, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05f67583_bc24_4220_8a41_2dcd8c5ed33c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1584,7 +1584,7 @@ pub struct ITensorUInt8BitStatics_abi(
 pub struct ITensorUInt8BitStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt8BitStatics2 {
     type Vtable = ITensorUInt8BitStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(731923158, 14142, 23098, [162, 252, 166, 196, 27, 213, 39, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ba042d6_373e_5a3a_a2fc_a6c41bd52789);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1684,7 +1684,7 @@ unsafe impl ::windows::runtime::RuntimeType for ImageFeatureDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for ImageFeatureDescriptor {
     type Vtable = IImageFeatureDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(911574437, 5914, 18986, [152, 95, 38, 81, 89, 211, 137, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x365585a5_171a_4a2a_985f_265159d3895a);
 }
 impl ::windows::runtime::RuntimeName for ImageFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.ImageFeatureDescriptor";
@@ -1793,7 +1793,7 @@ unsafe impl ::windows::runtime::RuntimeType for ImageFeatureValue {
 }
 unsafe impl ::windows::runtime::Interface for ImageFeatureValue {
     type Vtable = IImageFeatureValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4030812121, 51626, 17413, [183, 251, 148, 248, 124, 138, 48, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0414fd9_c9aa_4405_b7fb_94f87c8a3037);
 }
 impl ::windows::runtime::RuntimeName for ImageFeatureValue {
     const NAME: &'static str = "Windows.AI.MachineLearning.ImageFeatureValue";
@@ -2012,7 +2012,7 @@ unsafe impl ::windows::runtime::RuntimeType for LearningModel {
 }
 unsafe impl ::windows::runtime::Interface for LearningModel {
     type Vtable = ILearningModel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1536051488, 18591, 20102, [145, 40, 38, 90, 50, 123, 120, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b8e4920_489f_4e86_9128_265a327b78fa);
 }
 impl ::windows::runtime::RuntimeName for LearningModel {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModel";
@@ -2165,7 +2165,7 @@ unsafe impl ::windows::runtime::RuntimeType for LearningModelBinding {
 }
 unsafe impl ::windows::runtime::Interface for LearningModelBinding {
     type Vtable = ILearningModelBinding_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3929091872, 5775, 20364, [148, 254, 46, 122, 195, 27, 74, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea312f20_168f_4f8c_94fe_2e7ac31b4aa8);
 }
 impl ::windows::runtime::RuntimeName for LearningModelBinding {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelBinding";
@@ -2332,7 +2332,7 @@ unsafe impl ::windows::runtime::RuntimeType for LearningModelDevice {
 }
 unsafe impl ::windows::runtime::Interface for LearningModelDevice {
     type Vtable = ILearningModelDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4123183358, 16214, 19084, [172, 95, 253, 185, 45, 139, 130, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5c2c8fe_3f56_4a8c_ac5f_fdb92d8b8252);
 }
 impl ::windows::runtime::RuntimeName for LearningModelDevice {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelDevice";
@@ -2448,7 +2448,7 @@ unsafe impl ::windows::runtime::RuntimeType for LearningModelEvaluationResult {
 }
 unsafe impl ::windows::runtime::Interface for LearningModelEvaluationResult {
     type Vtable = ILearningModelEvaluationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3002712013, 38414, 18880, [133, 147, 235, 25, 10, 227, 238, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2f9bfcd_960e_49c0_8593_eb190ae3eee2);
 }
 impl ::windows::runtime::RuntimeName for LearningModelEvaluationResult {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelEvaluationResult";
@@ -2648,7 +2648,7 @@ unsafe impl ::windows::runtime::RuntimeType for LearningModelSession {
 }
 unsafe impl ::windows::runtime::Interface for LearningModelSession {
     type Vtable = ILearningModelSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2388195574, 46983, 19473, [144, 240, 113, 41, 174, 202, 116, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e58f8f6_b787_4c11_90f0_7129aeca74a9);
 }
 impl ::windows::runtime::RuntimeName for LearningModelSession {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelSession";
@@ -2770,7 +2770,7 @@ unsafe impl ::windows::runtime::RuntimeType for LearningModelSessionOptions {
 }
 unsafe impl ::windows::runtime::Interface for LearningModelSessionOptions {
     type Vtable = ILearningModelSessionOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3103145889, 4941, 20787, [140, 255, 58, 92, 60, 38, 59, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8f63fa1_134d_5133_8cff_3a5c3c263beb);
 }
 impl ::windows::runtime::RuntimeName for LearningModelSessionOptions {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelSessionOptions";
@@ -2879,7 +2879,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapFeatureDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for MapFeatureDescriptor {
     type Vtable = IMapFeatureDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1392780477, 41559, 17261, [158, 96, 194, 152, 31, 124, 197, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x530424bd_a257_436d_9e60_c2981f7cc5c4);
 }
 impl ::windows::runtime::RuntimeName for MapFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.MapFeatureDescriptor";
@@ -2999,7 +2999,7 @@ unsafe impl ::windows::runtime::RuntimeType for SequenceFeatureDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for SequenceFeatureDescriptor {
     type Vtable = ISequenceFeatureDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2230752346, 22059, 19810, [168, 81, 115, 154, 206, 217, 102, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84f6945a_562b_4d62_a851_739aced96668);
 }
 impl ::windows::runtime::RuntimeName for SequenceFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.SequenceFeatureDescriptor";
@@ -3182,7 +3182,7 @@ unsafe impl ::windows::runtime::RuntimeType for TensorBoolean {
 }
 unsafe impl ::windows::runtime::Interface for TensorBoolean {
     type Vtable = ITensorBoolean_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1358107117, 10729, 19036, [164, 77, 143, 197, 18, 88, 78, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50f311ed_29e9_4a5c_a44d_8fc512584eed);
 }
 impl ::windows::runtime::RuntimeName for TensorBoolean {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorBoolean";
@@ -3439,7 +3439,7 @@ unsafe impl ::windows::runtime::RuntimeType for TensorDouble {
 }
 unsafe impl ::windows::runtime::Interface for TensorDouble {
     type Vtable = ITensorDouble_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2447643218, 31375, 20238, [162, 143, 150, 55, 255, 200, 163, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91e41252_7a8f_4f0e_a28f_9637ffc8a3d0);
 }
 impl ::windows::runtime::RuntimeName for TensorDouble {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorDouble";
@@ -3642,7 +3642,7 @@ unsafe impl ::windows::runtime::RuntimeType for TensorFeatureDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for TensorFeatureDescriptor {
     type Vtable = ITensorFeatureDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1950702720, 37994, 17168, [161, 156, 238, 10, 240, 40, 252, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x74455c80_946a_4310_a19c_ee0af028fce4);
 }
 impl ::windows::runtime::RuntimeName for TensorFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorFeatureDescriptor";
@@ -3825,7 +3825,7 @@ unsafe impl ::windows::runtime::RuntimeType for TensorFloat {
 }
 unsafe impl ::windows::runtime::Interface for TensorFloat {
     type Vtable = ITensorFloat_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4062719362, 43522, 17096, [160, 200, 223, 30, 252, 150, 118, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2282d82_aa02_42c8_a0c8_df1efc9676e1);
 }
 impl ::windows::runtime::RuntimeName for TensorFloat {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorFloat";
@@ -4082,7 +4082,7 @@ unsafe impl ::windows::runtime::RuntimeType for TensorFloat16Bit {
 }
 unsafe impl ::windows::runtime::Interface for TensorFloat16Bit {
     type Vtable = ITensorFloat16Bit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(179934460, 23433, 19516, [181, 228, 82, 130, 165, 49, 108, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ab994fc_5b89_4c3c_b5e4_5282a5316c0a);
 }
 impl ::windows::runtime::RuntimeName for TensorFloat16Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorFloat16Bit";
@@ -4339,7 +4339,7 @@ unsafe impl ::windows::runtime::RuntimeType for TensorInt16Bit {
 }
 unsafe impl ::windows::runtime::Interface for TensorInt16Bit {
     type Vtable = ITensorInt16Bit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2560830777, 59094, 17583, [138, 250, 186, 235, 196, 77, 192, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98a32d39_e6d6_44af_8afa_baebc44dc020);
 }
 impl ::windows::runtime::RuntimeName for TensorInt16Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt16Bit";
@@ -4596,7 +4596,7 @@ unsafe impl ::windows::runtime::RuntimeType for TensorInt32Bit {
 }
 unsafe impl ::windows::runtime::Interface for TensorInt32Bit {
     type Vtable = ITensorInt32Bit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(738994387, 8316, 17542, [167, 210, 136, 69, 34, 197, 229, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c0c28d3_207c_4486_a7d2_884522c5e589);
 }
 impl ::windows::runtime::RuntimeName for TensorInt32Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt32Bit";
@@ -4853,7 +4853,7 @@ unsafe impl ::windows::runtime::RuntimeType for TensorInt64Bit {
 }
 unsafe impl ::windows::runtime::Interface for TensorInt64Bit {
     type Vtable = ITensorInt64Bit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1234593210, 8098, 17837, [175, 37, 160, 189, 155, 218, 76, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x499665ba_1fa2_45ad_af25_a0bd9bda4c87);
 }
 impl ::windows::runtime::RuntimeName for TensorInt64Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt64Bit";
@@ -5110,7 +5110,7 @@ unsafe impl ::windows::runtime::RuntimeType for TensorInt8Bit {
 }
 unsafe impl ::windows::runtime::Interface for TensorInt8Bit {
     type Vtable = ITensorInt8Bit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3453851589, 65496, 20463, [174, 251, 48, 225, 164, 133, 178, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcddd97c5_ffd8_4fef_aefb_30e1a485b2ee);
 }
 impl ::windows::runtime::RuntimeName for TensorInt8Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt8Bit";
@@ -5395,7 +5395,7 @@ unsafe impl ::windows::runtime::RuntimeType for TensorString {
 }
 unsafe impl ::windows::runtime::Interface for TensorString {
     type Vtable = ITensorString_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1478702536, 48561, 17936, [188, 117, 53, 233, 203, 240, 9, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x582335c8_bdb1_4610_bc75_35e9cbf009b7);
 }
 impl ::windows::runtime::RuntimeName for TensorString {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorString";
@@ -5652,7 +5652,7 @@ unsafe impl ::windows::runtime::RuntimeType for TensorUInt16Bit {
 }
 unsafe impl ::windows::runtime::Interface for TensorUInt16Bit {
     type Vtable = ITensorUInt16Bit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1746145099, 9152, 17139, [129, 246, 168, 145, 192, 17, 188, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68140f4b_23c0_42f3_81f6_a891c011bc3f);
 }
 impl ::windows::runtime::RuntimeName for TensorUInt16Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt16Bit";
@@ -5909,7 +5909,7 @@ unsafe impl ::windows::runtime::RuntimeType for TensorUInt32Bit {
 }
 unsafe impl ::windows::runtime::Interface for TensorUInt32Bit {
     type Vtable = ITensorUInt32Bit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3637101311, 29969, 17827, [191, 172, 195, 143, 55, 13, 34, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8c9c2ff_7511_45a3_bfac_c38f370d2237);
 }
 impl ::windows::runtime::RuntimeName for TensorUInt32Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt32Bit";
@@ -6166,7 +6166,7 @@ unsafe impl ::windows::runtime::RuntimeType for TensorUInt64Bit {
 }
 unsafe impl ::windows::runtime::Interface for TensorUInt64Bit {
     type Vtable = ITensorUInt64Bit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(779157421, 1215, 18469, [131, 154, 130, 186, 239, 140, 120, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e70ffad_04bf_4825_839a_82baef8c7886);
 }
 impl ::windows::runtime::RuntimeName for TensorUInt64Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt64Bit";
@@ -6423,7 +6423,7 @@ unsafe impl ::windows::runtime::RuntimeType for TensorUInt8Bit {
 }
 unsafe impl ::windows::runtime::Interface for TensorUInt8Bit {
     type Vtable = ITensorUInt8Bit_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1491185191, 25131, 18659, [190, 34, 216, 103, 174, 209, 218, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58e1ae27_622b_48e3_be22_d867aed1daac);
 }
 impl ::windows::runtime::RuntimeName for TensorUInt8Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt8Bit";

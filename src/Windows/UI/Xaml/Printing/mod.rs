@@ -26,7 +26,7 @@ unsafe impl ::windows::runtime::RuntimeType for AddPagesEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for AddPagesEventArgs {
     type Vtable = IAddPagesEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3806669797, 1388, 17440, [151, 149, 203, 53, 38, 206, 12, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2e52be5_056c_4420_9795_cb3526ce0c20);
 }
 impl ::windows::runtime::RuntimeName for AddPagesEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Printing.AddPagesEventArgs";
@@ -97,7 +97,7 @@ unsafe impl ::windows::runtime::RuntimeType for AddPagesEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for AddPagesEventHandler {
     type Vtable = AddPagesEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3568662896, 22432, 16905, [132, 124, 192, 147, 181, 75, 199, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4b57970_57a0_4209_847c_c093b54bc729);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -176,7 +176,7 @@ unsafe impl ::windows::runtime::RuntimeType for GetPreviewPageEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for GetPreviewPageEventArgs {
     type Vtable = IGetPreviewPageEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2755489853, 57001, 19958, [167, 237, 53, 4, 156, 212, 133, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa43d703d_dea9_4df6_a7ed_35049cd485c7);
 }
 impl ::windows::runtime::RuntimeName for GetPreviewPageEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Printing.GetPreviewPageEventArgs";
@@ -247,7 +247,7 @@ unsafe impl ::windows::runtime::RuntimeType for GetPreviewPageEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for GetPreviewPageEventHandler {
     type Vtable = GetPreviewPageEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3434342893, 39953, 20048, [171, 73, 233, 128, 134, 187, 253, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xccb3e9ed_9c11_4e50_ab49_e98086bbfdef);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -305,7 +305,7 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
 pub struct IAddPagesEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAddPagesEventArgs {
     type Vtable = IAddPagesEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3806669797, 1388, 17440, [151, 149, 203, 53, 38, 206, 12, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2e52be5_056c_4420_9795_cb3526ce0c20);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -324,7 +324,7 @@ pub struct IAddPagesEventArgs_abi(
 pub struct IGetPreviewPageEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGetPreviewPageEventArgs {
     type Vtable = IGetPreviewPageEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2755489853, 57001, 19958, [167, 237, 53, 4, 156, 212, 133, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa43d703d_dea9_4df6_a7ed_35049cd485c7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -342,7 +342,7 @@ pub struct IGetPreviewPageEventArgs_abi(
 pub struct IPaginateEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaginateEventArgs {
     type Vtable = IPaginateEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3985924054, 31147, 17079, [147, 10, 61, 110, 9, 1, 29, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed945fd6_79ab_42b7_930a_3d6e09011d21);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -362,7 +362,7 @@ pub struct IPaginateEventArgs_abi(
 pub struct IPrintDocument(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintDocument {
     type Vtable = IPrintDocument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3829606339, 43417, 18523, [177, 216, 114, 220, 81, 120, 33, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe44327c3_a999_485b_b1d8_72dc517821e6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -398,7 +398,7 @@ pub struct IPrintDocument_abi(
 pub struct IPrintDocumentFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintDocumentFactory {
     type Vtable = IPrintDocumentFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4219974031, 9734, 18991, [153, 212, 167, 205, 188, 53, 215, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb87b18f_2606_4a2f_99d4_a7cdbc35d7c7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -416,7 +416,7 @@ pub struct IPrintDocumentFactory_abi(
 pub struct IPrintDocumentStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintDocumentStatics {
     type Vtable = IPrintDocumentStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4254534204, 45394, 18912, [166, 189, 106, 166, 71, 126, 67, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd970a3c_b152_49e0_a6bd_6aa6477e43c7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -464,7 +464,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaginateEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for PaginateEventArgs {
     type Vtable = IPaginateEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3985924054, 31147, 17079, [147, 10, 61, 110, 9, 1, 29, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed945fd6_79ab_42b7_930a_3d6e09011d21);
 }
 impl ::windows::runtime::RuntimeName for PaginateEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Printing.PaginateEventArgs";
@@ -535,7 +535,7 @@ unsafe impl ::windows::runtime::RuntimeType for PaginateEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for PaginateEventHandler {
     type Vtable = PaginateEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(213932897, 33051, 18994, [153, 101, 19, 235, 120, 219, 176, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cc05b61_811b_4a32_9965_13eb78dbb01b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -778,7 +778,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintDocument {
 }
 unsafe impl ::windows::runtime::Interface for PrintDocument {
     type Vtable = IPrintDocument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3829606339, 43417, 18523, [177, 216, 114, 220, 81, 120, 33, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe44327c3_a999_485b_b1d8_72dc517821e6);
 }
 impl ::windows::runtime::RuntimeName for PrintDocument {
     const NAME: &'static str = "Windows.UI.Xaml.Printing.PrintDocument";

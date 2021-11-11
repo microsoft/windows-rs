@@ -128,7 +128,7 @@ impl ::windows::runtime::RuntimeName for CryptographicBuffer {
 pub struct ICryptographicBufferStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICryptographicBufferStatics {
     type Vtable = ICryptographicBufferStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(839613986, 15536, 19679, [134, 99, 29, 40, 145, 0, 101, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x320b7e22_3cb0_4cdf_8663_1d28910065eb);
 }
 #[repr(C)]
 #[doc(hidden)]

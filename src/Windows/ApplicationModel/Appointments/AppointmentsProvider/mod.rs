@@ -46,7 +46,7 @@ unsafe impl ::windows::runtime::RuntimeType for AddAppointmentOperation {
 }
 unsafe impl ::windows::runtime::Interface for AddAppointmentOperation {
     type Vtable = IAddAppointmentOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3964312307, 25101, 19561, [173, 215, 151, 148, 233, 24, 8, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec4a9af3_620d_4c69_add7_9794e918081f);
 }
 impl ::windows::runtime::RuntimeName for AddAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.AddAppointmentOperation";
@@ -148,7 +148,7 @@ impl ::windows::runtime::RuntimeName for AppointmentsProviderLaunchActionVerbs {
 pub struct IAddAppointmentOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAddAppointmentOperation {
     type Vtable = IAddAppointmentOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3964312307, 25101, 19561, [173, 215, 151, 148, 233, 24, 8, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec4a9af3_620d_4c69_add7_9794e918081f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -171,7 +171,7 @@ pub struct IAddAppointmentOperation_abi(
 pub struct IAppointmentsProviderLaunchActionVerbsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentsProviderLaunchActionVerbsStatics {
     type Vtable = IAppointmentsProviderLaunchActionVerbsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(920369704, 40494, 18886, [142, 247, 58, 183, 165, 220, 200, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36dbba28_9e2e_49c6_8ef7_3ab7a5dcc8b8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -192,7 +192,7 @@ pub struct IAppointmentsProviderLaunchActionVerbsStatics_abi(
 pub struct IAppointmentsProviderLaunchActionVerbsStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentsProviderLaunchActionVerbsStatics2 {
     type Vtable = IAppointmentsProviderLaunchActionVerbsStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4019210660, 44833, 18236, [136, 220, 118, 205, 137, 246, 12, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef9049a4_af21_473c_88dc_76cd89f60ca5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -210,7 +210,7 @@ pub struct IAppointmentsProviderLaunchActionVerbsStatics2_abi(
 pub struct IRemoveAppointmentOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoveAppointmentOperation {
     type Vtable = IRemoveAppointmentOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(146172602, 65075, 18125, [165, 12, 168, 255, 179, 38, 5, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08b66aba_fe33_46cd_a50c_a8ffb3260537);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -235,7 +235,7 @@ pub struct IRemoveAppointmentOperation_abi(
 pub struct IReplaceAppointmentOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReplaceAppointmentOperation {
     type Vtable = IReplaceAppointmentOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4103093659, 40545, 19938, [167, 50, 38, 135, 192, 125, 29, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf4903d9b_9e61_4de2_a732_2687c07d1de8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -312,7 +312,7 @@ unsafe impl ::windows::runtime::RuntimeType for RemoveAppointmentOperation {
 }
 unsafe impl ::windows::runtime::Interface for RemoveAppointmentOperation {
     type Vtable = IRemoveAppointmentOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(146172602, 65075, 18125, [165, 12, 168, 255, 179, 38, 5, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08b66aba_fe33_46cd_a50c_a8ffb3260537);
 }
 impl ::windows::runtime::RuntimeName for RemoveAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.RemoveAppointmentOperation";
@@ -423,7 +423,7 @@ unsafe impl ::windows::runtime::RuntimeType for ReplaceAppointmentOperation {
 }
 unsafe impl ::windows::runtime::Interface for ReplaceAppointmentOperation {
     type Vtable = IReplaceAppointmentOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4103093659, 40545, 19938, [167, 50, 38, 135, 192, 125, 29, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf4903d9b_9e61_4de2_a732_2687c07d1de8);
 }
 impl ::windows::runtime::RuntimeName for ReplaceAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.ReplaceAppointmentOperation";

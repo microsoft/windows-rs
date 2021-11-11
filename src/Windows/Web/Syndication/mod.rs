@@ -4,7 +4,7 @@
 pub struct ISyndicationAttribute(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationAttribute {
     type Vtable = ISyndicationAttribute_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1911093609, 21102, 16385, [154, 145, 232, 79, 131, 22, 26, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71e8f969_526e_4001_9a91_e84f83161ab1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27,7 +27,7 @@ pub struct ISyndicationAttribute_abi(
 pub struct ISyndicationAttributeFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationAttributeFactory {
     type Vtable = ISyndicationAttributeFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1649350041, 60734, 16911, [190, 134, 100, 4, 20, 136, 110, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x624f1599_ed3e_420f_be86_640414886e4b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -45,7 +45,7 @@ pub struct ISyndicationAttributeFactory_abi(
 pub struct ISyndicationCategory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationCategory {
     type Vtable = ISyndicationCategory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2266325615, 3258, 19071, [137, 255, 236, 181, 40, 20, 35, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8715626f_0cba_4a7f_89ff_ecb5281423b6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -68,7 +68,7 @@ pub struct ISyndicationCategory_abi(
 pub struct ISyndicationCategoryFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationCategoryFactory {
     type Vtable = ISyndicationCategoryFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2873262127, 18912, 17701, [138, 178, 171, 69, 192, 37, 40, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab42802f_49e0_4525_8ab2_ab45c02528ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -88,7 +88,7 @@ pub struct ISyndicationCategoryFactory_abi(
 pub struct ISyndicationClient(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationClient {
     type Vtable = ISyndicationClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2652416439, 29257, 19269, [178, 41, 125, 248, 149, 165, 161, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e18a9b7_7249_4b45_b229_7df895a5a1f5);
 }
 impl ISyndicationClient {
     #[cfg(feature = "Security_Credentials")]
@@ -250,7 +250,7 @@ pub struct ISyndicationClient_abi(
 pub struct ISyndicationClientFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationClientFactory {
     type Vtable = ISyndicationClientFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(784642860, 42907, 16660, [178, 154, 5, 223, 251, 175, 185, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ec4b32c_a79b_4114_b29a_05dffbafb9a4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -269,7 +269,7 @@ pub struct ISyndicationClientFactory_abi(
 pub struct ISyndicationContent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationContent {
     type Vtable = ISyndicationContent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1178730238, 3669, 16592, [184, 208, 106, 44, 203, 169, 252, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4641fefe_0e55_40d0_b8d0_6a2ccba9fc7c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -290,7 +290,7 @@ pub struct ISyndicationContent_abi(
 pub struct ISyndicationContentFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationContentFactory {
     type Vtable = ISyndicationContentFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1026538387, 38176, 16755, [147, 136, 126, 45, 243, 36, 168, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d2fbb93_9520_4173_9388_7e2df324a8a0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -310,7 +310,7 @@ pub struct ISyndicationContentFactory_abi(
 pub struct ISyndicationErrorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationErrorStatics {
     type Vtable = ISyndicationErrorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(532357985, 17863, 18483, [138, 160, 190, 95, 59, 88, 167, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1fbb2361_45c7_4833_8aa0_be5f3b58a7f4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -328,7 +328,7 @@ pub struct ISyndicationErrorStatics_abi(
 pub struct ISyndicationFeed(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationFeed {
     type Vtable = ISyndicationFeed_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2147368146, 23398, 19810, [132, 3, 27, 193, 13, 145, 13, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ffe3cd2_5b66_4d62_8403_1bc10d910d6b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -389,7 +389,7 @@ pub struct ISyndicationFeed_abi(
 pub struct ISyndicationFeedFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationFeedFactory {
     type Vtable = ISyndicationFeedFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(591864370, 35817, 18615, [137, 52, 98, 5, 19, 29, 147, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23472232_8be9_48b7_8934_6205131d9357);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -408,7 +408,7 @@ pub struct ISyndicationFeedFactory_abi(
 pub struct ISyndicationGenerator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationGenerator {
     type Vtable = ISyndicationGenerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2540221305, 64299, 20333, [180, 28, 8, 138, 88, 104, 130, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9768b379_fb2b_4f6d_b41c_088a5868825c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -433,7 +433,7 @@ pub struct ISyndicationGenerator_abi(
 pub struct ISyndicationGeneratorFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationGeneratorFactory {
     type Vtable = ISyndicationGeneratorFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2738914275, 7718, 19900, [186, 157, 26, 184, 75, 239, 249, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa34083e3_1e26_4dbc_ba9d_1ab84beff97b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -451,7 +451,7 @@ pub struct ISyndicationGeneratorFactory_abi(
 pub struct ISyndicationItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationItem {
     type Vtable = ISyndicationItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1418573955, 50052, 17857, [138, 232, 163, 120, 196, 236, 72, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x548db883_c384_45c1_8ae8_a378c4ec486c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -510,7 +510,7 @@ pub struct ISyndicationItem_abi(
 pub struct ISyndicationItemFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationItemFactory {
     type Vtable = ISyndicationItemFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(622674767, 32184, 18554, [133, 228, 16, 209, 145, 230, 110, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x251d434f_7db8_487a_85e4_10d191e66ebb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -529,7 +529,7 @@ pub struct ISyndicationItemFactory_abi(
 pub struct ISyndicationLink(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationLink {
     type Vtable = ISyndicationLink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(659897021, 41230, 16821, [134, 189, 151, 89, 8, 110, 176, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27553abd_a10e_41b5_86bd_9759086eb0c5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -560,7 +560,7 @@ pub struct ISyndicationLink_abi(
 pub struct ISyndicationLinkFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationLinkFactory {
     type Vtable = ISyndicationLinkFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1591239636, 21813, 18604, [152, 212, 193, 144, 153, 80, 128, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ed863d4_5535_48ac_98d4_c190995080b3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -582,7 +582,7 @@ pub struct ISyndicationLinkFactory_abi(
 pub struct ISyndicationNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationNode {
     type Vtable = ISyndicationNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1966927736, 20984, 17856, [169, 245, 241, 113, 157, 236, 63, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x753cef78_51f8_45c0_a9f5_f1719dec3fb2);
 }
 impl ISyndicationNode {
     #[doc = "*Required features: `Web_Syndication`*"]
@@ -756,7 +756,7 @@ pub struct ISyndicationNode_abi(
 pub struct ISyndicationNodeFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationNodeFactory {
     type Vtable = ISyndicationNodeFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(311435656, 19147, 18856, [183, 119, 165, 235, 146, 225, 138, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12902188_4acb_49a8_b777_a5eb92e18a79);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -774,7 +774,7 @@ pub struct ISyndicationNodeFactory_abi(
 pub struct ISyndicationPerson(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationPerson {
     type Vtable = ISyndicationPerson_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4196328922, 42950, 17687, [160, 150, 1, 67, 250, 242, 147, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa1ee5da_a7c6_4517_a096_0143faf29327);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -799,7 +799,7 @@ pub struct ISyndicationPerson_abi(
 pub struct ISyndicationPersonFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationPersonFactory {
     type Vtable = ISyndicationPersonFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3707013229, 8861, 19288, [164, 155, 243, 210, 240, 245, 201, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcf4886d_229d_4b58_a49b_f3d2f0f5c99f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -820,7 +820,7 @@ pub struct ISyndicationPersonFactory_abi(
 pub struct ISyndicationText(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationText {
     type Vtable = ISyndicationText_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3117178496, 12602, 16529, [162, 166, 36, 62, 14, 233, 35, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9cc5e80_313a_4091_a2a6_243e0ee923f9);
 }
 impl ISyndicationText {
     #[doc = "*Required features: `Web_Syndication`*"]
@@ -1047,7 +1047,7 @@ pub struct ISyndicationText_abi(
 pub struct ISyndicationTextFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationTextFactory {
     type Vtable = ISyndicationTextFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4000531191, 4550, 19237, [171, 98, 229, 150, 189, 22, 41, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee7342f7_11c6_4b25_ab62_e596bd162946);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1162,7 +1162,7 @@ unsafe impl ::windows::runtime::RuntimeType for SyndicationAttribute {
 }
 unsafe impl ::windows::runtime::Interface for SyndicationAttribute {
     type Vtable = ISyndicationAttribute_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1911093609, 21102, 16385, [154, 145, 232, 79, 131, 22, 26, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71e8f969_526e_4001_9a91_e84f83161ab1);
 }
 impl ::windows::runtime::RuntimeName for SyndicationAttribute {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationAttribute";
@@ -1378,7 +1378,7 @@ unsafe impl ::windows::runtime::RuntimeType for SyndicationCategory {
 }
 unsafe impl ::windows::runtime::Interface for SyndicationCategory {
     type Vtable = ISyndicationCategory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2266325615, 3258, 19071, [137, 255, 236, 181, 40, 20, 35, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8715626f_0cba_4a7f_89ff_ecb5281423b6);
 }
 impl ::windows::runtime::RuntimeName for SyndicationCategory {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationCategory";
@@ -1560,7 +1560,7 @@ unsafe impl ::windows::runtime::RuntimeType for SyndicationClient {
 }
 unsafe impl ::windows::runtime::Interface for SyndicationClient {
     type Vtable = ISyndicationClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2652416439, 29257, 19269, [178, 41, 125, 248, 149, 165, 161, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e18a9b7_7249_4b45_b229_7df895a5a1f5);
 }
 impl ::windows::runtime::RuntimeName for SyndicationClient {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationClient";
@@ -1814,7 +1814,7 @@ unsafe impl ::windows::runtime::RuntimeType for SyndicationContent {
 }
 unsafe impl ::windows::runtime::Interface for SyndicationContent {
     type Vtable = ISyndicationContent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1178730238, 3669, 16592, [184, 208, 106, 44, 203, 169, 252, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4641fefe_0e55_40d0_b8d0_6a2ccba9fc7c);
 }
 impl ::windows::runtime::RuntimeName for SyndicationContent {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationContent";
@@ -2283,7 +2283,7 @@ unsafe impl ::windows::runtime::RuntimeType for SyndicationFeed {
 }
 unsafe impl ::windows::runtime::Interface for SyndicationFeed {
     type Vtable = ISyndicationFeed_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2147368146, 23398, 19810, [132, 3, 27, 193, 13, 145, 13, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ffe3cd2_5b66_4d62_8403_1bc10d910d6b);
 }
 impl ::windows::runtime::RuntimeName for SyndicationFeed {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationFeed";
@@ -2542,7 +2542,7 @@ unsafe impl ::windows::runtime::RuntimeType for SyndicationGenerator {
 }
 unsafe impl ::windows::runtime::Interface for SyndicationGenerator {
     type Vtable = ISyndicationGenerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2540221305, 64299, 20333, [180, 28, 8, 138, 88, 104, 130, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9768b379_fb2b_4f6d_b41c_088a5868825c);
 }
 impl ::windows::runtime::RuntimeName for SyndicationGenerator {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationGenerator";
@@ -2940,7 +2940,7 @@ unsafe impl ::windows::runtime::RuntimeType for SyndicationItem {
 }
 unsafe impl ::windows::runtime::Interface for SyndicationItem {
     type Vtable = ISyndicationItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1418573955, 50052, 17857, [138, 232, 163, 120, 196, 236, 72, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x548db883_c384_45c1_8ae8_a378c4ec486c);
 }
 impl ::windows::runtime::RuntimeName for SyndicationItem {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationItem";
@@ -3221,7 +3221,7 @@ unsafe impl ::windows::runtime::RuntimeType for SyndicationLink {
 }
 unsafe impl ::windows::runtime::Interface for SyndicationLink {
     type Vtable = ISyndicationLink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(659897021, 41230, 16821, [134, 189, 151, 89, 8, 110, 176, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27553abd_a10e_41b5_86bd_9759086eb0c5);
 }
 impl ::windows::runtime::RuntimeName for SyndicationLink {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationLink";
@@ -3413,7 +3413,7 @@ unsafe impl ::windows::runtime::RuntimeType for SyndicationNode {
 }
 unsafe impl ::windows::runtime::Interface for SyndicationNode {
     type Vtable = ISyndicationNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1966927736, 20984, 17856, [169, 245, 241, 113, 157, 236, 63, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x753cef78_51f8_45c0_a9f5_f1719dec3fb2);
 }
 impl ::windows::runtime::RuntimeName for SyndicationNode {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationNode";
@@ -3652,7 +3652,7 @@ unsafe impl ::windows::runtime::RuntimeType for SyndicationPerson {
 }
 unsafe impl ::windows::runtime::Interface for SyndicationPerson {
     type Vtable = ISyndicationPerson_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4196328922, 42950, 17687, [160, 150, 1, 67, 250, 242, 147, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa1ee5da_a7c6_4517_a096_0143faf29327);
 }
 impl ::windows::runtime::RuntimeName for SyndicationPerson {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationPerson";
@@ -3892,7 +3892,7 @@ unsafe impl ::windows::runtime::RuntimeType for SyndicationText {
 }
 unsafe impl ::windows::runtime::Interface for SyndicationText {
     type Vtable = ISyndicationText_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3117178496, 12602, 16529, [162, 166, 36, 62, 14, 233, 35, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9cc5e80_313a_4091_a2a6_243e0ee923f9);
 }
 impl ::windows::runtime::RuntimeName for SyndicationText {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationText";

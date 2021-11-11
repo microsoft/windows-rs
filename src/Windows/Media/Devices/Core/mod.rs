@@ -150,7 +150,7 @@ unsafe impl ::windows::runtime::RuntimeType for CameraIntrinsics {
 }
 unsafe impl ::windows::runtime::Interface for CameraIntrinsics {
     type Vtable = ICameraIntrinsics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(178711858, 25993, 18906, [175, 222, 89, 66, 112, 202, 10, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0aa6ed32_6589_49da_afde_594270ca0aac);
 }
 impl ::windows::runtime::RuntimeName for CameraIntrinsics {
     const NAME: &'static str = "Windows.Media.Devices.Core.CameraIntrinsics";
@@ -250,7 +250,7 @@ unsafe impl ::windows::runtime::RuntimeType for DepthCorrelatedCoordinateMapper 
 }
 unsafe impl ::windows::runtime::Interface for DepthCorrelatedCoordinateMapper {
     type Vtable = IDepthCorrelatedCoordinateMapper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4183656955, 35568, 19632, [146, 109, 105, 104, 102, 229, 4, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf95d89fb_8af0_4cb0_926d_696866e5046a);
 }
 impl ::windows::runtime::RuntimeName for DepthCorrelatedCoordinateMapper {
     const NAME: &'static str = "Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper";
@@ -382,7 +382,7 @@ unsafe impl ::windows::runtime::RuntimeType for FrameControlCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for FrameControlCapabilities {
     type Vtable = IFrameControlCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2835328608, 20126, 17271, [167, 137, 226, 76, 74, 231, 229, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8ffae60_4e9e_4377_a789_e24c4ae7e544);
 }
 impl ::windows::runtime::RuntimeName for FrameControlCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameControlCapabilities";
@@ -500,7 +500,7 @@ unsafe impl ::windows::runtime::RuntimeType for FrameController {
 }
 unsafe impl ::windows::runtime::Interface for FrameController {
     type Vtable = IFrameController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3244579289, 47855, 16466, [145, 119, 72, 175, 242, 175, 117, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc16459d9_baef_4052_9177_48aff2af7522);
 }
 impl ::windows::runtime::RuntimeName for FrameController {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameController";
@@ -593,7 +593,7 @@ unsafe impl ::windows::runtime::RuntimeType for FrameExposureCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for FrameExposureCapabilities {
     type Vtable = IFrameExposureCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3183385827, 14725, 20082, [151, 194, 5, 144, 214, 19, 7, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbdbe9ce3_3985_4e72_97c2_0590d61307a1);
 }
 impl ::windows::runtime::RuntimeName for FrameExposureCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureCapabilities";
@@ -681,7 +681,7 @@ unsafe impl ::windows::runtime::RuntimeType for FrameExposureCompensationCapabil
 }
 unsafe impl ::windows::runtime::Interface for FrameExposureCompensationCapabilities {
     type Vtable = IFrameExposureCompensationCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3112740899, 32869, 16878, [176, 79, 114, 34, 101, 149, 69, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb988a823_8065_41ee_b04f_722265954500);
 }
 impl ::windows::runtime::RuntimeName for FrameExposureCompensationCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureCompensationCapabilities";
@@ -752,7 +752,7 @@ unsafe impl ::windows::runtime::RuntimeType for FrameExposureCompensationControl
 }
 unsafe impl ::windows::runtime::Interface for FrameExposureCompensationControl {
     type Vtable = IFrameExposureCompensationControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3914897097, 63481, 18634, [133, 145, 162, 101, 49, 203, 21, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe95896c9_f7f9_48ca_8591_a26531cb1578);
 }
 impl ::windows::runtime::RuntimeName for FrameExposureCompensationControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureCompensationControl";
@@ -836,7 +836,7 @@ unsafe impl ::windows::runtime::RuntimeType for FrameExposureControl {
 }
 unsafe impl ::windows::runtime::Interface for FrameExposureControl {
     type Vtable = IFrameExposureControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2975881825, 65455, 18258, [182, 33, 245, 182, 241, 23, 244, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1605a61_ffaf_4752_b621_f5b6f117f432);
 }
 impl ::windows::runtime::RuntimeName for FrameExposureControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureControl";
@@ -916,7 +916,7 @@ unsafe impl ::windows::runtime::RuntimeType for FrameFlashCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for FrameFlashCapabilities {
     type Vtable = IFrameFlashCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3146989986, 24254, 20322, [130, 35, 14, 43, 5, 191, 187, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb9341a2_5ebe_4f62_8223_0e2b05bfbbd0);
 }
 impl ::windows::runtime::RuntimeName for FrameFlashCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFlashCapabilities";
@@ -1024,7 +1024,7 @@ unsafe impl ::windows::runtime::RuntimeType for FrameFlashControl {
 }
 unsafe impl ::windows::runtime::Interface for FrameFlashControl {
     type Vtable = IFrameFlashControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1976956615, 48453, 20395, [147, 117, 69, 172, 4, 179, 50, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75d5f6c7_bd45_4fab_9375_45ac04b332c2);
 }
 impl ::windows::runtime::RuntimeName for FrameFlashControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFlashControl";
@@ -1135,7 +1135,7 @@ unsafe impl ::windows::runtime::RuntimeType for FrameFocusCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for FrameFocusCapabilities {
     type Vtable = IFrameFocusCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2066074968, 448, 16485, [156, 64, 193, 167, 33, 66, 92, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b25cd58_01c0_4065_9c40_c1a721425c1a);
 }
 impl ::windows::runtime::RuntimeName for FrameFocusCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFocusCapabilities";
@@ -1206,7 +1206,7 @@ unsafe impl ::windows::runtime::RuntimeType for FrameFocusControl {
 }
 unsafe impl ::windows::runtime::Interface for FrameFocusControl {
     type Vtable = IFrameFocusControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657322448, 55570, 16916, [166, 123, 227, 138, 141, 72, 216, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x272df1d0_d912_4214_a67b_e38a8d48d8c6);
 }
 impl ::windows::runtime::RuntimeName for FrameFocusControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFocusControl";
@@ -1294,7 +1294,7 @@ unsafe impl ::windows::runtime::RuntimeType for FrameIsoSpeedCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for FrameIsoSpeedCapabilities {
     type Vtable = IFrameIsoSpeedCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(381550433, 28150, 19145, [185, 42, 159, 110, 205, 26, 210, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16bdff61_6df6_4ac9_b92a_9f6ecd1ad2fa);
 }
 impl ::windows::runtime::RuntimeName for FrameIsoSpeedCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameIsoSpeedCapabilities";
@@ -1378,7 +1378,7 @@ unsafe impl ::windows::runtime::RuntimeType for FrameIsoSpeedControl {
 }
 unsafe impl ::windows::runtime::Interface for FrameIsoSpeedControl {
     type Vtable = IFrameIsoSpeedControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(436465645, 30826, 19573, [165, 87, 122, 185, 168, 95, 88, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a03efed_786a_4c75_a557_7ab9a85f588c);
 }
 impl ::windows::runtime::RuntimeName for FrameIsoSpeedControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameIsoSpeedControl";
@@ -1428,7 +1428,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 pub struct ICameraIntrinsics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraIntrinsics {
     type Vtable = ICameraIntrinsics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(178711858, 25993, 18906, [175, 222, 89, 66, 112, 202, 10, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0aa6ed32_6589_49da_afde_594270ca0aac);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1463,7 +1463,7 @@ pub struct ICameraIntrinsics_abi(
 pub struct ICameraIntrinsics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraIntrinsics2 {
     type Vtable = ICameraIntrinsics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(215655495, 1944, 19277, [131, 159, 197, 236, 65, 77, 178, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cdaa447_0798_4b4d_839f_c5ec414db27a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1490,7 +1490,7 @@ pub struct ICameraIntrinsics2_abi(
 pub struct ICameraIntrinsicsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraIntrinsicsFactory {
     type Vtable = ICameraIntrinsicsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3235759238, 8498, 18996, [166, 89, 155, 254, 42, 5, 87, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0ddc486_2132_4a34_a659_9bfe2a055712);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1509,7 +1509,7 @@ pub struct ICameraIntrinsicsFactory_abi(
 pub struct IDepthCorrelatedCoordinateMapper(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDepthCorrelatedCoordinateMapper {
     type Vtable = IDepthCorrelatedCoordinateMapper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4183656955, 35568, 19632, [146, 109, 105, 104, 102, 229, 4, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf95d89fb_8af0_4cb0_926d_696866e5046a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1534,7 +1534,7 @@ pub struct IDepthCorrelatedCoordinateMapper_abi(
 pub struct IFrameControlCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameControlCapabilities {
     type Vtable = IFrameControlCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2835328608, 20126, 17271, [167, 137, 226, 76, 74, 231, 229, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8ffae60_4e9e_4377_a789_e24c4ae7e544);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1556,7 +1556,7 @@ pub struct IFrameControlCapabilities_abi(
 pub struct IFrameControlCapabilities2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameControlCapabilities2 {
     type Vtable = IFrameControlCapabilities2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3466265700, 18224, 17423, [189, 62, 239, 232, 168, 242, 48, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce9b0464_4730_440f_bd3e_efe8a8f230a8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1574,7 +1574,7 @@ pub struct IFrameControlCapabilities2_abi(
 pub struct IFrameController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameController {
     type Vtable = IFrameController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3244579289, 47855, 16466, [145, 119, 72, 175, 242, 175, 117, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc16459d9_baef_4052_9177_48aff2af7522);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1599,7 +1599,7 @@ pub struct IFrameController_abi(
 pub struct IFrameController2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameController2 {
     type Vtable = IFrameController2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(13876341, 55420, 18523, [138, 9, 92, 53, 133, 104, 180, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00d3bc75_d87c_485b_8a09_5c358568b427);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1617,7 +1617,7 @@ pub struct IFrameController2_abi(
 pub struct IFrameExposureCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameExposureCapabilities {
     type Vtable = IFrameExposureCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3183385827, 14725, 20082, [151, 194, 5, 144, 214, 19, 7, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbdbe9ce3_3985_4e72_97c2_0590d61307a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1641,7 +1641,7 @@ pub struct IFrameExposureCapabilities_abi(
 pub struct IFrameExposureCompensationCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameExposureCompensationCapabilities {
     type Vtable = IFrameExposureCompensationCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3112740899, 32869, 16878, [176, 79, 114, 34, 101, 149, 69, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb988a823_8065_41ee_b04f_722265954500);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1662,7 +1662,7 @@ pub struct IFrameExposureCompensationCapabilities_abi(
 pub struct IFrameExposureCompensationControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameExposureCompensationControl {
     type Vtable = IFrameExposureCompensationControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3914897097, 63481, 18634, [133, 145, 162, 101, 49, 203, 21, 120]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe95896c9_f7f9_48ca_8591_a26531cb1578);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1683,7 +1683,7 @@ pub struct IFrameExposureCompensationControl_abi(
 pub struct IFrameExposureControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameExposureControl {
     type Vtable = IFrameExposureControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2975881825, 65455, 18258, [182, 33, 245, 182, 241, 23, 244, 50]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1605a61_ffaf_4752_b621_f5b6f117f432);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1706,7 +1706,7 @@ pub struct IFrameExposureControl_abi(
 pub struct IFrameFlashCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameFlashCapabilities {
     type Vtable = IFrameFlashCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3146989986, 24254, 20322, [130, 35, 14, 43, 5, 191, 187, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb9341a2_5ebe_4f62_8223_0e2b05bfbbd0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1726,7 +1726,7 @@ pub struct IFrameFlashCapabilities_abi(
 pub struct IFrameFlashControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameFlashControl {
     type Vtable = IFrameFlashControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1976956615, 48453, 20395, [147, 117, 69, 172, 4, 179, 50, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75d5f6c7_bd45_4fab_9375_45ac04b332c2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1751,7 +1751,7 @@ pub struct IFrameFlashControl_abi(
 pub struct IFrameFocusCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameFocusCapabilities {
     type Vtable = IFrameFocusCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2066074968, 448, 16485, [156, 64, 193, 167, 33, 66, 92, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b25cd58_01c0_4065_9c40_c1a721425c1a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1772,7 +1772,7 @@ pub struct IFrameFocusCapabilities_abi(
 pub struct IFrameFocusControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameFocusControl {
     type Vtable = IFrameFocusControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657322448, 55570, 16916, [166, 123, 227, 138, 141, 72, 216, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x272df1d0_d912_4214_a67b_e38a8d48d8c6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1793,7 +1793,7 @@ pub struct IFrameFocusControl_abi(
 pub struct IFrameIsoSpeedCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameIsoSpeedCapabilities {
     type Vtable = IFrameIsoSpeedCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(381550433, 28150, 19145, [185, 42, 159, 110, 205, 26, 210, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16bdff61_6df6_4ac9_b92a_9f6ecd1ad2fa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1814,7 +1814,7 @@ pub struct IFrameIsoSpeedCapabilities_abi(
 pub struct IFrameIsoSpeedControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameIsoSpeedControl {
     type Vtable = IFrameIsoSpeedControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(436465645, 30826, 19573, [165, 87, 122, 185, 168, 95, 88, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a03efed_786a_4c75_a557_7ab9a85f588c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1837,7 +1837,7 @@ pub struct IFrameIsoSpeedControl_abi(
 pub struct IVariablePhotoSequenceController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVariablePhotoSequenceController {
     type Vtable = IVariablePhotoSequenceController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2143287424, 60812, 17405, [167, 195, 179, 88, 9, 228, 34, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fbff880_ed8c_43fd_a7c3_b35809e4229a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1935,7 +1935,7 @@ unsafe impl ::windows::runtime::RuntimeType for VariablePhotoSequenceController 
 }
 unsafe impl ::windows::runtime::Interface for VariablePhotoSequenceController {
     type Vtable = IVariablePhotoSequenceController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2143287424, 60812, 17405, [167, 195, 179, 88, 9, 228, 34, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fbff880_ed8c_43fd_a7c3_b35809e4229a);
 }
 impl ::windows::runtime::RuntimeName for VariablePhotoSequenceController {
     const NAME: &'static str = "Windows.Media.Devices.Core.VariablePhotoSequenceController";

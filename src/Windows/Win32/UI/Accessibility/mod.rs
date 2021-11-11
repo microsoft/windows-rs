@@ -103,8 +103,8 @@ pub unsafe fn AccSetRunningUtilityState<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const AcceleratorKey_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1363699167, 9559, 19641, [174, 237, 108, 237, 8, 76, 229, 44]);
-pub const AccessKey_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(109214482, 43001, 18965, [145, 124, 255, 165, 173, 62, 176, 167]);
+pub const AcceleratorKey_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x514865df_2557_4cb9_aeed_6ced084ce52c);
+pub const AccessKey_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06827b12_a7f9_4a15_917c_ffa5ad3eb0a7);
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
@@ -180,7 +180,7 @@ impl ::core::convert::From<i32> for ActiveEnd {
 unsafe impl ::windows::runtime::Abi for ActiveEnd {
     type Abi = Self;
 }
-pub const ActiveTextPositionChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2780864156, 51069, 20261, [180, 145, 229, 187, 112, 23, 203, 212]);
+pub const ActiveTextPositionChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5c09e9c_c77d_4f25_b491_e5bb7017cbd4);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -215,7 +215,7 @@ impl ::core::convert::From<i32> for AnnoScope {
 unsafe impl ::windows::runtime::Abi for AnnoScope {
     type Abi = Self;
 }
-pub const AnnotationObjects_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(822677704, 31854, 20256, [190, 205, 74, 175, 109, 25, 17, 86]);
+pub const AnnotationObjects_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x310910c8_7c6e_4f20_becd_4aaf6d191156);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const AnnotationType_AdvancedProofingIssue: i32 = 60020i32;
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -266,41 +266,41 @@ pub const AnnotationType_TrackChanges: i32 = 60005i32;
 pub const AnnotationType_Unknown: i32 = 60000i32;
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const AnnotationType_UnsyncedChange: i32 = 60015i32;
-pub const AnnotationTypes_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1689722742, 21444, 18070, [162, 25, 32, 233, 64, 201, 161, 118]);
-pub const Annotation_AdvancedProofingIssue_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3670521644, 49394, 19332, [185, 13, 95, 175, 192, 240, 239, 28]);
-pub const Annotation_AnnotationTypeId_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(548292687, 27119, 19528, [143, 91, 196, 147, 139, 32, 106, 199]);
-pub const Annotation_AnnotationTypeName_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608957586, 23241, 19193, [170, 150, 245, 138, 119, 176, 88, 227]);
-pub const Annotation_Author_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4049720231, 63515, 16680, [177, 127, 113, 246, 144, 145, 69, 32]);
-pub const Annotation_Author_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2052228194, 40028, 18947, [169, 116, 139, 48, 122, 153, 55, 242]);
-pub const Annotation_CircularReferenceError_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(633183476, 5957, 18009, [186, 103, 114, 127, 3, 24, 198, 22]);
-pub const Annotation_Comment_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4247771696, 9907, 19462, [139, 199, 152, 241, 83, 46, 70, 253]);
-pub const Annotation_ConflictingChange_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2561640450, 20860, 17823, [175, 19, 1, 109, 63, 171, 135, 126]);
-pub const Annotation_Custom_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2663917392, 14641, 18770, [133, 188, 29, 191, 247, 138, 67, 227]);
-pub const Annotation_DataValidationError_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3362037672, 38773, 17278, [173, 70, 231, 9, 217, 60, 35, 67]);
-pub const Annotation_DateTime_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2578827869, 6863, 16715, [164, 208, 107, 53, 11, 4, 117, 120]);
-pub const Annotation_DeletionChange_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3191692037, 38173, 17127, [144, 29, 173, 200, 194, 207, 52, 208]);
-pub const Annotation_EditingLockedChange_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3273604636, 29731, 19884, [131, 72, 65, 240, 153, 255, 111, 100]);
-pub const Annotation_Endnote_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1969582684, 11673, 18489, [150, 13, 51, 211, 184, 102, 171, 165]);
-pub const Annotation_ExternalChange_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1973443377, 24337, 17149, [136, 125, 223, 160, 16, 219, 35, 146]);
-pub const Annotation_Footer_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3437932614, 6195, 18346, [128, 128, 112, 30, 208, 176, 200, 50]);
-pub const Annotation_Footnote_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1038159393, 16677, 17115, [134, 32, 190, 128, 131, 8, 6, 36]);
-pub const Annotation_FormatChange_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3945034565, 54513, 16846, [142, 82, 247, 155, 105, 99, 94, 72]);
-pub const Annotation_FormulaError_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2506168706, 3243, 18133, [162, 240, 227, 13, 25, 5, 248, 191]);
-pub const Annotation_GrammarError_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1970930829, 17688, 16838, [133, 76, 220, 0, 155, 124, 251, 83]);
-pub const Annotation_Header_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2256224411, 45590, 17522, [162, 25, 82, 94, 49, 6, 129, 248]);
-pub const Annotation_Highlighted_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1971095630, 32899, 16513, [139, 156, 232, 127, 80, 114, 240, 228]);
-pub const Annotation_InsertionChange_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(230601638, 57109, 16740, [163, 192, 226, 26, 140, 233, 49, 196]);
-pub const Annotation_Mathematics_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3937100619, 9936, 16577, [128, 115, 87, 202, 28, 99, 60, 155]);
-pub const Annotation_MoveChange_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2644871147, 9189, 17552, [179, 133, 26, 34, 221, 200, 177, 135]);
-pub const Annotation_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4140247767, 13676, 18512, [146, 145, 49, 111, 96, 138, 140, 132]);
-pub const Annotation_Sensitive_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(938786895, 3858, 17508, [146, 156, 130, 143, 209, 82, 146, 227]);
-pub const Annotation_SpellingError_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2927974014, 40654, 16959, [129, 183, 150, 196, 61, 83, 229, 14]);
-pub const Annotation_Target_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3072012333, 8452, 17581, [156, 92, 9, 43, 73, 7, 215, 15]);
-pub const Annotation_TrackChanges_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(568780936, 56340, 16406, [172, 39, 25, 5, 83, 200, 196, 112]);
-pub const Annotation_UnsyncedChange_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(407966058, 3655, 19248, [140, 181, 215, 218, 228, 251, 205, 27]);
-pub const AppBar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1628737677, 52226, 19767, [135, 91, 181, 48, 199, 19, 149, 84]);
-pub const AriaProperties_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1108567948, 57381, 18722, [190, 181, 228, 59, 160, 142, 98, 33]);
-pub const AriaRole_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3709893525, 48714, 19981, [183, 39, 99, 172, 233, 75, 105, 22]);
+pub const AnnotationTypes_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64b71f76_53c4_4696_a219_20e940c9a176);
+pub const Annotation_AdvancedProofingIssue_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdac7b72c_c0f2_4b84_b90d_5fafc0f0ef1c);
+pub const Annotation_AnnotationTypeId_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20ae484f_69ef_4c48_8f5b_c4938b206ac7);
+pub const Annotation_AnnotationTypeName_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b818892_5ac9_4af9_aa96_f58a77b058e3);
+pub const Annotation_Author_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf161d3a7_f81b_4128_b17f_71f690914520);
+pub const Annotation_Author_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a528462_9c5c_4a03_a974_8b307a9937f2);
+pub const Annotation_CircularReferenceError_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25bd9cf4_1745_4659_ba67_727f0318c616);
+pub const Annotation_Comment_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd2fda30_26b3_4c06_8bc7_98f1532e46fd);
+pub const Annotation_ConflictingChange_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98af8802_517c_459f_af13_016d3fab877e);
+pub const Annotation_Custom_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ec82750_3931_4952_85bc_1dbff78a43e3);
+pub const Annotation_DataValidationError_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8649fa8_9775_437e_ad46_e709d93c2343);
+pub const Annotation_DateTime_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99b5ca5d_1acf_414b_a4d0_6b350b047578);
+pub const Annotation_DeletionChange_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe3d5b05_951d_42e7_901d_adc8c2cf34d0);
+pub const Annotation_EditingLockedChange_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc31f3e1c_7423_4dac_8348_41f099ff6f64);
+pub const Annotation_Endnote_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7565725c_2d99_4839_960d_33d3b866aba5);
+pub const Annotation_ExternalChange_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75a05b31_5f11_42fd_887d_dfa010db2392);
+pub const Annotation_Footer_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcceab046_1833_47aa_8080_701ed0b0c832);
+pub const Annotation_Footnote_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3de10e21_4125_42db_8620_be8083080624);
+pub const Annotation_FormatChange_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb247345_d4f1_41ce_8e52_f79b69635e48);
+pub const Annotation_FormulaError_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95611982_0cab_46d5_a2f0_e30d1905f8bf);
+pub const Annotation_GrammarError_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x757a048d_4518_41c6_854c_dc009b7cfb53);
+pub const Annotation_Header_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x867b409b_b216_4472_a219_525e310681f8);
+pub const Annotation_Highlighted_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x757c884e_8083_4081_8b9c_e87f5072f0e4);
+pub const Annotation_InsertionChange_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0dbeb3a6_df15_4164_a3c0_e21a8ce931c4);
+pub const Annotation_Mathematics_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeaab634b_26d0_40c1_8073_57ca1c633c9b);
+pub const Annotation_MoveChange_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9da587eb_23e5_4490_b385_1a22ddc8b187);
+pub const Annotation_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6c72ad7_356c_4850_9291_316f608a8c84);
+pub const Annotation_Sensitive_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x37f4c04f_0f12_4464_929c_828fd15292e3);
+pub const Annotation_SpellingError_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae85567e_9ece_423f_81b7_96c43d53e50e);
+pub const Annotation_Target_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb71b302d_2104_44ad_9c5c_092b4907d70f);
+pub const Annotation_TrackChanges_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x21e6e888_dc14_4016_ac27_190553c8c470);
+pub const Annotation_UnsyncedChange_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1851116a_0e47_4b30_8cb5_d7dae4fbcd1b);
+pub const AppBar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6114908d_cc02_4d37_875b_b530c7139554);
+pub const AriaProperties_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4213678c_e025_4922_beb5_e43ba08e6221);
+pub const AriaRole_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd207b95_be4a_4e0d_b727_63ace94b6916);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -316,7 +316,7 @@ impl ::core::convert::From<i32> for AsyncContentLoadedState {
 unsafe impl ::windows::runtime::Abi for AsyncContentLoadedState {
     type Abi = Self;
 }
-pub const AsyncContentLoaded_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1608442140, 54010, 20409, [144, 78, 92, 190, 232, 148, 213, 239]);
+pub const AsyncContentLoaded_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5fdee11c_d2fa_4fb9_904e_5cbee894d5ef);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -331,8 +331,8 @@ impl ::core::convert::From<i32> for AutomationElementMode {
 unsafe impl ::windows::runtime::Abi for AutomationElementMode {
     type Abi = Self;
 }
-pub const AutomationFocusChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3062505239, 62989, 16807, [163, 204, 176, 82, 146, 21, 95, 224]);
-pub const AutomationId_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3358328064, 46606, 17168, [162, 103, 48, 60, 83, 31, 142, 229]);
+pub const AutomationFocusChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb68a1f17_f60d_41a7_a3cc_b05292155fe0);
+pub const AutomationId_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc82c0500_b60e_4310_a267_303c531f8ee5);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -354,8 +354,8 @@ impl ::core::convert::From<i32> for AutomationIdentifierType {
 unsafe impl ::windows::runtime::Abi for AutomationIdentifierType {
     type Abi = Self;
 }
-pub const AutomationPropertyChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(623377313, 36218, 17968, [164, 204, 230, 99, 21, 148, 47, 82]);
-pub const BoundingRectangle_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2076174514, 15356, 18653, [183, 41, 199, 148, 184, 70, 233, 161]);
+pub const AutomationPropertyChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2527fba1_8d7a_4630_a4cc_e66315942f52);
+pub const BoundingRectangle_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bbfe8b2_3bfc_48dd_b729_c794b846e9a1);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -375,13 +375,13 @@ impl ::core::convert::From<i32> for BulletStyle {
 unsafe impl ::windows::runtime::Abi for BulletStyle {
     type Abi = Self;
 }
-pub const Button_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1517871977, 50849, 20275, [169, 215, 121, 242, 13, 12, 120, 142]);
-pub const CAccPropServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3052942603, 1352, 18609, [166, 238, 136, 189, 0, 180, 165, 231]);
-pub const CLSID_AccPropServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3052942603, 1352, 18609, [166, 238, 136, 189, 0, 180, 165, 231]);
-pub const CUIAutomation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4282964900, 24815, 16897, [170, 135, 84, 16, 62, 239, 89, 78]);
-pub const CUIAutomation8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3794457395, 45663, 17932, [131, 208, 5, 129, 16, 115, 149, 201]);
-pub const CUIAutomationRegistrar: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1848244927, 39287, 17105, [141, 14, 202, 126, 97, 173, 135, 230]);
-pub const Calendar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2299784072, 229, 18108, [142, 78, 20, 167, 134, 225, 101, 161]);
+pub const Button_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a78e369_c6a1_4f33_a9d7_79f20d0c788e);
+pub const CAccPropServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7);
+pub const CLSID_AccPropServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7);
+pub const CUIAutomation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff48dba4_60ef_4201_aa87_54103eef594e);
+pub const CUIAutomation8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe22ad333_b25f_460c_83d0_0581107395c9);
+pub const CUIAutomationRegistrar: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e29fabf_9977_42d1_8d0e_ca7e61ad87e6);
+pub const Calendar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8913eb88_00e5_46bc_8e4e_14a786e165a1);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -431,12 +431,12 @@ impl ::core::convert::From<i32> for CaretPosition {
 unsafe impl ::windows::runtime::Abi for CaretPosition {
     type Abi = Self;
 }
-pub const CenterPoint_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(212864008, 21516, 20187, [148, 69, 38, 53, 158, 166, 151, 133]);
-pub const Changes_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2113038100, 24911, 19973, [148, 136, 113, 108, 91, 161, 148, 54]);
-pub const Changes_Summary_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(826107302, 58895, 19810, [152, 97, 85, 175, 215, 40, 210, 7]);
-pub const CheckBox_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4216387874, 41947, 18880, [139, 195, 6, 218, 213, 87, 120, 226]);
-pub const ClassName_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(360411669, 35151, 19301, [132, 226, 170, 192, 218, 8, 177, 107]);
-pub const ClickablePoint_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(26644539, 45571, 18456, [169, 243, 240, 142, 103, 95, 35, 65]);
+pub const CenterPoint_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cb00c08_540c_4edb_9445_26359ea69785);
+pub const Changes_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7df26714_614f_4e05_9488_716c5ba19436);
+pub const Changes_Summary_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x313d65a6_e60f_4d62_9861_55afd728d207);
+pub const CheckBox_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb50f922_a3db_49c0_8bc3_06dad55778e2);
+pub const ClassName_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x157b7215_894f_4b65_84e2_aac0da08b16b);
+pub const ClickablePoint_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0196903b_b203_4818_a9f3_f08e675f2341);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -451,7 +451,7 @@ impl ::core::convert::From<i32> for CoalesceEventsOptions {
 unsafe impl ::windows::runtime::Abi for CoalesceEventsOptions {
     type Abi = Self;
 }
-pub const ComboBox_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1422606956, 12083, 20479, [170, 161, 174, 246, 13, 172, 93, 235]);
+pub const ComboBox_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54cb426c_2f33_4fff_aaa1_aef60dac5deb);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -484,8 +484,8 @@ impl ::core::convert::From<i32> for ConnectionRecoveryBehaviorOptions {
 unsafe impl ::windows::runtime::Abi for ConnectionRecoveryBehaviorOptions {
     type Abi = Self;
 }
-pub const ControlType_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3396816874, 10412, 19394, [148, 202, 172, 236, 109, 108, 16, 163]);
-pub const ControllerFor_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1360153738, 42450, 20243, [155, 230, 127, 168, 186, 157, 58, 144]);
+pub const ControlType_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca774fea_28ac_4bc2_94ca_acec6d6c10a3);
+pub const ControllerFor_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51124c8a_a5d2_4f13_9be6_7fa8ba9d3a90);
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -531,9 +531,9 @@ pub unsafe fn CreateStdAccessibleProxyW<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const Culture_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3805761319, 15737, 19906, [184, 139, 48, 68, 150, 58, 138, 251]);
-pub const CustomNavigation_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2951385994, 25118, 16468, [187, 44, 47, 70, 17, 77, 172, 63]);
-pub const Custom_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4070482115, 44471, 17162, [186, 144, 229, 44, 115, 19, 230, 237]);
+pub const Culture_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2d74f27_3d79_4dc2_b88b_3044963a8afb);
+pub const CustomNavigation_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xafea938a_621e_4054_bb2c_2f46114dac3f);
+pub const Custom_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf29ea0c3_adb7_430a_ba90_e52c7313e6ed);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const DISPID_ACC_CHILD: i32 = -5002i32;
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -572,9 +572,9 @@ pub const DISPID_ACC_SELECTION: i32 = -5012i32;
 pub const DISPID_ACC_STATE: i32 = -5007i32;
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const DISPID_ACC_VALUE: i32 = -5004i32;
-pub const DataGrid_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2226619311, 53507, 19210, [132, 21, 231, 57, 66, 65, 15, 75]);
-pub const DataItem_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2685892674, 55631, 17061, [129, 75, 96, 104, 173, 220, 141, 165]);
-pub const DescribedBy_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2086167992, 39314, 16637, [141, 176, 107, 241, 211, 23, 249, 152]);
+pub const DataGrid_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84b783af_d103_4b0a_8415_e73942410f4b);
+pub const DataItem_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0177842_d94f_42a5_814b_6068addc8da5);
+pub const DescribedBy_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c5865b8_9992_40fd_8db0_6bf1d317f998);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[inline]
 pub unsafe fn DockPattern_SetDockPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, dockposition: DockPosition) -> ::windows::runtime::Result<()> {
@@ -607,24 +607,24 @@ impl ::core::convert::From<i32> for DockPosition {
 unsafe impl ::windows::runtime::Abi for DockPosition {
     type Abi = Self;
 }
-pub const Dock_DockPosition_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1835528238, 49328, 19216, [181, 185, 24, 214, 236, 249, 135, 96]);
-pub const Dock_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2629478470, 33736, 17037, [130, 127, 126, 96, 99, 254, 6, 32]);
-pub const Document_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1020705647, 28424, 17762, [178, 41, 228, 226, 252, 122, 158, 180]);
-pub const Drag_DragCancel_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3287148282, 13393, 19983, [158, 113, 223, 156, 40, 10, 70, 87]);
-pub const Drag_DragComplete_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(954818952, 61215, 17982, [145, 202, 58, 119, 146, 194, 156, 175]);
-pub const Drag_DragStart_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2285520907, 15017, 17053, [149, 228, 217, 200, 208, 17, 240, 221]);
-pub const Drag_DropEffect_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1685006201, 18643, 19235, [137, 2, 75, 241, 0, 0, 93, 243]);
-pub const Drag_DropEffects_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4124447062, 31974, 18878, [168, 54, 146, 105, 220, 236, 146, 15]);
-pub const Drag_GrabbedItems_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2009159212, 31622, 19233, [158, 215, 60, 239, 218, 111, 76, 67]);
-pub const Drag_IsGrabbed_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1173489395, 30156, 19658, [169, 185, 252, 223, 185, 130, 216, 162]);
-pub const Drag_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3233735199, 52403, 20461, [153, 91, 17, 79, 110, 61, 39, 40]);
-pub const DropTarget_DragEnter_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2866360731, 812, 19080, [150, 29, 28, 245, 121, 88, 30, 52]);
-pub const DropTarget_DragLeave_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(260238101, 9378, 18824, [146, 23, 222, 22, 42, 238, 39, 43]);
-pub const DropTarget_DropTargetEffect_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2344049013, 41162, 18817, [184, 24, 135, 252, 102, 233, 80, 157]);
-pub const DropTarget_DropTargetEffects_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3156071661, 52105, 17905, [165, 146, 224, 59, 8, 174, 121, 15]);
-pub const DropTarget_Dropped_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1647110872, 7899, 19005, [171, 188, 190, 34, 17, 255, 104, 181]);
-pub const DropTarget_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(197913686, 48436, 19323, [159, 213, 38, 89, 144, 94, 163, 220]);
-pub const Edit_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1694803400, 11398, 20359, [174, 123, 26, 189, 220, 129, 12, 249]);
+pub const Dock_DockPosition_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d67f02e_c0b0_4b10_b5b9_18d6ecf98760);
+pub const Dock_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9cbaa846_83c8_428d_827f_7e6063fe0620);
+pub const Document_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cd6bb6f_6f08_4562_b229_e4e2fc7a9eb4);
+pub const Drag_DragCancel_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3ede6fa_3451_4e0f_9e71_df9c280a4657);
+pub const Drag_DragComplete_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38e96188_ef1f_463e_91ca_3a7792c29caf);
+pub const Drag_DragStart_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x883a480b_3aa9_429d_95e4_d9c8d011f0dd);
+pub const Drag_DropEffect_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x646f2779_48d3_4b23_8902_4bf100005df3);
+pub const Drag_DropEffects_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5d61156_7ce6_49be_a836_9269dcec920f);
+pub const Drag_GrabbedItems_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77c1562c_7b86_4b21_9ed7_3cefda6f4c43);
+pub const Drag_IsGrabbed_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45f206f3_75cc_4cca_a9b9_fcdfb982d8a2);
+pub const Drag_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0bee21f_ccb3_4fed_995b_114f6e3d2728);
+pub const DropTarget_DragEnter_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaad9319b_032c_4a88_961d_1cf579581e34);
+pub const DropTarget_DragLeave_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f82eb15_24a2_4988_9217_de162aee272b);
+pub const DropTarget_DropTargetEffect_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bb75975_a0ca_4981_b818_87fc66e9509d);
+pub const DropTarget_DropTargetEffects_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc1dd4ed_cb89_45f1_a592_e03b08ae790f);
+pub const DropTarget_Dropped_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x622cead8_1edb_4a3d_abbc_be2211ff68b5);
+pub const DropTarget_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bcbec56_bd34_4b7b_9fd5_2659905ea3dc);
+pub const Edit_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6504a5c8_2c86_4f87_ae7b_1abddc810cf9);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -691,8 +691,8 @@ impl ::core::convert::From<i32> for ExpandCollapseState {
 unsafe impl ::windows::runtime::Abi for ExpandCollapseState {
     type Abi = Self;
 }
-pub const ExpandCollapse_ExpandCollapseState_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(660229192, 34215, 20329, [171, 160, 175, 21, 118, 16, 0, 43]);
-pub const ExpandCollapse_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2919624610, 63953, 17034, [131, 76, 83, 165, 197, 47, 155, 139]);
+pub const ExpandCollapse_ExpandCollapseState_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x275a4c48_85a7_4f69_aba0_af157610002b);
+pub const ExpandCollapse_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae05efa2_f9d1_428a_834c_53a5c52f9b8b);
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -758,7 +758,7 @@ impl ::core::cmp::Eq for FILTERKEYS {}
 unsafe impl ::windows::runtime::Abi for FILTERKEYS {
     type Abi = Self;
 }
-pub const FillColor_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1846461648, 58024, 19030, [157, 231, 149, 51, 137, 147, 59, 57]);
+pub const FillColor_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e0ec4d0_e2a8_4a56_9de7_953389933b39);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -776,7 +776,7 @@ impl ::core::convert::From<i32> for FillType {
 unsafe impl ::windows::runtime::Abi for FillType {
     type Abi = Self;
 }
-pub const FillType_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3338433764, 36025, 17052, [169, 225, 155, 196, 172, 55, 43, 98]);
+pub const FillType_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6fc74e4_8cb9_429c_a9e1_9bc4ac372b62);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -793,10 +793,10 @@ impl ::core::convert::From<i32> for FlowDirections {
 unsafe impl ::windows::runtime::Abi for FlowDirections {
     type Abi = Self;
 }
-pub const FlowsFrom_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(96896079, 6622, 18680, [149, 250, 136, 13, 91, 15, 214, 21]);
-pub const FlowsTo_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3841146144, 21914, 18427, [168, 48, 249, 203, 79, 241, 167, 10]);
-pub const FrameworkId_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3690830080, 32282, 20312, [182, 27, 112, 99, 18, 15, 119, 59]);
-pub const FullDescription_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(222580991, 27375, 20275, [149, 221, 123, 239, 167, 42, 67, 145]);
+pub const FlowsFrom_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05c6844f_19de_48f8_95fa_880d5b0fd615);
+pub const FlowsTo_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4f33d20_559a_47fb_a830_f9cb4ff1a70a);
+pub const FrameworkId_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbfd9900_7e1a_4f58_b61b_7063120f773b);
+pub const FullDescription_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d4450ff_6aef_4f33_95dd_7befa72a4391);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[inline]
 pub unsafe fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32) {
@@ -871,12 +871,12 @@ pub unsafe fn GetStateTextW(lstatebit: u32, lpszstate: super::super::Foundation:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const GridItem_ColumnSpan_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1480500213, 34512, 19208, [166, 236, 44, 84, 99, 255, 193, 9]);
-pub const GridItem_Column_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3346317660, 25280, 17689, [139, 220, 71, 190, 87, 60, 138, 213]);
-pub const GridItem_Parent_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2643534418, 47487, 20172, [133, 16, 234, 14, 51, 66, 124, 114]);
-pub const GridItem_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4074096759, 42082, 18775, [162, 165, 44, 150, 179, 3, 188, 99]);
-pub const GridItem_RowSpan_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1166158108, 18027, 20115, [142, 131, 61, 23, 21, 236, 12, 94]);
-pub const GridItem_Row_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1646499626, 51525, 17763, [147, 41, 253, 201, 116, 175, 37, 83]);
+pub const GridItem_ColumnSpan_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x583ea3f5_86d0_4b08_a6ec_2c5463ffc109);
+pub const GridItem_Column_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc774c15c_62c0_4519_8bdc_47be573c8ad5);
+pub const GridItem_Parent_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d912252_b97f_4ecc_8510_ea0e33427c72);
+pub const GridItem_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2d5c877_a462_4957_a2a5_2c96b303bc63);
+pub const GridItem_RowSpan_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4582291c_466b_4e93_8e83_3d1715ec0c5e);
+pub const GridItem_Row_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6223972a_c945_4563_9329_fdc974af2553);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[inline]
 pub unsafe fn GridPattern_GetItem<'a, Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, row: i32, column: i32, presult: *mut HUIANODE) -> ::windows::runtime::Result<()> {
@@ -891,10 +891,10 @@ pub unsafe fn GridPattern_GetItem<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const Grid_ColumnCount_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4271305589, 17578, 17718, [172, 122, 42, 117, 215, 26, 62, 252]);
-pub const Grid_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(638201035, 37800, 20036, [164, 193, 61, 243, 151, 242, 176, 43]);
-pub const Grid_RowCount_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(714409407, 49899, 20406, [179, 86, 130, 69, 174, 83, 112, 62]);
-pub const Group_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2907744796, 59592, 18292, [174, 27, 221, 134, 223, 11, 59, 220]);
+pub const Grid_ColumnCount_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe96f375_44aa_4536_ac7a_2a75d71a3efc);
+pub const Grid_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x260a2ccb_93a8_4e44_a4c1_3df397f2b02b);
+pub const Grid_RowCount_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a9505bf_c2eb_4fb6_b356_8245ae53703e);
+pub const Group_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad50aa1c_e8c8_4774_ae1b_dd86df0b3bdc);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1073,9 +1073,9 @@ unsafe impl ::windows::runtime::Handle for HWINEVENTHOOK {}
 unsafe impl ::windows::runtime::Abi for HWINEVENTHOOK {
     type Abi = Self;
 }
-pub const HasKeyboardFocus_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3481992505, 16198, 18432, [150, 86, 178, 191, 18, 82, 153, 5]);
-pub const HeaderItem_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3871085259, 31886, 18895, [177, 104, 74, 147, 163, 43, 235, 176]);
-pub const Header_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1536216014, 30971, 17940, [130, 182, 85, 77, 116, 113, 142, 103]);
+pub const HasKeyboardFocus_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf8afd39_3f46_4800_9656_b2bf12529905);
+pub const HeaderItem_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6bc12cb_7c8e_49cf_b168_4a93a32bebb0);
+pub const Header_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b90cbce_78fb_4614_82b6_554d74718e67);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const HeadingLevel1: i32 = 80051i32;
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -1096,8 +1096,8 @@ pub const HeadingLevel8: i32 = 80058i32;
 pub const HeadingLevel9: i32 = 80059i32;
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const HeadingLevel_None: i32 = 80050i32;
-pub const HeadingLevel_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(688407154, 43695, 18992, [135, 150, 60, 18, 246, 43, 107, 187]);
-pub const HelpText_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(139810437, 2423, 17863, [167, 166, 171, 175, 86, 132, 18, 26]);
+pub const HeadingLevel_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29084272_aaaf_4a30_8796_3c12f62b6bbb);
+pub const HelpText_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08555685_0977_45c7_a7a6_abaf5684121a);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -1114,8 +1114,8 @@ impl ::core::convert::From<i32> for HorizontalTextAlignment {
 unsafe impl ::windows::runtime::Abi for HorizontalTextAlignment {
     type Abi = Self;
 }
-pub const HostedFragmentRootsInvalidated_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3871191102, 2337, 20165, [141, 207, 234, 232, 119, 176, 66, 107]);
-pub const Hyperlink_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2320892460, 45069, 19733, [143, 240, 91, 107, 38, 110, 94, 2]);
+pub const HostedFragmentRootsInvalidated_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6bdb03e_0921_4ec5_8dcf_eae877b0426b);
+pub const Hyperlink_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a56022c_b00d_4d15_8ff0_5b6b266e5e02);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -1128,7 +1128,7 @@ impl IAccIdentity {
 }
 unsafe impl ::windows::runtime::Interface for IAccIdentity {
     type Vtable = IAccIdentity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2018686861, 7421, 16833, [166, 21, 156, 12, 133, 150, 11, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7852b78d_1cfd_41c1_a615_9c0c85960b5f);
 }
 impl ::core::convert::From<IAccIdentity> for ::windows::runtime::IUnknown {
     fn from(value: IAccIdentity) -> Self {
@@ -1171,7 +1171,7 @@ impl IAccPropServer {
 }
 unsafe impl ::windows::runtime::Interface for IAccPropServer {
     type Vtable = IAccPropServer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1992350651, 5600, 20091, [182, 27, 32, 238, 234, 32, 1, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76c0dbbb_15e0_4e7b_b61b_20eeea2001e0);
 }
 impl ::core::convert::From<IAccPropServer> for ::windows::runtime::IUnknown {
     fn from(value: IAccPropServer) -> Self {
@@ -1283,7 +1283,7 @@ impl IAccPropServices {
 }
 unsafe impl ::windows::runtime::Interface for IAccPropServices {
     type Vtable = IAccPropServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1848043382, 1264, 18781, [128, 228, 51, 48, 53, 46, 49, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e26e776_04f0_495d_80e4_3330352e3169);
 }
 impl ::core::convert::From<IAccPropServices> for ::windows::runtime::IUnknown {
     fn from(value: IAccPropServices) -> Self {
@@ -1467,7 +1467,7 @@ impl IAccessible {
 }
 unsafe impl ::windows::runtime::Interface for IAccessible {
     type Vtable = IAccessible_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1636251360, 15421, 4559, [129, 12, 0, 170, 0, 56, 155, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x618736e0_3c3d_11cf_810c_00aa00389b71);
 }
 impl ::core::convert::From<IAccessible> for ::windows::runtime::IUnknown {
     fn from(value: IAccessible) -> Self {
@@ -1597,7 +1597,7 @@ impl IAccessibleEx {
 }
 unsafe impl ::windows::runtime::Interface for IAccessibleEx {
     type Vtable = IAccessibleEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4172810970, 11332, 18640, [137, 190, 95, 242, 60, 156, 216, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8b80ada_2c44_48d0_89be_5ff23c9cd875);
 }
 impl ::core::convert::From<IAccessibleEx> for ::windows::runtime::IUnknown {
     fn from(value: IAccessibleEx) -> Self {
@@ -1644,7 +1644,7 @@ impl IAccessibleHandler {
 }
 unsafe impl ::windows::runtime::Interface for IAccessibleHandler {
     type Vtable = IAccessibleHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(50471984, 43972, 4560, [189, 226, 0, 170, 0, 26, 25, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03022430_abc4_11d0_bde2_00aa001a1953);
 }
 impl ::core::convert::From<IAccessibleHandler> for ::windows::runtime::IUnknown {
     fn from(value: IAccessibleHandler) -> Self {
@@ -1693,7 +1693,7 @@ impl IAccessibleHostingElementProviders {
 }
 unsafe impl ::windows::runtime::Interface for IAccessibleHostingElementProviders {
     type Vtable = IAccessibleHostingElementProviders_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(866923291, 37950, 16416, [178, 149, 219, 55, 120, 73, 116, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33ac331b_943e_4020_b295_db37784974a3);
 }
 impl ::core::convert::From<IAccessibleHostingElementProviders> for ::windows::runtime::IUnknown {
     fn from(value: IAccessibleHostingElementProviders) -> Self {
@@ -1753,7 +1753,7 @@ impl IAccessibleWindowlessSite {
 }
 unsafe impl ::windows::runtime::Interface for IAccessibleWindowlessSite {
     type Vtable = IAccessibleWindowlessSite_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3208297884, 30426, 17289, [158, 182, 20, 39, 210, 90, 186, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf3abd9c_76da_4389_9eb6_1427d25abab7);
 }
 impl ::core::convert::From<IAccessibleWindowlessSite> for ::windows::runtime::IUnknown {
     fn from(value: IAccessibleWindowlessSite) -> Self {
@@ -1823,7 +1823,7 @@ impl IAnnotationProvider {
 }
 unsafe impl ::windows::runtime::Interface for IAnnotationProvider {
     type Vtable = IAnnotationProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4183588480, 48483, 17921, [151, 130, 68, 94, 191, 240, 17, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf95c7e80_bd63_4601_9782_445ebff011fc);
 }
 impl ::core::convert::From<IAnnotationProvider> for ::windows::runtime::IUnknown {
     fn from(value: IAnnotationProvider) -> Self {
@@ -1873,7 +1873,7 @@ impl ICustomNavigationProvider {
 }
 unsafe impl ::windows::runtime::Interface for ICustomNavigationProvider {
     type Vtable = ICustomNavigationProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543335050, 35847, 19348, [142, 18, 112, 55, 198, 34, 174, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2062a28a_8c07_4b94_8e12_7037c622aeb8);
 }
 impl ::core::convert::From<ICustomNavigationProvider> for ::windows::runtime::IUnknown {
     fn from(value: ICustomNavigationProvider) -> Self {
@@ -1920,7 +1920,7 @@ impl IDockProvider {
 }
 unsafe impl ::windows::runtime::Interface for IDockProvider {
     type Vtable = IDockProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(362530604, 19155, 18526, [150, 55, 215, 5, 46, 223, 1, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x159bc72c_4ad3_485e_9637_d7052edf0146);
 }
 impl ::core::convert::From<IDockProvider> for ::windows::runtime::IUnknown {
     fn from(value: IDockProvider) -> Self {
@@ -1983,7 +1983,7 @@ impl IDragProvider {
 }
 unsafe impl ::windows::runtime::Interface for IDragProvider {
     type Vtable = IDragProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1789377467, 32761, 18813, [144, 79, 210, 11, 137, 121, 41, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6aa7bbbb_7ff9_497d_904f_d20b897929d8);
 }
 impl ::core::convert::From<IDragProvider> for ::windows::runtime::IUnknown {
     fn from(value: IDragProvider) -> Self {
@@ -2040,7 +2040,7 @@ impl IDropTargetProvider {
 }
 unsafe impl ::windows::runtime::Interface for IDropTargetProvider {
     type Vtable = IDropTargetProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3135777789, 13706, 18460, [133, 160, 216, 180, 217, 10, 93, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbae82bfd_358a_481c_85a0_d8b4d90a5d61);
 }
 impl ::core::convert::From<IDropTargetProvider> for ::windows::runtime::IUnknown {
     fn from(value: IDropTargetProvider) -> Self {
@@ -2094,7 +2094,7 @@ impl IExpandCollapseProvider {
 }
 unsafe impl ::windows::runtime::Interface for IExpandCollapseProvider {
     type Vtable = IExpandCollapseProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3628585893, 51888, 19096, [140, 50, 236, 180, 92, 89, 173, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd847d3a5_cab0_4a98_8c32_ecb45c59ad24);
 }
 impl ::core::convert::From<IExpandCollapseProvider> for ::windows::runtime::IUnknown {
     fn from(value: IExpandCollapseProvider) -> Self {
@@ -2159,7 +2159,7 @@ impl IGridItemProvider {
 }
 unsafe impl ::windows::runtime::Interface for IGridItemProvider {
     type Vtable = IGridItemProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3492102641, 64385, 19812, [174, 50, 245, 32, 248, 166, 219, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd02541f1_fb81_4d64_ae32_f520f8a6dbd1);
 }
 impl ::core::convert::From<IGridItemProvider> for ::windows::runtime::IUnknown {
     fn from(value: IGridItemProvider) -> Self {
@@ -2216,7 +2216,7 @@ impl IGridProvider {
 }
 unsafe impl ::windows::runtime::Interface for IGridProvider {
     type Vtable = IGridProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2977784199, 2311, 17995, [161, 104, 14, 241, 122, 21, 114, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb17d6187_0907_464b_a168_0ef17a1572b1);
 }
 impl ::core::convert::From<IGridProvider> for ::windows::runtime::IUnknown {
     fn from(value: IGridProvider) -> Self {
@@ -2248,8 +2248,8 @@ pub struct IGridProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pretval: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pretval: *mut i32) -> ::windows::runtime::HRESULT,
 );
-pub const IIS_ControlAccessible: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(952533670, 38705, 17394, [159, 174, 233, 1, 230, 65, 177, 1]);
-pub const IIS_IsOleaccProxy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2418448378, 32996, 17760, [128, 42, 161, 63, 34, 166, 71, 9]);
+pub const IIS_ControlAccessible: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38c682a6_9731_43f2_9fae_e901e641b101);
+pub const IIS_IsOleaccProxy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x902697fa_80e4_4560_802a_a13f22a64709);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -2262,7 +2262,7 @@ impl IInvokeProvider {
 }
 unsafe impl ::windows::runtime::Interface for IInvokeProvider {
     type Vtable = IInvokeProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1425846859, 57742, 18338, [180, 211, 236, 203, 231, 117, 153, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54fcb24b_e18e_47a2_b4d3_eccbe77599a2);
 }
 impl ::core::convert::From<IInvokeProvider> for ::windows::runtime::IUnknown {
     fn from(value: IInvokeProvider) -> Self {
@@ -2306,7 +2306,7 @@ impl IItemContainerProvider {
 }
 unsafe impl ::windows::runtime::Interface for IItemContainerProvider {
     type Vtable = IItemContainerProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3880220427, 14798, 17282, [171, 48, 216, 251, 63, 51, 111, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe747770b_39ce_4382_ab30_d8fb3f336f24);
 }
 impl ::core::convert::From<IItemContainerProvider> for ::windows::runtime::IUnknown {
     fn from(value: IItemContainerProvider) -> Self {
@@ -2420,7 +2420,7 @@ impl ILegacyIAccessibleProvider {
 }
 unsafe impl ::windows::runtime::Interface for ILegacyIAccessibleProvider {
     type Vtable = ILegacyIAccessibleProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3830199654, 37213, 16496, [153, 198, 4, 123, 255, 90, 8, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe44c3566_915d_4070_99c6_047bff5a08f5);
 }
 impl ::core::convert::From<ILegacyIAccessibleProvider> for ::windows::runtime::IUnknown {
     fn from(value: ILegacyIAccessibleProvider) -> Self {
@@ -2500,7 +2500,7 @@ impl IMultipleViewProvider {
 }
 unsafe impl ::windows::runtime::Interface for IMultipleViewProvider {
     type Vtable = IMultipleViewProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1652083377, 46422, 18970, [180, 224, 65, 138, 204, 82, 50, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6278cab1_b556_4a1a_b4e0_418acc523201);
 }
 impl ::core::convert::From<IMultipleViewProvider> for ::windows::runtime::IUnknown {
     fn from(value: IMultipleViewProvider) -> Self {
@@ -2548,7 +2548,7 @@ impl IObjectModelProvider {
 }
 unsafe impl ::windows::runtime::Interface for IObjectModelProvider {
     type Vtable = IObjectModelProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(987262653, 62959, 18493, [187, 24, 177, 4, 42, 71, 93, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ad86ebd_f5ef_483d_bb18_b1042a475d64);
 }
 impl ::core::convert::From<IObjectModelProvider> for ::windows::runtime::IUnknown {
     fn from(value: IObjectModelProvider) -> Self {
@@ -2591,7 +2591,7 @@ impl IProxyProviderWinEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for IProxyProviderWinEventHandler {
     type Vtable = IProxyProviderWinEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2304322260, 62688, 17365, [163, 182, 186, 215, 225, 17, 180, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89592ad4_f4e0_43d5_a3b6_bad7e111b435);
 }
 impl ::core::convert::From<IProxyProviderWinEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: IProxyProviderWinEventHandler) -> Self {
@@ -2644,7 +2644,7 @@ impl IProxyProviderWinEventSink {
 }
 unsafe impl ::windows::runtime::Interface for IProxyProviderWinEventSink {
     type Vtable = IProxyProviderWinEventSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1339566968, 42046, 18092, [152, 3, 10, 105, 105, 199, 193, 131]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4fd82b78_a43e_46ac_9803_0a6969c7c183);
 }
 impl ::core::convert::From<IProxyProviderWinEventSink> for ::windows::runtime::IUnknown {
     fn from(value: IProxyProviderWinEventSink) -> Self {
@@ -2721,7 +2721,7 @@ impl IRangeValueProvider {
 }
 unsafe impl ::windows::runtime::Interface for IRangeValueProvider {
     type Vtable = IRangeValueProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(920419055, 13286, 18065, [175, 225, 43, 231, 39, 75, 61, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36dc7aef_33e6_4691_afe1_2be7274b3d33);
 }
 impl ::core::convert::From<IRangeValueProvider> for ::windows::runtime::IUnknown {
     fn from(value: IRangeValueProvider) -> Self {
@@ -2776,7 +2776,7 @@ impl IRawElementProviderAdviseEvents {
 }
 unsafe impl ::windows::runtime::Interface for IRawElementProviderAdviseEvents {
     type Vtable = IRawElementProviderAdviseEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2751967867, 3949, 17447, [146, 146, 71, 60, 123, 249, 50, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa407b27b_0f6d_4427_9292_473c7bf93258);
 }
 impl ::core::convert::From<IRawElementProviderAdviseEvents> for ::windows::runtime::IUnknown {
     fn from(value: IRawElementProviderAdviseEvents) -> Self {
@@ -2848,7 +2848,7 @@ impl IRawElementProviderFragment {
 }
 unsafe impl ::windows::runtime::Interface for IRawElementProviderFragment {
     type Vtable = IRawElementProviderFragment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4144381352, 33625, 17308, [146, 151, 187, 197, 41, 154, 125, 135]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7063da8_8359_439c_9297_bbc5299a7d87);
 }
 impl ::core::convert::From<IRawElementProviderFragment> for ::windows::runtime::IUnknown {
     fn from(value: IRawElementProviderFragment) -> Self {
@@ -2903,7 +2903,7 @@ impl IRawElementProviderFragmentRoot {
 }
 unsafe impl ::windows::runtime::Interface for IRawElementProviderFragmentRoot {
     type Vtable = IRawElementProviderFragmentRoot_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1645011621, 43919, 16553, [134, 203, 222, 60, 117, 89, 155, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x620ce2a5_ab8f_40a9_86cb_de3c75599b58);
 }
 impl ::core::convert::From<IRawElementProviderFragmentRoot> for ::windows::runtime::IUnknown {
     fn from(value: IRawElementProviderFragmentRoot) -> Self {
@@ -2948,7 +2948,7 @@ impl IRawElementProviderHostingAccessibles {
 }
 unsafe impl ::windows::runtime::Interface for IRawElementProviderHostingAccessibles {
     type Vtable = IRawElementProviderHostingAccessibles_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(616434439, 54141, 18554, [152, 207, 161, 62, 212, 101, 233, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24be0b07_d37d_487a_98cf_a13ed465e9b3);
 }
 impl ::core::convert::From<IRawElementProviderHostingAccessibles> for ::windows::runtime::IUnknown {
     fn from(value: IRawElementProviderHostingAccessibles) -> Self {
@@ -2993,7 +2993,7 @@ impl IRawElementProviderHwndOverride {
 }
 unsafe impl ::windows::runtime::Interface for IRawElementProviderHwndOverride {
     type Vtable = IRawElementProviderHwndOverride_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(492696188, 35143, 17445, [184, 217, 121, 120, 123, 180, 96, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d5df27c_8947_4425_b8d9_79787bb460b8);
 }
 impl ::core::convert::From<IRawElementProviderHwndOverride> for ::windows::runtime::IUnknown {
     fn from(value: IRawElementProviderHwndOverride) -> Self {
@@ -3053,7 +3053,7 @@ impl IRawElementProviderSimple {
 }
 unsafe impl ::windows::runtime::Interface for IRawElementProviderSimple {
     type Vtable = IRawElementProviderSimple_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3604834513, 34557, 17202, [134, 102, 154, 190, 222, 162, 210, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6dd68d1_86fd_4332_8666_9abedea2d24c);
 }
 impl ::core::convert::From<IRawElementProviderSimple> for ::windows::runtime::IUnknown {
     fn from(value: IRawElementProviderSimple) -> Self {
@@ -3120,7 +3120,7 @@ impl IRawElementProviderSimple2 {
 }
 unsafe impl ::windows::runtime::Interface for IRawElementProviderSimple2 {
     type Vtable = IRawElementProviderSimple2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2695379369, 36257, 19074, [128, 106, 142, 13, 68, 231, 159, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0a839a9_8da1_4a82_806a_8e0d44e79f56);
 }
 impl ::core::convert::From<IRawElementProviderSimple2> for ::windows::runtime::IUnknown {
     fn from(value: IRawElementProviderSimple2) -> Self {
@@ -3214,7 +3214,7 @@ impl IRawElementProviderSimple3 {
 }
 unsafe impl ::windows::runtime::Interface for IRawElementProviderSimple3 {
     type Vtable = IRawElementProviderSimple3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4243970080, 55276, 17939, [189, 246, 66, 168, 76, 231, 218, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcf5d820_d7ec_4613_bdf6_42a84ce7daaf);
 }
 impl ::core::convert::From<IRawElementProviderSimple3> for ::windows::runtime::IUnknown {
     fn from(value: IRawElementProviderSimple3) -> Self {
@@ -3310,7 +3310,7 @@ impl IRawElementProviderWindowlessSite {
 }
 unsafe impl ::windows::runtime::Interface for IRawElementProviderWindowlessSite {
     type Vtable = IRawElementProviderWindowlessSite_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(170562508, 49069, 17068, [155, 46, 9, 145, 251, 13, 62, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a2a93cc_bfad_42ac_9b2e_0991fb0d3ea0);
 }
 impl ::core::convert::From<IRawElementProviderWindowlessSite> for ::windows::runtime::IUnknown {
     fn from(value: IRawElementProviderWindowlessSite) -> Self {
@@ -3444,7 +3444,7 @@ impl IScrollItemProvider {
 }
 unsafe impl ::windows::runtime::Interface for IScrollItemProvider {
     type Vtable = IScrollItemProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(593544980, 19441, 19238, [186, 101, 155, 33, 49, 97, 39, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2360c714_4bf1_4b26_ba65_9b21316127eb);
 }
 impl ::core::convert::From<IScrollItemProvider> for ::windows::runtime::IUnknown {
     fn from(value: IScrollItemProvider) -> Self {
@@ -3522,7 +3522,7 @@ impl IScrollProvider {
 }
 unsafe impl ::windows::runtime::Interface for IScrollProvider {
     type Vtable = IScrollProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3012264055, 8131, 17061, [140, 174, 212, 12, 34, 21, 5, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb38b8077_1fc3_42a5_8cae_d40c2215055a);
 }
 impl ::core::convert::From<IScrollProvider> for ::windows::runtime::IUnknown {
     fn from(value: IScrollProvider) -> Self {
@@ -3592,7 +3592,7 @@ impl ISelectionItemProvider {
 }
 unsafe impl ::windows::runtime::Interface for ISelectionItemProvider {
     type Vtable = ISelectionItemProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(717936648, 45780, 17709, [164, 7, 145, 255, 26, 209, 103, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2acad808_b2d4_452d_a407_91ff1ad167b2);
 }
 impl ::core::convert::From<ISelectionItemProvider> for ::windows::runtime::IUnknown {
     fn from(value: ISelectionItemProvider) -> Self {
@@ -3653,7 +3653,7 @@ impl ISelectionProvider {
 }
 unsafe impl ::windows::runtime::Interface for ISelectionProvider {
     type Vtable = ISelectionProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4220191663, 15327, 18644, [189, 54, 26, 101, 121, 59, 225, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb8b03af_3bdf_48d4_bd36_1a65793be168);
 }
 impl ::core::convert::From<ISelectionProvider> for ::windows::runtime::IUnknown {
     fn from(value: ISelectionProvider) -> Self {
@@ -3734,7 +3734,7 @@ impl ISelectionProvider2 {
 }
 unsafe impl ::windows::runtime::Interface for ISelectionProvider2 {
     type Vtable = ISelectionProvider2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(351700085, 60956, 17654, [168, 105, 210, 57, 56, 31, 15, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14f68475_ee1c_44f6_a869_d239381f0fe7);
 }
 impl ::core::convert::From<ISelectionProvider2> for ::windows::runtime::IUnknown {
     fn from(value: ISelectionProvider2) -> Self {
@@ -3819,7 +3819,7 @@ impl ISpreadsheetItemProvider {
 }
 unsafe impl ::windows::runtime::Interface for ISpreadsheetItemProvider {
     type Vtable = ISpreadsheetItemProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3941418592, 31549, 18553, [162, 230, 54, 92, 230, 3, 243, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeaed4660_7b3d_4879_a2e6_365ce603f3d0);
 }
 impl ::core::convert::From<ISpreadsheetItemProvider> for ::windows::runtime::IUnknown {
     fn from(value: ISpreadsheetItemProvider) -> Self {
@@ -3868,7 +3868,7 @@ impl ISpreadsheetProvider {
 }
 unsafe impl ::windows::runtime::Interface for ISpreadsheetProvider {
     type Vtable = ISpreadsheetProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1869307189, 21797, 20352, [183, 88, 133, 71, 56, 50, 255, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f6b5d35_5525_4f80_b758_85473832ffc7);
 }
 impl ::core::convert::From<ISpreadsheetProvider> for ::windows::runtime::IUnknown {
     fn from(value: ISpreadsheetProvider) -> Self {
@@ -3946,7 +3946,7 @@ impl IStylesProvider {
 }
 unsafe impl ::windows::runtime::Interface for IStylesProvider {
     type Vtable = IStylesProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(431404617, 62935, 19053, [189, 203, 18, 146, 82, 190, 88, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19b6b649_f5d7_4a6d_bdcb_129252be588a);
 }
 impl ::core::convert::From<IStylesProvider> for ::windows::runtime::IUnknown {
     fn from(value: IStylesProvider) -> Self {
@@ -4002,7 +4002,7 @@ impl ISynchronizedInputProvider {
 }
 unsafe impl ::windows::runtime::Interface for ISynchronizedInputProvider {
     type Vtable = ISynchronizedInputProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(702224902, 718, 19703, [155, 66, 86, 93, 79, 171, 32, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29db1a06_02ce_4cf7_9b42_565d4fab20ee);
 }
 impl ::core::convert::From<ISynchronizedInputProvider> for ::windows::runtime::IUnknown {
     fn from(value: ISynchronizedInputProvider) -> Self {
@@ -4053,7 +4053,7 @@ impl ITableItemProvider {
 }
 unsafe impl ::windows::runtime::Interface for ITableItemProvider {
     type Vtable = ITableItemProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3111341990, 30495, 19832, [156, 144, 37, 23, 153, 147, 73, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9734fa6_771f_4d78_9c90_2517999349cd);
 }
 impl ::core::convert::From<ITableItemProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITableItemProvider) -> Self {
@@ -4111,7 +4111,7 @@ impl ITableProvider {
 }
 unsafe impl ::windows::runtime::Interface for ITableProvider {
     type Vtable = ITableProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2626028437, 38835, 18698, [181, 42, 133, 140, 194, 42, 241, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c860395_97b3_490a_b52a_858cc22af166);
 }
 impl ::core::convert::From<ITableProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITableProvider) -> Self {
@@ -4163,7 +4163,7 @@ impl ITextChildProvider {
 }
 unsafe impl ::windows::runtime::Interface for ITextChildProvider {
     type Vtable = ITextChildProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1278075577, 51343, 20360, [161, 17, 241, 211, 54, 183, 209, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c2de2b9_c88f_4f88_a111_f1d336b7d1a9);
 }
 impl ::core::convert::From<ITextChildProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITextChildProvider) -> Self {
@@ -4244,7 +4244,7 @@ impl ITextEditProvider {
 }
 unsafe impl ::windows::runtime::Interface for ITextEditProvider {
     type Vtable = ITextEditProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3929408948, 14853, 16398, [181, 249, 78, 145, 180, 15, 97, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea3605b4_3a05_400e_b5f9_4e91b40f6176);
 }
 impl ::core::convert::From<ITextEditProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITextEditProvider) -> Self {
@@ -4343,7 +4343,7 @@ impl ITextProvider {
 }
 unsafe impl ::windows::runtime::Interface for ITextProvider {
     type Vtable = ITextProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(898222380, 25587, 17255, [153, 187, 173, 166, 83, 183, 124, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3589c92c_63f3_4367_99bb_ada653b77cf2);
 }
 impl ::core::convert::From<ITextProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITextProvider) -> Self {
@@ -4430,7 +4430,7 @@ impl ITextProvider2 {
 }
 unsafe impl ::windows::runtime::Interface for ITextProvider2 {
     type Vtable = ITextProvider2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(231073517, 15894, 19441, [143, 154, 169, 121, 135, 139, 193, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0dc5e6ed_3e16_4bf1_8f9a_a979878bc195);
 }
 impl ::core::convert::From<ITextProvider2> for ::windows::runtime::IUnknown {
     fn from(value: ITextProvider2) -> Self {
@@ -4590,7 +4590,7 @@ impl ITextRangeProvider {
 }
 unsafe impl ::windows::runtime::Interface for ITextRangeProvider {
     type Vtable = ITextRangeProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1397206395, 50005, 18168, [175, 245, 144, 144, 51, 88, 47, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5347ad7b_c355_46f8_aff5_909033582f63);
 }
 impl ::core::convert::From<ITextRangeProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITextRangeProvider) -> Self {
@@ -4749,7 +4749,7 @@ impl ITextRangeProvider2 {
 }
 unsafe impl ::windows::runtime::Interface for ITextRangeProvider2 {
     type Vtable = ITextRangeProvider2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2612847660, 6433, 20248, [137, 202, 219, 161, 145, 10, 3, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9bbce42c_1921_4f18_89ca_dba1910a0386);
 }
 impl ::core::convert::From<ITextRangeProvider2> for ::windows::runtime::IUnknown {
     fn from(value: ITextRangeProvider2) -> Self {
@@ -4842,7 +4842,7 @@ impl IToggleProvider {
 }
 unsafe impl ::windows::runtime::Interface for IToggleProvider {
     type Vtable = IToggleProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1456475088, 50420, 17212, [168, 54, 26, 82, 165, 126, 8, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56d00bd0_c4f4_433c_a836_1a52a57e0892);
 }
 impl ::core::convert::From<IToggleProvider> for ::windows::runtime::IUnknown {
     fn from(value: IToggleProvider) -> Self {
@@ -4911,7 +4911,7 @@ impl ITransformProvider {
 }
 unsafe impl ::windows::runtime::Interface for ITransformProvider {
     type Vtable = ITransformProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1747574212, 20369, 20474, [184, 111, 189, 62, 41, 135, 203, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6829ddc4_4f91_4ffa_b86f_bd3e2987cb4c);
 }
 impl ::core::convert::From<ITransformProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITransformProvider) -> Self {
@@ -5016,7 +5016,7 @@ impl ITransformProvider2 {
 }
 unsafe impl ::windows::runtime::Interface for ITransformProvider2 {
     type Vtable = ITransformProvider2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1196979247, 31426, 17932, [188, 72, 9, 252, 9, 48, 138, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4758742f_7ac2_460c_bc48_09fc09308a93);
 }
 impl ::core::convert::From<ITransformProvider2> for ::windows::runtime::IUnknown {
     fn from(value: ITransformProvider2) -> Self {
@@ -5371,7 +5371,7 @@ impl IUIAutomation {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomation {
     type Vtable = IUIAutomation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(818668925, 55760, 17706, [171, 19, 122, 197, 172, 72, 37, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30cbe57d_d9d0_452a_ab13_7ac5ac4825ee);
 }
 impl ::core::convert::From<IUIAutomation> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomation) -> Self {
@@ -5795,7 +5795,7 @@ impl IUIAutomation2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomation2 {
     type Vtable = IUIAutomation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(879901439, 3229, 18896, [152, 150, 122, 181, 45, 248, 205, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34723aff_0c9d_49d0_9896_7ab52df8cd8a);
 }
 impl ::core::convert::From<IUIAutomation2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomation2) -> Self {
@@ -6255,7 +6255,7 @@ impl IUIAutomation3 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomation3 {
     type Vtable = IUIAutomation3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1943496922, 39761, 19337, [147, 110, 194, 9, 41, 9, 115, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73d768da_9b51_4b89_936e_c209290973e7);
 }
 impl ::core::convert::From<IUIAutomation3> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomation3) -> Self {
@@ -6745,7 +6745,7 @@ impl IUIAutomation4 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomation4 {
     type Vtable = IUIAutomation4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(294240298, 1528, 17177, [142, 33, 232, 23, 227, 219, 40, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1189c02a_05f8_4319_8e21_e817e3db2860);
 }
 impl ::core::convert::From<IUIAutomation4> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomation4) -> Self {
@@ -7265,7 +7265,7 @@ impl IUIAutomation5 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomation5 {
     type Vtable = IUIAutomation5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(636944584, 55318, 16471, [169, 220, 60, 189, 238, 119, 226, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25f700c8_d816_4057_a9dc_3cbdee77e256);
 }
 impl ::core::convert::From<IUIAutomation5> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomation5) -> Self {
@@ -7846,7 +7846,7 @@ impl IUIAutomation6 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomation6 {
     type Vtable = IUIAutomation6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2866836186, 10723, 16701, [135, 167, 25, 45, 191, 129, 237, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaae072da_29e3_413d_87a7_192dbf81ed10);
 }
 impl ::core::convert::From<IUIAutomation6> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomation6) -> Self {
@@ -8086,7 +8086,7 @@ impl IUIAutomationActiveTextPositionChangedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationActiveTextPositionChangedEventHandler {
     type Vtable = IUIAutomationActiveTextPositionChangedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4185469872, 36270, 17558, [137, 151, 91, 160, 21, 254, 13, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf97933b0_8dae_4496_8997_5ba015fe0d82);
 }
 impl ::core::convert::From<IUIAutomationActiveTextPositionChangedEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationActiveTextPositionChangedEventHandler) -> Self {
@@ -8139,7 +8139,7 @@ impl IUIAutomationAndCondition {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationAndCondition {
     type Vtable = IUIAutomationAndCondition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2815471414, 47378, 17918, [152, 85, 9, 29, 220, 23, 74, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7d0af36_b912_45fe_9855_091ddc174aec);
 }
 impl ::core::convert::From<IUIAutomationAndCondition> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationAndCondition) -> Self {
@@ -8256,7 +8256,7 @@ impl IUIAutomationAnnotationPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationAnnotationPattern {
     type Vtable = IUIAutomationAnnotationPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2585221921, 13214, 16817, [142, 139, 98, 63, 107, 104, 16, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a175b21_339e_41b1_8e8b_623f6b681098);
 }
 impl ::core::convert::From<IUIAutomationAnnotationPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationAnnotationPattern) -> Self {
@@ -8315,7 +8315,7 @@ impl IUIAutomationBoolCondition {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationBoolCondition {
     type Vtable = IUIAutomationBoolCondition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(458104622, 30187, 19723, [137, 82, 90, 105, 152, 142, 35, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b4e1f2e_75eb_4d0b_8952_5a69988e2307);
 }
 impl ::core::convert::From<IUIAutomationBoolCondition> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationBoolCondition) -> Self {
@@ -8414,7 +8414,7 @@ impl IUIAutomationCacheRequest {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationCacheRequest {
     type Vtable = IUIAutomationCacheRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3005911733, 48165, 16504, [156, 8, 215, 238, 149, 196, 142, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb32a92b5_bc25_4078_9c08_d7ee95c48e03);
 }
 impl ::core::convert::From<IUIAutomationCacheRequest> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationCacheRequest) -> Self {
@@ -8465,7 +8465,7 @@ impl IUIAutomationChangesEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationChangesEventHandler {
     type Vtable = IUIAutomationChangesEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1491978837, 11326, 18816, [177, 185, 86, 193, 127, 39, 162, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58edca55_2c3e_4980_b1b9_56c17f27a2a0);
 }
 impl ::core::convert::From<IUIAutomationChangesEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationChangesEventHandler) -> Self {
@@ -8503,7 +8503,7 @@ pub struct IUIAutomationCondition(pub ::windows::runtime::IUnknown);
 impl IUIAutomationCondition {}
 unsafe impl ::windows::runtime::Interface for IUIAutomationCondition {
     type Vtable = IUIAutomationCondition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(892337064, 2419, 17276, [166, 31, 246, 76, 175, 216, 29, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x352ffba8_0973_437c_a61f_f64cafd81df9);
 }
 impl ::core::convert::From<IUIAutomationCondition> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationCondition) -> Self {
@@ -8545,7 +8545,7 @@ impl IUIAutomationCustomNavigationPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationCustomNavigationPattern {
     type Vtable = IUIAutomationCustomNavigationPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(32121210, 5990, 18413, [166, 204, 172, 244, 146, 133, 75, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01ea217a_1766_47ed_a6cc_acf492854b1f);
 }
 impl ::core::convert::From<IUIAutomationCustomNavigationPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationCustomNavigationPattern) -> Self {
@@ -8597,7 +8597,7 @@ impl IUIAutomationDockPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationDockPattern {
     type Vtable = IUIAutomationDockPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4259704727, 5220, 18678, [144, 191, 67, 208, 148, 142, 134, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfde5ef97_1464_48f6_90bf_43d0948e86ec);
 }
 impl ::core::convert::From<IUIAutomationDockPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationDockPattern) -> Self {
@@ -8683,7 +8683,7 @@ impl IUIAutomationDragPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationDragPattern {
     type Vtable = IUIAutomationDragPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499627376, 8020, 19373, [188, 218, 211, 106, 114, 47, 183, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1dc7b570_1f54_4bad_bcda_d36a722fb7bd);
 }
 impl ::core::convert::From<IUIAutomationDragPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationDragPattern) -> Self {
@@ -8758,7 +8758,7 @@ impl IUIAutomationDropTargetPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationDropTargetPattern {
     type Vtable = IUIAutomationDropTargetPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1772131831, 61156, 17166, [164, 107, 251, 115, 177, 174, 57, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69a095f7_eee4_430e_a46b_fb73b1ae39a5);
 }
 impl ::core::convert::From<IUIAutomationDropTargetPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationDropTargetPattern) -> Self {
@@ -9263,7 +9263,7 @@ impl IUIAutomationElement {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationElement {
     type Vtable = IUIAutomationElement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3525380266, 35525, 18853, [131, 123, 55, 187, 179, 215, 89, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd22108aa_8ac5_49a5_837b_37bbb3d7591e);
 }
 impl ::core::convert::From<IUIAutomationElement> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationElement) -> Self {
@@ -9928,7 +9928,7 @@ impl IUIAutomationElement2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationElement2 {
     type Vtable = IUIAutomationElement2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1732888195, 63245, 17543, [166, 152, 95, 121, 213, 82, 144, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6749c683_f70d_4487_a698_5f79d55290d6);
 }
 impl ::core::convert::From<IUIAutomationElement2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationElement2) -> Self {
@@ -10637,7 +10637,7 @@ impl IUIAutomationElement3 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationElement3 {
     type Vtable = IUIAutomationElement3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2222055220, 44768, 18945, [167, 222, 125, 185, 175, 18, 194, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8471df34_aee0_4a01_a7de_7db9af12c296);
 }
 impl ::core::convert::From<IUIAutomationElement3> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationElement3) -> Self {
@@ -11423,7 +11423,7 @@ impl IUIAutomationElement4 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationElement4 {
     type Vtable = IUIAutomationElement4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(997073724, 21243, 16483, [164, 201, 119, 192, 117, 194, 160, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b6e233c_52fb_4063_a4c9_77c075c2a06b);
 }
 impl ::core::convert::From<IUIAutomationElement4> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationElement4) -> Self {
@@ -12263,7 +12263,7 @@ impl IUIAutomationElement5 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationElement5 {
     type Vtable = IUIAutomationElement5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2551454749, 3342, 16757, [187, 226, 107, 255, 69, 88, 66, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98141c1d_0d0e_4175_bbe2_6bff455842a7);
 }
 impl ::core::convert::From<IUIAutomationElement5> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationElement5) -> Self {
@@ -13141,7 +13141,7 @@ impl IUIAutomationElement6 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationElement6 {
     type Vtable = IUIAutomationElement6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1199625296, 35786, 18807, [175, 165, 164, 165, 23, 245, 85, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4780d450_8bca_4977_afa5_a4a517f555e3);
 }
 impl ::core::convert::From<IUIAutomationElement6> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationElement6) -> Self {
@@ -14069,7 +14069,7 @@ impl IUIAutomationElement7 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationElement7 {
     type Vtable = IUIAutomationElement7_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(542016882, 53187, 19473, [176, 200, 125, 167, 66, 7, 80, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x204e8572_cfc3_4c11_b0c8_7da7420750b7);
 }
 impl ::core::convert::From<IUIAutomationElement7> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationElement7) -> Self {
@@ -15033,7 +15033,7 @@ impl IUIAutomationElement8 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationElement8 {
     type Vtable = IUIAutomationElement8_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2355110269, 21521, 19678, [188, 192, 28, 237, 162, 35, 131, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c60217d_5411_4cde_bcc0_1ceda223830c);
 }
 impl ::core::convert::From<IUIAutomationElement8> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationElement8) -> Self {
@@ -16031,7 +16031,7 @@ impl IUIAutomationElement9 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationElement9 {
     type Vtable = IUIAutomationElement9_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(959602604, 925, 17422, [163, 163, 94, 184, 26, 92, 236, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39325fac_039d_440e_a3a3_5eb81a5cecc3);
 }
 impl ::core::convert::From<IUIAutomationElement9> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationElement9) -> Self {
@@ -16421,7 +16421,7 @@ impl IUIAutomationElementArray {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationElementArray {
     type Vtable = IUIAutomationElementArray_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(338773397, 46268, 16469, [149, 242, 88, 242, 228, 44, 152, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14314595_b4bc_4055_95f2_58f2e42c9855);
 }
 impl ::core::convert::From<IUIAutomationElementArray> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationElementArray) -> Self {
@@ -16464,7 +16464,7 @@ impl IUIAutomationEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationEventHandler {
     type Vtable = IUIAutomationEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(342637591, 61742, 20002, [140, 39, 248, 148, 185, 183, 156, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x146c3c17_f12e_4e22_8c27_f894b9b79c69);
 }
 impl ::core::convert::From<IUIAutomationEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationEventHandler) -> Self {
@@ -16530,7 +16530,7 @@ impl IUIAutomationEventHandlerGroup {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationEventHandlerGroup {
     type Vtable = IUIAutomationEventHandlerGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3387822834, 49467, 17416, [153, 124, 99, 153, 20, 55, 127, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9ee12f2_c13b_4408_997c_639914377f4e);
 }
 impl ::core::convert::From<IUIAutomationEventHandlerGroup> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationEventHandlerGroup) -> Self {
@@ -16592,7 +16592,7 @@ impl IUIAutomationExpandCollapsePattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationExpandCollapsePattern {
     type Vtable = IUIAutomationExpandCollapsePattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1637605510, 8014, 20196, [186, 250, 33, 1, 40, 115, 135, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x619be086_1f4e_4ee4_bafa_210128738730);
 }
 impl ::core::convert::From<IUIAutomationExpandCollapsePattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationExpandCollapsePattern) -> Self {
@@ -16637,7 +16637,7 @@ impl IUIAutomationFocusChangedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationFocusChangedEventHandler {
     type Vtable = IUIAutomationFocusChangedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3262183093, 23657, 17040, [151, 69, 122, 127, 151, 22, 148, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc270f6b5_5c69_4290_9745_7a7f97169468);
 }
 impl ::core::convert::From<IUIAutomationFocusChangedEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationFocusChangedEventHandler) -> Self {
@@ -16725,7 +16725,7 @@ impl IUIAutomationGridItemPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationGridItemPattern {
     type Vtable = IUIAutomationGridItemPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2029580119, 26307, 19977, [189, 124, 231, 155, 32, 4, 137, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78f8ef57_66c3_4e09_bd7c_e79b2004894d);
 }
 impl ::core::convert::From<IUIAutomationGridItemPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationGridItemPattern) -> Self {
@@ -16797,7 +16797,7 @@ impl IUIAutomationGridPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationGridPattern {
     type Vtable = IUIAutomationGridPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1095515356, 34155, 20315, [133, 56, 49, 49, 198, 48, 37, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x414c3cdc_856b_4f5b_8538_3131c6302550);
 }
 impl ::core::convert::From<IUIAutomationGridPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationGridPattern) -> Self {
@@ -16843,7 +16843,7 @@ impl IUIAutomationInvokePattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationInvokePattern {
     type Vtable = IUIAutomationInvokePattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4214718398, 36518, 18133, [156, 115, 100, 153, 100, 45, 48, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb377fbe_8ea6_46d5_9c73_6499642d3059);
 }
 impl ::core::convert::From<IUIAutomationInvokePattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationInvokePattern) -> Self {
@@ -16887,7 +16887,7 @@ impl IUIAutomationItemContainerPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationItemContainerPattern {
     type Vtable = IUIAutomationItemContainerPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3331390898, 10152, 16956, [129, 45, 66, 151, 115, 201, 8, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc690fdb2_27a8_423c_812d_429773c9084e);
 }
 impl ::core::convert::From<IUIAutomationItemContainerPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationItemContainerPattern) -> Self {
@@ -17056,7 +17056,7 @@ impl IUIAutomationLegacyIAccessiblePattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationLegacyIAccessiblePattern {
     type Vtable = IUIAutomationLegacyIAccessiblePattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2189448621, 13659, 17461, [134, 213, 59, 81, 193, 74, 155, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x828055ad_355b_4435_86d5_3b51c14a9b1b);
 }
 impl ::core::convert::From<IUIAutomationLegacyIAccessiblePattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationLegacyIAccessiblePattern) -> Self {
@@ -17162,7 +17162,7 @@ impl IUIAutomationMultipleViewPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationMultipleViewPattern {
     type Vtable = IUIAutomationMultipleViewPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2368027793, 7621, 19381, [177, 143, 173, 225, 111, 164, 149, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d253c91_1dc5_4bb5_b18f_ade16fa495e8);
 }
 impl ::core::convert::From<IUIAutomationMultipleViewPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationMultipleViewPattern) -> Self {
@@ -17213,7 +17213,7 @@ impl IUIAutomationNotCondition {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationNotCondition {
     type Vtable = IUIAutomationNotCondition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4113086039, 33915, 18828, [136, 150, 213, 43, 86, 84, 7, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf528b657_847b_498c_8896_d52b565407a1);
 }
 impl ::core::convert::From<IUIAutomationNotCondition> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationNotCondition) -> Self {
@@ -17276,7 +17276,7 @@ impl IUIAutomationNotificationEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationNotificationEventHandler {
     type Vtable = IUIAutomationNotificationEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3351979575, 59074, 19724, [133, 222, 73, 72, 192, 33, 117, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7cb2637_e6c2_4d0c_85de_4948c02175c7);
 }
 impl ::core::convert::From<IUIAutomationNotificationEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationNotificationEventHandler) -> Self {
@@ -17320,7 +17320,7 @@ impl IUIAutomationObjectModelPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationObjectModelPattern {
     type Vtable = IUIAutomationObjectModelPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1908573363, 49485, 19732, [152, 30, 25, 117, 27, 13, 117, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71c284b3_c14d_4d14_981e_19751b0d756d);
 }
 impl ::core::convert::From<IUIAutomationObjectModelPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationObjectModelPattern) -> Self {
@@ -17373,7 +17373,7 @@ impl IUIAutomationOrCondition {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationOrCondition {
     type Vtable = IUIAutomationOrCondition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2270425138, 15793, 18357, [161, 252, 110, 52, 162, 102, 199, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8753f032_3db1_47b5_a1fc_6e34a266c712);
 }
 impl ::core::convert::From<IUIAutomationOrCondition> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationOrCondition) -> Self {
@@ -17443,7 +17443,7 @@ impl IUIAutomationPatternHandler {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationPatternHandler {
     type Vtable = IUIAutomationPatternHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3648004851, 43335, 18014, [139, 42, 172, 67, 21, 250, 84, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd97022f3_a947_465e_8b2a_ac4315fa54e8);
 }
 impl ::core::convert::From<IUIAutomationPatternHandler> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationPatternHandler) -> Self {
@@ -17491,7 +17491,7 @@ impl IUIAutomationPatternInstance {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationPatternInstance {
     type Vtable = IUIAutomationPatternInstance_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3225059300, 37937, 16543, [190, 216, 174, 124, 34, 153, 188, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc03a7fe4_9431_409f_bed8_ae7c2299bc8d);
 }
 impl ::core::convert::From<IUIAutomationPatternInstance> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationPatternInstance) -> Self {
@@ -17536,7 +17536,7 @@ impl IUIAutomationPropertyChangedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationPropertyChangedEventHandler {
     type Vtable = IUIAutomationPropertyChangedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1087190996, 51030, 19212, [140, 111, 189, 223, 238, 177, 59, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40cd37d4_c756_4b0c_8c6f_bddfeeb13b50);
 }
 impl ::core::convert::From<IUIAutomationPropertyChangedEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationPropertyChangedEventHandler) -> Self {
@@ -17591,7 +17591,7 @@ impl IUIAutomationPropertyCondition {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationPropertyCondition {
     type Vtable = IUIAutomationPropertyCondition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2582377163, 21880, 16999, [154, 212, 175, 214, 234, 119, 233, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99ebf2cb_5578_4267_9ad4_afd6ea77e94b);
 }
 impl ::core::convert::From<IUIAutomationPropertyCondition> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationPropertyCondition) -> Self {
@@ -17664,7 +17664,7 @@ impl IUIAutomationProxyFactory {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationProxyFactory {
     type Vtable = IUIAutomationProxyFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2243514061, 33949, 17078, [185, 77, 214, 219, 35, 253, 245, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85b94ecd_849d_42b6_b94d_d6db23fdf5a4);
 }
 impl ::core::convert::From<IUIAutomationProxyFactory> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationProxyFactory) -> Self {
@@ -17776,7 +17776,7 @@ impl IUIAutomationProxyFactoryEntry {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationProxyFactoryEntry {
     type Vtable = IUIAutomationProxyFactoryEntry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3574482734, 46667, 18700, [188, 161, 211, 6, 150, 249, 242, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd50e472e_b64b_490c_bca1_d30696f9f289);
 }
 impl ::core::convert::From<IUIAutomationProxyFactoryEntry> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationProxyFactoryEntry) -> Self {
@@ -17880,7 +17880,7 @@ impl IUIAutomationProxyFactoryMapping {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationProxyFactoryMapping {
     type Vtable = IUIAutomationProxyFactoryMapping_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(165879320, 34605, 18547, [147, 209, 30, 84, 30, 193, 51, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09e31e18_872d_4873_93d1_1e541ec133fd);
 }
 impl ::core::convert::From<IUIAutomationProxyFactoryMapping> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationProxyFactoryMapping) -> Self {
@@ -17995,7 +17995,7 @@ impl IUIAutomationRangeValuePattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationRangeValuePattern {
     type Vtable = IUIAutomationRangeValuePattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1495351119, 29510, 18917, [177, 32, 128, 85, 89, 135, 161, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59213f4f_7346_49e5_b120_80555987a148);
 }
 impl ::core::convert::From<IUIAutomationRangeValuePattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationRangeValuePattern) -> Self {
@@ -18074,7 +18074,7 @@ impl IUIAutomationRegistrar {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationRegistrar {
     type Vtable = IUIAutomationRegistrar_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2248787180, 18970, 19848, [163, 87, 90, 102, 224, 96, 225, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8609c4ec_4a1a_4d88_a357_5a66e060e1cf);
 }
 impl ::core::convert::From<IUIAutomationRegistrar> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationRegistrar) -> Self {
@@ -18121,7 +18121,7 @@ impl IUIAutomationScrollItemPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationScrollItemPattern {
     type Vtable = IUIAutomationScrollItemPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3028824079, 53269, 20249, [156, 41, 187, 89, 94, 54, 69, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb488300f_d015_4f19_9c29_bb595e3645ef);
 }
 impl ::core::convert::From<IUIAutomationScrollItemPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationScrollItemPattern) -> Self {
@@ -18231,7 +18231,7 @@ impl IUIAutomationScrollPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationScrollPattern {
     type Vtable = IUIAutomationScrollPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2297746474, 59521, 17821, [167, 124, 115, 187, 187, 126, 2, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88f4d42a_e881_459d_a77c_73bbbb7e02dc);
 }
 impl ::core::convert::From<IUIAutomationScrollPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationScrollPattern) -> Self {
@@ -18320,7 +18320,7 @@ impl IUIAutomationSelectionItemPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationSelectionItemPattern {
     type Vtable = IUIAutomationSelectionItemPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2834277994, 4058, 16922, [145, 148, 56, 2, 31, 53, 120, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8efa66a_0fda_421a_9194_38021f3578ea);
 }
 impl ::core::convert::From<IUIAutomationSelectionItemPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationSelectionItemPattern) -> Self {
@@ -18400,7 +18400,7 @@ impl IUIAutomationSelectionPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationSelectionPattern {
     type Vtable = IUIAutomationSelectionPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1591025710, 45740, 18342, [182, 56, 75, 11, 241, 64, 215, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ed5202e_b2ac_47a6_b638_4b0bf140d78e);
 }
 impl ::core::convert::From<IUIAutomationSelectionPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationSelectionPattern) -> Self {
@@ -18521,7 +18521,7 @@ impl IUIAutomationSelectionPattern2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationSelectionPattern2 {
     type Vtable = IUIAutomationSelectionPattern2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(87211950, 49169, 20018, [163, 67, 109, 100, 45, 121, 133, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0532bfae_c011_4e32_a343_6d642d798555);
 }
 impl ::core::convert::From<IUIAutomationSelectionPattern2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationSelectionPattern2) -> Self {
@@ -18630,7 +18630,7 @@ impl IUIAutomationSpreadsheetItemPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationSpreadsheetItemPattern {
     type Vtable = IUIAutomationSpreadsheetItemPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2102376556, 36148, 16609, [142, 131, 98, 193, 82, 4, 227, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d4fb86c_8d34_40e1_8e83_62c15204e335);
 }
 impl ::core::convert::From<IUIAutomationSpreadsheetItemPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationSpreadsheetItemPattern) -> Self {
@@ -18683,7 +18683,7 @@ impl IUIAutomationSpreadsheetPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationSpreadsheetPattern {
     type Vtable = IUIAutomationSpreadsheetPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1964484552, 64174, 19945, [159, 8, 41, 185, 30, 133, 149, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7517a7c8_faae_4de9_9f08_29b91e8595c1);
 }
 impl ::core::convert::From<IUIAutomationSpreadsheetPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationSpreadsheetPattern) -> Self {
@@ -18727,7 +18727,7 @@ impl IUIAutomationStructureChangedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationStructureChangedEventHandler {
     type Vtable = IUIAutomationStructureChangedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3894221646, 4549, 17144, [151, 84, 231, 3, 108, 121, 240, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe81d1b4e_11c5_42f8_9754_e7036c79f054);
 }
 impl ::core::convert::From<IUIAutomationStructureChangedEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationStructureChangedEventHandler) -> Self {
@@ -18854,7 +18854,7 @@ impl IUIAutomationStylesPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationStylesPattern {
     type Vtable = IUIAutomationStylesPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2243293346, 48505, 18506, [173, 43, 56, 140, 152, 56, 213, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85b5f0a2_bd79_484a_ad2b_388c9838d5fb);
 }
 impl ::core::convert::From<IUIAutomationStylesPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationStylesPattern) -> Self {
@@ -18925,7 +18925,7 @@ impl IUIAutomationSynchronizedInputPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationSynchronizedInputPattern {
     type Vtable = IUIAutomationSynchronizedInputPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(573816331, 44983, 17547, [159, 218, 59, 55, 138, 165, 234, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2233be0b_afb7_448b_9fda_3b378aa5eae1);
 }
 impl ::core::convert::From<IUIAutomationSynchronizedInputPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationSynchronizedInputPattern) -> Self {
@@ -18984,7 +18984,7 @@ impl IUIAutomationTableItemPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationTableItemPattern {
     type Vtable = IUIAutomationTableItemPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(194399923, 61230, 17508, [156, 121, 97, 214, 23, 55, 162, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b964eb3_ef2e_4464_9c79_61d61737a27e);
 }
 impl ::core::convert::From<IUIAutomationTableItemPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationTableItemPattern) -> Self {
@@ -19055,7 +19055,7 @@ impl IUIAutomationTablePattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationTablePattern {
     type Vtable = IUIAutomationTablePattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1645111580, 60054, 18192, [168, 80, 117, 75, 36, 206, 36, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x620e691c_ea96_4710_a850_754b24ce2417);
 }
 impl ::core::convert::From<IUIAutomationTablePattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationTablePattern) -> Self {
@@ -19108,7 +19108,7 @@ impl IUIAutomationTextChildPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationTextChildPattern {
     type Vtable = IUIAutomationTextChildPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1699917880, 44549, 16584, [171, 253, 170, 8, 53, 42, 171, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6552b038_ae05_40c8_abfd_aa08352aab86);
 }
 impl ::core::convert::From<IUIAutomationTextChildPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationTextChildPattern) -> Self {
@@ -19188,7 +19188,7 @@ impl IUIAutomationTextEditPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationTextEditPattern {
     type Vtable = IUIAutomationTextEditPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(400692598, 39276, 18544, [153, 217, 191, 243, 35, 56, 12, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17e21576_996c_4870_99d9_bff323380c06);
 }
 impl ::core::convert::From<IUIAutomationTextEditPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationTextEditPattern) -> Self {
@@ -19259,7 +19259,7 @@ impl IUIAutomationTextEditTextChangedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationTextEditTextChangedEventHandler {
     type Vtable = IUIAutomationTextEditTextChangedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2465900160, 59140, 16726, [147, 26, 227, 45, 91, 179, 143, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92faa680_e704_4156_931a_e32d5bb38f3f);
 }
 impl ::core::convert::From<IUIAutomationTextEditTextChangedEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationTextEditTextChangedEventHandler) -> Self {
@@ -19329,7 +19329,7 @@ impl IUIAutomationTextPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationTextPattern {
     type Vtable = IUIAutomationTextPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(854303369, 13699, 17097, [156, 89, 59, 109, 154, 30, 155, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32eba289_3583_42c9_9c59_3b6d9a1e9b6a);
 }
 impl ::core::convert::From<IUIAutomationTextPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationTextPattern) -> Self {
@@ -19414,7 +19414,7 @@ impl IUIAutomationTextPattern2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationTextPattern2 {
     type Vtable = IUIAutomationTextPattern2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1349161498, 64713, 16543, [178, 59, 55, 235, 116, 16, 104, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x506a921a_fcc9_409f_b23b_37eb74106872);
 }
 impl ::core::convert::From<IUIAutomationTextPattern2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationTextPattern2) -> Self {
@@ -19572,7 +19572,7 @@ impl IUIAutomationTextRange {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationTextRange {
     type Vtable = IUIAutomationTextRange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2772683882, 62638, 18763, [130, 57, 200, 20, 72, 17, 135, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa543cc6a_f4ae_494b_8239_c814481187a8);
 }
 impl ::core::convert::From<IUIAutomationTextRange> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationTextRange) -> Self {
@@ -19729,7 +19729,7 @@ impl IUIAutomationTextRange2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationTextRange2 {
     type Vtable = IUIAutomationTextRange2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3147514080, 24068, 18109, [155, 224, 75, 96, 27, 154, 250, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb9b40e0_5e04_46bd_9be0_4b601b9afad4);
 }
 impl ::core::convert::From<IUIAutomationTextRange2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationTextRange2) -> Self {
@@ -19923,7 +19923,7 @@ impl IUIAutomationTextRange3 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationTextRange3 {
     type Vtable = IUIAutomationTextRange3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1781620073, 21778, 19502, [133, 240, 83, 252, 230, 221, 75, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a315d69_5512_4c2e_85f0_53fce6dd4bc2);
 }
 impl ::core::convert::From<IUIAutomationTextRange3> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationTextRange3) -> Self {
@@ -20040,7 +20040,7 @@ impl IUIAutomationTextRangeArray {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationTextRangeArray {
     type Vtable = IUIAutomationTextRangeArray_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3461015402, 59159, 19608, [129, 234, 71, 55, 29, 2, 142, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce4ae76a_e717_4c98_81ea_47371d028eb6);
 }
 impl ::core::convert::From<IUIAutomationTextRangeArray> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationTextRangeArray) -> Self {
@@ -20093,7 +20093,7 @@ impl IUIAutomationTogglePattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationTogglePattern {
     type Vtable = IUIAutomationTogglePattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2496626776, 39821, 19129, [139, 253, 76, 208, 163, 60, 140, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94cf8058_9b8d_4ab9_8bfd_4cd0a33c8c70);
 }
 impl ::core::convert::From<IUIAutomationTogglePattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationTogglePattern) -> Self {
@@ -20181,7 +20181,7 @@ impl IUIAutomationTransformPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationTransformPattern {
     type Vtable = IUIAutomationTransformPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2847234116, 42333, 20208, [146, 109, 86, 156, 22, 255, 137, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9b55844_a55d_4ef0_926d_569c16ff89bb);
 }
 impl ::core::convert::From<IUIAutomationTransformPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationTransformPattern) -> Self {
@@ -20331,7 +20331,7 @@ impl IUIAutomationTransformPattern2 {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationTransformPattern2 {
     type Vtable = IUIAutomationTransformPattern2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1836371991, 28363, 17281, [179, 139, 60, 23, 164, 143, 241, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d74d017_6ecb_4381_b38b_3c17a48ff1c2);
 }
 impl ::core::convert::From<IUIAutomationTransformPattern2> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationTransformPattern2) -> Self {
@@ -20480,7 +20480,7 @@ impl IUIAutomationTreeWalker {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationTreeWalker {
     type Vtable = IUIAutomationTreeWalker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1078117924, 14492, 19196, [166, 48, 157, 248, 84, 165, 65, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4042c624_389c_4afc_a630_9df854a541fc);
 }
 impl ::core::convert::From<IUIAutomationTreeWalker> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationTreeWalker) -> Self {
@@ -20559,7 +20559,7 @@ impl IUIAutomationValuePattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationValuePattern {
     type Vtable = IUIAutomationValuePattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2840385713, 2116, 19670, [157, 45, 100, 5, 55, 171, 57, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa94cd8b1_0844_4cd6_9d2d_640537ab39e9);
 }
 impl ::core::convert::From<IUIAutomationValuePattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationValuePattern) -> Self {
@@ -20610,7 +20610,7 @@ impl IUIAutomationVirtualizedItemPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationVirtualizedItemPattern {
     type Vtable = IUIAutomationVirtualizedItemPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1805899686, 1231, 20241, [135, 147, 168, 209, 205, 233, 150, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ba3d7a6_04cf_4f11_8793_a8d1cde9969f);
 }
 impl ::core::convert::From<IUIAutomationVirtualizedItemPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationVirtualizedItemPattern) -> Self {
@@ -20730,7 +20730,7 @@ impl IUIAutomationWindowPattern {
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationWindowPattern {
     type Vtable = IUIAutomationWindowPattern_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(263124051, 37384, 17391, [187, 178, 59, 72, 81, 119, 134, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0faef453_9208_43ef_bbb2_3b485177864f);
 }
 impl ::core::convert::From<IUIAutomationWindowPattern> for ::windows::runtime::IUnknown {
     fn from(value: IUIAutomationWindowPattern) -> Self {
@@ -20808,7 +20808,7 @@ impl IValueProvider {
 }
 unsafe impl ::windows::runtime::Interface for IValueProvider {
     type Vtable = IValueProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3348320640, 28595, 16897, [177, 116, 125, 247, 58, 219, 246, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7935180_6fb3_4201_b174_7df73adbf64a);
 }
 impl ::core::convert::From<IValueProvider> for ::windows::runtime::IUnknown {
     fn from(value: IValueProvider) -> Self {
@@ -20855,7 +20855,7 @@ impl IVirtualizedItemProvider {
 }
 unsafe impl ::windows::runtime::Interface for IVirtualizedItemProvider {
     type Vtable = IVirtualizedItemProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3415783013, 11573, 20396, [173, 53, 243, 198, 13, 12, 11, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb98b665_2d35_4fac_ad35_f3c60d0c0b8b);
 }
 impl ::core::convert::From<IVirtualizedItemProvider> for ::windows::runtime::IUnknown {
     fn from(value: IVirtualizedItemProvider) -> Self {
@@ -20941,7 +20941,7 @@ impl IWindowProvider {
 }
 unsafe impl ::windows::runtime::Interface for IWindowProvider {
     type Vtable = IWindowProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2558392187, 56070, 19831, [143, 138, 134, 169, 195, 187, 144, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x987df77b_db06_4d77_8f8a_86a9c3bb90b9);
 }
 impl ::core::convert::From<IWindowProvider> for ::windows::runtime::IUnknown {
     fn from(value: IWindowProvider) -> Self {
@@ -20984,10 +20984,10 @@ pub struct IWindowProvider_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pretval: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-pub const Image_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(758593252, 27414, 19543, [169, 98, 249, 50, 96, 167, 82, 67]);
-pub const InputDiscarded_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2134295399, 31512, 16764, [151, 227, 157, 88, 221, 201, 68, 171]);
-pub const InputReachedOtherElement_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3978304906, 20076, 16734, [168, 116, 36, 96, 201, 182, 107, 168]);
-pub const InputReachedTarget_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2481804442, 1353, 16624, [190, 219, 40, 228, 79, 125, 226, 163]);
+pub const Image_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d3736e4_6b16_4c57_a962_f93260a75243);
+pub const InputDiscarded_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f36c367_7b18_417c_97e3_9d58ddc944ab);
+pub const InputReachedOtherElement_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed201d8a_4e6c_415e_a874_2460c9b66ba8);
+pub const InputReachedTarget_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93ed549a_0549_40f0_bedb_28e44f7de2a3);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[inline]
 pub unsafe fn InvokePattern_Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::runtime::Result<()> {
@@ -21002,53 +21002,53 @@ pub unsafe fn InvokePattern_Invoke<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const Invoke_Invoked_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3755383280, 51477, 18909, [180, 34, 221, 231, 133, 195, 210, 75]);
-pub const Invoke_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3648439036, 26346, 19054, [178, 143, 194, 76, 117, 70, 173, 55]);
-pub const IsAnnotationPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(190526008, 27996, 16822, [188, 196, 94, 128, 127, 101, 81, 196]);
-pub const IsContentElement_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1272603816, 62936, 18443, [129, 85, 239, 46, 137, 173, 182, 114]);
-pub const IsControlElement_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2515751045, 43980, 19197, [165, 244, 219, 180, 108, 35, 15, 219]);
-pub const IsCustomNavigationPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2408480980, 9041, 18656, [135, 74, 84, 170, 115, 19, 136, 154]);
-pub const IsDataValidForForm_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1146799748, 50172, 19929, [172, 248, 132, 90, 87, 146, 150, 186]);
-pub const IsDialog_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2634939291, 33846, 17665, [187, 187, 229, 52, 164, 251, 59, 63]);
-pub const IsDockPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(637576388, 12280, 19606, [174, 49, 143, 230, 25, 161, 60, 108]);
-pub const IsDragPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3919030199, 7481, 19623, [190, 15, 39, 127, 207, 86, 5, 204]);
-pub const IsDropTargetPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(109491758, 36377, 19119, [135, 61, 56, 79, 109, 59, 146, 190]);
-pub const IsEnabled_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(554254975, 55904, 20461, [191, 27, 38, 75, 220, 230, 235, 58]);
-pub const IsExpandCollapsePatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2459777030, 21127, 18213, [170, 22, 34, 42, 252, 99, 213, 149]);
-pub const IsGridItemPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1514399012, 63906, 19218, [132, 200, 180, 138, 62, 254, 221, 52]);
-pub const IsGridPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1445118572, 61679, 20283, [151, 203, 113, 76, 8, 104, 88, 139]);
-pub const IsInvokePatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1316116280, 33636, 18041, [170, 108, 243, 244, 25, 49, 247, 80]);
-pub const IsItemContainerPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1649106087, 65088, 18775, [160, 25, 32, 196, 207, 17, 146, 15]);
-pub const IsKeyboardFocusable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4156052778, 2137, 19255, [185, 203, 81, 231, 32, 146, 242, 159]);
-pub const IsLegacyIAccessiblePatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3639333063, 37530, 20199, [141, 58, 211, 217, 68, 19, 2, 123]);
-pub const IsMultipleViewPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4278858219, 36389, 18077, [141, 110, 231, 113, 162, 124, 27, 144]);
-pub const IsObjectModelPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1797380251, 10305, 16687, [142, 242, 21, 202, 149, 35, 24, 186]);
-pub const IsOffscreen_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(63164768, 56185, 17115, [162, 239, 28, 35, 30, 237, 229, 7]);
-pub const IsPassword_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3897044657, 26748, 18811, [190, 188, 3, 190, 83, 236, 20, 84]);
-pub const IsPeripheral_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3665134198, 32469, 18900, [142, 104, 236, 201, 162, 211, 0, 221]);
-pub const IsRangeValuePatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4255392842, 60237, 17407, [181, 173, 237, 54, 211, 115, 236, 76]);
-pub const IsRequiredForForm_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1331643343, 23035, 19422, [162, 112, 96, 46, 94, 17, 65, 233]);
-pub const IsScrollItemPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(481106437, 2343, 19318, [151, 225, 15, 205, 178, 9, 185, 138]);
-pub const IsScrollPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1052474186, 33418, 19287, [157, 34, 47, 234, 22, 50, 237, 13]);
-pub const IsSelectionItemPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2347554349, 3011, 16649, [190, 226, 142, 103, 21, 41, 14, 104]);
-pub const IsSelectionPattern2Available_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1225262843, 28297, 19015, [131, 25, 210, 102, 229, 17, 240, 33]);
-pub const IsSelectionPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4119375038, 51049, 18488, [154, 96, 38, 134, 220, 17, 136, 196]);
-pub const IsSpreadsheetItemPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2682755882, 12180, 17405, [153, 107, 84, 158, 49, 111, 74, 205]);
-pub const IsSpreadsheetPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1878275890, 58548, 17749, [151, 188, 236, 219, 188, 77, 24, 136]);
-pub const IsStructuredMarkupPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2966733206, 11275, 18588, [177, 101, 164, 5, 146, 140, 111, 61]);
-pub const IsStylesPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(670258131, 17820, 19289, [164, 144, 80, 97, 29, 172, 175, 181]);
-pub const IsSynchronizedInputPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1976999109, 53951, 18755, [135, 110, 180, 91, 98, 166, 204, 102]);
-pub const IsTableItemPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3946230797, 36516, 18587, [160, 19, 230, 13, 89, 81, 254, 52]);
-pub const IsTablePatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3414382431, 17858, 16456, [156, 118, 21, 151, 21, 161, 57, 223]);
-pub const IsTextChildPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1436444127, 12543, 17333, [181, 237, 91, 40, 59, 128, 199, 233]);
-pub const IsTextEditPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2017673820, 35634, 18508, [154, 181, 227, 32, 5, 113, 255, 218]);
-pub const IsTextPattern2Available_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1104122397, 58353, 19234, [156, 129, 225, 195, 237, 51, 28, 34]);
-pub const IsTextPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4225947293, 45046, 19013, [130, 226, 252, 146, 168, 47, 89, 23]);
-pub const IsTogglePatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2020109651, 64720, 19331, [155, 120, 88, 50, 206, 99, 187, 91]);
-pub const IsTransformPattern2Available_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(630721355, 48644, 18192, [171, 74, 253, 163, 29, 189, 40, 149]);
-pub const IsTransformPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2818017284, 54923, 16503, [165, 198, 122, 94, 161, 172, 49, 197]);
-pub const IsValuePatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(189800615, 8473, 18235, [190, 55, 92, 235, 152, 187, 251, 34]);
-pub const IsVirtualizedItemPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(808235345, 10952, 17878, [151, 123, 210, 179, 165, 165, 63, 32]);
+pub const Invoke_Invoked_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdfd699f0_c915_49dd_b422_dde785c3d24b);
+pub const Invoke_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd976c2fc_66ea_4a6e_b28f_c24c7546ad37);
+pub const IsAnnotationPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b5b3238_6d5c_41b6_bcc4_5e807f6551c4);
+pub const IsContentElement_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bda64a8_f5d8_480b_8155_ef2e89adb672);
+pub const IsControlElement_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95f35085_abcc_4afd_a5f4_dbb46c230fdb);
+pub const IsCustomNavigationPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f8e80d4_2351_48e0_874a_54aa7313889a);
+pub const IsDataValidForForm_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x445ac684_c3fc_4dd9_acf8_845a579296ba);
+pub const IsDialog_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d0dfb9b_8436_4501_bbbb_e534a4fb3b3f);
+pub const IsDockPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2600a4c4_2ff8_4c96_ae31_8fe619a13c6c);
+pub const IsDragPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe997a7b7_1d39_4ca7_be0f_277fcf5605cc);
+pub const IsDropTargetPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0686b62e_8e19_4aaf_873d_384f6d3b92be);
+pub const IsEnabled_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2109427f_da60_4fed_bf1b_264bdce6eb3a);
+pub const IsExpandCollapsePatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x929d3806_5287_4725_aa16_222afc63d595);
+pub const IsGridItemPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a43e524_f9a2_4b12_84c8_b48a3efedd34);
+pub const IsGridPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5622c26c_f0ef_4f3b_97cb_714c0868588b);
+pub const IsInvokePatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e725738_8364_4679_aa6c_f3f41931f750);
+pub const IsItemContainerPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x624b5ca7_fe40_4957_a019_20c4cf11920f);
+pub const IsKeyboardFocusable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7b8552a_0859_4b37_b9cb_51e72092f29f);
+pub const IsLegacyIAccessiblePatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8ebd0c7_929a_4ee7_8d3a_d3d94413027b);
+pub const IsMultipleViewPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff0a31eb_8e25_469d_8d6e_e771a27c1b90);
+pub const IsObjectModelPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b21d89b_2841_412f_8ef2_15ca952318ba);
+pub const IsOffscreen_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03c3d160_db79_42db_a2ef_1c231eede507);
+pub const IsPassword_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8482eb1_687c_497b_bebc_03be53ec1454);
+pub const IsPeripheral_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda758276_7ed5_49d4_8e68_ecc9a2d300dd);
+pub const IsRangeValuePatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfda4244a_eb4d_43ff_b5ad_ed36d373ec4c);
+pub const IsRequiredForForm_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f5f43cf_59fb_4bde_a270_602e5e1141e9);
+pub const IsScrollItemPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cad1a05_0927_4b76_97e1_0fcdb209b98a);
+pub const IsScrollPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ebb7b4a_828a_4b57_9d22_2fea1632ed0d);
+pub const IsSelectionItemPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8becd62d_0bc3_4109_bee2_8e6715290e68);
+pub const IsSelectionPattern2Available_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x490806fb_6e89_4a47_8319_d266e511f021);
+pub const IsSelectionPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf588acbe_c769_4838_9a60_2686dc1188c4);
+pub const IsSpreadsheetItemPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fe79b2a_2f94_43fd_996b_549e316f4acd);
+pub const IsSpreadsheetPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ff43732_e4b4_4555_97bc_ecdbbc4d1888);
+pub const IsStructuredMarkupPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0d4c196_2c0b_489c_b165_a405928c6f3d);
+pub const IsStylesPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27f353d3_459c_4b59_a490_50611dacafb5);
+pub const IsSynchronizedInputPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75d69cc5_d2bf_4943_876e_b45b62a6cc66);
+pub const IsTableItemPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb36b40d_8ea4_489b_a013_e60d5951fe34);
+pub const IsTablePatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb83575f_45c2_4048_9c76_159715a139df);
+pub const IsTextChildPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x559e65df_30ff_43b5_b5ed_5b283b80c7e9);
+pub const IsTextEditPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7843425c_8b32_484c_9ab5_e3200571ffda);
+pub const IsTextPattern2Available_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41cf921d_e3f1_4b22_9c81_e1c3ed331c22);
+pub const IsTextPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbe2d69d_aff6_4a45_82e2_fc92a82f5917);
+pub const IsTogglePatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78686d53_fcd0_4b83_9b78_5832ce63bb5b);
+pub const IsTransformPattern2Available_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25980b4b_be04_4710_ab4a_fda31dbd2895);
+pub const IsTransformPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7f78804_d68b_4077_a5c6_7a5ea1ac31c5);
+pub const IsValuePatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b5020a7_2119_473b_be37_5ceb98bbfb22);
+pub const IsVirtualizedItemPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x302cb151_2ac8_45d6_977b_d2b3a5a53f20);
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -21064,7 +21064,7 @@ pub unsafe fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::B
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const IsWindowPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3886382001, 22664, 16725, [152, 220, 180, 34, 253, 87, 242, 188]);
+pub const IsWindowPatternAvailable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7a57bb1_5888_4155_98dc_b422fd57f2bc);
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
@@ -21080,10 +21080,10 @@ pub unsafe fn ItemContainerPattern_FindItemByProperty<'a, Param0: ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const ItemContainer_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1024711183, 35738, 19097, [133, 250, 197, 201, 166, 159, 30, 212]);
-pub const ItemStatus_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1373504289, 14707, 17383, [137, 19, 11, 8, 232, 19, 195, 127]);
-pub const ItemType_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3453633357, 25122, 16699, [166, 138, 50, 93, 209, 212, 15, 57]);
-pub const LIBID_Accessibility: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(514120688, 15419, 4559, [129, 12, 0, 170, 0, 56, 155, 113]);
+pub const ItemContainer_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d13da0f_8b9a_4a99_85fa_c5c9a69f1ed4);
+pub const ItemStatus_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51de0321_3973_43e7_8913_0b08e813c37f);
+pub const ItemType_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcdda434d_6222_413b_a68a_325dd1d40f39);
+pub const LIBID_Accessibility: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ea4dbf0_3c3b_11cf_810c_00aa00389b71);
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub type LPFNACCESSIBLECHILDREN = unsafe extern "system" fn(pacccontainer: ::windows::runtime::RawPtr, ichildstart: i32, cchildren: i32, rgvarchildren: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pcobtained: *mut i32) -> ::windows::runtime::HRESULT;
@@ -21102,9 +21102,9 @@ pub type LPFNLRESULTFROMOBJECT = unsafe extern "system" fn(riid: *const ::window
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNOBJECTFROMLRESULT = unsafe extern "system" fn(lresult: super::super::Foundation::LRESULT, riid: *const ::windows::runtime::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
-pub const LabeledBy_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3854078539, 64650, 18997, [128, 49, 207, 120, 172, 67, 229, 94]);
-pub const LandmarkType_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1161840114, 28513, 18935, [164, 248, 181, 240, 207, 130, 218, 30]);
-pub const LayoutInvalidated_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3984418116, 42685, 17813, [155, 174, 61, 40, 148, 108, 199, 21]);
+pub const LabeledBy_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5b8924b_fc8a_4a35_8031_cf78ac43e55e);
+pub const LandmarkType_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x454045f2_6f61_49f7_a4f8_b5f0cf82da1e);
+pub const LayoutInvalidated_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed7d6544_a6bd_4595_9bae_3d28946cc715);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[inline]
 pub unsafe fn LegacyIAccessiblePattern_DoDefaultAction<'a, Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::runtime::Result<()> {
@@ -21163,21 +21163,21 @@ pub unsafe fn LegacyIAccessiblePattern_SetValue<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const LegacyIAccessible_ChildId_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2585336669, 40690, 18311, [164, 89, 220, 222, 136, 93, 212, 232]);
-pub const LegacyIAccessible_DefaultAction_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(993204009, 60077, 17666, [184, 95, 146, 97, 86, 34, 145, 60]);
-pub const LegacyIAccessible_Description_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1178895384, 32112, 20137, [157, 39, 183, 231, 117, 207, 42, 215]);
-pub const LegacyIAccessible_Help_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2487231314, 5660, 19319, [169, 141, 168, 114, 204, 51, 148, 122]);
-pub const LegacyIAccessible_KeyboardShortcut_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2406025644, 184, 16985, [164, 28, 150, 98, 102, 212, 58, 138]);
-pub const LegacyIAccessible_Name_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3404400189, 16558, 18537, [170, 90, 27, 142, 93, 102, 103, 57]);
-pub const LegacyIAccessible_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1422658207, 13205, 18607, [186, 141, 115, 248, 86, 144, 243, 224]);
-pub const LegacyIAccessible_Role_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1750525343, 52143, 20017, [147, 232, 188, 191, 111, 126, 73, 28]);
-pub const LegacyIAccessible_Selection_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2326311392, 2193, 16588, [139, 6, 144, 215, 212, 22, 98, 25]);
-pub const LegacyIAccessible_State_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3751303252, 8833, 17216, [171, 156, 198, 14, 44, 88, 3, 246]);
-pub const LegacyIAccessible_Value_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3049631926, 33303, 19063, [151, 165, 25, 10, 133, 237, 1, 86]);
-pub const Level_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(606782761, 52534, 16399, [170, 217, 120, 118, 239, 58, 246, 39]);
-pub const ListItem_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2067208178, 17617, 19032, [152, 168, 241, 42, 155, 143, 120, 226]);
-pub const List_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2601819873, 31946, 19708, [154, 241, 202, 199, 189, 221, 48, 49]);
-pub const LiveRegionChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(271408784, 59049, 16822, [177, 197, 169, 177, 146, 157, 149, 16]);
+pub const LegacyIAccessible_ChildId_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a191b5d_9ef2_4787_a459_dcde885dd4e8);
+pub const LegacyIAccessible_DefaultAction_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b331729_eaad_4502_b85f_92615622913c);
+pub const LegacyIAccessible_Description_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46448418_7d70_4ea9_9d27_b7e775cf2ad7);
+pub const LegacyIAccessible_Help_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94402352_161c_4b77_a98d_a872cc33947a);
+pub const LegacyIAccessible_KeyboardShortcut_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f6909ac_00b8_4259_a41c_966266d43a8a);
+pub const LegacyIAccessible_Name_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcaeb063d_40ae_4869_aa5a_1b8e5d666739);
+pub const LegacyIAccessible_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54cc0a9f_3395_48af_ba8d_73f85690f3e0);
+pub const LegacyIAccessible_Role_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6856e59f_cbaf_4e31_93e8_bcbf6f7e491c);
+pub const LegacyIAccessible_Selection_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8aa8b1e0_0891_40cc_8b06_90d7d4166219);
+pub const LegacyIAccessible_State_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf985854_2281_4340_ab9c_c60e2c5803f6);
+pub const LegacyIAccessible_Value_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5c5b0b6_8217_4a77_97a5_190a85ed0156);
+pub const Level_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x242ac529_cd36_400f_aad9_7876ef3af627);
+pub const ListItem_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b3717f2_44d1_4a58_98a8_f12a9b8f78e2);
+pub const List_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b149ee1_7cca_4cfc_9af1_cac7bddd3031);
+pub const LiveRegionChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x102d5e90_e6a9_41b6_b1c5_a9b1929d9510);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -21193,9 +21193,9 @@ impl ::core::convert::From<i32> for LiveSetting {
 unsafe impl ::windows::runtime::Abi for LiveSetting {
     type Abi = Self;
 }
-pub const LiveSetting_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3240873358, 10894, 18768, [138, 231, 54, 37, 17, 29, 88, 235]);
-pub const LocalizedControlType_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2271428687, 41405, 17706, [137, 196, 63, 1, 211, 131, 56, 6]);
-pub const LocalizedLandmarkType_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2059934080, 60155, 20402, [191, 145, 244, 133, 190, 245, 232, 225]);
+pub const LiveSetting_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc12bcd8e_2a8e_4950_8ae7_3625111d58eb);
+pub const LocalizedControlType_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8763404f_a1bd_452a_89c4_3f01d3833806);
+pub const LocalizedLandmarkType_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ac81980_eafb_4fb2_bf91_f485bef5e8e1);
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -21288,13 +21288,13 @@ unsafe impl ::windows::runtime::Abi for MSAAMENUINFO {
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const MSAA_MENU_SIG: i32 = -1441927155i32;
-pub const MenuBar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3426239056, 3707, 19176, [149, 174, 160, 143, 38, 27, 82, 238]);
-pub const MenuClosed_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1022436974, 5506, 16449, [172, 215, 136, 163, 90, 150, 82, 151]);
-pub const MenuItem_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4099024339, 53408, 18904, [152, 52, 154, 0, 13, 42, 237, 220]);
-pub const MenuModeEnd_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2664254623, 32989, 18360, [130, 103, 90, 236, 6, 187, 44, 255]);
-pub const MenuModeStart_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(416794161, 5738, 19145, [174, 59, 239, 75, 84, 32, 230, 129]);
-pub const MenuOpened_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3957516613, 26314, 20177, [159, 248, 42, 215, 223, 10, 27, 8]);
-pub const Menu_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(781915200, 3752, 16893, [179, 116, 193, 234, 111, 80, 60, 209]);
+pub const MenuBar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc384250_0e7b_4ae8_95ae_a08f261b52ee);
+pub const MenuClosed_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cf1266e_1582_4041_acd7_88a35a965297);
+pub const MenuItem_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf45225d3_d0a0_49d8_9834_9a000d2aeddc);
+pub const MenuModeEnd_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ecd4c9f_80dd_47b8_8267_5aec06bb2cff);
+pub const MenuModeStart_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18d7c631_166a_4ac9_ae3b_ef4b5420e681);
+pub const MenuOpened_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xebe2e945_66ca_4ed1_9ff8_2ad7df0a1b08);
+pub const Menu_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e9b1440_0ea8_41fd_b374_c1ea6f503cd1);
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -21324,9 +21324,9 @@ pub unsafe fn MultipleViewPattern_SetCurrentView<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const MultipleView_CurrentView_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2055317114, 47439, 18549, [145, 139, 101, 200, 210, 249, 152, 229]);
-pub const MultipleView_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1417308900, 4415, 18372, [133, 15, 219, 77, 250, 70, 107, 29]);
-pub const MultipleView_SupportedViews_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2371729917, 52796, 19175, [183, 136, 64, 10, 60, 100, 85, 71]);
+pub const MultipleView_CurrentView_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a81a67a_b94f_4875_918b_65c8d2f998e5);
+pub const MultipleView_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x547a6ae4_113f_47c4_850f_db4dfa466b1d);
+pub const MultipleView_SupportedViews_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d5db9fd_ce3c_4ae7_b788_400a3c645547);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const NAVDIR_DOWN: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -21347,7 +21347,7 @@ pub const NAVDIR_PREVIOUS: u32 = 6u32;
 pub const NAVDIR_RIGHT: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const NAVDIR_UP: u32 = 1u32;
-pub const Name_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3282473499, 19097, 17649, [188, 166, 97, 24, 112, 82, 196, 49]);
+pub const Name_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3a6921b_4a99_44f1_bca6_61187052c431);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -21365,7 +21365,7 @@ impl ::core::convert::From<i32> for NavigateDirection {
 unsafe impl ::windows::runtime::Abi for NavigateDirection {
     type Abi = Self;
 }
-pub const NewNativeWindowHandle_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1368830779, 14346, 18818, [149, 225, 145, 243, 239, 96, 224, 36]);
+pub const NewNativeWindowHandle_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5196b33b_380a_4982_95e1_91f3ef60e024);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -21415,7 +21415,7 @@ impl ::core::convert::From<i32> for NotificationProcessing {
 unsafe impl ::windows::runtime::Abi for NotificationProcessing {
     type Abi = Self;
 }
-pub const Notification_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1925554935, 38792, 18447, [184, 235, 77, 238, 0, 246, 24, 111]);
+pub const Notification_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72c5a2f7_9788_480f_b8eb_4dee00f6186f);
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -21446,8 +21446,8 @@ pub unsafe fn ObjectFromLresult<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const ObjectModel_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1040493822, 2300, 18412, [150, 188, 53, 63, 163, 179, 74, 167]);
-pub const OptimizeForVisualContent_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1787109968, 51034, 20061, [184, 88, 227, 129, 176, 247, 136, 97]);
+pub const ObjectModel_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e04acfe_08fc_47ec_96bc_353fa3b34aa7);
+pub const OptimizeForVisualContent_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a852250_c75a_4e5d_b858_e381b0f78861);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -21463,8 +21463,8 @@ impl ::core::convert::From<i32> for OrientationType {
 unsafe impl ::windows::runtime::Abi for OrientationType {
     type Abi = Self;
 }
-pub const Orientation_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2686381666, 14468, 17429, [136, 126, 103, 142, 194, 30, 57, 186]);
-pub const OutlineColor_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3281376960, 19285, 18274, [160, 115, 253, 48, 58, 99, 79, 82]);
+pub const Orientation_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa01eee62_3884_4415_887e_678ec21e39ba);
+pub const OutlineColor_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc395d6c0_4b55_4762_a073_fd303a634f52);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -21482,36 +21482,36 @@ impl ::core::convert::From<i32> for OutlineStyles {
 unsafe impl ::windows::runtime::Abi for OutlineStyles {
     type Abi = Self;
 }
-pub const OutlineThickness_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(333872327, 56002, 18568, [189, 211, 55, 92, 98, 250, 150, 24]);
-pub const PROPID_ACC_DEFAULTACTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(403441451, 49791, 17351, [153, 34, 246, 53, 98, 164, 99, 43]);
-pub const PROPID_ACC_DESCRIPTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1296621540, 48447, 18719, [166, 72, 73, 45, 111, 32, 197, 136]);
-pub const PROPID_ACC_DESCRIPTIONMAP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(535905119, 35348, 18299, [178, 38, 160, 171, 226, 121, 151, 93]);
-pub const PROPID_ACC_DODEFAULTACTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(463508771, 11835, 18854, [160, 89, 89, 104, 42, 60, 72, 253]);
-pub const PROPID_ACC_FOCUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1857238495, 7209, 16679, [177, 44, 222, 233, 253, 21, 127, 43]);
-pub const PROPID_ACC_HELP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3358712095, 17627, 19097, [151, 104, 203, 143, 151, 139, 114, 49]);
-pub const PROPID_ACC_HELPTOPIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2021462905, 36574, 17419, [138, 236, 17, 247, 191, 144, 48, 179]);
-pub const PROPID_ACC_KEYBOARDSHORTCUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2107363054, 32030, 18809, [147, 130, 81, 128, 244, 23, 44, 52]);
-pub const PROPID_ACC_NAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1619869176, 33064, 19111, [164, 40, 245, 94, 73, 38, 114, 145]);
-pub const PROPID_ACC_NAV_DOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(51802349, 15583, 18642, [150, 19, 19, 143, 45, 216, 166, 104]);
-pub const PROPID_ACC_NAV_FIRSTCHILD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3486524760, 21883, 19559, [132, 249, 42, 9, 252, 228, 7, 73]);
-pub const PROPID_ACC_NAV_LASTCHILD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(808372901, 18645, 20365, [182, 113, 26, 141, 32, 167, 120, 50]);
-pub const PROPID_ACC_NAV_LEFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(578848459, 33521, 19001, [135, 5, 220, 220, 15, 255, 146, 245]);
-pub const PROPID_ACC_NAV_NEXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(484201557, 36057, 19602, [163, 113, 57, 57, 162, 254, 62, 238]);
-pub const PROPID_ACC_NAV_PREV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2003646609, 51003, 17536, [179, 246, 7, 106, 22, 161, 90, 246]);
-pub const PROPID_ACC_NAV_RIGHT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3441499551, 57803, 20453, [167, 124, 146, 11, 136, 77, 9, 91]);
-pub const PROPID_ACC_NAV_UP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(23992875, 6734, 18279, [134, 18, 51, 134, 246, 105, 53, 236]);
-pub const PROPID_ACC_PARENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1196171958, 65474, 18042, [177, 181, 233, 88, 180, 101, 115, 48]);
-pub const PROPID_ACC_ROLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3415236594, 31697, 19461, [179, 200, 230, 194, 65, 54, 77, 112]);
-pub const PROPID_ACC_ROLEMAP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4154117538, 5133, 20454, [137, 20, 32, 132, 118, 50, 130, 105]);
-pub const PROPID_ACC_SELECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3114075964, 55089, 16475, [144, 97, 217, 94, 143, 132, 41, 132]);
-pub const PROPID_ACC_STATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2832520624, 2593, 17104, [165, 192, 81, 78, 152, 79, 69, 123]);
-pub const PROPID_ACC_STATEMAP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1133800542, 2752, 16450, [181, 37, 7, 187, 219, 225, 127, 167]);
-pub const PROPID_ACC_VALUE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(306177091, 8474, 17941, [149, 39, 196, 90, 126, 147, 113, 122]);
-pub const PROPID_ACC_VALUEMAP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3659283833, 64604, 16910, [179, 153, 157, 21, 51, 84, 158, 117]);
-pub const Pane_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1546338139, 37250, 17059, [141, 236, 140, 4, 193, 238, 99, 77]);
-pub const PositionInSet_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(869391444, 25630, 19830, [166, 177, 19, 243, 65, 193, 248, 150]);
-pub const ProcessId_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1078565272, 39985, 16965, [164, 3, 135, 50, 14, 89, 234, 246]);
-pub const ProgressBar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(579641222, 50028, 18363, [159, 182, 165, 131, 75, 252, 83, 164]);
+pub const OutlineThickness_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13e67cc7_dac2_4888_bdd3_375c62fa9618);
+pub const PROPID_ACC_DEFAULTACTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x180c072b_c27f_43c7_9922_f63562a4632b);
+pub const PROPID_ACC_DESCRIPTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d48dfe4_bd3f_491f_a648_492d6f20c588);
+pub const PROPID_ACC_DESCRIPTIONMAP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ff1435f_8a14_477b_b226_a0abe279975d);
+pub const PROPID_ACC_DODEFAULTACTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ba09523_2e3b_49a6_a059_59682a3c48fd);
+pub const PROPID_ACC_FOCUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6eb335df_1c29_4127_b12c_dee9fd157f2b);
+pub const PROPID_ACC_HELP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc831e11f_44db_4a99_9768_cb8f978b7231);
+pub const PROPID_ACC_HELPTOPIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x787d1379_8ede_440b_8aec_11f7bf9030b3);
+pub const PROPID_ACC_KEYBOARDSHORTCUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d9bceee_7d1e_4979_9382_5180f4172c34);
+pub const PROPID_ACC_NAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x608d3df8_8128_4aa7_a428_f55e49267291);
+pub const PROPID_ACC_NAV_DOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x031670ed_3cdf_48d2_9613_138f2dd8a668);
+pub const PROPID_ACC_NAV_FIRSTCHILD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfd02558_557b_4c67_84f9_2a09fce40749);
+pub const PROPID_ACC_NAV_LASTCHILD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x302ecaa5_48d5_4f8d_b671_1a8d20a77832);
+pub const PROPID_ACC_NAV_LEFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x228086cb_82f1_4a39_8705_dcdc0fff92f5);
+pub const PROPID_ACC_NAV_NEXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cdc5455_8cd9_4c92_a371_3939a2fe3eee);
+pub const PROPID_ACC_NAV_PREV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x776d3891_c73b_4480_b3f6_076a16a15af6);
+pub const PROPID_ACC_NAV_RIGHT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd211d9f_e1cb_4fe5_a77c_920b884d095b);
+pub const PROPID_ACC_NAV_UP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x016e1a2b_1a4e_4767_8612_3386f66935ec);
+pub const PROPID_ACC_PARENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x474c22b6_ffc2_467a_b1b5_e958b4657330);
+pub const PROPID_ACC_ROLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb905ff2_7bd1_4c05_b3c8_e6c241364d70);
+pub const PROPID_ACC_ROLEMAP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf79acda2_140d_4fe6_8914_208476328269);
+pub const PROPID_ACC_SELECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb99d073c_d731_405b_9061_d95e8f842984);
+pub const PROPID_ACC_STATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8d4d5b0_0a21_42d0_a5c0_514e984f457b);
+pub const PROPID_ACC_STATEMAP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43946c5e_0ac0_4042_b525_07bbdbe17fa7);
+pub const PROPID_ACC_VALUE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x123fe443_211a_4615_9527_c45a7e93717a);
+pub const PROPID_ACC_VALUEMAP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda1c3d79_fc5c_420e_b399_9d1533549e75);
+pub const Pane_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c2b3f5b_9182_42a3_8dec_8c04c1ee634d);
+pub const PositionInSet_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33d1dc54_641e_4d76_a6b1_13f341c1f896);
+pub const ProcessId_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40499998_9c31_4245_a403_87320e59eaf6);
+pub const ProgressBar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x228c9f86_c36c_47bb_9fb6_a5834bfc53a4);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -21527,7 +21527,7 @@ impl ::core::convert::From<i32> for PropertyConditionFlags {
 unsafe impl ::windows::runtime::Abi for PropertyConditionFlags {
     type Abi = Self;
 }
-pub const ProviderDescription_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3701829770, 49515, 19673, [184, 137, 190, 177, 106, 128, 73, 4]);
+pub const ProviderDescription_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdca5708a_c16b_4cd9_b889_beb16a804904);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -21692,7 +21692,7 @@ pub const ROLE_SYSTEM_TOOLTIP: u32 = 13u32;
 pub const ROLE_SYSTEM_WHITESPACE: u32 = 59u32;
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const ROLE_SYSTEM_WINDOW: u32 = 9u32;
-pub const RadioButton_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1004227035, 65068, 17539, [179, 225, 229, 127, 33, 148, 64, 198]);
+pub const RadioButton_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3bdb49db_fe2c_4483_b3e1_e57f219440c6);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[inline]
 pub unsafe fn RangeValuePattern_SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, val: f64) -> ::windows::runtime::Result<()> {
@@ -21707,13 +21707,13 @@ pub unsafe fn RangeValuePattern_SetValue<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const RangeValue_IsReadOnly_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(637145173, 57023, 17267, [167, 158, 31, 26, 25, 8, 211, 196]);
-pub const RangeValue_LargeChange_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2717475621, 14909, 19268, [142, 31, 74, 70, 217, 132, 64, 25]);
-pub const RangeValue_Maximum_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(422680852, 63865, 19253, [161, 166, 211, 126, 5, 67, 52, 115]);
-pub const RangeValue_Minimum_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2026623922, 26701, 18528, [175, 147, 209, 249, 92, 176, 34, 253]);
-pub const RangeValue_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(414190983, 45513, 18282, [191, 189, 95, 11, 219, 146, 111, 99]);
-pub const RangeValue_SmallChange_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2177025111, 14657, 16647, [153, 117, 19, 151, 96, 247, 192, 114]);
-pub const RangeValue_Value_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(320822680, 50444, 18589, [171, 229, 174, 34, 8, 152, 197, 247]);
+pub const RangeValue_IsReadOnly_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25fa1055_debf_4373_a79e_1f1a1908d3c4);
+pub const RangeValue_LargeChange_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1f96325_3a3d_4b44_8e1f_4a46d9844019);
+pub const RangeValue_Maximum_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x19319914_f979_4b35_a1a6_d37e05433473);
+pub const RangeValue_Minimum_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78cbd3b2_684d_4860_af93_d1f95cb022fd);
+pub const RangeValue_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18b00d87_b1c9_476a_bfbd_5f0bdb926f63);
+pub const RangeValue_SmallChange_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81c2c457_3941_4107_9975_139760f7c072);
+pub const RangeValue_Value_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x131f5d98_c50c_489d_abe5_ae220898c5f7);
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
@@ -21744,7 +21744,7 @@ pub unsafe fn RegisterPointerInputTargetEx<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const Rotation_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1987894397, 44736, 16656, [173, 50, 48, 237, 212, 3, 73, 46]);
+pub const Rotation_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x767cdc7d_aec0_4110_ad32_30edd403492e);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -21760,7 +21760,7 @@ impl ::core::convert::From<i32> for RowOrColumnMajor {
 unsafe impl ::windows::runtime::Abi for RowOrColumnMajor {
     type Abi = Self;
 }
-pub const RuntimeId_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2745101306, 32698, 19593, [180, 212, 185, 158, 45, 231, 209, 96]);
+pub const RuntimeId_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa39eebfa_7fba_4c89_b4d4_b99e2de7d160);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const SELFLAG_ADDSELECTION: u32 = 8u32;
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -21896,8 +21896,8 @@ impl ::core::ops::Not for SERIALKEYS_FLAGS {
         Self(self.0.not())
     }
 }
-pub const SID_ControlElementProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4101578088, 57940, 19363, [154, 83, 38, 165, 197, 73, 121, 70]);
-pub const SID_IsUIAutomationObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3111115653, 29188, 18212, [132, 43, 199, 5, 157, 237, 185, 208]);
+pub const SID_ControlElementProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf4791d68_e254_4ba3_9a53_26a5c5497946);
+pub const SID_IsUIAutomationObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb96fdb85_7204_4724_842b_c7059dedb9d0);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -22360,7 +22360,7 @@ impl ::core::convert::From<i32> for ScrollAmount {
 unsafe impl ::windows::runtime::Abi for ScrollAmount {
     type Abi = Self;
 }
-pub const ScrollBar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3673377590, 20581, 18758, [178, 47, 146, 89, 95, 192, 117, 26]);
+pub const ScrollBar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdaf34b36_5065_4946_b22f_92595fc0751a);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[inline]
 pub unsafe fn ScrollItemPattern_ScrollIntoView<'a, Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::runtime::Result<()> {
@@ -22375,7 +22375,7 @@ pub unsafe fn ScrollItemPattern_ScrollIntoView<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const ScrollItem_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1167183877, 43011, 19804, [180, 213, 141, 40, 0, 249, 6, 167]);
+pub const ScrollItem_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4591d005_a803_4d5c_b4d5_8d2800f906a7);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[inline]
 pub unsafe fn ScrollPattern_Scroll<'a, Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::runtime::Result<()> {
@@ -22404,17 +22404,17 @@ pub unsafe fn ScrollPattern_SetScrollPercent<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const Scroll_HorizontalScrollPercent_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3351329806, 60193, 18431, [172, 196, 181, 163, 53, 15, 81, 145]);
-pub const Scroll_HorizontalViewSize_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1891821012, 64688, 18195, [169, 170, 175, 146, 255, 121, 228, 205]);
-pub const Scroll_HorizontallyScrollable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2341622087, 10445, 18862, [189, 99, 244, 65, 24, 210, 231, 25]);
-pub const Scroll_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2304746676, 30109, 19536, [142, 21, 3, 70, 6, 114, 0, 60]);
-pub const Scroll_VerticalScrollPercent_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1821208729, 45736, 18760, [191, 247, 60, 249, 5, 139, 254, 251]);
-pub const Scroll_VerticalViewSize_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3731500578, 55495, 16581, [131, 186, 229, 246, 129, 213, 49, 8]);
-pub const Scroll_VerticallyScrollable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2299938712, 104, 17173, [184, 154, 30, 124, 251, 188, 61, 252]);
-pub const Selection2_CurrentSelectedItem_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(874871846, 33717, 16806, [147, 156, 174, 132, 28, 19, 98, 54]);
-pub const Selection2_FirstSelectedItem_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3424971367, 13980, 20053, [159, 247, 56, 218, 105, 84, 12, 41]);
-pub const Selection2_ItemCount_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3142183839, 17773, 16456, [181, 145, 156, 32, 38, 184, 70, 54]);
-pub const Selection2_LastSelectedItem_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3481000592, 11651, 18936, [134, 12, 156, 227, 148, 207, 137, 180]);
+pub const Scroll_HorizontalScrollPercent_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7c13c0e_eb21_47ff_acc4_b5a3350f5191);
+pub const Scroll_HorizontalViewSize_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70c2e5d4_fcb0_4713_a9aa_af92ff79e4cd);
+pub const Scroll_HorizontallyScrollable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b925147_28cd_49ae_bd63_f44118d2e719);
+pub const Scroll_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x895fa4b4_759d_4c50_8e15_03460672003c);
+pub const Scroll_VerticalScrollPercent_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c8d7099_b2a8_4948_bff7_3cf9058bfefb);
+pub const Scroll_VerticalViewSize_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde6a2e22_d8c7_40c5_83ba_e5f681d53108);
+pub const Scroll_VerticallyScrollable_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89164798_0068_4315_b89a_1e7cfbbc3dfc);
+pub const Selection2_CurrentSelectedItem_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34257c26_83b5_41a6_939c_ae841c136236);
+pub const Selection2_FirstSelectedItem_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc24ea67_369c_4e55_9ff7_38da69540c29);
+pub const Selection2_ItemCount_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb49eb9f_456d_4048_b591_9c2026b84636);
+pub const Selection2_LastSelectedItem_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf7bda90_2d83_49f8_860c_9ce394cf89b4);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[inline]
 pub unsafe fn SelectionItemPattern_AddToSelection<'a, Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::runtime::Result<()> {
@@ -22457,20 +22457,20 @@ pub unsafe fn SelectionItemPattern_Select<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const SelectionItem_ElementAddedToSelectionEvent_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1015164369, 50183, 19898, [145, 221, 121, 212, 174, 208, 174, 198]);
-pub const SelectionItem_ElementRemovedFromSelectionEvent_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(159361193, 28793, 16815, [139, 156, 9, 52, 216, 48, 94, 92]);
-pub const SelectionItem_ElementSelectedEvent_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3116882939, 20158, 17714, [170, 244, 0, 140, 246, 71, 35, 60]);
-pub const SelectionItem_IsSelected_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4045570911, 52575, 17375, [183, 157, 75, 132, 158, 158, 96, 32]);
-pub const SelectionItem_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2613464811, 34759, 19240, [148, 187, 77, 159, 164, 55, 182, 239]);
-pub const SelectionItem_SelectionContainer_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2755025774, 39966, 19299, [139, 83, 194, 66, 29, 209, 232, 251]);
-pub const Selection_CanSelectMultiple_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1238842789, 51331, 17664, [136, 61, 143, 207, 141, 175, 108, 190]);
-pub const Selection_InvalidatedEvent_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3401664772, 5812, 19283, [142, 71, 76, 177, 223, 38, 123, 183]);
-pub const Selection_IsSelectionRequired_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2980987938, 25598, 17639, [165, 165, 167, 56, 200, 41, 177, 154]);
-pub const Selection_Pattern2_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4221721771, 43928, 18935, [167, 220, 254, 83, 157, 193, 91, 231]);
-pub const Selection_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1726199784, 55329, 19749, [135, 97, 67, 93, 44, 139, 37, 63]);
-pub const Selection_Selection_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2859319970, 3627, 19768, [150, 213, 52, 228, 112, 184, 24, 83]);
-pub const SemanticZoom_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1607682627, 1566, 17096, [181, 137, 157, 204, 247, 75, 196, 58]);
-pub const Separator_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2271734691, 10851, 19120, [172, 141, 170, 80, 226, 61, 233, 120]);
+pub const SelectionItem_ElementAddedToSelectionEvent_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c822dd1_c407_4dba_91dd_79d4aed0aec6);
+pub const SelectionItem_ElementRemovedFromSelectionEvent_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x097fa8a9_7079_41af_8b9c_0934d8305e5c);
+pub const SelectionItem_ElementSelectedEvent_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9c7dbfb_4ebe_4532_aaf4_008cf647233c);
+pub const SelectionItem_IsSelected_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf122835f_cd5f_43df_b79d_4b849e9e6020);
+pub const SelectionItem_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9bc64eeb_87c7_4b28_94bb_4d9fa437b6ef);
+pub const SelectionItem_SelectionContainer_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4365b6e_9c1e_4b63_8b53_c2421dd1e8fb);
+pub const Selection_CanSelectMultiple_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49d73da5_c883_4500_883d_8fcf8daf6cbe);
+pub const Selection_InvalidatedEvent_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcac14904_16b4_4b53_8e47_4cb1df267bb7);
+pub const Selection_IsSelectionRequired_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1ae4422_63fe_44e7_a5a5_a738c829b19a);
+pub const Selection_Pattern2_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfba25cab_ab98_49f7_a7dc_fe539dc15be7);
+pub const Selection_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66e3b7e8_d821_4d25_8761_435d2c8b253f);
+pub const Selection_Selection_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa6dc2a2_0e2b_4d38_96d5_34e470b81853);
+pub const SemanticZoom_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5fd34a43_061e_42c8_b589_9dccf74bc43a);
+pub const Separator_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8767eba3_2a63_4ab0_ac8d_aa50e23de978);
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -22486,17 +22486,17 @@ pub unsafe fn SetWinEventHook<'a, Param2: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const SizeOfSet_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(369152828, 15263, 17257, [148, 49, 170, 41, 63, 52, 76, 241]);
-pub const Size_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(727676445, 63621, 17412, [151, 63, 155, 29, 152, 227, 109, 143]);
-pub const Slider_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2956182091, 15157, 19690, [182, 9, 118, 54, 130, 250, 102, 11]);
-pub const Spinner_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1624001336, 15537, 16737, [180, 66, 198, 183, 38, 193, 120, 37]);
-pub const SplitButton_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1880223775, 19150, 18689, [180, 97, 146, 10, 111, 28, 166, 80]);
-pub const SpreadsheetItem_AnnotationObjects_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2736344120, 51644, 17924, [147, 150, 174, 63, 159, 69, 127, 123]);
-pub const SpreadsheetItem_AnnotationTypes_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3339473360, 54786, 19269, [175, 188, 180, 113, 43, 150, 215, 43]);
-pub const SpreadsheetItem_Formula_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3858949245, 6983, 19434, [135, 207, 59, 11, 11, 92, 21, 182]);
-pub const SpreadsheetItem_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(852460543, 61864, 19084, [134, 88, 212, 123, 167, 78, 32, 186]);
-pub const Spreadsheet_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1784358089, 40222, 19333, [158, 68, 192, 46, 49, 105, 177, 11]);
-pub const StatusBar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3562962203, 22643, 18271, [149, 164, 4, 51, 225, 241, 176, 10]);
+pub const SizeOfSet_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1600d33c_3b9f_4369_9431_aa293f344cf1);
+pub const Size_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b5f761d_f885_4404_973f_9b1d98e36d8f);
+pub const Slider_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb033c24b_3b35_4cea_b609_763682fa660b);
+pub const Spinner_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60cc4b38_3cb1_4161_b442_c6b726c17825);
+pub const SplitButton_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7011f01f_4ace_4901_b461_920a6f1ca650);
+pub const SpreadsheetItem_AnnotationObjects_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3194c38_c9bc_4604_9396_ae3f9f457f7b);
+pub const SpreadsheetItem_AnnotationTypes_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc70c51d0_d602_4b45_afbc_b4712b96d72b);
+pub const SpreadsheetItem_Formula_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe602e47d_1b47_4bea_87cf_3b0b0b5c15b6);
+pub const SpreadsheetItem_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32cf83ff_f1a8_4a8c_8658_d47ba74e20ba);
+pub const Spreadsheet_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a5b24c9_9d1e_4b85_9e44_c02e3169b10b);
+pub const StatusBar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd45e7d1b_5873_475f_95a4_0433e1f1b00a);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -22515,70 +22515,70 @@ impl ::core::convert::From<i32> for StructureChangeType {
 unsafe impl ::windows::runtime::Abi for StructureChangeType {
     type Abi = Self;
 }
-pub const StructureChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1503099233, 16093, 19217, [177, 59, 103, 107, 42, 42, 108, 169]);
-pub const StructuredMarkup_CompositionComplete_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3297393687, 26490, 16455, [166, 141, 252, 18, 87, 82, 138, 239]);
-pub const StructuredMarkup_Deleted_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4191199264, 57793, 20175, [185, 170, 82, 239, 222, 126, 65, 225]);
-pub const StructuredMarkup_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2881292408, 34405, 20316, [148, 252, 54, 231, 216, 187, 112, 107]);
-pub const StructuredMarkup_SelectionChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2814907895, 65439, 16839, [163, 167, 171, 108, 191, 219, 73, 3]);
+pub const StructureChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59977961_3edd_4b11_b13b_676b2a2a6ca9);
+pub const StructuredMarkup_CompositionComplete_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc48a3c17_677a_4047_a68d_fc1257528aef);
+pub const StructuredMarkup_Deleted_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9d0a020_e1c1_4ecf_b9aa_52efde7e41e1);
+pub const StructuredMarkup_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xabbd0878_8665_4f5c_94fc_36e7d8bb706b);
+pub const StructuredMarkup_SelectionChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7c815f7_ff9f_41c7_a3a7_ab6cbfdb4903);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const StyleId_BulletedList: i32 = 70015i32;
-pub const StyleId_BulletedList_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1499721060, 25638, 17970, [140, 175, 163, 42, 212, 2, 217, 26]);
+pub const StyleId_BulletedList_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5963ed64_6426_4632_8caf_a32ad402d91a);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const StyleId_Custom: i32 = 70000i32;
-pub const StyleId_Custom_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4012825918, 43417, 19324, [163, 120, 9, 187, 213, 42, 53, 22]);
+pub const StyleId_Custom_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef2edd3e_a999_4b7c_a378_09bbd52a3516);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const StyleId_Emphasis: i32 = 70013i32;
-pub const StyleId_Emphasis_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3396238782, 13662, 18464, [149, 160, 146, 95, 4, 29, 52, 112]);
+pub const StyleId_Emphasis_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca6e7dbe_355e_4820_95a0_925f041d3470);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const StyleId_Heading1: i32 = 70001i32;
-pub const StyleId_Heading1_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2139000681, 26726, 17953, [147, 12, 154, 93, 12, 165, 150, 28]);
+pub const StyleId_Heading1_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f7e8f69_6866_4621_930c_9a5d0ca5961c);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const StyleId_Heading2: i32 = 70002i32;
-pub const StyleId_Heading2_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3131683393, 23657, 18077, [133, 173, 71, 71, 55, 181, 43, 20]);
+pub const StyleId_Heading2_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbaa9b241_5c69_469d_85ad_474737b52b14);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const StyleId_Heading3: i32 = 70003i32;
-pub const StyleId_Heading3_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3213617618, 55480, 20165, [140, 82, 156, 251, 13, 3, 89, 112]);
+pub const StyleId_Heading3_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf8be9d2_d8b8_4ec5_8c52_9cfb0d035970);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const StyleId_Heading4: i32 = 70004i32;
-pub const StyleId_Heading4_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2218196928, 38264, 17916, [131, 164, 255, 64, 5, 51, 21, 221]);
+pub const StyleId_Heading4_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8436ffc0_9578_45fc_83a4_ff40053315dd);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const StyleId_Heading5: i32 = 70005i32;
-pub const StyleId_Heading5_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2426356301, 3519, 16494, [151, 187, 78, 119, 61, 151, 152, 247]);
+pub const StyleId_Heading5_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x909f424d_0dbf_406e_97bb_4e773d9798f7);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const StyleId_Heading6: i32 = 70006i32;
-pub const StyleId_Heading6_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2312254553, 23899, 18468, [164, 32, 17, 211, 237, 130, 228, 15]);
+pub const StyleId_Heading6_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89d23459_5d5b_4824_a420_11d3ed82e40f);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const StyleId_Heading7: i32 = 70007i32;
-pub const StyleId_Heading7_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2742617203, 59822, 16941, [184, 227, 59, 103, 92, 97, 129, 164]);
+pub const StyleId_Heading7_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3790473_e9ae_422d_b8e3_3b675c6181a4);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const StyleId_Heading8: i32 = 70008i32;
-pub const StyleId_Heading8_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(734085445, 41996, 18561, [132, 174, 242, 35, 86, 133, 56, 12]);
+pub const StyleId_Heading8_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bc14145_a40c_4881_84ae_f2235685380c);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const StyleId_Heading9: i32 = 70009i32;
-pub const StyleId_Heading9_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3339555123, 47914, 17363, [138, 198, 51, 101, 120, 132, 176, 240]);
+pub const StyleId_Heading9_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc70d9133_bb2a_43d3_8ac6_33657884b0f0);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const StyleId_Normal: i32 = 70012i32;
-pub const StyleId_Normal_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3440694313, 58462, 17525, [161, 197, 127, 158, 107, 233, 110, 186]);
+pub const StyleId_Normal_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd14d429_e45e_4475_a1c5_7f9e6be96eba);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const StyleId_NumberedList: i32 = 70016i32;
-pub const StyleId_NumberedList_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(513203157, 25795, 17360, [177, 238, 181, 59, 6, 227, 237, 223]);
+pub const StyleId_NumberedList_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e96dbd5_64c3_43d0_b1ee_b53b06e3eddf);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const StyleId_Quote: i32 = 70014i32;
-pub const StyleId_Quote_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1562124778, 33173, 20332, [135, 234, 93, 171, 236, 230, 76, 29]);
+pub const StyleId_Quote_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d1c21ea_8195_4f6c_87ea_5dabece64c1d);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const StyleId_Subtitle: i32 = 70011i32;
-pub const StyleId_Subtitle_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3050961943, 23919, 17440, [180, 57, 124, 177, 154, 212, 52, 226]);
+pub const StyleId_Subtitle_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5d9fc17_5d6f_4420_b439_7cb19ad434e2);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const StyleId_Title: i32 = 70010i32;
-pub const StyleId_Title_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(366485530, 65487, 18463, [176, 161, 48, 182, 59, 233, 143, 7]);
-pub const Styles_ExtendedProperties_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4099001760, 47626, 18049, [176, 176, 13, 189, 181, 62, 88, 243]);
-pub const Styles_FillColor_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1676671354, 41413, 19229, [132, 235, 183, 101, 242, 237, 214, 50]);
-pub const Styles_FillPatternColor_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2476366334, 36797, 20085, [162, 113, 172, 69, 149, 25, 81, 99]);
-pub const Styles_FillPatternStyle_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2177852703, 18475, 17489, [163, 10, 225, 84, 94, 85, 79, 184]);
-pub const Styles_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(451290709, 55922, 19808, [161, 83, 229, 170, 105, 136, 227, 191]);
-pub const Styles_Shape_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3340379128, 30604, 16397, [132, 88, 59, 84, 62, 82, 105, 132]);
-pub const Styles_StyleId_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3665986863, 14359, 16947, [130, 175, 2, 39, 158, 114, 204, 119]);
-pub const Styles_StyleName_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(470986805, 1489, 20309, [158, 142, 20, 137, 243, 255, 85, 13]);
+pub const StyleId_Title_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15d8201a_ffcf_481f_b0a1_30b63be98f07);
+pub const Styles_ExtendedProperties_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf451cda0_ba0a_4681_b0b0_0dbdb53e58f3);
+pub const Styles_FillColor_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63eff97a_a1c5_4b1d_84eb_b765f2edd632);
+pub const Styles_FillPatternColor_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x939a59fe_8fbd_4e75_a271_ac4595195163);
+pub const Styles_FillPatternStyle_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81cf651f_482b_4451_a30a_e1545e554fb8);
+pub const Styles_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ae62655_da72_4d60_a153_e5aa6988e3bf);
+pub const Styles_Shape_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc71a23f8_778c_400d_8458_3b543e526984);
+pub const Styles_StyleId_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda82852f_3817_4233_82af_02279e72cc77);
+pub const Styles_StyleName_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c12b035_05d1_4f55_9e8e_1489f3ff550d);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -22640,8 +22640,8 @@ impl ::core::convert::From<i32> for SynchronizedInputType {
 unsafe impl ::windows::runtime::Abi for SynchronizedInputType {
     type Abi = Self;
 }
-pub const SynchronizedInput_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(96635046, 50299, 18571, [182, 83, 51, 151, 122, 85, 27, 139]);
-pub const SystemAlert_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3530642525, 31290, 18343, [132, 116, 129, 210, 154, 36, 81, 201]);
+pub const SynchronizedInput_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05c288a6_c47b_488b_b653_33977a551b8b);
+pub const SystemAlert_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd271545d_7a3a_47a7_8474_81d29a2451c9);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -22669,17 +22669,17 @@ impl ::core::cmp::Eq for TOGGLEKEYS {}
 unsafe impl ::windows::runtime::Abi for TOGGLEKEYS {
     type Abi = Self;
 }
-pub const TabItem_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(745169743, 37403, 20078, [178, 110, 8, 252, 176, 121, 143, 76]);
-pub const Tab_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(952966957, 13178, 19410, [165, 227, 173, 180, 105, 227, 11, 211]);
-pub const TableItem_ColumnHeaderItems_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2524599971, 29878, 17182, [141, 230, 153, 196, 17, 3, 28, 88]);
-pub const TableItem_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3742581693, 6280, 18985, [165, 12, 185, 46, 109, 227, 127, 111]);
-pub const TableItem_RowHeaderItems_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3019396000, 1396, 19672, [188, 215, 237, 89, 35, 87, 45, 151]);
-pub const Table_ColumnHeaders_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2951862059, 38541, 17073, [180, 89, 21, 11, 41, 157, 166, 100]);
-pub const Table_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2000419342, 23492, 19947, [146, 27, 222, 123, 50, 6, 34, 158]);
-pub const Table_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3289719182, 41000, 17950, [170, 146, 143, 146, 92, 247, 147, 81]);
-pub const Table_RowHeaders_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3655555975, 28344, 17762, [170, 198, 168, 169, 7, 82, 54, 168]);
-pub const Table_RowOrColumnMajor_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2210297283, 10750, 18992, [133, 225, 42, 98, 119, 253, 16, 110]);
-pub const TextChild_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1966328503, 15358, 16879, [158, 133, 226, 99, 140, 190, 22, 158]);
+pub const TabItem_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c6a634f_921b_4e6e_b26e_08fcb0798f4c);
+pub const Tab_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38cd1f2d_337a_4bd2_a5e3_adb469e30bd3);
+pub const TableItem_ColumnHeaderItems_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x967a56a3_74b6_431e_8de6_99c411031c58);
+pub const TableItem_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf1343bd_1888_4a29_a50c_b92e6de37f6f);
+pub const TableItem_RowHeaderItems_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3f853a0_0574_4cd8_bcd7_ed5923572d97);
+pub const Table_ColumnHeaders_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaff1d72b_968d_42b1_b459_150b299da664);
+pub const Table_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x773bfa0e_5bc4_4deb_921b_de7b3206229e);
+pub const Table_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc415218e_a028_461e_aa92_8f925cf79351);
+pub const Table_RowHeaders_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9e35b87_6eb8_4562_aac6_a8a9075236a8);
+pub const Table_RowOrColumnMajor_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83be75c3_29fe_4a30_85e1_2a6277fd106e);
+pub const TextChild_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7533cab7_3bfe_41ef_9e85_e2638cbe169e);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -22728,9 +22728,9 @@ impl ::core::convert::From<i32> for TextEditChangeType {
 unsafe impl ::windows::runtime::Abi for TextEditChangeType {
     type Abi = Self;
 }
-pub const TextEdit_ConversionTargetChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(864600451, 60751, 19595, [155, 170, 54, 77, 81, 216, 132, 127]);
-pub const TextEdit_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1777598345, 23289, 19573, [147, 64, 242, 222, 41, 46, 69, 145]);
-pub const TextEdit_TextChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(302711560, 60450, 20152, [156, 152, 152, 103, 205, 161, 177, 101]);
+pub const TextEdit_ConversionTargetChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3388c183_ed4f_4c8b_9baa_364d51d8847f);
+pub const TextEdit_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69f3ff89_5af9_4c75_9340_f2de292e4591);
+pub const TextEdit_TextChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x120b0308_ec22_4eb8_9c98_9867cda1b165);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -23110,59 +23110,59 @@ impl ::core::convert::From<i32> for TextUnit {
 unsafe impl ::windows::runtime::Abi for TextUnit {
     type Abi = Self;
 }
-pub const Text_AfterParagraphSpacing_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1485617976, 58927, 18812, [181, 209, 204, 223, 14, 232, 35, 216]);
-pub const Text_AfterSpacing_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1485617976, 58927, 18812, [181, 209, 204, 223, 14, 232, 35, 216]);
-pub const Text_AnimationStyle_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1652689392, 31898, 19799, [190, 100, 31, 24, 54, 87, 31, 245]);
-pub const Text_AnnotationObjects_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4282503016, 59307, 16569, [140, 114, 114, 168, 237, 148, 1, 125]);
-pub const Text_AnnotationTypes_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2905519153, 61006, 19425, [167, 186, 85, 89, 21, 90, 115, 239]);
-pub const Text_BackgroundColor_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4257520135, 22589, 20247, [173, 39, 119, 252, 131, 42, 60, 11]);
-pub const Text_BeforeParagraphSpacing_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3195734705, 51234, 18980, [133, 233, 200, 242, 101, 15, 199, 156]);
-pub const Text_BeforeSpacing_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3195734705, 51234, 18980, [133, 233, 200, 242, 101, 15, 199, 156]);
-pub const Text_BulletStyle_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3238624400, 54724, 16951, [151, 129, 59, 236, 139, 165, 78, 72]);
-pub const Text_CapStyle_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4211448912, 37580, 18853, [186, 143, 10, 168, 114, 187, 162, 243]);
-pub const Text_CaretBidiMode_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2459887526, 20947, 18197, [150, 220, 182, 148, 250, 36, 161, 104]);
-pub const Text_CaretPosition_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2988945713, 39049, 18258, [169, 27, 115, 62, 253, 197, 197, 160]);
-pub const Text_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2929160924, 54065, 20233, [190, 32, 126, 109, 250, 240, 123, 10]);
-pub const Text_Culture_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3254934265, 42029, 19693, [161, 251, 198, 116, 99, 21, 34, 46]);
-pub const Text_FontName_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1692810152, 62181, 18286, [164, 119, 23, 52, 254, 170, 247, 38]);
-pub const Text_FontSize_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3697209087, 1286, 18035, [147, 242, 55, 126, 74, 142, 1, 241]);
-pub const Text_FontWeight_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1874862937, 45846, 20319, [180, 1, 241, 206, 85, 116, 24, 83]);
-pub const Text_ForegroundColor_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1926351197, 24160, 18202, [150, 177, 108, 27, 59, 119, 164, 54]);
-pub const Text_HorizontalTextAlignment_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(82469217, 64419, 18298, [149, 42, 187, 50, 109, 2, 106, 91]);
-pub const Text_IndentationFirstLine_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(544185045, 49619, 16970, [129, 130, 109, 169, 167, 243, 214, 50]);
-pub const Text_IndentationLeading_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1559653292, 11589, 19019, [182, 201, 247, 34, 29, 40, 21, 176]);
-pub const Text_IndentationTrailing_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2550098959, 7396, 16522, [182, 123, 148, 216, 62, 182, 155, 242]);
-pub const Text_IsActive_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4121224499, 57784, 17259, [147, 93, 181, 122, 163, 245, 88, 196]);
-pub const Text_IsHidden_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(906068731, 48599, 18422, [171, 105, 25, 227, 63, 138, 51, 68]);
-pub const Text_IsItalic_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4242614870, 4918, 18996, [150, 99, 27, 171, 71, 35, 147, 32]);
-pub const Text_IsReadOnly_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2805470571, 51774, 18782, [149, 20, 131, 60, 68, 15, 235, 17]);
-pub const Text_IsSubscript_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4041922648, 36691, 16700, [135, 63, 26, 125, 127, 94, 13, 228]);
-pub const Text_IsSuperscript_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3664801508, 45994, 17989, [164, 31, 205, 37, 21, 125, 234, 118]);
-pub const Text_LineSpacing_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1677684910, 55619, 19271, [138, 183, 167, 160, 51, 211, 33, 75]);
-pub const Text_Link_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3012490525, 40589, 20038, [145, 68, 86, 235, 225, 119, 50, 155]);
-pub const Text_MarginBottom_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2128974788, 29364, 19628, [146, 113, 62, 210, 75, 14, 77, 66]);
-pub const Text_MarginLeading_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2660385488, 24272, 18688, [142, 138, 238, 204, 3, 131, 90, 252]);
-pub const Text_MarginTop_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1748865903, 51641, 19098, [179, 217, 210, 13, 51, 49, 30, 42]);
-pub const Text_MarginTrailing_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2941398936, 39325, 16559, [165, 178, 1, 105, 208, 52, 32, 2]);
-pub const Text_OutlineStyles_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1533500199, 56201, 18174, [151, 12, 97, 77, 82, 59, 185, 125]);
-pub const Text_OverlineColor_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2209036346, 64835, 16602, [171, 62, 236, 248, 22, 92, 187, 109]);
-pub const Text_OverlineStyle_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(170085734, 24958, 17023, [135, 29, 225, 255, 30, 12, 33, 63]);
-pub const Text_Pattern2_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1233418658, 23330, 17549, [182, 228, 100, 116, 144, 134, 6, 152]);
-pub const Text_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2249584733, 32229, 17661, [166, 121, 44, 164, 180, 96, 51, 168]);
-pub const Text_SayAsInterpretAs_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3012220588, 61153, 19310, [136, 204, 1, 76, 239, 169, 63, 203]);
-pub const Text_SelectionActiveEnd_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(526814403, 39871, 16747, [176, 162, 248, 159, 134, 246, 97, 44]);
-pub const Text_StrikethroughColor_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3219216920, 35905, 19546, [154, 11, 4, 175, 14, 7, 244, 135]);
-pub const Text_StrikethroughStyle_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1922121457, 55808, 20225, [137, 156, 172, 90, 133, 119, 163, 7]);
-pub const Text_StyleId_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(348324062, 49963, 17563, [171, 124, 176, 224, 120, 154, 234, 93]);
-pub const Text_StyleName_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(583655569, 19814, 17880, [168, 40, 115, 123, 171, 76, 152, 167]);
-pub const Text_Tabs_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(778620939, 37630, 17112, [137, 154, 167, 132, 170, 68, 84, 161]);
-pub const Text_TextChangedEvent_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1244930178, 62595, 18628, [172, 17, 168, 75, 67, 94, 42, 132]);
-pub const Text_TextFlowDirections_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2346682169, 62496, 16958, [175, 119, 32, 165, 217, 115, 169, 7]);
-pub const Text_TextSelectionChangedEvent_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2442058401, 29107, 18862, [151, 65, 121, 190, 184, 211, 88, 243]);
-pub const Text_UnderlineColor_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3215010931, 64994, 17523, [191, 100, 16, 54, 214, 170, 15, 69]);
-pub const Text_UnderlineStyle_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1597710784, 60900, 17597, [156, 54, 56, 83, 3, 140, 191, 235]);
-pub const Thumb_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1880926327, 58128, 19926, [182, 68, 121, 126, 79, 174, 162, 19]);
-pub const TitleBar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2561299903, 15280, 19301, [131, 110, 46, 163, 13, 188, 23, 31]);
+pub const Text_AfterParagraphSpacing_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x588cbb38_e62f_497c_b5d1_ccdf0ee823d8);
+pub const Text_AfterSpacing_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x588cbb38_e62f_497c_b5d1_ccdf0ee823d8);
+pub const Text_AnimationStyle_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x628209f0_7c9a_4d57_be64_1f1836571ff5);
+pub const Text_AnnotationObjects_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff41cf68_e7ab_40b9_8c72_72a8ed94017d);
+pub const Text_AnnotationTypes_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad2eb431_ee4e_4be1_a7ba_5559155a73ef);
+pub const Text_BackgroundColor_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfdc49a07_583d_4f17_ad27_77fc832a3c0b);
+pub const Text_BeforeParagraphSpacing_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe7b0ab1_c822_4a24_85e9_c8f2650fc79c);
+pub const Text_BeforeSpacing_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe7b0ab1_c822_4a24_85e9_c8f2650fc79c);
+pub const Text_BulletStyle_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1097c90_d5c4_4237_9781_3bec8ba54e48);
+pub const Text_CapStyle_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb059c50_92cc_49a5_ba8f_0aa872bba2f3);
+pub const Text_CaretBidiMode_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x929ee7a6_51d3_4715_96dc_b694fa24a168);
+pub const Text_CaretPosition_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb227b131_9889_4752_a91b_733efdc5c5a0);
+pub const Text_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae9772dc_d331_4f09_be20_7e6dfaf07b0a);
+pub const Text_Culture_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2025af9_a42d_4ced_a1fb_c6746315222e);
+pub const Text_FontName_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64e63ba8_f2e5_476e_a477_1734feaaf726);
+pub const Text_FontSize_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc5eeeff_0506_4673_93f2_377e4a8e01f1);
+pub const Text_FontWeight_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fc02359_b316_4f5f_b401_f1ce55741853);
+pub const Text_ForegroundColor_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72d1c95d_5e60_471a_96b1_6c1b3b77a436);
+pub const Text_HorizontalTextAlignment_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04ea6161_fba3_477a_952a_bb326d026a5b);
+pub const Text_IndentationFirstLine_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206f9ad5_c1d3_424a_8182_6da9a7f3d632);
+pub const Text_IndentationLeading_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5cf66bac_2d45_4a4b_b6c9_f7221d2815b0);
+pub const Text_IndentationTrailing_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97ff6c0f_1ce4_408a_b67b_94d83eb69bf2);
+pub const Text_IsActive_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5a4e533_e1b8_436b_935d_b57aa3f558c4);
+pub const Text_IsHidden_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x360182fb_bdd7_47f6_ab69_19e33f8a3344);
+pub const Text_IsItalic_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfce12a56_1336_4a34_9663_1bab47239320);
+pub const Text_IsReadOnly_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa738156b_ca3e_495e_9514_833c440feb11);
+pub const Text_IsSubscript_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0ead858_8f53_413c_873f_1a7d7f5e0de4);
+pub const Text_IsSuperscript_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda706ee4_b3aa_4645_a41f_cd25157dea76);
+pub const Text_LineSpacing_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63ff70ae_d943_4b47_8ab7_a7a033d3214b);
+pub const Text_Link_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb38ef51d_9e8d_4e46_9144_56ebe177329b);
+pub const Text_MarginBottom_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ee593c4_72b4_4cac_9271_3ed24b0e4d42);
+pub const Text_MarginLeading_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e9242d0_5ed0_4900_8e8a_eecc03835afc);
+pub const Text_MarginTop_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x683d936f_c9b9_4a9a_b3d9_d20d33311e2a);
+pub const Text_MarginTrailing_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf522f98_999d_40af_a5b2_0169d0342002);
+pub const Text_OutlineStyles_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b675b27_db89_46fe_970c_614d523bb97d);
+pub const Text_OverlineColor_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83ab383a_fd43_40da_ab3e_ecf8165cbb6d);
+pub const Text_OverlineStyle_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a234d66_617e_427f_871d_e1ff1e0c213f);
+pub const Text_Pattern2_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x498479a2_5b22_448d_b6e4_647490860698);
+pub const Text_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8615f05d_7de5_44fd_a679_2ca4b46033a8);
+pub const Text_SayAsInterpretAs_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb38ad6ac_eee1_4b6e_88cc_014cefa93fcb);
+pub const Text_SelectionActiveEnd_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f668cc3_9bbf_416b_b0a2_f89f86f6612c);
+pub const Text_StrikethroughColor_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfe15a18_8c41_4c5a_9a0b_04af0e07f487);
+pub const Text_StrikethroughStyle_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72913ef1_da00_4f01_899c_ac5a8577a307);
+pub const Text_StyleId_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14c300de_c32b_449b_ab7c_b0e0789aea5d);
+pub const Text_StyleName_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22c9e091_4d66_45d8_a828_737bab4c98a7);
+pub const Text_Tabs_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e68d00b_92fe_42d8_899a_a784aa4454a1);
+pub const Text_TextChangedEvent_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a342082_f483_48c4_ac11_a84b435e2a84);
+pub const Text_TextFlowDirections_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bdf8739_f420_423e_af77_20a5d973a907);
+pub const Text_TextSelectionChangedEvent_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x918edaa1_71b3_49ae_9741_79beb8d358f3);
+pub const Text_UnderlineColor_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfa12c73_fde2_4473_bf64_1036d6aa0f45);
+pub const Text_UnderlineStyle_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f3b21c0_ede4_44bd_9c36_3853038cbfeb);
+pub const Thumb_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x701ca877_e310_4dd6_b644_797e4faea213);
+pub const TitleBar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98aa55bf_3bb0_4b65_836e_2ea30dbc171f);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[inline]
 pub unsafe fn TogglePattern_Toggle<'a, Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::runtime::Result<()> {
@@ -23192,17 +23192,17 @@ impl ::core::convert::From<i32> for ToggleState {
 unsafe impl ::windows::runtime::Abi for ToggleState {
     type Abi = Self;
 }
-pub const Toggle_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(188847968, 58100, 17407, [140, 95, 148, 87, 200, 43, 86, 233]);
-pub const Toggle_ToggleState_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2990333010, 8898, 19564, [157, 237, 245, 196, 34, 71, 158, 222]);
-pub const ToolBar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2399582033, 57730, 20120, [136, 147, 34, 132, 84, 58, 125, 206]);
-pub const ToolTipClosed_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(661484015, 9385, 18870, [142, 151, 218, 152, 180, 1, 187, 205]);
-pub const ToolTipOpened_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1061918719, 11996, 17693, [188, 164, 149, 163, 24, 141, 91, 3]);
-pub const ToolTip_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(98420433, 8503, 18280, [152, 234, 115, 245, 47, 113, 52, 243]);
-pub const Tranform_Pattern2_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2331835655, 41833, 17630, [152, 139, 47, 127, 244, 159, 184, 168]);
-pub const Transform2_CanZoom_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4082624656, 42838, 17241, [156, 166, 134, 112, 43, 248, 243, 129]);
-pub const Transform2_ZoomLevel_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4007829274, 62626, 19291, [172, 101, 149, 207, 147, 40, 51, 135]);
-pub const Transform2_ZoomMaximum_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1118530423, 52912, 20170, [184, 42, 108, 250, 95, 161, 252, 8]);
-pub const Transform2_ZoomMinimum_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1949092886, 19153, 19975, [150, 254, 177, 34, 198, 230, 178, 43]);
+pub const Toggle_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b419760_e2f4_43ff_8c5f_9457c82b56e9);
+pub const Toggle_ToggleState_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb23cdc52_22c2_4c6c_9ded_f5c422479ede);
+pub const ToolBar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f06b751_e182_4e98_8893_2284543a7dce);
+pub const ToolTipClosed_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x276d71ef_24a9_49b6_8e97_da98b401bbcd);
+pub const ToolTipOpened_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f4b97ff_2edc_451d_bca4_95a3188d5b03);
+pub const ToolTip_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05ddc6d1_2137_4768_98ea_73f52f7134f3);
+pub const Tranform_Pattern2_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8afcfd07_a369_44de_988b_2f7ff49fb8a8);
+pub const Transform2_CanZoom_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf357e890_a756_4359_9ca6_86702bf8f381);
+pub const Transform2_ZoomLevel_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeee29f1a_f4a2_4b5b_ac65_95cf93283387);
+pub const Transform2_ZoomMaximum_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42ab6b77_ceb0_4eca_b82a_6cfa5fa1fc08);
+pub const Transform2_ZoomMinimum_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x742ccc16_4ad1_4e07_96fe_b122c6e6b22b);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[inline]
 pub unsafe fn TransformPattern_Move<'a, Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, x: f64, y: f64) -> ::windows::runtime::Result<()> {
@@ -23245,11 +23245,11 @@ pub unsafe fn TransformPattern_Rotate<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const Transform_CanMove_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(460685901, 8331, 20447, [188, 205, 241, 244, 229, 116, 31, 79]);
-pub const Transform_CanResize_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3147357349, 19482, 16852, [164, 246, 235, 193, 40, 100, 65, 128]);
-pub const Transform_CanRotate_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(268933960, 14409, 18287, [172, 150, 68, 169, 92, 132, 64, 217]);
-pub const Transform_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(615804891, 22654, 18929, [156, 74, 216, 233, 139, 102, 75, 123]);
-pub const TreeItem_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1657405113, 36860, 18552, [163, 164, 150, 176, 48, 49, 92, 24]);
+pub const Transform_CanMove_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b75824d_208b_4fdf_bccd_f1f4e5741f4f);
+pub const Transform_CanResize_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb98dca5_4c1a_41d4_a4f6_ebc128644180);
+pub const Transform_CanRotate_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10079b48_3849_476f_ac96_44a95c8440d9);
+pub const Transform_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24b46fdb_587e_49f1_9c4a_d8e98b664b7b);
+pub const TreeItem_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62c9feb9_8ffc_4878_a3a4_96b030315c18);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -23284,7 +23284,7 @@ impl ::core::convert::From<i32> for TreeTraversalOptions {
 unsafe impl ::windows::runtime::Abi for TreeTraversalOptions {
     type Abi = Self;
 }
-pub const Tree_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1969304732, 53825, 17396, [153, 8, 181, 240, 145, 190, 230, 17]);
+pub const Tree_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7561349c_d241_43f4_9908_b5f091bee611);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const UIA_AcceleratorKeyPropertyId: i32 = 30006i32;
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -25450,9 +25450,9 @@ pub unsafe fn ValuePattern_SetValue<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const Value_IsReadOnly_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3943239472, 57932, 18329, [167, 5, 13, 36, 123, 192, 55, 248]);
-pub const Value_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(402304414, 51319, 18267, [185, 51, 119, 51, 39, 121, 182, 55]);
-pub const Value_Value_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3915341412, 9887, 19077, [186, 153, 64, 146, 195, 234, 41, 134]);
+pub const Value_IsReadOnly_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb090f30_e24c_4799_a705_0d247bc037f8);
+pub const Value_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17faad9e_c877_475b_b933_77332779b637);
+pub const Value_Value_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe95f5e64_269f_4a85_ba99_4092c3ea2986);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[inline]
 pub unsafe fn VirtualizedItemPattern_Realize<'a, Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::runtime::Result<()> {
@@ -25467,7 +25467,7 @@ pub unsafe fn VirtualizedItemPattern_Realize<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const VirtualizedItem_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4111472446, 11889, 17897, [166, 229, 98, 246, 237, 130, 137, 213]);
+pub const VirtualizedItem_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf510173e_2e71_45e9_a6e5_62f6ed8289d5);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -25486,7 +25486,7 @@ impl ::core::convert::From<i32> for VisualEffects {
 unsafe impl ::windows::runtime::Abi for VisualEffects {
     type Abi = Self;
 }
-pub const VisualEffects_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3860497765, 43737, 18135, [158, 112, 78, 138, 132, 32, 212, 32]);
+pub const VisualEffects_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe61a8565_aad9_46d7_9e70_4e8a8420d420);
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WINEVENTPROC = unsafe extern "system" fn(hwineventhook: HWINEVENTHOOK, event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32);
@@ -25581,16 +25581,16 @@ impl ::core::convert::From<i32> for WindowVisualState {
 unsafe impl ::windows::runtime::Abi for WindowVisualState {
     type Abi = Self;
 }
-pub const Window_CanMaximize_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1694496063, 25437, 16833, [149, 12, 203, 90, 223, 190, 40, 227]);
-pub const Window_CanMinimize_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3074115109, 22920, 19351, [180, 194, 166, 254, 110, 120, 200, 198]);
-pub const Window_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3778703938, 62562, 20301, [174, 193, 83, 178, 141, 108, 50, 144]);
-pub const Window_IsModal_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4283328658, 14265, 20426, [133, 50, 255, 230, 116, 236, 254, 237]);
-pub const Window_IsTopmost_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4017980883, 2359, 18786, [146, 65, 182, 35, 69, 242, 64, 65]);
-pub const Window_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(663754549, 51040, 18836, [173, 17, 89, 25, 230, 6, 177, 16]);
-pub const Window_WindowClosed_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3992011256, 64103, 20002, [187, 247, 148, 78, 5, 115, 94, 226]);
-pub const Window_WindowInteractionState_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1340941988, 1109, 20386, [178, 28, 196, 218, 45, 177, 255, 156]);
-pub const Window_WindowOpened_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3555204358, 56901, 20271, [150, 51, 222, 158, 2, 251, 101, 175]);
-pub const Window_WindowVisualState_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1253544031, 59488, 17726, [163, 10, 246, 67, 30, 93, 170, 213]);
+pub const Window_CanMaximize_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64fff53f_635d_41c1_950c_cb5adfbe28e3);
+pub const Window_CanMinimize_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb73b4625_5988_4b97_b4c2_a6fe6e78c8c6);
+pub const Window_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe13a7242_f462_4f4d_aec1_53b28d6c3290);
+pub const Window_IsModal_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff4e6892_37b9_4fca_8532_ffe674ecfeed);
+pub const Window_IsTopmost_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef7d85d3_0937_4962_9241_b62345f24041);
+pub const Window_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27901735_c760_4994_ad11_5919e606b110);
+pub const Window_WindowClosed_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xedf141f8_fa67_4e22_bbf7_944e05735ee2);
+pub const Window_WindowInteractionState_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4fed26a4_0455_4fa2_b21c_c4da2db1ff9c);
+pub const Window_WindowOpened_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3e81d06_de45_4f2f_9633_de9e02fb65af);
+pub const Window_WindowVisualState_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ab7905f_e860_453e_a30a_f6431e5daad5);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]

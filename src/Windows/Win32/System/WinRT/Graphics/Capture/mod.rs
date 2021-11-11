@@ -19,7 +19,7 @@ impl IGraphicsCaptureItemInterop {
 }
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureItemInterop {
     type Vtable = IGraphicsCaptureItemInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(908650523, 15532, 19552, [183, 244, 35, 206, 14, 12, 51, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3628e81b_3cac_4c60_b7f4_23ce0e0c3356);
 }
 impl ::core::convert::From<IGraphicsCaptureItemInterop> for ::windows::runtime::IUnknown {
     fn from(value: IGraphicsCaptureItemInterop) -> Self {

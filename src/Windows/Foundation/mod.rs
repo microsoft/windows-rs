@@ -31,7 +31,7 @@ unsafe impl ::windows::runtime::RuntimeType for AsyncActionCompletedHandler {
 }
 unsafe impl ::windows::runtime::Interface for AsyncActionCompletedHandler {
     type Vtable = AsyncActionCompletedHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2767019137, 30409, 16573, [139, 230, 177, 217, 15, 178, 10, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4ed5c81_76c9_40bd_8be6_b1d90fb20ae7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -607,7 +607,7 @@ unsafe impl ::windows::runtime::RuntimeType for Deferral {
 }
 unsafe impl ::windows::runtime::Interface for Deferral {
     type Vtable = IDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3592853298, 15231, 18087, [180, 11, 79, 220, 162, 162, 198, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6269732_3b7f_46a7_b40b_4fdca2a2c693);
 }
 impl ::windows::runtime::RuntimeName for Deferral {
     const NAME: &'static str = "Windows.Foundation.Deferral";
@@ -700,7 +700,7 @@ unsafe impl ::windows::runtime::RuntimeType for DeferralCompletedHandler {
 }
 unsafe impl ::windows::runtime::Interface for DeferralCompletedHandler {
     type Vtable = DeferralCompletedHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3979518834, 62408, 20394, [156, 251, 71, 1, 72, 218, 56, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed32a372_f3c8_4faa_9cfb_470148da3888);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -903,7 +903,7 @@ impl ::windows::runtime::RuntimeName for GuidHelper {
 pub struct IAsyncAction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAsyncAction {
     type Vtable = IAsyncAction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1516535814, 33850, 19881, [134, 91, 157, 38, 229, 223, 173, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a648006_843a_4da9_865b_9d26e5dfad7b);
 }
 impl IAsyncAction {
     #[doc = "*Required features: `Foundation`*"]
@@ -1263,7 +1263,7 @@ where
 pub struct IAsyncInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAsyncInfo {
     type Vtable = IAsyncInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(54, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000036_0000_0000_c000_000000000046);
 }
 impl IAsyncInfo {
     #[doc = "*Required features: `Foundation`*"]
@@ -1748,7 +1748,7 @@ where
 pub struct IClosable(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClosable {
     type Vtable = IClosable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(819308585, 32676, 16422, [131, 187, 215, 91, 174, 78, 169, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30d5a829_7fa4_4026_83bb_d75bae4ea99e);
 }
 impl IClosable {
     #[doc = "*Required features: `Foundation`*"]
@@ -1816,7 +1816,7 @@ pub struct IClosable_abi(
 pub struct IDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeferral {
     type Vtable = IDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3592853298, 15231, 18087, [180, 11, 79, 220, 162, 162, 198, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6269732_3b7f_46a7_b40b_4fdca2a2c693);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1834,7 +1834,7 @@ pub struct IDeferral_abi(
 pub struct IDeferralFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeferralFactory {
     type Vtable = IDeferralFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1705110725, 16309, 18482, [140, 169, 240, 97, 178, 129, 209, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65a1ecc5_3fb5_4832_8ca9_f061b281d13a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1853,7 +1853,7 @@ pub struct IDeferralFactory_abi(
 pub struct IGetActivationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGetActivationFactory {
     type Vtable = IGetActivationFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1323011810, 38621, 18855, [148, 247, 70, 7, 221, 171, 142, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4edb8ee2_96dd_49a7_94f7_4607ddab8e3c);
 }
 impl IGetActivationFactory {
     #[doc = "*Required features: `Foundation`*"]
@@ -1924,7 +1924,7 @@ pub struct IGetActivationFactory_abi(
 pub struct IGuidHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidHelperStatics {
     type Vtable = IGuidHelperStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1506252395, 44626, 21123, [173, 127, 161, 185, 233, 103, 138, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59c7966b_ae52_5283_ad7f_a1b9e9678add);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1945,7 +1945,7 @@ pub struct IGuidHelperStatics_abi(
 pub struct IMemoryBuffer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMemoryBuffer {
     type Vtable = IMemoryBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4223982890, 9307, 4580, [175, 152, 104, 148, 35, 38, 12, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbc4dd2a_245b_11e4_af98_689423260cf8);
 }
 impl IMemoryBuffer {
     #[doc = "*Required features: `Foundation`*"]
@@ -2043,7 +2043,7 @@ pub struct IMemoryBuffer_abi(
 pub struct IMemoryBufferFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMemoryBufferFactory {
     type Vtable = IMemoryBufferFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4223982891, 9307, 4580, [175, 152, 104, 148, 35, 38, 12, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbc4dd2b_245b_11e4_af98_689423260cf8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2062,7 +2062,7 @@ pub struct IMemoryBufferFactory_abi(
 pub struct IMemoryBufferReference(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMemoryBufferReference {
     type Vtable = IMemoryBufferReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4223982889, 9307, 4580, [175, 152, 104, 148, 35, 38, 12, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbc4dd29_245b_11e4_af98_689423260cf8);
 }
 impl IMemoryBufferReference {
     #[doc = "*Required features: `Foundation`*"]
@@ -2176,7 +2176,7 @@ pub struct IMemoryBufferReference_abi(
 pub struct IPropertyValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPropertyValue {
     type Vtable = IPropertyValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1272349405, 30036, 16617, [154, 155, 130, 101, 78, 222, 126, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bd682dd_7554_40e9_9a9b_82654ede7e62);
 }
 impl IPropertyValue {
     #[doc = "*Required features: `Foundation`*"]
@@ -2532,7 +2532,7 @@ pub struct IPropertyValue_abi(
 pub struct IPropertyValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPropertyValueStatics {
     type Vtable = IPropertyValueStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1654381512, 55602, 20468, [150, 185, 141, 150, 197, 193, 232, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x629bdbc8_d932_4ff4_96b9_8d96c5c1e858);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3297,7 +3297,7 @@ where
 pub struct IStringable(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStringable {
     type Vtable = IStringable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520162132, 36534, 18672, [171, 206, 193, 178, 17, 230, 39, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96369f54_8eb6_48f0_abce_c1b211e627c3);
 }
 impl IStringable {
     #[doc = "*Required features: `Foundation`*"]
@@ -3368,7 +3368,7 @@ pub struct IStringable_abi(
 pub struct IUriEscapeStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUriEscapeStatics {
     type Vtable = IUriEscapeStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3251909306, 51236, 17490, [167, 253, 81, 43, 195, 187, 233, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1d432ba_c824_4452_a7fd_512bc3bbe9a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3387,7 +3387,7 @@ pub struct IUriEscapeStatics_abi(
 pub struct IUriRuntimeClass(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUriRuntimeClass {
     type Vtable = IUriRuntimeClass_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2654363223, 18610, 16736, [149, 111, 199, 56, 81, 32, 187, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e365e57_48b2_4160_956f_c7385120bbfc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3421,7 +3421,7 @@ pub struct IUriRuntimeClass_abi(
 pub struct IUriRuntimeClassFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUriRuntimeClassFactory {
     type Vtable = IUriRuntimeClassFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1151957359, 29246, 20447, [162, 24, 3, 62, 117, 176, 192, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44a9796f_723e_4fdf_a218_033e75b0c084);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3440,7 +3440,7 @@ pub struct IUriRuntimeClassFactory_abi(
 pub struct IUriRuntimeClassWithAbsoluteCanonicalUri(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUriRuntimeClassWithAbsoluteCanonicalUri {
     type Vtable = IUriRuntimeClassWithAbsoluteCanonicalUri_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1972213345, 8732, 18447, [163, 57, 80, 101, 102, 115, 244, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x758d9661_221c_480f_a339_50656673f46f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3460,7 +3460,7 @@ pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_abi(
 pub struct IWwwFormUrlDecoderEntry(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWwwFormUrlDecoderEntry {
     type Vtable = IWwwFormUrlDecoderEntry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(308180017, 63096, 20110, [182, 112, 32, 169, 176, 108, 81, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x125e7431_f678_4e8e_b670_20a9b06c512d);
 }
 impl IWwwFormUrlDecoderEntry {
     #[doc = "*Required features: `Foundation`*"]
@@ -3540,7 +3540,7 @@ pub struct IWwwFormUrlDecoderEntry_abi(
 pub struct IWwwFormUrlDecoderRuntimeClass(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWwwFormUrlDecoderRuntimeClass {
     type Vtable = IWwwFormUrlDecoderRuntimeClass_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3562669137, 61989, 17730, [146, 150, 14, 29, 245, 210, 84, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd45a0451_f225_4542_9296_0e1df5d254df);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3558,7 +3558,7 @@ pub struct IWwwFormUrlDecoderRuntimeClass_abi(
 pub struct IWwwFormUrlDecoderRuntimeClassFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWwwFormUrlDecoderRuntimeClassFactory {
     type Vtable = IWwwFormUrlDecoderRuntimeClassFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1535929149, 9390, 16821, [161, 191, 240, 195, 213, 68, 132, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b8c6b3d_24ae_41b5_a1bf_f0c3d544845b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3606,7 +3606,7 @@ unsafe impl ::windows::runtime::RuntimeType for MemoryBuffer {
 }
 unsafe impl ::windows::runtime::Interface for MemoryBuffer {
     type Vtable = IMemoryBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4223982890, 9307, 4580, [175, 152, 104, 148, 35, 38, 12, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbc4dd2a_245b_11e4_af98_689423260cf8);
 }
 impl ::windows::runtime::RuntimeName for MemoryBuffer {
     const NAME: &'static str = "Windows.Foundation.MemoryBuffer";
@@ -4492,7 +4492,7 @@ unsafe impl ::windows::runtime::RuntimeType for Uri {
 }
 unsafe impl ::windows::runtime::Interface for Uri {
     type Vtable = IUriRuntimeClass_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2654363223, 18610, 16736, [149, 111, 199, 56, 81, 32, 187, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e365e57_48b2_4160_956f_c7385120bbfc);
 }
 impl ::windows::runtime::RuntimeName for Uri {
     const NAME: &'static str = "Windows.Foundation.Uri";
@@ -4636,7 +4636,7 @@ unsafe impl ::windows::runtime::RuntimeType for WwwFormUrlDecoder {
 }
 unsafe impl ::windows::runtime::Interface for WwwFormUrlDecoder {
     type Vtable = IWwwFormUrlDecoderRuntimeClass_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3562669137, 61989, 17730, [146, 150, 14, 29, 245, 210, 84, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd45a0451_f225_4542_9296_0e1df5d254df);
 }
 impl ::windows::runtime::RuntimeName for WwwFormUrlDecoder {
     const NAME: &'static str = "Windows.Foundation.WwwFormUrlDecoder";
@@ -4778,7 +4778,7 @@ unsafe impl ::windows::runtime::RuntimeType for WwwFormUrlDecoderEntry {
 }
 unsafe impl ::windows::runtime::Interface for WwwFormUrlDecoderEntry {
     type Vtable = IWwwFormUrlDecoderEntry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(308180017, 63096, 20110, [182, 112, 32, 169, 176, 108, 81, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x125e7431_f678_4e8e_b670_20a9b06c512d);
 }
 impl ::windows::runtime::RuntimeName for WwwFormUrlDecoderEntry {
     const NAME: &'static str = "Windows.Foundation.WwwFormUrlDecoderEntry";

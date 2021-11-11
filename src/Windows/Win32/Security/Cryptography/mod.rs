@@ -2654,10 +2654,10 @@ impl ::core::convert::From<i32> for CASetupProperty {
 unsafe impl ::windows::runtime::Abi for CASetupProperty {
     type Abi = Self;
 }
-pub const CCertSrvSetup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518620175, 62812, 16701, [169, 179, 125, 42, 244, 216, 228, 47]);
-pub const CCertSrvSetupKeyInformation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(943143174, 21555, 17971, [176, 251, 41, 183, 231, 130, 98, 225]);
-pub const CCertificateEnrollmentPolicyServerSetup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2950887986, 16817, 17821, [165, 222, 73, 173, 216, 167, 33, 130]);
-pub const CCertificateEnrollmentServerSetup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2567107516, 34991, 19704, [174, 98, 113, 64, 83, 21, 82, 182]);
+pub const CCertSrvSetup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x961f180f_f55c_413d_a9b3_7d2af4d8e42f);
+pub const CCertSrvSetupKeyInformation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38373906_5433_4633_b0fb_29b7e78262e1);
+pub const CCertificateEnrollmentPolicyServerSetup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xafe2fa32_41b1_459d_a5de_49add8a72182);
+pub const CCertificateEnrollmentServerSetup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9902f3bc_88af_4cf8_ae62_7140531552b6);
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -9263,7 +9263,7 @@ impl ::core::cmp::Eq for CMC_TAGGED_REQUEST_0 {}
 unsafe impl ::windows::runtime::Abi for CMC_TAGGED_REQUEST_0 {
     type Abi = Self;
 }
-pub const CMSCEPSetup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2857327618, 36476, 18884, [148, 250, 103, 165, 204, 94, 173, 180]);
+pub const CMSCEPSetup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa4f5c02_8e7c_49c4_94fa_67a5cc5eadb4);
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ATTR_CERT_COUNT_PARAM: u32 = 31u32;
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
@@ -23338,7 +23338,7 @@ impl ICertSrvSetup {
 }
 unsafe impl ::windows::runtime::Interface for ICertSrvSetup {
     type Vtable = ICertSrvSetup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3076563387, 18308, 17600, [143, 18, 85, 95, 7, 128, 255, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb760a1bb_4784_44c0_8f12_555f0780ff25);
 }
 impl ::core::convert::From<ICertSrvSetup> for ::windows::runtime::IUnknown {
     fn from(value: ICertSrvSetup) -> Self {
@@ -23502,7 +23502,7 @@ impl ICertSrvSetupKeyInformation {
 }
 unsafe impl ::windows::runtime::Interface for ICertSrvSetupKeyInformation {
     type Vtable = ICertSrvSetupKeyInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1806120824, 14042, 19513, [138, 133, 188, 250, 125, 0, 7, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ba73778_36da_4c39_8a85_bcfa7d000793);
 }
 impl ::core::convert::From<ICertSrvSetupKeyInformation> for ::windows::runtime::IUnknown {
     fn from(value: ICertSrvSetupKeyInformation) -> Self {
@@ -23611,7 +23611,7 @@ impl ICertSrvSetupKeyInformationCollection {
 }
 unsafe impl ::windows::runtime::Interface for ICertSrvSetupKeyInformationCollection {
     type Vtable = ICertSrvSetupKeyInformationCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3864824576, 58767, 16889, [169, 236, 162, 141, 116, 39, 200, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe65c8b00_e58f_41f9_a9ec_a28d7427c844);
 }
 impl ::core::convert::From<ICertSrvSetupKeyInformationCollection> for ::windows::runtime::IUnknown {
     fn from(value: ICertSrvSetupKeyInformationCollection) -> Self {
@@ -23715,7 +23715,7 @@ impl ICertificateEnrollmentPolicyServerSetup {
 }
 unsafe impl ::windows::runtime::Interface for ICertificateEnrollmentPolicyServerSetup {
     type Vtable = ICertificateEnrollmentPolicyServerSetup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2240959180, 9100, 19080, [184, 253, 163, 126, 125, 4, 230, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x859252cc_238c_4a88_b8fd_a37e7d04e68b);
 }
 impl ::core::convert::From<ICertificateEnrollmentPolicyServerSetup> for ::windows::runtime::IUnknown {
     fn from(value: ICertificateEnrollmentPolicyServerSetup) -> Self {
@@ -23829,7 +23829,7 @@ impl ICertificateEnrollmentServerSetup {
 }
 unsafe impl ::windows::runtime::Interface for ICertificateEnrollmentServerSetup {
     type Vtable = ICertificateEnrollmentServerSetup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1879211995, 40409, 18721, [137, 68, 179, 92, 179, 27, 210, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70027fdb_9dd9_4921_8944_b35cb31bd2ec);
 }
 impl ::core::convert::From<ICertificateEnrollmentServerSetup> for ::windows::runtime::IUnknown {
     fn from(value: ICertificateEnrollmentServerSetup) -> Self {
@@ -23976,7 +23976,7 @@ impl IMSCEPSetup {
 }
 unsafe impl ::windows::runtime::Interface for IMSCEPSetup {
     type Vtable = IMSCEPSetup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1333223867, 40763, 17810, [158, 224, 154, 115, 37, 156, 49, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f7761bb_9f3b_4592_9ee0_9a73259c313e);
 }
 impl ::core::convert::From<IMSCEPSetup> for ::windows::runtime::IUnknown {
     fn from(value: IMSCEPSetup) -> Self {

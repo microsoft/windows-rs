@@ -217,7 +217,7 @@ impl ::core::cmp::Eq for D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INP
 unsafe impl ::windows::runtime::Abi for D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT {
     type Abi = Self;
 }
-pub const D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1665584212, 11516, 19156, [130, 36, 209, 88, 55, 222, 119, 0]);
+pub const D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6346cc54_2cfc_4ad4_8224_d15837de7700);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -254,8 +254,8 @@ impl ::core::cmp::Eq for D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT {}
 unsafe impl ::windows::runtime::Abi for D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT {
     type Abi = Self;
 }
-pub const D3D11_AUTHENTICATED_CONFIGURE_ENCRYPTION_WHEN_ACCESSIBLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1107292806, 27360, 19779, [157, 85, 164, 110, 158, 253, 21, 138]);
-pub const D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(101796827, 13603, 18186, [141, 202, 251, 194, 132, 81, 84, 240]);
+pub const D3D11_AUTHENTICATED_CONFIGURE_ENCRYPTION_WHEN_ACCESSIBLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41fff286_6ae0_4d43_9d55_a46e9efd158a);
+pub const D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06114bdb_3523_470a_8dca_fbc2845154f0);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -364,7 +364,7 @@ impl ::core::cmp::Eq for D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {
     type Abi = Self;
 }
-pub const D3D11_AUTHENTICATED_CONFIGURE_PROTECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1346721368, 16199, 17250, [191, 153, 191, 223, 205, 233, 237, 41]);
+pub const D3D11_AUTHENTICATED_CONFIGURE_PROTECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50455658_3f47_4362_bf99_bfdfcde9ed29);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -393,7 +393,7 @@ impl ::core::cmp::Eq for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {}
 unsafe impl ::windows::runtime::Abi for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
     type Abi = Self;
 }
-pub const D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(124964935, 6976, 18664, [156, 166, 181, 245, 16, 222, 159, 1]);
+pub const D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0772d047_1b40_48e8_9ca6_b5f510de9f01);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -493,7 +493,7 @@ impl ::core::cmp::Eq for D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {}
 unsafe impl ::windows::runtime::Abi for D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
     type Abi = Self;
 }
-pub const D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ATTRIBUTES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1645533650, 17196, 19131, [159, 206, 33, 110, 234, 38, 158, 59]);
+pub const D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ATTRIBUTES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6214d9d2_432c_4abb_9fce_216eea269e3b);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -633,7 +633,7 @@ impl ::core::cmp::Eq for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {
     type Abi = Self;
 }
-pub const D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3155892389, 45563, 17067, [189, 148, 181, 130, 139, 75, 247, 190]);
+pub const D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc1b18a5_b1fb_42ab_bd94_b5828b4bf7be);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -668,7 +668,7 @@ impl ::core::cmp::Eq for D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {
     type Abi = Self;
 }
-pub const D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(640960926, 53272, 19828, [172, 23, 127, 114, 64, 89, 82, 141]);
+pub const D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2634499e_d018_4d74_ac17_7f724059528d);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -773,8 +773,8 @@ impl ::core::cmp::Eq for D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPT
 unsafe impl ::windows::runtime::Abi for D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPTION_OUTPUT {
     type Abi = Self;
 }
-pub const D3D11_AUTHENTICATED_QUERY_CURRENT_ENCRYPTION_WHEN_ACCESSIBLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3960967623, 56019, 20245, [158, 195, 250, 169, 61, 96, 212, 240]);
-pub const D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3961279389, 36095, 20010, [188, 196, 245, 105, 47, 153, 244, 128]);
+pub const D3D11_AUTHENTICATED_QUERY_CURRENT_ENCRYPTION_WHEN_ACCESSIBLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec1791c7_dad3_4f15_9ec3_faa93d60d4f0);
+pub const D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec1c539d_8cff_4e2a_bcc4_f5692f99f480);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -809,8 +809,8 @@ impl ::core::cmp::Eq for D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT {
     type Abi = Self;
 }
-pub const D3D11_AUTHENTICATED_QUERY_ENCRYPTION_WHEN_ACCESSIBLE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4164573528, 59782, 19418, [190, 176, 65, 31, 106, 122, 1, 183]);
-pub const D3D11_AUTHENTICATED_QUERY_ENCRYPTION_WHEN_ACCESSIBLE_GUID_COUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3004133478, 8252, 19207, [147, 252, 206, 170, 253, 97, 36, 30]);
+pub const D3D11_AUTHENTICATED_QUERY_ENCRYPTION_WHEN_ACCESSIBLE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf83a5958_e986_4bda_beb0_411f6a7a01b7);
+pub const D3D11_AUTHENTICATED_QUERY_ENCRYPTION_WHEN_ACCESSIBLE_GUID_COUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb30f7066_203c_4b07_93fc_ceaafd61241e);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -883,8 +883,8 @@ impl ::core::cmp::Eq for D3D11_AUTHENTICATED_QUERY_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for D3D11_AUTHENTICATED_QUERY_OUTPUT {
     type Abi = Self;
 }
-pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2208160931, 39758, 16868, [176, 83, 137, 43, 210, 161, 30, 231]);
-pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(738470750, 35847, 18133, [170, 190, 143, 117, 203, 173, 76, 49]);
+pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x839ddca3_9b4e_41e4_b053_892bd2a11ee7);
+pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c042b5e_8c07_46d5_aabe_8f75cbad4c31);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1029,7 +1029,7 @@ impl ::core::cmp::Eq for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {
     type Abi = Self;
 }
-pub const D3D11_AUTHENTICATED_QUERY_PROTECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2823730564, 50325, 18602, [185, 77, 139, 210, 214, 251, 206, 5]);
+pub const D3D11_AUTHENTICATED_QUERY_PROTECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa84eb584_c495_48aa_b94d_8bd2d6fbce05);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1058,8 +1058,8 @@ impl ::core::cmp::Eq for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
     type Abi = Self;
 }
-pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1687927515, 61684, 17977, [161, 91, 36, 57, 63, 195, 171, 172]);
-pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(229771187, 37968, 18086, [130, 222, 27, 150, 212, 79, 156, 242]);
+pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x649bbadb_f0f4_4639_a15b_24393fc3abac);
+pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0db207b3_9450_46a6_82de_1b96d44f9cf2);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1164,7 +1164,7 @@ impl ::core::cmp::Eq for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PR
 unsafe impl ::windows::runtime::Abi for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT {
     type Abi = Self;
 }
-pub const D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(19860438, 58978, 17524, [190, 253, 170, 83, 229, 20, 60, 109]);
+pub const D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x012f0bd6_e662_4474_befd_aa53e5143c6d);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -2203,7 +2203,7 @@ impl ::core::convert::From<i32> for D3D11_CRYPTO_SESSION_STATUS {
 unsafe impl ::windows::runtime::Abi for D3D11_CRYPTO_SESSION_STATUS {
     type Abi = Self;
 }
-pub const D3D11_CRYPTO_TYPE_AES128_CTR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2607535889, 20340, 16841, [158, 123, 11, 226, 215, 217, 59, 79]);
+pub const D3D11_CRYPTO_TYPE_AES128_CTR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b6bd711_4f74_41c9_9e7b_0be2d7d93b4f);
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 pub const D3D11_CS_4_X_BUCKET00_MAX_BYTES_TGSM_WRITABLE_PER_THREAD: u32 = 256u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
@@ -2351,47 +2351,47 @@ pub const D3D11_DEBUG_FEATURE_FLUSH_PER_RENDER_OP: u32 = 1u32;
 pub const D3D11_DEBUG_FEATURE_NEVER_DISCARD_OFFERED_RESOURCE: u32 = 16u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 pub const D3D11_DEBUG_FEATURE_PRESENT_PER_RENDER_OP: u32 = 4u32;
-pub const D3D11_DECODER_BITSTREAM_ENCRYPTION_TYPE_CBCS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1110283033, 40225, 19383, [147, 113, 250, 245, 168, 44, 62, 4]);
-pub const D3D11_DECODER_BITSTREAM_ENCRYPTION_TYPE_CENC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2957005365, 49469, 17650, [154, 229, 221, 72, 224, 142, 91, 103]);
-pub const D3D11_DECODER_ENCRYPTION_HW_CENC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2312547407, 2546, 16937, [178, 205, 55, 116, 10, 109, 253, 129]);
-pub const D3D11_DECODER_PROFILE_AV1_VLD_12BIT_PROFILE2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(387084297, 40975, 19681, [153, 78, 191, 64, 129, 246, 243, 240]);
-pub const D3D11_DECODER_PROFILE_AV1_VLD_12BIT_PROFILE2_420: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(763412182, 40108, 18485, [158, 145, 50, 123, 188, 79, 158, 232]);
-pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3099479243, 53075, 18106, [141, 89, 214, 184, 166, 218, 93, 42]);
-pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1765211919, 17841, 16739, [156, 193, 100, 110, 246, 148, 97, 8]);
-pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(207563425, 58689, 16521, [187, 123, 152, 17, 10, 25, 215, 200]);
-pub const D3D11_DECODER_PROFILE_H264_IDCT_FGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487719, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const D3D11_DECODER_PROFILE_H264_IDCT_NOFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487718, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const D3D11_DECODER_PROFILE_H264_MOCOMP_FGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487717, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const D3D11_DECODER_PROFILE_H264_MOCOMP_NOFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487716, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const D3D11_DECODER_PROFILE_H264_VLD_FGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487721, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const D3D11_DECODER_PROFILE_H264_VLD_MULTIVIEW_NOFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1885052290, 30415, 18902, [183, 230, 172, 136, 114, 219, 1, 60]);
-pub const D3D11_DECODER_PROFILE_H264_VLD_NOFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487720, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const D3D11_DECODER_PROFILE_H264_VLD_STEREO_NOFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4188720315, 49846, 19708, [135, 121, 87, 7, 177, 118, 5, 82]);
-pub const D3D11_DECODER_PROFILE_H264_VLD_STEREO_PROGRESSIVE_NOFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3617319130, 3313, 19585, [184, 42, 105, 164, 226, 54, 244, 61]);
-pub const D3D11_DECODER_PROFILE_H264_VLD_WITHFMOASO_NOFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3589296121, 13336, 17880, [149, 97, 50, 167, 106, 174, 45, 221]);
-pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1527895323, 12108, 17490, [188, 195, 9, 242, 161, 22, 12, 192]);
-pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(276492512, 61210, 19737, [171, 168, 103, 161, 99, 7, 61, 19]);
-pub const D3D11_DECODER_PROFILE_MPEG1_VLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1866385177, 14133, 17100, [128, 99, 101, 204, 60, 179, 102, 22]);
-pub const D3D11_DECODER_PROFILE_MPEG2_IDCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3206720768, 1002, 18064, [128, 119, 71, 51, 70, 32, 155, 126]);
-pub const D3D11_DECODER_PROFILE_MPEG2_MOCOMP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3869897803, 25008, 17763, [158, 164, 99, 210, 163, 198, 254, 102]);
-pub const D3D11_DECODER_PROFILE_MPEG2_VLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3995550079, 24104, 20069, [190, 234, 29, 38, 181, 8, 173, 201]);
-pub const D3D11_DECODER_PROFILE_MPEG2and1_VLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2255052562, 13326, 20228, [159, 211, 146, 83, 221, 50, 116, 96]);
-pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_ADVSIMPLE_GMC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2878966619, 16984, 17577, [159, 235, 148, 229, 151, 166, 186, 174]);
-pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_ADVSIMPLE_NOGMC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3980495519, 269, 20186, [154, 227, 154, 101, 53, 141, 141, 46]);
-pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_SIMPLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4023799156, 51688, 16855, [165, 233, 233, 176, 227, 159, 163, 25]);
-pub const D3D11_DECODER_PROFILE_VC1_D2010: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487780, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const D3D11_DECODER_PROFILE_VC1_IDCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487778, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const D3D11_DECODER_PROFILE_VC1_MOCOMP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487777, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const D3D11_DECODER_PROFILE_VC1_POSTPROC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487776, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const D3D11_DECODER_PROFILE_VC1_VLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487779, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const D3D11_DECODER_PROFILE_VP8_VLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2428017130, 14946, 18181, [136, 179, 141, 240, 75, 39, 68, 231]);
-pub const D3D11_DECODER_PROFILE_VP9_VLD_10BIT_PROFILE2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2764524015, 28367, 18602, [132, 72, 80, 167, 161, 22, 95, 247]);
-pub const D3D11_DECODER_PROFILE_VP9_VLD_PROFILE0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1178011640, 41424, 17797, [135, 109, 131, 170, 109, 96, 184, 158]);
-pub const D3D11_DECODER_PROFILE_WMV8_MOCOMP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487745, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const D3D11_DECODER_PROFILE_WMV8_POSTPROC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487744, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const D3D11_DECODER_PROFILE_WMV9_IDCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487764, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const D3D11_DECODER_PROFILE_WMV9_MOCOMP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487761, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
-pub const D3D11_DECODER_PROFILE_WMV9_POSTPROC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487760, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
+pub const D3D11_DECODER_BITSTREAM_ENCRYPTION_TYPE_CBCS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x422d9319_9d21_4bb7_9371_faf5a82c3e04);
+pub const D3D11_DECODER_BITSTREAM_ENCRYPTION_TYPE_CENC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0405235_c13d_44f2_9ae5_dd48e08e5b67);
+pub const D3D11_DECODER_ENCRYPTION_HW_CENC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89d6ac4f_09f2_4229_b2cd_37740a6dfd81);
+pub const D3D11_DECODER_PROFILE_AV1_VLD_12BIT_PROFILE2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17127009_a00f_4ce1_994e_bf4081f6f3f0);
+pub const D3D11_DECODER_PROFILE_AV1_VLD_12BIT_PROFILE2_420: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d80bed6_9cac_4835_9e91_327bbc4f9ee8);
+pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8be4ccb_cf53_46ba_8d59_d6b8a6da5d2a);
+pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6936ff0f_45b1_4163_9cc1_646ef6946108);
+pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c5f2aa1_e541_4089_bb7b_98110a19d7c8);
+pub const D3D11_DECODER_PROFILE_H264_IDCT_FGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be67_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D11_DECODER_PROFILE_H264_IDCT_NOFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be66_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D11_DECODER_PROFILE_H264_MOCOMP_FGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be65_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D11_DECODER_PROFILE_H264_MOCOMP_NOFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be64_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D11_DECODER_PROFILE_H264_VLD_FGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be69_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D11_DECODER_PROFILE_H264_VLD_MULTIVIEW_NOFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x705b9d82_76cf_49d6_b7e6_ac8872db013c);
+pub const D3D11_DECODER_PROFILE_H264_VLD_NOFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be68_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D11_DECODER_PROFILE_H264_VLD_STEREO_NOFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9aaccbb_c2b6_4cfc_8779_5707b1760552);
+pub const D3D11_DECODER_PROFILE_H264_VLD_STEREO_PROGRESSIVE_NOFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd79be8da_0cf1_4c81_b82a_69a4e236f43d);
+pub const D3D11_DECODER_PROFILE_H264_VLD_WITHFMOASO_NOFGT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5f04ff9_3418_45d8_9561_32a76aae2ddd);
+pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b11d51b_2f4c_4452_bcc3_09f2a1160cc0);
+pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x107af0e0_ef1a_4d19_aba8_67a163073d13);
+pub const D3D11_DECODER_PROFILE_MPEG1_VLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f3ec719_3735_42cc_8063_65cc3cb36616);
+pub const D3D11_DECODER_PROFILE_MPEG2_IDCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf22ad00_03ea_4690_8077_473346209b7e);
+pub const D3D11_DECODER_PROFILE_MPEG2_MOCOMP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6a9f44b_61b0_4563_9ea4_63d2a3c6fe66);
+pub const D3D11_DECODER_PROFILE_MPEG2_VLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee27417f_5e28_4e65_beea_1d26b508adc9);
+pub const D3D11_DECODER_PROFILE_MPEG2and1_VLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86695f12_340e_4f04_9fd3_9253dd327460);
+pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_ADVSIMPLE_GMC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab998b5b_4258_44a9_9feb_94e597a6baae);
+pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_ADVSIMPLE_NOGMC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed418a9f_010d_4eda_9ae3_9a65358d8d2e);
+pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_SIMPLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefd64d74_c9e8_41d7_a5e9_e9b0e39fa319);
+pub const D3D11_DECODER_PROFILE_VC1_D2010: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81bea4_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D11_DECODER_PROFILE_VC1_IDCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81bea2_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D11_DECODER_PROFILE_VC1_MOCOMP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81bea1_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D11_DECODER_PROFILE_VC1_POSTPROC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81bea0_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D11_DECODER_PROFILE_VC1_VLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81bea3_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D11_DECODER_PROFILE_VP8_VLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90b899ea_3a62_4705_88b3_8df04b2744e7);
+pub const D3D11_DECODER_PROFILE_VP9_VLD_10BIT_PROFILE2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4c749ef_6ecf_48aa_8448_50a7a1165ff7);
+pub const D3D11_DECODER_PROFILE_VP9_VLD_PROFILE0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x463707f8_a1d0_4585_876d_83aa6d60b89e);
+pub const D3D11_DECODER_PROFILE_WMV8_MOCOMP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be81_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D11_DECODER_PROFILE_WMV8_POSTPROC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be80_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D11_DECODER_PROFILE_WMV9_IDCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be94_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D11_DECODER_PROFILE_WMV9_MOCOMP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be91_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D11_DECODER_PROFILE_WMV9_POSTPROC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b81be90_a0c7_11d3_b984_00c04f2e73c5);
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 pub const D3D11_DEFAULT_BLEND_FACTOR_ALPHA: f32 = 1f32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
@@ -4333,7 +4333,7 @@ pub const D3D11_INTEGER_DIVIDE_BY_ZERO_REMAINDER: u32 = 4294967295u32;
 pub const D3D11_KEEP_RENDER_TARGETS_AND_DEPTH_STENCIL: u32 = 4294967295u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 pub const D3D11_KEEP_UNORDERED_ACCESS_VIEWS: u32 = 4294967295u32;
-pub const D3D11_KEY_EXCHANGE_HW_PROTECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2971078026, 25229, 19875, [173, 59, 130, 221, 176, 139, 73, 112]);
+pub const D3D11_KEY_EXCHANGE_HW_PROTECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1170d8a_628d_4da3_ad3b_82ddb08b4970);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
@@ -4429,7 +4429,7 @@ impl ::core::cmp::Eq for D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {}
 unsafe impl ::windows::runtime::Abi for D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
     type Abi = Self;
 }
-pub const D3D11_KEY_EXCHANGE_RSAES_OAEP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3247741077, 55082, 18973, [142, 93, 237, 133, 125, 23, 21, 32]);
+pub const D3D11_KEY_EXCHANGE_RSAES_OAEP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1949895_d72a_4a1d_8e5d_ed857d171520);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -11725,7 +11725,7 @@ pub const D3D_SHADER_REQUIRES_MINIMUM_PRECISION: u32 = 16u32;
 pub const D3D_SHADER_REQUIRES_TILED_RESOURCES: u32 = 256u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 pub const D3D_SHADER_REQUIRES_UAVS_AT_EVERY_STAGE: u32 = 4u32;
-pub const DXGI_DEBUG_D3D11: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1268330875, 44089, 19110, [187, 11, 186, 160, 71, 132, 121, 143]);
+pub const DXGI_DEBUG_D3D11: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b99317b_ac39_4aa6_bb0b_baa04784798f);
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -11754,7 +11754,7 @@ impl ID3D11Asynchronous {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Asynchronous {
     type Vtable = ID3D11Asynchronous_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1261818061, 7701, 16984, [156, 152, 27, 19, 51, 246, 221, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b35d0cd_1e15_4258_9c98_1b1333f6dd3b);
 }
 impl ::core::convert::From<ID3D11Asynchronous> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Asynchronous) -> Self {
@@ -11847,7 +11847,7 @@ impl ID3D11AuthenticatedChannel {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11AuthenticatedChannel {
     type Vtable = ID3D11AuthenticatedChannel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(806724360, 56509, 18346, [167, 71, 25, 36, 134, 209, 77, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3015a308_dcbd_47aa_a747_192486d14d4a);
 }
 impl ::core::convert::From<ID3D11AuthenticatedChannel> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11AuthenticatedChannel) -> Self {
@@ -11933,7 +11933,7 @@ impl ID3D11BlendState {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11BlendState {
     type Vtable = ID3D11BlendState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1974898602, 13437, 16729, [143, 69, 160, 100, 15, 1, 205, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75b68faa_347d_4159_8f45_a0640f01cd9a);
 }
 impl ::core::convert::From<ID3D11BlendState> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11BlendState) -> Self {
@@ -12022,7 +12022,7 @@ impl ID3D11BlendState1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11BlendState1 {
     type Vtable = ID3D11BlendState1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3431398078, 55893, 16413, [133, 231, 227, 201, 222, 40, 119, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc86fabe_da55_401d_85e7_e3c9de2877e9);
 }
 impl ::core::convert::From<ID3D11BlendState1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11BlendState1) -> Self {
@@ -12139,7 +12139,7 @@ impl ID3D11Buffer {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Buffer {
     type Vtable = ID3D11Buffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1213664133, 53742, 20429, [162, 80, 235, 53, 7, 34, 176, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48570b85_d1ee_4fcd_a250_eb350722b037);
 }
 impl ::core::convert::From<ID3D11Buffer> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Buffer) -> Self {
@@ -12259,7 +12259,7 @@ impl ID3D11ClassInstance {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11ClassInstance {
     type Vtable = ID3D11ClassInstance_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2798485418, 45239, 18991, [148, 54, 134, 98, 166, 87, 151, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6cd7faa_b0b7_4a2f_9436_8662a65797cb);
 }
 impl ::core::convert::From<ID3D11ClassInstance> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ClassInstance) -> Self {
@@ -12355,7 +12355,7 @@ impl ID3D11ClassLinkage {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11ClassLinkage {
     type Vtable = ID3D11ClassLinkage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3723852986, 38211, 18148, [161, 43, 242, 7, 160, 254, 127, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddf57cba_9543_46e4_a12b_f207a0fe7fed);
 }
 impl ::core::convert::From<ID3D11ClassLinkage> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ClassLinkage) -> Self {
@@ -12440,7 +12440,7 @@ impl ID3D11CommandList {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11CommandList {
     type Vtable = ID3D11CommandList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2722874577, 30366, 17399, [128, 19, 152, 255, 86, 108, 24, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa24bc4d1_769e_43f7_8013_98ff566c18e2);
 }
 impl ::core::convert::From<ID3D11CommandList> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11CommandList) -> Self {
@@ -12518,7 +12518,7 @@ impl ID3D11ComputeShader {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11ComputeShader {
     type Vtable = ID3D11ComputeShader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1331370350, 49853, 18782, [189, 1, 31, 222, 211, 142, 73, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f5b196e_c2bd_495e_bd01_1fded38e4969);
 }
 impl ::core::convert::From<ID3D11ComputeShader> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ComputeShader) -> Self {
@@ -12603,7 +12603,7 @@ impl ID3D11Counter {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Counter {
     type Vtable = ID3D11Counter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1854687739, 41841, 18288, [180, 64, 41, 8, 96, 34, 183, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e8c49fb_a371_4770_b440_29086022b741);
 }
 impl ::core::convert::From<ID3D11Counter> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Counter) -> Self {
@@ -12725,7 +12725,7 @@ impl ID3D11CryptoSession {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11CryptoSession {
     type Vtable = ID3D11CryptoSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2603809197, 48588, 16550, [163, 157, 213, 200, 101, 132, 87, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b32f9ad_bdcc_40a6_a39d_d5c865845720);
 }
 impl ::core::convert::From<ID3D11CryptoSession> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11CryptoSession) -> Self {
@@ -12831,7 +12831,7 @@ impl ID3D11Debug {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Debug {
     type Vtable = ID3D11Debug_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2043617843, 30006, 18760, [157, 54, 30, 70, 146, 220, 87, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79cf2233_7536_4948_9d36_1e4692dc5760);
 }
 impl ::core::convert::From<ID3D11Debug> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Debug) -> Self {
@@ -12900,7 +12900,7 @@ impl ID3D11DepthStencilState {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11DepthStencilState {
     type Vtable = ID3D11DepthStencilState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58867451, 36239, 19996, [154, 162, 246, 75, 178, 203, 253, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03823efb_8d8f_4e1c_9aa2_f64bb2cbfdf1);
 }
 impl ::core::convert::From<ID3D11DepthStencilState> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11DepthStencilState) -> Self {
@@ -12988,7 +12988,7 @@ impl ID3D11DepthStencilView {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11DepthStencilView {
     type Vtable = ID3D11DepthStencilView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2681915690, 6262, 18627, [175, 173, 37, 185, 79, 132, 169, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fdac92a_1876_48c3_afad_25b94f84a9b6);
 }
 impl ::core::convert::From<ID3D11DepthStencilView> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11DepthStencilView) -> Self {
@@ -13300,7 +13300,7 @@ impl ID3D11Device {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Device {
     type Vtable = ID3D11Device_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3681512923, 44151, 20104, [130, 83, 129, 157, 249, 187, 241, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb6f6ddb_ac77_4e88_8253_819df9bbf140);
 }
 impl ::core::convert::From<ID3D11Device> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Device) -> Self {
@@ -13670,7 +13670,7 @@ impl ID3D11Device1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Device1 {
     type Vtable = ID3D11Device1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2689334057, 2287, 17366, [164, 156, 169, 189, 189, 203, 230, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa04bfb29_08ef_43d6_a49c_a9bdbdcbe686);
 }
 impl ::core::convert::From<ID3D11Device1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Device1) -> Self {
@@ -14100,7 +14100,7 @@ impl ID3D11Device2 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Device2 {
     type Vtable = ID3D11Device2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2634473466, 53733, 19719, [131, 168, 27, 177, 35, 242, 248, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d06dffa_d1e5_4d07_83a8_1bb123f2f841);
 }
 impl ::core::convert::From<ID3D11Device2> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Device2) -> Self {
@@ -14613,7 +14613,7 @@ impl ID3D11Device3 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Device3 {
     type Vtable = ID3D11Device3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2690419767, 53958, 18226, [179, 160, 156, 224, 176, 220, 154, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa05c8c37_d2c6_4732_b3a0_9ce0b0dc9ae6);
 }
 impl ::core::convert::From<ID3D11Device3> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Device3) -> Self {
@@ -15173,7 +15173,7 @@ impl ID3D11Device4 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Device4 {
     type Vtable = ID3D11Device4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2308090737, 742, 19341, [186, 72, 176, 86, 220, 218, 66, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8992ab71_02e6_4b8d_ba48_b056dcda42c4);
 }
 impl ::core::convert::From<ID3D11Device4> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Device4) -> Self {
@@ -15765,7 +15765,7 @@ impl ID3D11Device5 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Device5 {
     type Vtable = ID3D11Device5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2415780354, 41191, 17887, [158, 1, 232, 55, 128, 27, 94, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ffde202_a0e7_45df_9e01_e837801b5ea0);
 }
 impl ::core::convert::From<ID3D11Device5> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Device5) -> Self {
@@ -16015,7 +16015,7 @@ impl ID3D11DeviceChild {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11DeviceChild {
     type Vtable = ID3D11DeviceChild_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(406971848, 5808, 18587, [188, 200, 68, 207, 176, 213, 222, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1841e5c8_16b0_489b_bcc8_44cfb0d5deae);
 }
 impl ::core::convert::From<ID3D11DeviceChild> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11DeviceChild) -> Self {
@@ -16551,7 +16551,7 @@ impl ID3D11DeviceContext {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11DeviceContext {
     type Vtable = ID3D11DeviceContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3233786220, 57481, 17659, [142, 175, 38, 248, 121, 97, 144, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0bfa96c_e089_44fb_8eaf_26f8796190da);
 }
 impl ::core::convert::From<ID3D11DeviceContext> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11DeviceContext) -> Self {
@@ -17324,7 +17324,7 @@ impl ID3D11DeviceContext1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11DeviceContext1 {
     type Vtable = ID3D11DeviceContext1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3140251562, 46587, 16514, [142, 107, 56, 139, 140, 250, 144, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb2c6faa_b5fb_4082_8e6b_388b8cfa90e1);
 }
 impl ::core::convert::From<ID3D11DeviceContext1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11DeviceContext1) -> Self {
@@ -18218,7 +18218,7 @@ impl ID3D11DeviceContext2 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11DeviceContext2 {
     type Vtable = ID3D11DeviceContext2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1108171570, 47372, 19876, [190, 240, 53, 159, 106, 36, 168, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x420d5b32_b90c_4da4_bef0_359f6a24a83a);
 }
 impl ::core::convert::From<ID3D11DeviceContext2> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11DeviceContext2) -> Self {
@@ -19165,7 +19165,7 @@ impl ID3D11DeviceContext3 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11DeviceContext3 {
     type Vtable = ID3D11DeviceContext3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3034824733, 59294, 17975, [145, 178, 81, 14, 159, 76, 155, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4e3c01d_e79e_4637_91b2_510e9f4c9b8f);
 }
 impl ::core::convert::From<ID3D11DeviceContext3> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11DeviceContext3) -> Self {
@@ -20146,7 +20146,7 @@ impl ID3D11DeviceContext4 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11DeviceContext4 {
     type Vtable = ID3D11DeviceContext4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2440429786, 62860, 19507, [152, 216, 62, 21, 179, 144, 250, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x917600da_f58c_4c33_98d8_3e15b390fa24);
 }
 impl ::core::convert::From<ID3D11DeviceContext4> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11DeviceContext4) -> Self {
@@ -20469,7 +20469,7 @@ impl ID3D11DomainShader {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11DomainShader {
     type Vtable = ID3D11DomainShader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4118988040, 3894, 18700, [153, 119, 49, 238, 206, 38, 140, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf582c508_0f36_490c_9977_31eece268cfa);
 }
 impl ::core::convert::From<ID3D11DomainShader> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11DomainShader) -> Self {
@@ -20561,7 +20561,7 @@ impl ID3D11Fence {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Fence {
     type Vtable = ID3D11Fence_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2952653265, 7671, 19383, [138, 52, 15, 70, 37, 29, 171, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaffde9d1_1df7_4bb7_8a34_0f46251dab80);
 }
 impl ::core::convert::From<ID3D11Fence> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Fence) -> Self {
@@ -20671,7 +20671,7 @@ impl ID3D11FunctionLinkingGraph {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11FunctionLinkingGraph {
     type Vtable = ID3D11FunctionLinkingGraph_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1410544160, 7400, 17363, [130, 54, 152, 85, 197, 206, 236, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54133220_1ce8_43d3_8236_9855c5ceecff);
 }
 impl ::core::convert::From<ID3D11FunctionLinkingGraph> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11FunctionLinkingGraph) -> Self {
@@ -20729,7 +20729,7 @@ impl ID3D11FunctionParameterReflection {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11FunctionParameterReflection {
     type Vtable = ID3D11FunctionParameterReflection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1114993800, 13135, 18430, [152, 46, 26, 101, 208, 140, 196, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x42757488_334f_47fe_982e_1a65d08cc462);
 }
 impl ::core::convert::From<ID3D11FunctionParameterReflection> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11FunctionParameterReflection) -> Self {
@@ -20804,7 +20804,7 @@ impl ID3D11FunctionReflection {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11FunctionReflection {
     type Vtable = ID3D11FunctionReflection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(544984779, 54915, 18950, [168, 163, 155, 20, 155, 159, 115, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x207bcecb_d683_4a06_a8a3_9b149b9f73a4);
 }
 impl ::core::convert::From<ID3D11FunctionReflection> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11FunctionReflection) -> Self {
@@ -20869,7 +20869,7 @@ impl ID3D11GeometryShader {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11GeometryShader {
     type Vtable = ID3D11GeometryShader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(942824342, 61435, 16418, [186, 2, 46, 121, 91, 112, 39, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38325b96_effb_4022_ba02_2e795b70275c);
 }
 impl ::core::convert::From<ID3D11GeometryShader> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11GeometryShader) -> Self {
@@ -20946,7 +20946,7 @@ impl ID3D11HullShader {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11HullShader {
     type Vtable = ID3D11HullShader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2388418657, 25226, 19598, [130, 100, 187, 228, 92, 179, 213, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e5c6061_628a_4c8e_8264_bbe45cb3d5dd);
 }
 impl ::core::convert::From<ID3D11HullShader> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11HullShader) -> Self {
@@ -21157,7 +21157,7 @@ impl ID3D11InfoQueue {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11InfoQueue {
     type Vtable = ID3D11InfoQueue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1698945974, 6984, 17141, [171, 130, 233, 126, 199, 67, 38, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6543dbb6_1b48_42f5_ab82_e97ec74326f6);
 }
 impl ::core::convert::From<ID3D11InfoQueue> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11InfoQueue) -> Self {
@@ -21255,7 +21255,7 @@ impl ID3D11InputLayout {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11InputLayout {
     type Vtable = ID3D11InputLayout_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3833699804, 19696, 16421, [189, 38, 93, 232, 42, 62, 7, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4819ddc_4cf0_4025_bd26_5de82a3e07b7);
 }
 impl ::core::convert::From<ID3D11InputLayout> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11InputLayout) -> Self {
@@ -21326,7 +21326,7 @@ impl ID3D11LibraryReflection {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11LibraryReflection {
     type Vtable = ID3D11LibraryReflection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1412976411, 23358, 19383, [174, 1, 96, 186, 48, 151, 203, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54384f1b_5b3e_4bb7_ae01_60ba3097cbb6);
 }
 impl ::core::convert::From<ID3D11LibraryReflection> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11LibraryReflection) -> Self {
@@ -21379,7 +21379,7 @@ impl ID3D11Linker {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Linker {
     type Vtable = ID3D11Linker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1504103694, 57613, 19487, [136, 192, 99, 171, 161, 218, 243, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59a6cd0e_e10d_4c1f_88c0_63aba1daf30e);
 }
 impl ::core::convert::From<ID3D11Linker> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Linker) -> Self {
@@ -21419,7 +21419,7 @@ pub struct ID3D11LinkingNode(pub ::windows::runtime::IUnknown);
 impl ID3D11LinkingNode {}
 unsafe impl ::windows::runtime::Interface for ID3D11LinkingNode {
     type Vtable = ID3D11LinkingNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3624785676, 36143, 18257, [148, 161, 3, 199, 155, 53, 86, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd80dd70c_8d2f_4751_94a1_03c79b3556db);
 }
 impl ::core::convert::From<ID3D11LinkingNode> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11LinkingNode) -> Self {
@@ -21462,7 +21462,7 @@ impl ID3D11Module {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Module {
     type Vtable = ID3D11Module_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3402039790, 33020, 16674, [130, 66, 16, 179, 156, 140, 236, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcac701ee_80fc_4122_8242_10b39c8cec34);
 }
 impl ::core::convert::From<ID3D11Module> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Module) -> Self {
@@ -21546,7 +21546,7 @@ impl ID3D11ModuleInstance {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11ModuleInstance {
     type Vtable = ID3D11ModuleInstance_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1184761847, 1114, 18645, [170, 18, 104, 164, 120, 205, 247, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x469e07f7_045a_48d5_aa12_68a478cdf75d);
 }
 impl ::core::convert::From<ID3D11ModuleInstance> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ModuleInstance) -> Self {
@@ -21616,7 +21616,7 @@ impl ID3D11Multithread {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Multithread {
     type Vtable = ID3D11Multithread_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745984, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b7e4e00_342c_4106_a19f_4f2704f689f0);
 }
 impl ::core::convert::From<ID3D11Multithread> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Multithread) -> Self {
@@ -21675,7 +21675,7 @@ impl ID3D11PixelShader {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11PixelShader {
     type Vtable = ID3D11PixelShader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3934446605, 20956, 20275, [147, 212, 219, 124, 145, 37, 174, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea82e40d_51dc_4f33_93d4_db7c9125ae8c);
 }
 impl ::core::convert::From<ID3D11PixelShader> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11PixelShader) -> Self {
@@ -21760,7 +21760,7 @@ impl ID3D11Predicate {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Predicate {
     type Vtable = ID3D11Predicate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2662692573, 40823, 19846, [129, 170, 139, 171, 95, 228, 144, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9eb576dd_9f77_4d86_81aa_8bab5fe490e2);
 }
 impl ::core::convert::From<ID3D11Predicate> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Predicate) -> Self {
@@ -21887,7 +21887,7 @@ impl ID3D11Query {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Query {
     type Vtable = ID3D11Query_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3602908999, 34743, 16990, [184, 77, 68, 209, 8, 86, 10, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6c00747_87b7_425e_b84d_44d108560afd);
 }
 impl ::core::convert::From<ID3D11Query> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Query) -> Self {
@@ -21998,7 +21998,7 @@ impl ID3D11Query1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Query1 {
     type Vtable = ID3D11Query1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1662732134, 14044, 17949, [141, 182, 196, 126, 19, 230, 9, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x631b4766_36dc_461d_8db6_c47e13e60916);
 }
 impl ::core::convert::From<ID3D11Query1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Query1) -> Self {
@@ -22123,7 +22123,7 @@ impl ID3D11RasterizerState {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11RasterizerState {
     type Vtable = ID3D11RasterizerState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2612308865, 43802, 19855, [181, 6, 252, 4, 32, 11, 110, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9bb4ab81_ab1a_4d8f_b506_fc04200b6ee7);
 }
 impl ::core::convert::From<ID3D11RasterizerState> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11RasterizerState) -> Self {
@@ -22212,7 +22212,7 @@ impl ID3D11RasterizerState1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11RasterizerState1 {
     type Vtable = ID3D11RasterizerState1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(303552422, 20537, 16780, [176, 66, 156, 190, 37, 106, 253, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1217d7a6_5039_418c_b042_9cbe256afd6e);
 }
 impl ::core::convert::From<ID3D11RasterizerState1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11RasterizerState1) -> Self {
@@ -22328,7 +22328,7 @@ impl ID3D11RasterizerState2 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11RasterizerState2 {
     type Vtable = ID3D11RasterizerState2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1874658043, 8351, 18116, [176, 89, 46, 209, 85, 134, 166, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fbd02fb_209f_46c4_b059_2ed15586a6ac);
 }
 impl ::core::convert::From<ID3D11RasterizerState2> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11RasterizerState2) -> Self {
@@ -22439,7 +22439,7 @@ impl ID3D11RefDefaultTrackingOptions {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11RefDefaultTrackingOptions {
     type Vtable = ID3D11RefDefaultTrackingOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(59860501, 50756, 16780, [155, 244, 117, 219, 91, 230, 60, 160]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03916615_c644_418c_9bf4_75db5be63ca0);
 }
 impl ::core::convert::From<ID3D11RefDefaultTrackingOptions> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11RefDefaultTrackingOptions) -> Self {
@@ -22481,7 +22481,7 @@ impl ID3D11RefTrackingOptions {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11RefTrackingOptions {
     type Vtable = ID3D11RefTrackingOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(423472351, 3506, 19461, [165, 92, 239, 6, 202, 197, 111, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x193dacdf_0db2_4c05_a55c_ef06cac56fd9);
 }
 impl ::core::convert::From<ID3D11RefTrackingOptions> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11RefTrackingOptions) -> Self {
@@ -22544,7 +22544,7 @@ impl ID3D11RenderTargetView {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11RenderTargetView {
     type Vtable = ID3D11RenderTargetView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3755712615, 2957, 18533, [135, 91, 215, 180, 81, 108, 193, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdfdba067_0b8d_4865_875b_d7b4516cc164);
 }
 impl ::core::convert::From<ID3D11RenderTargetView> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11RenderTargetView) -> Self {
@@ -22658,7 +22658,7 @@ impl ID3D11RenderTargetView1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11RenderTargetView1 {
     type Vtable = ID3D11RenderTargetView1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4290653731, 61457, 16778, [172, 86, 92, 238, 215, 197, 185, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xffbe2e23_f011_418a_ac56_5ceed7c5b94b);
 }
 impl ::core::convert::From<ID3D11RenderTargetView1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11RenderTargetView1) -> Self {
@@ -22792,7 +22792,7 @@ impl ID3D11Resource {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Resource {
     type Vtable = ID3D11Resource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3700319219, 53547, 18770, [180, 123, 94, 69, 2, 106, 134, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc8e63f3_d12b_4952_b47b_5e45026a862d);
 }
 impl ::core::convert::From<ID3D11Resource> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Resource) -> Self {
@@ -22876,7 +22876,7 @@ impl ID3D11SamplerState {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11SamplerState {
     type Vtable = ID3D11SamplerState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3664767569, 22092, 17543, [152, 16, 240, 208, 249, 180, 227, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda6fea51_564c_4487_9810_f0d0f9b4e3a5);
 }
 impl ::core::convert::From<ID3D11SamplerState> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11SamplerState) -> Self {
@@ -23032,7 +23032,7 @@ impl ID3D11ShaderReflection {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11ShaderReflection {
     type Vtable = ID3D11ShaderReflection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2371054753, 3274, 18774, [168, 55, 120, 105, 99, 117, 85, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d536ca1_0cca_4956_a837_786963755584);
 }
 impl ::core::convert::From<ID3D11ShaderReflection> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ShaderReflection) -> Self {
@@ -23113,7 +23113,7 @@ impl ID3D11ShaderReflectionConstantBuffer {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11ShaderReflectionConstantBuffer {
     type Vtable = ID3D11ShaderReflectionConstantBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3949123133, 37853, 17176, [138, 232, 198, 248, 58, 211, 113, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb62d63d_93dd_4318_8ae8_c6f83ad371b8);
 }
 impl ::core::convert::From<ID3D11ShaderReflectionConstantBuffer> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ShaderReflectionConstantBuffer) -> Self {
@@ -23203,7 +23203,7 @@ impl ID3D11ShaderReflectionType {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11ShaderReflectionType {
     type Vtable = ID3D11ShaderReflectionType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1852832362, 39854, 17939, [165, 30, 145, 101, 45, 80, 140, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e6ffa6a_9bae_4613_a51e_91652d508c21);
 }
 impl ::core::convert::From<ID3D11ShaderReflectionType> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ShaderReflectionType) -> Self {
@@ -23272,7 +23272,7 @@ impl ID3D11ShaderReflectionVariable {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11ShaderReflectionVariable {
     type Vtable = ID3D11ShaderReflectionVariable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1374828835, 62437, 19409, [145, 203, 96, 97, 119, 216, 219, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51f23923_f3e5_4bd1_91cb_606177d8db4c);
 }
 impl ::core::convert::From<ID3D11ShaderReflectionVariable> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ShaderReflectionVariable) -> Self {
@@ -23339,7 +23339,7 @@ impl ID3D11ShaderResourceView {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11ShaderResourceView {
     type Vtable = ID3D11ShaderResourceView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2967498720, 33170, 19994, [177, 202, 54, 215, 65, 71, 16, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0e06fe0_8192_4e1a_b1ca_36d7414710b2);
 }
 impl ::core::convert::From<ID3D11ShaderResourceView> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ShaderResourceView) -> Self {
@@ -23453,7 +23453,7 @@ impl ID3D11ShaderResourceView1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11ShaderResourceView1 {
     type Vtable = ID3D11ShaderResourceView1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2435877767, 36928, 16669, [140, 103, 195, 146, 83, 206, 56, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91308b87_9040_411d_8c67_c39253ce3802);
 }
 impl ::core::convert::From<ID3D11ShaderResourceView1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ShaderResourceView1) -> Self {
@@ -23597,7 +23597,7 @@ impl ID3D11ShaderTrace {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11ShaderTrace {
     type Vtable = ID3D11ShaderTrace_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(917509094, 10257, 18501, [186, 167, 214, 35, 254, 13, 241, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36b013e6_2811_4845_baa7_d623fe0df104);
 }
 impl ::core::convert::From<ID3D11ShaderTrace> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ShaderTrace) -> Self {
@@ -23649,7 +23649,7 @@ impl ID3D11ShaderTraceFactory {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11ShaderTraceFactory {
     type Vtable = ID3D11ShaderTraceFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(532337705, 26283, 16844, [150, 23, 102, 122, 193, 14, 68, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1fbad429_66ab_41cc_9617_667ac10e4459);
 }
 impl ::core::convert::From<ID3D11ShaderTraceFactory> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ShaderTraceFactory) -> Self {
@@ -23697,7 +23697,7 @@ impl ID3D11SwitchToRef {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11SwitchToRef {
     type Vtable = ID3D11SwitchToRef_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(519256035, 22759, 20355, [166, 146, 219, 34, 31, 94, 212, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ef337e3_58e7_4f83_a692_db221f5ed47e);
 }
 impl ::core::convert::From<ID3D11SwitchToRef> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11SwitchToRef) -> Self {
@@ -23771,7 +23771,7 @@ impl ID3D11Texture1D {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Texture1D {
     type Vtable = ID3D11Texture1D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4177222695, 50867, 20341, [164, 200, 67, 154, 242, 239, 86, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8fb5c27_c6b3_4f75_a4c8_439af2ef564c);
 }
 impl ::core::convert::From<ID3D11Texture1D> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Texture1D) -> Self {
@@ -23890,7 +23890,7 @@ impl ID3D11Texture2D {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Texture2D {
     type Vtable = ID3D11Texture2D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1863690994, 53768, 20105, [154, 180, 72, 149, 53, 211, 79, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f15aaf2_d208_4e89_9ab4_489535d34f9c);
 }
 impl ::core::convert::From<ID3D11Texture2D> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Texture2D) -> Self {
@@ -24014,7 +24014,7 @@ impl ID3D11Texture2D1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Texture2D1 {
     type Vtable = ID3D11Texture2D1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1361150545, 7731, 17943, [156, 203, 77, 58, 67, 103, 231, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51218251_1e33_4617_9ccb_4d3a4367e7bb);
 }
 impl ::core::convert::From<ID3D11Texture2D1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Texture2D1) -> Self {
@@ -24155,7 +24155,7 @@ impl ID3D11Texture3D {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Texture3D {
     type Vtable = ID3D11Texture3D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58623598, 62829, 17239, [168, 175, 157, 171, 190, 110, 37, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x037e866e_f56d_4357_a8af_9dabbe6e250e);
 }
 impl ::core::convert::From<ID3D11Texture3D> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Texture3D) -> Self {
@@ -24279,7 +24279,7 @@ impl ID3D11Texture3D1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11Texture3D1 {
     type Vtable = ID3D11Texture3D1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(208737923, 10323, 18502, [155, 176, 243, 230, 6, 57, 228, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c711683_2853_4846_9bb0_f3e60639e46a);
 }
 impl ::core::convert::From<ID3D11Texture3D1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Texture3D1) -> Self {
@@ -24395,7 +24395,7 @@ impl ID3D11TracingDevice {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11TracingDevice {
     type Vtable = ID3D11TracingDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(420595569, 5511, 16702, [167, 224, 251, 38, 195, 222, 2, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1911c771_1587_413e_a7e0_fb26c3de0268);
 }
 impl ::core::convert::From<ID3D11TracingDevice> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11TracingDevice) -> Self {
@@ -24459,7 +24459,7 @@ impl ID3D11UnorderedAccessView {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11UnorderedAccessView {
     type Vtable = ID3D11UnorderedAccessView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(682423561, 32604, 18678, [134, 17, 243, 22, 1, 10, 99, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28acf509_7f5c_48f6_8611_f316010a6380);
 }
 impl ::core::convert::From<ID3D11UnorderedAccessView> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11UnorderedAccessView) -> Self {
@@ -24573,7 +24573,7 @@ impl ID3D11UnorderedAccessView1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11UnorderedAccessView1 {
     type Vtable = ID3D11UnorderedAccessView1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2067489107, 43142, 17732, [171, 55, 101, 55, 200, 80, 4, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b3b6153_a886_4544_ab37_6537c8500403);
 }
 impl ::core::convert::From<ID3D11UnorderedAccessView1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11UnorderedAccessView1) -> Self {
@@ -24695,7 +24695,7 @@ impl ID3D11VertexShader {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11VertexShader {
     type Vtable = ID3D11VertexShader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(993008996, 54904, 17033, [136, 151, 34, 248, 146, 139, 114, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b301d64_d678_4289_8897_22f8928b72f3);
 }
 impl ::core::convert::From<ID3D11VertexShader> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VertexShader) -> Self {
@@ -25076,7 +25076,7 @@ impl ID3D11VideoContext {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11VideoContext {
     type Vtable = ID3D11VideoContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1643256901, 15374, 19060, [156, 234, 103, 16, 13, 154, 213, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61f21c45_3c0e_4a74_9cea_67100d9ad5e4);
 }
 impl ::core::convert::From<ID3D11VideoContext> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoContext) -> Self {
@@ -25616,7 +25616,7 @@ impl ID3D11VideoContext1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11VideoContext1 {
     type Vtable = ID3D11VideoContext1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2817533658, 42488, 17543, [165, 100, 21, 227, 67, 87, 101, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7f026da_a5f8_4487_a564_15e34357651e);
 }
 impl ::core::convert::From<ID3D11VideoContext1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoContext1) -> Self {
@@ -26221,7 +26221,7 @@ impl ID3D11VideoContext2 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11VideoContext2 {
     type Vtable = ID3D11VideoContext2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3303487308, 25155, 19739, [174, 135, 82, 180, 247, 64, 226, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4e7374c_6243_4d1b_ae87_52b4f740e261);
 }
 impl ::core::convert::From<ID3D11VideoContext2> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoContext2) -> Self {
@@ -26862,7 +26862,7 @@ impl ID3D11VideoContext3 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11VideoContext3 {
     type Vtable = ID3D11VideoContext3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2850224800, 52025, 16783, [160, 183, 216, 170, 212, 222, 103, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9e2faa0_cb39_418f_a0b7_d8aad4de672e);
 }
 impl ::core::convert::From<ID3D11VideoContext3> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoContext3) -> Self {
@@ -27134,7 +27134,7 @@ impl ID3D11VideoDecoder {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11VideoDecoder {
     type Vtable = ID3D11VideoDecoder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1016879953, 39261, 18641, [155, 141, 250, 92, 174, 222, 214, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c9c5b51_995d_48d1_9b8d_fa5caeded65c);
 }
 impl ::core::convert::From<ID3D11VideoDecoder> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoDecoder) -> Self {
@@ -27223,7 +27223,7 @@ impl ID3D11VideoDecoderOutputView {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11VideoDecoderOutputView {
     type Vtable = ID3D11VideoDecoderOutputView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3264420586, 10885, 20256, [134, 15, 251, 161, 253, 37, 110, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2931aea_2a85_4f20_860f_fba1fd256e18);
 }
 impl ::core::convert::From<ID3D11VideoDecoderOutputView> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoDecoderOutputView) -> Self {
@@ -27393,7 +27393,7 @@ impl ID3D11VideoDevice {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11VideoDevice {
     type Vtable = ID3D11VideoDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(283921755, 38746, 18057, [185, 228, 208, 170, 195, 15, 227, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10ec4d5b_975a_4689_b9e4_d0aac30fe333);
 }
 impl ::core::convert::From<ID3D11VideoDevice> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoDevice) -> Self {
@@ -27560,7 +27560,7 @@ impl ID3D11VideoDevice1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11VideoDevice1 {
     type Vtable = ID3D11VideoDevice1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(702160209, 4897, 17492, [128, 75, 245, 252, 159, 134, 31, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29da1d51_1321_4454_804b_f5fc9f861f0f);
 }
 impl ::core::convert::From<ID3D11VideoDevice1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoDevice1) -> Self {
@@ -27763,7 +27763,7 @@ impl ID3D11VideoDevice2 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11VideoDevice2 {
     type Vtable = ID3D11VideoDevice2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1505807105, 13808, 19056, [143, 103, 135, 144, 92, 144, 106, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59c0cb01_35f0_4a70_8f67_87905c906a53);
 }
 impl ::core::convert::From<ID3D11VideoDevice2> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoDevice2) -> Self {
@@ -27897,7 +27897,7 @@ impl ID3D11VideoProcessor {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11VideoProcessor {
     type Vtable = ID3D11VideoProcessor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(494601810, 6239, 16838, [133, 206, 12, 91, 227, 212, 174, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d7b0652_185f_41c6_85ce_0c5be3d4ae6c);
 }
 impl ::core::convert::From<ID3D11VideoProcessor> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoProcessor) -> Self {
@@ -28010,7 +28010,7 @@ impl ID3D11VideoProcessorEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11VideoProcessorEnumerator {
     type Vtable = ID3D11VideoProcessorEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(828534839, 21419, 16896, [144, 97, 5, 250, 169, 171, 69, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31627037_53ab_4200_9061_05faa9ab45f9);
 }
 impl ::core::convert::From<ID3D11VideoProcessorEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoProcessorEnumerator) -> Self {
@@ -28135,7 +28135,7 @@ impl ID3D11VideoProcessorEnumerator1 {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11VideoProcessorEnumerator1 {
     type Vtable = ID3D11VideoProcessorEnumerator1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1179785202, 21864, 17359, [181, 185, 246, 29, 84, 83, 28, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x465217f2_5568_43cf_b5b9_f61d54531ca1);
 }
 impl ::core::convert::From<ID3D11VideoProcessorEnumerator1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoProcessorEnumerator1) -> Self {
@@ -28251,7 +28251,7 @@ impl ID3D11VideoProcessorInputView {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11VideoProcessorInputView {
     type Vtable = ID3D11VideoProcessorInputView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(300702303, 20956, 18757, [171, 52, 110, 140, 33, 48, 14, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11ec5a5f_51dc_4945_ab34_6e8c21300ea5);
 }
 impl ::core::convert::From<ID3D11VideoProcessorInputView> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoProcessorInputView) -> Self {
@@ -28358,7 +28358,7 @@ impl ID3D11VideoProcessorOutputView {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11VideoProcessorOutputView {
     type Vtable = ID3D11VideoProcessorOutputView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2689083486, 9641, 17703, [189, 147, 214, 139, 104, 196, 66, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa048285e_25a9_4527_bd93_d68b68c44254);
 }
 impl ::core::convert::From<ID3D11VideoProcessorOutputView> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoProcessorOutputView) -> Self {
@@ -28461,7 +28461,7 @@ impl ID3D11View {
 }
 unsafe impl ::windows::runtime::Interface for ID3D11View {
     type Vtable = ID3D11View_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2208109078, 47918, 16683, [183, 244, 169, 219, 235, 224, 142, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x839d1216_bb2e_412b_b7f4_a9dbebe08ed1);
 }
 impl ::core::convert::From<ID3D11View> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11View) -> Self {
@@ -28539,7 +28539,7 @@ impl ID3DDeviceContextState {
 }
 unsafe impl ::windows::runtime::Interface for ID3DDeviceContextState {
     type Vtable = ID3DDeviceContextState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1545473418, 31779, 18681, [140, 89, 169, 41, 88, 206, 255, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c1e0d8a_7c23_48f9_8c59_a92958ceff11);
 }
 impl ::core::convert::From<ID3DDeviceContextState> for ::windows::runtime::IUnknown {
     fn from(value: ID3DDeviceContextState) -> Self {
@@ -28619,7 +28619,7 @@ impl ID3DUserDefinedAnnotation {
 }
 unsafe impl ::windows::runtime::Interface for ID3DUserDefinedAnnotation {
     type Vtable = ID3DUserDefinedAnnotation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3000675723, 980, 19903, [149, 235, 50, 171, 75, 99, 208, 171]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2daad8b_03d4_4dbf_95eb_32ab4b63d0ab);
 }
 impl ::core::convert::From<ID3DUserDefinedAnnotation> for ::windows::runtime::IUnknown {
     fn from(value: ID3DUserDefinedAnnotation) -> Self {
@@ -28691,7 +28691,7 @@ impl ID3DX11FFT {
 }
 unsafe impl ::windows::runtime::Interface for ID3DX11FFT {
     type Vtable = ID3DX11FFT_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3019352376, 19603, 17168, [166, 117, 179, 13, 109, 229, 5, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3f7a938_4c93_4310_a675_b30d6de50553);
 }
 impl ::core::convert::From<ID3DX11FFT> for ::windows::runtime::IUnknown {
     fn from(value: ID3DX11FFT) -> Self {
@@ -28747,7 +28747,7 @@ impl ID3DX11Scan {
 }
 unsafe impl ::windows::runtime::Interface for ID3DX11Scan {
     type Vtable = ID3DX11Scan_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1351202447, 59165, 19768, [190, 142, 243, 99, 185, 90, 148, 5]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5089b68f_e71d_4d38_be8e_f363b95a9405);
 }
 impl ::core::convert::From<ID3DX11Scan> for ::windows::runtime::IUnknown {
     fn from(value: ID3DX11Scan) -> Self {
@@ -28795,7 +28795,7 @@ impl ID3DX11SegmentedScan {
 }
 unsafe impl ::windows::runtime::Interface for ID3DX11SegmentedScan {
     type Vtable = ID3DX11SegmentedScan_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2836730508, 55636, 19577, [191, 225, 100, 219, 146, 49, 148, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa915128c_d954_4c79_bfe1_64db923194d6);
 }
 impl ::core::convert::From<ID3DX11SegmentedScan> for ::windows::runtime::IUnknown {
     fn from(value: ID3DX11SegmentedScan) -> Self {

@@ -4,7 +4,7 @@
 pub struct IOcrEngine(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOcrEngine {
     type Vtable = IOcrEngine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1511308353, 23414, 12608, [182, 128, 136, 37, 86, 38, 131, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a14bc41_5b76_3140_b680_8825562683ac);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25,7 +25,7 @@ pub struct IOcrEngine_abi(
 pub struct IOcrEngineStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOcrEngineStatics {
     type Vtable = IOcrEngineStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1543481434, 13188, 13632, [153, 64, 105, 145, 32, 212, 40, 168]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5bffa85a_3384_3540_9940_699120d428a8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -50,7 +50,7 @@ pub struct IOcrEngineStatics_abi(
 pub struct IOcrLine(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOcrLine {
     type Vtable = IOcrLine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4432239, 58143, 14884, [137, 156, 212, 68, 189, 8, 129, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0043a16f_e31f_3a24_899c_d444bd088124);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -70,7 +70,7 @@ pub struct IOcrLine_abi(
 pub struct IOcrResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOcrResult {
     type Vtable = IOcrResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2614244786, 5979, 15722, [146, 226, 56, 140, 32, 110, 47, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9bd235b2_175b_3d6a_92e2_388c206e2f63);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -92,7 +92,7 @@ pub struct IOcrResult_abi(
 pub struct IOcrWord(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOcrWord {
     type Vtable = IOcrWord_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1009403770, 23769, 13605, [186, 42, 35, 209, 224, 166, 138, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c2a477a_5cd9_3525_ba2a_23d1e0a68a1d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -178,7 +178,7 @@ unsafe impl ::windows::runtime::RuntimeType for OcrEngine {
 }
 unsafe impl ::windows::runtime::Interface for OcrEngine {
     type Vtable = IOcrEngine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1511308353, 23414, 12608, [182, 128, 136, 37, 86, 38, 131, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a14bc41_5b76_3140_b680_8825562683ac);
 }
 impl ::windows::runtime::RuntimeName for OcrEngine {
     const NAME: &'static str = "Windows.Media.Ocr.OcrEngine";
@@ -253,7 +253,7 @@ unsafe impl ::windows::runtime::RuntimeType for OcrLine {
 }
 unsafe impl ::windows::runtime::Interface for OcrLine {
     type Vtable = IOcrLine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4432239, 58143, 14884, [137, 156, 212, 68, 189, 8, 129, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0043a16f_e31f_3a24_899c_d444bd088124);
 }
 impl ::windows::runtime::RuntimeName for OcrLine {
     const NAME: &'static str = "Windows.Media.Ocr.OcrLine";
@@ -337,7 +337,7 @@ unsafe impl ::windows::runtime::RuntimeType for OcrResult {
 }
 unsafe impl ::windows::runtime::Interface for OcrResult {
     type Vtable = IOcrResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2614244786, 5979, 15722, [146, 226, 56, 140, 32, 110, 47, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9bd235b2_175b_3d6a_92e2_388c206e2f63);
 }
 impl ::windows::runtime::RuntimeName for OcrResult {
     const NAME: &'static str = "Windows.Media.Ocr.OcrResult";
@@ -412,7 +412,7 @@ unsafe impl ::windows::runtime::RuntimeType for OcrWord {
 }
 unsafe impl ::windows::runtime::Interface for OcrWord {
     type Vtable = IOcrWord_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1009403770, 23769, 13605, [186, 42, 35, 209, 224, 166, 138, 29]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c2a477a_5cd9_3525_ba2a_23d1e0a68a1d);
 }
 impl ::windows::runtime::RuntimeName for OcrWord {
     const NAME: &'static str = "Windows.Media.Ocr.OcrWord";

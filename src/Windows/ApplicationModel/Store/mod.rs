@@ -349,7 +349,7 @@ impl ::windows::runtime::DefaultType for FulfillmentResult {
 pub struct ICurrentApp(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentApp {
     type Vtable = ICurrentApp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3576545381, 55871, 18053, [153, 94, 155, 72, 46, 181, 230, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd52dc065_da3f_4685_995e_9b482eb5e603);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -380,7 +380,7 @@ pub struct ICurrentApp_abi(
 pub struct ICurrentApp2Statics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentApp2Statics {
     type Vtable = ICurrentApp2Statics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3746459181, 12657, 19155, [134, 20, 44, 97, 36, 67, 115, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf4e6e2d_3171_4ad3_8614_2c61244373cb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -401,7 +401,7 @@ pub struct ICurrentApp2Statics_abi(
 pub struct ICurrentAppSimulator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppSimulator {
     type Vtable = ICurrentAppSimulator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4051672497, 29901, 18311, [151, 135, 25, 134, 110, 154, 85, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf17f9db1_74cd_4787_9787_19866e9a5559);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -434,7 +434,7 @@ pub struct ICurrentAppSimulator_abi(
 pub struct ICurrentAppSimulatorStaticsWithFiltering(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppSimulatorStaticsWithFiltering {
     type Vtable = ICurrentAppSimulatorStaticsWithFiltering_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1635676386, 63599, 19284, [150, 102, 221, 226, 133, 9, 44, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x617e70e2_f86f_4b54_9666_dde285092c68);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -455,7 +455,7 @@ pub struct ICurrentAppSimulatorStaticsWithFiltering_abi(
 pub struct ICurrentAppSimulatorWithCampaignId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppSimulatorWithCampaignId {
     type Vtable = ICurrentAppSimulatorWithCampaignId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2221378115, 57088, 18034, [164, 63, 178, 91, 20, 65, 207, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84678a43_df00_4672_a43f_b25b1441cfcf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -474,7 +474,7 @@ pub struct ICurrentAppSimulatorWithCampaignId_abi(
 pub struct ICurrentAppSimulatorWithConsumables(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppSimulatorWithConsumables {
     type Vtable = ICurrentAppSimulatorWithConsumables_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1313992875, 8423, 17426, [155, 133, 89, 187, 120, 56, 134, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e51f0ab_20e7_4412_9b85_59bb78388667);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -499,7 +499,7 @@ pub struct ICurrentAppSimulatorWithConsumables_abi(
 pub struct ICurrentAppStaticsWithFiltering(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppStaticsWithFiltering {
     type Vtable = ICurrentAppStaticsWithFiltering_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3547161922, 36997, 17294, [151, 186, 162, 92, 151, 107, 226, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd36d6542_9085_438e_97ba_a25c976be2fd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -521,7 +521,7 @@ pub struct ICurrentAppStaticsWithFiltering_abi(
 pub struct ICurrentAppWithCampaignId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppWithCampaignId {
     type Vtable = ICurrentAppWithCampaignId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(825183440, 14017, 17574, [179, 43, 67, 45, 96, 142, 77, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x312f4cd0_36c1_44a6_b32b_432d608e4dd6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -540,7 +540,7 @@ pub struct ICurrentAppWithCampaignId_abi(
 pub struct ICurrentAppWithConsumables(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppWithConsumables {
     type Vtable = ICurrentAppWithConsumables_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2219704433, 40527, 20345, [153, 90, 95, 145, 23, 46, 108, 239]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x844e0071_9e4f_4f79_995a_5f91172e6cef);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -565,7 +565,7 @@ pub struct ICurrentAppWithConsumables_abi(
 pub struct ILicenseInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILicenseInformation {
     type Vtable = ILicenseInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2394414128, 61808, 20181, [142, 33, 21, 22, 218, 63, 211, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8eb7dc30_f170_4ed5_8e21_1516da3fd367);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -592,7 +592,7 @@ pub struct ILicenseInformation_abi(
 pub struct IListingInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IListingInformation {
     type Vtable = IListingInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1485523647, 48244, 17283, [183, 140, 153, 96, 99, 35, 222, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x588b4abf_bc74_4383_b78c_99606323dece);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -616,7 +616,7 @@ pub struct IListingInformation_abi(
 pub struct IListingInformation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IListingInformation2 {
     type Vtable = IListingInformation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3237817373, 45838, 17284, [132, 234, 114, 254, 250, 130, 34, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0fd2c1d_b30e_4384_84ea_72fefa82223e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -638,7 +638,7 @@ pub struct IListingInformation2_abi(
 pub struct IProductLicense(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductLicense {
     type Vtable = IProductLicense_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(909314247, 11215, 19470, [143, 47, 232, 8, 170, 168, 249, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x363308c7_2bcf_4c0e_8f2f_e808aaa8f99d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -659,7 +659,7 @@ pub struct IProductLicense_abi(
 pub struct IProductLicenseWithFulfillment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductLicenseWithFulfillment {
     type Vtable = IProductLicenseWithFulfillment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4233321610, 63079, 16627, [186, 60, 4, 90, 99, 171, 179, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc535c8a_f667_40f3_ba3c_045a63abb3ac);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -677,7 +677,7 @@ pub struct IProductLicenseWithFulfillment_abi(
 pub struct IProductListing(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductListing {
     type Vtable = IProductListing_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1168627373, 51024, 19868, [148, 124, 176, 13, 203, 249, 233, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45a7d6ad_c750_4d9c_947c_b00dcbf9e9c2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -697,7 +697,7 @@ pub struct IProductListing_abi(
 pub struct IProductListing2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductListing2 {
     type Vtable = IProductListing2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4171114767, 29694, 18765, [169, 57, 8, 169, 178, 73, 90, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf89e290f_73fe_494d_a939_08a9b2495abe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -719,7 +719,7 @@ pub struct IProductListing2_abi(
 pub struct IProductListingWithConsumables(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductListingWithConsumables {
     type Vtable = IProductListingWithConsumables_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953039248, 36715, 18463, [147, 167, 92, 58, 99, 6, 129, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb9e9790_8f6b_481f_93a7_5c3a63068149);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -737,7 +737,7 @@ pub struct IProductListingWithConsumables_abi(
 pub struct IProductListingWithMetadata(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductListingWithMetadata {
     type Vtable = IProductListingWithMetadata_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(307078503, 9208, 16958, [149, 50, 24, 153, 67, 196, 10, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x124da567_23f8_423e_9532_189943c40ace);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -761,7 +761,7 @@ pub struct IProductListingWithMetadata_abi(
 pub struct IProductPurchaseDisplayProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductPurchaseDisplayProperties {
     type Vtable = IProductPurchaseDisplayProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3607852064, 48274, 16411, [168, 9, 201, 178, 229, 219, 189, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd70b7420_bc92_401b_a809_c9b2e5dbbdaf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -786,7 +786,7 @@ pub struct IProductPurchaseDisplayProperties_abi(
 pub struct IProductPurchaseDisplayPropertiesFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductPurchaseDisplayPropertiesFactory {
     type Vtable = IProductPurchaseDisplayPropertiesFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1867062772, 13014, 19264, [180, 116, 184, 48, 56, 164, 217, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f491df4_32d6_4b40_b474_b83038a4d9cf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -804,7 +804,7 @@ pub struct IProductPurchaseDisplayPropertiesFactory_abi(
 pub struct IPurchaseResults(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPurchaseResults {
     type Vtable = IPurchaseResults_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3981489022, 34390, 20325, [184, 200, 172, 126, 12, 177, 161, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed50b37e_8656_4f65_b8c8_ac7e0cb1a1c2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -825,7 +825,7 @@ pub struct IPurchaseResults_abi(
 pub struct IUnfulfilledConsumable(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnfulfilledConsumable {
     type Vtable = IUnfulfilledConsumable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(771226555, 7389, 19640, [160, 20, 123, 156, 248, 152, 105, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2df7fbbb_1cdd_4cb8_a014_7b9cf8986927);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -864,7 +864,7 @@ unsafe impl ::windows::runtime::RuntimeType for LicenseChangedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for LicenseChangedEventHandler {
     type Vtable = LicenseChangedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3567583829, 4969, 19510, [131, 47, 111, 45, 136, 227, 101, 155]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4a50255_1369_4c36_832f_6f2d88e3659b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -973,7 +973,7 @@ unsafe impl ::windows::runtime::RuntimeType for LicenseInformation {
 }
 unsafe impl ::windows::runtime::Interface for LicenseInformation {
     type Vtable = ILicenseInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2394414128, 61808, 20181, [142, 33, 21, 22, 218, 63, 211, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8eb7dc30_f170_4ed5_8e21_1516da3fd367);
 }
 impl ::windows::runtime::RuntimeName for LicenseInformation {
     const NAME: &'static str = "Windows.ApplicationModel.Store.LicenseInformation";
@@ -1113,7 +1113,7 @@ unsafe impl ::windows::runtime::RuntimeType for ListingInformation {
 }
 unsafe impl ::windows::runtime::Interface for ListingInformation {
     type Vtable = IListingInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1485523647, 48244, 17283, [183, 140, 153, 96, 99, 35, 222, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x588b4abf_bc74_4383_b78c_99606323dece);
 }
 impl ::windows::runtime::RuntimeName for ListingInformation {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ListingInformation";
@@ -1204,7 +1204,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProductLicense {
 }
 unsafe impl ::windows::runtime::Interface for ProductLicense {
     type Vtable = IProductLicense_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(909314247, 11215, 19470, [143, 47, 232, 8, 170, 168, 249, 157]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x363308c7_2bcf_4c0e_8f2f_e808aaa8f99d);
 }
 impl ::windows::runtime::RuntimeName for ProductLicense {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ProductLicense";
@@ -1361,7 +1361,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProductListing {
 }
 unsafe impl ::windows::runtime::Interface for ProductListing {
     type Vtable = IProductListing_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1168627373, 51024, 19868, [148, 124, 176, 13, 203, 249, 233, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45a7d6ad_c750_4d9c_947c_b00dcbf9e9c2);
 }
 impl ::windows::runtime::RuntimeName for ProductListing {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ProductListing";
@@ -1478,7 +1478,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProductPurchaseDisplayProperties
 }
 unsafe impl ::windows::runtime::Interface for ProductPurchaseDisplayProperties {
     type Vtable = IProductPurchaseDisplayProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3607852064, 48274, 16411, [168, 9, 201, 178, 229, 219, 189, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd70b7420_bc92_401b_a809_c9b2e5dbbdaf);
 }
 impl ::windows::runtime::RuntimeName for ProductPurchaseDisplayProperties {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ProductPurchaseDisplayProperties";
@@ -1615,7 +1615,7 @@ unsafe impl ::windows::runtime::RuntimeType for PurchaseResults {
 }
 unsafe impl ::windows::runtime::Interface for PurchaseResults {
     type Vtable = IPurchaseResults_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3981489022, 34390, 20325, [184, 200, 172, 126, 12, 177, 161, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed50b37e_8656_4f65_b8c8_ac7e0cb1a1c2);
 }
 impl ::windows::runtime::RuntimeName for PurchaseResults {
     const NAME: &'static str = "Windows.ApplicationModel.Store.PurchaseResults";
@@ -1697,7 +1697,7 @@ unsafe impl ::windows::runtime::RuntimeType for UnfulfilledConsumable {
 }
 unsafe impl ::windows::runtime::Interface for UnfulfilledConsumable {
     type Vtable = IUnfulfilledConsumable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(771226555, 7389, 19640, [160, 20, 123, 156, 248, 152, 105, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2df7fbbb_1cdd_4cb8_a014_7b9cf8986927);
 }
 impl ::windows::runtime::RuntimeName for UnfulfilledConsumable {
     const NAME: &'static str = "Windows.ApplicationModel.Store.UnfulfilledConsumable";

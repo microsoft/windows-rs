@@ -4,7 +4,7 @@
 pub struct IInkWorkspaceHostedAppManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkWorkspaceHostedAppManager {
     type Vtable = IInkWorkspaceHostedAppManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4262099344, 24153, 19383, [138, 99, 125, 33, 140, 217, 99, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe0a7990_5e59_4bb7_8a63_7d218cd96300);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23,7 +23,7 @@ pub struct IInkWorkspaceHostedAppManager_abi(
 pub struct IInkWorkspaceHostedAppManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkWorkspaceHostedAppManagerStatics {
     type Vtable = IInkWorkspaceHostedAppManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3422391493, 41314, 19396, [132, 238, 232, 113, 109, 82, 51, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcbfd8cc5_a162_4bc4_84ee_e8716d5233c5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -67,7 +67,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkWorkspaceHostedAppManager {
 }
 unsafe impl ::windows::runtime::Interface for InkWorkspaceHostedAppManager {
     type Vtable = IInkWorkspaceHostedAppManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4262099344, 24153, 19383, [138, 99, 125, 33, 140, 217, 99, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe0a7990_5e59_4bb7_8a63_7d218cd96300);
 }
 impl ::windows::runtime::RuntimeName for InkWorkspaceHostedAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.InkWorkspace.InkWorkspaceHostedAppManager";

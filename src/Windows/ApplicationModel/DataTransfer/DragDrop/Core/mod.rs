@@ -49,7 +49,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreDragDropManager {
 }
 unsafe impl ::windows::runtime::Interface for CoreDragDropManager {
     type Vtable = ICoreDragDropManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2102842180, 33892, 20399, [170, 73, 55, 234, 110, 45, 123, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d56d344_8464_4faf_aa49_37ea6e2d7bd1);
 }
 impl ::windows::runtime::RuntimeName for CoreDragDropManager {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragDropManager";
@@ -140,7 +140,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreDragInfo {
 }
 unsafe impl ::windows::runtime::Interface for CoreDragInfo {
     type Vtable = ICoreDragInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1211447947, 52048, 17998, [149, 117, 205, 78, 58, 122, 176, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48353a8b_cb50_464e_9575_cd4e3a7ab028);
 }
 impl ::windows::runtime::RuntimeName for CoreDragInfo {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragInfo";
@@ -265,7 +265,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreDragOperation {
 }
 unsafe impl ::windows::runtime::Interface for CoreDragOperation {
     type Vtable = ICoreDragOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3423002191, 28080, 20066, [171, 27, 167, 74, 2, 220, 109, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc06de4f_6db0_4e62_ab1b_a74a02dc6d85);
 }
 impl ::windows::runtime::RuntimeName for CoreDragOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragOperation";
@@ -442,7 +442,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreDragUIOverride {
 }
 unsafe impl ::windows::runtime::Interface for CoreDragUIOverride {
     type Vtable = ICoreDragUIOverride_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2309509220, 13193, 20303, [136, 151, 126, 138, 63, 251, 60, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89a85064_3389_4f4f_8897_7e8a3ffb3c93);
 }
 impl ::windows::runtime::RuntimeName for CoreDragUIOverride {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIOverride";
@@ -505,7 +505,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreDropOperationTargetRequested
 }
 unsafe impl ::windows::runtime::Interface for CoreDropOperationTargetRequestedEventArgs {
     type Vtable = ICoreDropOperationTargetRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(717918874, 24104, 20134, [130, 158, 41, 19, 78, 102, 93, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2aca929a_5e28_4ea6_829e_29134e665d6d);
 }
 impl ::windows::runtime::RuntimeName for CoreDropOperationTargetRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDropOperationTargetRequestedEventArgs";
@@ -557,7 +557,7 @@ unsafe impl ::core::marker::Sync for CoreDropOperationTargetRequestedEventArgs {
 pub struct ICoreDragDropManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragDropManager {
     type Vtable = ICoreDragDropManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2102842180, 33892, 20399, [170, 73, 55, 234, 110, 45, 123, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d56d344_8464_4faf_aa49_37ea6e2d7bd1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -580,7 +580,7 @@ pub struct ICoreDragDropManager_abi(
 pub struct ICoreDragDropManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragDropManagerStatics {
     type Vtable = ICoreDragDropManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2504195530, 55826, 19484, [141, 6, 4, 29, 178, 151, 51, 195]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9542fdca_da12_4c1c_8d06_041db29733c3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -598,7 +598,7 @@ pub struct ICoreDragDropManagerStatics_abi(
 pub struct ICoreDragInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragInfo {
     type Vtable = ICoreDragInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1211447947, 52048, 17998, [149, 117, 205, 78, 58, 122, 176, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48353a8b_cb50_464e_9575_cd4e3a7ab028);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -619,7 +619,7 @@ pub struct ICoreDragInfo_abi(
 pub struct ICoreDragInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragInfo2 {
     type Vtable = ICoreDragInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3309736421, 59131, 19828, [180, 177, 138, 60, 23, 242, 94, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc54691e5_e6fb_4d74_b4b1_8a3c17f25e9e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -637,7 +637,7 @@ pub struct ICoreDragInfo2_abi(
 pub struct ICoreDragOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragOperation {
     type Vtable = ICoreDragOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3423002191, 28080, 20066, [171, 27, 167, 74, 2, 220, 109, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc06de4f_6db0_4e62_ab1b_a74a02dc6d85);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -664,7 +664,7 @@ pub struct ICoreDragOperation_abi(
 pub struct ICoreDragOperation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragOperation2 {
     type Vtable = ICoreDragOperation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2185961004, 55706, 20419, [133, 7, 108, 24, 47, 51, 180, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x824b1e2c_d99a_4fc3_8507_6c182f33b46a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -683,7 +683,7 @@ pub struct ICoreDragOperation2_abi(
 pub struct ICoreDragUIOverride(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragUIOverride {
     type Vtable = ICoreDragUIOverride_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2309509220, 13193, 20303, [136, 151, 126, 138, 63, 251, 60, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x89a85064_3389_4f4f_8897_7e8a3ffb3c93);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -714,7 +714,7 @@ pub struct ICoreDragUIOverride_abi(
 pub struct ICoreDropOperationTarget(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDropOperationTarget {
     type Vtable = ICoreDropOperationTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3641860502, 19547, 16765, [187, 55, 118, 56, 29, 239, 141, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9126196_4c5b_417d_bb37_76381def8db4);
 }
 impl ICoreDropOperationTarget {
     #[cfg(feature = "Foundation")]
@@ -820,7 +820,7 @@ pub struct ICoreDropOperationTarget_abi(
 pub struct ICoreDropOperationTargetRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDropOperationTargetRequestedEventArgs {
     type Vtable = ICoreDropOperationTargetRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(717918874, 24104, 20134, [130, 158, 41, 19, 78, 102, 93, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2aca929a_5e28_4ea6_829e_29134e665d6d);
 }
 #[repr(C)]
 #[doc(hidden)]

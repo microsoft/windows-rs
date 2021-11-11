@@ -77,7 +77,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpDiagnosticProvider {
 }
 unsafe impl ::windows::runtime::Interface for HttpDiagnosticProvider {
     type Vtable = IHttpDiagnosticProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3179353345, 41046, 19769, [177, 116, 131, 59, 123, 3, 176, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd811501_a056_4d39_b174_833b7b03b02c);
 }
 impl ::windows::runtime::RuntimeName for HttpDiagnosticProvider {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProvider";
@@ -193,7 +193,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpDiagnosticProviderRequestRes
 }
 unsafe impl ::windows::runtime::Interface for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestResponseCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1935644910, 38134, 17714, [178, 110, 97, 225, 177, 228, 239, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x735f98ee_94f6_4532_b26e_61e1b1e4efd4);
 }
 impl ::windows::runtime::RuntimeName for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseCompletedEventArgs";
@@ -332,7 +332,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpDiagnosticProviderRequestRes
 }
 unsafe impl ::windows::runtime::Interface for HttpDiagnosticProviderRequestResponseTimestamps {
     type Vtable = IHttpDiagnosticProviderRequestResponseTimestamps_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3769622032, 21967, 19457, [145, 212, 162, 5, 87, 216, 73, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0afde10_55cf_4c01_91d4_a20557d849f0);
 }
 impl ::windows::runtime::RuntimeName for HttpDiagnosticProviderRequestResponseTimestamps {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseTimestamps";
@@ -448,7 +448,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpDiagnosticProviderRequestSen
 }
 unsafe impl ::windows::runtime::Interface for HttpDiagnosticProviderRequestSentEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestSentEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1062311632, 19487, 20158, [165, 122, 6, 147, 7, 113, 197, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f5196d0_4c1f_4ebe_a57a_06930771c50d);
 }
 impl ::windows::runtime::RuntimeName for HttpDiagnosticProviderRequestSentEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestSentEventArgs";
@@ -531,7 +531,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpDiagnosticProviderResponseRe
 }
 unsafe impl ::windows::runtime::Interface for HttpDiagnosticProviderResponseReceivedEventArgs {
     type Vtable = IHttpDiagnosticProviderResponseReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2694993516, 43871, 19814, [187, 45, 8, 76, 244, 22, 53, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0a2566c_ab5f_4d66_bb2d_084cf41635d0);
 }
 impl ::windows::runtime::RuntimeName for HttpDiagnosticProviderResponseReceivedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderResponseReceivedEventArgs";
@@ -647,7 +647,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpDiagnosticSourceLocation {
 }
 unsafe impl ::windows::runtime::Interface for HttpDiagnosticSourceLocation {
     type Vtable = IHttpDiagnosticSourceLocation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1420415584, 34912, 16959, [182, 250, 215, 119, 22, 246, 71, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54a9d260_8860_423f_b6fa_d77716f647a7);
 }
 impl ::windows::runtime::RuntimeName for HttpDiagnosticSourceLocation {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticSourceLocation";
@@ -702,7 +702,7 @@ pub struct HttpDiagnosticsContract(pub u8);
 pub struct IHttpDiagnosticProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticProvider {
     type Vtable = IHttpDiagnosticProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3179353345, 41046, 19769, [177, 116, 131, 59, 123, 3, 176, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd811501_a056_4d39_b174_833b7b03b02c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -733,7 +733,7 @@ pub struct IHttpDiagnosticProvider_abi(
 pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticProviderRequestResponseCompletedEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestResponseCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1935644910, 38134, 17714, [178, 110, 97, 225, 177, 228, 239, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x735f98ee_94f6_4532_b26e_61e1b1e4efd4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -759,7 +759,7 @@ pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs_abi(
 pub struct IHttpDiagnosticProviderRequestResponseTimestamps(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticProviderRequestResponseTimestamps {
     type Vtable = IHttpDiagnosticProviderRequestResponseTimestamps_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3769622032, 21967, 19457, [145, 212, 162, 5, 87, 216, 73, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0afde10_55cf_4c01_91d4_a20557d849f0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -794,7 +794,7 @@ pub struct IHttpDiagnosticProviderRequestResponseTimestamps_abi(
 pub struct IHttpDiagnosticProviderRequestSentEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticProviderRequestSentEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestSentEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1062311632, 19487, 20158, [165, 122, 6, 147, 7, 113, 197, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f5196d0_4c1f_4ebe_a57a_06930771c50d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -820,7 +820,7 @@ pub struct IHttpDiagnosticProviderRequestSentEventArgs_abi(
 pub struct IHttpDiagnosticProviderResponseReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticProviderResponseReceivedEventArgs {
     type Vtable = IHttpDiagnosticProviderResponseReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2694993516, 43871, 19814, [187, 45, 8, 76, 244, 22, 53, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0a2566c_ab5f_4d66_bb2d_084cf41635d0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -841,7 +841,7 @@ pub struct IHttpDiagnosticProviderResponseReceivedEventArgs_abi(
 pub struct IHttpDiagnosticProviderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticProviderStatics {
     type Vtable = IHttpDiagnosticProviderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1535266497, 27244, 18380, [175, 236, 30, 134, 188, 38, 5, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b824ec1_6a6c_47cc_afec_1e86bc26053b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -860,7 +860,7 @@ pub struct IHttpDiagnosticProviderStatics_abi(
 pub struct IHttpDiagnosticSourceLocation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticSourceLocation {
     type Vtable = IHttpDiagnosticSourceLocation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1420415584, 34912, 16959, [182, 250, 215, 119, 22, 246, 71, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54a9d260_8860_423f_b6fa_d77716f647a7);
 }
 #[repr(C)]
 #[doc(hidden)]

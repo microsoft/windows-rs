@@ -23,7 +23,7 @@ unsafe impl ::windows::runtime::RuntimeType for BindableVectorChangedEventHandle
 }
 unsafe impl ::windows::runtime::Interface for BindableVectorChangedEventHandler {
     type Vtable = BindableVectorChangedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1649202401, 53255, 17329, [156, 3, 175, 77, 62, 98, 88, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x624cd4e1_d007_43b1_9c03_af4d3e6258c4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -82,7 +82,7 @@ impl<F: FnMut(&::core::option::Option<IBindableObservableVector>, &::core::optio
 pub struct IBindableIterable(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindableIterable {
     type Vtable = IBindableIterable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(57486344, 57129, 16815, [138, 162, 215, 116, 190, 98, 186, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x036d2c08_df29_41af_8aa2_d774be62ba6f);
 }
 impl IBindableIterable {
     #[doc = "*Required features: `UI_Xaml_Interop`*"]
@@ -154,7 +154,7 @@ pub struct IBindableIterable_abi(
 pub struct IBindableIterator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindableIterator {
     type Vtable = IBindableIterator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1780313095, 1901, 18930, [131, 20, 245, 44, 156, 154, 131, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a1d6c07_076d_49f2_8314_f52c9c9a8331);
 }
 impl IBindableIterator {
     #[doc = "*Required features: `UI_Xaml_Interop`*"]
@@ -244,7 +244,7 @@ pub struct IBindableIterator_abi(
 pub struct IBindableObservableVector(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindableObservableVector {
     type Vtable = IBindableObservableVector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4263425334, 32383, 20368, [172, 154, 71, 73, 132, 170, 229, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe1eb536_7e7f_4f90_ac9a_474984aae512);
 }
 impl IBindableObservableVector {
     #[cfg(feature = "Foundation")]
@@ -440,7 +440,7 @@ pub struct IBindableObservableVector_abi(
 pub struct IBindableVector(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindableVector {
     type Vtable = IBindableVector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(960358366, 28624, 19469, [187, 113, 71, 36, 74, 17, 62, 147]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x393de7de_6fd0_4c0d_bb71_47244a113e93);
 }
 impl IBindableVector {
     #[doc = "*Required features: `UI_Xaml_Interop`*"]
@@ -605,7 +605,7 @@ pub struct IBindableVector_abi(
 pub struct IBindableVectorView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindableVectorView {
     type Vtable = IBindableVectorView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(879613671, 38766, 19395, [129, 93, 236, 226, 67, 188, 15, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x346dd6e7_976e_4bc3_815d_ece243bc0f33);
 }
 impl IBindableVectorView {
     #[doc = "*Required features: `UI_Xaml_Interop`*"]
@@ -725,7 +725,7 @@ pub struct IBindableVectorView_abi(
 pub struct INotifyCollectionChanged(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotifyCollectionChanged {
     type Vtable = INotifyCollectionChanged_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(682715093, 6705, 18011, [155, 37, 213, 195, 174, 104, 108, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28b167d5_1a31_465b_9b25_d5c3ae686c40);
 }
 impl INotifyCollectionChanged {
     #[cfg(feature = "Foundation")]
@@ -806,7 +806,7 @@ pub struct INotifyCollectionChanged_abi(
 pub struct INotifyCollectionChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotifyCollectionChangedEventArgs {
     type Vtable = INotifyCollectionChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1291226419, 58354, 18788, [184, 94, 148, 91, 79, 126, 47, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4cf68d33_e3f2_4964_b85e_945b4f7e2f21);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -828,7 +828,7 @@ pub struct INotifyCollectionChangedEventArgs_abi(
 pub struct INotifyCollectionChangedEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotifyCollectionChangedEventArgsFactory {
     type Vtable = INotifyCollectionChangedEventArgsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3003924026, 57229, 17573, [154, 56, 122, 192, 208, 140, 230, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb30c3e3a_df8d_44a5_9a38_7ac0d08ce63d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -928,7 +928,7 @@ unsafe impl ::windows::runtime::RuntimeType for NotifyCollectionChangedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for NotifyCollectionChangedEventArgs {
     type Vtable = INotifyCollectionChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1291226419, 58354, 18788, [184, 94, 148, 91, 79, 126, 47, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4cf68d33_e3f2_4964_b85e_945b4f7e2f21);
 }
 impl ::windows::runtime::RuntimeName for NotifyCollectionChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Interop.NotifyCollectionChangedEventArgs";
@@ -999,7 +999,7 @@ unsafe impl ::windows::runtime::RuntimeType for NotifyCollectionChangedEventHand
 }
 unsafe impl ::windows::runtime::Interface for NotifyCollectionChangedEventHandler {
     type Vtable = NotifyCollectionChangedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3390092156, 62338, 17809, [133, 87, 94, 36, 150, 82, 121, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca10b37c_f382_4591_8557_5e24965279b0);
 }
 #[repr(C)]
 #[doc(hidden)]

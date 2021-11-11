@@ -6,7 +6,7 @@ pub mod Core;
 pub struct ILocalContentSuggestionSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalContentSuggestionSettings {
     type Vtable = ILocalContentSuggestionSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4004425826, 29757, 17774, [132, 163, 35, 240, 111, 45, 21, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeeaeb062_743d_456e_84a3_23f06f2d15d7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -31,7 +31,7 @@ pub struct ILocalContentSuggestionSettings_abi(
 pub struct ISearchPane(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPane {
     type Vtable = ISearchPane_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4255968312, 14080, 19827, [145, 161, 47, 153, 134, 116, 35, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfdacec38_3700_4d73_91a1_2f998674238a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -84,7 +84,7 @@ pub struct ISearchPane_abi(
 pub struct ISearchPaneQueryChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneQueryChangedEventArgs {
     type Vtable = ISearchPaneQueryChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1007046633, 9041, 16968, [165, 41, 113, 16, 244, 100, 167, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c064fe9_2351_4248_a529_7110f464a785);
 }
 impl ISearchPaneQueryChangedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -176,7 +176,7 @@ pub struct ISearchPaneQueryChangedEventArgs_abi(
 pub struct ISearchPaneQueryLinguisticDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneQueryLinguisticDetails {
     type Vtable = ISearchPaneQueryLinguisticDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2197505550, 2368, 19309, [184, 208, 100, 43, 48, 152, 158, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82fb460e_0940_4b6d_b8d0_642b30989e15);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -197,7 +197,7 @@ pub struct ISearchPaneQueryLinguisticDetails_abi(
 pub struct ISearchPaneQuerySubmittedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneQuerySubmittedEventArgs {
     type Vtable = ISearchPaneQuerySubmittedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(339453180, 59845, 18230, [145, 178, 232, 235, 156, 184, 131, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x143ba4fc_e9c5_4736_91b2_e8eb9cb88356);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -216,7 +216,7 @@ pub struct ISearchPaneQuerySubmittedEventArgs_abi(
 pub struct ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails {
     type Vtable = ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1175229157, 19506, 17720, [164, 212, 182, 180, 64, 13, 20, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x460c92e5_4c32_4538_a4d4_b6b4400d140f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -234,7 +234,7 @@ pub struct ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_abi(
 pub struct ISearchPaneResultSuggestionChosenEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneResultSuggestionChosenEventArgs {
     type Vtable = ISearchPaneResultSuggestionChosenEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3358682304, 44754, 16864, [188, 224, 194, 108, 167, 79, 133, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8316cc0_aed2_41e0_bce0_c26ca74f85ec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -252,7 +252,7 @@ pub struct ISearchPaneResultSuggestionChosenEventArgs_abi(
 pub struct ISearchPaneStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneStatics {
     type Vtable = ISearchPaneStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2507320817, 36637, 18463, [161, 91, 198, 22, 85, 241, 106, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9572adf1_8f1d_481f_a15b_c61655f16a0e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -270,7 +270,7 @@ pub struct ISearchPaneStatics_abi(
 pub struct ISearchPaneStaticsWithHideThisApplication(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneStaticsWithHideThisApplication {
     type Vtable = ISearchPaneStaticsWithHideThisApplication_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(7546928, 20721, 19715, [153, 172, 198, 100, 76, 142, 216, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00732830_50f1_4d03_99ac_c6644c8ed8b5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -288,7 +288,7 @@ pub struct ISearchPaneStaticsWithHideThisApplication_abi(
 pub struct ISearchPaneSuggestionsRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneSuggestionsRequest {
     type Vtable = ISearchPaneSuggestionsRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2175863580, 58721, 16531, [155, 77, 42, 212, 130, 121, 74, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81b10b1c_e561_4093_9b4d_2ad482794a53);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -308,7 +308,7 @@ pub struct ISearchPaneSuggestionsRequest_abi(
 pub struct ISearchPaneSuggestionsRequestDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneSuggestionsRequestDeferral {
     type Vtable = ISearchPaneSuggestionsRequestDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2697988599, 34632, 20194, [173, 68, 175, 166, 190, 153, 124, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0d009f7_8748_4ee2_ad44_afa6be997c51);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -326,7 +326,7 @@ pub struct ISearchPaneSuggestionsRequestDeferral_abi(
 pub struct ISearchPaneSuggestionsRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneSuggestionsRequestedEventArgs {
     type Vtable = ISearchPaneSuggestionsRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3365636655, 44118, 17504, [141, 47, 128, 2, 59, 236, 79, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc89b8a2f_ac56_4460_8d2f_80023bec4fc5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -344,7 +344,7 @@ pub struct ISearchPaneSuggestionsRequestedEventArgs_abi(
 pub struct ISearchPaneVisibilityChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneVisibilityChangedEventArgs {
     type Vtable = ISearchPaneVisibilityChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1011691590, 44107, 18930, [151, 214, 2, 14, 97, 130, 203, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c4d3046_ac4b_49f2_97d6_020e6182cb9c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -362,7 +362,7 @@ pub struct ISearchPaneVisibilityChangedEventArgs_abi(
 pub struct ISearchQueryLinguisticDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchQueryLinguisticDetails {
     type Vtable = ISearchQueryLinguisticDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1184964699, 27081, 18245, [183, 47, 168, 164, 252, 143, 36, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46a1205b_69c9_4745_b72f_a8a4fc8f24ae);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -383,7 +383,7 @@ pub struct ISearchQueryLinguisticDetails_abi(
 pub struct ISearchQueryLinguisticDetailsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchQueryLinguisticDetailsFactory {
     type Vtable = ISearchQueryLinguisticDetailsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3402023864, 15460, 19965, [173, 159, 71, 158, 77, 64, 101, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcac6c3b8_3c64_4dfd_ad9f_479e4d4065a4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -402,7 +402,7 @@ pub struct ISearchQueryLinguisticDetailsFactory_abi(
 pub struct ISearchSuggestionCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchSuggestionCollection {
     type Vtable = ISearchSuggestionCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(842697291, 64490, 17478, [171, 188, 61, 167, 145, 95, 221, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x323a8a4b_fbea_4446_abbc_3da7915fdd3a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -426,7 +426,7 @@ pub struct ISearchSuggestionCollection_abi(
 pub struct ISearchSuggestionsRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchSuggestionsRequest {
     type Vtable = ISearchSuggestionsRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1313744551, 17637, 16441, [144, 153, 96, 0, 234, 209, 240, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e4e26a7_44e5_4039_9099_6000ead1f0c6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -446,7 +446,7 @@ pub struct ISearchSuggestionsRequest_abi(
 pub struct ISearchSuggestionsRequestDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchSuggestionsRequestDeferral {
     type Vtable = ISearchSuggestionsRequestDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3071645865, 49253, 17773, [168, 69, 30, 204, 236, 93, 194, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb71598a9_c065_456d_a845_1eccec5dc28b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -521,7 +521,7 @@ unsafe impl ::windows::runtime::RuntimeType for LocalContentSuggestionSettings {
 }
 unsafe impl ::windows::runtime::Interface for LocalContentSuggestionSettings {
     type Vtable = ILocalContentSuggestionSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4004425826, 29757, 17774, [132, 163, 35, 240, 111, 45, 21, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeeaeb062_743d_456e_84a3_23f06f2d15d7);
 }
 impl ::windows::runtime::RuntimeName for LocalContentSuggestionSettings {
     const NAME: &'static str = "Windows.ApplicationModel.Search.LocalContentSuggestionSettings";
@@ -800,7 +800,7 @@ unsafe impl ::windows::runtime::RuntimeType for SearchPane {
 }
 unsafe impl ::windows::runtime::Interface for SearchPane {
     type Vtable = ISearchPane_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4255968312, 14080, 19827, [145, 161, 47, 153, 134, 116, 35, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfdacec38_3700_4d73_91a1_2f998674238a);
 }
 impl ::windows::runtime::RuntimeName for SearchPane {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPane";
@@ -883,7 +883,7 @@ unsafe impl ::windows::runtime::RuntimeType for SearchPaneQueryChangedEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for SearchPaneQueryChangedEventArgs {
     type Vtable = ISearchPaneQueryChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1007046633, 9041, 16968, [165, 41, 113, 16, 244, 100, 167, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c064fe9_2351_4248_a529_7110f464a785);
 }
 impl ::windows::runtime::RuntimeName for SearchPaneQueryChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneQueryChangedEventArgs";
@@ -986,7 +986,7 @@ unsafe impl ::windows::runtime::RuntimeType for SearchPaneQueryLinguisticDetails
 }
 unsafe impl ::windows::runtime::Interface for SearchPaneQueryLinguisticDetails {
     type Vtable = ISearchPaneQueryLinguisticDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2197505550, 2368, 19309, [184, 208, 100, 43, 48, 152, 158, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82fb460e_0940_4b6d_b8d0_642b30989e15);
 }
 impl ::windows::runtime::RuntimeName for SearchPaneQueryLinguisticDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneQueryLinguisticDetails";
@@ -1071,7 +1071,7 @@ unsafe impl ::windows::runtime::RuntimeType for SearchPaneQuerySubmittedEventArg
 }
 unsafe impl ::windows::runtime::Interface for SearchPaneQuerySubmittedEventArgs {
     type Vtable = ISearchPaneQuerySubmittedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(339453180, 59845, 18230, [145, 178, 232, 235, 156, 184, 131, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x143ba4fc_e9c5_4736_91b2_e8eb9cb88356);
 }
 impl ::windows::runtime::RuntimeName for SearchPaneQuerySubmittedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneQuerySubmittedEventArgs";
@@ -1138,7 +1138,7 @@ unsafe impl ::windows::runtime::RuntimeType for SearchPaneResultSuggestionChosen
 }
 unsafe impl ::windows::runtime::Interface for SearchPaneResultSuggestionChosenEventArgs {
     type Vtable = ISearchPaneResultSuggestionChosenEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3358682304, 44754, 16864, [188, 224, 194, 108, 167, 79, 133, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8316cc0_aed2_41e0_bce0_c26ca74f85ec);
 }
 impl ::windows::runtime::RuntimeName for SearchPaneResultSuggestionChosenEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneResultSuggestionChosenEventArgs";
@@ -1223,7 +1223,7 @@ unsafe impl ::windows::runtime::RuntimeType for SearchPaneSuggestionsRequest {
 }
 unsafe impl ::windows::runtime::Interface for SearchPaneSuggestionsRequest {
     type Vtable = ISearchPaneSuggestionsRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2175863580, 58721, 16531, [155, 77, 42, 212, 130, 121, 74, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81b10b1c_e561_4093_9b4d_2ad482794a53);
 }
 impl ::windows::runtime::RuntimeName for SearchPaneSuggestionsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneSuggestionsRequest";
@@ -1287,7 +1287,7 @@ unsafe impl ::windows::runtime::RuntimeType for SearchPaneSuggestionsRequestDefe
 }
 unsafe impl ::windows::runtime::Interface for SearchPaneSuggestionsRequestDeferral {
     type Vtable = ISearchPaneSuggestionsRequestDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2697988599, 34632, 20194, [173, 68, 175, 166, 190, 153, 124, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0d009f7_8748_4ee2_ad44_afa6be997c51);
 }
 impl ::windows::runtime::RuntimeName for SearchPaneSuggestionsRequestDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneSuggestionsRequestDeferral";
@@ -1381,7 +1381,7 @@ unsafe impl ::windows::runtime::RuntimeType for SearchPaneSuggestionsRequestedEv
 }
 unsafe impl ::windows::runtime::Interface for SearchPaneSuggestionsRequestedEventArgs {
     type Vtable = ISearchPaneSuggestionsRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3365636655, 44118, 17504, [141, 47, 128, 2, 59, 236, 79, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc89b8a2f_ac56_4460_8d2f_80023bec4fc5);
 }
 impl ::windows::runtime::RuntimeName for SearchPaneSuggestionsRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneSuggestionsRequestedEventArgs";
@@ -1470,7 +1470,7 @@ unsafe impl ::windows::runtime::RuntimeType for SearchPaneVisibilityChangedEvent
 }
 unsafe impl ::windows::runtime::Interface for SearchPaneVisibilityChangedEventArgs {
     type Vtable = ISearchPaneVisibilityChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1011691590, 44107, 18930, [151, 214, 2, 14, 97, 130, 203, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c4d3046_ac4b_49f2_97d6_020e6182cb9c);
 }
 impl ::windows::runtime::RuntimeName for SearchPaneVisibilityChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneVisibilityChangedEventArgs";
@@ -1565,7 +1565,7 @@ unsafe impl ::windows::runtime::RuntimeType for SearchQueryLinguisticDetails {
 }
 unsafe impl ::windows::runtime::Interface for SearchQueryLinguisticDetails {
     type Vtable = ISearchQueryLinguisticDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1184964699, 27081, 18245, [183, 47, 168, 164, 252, 143, 36, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46a1205b_69c9_4745_b72f_a8a4fc8f24ae);
 }
 impl ::windows::runtime::RuntimeName for SearchQueryLinguisticDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchQueryLinguisticDetails";
@@ -1660,7 +1660,7 @@ unsafe impl ::windows::runtime::RuntimeType for SearchSuggestionCollection {
 }
 unsafe impl ::windows::runtime::Interface for SearchSuggestionCollection {
     type Vtable = ISearchSuggestionCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(842697291, 64490, 17478, [171, 188, 61, 167, 145, 95, 221, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x323a8a4b_fbea_4446_abbc_3da7915fdd3a);
 }
 impl ::windows::runtime::RuntimeName for SearchSuggestionCollection {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchSuggestionCollection";
@@ -1742,7 +1742,7 @@ unsafe impl ::windows::runtime::RuntimeType for SearchSuggestionsRequest {
 }
 unsafe impl ::windows::runtime::Interface for SearchSuggestionsRequest {
     type Vtable = ISearchSuggestionsRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1313744551, 17637, 16441, [144, 153, 96, 0, 234, 209, 240, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e4e26a7_44e5_4039_9099_6000ead1f0c6);
 }
 impl ::windows::runtime::RuntimeName for SearchSuggestionsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchSuggestionsRequest";
@@ -1805,7 +1805,7 @@ unsafe impl ::windows::runtime::RuntimeType for SearchSuggestionsRequestDeferral
 }
 unsafe impl ::windows::runtime::Interface for SearchSuggestionsRequestDeferral {
     type Vtable = ISearchSuggestionsRequestDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3071645865, 49253, 17773, [168, 69, 30, 204, 236, 93, 194, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb71598a9_c065_456d_a845_1eccec5dc28b);
 }
 impl ::windows::runtime::RuntimeName for SearchSuggestionsRequestDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchSuggestionsRequestDeferral";

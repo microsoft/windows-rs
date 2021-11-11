@@ -164,7 +164,7 @@ impl IBitmapData {
 }
 unsafe impl ::windows::runtime::Interface for IBitmapData {
     type Vtable = IBitmapData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3517140722, 51928, 17973, [163, 210, 252, 218, 141, 63, 60, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1a34ef2_cad8_4635_a3d2_fcda8d3f3caf);
 }
 impl ::core::convert::From<IBitmapData> for ::windows::runtime::IUnknown {
     fn from(value: IBitmapData) -> Self {
@@ -261,7 +261,7 @@ impl IVisualTreeService {
 }
 unsafe impl ::windows::runtime::Interface for IVisualTreeService {
     type Vtable = IVisualTreeService_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2777919770, 53631, 18619, [143, 102, 131, 145, 7, 49, 200, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa593b11a_d17f_48bb_8f66_83910731c8a5);
 }
 impl ::core::convert::From<IVisualTreeService> for ::windows::runtime::IUnknown {
     fn from(value: IVisualTreeService) -> Self {
@@ -388,7 +388,7 @@ impl IVisualTreeService2 {
 }
 unsafe impl ::windows::runtime::Interface for IVisualTreeService2 {
     type Vtable = IVisualTreeService2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(319770934, 60483, 20321, [137, 199, 152, 1, 163, 109, 46, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x130f5136_ec43_4f61_89c7_9801a36d2e95);
 }
 impl ::core::convert::From<IVisualTreeService2> for ::windows::runtime::IUnknown {
     fn from(value: IVisualTreeService2) -> Self {
@@ -559,7 +559,7 @@ impl IVisualTreeService3 {
 }
 unsafe impl ::windows::runtime::Interface for IVisualTreeService3 {
     type Vtable = IVisualTreeService3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(242861792, 34208, 19432, [180, 26, 101, 92, 241, 253, 25, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e79c6e0_85a0_4be8_b41a_655cf1fd19bd);
 }
 impl ::core::convert::From<IVisualTreeService3> for ::windows::runtime::IUnknown {
     fn from(value: IVisualTreeService3) -> Self {
@@ -668,7 +668,7 @@ impl IVisualTreeServiceCallback {
 }
 unsafe impl ::windows::runtime::Interface for IVisualTreeServiceCallback {
     type Vtable = IVisualTreeServiceCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860157233, 32996, 20460, [143, 59, 85, 63, 135, 180, 150, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa7a8931_80e4_4fec_8f3b_553f87b4966e);
 }
 impl ::core::convert::From<IVisualTreeServiceCallback> for ::windows::runtime::IUnknown {
     fn from(value: IVisualTreeServiceCallback) -> Self {
@@ -717,7 +717,7 @@ impl IVisualTreeServiceCallback2 {
 }
 unsafe impl ::windows::runtime::Interface for IVisualTreeServiceCallback2 {
     type Vtable = IVisualTreeServiceCallback2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3134843784, 44663, 17303, [185, 72, 95, 162, 219, 10, 25, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbad9eb88_ae77_4397_b948_5fa2db0a19ea);
 }
 impl ::core::convert::From<IVisualTreeServiceCallback2> for ::windows::runtime::IUnknown {
     fn from(value: IVisualTreeServiceCallback2) -> Self {
@@ -819,7 +819,7 @@ impl IXamlDiagnostics {
 }
 unsafe impl ::windows::runtime::Interface for IXamlDiagnostics {
     type Vtable = IXamlDiagnostics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(415883958, 16195, 16662, [159, 43, 255, 147, 93, 119, 112, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x18c9e2b6_3f43_4116_9f2b_ff935d7770d2);
 }
 impl ::core::convert::From<IXamlDiagnostics> for ::windows::runtime::IUnknown {
     fn from(value: IXamlDiagnostics) -> Self {

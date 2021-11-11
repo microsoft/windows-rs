@@ -45,7 +45,7 @@ unsafe impl ::windows::runtime::RuntimeType for EnhancedWaypoint {
 }
 unsafe impl ::windows::runtime::Interface for EnhancedWaypoint {
     type Vtable = IEnhancedWaypoint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3978726516, 22803, 4582, [139, 119, 134, 243, 12, 168, 147, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed268c74_5913_11e6_8b77_86f30ca893d3);
 }
 impl ::windows::runtime::RuntimeName for EnhancedWaypoint {
     const NAME: &'static str = "Windows.Services.Maps.EnhancedWaypoint";
@@ -100,7 +100,7 @@ pub struct GuidanceContract(pub u8);
 pub struct IEnhancedWaypoint(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnhancedWaypoint {
     type Vtable = IEnhancedWaypoint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3978726516, 22803, 4582, [139, 119, 134, 243, 12, 168, 147, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed268c74_5913_11e6_8b77_86f30ca893d3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -120,7 +120,7 @@ pub struct IEnhancedWaypoint_abi(
 pub struct IEnhancedWaypointFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnhancedWaypointFactory {
     type Vtable = IEnhancedWaypointFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2944828535, 41642, 18141, [182, 69, 35, 179, 27, 138, 166, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf868477_a2aa_46dd_b645_23b31b8aa6c7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -139,7 +139,7 @@ pub struct IEnhancedWaypointFactory_abi(
 pub struct IManeuverWarning(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IManeuverWarning {
     type Vtable = IManeuverWarning_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3248713098, 9776, 17272, [158, 74, 110, 68, 37, 61, 206, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1a36d8a_2630_4378_9e4a_6e44253dceba);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -158,7 +158,7 @@ pub struct IManeuverWarning_abi(
 pub struct IMapAddress(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapAddress {
     type Vtable = IMapAddress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3483871603, 41908, 17556, [179, 255, 203, 169, 77, 182, 150, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfa7a973_a3b4_4494_b3ff_cba94db69699);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -190,7 +190,7 @@ pub struct IMapAddress_abi(
 pub struct IMapAddress2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapAddress2 {
     type Vtable = IMapAddress2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1976397297, 58797, 17833, [191, 64, 108, 242, 86, 193, 221, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75cd6df1_e5ad_45a9_bf40_6cf256c1dd13);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -208,7 +208,7 @@ pub struct IMapAddress2_abi(
 pub struct IMapLocation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapLocation {
     type Vtable = IMapLocation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1007107927, 3492, 17128, [158, 226, 169, 111, 207, 35, 113, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c073f57_0da4_42e8_9ee2_a96fcf2371dc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -230,7 +230,7 @@ pub struct IMapLocation_abi(
 pub struct IMapLocationFinderResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapLocationFinderResult {
     type Vtable = IMapLocationFinderResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1139929465, 59596, 17910, [190, 210, 84, 204, 191, 150, 93, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43f1f179_e8cc_45f6_bed2_54ccbf965d9a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -250,7 +250,7 @@ pub struct IMapLocationFinderResult_abi(
 pub struct IMapLocationFinderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapLocationFinderStatics {
     type Vtable = IMapLocationFinderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(831183709, 7261, 20277, [162, 223, 170, 202, 148, 149, 149, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x318adb5d_1c5d_4f35_a2df_aaca94959517);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -273,7 +273,7 @@ pub struct IMapLocationFinderStatics_abi(
 pub struct IMapLocationFinderStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapLocationFinderStatics2 {
     type Vtable = IMapLocationFinderStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2509933462, 25733, 19965, [133, 26, 51, 172, 49, 126, 58, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x959a8b96_6485_4dfd_851a_33ac317e3af6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -292,7 +292,7 @@ pub struct IMapLocationFinderStatics2_abi(
 pub struct IMapManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapManagerStatics {
     type Vtable = IMapManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(937682197, 33460, 19796, [143, 217, 175, 38, 36, 179, 1, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x37e3e515_82b4_4d54_8fd9_af2624b3011c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -311,7 +311,7 @@ pub struct IMapManagerStatics_abi(
 pub struct IMapRoute(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRoute {
     type Vtable = IMapRoute_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4211586866, 22605, 17795, [156, 96, 100, 31, 234, 39, 67, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb07b732_584d_4583_9c60_641fea274349);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -338,7 +338,7 @@ pub struct IMapRoute_abi(
 pub struct IMapRoute2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRoute2 {
     type Vtable = IMapRoute2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3519403020, 8723, 19120, [162, 96, 70, 179, 129, 105, 190, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1c5d40c_2213_4ab0_a260_46b38169beac);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -357,7 +357,7 @@ pub struct IMapRoute2_abi(
 pub struct IMapRoute3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRoute3 {
     type Vtable = IMapRoute3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2240618158, 62125, 17055, [187, 55, 205, 33, 9, 79, 252, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x858d1eae_f2ad_429f_bb37_cd21094ffc92);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -377,7 +377,7 @@ pub struct IMapRoute3_abi(
 pub struct IMapRoute4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRoute4 {
     type Vtable = IMapRoute4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(913083557, 12371, 20385, [128, 255, 212, 117, 243, 237, 30, 110]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x366c8ca5_3053_4fa1_80ff_d475f3ed1e6e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -395,7 +395,7 @@ pub struct IMapRoute4_abi(
 pub struct IMapRouteDrivingOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteDrivingOptions {
     type Vtable = IMapRouteDrivingOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1746220621, 50908, 18071, [164, 82, 177, 143, 143, 11, 103, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6815364d_c6dc_4697_a452_b18f8f0b67a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -422,7 +422,7 @@ pub struct IMapRouteDrivingOptions_abi(
 pub struct IMapRouteDrivingOptions2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteDrivingOptions2 {
     type Vtable = IMapRouteDrivingOptions2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(903644784, 49816, 18640, [181, 173, 130, 84, 96, 100, 86, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35dc8670_c298_48d0_b5ad_825460645603);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -443,7 +443,7 @@ pub struct IMapRouteDrivingOptions2_abi(
 pub struct IMapRouteFinderResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteFinderResult {
     type Vtable = IMapRouteFinderResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2825429786, 37922, 18092, [140, 161, 177, 97, 77, 75, 251, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa868a31a_9422_46ac_8ca1_b1614d4bfbe2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -462,7 +462,7 @@ pub struct IMapRouteFinderResult_abi(
 pub struct IMapRouteFinderResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteFinderResult2 {
     type Vtable = IMapRouteFinderResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(544250989, 55564, 18120, [145, 198, 125, 75, 228, 239, 178, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20709c6d_d90c_46c8_91c6_7d4be4efb215);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -481,7 +481,7 @@ pub struct IMapRouteFinderResult2_abi(
 pub struct IMapRouteFinderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteFinderStatics {
     type Vtable = IMapRouteFinderStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3097871631, 7268, 19514, [129, 235, 31, 124, 21, 42, 251, 187]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8a5c50f_1c64_4c3a_81eb_1f7c152afbbb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -518,7 +518,7 @@ pub struct IMapRouteFinderStatics_abi(
 pub struct IMapRouteFinderStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteFinderStatics2 {
     type Vtable = IMapRouteFinderStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2949393523, 30560, 18863, [179, 189, 186, 241, 53, 183, 3, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xafcc2c73_7760_49af_b3bd_baf135b703e1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -537,7 +537,7 @@ pub struct IMapRouteFinderStatics2_abi(
 pub struct IMapRouteFinderStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteFinderStatics3 {
     type Vtable = IMapRouteFinderStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4127818036, 22803, 4582, [139, 119, 134, 243, 12, 168, 147, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6098134_5913_11e6_8b77_86f30ca893d3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -558,7 +558,7 @@ pub struct IMapRouteFinderStatics3_abi(
 pub struct IMapRouteLeg(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteLeg {
     type Vtable = IMapRouteLeg_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2532881142, 23482, 19735, [157, 182, 26, 38, 63, 236, 116, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96f8b2f6_5bba_4d17_9db6_1a263fec7471);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -584,7 +584,7 @@ pub struct IMapRouteLeg_abi(
 pub struct IMapRouteLeg2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteLeg2 {
     type Vtable = IMapRouteLeg2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(48367149, 51654, 17848, [142, 84, 26, 16, 181, 122, 23, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02e2062d_c9c6_45b8_8e54_1a10b57a17e8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -604,7 +604,7 @@ pub struct IMapRouteLeg2_abi(
 pub struct IMapRouteManeuver(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteManeuver {
     type Vtable = IMapRouteManeuver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3982235632, 42667, 19813, [160, 134, 250, 138, 126, 52, 13, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed5c17f0_a6ab_4d65_a086_fa8a7e340df2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -628,7 +628,7 @@ pub struct IMapRouteManeuver_abi(
 pub struct IMapRouteManeuver2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteManeuver2 {
     type Vtable = IMapRouteManeuver2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1568394652, 31899, 16863, [131, 139, 234, 226, 30, 75, 5, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d7bcd9c_7c9b_41df_838b_eae21e4b05a9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -648,7 +648,7 @@ pub struct IMapRouteManeuver2_abi(
 pub struct IMapRouteManeuver3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteManeuver3 {
     type Vtable = IMapRouteManeuver3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2795583711, 1155, 16742, [133, 190, 185, 147, 54, 193, 24, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6a138df_0483_4166_85be_b99336c11875);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -667,7 +667,7 @@ pub struct IMapRouteManeuver3_abi(
 pub struct IMapServiceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapServiceStatics {
     type Vtable = IMapServiceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(21278085, 49228, 19677, [135, 26, 160, 114, 109, 9, 124, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0144ad85_c04c_4cdd_871a_a0726d097cd4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -686,7 +686,7 @@ pub struct IMapServiceStatics_abi(
 pub struct IMapServiceStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapServiceStatics2 {
     type Vtable = IMapServiceStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4162404077, 40069, 16553, [136, 150, 15, 195, 253, 43, 124, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8193eed_9c85_40a9_8896_0fc3fd2b7c2a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -704,7 +704,7 @@ pub struct IMapServiceStatics2_abi(
 pub struct IMapServiceStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapServiceStatics3 {
     type Vtable = IMapServiceStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(168939040, 25511, 18516, [179, 85, 214, 220, 218, 34, 61, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a11ce20_63a7_4854_b355_d6dcda223d1b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -722,7 +722,7 @@ pub struct IMapServiceStatics3_abi(
 pub struct IMapServiceStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapServiceStatics4 {
     type Vtable = IMapServiceStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(143272034, 27324, 16910, [148, 95, 76, 253, 137, 198, 115, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x088a2862_6abc_420e_945f_4cfd89c67356);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -741,7 +741,7 @@ pub struct IMapServiceStatics4_abi(
 pub struct IPlaceInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaceInfo {
     type Vtable = IPlaceInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2584219830, 12744, 20330, [159, 24, 149, 11, 76, 56, 149, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a0810b6_31c8_4f6a_9f18_950b4c38951a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -767,7 +767,7 @@ pub struct IPlaceInfo_abi(
 pub struct IPlaceInfoCreateOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaceInfoCreateOptions {
     type Vtable = IPlaceInfoCreateOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3442721061, 26609, 19379, [153, 7, 236, 206, 147, 155, 3, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd33c125_67f1_4bb3_9907_ecce939b0399);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -788,7 +788,7 @@ pub struct IPlaceInfoCreateOptions_abi(
 pub struct IPlaceInfoStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaceInfoStatics {
     type Vtable = IPlaceInfoStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2193227633, 27856, 18596, [175, 217, 94, 216, 32, 151, 147, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82b9ff71_6cd0_48a4_afd9_5ed82097936b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -814,7 +814,7 @@ pub struct IPlaceInfoStatics_abi(
 pub struct IPlaceInfoStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaceInfoStatics2 {
     type Vtable = IPlaceInfoStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1930363465, 16455, 17571, [143, 129, 37, 80, 165, 33, 99, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x730f0249_4047_44a3_8f81_2550a5216370);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -858,7 +858,7 @@ unsafe impl ::windows::runtime::RuntimeType for ManeuverWarning {
 }
 unsafe impl ::windows::runtime::Interface for ManeuverWarning {
     type Vtable = IManeuverWarning_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3248713098, 9776, 17272, [158, 74, 110, 68, 37, 61, 206, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1a36d8a_2630_4378_9e4a_6e44253dceba);
 }
 impl ::windows::runtime::RuntimeName for ManeuverWarning {
     const NAME: &'static str = "Windows.Services.Maps.ManeuverWarning";
@@ -1125,7 +1125,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapAddress {
 }
 unsafe impl ::windows::runtime::Interface for MapAddress {
     type Vtable = IMapAddress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3483871603, 41908, 17556, [179, 255, 203, 169, 77, 182, 150, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfa7a973_a3b4_4494_b3ff_cba94db69699);
 }
 impl ::windows::runtime::RuntimeName for MapAddress {
     const NAME: &'static str = "Windows.Services.Maps.MapAddress";
@@ -1216,7 +1216,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapLocation {
 }
 unsafe impl ::windows::runtime::Interface for MapLocation {
     type Vtable = IMapLocation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1007107927, 3492, 17128, [158, 226, 169, 111, 207, 35, 113, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c073f57_0da4_42e8_9ee2_a96fcf2371dc);
 }
 impl ::windows::runtime::RuntimeName for MapLocation {
     const NAME: &'static str = "Windows.Services.Maps.MapLocation";
@@ -1360,7 +1360,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapLocationFinderResult {
 }
 unsafe impl ::windows::runtime::Interface for MapLocationFinderResult {
     type Vtable = IMapLocationFinderResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1139929465, 59596, 17910, [190, 210, 84, 204, 191, 150, 93, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43f1f179_e8cc_45f6_bed2_54ccbf965d9a);
 }
 impl ::windows::runtime::RuntimeName for MapLocationFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.MapLocationFinderResult";
@@ -1608,7 +1608,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapRoute {
 }
 unsafe impl ::windows::runtime::Interface for MapRoute {
     type Vtable = IMapRoute_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4211586866, 22605, 17795, [156, 96, 100, 31, 234, 39, 67, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb07b732_584d_4583_9c60_641fea274349);
 }
 impl ::windows::runtime::RuntimeName for MapRoute {
     const NAME: &'static str = "Windows.Services.Maps.MapRoute";
@@ -1742,7 +1742,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapRouteDrivingOptions {
 }
 unsafe impl ::windows::runtime::Interface for MapRouteDrivingOptions {
     type Vtable = IMapRouteDrivingOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1746220621, 50908, 18071, [164, 82, 177, 143, 143, 11, 103, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6815364d_c6dc_4697_a452_b18f8f0b67a1);
 }
 impl ::windows::runtime::RuntimeName for MapRouteDrivingOptions {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteDrivingOptions";
@@ -1948,7 +1948,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapRouteFinderResult {
 }
 unsafe impl ::windows::runtime::Interface for MapRouteFinderResult {
     type Vtable = IMapRouteFinderResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2825429786, 37922, 18092, [140, 161, 177, 97, 77, 75, 251, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa868a31a_9422_46ac_8ca1_b1614d4bfbe2);
 }
 impl ::windows::runtime::RuntimeName for MapRouteFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteFinderResult";
@@ -2097,7 +2097,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapRouteLeg {
 }
 unsafe impl ::windows::runtime::Interface for MapRouteLeg {
     type Vtable = IMapRouteLeg_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2532881142, 23482, 19735, [157, 182, 26, 38, 63, 236, 116, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96f8b2f6_5bba_4d17_9db6_1a263fec7471);
 }
 impl ::windows::runtime::RuntimeName for MapRouteLeg {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteLeg";
@@ -2237,7 +2237,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapRouteManeuver {
 }
 unsafe impl ::windows::runtime::Interface for MapRouteManeuver {
     type Vtable = IMapRouteManeuver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3982235632, 42667, 19813, [160, 134, 250, 138, 126, 52, 13, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed5c17f0_a6ab_4d65_a086_fa8a7e340df2);
 }
 impl ::windows::runtime::RuntimeName for MapRouteManeuver {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteManeuver";
@@ -2612,7 +2612,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlaceInfo {
 }
 unsafe impl ::windows::runtime::Interface for PlaceInfo {
     type Vtable = IPlaceInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2584219830, 12744, 20330, [159, 24, 149, 11, 76, 56, 149, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a0810b6_31c8_4f6a_9f18_950b4c38951a);
 }
 impl ::windows::runtime::RuntimeName for PlaceInfo {
     const NAME: &'static str = "Windows.Services.Maps.PlaceInfo";
@@ -2703,7 +2703,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlaceInfoCreateOptions {
 }
 unsafe impl ::windows::runtime::Interface for PlaceInfoCreateOptions {
     type Vtable = IPlaceInfoCreateOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3442721061, 26609, 19379, [153, 7, 236, 206, 147, 155, 3, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd33c125_67f1_4bb3_9907_ecce939b0399);
 }
 impl ::windows::runtime::RuntimeName for PlaceInfoCreateOptions {
     const NAME: &'static str = "Windows.Services.Maps.PlaceInfoCreateOptions";

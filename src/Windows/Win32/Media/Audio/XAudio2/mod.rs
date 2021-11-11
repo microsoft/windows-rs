@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const AudioReverb: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3261283094, 18203, 17560, [184, 197, 79, 9, 89, 226, 236, 9]);
-pub const AudioVolumeMeter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1338224998, 38698, 16591, [188, 55, 125, 176, 61, 178, 251, 163]);
+pub const AudioReverb: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2633b16_471b_4498_b8c5_4f0959e2ec09);
+pub const AudioVolumeMeter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4fc3b166_972a_40cf_bc37_7db03db2fba3);
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 #[inline]
 pub unsafe fn CreateAudioReverb() -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -126,7 +126,7 @@ impl ::core::cmp::Eq for FXECHO_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for FXECHO_PARAMETERS {
     type Abi = Self;
 }
-pub const FXEQ: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4125102359, 54980, 18522, [163, 245, 105, 81, 150, 243, 219, 250]);
+pub const FXEQ: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5e01117_d6c4_485a_a3f5_695196f3dbfa);
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const FXEQ_DEFAULT_BANDWIDTH: f32 = 1f32;
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
@@ -187,7 +187,7 @@ impl ::core::cmp::Eq for FXEQ_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for FXEQ_PARAMETERS {
     type Abi = Self;
 }
-pub const FXEcho: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1345967936, 63286, 17562, [132, 211, 165, 98, 2, 85, 123, 135]);
+pub const FXEcho: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5039d740_f736_449a_84d3_a56202557b87);
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const FXLOUDNESS_DEFAULT_MOMENTARY_MS: u32 = 400u32;
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
@@ -226,7 +226,7 @@ impl ::core::cmp::Eq for FXMASTERINGLIMITER_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for FXMASTERINGLIMITER_PARAMETERS {
     type Abi = Self;
 }
-pub const FXMasteringLimiter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3289610518, 11233, 18173, [133, 153, 68, 21, 54, 244, 152, 86]);
+pub const FXMasteringLimiter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4137916_2be1_46fd_8599_441536f49856);
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const FXREVERB_DEFAULT_DIFFUSION: f32 = 0.9f32;
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
@@ -261,7 +261,7 @@ impl ::core::cmp::Eq for FXREVERB_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for FXREVERB_PARAMETERS {
     type Abi = Self;
 }
-pub const FXReverb: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2107296342, 52072, 18439, [182, 50, 177, 55, 53, 46, 133, 150]);
+pub const FXReverb: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d9aca56_cb68_4807_b632_b137352e8596);
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const HRTF_DEFAULT_UNITY_GAIN_DISTANCE: f32 = 1f32;
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
@@ -567,7 +567,7 @@ impl IXAPO {
 }
 unsafe impl ::windows::runtime::Interface for IXAPO {
     type Vtable = IXAPO_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2752559492, 38969, 18457, [160, 190, 40, 86, 174, 107, 58, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa410b984_9839_4819_a0be_2856ae6b3adb);
 }
 impl ::core::convert::From<IXAPO> for ::windows::runtime::IUnknown {
     fn from(value: IXAPO) -> Self {
@@ -631,7 +631,7 @@ impl IXAPOHrtfParameters {
 }
 unsafe impl ::windows::runtime::Interface for IXAPOHrtfParameters {
     type Vtable = IXAPOHrtfParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(364105062, 59870, 17508, [182, 230, 43, 195, 207, 99, 212, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15b3cd66_e9de_4464_b6e6_2bc3cf63d455);
 }
 impl ::core::convert::From<IXAPOHrtfParameters> for ::windows::runtime::IUnknown {
     fn from(value: IXAPOHrtfParameters) -> Self {
@@ -680,7 +680,7 @@ impl IXAPOParameters {
 }
 unsafe impl ::windows::runtime::Interface for IXAPOParameters {
     type Vtable = IXAPOParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(651779174, 33010, 18842, [173, 84, 90, 231, 240, 28, 109, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x26d95c66_80f2_499a_ad54_5ae7f01c6d98);
 }
 impl ::core::convert::From<IXAPOParameters> for ::windows::runtime::IUnknown {
     fn from(value: IXAPOParameters) -> Self {
@@ -763,7 +763,7 @@ impl IXAudio2 {
 }
 unsafe impl ::windows::runtime::Interface for IXAudio2 {
     type Vtable = IXAudio2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(721609679, 11787, 20163, [190, 69, 27, 42, 63, 231, 33, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b02e3cf_2e0b_4ec3_be45_1b2a3fe7210d);
 }
 impl ::core::convert::From<IXAudio2> for ::windows::runtime::IUnknown {
     fn from(value: IXAudio2) -> Self {
@@ -874,7 +874,7 @@ impl IXAudio2Extension {
 }
 unsafe impl ::windows::runtime::Interface for IXAudio2Extension {
     type Vtable = IXAudio2Extension_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2225875387, 54809, 17618, [177, 151, 228, 172, 247, 223, 62, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84ac29bb_d619_44d2_b197_e4acf7df3ed6);
 }
 impl ::core::convert::From<IXAudio2Extension> for ::windows::runtime::IUnknown {
     fn from(value: IXAudio2Extension) -> Self {

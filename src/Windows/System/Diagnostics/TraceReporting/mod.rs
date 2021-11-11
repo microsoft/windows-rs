@@ -4,7 +4,7 @@
 pub struct IPlatformDiagnosticActionsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlatformDiagnosticActionsStatics {
     type Vtable = IPlatformDiagnosticActionsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3239337210, 37522, 16999, [137, 10, 158, 163, 237, 7, 35, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1145cfa_9292_4267_890a_9ea3ed072312);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -32,7 +32,7 @@ pub struct IPlatformDiagnosticActionsStatics_abi(
 pub struct IPlatformDiagnosticTraceInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlatformDiagnosticTraceInfo {
     type Vtable = IPlatformDiagnosticTraceInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4168150423, 54679, 19447, [136, 220, 207, 92, 125, 194, 161, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf870ed97_d597_4bf7_88dc_cf5c7dc2a1d2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -55,7 +55,7 @@ pub struct IPlatformDiagnosticTraceInfo_abi(
 pub struct IPlatformDiagnosticTraceRuntimeInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlatformDiagnosticTraceRuntimeInfo {
     type Vtable = IPlatformDiagnosticTraceRuntimeInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1028480557, 472, 18280, [133, 84, 30, 177, 202, 97, 9, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d4d5e2d_01d8_4768_8554_1eb1ca610986);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -301,7 +301,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlatformDiagnosticTraceInfo {
 }
 unsafe impl ::windows::runtime::Interface for PlatformDiagnosticTraceInfo {
     type Vtable = IPlatformDiagnosticTraceInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4168150423, 54679, 19447, [136, 220, 207, 92, 125, 194, 161, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf870ed97_d597_4bf7_88dc_cf5c7dc2a1d2);
 }
 impl ::windows::runtime::RuntimeName for PlatformDiagnosticTraceInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo";
@@ -397,7 +397,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlatformDiagnosticTraceRuntimeIn
 }
 unsafe impl ::windows::runtime::Interface for PlatformDiagnosticTraceRuntimeInfo {
     type Vtable = IPlatformDiagnosticTraceRuntimeInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1028480557, 472, 18280, [133, 84, 30, 177, 202, 97, 9, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d4d5e2d_01d8_4768_8554_1eb1ca610986);
 }
 impl ::windows::runtime::RuntimeName for PlatformDiagnosticTraceRuntimeInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceRuntimeInfo";

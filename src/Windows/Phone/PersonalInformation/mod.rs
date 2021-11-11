@@ -84,7 +84,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContactAddress {
 }
 unsafe impl ::windows::runtime::Interface for ContactAddress {
     type Vtable = IContactAddress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1596258599, 38057, 17570, [161, 85, 45, 11, 55, 209, 220, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f24f927_94a9_44a2_a155_2d0b37d1dccd);
 }
 impl ::windows::runtime::RuntimeName for ContactAddress {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.ContactAddress";
@@ -174,7 +174,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContactChangeRecord {
 }
 unsafe impl ::windows::runtime::Interface for ContactChangeRecord {
     type Vtable = IContactChangeRecord_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3117676431, 20795, 18242, [190, 0, 204, 92, 92, 35, 107, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9d3f78f_513b_4742_be00_cc5c5c236b04);
 }
 impl ::windows::runtime::RuntimeName for ContactChangeRecord {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.ContactChangeRecord";
@@ -393,7 +393,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContactInformation {
 }
 unsafe impl ::windows::runtime::Interface for ContactInformation {
     type Vtable = IContactInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3803521020, 59282, 19127, [177, 91, 242, 224, 120, 102, 77, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2b51ffc_e792_4ab7_b15b_f2e078664dea);
 }
 impl ::windows::runtime::RuntimeName for ContactInformation {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.ContactInformation";
@@ -500,7 +500,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContactQueryOptions {
 }
 unsafe impl ::windows::runtime::Interface for ContactQueryOptions {
     type Vtable = IContactQueryOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1477225334, 16177, 18113, [154, 80, 66, 74, 83, 218, 202, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x580cab76_3f31_46c1_9a50_424a53dacae3);
 }
 impl ::windows::runtime::RuntimeName for ContactQueryOptions {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.ContactQueryOptions";
@@ -593,7 +593,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContactQueryResult {
 }
 unsafe impl ::windows::runtime::Interface for ContactQueryResult {
     type Vtable = IContactQueryResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3225270050, 60635, 18176, [133, 126, 62, 120, 100, 38, 176, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc03db722_ecdb_4700_857e_3e786426b04b);
 }
 impl ::windows::runtime::RuntimeName for ContactQueryResult {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.ContactQueryResult";
@@ -790,7 +790,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContactStore {
 }
 unsafe impl ::windows::runtime::Interface for ContactStore {
     type Vtable = IContactStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2999807983, 11261, 20397, [133, 82, 78, 105, 128, 151, 232, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2cd6fef_2bfd_4fad_8552_4e698097e8eb);
 }
 impl ::windows::runtime::RuntimeName for ContactStore {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.ContactStore";
@@ -886,7 +886,7 @@ impl ::windows::runtime::DefaultType for ContactStoreSystemAccessMode {
 pub struct IContactAddress(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactAddress {
     type Vtable = IContactAddress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1596258599, 38057, 17570, [161, 85, 45, 11, 55, 209, 220, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f24f927_94a9_44a2_a155_2d0b37d1dccd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -913,7 +913,7 @@ pub struct IContactAddress_abi(
 pub struct IContactChangeRecord(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactChangeRecord {
     type Vtable = IContactChangeRecord_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3117676431, 20795, 18242, [190, 0, 204, 92, 92, 35, 107, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9d3f78f_513b_4742_be00_cc5c5c236b04);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -935,7 +935,7 @@ pub struct IContactChangeRecord_abi(
 pub struct IContactInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactInformation {
     type Vtable = IContactInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3803521020, 59282, 19127, [177, 91, 242, 224, 120, 102, 77, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2b51ffc_e792_4ab7_b15b_f2e078664dea);
 }
 impl IContactInformation {
     #[doc = "*Required features: `Phone_PersonalInformation`*"]
@@ -1139,7 +1139,7 @@ pub struct IContactInformation_abi(
 pub struct IContactInformation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactInformation2 {
     type Vtable = IContactInformation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(832090636, 25118, 18024, [172, 56, 214, 103, 184, 125, 6, 213]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3198b20c_621e_4668_ac38_d667b87d06d5);
 }
 impl IContactInformation2 {
     #[cfg(feature = "Foundation")]
@@ -1220,7 +1220,7 @@ pub struct IContactInformation2_abi(
 pub struct IContactInformationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactInformationStatics {
     type Vtable = IContactInformationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(258456361, 976, 19430, [178, 165, 251, 19, 133, 159, 18, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f67bb29_03d0_4be6_b2a5_fb13859f1202);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1239,7 +1239,7 @@ pub struct IContactInformationStatics_abi(
 pub struct IContactQueryOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactQueryOptions {
     type Vtable = IContactQueryOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1477225334, 16177, 18113, [154, 80, 66, 74, 83, 218, 202, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x580cab76_3f31_46c1_9a50_424a53dacae3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1260,7 +1260,7 @@ pub struct IContactQueryOptions_abi(
 pub struct IContactQueryResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactQueryResult {
     type Vtable = IContactQueryResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3225270050, 60635, 18176, [133, 126, 62, 120, 100, 38, 176, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc03db722_ecdb_4700_857e_3e786426b04b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1284,7 +1284,7 @@ pub struct IContactQueryResult_abi(
 pub struct IContactStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactStore {
     type Vtable = IContactStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2999807983, 11261, 20397, [133, 82, 78, 105, 128, 151, 232, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2cd6fef_2bfd_4fad_8552_4e698097e8eb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1318,7 +1318,7 @@ pub struct IContactStore_abi(
 pub struct IContactStore2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactStore2 {
     type Vtable = IContactStore2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1710339663, 54867, 17319, [178, 54, 179, 12, 15, 77, 114, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65f1b64f_d653_43a7_b236_b30c0f4d7269);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1337,7 +1337,7 @@ pub struct IContactStore2_abi(
 pub struct IContactStoreStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactStoreStatics {
     type Vtable = IContactStoreStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2818899490, 19435, 17612, [165, 114, 103, 165, 185, 46, 133, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa804fe22_4beb_44cc_a572_67a5b92e8567);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1358,7 +1358,7 @@ pub struct IContactStoreStatics_abi(
 pub struct IKnownContactPropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownContactPropertiesStatics {
     type Vtable = IKnownContactPropertiesStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3582012161, 11501, 20198, [177, 214, 9, 75, 248, 142, 240, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5812b01_2ced_4ee6_b1d6_094bf88ef0b6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1410,7 +1410,7 @@ pub struct IKnownContactPropertiesStatics_abi(
 pub struct IStoredContact(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoredContact {
     type Vtable = IStoredContact_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2960177073, 9789, 20081, [171, 231, 89, 29, 36, 102, 87, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb070b7b1_263d_4e71_abe7_591d2466570e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1437,7 +1437,7 @@ pub struct IStoredContact_abi(
 pub struct IStoredContactFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoredContactFactory {
     type Vtable = IStoredContactFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1240328481, 49701, 20441, [137, 197, 206, 204, 44, 138, 75, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49ede921_c225_4fd9_89c5_cecc2c8a4b79);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1926,7 +1926,7 @@ unsafe impl ::windows::runtime::RuntimeType for StoredContact {
 }
 unsafe impl ::windows::runtime::Interface for StoredContact {
     type Vtable = IStoredContact_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2960177073, 9789, 20081, [171, 231, 89, 29, 36, 102, 87, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb070b7b1_263d_4e71_abe7_591d2466570e);
 }
 impl ::windows::runtime::RuntimeName for StoredContact {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.StoredContact";

@@ -24,7 +24,7 @@ impl IEnumOfflineFilesItems {
 }
 unsafe impl ::windows::runtime::Interface for IEnumOfflineFilesItems {
     type Vtable = IEnumOfflineFilesItems_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3664832533, 50017, 17415, [188, 11, 13, 112, 70, 229, 242, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda70e815_c361_4407_bc0b_0d7046e5f2cd);
 }
 impl ::core::convert::From<IEnumOfflineFilesItems> for ::windows::runtime::IUnknown {
     fn from(value: IEnumOfflineFilesItems) -> Self {
@@ -82,7 +82,7 @@ impl IEnumOfflineFilesSettings {
 }
 unsafe impl ::windows::runtime::Interface for IEnumOfflineFilesSettings {
     type Vtable = IEnumOfflineFilesSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1922465988, 6712, 18364, [158, 92, 2, 197, 21, 98, 172, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x729680c4_1a38_47bc_9e5c_02c51562ac30);
 }
 impl ::core::convert::From<IEnumOfflineFilesSettings> for ::windows::runtime::IUnknown {
     fn from(value: IEnumOfflineFilesSettings) -> Self {
@@ -256,7 +256,7 @@ impl IOfflineFilesCache {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesCache {
     type Vtable = IOfflineFilesCache_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2237489667, 30996, 18617, [141, 64, 76, 86, 245, 172, 255, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x855d6203_7914_48b9_8d40_4c56f5acffc5);
 }
 impl ::core::convert::From<IOfflineFilesCache> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesCache) -> Self {
@@ -461,7 +461,7 @@ impl IOfflineFilesCache2 {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesCache2 {
     type Vtable = IOfflineFilesCache2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2349289529, 5457, 20185, [135, 129, 86, 112, 92, 4, 211, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c075039_1551_4ed9_8781_56705c04d3c0);
 }
 impl ::core::convert::From<IOfflineFilesCache2> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesCache2) -> Self {
@@ -586,7 +586,7 @@ impl IOfflineFilesChangeInfo {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesChangeInfo {
     type Vtable = IOfflineFilesChangeInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2842587044, 57553, 19497, [150, 11, 238, 80, 143, 230, 140, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa96e6fa4_e0d1_4c29_960b_ee508fe68c72);
 }
 impl ::core::convert::From<IOfflineFilesChangeInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesChangeInfo) -> Self {
@@ -655,7 +655,7 @@ impl IOfflineFilesConnectionInfo {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesConnectionInfo {
     type Vtable = IOfflineFilesConnectionInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4021434889, 43111, 19432, [131, 166, 134, 150, 154, 125, 8, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefb23a09_a867_4be8_83a6_86969a7d0856);
 }
 impl ::core::convert::From<IOfflineFilesConnectionInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesConnectionInfo) -> Self {
@@ -725,7 +725,7 @@ impl IOfflineFilesDirectoryItem {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesDirectoryItem {
     type Vtable = IOfflineFilesDirectoryItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(577984890, 41100, 18944, [163, 122, 193, 174, 78, 154, 28, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2273597a_a08c_4a00_a37a_c1ae4e9a1cfd);
 }
 impl ::core::convert::From<IOfflineFilesDirectoryItem> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesDirectoryItem) -> Self {
@@ -799,7 +799,7 @@ impl IOfflineFilesDirtyInfo {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesDirtyInfo {
     type Vtable = IOfflineFilesDirtyInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(256953907, 47817, 20138, [161, 29, 218, 14, 82, 125, 4, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f50ce33_bac9_4eaa_a11d_da0e527d047d);
 }
 impl ::core::convert::From<IOfflineFilesDirtyInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesDirtyInfo) -> Self {
@@ -850,7 +850,7 @@ impl IOfflineFilesErrorInfo {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesErrorInfo {
     type Vtable = IOfflineFilesErrorInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1897069151, 30065, 17242, [142, 183, 25, 92, 124, 20, 41, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7112fa5f_7571_435a_8eb7_195c7c1429bc);
 }
 impl ::core::convert::From<IOfflineFilesErrorInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesErrorInfo) -> Self {
@@ -1008,7 +1008,7 @@ impl IOfflineFilesEvents {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesEvents {
     type Vtable = IOfflineFilesEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3797255617, 3242, 20145, [135, 59, 28, 174, 91, 119, 195, 20]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe25585c1_0caa_4eb1_873b_1cae5b77c314);
 }
 impl ::core::convert::From<IOfflineFilesEvents> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesEvents) -> Self {
@@ -1240,7 +1240,7 @@ impl IOfflineFilesEvents2 {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesEvents2 {
     type Vtable = IOfflineFilesEvents2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(514690902, 65398, 20394, [167, 149, 111, 110, 247, 146, 73, 139]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ead8f56_ff76_4faa_a795_6f6ef792498b);
 }
 impl ::core::convert::From<IOfflineFilesEvents2> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesEvents2) -> Self {
@@ -1524,7 +1524,7 @@ impl IOfflineFilesEvents3 {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesEvents3 {
     type Vtable = IOfflineFilesEvents3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2610973253, 61033, 17136, [154, 177, 125, 181, 200, 128, 88, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ba04a45_ee69_42f0_9ab1_7db5c8805808);
 }
 impl ::core::convert::From<IOfflineFilesEvents3> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesEvents3) -> Self {
@@ -1842,7 +1842,7 @@ impl IOfflineFilesEvents4 {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesEvents4 {
     type Vtable = IOfflineFilesEvents4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3688274718, 51154, 18238, [179, 95, 157, 140, 36, 192, 196, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbd69b1e_c7d2_473e_b35f_9d8c24c0c484);
 }
 impl ::core::convert::From<IOfflineFilesEvents4> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesEvents4) -> Self {
@@ -2011,7 +2011,7 @@ impl IOfflineFilesEventsFilter {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesEventsFilter {
     type Vtable = IOfflineFilesEventsFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(872173083, 1814, 16634, [186, 101, 110, 98, 168, 74, 132, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33fc4e1b_0716_40fa_ba65_6e62a84a846f);
 }
 impl ::core::convert::From<IOfflineFilesEventsFilter> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesEventsFilter) -> Self {
@@ -2090,7 +2090,7 @@ impl IOfflineFilesFileItem {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesFileItem {
     type Vtable = IOfflineFilesFileItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2382028461, 9922, 20223, [138, 114, 107, 80, 114, 61, 154, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8dfadead_26c2_4eff_8a72_6b50723d9a00);
 }
 impl ::core::convert::From<IOfflineFilesFileItem> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesFileItem) -> Self {
@@ -2173,7 +2173,7 @@ impl IOfflineFilesFileSysInfo {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesFileSysInfo {
     type Vtable = IOfflineFilesFileSysInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3155826239, 31741, 19848, [156, 102, 150, 234, 154, 106, 61, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc1a163f_7bfd_4d88_9c66_96ea9a6a3d6b);
 }
 impl ::core::convert::From<IOfflineFilesFileSysInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesFileSysInfo) -> Self {
@@ -2220,7 +2220,7 @@ impl IOfflineFilesGhostInfo {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesGhostInfo {
     type Vtable = IOfflineFilesGhostInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(722064524, 35509, 17999, [167, 85, 165, 157, 146, 249, 148, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b09d48c_8ab5_464f_a755_a59d92f99429);
 }
 impl ::core::convert::From<IOfflineFilesGhostInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesGhostInfo) -> Self {
@@ -2285,7 +2285,7 @@ impl IOfflineFilesItem {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesItem {
     type Vtable = IOfflineFilesItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1249197478, 57412, 20242, [167, 24, 93, 20, 208, 121, 169, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a753da6_e044_4f12_a718_5d14d079a906);
 }
 impl ::core::convert::From<IOfflineFilesItem> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesItem) -> Self {
@@ -2347,7 +2347,7 @@ impl IOfflineFilesItemContainer {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesItemContainer {
     type Vtable = IOfflineFilesItemContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(943124553, 37907, 17885, [191, 70, 181, 170, 168, 45, 195, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3836f049_9413_45dd_bf46_b5aaa82dc310);
 }
 impl ::core::convert::From<IOfflineFilesItemContainer> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesItemContainer) -> Self {
@@ -2400,7 +2400,7 @@ impl IOfflineFilesItemFilter {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesItemFilter {
     type Vtable = IOfflineFilesItemFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4105544300, 56325, 20256, [173, 164, 85, 31, 16, 119, 190, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf4b5a26c_dc05_4f20_ada4_551f1077be5c);
 }
 impl ::core::convert::From<IOfflineFilesItemFilter> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesItemFilter) -> Self {
@@ -2468,7 +2468,7 @@ impl IOfflineFilesPinInfo {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesPinInfo {
     type Vtable = IOfflineFilesPinInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1529546325, 46077, 18813, [173, 235, 189, 21, 107, 200, 53, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b2b0655_b3fd_497d_adeb_bd156bc8355b);
 }
 impl ::core::convert::From<IOfflineFilesPinInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesPinInfo) -> Self {
@@ -2547,7 +2547,7 @@ impl IOfflineFilesPinInfo2 {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesPinInfo2 {
     type Vtable = IOfflineFilesPinInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1648122018, 17133, 19159, [182, 154, 15, 27, 48, 167, 45, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x623c58a2_42ed_4ad7_b69a_0f1b30a72d0d);
 }
 impl ::core::convert::From<IOfflineFilesPinInfo2> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesPinInfo2) -> Self {
@@ -2632,7 +2632,7 @@ impl IOfflineFilesProgress {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesProgress {
     type Vtable = IOfflineFilesProgress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4208341559, 50523, 18705, [152, 80, 188, 249, 109, 76, 151, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfad63237_c55b_4911_9850_bcf96d4c979e);
 }
 impl ::core::convert::From<IOfflineFilesProgress> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesProgress) -> Self {
@@ -2700,7 +2700,7 @@ impl IOfflineFilesServerItem {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesServerItem {
     type Vtable = IOfflineFilesServerItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2602341750, 43307, 16721, [142, 158, 124, 123, 62, 194, 224, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b1c9576_a92b_4151_8e9e_7c7b3ec2e016);
 }
 impl ::core::convert::From<IOfflineFilesServerItem> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesServerItem) -> Self {
@@ -2809,7 +2809,7 @@ impl IOfflineFilesSetting {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesSetting {
     type Vtable = IOfflineFilesSetting_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3631338487, 62995, 18593, [130, 126, 122, 52, 229, 96, 255, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd871d3f7_f613_48a1_827e_7a34e560fff6);
 }
 impl ::core::convert::From<IOfflineFilesSetting> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesSetting) -> Self {
@@ -2876,7 +2876,7 @@ impl IOfflineFilesShareInfo {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesShareInfo {
     type Vtable = IOfflineFilesShareInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2076984295, 12750, 19620, [140, 205, 28, 255, 45, 196, 148, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bcc43e7_31ce_4ca4_8ccd_1cff2dc494da);
 }
 impl ::core::convert::From<IOfflineFilesShareInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesShareInfo) -> Self {
@@ -2943,7 +2943,7 @@ impl IOfflineFilesShareItem {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesShareItem {
     type Vtable = IOfflineFilesShareItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3132613773, 18436, 16821, [164, 77, 15, 25, 155, 6, 177, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbab7e48d_4804_41b5_a44d_0f199b06b145);
 }
 impl ::core::convert::From<IOfflineFilesShareItem> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesShareItem) -> Self {
@@ -3035,7 +3035,7 @@ impl IOfflineFilesSimpleProgress {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesSimpleProgress {
     type Vtable = IOfflineFilesSimpleProgress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3276767131, 50237, 20381, [167, 118, 192, 235, 109, 229, 212, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc34f7f9b_c43d_4f9d_a776_c0eb6de5d401);
 }
 impl ::core::convert::From<IOfflineFilesSimpleProgress> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesSimpleProgress) -> Self {
@@ -3106,7 +3106,7 @@ impl IOfflineFilesSuspend {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesSuspend {
     type Vtable = IOfflineFilesSuspend_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1657034255, 48139, 18634, [173, 157, 52, 203, 82, 141, 153, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62c4560f_bc0b_48ca_ad9d_34cb528d99a9);
 }
 impl ::core::convert::From<IOfflineFilesSuspend> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesSuspend) -> Self {
@@ -3150,7 +3150,7 @@ impl IOfflineFilesSuspendInfo {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesSuspendInfo {
     type Vtable = IOfflineFilesSuspendInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2757214811, 20124, 19204, [133, 175, 137, 50, 204, 217, 120, 137]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa457c25b_4e9c_4b04_85af_8932ccd97889);
 }
 impl ::core::convert::From<IOfflineFilesSuspendInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesSuspendInfo) -> Self {
@@ -3194,7 +3194,7 @@ impl IOfflineFilesSyncConflictHandler {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesSyncConflictHandler {
     type Vtable = IOfflineFilesSyncConflictHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3067957394, 50780, 18102, [151, 184, 250, 221, 8, 231, 225, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6dd5092_c65c_46b6_97b8_fadd08e7e1be);
 }
 impl ::core::convert::From<IOfflineFilesSyncConflictHandler> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesSyncConflictHandler) -> Self {
@@ -3280,7 +3280,7 @@ impl IOfflineFilesSyncErrorInfo {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesSyncErrorInfo {
     type Vtable = IOfflineFilesSyncErrorInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1509514822, 60244, 18897, [190, 118, 222, 149, 69, 141, 1, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59f95e46_eb54_49d1_be76_de95458d01b0);
 }
 impl ::core::convert::From<IOfflineFilesSyncErrorInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesSyncErrorInfo) -> Self {
@@ -3365,7 +3365,7 @@ impl IOfflineFilesSyncErrorItemInfo {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesSyncErrorItemInfo {
     type Vtable = IOfflineFilesSyncErrorItemInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3973820173, 27160, 19797, [128, 23, 16, 143, 118, 96, 186, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xecdbaf0d_6a18_4d55_8017_108f7660ba44);
 }
 impl ::core::convert::From<IOfflineFilesSyncErrorItemInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesSyncErrorItemInfo) -> Self {
@@ -3434,7 +3434,7 @@ impl IOfflineFilesSyncProgress {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesSyncProgress {
     type Vtable = IOfflineFilesSyncProgress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1764881562, 28615, 19483, [178, 101, 86, 121, 63, 196, 81, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6931f49a_6fc7_4c1b_b265_56793fc451b7);
 }
 impl ::core::convert::From<IOfflineFilesSyncProgress> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesSyncProgress) -> Self {
@@ -3506,7 +3506,7 @@ impl IOfflineFilesTransparentCacheInfo {
 }
 unsafe impl ::windows::runtime::Interface for IOfflineFilesTransparentCacheInfo {
     type Vtable = IOfflineFilesTransparentCacheInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3165604353, 23400, 19286, [166, 161, 141, 39, 134, 237, 232, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbcaf4a01_5b68_4b56_a6a1_8d2786ede8e3);
 }
 impl ::core::convert::From<IOfflineFilesTransparentCacheInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesTransparentCacheInfo) -> Self {
@@ -4057,7 +4057,7 @@ pub const OFFLINEFILES_SYNC_STATE_REMOTE_KNOWN: u32 = 2u32;
 pub const OFFLINEFILES_TRANSITION_FLAG_CONSOLE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_TRANSITION_FLAG_INTERACTIVE: u32 = 1u32;
-pub const OfflineFilesCache: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1220984444, 14449, 17356, [180, 111, 20, 73, 161, 187, 47, 243]);
+pub const OfflineFilesCache: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48c6be7c_3871_43cc_b46f_1449a1bb2ff3);
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -4103,7 +4103,7 @@ pub unsafe fn OfflineFilesQueryStatusEx(pbactive: *mut super::super::Foundation:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const OfflineFilesSetting: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4248197609, 43296, 16675, [173, 100, 127, 199, 108, 122, 172, 223]);
+pub const OfflineFilesSetting: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd3659e9_a920_4123_ad64_7fc76c7aacdf);
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[inline]
 pub unsafe fn OfflineFilesStart() -> u32 {

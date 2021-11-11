@@ -128,7 +128,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioDeviceInputNode {
 }
 unsafe impl ::windows::runtime::Interface for AudioDeviceInputNode {
     type Vtable = IAudioDeviceInputNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2954587105, 28494, 18914, [172, 1, 85, 157, 98, 190, 179, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb01b6be1_6f4e_49e2_ac01_559d62beb3a9);
 }
 impl ::windows::runtime::RuntimeName for AudioDeviceInputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioDeviceInputNode";
@@ -402,7 +402,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioDeviceOutputNode {
 }
 unsafe impl ::windows::runtime::Interface for AudioDeviceOutputNode {
     type Vtable = IAudioDeviceOutputNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(909040639, 65308, 17460, [158, 15, 189, 46, 245, 34, 172, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x362edbff_ff1c_4434_9e0f_bd2ef522ac82);
 }
 impl ::windows::runtime::RuntimeName for AudioDeviceOutputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioDeviceOutputNode";
@@ -745,7 +745,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioFileInputNode {
 }
 unsafe impl ::windows::runtime::Interface for AudioFileInputNode {
     type Vtable = IAudioFileInputNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421909448, 28517, 19668, [136, 144, 70, 148, 132, 60, 39, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x905b67c8_6f65_4cd4_8890_4694843c276d);
 }
 impl ::windows::runtime::RuntimeName for AudioFileInputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFileInputNode";
@@ -1024,7 +1024,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioFileOutputNode {
 }
 unsafe impl ::windows::runtime::Interface for AudioFileOutputNode {
     type Vtable = IAudioFileOutputNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1356863872, 20838, 16531, [128, 248, 173, 160, 0, 137, 233, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50e01980_5166_4093_80f8_ada00089e9cf);
 }
 impl ::windows::runtime::RuntimeName for AudioFileOutputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFileOutputNode";
@@ -1138,7 +1138,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioFrameCompletedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for AudioFrameCompletedEventArgs {
     type Vtable = IAudioFrameCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3699147422, 520, 17668, [165, 168, 240, 242, 104, 146, 10, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc7c829e_0208_4504_a5a8_f0f268920a65);
 }
 impl ::windows::runtime::RuntimeName for AudioFrameCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Audio.AudioFrameCompletedEventArgs";
@@ -1366,7 +1366,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioFrameInputNode {
 }
 unsafe impl ::windows::runtime::Interface for AudioFrameInputNode {
     type Vtable = IAudioFrameInputNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(28468935, 64918, 20469, [163, 197, 210, 122, 155, 244, 66, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01b266c7_fd96_4ff5_a3c5_d27a9bf44237);
 }
 impl ::windows::runtime::RuntimeName for AudioFrameInputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFrameInputNode";
@@ -1601,7 +1601,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioFrameOutputNode {
 }
 unsafe impl ::windows::runtime::Interface for AudioFrameOutputNode {
     type Vtable = IAudioFrameOutputNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3091674907, 12953, 17909, [136, 179, 201, 209, 42, 63, 28, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb847371b_3299_45f5_88b3_c9d12a3f1cc8);
 }
 impl ::windows::runtime::RuntimeName for AudioFrameOutputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFrameOutputNode";
@@ -2018,7 +2018,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioGraph {
 }
 unsafe impl ::windows::runtime::Interface for AudioGraph {
     type Vtable = IAudioGraph_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(450129645, 58508, 19988, [150, 96, 44, 79, 131, 233, 205, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ad46eed_e48c_4e14_9660_2c4f83e9cdd8);
 }
 impl ::windows::runtime::RuntimeName for AudioGraph {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraph";
@@ -2112,7 +2112,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioGraphBatchUpdater {
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::Interface for AudioGraphBatchUpdater {
     type Vtable = super::super::Foundation::IClosable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(819308585, 32676, 16422, [131, 187, 215, 91, 174, 78, 169, 158]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30d5a829_7fa4_4026_83bb_d75bae4ea99e);
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::runtime::RuntimeName for AudioGraphBatchUpdater {
@@ -2226,7 +2226,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioGraphConnection {
 }
 unsafe impl ::windows::runtime::Interface for AudioGraphConnection {
     type Vtable = IAudioGraphConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1982886125, 53326, 20396, [178, 51, 96, 11, 66, 237, 212, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x763070ed_d04e_4fac_b233_600b42edd469);
 }
 impl ::windows::runtime::RuntimeName for AudioGraphConnection {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraphConnection";
@@ -2417,7 +2417,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioGraphSettings {
 }
 unsafe impl ::windows::runtime::Interface for AudioGraphSettings {
     type Vtable = IAudioGraphSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(492397695, 59134, 17960, [132, 248, 157, 139, 219, 162, 87, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d59647f_e6fe_4628_84f8_9d8bdba25785);
 }
 impl ::windows::runtime::RuntimeName for AudioGraphSettings {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraphSettings";
@@ -2507,7 +2507,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioGraphUnrecoverableErrorOccu
 }
 unsafe impl ::windows::runtime::Interface for AudioGraphUnrecoverableErrorOccurredEventArgs {
     type Vtable = IAudioGraphUnrecoverableErrorOccurredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3285830624, 16374, 20403, [178, 98, 80, 212, 53, 197, 84, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3d9cbe0_3ff6_4fb3_b262_50d435c55423);
 }
 impl ::windows::runtime::RuntimeName for AudioGraphUnrecoverableErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraphUnrecoverableErrorOccurredEventArgs";
@@ -2704,7 +2704,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioNodeEmitter {
 }
 unsafe impl ::windows::runtime::Interface for AudioNodeEmitter {
     type Vtable = IAudioNodeEmitter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(913741597, 34826, 18360, [173, 247, 19, 35, 169, 217, 101, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3676971d_880a_47b8_adf7_1323a9d965be);
 }
 impl ::windows::runtime::RuntimeName for AudioNodeEmitter {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitter";
@@ -2786,7 +2786,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioNodeEmitterConeProperties {
 }
 unsafe impl ::windows::runtime::Interface for AudioNodeEmitterConeProperties {
     type Vtable = IAudioNodeEmitterConeProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3919260910, 714, 17269, [147, 38, 12, 106, 228, 188, 223, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe99b2cee_02ca_4375_9326_0c6ae4bcdfb5);
 }
 impl ::windows::runtime::RuntimeName for AudioNodeEmitterConeProperties {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterConeProperties";
@@ -2916,7 +2916,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioNodeEmitterDecayModel {
 }
 unsafe impl ::windows::runtime::Interface for AudioNodeEmitterDecayModel {
     type Vtable = IAudioNodeEmitterDecayModel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(488463095, 3411, 20393, [189, 132, 213, 129, 106, 134, 243, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d1d5af7_0d53_4fa9_bd84_d5816a86f3ff);
 }
 impl ::windows::runtime::RuntimeName for AudioNodeEmitterDecayModel {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterDecayModel";
@@ -2990,7 +2990,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioNodeEmitterNaturalDecayMode
 }
 unsafe impl ::windows::runtime::Interface for AudioNodeEmitterNaturalDecayModelProperties {
     type Vtable = IAudioNodeEmitterNaturalDecayModelProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1217612751, 53036, 20220, [147, 49, 117, 189, 34, 223, 31, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48934bcf_cf2c_4efc_9331_75bd22df1f0c);
 }
 impl ::windows::runtime::RuntimeName for AudioNodeEmitterNaturalDecayModelProperties {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterNaturalDecayModelProperties";
@@ -3132,7 +3132,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioNodeEmitterShape {
 }
 unsafe impl ::windows::runtime::Interface for AudioNodeEmitterShape {
     type Vtable = IAudioNodeEmitterShape_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3926069701, 59197, 17596, [133, 156, 69, 85, 59, 188, 72, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea0311c5_e73d_44bc_859c_45553bbc4828);
 }
 impl ::windows::runtime::RuntimeName for AudioNodeEmitterShape {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterShape";
@@ -3277,7 +3277,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioNodeListener {
 }
 unsafe impl ::windows::runtime::Interface for AudioNodeListener {
     type Vtable = IAudioNodeListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3648138774, 3082, 16858, [183, 85, 108, 119, 131, 95, 177, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9722e16_0c0a_41da_b755_6c77835fb1eb);
 }
 impl ::windows::runtime::RuntimeName for AudioNodeListener {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeListener";
@@ -3421,7 +3421,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioPlaybackConnection {
 }
 unsafe impl ::windows::runtime::Interface for AudioPlaybackConnection {
     type Vtable = IAudioPlaybackConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(441196010, 51964, 20711, [135, 24, 234, 63, 129, 203, 250, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a4c1dea_cafc_50e7_8718_ea3f81cbfa51);
 }
 impl ::windows::runtime::RuntimeName for AudioPlaybackConnection {
     const NAME: &'static str = "Windows.Media.Audio.AudioPlaybackConnection";
@@ -3521,7 +3521,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioPlaybackConnectionOpenResul
 }
 unsafe impl ::windows::runtime::Interface for AudioPlaybackConnectionOpenResult {
     type Vtable = IAudioPlaybackConnectionOpenResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1315269359, 14841, 24521, [165, 25, 165, 187, 253, 159, 233, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e656aef_39f9_5fc9_a519_a5bbfd9fe921);
 }
 impl ::windows::runtime::RuntimeName for AudioPlaybackConnectionOpenResult {
     const NAME: &'static str = "Windows.Media.Audio.AudioPlaybackConnectionOpenResult";
@@ -3714,7 +3714,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioStateMonitor {
 }
 unsafe impl ::windows::runtime::Interface for AudioStateMonitor {
     type Vtable = IAudioStateMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(487838006, 409, 19676, [184, 78, 231, 44, 43, 88, 30, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d13d136_0199_4cdc_b84e_e72c2b581ece);
 }
 impl ::windows::runtime::RuntimeName for AudioStateMonitor {
     const NAME: &'static str = "Windows.Media.Audio.AudioStateMonitor";
@@ -3881,7 +3881,7 @@ unsafe impl ::windows::runtime::RuntimeType for AudioSubmixNode {
 }
 unsafe impl ::windows::runtime::Interface for AudioSubmixNode {
     type Vtable = IAudioInputNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3511156828, 33832, 18308, [183, 253, 169, 157, 70, 140, 93, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd148005c_8428_4784_b7fd_a99d468c5d20);
 }
 impl ::windows::runtime::RuntimeName for AudioSubmixNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioSubmixNode";
@@ -4053,7 +4053,7 @@ unsafe impl ::windows::runtime::RuntimeType for CreateAudioDeviceInputNodeResult
 }
 unsafe impl ::windows::runtime::Interface for CreateAudioDeviceInputNodeResult {
     type Vtable = ICreateAudioDeviceInputNodeResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(384747432, 7335, 16623, [145, 164, 211, 70, 224, 170, 27, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16eec7a8_1ca7_40ef_91a4_d346e0aa1bba);
 }
 impl ::windows::runtime::RuntimeName for CreateAudioDeviceInputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioDeviceInputNodeResult";
@@ -4135,7 +4135,7 @@ unsafe impl ::windows::runtime::RuntimeType for CreateAudioDeviceOutputNodeResul
 }
 unsafe impl ::windows::runtime::Interface for CreateAudioDeviceOutputNodeResult {
     type Vtable = ICreateAudioDeviceOutputNodeResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4151799079, 7578, 18423, [156, 212, 40, 89, 204, 27, 123, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7776d27_1d9a_47f7_9cd4_2859cc1b7bff);
 }
 impl ::windows::runtime::RuntimeName for CreateAudioDeviceOutputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioDeviceOutputNodeResult";
@@ -4217,7 +4217,7 @@ unsafe impl ::windows::runtime::RuntimeType for CreateAudioFileInputNodeResult {
 }
 unsafe impl ::windows::runtime::Interface for CreateAudioFileInputNodeResult {
     type Vtable = ICreateAudioFileInputNodeResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3464746524, 58007, 19536, [156, 231, 28, 122, 105, 214, 189, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce83d61c_e297_4c50_9ce7_1c7a69d6bd09);
 }
 impl ::windows::runtime::RuntimeName for CreateAudioFileInputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioFileInputNodeResult";
@@ -4299,7 +4299,7 @@ unsafe impl ::windows::runtime::RuntimeType for CreateAudioFileOutputNodeResult 
 }
 unsafe impl ::windows::runtime::Interface for CreateAudioFileOutputNodeResult {
     type Vtable = ICreateAudioFileOutputNodeResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1205254779, 59657, 17727, [134, 110, 85, 64, 205, 167, 52, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47d6ba7b_e909_453f_866e_5540cda734ff);
 }
 impl ::windows::runtime::RuntimeName for CreateAudioFileOutputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioFileOutputNodeResult";
@@ -4381,7 +4381,7 @@ unsafe impl ::windows::runtime::RuntimeType for CreateAudioGraphResult {
 }
 unsafe impl ::windows::runtime::Interface for CreateAudioGraphResult {
     type Vtable = ICreateAudioGraphResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1414786942, 31710, 19318, [187, 93, 72, 247, 156, 252, 140, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5453ef7e_7bde_4b76_bb5d_48f79cfc8c0b);
 }
 impl ::windows::runtime::RuntimeName for CreateAudioGraphResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioGraphResult";
@@ -4463,7 +4463,7 @@ unsafe impl ::windows::runtime::RuntimeType for CreateMediaSourceAudioInputNodeR
 }
 unsafe impl ::windows::runtime::Interface for CreateMediaSourceAudioInputNodeResult {
     type Vtable = ICreateMediaSourceAudioInputNodeResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1185306787, 21440, 19801, [158, 81, 204, 29, 16, 68, 164, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46a658a3_53c0_4d59_9e51_cc1d1044a4c4);
 }
 impl ::windows::runtime::RuntimeName for CreateMediaSourceAudioInputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateMediaSourceAudioInputNodeResult";
@@ -4589,7 +4589,7 @@ unsafe impl ::windows::runtime::RuntimeType for EchoEffectDefinition {
 }
 unsafe impl ::windows::runtime::Interface for EchoEffectDefinition {
     type Vtable = IEchoEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(239943594, 14008, 19601, [185, 218, 17, 244, 74, 138, 102, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e4d3faa_36b8_4c91_b9da_11f44a8a6610);
 }
 impl ::windows::runtime::RuntimeName for EchoEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.EchoEffectDefinition";
@@ -4712,7 +4712,7 @@ unsafe impl ::windows::runtime::RuntimeType for EqualizerBand {
 }
 unsafe impl ::windows::runtime::Interface for EqualizerBand {
     type Vtable = IEqualizerBand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3221903978, 9773, 19333, [155, 183, 67, 40, 11, 98, 237, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc00a5a6a_262d_4b85_9bb7_43280b62ed0c);
 }
 impl ::windows::runtime::RuntimeName for EqualizerBand {
     const NAME: &'static str = "Windows.Media.Audio.EqualizerBand";
@@ -4808,7 +4808,7 @@ unsafe impl ::windows::runtime::RuntimeType for EqualizerEffectDefinition {
 }
 unsafe impl ::windows::runtime::Interface for EqualizerEffectDefinition {
     type Vtable = IEqualizerEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(37711647, 33790, 17562, [168, 34, 198, 150, 68, 45, 22, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x023f6f1f_83fe_449a_a822_c696442d16b0);
 }
 impl ::windows::runtime::RuntimeName for EqualizerEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.EqualizerEffectDefinition";
@@ -4900,7 +4900,7 @@ unsafe impl ::windows::runtime::RuntimeType for FrameInputNodeQuantumStartedEven
 }
 unsafe impl ::windows::runtime::Interface for FrameInputNodeQuantumStartedEventArgs {
     type Vtable = IFrameInputNodeQuantumStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1033622680, 41734, 20230, [189, 159, 233, 239, 200, 34, 99, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d9bd498_a306_4f06_bd9f_e9efc8226304);
 }
 impl ::windows::runtime::RuntimeName for FrameInputNodeQuantumStartedEventArgs {
     const NAME: &'static str = "Windows.Media.Audio.FrameInputNodeQuantumStartedEventArgs";
@@ -4952,7 +4952,7 @@ unsafe impl ::core::marker::Sync for FrameInputNodeQuantumStartedEventArgs {}
 pub struct IAudioDeviceInputNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioDeviceInputNode {
     type Vtable = IAudioDeviceInputNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2954587105, 28494, 18914, [172, 1, 85, 157, 98, 190, 179, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb01b6be1_6f4e_49e2_ac01_559d62beb3a9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4971,7 +4971,7 @@ pub struct IAudioDeviceInputNode_abi(
 pub struct IAudioDeviceOutputNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioDeviceOutputNode {
     type Vtable = IAudioDeviceOutputNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(909040639, 65308, 17460, [158, 15, 189, 46, 245, 34, 172, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x362edbff_ff1c_4434_9e0f_bd2ef522ac82);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4990,7 +4990,7 @@ pub struct IAudioDeviceOutputNode_abi(
 pub struct IAudioFileInputNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioFileInputNode {
     type Vtable = IAudioFileInputNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421909448, 28517, 19668, [136, 144, 70, 148, 132, 60, 39, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x905b67c8_6f65_4cd4_8890_4694843c276d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5033,7 +5033,7 @@ pub struct IAudioFileInputNode_abi(
 pub struct IAudioFileOutputNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioFileOutputNode {
     type Vtable = IAudioFileOutputNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1356863872, 20838, 16531, [128, 248, 173, 160, 0, 137, 233, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50e01980_5166_4093_80f8_ada00089e9cf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5056,7 +5056,7 @@ pub struct IAudioFileOutputNode_abi(
 pub struct IAudioFrameCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioFrameCompletedEventArgs {
     type Vtable = IAudioFrameCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3699147422, 520, 17668, [165, 168, 240, 242, 104, 146, 10, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc7c829e_0208_4504_a5a8_f0f268920a65);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5074,7 +5074,7 @@ pub struct IAudioFrameCompletedEventArgs_abi(
 pub struct IAudioFrameInputNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioFrameInputNode {
     type Vtable = IAudioFrameInputNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(28468935, 64918, 20469, [163, 197, 210, 122, 155, 244, 66, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01b266c7_fd96_4ff5_a3c5_d27a9bf44237);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5104,7 +5104,7 @@ pub struct IAudioFrameInputNode_abi(
 pub struct IAudioFrameOutputNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioFrameOutputNode {
     type Vtable = IAudioFrameOutputNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3091674907, 12953, 17909, [136, 179, 201, 209, 42, 63, 28, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb847371b_3299_45f5_88b3_c9d12a3f1cc8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5122,7 +5122,7 @@ pub struct IAudioFrameOutputNode_abi(
 pub struct IAudioGraph(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraph {
     type Vtable = IAudioGraph_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(450129645, 58508, 19988, [150, 96, 44, 79, 131, 233, 205, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ad46eed_e48c_4e14_9660_2c4f83e9cdd8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5185,7 +5185,7 @@ pub struct IAudioGraph_abi(
 pub struct IAudioGraph2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraph2 {
     type Vtable = IAudioGraph2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1313618901, 20417, 17910, [169, 71, 60, 211, 143, 79, 216, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e4c3bd5_4fc1_45f6_a947_3cd38f4fd839);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5212,7 +5212,7 @@ pub struct IAudioGraph2_abi(
 pub struct IAudioGraph3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraph3 {
     type Vtable = IAudioGraph3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3721209262, 4485, 17063, [131, 29, 106, 155, 15, 200, 104, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddcd25ae_1185_42a7_831d_6a9b0fc86820);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5233,7 +5233,7 @@ pub struct IAudioGraph3_abi(
 pub struct IAudioGraphConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraphConnection {
     type Vtable = IAudioGraphConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1982886125, 53326, 20396, [178, 51, 96, 11, 66, 237, 212, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x763070ed_d04e_4fac_b233_600b42edd469);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5253,7 +5253,7 @@ pub struct IAudioGraphConnection_abi(
 pub struct IAudioGraphSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraphSettings {
     type Vtable = IAudioGraphSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(492397695, 59134, 17960, [132, 248, 157, 139, 219, 162, 87, 133]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d59647f_e6fe_4628_84f8_9d8bdba25785);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5288,7 +5288,7 @@ pub struct IAudioGraphSettings_abi(
 pub struct IAudioGraphSettings2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraphSettings2 {
     type Vtable = IAudioGraphSettings2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1922144135, 19883, 18147, [180, 201, 216, 225, 162, 99, 96, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72919787_4dab_46e3_b4c9_d8e1a2636062);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5307,7 +5307,7 @@ pub struct IAudioGraphSettings2_abi(
 pub struct IAudioGraphSettingsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraphSettingsFactory {
     type Vtable = IAudioGraphSettingsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2782469318, 49899, 19041, [162, 20, 29, 102, 215, 95, 131, 218]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5d91cc6_c2eb_4a61_a214_1d66d75f83da);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5326,7 +5326,7 @@ pub struct IAudioGraphSettingsFactory_abi(
 pub struct IAudioGraphStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraphStatics {
     type Vtable = IAudioGraphStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1995190578, 57689, 19127, [168, 42, 23, 190, 180, 179, 30, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76ec3132_e159_4ab7_a82a_17beb4b31e94);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5345,7 +5345,7 @@ pub struct IAudioGraphStatics_abi(
 pub struct IAudioGraphUnrecoverableErrorOccurredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraphUnrecoverableErrorOccurredEventArgs {
     type Vtable = IAudioGraphUnrecoverableErrorOccurredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3285830624, 16374, 20403, [178, 98, 80, 212, 53, 197, 84, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3d9cbe0_3ff6_4fb3_b262_50d435c55423);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5364,7 +5364,7 @@ pub struct IAudioGraphUnrecoverableErrorOccurredEventArgs_abi(
 pub struct IAudioInputNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioInputNode {
     type Vtable = IAudioInputNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3511156828, 33832, 18308, [183, 253, 169, 157, 70, 140, 93, 32]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd148005c_8428_4784_b7fd_a99d468c5d20);
 }
 impl IAudioInputNode {
     #[cfg(feature = "Foundation_Collections")]
@@ -5581,7 +5581,7 @@ pub struct IAudioInputNode_abi(
 pub struct IAudioInputNode2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioInputNode2 {
     type Vtable = IAudioInputNode2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421249719, 51816, 19565, [168, 188, 227, 238, 23, 254, 63, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x905156b7_ca68_4c6d_a8bc_e3ee17fe3fd2);
 }
 impl IAudioInputNode2 {
     #[cfg(feature = "Foundation")]
@@ -5824,7 +5824,7 @@ pub struct IAudioInputNode2_abi(
 pub struct IAudioNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNode {
     type Vtable = IAudioNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(356031871, 56280, 18457, [191, 3, 102, 142, 147, 87, 205, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x15389d7f_dbd8_4819_bf03_668e9357cd6d);
 }
 impl IAudioNode {
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
@@ -6004,7 +6004,7 @@ pub struct IAudioNode_abi(
 pub struct IAudioNodeEmitter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitter {
     type Vtable = IAudioNodeEmitter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(913741597, 34826, 18360, [173, 247, 19, 35, 169, 217, 101, 190]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3676971d_880a_47b8_adf7_1323a9d965be);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6042,7 +6042,7 @@ pub struct IAudioNodeEmitter_abi(
 pub struct IAudioNodeEmitter2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitter2 {
     type Vtable = IAudioNodeEmitter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1253502667, 60457, 18424, [129, 140, 182, 182, 96, 165, 174, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4ab6eecb_ec29_47f8_818c_b6b660a5aeb1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6061,7 +6061,7 @@ pub struct IAudioNodeEmitter2_abi(
 pub struct IAudioNodeEmitterConeProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterConeProperties {
     type Vtable = IAudioNodeEmitterConeProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3919260910, 714, 17269, [147, 38, 12, 106, 228, 188, 223, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe99b2cee_02ca_4375_9326_0c6ae4bcdfb5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6081,7 +6081,7 @@ pub struct IAudioNodeEmitterConeProperties_abi(
 pub struct IAudioNodeEmitterDecayModel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterDecayModel {
     type Vtable = IAudioNodeEmitterDecayModel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(488463095, 3411, 20393, [189, 132, 213, 129, 106, 134, 243, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d1d5af7_0d53_4fa9_bd84_d5816a86f3ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6102,7 +6102,7 @@ pub struct IAudioNodeEmitterDecayModel_abi(
 pub struct IAudioNodeEmitterDecayModelStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterDecayModelStatics {
     type Vtable = IAudioNodeEmitterDecayModelStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3346562216, 61816, 17967, [188, 129, 141, 213, 203, 229, 218, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7787ca8_f178_462f_bc81_8dd5cbe5dae8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6121,7 +6121,7 @@ pub struct IAudioNodeEmitterDecayModelStatics_abi(
 pub struct IAudioNodeEmitterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterFactory {
     type Vtable = IAudioNodeEmitterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4257761434, 27350, 19684, [183, 247, 169, 147, 112, 223, 126, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfdc8489a_6ad6_4ce4_b7f7_a99370df7ee9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6139,7 +6139,7 @@ pub struct IAudioNodeEmitterFactory_abi(
 pub struct IAudioNodeEmitterNaturalDecayModelProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterNaturalDecayModelProperties {
     type Vtable = IAudioNodeEmitterNaturalDecayModelProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1217612751, 53036, 20220, [147, 49, 117, 189, 34, 223, 31, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48934bcf_cf2c_4efc_9331_75bd22df1f0c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6158,7 +6158,7 @@ pub struct IAudioNodeEmitterNaturalDecayModelProperties_abi(
 pub struct IAudioNodeEmitterShape(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterShape {
     type Vtable = IAudioNodeEmitterShape_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3926069701, 59197, 17596, [133, 156, 69, 85, 59, 188, 72, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea0311c5_e73d_44bc_859c_45553bbc4828);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6177,7 +6177,7 @@ pub struct IAudioNodeEmitterShape_abi(
 pub struct IAudioNodeEmitterShapeStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterShapeStatics {
     type Vtable = IAudioNodeEmitterShapeStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1471883121, 65445, 19334, [167, 121, 226, 100, 174, 185, 20, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57bb2771_ffa5_4b86_a779_e264aeb9145f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6196,7 +6196,7 @@ pub struct IAudioNodeEmitterShapeStatics_abi(
 pub struct IAudioNodeListener(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeListener {
     type Vtable = IAudioNodeListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3648138774, 3082, 16858, [183, 85, 108, 119, 131, 95, 177, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd9722e16_0c0a_41da_b755_6c77835fb1eb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6228,7 +6228,7 @@ pub struct IAudioNodeListener_abi(
 pub struct IAudioNodeWithListener(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeWithListener {
     type Vtable = IAudioNodeWithListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(235901052, 31231, 17732, [158, 235, 1, 37, 123, 21, 16, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e0f907c_79ff_4544_9eeb_01257b15105a);
 }
 impl IAudioNodeWithListener {
     #[cfg(feature = "Foundation")]
@@ -6430,7 +6430,7 @@ pub struct IAudioNodeWithListener_abi(
 pub struct IAudioPlaybackConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioPlaybackConnection {
     type Vtable = IAudioPlaybackConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(441196010, 51964, 20711, [135, 24, 234, 63, 129, 203, 250, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a4c1dea_cafc_50e7_8718_ea3f81cbfa51);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6459,7 +6459,7 @@ pub struct IAudioPlaybackConnection_abi(
 pub struct IAudioPlaybackConnectionOpenResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioPlaybackConnectionOpenResult {
     type Vtable = IAudioPlaybackConnectionOpenResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1315269359, 14841, 24521, [165, 25, 165, 187, 253, 159, 233, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e656aef_39f9_5fc9_a519_a5bbfd9fe921);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6478,7 +6478,7 @@ pub struct IAudioPlaybackConnectionOpenResult_abi(
 pub struct IAudioPlaybackConnectionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioPlaybackConnectionStatics {
     type Vtable = IAudioPlaybackConnectionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3859375010, 27110, 24572, [158, 19, 130, 74, 133, 33, 61, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe60963a2_69e6_5ffc_9e13_824a85213daf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6497,7 +6497,7 @@ pub struct IAudioPlaybackConnectionStatics_abi(
 pub struct IAudioStateMonitor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioStateMonitor {
     type Vtable = IAudioStateMonitor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(487838006, 409, 19676, [184, 78, 231, 44, 43, 88, 30, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d13d136_0199_4cdc_b84e_e72c2b581ece);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6519,7 +6519,7 @@ pub struct IAudioStateMonitor_abi(
 pub struct IAudioStateMonitorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioStateMonitorStatics {
     type Vtable = IAudioStateMonitorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1668606540, 6971, 16385, [148, 217, 221, 34, 83, 48, 250, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6374ea4c_1b3b_4001_94d9_dd225330fa40);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6550,7 +6550,7 @@ pub struct IAudioStateMonitorStatics_abi(
 pub struct ICreateAudioDeviceInputNodeResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioDeviceInputNodeResult {
     type Vtable = ICreateAudioDeviceInputNodeResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(384747432, 7335, 16623, [145, 164, 211, 70, 224, 170, 27, 186]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16eec7a8_1ca7_40ef_91a4_d346e0aa1bba);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6569,7 +6569,7 @@ pub struct ICreateAudioDeviceInputNodeResult_abi(
 pub struct ICreateAudioDeviceInputNodeResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioDeviceInputNodeResult2 {
     type Vtable = ICreateAudioDeviceInputNodeResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2451335630, 16181, 16839, [150, 34, 121, 246, 8, 186, 237, 194]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x921c69ce_3f35_41c7_9622_79f608baedc2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6587,7 +6587,7 @@ pub struct ICreateAudioDeviceInputNodeResult2_abi(
 pub struct ICreateAudioDeviceOutputNodeResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioDeviceOutputNodeResult {
     type Vtable = ICreateAudioDeviceOutputNodeResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4151799079, 7578, 18423, [156, 212, 40, 89, 204, 27, 123, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf7776d27_1d9a_47f7_9cd4_2859cc1b7bff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6606,7 +6606,7 @@ pub struct ICreateAudioDeviceOutputNodeResult_abi(
 pub struct ICreateAudioDeviceOutputNodeResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioDeviceOutputNodeResult2 {
     type Vtable = ICreateAudioDeviceOutputNodeResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1214523039, 48590, 19121, [189, 56, 251, 174, 147, 174, 218, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4864269f_bdce_4ab1_bd38_fbae93aedaca);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6624,7 +6624,7 @@ pub struct ICreateAudioDeviceOutputNodeResult2_abi(
 pub struct ICreateAudioFileInputNodeResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioFileInputNodeResult {
     type Vtable = ICreateAudioFileInputNodeResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3464746524, 58007, 19536, [156, 231, 28, 122, 105, 214, 189, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce83d61c_e297_4c50_9ce7_1c7a69d6bd09);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6643,7 +6643,7 @@ pub struct ICreateAudioFileInputNodeResult_abi(
 pub struct ICreateAudioFileInputNodeResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioFileInputNodeResult2 {
     type Vtable = ICreateAudioFileInputNodeResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4178059296, 15744, 20448, [129, 193, 118, 143, 234, 124, 167, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9082020_3d80_4fe0_81c1_768fea7ca7e0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6661,7 +6661,7 @@ pub struct ICreateAudioFileInputNodeResult2_abi(
 pub struct ICreateAudioFileOutputNodeResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioFileOutputNodeResult {
     type Vtable = ICreateAudioFileOutputNodeResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1205254779, 59657, 17727, [134, 110, 85, 64, 205, 167, 52, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47d6ba7b_e909_453f_866e_5540cda734ff);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6680,7 +6680,7 @@ pub struct ICreateAudioFileOutputNodeResult_abi(
 pub struct ICreateAudioFileOutputNodeResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioFileOutputNodeResult2 {
     type Vtable = ICreateAudioFileOutputNodeResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2667689229, 13080, 18355, [166, 10, 27, 73, 43, 231, 252, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f01b50d_3318_47b3_a60a_1b492be7fc0d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6698,7 +6698,7 @@ pub struct ICreateAudioFileOutputNodeResult2_abi(
 pub struct ICreateAudioGraphResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioGraphResult {
     type Vtable = ICreateAudioGraphResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1414786942, 31710, 19318, [187, 93, 72, 247, 156, 252, 140, 11]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5453ef7e_7bde_4b76_bb5d_48f79cfc8c0b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6717,7 +6717,7 @@ pub struct ICreateAudioGraphResult_abi(
 pub struct ICreateAudioGraphResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioGraphResult2 {
     type Vtable = ICreateAudioGraphResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1836289532, 35014, 20427, [165, 52, 133, 206, 221, 64, 80, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d738dfc_88c6_4fcb_a534_85cedd4050a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6735,7 +6735,7 @@ pub struct ICreateAudioGraphResult2_abi(
 pub struct ICreateMediaSourceAudioInputNodeResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateMediaSourceAudioInputNodeResult {
     type Vtable = ICreateMediaSourceAudioInputNodeResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1185306787, 21440, 19801, [158, 81, 204, 29, 16, 68, 164, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46a658a3_53c0_4d59_9e51_cc1d1044a4c4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6754,7 +6754,7 @@ pub struct ICreateMediaSourceAudioInputNodeResult_abi(
 pub struct ICreateMediaSourceAudioInputNodeResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateMediaSourceAudioInputNodeResult2 {
     type Vtable = ICreateMediaSourceAudioInputNodeResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1666272488, 27162, 18915, [151, 236, 40, 253, 91, 225, 20, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63514ce8_6a1a_49e3_97ec_28fd5be114e5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6772,7 +6772,7 @@ pub struct ICreateMediaSourceAudioInputNodeResult2_abi(
 pub struct IEchoEffectDefinition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEchoEffectDefinition {
     type Vtable = IEchoEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(239943594, 14008, 19601, [185, 218, 17, 244, 74, 138, 102, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e4d3faa_36b8_4c91_b9da_11f44a8a6610);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6795,7 +6795,7 @@ pub struct IEchoEffectDefinition_abi(
 pub struct IEchoEffectDefinitionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEchoEffectDefinitionFactory {
     type Vtable = IEchoEffectDefinitionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(223224407, 43762, 20102, [165, 76, 251, 121, 219, 143, 108, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d4e2257_aaf2_4e86_a54c_fb79db8f6c12);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6813,7 +6813,7 @@ pub struct IEchoEffectDefinitionFactory_abi(
 pub struct IEqualizerBand(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEqualizerBand {
     type Vtable = IEqualizerBand_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3221903978, 9773, 19333, [155, 183, 67, 40, 11, 98, 237, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc00a5a6a_262d_4b85_9bb7_43280b62ed0c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6836,7 +6836,7 @@ pub struct IEqualizerBand_abi(
 pub struct IEqualizerEffectDefinition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEqualizerEffectDefinition {
     type Vtable = IEqualizerEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(37711647, 33790, 17562, [168, 34, 198, 150, 68, 45, 22, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x023f6f1f_83fe_449a_a822_c696442d16b0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6855,7 +6855,7 @@ pub struct IEqualizerEffectDefinition_abi(
 pub struct IEqualizerEffectDefinitionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEqualizerEffectDefinitionFactory {
     type Vtable = IEqualizerEffectDefinitionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3532091332, 54288, 20149, [158, 105, 201, 170, 18, 119, 234, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2876fc4_d410_4eb5_9e69_c9aa1277eaf0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6873,7 +6873,7 @@ pub struct IEqualizerEffectDefinitionFactory_abi(
 pub struct IFrameInputNodeQuantumStartedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameInputNodeQuantumStartedEventArgs {
     type Vtable = IFrameInputNodeQuantumStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1033622680, 41734, 20230, [189, 159, 233, 239, 200, 34, 99, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d9bd498_a306_4f06_bd9f_e9efc8226304);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6891,7 +6891,7 @@ pub struct IFrameInputNodeQuantumStartedEventArgs_abi(
 pub struct ILimiterEffectDefinition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILimiterEffectDefinition {
     type Vtable = ILimiterEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1802853657, 9731, 18362, [189, 235, 57, 5, 94, 52, 134, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b755d19_2603_47ba_bdeb_39055e3486dc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6912,7 +6912,7 @@ pub struct ILimiterEffectDefinition_abi(
 pub struct ILimiterEffectDefinitionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILimiterEffectDefinitionFactory {
     type Vtable = ILimiterEffectDefinitionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3971671793, 25087, 17903, [184, 245, 72, 101, 154, 87, 199, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xecbae6f1_61ff_45ef_b8f5_48659a57c72d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6930,7 +6930,7 @@ pub struct ILimiterEffectDefinitionFactory_abi(
 pub struct IMediaSourceAudioInputNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceAudioInputNode {
     type Vtable = IMediaSourceAudioInputNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2581108795, 43146, 16449, [142, 79, 221, 186, 192, 201, 31, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99d8983b_a88a_4041_8e4f_ddbac0c91fd3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6973,7 +6973,7 @@ pub struct IMediaSourceAudioInputNode_abi(
 pub struct IReverbEffectDefinition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReverbEffectDefinition {
     type Vtable = IReverbEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1174841993, 62819, 19722, [143, 110, 240, 205, 223, 243, 93, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4606aa89_f563_4d0a_8f6e_f0cddff35d84);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7036,7 +7036,7 @@ pub struct IReverbEffectDefinition_abi(
 pub struct IReverbEffectDefinitionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReverbEffectDefinitionFactory {
     type Vtable = IReverbEffectDefinitionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2815806462, 4107, 20464, [157, 166, 220, 78, 5, 167, 89, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7d5cbfe_100b_4ff0_9da6_dc4e05a759f0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7054,7 +7054,7 @@ pub struct IReverbEffectDefinitionFactory_abi(
 pub struct ISetDefaultSpatialAudioFormatResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISetDefaultSpatialAudioFormatResult {
     type Vtable = ISetDefaultSpatialAudioFormatResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(472556817, 5120, 24176, [158, 169, 174, 21, 18, 65, 232, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c2aa511_1400_5e70_9ea9_ae151241e8ea);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7072,7 +7072,7 @@ pub struct ISetDefaultSpatialAudioFormatResult_abi(
 pub struct ISpatialAudioDeviceConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAudioDeviceConfiguration {
     type Vtable = ISpatialAudioDeviceConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4001562676, 25039, 22345, [157, 164, 16, 240, 254, 2, 129, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee830034_61cf_5749_9da4_10f0fe028199);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7100,7 +7100,7 @@ pub struct ISpatialAudioDeviceConfiguration_abi(
 pub struct ISpatialAudioDeviceConfigurationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAudioDeviceConfigurationStatics {
     type Vtable = ISpatialAudioDeviceConfigurationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1052999547, 37741, 19972, [151, 40, 40, 39, 217, 247, 88, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ec37f7b_936d_4e04_9728_2827d9f758c4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7118,7 +7118,7 @@ pub struct ISpatialAudioDeviceConfigurationStatics_abi(
 pub struct ISpatialAudioFormatConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAudioFormatConfiguration {
     type Vtable = ISpatialAudioFormatConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(853477800, 20720, 21397, [153, 35, 125, 68, 202, 113, 237, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32df09a8_50f0_5395_9923_7d44ca71ed6d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7141,7 +7141,7 @@ pub struct ISpatialAudioFormatConfiguration_abi(
 pub struct ISpatialAudioFormatConfigurationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAudioFormatConfigurationStatics {
     type Vtable = ISpatialAudioFormatConfigurationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(727707505, 26569, 20063, [163, 91, 65, 104, 7, 17, 248, 199]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b5fef71_67c9_4e5f_a35b_41680711f8c7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7159,7 +7159,7 @@ pub struct ISpatialAudioFormatConfigurationStatics_abi(
 pub struct ISpatialAudioFormatSubtypeStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAudioFormatSubtypeStatics {
     type Vtable = ISpatialAudioFormatSubtypeStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3017706055, 33774, 16998, [169, 69, 190, 223, 80, 122, 254, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb3de8a47_83ee_4266_a945_bedf507afeed);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7182,7 +7182,7 @@ pub struct ISpatialAudioFormatSubtypeStatics_abi(
 pub struct ISpatialAudioFormatSubtypeStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAudioFormatSubtypeStatics2 {
     type Vtable = ISpatialAudioFormatSubtypeStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1164306123, 55643, 22049, [182, 175, 14, 136, 73, 197, 124, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4565e6cb_d95b_5621_b6af_0e8849c57c80);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7261,7 +7261,7 @@ unsafe impl ::windows::runtime::RuntimeType for LimiterEffectDefinition {
 }
 unsafe impl ::windows::runtime::Interface for LimiterEffectDefinition {
     type Vtable = ILimiterEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1802853657, 9731, 18362, [189, 235, 57, 5, 94, 52, 134, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b755d19_2603_47ba_bdeb_39055e3486dc);
 }
 impl ::windows::runtime::RuntimeName for LimiterEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.LimiterEffectDefinition";
@@ -7560,7 +7560,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaSourceAudioInputNode {
 }
 unsafe impl ::windows::runtime::Interface for MediaSourceAudioInputNode {
     type Vtable = IMediaSourceAudioInputNode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2581108795, 43146, 16449, [142, 79, 221, 186, 192, 201, 31, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99d8983b_a88a_4041_8e4f_ddbac0c91fd3);
 }
 impl ::windows::runtime::RuntimeName for MediaSourceAudioInputNode {
     const NAME: &'static str = "Windows.Media.Audio.MediaSourceAudioInputNode";
@@ -8107,7 +8107,7 @@ unsafe impl ::windows::runtime::RuntimeType for ReverbEffectDefinition {
 }
 unsafe impl ::windows::runtime::Interface for ReverbEffectDefinition {
     type Vtable = IReverbEffectDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1174841993, 62819, 19722, [143, 110, 240, 205, 223, 243, 93, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4606aa89_f563_4d0a_8f6e_f0cddff35d84);
 }
 impl ::windows::runtime::RuntimeName for ReverbEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.ReverbEffectDefinition";
@@ -8199,7 +8199,7 @@ unsafe impl ::windows::runtime::RuntimeType for SetDefaultSpatialAudioFormatResu
 }
 unsafe impl ::windows::runtime::Interface for SetDefaultSpatialAudioFormatResult {
     type Vtable = ISetDefaultSpatialAudioFormatResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(472556817, 5120, 24176, [158, 169, 174, 21, 18, 65, 232, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c2aa511_1400_5e70_9ea9_ae151241e8ea);
 }
 impl ::windows::runtime::RuntimeName for SetDefaultSpatialAudioFormatResult {
     const NAME: &'static str = "Windows.Media.Audio.SetDefaultSpatialAudioFormatResult";
@@ -8358,7 +8358,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialAudioDeviceConfiguration 
 }
 unsafe impl ::windows::runtime::Interface for SpatialAudioDeviceConfiguration {
     type Vtable = ISpatialAudioDeviceConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4001562676, 25039, 22345, [157, 164, 16, 240, 254, 2, 129, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee830034_61cf_5749_9da4_10f0fe028199);
 }
 impl ::windows::runtime::RuntimeName for SpatialAudioDeviceConfiguration {
     const NAME: &'static str = "Windows.Media.Audio.SpatialAudioDeviceConfiguration";
@@ -8458,7 +8458,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpatialAudioFormatConfiguration 
 }
 unsafe impl ::windows::runtime::Interface for SpatialAudioFormatConfiguration {
     type Vtable = ISpatialAudioFormatConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(853477800, 20720, 21397, [153, 35, 125, 68, 202, 113, 237, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x32df09a8_50f0_5395_9923_7d44ca71ed6d);
 }
 impl ::windows::runtime::RuntimeName for SpatialAudioFormatConfiguration {
     const NAME: &'static str = "Windows.Media.Audio.SpatialAudioFormatConfiguration";

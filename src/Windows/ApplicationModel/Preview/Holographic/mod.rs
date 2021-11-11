@@ -74,7 +74,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicKeyboardPlacementOver
 }
 unsafe impl ::windows::runtime::Interface for HolographicKeyboardPlacementOverridePreview {
     type Vtable = IHolographicKeyboardPlacementOverridePreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3366506042, 57310, 23060, [141, 95, 24, 44, 82, 109, 217, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8a8ce3a_dfde_5a14_8d5f_182c526dd9c4);
 }
 impl ::windows::runtime::RuntimeName for HolographicKeyboardPlacementOverridePreview {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview";
@@ -126,7 +126,7 @@ unsafe impl ::core::marker::Sync for HolographicKeyboardPlacementOverridePreview
 pub struct IHolographicApplicationPreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicApplicationPreviewStatics {
     type Vtable = IHolographicApplicationPreviewStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4261643921, 10810, 17833, [162, 8, 123, 237, 105, 25, 25, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe038691_2a3a_45a9_a208_7bed691919f3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -146,7 +146,7 @@ pub struct IHolographicApplicationPreviewStatics_abi(
 pub struct IHolographicKeyboardPlacementOverridePreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicKeyboardPlacementOverridePreview {
     type Vtable = IHolographicKeyboardPlacementOverridePreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3366506042, 57310, 23060, [141, 95, 24, 44, 82, 109, 217, 196]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8a8ce3a_dfde_5a14_8d5f_182c526dd9c4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -168,7 +168,7 @@ pub struct IHolographicKeyboardPlacementOverridePreview_abi(
 pub struct IHolographicKeyboardPlacementOverridePreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicKeyboardPlacementOverridePreviewStatics {
     type Vtable = IHolographicKeyboardPlacementOverridePreviewStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(539910201, 8182, 23046, [170, 196, 165, 226, 79, 163, 236, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x202e6039_1ff6_5a06_aac4_a5e24fa3ec4b);
 }
 #[repr(C)]
 #[doc(hidden)]

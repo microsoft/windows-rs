@@ -84,7 +84,7 @@ unsafe impl ::windows::runtime::RuntimeType for GuidanceAudioNotificationRequest
 }
 unsafe impl ::windows::runtime::Interface for GuidanceAudioNotificationRequestedEventArgs {
     type Vtable = IGuidanceAudioNotificationRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3391791690, 51138, 19788, [157, 124, 73, 149, 118, 188, 237, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca2aa24a_c7c2_4d4c_9d7c_499576bceddb);
 }
 impl ::windows::runtime::RuntimeName for GuidanceAudioNotificationRequestedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceAudioNotificationRequestedEventArgs";
@@ -213,7 +213,7 @@ unsafe impl ::windows::runtime::RuntimeType for GuidanceLaneInfo {
 }
 unsafe impl ::windows::runtime::Interface for GuidanceLaneInfo {
     type Vtable = IGuidanceLaneInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2214908180, 25985, 17335, [172, 21, 201, 7, 155, 249, 13, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8404d114_6581_43b7_ac15_c9079bf90df1);
 }
 impl ::windows::runtime::RuntimeName for GuidanceLaneInfo {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceLaneInfo";
@@ -427,7 +427,7 @@ unsafe impl ::windows::runtime::RuntimeType for GuidanceManeuver {
 }
 unsafe impl ::windows::runtime::Interface for GuidanceManeuver {
     type Vtable = IGuidanceManeuver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4228461164, 60617, 18728, [162, 161, 114, 50, 185, 155, 148, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc09326c_ecc9_4928_a2a1_7232b99b94a1);
 }
 impl ::windows::runtime::RuntimeName for GuidanceManeuver {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceManeuver";
@@ -594,7 +594,7 @@ unsafe impl ::windows::runtime::RuntimeType for GuidanceMapMatchedCoordinate {
 }
 unsafe impl ::windows::runtime::Interface for GuidanceMapMatchedCoordinate {
     type Vtable = IGuidanceMapMatchedCoordinate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3081548136, 10514, 19097, [175, 241, 121, 134, 9, 185, 129, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7acb168_2912_4a99_aff1_798609b981fe);
 }
 impl ::windows::runtime::RuntimeName for GuidanceMapMatchedCoordinate {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceMapMatchedCoordinate";
@@ -909,7 +909,7 @@ unsafe impl ::windows::runtime::RuntimeType for GuidanceNavigator {
 }
 unsafe impl ::windows::runtime::Interface for GuidanceNavigator {
     type Vtable = IGuidanceNavigator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(150044407, 36415, 19866, [190, 138, 16, 143, 154, 1, 44, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08f17ef7_8e3f_4d9a_be8a_108f9a012c67);
 }
 impl ::windows::runtime::RuntimeName for GuidanceNavigator {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceNavigator";
@@ -975,7 +975,7 @@ unsafe impl ::windows::runtime::RuntimeType for GuidanceReroutedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for GuidanceReroutedEventArgs {
     type Vtable = IGuidanceReroutedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(291323912, 54568, 17742, [187, 148, 165, 3, 65, 210, 201, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x115d4008_d528_454e_bb94_a50341d2c9f1);
 }
 impl ::windows::runtime::RuntimeName for GuidanceReroutedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceReroutedEventArgs";
@@ -1115,7 +1115,7 @@ unsafe impl ::windows::runtime::RuntimeType for GuidanceRoadSegment {
 }
 unsafe impl ::windows::runtime::Interface for GuidanceRoadSegment {
     type Vtable = IGuidanceRoadSegment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3005700262, 48760, 19555, [175, 231, 108, 41, 87, 71, 155, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb32758a6_be78_4c63_afe7_6c2957479b3e);
 }
 impl ::windows::runtime::RuntimeName for GuidanceRoadSegment {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoadSegment";
@@ -1216,7 +1216,7 @@ unsafe impl ::windows::runtime::RuntimeType for GuidanceRoadSignpost {
 }
 unsafe impl ::windows::runtime::Interface for GuidanceRoadSignpost {
     type Vtable = IGuidanceRoadSignpost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4054263990, 63354, 18242, [131, 18, 83, 48, 15, 152, 69, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1a728b6_f77a_4742_8312_53300f9845f0);
 }
 impl ::windows::runtime::RuntimeName for GuidanceRoadSignpost {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoadSignpost";
@@ -1353,7 +1353,7 @@ unsafe impl ::windows::runtime::RuntimeType for GuidanceRoute {
 }
 unsafe impl ::windows::runtime::Interface for GuidanceRoute {
     type Vtable = IGuidanceRoute_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(974410845, 32794, 16573, [162, 134, 175, 178, 1, 12, 206, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a14545d_801a_40bd_a286_afb2010cce6c);
 }
 impl ::windows::runtime::RuntimeName for GuidanceRoute {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoute";
@@ -1466,7 +1466,7 @@ unsafe impl ::windows::runtime::RuntimeType for GuidanceTelemetryCollector {
 }
 unsafe impl ::windows::runtime::Interface for GuidanceTelemetryCollector {
     type Vtable = IGuidanceTelemetryCollector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3676278181, 47224, 19858, [152, 221, 52, 125, 35, 211, 130, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb1f8da5_b878_4d92_98dd_347d23d38262);
 }
 impl ::windows::runtime::RuntimeName for GuidanceTelemetryCollector {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceTelemetryCollector";
@@ -1639,7 +1639,7 @@ unsafe impl ::windows::runtime::RuntimeType for GuidanceUpdatedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for GuidanceUpdatedEventArgs {
     type Vtable = IGuidanceUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4255913483, 40589, 19939, [169, 250, 176, 99, 33, 209, 141, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfdac160b_9e8d_4de3_a9fa_b06321d18db9);
 }
 impl ::windows::runtime::RuntimeName for GuidanceUpdatedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceUpdatedEventArgs";
@@ -1691,7 +1691,7 @@ unsafe impl ::core::marker::Sync for GuidanceUpdatedEventArgs {}
 pub struct IGuidanceAudioNotificationRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceAudioNotificationRequestedEventArgs {
     type Vtable = IGuidanceAudioNotificationRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3391791690, 51138, 19788, [157, 124, 73, 149, 118, 188, 237, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xca2aa24a_c7c2_4d4c_9d7c_499576bceddb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1712,7 +1712,7 @@ pub struct IGuidanceAudioNotificationRequestedEventArgs_abi(
 pub struct IGuidanceLaneInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceLaneInfo {
     type Vtable = IGuidanceLaneInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2214908180, 25985, 17335, [172, 21, 201, 7, 155, 249, 13, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8404d114_6581_43b7_ac15_c9079bf90df1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1731,7 +1731,7 @@ pub struct IGuidanceLaneInfo_abi(
 pub struct IGuidanceManeuver(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceManeuver {
     type Vtable = IGuidanceManeuver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4228461164, 60617, 18728, [162, 161, 114, 50, 185, 155, 148, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc09326c_ecc9_4928_a2a1_7232b99b94a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1761,7 +1761,7 @@ pub struct IGuidanceManeuver_abi(
 pub struct IGuidanceMapMatchedCoordinate(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceMapMatchedCoordinate {
     type Vtable = IGuidanceMapMatchedCoordinate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3081548136, 10514, 19097, [175, 241, 121, 134, 9, 185, 129, 254]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7acb168_2912_4a99_aff1_798609b981fe);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1784,7 +1784,7 @@ pub struct IGuidanceMapMatchedCoordinate_abi(
 pub struct IGuidanceNavigator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceNavigator {
     type Vtable = IGuidanceNavigator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(150044407, 36415, 19866, [190, 138, 16, 143, 154, 1, 44, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08f17ef7_8e3f_4d9a_be8a_108f9a012c67);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1845,7 +1845,7 @@ pub struct IGuidanceNavigator_abi(
 pub struct IGuidanceNavigator2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceNavigator2 {
     type Vtable = IGuidanceNavigator2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1826377937, 1052, 19443, [182, 51, 161, 1, 252, 47, 107, 87]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6cdc50d1_041c_4bf3_b633_a101fc2f6b57);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1868,7 +1868,7 @@ pub struct IGuidanceNavigator2_abi(
 pub struct IGuidanceNavigatorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceNavigatorStatics {
     type Vtable = IGuidanceNavigatorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(16618771, 17494, 20070, [161, 67, 58, 221, 107, 224, 132, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00fd9513_4456_4e66_a143_3add6be08426);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1886,7 +1886,7 @@ pub struct IGuidanceNavigatorStatics_abi(
 pub struct IGuidanceNavigatorStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceNavigatorStatics2 {
     type Vtable = IGuidanceNavigatorStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1422246882, 30596, 19589, [140, 149, 208, 198, 239, 180, 57, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54c5c3e2_7784_4c85_8c95_d0c6efb43965);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1904,7 +1904,7 @@ pub struct IGuidanceNavigatorStatics2_abi(
 pub struct IGuidanceReroutedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceReroutedEventArgs {
     type Vtable = IGuidanceReroutedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(291323912, 54568, 17742, [187, 148, 165, 3, 65, 210, 201, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x115d4008_d528_454e_bb94_a50341d2c9f1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1922,7 +1922,7 @@ pub struct IGuidanceReroutedEventArgs_abi(
 pub struct IGuidanceRoadSegment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceRoadSegment {
     type Vtable = IGuidanceRoadSegment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3005700262, 48760, 19555, [175, 231, 108, 41, 87, 71, 155, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb32758a6_be78_4c63_afe7_6c2957479b3e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1950,7 +1950,7 @@ pub struct IGuidanceRoadSegment_abi(
 pub struct IGuidanceRoadSegment2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceRoadSegment2 {
     type Vtable = IGuidanceRoadSegment2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(611624477, 5923, 18929, [137, 91, 71, 162, 196, 170, 156, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2474a61d_1723_49f1_895b_47a2c4aa9c55);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1968,7 +1968,7 @@ pub struct IGuidanceRoadSegment2_abi(
 pub struct IGuidanceRoadSignpost(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceRoadSignpost {
     type Vtable = IGuidanceRoadSignpost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4054263990, 63354, 18242, [131, 18, 83, 48, 15, 152, 69, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1a728b6_f77a_4742_8312_53300f9845f0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1993,7 +1993,7 @@ pub struct IGuidanceRoadSignpost_abi(
 pub struct IGuidanceRoute(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceRoute {
     type Vtable = IGuidanceRoute_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(974410845, 32794, 16573, [162, 134, 175, 178, 1, 12, 206, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a14545d_801a_40bd_a286_afb2010cce6c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2022,7 +2022,7 @@ pub struct IGuidanceRoute_abi(
 pub struct IGuidanceRouteStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceRouteStatics {
     type Vtable = IGuidanceRouteStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4117598826, 21997, 18881, [176, 156, 75, 130, 35, 181, 13, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf56d926a_55ed_49c1_b09c_4b8223b50db3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2041,7 +2041,7 @@ pub struct IGuidanceRouteStatics_abi(
 pub struct IGuidanceTelemetryCollector(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceTelemetryCollector {
     type Vtable = IGuidanceTelemetryCollector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3676278181, 47224, 19858, [152, 221, 52, 125, 35, 211, 130, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb1f8da5_b878_4d92_98dd_347d23d38262);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2065,7 +2065,7 @@ pub struct IGuidanceTelemetryCollector_abi(
 pub struct IGuidanceTelemetryCollectorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceTelemetryCollectorStatics {
     type Vtable = IGuidanceTelemetryCollectorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(911417415, 61792, 17659, [181, 120, 148, 87, 124, 160, 89, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36532047_f160_44fb_b578_94577ca05990);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2083,7 +2083,7 @@ pub struct IGuidanceTelemetryCollectorStatics_abi(
 pub struct IGuidanceUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceUpdatedEventArgs {
     type Vtable = IGuidanceUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4255913483, 40589, 19939, [169, 250, 176, 99, 33, 209, 141, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfdac160b_9e8d_4de3_a9fa_b06321d18db9);
 }
 #[repr(C)]
 #[doc(hidden)]

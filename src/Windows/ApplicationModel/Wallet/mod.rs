@@ -6,7 +6,7 @@ pub mod System;
 pub struct IWalletBarcode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletBarcode {
     type Vtable = IWalletBarcode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1334147881, 56960, 20132, [161, 205, 129, 205, 8, 77, 172, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f857b29_de80_4ea4_a1cd_81cd084dac27);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27,7 +27,7 @@ pub struct IWalletBarcode_abi(
 pub struct IWalletBarcodeFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletBarcodeFactory {
     type Vtable = IWalletBarcodeFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(806449505, 60828, 18078, [187, 253, 48, 108, 149, 234, 113, 8]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30117161_ed9c_469e_bbfd_306c95ea7108);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -47,7 +47,7 @@ pub struct IWalletBarcodeFactory_abi(
 pub struct IWalletItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItem {
     type Vtable = IWalletItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(548752360, 4493, 20164, [153, 108, 185, 99, 231, 189, 62, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20b54be8_118d_4ec4_996c_b963e7bd3e74);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -148,7 +148,7 @@ pub struct IWalletItem_abi(
 pub struct IWalletItemCustomProperty(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemCustomProperty {
     type Vtable = IWalletItemCustomProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3108716787, 64000, 16637, [152, 220, 157, 228, 102, 151, 241, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb94b40f3_fa00_40fd_98dc_9de46697f1e7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -175,7 +175,7 @@ pub struct IWalletItemCustomProperty_abi(
 pub struct IWalletItemCustomPropertyFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemCustomPropertyFactory {
     type Vtable = IWalletItemCustomPropertyFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3489950276, 24993, 16810, [178, 89, 165, 97, 10, 181, 213, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0046a44_61a1_41aa_b259_a5610ab5d575);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -193,7 +193,7 @@ pub struct IWalletItemCustomPropertyFactory_abi(
 pub struct IWalletItemFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemFactory {
     type Vtable = IWalletItemFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1407349872, 20235, 19006, [153, 229, 11, 187, 30, 171, 56, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53e27470_4f0b_4a3e_99e5_0bbb1eab38d4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -211,7 +211,7 @@ pub struct IWalletItemFactory_abi(
 pub struct IWalletItemStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemStore {
     type Vtable = IWalletItemStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1902135371, 27977, 18680, [145, 169, 64, 161, 208, 241, 62, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7160484b_6d49_48f8_91a9_40a1d0f13ef4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -248,7 +248,7 @@ pub struct IWalletItemStore_abi(
 pub struct IWalletItemStore2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemStore2 {
     type Vtable = IWalletItemStore2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1709605616, 28681, 18965, [189, 84, 79, 255, 55, 155, 255, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65e682f0_7009_4a15_bd54_4fff379bffe2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -269,7 +269,7 @@ pub struct IWalletItemStore2_abi(
 pub struct IWalletManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletManagerStatics {
     type Vtable = IWalletManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1360123576, 51620, 19556, [180, 221, 225, 229, 72, 0, 28, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5111d6b8_c9a4_4c64_b4dd_e1e548001c0d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -288,7 +288,7 @@ pub struct IWalletManagerStatics_abi(
 pub struct IWalletRelevantLocation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletRelevantLocation {
     type Vtable = IWalletRelevantLocation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2681763882, 58361, 19937, [186, 179, 187, 25, 46, 70, 179, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fd8782a_e3f9_4de1_bab3_bb192e46b3f3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -311,7 +311,7 @@ pub struct IWalletRelevantLocation_abi(
 pub struct IWalletTransaction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletTransaction {
     type Vtable = IWalletTransaction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1088547136, 9734, 17689, [129, 203, 191, 241, 198, 13, 31, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40e1e940_2606_4519_81cb_bff1c60d1f79);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -342,7 +342,7 @@ pub struct IWalletTransaction_abi(
 pub struct IWalletVerb(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletVerb {
     type Vtable = IWalletVerb_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(397944534, 58305, 19572, [138, 148, 33, 122, 173, 188, 72, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17b826d6_e3c1_4c74_8a94_217aadbc4884);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -361,7 +361,7 @@ pub struct IWalletVerb_abi(
 pub struct IWalletVerbFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletVerbFactory {
     type Vtable = IWalletVerbFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1979787121, 48728, 19806, [131, 237, 88, 177, 102, 156, 122, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76012771_be58_4d5e_83ed_58b1669c7ad9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -454,7 +454,7 @@ unsafe impl ::windows::runtime::RuntimeType for WalletBarcode {
 }
 unsafe impl ::windows::runtime::Interface for WalletBarcode {
     type Vtable = IWalletBarcode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1334147881, 56960, 20132, [161, 205, 129, 205, 8, 77, 172, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f857b29_de80_4ea4_a1cd_81cd084dac27);
 }
 impl ::windows::runtime::RuntimeName for WalletBarcode {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletBarcode";
@@ -972,7 +972,7 @@ unsafe impl ::windows::runtime::RuntimeType for WalletItem {
 }
 unsafe impl ::windows::runtime::Interface for WalletItem {
     type Vtable = IWalletItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(548752360, 4493, 20164, [153, 108, 185, 99, 231, 189, 62, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20b54be8_118d_4ec4_996c_b963e7bd3e74);
 }
 impl ::windows::runtime::RuntimeName for WalletItem {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItem";
@@ -1106,7 +1106,7 @@ unsafe impl ::windows::runtime::RuntimeType for WalletItemCustomProperty {
 }
 unsafe impl ::windows::runtime::Interface for WalletItemCustomProperty {
     type Vtable = IWalletItemCustomProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3108716787, 64000, 16637, [152, 220, 157, 228, 102, 151, 241, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb94b40f3_fa00_40fd_98dc_9de46697f1e7);
 }
 impl ::windows::runtime::RuntimeName for WalletItemCustomProperty {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItemCustomProperty";
@@ -1281,7 +1281,7 @@ unsafe impl ::windows::runtime::RuntimeType for WalletItemStore {
 }
 unsafe impl ::windows::runtime::Interface for WalletItemStore {
     type Vtable = IWalletItemStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1902135371, 27977, 18680, [145, 169, 64, 161, 208, 241, 62, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7160484b_6d49_48f8_91a9_40a1d0f13ef4);
 }
 impl ::windows::runtime::RuntimeName for WalletItemStore {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItemStore";
@@ -1393,7 +1393,7 @@ unsafe impl ::windows::runtime::RuntimeType for WalletRelevantLocation {
 }
 unsafe impl ::windows::runtime::Interface for WalletRelevantLocation {
     type Vtable = IWalletRelevantLocation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2681763882, 58361, 19937, [186, 179, 187, 25, 46, 70, 179, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fd8782a_e3f9_4de1_bab3_bb192e46b3f3);
 }
 impl ::windows::runtime::RuntimeName for WalletRelevantLocation {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletRelevantLocation";
@@ -1561,7 +1561,7 @@ unsafe impl ::windows::runtime::RuntimeType for WalletTransaction {
 }
 unsafe impl ::windows::runtime::Interface for WalletTransaction {
     type Vtable = IWalletTransaction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1088547136, 9734, 17689, [129, 203, 191, 241, 198, 13, 31, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40e1e940_2606_4519_81cb_bff1c60d1f79);
 }
 impl ::windows::runtime::RuntimeName for WalletTransaction {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletTransaction";
@@ -1643,7 +1643,7 @@ unsafe impl ::windows::runtime::RuntimeType for WalletVerb {
 }
 unsafe impl ::windows::runtime::Interface for WalletVerb {
     type Vtable = IWalletVerb_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(397944534, 58305, 19572, [138, 148, 33, 122, 173, 188, 72, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17b826d6_e3c1_4c74_8a94_217aadbc4884);
 }
 impl ::windows::runtime::RuntimeName for WalletVerb {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletVerb";

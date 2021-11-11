@@ -3153,7 +3153,7 @@ impl IDWriteAsyncResult {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteAsyncResult {
     type Vtable = IDWriteAsyncResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3458595069, 34363, 19731, [150, 81, 193, 248, 141, 199, 63, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce25f8fd_863b_4d13_9651_c1f88dc73fe2);
 }
 impl ::core::convert::From<IDWriteAsyncResult> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteAsyncResult) -> Self {
@@ -3231,7 +3231,7 @@ impl IDWriteBitmapRenderTarget {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteBitmapRenderTarget {
     type Vtable = IDWriteBitmapRenderTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1582969507, 36351, 18291, [159, 246, 6, 150, 234, 183, 114, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e5a32a3_8dff_4773_9ff6_0696eab77267);
 }
 impl ::core::convert::From<IDWriteBitmapRenderTarget> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteBitmapRenderTarget) -> Self {
@@ -3325,7 +3325,7 @@ impl IDWriteBitmapRenderTarget1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteBitmapRenderTarget1 {
     type Vtable = IDWriteBitmapRenderTarget1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2032042648, 16115, 16944, [152, 128, 201, 189, 236, 196, 32, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x791e8298_3ef3_4230_9880_c9bdecc42064);
 }
 impl ::core::convert::From<IDWriteBitmapRenderTarget1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteBitmapRenderTarget1) -> Self {
@@ -3407,7 +3407,7 @@ impl IDWriteColorGlyphRunEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteColorGlyphRunEnumerator {
     type Vtable = IDWriteColorGlyphRunEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3542072855, 61783, 16802, [141, 36, 203, 119, 158, 5, 96, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd31fbe17_f157_41a2_8d24_cb779e0560e8);
 }
 impl ::core::convert::From<IDWriteColorGlyphRunEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteColorGlyphRunEnumerator) -> Self {
@@ -3466,7 +3466,7 @@ impl IDWriteColorGlyphRunEnumerator1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteColorGlyphRunEnumerator1 {
     type Vtable = IDWriteColorGlyphRunEnumerator1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2086635226, 51105, 20229, [184, 225, 85, 161, 121, 254, 90, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c5f86da_c7a1_4f05_b8e1_55a179fe5a35);
 }
 impl ::core::convert::From<IDWriteColorGlyphRunEnumerator1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteColorGlyphRunEnumerator1) -> Self {
@@ -3660,7 +3660,7 @@ impl IDWriteFactory {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFactory {
     type Vtable = IDWriteFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3092901466, 55352, 19291, [162, 232, 26, 220, 125, 147, 219, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb859ee5a_d838_4b5b_a2e8_1adc7d93db48);
 }
 impl ::core::convert::From<IDWriteFactory> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFactory) -> Self {
@@ -3867,7 +3867,7 @@ impl IDWriteFactory1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFactory1 {
     type Vtable = IDWriteFactory1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(811020185, 56006, 16859, [161, 110, 4, 134, 48, 126, 96, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30572f99_dac6_41db_a16e_0486307e606a);
 }
 impl ::core::convert::From<IDWriteFactory1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFactory1) -> Self {
@@ -4158,7 +4158,7 @@ impl IDWriteFactory2 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFactory2 {
     type Vtable = IDWriteFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(70909024, 51780, 18836, [141, 238, 58, 154, 247, 183, 50, 236]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0439fc60_ca44_4994_8dee_3a9af7b732ec);
 }
 impl ::core::convert::From<IDWriteFactory2> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFactory2) -> Self {
@@ -4546,7 +4546,7 @@ impl IDWriteFactory3 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFactory3 {
     type Vtable = IDWriteFactory3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2585477571, 54203, 18026, [135, 252, 254, 103, 85, 106, 59, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a1b41c3_d3bb_466a_87fc_fe67556a3b65);
 }
 impl ::core::convert::From<IDWriteFactory3> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFactory3) -> Self {
@@ -4995,7 +4995,7 @@ impl IDWriteFactory4 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFactory4 {
     type Vtable = IDWriteFactory4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1259035603, 1943, 17737, [138, 197, 254, 145, 92, 197, 56, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b0b5bd3_0797_4549_8ac5_fe915cc53856);
 }
 impl ::core::convert::From<IDWriteFactory4> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFactory4) -> Self {
@@ -5496,7 +5496,7 @@ impl IDWriteFactory5 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFactory5 {
     type Vtable = IDWriteFactory5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2509093274, 48682, 20233, [175, 125, 101, 24, 152, 3, 209, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x958db99a_be2a_4f09_af7d_65189803d1d3);
 }
 impl ::core::convert::From<IDWriteFactory5> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFactory5) -> Self {
@@ -6061,7 +6061,7 @@ impl IDWriteFactory6 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFactory6 {
     type Vtable = IDWriteFactory6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4084485504, 8695, 17131, [179, 93, 153, 91, 199, 47, 194, 35]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3744d80_21f7_42eb_b35d_995bc72fc223);
 }
 impl ::core::convert::From<IDWriteFactory6> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFactory6) -> Self {
@@ -6668,7 +6668,7 @@ impl IDWriteFactory7 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFactory7 {
     type Vtable = IDWriteFactory7_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(902881459, 36982, 19758, [160, 22, 169, 27, 86, 138, 6, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35d0e0b3_9076_4d2e_a016_a91b568a06b4);
 }
 impl ::core::convert::From<IDWriteFactory7> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFactory7) -> Self {
@@ -6974,7 +6974,7 @@ impl IDWriteFont {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFont {
     type Vtable = IDWriteFont_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2899404438, 35860, 20317, [135, 126, 254, 63, 193, 211, 39, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xacd16696_8c14_4f5d_877e_fe3fc1d32737);
 }
 impl ::core::convert::From<IDWriteFont> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFont) -> Self {
@@ -7094,7 +7094,7 @@ impl IDWriteFont1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFont1 {
     type Vtable = IDWriteFont1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2899404438, 35860, 20317, [135, 126, 254, 63, 193, 211, 39, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xacd16696_8c14_4f5d_877e_fe3fc1d32738);
 }
 impl ::core::convert::From<IDWriteFont1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFont1) -> Self {
@@ -7245,7 +7245,7 @@ impl IDWriteFont2 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFont2 {
     type Vtable = IDWriteFont2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(695504598, 35996, 19050, [190, 11, 217, 18, 232, 83, 137, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29748ed6_8c9c_4a6a_be0b_d912e8538944);
 }
 impl ::core::convert::From<IDWriteFont2> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFont2) -> Self {
@@ -7442,7 +7442,7 @@ impl IDWriteFont3 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFont3 {
     type Vtable = IDWriteFont3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(695504598, 35996, 19050, [190, 11, 217, 18, 232, 83, 137, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29748ed6_8c9c_4a6a_be0b_d912e8538944);
 }
 impl ::core::convert::From<IDWriteFont3> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFont3) -> Self {
@@ -7587,7 +7587,7 @@ impl IDWriteFontCollection {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontCollection {
     type Vtable = IDWriteFontCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2823613954, 16106, 20206, [168, 39, 135, 193, 160, 42, 15, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa84cee02_3eea_4eee_a827_87c1a02a0fcc);
 }
 impl ::core::convert::From<IDWriteFontCollection> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontCollection) -> Self {
@@ -7658,7 +7658,7 @@ impl IDWriteFontCollection1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontCollection1 {
     type Vtable = IDWriteFontCollection1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1398296897, 55800, 16533, [131, 33, 215, 60, 246, 189, 17, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53585141_d9f8_4095_8321_d73cf6bd116c);
 }
 impl ::core::convert::From<IDWriteFontCollection1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontCollection1) -> Self {
@@ -7771,7 +7771,7 @@ impl IDWriteFontCollection2 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontCollection2 {
     type Vtable = IDWriteFontCollection2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1363163590, 17943, 16484, [191, 139, 146, 234, 131, 229, 6, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x514039c6_4617_4064_bf8b_92ea83e506e0);
 }
 impl ::core::convert::From<IDWriteFontCollection2> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontCollection2) -> Self {
@@ -7914,7 +7914,7 @@ impl IDWriteFontCollection3 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontCollection3 {
     type Vtable = IDWriteFontCollection3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2765116838, 63971, 20005, [147, 183, 158, 48, 159, 58, 248, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4d055a6_f9e3_4e25_93b7_9e309f3af8e9);
 }
 impl ::core::convert::From<IDWriteFontCollection3> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontCollection3) -> Self {
@@ -8030,7 +8030,7 @@ impl IDWriteFontCollectionLoader {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontCollectionLoader {
     type Vtable = IDWriteFontCollectionLoader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3433636068, 21232, 18731, [191, 168, 41, 199, 46, 224, 164, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcca920e4_52f0_492b_bfa8_29c72ee0a468);
 }
 impl ::core::convert::From<IDWriteFontCollectionLoader> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontCollectionLoader) -> Self {
@@ -8072,7 +8072,7 @@ impl IDWriteFontDownloadListener {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontDownloadListener {
     type Vtable = IDWriteFontDownloadListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2960123321, 17388, 17299, [136, 27, 219, 228, 220, 114, 253, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb06fe5b9_43ec_4393_881b_dbe4dc72fda7);
 }
 impl ::core::convert::From<IDWriteFontDownloadListener> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontDownloadListener) -> Self {
@@ -8136,7 +8136,7 @@ impl IDWriteFontDownloadQueue {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontDownloadQueue {
     type Vtable = IDWriteFontDownloadQueue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3072221266, 23274, 20387, [131, 46, 246, 13, 67, 31, 126, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb71e6052_5aea_4fa3_832e_f60d431f7e91);
 }
 impl ::core::convert::From<IDWriteFontDownloadQueue> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontDownloadQueue) -> Self {
@@ -8279,7 +8279,7 @@ impl IDWriteFontFace {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontFace {
     type Vtable = IDWriteFontFace_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1598652493, 28708, 19779, [191, 169, 210, 89, 132, 245, 56, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f49804d_7024_4d43_bfa9_d25984f53849);
 }
 impl ::core::convert::From<IDWriteFontFace> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontFace) -> Self {
@@ -8504,7 +8504,7 @@ impl IDWriteFontFace1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontFace1 {
     type Vtable = IDWriteFontFace1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2803826100, 40923, 18488, [173, 144, 207, 195, 190, 140, 61, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa71efdb4_9fdb_4838_ad90_cfc3be8c3daf);
 }
 impl ::core::convert::From<IDWriteFontFace1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontFace1) -> Self {
@@ -8816,7 +8816,7 @@ impl IDWriteFontFace2 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontFace2 {
     type Vtable = IDWriteFontFace2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3635898623, 25788, 20070, [152, 43, 236, 142, 135, 246, 147, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8b768ff_64bc_4e66_982b_ec8e87f693f7);
 }
 impl ::core::convert::From<IDWriteFontFace2> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontFace2) -> Self {
@@ -9248,7 +9248,7 @@ impl IDWriteFontFace3 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontFace3 {
     type Vtable = IDWriteFontFace3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3548214680, 2494, 16930, [162, 54, 32, 129, 52, 28, 193, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd37d7598_09be_4222_a236_2081341cc1f2);
 }
 impl ::core::convert::From<IDWriteFontFace3> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontFace3) -> Self {
@@ -9739,7 +9739,7 @@ impl IDWriteFontFace4 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontFace4 {
     type Vtable = IDWriteFontFace4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(670214404, 20152, 17437, [150, 120, 5, 99, 245, 62, 62, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27f2a904_4eb8_441d_9678_0563f53e3e2f);
 }
 impl ::core::convert::From<IDWriteFontFace4> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontFace4) -> Self {
@@ -10278,7 +10278,7 @@ impl IDWriteFontFace5 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontFace5 {
     type Vtable = IDWriteFontFace5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2565862309, 46695, 18330, [177, 69, 226, 250, 91, 159, 220, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98eff3a5_b667_479a_b145_e2fa5b9fdc29);
 }
 impl ::core::convert::From<IDWriteFontFace5> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontFace5) -> Self {
@@ -10854,7 +10854,7 @@ impl IDWriteFontFace6 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontFace6 {
     type Vtable = IDWriteFontFace6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3299999259, 28292, 18389, [181, 76, 165, 151, 152, 27, 6, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4b1fe1b_6e84_47d5_b54c_a597981b06ad);
 }
 impl ::core::convert::From<IDWriteFontFace6> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontFace6) -> Self {
@@ -11156,7 +11156,7 @@ impl IDWriteFontFaceReference {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontFaceReference {
     type Vtable = IDWriteFontFaceReference_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1585424330, 56803, 16972, [137, 240, 159, 205, 111, 237, 88, 205]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e7fa7ca_dde3_424c_89f0_9fcd6fed58cd);
 }
 impl ::core::convert::From<IDWriteFontFaceReference> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontFaceReference) -> Self {
@@ -11286,7 +11286,7 @@ impl IDWriteFontFaceReference1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontFaceReference1 {
     type Vtable = IDWriteFontFaceReference1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3229744759, 12241, 16812, [165, 163, 52, 152, 60, 75, 166, 26]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc081fe77_2fd1_41ac_a5a3_34983c4ba61a);
 }
 impl ::core::convert::From<IDWriteFontFaceReference1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontFaceReference1) -> Self {
@@ -11395,7 +11395,7 @@ impl IDWriteFontFallback {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontFallback {
     type Vtable = IDWriteFontFallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020242681, 63393, 18623, [176, 92, 242, 36, 113, 60, 192, 255]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xefa008f9_f7a1_48bf_b05c_f224713cc0ff);
 }
 impl ::core::convert::From<IDWriteFontFallback> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontFallback) -> Self {
@@ -11496,7 +11496,7 @@ impl IDWriteFontFallback1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontFallback1 {
     type Vtable = IDWriteFontFallback1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(597121437, 56589, 18049, [189, 106, 244, 243, 30, 170, 222, 119]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2397599d_dd0d_4681_bd6a_f4f31eaade77);
 }
 impl ::core::convert::From<IDWriteFontFallback1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontFallback1) -> Self {
@@ -11582,7 +11582,7 @@ impl IDWriteFontFallbackBuilder {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontFallbackBuilder {
     type Vtable = IDWriteFontFallbackBuilder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4253560070, 35514, 20408, [184, 73, 139, 232, 183, 62, 20, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd882d06_8aba_4fb8_b849_8be8b73e14de);
 }
 impl ::core::convert::From<IDWriteFontFallbackBuilder> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontFallbackBuilder) -> Self {
@@ -11652,7 +11652,7 @@ impl IDWriteFontFamily {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontFamily {
     type Vtable = IDWriteFontFamily_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3659585775, 33066, 19523, [152, 2, 98, 236, 74, 189, 122, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda20d8ef_812a_4c43_9802_62ec4abd7add);
 }
 impl ::core::convert::From<IDWriteFontFamily> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontFamily) -> Self {
@@ -11758,7 +11758,7 @@ impl IDWriteFontFamily1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontFamily1 {
     type Vtable = IDWriteFontFamily1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3659585775, 33066, 19523, [152, 2, 98, 236, 74, 189, 122, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda20d8ef_812a_4c43_9802_62ec4abd7adf);
 }
 impl ::core::convert::From<IDWriteFontFamily1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontFamily1) -> Self {
@@ -11897,7 +11897,7 @@ impl IDWriteFontFamily2 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontFamily2 {
     type Vtable = IDWriteFontFamily2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1054121591, 41880, 16993, [185, 207, 193, 38, 194, 19, 30, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ed49e77_a398_4261_b9cf_c126c2131ef3);
 }
 impl ::core::convert::From<IDWriteFontFamily2> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontFamily2) -> Self {
@@ -12019,7 +12019,7 @@ impl IDWriteFontFile {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontFile {
     type Vtable = IDWriteFontFile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1939703914, 52981, 18396, [135, 105, 26, 139, 65, 190, 187, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x739d886a_cef5_47dc_8769_1a8b41bebbb0);
 }
 impl ::core::convert::From<IDWriteFontFile> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontFile) -> Self {
@@ -12071,7 +12071,7 @@ impl IDWriteFontFileEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontFileEnumerator {
     type Vtable = IDWriteFontFileEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1920290889, 24567, 17245, [131, 72, 75, 233, 124, 250, 108, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72755049_5ff7_435d_8348_4be97cfa6c7c);
 }
 impl ::core::convert::From<IDWriteFontFileEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontFileEnumerator) -> Self {
@@ -12116,7 +12116,7 @@ impl IDWriteFontFileLoader {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontFileLoader {
     type Vtable = IDWriteFontFileLoader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1920773454, 54959, 19614, [138, 8, 214, 149, 177, 28, 170, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x727cad4e_d6af_4c9e_8a08_d695b11caa49);
 }
 impl ::core::convert::From<IDWriteFontFileLoader> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontFileLoader) -> Self {
@@ -12172,7 +12172,7 @@ impl IDWriteFontFileStream {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontFileStream {
     type Vtable = IDWriteFontFileStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1833461246, 2744, 19857, [143, 98, 93, 214, 190, 52, 163, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d4865fe_0ab8_4d91_8f62_5dd6be34a3e0);
 }
 impl ::core::convert::From<IDWriteFontFileStream> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontFileStream) -> Self {
@@ -12227,7 +12227,7 @@ impl IDWriteFontList {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontList {
     type Vtable = IDWriteFontList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(437093432, 7575, 20161, [174, 249, 162, 251, 134, 237, 106, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a0d8438_1d97_4ec1_aef9_a2fb86ed6acb);
 }
 impl ::core::convert::From<IDWriteFontList> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontList) -> Self {
@@ -12295,7 +12295,7 @@ impl IDWriteFontList1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontList1 {
     type Vtable = IDWriteFontList1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3659585775, 33066, 19523, [152, 2, 98, 236, 74, 189, 122, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda20d8ef_812a_4c43_9802_62ec4abd7ade);
 }
 impl ::core::convert::From<IDWriteFontList1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontList1) -> Self {
@@ -12391,7 +12391,7 @@ impl IDWriteFontList2 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontList2 {
     type Vtable = IDWriteFontList2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3228973620, 30639, 17498, [183, 53, 8, 195, 123, 10, 91, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0763a34_77af_445a_b735_08c37b0a5bf5);
 }
 impl ::core::convert::From<IDWriteFontList2> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontList2) -> Self {
@@ -12528,7 +12528,7 @@ impl IDWriteFontResource {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontResource {
     type Vtable = IDWriteFontResource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(528497270, 26737, 18664, [152, 127, 185, 117, 85, 28, 80, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f803a76_6871_48e8_987f_b975551c50f2);
 }
 impl ::core::convert::From<IDWriteFontResource> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontResource) -> Self {
@@ -12631,7 +12631,7 @@ impl IDWriteFontSet {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontSet {
     type Vtable = IDWriteFontSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1398296897, 55800, 16533, [131, 33, 215, 60, 246, 189, 17, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53585141_d9f8_4095_8321_d73cf6bd116b);
 }
 impl ::core::convert::From<IDWriteFontSet> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontSet) -> Self {
@@ -12803,7 +12803,7 @@ impl IDWriteFontSet1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontSet1 {
     type Vtable = IDWriteFontSet1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2124405381, 27794, 16467, [188, 71, 122, 227, 83, 13, 180, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e9fda85_6c92_4053_bc47_7ae3530db4d3);
 }
 impl ::core::convert::From<IDWriteFontSet1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontSet1) -> Self {
@@ -13018,7 +13018,7 @@ impl IDWriteFontSet2 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontSet2 {
     type Vtable = IDWriteFontSet2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3699289369, 58700, 17327, [178, 218, 78, 43, 121, 186, 63, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc7ead19_e54c_43af_b2da_4e2b79ba3f7f);
 }
 impl ::core::convert::From<IDWriteFontSet2> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontSet2) -> Self {
@@ -13268,7 +13268,7 @@ impl IDWriteFontSet3 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontSet3 {
     type Vtable = IDWriteFontSet3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2080849650, 42996, 16453, [140, 50, 138, 184, 174, 100, 15, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7c073ef2_a7f4_4045_8c32_8ab8ae640f90);
 }
 impl ::core::convert::From<IDWriteFontSet3> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontSet3) -> Self {
@@ -13424,7 +13424,7 @@ impl IDWriteFontSetBuilder {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontSetBuilder {
     type Vtable = IDWriteFontSetBuilder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(795093758, 40040, 20288, [184, 190, 69, 116, 1, 175, 203, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f642afe_9c68_4f40_b8be_457401afcb3d);
 }
 impl ::core::convert::From<IDWriteFontSetBuilder> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontSetBuilder) -> Self {
@@ -13488,7 +13488,7 @@ impl IDWriteFontSetBuilder1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontSetBuilder1 {
     type Vtable = IDWriteFontSetBuilder1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1073181023, 15580, 19910, [155, 114, 236, 86, 33, 220, 202, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ff7715f_3cdc_4dc6_9b72_ec5621dccafd);
 }
 impl ::core::convert::From<IDWriteFontSetBuilder1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontSetBuilder1) -> Self {
@@ -13595,7 +13595,7 @@ impl IDWriteFontSetBuilder2 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteFontSetBuilder2 {
     type Vtable = IDWriteFontSetBuilder2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3998983698, 45361, 17980, [143, 79, 49, 137, 185, 64, 30, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee5ba612_b131_463c_8f4f_3189b9401e45);
 }
 impl ::core::convert::From<IDWriteFontSetBuilder2> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteFontSetBuilder2) -> Self {
@@ -13711,7 +13711,7 @@ impl IDWriteGdiInterop {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteGdiInterop {
     type Vtable = IDWriteGdiInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(517837969, 38995, 17049, [137, 143, 100, 50, 152, 59, 111, 58]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1edd9491_9853_4299_898f_6432983b6f3a);
 }
 impl ::core::convert::From<IDWriteGdiInterop> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteGdiInterop) -> Self {
@@ -13811,7 +13811,7 @@ impl IDWriteGdiInterop1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteGdiInterop1 {
     type Vtable = IDWriteGdiInterop1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1163312752, 15037, 20336, [144, 190, 66, 23, 128, 166, 245, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4556be70_3abd_4f70_90be_421780a6f515);
 }
 impl ::core::convert::From<IDWriteGdiInterop1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteGdiInterop1) -> Self {
@@ -13901,7 +13901,7 @@ impl IDWriteGlyphRunAnalysis {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteGlyphRunAnalysis {
     type Vtable = IDWriteGlyphRunAnalysis_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2107104247, 57477, 17108, [129, 227, 106, 136, 59, 222, 209, 24]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d97dbf7_e085_42d4_81e3_6a883bded118);
 }
 impl ::core::convert::From<IDWriteGlyphRunAnalysis> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteGlyphRunAnalysis) -> Self {
@@ -13957,7 +13957,7 @@ impl IDWriteInMemoryFontFileLoader {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteInMemoryFontFileLoader {
     type Vtable = IDWriteInMemoryFontFileLoader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3692048199, 41261, 19228, [130, 45, 158, 17, 126, 51, 4, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc102f47_a12d_4b1c_822d_9e117e33043f);
 }
 impl ::core::convert::From<IDWriteInMemoryFontFileLoader> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteInMemoryFontFileLoader) -> Self {
@@ -14046,7 +14046,7 @@ impl IDWriteInlineObject {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteInlineObject {
     type Vtable = IDWriteInlineObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2201615843, 4207, 18347, [131, 115, 28, 98, 149, 235, 16, 179]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8339fde3_106f_47ab_8373_1c6295eb10b3);
 }
 impl ::core::convert::From<IDWriteInlineObject> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteInlineObject) -> Self {
@@ -14110,7 +14110,7 @@ impl IDWriteLocalFontFileLoader {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteLocalFontFileLoader {
     type Vtable = IDWriteLocalFontFileLoader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3000628204, 51710, 18961, [162, 236, 216, 98, 8, 247, 192, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2d9f3ec_c9fe_4a11_a2ec_d86208f7c0a2);
 }
 impl ::core::convert::From<IDWriteLocalFontFileLoader> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteLocalFontFileLoader) -> Self {
@@ -14202,7 +14202,7 @@ impl IDWriteLocalizedStrings {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteLocalizedStrings {
     type Vtable = IDWriteLocalizedStrings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(136667657, 2458, 19252, [184, 109, 194, 43, 17, 14, 119, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08256209_099a_4b34_b86d_c22b110e7771);
 }
 impl ::core::convert::From<IDWriteLocalizedStrings> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteLocalizedStrings) -> Self {
@@ -14247,7 +14247,7 @@ pub struct IDWriteNumberSubstitution(pub ::windows::runtime::IUnknown);
 impl IDWriteNumberSubstitution {}
 unsafe impl ::windows::runtime::Interface for IDWriteNumberSubstitution {
     type Vtable = IDWriteNumberSubstitution_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(344480969, 47792, 20368, [182, 237, 92, 54, 106, 44, 208, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14885cc9_bab0_4f90_b6ed_5c366a2cd03d);
 }
 impl ::core::convert::From<IDWriteNumberSubstitution> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteNumberSubstitution) -> Self {
@@ -14300,7 +14300,7 @@ impl IDWritePixelSnapping {
 }
 unsafe impl ::windows::runtime::Interface for IDWritePixelSnapping {
     type Vtable = IDWritePixelSnapping_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3941835482, 60660, 19748, [182, 68, 179, 79, 104, 66, 2, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeaf3a2da_ecf4_4d24_b644_b34f6842024b);
 }
 impl ::core::convert::From<IDWritePixelSnapping> for ::windows::runtime::IUnknown {
     fn from(value: IDWritePixelSnapping) -> Self {
@@ -14362,7 +14362,7 @@ impl IDWriteRemoteFontFileLoader {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteRemoteFontFileLoader {
     type Vtable = IDWriteRemoteFontFileLoader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1751420035, 28382, 18112, [171, 70, 32, 8, 58, 136, 127, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68648c83_6ede_46c0_ab46_20083a887fde);
 }
 impl ::core::convert::From<IDWriteRemoteFontFileLoader> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteRemoteFontFileLoader) -> Self {
@@ -14461,7 +14461,7 @@ impl IDWriteRemoteFontFileStream {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteRemoteFontFileStream {
     type Vtable = IDWriteRemoteFontFileStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1303606650, 11378, 20185, [178, 182, 26, 186, 190, 26, 255, 156]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4db3757a_2c72_4ed9_b2b6_1ababe1aff9c);
 }
 impl ::core::convert::From<IDWriteRemoteFontFileStream> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteRemoteFontFileStream) -> Self {
@@ -14547,7 +14547,7 @@ impl IDWriteRenderingParams {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteRenderingParams {
     type Vtable = IDWriteRenderingParams_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(789423418, 10973, 18381, [130, 238, 217, 236, 52, 104, 142, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f0da53a_2add_47cd_82ee_d9ec34688e75);
 }
 impl ::core::convert::From<IDWriteRenderingParams> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteRenderingParams) -> Self {
@@ -14613,7 +14613,7 @@ impl IDWriteRenderingParams1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteRenderingParams1 {
     type Vtable = IDWriteRenderingParams1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2487303412, 42748, 16968, [139, 80, 102, 116, 52, 143, 202, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94413cf4_a6fc_4248_8b50_6674348fcad3);
 }
 impl ::core::convert::From<IDWriteRenderingParams1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteRenderingParams1) -> Self {
@@ -14704,7 +14704,7 @@ impl IDWriteRenderingParams2 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteRenderingParams2 {
     type Vtable = IDWriteRenderingParams2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4191621571, 38775, 16558, [135, 232, 62, 90, 249, 191, 9, 72]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9d711c3_9777_40ae_87e8_3e5af9bf0948);
 }
 impl ::core::convert::From<IDWriteRenderingParams2> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteRenderingParams2) -> Self {
@@ -14820,7 +14820,7 @@ impl IDWriteRenderingParams3 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteRenderingParams3 {
     type Vtable = IDWriteRenderingParams3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3079818154, 14619, 16682, [140, 92, 228, 76, 194, 216, 103, 220]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7924baa_391b_412a_8c5c_e44cc2d867dc);
 }
 impl ::core::convert::From<IDWriteRenderingParams3> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteRenderingParams3) -> Self {
@@ -14949,7 +14949,7 @@ impl IDWriteStringList {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteStringList {
     type Vtable = IDWriteStringList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3488493888, 4439, 18378, [139, 133, 49, 191, 207, 63, 45, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfee3140_1157_47ca_8b85_31bfcf3f2d0e);
 }
 impl ::core::convert::From<IDWriteStringList> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteStringList) -> Self {
@@ -15009,7 +15009,7 @@ impl IDWriteTextAnalysisSink {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteTextAnalysisSink {
     type Vtable = IDWriteTextAnalysisSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1477496132, 3232, 18177, [179, 250, 190, 197, 24, 42, 228, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5810cd44_0ca0_4701_b3fa_bec5182ae4f6);
 }
 impl ::core::convert::From<IDWriteTextAnalysisSink> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteTextAnalysisSink) -> Self {
@@ -15071,7 +15071,7 @@ impl IDWriteTextAnalysisSink1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteTextAnalysisSink1 {
     type Vtable = IDWriteTextAnalysisSink1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2967028128, 34279, 19851, [159, 211, 92, 237, 153, 52, 72, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb0d941a0_85e7_4d8b_9fd3_5ced9934482a);
 }
 impl ::core::convert::From<IDWriteTextAnalysisSink1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteTextAnalysisSink1) -> Self {
@@ -15154,7 +15154,7 @@ impl IDWriteTextAnalysisSource {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteTextAnalysisSource {
     type Vtable = IDWriteTextAnalysisSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1754143320, 20628, 18376, [173, 200, 251, 206, 166, 10, 233, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x688e1a58_5094_47c8_adc8_fbcea60ae92b);
 }
 impl ::core::convert::From<IDWriteTextAnalysisSource> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteTextAnalysisSource) -> Self {
@@ -15220,7 +15220,7 @@ impl IDWriteTextAnalysisSource1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteTextAnalysisSource1 {
     type Vtable = IDWriteTextAnalysisSource1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1671232216, 4020, 19233, [165, 138, 6, 121, 32, 18, 0, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x639cfad8_0fb4_4b21_a58a_067920120009);
 }
 impl ::core::convert::From<IDWriteTextAnalysisSource1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteTextAnalysisSource1) -> Self {
@@ -15441,7 +15441,7 @@ impl IDWriteTextAnalyzer {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteTextAnalyzer {
     type Vtable = IDWriteTextAnalyzer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085309502, 32582, 17332, [132, 179, 228, 230, 36, 156, 54, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7e6163e_7f46_43b4_84b3_e4e6249c365d);
 }
 impl ::core::convert::From<IDWriteTextAnalyzer> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteTextAnalyzer) -> Self {
@@ -15860,7 +15860,7 @@ impl IDWriteTextAnalyzer1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteTextAnalyzer1 {
     type Vtable = IDWriteTextAnalyzer1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2161825792, 57887, 20099, [150, 206, 191, 204, 229, 0, 219, 124]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80dad800_e21f_4e83_96ce_bfcce500db7c);
 }
 impl ::core::convert::From<IDWriteTextAnalyzer1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteTextAnalyzer1) -> Self {
@@ -16347,7 +16347,7 @@ impl IDWriteTextAnalyzer2 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteTextAnalyzer2 {
     type Vtable = IDWriteTextAnalyzer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1429905395, 22163, 19959, [181, 43, 116, 128, 111, 127, 46, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x553a9ff3_5693_4df7_b52b_74806f7f2eb9);
 }
 impl ::core::convert::From<IDWriteTextAnalyzer2> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteTextAnalyzer2) -> Self {
@@ -16640,7 +16640,7 @@ impl IDWriteTextFormat {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteTextFormat {
     type Vtable = IDWriteTextFormat_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2626709528, 12759, 20435, [161, 81, 124, 94, 34, 93, 181, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c906818_31d7_4fd3_a151_7c5e225db55a);
 }
 impl ::core::convert::From<IDWriteTextFormat> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteTextFormat) -> Self {
@@ -16842,7 +16842,7 @@ impl IDWriteTextFormat1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteTextFormat1 {
     type Vtable = IDWriteTextFormat1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1595362121, 3467, 19707, [139, 202, 241, 204, 233, 208, 108, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f174b49_0d8b_4cfb_8bca_f1cce9d06c67);
 }
 impl ::core::convert::From<IDWriteTextFormat1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteTextFormat1) -> Self {
@@ -17083,7 +17083,7 @@ impl IDWriteTextFormat2 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteTextFormat2 {
     type Vtable = IDWriteTextFormat2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4135456477, 40509, 20172, [140, 50, 65, 131, 37, 61, 254, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf67e0edd_9e3d_4ecc_8c32_4183253dfe70);
 }
 impl ::core::convert::From<IDWriteTextFormat2> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteTextFormat2) -> Self {
@@ -17366,7 +17366,7 @@ impl IDWriteTextFormat3 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteTextFormat3 {
     type Vtable = IDWriteTextFormat3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1832605249, 58704, 17165, [168, 91, 183, 191, 72, 169, 52, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d3b5641_e550_430d_a85b_b7bf48a93427);
 }
 impl ::core::convert::From<IDWriteTextFormat3> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteTextFormat3) -> Self {
@@ -17791,7 +17791,7 @@ impl IDWriteTextLayout {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteTextLayout {
     type Vtable = IDWriteTextLayout_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1400074295, 27924, 16651, [155, 254, 11, 24, 43, 183, 9, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53737037_6d14_410b_9bfe_0b182bb70961);
 }
 impl ::core::convert::From<IDWriteTextLayout> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteTextLayout) -> Self {
@@ -18228,7 +18228,7 @@ impl IDWriteTextLayout1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteTextLayout1 {
     type Vtable = IDWriteTextLayout1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2422528034, 32935, 18012, [169, 134, 223, 101, 247, 139, 143, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9064d822_80a7_465c_a986_df65f78b8feb);
 }
 impl ::core::convert::From<IDWriteTextLayout1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteTextLayout1) -> Self {
@@ -18731,7 +18731,7 @@ impl IDWriteTextLayout2 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteTextLayout2 {
     type Vtable = IDWriteTextLayout2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(278118799, 36190, 17392, [176, 100, 9, 23, 49, 27, 82, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1093c18f_8d5e_43f0_b064_0917311b525e);
 }
 impl ::core::convert::From<IDWriteTextLayout2> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteTextLayout2) -> Self {
@@ -19283,7 +19283,7 @@ impl IDWriteTextLayout3 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteTextLayout3 {
     type Vtable = IDWriteTextLayout3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131976530, 526, 19944, [172, 51, 108, 149, 61, 131, 249, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x07ddcd52_020e_4de8_ac33_6c953d83f92d);
 }
 impl ::core::convert::From<IDWriteTextLayout3> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteTextLayout3) -> Self {
@@ -19880,7 +19880,7 @@ impl IDWriteTextLayout4 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteTextLayout4 {
     type Vtable = IDWriteTextLayout4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(95010626, 8767, 17473, [181, 251, 130, 99, 104, 95, 85, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05a9bf42_223f_4441_b5fb_8263685f55e9);
 }
 impl ::core::convert::From<IDWriteTextLayout4> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteTextLayout4) -> Self {
@@ -20177,7 +20177,7 @@ impl IDWriteTextRenderer {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteTextRenderer {
     type Vtable = IDWriteTextRenderer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4018831669, 23750, 17918, [136, 37, 197, 160, 114, 78, 184, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef8a8135_5cc6_45fe_8825_c5a0724eb819);
 }
 impl ::core::convert::From<IDWriteTextRenderer> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteTextRenderer) -> Self {
@@ -20353,7 +20353,7 @@ impl IDWriteTextRenderer1 {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteTextRenderer1 {
     type Vtable = IDWriteTextRenderer1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3554732340, 8864, 17022, [170, 228, 125, 149, 116, 181, 157, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd3e0e934_22a0_427e_aae4_7d9574b59db1);
 }
 impl ::core::convert::From<IDWriteTextRenderer1> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteTextRenderer1) -> Self {
@@ -20463,7 +20463,7 @@ impl IDWriteTypography {
 }
 unsafe impl ::windows::runtime::Interface for IDWriteTypography {
     type Vtable = IDWriteTypography_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1441861931, 7618, 19260, [149, 65, 244, 104, 148, 237, 133, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x55f1112b_1dc2_4b3c_9541_f46894ed85b6);
 }
 impl ::core::convert::From<IDWriteTypography> for ::windows::runtime::IUnknown {
     fn from(value: IDWriteTypography) -> Self {

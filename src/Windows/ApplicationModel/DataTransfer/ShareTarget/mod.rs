@@ -4,7 +4,7 @@
 pub struct IQuickLink(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IQuickLink {
     type Vtable = IQuickLink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1614693128, 61630, 19164, [172, 201, 139, 39, 171, 156, 245, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x603e4308_f0be_4adc_acc9_8b27ab9cf556);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -33,7 +33,7 @@ pub struct IQuickLink_abi(
 pub struct IShareOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareOperation {
     type Vtable = IShareOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(575060664, 53496, 16833, [168, 42, 65, 55, 219, 101, 4, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2246bab8_d0f8_41c1_a82a_4137db6504fb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -59,7 +59,7 @@ pub struct IShareOperation_abi(
 pub struct IShareOperation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareOperation2 {
     type Vtable = IShareOperation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(268146625, 38776, 18953, [142, 91, 203, 94, 72, 45, 5, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ffb97c1_9778_4a09_8e5b_cb5e482d0555);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -77,7 +77,7 @@ pub struct IShareOperation2_abi(
 pub struct IShareOperation3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareOperation3 {
     type Vtable = IShareOperation3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1593226114, 47015, 17777, [162, 166, 153, 74, 3, 73, 136, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ef6b382_b7a7_4571_a2a6_994a034988b2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -168,7 +168,7 @@ unsafe impl ::windows::runtime::RuntimeType for QuickLink {
 }
 unsafe impl ::windows::runtime::Interface for QuickLink {
     type Vtable = IQuickLink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1614693128, 61630, 19164, [172, 201, 139, 39, 171, 156, 245, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x603e4308_f0be_4adc_acc9_8b27ab9cf556);
 }
 impl ::windows::runtime::RuntimeName for QuickLink {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink";
@@ -289,7 +289,7 @@ unsafe impl ::windows::runtime::RuntimeType for ShareOperation {
 }
 unsafe impl ::windows::runtime::Interface for ShareOperation {
     type Vtable = IShareOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(575060664, 53496, 16833, [168, 42, 65, 55, 219, 101, 4, 251]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2246bab8_d0f8_41c1_a82a_4137db6504fb);
 }
 impl ::windows::runtime::RuntimeName for ShareOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation";

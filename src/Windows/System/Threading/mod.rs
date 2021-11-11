@@ -6,7 +6,7 @@ pub mod Core;
 pub struct IThreadPoolStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IThreadPoolStatics {
     type Vtable = IThreadPoolStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3065997277, 33981, 17656, [172, 28, 147, 235, 203, 157, 186, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6bf67dd_84bd_44f8_ac1c_93ebcb9dba91);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29,7 +29,7 @@ pub struct IThreadPoolStatics_abi(
 pub struct IThreadPoolTimer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IThreadPoolTimer {
     type Vtable = IThreadPoolTimer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1498332792, 21994, 19080, [165, 13, 52, 2, 174, 31, 156, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -51,7 +51,7 @@ pub struct IThreadPoolTimer_abi(
 pub struct IThreadPoolTimerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IThreadPoolTimerStatics {
     type Vtable = IThreadPoolTimerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(445291778, 58498, 17947, [184, 199, 142, 250, 209, 204, 229, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a8a9d02_e482_461b_b8c7_8efad1cce590);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -176,7 +176,7 @@ unsafe impl ::windows::runtime::RuntimeType for ThreadPoolTimer {
 }
 unsafe impl ::windows::runtime::Interface for ThreadPoolTimer {
     type Vtable = IThreadPoolTimer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1498332792, 21994, 19080, [165, 13, 52, 2, 174, 31, 156, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2);
 }
 impl ::windows::runtime::RuntimeName for ThreadPoolTimer {
     const NAME: &'static str = "Windows.System.Threading.ThreadPoolTimer";
@@ -247,7 +247,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimerDestroyedHandler {
 }
 unsafe impl ::windows::runtime::Interface for TimerDestroyedHandler {
     type Vtable = TimerDestroyedHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(887953914, 33668, 20153, [130, 9, 251, 80, 148, 238, 236, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34ed19fa_8384_4eb9_8209_fb5094eeec35);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -320,7 +320,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimerElapsedHandler {
 }
 unsafe impl ::windows::runtime::Interface for TimerElapsedHandler {
     type Vtable = TimerElapsedHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4205749863, 64491, 18891, [173, 178, 113, 24, 76, 85, 110, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfaaea667_fbeb_49cb_adb2_71184c556e43);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -398,7 +398,7 @@ unsafe impl ::windows::runtime::RuntimeType for WorkItemHandler {
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::Interface for WorkItemHandler {
     type Vtable = WorkItemHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(488278923, 64102, 16719, [156, 189, 182, 95, 201, 157, 23, 250]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d1a8b8b_fa66_414f_9cbd_b65fc99d17fa);
 }
 #[cfg(feature = "Foundation")]
 #[repr(C)]

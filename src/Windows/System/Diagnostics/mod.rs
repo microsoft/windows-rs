@@ -33,7 +33,7 @@ unsafe impl ::windows::runtime::RuntimeType for DiagnosticActionResult {
 }
 unsafe impl ::windows::runtime::Interface for DiagnosticActionResult {
     type Vtable = IDiagnosticActionResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3261440662, 59195, 16535, [178, 143, 52, 66, 240, 61, 216, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc265a296_e73b_4097_b28f_3442f03dd831);
 }
 impl ::windows::runtime::RuntimeName for DiagnosticActionResult {
     const NAME: &'static str = "Windows.System.Diagnostics.DiagnosticActionResult";
@@ -161,7 +161,7 @@ unsafe impl ::windows::runtime::RuntimeType for DiagnosticInvoker {
 }
 unsafe impl ::windows::runtime::Interface for DiagnosticInvoker {
     type Vtable = IDiagnosticInvoker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(410724106, 739, 20358, [132, 252, 253, 216, 146, 181, 148, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x187b270a_02e3_4f86_84fc_fdd892b5940f);
 }
 impl ::windows::runtime::RuntimeName for DiagnosticInvoker {
     const NAME: &'static str = "Windows.System.Diagnostics.DiagnosticInvoker";
@@ -213,7 +213,7 @@ unsafe impl ::core::marker::Sync for DiagnosticInvoker {}
 pub struct IDiagnosticActionResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDiagnosticActionResult {
     type Vtable = IDiagnosticActionResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3261440662, 59195, 16535, [178, 143, 52, 66, 240, 61, 216, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc265a296_e73b_4097_b28f_3442f03dd831);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -233,7 +233,7 @@ pub struct IDiagnosticActionResult_abi(
 pub struct IDiagnosticInvoker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDiagnosticInvoker {
     type Vtable = IDiagnosticInvoker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(410724106, 739, 20358, [132, 252, 253, 216, 146, 181, 148, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x187b270a_02e3_4f86_84fc_fdd892b5940f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -252,7 +252,7 @@ pub struct IDiagnosticInvoker_abi(
 pub struct IDiagnosticInvoker2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDiagnosticInvoker2 {
     type Vtable = IDiagnosticInvoker2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3820983388, 5466, 19282, [168, 236, 7, 12, 68, 249, 80, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3bf945c_155a_4b52_a8ec_070c44f95000);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -271,7 +271,7 @@ pub struct IDiagnosticInvoker2_abi(
 pub struct IDiagnosticInvokerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDiagnosticInvokerStatics {
     type Vtable = IDiagnosticInvokerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1559943390, 61788, 17748, [168, 19, 193, 19, 195, 136, 27, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5cfad8de_f15c_4554_a813_c113c3881b09);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -291,7 +291,7 @@ pub struct IDiagnosticInvokerStatics_abi(
 pub struct IProcessCpuUsage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessCpuUsage {
     type Vtable = IProcessCpuUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(196813938, 51391, 16954, [168, 16, 181, 89, 174, 67, 84, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bbb2472_c8bf_423a_a810_b559ae4354e2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -309,7 +309,7 @@ pub struct IProcessCpuUsage_abi(
 pub struct IProcessCpuUsageReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessCpuUsageReport {
     type Vtable = IProcessCpuUsageReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2322439340, 14727, 20015, [161, 25, 107, 95, 162, 20, 241, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a6d9cac_3987_4e2f_a119_6b5fa214f1b4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -330,7 +330,7 @@ pub struct IProcessCpuUsageReport_abi(
 pub struct IProcessDiagnosticInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessDiagnosticInfo {
     type Vtable = IProcessDiagnosticInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3895504971, 12302, 20198, [160, 171, 91, 95, 82, 49, 180, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe830b04b_300e_4ee6_a0ab_5b5f5231b434);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -355,7 +355,7 @@ pub struct IProcessDiagnosticInfo_abi(
 pub struct IProcessDiagnosticInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessDiagnosticInfo2 {
     type Vtable = IProcessDiagnosticInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2505624346, 15627, 18924, [171, 112, 79, 122, 17, 40, 5, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9558cb1a_3d0b_49ec_ab70_4f7a112805de);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -375,7 +375,7 @@ pub struct IProcessDiagnosticInfo2_abi(
 pub struct IProcessDiagnosticInfoStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessDiagnosticInfoStatics {
     type Vtable = IProcessDiagnosticInfoStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(792834656, 46239, 17036, [170, 14, 132, 116, 79, 73, 202, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f41b260_b49f_428c_aa0e_84744f49ca95);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -395,7 +395,7 @@ pub struct IProcessDiagnosticInfoStatics_abi(
 pub struct IProcessDiagnosticInfoStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessDiagnosticInfoStatics2 {
     type Vtable = IProcessDiagnosticInfoStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1250334871, 39065, 19012, [162, 155, 9, 22, 99, 190, 9, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a869897_9899_4a44_a29b_091663be09b6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -413,7 +413,7 @@ pub struct IProcessDiagnosticInfoStatics2_abi(
 pub struct IProcessDiskUsage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessDiskUsage {
     type Vtable = IProcessDiskUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1524075517, 32337, 20051, [191, 170, 90, 110, 225, 170, 187, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ad78bfd_7e51_4e53_bfaa_5a6ee1aabbf8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -431,7 +431,7 @@ pub struct IProcessDiskUsage_abi(
 pub struct IProcessDiskUsageReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessDiskUsageReport {
     type Vtable = IProcessDiskUsageReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1075193853, 21341, 19487, [129, 184, 218, 84, 225, 190, 99, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x401627fd_535d_4c1f_81b8_da54e1be635e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -454,7 +454,7 @@ pub struct IProcessDiskUsageReport_abi(
 pub struct IProcessMemoryUsage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessMemoryUsage {
     type Vtable = IProcessMemoryUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4111147675, 33404, 17079, [176, 124, 14, 50, 98, 126, 107, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf50b229b_827c_42b7_b07c_0e32627e6b3e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -472,7 +472,7 @@ pub struct IProcessMemoryUsage_abi(
 pub struct IProcessMemoryUsageReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessMemoryUsageReport {
     type Vtable = IProcessMemoryUsageReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3267853498, 6481, 18053, [133, 50, 126, 116, 158, 207, 142, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2c77cba_1951_4685_8532_7e749ecf8eeb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -501,7 +501,7 @@ pub struct IProcessMemoryUsageReport_abi(
 pub struct ISystemCpuUsage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemCpuUsage {
     type Vtable = ISystemCpuUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1614263212, 726, 16948, [131, 98, 127, 227, 173, 200, 31, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6037b3ac_02d6_4234_8362_7fe3adc81f5f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -519,7 +519,7 @@ pub struct ISystemCpuUsage_abi(
 pub struct ISystemCpuUsageReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemCpuUsageReport {
     type Vtable = ISystemCpuUsageReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(740741298, 38019, 20322, [171, 87, 130, 178, 157, 151, 25, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c26d0b2_9483_4f62_ab57_82b29d9719b8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -542,7 +542,7 @@ pub struct ISystemCpuUsageReport_abi(
 pub struct ISystemDiagnosticInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemDiagnosticInfo {
     type Vtable = ISystemDiagnosticInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2727411205, 57331, 16511, [154, 27, 11, 43, 49, 124, 168, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa290fe05_dff3_407f_9a1b_0b2b317ca800);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -561,7 +561,7 @@ pub struct ISystemDiagnosticInfo_abi(
 pub struct ISystemDiagnosticInfoStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemDiagnosticInfoStatics {
     type Vtable = ISystemDiagnosticInfoStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3557076001, 64637, 17904, [154, 63, 57, 32, 58, 237, 159, 126]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd404ac21_fc7d_45f0_9a3f_39203aed9f7e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -579,7 +579,7 @@ pub struct ISystemDiagnosticInfoStatics_abi(
 pub struct ISystemDiagnosticInfoStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemDiagnosticInfoStatics2 {
     type Vtable = ISystemDiagnosticInfoStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2044645769, 27385, 19881, [164, 34, 21, 247, 50, 85, 179, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79ded189_6af9_4da9_a422_15f73255b3eb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -598,7 +598,7 @@ pub struct ISystemDiagnosticInfoStatics2_abi(
 pub struct ISystemMemoryUsage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemMemoryUsage {
     type Vtable = ISystemMemoryUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(402638229, 5890, 18895, [170, 39, 47, 10, 50, 89, 20, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17ffc595_1702_49cf_aa27_2f0a32591404);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -616,7 +616,7 @@ pub struct ISystemMemoryUsage_abi(
 pub struct ISystemMemoryUsageReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemMemoryUsageReport {
     type Vtable = ISystemMemoryUsageReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(946224263, 10911, 16442, [189, 25, 44, 243, 232, 22, 149, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38663c87_2a9f_403a_bd19_2cf3e8169500);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -650,7 +650,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProcessCpuUsage {
 }
 unsafe impl ::windows::runtime::Interface for ProcessCpuUsage {
     type Vtable = IProcessCpuUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(196813938, 51391, 16954, [168, 16, 181, 89, 174, 67, 84, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bbb2472_c8bf_423a_a810_b559ae4354e2);
 }
 impl ::windows::runtime::RuntimeName for ProcessCpuUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessCpuUsage";
@@ -726,7 +726,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProcessCpuUsageReport {
 }
 unsafe impl ::windows::runtime::Interface for ProcessCpuUsageReport {
     type Vtable = IProcessCpuUsageReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2322439340, 14727, 20015, [161, 25, 107, 95, 162, 20, 241, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a6d9cac_3987_4e2f_a119_6b5fa214f1b4);
 }
 impl ::windows::runtime::RuntimeName for ProcessCpuUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessCpuUsageReport";
@@ -888,7 +888,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProcessDiagnosticInfo {
 }
 unsafe impl ::windows::runtime::Interface for ProcessDiagnosticInfo {
     type Vtable = IProcessDiagnosticInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3895504971, 12302, 20198, [160, 171, 91, 95, 82, 49, 180, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe830b04b_300e_4ee6_a0ab_5b5f5231b434);
 }
 impl ::windows::runtime::RuntimeName for ProcessDiagnosticInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiagnosticInfo";
@@ -954,7 +954,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProcessDiskUsage {
 }
 unsafe impl ::windows::runtime::Interface for ProcessDiskUsage {
     type Vtable = IProcessDiskUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1524075517, 32337, 20051, [191, 170, 90, 110, 225, 170, 187, 248]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ad78bfd_7e51_4e53_bfaa_5a6ee1aabbf8);
 }
 impl ::windows::runtime::RuntimeName for ProcessDiskUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiskUsage";
@@ -1060,7 +1060,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProcessDiskUsageReport {
 }
 unsafe impl ::windows::runtime::Interface for ProcessDiskUsageReport {
     type Vtable = IProcessDiskUsageReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1075193853, 21341, 19487, [129, 184, 218, 84, 225, 190, 99, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x401627fd_535d_4c1f_81b8_da54e1be635e);
 }
 impl ::windows::runtime::RuntimeName for ProcessDiskUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiskUsageReport";
@@ -1126,7 +1126,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProcessMemoryUsage {
 }
 unsafe impl ::windows::runtime::Interface for ProcessMemoryUsage {
     type Vtable = IProcessMemoryUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4111147675, 33404, 17079, [176, 124, 14, 50, 98, 126, 107, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf50b229b_827c_42b7_b07c_0e32627e6b3e);
 }
 impl ::windows::runtime::RuntimeName for ProcessMemoryUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessMemoryUsage";
@@ -1280,7 +1280,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProcessMemoryUsageReport {
 }
 unsafe impl ::windows::runtime::Interface for ProcessMemoryUsageReport {
     type Vtable = IProcessMemoryUsageReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3267853498, 6481, 18053, [133, 50, 126, 116, 158, 207, 142, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc2c77cba_1951_4685_8532_7e749ecf8eeb);
 }
 impl ::windows::runtime::RuntimeName for ProcessMemoryUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessMemoryUsageReport";
@@ -1346,7 +1346,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemCpuUsage {
 }
 unsafe impl ::windows::runtime::Interface for SystemCpuUsage {
     type Vtable = ISystemCpuUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1614263212, 726, 16948, [131, 98, 127, 227, 173, 200, 31, 95]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6037b3ac_02d6_4234_8362_7fe3adc81f5f);
 }
 impl ::windows::runtime::RuntimeName for SystemCpuUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemCpuUsage";
@@ -1431,7 +1431,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemCpuUsageReport {
 }
 unsafe impl ::windows::runtime::Interface for SystemCpuUsageReport {
     type Vtable = ISystemCpuUsageReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(740741298, 38019, 20322, [171, 87, 130, 178, 157, 151, 25, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c26d0b2_9483_4f62_ab57_82b29d9719b8);
 }
 impl ::windows::runtime::RuntimeName for SystemCpuUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemCpuUsageReport";
@@ -1534,7 +1534,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemDiagnosticInfo {
 }
 unsafe impl ::windows::runtime::Interface for SystemDiagnosticInfo {
     type Vtable = ISystemDiagnosticInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2727411205, 57331, 16511, [154, 27, 11, 43, 49, 124, 168, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa290fe05_dff3_407f_9a1b_0b2b317ca800);
 }
 impl ::windows::runtime::RuntimeName for SystemDiagnosticInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemDiagnosticInfo";
@@ -1600,7 +1600,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemMemoryUsage {
 }
 unsafe impl ::windows::runtime::Interface for SystemMemoryUsage {
     type Vtable = ISystemMemoryUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(402638229, 5890, 18895, [170, 39, 47, 10, 50, 89, 20, 4]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17ffc595_1702_49cf_aa27_2f0a32591404);
 }
 impl ::windows::runtime::RuntimeName for SystemMemoryUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemMemoryUsage";
@@ -1682,7 +1682,7 @@ unsafe impl ::windows::runtime::RuntimeType for SystemMemoryUsageReport {
 }
 unsafe impl ::windows::runtime::Interface for SystemMemoryUsageReport {
     type Vtable = ISystemMemoryUsageReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(946224263, 10911, 16442, [189, 25, 44, 243, 232, 22, 149, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38663c87_2a9f_403a_bd19_2cf3e8169500);
 }
 impl ::windows::runtime::RuntimeName for SystemMemoryUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemMemoryUsageReport";

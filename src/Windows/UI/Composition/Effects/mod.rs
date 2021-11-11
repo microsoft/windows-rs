@@ -4,7 +4,7 @@
 pub struct ISceneLightingEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneLightingEffect {
     type Vtable = ISceneLightingEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2444975698, 38353, 20363, [154, 90, 100, 8, 178, 75, 140, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91bb5e52_95d1_4f8b_9a5a_6408b24b8c6a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -33,7 +33,7 @@ pub struct ISceneLightingEffect_abi(
 pub struct ISceneLightingEffect2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneLightingEffect2 {
     type Vtable = ISceneLightingEffect2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2653359745, 29424, 19548, [149, 248, 138, 110, 0, 36, 244, 9]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e270e81_72f0_4c5c_95f8_8a6e0024f409);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -160,7 +160,7 @@ unsafe impl ::windows::runtime::RuntimeType for SceneLightingEffect {
 }
 unsafe impl ::windows::runtime::Interface for SceneLightingEffect {
     type Vtable = ISceneLightingEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2444975698, 38353, 20363, [154, 90, 100, 8, 178, 75, 140, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91bb5e52_95d1_4f8b_9a5a_6408b24b8c6a);
 }
 impl ::windows::runtime::RuntimeName for SceneLightingEffect {
     const NAME: &'static str = "Windows.UI.Composition.Effects.SceneLightingEffect";

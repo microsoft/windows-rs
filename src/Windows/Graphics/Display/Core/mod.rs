@@ -204,7 +204,7 @@ unsafe impl ::windows::runtime::RuntimeType for HdmiDisplayInformation {
 }
 unsafe impl ::windows::runtime::Interface for HdmiDisplayInformation {
     type Vtable = IHdmiDisplayInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(319503370, 62821, 18286, [171, 213, 234, 5, 174, 231, 76, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x130b3c0a_f565_476e_abd5_ea05aee74c69);
 }
 impl ::windows::runtime::RuntimeName for HdmiDisplayInformation {
     const NAME: &'static str = "Windows.Graphics.Display.Core.HdmiDisplayInformation";
@@ -358,7 +358,7 @@ unsafe impl ::windows::runtime::RuntimeType for HdmiDisplayMode {
 }
 unsafe impl ::windows::runtime::Interface for HdmiDisplayMode {
     type Vtable = IHdmiDisplayMode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(201774509, 7056, 20305, [153, 129, 239, 90, 28, 13, 223, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c06d5ad_1b90_4f51_9981_ef5a1c0ddf66);
 }
 impl ::windows::runtime::RuntimeName for HdmiDisplayMode {
     const NAME: &'static str = "Windows.Graphics.Display.Core.HdmiDisplayMode";
@@ -434,7 +434,7 @@ impl ::windows::runtime::DefaultType for HdmiDisplayPixelEncoding {
 pub struct IHdmiDisplayInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayInformation {
     type Vtable = IHdmiDisplayInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(319503370, 62821, 18286, [171, 213, 234, 5, 174, 231, 76, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x130b3c0a_f565_476e_abd5_ea05aee74c69);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -466,7 +466,7 @@ pub struct IHdmiDisplayInformation_abi(
 pub struct IHdmiDisplayInformationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayInformationStatics {
     type Vtable = IHdmiDisplayInformationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1827058272, 62506, 18965, [145, 76, 123, 142, 42, 90, 101, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ce6b260_f42a_4a15_914c_7b8e2a5a65df);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -484,7 +484,7 @@ pub struct IHdmiDisplayInformationStatics_abi(
 pub struct IHdmiDisplayMode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayMode {
     type Vtable = IHdmiDisplayMode_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(201774509, 7056, 20305, [153, 129, 239, 90, 28, 13, 223, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c06d5ad_1b90_4f51_9981_ef5a1c0ddf66);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -512,7 +512,7 @@ pub struct IHdmiDisplayMode_abi(
 pub struct IHdmiDisplayMode2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayMode2 {
     type Vtable = IHdmiDisplayMode2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(130895519, 19260, 17080, [132, 231, 137, 83, 104, 113, 138, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x07cd4e9f_4b3c_42b8_84e7_895368718af2);
 }
 #[repr(C)]
 #[doc(hidden)]

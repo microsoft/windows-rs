@@ -220,7 +220,7 @@ unsafe impl ::windows::runtime::RuntimeType for AtomPubClient {
 }
 unsafe impl ::windows::runtime::Interface for AtomPubClient {
     type Vtable = IAtomPubClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(892939320, 52717, 19788, [150, 55, 5, 241, 92, 28, 148, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35392c38_cded_4d4c_9637_05f15c1c9406);
 }
 impl ::windows::runtime::RuntimeName for AtomPubClient {
     const NAME: &'static str = "Windows.Web.AtomPub.AtomPubClient";
@@ -298,7 +298,7 @@ unsafe impl ::core::marker::Sync for AtomPubClient {}
 pub struct IAtomPubClient(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAtomPubClient {
     type Vtable = IAtomPubClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(892939320, 52717, 19788, [150, 55, 5, 241, 92, 28, 148, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x35392c38_cded_4d4c_9637_05f15c1c9406);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -336,7 +336,7 @@ pub struct IAtomPubClient_abi(
 pub struct IAtomPubClientFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAtomPubClientFactory {
     type Vtable = IAtomPubClientFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1238716434, 22475, 19422, [171, 159, 38, 16, 177, 114, 119, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49d55012_57cb_4bde_ab9f_2610b172777b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -355,7 +355,7 @@ pub struct IAtomPubClientFactory_abi(
 pub struct IResourceCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceCollection {
     type Vtable = IResourceCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2136987145, 48264, 16852, [136, 250, 61, 230, 112, 77, 66, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f5fd609_bc88_41d4_88fa_3de6704d428e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -380,7 +380,7 @@ pub struct IResourceCollection_abi(
 pub struct IServiceDocument(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IServiceDocument {
     type Vtable = IServiceDocument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2340341617, 10931, 19902, [139, 204, 119, 143, 146, 183, 94, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b7ec771_2ab3_4dbe_8bcc_778f92b75e51);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -399,7 +399,7 @@ pub struct IServiceDocument_abi(
 pub struct IWorkspace(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWorkspace {
     type Vtable = IWorkspace_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3021841979, 42168, 16438, [137, 197, 131, 195, 18, 102, 186, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb41da63b_a4b8_4036_89c5_83c31266ba49);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -564,7 +564,7 @@ unsafe impl ::windows::runtime::RuntimeType for ResourceCollection {
 }
 unsafe impl ::windows::runtime::Interface for ResourceCollection {
     type Vtable = IResourceCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2136987145, 48264, 16852, [136, 250, 61, 230, 112, 77, 66, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f5fd609_bc88_41d4_88fa_3de6704d428e);
 }
 impl ::windows::runtime::RuntimeName for ResourceCollection {
     const NAME: &'static str = "Windows.Web.AtomPub.ResourceCollection";
@@ -759,7 +759,7 @@ unsafe impl ::windows::runtime::RuntimeType for ServiceDocument {
 }
 unsafe impl ::windows::runtime::Interface for ServiceDocument {
     type Vtable = IServiceDocument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2340341617, 10931, 19902, [139, 204, 119, 143, 146, 183, 94, 81]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b7ec771_2ab3_4dbe_8bcc_778f92b75e51);
 }
 impl ::windows::runtime::RuntimeName for ServiceDocument {
     const NAME: &'static str = "Windows.Web.AtomPub.ServiceDocument";
@@ -963,7 +963,7 @@ unsafe impl ::windows::runtime::RuntimeType for Workspace {
 }
 unsafe impl ::windows::runtime::Interface for Workspace {
     type Vtable = IWorkspace_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3021841979, 42168, 16438, [137, 197, 131, 195, 18, 102, 186, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb41da63b_a4b8_4036_89c5_83c31266ba49);
 }
 impl ::windows::runtime::RuntimeName for Workspace {
     const NAME: &'static str = "Windows.Web.AtomPub.Workspace";

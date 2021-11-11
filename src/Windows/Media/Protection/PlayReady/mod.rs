@@ -4,7 +4,7 @@
 pub struct INDClient(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDClient {
     type Vtable = INDClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1003911195, 25016, 18146, [153, 165, 138, 188, 182, 185, 247, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3bd6781b_61b8_46e2_99a5_8abcb6b9f7d6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -48,7 +48,7 @@ pub struct INDClient_abi(
 pub struct INDClientFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDClientFactory {
     type Vtable = INDClientFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1045683554, 65256, 17695, [176, 212, 247, 6, 204, 163, 224, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e53dd62_fee8_451f_b0d4_f706cca3e037);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -67,7 +67,7 @@ pub struct INDClientFactory_abi(
 pub struct INDClosedCaptionDataReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDClosedCaptionDataReceivedEventArgs {
     type Vtable = INDClosedCaptionDataReceivedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1194906271, 49989, 17993, [132, 104, 184, 197, 252, 53, 113, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4738d29f_c345_4649_8468_b8c5fc357190);
 }
 impl INDClosedCaptionDataReceivedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -160,7 +160,7 @@ pub struct INDClosedCaptionDataReceivedEventArgs_abi(
 pub struct INDCustomData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDCustomData {
     type Vtable = INDCustomData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4123725788, 11529, 20249, [181, 225, 118, 160, 179, 238, 146, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5cb0fdc_2d09_4f19_b5e1_76a0b3ee9267);
 }
 impl INDCustomData {
     #[cfg(feature = "deprecated")]
@@ -242,7 +242,7 @@ pub struct INDCustomData_abi(
 pub struct INDCustomDataFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDCustomDataFactory {
     type Vtable = INDCustomDataFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3595830699, 13348, 18483, [140, 154, 175, 95, 222, 178, 40, 114]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd65405ab_3424_4833_8c9a_af5fdeb22872);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -261,7 +261,7 @@ pub struct INDCustomDataFactory_abi(
 pub struct INDDownloadEngine(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDDownloadEngine {
     type Vtable = INDDownloadEngine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(757218661, 50358, 17464, [141, 70, 185, 110, 109, 15, 178, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d223d65_c4b6_4438_8d46_b96e6d0fb21f);
 }
 impl INDDownloadEngine {
     #[cfg(feature = "deprecated")]
@@ -403,7 +403,7 @@ pub struct INDDownloadEngine_abi(
 pub struct INDDownloadEngineNotifier(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDDownloadEngineNotifier {
     type Vtable = INDDownloadEngineNotifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3609244884, 62648, 17712, [168, 9, 145, 147, 165, 113, 231, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd720b4d4_f4b8_4530_a809_9193a571e7fc);
 }
 impl INDDownloadEngineNotifier {
     #[cfg(feature = "deprecated")]
@@ -508,7 +508,7 @@ pub struct INDDownloadEngineNotifier_abi(
 pub struct INDLicenseFetchCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDLicenseFetchCompletedEventArgs {
     type Vtable = INDLicenseFetchCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(518195738, 4530, 17752, [136, 101, 227, 165, 22, 146, 37, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ee30a1a_11b2_4558_8865_e3a516922517);
 }
 impl INDLicenseFetchCompletedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -581,7 +581,7 @@ pub struct INDLicenseFetchCompletedEventArgs_abi(
 pub struct INDLicenseFetchDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDLicenseFetchDescriptor {
     type Vtable = INDLicenseFetchDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1419301690, 59014, 18741, [165, 103, 124, 167, 122, 210, 15, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5498d33a_e686_4935_a567_7ca77ad20fa4);
 }
 impl INDLicenseFetchDescriptor {
     #[cfg(feature = "deprecated")]
@@ -680,7 +680,7 @@ pub struct INDLicenseFetchDescriptor_abi(
 pub struct INDLicenseFetchDescriptorFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDLicenseFetchDescriptorFactory {
     type Vtable = INDLicenseFetchDescriptorFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3489862146, 53164, 20224, [174, 106, 151, 175, 128, 184, 72, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0031202_cfac_4f00_ae6a_97af80b848f2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -699,7 +699,7 @@ pub struct INDLicenseFetchDescriptorFactory_abi(
 pub struct INDLicenseFetchResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDLicenseFetchResult {
     type Vtable = INDLicenseFetchResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(567514776, 43618, 17919, [165, 255, 128, 55, 229, 67, 56, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x21d39698_aa62_45ff_a5ff_8037e5433825);
 }
 impl INDLicenseFetchResult {
     #[cfg(feature = "deprecated")]
@@ -772,7 +772,7 @@ pub struct INDLicenseFetchResult_abi(
 pub struct INDMessenger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDMessenger {
     type Vtable = INDMessenger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3559782749, 42843, 18367, [130, 73, 188, 131, 130, 13, 163, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd42df95d_a75b_47bf_8249_bc83820da38a);
 }
 impl INDMessenger {
     #[cfg(feature = "deprecated")]
@@ -905,7 +905,7 @@ pub struct INDMessenger_abi(
 pub struct INDProximityDetectionCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDProximityDetectionCompletedEventArgs {
     type Vtable = INDProximityDetectionCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(712008488, 55845, 20364, [158, 183, 93, 15, 195, 101, 139, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a706328_da25_4f8c_9eb7_5d0fc3658bca);
 }
 impl INDProximityDetectionCompletedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -978,7 +978,7 @@ pub struct INDProximityDetectionCompletedEventArgs_abi(
 pub struct INDRegistrationCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDRegistrationCompletedEventArgs {
     type Vtable = INDRegistrationCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2654582349, 43867, 18693, [172, 220, 120, 122, 119, 198, 55, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e39b64d_ab5b_4905_acdc_787a77c6374d);
 }
 impl INDRegistrationCompletedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -1078,7 +1078,7 @@ pub struct INDRegistrationCompletedEventArgs_abi(
 pub struct INDSendResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDSendResult {
     type Vtable = INDSendResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3815265559, 42372, 18333, [144, 183, 214, 137, 199, 191, 124, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3685517_a584_479d_90b7_d689c7bf7c80);
 }
 impl INDSendResult {
     #[cfg(feature = "deprecated")]
@@ -1151,7 +1151,7 @@ pub struct INDSendResult_abi(
 pub struct INDStartResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDStartResult {
     type Vtable = INDStartResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2046224750, 62735, 16405, [139, 164, 194, 188, 52, 78, 189, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79f6e96e_f50f_4015_8ba4_c2bc344ebd4e);
 }
 impl INDStartResult {
     #[cfg(feature = "deprecated")]
@@ -1226,7 +1226,7 @@ pub struct INDStartResult_abi(
 pub struct INDStorageFileHelper(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDStorageFileHelper {
     type Vtable = INDStorageFileHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3639656184, 37330, 19783, [163, 249, 234, 255, 78, 219, 114, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8f0bef8_91d2_4d47_a3f9_eaff4edb729f);
 }
 impl INDStorageFileHelper {
     #[cfg(feature = "deprecated")]
@@ -1301,7 +1301,7 @@ pub struct INDStorageFileHelper_abi(
 pub struct INDStreamParser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDStreamParser {
     type Vtable = INDStreamParser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3770327448, 38806, 16841, [134, 149, 89, 67, 126, 103, 230, 106]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0baa198_9796_41c9_8695_59437e67e66a);
 }
 impl INDStreamParser {
     #[cfg(feature = "deprecated")]
@@ -1407,7 +1407,7 @@ pub struct INDStreamParser_abi(
 pub struct INDStreamParserNotifier(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDStreamParserNotifier {
     type Vtable = INDStreamParserNotifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3244797136, 11494, 17004, [172, 229, 94, 146, 117, 254, 167, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc167acd0_2ce6_426c_ace5_5e9275fea715);
 }
 impl INDStreamParserNotifier {
     #[cfg(feature = "deprecated")]
@@ -1503,7 +1503,7 @@ pub struct INDStreamParserNotifier_abi(
 pub struct INDTCPMessengerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDTCPMessengerFactory {
     type Vtable = INDTCPMessengerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2111331582, 7065, 20328, [143, 130, 129, 119, 247, 206, 223, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7dd85cfe_1b99_4f68_8f82_8177f7cedf2b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1522,7 +1522,7 @@ pub struct INDTCPMessengerFactory_abi(
 pub struct INDTransmitterProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDTransmitterProperties {
     type Vtable = INDTransmitterProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3845566243, 44111, 19164, [140, 102, 79, 247, 194, 112, 45, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe536af23_ac4f_4adc_8c66_4ff7c2702dd6);
 }
 impl INDTransmitterProperties {
     #[cfg(feature = "deprecated")]
@@ -1696,7 +1696,7 @@ pub struct INDTransmitterProperties_abi(
 pub struct IPlayReadyContentHeader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyContentHeader {
     type Vtable = IPlayReadyContentHeader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2588117610, 32588, 17710, [136, 189, 1, 72, 198, 56, 122, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a438a6a_7f4c_452e_88bd_0148c6387a2c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1725,7 +1725,7 @@ pub struct IPlayReadyContentHeader_abi(
 pub struct IPlayReadyContentHeader2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyContentHeader2 {
     type Vtable = IPlayReadyContentHeader2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(899447284, 8576, 18828, [150, 91, 231, 84, 216, 117, 234, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x359c79f4_2180_498c_965b_e754d875eab2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1744,7 +1744,7 @@ pub struct IPlayReadyContentHeader2_abi(
 pub struct IPlayReadyContentHeaderFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyContentHeaderFactory {
     type Vtable = IPlayReadyContentHeaderFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3415722239, 46936, 18294, [191, 1, 33, 122, 139, 81, 11, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb97c8ff_b758_4776_bf01_217a8b510b2c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1777,7 +1777,7 @@ pub struct IPlayReadyContentHeaderFactory_abi(
 pub struct IPlayReadyContentHeaderFactory2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyContentHeaderFactory2 {
     type Vtable = IPlayReadyContentHeaderFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3508772085, 44653, 18296, [151, 253, 110, 58, 46, 234, 219, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd1239cf5_ae6d_4778_97fd_6e3a2eeadbeb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1810,7 +1810,7 @@ pub struct IPlayReadyContentHeaderFactory2_abi(
 pub struct IPlayReadyContentResolver(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyContentResolver {
     type Vtable = IPlayReadyContentResolver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4227671331, 36973, 18818, [166, 184, 104, 73, 86, 90, 124, 232]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbfd2523_906d_4982_a6b8_6849565a7ce8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1829,7 +1829,7 @@ pub struct IPlayReadyContentResolver_abi(
 pub struct IPlayReadyDomain(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyDomain {
     type Vtable = IPlayReadyDomain_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2915865516, 38886, 17391, [149, 228, 215, 134, 143, 59, 22, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xadcc93ac_97e6_43ef_95e4_d7868f3b16a9);
 }
 impl IPlayReadyDomain {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
@@ -1938,7 +1938,7 @@ pub struct IPlayReadyDomain_abi(
 pub struct IPlayReadyDomainIterableFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyDomainIterableFactory {
     type Vtable = IPlayReadyDomainIterableFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1307804910, 12577, 19955, [165, 232, 208, 194, 76, 5, 0, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4df384ee_3121_4df3_a5e8_d0c24c0500fc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1957,7 +1957,7 @@ pub struct IPlayReadyDomainIterableFactory_abi(
 pub struct IPlayReadyDomainJoinServiceRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyDomainJoinServiceRequest {
     type Vtable = IPlayReadyDomainJoinServiceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(387664474, 16479, 18233, [176, 64, 103, 185, 240, 195, 135, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x171b4a5a_405f_4739_b040_67b9f0c38758);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1980,7 +1980,7 @@ pub struct IPlayReadyDomainJoinServiceRequest_abi(
 pub struct IPlayReadyDomainLeaveServiceRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyDomainLeaveServiceRequest {
     type Vtable = IPlayReadyDomainLeaveServiceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(103635134, 38829, 18711, [170, 3, 70, 212, 194, 82, 212, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x062d58be_97ad_4917_aa03_46d4c252d464);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2001,7 +2001,7 @@ pub struct IPlayReadyDomainLeaveServiceRequest_abi(
 pub struct IPlayReadyITADataGenerator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyITADataGenerator {
     type Vtable = IPlayReadyITADataGenerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(608463758, 4281, 17712, [178, 91, 144, 26, 128, 41, 169, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24446b8e_10b9_4530_b25b_901a8029a9b2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2020,7 +2020,7 @@ pub struct IPlayReadyITADataGenerator_abi(
 pub struct IPlayReadyIndividualizationServiceRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyIndividualizationServiceRequest {
     type Vtable = IPlayReadyIndividualizationServiceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(569747563, 140, 17937, [171, 47, 170, 166, 198, 159, 14, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x21f5a86b_008c_4611_ab2f_aaa6c69f0e24);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2038,7 +2038,7 @@ pub struct IPlayReadyIndividualizationServiceRequest_abi(
 pub struct IPlayReadyLicense(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicense {
     type Vtable = IPlayReadyLicense_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3997649998, 64060, 16717, [169, 242, 63, 252, 30, 248, 50, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee474c4e_fa3c_414d_a9f2_3ffc1ef832d4);
 }
 impl IPlayReadyLicense {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
@@ -2165,7 +2165,7 @@ pub struct IPlayReadyLicense_abi(
 pub struct IPlayReadyLicense2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicense2 {
     type Vtable = IPlayReadyLicense2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(821356455, 55523, 18592, [188, 218, 255, 159, 64, 83, 4, 54]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30f4e7a7_d8e3_48a0_bcda_ff9f40530436);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2187,7 +2187,7 @@ pub struct IPlayReadyLicense2_abi(
 pub struct IPlayReadyLicenseAcquisitionServiceRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicenseAcquisitionServiceRequest {
     type Vtable = IPlayReadyLicenseAcquisitionServiceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1569062725, 16031, 20296, [147, 225, 149, 48, 200, 213, 140, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d85ff45_3e9f_4f48_93e1_9530c8d58c3e);
 }
 impl IPlayReadyLicenseAcquisitionServiceRequest {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
@@ -2408,7 +2408,7 @@ pub struct IPlayReadyLicenseAcquisitionServiceRequest_abi(
 pub struct IPlayReadyLicenseAcquisitionServiceRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicenseAcquisitionServiceRequest2 {
     type Vtable = IPlayReadyLicenseAcquisitionServiceRequest2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3086638773, 65036, 45605, [188, 96, 90, 158, 221, 50, 206, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7fa5eb5_fe0c_b225_bc60_5a9edd32ceb5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2426,7 +2426,7 @@ pub struct IPlayReadyLicenseAcquisitionServiceRequest2_abi(
 pub struct IPlayReadyLicenseAcquisitionServiceRequest3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicenseAcquisitionServiceRequest3 {
     type Vtable = IPlayReadyLicenseAcquisitionServiceRequest3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(961437517, 32629, 17165, [178, 231, 127, 117, 243, 75, 45, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x394e5f4d_7f75_430d_b2e7_7f75f34b2d75);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2445,7 +2445,7 @@ pub struct IPlayReadyLicenseAcquisitionServiceRequest3_abi(
 pub struct IPlayReadyLicenseIterableFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicenseIterableFactory {
     type Vtable = IPlayReadyLicenseIterableFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3558317832, 2103, 18808, [142, 104, 190, 66, 147, 200, 215, 166]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4179f08_0837_4978_8e68_be4293c8d7a6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2464,7 +2464,7 @@ pub struct IPlayReadyLicenseIterableFactory_abi(
 pub struct IPlayReadyLicenseManagement(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicenseManagement {
     type Vtable = IPlayReadyLicenseManagement_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2867536193, 2391, 17413, [184, 146, 139, 243, 236, 93, 173, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaaeb2141_0957_4405_b892_8bf3ec5dadd9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2484,7 +2484,7 @@ pub struct IPlayReadyLicenseManagement_abi(
 pub struct IPlayReadyLicenseSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicenseSession {
     type Vtable = IPlayReadyLicenseSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2708617785, 34810, 20445, [171, 187, 169, 114, 14, 132, 82, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1723a39_87fa_4fdd_abbb_a9720e845259);
 }
 impl IPlayReadyLicenseSession {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
@@ -2562,7 +2562,7 @@ pub struct IPlayReadyLicenseSession_abi(
 pub struct IPlayReadyLicenseSession2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicenseSession2 {
     type Vtable = IPlayReadyLicenseSession2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1225375290, 15085, 18006, [138, 215, 238, 15, 215, 121, 149, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4909be3a_3aed_4656_8ad7_ee0fd7799510);
 }
 impl IPlayReadyLicenseSession2 {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
@@ -2670,7 +2670,7 @@ pub struct IPlayReadyLicenseSession2_abi(
 pub struct IPlayReadyLicenseSessionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicenseSessionFactory {
     type Vtable = IPlayReadyLicenseSessionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1648961177, 25895, 17054, [152, 190, 72, 215, 152, 172, 39, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62492699_6527_429e_98be_48d798ac2739);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2689,7 +2689,7 @@ pub struct IPlayReadyLicenseSessionFactory_abi(
 pub struct IPlayReadyMeteringReportServiceRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyMeteringReportServiceRequest {
     type Vtable = IPlayReadyMeteringReportServiceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3240829724, 3789, 20241, [161, 133, 30, 36, 164, 166, 127, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc12b231c_0ecd_4f11_a185_1e24a4a67fb7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2708,7 +2708,7 @@ pub struct IPlayReadyMeteringReportServiceRequest_abi(
 pub struct IPlayReadyRevocationServiceRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyRevocationServiceRequest {
     type Vtable = IPlayReadyRevocationServiceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1413310124, 64240, 17760, [132, 165, 14, 74, 206, 201, 57, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x543d66ac_faf0_4560_84a5_0e4acec939e4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2725,7 +2725,7 @@ pub struct IPlayReadyRevocationServiceRequest_abi(
 pub struct IPlayReadySecureStopIterableFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadySecureStopIterableFactory {
     type Vtable = IPlayReadySecureStopIterableFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1595867493, 16916, 19870, [129, 235, 232, 159, 157, 41, 74, 238]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f1f0165_4214_4d9e_81eb_e89f9d294aee);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2745,7 +2745,7 @@ pub struct IPlayReadySecureStopIterableFactory_abi(
 pub struct IPlayReadySecureStopServiceRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadySecureStopServiceRequest {
     type Vtable = IPlayReadySecureStopServiceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3041926885, 447, 17409, [150, 119, 5, 99, 10, 106, 76, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5501ee5_01bf_4401_9677_05630a6a4cc8);
 }
 impl IPlayReadySecureStopServiceRequest {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
@@ -2985,7 +2985,7 @@ pub struct IPlayReadySecureStopServiceRequest_abi(
 pub struct IPlayReadySecureStopServiceRequestFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadySecureStopServiceRequestFactory {
     type Vtable = IPlayReadySecureStopServiceRequestFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(239373001, 59006, 18766, [159, 73, 98, 133, 67, 140, 118, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e448ac9_e67e_494e_9f49_6285438c76cf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3005,7 +3005,7 @@ pub struct IPlayReadySecureStopServiceRequestFactory_abi(
 pub struct IPlayReadyServiceRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyServiceRequest {
     type Vtable = IPlayReadyServiceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2343381046, 42755, 17830, [161, 128, 118, 243, 86, 90, 167, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bad2836_a703_45a6_a180_76f3565aa725);
 }
 impl IPlayReadyServiceRequest {
     #[cfg(feature = "Foundation")]
@@ -3186,7 +3186,7 @@ pub struct IPlayReadyServiceRequest_abi(
 pub struct IPlayReadySoapMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadySoapMessage {
     type Vtable = IPlayReadySoapMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3059350709, 52801, 16826, [138, 13, 97, 223, 95, 255, 161, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb659fcb5_ce41_41ba_8a0d_61df5fffa139);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3208,7 +3208,7 @@ pub struct IPlayReadySoapMessage_abi(
 pub struct IPlayReadyStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyStatics {
     type Vtable = IPlayReadyStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1583988749, 9340, 18074, [143, 49, 92, 26, 21, 113, 217, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e69c00d_247c_469a_8f31_5c1a1571d9c6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3233,7 +3233,7 @@ pub struct IPlayReadyStatics_abi(
 pub struct IPlayReadyStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyStatics2 {
     type Vtable = IPlayReadyStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(529361554, 24474, 16958, [148, 102, 179, 57, 105, 175, 122, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f8d6a92_5f9a_423e_9466_b33969af7a3d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3251,7 +3251,7 @@ pub struct IPlayReadyStatics2_abi(
 pub struct IPlayReadyStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyStatics3 {
     type Vtable = IPlayReadyStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1067663217, 11731, 19437, [174, 73, 247, 20, 142, 99, 231, 16]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3fa33f71_2dd3_4bed_ae49_f7148e63e710);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3270,7 +3270,7 @@ pub struct IPlayReadyStatics3_abi(
 pub struct IPlayReadyStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyStatics4 {
     type Vtable = IPlayReadyStatics4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1353257728, 55332, 16945, [157, 94, 120, 239, 136, 68, 199, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50a91300_d824_4231_9d5e_78ef8844c7d7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3289,7 +3289,7 @@ pub struct IPlayReadyStatics4_abi(
 pub struct IPlayReadyStatics5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyStatics5 {
     type Vtable = IPlayReadyStatics5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(587886709, 57248, 20366, [167, 121, 206, 254, 169, 198, 130, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x230a7075_dfa0_4f8e_a779_cefea9c6824b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3542,7 +3542,7 @@ unsafe impl ::windows::runtime::RuntimeType for NDClient {
 }
 unsafe impl ::windows::runtime::Interface for NDClient {
     type Vtable = INDClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1003911195, 25016, 18146, [153, 165, 138, 188, 182, 185, 247, 214]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3bd6781b_61b8_46e2_99a5_8abcb6b9f7d6);
 }
 impl ::windows::runtime::RuntimeName for NDClient {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDClient";
@@ -3674,7 +3674,7 @@ unsafe impl ::windows::runtime::RuntimeType for NDCustomData {
 }
 unsafe impl ::windows::runtime::Interface for NDCustomData {
     type Vtable = INDCustomData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4123725788, 11529, 20249, [181, 225, 118, 160, 179, 238, 146, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5cb0fdc_2d09_4f19_b5e1_76a0b3ee9267);
 }
 impl ::windows::runtime::RuntimeName for NDCustomData {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDCustomData";
@@ -3793,7 +3793,7 @@ unsafe impl ::windows::runtime::RuntimeType for NDDownloadEngineNotifier {
 }
 unsafe impl ::windows::runtime::Interface for NDDownloadEngineNotifier {
     type Vtable = INDDownloadEngineNotifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3609244884, 62648, 17712, [168, 9, 145, 147, 165, 113, 231, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd720b4d4_f4b8_4530_a809_9193a571e7fc);
 }
 impl ::windows::runtime::RuntimeName for NDDownloadEngineNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDDownloadEngineNotifier";
@@ -3914,7 +3914,7 @@ unsafe impl ::windows::runtime::RuntimeType for NDLicenseFetchDescriptor {
 }
 unsafe impl ::windows::runtime::Interface for NDLicenseFetchDescriptor {
     type Vtable = INDLicenseFetchDescriptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1419301690, 59014, 18741, [165, 103, 124, 167, 122, 210, 15, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5498d33a_e686_4935_a567_7ca77ad20fa4);
 }
 impl ::windows::runtime::RuntimeName for NDLicenseFetchDescriptor {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDLicenseFetchDescriptor";
@@ -4074,7 +4074,7 @@ unsafe impl ::windows::runtime::RuntimeType for NDStorageFileHelper {
 }
 unsafe impl ::windows::runtime::Interface for NDStorageFileHelper {
     type Vtable = INDStorageFileHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3639656184, 37330, 19783, [163, 249, 234, 255, 78, 219, 114, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8f0bef8_91d2_4d47_a3f9_eaff4edb729f);
 }
 impl ::windows::runtime::RuntimeName for NDStorageFileHelper {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDStorageFileHelper";
@@ -4184,7 +4184,7 @@ unsafe impl ::windows::runtime::RuntimeType for NDStreamParserNotifier {
 }
 unsafe impl ::windows::runtime::Interface for NDStreamParserNotifier {
     type Vtable = INDStreamParserNotifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3244797136, 11494, 17004, [172, 229, 94, 146, 117, 254, 167, 21]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc167acd0_2ce6_426c_ace5_5e9275fea715);
 }
 impl ::windows::runtime::RuntimeName for NDStreamParserNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDStreamParserNotifier";
@@ -4334,7 +4334,7 @@ unsafe impl ::windows::runtime::RuntimeType for NDTCPMessenger {
 }
 unsafe impl ::windows::runtime::Interface for NDTCPMessenger {
     type Vtable = INDMessenger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3559782749, 42843, 18367, [130, 73, 188, 131, 130, 13, 163, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd42df95d_a75b_47bf_8249_bc83820da38a);
 }
 impl ::windows::runtime::RuntimeName for NDTCPMessenger {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDTCPMessenger";
@@ -4595,7 +4595,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayReadyContentHeader {
 }
 unsafe impl ::windows::runtime::Interface for PlayReadyContentHeader {
     type Vtable = IPlayReadyContentHeader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2588117610, 32588, 17710, [136, 189, 1, 72, 198, 56, 122, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a438a6a_7f4c_452e_88bd_0148c6387a2c);
 }
 impl ::windows::runtime::RuntimeName for PlayReadyContentHeader {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyContentHeader";
@@ -4732,7 +4732,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayReadyDomain {
 }
 unsafe impl ::windows::runtime::Interface for PlayReadyDomain {
     type Vtable = IPlayReadyDomain_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2915865516, 38886, 17391, [149, 228, 215, 134, 143, 59, 22, 169]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xadcc93ac_97e6_43ef_95e4_d7868f3b16a9);
 }
 impl ::windows::runtime::RuntimeName for PlayReadyDomain {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomain";
@@ -5198,7 +5198,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayReadyDomainJoinServiceReques
 }
 unsafe impl ::windows::runtime::Interface for PlayReadyDomainJoinServiceRequest {
     type Vtable = IPlayReadyDomainJoinServiceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(387664474, 16479, 18233, [176, 64, 103, 185, 240, 195, 135, 88]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x171b4a5a_405f_4739_b040_67b9f0c38758);
 }
 impl ::windows::runtime::RuntimeName for PlayReadyDomainJoinServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomainJoinServiceRequest";
@@ -5416,7 +5416,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayReadyDomainLeaveServiceReque
 }
 unsafe impl ::windows::runtime::Interface for PlayReadyDomainLeaveServiceRequest {
     type Vtable = IPlayReadyDomainLeaveServiceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(103635134, 38829, 18711, [170, 3, 70, 212, 194, 82, 212, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x062d58be_97ad_4917_aa03_46d4c252d464);
 }
 impl ::windows::runtime::RuntimeName for PlayReadyDomainLeaveServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomainLeaveServiceRequest";
@@ -5603,7 +5603,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayReadyITADataGenerator {
 }
 unsafe impl ::windows::runtime::Interface for PlayReadyITADataGenerator {
     type Vtable = IPlayReadyITADataGenerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(608463758, 4281, 17712, [178, 91, 144, 26, 128, 41, 169, 178]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24446b8e_10b9_4530_b25b_901a8029a9b2);
 }
 impl ::windows::runtime::RuntimeName for PlayReadyITADataGenerator {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyITADataGenerator";
@@ -5751,7 +5751,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayReadyIndividualizationServic
 }
 unsafe impl ::windows::runtime::Interface for PlayReadyIndividualizationServiceRequest {
     type Vtable = IPlayReadyIndividualizationServiceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(569747563, 140, 17937, [171, 47, 170, 166, 198, 159, 14, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x21f5a86b_008c_4611_ab2f_aaa6c69f0e24);
 }
 impl ::windows::runtime::RuntimeName for PlayReadyIndividualizationServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyIndividualizationServiceRequest";
@@ -5940,7 +5940,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayReadyLicense {
 }
 unsafe impl ::windows::runtime::Interface for PlayReadyLicense {
     type Vtable = IPlayReadyLicense_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3997649998, 64060, 16717, [169, 242, 63, 252, 30, 248, 50, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee474c4e_fa3c_414d_a9f2_3ffc1ef832d4);
 }
 impl ::windows::runtime::RuntimeName for PlayReadyLicense {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicense";
@@ -6151,7 +6151,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayReadyLicenseAcquisitionServi
 }
 unsafe impl ::windows::runtime::Interface for PlayReadyLicenseAcquisitionServiceRequest {
     type Vtable = IPlayReadyLicenseAcquisitionServiceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1569062725, 16031, 20296, [147, 225, 149, 48, 200, 213, 140, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d85ff45_3e9f_4f48_93e1_9530c8d58c3e);
 }
 impl ::windows::runtime::RuntimeName for PlayReadyLicenseAcquisitionServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest";
@@ -6590,7 +6590,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayReadyLicenseSession {
 }
 unsafe impl ::windows::runtime::Interface for PlayReadyLicenseSession {
     type Vtable = IPlayReadyLicenseSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2708617785, 34810, 20445, [171, 187, 169, 114, 14, 132, 82, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1723a39_87fa_4fdd_abbb_a9720e845259);
 }
 impl ::windows::runtime::RuntimeName for PlayReadyLicenseSession {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseSession";
@@ -6793,7 +6793,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayReadyMeteringReportServiceRe
 }
 unsafe impl ::windows::runtime::Interface for PlayReadyMeteringReportServiceRequest {
     type Vtable = IPlayReadyMeteringReportServiceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3240829724, 3789, 20241, [161, 133, 30, 36, 164, 166, 127, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc12b231c_0ecd_4f11_a185_1e24a4a67fb7);
 }
 impl ::windows::runtime::RuntimeName for PlayReadyMeteringReportServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyMeteringReportServiceRequest";
@@ -6985,7 +6985,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayReadyRevocationServiceReques
 }
 unsafe impl ::windows::runtime::Interface for PlayReadyRevocationServiceRequest {
     type Vtable = IPlayReadyRevocationServiceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1413310124, 64240, 17760, [132, 165, 14, 74, 206, 201, 57, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x543d66ac_faf0_4560_84a5_0e4acec939e4);
 }
 impl ::windows::runtime::RuntimeName for PlayReadyRevocationServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyRevocationServiceRequest";
@@ -7489,7 +7489,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayReadySecureStopServiceReques
 }
 unsafe impl ::windows::runtime::Interface for PlayReadySecureStopServiceRequest {
     type Vtable = IPlayReadySecureStopServiceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3041926885, 447, 17409, [150, 119, 5, 99, 10, 106, 76, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5501ee5_01bf_4401_9677_05630a6a4cc8);
 }
 impl ::windows::runtime::RuntimeName for PlayReadySecureStopServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadySecureStopServiceRequest";
@@ -7635,7 +7635,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlayReadySoapMessage {
 }
 unsafe impl ::windows::runtime::Interface for PlayReadySoapMessage {
     type Vtable = IPlayReadySoapMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3059350709, 52801, 16826, [138, 13, 97, 223, 95, 255, 161, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb659fcb5_ce41_41ba_8a0d_61df5fffa139);
 }
 impl ::windows::runtime::RuntimeName for PlayReadySoapMessage {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadySoapMessage";

@@ -3,11 +3,11 @@
 pub const BREADCRUMBING_UNSUPPORTED: u32 = 0u32;
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 pub const BREADCRUMBING_VERSION_1: u32 = 1u32;
-pub const CivicAddressReport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3550378973, 32005, 18104, [135, 33, 128, 207, 3, 95, 87, 215]);
-pub const CivicAddressReportFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(705819692, 16001, 19156, [156, 190, 69, 87, 157, 137, 103, 26]);
-pub const DefaultLocation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2340405216, 23767, 18762, [175, 140, 40, 58, 101, 112, 117, 6]);
-pub const DispCivicAddressReport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1280928492, 34116, 16514, [186, 159, 235, 10, 125, 142, 101, 198]);
-pub const DispLatLongReport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2054959735, 36740, 17974, [149, 178, 235, 181, 80, 127, 247, 126]);
+pub const CivicAddressReport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd39e7bdd_7d05_46b8_8721_80cf035f57d7);
+pub const CivicAddressReportFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a11f42c_3e81_4ad4_9cbe_45579d89671a);
+pub const DefaultLocation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b7fbfe0_5cd7_494a_af8c_283a65707506);
+pub const DispCivicAddressReport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c596aec_8544_4082_ba9f_eb0a7d8e65c6);
+pub const DispLatLongReport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a7c3277_8f84_4636_95b2_ebb5507ff77e);
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 pub const GNSS_AGNSSFORMAT_LTO: u32 = 4u32;
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -2410,7 +2410,7 @@ impl ::core::cmp::Eq for GNSS_V2UPL_NI_INFO {}
 unsafe impl ::windows::runtime::Abi for GNSS_V2UPL_NI_INFO {
     type Abi = Self;
 }
-pub const GUID_DEVINTERFACE_GNSS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(859235812, 394, 18025, [132, 197, 189, 5, 243, 189, 54, 139]);
+pub const GUID_DEVINTERFACE_GNSS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3336e5e4_018a_4669_84c5_bd05f3bd368b);
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -2477,7 +2477,7 @@ impl ICivicAddressReport {
 }
 unsafe impl ::windows::runtime::Interface for ICivicAddressReport {
     type Vtable = ICivicAddressReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3232866160, 19167, 17501, [135, 242, 202, 216, 253, 113, 23, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0b19f70_4adf_445d_87f2_cad8fd711792);
 }
 impl ::core::convert::From<ICivicAddressReport> for ::windows::runtime::IUnknown {
     fn from(value: ICivicAddressReport) -> Self {
@@ -2624,7 +2624,7 @@ impl ICivicAddressReportFactory {
 }
 unsafe impl ::windows::runtime::Interface for ICivicAddressReportFactory {
     type Vtable = ICivicAddressReportFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3212262291, 50767, 19438, [190, 178, 103, 192, 184, 223, 102, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf773b93_c64f_4bee_beb2_67c0b8df66e0);
 }
 impl ::core::convert::From<ICivicAddressReportFactory> for ::windows::runtime::IUnknown {
     fn from(value: ICivicAddressReportFactory) -> Self {
@@ -2731,7 +2731,7 @@ impl IDefaultLocation {
 }
 unsafe impl ::windows::runtime::Interface for IDefaultLocation {
     type Vtable = IDefaultLocation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2790979454, 38554, 18990, [138, 202, 51, 187, 124, 187, 18, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa65af77e_969a_4a2e_8aca_33bb7cbb1235);
 }
 impl ::core::convert::From<IDefaultLocation> for ::windows::runtime::IUnknown {
     fn from(value: IDefaultLocation) -> Self {
@@ -2816,7 +2816,7 @@ impl IDispCivicAddressReport {
 }
 unsafe impl ::windows::runtime::Interface for IDispCivicAddressReport {
     type Vtable = IDispCivicAddressReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(385817140, 40496, 17091, [180, 77, 226, 37, 19, 181, 118, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16ff1a34_9e30_42c3_b44d_e22513b5767a);
 }
 impl ::core::convert::From<IDispCivicAddressReport> for ::windows::runtime::IUnknown {
     fn from(value: IDispCivicAddressReport) -> Self {
@@ -2929,7 +2929,7 @@ impl IDispLatLongReport {
 }
 unsafe impl ::windows::runtime::Interface for IDispLatLongReport {
     type Vtable = IDispLatLongReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2330142499, 14491, 18961, [153, 87, 91, 221, 72, 252, 150, 23]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ae32723_389b_4a11_9957_5bdd48fc9617);
 }
 impl ::core::convert::From<IDispLatLongReport> for ::windows::runtime::IUnknown {
     fn from(value: IDispLatLongReport) -> Self {
@@ -3046,7 +3046,7 @@ impl ILatLongReport {
 }
 unsafe impl ::windows::runtime::Interface for ILatLongReport {
     type Vtable = ILatLongReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2146271341, 3832, 20231, [128, 172, 54, 160, 190, 174, 49, 52]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fed806d_0ef8_4f07_80ac_36a0beae3134);
 }
 impl ::core::convert::From<ILatLongReport> for ::windows::runtime::IUnknown {
     fn from(value: ILatLongReport) -> Self {
@@ -3185,7 +3185,7 @@ impl ILatLongReportFactory {
 }
 unsafe impl ::windows::runtime::Interface for ILatLongReportFactory {
     type Vtable = ILatLongReportFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1057490123, 45332, 17533, [131, 221, 57, 1, 116, 235, 176, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f0804cb_b114_447d_83dd_390174ebb082);
 }
 impl ::core::convert::From<ILatLongReportFactory> for ::windows::runtime::IUnknown {
     fn from(value: ILatLongReportFactory) -> Self {
@@ -3326,7 +3326,7 @@ impl ILocation {
 }
 unsafe impl ::windows::runtime::Interface for ILocation {
     type Vtable = ILocation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2871971433, 22233, 20264, [181, 37, 222, 27, 14, 228, 66, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab2ece69_56d9_4f28_b525_de1b0ee44237);
 }
 impl ::core::convert::From<ILocation> for ::windows::runtime::IUnknown {
     fn from(value: ILocation) -> Self {
@@ -3383,7 +3383,7 @@ impl ILocationEvents {
 }
 unsafe impl ::windows::runtime::Interface for ILocationEvents {
     type Vtable = ILocationEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3403688895, 31115, 17672, [162, 7, 53, 167, 144, 109, 199, 61]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcae02bbf_798b_4508_a207_35a7906dc73d);
 }
 impl ::core::convert::From<ILocationEvents> for ::windows::runtime::IUnknown {
     fn from(value: ILocationEvents) -> Self {
@@ -3430,7 +3430,7 @@ impl ILocationPower {
 }
 unsafe impl ::windows::runtime::Interface for ILocationPower {
     type Vtable = ILocationPower_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(423524137, 43883, 19218, [134, 23, 117, 150, 225, 187, 25, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x193e7729_ab6b_4b12_8617_7596e1bb191c);
 }
 impl ::core::convert::From<ILocationPower> for ::windows::runtime::IUnknown {
     fn from(value: ILocationPower) -> Self {
@@ -3486,7 +3486,7 @@ impl ILocationReport {
 }
 unsafe impl ::windows::runtime::Interface for ILocationReport {
     type Vtable = ILocationReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3367499758, 30160, 19897, [182, 45, 122, 15, 54, 156, 164, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8b7f7ee_75d0_4db9_b62d_7a0f369ca456);
 }
 impl ::core::convert::From<ILocationReport> for ::windows::runtime::IUnknown {
     fn from(value: ILocationReport) -> Self {
@@ -3563,7 +3563,7 @@ impl ILocationReportFactory {
 }
 unsafe impl ::windows::runtime::Interface for ILocationReportFactory {
     type Vtable = ILocationReportFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(766427938, 37042, 18404, [187, 8, 13, 168, 65, 147, 90, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2daec322_90b2_47e4_bb08_0da841935a6b);
 }
 impl ::core::convert::From<ILocationReportFactory> for ::windows::runtime::IUnknown {
     fn from(value: ILocationReportFactory) -> Self {
@@ -3707,9 +3707,9 @@ impl ::core::convert::From<i32> for LOCATION_REPORT_STATUS {
 unsafe impl ::windows::runtime::Abi for LOCATION_REPORT_STATUS {
     type Abi = Self;
 }
-pub const LatLongReport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3984703603, 8068, 19624, [161, 97, 24, 60, 119, 107, 198, 81]);
-pub const LatLongReportFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2647407816, 34313, 18531, [186, 212, 3, 96, 31, 76, 101, 232]);
-pub const Location: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3854098553, 61037, 20019, [164, 56, 200, 127, 46, 149, 146, 84]);
+pub const LatLongReport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed81c073_1f84_4ca8_a161_183c776bc651);
+pub const LatLongReportFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9dcc3cc8_8609_4863_bad4_03601f4c65e8);
+pub const Location: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5b8e079_ee6d_4e33_a438_c87f2e959254);
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 pub const MAX_SERVER_URL_NAME: u32 = 260u32;
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -3723,7 +3723,7 @@ pub struct _ICivicAddressReportFactoryEvents(pub ::windows::runtime::IUnknown);
 impl _ICivicAddressReportFactoryEvents {}
 unsafe impl ::windows::runtime::Interface for _ICivicAddressReportFactoryEvents {
     type Vtable = _ICivicAddressReportFactoryEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3378526719, 29420, 17943, [137, 189, 132, 216, 139, 237, 199, 34]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc96039ff_72ec_4617_89bd_84d88bedc722);
 }
 impl ::core::convert::From<_ICivicAddressReportFactoryEvents> for ::windows::runtime::IUnknown {
     fn from(value: _ICivicAddressReportFactoryEvents) -> Self {
@@ -3791,7 +3791,7 @@ pub struct _ILatLongReportFactoryEvents(pub ::windows::runtime::IUnknown);
 impl _ILatLongReportFactoryEvents {}
 unsafe impl ::windows::runtime::Interface for _ILatLongReportFactoryEvents {
     type Vtable = _ILatLongReportFactoryEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(384724151, 43836, 16971, [132, 159, 38, 155, 229, 81, 252, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16ee6cb7_ab3c_424b_849f_269be551fcbc);
 }
 impl ::core::convert::From<_ILatLongReportFactoryEvents> for ::windows::runtime::IUnknown {
     fn from(value: _ILatLongReportFactoryEvents) -> Self {

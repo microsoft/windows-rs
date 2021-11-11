@@ -4,7 +4,7 @@
 pub struct IPlaylist(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaylist {
     type Vtable = IPlaylist_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2151102197, 53060, 19863, [131, 179, 122, 8, 158, 154, 182, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x803736f5_cf44_4d97_83b3_7a089e9ab663);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29,7 +29,7 @@ pub struct IPlaylist_abi(
 pub struct IPlaylistStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaylistStatics {
     type Vtable = IPlaylistStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3317903821, 33273, 20467, [149, 185, 112, 182, 255, 4, 107, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5c331cd_81f9_4ff3_95b9_70b6ff046b68);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -109,7 +109,7 @@ unsafe impl ::windows::runtime::RuntimeType for Playlist {
 }
 unsafe impl ::windows::runtime::Interface for Playlist {
     type Vtable = IPlaylist_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2151102197, 53060, 19863, [131, 179, 122, 8, 158, 154, 182, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x803736f5_cf44_4d97_83b3_7a089e9ab663);
 }
 impl ::windows::runtime::RuntimeName for Playlist {
     const NAME: &'static str = "Windows.Media.Playlists.Playlist";

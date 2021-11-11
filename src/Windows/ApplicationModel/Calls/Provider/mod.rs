@@ -4,7 +4,7 @@
 pub struct IPhoneCallOrigin(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallOrigin {
     type Vtable = IPhoneCallOrigin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543241337, 3833, 17492, [135, 28, 175, 182, 106, 20, 182, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20613479_0ef9_4454_871c_afb66a14b6a5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27,7 +27,7 @@ pub struct IPhoneCallOrigin_abi(
 pub struct IPhoneCallOrigin2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallOrigin2 {
     type Vtable = IPhoneCallOrigin2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(80210304, 39618, 18280, [181, 54, 182, 141, 164, 149, 125, 2]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04c7e980_9ac2_4768_b536_b68da4957d02);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -46,7 +46,7 @@ pub struct IPhoneCallOrigin2_abi(
 pub struct IPhoneCallOrigin3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallOrigin3 {
     type Vtable = IPhoneCallOrigin3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1228083124, 53671, 17314, [174, 238, 192, 123, 109, 186, 240, 104]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49330fb4_d1a7_43a2_aeee_c07b6dbaf068);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -67,7 +67,7 @@ pub struct IPhoneCallOrigin3_abi(
 pub struct IPhoneCallOriginManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallOriginManagerStatics {
     type Vtable = IPhoneCallOriginManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3439090186, 39671, 24905, [57, 208, 224, 118, 252, 206, 19, 149]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xccfc5a0a_9af7_6149_39d0_e076fcce1395);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -87,7 +87,7 @@ pub struct IPhoneCallOriginManagerStatics_abi(
 pub struct IPhoneCallOriginManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallOriginManagerStatics2 {
     type Vtable = IPhoneCallOriginManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2348019263, 16628, 17280, [140, 124, 174, 162, 201, 184, 221, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8bf3ee3f_40f4_4380_8c7c_aea2c9b8dd7a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -106,7 +106,7 @@ pub struct IPhoneCallOriginManagerStatics2_abi(
 pub struct IPhoneCallOriginManagerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallOriginManagerStatics3 {
     type Vtable = IPhoneCallOriginManagerStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(785815396, 42723, 20720, [183, 106, 214, 124, 179, 155, 223, 222]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ed69764_a6e3_50f0_b76a_d67cb39bdfde);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -204,7 +204,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneCallOrigin {
 }
 unsafe impl ::windows::runtime::Interface for PhoneCallOrigin {
     type Vtable = IPhoneCallOrigin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543241337, 3833, 17492, [135, 28, 175, 182, 106, 20, 182, 165]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20613479_0ef9_4454_871c_afb66a14b6a5);
 }
 impl ::windows::runtime::RuntimeName for PhoneCallOrigin {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Provider.PhoneCallOrigin";

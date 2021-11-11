@@ -17,235 +17,235 @@ unsafe impl ::windows::runtime::Abi for CH_DESCRIPTION_TYPE {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_AccessPointBssid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 19u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_ChallengeAep: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 21u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_DevnodeAep: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 23u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_HostName_ResolutionMode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 25u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_PinSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 29u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_RtspTcpConnectionParametersSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 30u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_SinkHostName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 20u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_SinkIpAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 26u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_StreamSecuritySupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 18u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_Supported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirectServices_AdvertisementId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(833845059, 31838, 16389, [147, 230, 233, 83, 249, 43, 130, 233]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirectServices_RequestServiceInformation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(833845059, 31838, 16389, [147, 230, 233, 83, 249, 43, 130, 233]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirectServices_ServiceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(833845059, 31838, 16389, [147, 230, 233, 83, 249, 43, 130, 233]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirectServices_ServiceConfigMethods: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(833845059, 31838, 16389, [147, 230, 233, 83, 249, 43, 130, 233]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirectServices_ServiceInformation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(833845059, 31838, 16389, [147, 230, 233, 83, 249, 43, 130, 233]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirectServices_ServiceName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(833845059, 31838, 16389, [147, 230, 233, 83, 249, 43, 130, 233]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_DeviceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 1u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_DeviceAddressCopy: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_FoundWsbService: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 24u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_GroupId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_InformationElements: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_InterfaceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_InterfaceGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_IsConnected: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_IsDMGCapable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 22u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_IsLegacyDevice: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_IsMiracastLCPSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_IsRecentlyAssociated: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_IsVisible: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_LinkQuality: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 28u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_MiracastVersion: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_Miracast_SessionMgmtControlPort: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 31u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_NoMiracastAutoProject: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_RtspTcpConnectionParametersSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 32u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_Service_Aeps: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_Services: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_SupportedChannelList: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_TransientAssociation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(352752477, 58343, 17679, [134, 55, 130, 35, 62, 190, 95, 110]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 27u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFi_InterfaceGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(4010895339, 52220, 17217, [165, 104, 167, 201, 26, 104, 152, 44]),
+    fmtid: ::windows::runtime::GUID::from_u128(0xef1167eb_cbfc_4341_a568_a7c91a68982c),
     pid: 2u32,
 };
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -9838,10 +9838,10 @@ pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_266Mhz: u32 = 16u32;
 pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_533Mhz: u32 = 32u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_66Mhz: u32 = 4u32;
-pub const Dot11AdHocManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3708201039, 33725, 19713, [138, 185, 35, 137, 254, 160, 134, 158]);
-pub const GUID_AEPSERVICE_WIFIDIRECT_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3425272444, 40111, 18728, [153, 169, 24, 247, 194, 56, 19, 137]);
-pub const GUID_DEVINTERFACE_ASP_INFRA_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4286724501, 31346, 19584, [135, 87, 198, 126, 225, 61, 26, 73]);
-pub const GUID_DEVINTERFACE_WIFIDIRECT_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1134239919, 35157, 16475, [153, 240, 166, 42, 240, 198, 141, 67]);
+pub const Dot11AdHocManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd06a84f_83bd_4d01_8ab9_2389fea0869e);
+pub const GUID_AEPSERVICE_WIFIDIRECT_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc29827c_9caf_4928_99a9_18f7c2381389);
+pub const GUID_DEVINTERFACE_ASP_INFRA_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff823995_7a72_4c80_8757_c67ee13d1a49);
+pub const GUID_DEVINTERFACE_WIFIDIRECT_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x439b20af_8955_405b_99f0_a62af0c68d43);
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -9891,7 +9891,7 @@ impl IDot11AdHocInterface {
 }
 unsafe impl ::windows::runtime::Interface for IDot11AdHocInterface {
     type Vtable = IDot11AdHocInterface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242731, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc2b_cf0d_42a0_acbe_e2de7007384d);
 }
 impl ::core::convert::From<IDot11AdHocInterface> for ::windows::runtime::IUnknown {
     fn from(value: IDot11AdHocInterface) -> Self {
@@ -9942,7 +9942,7 @@ impl IDot11AdHocInterfaceNotificationSink {
 }
 unsafe impl ::windows::runtime::Interface for IDot11AdHocInterfaceNotificationSink {
     type Vtable = IDot11AdHocInterfaceNotificationSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242735, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc2f_cf0d_42a0_acbe_e2de7007384d);
 }
 impl ::core::convert::From<IDot11AdHocInterfaceNotificationSink> for ::windows::runtime::IUnknown {
     fn from(value: IDot11AdHocInterfaceNotificationSink) -> Self {
@@ -10014,7 +10014,7 @@ impl IDot11AdHocManager {
 }
 unsafe impl ::windows::runtime::Interface for IDot11AdHocManager {
     type Vtable = IDot11AdHocManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242726, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc26_cf0d_42a0_acbe_e2de7007384d);
 }
 impl ::core::convert::From<IDot11AdHocManager> for ::windows::runtime::IUnknown {
     fn from(value: IDot11AdHocManager) -> Self {
@@ -10074,7 +10074,7 @@ impl IDot11AdHocManagerNotificationSink {
 }
 unsafe impl ::windows::runtime::Interface for IDot11AdHocManagerNotificationSink {
     type Vtable = IDot11AdHocManagerNotificationSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242727, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc27_cf0d_42a0_acbe_e2de7007384d);
 }
 impl ::core::convert::From<IDot11AdHocManagerNotificationSink> for ::windows::runtime::IUnknown {
     fn from(value: IDot11AdHocManagerNotificationSink) -> Self {
@@ -10170,7 +10170,7 @@ impl IDot11AdHocNetwork {
 }
 unsafe impl ::windows::runtime::Interface for IDot11AdHocNetwork {
     type Vtable = IDot11AdHocNetwork_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242729, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc29_cf0d_42a0_acbe_e2de7007384d);
 }
 impl ::core::convert::From<IDot11AdHocNetwork> for ::windows::runtime::IUnknown {
     fn from(value: IDot11AdHocNetwork) -> Self {
@@ -10230,7 +10230,7 @@ impl IDot11AdHocNetworkNotificationSink {
 }
 unsafe impl ::windows::runtime::Interface for IDot11AdHocNetworkNotificationSink {
     type Vtable = IDot11AdHocNetworkNotificationSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242730, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc2a_cf0d_42a0_acbe_e2de7007384d);
 }
 impl ::core::convert::From<IDot11AdHocNetworkNotificationSink> for ::windows::runtime::IUnknown {
     fn from(value: IDot11AdHocNetworkNotificationSink) -> Self {
@@ -10277,7 +10277,7 @@ impl IDot11AdHocSecuritySettings {
 }
 unsafe impl ::windows::runtime::Interface for IDot11AdHocSecuritySettings {
     type Vtable = IDot11AdHocSecuritySettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242734, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc2e_cf0d_42a0_acbe_e2de7007384d);
 }
 impl ::core::convert::From<IDot11AdHocSecuritySettings> for ::windows::runtime::IUnknown {
     fn from(value: IDot11AdHocSecuritySettings) -> Self {
@@ -10333,7 +10333,7 @@ impl IEnumDot11AdHocInterfaces {
 }
 unsafe impl ::windows::runtime::Interface for IEnumDot11AdHocInterfaces {
     type Vtable = IEnumDot11AdHocInterfaces_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242732, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc2c_cf0d_42a0_acbe_e2de7007384d);
 }
 impl ::core::convert::From<IEnumDot11AdHocInterfaces> for ::windows::runtime::IUnknown {
     fn from(value: IEnumDot11AdHocInterfaces) -> Self {
@@ -10391,7 +10391,7 @@ impl IEnumDot11AdHocNetworks {
 }
 unsafe impl ::windows::runtime::Interface for IEnumDot11AdHocNetworks {
     type Vtable = IEnumDot11AdHocNetworks_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242728, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc28_cf0d_42a0_acbe_e2de7007384d);
 }
 impl ::core::convert::From<IEnumDot11AdHocNetworks> for ::windows::runtime::IUnknown {
     fn from(value: IEnumDot11AdHocNetworks) -> Self {
@@ -10449,7 +10449,7 @@ impl IEnumDot11AdHocSecuritySettings {
 }
 unsafe impl ::windows::runtime::Interface for IEnumDot11AdHocSecuritySettings {
     type Vtable = IEnumDot11AdHocSecuritySettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242733, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc2d_cf0d_42a0_acbe_e2de7007384d);
 }
 impl ::core::convert::From<IEnumDot11AdHocSecuritySettings> for ::windows::runtime::IUnknown {
     fn from(value: IEnumDot11AdHocSecuritySettings) -> Self {

@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const PERCEPTIONFIELD_StateStream_TimeStamps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2861064473, 62255, 18879, [146, 202, 249, 221, 247, 132, 210, 151]);
+pub const PERCEPTIONFIELD_StateStream_TimeStamps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa886119_f32f_49bf_92ca_f9ddf784d297);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_MixedReality`*"]

@@ -1301,7 +1301,7 @@ impl ID2D1SimplifiedGeometrySink {
 }
 unsafe impl ::windows::runtime::Interface for ID2D1SimplifiedGeometrySink {
     type Vtable = ID2D1SimplifiedGeometrySink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752420510, 4834, 4572, [159, 237, 0, 17, 67, 160, 85, 249]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd9069e_12e2_11dc_9fed_001143a055f9);
 }
 impl ::core::convert::From<ID2D1SimplifiedGeometrySink> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SimplifiedGeometrySink) -> Self {

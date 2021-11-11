@@ -165,7 +165,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailAttachment {
 }
 unsafe impl ::windows::runtime::Interface for EmailAttachment {
     type Vtable = IEmailAttachment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4082354937, 22472, 19163, [185, 146, 96, 252, 235, 88, 79, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf353caf9_57c8_4adb_b992_60fceb584f54);
 }
 impl ::windows::runtime::RuntimeName for EmailAttachment {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailAttachment";
@@ -424,7 +424,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailConversation {
 }
 unsafe impl ::windows::runtime::Interface for EmailConversation {
     type Vtable = IEmailConversation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3659055688, 41148, 17225, [144, 45, 144, 246, 99, 137, 245, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda18c248_a0bc_4349_902d_90f66389f51b);
 }
 impl ::windows::runtime::RuntimeName for EmailConversation {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailConversation";
@@ -499,7 +499,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailConversationBatch {
 }
 unsafe impl ::windows::runtime::Interface for EmailConversationBatch {
     type Vtable = IEmailConversationBatch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3099700097, 453, 17194, [157, 241, 254, 133, 217, 138, 39, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8c1ab81_01c5_432a_9df1_fe85d98a279a);
 }
 impl ::windows::runtime::RuntimeName for EmailConversationBatch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailConversationBatch";
@@ -566,7 +566,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailConversationReader {
 }
 unsafe impl ::windows::runtime::Interface for EmailConversationReader {
     type Vtable = IEmailConversationReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3026390914, 10357, 17608, [155, 140, 133, 190, 179, 163, 198, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4630f82_2875_44c8_9b8c_85beb3a3c653);
 }
 impl ::windows::runtime::RuntimeName for EmailConversationReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailConversationReader";
@@ -847,7 +847,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailFolder {
 }
 unsafe impl ::windows::runtime::Interface for EmailFolder {
     type Vtable = IEmailFolder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2723116913, 39276, 18532, [177, 186, 237, 18, 64, 229, 125, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa24f7771_996c_4864_b1ba_ed1240e57d11);
 }
 impl ::windows::runtime::RuntimeName for EmailFolder {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailFolder";
@@ -1105,7 +1105,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailIrmInfo {
 }
 unsafe impl ::windows::runtime::Interface for EmailIrmInfo {
     type Vtable = IEmailIrmInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2431984019, 45472, 20157, [166, 182, 221, 202, 85, 96, 110, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90f52193_b1a0_4ebd_a6b6_ddca55606e0e);
 }
 impl ::windows::runtime::RuntimeName for EmailIrmInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailIrmInfo";
@@ -1220,7 +1220,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailIrmTemplate {
 }
 unsafe impl ::windows::runtime::Interface for EmailIrmTemplate {
     type Vtable = IEmailIrmTemplate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4079449485, 21613, 19434, [169, 99, 84, 163, 139, 44, 192, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf327758d_546d_4bea_a963_54a38b2cc016);
 }
 impl ::windows::runtime::RuntimeName for EmailIrmTemplate {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailIrmTemplate";
@@ -1310,7 +1310,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailItemCounts {
 }
 unsafe impl ::windows::runtime::Interface for EmailItemCounts {
     type Vtable = IEmailItemCounts_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1540436769, 65224, 19371, [131, 186, 11, 175, 60, 31, 108, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5bd13321_fec8_4bab_83ba_0baf3c1f6cbd);
 }
 impl ::windows::runtime::RuntimeName for EmailItemCounts {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailItemCounts";
@@ -1883,7 +1883,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailbox {
 }
 unsafe impl ::windows::runtime::Interface for EmailMailbox {
     type Vtable = IEmailMailbox_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2826503753, 53083, 16667, [128, 177, 74, 106, 20, 132, 206, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8790649_cf5b_411b_80b1_4a6a1484ce25);
 }
 impl ::windows::runtime::RuntimeName for EmailMailbox {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailbox";
@@ -1957,7 +1957,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxAction {
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxAction {
     type Vtable = IEmailMailboxAction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2895677946, 8698, 18727, [146, 16, 212, 16, 88, 47, 223, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac9889fa_21fa_4927_9210_d410582fdf3e);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxAction {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxAction";
@@ -2095,7 +2095,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxAutoReply {
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxAutoReply {
     type Vtable = IEmailMailboxAutoReply_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3793954124, 35508, 18523, [179, 31, 4, 209, 84, 118, 189, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe223254c_8ab4_485b_b31f_04d15476bd59);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxAutoReply {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxAutoReply";
@@ -2262,7 +2262,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxAutoReplySettings {
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxAutoReplySettings {
     type Vtable = IEmailMailboxAutoReplySettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2826608552, 2758, 19319, [186, 119, 166, 185, 158, 154, 39, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa87a9fa8_0ac6_4b77_ba77_a6b99e9a27b8);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxAutoReplySettings {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxAutoReplySettings";
@@ -2502,7 +2502,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxCapabilities {
     type Vtable = IEmailMailboxCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4007576486, 35291, 17157, [130, 196, 67, 158, 10, 51, 218, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeedec3a6_89db_4305_82c4_439e0a33da11);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxCapabilities {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxCapabilities";
@@ -2593,7 +2593,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxChange {
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxChange {
     type Vtable = IEmailMailboxChange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1642984779, 4591, 16396, [173, 222, 140, 222, 101, 200, 94, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61edf54b_11ef_400c_adde_8cde65c85e66);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxChange {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChange";
@@ -2670,7 +2670,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxChangeReader {
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxChangeReader {
     type Vtable = IEmailMailboxChangeReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3183283899, 50493, 17201, [151, 190, 190, 117, 162, 20, 106, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbdbd0ebb_c53d_4331_97be_be75a2146a75);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangeReader";
@@ -2754,7 +2754,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxChangeTracker {
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxChangeTracker {
     type Vtable = IEmailMailboxChangeTracker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2061796920, 20838, 17079, [136, 130, 253, 33, 201, 43, 221, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ae48638_5166_42b7_8882_fd21c92bdd4b);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangeTracker";
@@ -2844,7 +2844,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxChangedDeferral {
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxChangedDeferral {
     type Vtable = IEmailMailboxChangedDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2006611137, 38853, 19284, [179, 13, 48, 98, 50, 98, 62, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x779a74c1_97c5_4b54_b30d_306232623e6d);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangedDeferral";
@@ -2910,7 +2910,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxChangedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxChangedEventArgs {
     type Vtable = IEmailMailboxChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1023237998, 468, 20042, [164, 76, 178, 45, 212, 46, 194, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cfd5f6e_01d4_4e4a_a44c_b22dd42ec207);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangedEventArgs";
@@ -2984,7 +2984,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxCreateFolderResult {
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxCreateFolderResult {
     type Vtable = IEmailMailboxCreateFolderResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2988987775, 10373, 18840, [181, 149, 138, 45, 55, 76, 233, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb228557f_2885_4998_b595_8a2d374ce950);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxCreateFolderResult {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxCreateFolderResult";
@@ -3248,7 +3248,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxPolicies {
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxPolicies {
     type Vtable = IEmailMailboxPolicies_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(523453893, 7227, 19911, [180, 16, 99, 115, 120, 62, 84, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f3345c5_1c3b_4dc7_b410_6373783e545d);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxPolicies {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxPolicies";
@@ -3422,7 +3422,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMailboxSyncManager {
 }
 unsafe impl ::windows::runtime::Interface for EmailMailboxSyncManager {
     type Vtable = IEmailMailboxSyncManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1367000410, 13713, 19293, [133, 188, 199, 29, 222, 134, 34, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x517ac55a_3591_4b5d_85bc_c71dde862263);
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxSyncManager";
@@ -3577,7 +3577,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailManagerForUser {
 }
 unsafe impl ::windows::runtime::Interface for EmailManagerForUser {
     type Vtable = IEmailManagerForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4151565983, 15525, 19215, [144, 193, 21, 110, 64, 23, 76, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf773de9f_3ca5_4b0f_90c1_156e40174ce5);
 }
 impl ::windows::runtime::RuntimeName for EmailManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailManagerForUser";
@@ -3833,7 +3833,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMeetingInfo {
 }
 unsafe impl ::windows::runtime::Interface for EmailMeetingInfo {
     type Vtable = IEmailMeetingInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(834682793, 31027, 16735, [162, 117, 209, 101, 186, 7, 2, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31c03fa9_7933_415f_a275_d165ba07026b);
 }
 impl ::windows::runtime::RuntimeName for EmailMeetingInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMeetingInfo";
@@ -4346,7 +4346,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMessage {
 }
 unsafe impl ::windows::runtime::Interface for EmailMessage {
     type Vtable = IEmailMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1819120781, 32949, 18680, [176, 177, 224, 78, 67, 15, 68, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c6d948d_80b5_48f8_b0b1_e04e430f44e5);
 }
 impl ::windows::runtime::RuntimeName for EmailMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMessage";
@@ -4421,7 +4421,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMessageBatch {
 }
 unsafe impl ::windows::runtime::Interface for EmailMessageBatch {
     type Vtable = IEmailMessageBatch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1616695439, 9689, 20251, [158, 81, 5, 20, 192, 20, 150, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x605cd08f_25d9_4f1b_9e51_0514c0149653);
 }
 impl ::windows::runtime::RuntimeName for EmailMessageBatch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMessageBatch";
@@ -4534,7 +4534,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailMessageReader {
 }
 unsafe impl ::windows::runtime::Interface for EmailMessageReader {
     type Vtable = IEmailMessageReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(793427615, 25107, 19077, [163, 176, 249, 45, 26, 131, 157, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f4abe9f_6213_4a85_a3b0_f92d1a839d19);
 }
 impl ::windows::runtime::RuntimeName for EmailMessageReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMessageReader";
@@ -4747,7 +4747,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailQueryOptions {
 }
 unsafe impl ::windows::runtime::Interface for EmailQueryOptions {
     type Vtable = IEmailQueryOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1162890139, 15999, 19794, [182, 221, 214, 253, 78, 31, 189, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45504b9b_3e7f_4d52_b6dd_d6fd4e1fbd9a);
 }
 impl ::windows::runtime::RuntimeName for EmailQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailQueryOptions";
@@ -4963,7 +4963,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailQueryTextSearch {
 }
 unsafe impl ::windows::runtime::Interface for EmailQueryTextSearch {
     type Vtable = IEmailQueryTextSearch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2678104712, 15453, 18085, [166, 226, 49, 214, 253, 23, 229, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fa0a288_3c5d_46a5_a6e2_31d6fd17e540);
 }
 impl ::windows::runtime::RuntimeName for EmailQueryTextSearch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailQueryTextSearch";
@@ -5072,7 +5072,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailRecipient {
 }
 unsafe impl ::windows::runtime::Interface for EmailRecipient {
     type Vtable = IEmailRecipient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3404211635, 17528, 18452, [185, 0, 201, 2, 181, 225, 155, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcae825b3_4478_4814_b900_c902b5e19b53);
 }
 impl ::windows::runtime::RuntimeName for EmailRecipient {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailRecipient";
@@ -5165,7 +5165,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailRecipientResolutionResult {
 }
 unsafe impl ::windows::runtime::Interface for EmailRecipientResolutionResult {
     type Vtable = IEmailRecipientResolutionResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2441296122, 36237, 17779, [128, 209, 7, 23, 42, 52, 185, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x918338fa_8d8d_4573_80d1_07172a34b98d);
 }
 impl ::windows::runtime::RuntimeName for EmailRecipientResolutionResult {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailRecipientResolutionResult";
@@ -5373,7 +5373,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailStore {
 }
 unsafe impl ::windows::runtime::Interface for EmailStore {
     type Vtable = IEmailStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4160954990, 37175, 20363, [164, 112, 39, 154, 195, 5, 142, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf803226e_9137_4f8b_a470_279ac3058eb6);
 }
 impl ::windows::runtime::RuntimeName for EmailStore {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailStore";
@@ -5452,7 +5452,7 @@ unsafe impl ::windows::runtime::RuntimeType for EmailStoreNotificationTriggerDet
 }
 unsafe impl ::windows::runtime::Interface for EmailStoreNotificationTriggerDetails {
     type Vtable = IEmailStoreNotificationTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3457635900, 18150, 17353, [150, 247, 250, 207, 125, 215, 16, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce17563c_46e6_43c9_96f7_facf7dd710cb);
 }
 impl ::windows::runtime::RuntimeName for EmailStoreNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailStoreNotificationTriggerDetails";
@@ -5504,7 +5504,7 @@ unsafe impl ::core::marker::Sync for EmailStoreNotificationTriggerDetails {}
 pub struct IEmailAttachment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailAttachment {
     type Vtable = IEmailAttachment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4082354937, 22472, 19163, [185, 146, 96, 252, 235, 88, 79, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf353caf9_57c8_4adb_b992_60fceb584f54);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5527,7 +5527,7 @@ pub struct IEmailAttachment_abi(
 pub struct IEmailAttachment2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailAttachment2 {
     type Vtable = IEmailAttachment2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(576655472, 45311, 17777, [157, 84, 167, 6, 196, 141, 85, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x225f1070_b0ff_4571_9d54_a706c48d55c6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5558,7 +5558,7 @@ pub struct IEmailAttachment2_abi(
 pub struct IEmailAttachmentFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailAttachmentFactory {
     type Vtable = IEmailAttachmentFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037296198, 60758, 18809, [135, 8, 171, 184, 188, 133, 75, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x796eac46_ed56_4979_8708_abb8bc854b7d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5577,7 +5577,7 @@ pub struct IEmailAttachmentFactory_abi(
 pub struct IEmailAttachmentFactory2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailAttachmentFactory2 {
     type Vtable = IEmailAttachmentFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(589665333, 20985, 17021, [173, 205, 36, 16, 35, 200, 207, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23259435_51f9_427d_adcd_241023c8cfb7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5596,7 +5596,7 @@ pub struct IEmailAttachmentFactory2_abi(
 pub struct IEmailConversation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailConversation {
     type Vtable = IEmailConversation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3659055688, 41148, 17225, [144, 45, 144, 246, 99, 137, 245, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda18c248_a0bc_4349_902d_90f66389f51b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5631,7 +5631,7 @@ pub struct IEmailConversation_abi(
 pub struct IEmailConversationBatch(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailConversationBatch {
     type Vtable = IEmailConversationBatch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3099700097, 453, 17194, [157, 241, 254, 133, 217, 138, 39, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb8c1ab81_01c5_432a_9df1_fe85d98a279a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5651,7 +5651,7 @@ pub struct IEmailConversationBatch_abi(
 pub struct IEmailConversationReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailConversationReader {
     type Vtable = IEmailConversationReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3026390914, 10357, 17608, [155, 140, 133, 190, 179, 163, 198, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4630f82_2875_44c8_9b8c_85beb3a3c653);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5670,7 +5670,7 @@ pub struct IEmailConversationReader_abi(
 pub struct IEmailFolder(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailFolder {
     type Vtable = IEmailFolder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2723116913, 39276, 18532, [177, 186, 237, 18, 64, 229, 125, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa24f7771_996c_4864_b1ba_ed1240e57d11);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5723,7 +5723,7 @@ pub struct IEmailFolder_abi(
 pub struct IEmailIrmInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailIrmInfo {
     type Vtable = IEmailIrmInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2431984019, 45472, 20157, [166, 182, 221, 202, 85, 96, 110, 14]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90f52193_b1a0_4ebd_a6b6_ddca55606e0e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5766,7 +5766,7 @@ pub struct IEmailIrmInfo_abi(
 pub struct IEmailIrmInfoFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailIrmInfoFactory {
     type Vtable = IEmailIrmInfoFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(827044236, 58342, 19835, [190, 141, 145, 169, 99, 17, 176, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x314bb18c_e3e6_4d7b_be8d_91a96311b01b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5785,7 +5785,7 @@ pub struct IEmailIrmInfoFactory_abi(
 pub struct IEmailIrmTemplate(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailIrmTemplate {
     type Vtable = IEmailIrmTemplate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4079449485, 21613, 19434, [169, 99, 84, 163, 139, 44, 192, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf327758d_546d_4bea_a963_54a38b2cc016);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5808,7 +5808,7 @@ pub struct IEmailIrmTemplate_abi(
 pub struct IEmailIrmTemplateFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailIrmTemplateFactory {
     type Vtable = IEmailIrmTemplateFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1034098806, 34616, 17432, [185, 203, 71, 27, 147, 111, 231, 30]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3da31876_8738_4418_b9cb_471b936fe71e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5826,7 +5826,7 @@ pub struct IEmailIrmTemplateFactory_abi(
 pub struct IEmailItemCounts(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailItemCounts {
     type Vtable = IEmailItemCounts_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1540436769, 65224, 19371, [131, 186, 11, 175, 60, 31, 108, 189]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5bd13321_fec8_4bab_83ba_0baf3c1f6cbd);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5847,7 +5847,7 @@ pub struct IEmailItemCounts_abi(
 pub struct IEmailMailbox(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox {
     type Vtable = IEmailMailbox_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2826503753, 53083, 16667, [128, 177, 74, 106, 20, 132, 206, 37]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa8790649_cf5b_411b_80b1_4a6a1484ce25);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5944,7 +5944,7 @@ pub struct IEmailMailbox_abi(
 pub struct IEmailMailbox2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox2 {
     type Vtable = IEmailMailbox2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(351855620, 27810, 19122, [146, 65, 121, 205, 123, 244, 99, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x14f8e404_6ca2_4ab2_9241_79cd7bf46346);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5964,7 +5964,7 @@ pub struct IEmailMailbox2_abi(
 pub struct IEmailMailbox3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox3 {
     type Vtable = IEmailMailbox3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1034258811, 17803, 16522, [142, 55, 172, 139, 5, 216, 175, 86]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3da5897b_458b_408a_8e37_ac8b05d8af56);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5991,7 +5991,7 @@ pub struct IEmailMailbox3_abi(
 pub struct IEmailMailbox4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox4 {
     type Vtable = IEmailMailbox4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1562325019, 61986, 18599, [183, 182, 113, 99, 86, 205, 38, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d1f301b_f222_48a7_b7b6_716356cd26a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6010,7 +6010,7 @@ pub struct IEmailMailbox4_abi(
 pub struct IEmailMailbox5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox5 {
     type Vtable = IEmailMailbox5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(966160519, 146, 18878, [189, 14, 93, 77, 201, 217, 109, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39967087_0092_49be_bd0e_5d4dc9d96d90);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6028,7 +6028,7 @@ pub struct IEmailMailbox5_abi(
 pub struct IEmailMailboxAction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxAction {
     type Vtable = IEmailMailboxAction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2895677946, 8698, 18727, [146, 16, 212, 16, 88, 47, 223, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac9889fa_21fa_4927_9210_d410582fdf3e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6047,7 +6047,7 @@ pub struct IEmailMailboxAction_abi(
 pub struct IEmailMailboxAutoReply(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxAutoReply {
     type Vtable = IEmailMailboxAutoReply_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3793954124, 35508, 18523, [179, 31, 4, 209, 84, 118, 189, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe223254c_8ab4_485b_b31f_04d15476bd59);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6068,7 +6068,7 @@ pub struct IEmailMailboxAutoReply_abi(
 pub struct IEmailMailboxAutoReplySettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxAutoReplySettings {
     type Vtable = IEmailMailboxAutoReplySettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2826608552, 2758, 19319, [186, 119, 166, 185, 158, 154, 39, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa87a9fa8_0ac6_4b77_ba77_a6b99e9a27b8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6100,7 +6100,7 @@ pub struct IEmailMailboxAutoReplySettings_abi(
 pub struct IEmailMailboxCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCapabilities {
     type Vtable = IEmailMailboxCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4007576486, 35291, 17157, [130, 196, 67, 158, 10, 51, 218, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeedec3a6_89db_4305_82c4_439e0a33da11);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6125,7 +6125,7 @@ pub struct IEmailMailboxCapabilities_abi(
 pub struct IEmailMailboxCapabilities2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCapabilities2 {
     type Vtable = IEmailMailboxCapabilities2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1769094884, 12065, 19644, [136, 171, 46, 118, 2, 164, 128, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69723ee4_2f21_4cbc_88ab_2e7602a4806b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6148,7 +6148,7 @@ pub struct IEmailMailboxCapabilities2_abi(
 pub struct IEmailMailboxCapabilities3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCapabilities3 {
     type Vtable = IEmailMailboxCapabilities3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4136692036, 22258, 17834, [135, 44, 12, 233, 243, 219, 11, 92]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf690e944_56f2_45aa_872c_0ce9f3db0b5c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6179,7 +6179,7 @@ pub struct IEmailMailboxCapabilities3_abi(
 pub struct IEmailMailboxChange(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChange {
     type Vtable = IEmailMailboxChange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1642984779, 4591, 16396, [173, 222, 140, 222, 101, 200, 94, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61edf54b_11ef_400c_adde_8cde65c85e66);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6201,7 +6201,7 @@ pub struct IEmailMailboxChange_abi(
 pub struct IEmailMailboxChangeReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChangeReader {
     type Vtable = IEmailMailboxChangeReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3183283899, 50493, 17201, [151, 190, 190, 117, 162, 20, 106, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbdbd0ebb_c53d_4331_97be_be75a2146a75);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6222,7 +6222,7 @@ pub struct IEmailMailboxChangeReader_abi(
 pub struct IEmailMailboxChangeTracker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChangeTracker {
     type Vtable = IEmailMailboxChangeTracker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2061796920, 20838, 17079, [136, 130, 253, 33, 201, 43, 221, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ae48638_5166_42b7_8882_fd21c92bdd4b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6243,7 +6243,7 @@ pub struct IEmailMailboxChangeTracker_abi(
 pub struct IEmailMailboxChangedDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChangedDeferral {
     type Vtable = IEmailMailboxChangedDeferral_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2006611137, 38853, 19284, [179, 13, 48, 98, 50, 98, 62, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x779a74c1_97c5_4b54_b30d_306232623e6d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6261,7 +6261,7 @@ pub struct IEmailMailboxChangedDeferral_abi(
 pub struct IEmailMailboxChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChangedEventArgs {
     type Vtable = IEmailMailboxChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1023237998, 468, 20042, [164, 76, 178, 45, 212, 46, 194, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cfd5f6e_01d4_4e4a_a44c_b22dd42ec207);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6279,7 +6279,7 @@ pub struct IEmailMailboxChangedEventArgs_abi(
 pub struct IEmailMailboxCreateFolderResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCreateFolderResult {
     type Vtable = IEmailMailboxCreateFolderResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2988987775, 10373, 18840, [181, 149, 138, 45, 55, 76, 233, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb228557f_2885_4998_b595_8a2d374ce950);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6298,7 +6298,7 @@ pub struct IEmailMailboxCreateFolderResult_abi(
 pub struct IEmailMailboxPolicies(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxPolicies {
     type Vtable = IEmailMailboxPolicies_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(523453893, 7227, 19911, [180, 16, 99, 115, 120, 62, 84, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f3345c5_1c3b_4dc7_b410_6373783e545d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6321,7 +6321,7 @@ pub struct IEmailMailboxPolicies_abi(
 pub struct IEmailMailboxPolicies2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxPolicies2 {
     type Vtable = IEmailMailboxPolicies2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3132459771, 41291, 18812, [168, 226, 85, 234, 194, 156, 196, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbab58afb_a14b_497c_a8e2_55eac29cc4b5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6340,7 +6340,7 @@ pub struct IEmailMailboxPolicies2_abi(
 pub struct IEmailMailboxPolicies3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxPolicies3 {
     type Vtable = IEmailMailboxPolicies3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3184828447, 18535, 16714, [129, 162, 128, 57, 25, 196, 65, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbdd4a01f_4867_414a_81a2_803919c44191);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6365,7 +6365,7 @@ pub struct IEmailMailboxPolicies3_abi(
 pub struct IEmailMailboxSyncManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxSyncManager {
     type Vtable = IEmailMailboxSyncManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1367000410, 13713, 19293, [133, 188, 199, 29, 222, 134, 34, 99]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x517ac55a_3591_4b5d_85bc_c71dde862263);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6393,7 +6393,7 @@ pub struct IEmailMailboxSyncManager_abi(
 pub struct IEmailMailboxSyncManager2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxSyncManager2 {
     type Vtable = IEmailMailboxSyncManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3448621438, 38337, 20361, [129, 183, 230, 174, 203, 102, 149, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd8dc97e_95c1_4f89_81b7_e6aecb6695fc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6415,7 +6415,7 @@ pub struct IEmailMailboxSyncManager2_abi(
 pub struct IEmailManagerForUser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailManagerForUser {
     type Vtable = IEmailManagerForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4151565983, 15525, 19215, [144, 193, 21, 110, 64, 23, 76, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf773de9f_3ca5_4b0f_90c1_156e40174ce5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6438,7 +6438,7 @@ pub struct IEmailManagerForUser_abi(
 pub struct IEmailManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailManagerStatics {
     type Vtable = IEmailManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4111631956, 21957, 18576, [168, 36, 33, 108, 38, 24, 206, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf5128654_55c5_4890_a824_216c2618ce7f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6457,7 +6457,7 @@ pub struct IEmailManagerStatics_abi(
 pub struct IEmailManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailManagerStatics2 {
     type Vtable = IEmailManagerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2886020515, 45460, 16989, [182, 217, 208, 240, 65, 53, 237, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac052da3_b194_425d_b6d9_d0f04135eda2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6476,7 +6476,7 @@ pub struct IEmailManagerStatics2_abi(
 pub struct IEmailManagerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailManagerStatics3 {
     type Vtable = IEmailManagerStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1248994197, 33854, 18757, [179, 170, 52, 158, 7, 163, 98, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a722395_843e_4945_b3aa_349e07a362c5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6495,7 +6495,7 @@ pub struct IEmailManagerStatics3_abi(
 pub struct IEmailMeetingInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMeetingInfo {
     type Vtable = IEmailMeetingInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(834682793, 31027, 16735, [162, 117, 209, 101, 186, 7, 2, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31c03fa9_7933_415f_a275_d165ba07026b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6552,7 +6552,7 @@ pub struct IEmailMeetingInfo_abi(
 pub struct IEmailMeetingInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMeetingInfo2 {
     type Vtable = IEmailMeetingInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2119776365, 45273, 20453, [134, 124, 227, 30, 210, 181, 136, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7e59386d_b0d9_4fe5_867c_e31ed2b588b8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6570,7 +6570,7 @@ pub struct IEmailMeetingInfo2_abi(
 pub struct IEmailMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessage {
     type Vtable = IEmailMessage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1819120781, 32949, 18680, [176, 177, 224, 78, 67, 15, 68, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c6d948d_80b5_48f8_b0b1_e04e430f44e5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6599,7 +6599,7 @@ pub struct IEmailMessage_abi(
 pub struct IEmailMessage2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessage2 {
     type Vtable = IEmailMessage2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4257752203, 40730, 17627, [189, 60, 101, 195, 132, 119, 15, 134]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfdc8248b_9f1a_44db_bd3c_65c384770f86);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6665,7 +6665,7 @@ pub struct IEmailMessage2_abi(
 pub struct IEmailMessage3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessage3 {
     type Vtable = IEmailMessage3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2716493660, 58776, 19753, [160, 24, 252, 123, 126, 236, 224, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1ea675c_e598_4d29_a018_fc7b7eece0a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6688,7 +6688,7 @@ pub struct IEmailMessage3_abi(
 pub struct IEmailMessage4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessage4 {
     type Vtable = IEmailMessage4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(830271873, 15999, 18949, [131, 148, 62, 16, 51, 109, 212, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x317cf181_3e7f_4a05_8394_3e10336dd435);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6709,7 +6709,7 @@ pub struct IEmailMessage4_abi(
 pub struct IEmailMessageBatch(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessageBatch {
     type Vtable = IEmailMessageBatch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1616695439, 9689, 20251, [158, 81, 5, 20, 192, 20, 150, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x605cd08f_25d9_4f1b_9e51_0514c0149653);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6729,7 +6729,7 @@ pub struct IEmailMessageBatch_abi(
 pub struct IEmailMessageReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessageReader {
     type Vtable = IEmailMessageReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(793427615, 25107, 19077, [163, 176, 249, 45, 26, 131, 157, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2f4abe9f_6213_4a85_a3b0_f92d1a839d19);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6748,7 +6748,7 @@ pub struct IEmailMessageReader_abi(
 pub struct IEmailQueryOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailQueryOptions {
     type Vtable = IEmailQueryOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1162890139, 15999, 19794, [182, 221, 214, 253, 78, 31, 189, 154]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45504b9b_3e7f_4d52_b6dd_d6fd4e1fbd9a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6774,7 +6774,7 @@ pub struct IEmailQueryOptions_abi(
 pub struct IEmailQueryOptionsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailQueryOptionsFactory {
     type Vtable = IEmailQueryOptionsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2297536952, 30891, 20200, [180, 227, 4, 109, 110, 47, 229, 226]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88f1a1b8_78ab_4ee8_b4e3_046d6e2fe5e2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6793,7 +6793,7 @@ pub struct IEmailQueryOptionsFactory_abi(
 pub struct IEmailQueryTextSearch(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailQueryTextSearch {
     type Vtable = IEmailQueryTextSearch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2678104712, 15453, 18085, [166, 226, 49, 214, 253, 23, 229, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fa0a288_3c5d_46a5_a6e2_31d6fd17e540);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6816,7 +6816,7 @@ pub struct IEmailQueryTextSearch_abi(
 pub struct IEmailRecipient(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailRecipient {
     type Vtable = IEmailRecipient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3404211635, 17528, 18452, [185, 0, 201, 2, 181, 225, 155, 83]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcae825b3_4478_4814_b900_c902b5e19b53);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6837,7 +6837,7 @@ pub struct IEmailRecipient_abi(
 pub struct IEmailRecipientFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailRecipientFactory {
     type Vtable = IEmailRecipientFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1426110541, 51098, 20216, [185, 9, 114, 46, 24, 227, 147, 93]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5500b84d_c79a_4ef8_b909_722e18e3935d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6856,7 +6856,7 @@ pub struct IEmailRecipientFactory_abi(
 pub struct IEmailRecipientResolutionResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailRecipientResolutionResult {
     type Vtable = IEmailRecipientResolutionResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2441296122, 36237, 17779, [128, 209, 7, 23, 42, 52, 185, 141]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x918338fa_8d8d_4573_80d1_07172a34b98d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6876,7 +6876,7 @@ pub struct IEmailRecipientResolutionResult_abi(
 pub struct IEmailRecipientResolutionResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailRecipientResolutionResult2 {
     type Vtable = IEmailRecipientResolutionResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1581386678, 52827, 19422, [185, 212, 225, 109, 160, 176, 159, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e420bb6_ce5b_4bde_b9d4_e16da0b09fca);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6896,7 +6896,7 @@ pub struct IEmailRecipientResolutionResult2_abi(
 pub struct IEmailStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailStore {
     type Vtable = IEmailStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4160954990, 37175, 20363, [164, 112, 39, 154, 195, 5, 142, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf803226e_9137_4f8b_a470_279ac3058eb6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6931,7 +6931,7 @@ pub struct IEmailStore_abi(
 pub struct IEmailStoreNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailStoreNotificationTriggerDetails {
     type Vtable = IEmailStoreNotificationTriggerDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3457635900, 18150, 17353, [150, 247, 250, 207, 125, 215, 16, 203]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce17563c_46e6_43c9_96f7_facf7dd710cb);
 }
 #[repr(C)]
 #[doc(hidden)]

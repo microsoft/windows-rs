@@ -65,7 +65,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreIncrementalInkStroke {
 }
 unsafe impl ::windows::runtime::Interface for CoreIncrementalInkStroke {
     type Vtable = ICoreIncrementalInkStroke_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4255126995, 40294, 20349, [165, 127, 204, 112, 185, 207, 170, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfda015d3_9d66_4f7d_a57f_cc70b9cfaa76);
 }
 impl ::windows::runtime::RuntimeName for CoreIncrementalInkStroke {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreIncrementalInkStroke";
@@ -262,7 +262,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreInkIndependentInputSource {
 }
 unsafe impl ::windows::runtime::Interface for CoreInkIndependentInputSource {
     type Vtable = ICoreInkIndependentInputSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(968068521, 30265, 17561, [165, 181, 25, 29, 0, 227, 91, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39b38da9_7639_4499_a5b5_191d00e35b16);
 }
 impl ::windows::runtime::RuntimeName for CoreInkIndependentInputSource {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreInkIndependentInputSource";
@@ -350,7 +350,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreInkPresenterHost {
 }
 unsafe impl ::windows::runtime::Interface for CoreInkPresenterHost {
     type Vtable = ICoreInkPresenterHost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(963545574, 32085, 17943, [158, 88, 104, 199, 12, 145, 105, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x396e89e6_7d55_4617_9e58_68c70c9169b9);
 }
 impl ::windows::runtime::RuntimeName for CoreInkPresenterHost {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreInkPresenterHost";
@@ -461,7 +461,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreWetStrokeUpdateEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for CoreWetStrokeUpdateEventArgs {
     type Vtable = ICoreWetStrokeUpdateEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4211593548, 13184, 17786, [169, 135, 153, 19, 87, 137, 108, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb07d14c_3380_457a_a987_991357896c1b);
 }
 impl ::windows::runtime::RuntimeName for CoreWetStrokeUpdateEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreWetStrokeUpdateEventArgs";
@@ -613,7 +613,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreWetStrokeUpdateSource {
 }
 unsafe impl ::windows::runtime::Interface for CoreWetStrokeUpdateSource {
     type Vtable = ICoreWetStrokeUpdateSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(527535650, 61010, 19968, [130, 9, 76, 62, 91, 33, 163, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f718e22_ee52_4e00_8209_4c3e5b21a3cc);
 }
 impl ::windows::runtime::RuntimeName for CoreWetStrokeUpdateSource {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreWetStrokeUpdateSource";
@@ -665,7 +665,7 @@ unsafe impl ::core::marker::Sync for CoreWetStrokeUpdateSource {}
 pub struct ICoreIncrementalInkStroke(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreIncrementalInkStroke {
     type Vtable = ICoreIncrementalInkStroke_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4255126995, 40294, 20349, [165, 127, 204, 112, 185, 207, 170, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfda015d3_9d66_4f7d_a57f_cc70b9cfaa76);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -690,7 +690,7 @@ pub struct ICoreIncrementalInkStroke_abi(
 pub struct ICoreIncrementalInkStrokeFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreIncrementalInkStrokeFactory {
     type Vtable = ICoreIncrementalInkStrokeFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3620052806, 36264, 20336, [151, 81, 229, 59, 182, 223, 69, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7c59f46_8da8_4f70_9751_e53bb6df4596);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -709,7 +709,7 @@ pub struct ICoreIncrementalInkStrokeFactory_abi(
 pub struct ICoreInkIndependentInputSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInkIndependentInputSource {
     type Vtable = ICoreInkIndependentInputSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(968068521, 30265, 17561, [165, 181, 25, 29, 0, 227, 91, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39b38da9_7639_4499_a5b5_191d00e35b16);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -755,7 +755,7 @@ pub struct ICoreInkIndependentInputSource_abi(
 pub struct ICoreInkIndependentInputSource2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInkIndependentInputSource2 {
     type Vtable = ICoreInkIndependentInputSource2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(675721234, 2905, 23481, [163, 197, 190, 203, 124, 240, 58, 51]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2846b012_0b59_5bb9_a3c5_becb7cf03a33);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -776,7 +776,7 @@ pub struct ICoreInkIndependentInputSource2_abi(
 pub struct ICoreInkIndependentInputSourceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInkIndependentInputSourceStatics {
     type Vtable = ICoreInkIndependentInputSourceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1944453403, 32960, 19963, [155, 102, 16, 186, 127, 63, 156, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73e6011b_80c0_4dfb_9b66_10ba7f3f9c84);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -794,7 +794,7 @@ pub struct ICoreInkIndependentInputSourceStatics_abi(
 pub struct ICoreInkPresenterHost(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInkPresenterHost {
     type Vtable = ICoreInkPresenterHost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(963545574, 32085, 17943, [158, 88, 104, 199, 12, 145, 105, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x396e89e6_7d55_4617_9e58_68c70c9169b9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -816,7 +816,7 @@ pub struct ICoreInkPresenterHost_abi(
 pub struct ICoreWetStrokeUpdateEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWetStrokeUpdateEventArgs {
     type Vtable = ICoreWetStrokeUpdateEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4211593548, 13184, 17786, [169, 135, 153, 19, 87, 137, 108, 27]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfb07d14c_3380_457a_a987_991357896c1b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -838,7 +838,7 @@ pub struct ICoreWetStrokeUpdateEventArgs_abi(
 pub struct ICoreWetStrokeUpdateSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWetStrokeUpdateSource {
     type Vtable = ICoreWetStrokeUpdateSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(527535650, 61010, 19968, [130, 9, 76, 62, 91, 33, 163, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f718e22_ee52_4e00_8209_4c3e5b21a3cc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -876,7 +876,7 @@ pub struct ICoreWetStrokeUpdateSource_abi(
 pub struct ICoreWetStrokeUpdateSourceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWetStrokeUpdateSourceStatics {
     type Vtable = ICoreWetStrokeUpdateSourceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1034788026, 7485, 18094, [171, 157, 134, 71, 72, 108, 111, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3dad9cba_1d3d_46ae_ab9d_8647486c6f90);
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -22,7 +22,7 @@ impl IWICImageEncoder {
 }
 unsafe impl ::windows::runtime::Interface for IWICImageEncoder {
     type Vtable = IWICImageEncoder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(80174072, 15585, 18235, [172, 197, 60, 196, 245, 233, 73, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04c75bf8_3ce1_473b_acc5_3cc4f5e94999);
 }
 impl ::core::convert::From<IWICImageEncoder> for ::windows::runtime::IUnknown {
     fn from(value: IWICImageEncoder) -> Self {
@@ -201,7 +201,7 @@ impl IWICImagingFactory2 {
 }
 unsafe impl ::windows::runtime::Interface for IWICImagingFactory2 {
     type Vtable = IWICImagingFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2072079173, 6550, 17526, [177, 50, 222, 158, 36, 124, 138, 240]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b816b45_1996_4476_b132_de9e247c8af0);
 }
 impl ::core::convert::From<IWICImagingFactory2> for ::windows::runtime::IUnknown {
     fn from(value: IWICImagingFactory2) -> Self {

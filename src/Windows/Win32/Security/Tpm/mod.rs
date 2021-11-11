@@ -51,7 +51,7 @@ impl ITpmVirtualSmartCardManager {
 }
 unsafe impl ::windows::runtime::Interface for ITpmVirtualSmartCardManager {
     type Vtable = ITpmVirtualSmartCardManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(288038399, 55772, 16887, [134, 159, 214, 127, 238, 124, 181, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x112b1dff_d9dc_41f7_869f_d67fee7cb591);
 }
 impl ::core::convert::From<ITpmVirtualSmartCardManager> for ::windows::runtime::IUnknown {
     fn from(value: ITpmVirtualSmartCardManager) -> Self {
@@ -179,7 +179,7 @@ impl ITpmVirtualSmartCardManager2 {
 }
 unsafe impl ::windows::runtime::Interface for ITpmVirtualSmartCardManager2 {
     type Vtable = ITpmVirtualSmartCardManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4260930233, 734, 18420, [188, 38, 170, 133, 171, 94, 82, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfdf8a2b9_02de_47f4_bc26_aa85ab5e5267);
 }
 impl ::core::convert::From<ITpmVirtualSmartCardManager2> for ::windows::runtime::IUnknown {
     fn from(value: ITpmVirtualSmartCardManager2) -> Self {
@@ -390,7 +390,7 @@ impl ITpmVirtualSmartCardManager3 {
 }
 unsafe impl ::windows::runtime::Interface for ITpmVirtualSmartCardManager3 {
     type Vtable = ITpmVirtualSmartCardManager3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1014258327, 62325, 16720, [190, 23, 89, 80, 246, 148, 198, 153]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c745a97_f375_4150_be17_5950f694c699);
 }
 impl ::core::convert::From<ITpmVirtualSmartCardManager3> for ::windows::runtime::IUnknown {
     fn from(value: ITpmVirtualSmartCardManager3) -> Self {
@@ -522,7 +522,7 @@ impl ITpmVirtualSmartCardManagerStatusCallback {
 }
 unsafe impl ::windows::runtime::Interface for ITpmVirtualSmartCardManagerStatusCallback {
     type Vtable = ITpmVirtualSmartCardManagerStatusCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(438023007, 43960, 17692, [161, 174, 51, 217, 143, 27, 239, 74]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a1bb35f_abb8_451c_a1ae_33d98f1bef4a);
 }
 impl ::core::convert::From<ITpmVirtualSmartCardManagerStatusCallback> for ::windows::runtime::IUnknown {
     fn from(value: ITpmVirtualSmartCardManagerStatusCallback) -> Self {
@@ -553,7 +553,7 @@ pub struct ITpmVirtualSmartCardManagerStatusCallback_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, status: TPMVSCMGR_STATUS) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, error: TPMVSCMGR_ERROR) -> ::windows::runtime::HRESULT,
 );
-pub const RemoteTpmVirtualSmartCardManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(355377832, 28892, 19545, [139, 42, 50, 170, 60, 160, 220, 172]);
+pub const RemoteTpmVirtualSmartCardManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x152ea2a8_70dc_4c59_8b2a_32aa3ca0dcac);
 #[doc = "*Required features: `Win32_Security_Tpm`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -628,4 +628,4 @@ unsafe impl ::windows::runtime::Abi for TPMVSC_ATTESTATION_TYPE {
 }
 #[doc = "*Required features: `Win32_Security_Tpm`*"]
 pub const TPMVSC_DEFAULT_ADMIN_ALGORITHM_ID: u32 = 130u32;
-pub const TpmVirtualSmartCardManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(379686534, 32622, 19488, [173, 137, 79, 252, 13, 183, 169, 106]);
+pub const TpmVirtualSmartCardManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16a18e86_7f6e_4c20_ad89_4ffc0db7a96a);

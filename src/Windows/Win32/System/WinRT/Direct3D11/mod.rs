@@ -44,7 +44,7 @@ impl IDirect3DDxgiInterfaceAccess {
 }
 unsafe impl ::windows::runtime::Interface for IDirect3DDxgiInterfaceAccess {
     type Vtable = IDirect3DDxgiInterfaceAccess_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2847133714, 15858, 20195, [184, 209, 134, 149, 244, 87, 211, 193]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9b3d012_3df2_4ee3_b8d1_8695f457d3c1);
 }
 impl ::core::convert::From<IDirect3DDxgiInterfaceAccess> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DDxgiInterfaceAccess) -> Self {

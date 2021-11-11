@@ -27,7 +27,7 @@ impl ::windows::runtime::DefaultType for CredentialPromptType {
 pub struct IOnlineIdAuthenticator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOnlineIdAuthenticator {
     type Vtable = IOnlineIdAuthenticator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2684614026, 10667, 18455, [184, 132, 215, 81, 109, 173, 24, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa003f58a_29ab_4817_b884_d7516dad18b9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -54,7 +54,7 @@ pub struct IOnlineIdAuthenticator_abi(
 pub struct IOnlineIdServiceTicket(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOnlineIdServiceTicket {
     type Vtable = IOnlineIdServiceTicket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3378271359, 55169, 19092, [172, 184, 197, 152, 116, 35, 140, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc95c547f_d781_4a94_acb8_c59874238c26);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -74,7 +74,7 @@ pub struct IOnlineIdServiceTicket_abi(
 pub struct IOnlineIdServiceTicketRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOnlineIdServiceTicketRequest {
     type Vtable = IOnlineIdServiceTicketRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(695485907, 64355, 16693, [137, 9, 78, 53, 76, 6, 20, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x297445d3_fb63_4135_8909_4e354c061466);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -93,7 +93,7 @@ pub struct IOnlineIdServiceTicketRequest_abi(
 pub struct IOnlineIdServiceTicketRequestFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOnlineIdServiceTicketRequestFactory {
     type Vtable = IOnlineIdServiceTicketRequestFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3199928840, 40563, 16503, [150, 20, 8, 97, 76, 11, 194, 69]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbebb0a08_9e73_4077_9614_08614c0bc245);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -112,7 +112,7 @@ pub struct IOnlineIdServiceTicketRequestFactory_abi(
 pub struct IOnlineIdSystemAuthenticatorForUser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOnlineIdSystemAuthenticatorForUser {
     type Vtable = IOnlineIdSystemAuthenticatorForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1469628155, 7652, 16774, [162, 230, 181, 99, 248, 106, 175, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5798befb_1de4_4186_a2e6_b563f86aaf44);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -135,7 +135,7 @@ pub struct IOnlineIdSystemAuthenticatorForUser_abi(
 pub struct IOnlineIdSystemAuthenticatorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOnlineIdSystemAuthenticatorStatics {
     type Vtable = IOnlineIdSystemAuthenticatorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2231662482, 63028, 16867, [150, 164, 81, 100, 233, 2, 199, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85047792_f634_41e3_96a4_5164e902c740);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -155,7 +155,7 @@ pub struct IOnlineIdSystemAuthenticatorStatics_abi(
 pub struct IOnlineIdSystemIdentity(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOnlineIdSystemIdentity {
     type Vtable = IOnlineIdSystemIdentity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1950142989, 46794, 17229, [129, 36, 83, 234, 18, 104, 83, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x743cd20d_b6ca_434d_8124_53ea12685307);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -174,7 +174,7 @@ pub struct IOnlineIdSystemIdentity_abi(
 pub struct IOnlineIdSystemTicketResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOnlineIdSystemTicketResult {
     type Vtable = IOnlineIdSystemTicketResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3674890232, 45208, 19149, [157, 19, 158, 100, 6, 82, 181, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb0a5ff8_b098_4acd_9d13_9e640652b5b6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -194,7 +194,7 @@ pub struct IOnlineIdSystemTicketResult_abi(
 pub struct IUserIdentity(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserIdentity {
     type Vtable = IUserIdentity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(558291405, 1858, 19427, [138, 28, 124, 122, 230, 121, 170, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2146d9cd_0742_4be3_8a1c_7c7ae679aa88);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -289,7 +289,7 @@ unsafe impl ::windows::runtime::RuntimeType for OnlineIdAuthenticator {
 }
 unsafe impl ::windows::runtime::Interface for OnlineIdAuthenticator {
     type Vtable = IOnlineIdAuthenticator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2684614026, 10667, 18455, [184, 132, 215, 81, 109, 173, 24, 185]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa003f58a_29ab_4817_b884_d7516dad18b9);
 }
 impl ::windows::runtime::RuntimeName for OnlineIdAuthenticator {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdAuthenticator";
@@ -371,7 +371,7 @@ unsafe impl ::windows::runtime::RuntimeType for OnlineIdServiceTicket {
 }
 unsafe impl ::windows::runtime::Interface for OnlineIdServiceTicket {
     type Vtable = IOnlineIdServiceTicket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3378271359, 55169, 19092, [172, 184, 197, 152, 116, 35, 140, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc95c547f_d781_4a94_acb8_c59874238c26);
 }
 impl ::windows::runtime::RuntimeName for OnlineIdServiceTicket {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdServiceTicket";
@@ -463,7 +463,7 @@ unsafe impl ::windows::runtime::RuntimeType for OnlineIdServiceTicketRequest {
 }
 unsafe impl ::windows::runtime::Interface for OnlineIdServiceTicketRequest {
     type Vtable = IOnlineIdServiceTicketRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(695485907, 64355, 16693, [137, 9, 78, 53, 76, 6, 20, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x297445d3_fb63_4135_8909_4e354c061466);
 }
 impl ::windows::runtime::RuntimeName for OnlineIdServiceTicketRequest {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdServiceTicketRequest";
@@ -578,7 +578,7 @@ unsafe impl ::windows::runtime::RuntimeType for OnlineIdSystemAuthenticatorForUs
 }
 unsafe impl ::windows::runtime::Interface for OnlineIdSystemAuthenticatorForUser {
     type Vtable = IOnlineIdSystemAuthenticatorForUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1469628155, 7652, 16774, [162, 230, 181, 99, 248, 106, 175, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5798befb_1de4_4186_a2e6_b563f86aaf44);
 }
 impl ::windows::runtime::RuntimeName for OnlineIdSystemAuthenticatorForUser {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemAuthenticatorForUser";
@@ -652,7 +652,7 @@ unsafe impl ::windows::runtime::RuntimeType for OnlineIdSystemIdentity {
 }
 unsafe impl ::windows::runtime::Interface for OnlineIdSystemIdentity {
     type Vtable = IOnlineIdSystemIdentity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1950142989, 46794, 17229, [129, 36, 83, 234, 18, 104, 83, 7]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x743cd20d_b6ca_434d_8124_53ea12685307);
 }
 impl ::windows::runtime::RuntimeName for OnlineIdSystemIdentity {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemIdentity";
@@ -734,7 +734,7 @@ unsafe impl ::windows::runtime::RuntimeType for OnlineIdSystemTicketResult {
 }
 unsafe impl ::windows::runtime::Interface for OnlineIdSystemTicketResult {
     type Vtable = IOnlineIdSystemTicketResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3674890232, 45208, 19149, [157, 19, 158, 100, 6, 82, 181, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb0a5ff8_b098_4acd_9d13_9e640652b5b6);
 }
 impl ::windows::runtime::RuntimeName for OnlineIdSystemTicketResult {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketResult";
@@ -892,7 +892,7 @@ unsafe impl ::windows::runtime::RuntimeType for SignOutUserOperation {
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::Interface for SignOutUserOperation {
     type Vtable = super::super::super::Foundation::IAsyncAction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1516535814, 33850, 19881, [134, 91, 157, 38, 229, 223, 173, 123]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5a648006_843a_4da9_865b_9d26e5dfad7b);
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::runtime::RuntimeName for SignOutUserOperation {
@@ -1309,7 +1309,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserIdentity {
 }
 unsafe impl ::windows::runtime::Interface for UserIdentity {
     type Vtable = IUserIdentity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(558291405, 1858, 19427, [138, 28, 124, 122, 230, 121, 170, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2146d9cd_0742_4be3_8a1c_7c7ae679aa88);
 }
 impl ::windows::runtime::RuntimeName for UserIdentity {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.UserIdentity";

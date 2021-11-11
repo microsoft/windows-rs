@@ -28,7 +28,7 @@ unsafe impl ::windows::runtime::RuntimeType for ComponentLoadFailedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ComponentLoadFailedEventArgs {
     type Vtable = IComponentLoadFailedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2509713043, 30534, 16766, [132, 149, 240, 49, 187, 197, 134, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95972e93_7746_417e_8495_f031bbc5862c);
 }
 impl ::windows::runtime::RuntimeName for ComponentLoadFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.ComponentLoadFailedEventArgs";
@@ -99,7 +99,7 @@ unsafe impl ::windows::runtime::RuntimeType for ComponentLoadFailedEventHandler 
 }
 unsafe impl ::windows::runtime::Interface for ComponentLoadFailedEventHandler {
     type Vtable = ComponentLoadFailedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2514117692, 28089, 16971, [134, 202, 9, 26, 244, 50, 8, 28]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95da643c_6db9_424b_86ca_091af432081c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -285,7 +285,7 @@ unsafe impl ::windows::runtime::RuntimeType for HdcpSession {
 }
 unsafe impl ::windows::runtime::Interface for HdcpSession {
     type Vtable = IHdcpSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1904756201, 25815, 17005, [128, 155, 27, 228, 97, 148, 26, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x718845e9_64d7_426d_809b_1be461941a2a);
 }
 impl ::windows::runtime::RuntimeName for HdcpSession {
     const NAME: &'static str = "Windows.Media.Protection.HdcpSession";
@@ -387,7 +387,7 @@ impl ::windows::runtime::DefaultType for HdcpSetProtectionResult {
 pub struct IComponentLoadFailedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IComponentLoadFailedEventArgs {
     type Vtable = IComponentLoadFailedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2509713043, 30534, 16766, [132, 149, 240, 49, 187, 197, 134, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x95972e93_7746_417e_8495_f031bbc5862c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -406,7 +406,7 @@ pub struct IComponentLoadFailedEventArgs_abi(
 pub struct IComponentRenewalStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IComponentRenewalStatics {
     type Vtable = IComponentRenewalStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1878773095, 46997, 18629, [139, 123, 167, 196, 239, 226, 2, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ffbcd67_b795_48c5_8b7b_a7c4efe202e3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -425,7 +425,7 @@ pub struct IComponentRenewalStatics_abi(
 pub struct IHdcpSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdcpSession {
     type Vtable = IHdcpSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1904756201, 25815, 17005, [128, 155, 27, 228, 97, 148, 26, 42]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x718845e9_64d7_426d_809b_1be461941a2a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -451,7 +451,7 @@ pub struct IHdcpSession_abi(
 pub struct IMediaProtectionManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaProtectionManager {
     type Vtable = IMediaProtectionManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1164527943, 51009, 17227, [167, 158, 71, 76, 18, 217, 61, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45694947_c741_434b_a79e_474c12d93d2f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -482,7 +482,7 @@ pub struct IMediaProtectionManager_abi(
 pub struct IMediaProtectionPMPServer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaProtectionPMPServer {
     type Vtable = IMediaProtectionPMPServer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(202445350, 31526, 19761, [149, 187, 156, 27, 8, 239, 127, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c111226_7b26_4d31_95bb_9c1b08ef7fc0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -501,7 +501,7 @@ pub struct IMediaProtectionPMPServer_abi(
 pub struct IMediaProtectionPMPServerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaProtectionPMPServerFactory {
     type Vtable = IMediaProtectionPMPServerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1613532766, 63442, 18558, [175, 145, 219, 196, 37, 43, 33, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x602c8e5e_f7d2_487e_af91_dbc4252b2182);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -520,7 +520,7 @@ pub struct IMediaProtectionPMPServerFactory_abi(
 pub struct IMediaProtectionServiceCompletion(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaProtectionServiceCompletion {
     type Vtable = IMediaProtectionServiceCompletion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2338114072, 53205, 17646, [162, 237, 223, 118, 1, 12, 20, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b5cca18_cfd5_44ee_a2ed_df76010c14b5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -539,7 +539,7 @@ pub struct IMediaProtectionServiceCompletion_abi(
 pub struct IMediaProtectionServiceRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaProtectionServiceRequest {
     type Vtable = IMediaProtectionServiceRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2984119974, 8340, 18317, [135, 164, 139, 149, 32, 15, 133, 198]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb1de0ea6_2094_478d_87a4_8b95200f85c6);
 }
 impl IMediaProtectionServiceRequest {
     #[doc = "*Required features: `Media_Protection`*"]
@@ -619,7 +619,7 @@ pub struct IMediaProtectionServiceRequest_abi(
 pub struct IProtectionCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectionCapabilities {
     type Vtable = IProtectionCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3349962110, 29824, 19753, [164, 100, 123, 205, 145, 61, 216, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7ac5d7e_7480_4d29_a464_7bcd913dd8e4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -637,7 +637,7 @@ pub struct IProtectionCapabilities_abi(
 pub struct IRevocationAndRenewalInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRevocationAndRenewalInformation {
     type Vtable = IRevocationAndRenewalInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4087452539, 9473, 17310, [166, 231, 111, 201, 94, 23, 95, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3a1937b_2501_439e_a6e7_6fc95e175fcf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -656,7 +656,7 @@ pub struct IRevocationAndRenewalInformation_abi(
 pub struct IRevocationAndRenewalItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRevocationAndRenewalItem {
     type Vtable = IRevocationAndRenewalItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(815383052, 15600, 18922, [144, 45, 202, 243, 45, 45, 222, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3099c20c_3cf0_49ea_902d_caf32d2dde2c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -678,7 +678,7 @@ pub struct IRevocationAndRenewalItem_abi(
 pub struct IServiceRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IServiceRequestedEventArgs {
     type Vtable = IServiceRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(875051951, 43956, 20417, [189, 137, 147, 241, 6, 87, 58, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34283baf_abb4_4fc1_bd89_93f106573a49);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -697,7 +697,7 @@ pub struct IServiceRequestedEventArgs_abi(
 pub struct IServiceRequestedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IServiceRequestedEventArgs2 {
     type Vtable = IServiceRequestedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1430022614, 64254, 16680, [141, 250, 19, 14, 57, 138, 19, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x553c69d6_fafe_4128_8dfa_130e398a13a7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -783,7 +783,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaProtectionManager {
 }
 unsafe impl ::windows::runtime::Interface for MediaProtectionManager {
     type Vtable = IMediaProtectionManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1164527943, 51009, 17227, [167, 158, 71, 76, 18, 217, 61, 47]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45694947_c741_434b_a79e_474c12d93d2f);
 }
 impl ::windows::runtime::RuntimeName for MediaProtectionManager {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionManager";
@@ -862,7 +862,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaProtectionPMPServer {
 }
 unsafe impl ::windows::runtime::Interface for MediaProtectionPMPServer {
     type Vtable = IMediaProtectionPMPServer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(202445350, 31526, 19761, [149, 187, 156, 27, 8, 239, 127, 192]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0c111226_7b26_4d31_95bb_9c1b08ef7fc0);
 }
 impl ::windows::runtime::RuntimeName for MediaProtectionPMPServer {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionPMPServer";
@@ -925,7 +925,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaProtectionServiceCompletion
 }
 unsafe impl ::windows::runtime::Interface for MediaProtectionServiceCompletion {
     type Vtable = IMediaProtectionServiceCompletion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2338114072, 53205, 17646, [162, 237, 223, 118, 1, 12, 20, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b5cca18_cfd5_44ee_a2ed_df76010c14b5);
 }
 impl ::windows::runtime::RuntimeName for MediaProtectionServiceCompletion {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionServiceCompletion";
@@ -998,7 +998,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProtectionCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for ProtectionCapabilities {
     type Vtable = IProtectionCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3349962110, 29824, 19753, [164, 100, 123, 205, 145, 61, 216, 228]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7ac5d7e_7480_4d29_a464_7bcd913dd8e4);
 }
 impl ::windows::runtime::RuntimeName for ProtectionCapabilities {
     const NAME: &'static str = "Windows.Media.Protection.ProtectionCapabilities";
@@ -1095,7 +1095,7 @@ unsafe impl ::windows::runtime::RuntimeType for RebootNeededEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for RebootNeededEventHandler {
     type Vtable = RebootNeededEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1692478021, 38715, 19002, [178, 96, 145, 137, 138, 73, 168, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64e12a45_973b_4a3a_b260_91898a49a82c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1189,7 +1189,7 @@ unsafe impl ::windows::runtime::RuntimeType for RevocationAndRenewalInformation 
 }
 unsafe impl ::windows::runtime::Interface for RevocationAndRenewalInformation {
     type Vtable = IRevocationAndRenewalInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4087452539, 9473, 17310, [166, 231, 111, 201, 94, 23, 95, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3a1937b_2501_439e_a6e7_6fc95e175fcf);
 }
 impl ::windows::runtime::RuntimeName for RevocationAndRenewalInformation {
     const NAME: &'static str = "Windows.Media.Protection.RevocationAndRenewalInformation";
@@ -1287,7 +1287,7 @@ unsafe impl ::windows::runtime::RuntimeType for RevocationAndRenewalItem {
 }
 unsafe impl ::windows::runtime::Interface for RevocationAndRenewalItem {
     type Vtable = IRevocationAndRenewalItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(815383052, 15600, 18922, [144, 45, 202, 243, 45, 45, 222, 44]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3099c20c_3cf0_49ea_902d_caf32d2dde2c);
 }
 impl ::windows::runtime::RuntimeName for RevocationAndRenewalItem {
     const NAME: &'static str = "Windows.Media.Protection.RevocationAndRenewalItem";
@@ -1433,7 +1433,7 @@ unsafe impl ::windows::runtime::RuntimeType for ServiceRequestedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for ServiceRequestedEventArgs {
     type Vtable = IServiceRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(875051951, 43956, 20417, [189, 137, 147, 241, 6, 87, 58, 73]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34283baf_abb4_4fc1_bd89_93f106573a49);
 }
 impl ::windows::runtime::RuntimeName for ServiceRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.ServiceRequestedEventArgs";
@@ -1504,7 +1504,7 @@ unsafe impl ::windows::runtime::RuntimeType for ServiceRequestedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for ServiceRequestedEventHandler {
     type Vtable = ServiceRequestedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3537277114, 51913, 18657, [149, 192, 211, 132, 149, 168, 64, 85]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2d690ba_cac9_48e1_95c0_d38495a84055);
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -4,7 +4,7 @@
 pub struct IUserDataAccountPartnerAccountInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountPartnerAccountInfo {
     type Vtable = IUserDataAccountPartnerAccountInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1595932727, 63215, 20163, [134, 48, 1, 44, 89, 193, 20, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f200037_f6ef_4ec3_8630_012c59c1149f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24,7 +24,7 @@ pub struct IUserDataAccountPartnerAccountInfo_abi(
 pub struct IUserDataAccountProviderAddAccountOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountProviderAddAccountOperation {
     type Vtable = IUserDataAccountProviderAddAccountOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3116836144, 16260, 19293, [142, 170, 69, 233, 122, 168, 66, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9c72530_3f84_4b5d_8eaa_45e97aa842ed);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -46,7 +46,7 @@ pub struct IUserDataAccountProviderAddAccountOperation_abi(
 pub struct IUserDataAccountProviderOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountProviderOperation {
     type Vtable = IUserDataAccountProviderOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2718608739, 34956, 19042, [163, 221, 52, 208, 122, 128, 43, 43]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa20aad63_888c_4a62_a3dd_34d07a802b2b);
 }
 impl IUserDataAccountProviderOperation {
     #[doc = "*Required features: `ApplicationModel_UserDataAccounts_Provider`*"]
@@ -117,7 +117,7 @@ pub struct IUserDataAccountProviderOperation_abi(
 pub struct IUserDataAccountProviderResolveErrorsOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountProviderResolveErrorsOperation {
     type Vtable = IUserDataAccountProviderResolveErrorsOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1647696917, 49099, 16865, [153, 87, 151, 89, 162, 136, 70, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6235dc15_bfcb_41e1_9957_9759a28846cc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -136,7 +136,7 @@ pub struct IUserDataAccountProviderResolveErrorsOperation_abi(
 pub struct IUserDataAccountProviderSettingsOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountProviderSettingsOperation {
     type Vtable = IUserDataAccountProviderSettingsOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2449690039, 34376, 20272, [172, 250, 48, 2, 101, 140, 168, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92034db7_8648_4f30_acfa_3002658ca80d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -185,7 +185,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataAccountPartnerAccountInf
 }
 unsafe impl ::windows::runtime::Interface for UserDataAccountPartnerAccountInfo {
     type Vtable = IUserDataAccountPartnerAccountInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1595932727, 63215, 20163, [134, 48, 1, 44, 89, 193, 20, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5f200037_f6ef_4ec3_8630_012c59c1149f);
 }
 impl ::windows::runtime::RuntimeName for UserDataAccountPartnerAccountInfo {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountPartnerAccountInfo";
@@ -273,7 +273,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataAccountProviderAddAccoun
 }
 unsafe impl ::windows::runtime::Interface for UserDataAccountProviderAddAccountOperation {
     type Vtable = IUserDataAccountProviderAddAccountOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3116836144, 16260, 19293, [142, 170, 69, 233, 122, 168, 66, 237]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb9c72530_3f84_4b5d_8eaa_45e97aa842ed);
 }
 impl ::windows::runtime::RuntimeName for UserDataAccountProviderAddAccountOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderAddAccountOperation";
@@ -419,7 +419,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataAccountProviderResolveEr
 }
 unsafe impl ::windows::runtime::Interface for UserDataAccountProviderResolveErrorsOperation {
     type Vtable = IUserDataAccountProviderResolveErrorsOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1647696917, 49099, 16865, [153, 87, 151, 89, 162, 136, 70, 204]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6235dc15_bfcb_41e1_9957_9759a28846cc);
 }
 impl ::windows::runtime::RuntimeName for UserDataAccountProviderResolveErrorsOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderResolveErrorsOperation";
@@ -520,7 +520,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataAccountProviderSettingsO
 }
 unsafe impl ::windows::runtime::Interface for UserDataAccountProviderSettingsOperation {
     type Vtable = IUserDataAccountProviderSettingsOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2449690039, 34376, 20272, [172, 250, 48, 2, 101, 140, 168, 13]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x92034db7_8648_4f30_acfa_3002658ca80d);
 }
 impl ::windows::runtime::RuntimeName for UserDataAccountProviderSettingsOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderSettingsOperation";

@@ -238,7 +238,7 @@ impl IXmlReader {
 }
 unsafe impl ::windows::runtime::Interface for IXmlReader {
     type Vtable = IXmlReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1920597121, 28829, 16533, [182, 61, 105, 254, 75, 13, 144, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7279fc81_709d_4095_b63d_69fe4b0d9030);
 }
 impl ::core::convert::From<IXmlReader> for ::windows::runtime::IUnknown {
     fn from(value: IXmlReader) -> Self {
@@ -315,7 +315,7 @@ impl IXmlResolver {
 }
 unsafe impl ::windows::runtime::Interface for IXmlResolver {
     type Vtable = IXmlResolver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1920597122, 28829, 16533, [182, 61, 105, 254, 75, 13, 144, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7279fc82_709d_4095_b63d_69fe4b0d9030);
 }
 impl ::core::convert::From<IXmlResolver> for ::windows::runtime::IUnknown {
     fn from(value: IXmlResolver) -> Self {
@@ -502,7 +502,7 @@ impl IXmlWriter {
 }
 unsafe impl ::windows::runtime::Interface for IXmlWriter {
     type Vtable = IXmlWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1920597128, 28829, 16533, [182, 61, 105, 254, 75, 13, 144, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7279fc88_709d_4095_b63d_69fe4b0d9030);
 }
 impl ::core::convert::From<IXmlWriter> for ::windows::runtime::IUnknown {
     fn from(value: IXmlWriter) -> Self {
@@ -720,7 +720,7 @@ impl IXmlWriterLite {
 }
 unsafe impl ::windows::runtime::Interface for IXmlWriterLite {
     type Vtable = IXmlWriterLite_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2250544326, 4880, 19117, [179, 205, 45, 190, 235, 246, 112, 211]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x862494c6_1310_4aad_b3cd_2dbeebf670d3);
 }
 impl ::core::convert::From<IXmlWriterLite> for ::windows::runtime::IUnknown {
     fn from(value: IXmlWriterLite) -> Self {
@@ -1007,6 +1007,6 @@ impl ::core::convert::From<i32> for XmlWriterProperty {
 unsafe impl ::windows::runtime::Abi for XmlWriterProperty {
     type Abi = Self;
 }
-pub const _IID_IXmlReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1920597121, 28829, 16533, [182, 61, 105, 254, 75, 13, 144, 48]);
-pub const _IID_IXmlResolver: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1920597122, 28829, 16533, [182, 61, 105, 254, 75, 13, 144, 48]);
-pub const _IID_IXmlWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1920597128, 28829, 16533, [182, 61, 105, 254, 75, 13, 144, 48]);
+pub const _IID_IXmlReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7279fc81_709d_4095_b63d_69fe4b0d9030);
+pub const _IID_IXmlResolver: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7279fc82_709d_4095_b63d_69fe4b0d9030);
+pub const _IID_IXmlWriter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7279fc88_709d_4095_b63d_69fe4b0d9030);

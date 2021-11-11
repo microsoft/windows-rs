@@ -20,7 +20,7 @@ impl IDesktopWindowXamlSourceNative {
 }
 unsafe impl ::windows::runtime::Interface for IDesktopWindowXamlSourceNative {
     type Vtable = IDesktopWindowXamlSourceNative_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1019015615, 12150, 20124, [150, 171, 232, 75, 55, 151, 37, 84]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cbcf1bf_2f76_4e9c_96ab_e84b37972554);
 }
 impl ::core::convert::From<IDesktopWindowXamlSourceNative> for ::windows::runtime::IUnknown {
     fn from(value: IDesktopWindowXamlSourceNative) -> Self {
@@ -77,7 +77,7 @@ impl IDesktopWindowXamlSourceNative2 {
 }
 unsafe impl ::windows::runtime::Interface for IDesktopWindowXamlSourceNative2 {
     type Vtable = IDesktopWindowXamlSourceNative2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3822901447, 12375, 18066, [153, 195, 123, 119, 32, 175, 218, 49]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3dcd8c7_3057_4692_99c3_7b7720afda31);
 }
 impl ::core::convert::From<IDesktopWindowXamlSourceNative2> for ::windows::runtime::IUnknown {
     fn from(value: IDesktopWindowXamlSourceNative2) -> Self {
@@ -144,7 +144,7 @@ impl IFindReferenceTargetsCallback {
 }
 unsafe impl ::windows::runtime::Interface for IFindReferenceTargetsCallback {
     type Vtable = IFindReferenceTargetsCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(78858348, 18055, 16937, [141, 20, 80, 90, 181, 132, 221, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04b3486c_4687_4229_8d14_505ab584dd88);
 }
 impl ::core::convert::From<IFindReferenceTargetsCallback> for ::windows::runtime::IUnknown {
     fn from(value: IFindReferenceTargetsCallback) -> Self {
@@ -211,7 +211,7 @@ impl IReferenceTracker {
 }
 unsafe impl ::windows::runtime::Interface for IReferenceTracker {
     type Vtable = IReferenceTracker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(299086138, 6158, 18313, [168, 190, 119, 18, 136, 40, 147, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11d3b13a_180e_4789_a8be_7712882893e6);
 }
 impl ::core::convert::From<IReferenceTracker> for ::windows::runtime::IUnknown {
     fn from(value: IReferenceTracker) -> Self {
@@ -254,7 +254,7 @@ pub struct IReferenceTrackerExtension(pub ::windows::runtime::IUnknown);
 impl IReferenceTrackerExtension {}
 unsafe impl ::windows::runtime::Interface for IReferenceTrackerExtension {
     type Vtable = IReferenceTrackerExtension_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1317633194, 22997, 17939, [143, 140, 247, 235, 209, 243, 153, 176]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e897caa_59d5_4613_8f8c_f7ebd1f399b0);
 }
 impl ::core::convert::From<IReferenceTrackerExtension> for ::windows::runtime::IUnknown {
     fn from(value: IReferenceTrackerExtension) -> Self {
@@ -316,7 +316,7 @@ impl IReferenceTrackerHost {
 }
 unsafe impl ::windows::runtime::Interface for IReferenceTrackerHost {
     type Vtable = IReferenceTrackerHost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(698817642, 15426, 17430, [163, 157, 226, 130, 90, 7, 167, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29a71c6a_3c42_4416_a39d_e2825a07a773);
 }
 impl ::core::convert::From<IReferenceTrackerHost> for ::windows::runtime::IUnknown {
     fn from(value: IReferenceTrackerHost) -> Self {
@@ -375,7 +375,7 @@ impl IReferenceTrackerManager {
 }
 unsafe impl ::windows::runtime::Interface for IReferenceTrackerManager {
     type Vtable = IReferenceTrackerManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1022461108, 31947, 19930, [132, 85, 126, 108, 233, 154, 50, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cf184b4_7ccb_4dda_8455_7e6ce99a3298);
 }
 impl ::core::convert::From<IReferenceTrackerManager> for ::windows::runtime::IUnknown {
     fn from(value: IReferenceTrackerManager) -> Self {
@@ -432,7 +432,7 @@ impl IReferenceTrackerTarget {
 }
 unsafe impl ::windows::runtime::Interface for IReferenceTrackerTarget {
     type Vtable = IReferenceTrackerTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1690125304, 49134, 20164, [183, 235, 41, 53, 21, 141, 174, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x64bd43f8_bfee_4ec4_b7eb_2935158dae21);
 }
 impl ::core::convert::From<IReferenceTrackerTarget> for ::windows::runtime::IUnknown {
     fn from(value: IReferenceTrackerTarget) -> Self {
@@ -477,7 +477,7 @@ impl ISurfaceImageSourceManagerNative {
 }
 unsafe impl ::windows::runtime::Interface for ISurfaceImageSourceManagerNative {
     type Vtable = ISurfaceImageSourceManagerNative_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1283954871, 7560, 18959, [181, 155, 185, 63, 96, 13, 232, 200]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c8798b7_1d88_4a0f_b59b_b93f600de8c8);
 }
 impl ::core::convert::From<ISurfaceImageSourceManagerNative> for ::windows::runtime::IUnknown {
     fn from(value: ISurfaceImageSourceManagerNative) -> Self {
@@ -529,7 +529,7 @@ impl ISurfaceImageSourceNative {
 }
 unsafe impl ::windows::runtime::Interface for ISurfaceImageSourceNative {
     type Vtable = ISurfaceImageSourceNative_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075417025, 54023, 17701, [152, 134, 15, 175, 170, 68, 22, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf2e9edc1_d307_4525_9886_0fafaa44163c);
 }
 impl ::core::convert::From<ISurfaceImageSourceNative> for ::windows::runtime::IUnknown {
     fn from(value: ISurfaceImageSourceNative) -> Self {
@@ -592,7 +592,7 @@ impl ISurfaceImageSourceNativeWithD2D {
 }
 unsafe impl ::windows::runtime::Interface for ISurfaceImageSourceNativeWithD2D {
     type Vtable = ISurfaceImageSourceNativeWithD2D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1412006435, 16865, 19009, [156, 8, 2, 232, 37, 104, 100, 161]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54298223_41e1_4a41_9c08_02e8256864a1);
 }
 impl ::core::convert::From<ISurfaceImageSourceNativeWithD2D> for ::windows::runtime::IUnknown {
     fn from(value: ISurfaceImageSourceNativeWithD2D) -> Self {
@@ -640,7 +640,7 @@ impl ISwapChainBackgroundPanelNative {
 }
 unsafe impl ::windows::runtime::Interface for ISwapChainBackgroundPanelNative {
     type Vtable = ISwapChainBackgroundPanelNative_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1136573774, 44501, 16437, [143, 133, 86, 8, 208, 142, 157, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43bebd4e_add5_4035_8f85_5608d08e9dc9);
 }
 impl ::core::convert::From<ISwapChainBackgroundPanelNative> for ::windows::runtime::IUnknown {
     fn from(value: ISwapChainBackgroundPanelNative) -> Self {
@@ -684,7 +684,7 @@ impl ISwapChainPanelNative {
 }
 unsafe impl ::windows::runtime::Interface for ISwapChainPanelNative {
     type Vtable = ISwapChainPanelNative_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4180613586, 15070, 17830, [162, 12, 246, 241, 234, 144, 85, 75]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf92f19d2_3ade_45a6_a20c_f6f1ea90554b);
 }
 impl ::core::convert::From<ISwapChainPanelNative> for ::windows::runtime::IUnknown {
     fn from(value: ISwapChainPanelNative) -> Self {
@@ -733,7 +733,7 @@ impl ISwapChainPanelNative2 {
 }
 unsafe impl ::windows::runtime::Interface for ISwapChainPanelNative2 {
     type Vtable = ISwapChainPanelNative2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3584226828, 14258, 17570, [147, 123, 141, 142, 185, 114, 104, 33]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5a2f60c_37b2_44a2_937b_8d8eb9726821);
 }
 impl ::core::convert::From<ISwapChainPanelNative2> for ::windows::runtime::IUnknown {
     fn from(value: ISwapChainPanelNative2) -> Self {
@@ -811,7 +811,7 @@ impl ITrackerOwner {
 }
 unsafe impl ::windows::runtime::Interface for ITrackerOwner {
     type Vtable = ITrackerOwner_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3945054731, 38934, 19143, [140, 255, 54, 246, 122, 17, 143, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb24c20b_9816_4ac7_8cff_36f67a118f4e);
 }
 impl ::core::convert::From<ITrackerOwner> for ::windows::runtime::IUnknown {
     fn from(value: ITrackerOwner) -> Self {
@@ -895,7 +895,7 @@ impl IVirtualSurfaceImageSourceNative {
 }
 unsafe impl ::windows::runtime::Interface for IVirtualSurfaceImageSourceNative {
     type Vtable = IVirtualSurfaceImageSourceNative_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3914664323, 13835, 20307, [179, 145, 175, 214, 149, 7, 134, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9550983_360b_4f53_b391_afd695078691);
 }
 impl ::core::convert::From<IVirtualSurfaceImageSourceNative> for ::windows::runtime::IUnknown {
     fn from(value: IVirtualSurfaceImageSourceNative) -> Self {
@@ -970,7 +970,7 @@ impl IVirtualSurfaceUpdatesCallbackNative {
 }
 unsafe impl ::windows::runtime::Interface for IVirtualSurfaceUpdatesCallbackNative {
     type Vtable = IVirtualSurfaceUpdatesCallbackNative_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3690129735, 36460, 16980, [158, 238, 119, 56, 247, 19, 134, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbf2e947_8e6c_4254_9eee_7738f71386c9);
 }
 impl ::core::convert::From<IVirtualSurfaceUpdatesCallbackNative> for ::windows::runtime::IUnknown {
     fn from(value: IVirtualSurfaceUpdatesCallbackNative) -> Self {

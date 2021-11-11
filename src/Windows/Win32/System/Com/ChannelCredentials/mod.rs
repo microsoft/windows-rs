@@ -64,7 +64,7 @@ impl IChannelCredentials {
 }
 unsafe impl ::windows::runtime::Interface for IChannelCredentials {
     type Vtable = IChannelCredentials_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(404440204, 49532, 19223, [172, 109, 6, 105, 155, 147, 25, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x181b448c_c17c_4b17_ac6d_06699b93198f);
 }
 impl ::core::convert::From<IChannelCredentials> for ::windows::runtime::IUnknown {
     fn from(value: IChannelCredentials) -> Self {

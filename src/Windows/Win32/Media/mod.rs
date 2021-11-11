@@ -66,7 +66,7 @@ impl IReferenceClock {
 }
 unsafe impl ::windows::runtime::Interface for IReferenceClock {
     type Vtable = IReferenceClock_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1453877399, 2772, 4558, [176, 58, 0, 32, 175, 11, 167, 112]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56a86897_0ad4_11ce_b03a_0020af0ba770);
 }
 impl ::core::convert::From<IReferenceClock> for ::windows::runtime::IUnknown {
     fn from(value: IReferenceClock) -> Self {
@@ -130,7 +130,7 @@ impl IReferenceClock2 {
 }
 unsafe impl ::windows::runtime::Interface for IReferenceClock2 {
     type Vtable = IReferenceClock2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(917977221, 49864, 4559, [139, 70, 0, 128, 95, 108, 239, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36b73885_c2c8_11cf_8b46_00805f6cef60);
 }
 impl ::core::convert::From<IReferenceClock2> for ::windows::runtime::IUnknown {
     fn from(value: IReferenceClock2) -> Self {
@@ -202,7 +202,7 @@ impl IReferenceClockTimerControl {
 }
 unsafe impl ::windows::runtime::Interface for IReferenceClockTimerControl {
     type Vtable = IReferenceClockTimerControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3958130076, 11978, 19778, [168, 175, 48, 223, 85, 118, 20, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xebec459c_2eca_4d42_a8af_30df557614b8);
 }
 impl ::core::convert::From<IReferenceClockTimerControl> for ::windows::runtime::IUnknown {
     fn from(value: IReferenceClockTimerControl) -> Self {

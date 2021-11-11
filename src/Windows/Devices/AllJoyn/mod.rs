@@ -179,7 +179,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynAboutData {
 }
 unsafe impl ::windows::runtime::Interface for AllJoynAboutData {
     type Vtable = IAllJoynAboutData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3853106944, 8098, 18489, [147, 239, 249, 223, 64, 72, 144, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5a9bf00_1fa2_4839_93ef_f9df404890f7);
 }
 impl ::windows::runtime::RuntimeName for AllJoynAboutData {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynAboutData";
@@ -408,7 +408,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynAboutDataView {
 }
 unsafe impl ::windows::runtime::Interface for AllJoynAboutDataView {
     type Vtable = IAllJoynAboutDataView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1747128607, 25106, 18740, [156, 72, 225, 156, 164, 152, 66, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6823111f_6212_4934_9c48_e19ca4984288);
 }
 impl ::windows::runtime::RuntimeName for AllJoynAboutDataView {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynAboutDataView";
@@ -529,7 +529,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynAcceptSessionJoinerEventA
 }
 unsafe impl ::windows::runtime::Interface for AllJoynAcceptSessionJoinerEventArgs {
     type Vtable = IAllJoynAcceptSessionJoinerEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1325093733, 16010, 16983, [143, 16, 83, 156, 224, 213, 108, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4efb5365_3e8a_4257_8f10_539ce0d56c0f);
 }
 impl ::windows::runtime::RuntimeName for AllJoynAcceptSessionJoinerEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynAcceptSessionJoinerEventArgs";
@@ -614,7 +614,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynAuthenticationCompleteEve
 }
 unsafe impl ::windows::runtime::Interface for AllJoynAuthenticationCompleteEventArgs {
     type Vtable = IAllJoynAuthenticationCompleteEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2545184796, 5596, 19283, [182, 164, 125, 19, 67, 0, 215, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97b4701c_15dc_4b53_b6a4_7d134300d7bf);
 }
 impl ::windows::runtime::RuntimeName for AllJoynAuthenticationCompleteEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynAuthenticationCompleteEventArgs";
@@ -929,7 +929,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynBusAttachment {
 }
 unsafe impl ::windows::runtime::Interface for AllJoynBusAttachment {
     type Vtable = IAllJoynBusAttachment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4077515091, 7917, 17091, [162, 14, 67, 109, 65, 254, 98, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf309f153_1eed_42c3_a20e_436d41fe62f6);
 }
 impl ::windows::runtime::RuntimeName for AllJoynBusAttachment {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynBusAttachment";
@@ -1029,7 +1029,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynBusAttachmentStateChanged
 }
 unsafe impl ::windows::runtime::Interface for AllJoynBusAttachmentStateChangedEventArgs {
     type Vtable = IAllJoynBusAttachmentStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3626923508, 49194, 16876, [168, 213, 234, 177, 85, 137, 83, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd82e75f4_c02a_41ec_a8d5_eab1558953aa);
 }
 impl ::windows::runtime::RuntimeName for AllJoynBusAttachmentStateChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynBusAttachmentStateChangedEventArgs";
@@ -1167,7 +1167,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynBusObject {
 }
 unsafe impl ::windows::runtime::Interface for AllJoynBusObject {
     type Vtable = IAllJoynBusObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3908928094, 63290, 18700, [136, 4, 4, 224, 38, 100, 48, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8fd825e_f73a_490c_8804_04e026643047);
 }
 impl ::windows::runtime::RuntimeName for AllJoynBusObject {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynBusObject";
@@ -1246,7 +1246,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynBusObjectStoppedEventArgs
 }
 unsafe impl ::windows::runtime::Interface for AllJoynBusObjectStoppedEventArgs {
     type Vtable = IAllJoynBusObjectStoppedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3725598997, 61326, 19778, [185, 59, 162, 174, 116, 81, 151, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde102115_ef8e_4d42_b93b_a2ae74519766);
 }
 impl ::windows::runtime::RuntimeName for AllJoynBusObjectStoppedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynBusObjectStoppedEventArgs";
@@ -1364,7 +1364,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynCredentials {
 }
 unsafe impl ::windows::runtime::Interface for AllJoynCredentials {
     type Vtable = IAllJoynCredentials_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2185646322, 41360, 16561, [171, 171, 52, 158, 194, 68, 223, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x824650f2_a190_40b1_abab_349ec244dfaa);
 }
 impl ::windows::runtime::RuntimeName for AllJoynCredentials {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynCredentials";
@@ -1468,7 +1468,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynCredentialsRequestedEvent
 }
 unsafe impl ::windows::runtime::Interface for AllJoynCredentialsRequestedEventArgs {
     type Vtable = IAllJoynCredentialsRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1787290446, 45161, 19328, [158, 26, 65, 188, 131, 124, 101, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a87e34e_b069_4b80_9e1a_41bc837c65d2);
 }
 impl ::windows::runtime::RuntimeName for AllJoynCredentialsRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynCredentialsRequestedEventArgs";
@@ -1600,7 +1600,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynCredentialsVerificationRe
 }
 unsafe impl ::windows::runtime::Interface for AllJoynCredentialsVerificationRequestedEventArgs {
     type Vtable = IAllJoynCredentialsVerificationRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2148169234, 47109, 17583, [162, 225, 121, 42, 182, 85, 162, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x800a7612_b805_44af_a2e1_792ab655a2d0);
 }
 impl ::windows::runtime::RuntimeName for AllJoynCredentialsVerificationRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynCredentialsVerificationRequestedEventArgs";
@@ -1679,7 +1679,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynMessageInfo {
 }
 unsafe impl ::windows::runtime::Interface for AllJoynMessageInfo {
     type Vtable = IAllJoynMessageInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4281008423, 11282, 18521, [170, 58, 199, 68, 97, 238, 129, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff2b0127_2c12_4859_aa3a_c74461ee814c);
 }
 impl ::windows::runtime::RuntimeName for AllJoynMessageInfo {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynMessageInfo";
@@ -1758,7 +1758,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynProducerStoppedEventArgs 
 }
 unsafe impl ::windows::runtime::Interface for AllJoynProducerStoppedEventArgs {
     type Vtable = IAllJoynProducerStoppedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1362138992, 18743, 18733, [128, 128, 35, 100, 57, 152, 124, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51309770_4937_492d_8080_236439987ceb);
 }
 impl ::windows::runtime::RuntimeName for AllJoynProducerStoppedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynProducerStoppedEventArgs";
@@ -1868,7 +1868,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynServiceInfo {
 }
 unsafe impl ::windows::runtime::Interface for AllJoynServiceInfo {
     type Vtable = IAllJoynServiceInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1287553545, 47422, 16770, [153, 155, 221, 208, 0, 249, 197, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4cbe8209_b93e_4182_999b_ddd000f9c575);
 }
 impl ::windows::runtime::RuntimeName for AllJoynServiceInfo {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynServiceInfo";
@@ -1947,7 +1947,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynServiceInfoRemovedEventAr
 }
 unsafe impl ::windows::runtime::Interface for AllJoynServiceInfoRemovedEventArgs {
     type Vtable = IAllJoynServiceInfoRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(811051359, 7487, 16883, [137, 105, 227, 39, 146, 98, 115, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3057a95f_1d3f_41f3_8969_e32792627396);
 }
 impl ::windows::runtime::RuntimeName for AllJoynServiceInfoRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynServiceInfoRemovedEventArgs";
@@ -2106,7 +2106,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynSession {
 }
 unsafe impl ::windows::runtime::Interface for AllJoynSession {
     type Vtable = IAllJoynSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3906018060, 49364, 16492, [136, 169, 169, 62, 250, 133, 212, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8d11b0c_c0d4_406c_88a9_a93efa85d4b1);
 }
 impl ::windows::runtime::RuntimeName for AllJoynSession {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynSession";
@@ -2185,7 +2185,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynSessionJoinedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for AllJoynSessionJoinedEventArgs {
     type Vtable = IAllJoynSessionJoinedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2661243856, 46551, 18373, [141, 171, 176, 64, 204, 25, 40, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e9f5bd0_b5d7_47c5_8dab_b040cc192871);
 }
 impl ::windows::runtime::RuntimeName for AllJoynSessionJoinedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynSessionJoinedEventArgs";
@@ -2264,7 +2264,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynSessionLostEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for AllJoynSessionLostEventArgs {
     type Vtable = IAllJoynSessionLostEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3882263690, 35768, 18772, [174, 103, 210, 250, 67, 209, 249, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe766a48a_8bb8_4954_ae67_d2fa43d1f96b);
 }
 impl ::windows::runtime::RuntimeName for AllJoynSessionLostEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynSessionLostEventArgs";
@@ -2369,7 +2369,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynSessionMemberAddedEventAr
 }
 unsafe impl ::windows::runtime::Interface for AllJoynSessionMemberAddedEventArgs {
     type Vtable = IAllJoynSessionMemberAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1235384714, 3537, 18113, [156, 214, 39, 25, 14, 80, 58, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49a2798a_0dd1_46c1_9cd6_27190e503a5e);
 }
 impl ::windows::runtime::RuntimeName for AllJoynSessionMemberAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynSessionMemberAddedEventArgs";
@@ -2448,7 +2448,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynSessionMemberRemovedEvent
 }
 unsafe impl ::windows::runtime::Interface for AllJoynSessionMemberRemovedEventArgs {
     type Vtable = IAllJoynSessionMemberRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1083842975, 43594, 18579, [180, 48, 186, 161, 182, 60, 98, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x409a219f_aa4a_4893_b430_baa1b63c6219);
 }
 impl ::windows::runtime::RuntimeName for AllJoynSessionMemberRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynSessionMemberRemovedEventArgs";
@@ -2706,7 +2706,7 @@ unsafe impl ::windows::runtime::RuntimeType for AllJoynWatcherStoppedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for AllJoynWatcherStoppedEventArgs {
     type Vtable = IAllJoynWatcherStoppedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3388776507, 28701, 19112, [151, 221, 162, 187, 10, 143, 95, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9fca03b_701d_4aa8_97dd_a2bb0a8f5fa3);
 }
 impl ::windows::runtime::RuntimeName for AllJoynWatcherStoppedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynWatcherStoppedEventArgs";
@@ -2758,7 +2758,7 @@ unsafe impl ::core::marker::Sync for AllJoynWatcherStoppedEventArgs {}
 pub struct IAllJoynAboutData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAboutData {
     type Vtable = IAllJoynAboutData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3853106944, 8098, 18489, [147, 239, 249, 223, 64, 72, 144, 247]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5a9bf00_1fa2_4839_93ef_f9df404890f7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2803,7 +2803,7 @@ pub struct IAllJoynAboutData_abi(
 pub struct IAllJoynAboutDataView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAboutDataView {
     type Vtable = IAllJoynAboutDataView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1747128607, 25106, 18740, [156, 72, 225, 156, 164, 152, 66, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6823111f_6212_4934_9c48_e19ca4984288);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2841,7 +2841,7 @@ pub struct IAllJoynAboutDataView_abi(
 pub struct IAllJoynAboutDataViewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAboutDataViewStatics {
     type Vtable = IAllJoynAboutDataViewStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1475196552, 3166, 16750, [136, 181, 57, 179, 45, 37, 196, 125]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57edb688_0c5e_416e_88b5_39b32d25c47d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2863,7 +2863,7 @@ pub struct IAllJoynAboutDataViewStatics_abi(
 pub struct IAllJoynAcceptSessionJoiner(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAcceptSessionJoiner {
     type Vtable = IAllJoynAcceptSessionJoiner_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1302861778, 52509, 16419, [167, 196, 22, 222, 248, 156, 40, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4da817d2_cd1d_4023_a7c4_16def89c28df);
 }
 impl IAllJoynAcceptSessionJoiner {
     #[cfg(feature = "deprecated")]
@@ -2932,7 +2932,7 @@ pub struct IAllJoynAcceptSessionJoiner_abi(
 pub struct IAllJoynAcceptSessionJoinerEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAcceptSessionJoinerEventArgs {
     type Vtable = IAllJoynAcceptSessionJoinerEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1325093733, 16010, 16983, [143, 16, 83, 156, 224, 213, 108, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4efb5365_3e8a_4257_8f10_539ce0d56c0f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2955,7 +2955,7 @@ pub struct IAllJoynAcceptSessionJoinerEventArgs_abi(
 pub struct IAllJoynAcceptSessionJoinerEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAcceptSessionJoinerEventArgsFactory {
     type Vtable = IAllJoynAcceptSessionJoinerEventArgsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3024313280, 24901, 17054, [132, 219, 213, 191, 231, 114, 177, 79]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4435bc0_6145_429e_84db_d5bfe772b14f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2973,7 +2973,7 @@ pub struct IAllJoynAcceptSessionJoinerEventArgsFactory_abi(
 pub struct IAllJoynAuthenticationCompleteEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAuthenticationCompleteEventArgs {
     type Vtable = IAllJoynAuthenticationCompleteEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2545184796, 5596, 19283, [182, 164, 125, 19, 67, 0, 215, 191]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97b4701c_15dc_4b53_b6a4_7d134300d7bf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2993,7 +2993,7 @@ pub struct IAllJoynAuthenticationCompleteEventArgs_abi(
 pub struct IAllJoynBusAttachment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusAttachment {
     type Vtable = IAllJoynBusAttachment_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4077515091, 7917, 17091, [162, 14, 67, 109, 65, 254, 98, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf309f153_1eed_42c3_a20e_436d41fe62f6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3036,7 +3036,7 @@ pub struct IAllJoynBusAttachment_abi(
 pub struct IAllJoynBusAttachment2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusAttachment2 {
     type Vtable = IAllJoynBusAttachment2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(880069406, 9064, 17330, [180, 62, 106, 58, 193, 39, 141, 152]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3474cb1e_2368_43b2_b43e_6a3ac1278d98);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3065,7 +3065,7 @@ pub struct IAllJoynBusAttachment2_abi(
 pub struct IAllJoynBusAttachmentFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusAttachmentFactory {
     type Vtable = IAllJoynBusAttachmentFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1680798116, 44421, 19935, [144, 174, 96, 68, 82, 178, 34, 136]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x642ef1a4_ad85_4ddf_90ae_604452b22288);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3083,7 +3083,7 @@ pub struct IAllJoynBusAttachmentFactory_abi(
 pub struct IAllJoynBusAttachmentStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusAttachmentStateChangedEventArgs {
     type Vtable = IAllJoynBusAttachmentStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3626923508, 49194, 16876, [168, 213, 234, 177, 85, 137, 83, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd82e75f4_c02a_41ec_a8d5_eab1558953aa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3102,7 +3102,7 @@ pub struct IAllJoynBusAttachmentStateChangedEventArgs_abi(
 pub struct IAllJoynBusAttachmentStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusAttachmentStatics {
     type Vtable = IAllJoynBusAttachmentStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2208124221, 4177, 16599, [135, 42, 141, 1, 65, 17, 91, 31]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x839d4d3d_1051_40d7_872a_8d0141115b1f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3122,7 +3122,7 @@ pub struct IAllJoynBusAttachmentStatics_abi(
 pub struct IAllJoynBusObject(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusObject {
     type Vtable = IAllJoynBusObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3908928094, 63290, 18700, [136, 4, 4, 224, 38, 100, 48, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8fd825e_f73a_490c_8804_04e026643047);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3148,7 +3148,7 @@ pub struct IAllJoynBusObject_abi(
 pub struct IAllJoynBusObjectFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusObjectFactory {
     type Vtable = IAllJoynBusObjectFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(741318411, 36354, 20380, [172, 39, 234, 109, 173, 93, 59, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c2f9f0b_8e02_4f9c_ac27_ea6dad5d3b50);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3167,7 +3167,7 @@ pub struct IAllJoynBusObjectFactory_abi(
 pub struct IAllJoynBusObjectStoppedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusObjectStoppedEventArgs {
     type Vtable = IAllJoynBusObjectStoppedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3725598997, 61326, 19778, [185, 59, 162, 174, 116, 81, 151, 102]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde102115_ef8e_4d42_b93b_a2ae74519766);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3185,7 +3185,7 @@ pub struct IAllJoynBusObjectStoppedEventArgs_abi(
 pub struct IAllJoynBusObjectStoppedEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusObjectStoppedEventArgsFactory {
     type Vtable = IAllJoynBusObjectStoppedEventArgsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1797455176, 53411, 16981, [149, 58, 71, 114, 180, 2, 128, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b22fd48_d0a3_4255_953a_4772b4028073);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3203,7 +3203,7 @@ pub struct IAllJoynBusObjectStoppedEventArgsFactory_abi(
 pub struct IAllJoynCredentials(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynCredentials {
     type Vtable = IAllJoynCredentials_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2185646322, 41360, 16561, [171, 171, 52, 158, 194, 68, 223, 170]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x824650f2_a190_40b1_abab_349ec244dfaa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3233,7 +3233,7 @@ pub struct IAllJoynCredentials_abi(
 pub struct IAllJoynCredentialsRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynCredentialsRequestedEventArgs {
     type Vtable = IAllJoynCredentialsRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1787290446, 45161, 19328, [158, 26, 65, 188, 131, 124, 101, 210]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a87e34e_b069_4b80_9e1a_41bc837c65d2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3256,7 +3256,7 @@ pub struct IAllJoynCredentialsRequestedEventArgs_abi(
 pub struct IAllJoynCredentialsVerificationRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynCredentialsVerificationRequestedEventArgs {
     type Vtable = IAllJoynCredentialsVerificationRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2148169234, 47109, 17583, [162, 225, 121, 42, 182, 85, 162, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x800a7612_b805_44af_a2e1_792ab655a2d0);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3286,7 +3286,7 @@ pub struct IAllJoynCredentialsVerificationRequestedEventArgs_abi(
 pub struct IAllJoynMessageInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynMessageInfo {
     type Vtable = IAllJoynMessageInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4281008423, 11282, 18521, [170, 58, 199, 68, 97, 238, 129, 76]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff2b0127_2c12_4859_aa3a_c74461ee814c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3304,7 +3304,7 @@ pub struct IAllJoynMessageInfo_abi(
 pub struct IAllJoynMessageInfoFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynMessageInfoFactory {
     type Vtable = IAllJoynMessageInfoFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(879119402, 33417, 17364, [180, 168, 63, 77, 227, 89, 240, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34664c2a_8289_43d4_b4a8_3f4de359f043);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3323,7 +3323,7 @@ pub struct IAllJoynMessageInfoFactory_abi(
 pub struct IAllJoynProducer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynProducer {
     type Vtable = IAllJoynProducer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2634565241, 18075, 18778, [167, 16, 172, 80, 241, 35, 6, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d084679_469b_495a_a710_ac50f123069f);
 }
 impl IAllJoynProducer {
     #[cfg(feature = "deprecated")]
@@ -3392,7 +3392,7 @@ pub struct IAllJoynProducer_abi(
 pub struct IAllJoynProducerStoppedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynProducerStoppedEventArgs {
     type Vtable = IAllJoynProducerStoppedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1362138992, 18743, 18733, [128, 128, 35, 100, 57, 152, 124, 235]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51309770_4937_492d_8080_236439987ceb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3410,7 +3410,7 @@ pub struct IAllJoynProducerStoppedEventArgs_abi(
 pub struct IAllJoynProducerStoppedEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynProducerStoppedEventArgsFactory {
     type Vtable = IAllJoynProducerStoppedEventArgsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1448253793, 45593, 19822, [159, 120, 250, 63, 153, 250, 143, 229]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56529961_b219_4d6e_9f78_fa3f99fa8fe5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3428,7 +3428,7 @@ pub struct IAllJoynProducerStoppedEventArgsFactory_abi(
 pub struct IAllJoynServiceInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynServiceInfo {
     type Vtable = IAllJoynServiceInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1287553545, 47422, 16770, [153, 155, 221, 208, 0, 249, 197, 117]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4cbe8209_b93e_4182_999b_ddd000f9c575);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3448,7 +3448,7 @@ pub struct IAllJoynServiceInfo_abi(
 pub struct IAllJoynServiceInfoFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynServiceInfoFactory {
     type Vtable = IAllJoynServiceInfoFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1971444413, 65027, 20299, [148, 164, 240, 47, 220, 189, 17, 184]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7581dabd_fe03_4f4b_94a4_f02fdcbd11b8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3466,7 +3466,7 @@ pub struct IAllJoynServiceInfoFactory_abi(
 pub struct IAllJoynServiceInfoRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynServiceInfoRemovedEventArgs {
     type Vtable = IAllJoynServiceInfoRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(811051359, 7487, 16883, [137, 105, 227, 39, 146, 98, 115, 150]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3057a95f_1d3f_41f3_8969_e32792627396);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3484,7 +3484,7 @@ pub struct IAllJoynServiceInfoRemovedEventArgs_abi(
 pub struct IAllJoynServiceInfoRemovedEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynServiceInfoRemovedEventArgsFactory {
     type Vtable = IAllJoynServiceInfoRemovedEventArgsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(230655527, 39679, 18773, [146, 39, 105, 83, 186, 244, 21, 105]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0dbf8627_9aff_4955_9227_6953baf41569);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3502,7 +3502,7 @@ pub struct IAllJoynServiceInfoRemovedEventArgsFactory_abi(
 pub struct IAllJoynServiceInfoStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynServiceInfoStatics {
     type Vtable = IAllJoynServiceInfoStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1450727178, 24634, 18940, [183, 80, 14, 241, 54, 9, 33, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5678570a_603a_49fc_b750_0ef13609213c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3521,7 +3521,7 @@ pub struct IAllJoynServiceInfoStatics_abi(
 pub struct IAllJoynSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSession {
     type Vtable = IAllJoynSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3906018060, 49364, 16492, [136, 169, 169, 62, 250, 133, 212, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe8d11b0c_c0d4_406c_88a9_a93efa85d4b1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3554,7 +3554,7 @@ pub struct IAllJoynSession_abi(
 pub struct IAllJoynSessionJoinedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionJoinedEventArgs {
     type Vtable = IAllJoynSessionJoinedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2661243856, 46551, 18373, [141, 171, 176, 64, 204, 25, 40, 113]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e9f5bd0_b5d7_47c5_8dab_b040cc192871);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3572,7 +3572,7 @@ pub struct IAllJoynSessionJoinedEventArgs_abi(
 pub struct IAllJoynSessionJoinedEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionJoinedEventArgsFactory {
     type Vtable = IAllJoynSessionJoinedEventArgsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1747244681, 54987, 19870, [160, 158, 53, 128, 104, 112, 177, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6824d689_d6cb_4d9e_a09e_35806870b17f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3590,7 +3590,7 @@ pub struct IAllJoynSessionJoinedEventArgsFactory_abi(
 pub struct IAllJoynSessionLostEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionLostEventArgs {
     type Vtable = IAllJoynSessionLostEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3882263690, 35768, 18772, [174, 103, 210, 250, 67, 209, 249, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe766a48a_8bb8_4954_ae67_d2fa43d1f96b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3608,7 +3608,7 @@ pub struct IAllJoynSessionLostEventArgs_abi(
 pub struct IAllJoynSessionLostEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionLostEventArgsFactory {
     type Vtable = IAllJoynSessionLostEventArgsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(331087154, 54004, 18889, [152, 14, 40, 5, 225, 53, 134, 177]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13bbfd32_d2f4_49c9_980e_2805e13586b1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3626,7 +3626,7 @@ pub struct IAllJoynSessionLostEventArgsFactory_abi(
 pub struct IAllJoynSessionMemberAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionMemberAddedEventArgs {
     type Vtable = IAllJoynSessionMemberAddedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1235384714, 3537, 18113, [156, 214, 39, 25, 14, 80, 58, 94]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49a2798a_0dd1_46c1_9cd6_27190e503a5e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3644,7 +3644,7 @@ pub struct IAllJoynSessionMemberAddedEventArgs_abi(
 pub struct IAllJoynSessionMemberAddedEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionMemberAddedEventArgsFactory {
     type Vtable = IAllJoynSessionMemberAddedEventArgsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(874373970, 7475, 16545, [161, 211, 229, 119, 112, 32, 225, 241]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x341de352_1d33_40a1_a1d3_e5777020e1f1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3662,7 +3662,7 @@ pub struct IAllJoynSessionMemberAddedEventArgsFactory_abi(
 pub struct IAllJoynSessionMemberRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionMemberRemovedEventArgs {
     type Vtable = IAllJoynSessionMemberRemovedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1083842975, 43594, 18579, [180, 48, 186, 161, 182, 60, 98, 25]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x409a219f_aa4a_4893_b430_baa1b63c6219);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3680,7 +3680,7 @@ pub struct IAllJoynSessionMemberRemovedEventArgs_abi(
 pub struct IAllJoynSessionMemberRemovedEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionMemberRemovedEventArgsFactory {
     type Vtable = IAllJoynSessionMemberRemovedEventArgsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3302184424, 17080, 19303, [183, 87, 208, 207, 202, 213, 146, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4d355e8_42b8_4b67_b757_d0cfcad59280);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3698,7 +3698,7 @@ pub struct IAllJoynSessionMemberRemovedEventArgsFactory_abi(
 pub struct IAllJoynSessionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionStatics {
     type Vtable = IAllJoynSessionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2651182596, 41068, 18132, [180, 108, 11, 11, 84, 16, 91, 68]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e05d604_a06c_46d4_b46c_0b0b54105b44);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3719,7 +3719,7 @@ pub struct IAllJoynSessionStatics_abi(
 pub struct IAllJoynStatusStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynStatusStatics {
     type Vtable = IAllJoynStatusStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3501695358, 3369, 19881, [138, 198, 84, 197, 84, 190, 219, 197]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0b7a17e_0d29_4da9_8ac6_54c554bedbc5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3754,7 +3754,7 @@ pub struct IAllJoynStatusStatics_abi(
 pub struct IAllJoynWatcherStoppedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynWatcherStoppedEventArgs {
     type Vtable = IAllJoynWatcherStoppedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3388776507, 28701, 19112, [151, 221, 162, 187, 10, 143, 95, 163]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc9fca03b_701d_4aa8_97dd_a2bb0a8f5fa3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3772,7 +3772,7 @@ pub struct IAllJoynWatcherStoppedEventArgs_abi(
 pub struct IAllJoynWatcherStoppedEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynWatcherStoppedEventArgsFactory {
     type Vtable = IAllJoynWatcherStoppedEventArgsFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2274338216, 11600, 18401, [144, 74, 32, 191, 13, 72, 199, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x878fa5a8_2d50_47e1_904a_20bf0d48c782);
 }
 #[repr(C)]
 #[doc(hidden)]

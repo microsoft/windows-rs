@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const CLSID_XMLGraphBuilder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(464542049, 24511, 4562, [165, 33, 68, 223, 7, 193, 0, 0]);
+pub const CLSID_XMLGraphBuilder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bb05961_5fbf_11d2_a521_44df07c10000);
 #[doc = "*Required features: `Win32_Media_DirectShow_Xml`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -23,7 +23,7 @@ impl IXMLGraphBuilder {
 }
 unsafe impl ::windows::runtime::Interface for IXMLGraphBuilder {
     type Vtable = IXMLGraphBuilder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(464542048, 24511, 4562, [165, 33, 68, 223, 7, 193, 0, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1bb05960_5fbf_11d2_a521_44df07c10000);
 }
 impl ::core::convert::From<IXMLGraphBuilder> for ::windows::runtime::IUnknown {
     fn from(value: IXMLGraphBuilder) -> Self {

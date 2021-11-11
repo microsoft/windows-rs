@@ -45,7 +45,7 @@ unsafe impl ::windows::runtime::RuntimeType for DialApp {
 }
 unsafe impl ::windows::runtime::Interface for DialApp {
     type Vtable = IDialApp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1432353747, 17847, 18931, [187, 215, 48, 45, 182, 8, 70, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x555ffbd3_45b7_49f3_bbd7_302db6084646);
 }
 impl ::windows::runtime::RuntimeName for DialApp {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialApp";
@@ -167,7 +167,7 @@ unsafe impl ::windows::runtime::RuntimeType for DialAppStateDetails {
 }
 unsafe impl ::windows::runtime::Interface for DialAppStateDetails {
     type Vtable = IDialAppStateDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3720651937, 62942, 16397, [190, 164, 140, 132, 102, 187, 41, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddc4a4a1_f5de_400d_bea4_8c8466bb2961);
 }
 impl ::windows::runtime::RuntimeName for DialAppStateDetails {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialAppStateDetails";
@@ -309,7 +309,7 @@ unsafe impl ::windows::runtime::RuntimeType for DialDevice {
 }
 unsafe impl ::windows::runtime::Interface for DialDevice {
     type Vtable = IDialDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4293979567, 30111, 16850, [162, 10, 127, 41, 206, 11, 55, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfff0edaf_759f_41d2_a20a_7f29ce0b3784);
 }
 impl ::windows::runtime::RuntimeName for DialDevice {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevice";
@@ -502,7 +502,7 @@ unsafe impl ::windows::runtime::RuntimeType for DialDevicePicker {
 }
 unsafe impl ::windows::runtime::Interface for DialDevicePicker {
     type Vtable = IDialDevicePicker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3128840714, 65369, 20299, [189, 172, 216, 159, 73, 90, 214, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba7e520a_ff59_4f4b_bdac_d89f495ad6e1);
 }
 impl ::windows::runtime::RuntimeName for DialDevicePicker {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevicePicker";
@@ -569,7 +569,7 @@ unsafe impl ::windows::runtime::RuntimeType for DialDevicePickerFilter {
 }
 unsafe impl ::windows::runtime::Interface for DialDevicePickerFilter {
     type Vtable = IDialDevicePickerFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3246166970, 34496, 18525, [184, 214, 15, 154, 143, 100, 21, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc17c93ba_86c0_485d_b8d6_0f9a8f641590);
 }
 impl ::windows::runtime::RuntimeName for DialDevicePickerFilter {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevicePickerFilter";
@@ -635,7 +635,7 @@ unsafe impl ::windows::runtime::RuntimeType for DialDeviceSelectedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for DialDeviceSelectedEventArgs {
     type Vtable = IDialDeviceSelectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1208717997, 44150, 18411, [156, 6, 161, 147, 4, 218, 2, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x480b92ad_ac76_47eb_9c06_a19304da0247);
 }
 impl ::windows::runtime::RuntimeName for DialDeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDeviceSelectedEventArgs";
@@ -701,7 +701,7 @@ unsafe impl ::windows::runtime::RuntimeType for DialDisconnectButtonClickedEvent
 }
 unsafe impl ::windows::runtime::Interface for DialDisconnectButtonClickedEventArgs {
     type Vtable = IDialDisconnectButtonClickedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1383485778, 40065, 20053, [173, 194, 14, 190, 153, 205, 227, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52765152_9c81_4e55_adc2_0ebe99cde3b6);
 }
 impl ::windows::runtime::RuntimeName for DialDisconnectButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDisconnectButtonClickedEventArgs";
@@ -797,7 +797,7 @@ unsafe impl ::windows::runtime::RuntimeType for DialReceiverApp {
 }
 unsafe impl ::windows::runtime::Interface for DialReceiverApp {
     type Vtable = IDialReceiverApp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4248730711, 20549, 18190, [179, 4, 77, 217, 177, 62, 125, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd3e7c57_5045_470e_b304_4dd9b13e7d11);
 }
 impl ::windows::runtime::RuntimeName for DialReceiverApp {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialReceiverApp";
@@ -849,7 +849,7 @@ unsafe impl ::core::marker::Sync for DialReceiverApp {}
 pub struct IDialApp(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialApp {
     type Vtable = IDialApp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1432353747, 17847, 18931, [187, 215, 48, 45, 182, 8, 70, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x555ffbd3_45b7_49f3_bbd7_302db6084646);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -873,7 +873,7 @@ pub struct IDialApp_abi(
 pub struct IDialAppStateDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialAppStateDetails {
     type Vtable = IDialAppStateDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3720651937, 62942, 16397, [190, 164, 140, 132, 102, 187, 41, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddc4a4a1_f5de_400d_bea4_8c8466bb2961);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -892,7 +892,7 @@ pub struct IDialAppStateDetails_abi(
 pub struct IDialDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialDevice {
     type Vtable = IDialDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4293979567, 30111, 16850, [162, 10, 127, 41, 206, 11, 55, 132]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfff0edaf_759f_41d2_a20a_7f29ce0b3784);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -911,7 +911,7 @@ pub struct IDialDevice_abi(
 pub struct IDialDevice2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialDevice2 {
     type Vtable = IDialDevice2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3132617685, 23547, 20154, [139, 50, 181, 124, 92, 94, 229, 201]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbab7f3d5_5bfb_4eba_8b32_b57c5c5ee5c9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -931,7 +931,7 @@ pub struct IDialDevice2_abi(
 pub struct IDialDevicePicker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialDevicePicker {
     type Vtable = IDialDevicePicker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3128840714, 65369, 20299, [189, 172, 216, 159, 73, 90, 214, 225]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba7e520a_ff59_4f4b_bdac_d89f495ad6e1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -973,7 +973,7 @@ pub struct IDialDevicePicker_abi(
 pub struct IDialDevicePickerFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialDevicePickerFilter {
     type Vtable = IDialDevicePickerFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3246166970, 34496, 18525, [184, 214, 15, 154, 143, 100, 21, 144]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc17c93ba_86c0_485d_b8d6_0f9a8f641590);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -992,7 +992,7 @@ pub struct IDialDevicePickerFilter_abi(
 pub struct IDialDeviceSelectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialDeviceSelectedEventArgs {
     type Vtable = IDialDeviceSelectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1208717997, 44150, 18411, [156, 6, 161, 147, 4, 218, 2, 71]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x480b92ad_ac76_47eb_9c06_a19304da0247);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1010,7 +1010,7 @@ pub struct IDialDeviceSelectedEventArgs_abi(
 pub struct IDialDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialDeviceStatics {
     type Vtable = IDialDeviceStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2859060373, 504, 18264, [132, 97, 43, 189, 28, 220, 60, 243]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa69cc95_01f8_4758_8461_2bbd1cdc3cf3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1032,7 +1032,7 @@ pub struct IDialDeviceStatics_abi(
 pub struct IDialDisconnectButtonClickedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialDisconnectButtonClickedEventArgs {
     type Vtable = IDialDisconnectButtonClickedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1383485778, 40065, 20053, [173, 194, 14, 190, 153, 205, 227, 182]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x52765152_9c81_4e55_adc2_0ebe99cde3b6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1050,7 +1050,7 @@ pub struct IDialDisconnectButtonClickedEventArgs_abi(
 pub struct IDialReceiverApp(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialReceiverApp {
     type Vtable = IDialReceiverApp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4248730711, 20549, 18190, [179, 4, 77, 217, 177, 62, 125, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfd3e7c57_5045_470e_b304_4dd9b13e7d11);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1071,7 +1071,7 @@ pub struct IDialReceiverApp_abi(
 pub struct IDialReceiverApp2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialReceiverApp2 {
     type Vtable = IDialReceiverApp2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1393317893, 37168, 17068, [165, 4, 25, 119, 220, 178, 234, 138]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x530c5805_9130_42ac_a504_1977dcb2ea8a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1090,7 +1090,7 @@ pub struct IDialReceiverApp2_abi(
 pub struct IDialReceiverAppStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialReceiverAppStatics {
     type Vtable = IDialReceiverAppStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1394096700, 19510, 19714, [178, 138, 242, 169, 218, 56, 236, 82]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53183a3c_4c36_4d02_b28a_f2a9da38ec52);
 }
 #[repr(C)]
 #[doc(hidden)]

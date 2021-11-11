@@ -30,7 +30,7 @@ impl IEnumNetworkConnections {
 }
 unsafe impl ::windows::runtime::Interface for IEnumNetworkConnections {
     type Vtable = IEnumNetworkConnections_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521862, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcb00006_570f_4a9b_8d69_199fdba5723b);
 }
 impl ::core::convert::From<IEnumNetworkConnections> for ::windows::runtime::IUnknown {
     fn from(value: IEnumNetworkConnections) -> Self {
@@ -128,7 +128,7 @@ impl IEnumNetworks {
 }
 unsafe impl ::windows::runtime::Interface for IEnumNetworks {
     type Vtable = IEnumNetworks_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521859, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcb00003_570f_4a9b_8d69_199fdba5723b);
 }
 impl ::core::convert::From<IEnumNetworks> for ::windows::runtime::IUnknown {
     fn from(value: IEnumNetworks) -> Self {
@@ -268,7 +268,7 @@ impl INetwork {
 }
 unsafe impl ::windows::runtime::Interface for INetwork {
     type Vtable = INetwork_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521858, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcb00002_570f_4a9b_8d69_199fdba5723b);
 }
 impl ::core::convert::From<INetwork> for ::windows::runtime::IUnknown {
     fn from(value: INetwork) -> Self {
@@ -389,7 +389,7 @@ impl INetworkConnection {
 }
 unsafe impl ::windows::runtime::Interface for INetworkConnection {
     type Vtable = INetworkConnection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521861, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcb00005_570f_4a9b_8d69_199fdba5723b);
 }
 impl ::core::convert::From<INetworkConnection> for ::windows::runtime::IUnknown {
     fn from(value: INetworkConnection) -> Self {
@@ -476,7 +476,7 @@ impl INetworkConnectionCost {
 }
 unsafe impl ::windows::runtime::Interface for INetworkConnectionCost {
     type Vtable = INetworkConnectionCost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521866, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcb0000a_570f_4a9b_8d69_199fdba5723b);
 }
 impl ::core::convert::From<INetworkConnectionCost> for ::windows::runtime::IUnknown {
     fn from(value: INetworkConnectionCost) -> Self {
@@ -524,7 +524,7 @@ impl INetworkConnectionCostEvents {
 }
 unsafe impl ::windows::runtime::Interface for INetworkConnectionCostEvents {
     type Vtable = INetworkConnectionCostEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521867, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcb0000b_570f_4a9b_8d69_199fdba5723b);
 }
 impl ::core::convert::From<INetworkConnectionCostEvents> for ::windows::runtime::IUnknown {
     fn from(value: INetworkConnectionCostEvents) -> Self {
@@ -571,7 +571,7 @@ impl INetworkConnectionEvents {
 }
 unsafe impl ::windows::runtime::Interface for INetworkConnectionEvents {
     type Vtable = INetworkConnectionEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521863, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcb00007_570f_4a9b_8d69_199fdba5723b);
 }
 impl ::core::convert::From<INetworkConnectionEvents> for ::windows::runtime::IUnknown {
     fn from(value: INetworkConnectionEvents) -> Self {
@@ -623,7 +623,7 @@ impl INetworkCostManager {
 }
 unsafe impl ::windows::runtime::Interface for INetworkCostManager {
     type Vtable = INetworkCostManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521864, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcb00008_570f_4a9b_8d69_199fdba5723b);
 }
 impl ::core::convert::From<INetworkCostManager> for ::windows::runtime::IUnknown {
     fn from(value: INetworkCostManager) -> Self {
@@ -672,7 +672,7 @@ impl INetworkCostManagerEvents {
 }
 unsafe impl ::windows::runtime::Interface for INetworkCostManagerEvents {
     type Vtable = INetworkCostManagerEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521865, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcb00009_570f_4a9b_8d69_199fdba5723b);
 }
 impl ::core::convert::From<INetworkCostManagerEvents> for ::windows::runtime::IUnknown {
     fn from(value: INetworkCostManagerEvents) -> Self {
@@ -727,7 +727,7 @@ impl INetworkEvents {
 }
 unsafe impl ::windows::runtime::Interface for INetworkEvents {
     type Vtable = INetworkEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521860, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcb00004_570f_4a9b_8d69_199fdba5723b);
 }
 impl ::core::convert::From<INetworkEvents> for ::windows::runtime::IUnknown {
     fn from(value: INetworkEvents) -> Self {
@@ -811,7 +811,7 @@ impl INetworkListManager {
 }
 unsafe impl ::windows::runtime::Interface for INetworkListManager {
     type Vtable = INetworkListManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521856, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcb00000_570f_4a9b_8d69_199fdba5723b);
 }
 impl ::core::convert::From<INetworkListManager> for ::windows::runtime::IUnknown {
     fn from(value: INetworkListManager) -> Self {
@@ -893,7 +893,7 @@ impl INetworkListManagerEvents {
 }
 unsafe impl ::windows::runtime::Interface for INetworkListManagerEvents {
     type Vtable = INetworkListManagerEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521857, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcb00001_570f_4a9b_8d69_199fdba5723b);
 }
 impl ::core::convert::From<INetworkListManagerEvents> for ::windows::runtime::IUnknown {
     fn from(value: INetworkListManagerEvents) -> Self {
@@ -1211,4 +1211,4 @@ impl ::core::cmp::Eq for NLM_USAGE_DATA {}
 unsafe impl ::windows::runtime::Abi for NLM_USAGE_DATA {
     type Abi = Self;
 }
-pub const NetworkListManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702524929, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
+pub const NetworkListManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdcb00c01_570f_4a9b_8d69_199fdba5723b);

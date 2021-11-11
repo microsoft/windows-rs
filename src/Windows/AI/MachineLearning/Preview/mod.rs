@@ -40,7 +40,7 @@ impl ::windows::runtime::DefaultType for FeatureElementKindPreview {
 pub struct IImageVariableDescriptorPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageVariableDescriptorPreview {
     type Vtable = IImageVariableDescriptorPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2061630066, 670, 19909, [162, 248, 95, 183, 99, 21, 65, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ae1fa72_029e_4dc5_a2f8_5fb763154150);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -61,7 +61,7 @@ pub struct IImageVariableDescriptorPreview_abi(
 pub struct IInferencingOptionsPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInferencingOptionsPreview {
     type Vtable = IInferencingOptionsPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1203536389, 19766, 18345, [143, 104, 255, 203, 51, 157, 208, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47bc8205_4d36_47a9_8f68_ffcb339dd0fc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -88,7 +88,7 @@ pub struct IInferencingOptionsPreview_abi(
 pub struct ILearningModelBindingPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelBindingPreview {
     type Vtable = ILearningModelBindingPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2479423976, 27768, 19279, [174, 193, 166, 187, 158, 105, 22, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93c901e8_6c78_4b4f_aec1_a6bb9e691624);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -109,7 +109,7 @@ pub struct ILearningModelBindingPreview_abi(
 pub struct ILearningModelBindingPreviewFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelBindingPreviewFactory {
     type Vtable = ILearningModelBindingPreviewFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1220026783, 7761, 19831, [174, 80, 62, 193, 100, 173, 52, 128]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48b8219f_1e51_4d77_ae50_3ec164ad3480);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -127,7 +127,7 @@ pub struct ILearningModelBindingPreviewFactory_abi(
 pub struct ILearningModelDescriptionPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelDescriptionPreview {
     type Vtable = ILearningModelDescriptionPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4113304006, 34321, 16557, [142, 89, 222, 63, 215, 3, 10, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf52c09c6_8611_40ad_8e59_de3fd7030a40);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -155,7 +155,7 @@ pub struct ILearningModelDescriptionPreview_abi(
 pub struct ILearningModelEvaluationResultPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelEvaluationResultPreview {
     type Vtable = ILearningModelEvaluationResultPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3743804063, 39011, 16520, [132, 152, 135, 161, 244, 104, 111, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf25ea9f_9863_4088_8498_87a1f4686f92);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -175,7 +175,7 @@ pub struct ILearningModelEvaluationResultPreview_abi(
 pub struct ILearningModelPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelPreview {
     type Vtable = ILearningModelPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(77342314, 37812, 18316, [174, 184, 112, 21, 123, 240, 255, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x049c266a_93b4_478c_aeb8_70157bf0ff94);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -199,7 +199,7 @@ pub struct ILearningModelPreview_abi(
 pub struct ILearningModelPreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelPreviewStatics {
     type Vtable = ILearningModelPreviewStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(374061920, 33893, 18310, [139, 147, 44, 22, 168, 146, 137, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x164bbb60_8465_4786_8b93_2c16a89289d7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -221,7 +221,7 @@ pub struct ILearningModelPreviewStatics_abi(
 pub struct ILearningModelVariableDescriptorPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelVariableDescriptorPreview {
     type Vtable = ILearningModelVariableDescriptorPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2973628034, 64560, 18731, [142, 160, 237, 31, 83, 192, 176, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb13df682_fc30_492b_8ea0_ed1f53c0b038);
 }
 impl ILearningModelVariableDescriptorPreview {
     #[cfg(feature = "deprecated")]
@@ -323,7 +323,7 @@ pub struct ILearningModelVariableDescriptorPreview_abi(
 pub struct IMapVariableDescriptorPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapVariableDescriptorPreview {
     type Vtable = IMapVariableDescriptorPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018397552, 49195, 16950, [179, 232, 107, 220, 164, 156, 49, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb38370_c02b_4236_b3e8_6bdca49c3129);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -346,7 +346,7 @@ pub struct IMapVariableDescriptorPreview_abi(
 pub struct ISequenceVariableDescriptorPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISequenceVariableDescriptorPreview {
     type Vtable = ISequenceVariableDescriptorPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2631463570, 39090, 17712, [161, 182, 45, 237, 95, 236, 188, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9cd8f292_98b2_4530_a1b6_2ded5fecbc26);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -364,7 +364,7 @@ pub struct ISequenceVariableDescriptorPreview_abi(
 pub struct ITensorVariableDescriptorPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorVariableDescriptorPreview {
     type Vtable = ITensorVariableDescriptorPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2819575834, 39596, 16947, [151, 132, 172, 234, 249, 37, 16, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa80f501a_9aac_4233_9784_aceaf92510b5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -454,7 +454,7 @@ unsafe impl ::windows::runtime::RuntimeType for ImageVariableDescriptorPreview {
 }
 unsafe impl ::windows::runtime::Interface for ImageVariableDescriptorPreview {
     type Vtable = IImageVariableDescriptorPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2061630066, 670, 19909, [162, 248, 95, 183, 99, 21, 65, 80]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ae1fa72_029e_4dc5_a2f8_5fb763154150);
 }
 impl ::windows::runtime::RuntimeName for ImageVariableDescriptorPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview";
@@ -607,7 +607,7 @@ unsafe impl ::windows::runtime::RuntimeType for InferencingOptionsPreview {
 }
 unsafe impl ::windows::runtime::Interface for InferencingOptionsPreview {
     type Vtable = IInferencingOptionsPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1203536389, 19766, 18345, [143, 104, 255, 203, 51, 157, 208, 252]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x47bc8205_4d36_47a9_8f68_ffcb339dd0fc);
 }
 impl ::windows::runtime::RuntimeName for InferencingOptionsPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.InferencingOptionsPreview";
@@ -736,7 +736,7 @@ unsafe impl ::windows::runtime::RuntimeType for LearningModelBindingPreview {
 }
 unsafe impl ::windows::runtime::Interface for LearningModelBindingPreview {
     type Vtable = ILearningModelBindingPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2479423976, 27768, 19279, [174, 193, 166, 187, 158, 105, 22, 36]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93c901e8_6c78_4b4f_aec1_a6bb9e691624);
 }
 impl ::windows::runtime::RuntimeName for LearningModelBindingPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.LearningModelBindingPreview";
@@ -937,7 +937,7 @@ unsafe impl ::windows::runtime::RuntimeType for LearningModelDescriptionPreview 
 }
 unsafe impl ::windows::runtime::Interface for LearningModelDescriptionPreview {
     type Vtable = ILearningModelDescriptionPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4113304006, 34321, 16557, [142, 89, 222, 63, 215, 3, 10, 64]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf52c09c6_8611_40ad_8e59_de3fd7030a40);
 }
 impl ::windows::runtime::RuntimeName for LearningModelDescriptionPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview";
@@ -1038,7 +1038,7 @@ unsafe impl ::windows::runtime::RuntimeType for LearningModelEvaluationResultPre
 }
 unsafe impl ::windows::runtime::Interface for LearningModelEvaluationResultPreview {
     type Vtable = ILearningModelEvaluationResultPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3743804063, 39011, 16520, [132, 152, 135, 161, 244, 104, 111, 146]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf25ea9f_9863_4088_8498_87a1f4686f92);
 }
 impl ::windows::runtime::RuntimeName for LearningModelEvaluationResultPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.LearningModelEvaluationResultPreview";
@@ -1185,7 +1185,7 @@ unsafe impl ::windows::runtime::RuntimeType for LearningModelPreview {
 }
 unsafe impl ::windows::runtime::Interface for LearningModelPreview {
     type Vtable = ILearningModelPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(77342314, 37812, 18316, [174, 184, 112, 21, 123, 240, 255, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x049c266a_93b4_478c_aeb8_70157bf0ff94);
 }
 impl ::windows::runtime::RuntimeName for LearningModelPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.LearningModelPreview";
@@ -1277,7 +1277,7 @@ unsafe impl ::windows::runtime::RuntimeType for LearningModelVariableDescriptorP
 }
 unsafe impl ::windows::runtime::Interface for LearningModelVariableDescriptorPreview {
     type Vtable = ILearningModelVariableDescriptorPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2973628034, 64560, 18731, [142, 160, 237, 31, 83, 192, 176, 56]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb13df682_fc30_492b_8ea0_ed1f53c0b038);
 }
 impl ::windows::runtime::RuntimeName for LearningModelVariableDescriptorPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.LearningModelVariableDescriptorPreview";
@@ -1430,7 +1430,7 @@ unsafe impl ::windows::runtime::RuntimeType for MapVariableDescriptorPreview {
 }
 unsafe impl ::windows::runtime::Interface for MapVariableDescriptorPreview {
     type Vtable = IMapVariableDescriptorPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018397552, 49195, 16950, [179, 232, 107, 220, 164, 156, 49, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3cb38370_c02b_4236_b3e8_6bdca49c3129);
 }
 impl ::windows::runtime::RuntimeName for MapVariableDescriptorPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview";
@@ -1553,7 +1553,7 @@ unsafe impl ::windows::runtime::RuntimeType for SequenceVariableDescriptorPrevie
 }
 unsafe impl ::windows::runtime::Interface for SequenceVariableDescriptorPreview {
     type Vtable = ISequenceVariableDescriptorPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2631463570, 39090, 17712, [161, 182, 45, 237, 95, 236, 188, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9cd8f292_98b2_4530_a1b6_2ded5fecbc26);
 }
 impl ::windows::runtime::RuntimeName for SequenceVariableDescriptorPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview";
@@ -1686,7 +1686,7 @@ unsafe impl ::windows::runtime::RuntimeType for TensorVariableDescriptorPreview 
 }
 unsafe impl ::windows::runtime::Interface for TensorVariableDescriptorPreview {
     type Vtable = ITensorVariableDescriptorPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2819575834, 39596, 16947, [151, 132, 172, 234, 249, 37, 16, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa80f501a_9aac_4233_9784_aceaf92510b5);
 }
 impl ::windows::runtime::RuntimeName for TensorVariableDescriptorPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview";

@@ -120,7 +120,7 @@ unsafe impl ::windows::runtime::RuntimeType for GpioChangeCounter {
 }
 unsafe impl ::windows::runtime::Interface for GpioChangeCounter {
     type Vtable = IGpioChangeCounter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3411984606, 26625, 17407, [128, 61, 69, 118, 98, 138, 139, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb5ec0de_6801_43ff_803d_4576628a8b26);
 }
 impl ::windows::runtime::RuntimeName for GpioChangeCounter {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioChangeCounter";
@@ -355,7 +355,7 @@ unsafe impl ::windows::runtime::RuntimeType for GpioChangeReader {
 }
 unsafe impl ::windows::runtime::Interface for GpioChangeReader {
     type Vtable = IGpioChangeReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(180127839, 57393, 18664, [133, 144, 112, 222, 120, 54, 60, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0abc885f_e031_48e8_8590_70de78363c6d);
 }
 impl ::windows::runtime::RuntimeName for GpioChangeReader {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioChangeReader";
@@ -544,7 +544,7 @@ unsafe impl ::windows::runtime::RuntimeType for GpioController {
 }
 unsafe impl ::windows::runtime::Interface for GpioController {
     type Vtable = IGpioController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(675287779, 29793, 18076, [168, 188, 97, 214, 157, 8, 165, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x284012e3_7461_469c_a8bc_61d69d08a53c);
 }
 impl ::windows::runtime::RuntimeName for GpioController {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioController";
@@ -713,7 +713,7 @@ unsafe impl ::windows::runtime::RuntimeType for GpioPin {
 }
 unsafe impl ::windows::runtime::Interface for GpioPin {
     type Vtable = IGpioPin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(299479175, 44974, 18320, [158, 233, 224, 234, 201, 66, 210, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11d9b087_afae_4790_9ee9_e0eac942d201);
 }
 impl ::windows::runtime::RuntimeName for GpioPin {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioPin";
@@ -877,7 +877,7 @@ unsafe impl ::windows::runtime::RuntimeType for GpioPinValueChangedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for GpioPinValueChangedEventArgs {
     type Vtable = IGpioPinValueChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(825731809, 28733, 16473, [189, 36, 181, 178, 93, 255, 184, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3137aae1_703d_4059_bd24_b5b25dffb84e);
 }
 impl ::windows::runtime::RuntimeName for GpioPinValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioPinValueChangedEventArgs";
@@ -951,7 +951,7 @@ impl ::windows::runtime::DefaultType for GpioSharingMode {
 pub struct IGpioChangeCounter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioChangeCounter {
     type Vtable = IGpioChangeCounter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3411984606, 26625, 17407, [128, 61, 69, 118, 98, 138, 139, 38]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb5ec0de_6801_43ff_803d_4576628a8b26);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -977,7 +977,7 @@ pub struct IGpioChangeCounter_abi(
 pub struct IGpioChangeCounterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioChangeCounterFactory {
     type Vtable = IGpioChangeCounterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(343774390, 2718, 16652, [180, 250, 248, 159, 64, 82, 8, 77]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x147d94b6_0a9e_410c_b4fa_f89f4052084d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -995,7 +995,7 @@ pub struct IGpioChangeCounterFactory_abi(
 pub struct IGpioChangeReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioChangeReader {
     type Vtable = IGpioChangeReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(180127839, 57393, 18664, [133, 144, 112, 222, 120, 54, 60, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0abc885f_e031_48e8_8590_70de78363c6d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1030,7 +1030,7 @@ pub struct IGpioChangeReader_abi(
 pub struct IGpioChangeReaderFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioChangeReaderFactory {
     type Vtable = IGpioChangeReaderFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2841218803, 14606, 17434, [157, 28, 232, 222, 11, 45, 240, 223]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9598ef3_390e_441a_9d1c_e8de0b2df0df);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1049,7 +1049,7 @@ pub struct IGpioChangeReaderFactory_abi(
 pub struct IGpioController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioController {
     type Vtable = IGpioController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(675287779, 29793, 18076, [168, 188, 97, 214, 157, 8, 165, 60]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x284012e3_7461_469c_a8bc_61d69d08a53c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1070,7 +1070,7 @@ pub struct IGpioController_abi(
 pub struct IGpioControllerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioControllerStatics {
     type Vtable = IGpioControllerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(785839150, 31479, 16662, [149, 51, 196, 61, 153, 161, 251, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ed6f42e_7af7_4116_9533_c43d99a1fb64);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1088,7 +1088,7 @@ pub struct IGpioControllerStatics_abi(
 pub struct IGpioControllerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioControllerStatics2 {
     type Vtable = IGpioControllerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2435546400, 27812, 16646, [163, 115, 255, 253, 52, 107, 14, 91]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x912b7d20_6ca4_4106_a373_fffd346b0e5b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1109,7 +1109,7 @@ pub struct IGpioControllerStatics2_abi(
 pub struct IGpioPin(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioPin {
     type Vtable = IGpioPin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(299479175, 44974, 18320, [158, 233, 224, 234, 201, 66, 210, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11d9b087_afae_4790_9ee9_e0eac942d201);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1141,7 +1141,7 @@ pub struct IGpioPin_abi(
 pub struct IGpioPinValueChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioPinValueChangedEventArgs {
     type Vtable = IGpioPinValueChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(825731809, 28733, 16473, [189, 36, 181, 178, 93, 255, 184, 78]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3137aae1_703d_4059_bd24_b5b25dffb84e);
 }
 #[repr(C)]
 #[doc(hidden)]

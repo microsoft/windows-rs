@@ -4,7 +4,7 @@
 pub struct IPlatformTelemetryClientStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlatformTelemetryClientStatics {
     type Vtable = IPlatformTelemetryClientStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2616455773, 54723, 20202, [141, 190, 156, 141, 187, 13, 157, 143]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9bf3f25d_d5c3_4eea_8dbe_9c8dbb0d9d8f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23,7 +23,7 @@ pub struct IPlatformTelemetryClientStatics_abi(
 pub struct IPlatformTelemetryRegistrationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlatformTelemetryRegistrationResult {
     type Vtable = IPlatformTelemetryRegistrationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1300568235, 8850, 18877, [161, 90, 61, 113, 210, 20, 81, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d8518ab_2292_49bd_a15a_3d71d2145112);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -41,7 +41,7 @@ pub struct IPlatformTelemetryRegistrationResult_abi(
 pub struct IPlatformTelemetryRegistrationSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlatformTelemetryRegistrationSettings {
     type Vtable = IPlatformTelemetryRegistrationSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2174387586, 51737, 16734, [187, 121, 156, 34, 75, 250, 58, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x819a8582_ca19_415e_bb79_9c224bfa3a73);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -101,7 +101,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlatformTelemetryRegistrationRes
 }
 unsafe impl ::windows::runtime::Interface for PlatformTelemetryRegistrationResult {
     type Vtable = IPlatformTelemetryRegistrationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1300568235, 8850, 18877, [161, 90, 61, 113, 210, 20, 81, 18]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d8518ab_2292_49bd_a15a_3d71d2145112);
 }
 impl ::windows::runtime::RuntimeName for PlatformTelemetryRegistrationResult {
     const NAME: &'static str = "Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationResult";
@@ -192,7 +192,7 @@ unsafe impl ::windows::runtime::RuntimeType for PlatformTelemetryRegistrationSet
 }
 unsafe impl ::windows::runtime::Interface for PlatformTelemetryRegistrationSettings {
     type Vtable = IPlatformTelemetryRegistrationSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2174387586, 51737, 16734, [187, 121, 156, 34, 75, 250, 58, 115]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x819a8582_ca19_415e_bb79_9c224bfa3a73);
 }
 impl ::windows::runtime::RuntimeName for PlatformTelemetryRegistrationSettings {
     const NAME: &'static str = "Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationSettings";

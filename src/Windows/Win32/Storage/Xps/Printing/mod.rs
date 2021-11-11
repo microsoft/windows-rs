@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const ID_DOCUMENTPACKAGETARGET_MSXPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2628665512, 57041, 16841, [169, 253, 215, 53, 239, 51, 174, 218]);
-pub const ID_DOCUMENTPACKAGETARGET_OPENXPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(5684082, 35996, 17938, [189, 15, 147, 1, 42, 135, 9, 157]);
-pub const ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1675351840, 35604, 17783, [176, 116, 123, 177, 27, 89, 109, 40]);
+pub const ID_DOCUMENTPACKAGETARGET_MSXPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9cae40a8_ded1_41c9_a9fd_d735ef33aeda);
+pub const ID_DOCUMENTPACKAGETARGET_OPENXPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0056bb72_8c9c_4612_bd0f_93012a87099d);
+pub const ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63dbd720_8b14_4577_b074_7bb11b596d28);
 #[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -14,7 +14,7 @@ impl IPrintDocumentPackageStatusEvent {
 }
 unsafe impl ::windows::runtime::Interface for IPrintDocumentPackageStatusEvent {
     type Vtable = IPrintDocumentPackageStatusEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3985688749, 23604, 19717, [161, 236, 14, 138, 155, 58, 215, 175]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed90c8ad_5c34_4d05_a1ec_0e8a9b3ad7af);
 }
 impl ::core::convert::From<IPrintDocumentPackageStatusEvent> for ::windows::runtime::IUnknown {
     fn from(value: IPrintDocumentPackageStatusEvent) -> Self {
@@ -97,7 +97,7 @@ impl IPrintDocumentPackageTarget {
 }
 unsafe impl ::windows::runtime::Interface for IPrintDocumentPackageTarget {
     type Vtable = IPrintDocumentPackageTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(462356164, 12313, 19495, [150, 78, 54, 114, 2, 21, 105, 6]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1b8efec4_3019_4c27_964e_367202156906);
 }
 impl ::core::convert::From<IPrintDocumentPackageTarget> for ::windows::runtime::IUnknown {
     fn from(value: IPrintDocumentPackageTarget) -> Self {
@@ -149,7 +149,7 @@ impl IPrintDocumentPackageTargetFactory {
 }
 unsafe impl ::windows::runtime::Interface for IPrintDocumentPackageTargetFactory {
     type Vtable = IPrintDocumentPackageTargetFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3533020151, 45851, 19005, [150, 0, 113, 46, 177, 51, 91, 164]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd2959bf7_b31b_4a3d_9600_712eb1335ba4);
 }
 impl ::core::convert::From<IPrintDocumentPackageTargetFactory> for ::windows::runtime::IUnknown {
     fn from(value: IPrintDocumentPackageTargetFactory) -> Self {
@@ -197,7 +197,7 @@ impl IXpsPrintJob {
 }
 unsafe impl ::windows::runtime::Interface for IXpsPrintJob {
     type Vtable = IXpsPrintJob_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1522047750, 33172, 16991, [171, 59, 215, 169, 110, 53, 1, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ab89b06_8194_425f_ab3b_d7a96e350161);
 }
 impl ::core::convert::From<IXpsPrintJob> for ::windows::runtime::IUnknown {
     fn from(value: IXpsPrintJob) -> Self {
@@ -249,7 +249,7 @@ impl IXpsPrintJobStream {
 }
 unsafe impl ::windows::runtime::Interface for IXpsPrintJobStream {
     type Vtable = IXpsPrintJobStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2054675551, 17878, 19967, [147, 7, 216, 203, 132, 99, 71, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a77dc5f_45d6_4dff_9307_d8cb846347ca);
 }
 impl ::core::convert::From<IXpsPrintJobStream> for ::windows::runtime::IUnknown {
     fn from(value: IXpsPrintJobStream) -> Self {
@@ -359,8 +359,8 @@ impl ::core::cmp::Eq for PrintDocumentPackageStatus {}
 unsafe impl ::windows::runtime::Abi for PrintDocumentPackageStatus {
     type Abi = Self;
 }
-pub const PrintDocumentPackageTarget: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1212311198, 39239, 18154, [139, 162, 216, 204, 228, 50, 194, 202]);
-pub const PrintDocumentPackageTargetFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(881783165, 27777, 18818, [146, 180, 238, 24, 138, 67, 134, 122]);
+pub const PrintDocumentPackageTarget: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4842669e_9947_46ea_8ba2_d8cce432c2ca);
+pub const PrintDocumentPackageTargetFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x348ef17d_6c81_4982_92b4_ee188a43867a);
 #[doc = "*Required features: `Win32_Storage_Xps_Printing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

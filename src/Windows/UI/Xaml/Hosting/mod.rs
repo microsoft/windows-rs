@@ -18,7 +18,7 @@ unsafe impl ::windows::runtime::RuntimeType for DesignerAppExitedEventArgs {
 }
 unsafe impl ::windows::runtime::Interface for DesignerAppExitedEventArgs {
     type Vtable = IDesignerAppExitedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4138387562, 3245, 16652, [143, 98, 220, 41, 54, 21, 28, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6aac86a_0cad_410c_8f62_dc2936151c74);
 }
 impl ::windows::runtime::RuntimeName for DesignerAppExitedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.DesignerAppExitedEventArgs";
@@ -134,7 +134,7 @@ unsafe impl ::windows::runtime::RuntimeType for DesignerAppManager {
 }
 unsafe impl ::windows::runtime::Interface for DesignerAppManager {
     type Vtable = IDesignerAppManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2787585194, 54726, 16587, [171, 217, 39, 186, 67, 131, 27, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6272caa_d5c6_40cb_abd9_27ba43831bb7);
 }
 impl ::windows::runtime::RuntimeName for DesignerAppManager {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.DesignerAppManager";
@@ -266,7 +266,7 @@ unsafe impl ::windows::runtime::RuntimeType for DesignerAppView {
 }
 unsafe impl ::windows::runtime::Interface for DesignerAppView {
     type Vtable = IDesignerAppView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1551334634, 56689, 19076, [165, 111, 218, 203, 75, 20, 112, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c777cea_dd71_4a84_a56f_dacb4b14706f);
 }
 impl ::windows::runtime::RuntimeName for DesignerAppView {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.DesignerAppView";
@@ -448,7 +448,7 @@ unsafe impl ::windows::runtime::RuntimeType for DesktopWindowXamlSource {
 }
 unsafe impl ::windows::runtime::Interface for DesktopWindowXamlSource {
     type Vtable = IDesktopWindowXamlSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3582312417, 255, 20926, [186, 29, 161, 50, 153, 86, 234, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd585bfe1_00ff_51be_ba1d_a1329956ea0a);
 }
 impl ::windows::runtime::RuntimeName for DesktopWindowXamlSource {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.DesktopWindowXamlSource";
@@ -540,7 +540,7 @@ unsafe impl ::windows::runtime::RuntimeType for DesktopWindowXamlSourceGotFocusE
 }
 unsafe impl ::windows::runtime::Interface for DesktopWindowXamlSourceGotFocusEventArgs {
     type Vtable = IDesktopWindowXamlSourceGotFocusEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(968771657, 55756, 23408, [143, 5, 26, 217, 164, 170, 163, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39be4849_d9cc_5b70_8f05_1ad9a4aaa342);
 }
 impl ::windows::runtime::RuntimeName for DesktopWindowXamlSourceGotFocusEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.DesktopWindowXamlSourceGotFocusEventArgs";
@@ -606,7 +606,7 @@ unsafe impl ::windows::runtime::RuntimeType for DesktopWindowXamlSourceTakeFocus
 }
 unsafe impl ::windows::runtime::Interface for DesktopWindowXamlSourceTakeFocusRequestedEventArgs {
     type Vtable = IDesktopWindowXamlSourceTakeFocusRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4267828409, 42927, 21171, [189, 185, 195, 48, 92, 11, 141, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe61e4b9_a7af_52b3_bdb9_c3305c0b8df2);
 }
 impl ::windows::runtime::RuntimeName for DesktopWindowXamlSourceTakeFocusRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.DesktopWindowXamlSourceTakeFocusRequestedEventArgs";
@@ -740,7 +740,7 @@ unsafe impl ::windows::runtime::RuntimeType for ElementCompositionPreview {
 }
 unsafe impl ::windows::runtime::Interface for ElementCompositionPreview {
     type Vtable = IElementCompositionPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3069290102, 53222, 18092, [172, 246, 196, 104, 123, 182, 94, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6f1a676_cfe6_46ac_acf6_c4687bb65e60);
 }
 impl ::windows::runtime::RuntimeName for ElementCompositionPreview {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.ElementCompositionPreview";
@@ -795,7 +795,7 @@ pub struct HostingContract(pub u8);
 pub struct IDesignerAppExitedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesignerAppExitedEventArgs {
     type Vtable = IDesignerAppExitedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4138387562, 3245, 16652, [143, 98, 220, 41, 54, 21, 28, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6aac86a_0cad_410c_8f62_dc2936151c74);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -813,7 +813,7 @@ pub struct IDesignerAppExitedEventArgs_abi(
 pub struct IDesignerAppManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesignerAppManager {
     type Vtable = IDesignerAppManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2787585194, 54726, 16587, [171, 217, 39, 186, 67, 131, 27, 183]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6272caa_d5c6_40cb_abd9_27ba43831bb7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -839,7 +839,7 @@ pub struct IDesignerAppManager_abi(
 pub struct IDesignerAppManagerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesignerAppManagerFactory {
     type Vtable = IDesignerAppManagerFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409456443, 4710, 19470, [132, 153, 13, 184, 91, 189, 76, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f9d633b_1266_4c0e_8499_0db85bbd4c43);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -857,7 +857,7 @@ pub struct IDesignerAppManagerFactory_abi(
 pub struct IDesignerAppView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesignerAppView {
     type Vtable = IDesignerAppView_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1551334634, 56689, 19076, [165, 111, 218, 203, 75, 20, 112, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c777cea_dd71_4a84_a56f_dacb4b14706f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -881,7 +881,7 @@ pub struct IDesignerAppView_abi(
 pub struct IDesktopWindowXamlSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesktopWindowXamlSource {
     type Vtable = IDesktopWindowXamlSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3582312417, 255, 20926, [186, 29, 161, 50, 153, 86, 234, 10]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd585bfe1_00ff_51be_ba1d_a1329956ea0a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -910,7 +910,7 @@ pub struct IDesktopWindowXamlSource_abi(
 pub struct IDesktopWindowXamlSourceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesktopWindowXamlSourceFactory {
     type Vtable = IDesktopWindowXamlSourceFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1557536192, 9569, 22241, [142, 117, 110, 68, 23, 56, 5, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5cd61dc0_2561_56e1_8e75_6e44173805e3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -928,7 +928,7 @@ pub struct IDesktopWindowXamlSourceFactory_abi(
 pub struct IDesktopWindowXamlSourceGotFocusEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesktopWindowXamlSourceGotFocusEventArgs {
     type Vtable = IDesktopWindowXamlSourceGotFocusEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(968771657, 55756, 23408, [143, 5, 26, 217, 164, 170, 163, 66]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x39be4849_d9cc_5b70_8f05_1ad9a4aaa342);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -946,7 +946,7 @@ pub struct IDesktopWindowXamlSourceGotFocusEventArgs_abi(
 pub struct IDesktopWindowXamlSourceTakeFocusRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesktopWindowXamlSourceTakeFocusRequestedEventArgs {
     type Vtable = IDesktopWindowXamlSourceTakeFocusRequestedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4267828409, 42927, 21171, [189, 185, 195, 48, 92, 11, 141, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe61e4b9_a7af_52b3_bdb9_c3305c0b8df2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -964,7 +964,7 @@ pub struct IDesktopWindowXamlSourceTakeFocusRequestedEventArgs_abi(
 pub struct IElementCompositionPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElementCompositionPreview {
     type Vtable = IElementCompositionPreview_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3069290102, 53222, 18092, [172, 246, 196, 104, 123, 182, 94, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb6f1a676_cfe6_46ac_acf6_c4687bb65e60);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -981,7 +981,7 @@ pub struct IElementCompositionPreview_abi(
 pub struct IElementCompositionPreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElementCompositionPreviewStatics {
     type Vtable = IElementCompositionPreviewStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(147401528, 60569, 19541, [188, 133, 161, 193, 128, 178, 118, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08c92b38_ec99_4c55_bc85_a1c180b27646);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1006,7 +1006,7 @@ pub struct IElementCompositionPreviewStatics_abi(
 pub struct IElementCompositionPreviewStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElementCompositionPreviewStatics2 {
     type Vtable = IElementCompositionPreviewStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(605327291, 9174, 20279, [186, 12, 7, 51, 231, 153, 114, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24148fbb_23d6_4f37_ba0c_0733e799722d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1030,7 +1030,7 @@ pub struct IElementCompositionPreviewStatics2_abi(
 pub struct IElementCompositionPreviewStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElementCompositionPreviewStatics3 {
     type Vtable = IElementCompositionPreviewStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2218509507, 49413, 23038, [163, 209, 55, 60, 29, 62, 111, 188]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x843bc4c3_c105_59fe_a3d1_373c1d3e6fbc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1051,7 +1051,7 @@ pub struct IElementCompositionPreviewStatics3_abi(
 pub struct IWindowsXamlManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowsXamlManager {
     type Vtable = IWindowsXamlManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1443458097, 6816, 21128, [136, 24, 110, 116, 162, 220, 175, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56096c31_1aa0_5288_8818_6e74a2dcaff5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1068,7 +1068,7 @@ pub struct IWindowsXamlManager_abi(
 pub struct IWindowsXamlManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowsXamlManagerStatics {
     type Vtable = IWindowsXamlManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(673548818, 32130, 20571, [178, 16, 113, 43, 4, 165, 136, 130]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x28258a12_7d82_505b_b210_712b04a58882);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1086,7 +1086,7 @@ pub struct IWindowsXamlManagerStatics_abi(
 pub struct IXamlSourceFocusNavigationRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlSourceFocusNavigationRequest {
     type Vtable = IXamlSourceFocusNavigationRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4223220661, 5270, 23168, [172, 0, 231, 87, 53, 151, 85, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbb93bb5_1496_5a80_ac00_e757359755e6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1107,7 +1107,7 @@ pub struct IXamlSourceFocusNavigationRequest_abi(
 pub struct IXamlSourceFocusNavigationRequestFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlSourceFocusNavigationRequestFactory {
     type Vtable = IXamlSourceFocusNavigationRequestFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3880168335, 46319, 21392, [151, 229, 204, 10, 39, 121, 197, 116]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe746ab8f_b4ef_5390_97e5_cc0a2779c574);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1129,7 +1129,7 @@ pub struct IXamlSourceFocusNavigationRequestFactory_abi(
 pub struct IXamlSourceFocusNavigationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlSourceFocusNavigationResult {
     type Vtable = IXamlSourceFocusNavigationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295683679, 38403, 23951, [156, 199, 209, 196, 7, 13, 152, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88d55a5f_9603_5d8f_9cc7_d1c4070d9801);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1147,7 +1147,7 @@ pub struct IXamlSourceFocusNavigationResult_abi(
 pub struct IXamlSourceFocusNavigationResultFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlSourceFocusNavigationResultFactory {
     type Vtable = IXamlSourceFocusNavigationResultFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1136373183, 63969, 21799, [184, 197, 9, 51, 159, 242, 202, 118]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x43bbadbf_f9e1_5527_b8c5_09339ff2ca76);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1165,7 +1165,7 @@ pub struct IXamlSourceFocusNavigationResultFactory_abi(
 pub struct IXamlUIPresenter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenter {
     type Vtable = IXamlUIPresenter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2803143754, 5657, 20422, [179, 27, 137, 81, 46, 240, 34, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa714944a_1619_4fc6_b31b_89512ef022a2);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1192,7 +1192,7 @@ pub struct IXamlUIPresenter_abi(
 pub struct IXamlUIPresenterHost(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenterHost {
     type Vtable = IXamlUIPresenterHost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2868610253, 40813, 20352, [172, 44, 14, 108, 185, 243, 22, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaafb84cd_9f6d_4f80_ac2c_0e6cb9f31659);
 }
 impl IXamlUIPresenterHost {
     #[doc = "*Required features: `UI_Xaml_Hosting`*"]
@@ -1264,7 +1264,7 @@ pub struct IXamlUIPresenterHost_abi(
 pub struct IXamlUIPresenterHost2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenterHost2 {
     type Vtable = IXamlUIPresenterHost2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1633244786, 31908, 18977, [181, 106, 136, 244, 129, 35, 136, 202]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61595672_7ca4_4a21_b56a_88f4812388ca);
 }
 impl IXamlUIPresenterHost2 {
     #[doc = "*Required features: `UI_Xaml_Hosting`*"]
@@ -1336,7 +1336,7 @@ pub struct IXamlUIPresenterHost2_abi(
 pub struct IXamlUIPresenterHost3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenterHost3 {
     type Vtable = IXamlUIPresenterHost3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2973930175, 29472, 16827, [159, 38, 77, 111, 211, 77, 180, 90]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb14292bf_7320_41bb_9f26_4d6fd34db45a);
 }
 impl IXamlUIPresenterHost3 {
     #[doc = "*Required features: `UI_Xaml_Hosting`*"]
@@ -1407,7 +1407,7 @@ pub struct IXamlUIPresenterHost3_abi(
 pub struct IXamlUIPresenterStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenterStatics {
     type Vtable = IXamlUIPresenterStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1911220936, 17889, 16786, [133, 170, 58, 66, 46, 221, 35, 207]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71eaeac8_45e1_4192_85aa_3a422edd23cf);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1428,7 +1428,7 @@ pub struct IXamlUIPresenterStatics_abi(
 pub struct IXamlUIPresenterStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenterStatics2 {
     type Vtable = IXamlUIPresenterStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1550543058, 53020, 20307, [191, 9, 106, 116, 95, 122, 151, 3]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c6b68d2_cf1c_4f53_bf09_6a745f7a9703);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1483,7 +1483,7 @@ unsafe impl ::windows::runtime::RuntimeType for WindowsXamlManager {
 }
 unsafe impl ::windows::runtime::Interface for WindowsXamlManager {
     type Vtable = IWindowsXamlManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1443458097, 6816, 21128, [136, 24, 110, 116, 162, 220, 175, 245]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x56096c31_1aa0_5288_8818_6e74a2dcaff5);
 }
 impl ::windows::runtime::RuntimeName for WindowsXamlManager {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.WindowsXamlManager";
@@ -1647,7 +1647,7 @@ unsafe impl ::windows::runtime::RuntimeType for XamlSourceFocusNavigationRequest
 }
 unsafe impl ::windows::runtime::Interface for XamlSourceFocusNavigationRequest {
     type Vtable = IXamlSourceFocusNavigationRequest_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4223220661, 5270, 23168, [172, 0, 231, 87, 53, 151, 85, 230]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbb93bb5_1496_5a80_ac00_e757359755e6);
 }
 impl ::windows::runtime::RuntimeName for XamlSourceFocusNavigationRequest {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.XamlSourceFocusNavigationRequest";
@@ -1724,7 +1724,7 @@ unsafe impl ::windows::runtime::RuntimeType for XamlSourceFocusNavigationResult 
 }
 unsafe impl ::windows::runtime::Interface for XamlSourceFocusNavigationResult {
     type Vtable = IXamlSourceFocusNavigationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295683679, 38403, 23951, [156, 199, 209, 196, 7, 13, 152, 1]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x88d55a5f_9603_5d8f_9cc7_d1c4070d9801);
 }
 impl ::windows::runtime::RuntimeName for XamlSourceFocusNavigationResult {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.XamlSourceFocusNavigationResult";
@@ -1887,7 +1887,7 @@ unsafe impl ::windows::runtime::RuntimeType for XamlUIPresenter {
 }
 unsafe impl ::windows::runtime::Interface for XamlUIPresenter {
     type Vtable = IXamlUIPresenter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2803143754, 5657, 20422, [179, 27, 137, 81, 46, 240, 34, 162]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa714944a_1619_4fc6_b31b_89512ef022a2);
 }
 impl ::windows::runtime::RuntimeName for XamlUIPresenter {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.XamlUIPresenter";

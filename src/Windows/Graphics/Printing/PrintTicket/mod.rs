@@ -4,7 +4,7 @@
 pub struct IPrintTicketCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTicketCapabilities {
     type Vtable = IPrintTicketCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2353352843, 48092, 16982, [161, 66, 47, 214, 21, 236, 180, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c45508b_bbdc_4256_a142_2fd615ecb416);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -42,7 +42,7 @@ pub struct IPrintTicketCapabilities_abi(
 pub struct IPrintTicketFeature(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTicketFeature {
     type Vtable = IPrintTicketFeature_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881860458, 23029, 16643, [136, 88, 185, 119, 16, 150, 61, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7607d6a_59f5_4103_8858_b97710963d39);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -70,7 +70,7 @@ pub struct IPrintTicketFeature_abi(
 pub struct IPrintTicketOption(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTicketOption {
     type Vtable = IPrintTicketOption_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2961624976, 45927, 20043, [189, 72, 156, 120, 160, 187, 49, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb086cf90_b367_4e4b_bd48_9c78a0bb31ce);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -98,7 +98,7 @@ pub struct IPrintTicketOption_abi(
 pub struct IPrintTicketParameterDefinition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTicketParameterDefinition {
     type Vtable = IPrintTicketParameterDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3602560228, 10594, 19457, [183, 243, 154, 146, 148, 235, 131, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6bab4e4_2962_4c01_b7f3_9a9294eb8335);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -123,7 +123,7 @@ pub struct IPrintTicketParameterDefinition_abi(
 pub struct IPrintTicketParameterInitializer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTicketParameterInitializer {
     type Vtable = IPrintTicketParameterInitializer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1580414395, 41125, 18609, [157, 92, 7, 17, 109, 220, 89, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e3335bb_a0a5_48b1_9d5c_07116ddc597a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -146,7 +146,7 @@ pub struct IPrintTicketParameterInitializer_abi(
 pub struct IPrintTicketValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTicketValue {
     type Vtable = IPrintTicketValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1723009586, 9293, 20002, [169, 139, 187, 60, 241, 242, 221, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66b30a32_244d_4e22_a98b_bb3cf1f2dd91);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -166,7 +166,7 @@ pub struct IPrintTicketValue_abi(
 pub struct IWorkflowPrintTicket(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWorkflowPrintTicket {
     type Vtable = IWorkflowPrintTicket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1104487045, 13800, 17550, [168, 197, 228, 182, 162, 207, 130, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41d52285_35e8_448e_a8c5_e4b6a2cf826c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -212,7 +212,7 @@ pub struct IWorkflowPrintTicket_abi(
 pub struct IWorkflowPrintTicketValidationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWorkflowPrintTicketValidationResult {
     type Vtable = IWorkflowPrintTicketValidationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(181531538, 55931, 18998, [191, 54, 106, 153, 166, 46, 32, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ad1f392_da7b_4a36_bf36_6a99a62e2059);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -398,7 +398,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintTicketCapabilities {
 }
 unsafe impl ::windows::runtime::Interface for PrintTicketCapabilities {
     type Vtable = IPrintTicketCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2353352843, 48092, 16982, [161, 66, 47, 214, 21, 236, 180, 22]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c45508b_bbdc_4256_a142_2fd615ecb416);
 }
 impl ::windows::runtime::RuntimeName for PrintTicketCapabilities {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketCapabilities";
@@ -527,7 +527,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintTicketFeature {
 }
 unsafe impl ::windows::runtime::Interface for PrintTicketFeature {
     type Vtable = IPrintTicketFeature_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881860458, 23029, 16643, [136, 88, 185, 119, 16, 150, 61, 57]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7607d6a_59f5_4103_8858_b97710963d39);
 }
 impl ::windows::runtime::RuntimeName for PrintTicketFeature {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketFeature";
@@ -674,7 +674,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintTicketOption {
 }
 unsafe impl ::windows::runtime::Interface for PrintTicketOption {
     type Vtable = IPrintTicketOption_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2961624976, 45927, 20043, [189, 72, 156, 120, 160, 187, 49, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb086cf90_b367_4e4b_bd48_9c78a0bb31ce);
 }
 impl ::windows::runtime::RuntimeName for PrintTicketOption {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketOption";
@@ -812,7 +812,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintTicketParameterDefinition {
 }
 unsafe impl ::windows::runtime::Interface for PrintTicketParameterDefinition {
     type Vtable = IPrintTicketParameterDefinition_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3602560228, 10594, 19457, [183, 243, 154, 146, 148, 235, 131, 53]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6bab4e4_2962_4c01_b7f3_9a9294eb8335);
 }
 impl ::windows::runtime::RuntimeName for PrintTicketParameterDefinition {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDefinition";
@@ -908,7 +908,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintTicketParameterInitializer 
 }
 unsafe impl ::windows::runtime::Interface for PrintTicketParameterInitializer {
     type Vtable = IPrintTicketParameterInitializer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1580414395, 41125, 18609, [157, 92, 7, 17, 109, 220, 89, 122]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e3335bb_a0a5_48b1_9d5c_07116ddc597a);
 }
 impl ::windows::runtime::RuntimeName for PrintTicketParameterInitializer {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketParameterInitializer";
@@ -990,7 +990,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintTicketValue {
 }
 unsafe impl ::windows::runtime::Interface for PrintTicketValue {
     type Vtable = IPrintTicketValue_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1723009586, 9293, 20002, [169, 139, 187, 60, 241, 242, 221, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66b30a32_244d_4e22_a98b_bb3cf1f2dd91);
 }
 impl ::windows::runtime::RuntimeName for PrintTicketValue {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketValue";
@@ -1282,7 +1282,7 @@ unsafe impl ::windows::runtime::RuntimeType for WorkflowPrintTicket {
 }
 unsafe impl ::windows::runtime::Interface for WorkflowPrintTicket {
     type Vtable = IWorkflowPrintTicket_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1104487045, 13800, 17550, [168, 197, 228, 182, 162, 207, 130, 108]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x41d52285_35e8_448e_a8c5_e4b6a2cf826c);
 }
 impl ::windows::runtime::RuntimeName for WorkflowPrintTicket {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicket";
@@ -1356,7 +1356,7 @@ unsafe impl ::windows::runtime::RuntimeType for WorkflowPrintTicketValidationRes
 }
 unsafe impl ::windows::runtime::Interface for WorkflowPrintTicketValidationResult {
     type Vtable = IWorkflowPrintTicketValidationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(181531538, 55931, 18998, [191, 54, 106, 153, 166, 46, 32, 89]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ad1f392_da7b_4a36_bf36_6a99a62e2059);
 }
 impl ::windows::runtime::RuntimeName for WorkflowPrintTicketValidationResult {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicketValidationResult";

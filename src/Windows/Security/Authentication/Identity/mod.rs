@@ -54,7 +54,7 @@ unsafe impl ::windows::runtime::RuntimeType for EnterpriseKeyCredentialRegistrat
 }
 unsafe impl ::windows::runtime::Interface for EnterpriseKeyCredentialRegistrationInfo {
     type Vtable = IEnterpriseKeyCredentialRegistrationInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(942807756, 26411, 18467, [182, 3, 107, 60, 117, 61, 175, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38321acc_672b_4823_b603_6b3c753daf97);
 }
 impl ::windows::runtime::RuntimeName for EnterpriseKeyCredentialRegistrationInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo";
@@ -132,7 +132,7 @@ unsafe impl ::windows::runtime::RuntimeType for EnterpriseKeyCredentialRegistrat
 }
 unsafe impl ::windows::runtime::Interface for EnterpriseKeyCredentialRegistrationManager {
     type Vtable = IEnterpriseKeyCredentialRegistrationManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2213789247, 41567, 19642, [187, 142, 189, 195, 45, 3, 194, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83f3be3f_a25f_4cba_bb8e_bdc32d03c297);
 }
 impl ::windows::runtime::RuntimeName for EnterpriseKeyCredentialRegistrationManager {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationManager";
@@ -184,7 +184,7 @@ unsafe impl ::core::marker::Sync for EnterpriseKeyCredentialRegistrationManager 
 pub struct IEnterpriseKeyCredentialRegistrationInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnterpriseKeyCredentialRegistrationInfo {
     type Vtable = IEnterpriseKeyCredentialRegistrationInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(942807756, 26411, 18467, [182, 3, 107, 60, 117, 61, 175, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38321acc_672b_4823_b603_6b3c753daf97);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -206,7 +206,7 @@ pub struct IEnterpriseKeyCredentialRegistrationInfo_abi(
 pub struct IEnterpriseKeyCredentialRegistrationManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnterpriseKeyCredentialRegistrationManager {
     type Vtable = IEnterpriseKeyCredentialRegistrationManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2213789247, 41567, 19642, [187, 142, 189, 195, 45, 3, 194, 151]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x83f3be3f_a25f_4cba_bb8e_bdc32d03c297);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -225,7 +225,7 @@ pub struct IEnterpriseKeyCredentialRegistrationManager_abi(
 pub struct IEnterpriseKeyCredentialRegistrationManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnterpriseKeyCredentialRegistrationManagerStatics {
     type Vtable = IEnterpriseKeyCredentialRegistrationManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2008571550, 44276, 19392, [186, 194, 64, 187, 70, 239, 187, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77b85e9e_acf4_4bc0_bac2_40bb46efbb3f);
 }
 #[repr(C)]
 #[doc(hidden)]

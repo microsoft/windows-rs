@@ -1053,7 +1053,7 @@ impl IWSMan {
 }
 unsafe impl ::windows::runtime::Interface for IWSMan {
     type Vtable = IWSMan_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(420316727, 23763, 18797, [173, 36, 105, 99, 107, 181, 163, 181]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x190d8637_5cd3_496d_ad24_69636bb5a3b5);
 }
 impl ::core::convert::From<IWSMan> for ::windows::runtime::IUnknown {
     fn from(value: IWSMan) -> Self {
@@ -1145,7 +1145,7 @@ impl IWSManConnectionOptions {
 }
 unsafe impl ::windows::runtime::Interface for IWSManConnectionOptions {
     type Vtable = IWSManConnectionOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4144293985, 40530, 17999, [183, 134, 218, 94, 178, 50, 15, 221]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf704e861_9e52_464f_b786_da5eb2320fdd);
 }
 impl ::core::convert::From<IWSManConnectionOptions> for ::windows::runtime::IUnknown {
     fn from(value: IWSManConnectionOptions) -> Self {
@@ -1278,7 +1278,7 @@ impl IWSManConnectionOptionsEx {
 }
 unsafe impl ::windows::runtime::Interface for IWSManConnectionOptionsEx {
     type Vtable = IWSManConnectionOptionsEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4014206455, 10824, 19859, [149, 38, 139, 214, 171, 109, 74, 107]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef43edf7_2a48_4d93_9526_8bd6ab6d4a6b);
 }
 impl ::core::convert::From<IWSManConnectionOptionsEx> for ::windows::runtime::IUnknown {
     fn from(value: IWSManConnectionOptionsEx) -> Self {
@@ -1475,7 +1475,7 @@ impl IWSManConnectionOptionsEx2 {
 }
 unsafe impl ::windows::runtime::Interface for IWSManConnectionOptionsEx2 {
     type Vtable = IWSManConnectionOptionsEx2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4110469612, 9454, 18603, [179, 141, 252, 154, 22, 76, 101, 142]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf500c9ec_24ee_48ab_b38d_fc9a164c658e);
 }
 impl ::core::convert::From<IWSManConnectionOptionsEx2> for ::windows::runtime::IUnknown {
     fn from(value: IWSManConnectionOptionsEx2) -> Self {
@@ -1619,7 +1619,7 @@ impl IWSManEnumerator {
 }
 unsafe impl ::windows::runtime::Interface for IWSManEnumerator {
     type Vtable = IWSManEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4081417385, 43961, 20389, [184, 80, 144, 232, 202, 48, 14, 127]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3457ca9_abb9_4fa5_b850_90e8ca300e7f);
 }
 impl ::core::convert::From<IWSManEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IWSManEnumerator) -> Self {
@@ -1850,7 +1850,7 @@ impl IWSManEx {
 }
 unsafe impl ::windows::runtime::Interface for IWSManEx {
     type Vtable = IWSManEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(760462762, 31118, 18918, [161, 170, 116, 208, 18, 86, 244, 17]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d53bdaa_798e_49e6_a1aa_74d01256f411);
 }
 impl ::core::convert::From<IWSManEx> for ::windows::runtime::IUnknown {
     fn from(value: IWSManEx) -> Self {
@@ -2131,7 +2131,7 @@ impl IWSManEx2 {
 }
 unsafe impl ::windows::runtime::Interface for IWSManEx2 {
     type Vtable = IWSManEx2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(488332000, 17113, 16417, [130, 97, 57, 135, 97, 149, 18, 233]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d1b5ae0_42d9_4021_8261_3987619512e9);
 }
 impl ::core::convert::From<IWSManEx2> for ::windows::runtime::IUnknown {
     fn from(value: IWSManEx2) -> Self {
@@ -2468,7 +2468,7 @@ impl IWSManEx3 {
 }
 unsafe impl ::windows::runtime::Interface for IWSManEx3 {
     type Vtable = IWSManEx3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1677781350, 285, 20140, [132, 116, 4, 158, 8, 72, 175, 173]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6400e966_011d_4eac_8474_049e0848afad);
 }
 impl ::core::convert::From<IWSManEx3> for ::windows::runtime::IUnknown {
     fn from(value: IWSManEx3) -> Self {
@@ -2640,7 +2640,7 @@ impl IWSManInternal {
 }
 unsafe impl ::windows::runtime::Interface for IWSManInternal {
     type Vtable = IWSManInternal_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(78523165, 39252, 19865, [148, 169, 169, 97, 231, 44, 58, 19]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x04ae2b1d_9954_4d99_94a9_a961e72c3a13);
 }
 impl ::core::convert::From<IWSManInternal> for ::windows::runtime::IUnknown {
     fn from(value: IWSManInternal) -> Self {
@@ -2778,7 +2778,7 @@ impl IWSManResourceLocator {
 }
 unsafe impl ::windows::runtime::Interface for IWSManResourceLocator {
     type Vtable = IWSManResourceLocator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2812394024, 56897, 18026, [173, 10, 196, 5, 158, 173, 116, 40]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7a1ba28_de41_466a_ad0a_c4059ead7428);
 }
 impl ::core::convert::From<IWSManResourceLocator> for ::windows::runtime::IUnknown {
     fn from(value: IWSManResourceLocator) -> Self {
@@ -2869,7 +2869,7 @@ pub struct IWSManResourceLocatorInternal(pub ::windows::runtime::IUnknown);
 impl IWSManResourceLocatorInternal {}
 unsafe impl ::windows::runtime::Interface for IWSManResourceLocatorInternal {
     type Vtable = IWSManResourceLocatorInternal_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4026198743, 32456, 18198, [185, 190, 242, 231, 233, 251, 74, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeffaead7_7ec8_4716_b9be_f2e7e9fb4adb);
 }
 impl ::core::convert::From<IWSManResourceLocatorInternal> for ::windows::runtime::IUnknown {
     fn from(value: IWSManResourceLocatorInternal) -> Self {
@@ -2971,7 +2971,7 @@ impl IWSManSession {
 }
 unsafe impl ::windows::runtime::Interface for IWSManSession {
     type Vtable = IWSManSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4236573784, 4742, 16580, [157, 160, 200, 239, 110, 194, 65, 224]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc84fc58_1286_40c4_9da0_c8ef6ec241e0);
 }
 impl ::core::convert::From<IWSManSession> for ::windows::runtime::IUnknown {
     fn from(value: IWSManSession) -> Self {
@@ -4285,7 +4285,7 @@ impl ::core::cmp::Eq for WSMAN_USERNAME_PASSWORD_CREDS {}
 unsafe impl ::windows::runtime::Abi for WSMAN_USERNAME_PASSWORD_CREDS {
     type Abi = Self;
 }
-pub const WSMan: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3169673595, 60419, 16907, [133, 8, 151, 125, 199, 166, 134, 189]);
+pub const WSMan: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbced617b_ec03_420b_8508_977dc7a686bd);
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -4595,7 +4595,7 @@ pub unsafe fn WSManInitialize(flags: u32, apihandle: *mut *mut WSMAN_API) -> u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const WSManInternal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2111866789, 24011, 19959, [187, 18, 9, 36, 173, 143, 189, 154]);
+pub const WSManInternal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7de087a5_5dcb_4df7_bb12_0924ad8fbd9a);
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

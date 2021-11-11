@@ -12,7 +12,7 @@ impl INotificationActivationCallback {
 }
 unsafe impl ::windows::runtime::Interface for INotificationActivationCallback {
     type Vtable = INotificationActivationCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1407391799, 26112, 19073, [147, 149, 117, 207, 254, 116, 111, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53e31837_6600_4a81_9395_75cffe746f94);
 }
 impl ::core::convert::From<INotificationActivationCallback> for ::windows::runtime::IUnknown {
     fn from(value: INotificationActivationCallback) -> Self {

@@ -132,7 +132,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameListChangedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for GameListChangedEventHandler {
     type Vtable = GameListChangedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(636920865, 55541, 19857, [180, 14, 83, 213, 232, 111, 222, 100]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25f6a421_d8f5_4d91_b40e_53d5e86fde64);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -304,7 +304,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameListEntry {
 }
 unsafe impl ::windows::runtime::Interface for GameListEntry {
     type Vtable = IGameListEntry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1935221971, 33055, 17556, [182, 156, 198, 65, 160, 198, 21, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x735924d3_811f_4494_b69c_c641a0c61543);
 }
 impl ::windows::runtime::RuntimeName for GameListEntry {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameListEntry";
@@ -419,7 +419,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameListRemovedEventHandler {
 }
 unsafe impl ::windows::runtime::Interface for GameListRemovedEventHandler {
     type Vtable = GameListRemovedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(281371791, 27791, 18194, [155, 56, 71, 75, 194, 46, 118, 216]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x10c5648f_6c8f_4712_9b38_474bc22e76d8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -613,7 +613,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameModeConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for GameModeConfiguration {
     type Vtable = IGameModeConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2028310959, 45378, 20208, [136, 48, 85, 188, 43, 228, 245, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78e591af_b142_4ef0_8830_55bc2be4f5ea);
 }
 impl ::windows::runtime::RuntimeName for GameModeConfiguration {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameModeConfiguration";
@@ -700,7 +700,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameModeUserConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for GameModeUserConfiguration {
     type Vtable = IGameModeUserConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1926449908, 30059, 18191, [160, 194, 186, 98, 169, 7, 149, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72d34af4_756b_470f_a0c2_ba62a90795db);
 }
 impl ::windows::runtime::RuntimeName for GameModeUserConfiguration {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameModeUserConfiguration";
@@ -753,7 +753,7 @@ unsafe impl ::core::marker::Sync for GameModeUserConfiguration {}
 pub struct IGameListEntry(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameListEntry {
     type Vtable = IGameListEntry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1935221971, 33055, 17556, [182, 156, 198, 65, 160, 198, 21, 67]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x735924d3_811f_4494_b69c_c641a0c61543);
 }
 impl IGameListEntry {
     #[cfg(feature = "ApplicationModel")]
@@ -868,7 +868,7 @@ pub struct IGameListEntry_abi(
 pub struct IGameListEntry2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameListEntry2 {
     type Vtable = IGameListEntry2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3628765067, 34633, 18981, [144, 211, 246, 197, 164, 39, 136, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd84a8f8b_8749_4a25_90d3_f6c5a427886d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -897,7 +897,7 @@ pub struct IGameListEntry2_abi(
 pub struct IGameListStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameListStatics {
     type Vtable = IGameListStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(769462127, 40038, 19205, [148, 92, 214, 237, 120, 73, 27, 140]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ddd0f6f_9c66_4b05_945c_d6ed78491b8c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -930,7 +930,7 @@ pub struct IGameListStatics_abi(
 pub struct IGameListStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameListStatics2 {
     type Vtable = IGameListStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(962535576, 59930, 17834, [146, 104, 168, 57, 5, 104, 111, 39]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x395f2098_ea1a_45aa_9268_a83905686f27);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -951,7 +951,7 @@ pub struct IGameListStatics2_abi(
 pub struct IGameModeConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameModeConfiguration {
     type Vtable = IGameModeConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2028310959, 45378, 20208, [136, 48, 85, 188, 43, 228, 245, 234]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78e591af_b142_4ef0_8830_55bc2be4f5ea);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1000,7 +1000,7 @@ pub struct IGameModeConfiguration_abi(
 pub struct IGameModeUserConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameModeUserConfiguration {
     type Vtable = IGameModeUserConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1926449908, 30059, 18191, [160, 194, 186, 98, 169, 7, 149, 219]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x72d34af4_756b_470f_a0c2_ba62a90795db);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1021,7 +1021,7 @@ pub struct IGameModeUserConfiguration_abi(
 pub struct IGameModeUserConfigurationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameModeUserConfigurationStatics {
     type Vtable = IGameModeUserConfigurationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1850792316, 26346, 18318, [164, 161, 245, 124, 14, 141, 0, 231]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6e50d97c_66ea_478e_a4a1_f57c0e8d00e7);
 }
 #[repr(C)]
 #[doc(hidden)]

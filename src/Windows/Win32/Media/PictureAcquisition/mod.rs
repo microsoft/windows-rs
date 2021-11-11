@@ -105,7 +105,7 @@ impl IPhotoAcquire {
 }
 unsafe impl ::windows::runtime::Interface for IPhotoAcquire {
     type Vtable = IPhotoAcquire_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15872851, 58139, 18773, [168, 173, 202, 94, 191, 49, 226, 206]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00f23353_e31b_4955_a8ad_ca5ebf31e2ce);
 }
 impl ::core::convert::From<IPhotoAcquire> for ::windows::runtime::IUnknown {
     fn from(value: IPhotoAcquire) -> Self {
@@ -163,7 +163,7 @@ impl IPhotoAcquireDeviceSelectionDialog {
 }
 unsafe impl ::windows::runtime::Interface for IPhotoAcquireDeviceSelectionDialog {
     type Vtable = IPhotoAcquireDeviceSelectionDialog_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15894583, 21981, 20279, [170, 245, 104, 85, 169, 100, 4, 103]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00f28837_55dd_4f37_aaf5_6855a9640467);
 }
 impl ::core::convert::From<IPhotoAcquireDeviceSelectionDialog> for ::windows::runtime::IUnknown {
     fn from(value: IPhotoAcquireDeviceSelectionDialog) -> Self {
@@ -255,7 +255,7 @@ impl IPhotoAcquireItem {
 }
 unsafe impl ::windows::runtime::Interface for IPhotoAcquireItem {
     type Vtable = IPhotoAcquireItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15867031, 10431, 19458, [184, 66, 94, 78, 144, 19, 154, 48]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00f21c97_28bf_4c02_b842_5e4e90139a30);
 }
 impl ::core::convert::From<IPhotoAcquireItem> for ::windows::runtime::IUnknown {
     fn from(value: IPhotoAcquireItem) -> Self {
@@ -331,7 +331,7 @@ impl IPhotoAcquireOptionsDialog {
 }
 unsafe impl ::windows::runtime::Interface for IPhotoAcquireOptionsDialog {
     type Vtable = IPhotoAcquireOptionsDialog_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15905774, 48996, 18414, [137, 244, 77, 237, 215, 150, 67, 242]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00f2b3ee_bf64_47ee_89f4_4dedd79643f2);
 }
 impl ::core::convert::From<IPhotoAcquireOptionsDialog> for ::windows::runtime::IUnknown {
     fn from(value: IPhotoAcquireOptionsDialog) -> Self {
@@ -401,7 +401,7 @@ impl IPhotoAcquirePlugin {
 }
 unsafe impl ::windows::runtime::Interface for IPhotoAcquirePlugin {
     type Vtable = IPhotoAcquirePlugin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15916267, 60600, 20343, [142, 71, 231, 169, 135, 200, 61, 208]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00f2dceb_ecb8_4f77_8e47_e7a987c83dd0);
 }
 impl ::core::convert::From<IPhotoAcquirePlugin> for ::windows::runtime::IUnknown {
     fn from(value: IPhotoAcquirePlugin) -> Self {
@@ -529,7 +529,7 @@ impl IPhotoAcquireProgressCB {
 }
 unsafe impl ::windows::runtime::Interface for IPhotoAcquireProgressCB {
     type Vtable = IPhotoAcquireProgressCB_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15912478, 37726, 16968, [137, 44, 19, 15, 50, 196, 92, 180]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00f2ce1e_935e_4248_892c_130f32c45cb4);
 }
 impl ::core::convert::From<IPhotoAcquireProgressCB> for ::windows::runtime::IUnknown {
     fn from(value: IPhotoAcquireProgressCB) -> Self {
@@ -659,7 +659,7 @@ impl IPhotoAcquireSettings {
 }
 unsafe impl ::windows::runtime::Interface for IPhotoAcquireSettings {
     type Vtable = IPhotoAcquireSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15906920, 56679, 18556, [149, 83, 4, 146, 64, 118, 126, 145]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00f2b868_dd67_487c_9553_049240767e91);
 }
 impl ::core::convert::From<IPhotoAcquireSettings> for ::windows::runtime::IUnknown {
     fn from(value: IPhotoAcquireSettings) -> Self {
@@ -759,7 +759,7 @@ impl IPhotoAcquireSource {
 }
 unsafe impl ::windows::runtime::Interface for IPhotoAcquireSource {
     type Vtable = IPhotoAcquireSource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15910659, 34323, 17026, [165, 59, 110, 197, 156, 88, 131, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00f2c703_8613_4282_a53b_6ec59c5883ac);
 }
 impl ::core::convert::From<IPhotoAcquireSource> for ::windows::runtime::IUnknown {
     fn from(value: IPhotoAcquireSource) -> Self {
@@ -813,7 +813,7 @@ impl IPhotoProgressActionCB {
 }
 unsafe impl ::windows::runtime::Interface for IPhotoProgressActionCB {
     type Vtable = IPhotoProgressActionCB_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15876816, 45574, 20093, [180, 193, 71, 85, 188, 187, 156, 159]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00f242d0_b206_4e7d_b4c1_4755bcbb9c9f);
 }
 impl ::core::convert::From<IPhotoProgressActionCB> for ::windows::runtime::IUnknown {
     fn from(value: IPhotoProgressActionCB) -> Self {
@@ -942,7 +942,7 @@ impl IPhotoProgressDialog {
 }
 unsafe impl ::windows::runtime::Interface for IPhotoProgressDialog {
     type Vtable = IPhotoProgressDialog_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15877881, 1872, 20232, [147, 129, 44, 216, 233, 6, 164, 174]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00f246f9_0750_4f08_9381_2cd8e906a4ae);
 }
 impl ::core::convert::From<IPhotoProgressDialog> for ::windows::runtime::IUnknown {
     fn from(value: IPhotoProgressDialog) -> Self {
@@ -1069,7 +1069,7 @@ impl IUserInputString {
 }
 unsafe impl ::windows::runtime::Interface for IUserInputString {
     type Vtable = IUserInputString_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15877025, 8283, 17850, [174, 38, 171, 188, 83, 170, 122, 111]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00f243a1_205b_45ba_ae26_abbc53aa7a6f);
 }
 impl ::core::convert::From<IUserInputString> for ::windows::runtime::IUnknown {
     fn from(value: IUserInputString) -> Self {
@@ -1154,55 +1154,55 @@ pub const PHOTOACQ_RUN_DEFAULT: u32 = 0u32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PhotoAcquire_CameraSequenceNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(15872887, 31430, 19322, [132, 67, 52, 94, 115, 31, 165, 122]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PhotoAcquire_DuplicateDetectionID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(15872887, 31430, 19322, [132, 67, 52, 94, 115, 31, 165, 122]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a),
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PhotoAcquire_FinalFilename: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(15872887, 31430, 19322, [132, 67, 52, 94, 115, 31, 165, 122]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PhotoAcquire_GroupTag: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(15872887, 31430, 19322, [132, 67, 52, 94, 115, 31, 165, 122]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PhotoAcquire_IntermediateFile: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(15872887, 31430, 19322, [132, 67, 52, 94, 115, 31, 165, 122]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PhotoAcquire_OriginalFilename: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(15872887, 31430, 19322, [132, 67, 52, 94, 115, 31, 165, 122]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PhotoAcquire_RelativePathname: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(15872887, 31430, 19322, [132, 67, 52, 94, 115, 31, 165, 122]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PhotoAcquire_SkipImport: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(15872887, 31430, 19322, [132, 67, 52, 94, 115, 31, 165, 122]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PhotoAcquire_TransferResult: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(15872887, 31430, 19322, [132, 67, 52, 94, 115, 31, 165, 122]),
+    fmtid: ::windows::runtime::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a),
     pid: 5u32,
 };
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
@@ -1236,12 +1236,12 @@ unsafe impl ::windows::runtime::Abi for PROGRESS_DIALOG_IMAGE_TYPE {
 }
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 pub const PROGRESS_INDETERMINATE: i32 = -1i32;
-pub const PhotoAcquire: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15887874, 59890, 19103, [159, 221, 90, 150, 47, 178, 106, 152]);
-pub const PhotoAcquireAutoPlayDropTarget: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15863477, 36822, 19869, [183, 94, 54, 128, 23, 102, 200, 241]);
-pub const PhotoAcquireAutoPlayHWEventHandler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15905843, 17636, 19848, [178, 176, 38, 152, 160, 169, 29, 186]);
-pub const PhotoAcquireDeviceSelectionDialog: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15899188, 47265, 18476, [188, 248, 58, 199, 176, 254, 143, 98]);
-pub const PhotoAcquireOptionsDialog: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15863969, 25328, 17291, [159, 126, 150, 24, 215, 42, 24, 49]);
-pub const PhotoProgressDialog: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15879328, 29839, 20106, [137, 79, 14, 3, 87, 198, 121, 159]);
+pub const PhotoAcquire: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00f26e02_e9f2_4a9f_9fdd_5a962fb26a98);
+pub const PhotoAcquireAutoPlayDropTarget: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00f20eb5_8fd6_4d9d_b75e_36801766c8f1);
+pub const PhotoAcquireAutoPlayHWEventHandler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00f2b433_44e4_4d88_b2b0_2698a0a91dba);
+pub const PhotoAcquireDeviceSelectionDialog: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00f29a34_b8a1_482c_bcf8_3ac7b0fe8f62);
+pub const PhotoAcquireOptionsDialog: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00f210a1_62f0_438b_9f7e_9618d72a1831);
+pub const PhotoProgressDialog: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00f24ca0_748f_4e8a_894f_0e0357c6799f);
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]

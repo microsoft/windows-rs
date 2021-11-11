@@ -64,7 +64,7 @@ unsafe impl ::windows::runtime::RuntimeType for ExtendedExecutionForegroundRevok
 }
 unsafe impl ::windows::runtime::Interface for ExtendedExecutionForegroundRevokedEventArgs {
     type Vtable = IExtendedExecutionForegroundRevokedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2960972096, 38231, 44708, [44, 153, 189, 213, 109, 155, 228, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb07cd940_9557_aea4_2c99_bdd56d9be461);
 }
 impl ::windows::runtime::RuntimeName for ExtendedExecutionForegroundRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedEventArgs";
@@ -207,7 +207,7 @@ unsafe impl ::windows::runtime::RuntimeType for ExtendedExecutionForegroundSessi
 }
 unsafe impl ::windows::runtime::Interface for ExtendedExecutionForegroundSession {
     type Vtable = IExtendedExecutionForegroundSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4227088609, 40208, 16897, [176, 30, 200, 50, 117, 41, 111, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbf440e1_9d10_4201_b01e_c83275296f2e);
 }
 impl ::windows::runtime::RuntimeName for ExtendedExecutionForegroundSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundSession";
@@ -285,7 +285,7 @@ unsafe impl ::core::marker::Sync for ExtendedExecutionForegroundSession {}
 pub struct IExtendedExecutionForegroundRevokedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExtendedExecutionForegroundRevokedEventArgs {
     type Vtable = IExtendedExecutionForegroundRevokedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2960972096, 38231, 44708, [44, 153, 189, 213, 109, 155, 228, 97]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb07cd940_9557_aea4_2c99_bdd56d9be461);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -303,7 +303,7 @@ pub struct IExtendedExecutionForegroundRevokedEventArgs_abi(
 pub struct IExtendedExecutionForegroundSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExtendedExecutionForegroundSession {
     type Vtable = IExtendedExecutionForegroundSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4227088609, 40208, 16897, [176, 30, 200, 50, 117, 41, 111, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbf440e1_9d10_4201_b01e_c83275296f2e);
 }
 #[repr(C)]
 #[doc(hidden)]

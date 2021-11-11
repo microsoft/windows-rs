@@ -4,7 +4,7 @@
 pub struct IPreviewBuildsManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPreviewBuildsManager {
     type Vtable = IPreviewBuildsManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4194819425, 32335, 23031, [124, 159, 222, 249, 5, 28, 95, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa07dd61_7e4f_59f7_7c9f_def9051c5f62);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26,7 +26,7 @@ pub struct IPreviewBuildsManager_abi(
 pub struct IPreviewBuildsManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPreviewBuildsManagerStatics {
     type Vtable = IPreviewBuildsManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1044523143, 45330, 23152, [125, 161, 151, 215, 141, 50, 170, 41]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e422887_b112_5a70_7da1_97d78d32aa29);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -45,7 +45,7 @@ pub struct IPreviewBuildsManagerStatics_abi(
 pub struct IPreviewBuildsState(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPreviewBuildsState {
     type Vtable = IPreviewBuildsState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2733805630, 45603, 24419, [117, 70, 62, 142, 172, 7, 10, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2f2903e_b223_5f63_7546_3e8eac070a2e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -118,7 +118,7 @@ unsafe impl ::windows::runtime::RuntimeType for PreviewBuildsManager {
 }
 unsafe impl ::windows::runtime::Interface for PreviewBuildsManager {
     type Vtable = IPreviewBuildsManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4194819425, 32335, 23031, [124, 159, 222, 249, 5, 28, 95, 98]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfa07dd61_7e4f_59f7_7c9f_def9051c5f62);
 }
 impl ::windows::runtime::RuntimeName for PreviewBuildsManager {
     const NAME: &'static str = "Windows.Management.Update.PreviewBuildsManager";
@@ -185,7 +185,7 @@ unsafe impl ::windows::runtime::RuntimeType for PreviewBuildsState {
 }
 unsafe impl ::windows::runtime::Interface for PreviewBuildsState {
     type Vtable = IPreviewBuildsState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2733805630, 45603, 24419, [117, 70, 62, 142, 172, 7, 10, 46]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2f2903e_b223_5f63_7546_3e8eac070a2e);
 }
 impl ::windows::runtime::RuntimeName for PreviewBuildsState {
     const NAME: &'static str = "Windows.Management.Update.PreviewBuildsState";

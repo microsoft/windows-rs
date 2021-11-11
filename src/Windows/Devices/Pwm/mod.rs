@@ -6,7 +6,7 @@ pub mod Provider;
 pub struct IPwmController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPwmController {
     type Vtable = IPwmController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3294583941, 53992, 17103, [155, 214, 207, 94, 208, 41, 230, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc45f5c85_d2e8_42cf_9bd6_cf5ed029e6a7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29,7 +29,7 @@ pub struct IPwmController_abi(
 pub struct IPwmControllerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPwmControllerStatics {
     type Vtable = IPwmControllerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1113832865, 35142, 17412, [189, 72, 129, 221, 18, 74, 244, 217]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4263bda1_8946_4404_bd48_81dd124af4d9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -48,7 +48,7 @@ pub struct IPwmControllerStatics_abi(
 pub struct IPwmControllerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPwmControllerStatics2 {
     type Vtable = IPwmControllerStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1157389087, 61721, 19421, [151, 173, 247, 110, 249, 134, 115, 109]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44fc5b1f_f119_4bdd_97ad_f76ef986736d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -67,7 +67,7 @@ pub struct IPwmControllerStatics2_abi(
 pub struct IPwmControllerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPwmControllerStatics3 {
     type Vtable = IPwmControllerStatics3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2992117873, 553, 17220, [174, 63, 155, 124, 208, 230, 107, 148]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb2581871_0229_4344_ae3f_9b7cd0e66b94);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -88,7 +88,7 @@ pub struct IPwmControllerStatics3_abi(
 pub struct IPwmPin(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPwmPin {
     type Vtable = IPwmPin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(580333000, 50895, 18465, [183, 249, 198, 69, 79, 182, 175, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22972dc8_c6cf_4821_b7f9_c6454fb6af79);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -217,7 +217,7 @@ unsafe impl ::windows::runtime::RuntimeType for PwmController {
 }
 unsafe impl ::windows::runtime::Interface for PwmController {
     type Vtable = IPwmController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3294583941, 53992, 17103, [155, 214, 207, 94, 208, 41, 230, 167]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc45f5c85_d2e8_42cf_9bd6_cf5ed029e6a7);
 }
 impl ::windows::runtime::RuntimeName for PwmController {
     const NAME: &'static str = "Windows.Devices.Pwm.PwmController";
@@ -333,7 +333,7 @@ unsafe impl ::windows::runtime::RuntimeType for PwmPin {
 }
 unsafe impl ::windows::runtime::Interface for PwmPin {
     type Vtable = IPwmPin_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(580333000, 50895, 18465, [183, 249, 198, 69, 79, 182, 175, 121]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22972dc8_c6cf_4821_b7f9_c6454fb6af79);
 }
 impl ::windows::runtime::RuntimeName for PwmPin {
     const NAME: &'static str = "Windows.Devices.Pwm.PwmPin";

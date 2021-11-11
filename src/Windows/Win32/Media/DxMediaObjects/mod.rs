@@ -1,14 +1,14 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const DMOCATEGORY_ACOUSTIC_ECHO_CANCEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3214294400, 50521, 4560, [138, 43, 0, 160, 201, 37, 90, 193]);
-pub const DMOCATEGORY_AGC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3901528992, 50519, 4560, [138, 43, 0, 160, 201, 37, 90, 193]);
-pub const DMOCATEGORY_AUDIO_CAPTURE_EFFECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4133857978, 15881, 18720, [170, 95, 33, 152, 17, 20, 143, 9]);
-pub const DMOCATEGORY_AUDIO_DECODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1475533707, 59067, 17683, [157, 67, 220, 210, 166, 89, 49, 37]);
-pub const DMOCATEGORY_AUDIO_EFFECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4083166015, 1426, 18655, [164, 205, 103, 71, 33, 231, 235, 235]);
-pub const DMOCATEGORY_AUDIO_ENCODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(869902177, 37064, 4560, [189, 67, 0, 160, 201, 17, 206, 134]);
-pub const DMOCATEGORY_AUDIO_NOISE_SUPPRESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3766456383, 25341, 20064, [140, 221, 222, 167, 35, 102, 101, 181]);
-pub const DMOCATEGORY_VIDEO_DECODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1248441410, 10430, 18833, [150, 156, 181, 0, 173, 245, 216, 168]);
-pub const DMOCATEGORY_VIDEO_EFFECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3650154004, 30572, 18211, [190, 70, 61, 162, 245, 111, 16, 185]);
-pub const DMOCATEGORY_VIDEO_ENCODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(869902176, 37064, 4560, [189, 67, 0, 160, 201, 17, 206, 134]);
+pub const DMOCATEGORY_ACOUSTIC_ECHO_CANCEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
+pub const DMOCATEGORY_AGC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe88c9ba0_c557_11d0_8a2b_00a0c9255ac1);
+pub const DMOCATEGORY_AUDIO_CAPTURE_EFFECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf665aaba_3e09_4920_aa5f_219811148f09);
+pub const DMOCATEGORY_AUDIO_DECODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57f2db8b_e6bb_4513_9d43_dcd2a6593125);
+pub const DMOCATEGORY_AUDIO_EFFECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3602b3f_0592_48df_a4cd_674721e7ebeb);
+pub const DMOCATEGORY_AUDIO_ENCODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33d9a761_90c8_11d0_bd43_00a0c911ce86);
+pub const DMOCATEGORY_AUDIO_NOISE_SUPPRESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe07f903f_62fd_4e60_8cdd_dea7236665b5);
+pub const DMOCATEGORY_VIDEO_DECODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a69b442_28be_4991_969c_b500adf5d8a8);
+pub const DMOCATEGORY_VIDEO_EFFECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd990ee14_776c_4723_be46_3da2f56f10b9);
+pub const DMOCATEGORY_VIDEO_ENCODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x33d9a760_90c8_11d0_bd43_00a0c911ce86);
 #[doc = "*Required features: `Win32_Media_DxMediaObjects`*"]
 #[inline]
 pub unsafe fn DMOEnum(guidcategory: *const ::windows::runtime::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> ::windows::runtime::Result<IEnumDMO> {
@@ -248,7 +248,7 @@ impl IDMOQualityControl {
 }
 unsafe impl ::windows::runtime::Interface for IDMOQualityControl {
     type Vtable = IDMOQualityControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1705765526, 53046, 17727, [175, 138, 112, 94, 152, 241, 98, 96]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x65abea96_cf36_453f_af8a_705e98f16260);
 }
 impl ::core::convert::From<IDMOQualityControl> for ::windows::runtime::IUnknown {
     fn from(value: IDMOQualityControl) -> Self {
@@ -307,7 +307,7 @@ impl IDMOVideoOutputOptimizations {
 }
 unsafe impl ::windows::runtime::Interface for IDMOVideoOutputOptimizations {
     type Vtable = IDMOVideoOutputOptimizations_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3197062990, 23318, 19753, [179, 80, 127, 107, 93, 146, 152, 172]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe8f4f4e_5b16_4d29_b350_7f6b5d9298ac);
 }
 impl ::core::convert::From<IDMOVideoOutputOptimizations> for ::windows::runtime::IUnknown {
     fn from(value: IDMOVideoOutputOptimizations) -> Self {
@@ -366,7 +366,7 @@ impl IEnumDMO {
 }
 unsafe impl ::windows::runtime::Interface for IEnumDMO {
     type Vtable = IEnumDMO_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(742185354, 11258, 19027, [156, 39, 82, 73, 186, 100, 186, 15]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2c3cd98a_2bfa_4a53_9c27_5249ba64ba0f);
 }
 impl ::core::convert::From<IEnumDMO> for ::windows::runtime::IUnknown {
     fn from(value: IEnumDMO) -> Self {
@@ -421,7 +421,7 @@ impl IMediaBuffer {
 }
 unsafe impl ::windows::runtime::Interface for IMediaBuffer {
     type Vtable = IMediaBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1508899001, 37772, 18982, [130, 242, 149, 203, 132, 205, 200, 55]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59eff8b9_938c_4a26_82f2_95cb84cdc837);
 }
 impl ::core::convert::From<IMediaBuffer> for ::windows::runtime::IUnknown {
     fn from(value: IMediaBuffer) -> Self {
@@ -559,7 +559,7 @@ impl IMediaObject {
 }
 unsafe impl ::windows::runtime::Interface for IMediaObject {
     type Vtable = IMediaObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3635220312, 21652, 16642, [151, 197, 236, 121, 142, 89, 188, 244]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8ad0f58_5494_4102_97c5_ec798e59bcf4);
 }
 impl ::core::convert::From<IMediaObject> for ::windows::runtime::IUnknown {
     fn from(value: IMediaObject) -> Self {
@@ -637,7 +637,7 @@ impl IMediaObjectInPlace {
 }
 unsafe impl ::windows::runtime::Interface for IMediaObjectInPlace {
     type Vtable = IMediaObjectInPlace_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1696307920, 4039, 19113, [149, 56, 216, 153, 49, 1, 7, 65]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x651b9ad0_0fc7_4aa9_9538_d89931010741);
 }
 impl ::core::convert::From<IMediaObjectInPlace> for ::windows::runtime::IUnknown {
     fn from(value: IMediaObjectInPlace) -> Self {

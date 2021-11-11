@@ -27,7 +27,7 @@ impl IWindowsMediaLibrarySharingDevice {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsMediaLibrarySharingDevice {
     type Vtable = IWindowsMediaLibrarySharingDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1036829331, 20441, 16785, [162, 91, 142, 87, 197, 210, 123, 212]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3dccc293_4fd9_4191_a25b_8e57c5d27bd4);
 }
 impl ::core::convert::From<IWindowsMediaLibrarySharingDevice> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsMediaLibrarySharingDevice) -> Self {
@@ -117,7 +117,7 @@ impl IWindowsMediaLibrarySharingDeviceProperties {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsMediaLibrarySharingDeviceProperties {
     type Vtable = IWindowsMediaLibrarySharingDeviceProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3294769684, 27398, 16581, [166, 35, 178, 255, 76, 7, 107, 253]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4623214_6b06_40c5_a623_b2ff4c076bfd);
 }
 impl ::core::convert::From<IWindowsMediaLibrarySharingDeviceProperties> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsMediaLibrarySharingDeviceProperties) -> Self {
@@ -202,7 +202,7 @@ impl IWindowsMediaLibrarySharingDeviceProperty {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsMediaLibrarySharingDeviceProperty {
     type Vtable = IWindowsMediaLibrarySharingDeviceProperty_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2179098919, 31357, 16551, [129, 212, 189, 220, 2, 150, 14, 62]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81e26927_7a7d_40a7_81d4_bddc02960e3e);
 }
 impl ::core::convert::From<IWindowsMediaLibrarySharingDeviceProperty> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsMediaLibrarySharingDeviceProperty) -> Self {
@@ -291,7 +291,7 @@ impl IWindowsMediaLibrarySharingDevices {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsMediaLibrarySharingDevices {
     type Vtable = IWindowsMediaLibrarySharingDevices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(402913750, 65133, 17734, [191, 91, 153, 47, 232, 236, 18, 209]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1803f9d6_fe6d_4546_bf5b_992fe8ec12d1);
 }
 impl ::core::convert::From<IWindowsMediaLibrarySharingDevices> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsMediaLibrarySharingDevices) -> Self {
@@ -456,7 +456,7 @@ impl IWindowsMediaLibrarySharingServices {
 }
 unsafe impl ::windows::runtime::Interface for IWindowsMediaLibrarySharingServices {
     type Vtable = IWindowsMediaLibrarySharingServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(32897118, 2689, 16602, [167, 200, 33, 239, 58, 248, 68, 12]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01f5f85e_0a81_40da_a7c8_21ef3af8440c);
 }
 impl ::core::convert::From<IWindowsMediaLibrarySharingServices> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsMediaLibrarySharingServices) -> Self {
@@ -558,4 +558,4 @@ impl ::core::convert::From<i32> for WindowsMediaLibrarySharingDeviceAuthorizatio
 unsafe impl ::windows::runtime::Abi for WindowsMediaLibrarySharingDeviceAuthorizationStatus {
     type Abi = Self;
 }
-pub const WindowsMediaLibrarySharingServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2908232448, 31588, 20057, [163, 141, 210, 197, 191, 81, 221, 179]);
+pub const WindowsMediaLibrarySharingServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad581b00_7b64_4e59_a38d_d2c5bf51ddb3);

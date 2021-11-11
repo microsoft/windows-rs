@@ -44,7 +44,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicKeyboard {
 }
 unsafe impl ::windows::runtime::Interface for HolographicKeyboard {
     type Vtable = IHolographicKeyboard_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131926163, 43553, 24175, [169, 27, 17, 178, 179, 253, 123, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x07dd0893_aa21_5e6f_a91b_11b2b3fd7be3);
 }
 impl ::windows::runtime::RuntimeName for HolographicKeyboard {
     const NAME: &'static str = "Windows.ApplicationModel.Holographic.HolographicKeyboard";
@@ -96,7 +96,7 @@ unsafe impl ::core::marker::Sync for HolographicKeyboard {}
 pub struct IHolographicKeyboard(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicKeyboard {
     type Vtable = IHolographicKeyboard_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131926163, 43553, 24175, [169, 27, 17, 178, 179, 253, 123, 227]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x07dd0893_aa21_5e6f_a91b_11b2b3fd7be3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -118,7 +118,7 @@ pub struct IHolographicKeyboard_abi(
 pub struct IHolographicKeyboardStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicKeyboardStatics {
     type Vtable = IHolographicKeyboardStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3061237284, 25559, 22735, [176, 107, 8, 186, 160, 50, 162, 63]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb676c624_63d7_58cf_b06b_08baa032a23f);
 }
 #[repr(C)]
 #[doc(hidden)]

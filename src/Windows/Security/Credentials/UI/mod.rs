@@ -211,7 +211,7 @@ unsafe impl ::windows::runtime::RuntimeType for CredentialPickerOptions {
 }
 unsafe impl ::windows::runtime::Interface for CredentialPickerOptions {
     type Vtable = ICredentialPickerOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2522483532, 38394, 18047, [153, 43, 11, 34, 229, 133, 155, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x965a0b4c_95fa_467f_992b_0b22e5859bf6);
 }
 impl ::windows::runtime::RuntimeName for CredentialPickerOptions {
     const NAME: &'static str = "Windows.Security.Credentials.UI.CredentialPickerOptions";
@@ -324,7 +324,7 @@ unsafe impl ::windows::runtime::RuntimeType for CredentialPickerResults {
 }
 unsafe impl ::windows::runtime::Interface for CredentialPickerResults {
     type Vtable = ICredentialPickerResults_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(424212890, 52272, 16652, [156, 56, 204, 8, 132, 197, 179, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1948f99a_cc30_410c_9c38_cc0884c5b3d7);
 }
 impl ::windows::runtime::RuntimeName for CredentialPickerResults {
     const NAME: &'static str = "Windows.Security.Credentials.UI.CredentialPickerResults";
@@ -397,7 +397,7 @@ impl ::windows::runtime::DefaultType for CredentialSaveOption {
 pub struct ICredentialPickerOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICredentialPickerOptions {
     type Vtable = ICredentialPickerOptions_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2522483532, 38394, 18047, [153, 43, 11, 34, 229, 133, 155, 246]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x965a0b4c_95fa_467f_992b_0b22e5859bf6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -436,7 +436,7 @@ pub struct ICredentialPickerOptions_abi(
 pub struct ICredentialPickerResults(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICredentialPickerResults {
     type Vtable = ICredentialPickerResults_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(424212890, 52272, 16652, [156, 56, 204, 8, 132, 197, 179, 215]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1948f99a_cc30_410c_9c38_cc0884c5b3d7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -461,7 +461,7 @@ pub struct ICredentialPickerResults_abi(
 pub struct ICredentialPickerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICredentialPickerStatics {
     type Vtable = ICredentialPickerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2855951475, 51690, 18306, [153, 251, 230, 215, 233, 56, 225, 45]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa3a5c73_c9ea_4782_99fb_e6d7e938e12d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -484,7 +484,7 @@ pub struct ICredentialPickerStatics_abi(
 pub struct IUserConsentVerifierStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserConsentVerifierStatics {
     type Vtable = IUserConsentVerifierStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2941206417, 22092, 19932, [184, 181, 151, 52, 71, 98, 124, 101]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf4f3f91_564c_4ddc_b8b5_973447627c65);
 }
 #[repr(C)]
 #[doc(hidden)]
